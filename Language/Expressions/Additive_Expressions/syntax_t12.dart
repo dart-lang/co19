@@ -16,15 +16,16 @@
  * An additive expression is either a multiplicative expression, or an
  * invocation of an additive operator on either super or an expression e1, with
  * argument e2.
- * @description Checks that a function type alias name can be used
- * as right operand in an additive expression without a compile error.
+ * @description Checks that a function type alias name cannot be used
+ * as right operand in an additive expression. It is a compile error.
+ * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 typedef f();
 
 main() {
-  0.25 - f; /// 01: static type warning, runtime error
+  try {
+    0.25 - f;
+  } catch (e) {}
 }

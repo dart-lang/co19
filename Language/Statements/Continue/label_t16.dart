@@ -20,8 +20,10 @@
 
 
 main() {
-  switch (1) {
-    case 1: continue;
-    default:
-  }
+  try {
+    switch (1) {
+      case 1: continue;
+      default:
+    }
+  } catch (x) {}
 }

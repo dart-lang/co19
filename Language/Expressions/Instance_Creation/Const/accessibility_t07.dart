@@ -25,5 +25,7 @@ class C<T> {
 }
 
 main() {
-  new C<A>().test();
+  try {
+    new C<A>().test();
+  } catch (e) {}
 }

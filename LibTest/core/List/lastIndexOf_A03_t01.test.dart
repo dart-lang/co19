@@ -13,20 +13,10 @@
  * @description Checks that [startIndex] can be out of bounds
  * @author iefremov
  * @author varlax
- * @reviewer msyabro
- * @reviewer varlax
  */
 library lastIndexOf_A03_t01;
 
 import "../../../Utils/expect.dart";
-
-void check(List a) {
-  Expect.isTrue(a.lastIndexOf(3.14, 0) == -1);
-  Expect.isTrue(a.lastIndexOf(null, 0) == -1);
-  Expect.isTrue(a.lastIndexOf(a, 0) == -1);
-  Expect.isTrue(a.lastIndexOf(-1, 1) == -1);
-  Expect.isTrue(a.lastIndexOf(6031769, 4) == -1);
-}
 
 checkList(List list, var elem, int idx, int expected) {
   Expect.equals(expected, list.lastIndexOf(elem, idx));

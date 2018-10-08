@@ -7,8 +7,6 @@
  * @description Test WebKitMutationObserver.observe on attributes.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -396,7 +394,6 @@ main() {
   }
 
   testInnerHTMLEmpty() {
-    var div;
     var observer;
     var finish;
 

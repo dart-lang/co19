@@ -5,30 +5,25 @@
  */
 /**
  * @assertion int operator ~/(num other)
- * @description Checks that if both operands are infinite the result is an error.
+ * @description Checks that if both operands are infinite the result is an error
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
-
-final double positiveInf = 1 / 0;
-final double negativeInf = -1 / 0;
-
 main() {
   Expect.throws(() {
-    positiveInf ~/ positiveInf;
+    double.infinity ~/ double.infinity;
   });
   
   Expect.throws(() {
-    positiveInf ~/ negativeInf;
+    double.infinity ~/ double.negativeInfinity;
   });
   
   Expect.throws(() {
-    negativeInf ~/ positiveInf;
+    double.negativeInfinity ~/ double.infinity;
   });
   
   Expect.throws(() {
-    negativeInf ~/ negativeInf;
+    double.negativeInfinity ~/ double.negativeInfinity;
   });
 }

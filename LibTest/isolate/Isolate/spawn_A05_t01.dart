@@ -15,10 +15,7 @@
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
-import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
-import "IsolateUtil.dart";
 
 void entryPoint(message) {}
 

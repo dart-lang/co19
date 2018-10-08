@@ -10,9 +10,7 @@
  * @description Checks that the new stream sends the same error and done events as this stream.
  * @author kaigorodov
  */
-
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
@@ -26,18 +24,15 @@ StreamTransformer<int, int> createMyTransformer()  {
 
 void check(Iterable data) {
   Stream s = IsolateStream.fromIterable(data)
-    .map( (x) => x%2==0?x:throw new ArgumentError(x) ).asBroadcastStream();
-  Stream s2=s.transform(createMyTransformer());
+    .map( (x) => x % 2 == 0 ? x : throw new ArgumentError(x) ).asBroadcastStream();
+  Stream s2 = s.transform(createMyTransformer());
   
-  List err1=new List();
-  List err2=new List();
-
   Sync2 sync=new Sync2((err1, err2) {
     Expect.listEquals(err1, err2);
   });
 
   asyncStart();
-  s.listen((int value){},
+  s.listen((var value){},
     onError: (error) {
       sync.put1(error);
     },
@@ -46,7 +41,7 @@ void check(Iterable data) {
     }
   );
   asyncStart();
-  s2.listen((int value){},
+  s2.listen((var value){},
     onError: (error) {
       sync.put1(error);
     },
@@ -57,6 +52,5 @@ void check(Iterable data) {
 }
 
 main() {
-  check(new Iterable.generate(10, (int index)=>index));
+  check(new Iterable.generate(10, (int index) => index));
 }
-

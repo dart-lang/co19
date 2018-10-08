@@ -17,5 +17,8 @@
 class final { } // error
 
 main() {
-  null is final;
+  try {
+    null is final;
+  } catch (anything) {
+  }
 }

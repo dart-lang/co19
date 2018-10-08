@@ -9,7 +9,6 @@
  * @description Checks that expression of the form e.id is evaluated
  * as a getter invocation.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

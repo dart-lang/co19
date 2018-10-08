@@ -11,8 +11,9 @@
 import "dart:html";
 import "../../../Utils/expect.dart";
 
-void check(Node x) {
-  x.append(new Element.html('<div><pre><button></button></pre><span></span></div>'));
+void check(dynamic x) {
+  x.append(
+      new Element.html('<div><pre><button></button></pre><span></span></div>'));
 
   var pre = x.querySelector('pre');
   var button = x.querySelector('button');
@@ -24,7 +25,7 @@ void check(Node x) {
 }
 
 main() {
-  List<Node> targets=[
+  List<Node> targets = [
     new IFrameElement(),
     new DocumentFragment(),
   ];

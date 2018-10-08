@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -38,14 +36,14 @@ main() {
   debug("Only document.style is applied to the target.");
   shouldBe(getComputedStyle(target).color, "rgb(255, 0, 0)");
 
-  var styleForGrandparent = document.createElement("style");
+  dynamic styleForGrandparent = document.createElement("style");
   styleForGrandparent.scoped = true;
   styleForGrandparent.append(new Text(".target { color: yellow; }"));
   document.getElementById("grandparent").append(styleForGrandparent);
   debug("A new scoped style is inserted into the grandparent node of the target. A class rule in the inserted scoped style wins an id rule in document.style.");
   shouldBe(getComputedStyle(target).color, "rgb(255, 255, 0)");
 
-  var styleForParent = document.createElement("style");
+  dynamic styleForParent = document.createElement("style");
   styleForParent.scoped = true;
   styleForParent.append(new Text("span { color: blue; }"));
   document.getElementById("parent").append(styleForParent);

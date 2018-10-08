@@ -7,10 +7,7 @@
  * @description This tests that ownerNode of orphan sheet is null.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
-import "pwd.dart";
 
 main() {
   var link = new Element.html('''
@@ -20,7 +17,7 @@ main() {
 
   asyncStart();
   window.onLoad.listen((_) {
-    var target = document.getElementById('target');
+    LinkElement target = document.getElementById('target');
     var oldSheet = target.sheet;
     target.setAttribute("href", "new_IntentionallyMissingFile.css");
     

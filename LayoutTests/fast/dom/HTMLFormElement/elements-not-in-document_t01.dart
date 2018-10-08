@@ -8,12 +8,11 @@
  * of the document. This test case failed in an early version of Acid3.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var f = document.createElement('form');
-  var i = document.createElement('input');
+  FormElement f = document.createElement('form');
+  InputElement i = document.createElement('input');
   i.name = 'first';
   i.type = 'text';
   i.value = 'test';

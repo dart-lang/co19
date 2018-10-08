@@ -47,7 +47,7 @@ List cases = [
   // Invalid escape sequence: bad characters should be treated the same as
   // the sourrounding text, not as escaped (in this case, UTF-8).
   ["/foo%2zbar", "/foo%2zbar"],
-  // (Disabled because requires UTF8)
+  // (Disabled because requires utf8)
   // ["/foo%2\xc2\xa9zbar", "/foo%2%C2%A9zbar"],
   ["/foo%2\u00c2\u00a9zbar", "/foo%2%C3%82%C2%A9zbar"],
   // Regular characters that are escaped should be unescaped

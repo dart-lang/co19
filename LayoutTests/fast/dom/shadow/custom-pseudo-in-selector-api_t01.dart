@@ -16,12 +16,15 @@ main() {
     <div id='sandbox'></div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var sandbox = document.getElementById('sandbox');
+  DivElement sandbox = document.getElementById('sandbox');
 
   sandbox.append(document.createElement("input"));
-  shouldBeFalse(sandbox.firstChild.matches("input[type=\'search\']::-webkit-search-decoration"));
-  shouldBeNull(sandbox.firstChild.querySelector("input[type=\'search\']::-webkit-search-decoration"));
-  shouldBe(sandbox.firstChild.querySelectorAll("input[type=\'search\']::-webkit-search-decoration").length, 0);
+  shouldBeFalse((sandbox.firstChild as HtmlElement).matches(
+      "input[type=\'search\']::-webkit-search-decoration"));
+  shouldBeNull((sandbox.firstChild as HtmlElement).querySelector(
+      "input[type=\'search\']::-webkit-search-decoration"));
+  shouldBe((sandbox.firstChild as HtmlElement).querySelectorAll(
+      "input[type=\'search\']::-webkit-search-decoration").length, 0);
 
   sandbox.innerHtml = '';
 }

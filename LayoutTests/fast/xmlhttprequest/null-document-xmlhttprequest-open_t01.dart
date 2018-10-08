@@ -9,8 +9,7 @@
  * XMLHttpRequest.open.
  */
 import "dart:html";
-import "../../testharness.dart";
-import "../../../Utils/async_utils.dart";
+import "../../testcommon.dart";
 
 const String htmlEL = r'''
 <pre id="pre"></pre>

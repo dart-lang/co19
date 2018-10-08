@@ -6,17 +6,15 @@
 /**
  * @assertion StreamController.broadcast({void onListen(), void onCancel(),
  *                                       bool sync: false})
- * Each listener is handled independently, and if one pauses, only the pausing
- * listener is affected.
- * A paused listener will buffer events internally until unpaused or canceled.
+ * Each listener subscription is handled independently, and if one pauses,
+ * only the pausing listener is affected. A paused listener will buffer events
+ * internally until unpaused or canceled.
  *
  * @description Checks that if a listener is paused, only that listener is
  * affected.
  * Checks that paused listener will buffer events internally.
  */
-
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {

@@ -15,8 +15,6 @@
  * constructor has a body.
  * @compile-error
  * @author pagolubev
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class C {
@@ -25,5 +23,7 @@ class C {
 }
 
 main() {
-  var x = new C();
+  try {
+    var x = new C();
+  } catch (x) {}
 }

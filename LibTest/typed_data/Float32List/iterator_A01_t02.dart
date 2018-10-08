@@ -4,19 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final Iterator<E> iterator
+ * @assertion Iterator<E> iterator
  * Returns a new [Iterator] that allows iterating the elements of this
  * [Iterable].
- * @description Checks that [iterator] is final and can't be set.
+ * @description Checks that [iterator] is read-only and can't be set.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new Float32List.fromList([0.0]);
+  dynamic l = new Float32List.fromList([0.0]);
   try {
     l.iterator = l.iterator;
-    Expect.fail("[iterator] should be final");
-  } on NoSuchMethodError catch(ok) {}
+    Expect.fail("[iterator] should be read-only");
+  } on NoSuchMethodError {}
 }

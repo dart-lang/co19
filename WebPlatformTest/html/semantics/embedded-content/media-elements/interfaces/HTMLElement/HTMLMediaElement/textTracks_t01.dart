@@ -18,7 +18,7 @@ import 'dart:html';
 import "../../../../../../../Utils/expectWeb.dart";
 
 void main() {
-  var video = document.createElement('video');
+  var video = document.createElement('video') as VideoElement;
   assert_equals(video.textTracks, video.textTracks);
   assert_equals(video.textTracks.length, 0);
 }

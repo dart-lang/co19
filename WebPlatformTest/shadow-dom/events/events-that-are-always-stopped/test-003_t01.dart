@@ -16,7 +16,7 @@
  */
 
 import 'dart:html';
-import "../../../../Utils/async_utils.dart";
+import "../../../../Utils/expect.dart";
 import '../../testcommon.dart';
 
 main() {
@@ -43,7 +43,8 @@ main() {
   }, false);
 
   d.body.addEventListener('select', (event) {
-    assert_equals(event.target.getAttribute('id'), 'host', 'Insidow shadoe tree: Wrong target');
+    Element e = event.target as Element;
+    assert_equals(e.getAttribute('id'), 'host', 'Insidow shadoe tree: Wrong target');
     asyncEnd();
   }, false);
 

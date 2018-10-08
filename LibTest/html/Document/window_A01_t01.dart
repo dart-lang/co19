@@ -11,6 +11,6 @@ import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-  WindowBase window=document.window;
+  WindowBase window = document.window;
   Expect.isTrue(window is WindowBase);
 }

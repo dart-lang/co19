@@ -8,7 +8,6 @@
  * of e.
  * @description Checks that the static type of super.v = e is the static type
  * of e
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/dynamic_check.dart';
@@ -19,8 +18,8 @@ class A {
 
 class C extends A {
   test() {
-    double e = 3.14;
-    checkTypeError(() {int x = super.v = e;}); /// static type warning
+    dynamic e = 3.14;
+    checkTypeError(() {int x = super.v = e;});
   }
 }
 

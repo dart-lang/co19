@@ -5,9 +5,10 @@
  */
 /**
  * @assertion Iterable<E> takeWhile(bool test(E element))
+ * ...
  * The filtering happens lazily.
- * @description Checks that [test] is not invoked until returned
- * [Iterable] is not iterated.
+ * @description Checks that [test] is not invoked until returned [Iterable] is
+ * not iterated.
  * @author msyabro
  */
 
@@ -16,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var count = 0;
-  test(e) {
+  bool test(int e) {
     ++count;
     return true;
   }

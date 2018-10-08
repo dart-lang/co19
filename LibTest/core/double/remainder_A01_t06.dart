@@ -35,7 +35,7 @@ import "../../../Utils/expect.dart";
 ];
 
 main() {
-  values.forEach((double d) {
+  values.forEach((d) {
     Expect.equals(0.0, 0.0.remainder(d));
     Expect.equals(0.0, (-0.0).remainder(d));
     Expect.equals(0.0, 0.0.remainder(-d));

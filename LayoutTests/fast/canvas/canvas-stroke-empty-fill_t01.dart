@@ -7,13 +7,10 @@
  * @description Series of tests to ensure correct behaviour for stroke() on an
  * empty fillStyle() (alpha=0)
  */
-import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   ctx.fillStyle = 'rgba(0,0,0,0)';
   ctx.strokeStyle = 'green';

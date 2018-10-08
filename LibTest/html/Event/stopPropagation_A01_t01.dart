@@ -11,7 +11,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var type = 'click';
@@ -25,7 +24,7 @@ main() {
     // will not be called becase of stopPropagation()
     Expect.fail('should not happen');
   });
-  
+
   x.onClick.listen((e) {
     // will be called at target
     e.stopPropagation();

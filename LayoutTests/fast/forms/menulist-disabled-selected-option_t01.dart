@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var parent = document.createElement('div');
@@ -24,11 +23,11 @@ main() {
 
   asyncStart();
 
-  var query = window.location.search;
+  String query = window.location.search;
   if (query.indexOf('submitted=true') == -1) {
-    var select = document.getElementsByTagName('select')[0];
+    SelectElement select = document.getElementsByTagName('select')[0] as SelectElement;
     select.selectedIndex = 0;
-    FormElement form = document.body.querySelector('form');
+    FormElement form = document.body.querySelector('form') as FormElement;
     form.submit();
   } else {
     shouldBe(query.indexOf("select=Disabled"), -1);

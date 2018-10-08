@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion This operator implements a bit-wise XOR operation.
+ * @assertion int operator ^(int other)
+ * This operator implements a bit-wise XOR operation.
  * @description Checks that this operator returns correct value.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -33,17 +32,14 @@ main() {
   Expect.equals(0x03, (0x19 ^ 0x03) ^ 0x19);
   
   // x ^ x = 0
-  Expect.equals(0, 0xABC235D235EFE23678FDBCA ^ 0xABC235D235EFE23678FDBCA);
+  Expect.equals(0, 0xABC235D235EFE23 ^ 0xABC235D235EFE23);
   // x ^ 0 = x
-  Expect.equals(0xABC235D235EFE23678FDBCA, 0xABC235D235EFE23678FDBCA ^ 0);
-  Expect.equals(0xABC235D235EFE23678FDBCA, 0 ^ 0xABC235D235EFE23678FDBCA);
+  Expect.equals(0xABC235D235EFE23, 0xABC235D235EFE23 ^ 0);
+  Expect.equals(0xABC235D235EFE23, 0 ^ 0xABC235D235EFE23);
 
-  // (2^70) ^ (2^70 - 1) = 2^71 - 1
-  Expect.equals(0x7FFFFFFFFFFFFFFFFF, 0x400000000000000000 ^ 0x3FFFFFFFFFFFFFFFFF);
+  Expect.equals(0x7FFFFFFFFFFFFFFF, 0x4000000000000000 ^ 0x3FFFFFFFFFFFFFFF);
   
   Expect.equals(-2, 1 ^ (-1));
-  Expect.equals(-0x10000000000000001, (-1) ^ 0x010000000000000000); // 1 << 64
-  // TODO: add more checks when it's clear how larger integers are represented in binary
-  //Expect.equals(0x7fffffffffffffffff, (-1) ^ 0x800000000000000000); // 1 << 71
+  Expect.equals(-0x1000000000000001, (-1) ^ 0x01000000000000000); // 1 << 64
 }
 

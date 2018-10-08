@@ -16,5 +16,7 @@
 class C extends bool {}
 
 main() {
-  new C();
+  try {
+    new C();
+  } catch (e) {}
 }

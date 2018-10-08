@@ -16,7 +16,7 @@ const String htmlEL2 = r'''
 ''';
 
 void doTest(e) {
-    var a = document.getElementsByTagName('a')[0];
+    AnchorElement a = document.getElementsByTagName('a')[0] as AnchorElement;
     a.href = a.href;
     RegExp reg=new RegExp("%20");
     Expect.isFalse(reg.hasMatch(a.href));

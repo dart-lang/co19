@@ -14,7 +14,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var obj = new Float32x4(1.0/0, -1.0/0, 0.0/0.0, -0.0);
+  var obj = new Float32x4(1.0 / 0, -1.0 / 0, 0.0 / 0.0, -0.0);
   Expect.isTrue(obj.x.isInfinite);
   Expect.isFalse(obj.x.isNegative);
 
@@ -25,4 +25,3 @@ main() {
 
   Expect.equals(-0.0, obj.w);
 }
-

@@ -4,26 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  It is a static warning if a class has a setter named 'v=' with
+ * @assertion  It is a compile error if a class has a setter named 'v=' with
  * argument type T and a getter named 'v' with return type S, and T may not be
  * assigned to S.
- * @description Checks that it is a static warning if a class defines a setter
+ * @description Checks that it is a compile error if class defines a setter
  * named 'foo=' and a getter named 'foo' with argument/return types that are
  * not mutually assignable. Types in getter/setter signatures provided
  * explicitly (String and double).
- * @static-warning
+ * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {
-  set foo(double d) { /// static type warning Setter type must be assignable to getter type
+  set foo(double d) {
   }
-  String get foo { }
+  String get foo => "";
 }
 
 main() {
-  new C().foo = new C().foo; /// static type warning 'String' is not assignable to 'double'
+  new C().foo = new C().foo;
 }
 

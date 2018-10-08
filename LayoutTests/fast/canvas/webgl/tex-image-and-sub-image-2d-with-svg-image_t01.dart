@@ -14,7 +14,6 @@ import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
 import "resources/tex-image-and-sub-image-2d-with-svg-image.dart";
-import "../../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {

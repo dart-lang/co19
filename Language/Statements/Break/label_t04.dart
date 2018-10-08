@@ -18,11 +18,13 @@
  */
 
 main() {
-  switch (0) {
-    L:
-    case 0:
-      for (int i in [1,2]) {
-        break L;
-      }
-  }
+  try {
+    switch (0) {
+      L:
+      case 0:
+        for (int i in [1,2]) {
+          break L;
+        }
+    }
+  } catch (x) {}
 }

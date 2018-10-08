@@ -7,7 +7,6 @@
  * @description The DIALOG element should be recognized if the dialog feature is on.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

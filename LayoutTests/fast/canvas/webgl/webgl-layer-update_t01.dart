@@ -11,7 +11,6 @@
 import "dart:html";
 import "dart:web_gl" as wgl;
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 runAfterDisplay(callback) {
     window.requestAnimationFrame((_) {
@@ -35,7 +34,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
 
-  var can = document.createElement('canvas');
+  dynamic can = document.createElement('canvas');
   can.width = can.height = 100;
   can.style.position = "absolute";
   can.style.left = "40px";
@@ -44,7 +43,7 @@ main() {
   var ctx = glContext(can);
   print(ctx.runtimeType);
   ctx.clearColor(1, 0, 0, 1);
-  ctx.clear(wgl.COLOR_BUFFER_BIT);
+  ctx.clear(wgl.WebGL.COLOR_BUFFER_BIT);
 
   asyncStart();
   runAfterDisplay(() {

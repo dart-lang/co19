@@ -6,16 +6,11 @@
 /**
  * @assertion The static type of an equality expression is bool.
  * @description Checks that static type of an equality expression is not int.
- * @static-warning
+ * @compile-error
  * @author kaigorodov
  * @reviewer iefremov
  */
 
-import '../../../Utils/dynamic_check.dart';
-
 main() {
-  int b;
-  checkTypeError(() {
-    b = (1 == 1); /// static type warning
-  });
+  int b = (1 == 1);
 }

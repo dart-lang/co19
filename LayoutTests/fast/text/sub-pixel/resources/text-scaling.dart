@@ -1,12 +1,12 @@
 library text_scaling;
 import "dart:html";
 
-var TOLERANCE = 0.01;
+double TOLERANCE = 0.01;
 
-var FONT_SIZE_START = 10;
-var FONT_SIZE_BASELINE = 12;
-var FONT_SIZE_STEP = 0.25;
-var FONT_SIZE_END = 25;
+double FONT_SIZE_START = 10.0;
+double FONT_SIZE_BASELINE = 12.0;
+double FONT_SIZE_STEP = 0.25;
+double FONT_SIZE_END = 25.0;
 
 Text numberToNode(num n) {
     return new Text(n.toStringAsFixed(2));
@@ -34,7 +34,7 @@ int runTest(Element containerEl, String pangram, [String opt_writingMode]) {
     el.append(createElement('span', 'Content'));
     containerEl.append(el);
     var referenceElement;
-    for (var fontSize = FONT_SIZE_START;
+    for (double fontSize = FONT_SIZE_START;
             fontSize < FONT_SIZE_END;
             fontSize += FONT_SIZE_STEP) {
         var el = createElement('div');
@@ -58,9 +58,9 @@ int runTest(Element containerEl, String pangram, [String opt_writingMode]) {
 
     var failures = 0;
     for (int i = 0; i<containerEl.children.length-1; i++) {
-        var row = containerEl.children[i + 1];
-        var rect = row.lastChild.getBoundingClientRect();
-        var fontSize = FONT_SIZE_START + (FONT_SIZE_STEP * i);
+        Element row = containerEl.children[i + 1];
+        Rectangle rect = (row.lastChild as Element).getBoundingClientRect();
+        double fontSize = FONT_SIZE_START + (FONT_SIZE_STEP * i);
         var width = opt_writingMode == 'vertical' ? rect.height : rect.width;
         var normalizedWidth = (width / fontSize) * FONT_SIZE_BASELINE;
         row.children[0].append(numberToNode(fontSize));

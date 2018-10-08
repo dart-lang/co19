@@ -8,14 +8,13 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
       <input id="input" disabled required />
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var input = document.getElementById('input');
+  InputElement input = document.getElementById('input') as InputElement;
   input.value = "";
   input.disabled = false;
   shouldBeFalse(input.checkValidity());

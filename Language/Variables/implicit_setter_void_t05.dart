@@ -11,11 +11,9 @@
  * whose execution sets the value of v to the incoming argument x.
  * @description Checks that the formal parameter type of this implicit setter
  * is correct and the same as the type of the static variable by attempting to
- * pass a value of incompatible type (String) to it. Static warning expected.
- * @static-warning
+ * pass a value of incompatible type (String) to it. Compile error is expected.
+ * @compile-error
  * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../Utils/dynamic_check.dart";
 
@@ -24,7 +22,5 @@ class A {
 }
 
 main() {
-  checkTypeError(() {
-    A.a = '1'; /// static type warning 'String' is not assignable to 'int'
-  });
+  A.a = "1";
 }

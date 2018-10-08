@@ -8,14 +8,13 @@
  * inside a top level or static function (be it function, method, getter, or
  * setter) or variable initializer and there is no declaration d with name id
  * in the lexical scope enclosing the expression.
- * @description Checks that it is a static warning when an identifier expression
+ * @description Checks that it is a compile error when an identifier expression
  * references an undeclared identifier in a library getter.
- * @static-warning
+ * @compile-error
  * @author ilya
  */
-import '../../../Utils/expect.dart';
 
-get getter => Expect.throws(() => undeclared);
+get getter => undeclared;
 
 main() {
   getter;

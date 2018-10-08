@@ -44,16 +44,16 @@ void main() {
   document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
 test(() {
-  var iframe = document.getElementsByTagName("iframe")[0];
+  var iframe = document.getElementsByTagName("iframe")[0] as IFrameElement;
   assert_equals(iframe.name, "test1");
   var test1 = document.getElementsByName("test1")[0];
   assert_equals(test1, iframe.contentWindow);
 }, "If the only named item is an iframe, the contentWindow should be returned.");
 
 test(() {
-  var iframe1 = document.getElementsByTagName("iframe")[1];
+  var iframe1 = document.getElementsByTagName("iframe")[1] as IFrameElement;
   assert_equals(iframe1.name, "test2");
-  var iframe2 = document.getElementsByTagName("iframe")[2];
+  var iframe2 = document.getElementsByTagName("iframe")[2] as IFrameElement;
   assert_equals(iframe2.name, "test2");
 
   var collection = document.getElementsByName("test2");
@@ -62,7 +62,7 @@ test(() {
 }, "If there are two iframes, a collection should be returned.");
 
 test(() {
-  var iframe = document.getElementsByTagName("iframe")[3];
+  var iframe = document.getElementsByTagName("iframe")[3] as IFrameElement;
   assert_equals(iframe.name, "test3");
   var img = document.getElementsByTagName("img")[0];
   //assert_equals(img.name, "test3"); //Class 'ImageElement' has no instance getter 'name'.
@@ -73,7 +73,7 @@ test(() {
 }, "If there are an iframe and another element (iframe first), a collection should be returned.");
 
 test(() {
-  var iframe = document.getElementsByTagName("iframe")[4];
+  var iframe = document.getElementsByTagName("iframe")[4] as IFrameElement;
   assert_equals(iframe.name, "test4");
   var img = document.getElementsByTagName("img")[1];
   //assert_equals(img.name, "test4"); //Class 'ImageElement' has no instance getter 'name'.
@@ -89,7 +89,7 @@ test(() {
 }, "If an iframe has an id and no name, it should not be returned.");
 
 test(() {
-  var iframe = document.getElementsByTagName("iframe")[6];
+  var iframe = document.getElementsByTagName("iframe")[6] as IFrameElement;
   assert_equals(iframe.name, "test6");
 
   var test6 = document.getElementsByName("test6")[0];
@@ -98,7 +98,7 @@ test(() {
 }, "If an iframe has a name and a different id, it should be returned by its name.");
 
 test(() {
-  var iframe = document.getElementsByTagName("iframe")[8];
+  var iframe = document.getElementsByTagName("iframe")[8] as IFrameElement;
   assert_equals(iframe.name, "42");
 
   var test42 = document.getElementsByName("42")[0];

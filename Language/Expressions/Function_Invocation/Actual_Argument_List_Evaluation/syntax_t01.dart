@@ -62,33 +62,18 @@ main() {
 
   //assignment and equality
   positionalParameters(1 == 2, true != false, identical([], null));
-  namedParameters($$$: o = 1, u__: o += 5, name1: !identical(o, o));
-  bothParameters(identical(f, f), name: o = 10);
 
   //logical and relational expressions
   positionalParameters(1 < 2, 2 > 3, 3 <= 4);
-  // NOTE: o is reassigned to an int above, relational and bitwise expressions below that
-  // involve this variable shouldn't be surprising
-  namedParameters(name1: o <= 7, u__: true || false, $$$: false && false);
-  bothParameters(o < o, name: 0 > 0);
 
   //bitwise and shift expressions
-  positionalParameters(1 & 10, 0 | 0, o ^ o);
-  namedParameters(name1: 9 << 0, $$$: -8 >> 1, u__: o & 0);
   bothParameters(1 << 1, name: 2 | -2);
 
   //additive expressions
   positionalParameters(1 + 2, 0.0 - 3, -0.4 - 11);
-  namedParameters(name1: .5 + 8, $$$: o + -2, u__: 2 - 3);
   bothParameters(1e3 + 0.2, name: 1 - 1);
 
   //multiplicative expressions
   positionalParameters(2 * 3, 1 /2, 0 % 7);
   namedParameters(name1: 1 ~/ 1, $$$: 0 * 0, u__: 0 / 8);
-  bothParameters(0.5 * 0.2, name: o ~/ 1);
-
-  //unary expressions
-  positionalParameters(-++o, -~2, o++);
-  namedParameters(name1: -o--, $$$: ~~0, u__:--o);
-  bothParameters(!!false, name: -~-o);
 }

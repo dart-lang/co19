@@ -25,8 +25,6 @@
  * @description Checks that any return type (including function type, type 
  * parameter, void or no return type at all) can be specified for any operator.
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 typedef int foo(double);
@@ -43,12 +41,14 @@ class C<T> {
 }
 
 main() {
-  C c = new C();
-    var x = c + c;
+  try {
+    C c = new C();
+    dynamic x = c + c;
     x = c - c;
     x = c[c];
     c[c] = c;
     -c;
     x = ~c;
     x = c == c;
+  } catch (ok) {}
 }

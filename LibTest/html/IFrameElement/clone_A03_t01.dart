@@ -14,13 +14,12 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../testcommon.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   x.append(new Element.html('<div><pre></pre></div>'));
 
-  var y = x.clone(false);
+  IFrameElement y = x.clone(false);
   Expect.isNull(y.parent, 'parent of shallow copy');
 
   y = x.clone(true);

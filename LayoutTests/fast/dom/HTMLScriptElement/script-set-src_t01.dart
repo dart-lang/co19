@@ -7,8 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 
@@ -61,23 +59,28 @@ main() {
   window.onLoad.first.then((_) {
     document.getElementById("p5").innerHtml = jsEval('p5result');
     
-    document.getElementById("s1").src = "$root/resources/script-set-src-p1fail.js";
-    document.getElementById("s2").src = "$root/resources/script-set-src-p2fail.js";
-    document.getElementById("s5").src = "$root/resources/script-set-src-p5fail.js";
-    document.getElementById("s3").src = "$root/resources/script-set-src-p3pass.js";
-    document.getElementById("s6").setAttribute("src", "$root/resources/script-set-src-p6pass.js");
+    (document.getElementById("s1") as ScriptElement).src =
+        "$root/resources/script-set-src-p1fail.js";
+    (document.getElementById("s2") as ScriptElement).src =
+        "$root/resources/script-set-src-p2fail.js";
+    (document.getElementById("s5") as ScriptElement).src =
+        "$root/resources/script-set-src-p5fail.js";
+    (document.getElementById("s3") as ScriptElement).src =
+        "$root/resources/script-set-src-p3pass.js";
+    (document.getElementById("s6") as ScriptElement).setAttribute(
+        "src", "$root/resources/script-set-src-p6pass.js");
 
-    var e1 = document.createElement("script");
+    ScriptElement e1 = document.createElement("script");
     e1.type  = "text/javascript";
     e1.src = "$root/resources/script-set-src-p7pass.js";
     document.getElementsByTagName("head")[0].append(e1);
 
-    var e2 = document.createElement("script");
+    ScriptElement e2 = document.createElement("script");
     e2.type  = "text/javascript";
     document.getElementsByTagName("head")[0].append(e2);
     e2.src = "$root/resources/script-set-src-p8pass.js";
     
-    var e3 = document.createElement("script");
+    ScriptElement e3 = document.createElement("script");
     e3.type  = "text/javascript";
     e3.src = "$root/resources/script-set-src-p9failBefore.js";
     e3.src = "$root/resources/script-set-src-p9pass.js";

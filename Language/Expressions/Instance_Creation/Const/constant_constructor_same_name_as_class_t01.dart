@@ -20,5 +20,7 @@ class T {
 }
 
 main() {
-  const T();
+  try {
+    const T();
+  } catch (e) {}
 }

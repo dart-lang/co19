@@ -27,7 +27,6 @@
  * "C1026 <: C1025 <: ... <: C1 <: C and checks that generic parameterized
  * with C1026 is a subtype of the same generic parameterized with C.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

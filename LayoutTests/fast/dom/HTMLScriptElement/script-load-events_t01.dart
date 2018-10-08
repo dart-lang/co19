@@ -7,8 +7,6 @@
  * @description Generate load events for script elements.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 
@@ -19,15 +17,15 @@ main() {
 
   var status_ = new Map();
 
-  loaded(i) => (_) {
+  EventListener loaded(i) => (_) {
     status_[i] = "L";
   };
 
-  erred(i) => (_) {
+  EventListener erred(i) => (_) {
     status_[i] = "E";
   };
 
-  var s = new ScriptElement();
+  ScriptElement s = new ScriptElement();
   s.type = "text/javascript";
   s.src = "IntentionallyMissingFile.js";
   s.onLoad.listen(loaded(0));
@@ -70,7 +68,7 @@ main() {
 
   asyncStart();
   window.onLoad.first.then((_) {
-    var e = document.createElement("script");
+    ScriptElement e = document.createElement("script");
     e.type = "text/javascript";
     e.src = '$root/resources/script-load.js';
     e.onLoad.listen((_) {

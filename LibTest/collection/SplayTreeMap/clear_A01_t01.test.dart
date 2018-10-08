@@ -4,7 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Removes all pairs from the map.
+ * @assertion void clear()
+ * Removes all pairs from the map. After this, the map is empty.
  * @description Checks that all of the mappings from this map are removed.
  * @author msyabro
  */
@@ -13,10 +14,11 @@ library clear_A01_t01;
 import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {
-  Map<String, Object> map = create();
+  Map map = create();
 
   map.clear(); //Check that empty map can be cleared
   Expect.isTrue(map.length == 0);
+  Expect.isTrue(map.isEmpty);
   
   map["1"] = 1;
   map["2"] = 2;
@@ -25,4 +27,5 @@ test(Map create([Map content])) {
   map.clear();
   Expect.isTrue(map.length == 0);
   Expect.isTrue(map["1"] == null && map["2"] == null);
+  Expect.isTrue(map.isEmpty);
 }

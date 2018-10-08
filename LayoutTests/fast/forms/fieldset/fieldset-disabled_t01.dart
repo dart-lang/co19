@@ -8,10 +8,9 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
-  var f = new DocumentFragment.html('''
+  DocumentFragment f = new DocumentFragment.html('''
       <style type="text/css">
       input {
           background:rgb(255,255,100);
@@ -45,15 +44,15 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   debug('\nVerifying parser generated fieldsets.');
-  var parserGeneratedInput1 = document.getElementById("parserGeneratedInput1");
-  var parserGeneratedInput2 = document.getElementById("parserGeneratedInput2");
-  var parserGeneratedInput3 = document.getElementById("parserGeneratedInput3");
-  var parserGeneratedInput4 = document.getElementById("parserGeneratedInput4");
-  var parserGeneratedInput5 = document.getElementById("parserGeneratedInput5");
-  var parserGeneratedInput6 = document.getElementById("parserGeneratedInput6");
-  var parserGeneratedInput7 = document.getElementById("parserGeneratedInput7");
-  var parserGeneratedInput8 = document.getElementById("parserGeneratedInput8");
-  var parserGeneratedInput9 = document.getElementById("parserGeneratedInput9");
+  InputElement parserGeneratedInput1 = document.getElementById("parserGeneratedInput1") as InputElement;
+  InputElement parserGeneratedInput2 = document.getElementById("parserGeneratedInput2") as InputElement;
+  InputElement parserGeneratedInput3 = document.getElementById("parserGeneratedInput3") as InputElement;
+  InputElement parserGeneratedInput4 = document.getElementById("parserGeneratedInput4") as InputElement;
+  InputElement parserGeneratedInput5 = document.getElementById("parserGeneratedInput5") as InputElement;
+  InputElement parserGeneratedInput6 = document.getElementById("parserGeneratedInput6") as InputElement;
+  InputElement parserGeneratedInput7 = document.getElementById("parserGeneratedInput7") as InputElement;
+  InputElement parserGeneratedInput8 = document.getElementById("parserGeneratedInput8") as InputElement;
+  InputElement parserGeneratedInput9 = document.getElementById("parserGeneratedInput9") as InputElement;
 
   parserGeneratedInput1.focus();
   document.execCommand('insertText', false, 'L');
@@ -85,9 +84,9 @@ main() {
   shouldBe(parserGeneratedInput9.value, "");
 
   debug('\nTesting a single fieldset element.');
-  var fieldSet = document.createElement('fieldset');
+  FieldSetElement fieldSet = document.createElement('fieldset') as FieldSetElement;
   document.body.append(fieldSet);
-  var textInput = document.createElement('input');
+  InputElement textInput = document.createElement('input') as InputElement;
   textInput.type = "text";
   fieldSet.append(textInput);
 
@@ -144,11 +143,11 @@ main() {
   shouldBeFalse(fieldSet.disabled);
 
   debug('Insert a table into the fieldset.');
-  var table = document.createElement('table');
+  TableElement table = document.createElement('table') as TableElement;
   fieldSet.append(table);
-  var tr = document.createElement('tr');
+  TableRowElement tr = document.createElement('tr') as TableRowElement;
   table.append(tr);
-  var td = document.createElement('td');
+  TableCellElement td = document.createElement('td') as TableCellElement;
   tr.append(td);
 
   debug('Move the textinput field into the table.');
@@ -178,14 +177,14 @@ main() {
 
 
   debug('\nTesting nested fieldset elements.');
-  var outerFieldSet = document.createElement('fieldset');
+  FieldSetElement outerFieldSet = document.createElement('fieldset') as FieldSetElement;
   document.body.append(outerFieldSet);
-  var innerFieldSet = document.createElement('fieldset');
+  FieldSetElement innerFieldSet = document.createElement('fieldset') as FieldSetElement;
   outerFieldSet.append(innerFieldSet);
-  var outerTextInput = document.createElement('input');
+  InputElement outerTextInput = document.createElement('input') as InputElement;
   outerTextInput.type = "text";
   outerFieldSet.append(outerTextInput);
-  var innerTextInput = document.createElement('input');
+  InputElement innerTextInput = document.createElement('input') as InputElement;
   innerTextInput.type = "text";
   innerFieldSet.append(innerTextInput);
 
@@ -244,18 +243,18 @@ main() {
   shouldBe(innerTextInput.value, "FH");
 
   debug('\nTest behavior of the first legend element in a fieldset elements.');
-  var legendFieldSet = document.createElement('fieldset');
+  FieldSetElement legendFieldSet = document.createElement('fieldset') as FieldSetElement;
   document.body.append(legendFieldSet);
-  var firstLegend = document.createElement('legend');
+  LegendElement firstLegend = document.createElement('legend') as LegendElement;
   legendFieldSet.append(firstLegend);
-  var secondLegend = document.createElement('legend');
+  LegendElement secondLegend = document.createElement('legend') as LegendElement;
   legendFieldSet.append(secondLegend);
 
-  var firstLegendTextInput = document.createElement('input');
+  InputElement firstLegendTextInput = document.createElement('input') as InputElement;
   firstLegendTextInput.type = "text";
   firstLegend.append(firstLegendTextInput);
 
-  var secondLegendTextInput = document.createElement('input');
+  InputElement secondLegendTextInput = document.createElement('input') as InputElement;
   secondLegendTextInput.type = "text";
   secondLegend.append(secondLegendTextInput);
 
@@ -270,9 +269,9 @@ main() {
   shouldBe(secondLegendTextInput.value, "");
 
   debug('Insert another legend element before the currently first one, and check again.');
-  var insertedLegend = document.createElement('legend');
+  LegendElement insertedLegend = document.createElement('legend') as LegendElement;
   legendFieldSet.insertBefore(insertedLegend, firstLegend);
-  var insertedLegendTextInput = document.createElement('input');
+  InputElement insertedLegendTextInput = document.createElement('input') as InputElement;
   insertedLegend.append(insertedLegendTextInput);
 
   insertedLegendTextInput.focus();

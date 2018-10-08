@@ -16,5 +16,8 @@
 class operator {}
 
 main() {
-  null is operator;
+  try {
+    null is operator;
+  } catch (anything) {
+  }
 }

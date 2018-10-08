@@ -48,10 +48,14 @@ class A extends S {
     ~super;
     - -super; // should be interpreted as -(-super);
     ~~super;
-    !-super; /// 01: dynamic type error
+    try {
+      !-super;
+    } catch (ok) {}
     ~-super;
     -~super;
-     !~super; /// 02: dynamic type error
+    try {
+      !~super;
+    } catch (ok) {}
   }
 }
 

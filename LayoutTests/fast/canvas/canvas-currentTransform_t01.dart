@@ -7,17 +7,14 @@
  * @description Series of tests to ensure correct behaviour of
  * canvas.currentTransform
  */
-import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
-var NaN = double.NAN;
-var Inf = double.INFINITY;
-var NegInf = double.NEGATIVE_INFINITY;
+var NaN = double.nan;
+var Inf = double.infinity;
+var NegInf = double.negativeInfinity;
 
 main() {
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   var matrix = ctx.currentTransform;
 

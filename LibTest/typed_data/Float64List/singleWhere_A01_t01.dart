@@ -6,6 +6,8 @@
 /**
  * @assertion E singleWhere(bool test(E element))
  * Returns the single element that satisfies [test].
+ * Checks all elements to see if test(element) returns true. If exactly one
+ * element satisfies test, that element is returned.
  * @description Checks that the single element satisfying [test]
  * is returned.
  * @author msyabro
@@ -15,12 +17,12 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new Float64List.fromList([0.0,0.0,0.0,0.0,0.0,5.0,0.0,0.0,-10.0,0.0]);
+  var l = new Float64List.fromList(
+      [0.0, 0.0, 0.0, 0.0, 0.0, 5.0, 0.0, 0.0, -10.0, 0.0]);
 
-  var res = l.singleWhere( (e) => e > 0 );
+  var res = l.singleWhere((e) => e > 0 );
   Expect.equals(5.0, res);
 
-  res = l.singleWhere( (e) => e < 0 );
+  res = l.singleWhere((e) => e < 0 );
   Expect.equals(-10.0, res);
 }
-

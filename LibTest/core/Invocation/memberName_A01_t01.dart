@@ -8,13 +8,13 @@
  * The name of the invoked expect.
  * @description Checks that memberName returns expected results on getters,
  * setters and instance methods invocations.
- * @static-warning
  * @author ilya
  */
 import "../../../Utils/expect.dart";
 
 Symbol expect;
 
+@proxy
 class D {
   method(x, y, z) {}
   get getOnly {}
@@ -28,23 +28,11 @@ class C extends D {
   noSuchMethod(Invocation i) {
     Expect.equals(expect, i.memberName);
   }
-  test() {
-    expect = #foo; foo;
-    expect = const Symbol('bar='); bar = 1;
-    expect = #setOnly; setOnly;
-    expect = const Symbol('getOnly='); getOnly = 1;
-    
-    expect = #foo; super.foo;
-    expect = const Symbol('bar='); super.bar = 1;
-    expect = #setOnly; super.setOnly;
-    expect = const Symbol('getOnly='); super.getOnly = 1;
-  }
   var d;
   C() : d = new D();
 }
 
-main() {
-  var x = new C();
+test(dynamic x) {
   var y = new C();
   expect = #+; x+y;
   expect = const Symbol('unary-'); -x;
@@ -53,5 +41,8 @@ main() {
   expect = #setOnly; x.setOnly;
   expect = const Symbol('getOnly='); x.getOnly = 1;
   expect = #call; x.d();
-  x.test();
+}
+
+main() {
+  test(new C());
 }

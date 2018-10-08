@@ -21,23 +21,23 @@ void main() {
 
 test(() {
   var head = document.getElementsByTagName("head")[0];
-  assert_true(!!head, "Head gone?!");
+  assert_true(head != null, "Head gone?!");
   head.remove();
-  assert_false(!!document.getElementsByTagName("head")[0], "Head still there?!");
+  assert_false(document.getElementsByTagName("head").length > 0, "Head still there?!");
   document.title = "FAIL";
   assert_equals(document.title, "");
 }, "t1");
 
 test(() {
   var title2 = document.createElement("title");
-  title2.append(document.createTextNode("PASS"));
+  title2.text = "PASS";
   document.body.append(title2);
   assert_equals(document.title, "PASS");
 }, "t2");
 
 test(() {
   var title3 = document.createElement("title");
-  title3.append(document.createTextNode("PASS2"));
+  title3.text = "PASS2";
   document.documentElement.insertBefore(title3, document.body);
   assert_equals(document.title, "PASS2");
 }, "t3");

@@ -41,8 +41,8 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
 
   var host = document.querySelector('#host');
-  var root = host.createShadowRoot();
-  var template = document.querySelector('#tmpl');
+  ShadowRoot root = host.createShadowRoot();
+  TemplateElement template = document.querySelector('#tmpl');
   root.append(template.content);
   shouldBe(document.querySelector(".contentClass").getComputedStyle().color,
       "rgb(0, 0, 255)");

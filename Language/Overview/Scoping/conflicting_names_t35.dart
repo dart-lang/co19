@@ -20,5 +20,7 @@
 typedef f<T, T>();
 
 main() {
-  f<int, String> foo = () {};
+  try {
+    f<int, String> foo = () {};
+  } catch (x) {}
 }

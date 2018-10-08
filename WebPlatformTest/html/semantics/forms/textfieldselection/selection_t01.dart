@@ -18,20 +18,20 @@ import 'dart:html';
 import "../../../../Utils/expectWeb.dart";
 
 void main() {
-  var body = document.getElementsByTagName("body").item(0);
+  var body = document.body;
   var dirs = ['forward', 'backward', 'none'];
   var sampleText = "0123456789";
 
-  Element createInputElement(value) {
-    var el = document.createElement("input");
+  InputElement createInputElement(value) {
+    var el = document.createElement("input") as InputElement;
     el.type = "text";
     el.value = value;
     body.append(el);
     return el;
   }
 
-  Element createTextareaElement(value) {
-    var el = document.createElement("textarea");
+  TextAreaElement createTextareaElement(value) {
+    var el = document.createElement("textarea") as TextAreaElement;
     el.value = value;
     body.append(el);
     return el;
@@ -39,7 +39,7 @@ void main() {
 
   test(() {
     var text = 'a';
-    for (var i=0; i<255; i++) {
+    for (var i = 0; i < 255; i++) {
       var el = createInputElement(text);
       el.select();
       var selectionText = el.value.substring(el.selectionStart, el.selectionEnd);
@@ -52,7 +52,7 @@ void main() {
 
   test(() {
     var text = 'a';
-    for (var i=0; i<255; i++) {
+    for (var i = 0; i < 255; i++) {
       var el = createTextareaElement(text);
       el.select();
       var selectionText = el.value.substring(el.selectionStart, el.selectionEnd);
@@ -65,7 +65,7 @@ void main() {
 
   test(() {
     var text = 'あ';
-    for (var i=0; i<255; i++) {
+    for (var i = 0; i < 255; i++) {
       var el = createInputElement(text);
       el.select();
       var selectionText = el.value.substring(el.selectionStart, el.selectionEnd);
@@ -78,7 +78,7 @@ void main() {
 
   test(() {
     var text = 'あ';
-    for (var i=0; i<255; i++) {
+    for (var i = 0; i < 255; i++) {
       var el = createTextareaElement(text);
       el.select();
       var selectionText = el.value.substring(el.selectionStart, el.selectionEnd);

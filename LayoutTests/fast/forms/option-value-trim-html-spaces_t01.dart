@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -20,18 +19,18 @@ main() {
       </select>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var o1 = document.getElementById('o1');
+  OptionElement o1 = document.getElementById('o1') as OptionElement;
   shouldBe(o1.value, "text with extra while spaces");
 
-  var o2 = document.getElementById('o2');
+  OptionElement o2 = document.getElementById('o2') as OptionElement;
   shouldBe(o2.value, "text");
 
 
-  var o3 = document.getElementById('o3');
+  OptionElement o3 = document.getElementById('o3') as OptionElement;
   var expected = '\u00A0'+'test'+'\u00A0'+ 'text'+'\u00A0';
   shouldBe(o3.value, expected);
 
-  var o4 = document.getElementById('o4');
+  OptionElement o4 = document.getElementById('o4') as OptionElement;
   expected = 'test'+'\u00A0\u00A0'+ 'text';
   shouldBe(o4.value, expected);
 }

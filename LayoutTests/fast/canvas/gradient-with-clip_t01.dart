@@ -8,9 +8,7 @@
  * cleared https://bugs.webkit.org/show_bug.cgi?id=21498
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   pixelValueAt(context, x, y) {
@@ -25,7 +23,7 @@ main() {
     shouldBeList(pixel, expectedPixel);
   }
 
-  var canvas;
+  dynamic canvas;
 
   fillWithColor(context, color) {
     context.save();
@@ -42,7 +40,7 @@ main() {
 
   document.body.append(canvas);
 
-  var greenImage = document.createElement("canvas");
+  dynamic greenImage = document.createElement("canvas");
   greenImage.height = 10;
   greenImage.width = 10;
   var greenCtx = greenImage.getContext('2d');

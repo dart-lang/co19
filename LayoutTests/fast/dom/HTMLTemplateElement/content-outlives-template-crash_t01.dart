@@ -7,11 +7,9 @@
  * @description Test passes if it does not crash
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../testcommon.dart";
 
 main() {
-  var template = document.createElement('template');
+  TemplateElement template = document.createElement('template');
   var content = template.content;
   template = null;
   content.append(document.createElement('div'));

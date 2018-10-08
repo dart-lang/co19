@@ -5,6 +5,9 @@
  */
 /**
  * @assertion Float32x4 scale(double s)
+ * Returns a copy of this each lane being scaled by s. Equivalent to
+ * this * new Float32x4.splat(s).
+ *
  * Returns a copy of [this] each lane being scaled by [s].
  * @description Checks that the returned value contains corresponding lanes
  * of [this] scaled by [s].
@@ -17,10 +20,10 @@ import "../../../Utils/expect.dart";
 check(x, y, z, w, s) {
   var obj = new Float32x4(x,y,z,w);
   var res = obj.scale(s);
-  Expect.approxEquals(obj.x * s, res.x, (res.x/1e7).abs());
-  Expect.approxEquals(obj.y * s, res.y, (res.y/1e7).abs());
-  Expect.approxEquals(obj.z * s, res.z, (res.z/1e7).abs());
-  Expect.approxEquals(obj.w * s, res.w, (res.w/1e7).abs());
+  Expect.approxEquals(obj.x * s, res.x, (res.x / 1e7).abs());
+  Expect.approxEquals(obj.y * s, res.y, (res.y / 1e7).abs());
+  Expect.approxEquals(obj.z * s, res.z, (res.z / 1e7).abs());
+  Expect.approxEquals(obj.w * s, res.w, (res.w / 1e7).abs());
 }
 
 main() {

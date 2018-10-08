@@ -5,8 +5,9 @@
  */
 /**
  * @assertion void forEach(void f(E element))
- * Applies the function f to each element of this collection.
- * @description Checks that forEach() iterates over each element of the queue.
+ * Applies the function [f] to each element of this collection in iteration
+ * order.
+ * @description Checks that [forEach()] iterates over each element of the queue.
  * @author kaigorodov
  */
 

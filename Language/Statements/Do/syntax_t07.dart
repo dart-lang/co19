@@ -18,8 +18,10 @@
  */
 
 main() {
-  do {
-    break;
-  } while ();
+  try {
+    do {
+      break;
+    } while ();
+  } catch (x) {}
 }
 

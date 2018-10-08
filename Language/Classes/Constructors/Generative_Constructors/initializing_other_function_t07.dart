@@ -10,7 +10,6 @@
  * formal syntax is used by a redirecting generative constructor.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {
@@ -20,5 +19,7 @@ class C {
 }
 
 main() {
-  new C.redirect(null);
+  try {
+    new C.redirect(null);
+  } catch (v) {}
 }

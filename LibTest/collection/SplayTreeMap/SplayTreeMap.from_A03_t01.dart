@@ -6,9 +6,9 @@
 /**
  * @assertion SplayTreeMap.from(Map other, [int compare(K key1, K key2),
  * bool isValidKey(potentialKey)])
- * Creates a SplayTreeMap that contains all key/value pairs of other.
- * @description Checks that if isValidKey function specified, then it called
- * before compare call
+ * Creates a [SplayTreeMap] that contains all key/value pairs of [other].
+ * @description Checks that if [isValidKey] function specified, then it is
+ * called before the [compare} call
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";
@@ -22,7 +22,7 @@ class C {
   C(this.value);
 }
 
-int compare(C key1, C key2) {
+int compare(var key1, var key2) {
   if (startTesting) {
     Expect.isTrue(isValidKeyCalled);
   }

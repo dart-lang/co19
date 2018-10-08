@@ -17,19 +17,17 @@
  * that returned future completes when the source ends.
  * @author ilya
  */
-
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var c = new StreamController();
-  var iter = [1, 2, 3];
-  var s = new Stream.fromIterable(iter);
+  StreamController c = new StreamController();
+  Iterable iterable = [1, 2, 3];
+  Stream s = new Stream.fromIterable(iterable);
 
   asyncStart();
   c.stream.toList().then((x) {
-    Expect.listEquals(iter, x);
+    Expect.listEquals(iterable, x);
     asyncEnd();
   });
 

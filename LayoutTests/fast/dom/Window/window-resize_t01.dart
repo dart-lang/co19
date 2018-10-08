@@ -9,18 +9,12 @@
  * will fail in some dimensions when run manually because of inconsistencies of  * when the window can and cannot go behind the doc.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
-import "pwd.dart";
 
 main() {
   window.moveTo(new Point(0,0));
 
-  var result;
-  var testName;
-  var x;
-  var y;
+  int x, y;
 
   // resizeTo /////////////////////////
   debug('window.resizeTo Tests');
@@ -37,8 +31,8 @@ main() {
   debug("Testing - resizeTo: Too Small");
   shouldBe(window.outerWidth, 100);
 
-  x = window.screen.width/10;
-  y = window.screen.height/10;
+  x = window.screen.width/10 as int;
+  y = window.screen.height/10 as int;
   window.moveTo(new Point(x, y));
   x = window.screen.width;
   y = window.screen.height;
@@ -52,8 +46,8 @@ main() {
   x = 100;
   y = 100;
   window.resizeTo(x, y);
-  x = window.screen.width/2;
-  y = window.screen.height/2;
+  x = window.screen.width/2 as int;
+  y = window.screen.height/2 as int;
   window.moveTo(new Point(x, y));
   x += 10;
   y += 10;

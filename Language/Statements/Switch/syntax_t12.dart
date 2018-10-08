@@ -34,6 +34,8 @@ switchTest(value) {
 }
 
 main() {
-  switchTest(0);
+  try {
+    switchTest(0);
+  } catch (x) {}
 }
 

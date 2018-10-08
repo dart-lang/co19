@@ -15,20 +15,16 @@
  * imports but never referred to.
  * @assertion (Expressions/Instance Creation/New) If T is malformed a dynamic
  * error occurs.
- * @description Checks that it is a static type warning if two different
+ * @description Checks that it is a compile error if two different
  * libraries introduce the same name T to the top level scope of L.
- * Checks that a dynamic error occurs if T is used in new instance creation
+ * Checks that a compile error occurs if T is used in new instance creation
  * expression.
- * @static-warning
+ * @compile-error
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
-
 import "same_name_t01_p1_lib.dart";
 import "same_name_t01_p2_lib.dart";
 
 main() {
-  Expect.throws(() {
-    new foo();
-  });
+  new foo();
 }

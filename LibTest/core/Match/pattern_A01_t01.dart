@@ -8,12 +8,12 @@
  * The pattern to search for in [str]. 
  * @description Checks that this property holds the correct pattern.
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
   
 void check(String pattern, String str, bool multiLine, bool caseSensitive) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive);
+  RegExp re = new RegExp(pattern, multiLine: multiLine,
+      caseSensitive: caseSensitive);
   Iterable<Match> matches = re.allMatches(str);
   if (0 == matches.length) {
     Expect.fail("\"$pattern\" !~ \"$str\"");

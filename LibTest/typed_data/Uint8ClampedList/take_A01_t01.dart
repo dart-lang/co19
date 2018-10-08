@@ -5,21 +5,21 @@
  */
 /**
  * @assertion Iterable<E> take(int count)
- * Returns an [Iterable] with at most [n] elements.
- * @description Checks that the returned [Iterable] has
- * the length [n] and contains first [n] elements from [this].
+ * Returns a lazy iterable of the [count] first elements of this iterable.
+ * @description Checks that the returned [Iterable] has the length [count] and
+ * contains first [count] elements from [this].
  * @author msyabro
  */
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(var list, var n) {
+void check(List<int> list, int n) {
   var l = new Uint8ClampedList.fromList(list);
   var res = l.take(n);
   Expect.equals(n, res.length);
 
-  for(int i = 0; i < n; ++i) {
+  for (int i = 0; i < n; ++i) {
     Expect.equals(l[i], res.elementAt(i));
   }
 }

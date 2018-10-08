@@ -32,5 +32,7 @@
 import "syntax_lib.dart" as;
 
 main() {
-  someVar = 0;
+  try {
+    someVar = 0;
+  } catch (e) {}
 }

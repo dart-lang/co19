@@ -14,16 +14,12 @@
  * public.
  * @description Checks that a private class declaration is inaccessible outside
  * the library.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer iefremov
  */
-import "../../../Utils/expect.dart";
-
 import "../lib.dart";
 
 main() {
-  Expect.throws(() {
-    var c = new _InaccessibleClass(); /// static type warning
-  });
+  new _InaccessibleClass();
 }

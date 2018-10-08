@@ -6,9 +6,9 @@
 /**
  * @assertion It is a static warning if a class C declares an instance method
  * named n and has a setter named n=.
- * @description Checks that it is a static warning if a class C declares an
+ * @description Checks that it is a compile error if a class C declares an
  * instance method named n and inherits a setter named n=.
- * @static-warning
+ * @compile-error
  * @author kaigorodov
  */
 
@@ -21,7 +21,8 @@ class C extends A {
 }
 
 main() {
-  C c=new C();
+  try {
+    C c = new C();
     c.foo();
-//    c.foo=1;
+  } catch (anything) {}
 }

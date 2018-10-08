@@ -24,7 +24,7 @@ const String htmlEL2 = r'''
 
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    var elem = document.getElementById('test');
-    var rect = internals.boundingBox(elem);
+    Element elem = document.getElementById('test');
+    Rectangle rect = elem.getBoundingClientRect(); // window.internals.boundingBox(elem);
     Expect.equals(400, rect.width);
 }

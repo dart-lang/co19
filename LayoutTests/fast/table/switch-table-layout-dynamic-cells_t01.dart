@@ -43,14 +43,14 @@ void main() {
 
     document.body.offsetTop;
 
-    var table = document.getElementById("table");
-    var row = table.insertRow(table.rows.length);
+    TableElement table = document.getElementById("table") as TableElement;
+    TableRowElement row = table.insertRow(table.rows.length);
     row.insertCell(row.cells.length).setAttribute("data-expected-width", "100");
     row.insertCell(row.cells.length).setAttribute("data-expected-width", "100");
 
     document.body.offsetTop;
 
-    var container = document.getElementById("container");
+    Element container = document.getElementById("container");
     container.style.setProperty("width", "500px");
 
     table.style.setProperty("table-layout", "auto");

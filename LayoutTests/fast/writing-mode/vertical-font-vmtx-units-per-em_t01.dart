@@ -8,8 +8,6 @@
  * @description Vertical text using font with vmtx table and units per em
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
 
 const String htmlEL1 = '''

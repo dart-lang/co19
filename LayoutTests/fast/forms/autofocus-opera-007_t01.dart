@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var f = new DocumentFragment.html('''
@@ -35,7 +34,7 @@ main() {
     asyncEnd();
   }
 
-  var input = document.body.query('input');
+  var input = document.body.querySelector('input');
 
   input.onFocus.listen((_) {
     input.blur();

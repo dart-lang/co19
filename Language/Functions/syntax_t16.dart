@@ -31,5 +31,7 @@
 f() => for (var i in [1,2,3]);
 
 main() {
-  f();
+  try {
+    f();
+  } catch (x) {}
 }

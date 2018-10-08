@@ -15,6 +15,9 @@
  */
 
 main() {
-  void while() {}
-  while();
+  try {
+    void while() {}
+    while();
+  } catch (anything) {
+  }
 }

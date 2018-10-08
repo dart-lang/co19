@@ -8,7 +8,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../testharness.dart";
 
 const String htmlEL2 = r'''
@@ -22,11 +21,11 @@ const String htmlEL2 = r'''
 ''';
 
 void startTest(e) {
-    window.location='#anchor';
+    window.location.href = '#anchor';
     runLater(finishTest, 0);
 }
 
-int count=0;
+int count = 0;
 
 void finishTest() {
 print("finishTest");

@@ -5,8 +5,9 @@
  */
 /**
  * @assertion bool every(bool f(E element))
- * Returns true if every elements of this collection satisify the predicate test.
- * Returns false otherwise.
+ * Checks whether every element of this iterable satisfies [test].
+ * Checks every element in iteration order, and returns [false] if any of them
+ * make [test] return [false], otherwise returns [true].
  * @description Checks that the method iterates over each element of the list
  * @author kaigorodov
  */

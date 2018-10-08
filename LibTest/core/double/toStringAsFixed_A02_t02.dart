@@ -5,22 +5,14 @@
  */
 /**
  * @assertion String toStringAsFixed(int fractionDigits)
- * The parameter fractionDigits must be an integer satisfying: 0 <= fractionDigits <= 20.
- * @description Checks that the exception is thrown when 'fractionDigits' is negative.
+ * The parameter fractionDigits must be an integer satisfying:
+ * 0 <= fractionDigits <= 20.
+ * @description Checks that the exception is thrown when 'fractionDigits' is
+ * negative.
  * @author pagolubev
- * @reviewer msyabro
- * @needsreview Exception type?
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
-  bool fail = false;
-  try {
-    .1.toStringAsFixed(-1);
-    fail = true;
-  } catch(e) {}
-  if(fail) {
-    Expect.fail("Expected exception");
-  }
+  Expect.throws(() {0.1.toStringAsFixed(-1);});
 }

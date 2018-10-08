@@ -12,9 +12,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "resources/desktop-gl-constants.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -24,7 +21,7 @@ main() {
   var gl = create3DContext();
   var program = loadStandardProgram(gl);
 
-  shouldBe(gl.getError(), wgl.NO_ERROR);
+  shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
   shouldBeNull(gl.useProgram(program));
 
 
@@ -47,7 +44,7 @@ main() {
   test(func) {
     debug('case #${++i}');
     func();
-    shouldBe(gl.getError(), wgl.NO_ERROR);
+    shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
   }
 
   test(() => gl.uniform1f(null, 0));

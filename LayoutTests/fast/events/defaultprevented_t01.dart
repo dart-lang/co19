@@ -8,14 +8,13 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
       <form method=POST></form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var form = document.body.querySelector('form');
+  FormElement form = document.body.querySelector('form');
 
   form.onReset.listen((event) {
     event.preventDefault();

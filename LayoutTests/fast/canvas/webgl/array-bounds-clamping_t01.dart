@@ -11,8 +11,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-//import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -50,41 +48,41 @@ main() {
 
     var gl = initWebGL("example", "vshader", "fshader",
         [ "vPosition", "index" ], [ 1, 1, 1, 1 ], 1);
-    var program = gl.getParameter(wgl.CURRENT_PROGRAM);
+    var program = gl.getParameter(wgl.WebGL.CURRENT_PROGRAM);
 
-    gl.disable(wgl.DEPTH_TEST);
-    gl.disable(wgl.BLEND);
+    gl.disable(wgl.WebGL.DEPTH_TEST);
+    gl.disable(wgl.WebGL.BLEND);
 
     var vertexObject = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
-    gl.bufferData(wgl.ARRAY_BUFFER,
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER,
         new Float32List.fromList([-1.0,1.0,0.0, 1.0,1.0,0.0, -1.0,-1.0,0.0,
                                   -1.0,-1.0,0.0, 1.0,1.0,0.0, 1.0,-1.0,0.0 ]),
-        wgl.STATIC_DRAW);
+        wgl.WebGL.STATIC_DRAW);
     gl.enableVertexAttribArray(0);
-    gl.vertexAttribPointer(0, 3, wgl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(0, 3, wgl.WebGL.FLOAT, false, 0, 0);
 
     vertexObject = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
-    gl.bufferData(wgl.ARRAY_BUFFER,
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER,
         // Create an array that exercises well outside the
         // limits on each side, near the limits, and the
         // exact limits.
         // This should be clamped to [0, 0, 0, 7, 7, 7]
         new Float32List.fromList([-123456789.0, -1.0, 0.0, 7.0, 8.0, 123456789.0]),
-        wgl.STATIC_DRAW);
+        wgl.WebGL.STATIC_DRAW);
     gl.enableVertexAttribArray(1);
-    gl.vertexAttribPointer(1, 1, wgl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(1, 1, wgl.WebGL.FLOAT, false, 0, 0);
 
     var loc = gl.getUniformLocation(program, "shades");
     gl.uniform1fv(loc, new Float32List.fromList([0.25, 0.5, 0.0, 0.0, 0.0, 0.0, 0.75, 1.0]));
 
     checkRedValue(x, y, value, msg) {
-      gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
-      gl.drawArrays(wgl.TRIANGLES, 0, 6);
+      gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
+      gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 6);
       gl.flush();
       var buf = new Uint8List(4);
-      gl.readPixels(x, y, 1, 1, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
+      gl.readPixels(x, y, 1, 1, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
       if (buf[0] != value || buf[1] != 0 || buf[2] != 0 || buf[3] != 255) {
         var info = ' expected: rgb($value, 0, 0, 255) was rgb(${buf})';
         debug(info);

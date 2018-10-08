@@ -16,9 +16,9 @@ main() {
     debug(elementName);
     var target = document.createElement(elementName);
     document.body.append(target);
-    var root1 = target.createShadowRoot();
+    ShadowRoot root1 = target.createShadowRoot();
     root1.innerHtml = '<div><shadow></shadow></div>';
-    root2 = root1.firstChild.createShadowRoot();
+    root2 = (root1.firstChild as Element).createShadowRoot();
     root2.innerHtml = '<content select="*"></content>';
     shouldBe(root2.firstChild.getDistributedNodes().length, 0);
     target.remove();

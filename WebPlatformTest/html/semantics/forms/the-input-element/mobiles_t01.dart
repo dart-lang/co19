@@ -31,7 +31,7 @@ const String htmlEL='''
 
 void main() {
   document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
-  var input=document.getElementsByTagName("input");
+  List<InputElement> input = document.getElementsByTagName("input");
   test(() {assert_equals(input[0].type, "text");}, "text type support on input element");
   test(() {assert_equals(input[1].type, "number");}, "number type support on input element");
   test(() {assert_equals(input[2].type, "email");}, "email type support on input element");  

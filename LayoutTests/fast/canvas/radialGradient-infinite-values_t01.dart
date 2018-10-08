@@ -6,17 +6,14 @@
 /** 
  * @description This test checks createRadialGradient with infinite values
  */
-import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
-var NaN = double.NAN;
-var Infinity = double.INFINITY;
-var NegInfinity = double.NEGATIVE_INFINITY;
+var NaN = double.nan;
+var Infinity = double.infinity;
+var NegInfinity = double.negativeInfinity;
 
 main() {
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   shouldThrow(() => ctx.createRadialGradient(0, 0, 100, 0, 0, NaN));
   shouldThrow(() => ctx.createRadialGradient(0, 0, 100, 0, 0, Infinity));

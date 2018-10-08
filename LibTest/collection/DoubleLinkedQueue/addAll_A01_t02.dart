@@ -25,7 +25,7 @@ check(List expected, DoubleLinkedQueue actual) {
 main() {
   DoubleLinkedQueue queue = new DoubleLinkedQueue();
   Expect.isTrue(queue.length == 0);
-  queue.addAll(["1","2","3"]);
+  queue.addAll(["1", "2", "3"]);
   check(["1", "2", "3"], queue);
 
   queue.addAll([null,0, false, "0"]);

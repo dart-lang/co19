@@ -5,10 +5,11 @@
  */
 /**
  * @assertion void add(T value)
- * Adds [value] into the set. The method has no effect if [value] was already in the set.
- * @description Checks that elements with the same hash code that are not equal according
- * to == operator do not replace each other when added to the set but those that are equal
- * replace each other.
+ * Adds [value] into the set. The method has no effect if [value] was already in
+ * the set.
+ * @description Checks that elements with the same hash code that are not equal
+ * according to == operator do not replace each other when added to the set but
+ * those that are equal replace each other.
  * @author pagolubev
  */
 library add_A01_t03;
@@ -19,10 +20,10 @@ class A implements Comparable {
   int x;
 
   A(this.x);
-  bool operator ==(A other) => x == other.x;
+  bool operator ==(dynamic other) => x == other.x;
   int get hashCode => -1;
   // to allow run this test for ordered sets we need A to be comparable
-  int compareTo(A other) => this.x - other.x;
+  int compareTo(dynamic other) => this.x - other.x;
 }
 
 test(Set create([Set content])) {

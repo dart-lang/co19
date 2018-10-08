@@ -14,8 +14,6 @@
  * element if serializing template element
  */
 
-import 'dart:html';
-import "../../../Utils/expect.dart";
 import '../testcommon.dart';
 
 main() {

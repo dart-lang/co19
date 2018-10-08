@@ -13,8 +13,6 @@
  * patch for bug 3652.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 
@@ -24,7 +22,7 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
 
   window.onLoad.listen((_) {
-    var nick=document.getElementById('nick');
+    ImageElement nick = document.getElementById('nick');
     shouldBe(nick.naturalWidth, 320);
     shouldBe(nick.naturalHeight, 240);
     asyncEnd();

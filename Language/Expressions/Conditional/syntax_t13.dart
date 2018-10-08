@@ -20,5 +20,7 @@
 typedef int fun();
 
 main() {
-  false ? fun : [];
+  try {
+    false ? fun : [];
+  } catch (e) {}
 }

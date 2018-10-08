@@ -11,42 +11,22 @@
  * fire one error event, and then close with a done-event.
  * @author kaigorodov
  */
-
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-var error = new Error();
-
-check(Future f) {
-  bool seen = false;
-  Stream s = new Stream.fromFuture(f);
-
-  asyncStart();
-
-  s.listen((int event) {
-    Expect.fail("onData called unexpectedly");
-  }, onError: (e) {
-    Expect.equals(false, seen, "onError");
-    Expect.equals(error, e);
-    seen = true;
-  }, onDone: () {
-    Expect.equals(true, seen, "onDone");
-    asyncEnd();
-  });
-}
-
 main() {
+  Error error = new Error();
   // using immediate sync future
   void throwError() {throw error;}
-  check(new Future.sync(throwError));
+  AsyncExpect.events([], [error], new Stream.fromFuture(new Future.sync(throwError)));
 
   // using immediate future
-  check(new Future(throwError));
+  AsyncExpect.events([], [error], new Stream.fromFuture(new Future(throwError)));
 
   // using completable future
   Completer completer = new Completer();
-  check(completer.future);
-  completer.completeError(error);
-}
+  AsyncExpect.events([], [123], new Stream.fromFuture(completer.future));
+  completer.completeError(123);
 
+  AsyncExpect.events([], [3.14], new Stream.fromFuture(new Future.error(3.14)));
+}

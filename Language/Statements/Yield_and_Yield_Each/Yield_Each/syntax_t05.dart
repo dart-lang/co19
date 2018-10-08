@@ -18,7 +18,6 @@
 
 import 'dart:async';
 import '../../../../Utils/expect.dart';
-import '../../../../Utils/async_utils.dart';
 
 class A {
   static Stream<int> e = new Stream<int>.fromIterable([0,1,2,3,4,5,6,7,8,9]);

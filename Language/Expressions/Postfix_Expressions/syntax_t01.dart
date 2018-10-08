@@ -60,80 +60,37 @@ class A  extends S {
     super.x--; // issue 1300
 
     //thisExpression
-    this[0];
-    this.x;
-    this[0]--;
-    this.x++;
-
-    //functionExpression
-    () {} [0];  /// 01: static type warning, runtime error
-    () {}.x;  /// 02: static type warning, runtime error
-    () {} [0]++; /// 03: static type warning, runtime error
-    () {}.x--; /// 04: static type warning, runtime error
-    () {}.x; /// 05: static type warning, runtime error
-    () {}.x--; /// 06: static type warning, runtime error
+    try { this[0];} catch (e) {}
+    try { this.x;} catch (e) {}
+    try { this[0]--;} catch (e) {}
+    try { this.x++;} catch (e) {}
 
     //nullLiteral
-    null["key"]; /// 07: runtime error
-    null.x; /// 08: runtime error
-    null["key"]--; /// 09: runtime error
-    null.x++; /// 10: runtime error
-
-    //booleanLiteral
-    true[1]; /// 11: static type warning, runtime error
-    true.t; /// 12: static type warning, runtime error
-    true[1]++; /// 13: static type warning, runtime error
-    true.t--; /// 14: static type warning, runtime error
-
-    //numericLiteral
-    1[1]; /// 15: static type warning, runtime error
-    1.num; /// 16: static type warning, runtime error
-    1[1]--; /// 17: static type warning, runtime error
-    1.num++; /// 18: static type warning, runtime error
-
-    //stringLiteral
-    "s"["s"]; /// 19: static type warning, runtime error
-    "".c; /// 20: static type warning, runtime error
-    "s"["s"]++; /// 21: static type warning, runtime error
-    "".c--; /// 22: static type warning, runtime error
+    try { null["key"]; } catch (e) {}
+    try { null.x; } catch (e) {}
+    try { null["key"]--; } catch (e) {}
+    try { null.x++; } catch (e) {}
 
     //mapLiteral
-    true ? {"1" : 1, "2" : 2}["1"]++ : null; 
-    true ? {"1" : 1, "2" : 2}.prop-- : null; /// 23: static type warning, runtime error
-    const {"1":1}.x; /// 24: static type warning, runtime error
-    const {"1":1}.x++; /// 25: static type warning, runtime error
+    try { true ? {"1" : 1, "2" : 2}["1"]++ : null; } catch (e) {}
 
     //listLiteral
-    [0, 1, 2, 3][1];
-    [].a; /// 26: static type warning, runtime error
-    [0, 1, 2, 3][1]++;
-    [].a--; /// 27: static type warning, runtime error
-    const [1, 2, 3][0];
-    const [1, 2, 3][0]--; /// 29: runtime error
+    try { [0, 1, 2, 3][1]; } catch (e) {}
+    try { [0, 1, 2, 3][1]++; } catch (e) {}
+    try { const [1, 2, 3][0];} catch (e) {}
+    try { const [1, 2, 3][0]--;} catch (e) {}
 
     //identifier
-    id["id"]; /// 30: runtime error
-    id.id; /// 31: runtime error
-    id["id"]++; /// 32: runtime error
-    id.id--; /// 33: runtime error
+    try { id["id"];} catch (e) {}
+    try { id.id;} catch (e) {}
+    try { id["id"]++;} catch (e) {}
+    try { id.id--;} catch (e) {}
 
     //newExpression
-    new A()[0];
-    new A().x;
-    new A()[0]--;
-    new A().x++;
-
-    //constObjectExpression
-    const C()[0]++; /// 34: static type warning, runtime error
-    const C().v++; /// 35: static type warning, runtime error
-    const C.c2()[0]++; /// 36: static type warning, runtime error
-    const C.c2().v++; /// 37: static type warning, runtime error
-
-    //(...) is a primary
-    (topLevelFunction())[0]; /// 38: static type warning, runtime error
-    // (...)[...] or (...).v is an assignable expression
-    (topLevelFunction())[0]++; /// 39: static type warning, runtime error
-    (topLevelFunction()).x--; /// 40: static type warning, runtime error
+    try { new A()[0];} catch (e) {}
+    try { new A().x;} catch (e) {}
+    try { new A()[0]--;} catch (e) {}
+    try { new A().x++;} catch (e) {}
   }
 }
 

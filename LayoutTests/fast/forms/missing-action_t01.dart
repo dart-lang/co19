@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var f = new DocumentFragment.html('''
@@ -24,13 +23,13 @@ main() {
       </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var url = window.location.href;
+  String url = window.location.href;
 
-  var firstRun = url.indexOf('?') == -1 ||
+  bool firstRun = url.indexOf('?') == -1 ||
     url.substring(url.indexOf('?')+1, url.length) != "";
 
   if (firstRun) {
-    var form = document.getElementsByName('f')[0];
+    FormElement form = document.getElementsByName('f')[0] as FormElement;
     form.submit();
   } else {
     shouldBe(url.substring(url.indexOf('?')+1, url.length), "");

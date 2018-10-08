@@ -6,12 +6,10 @@
 /**
  * @assertion LinkedHashSet({bool equals(E e1, E e2), int hashCode(E e),
  * bool isValidKey(potentialKey)})
- * Create an insertion-ordered hash set using the provided equals and hashCode
- * ...
- * If equals or hashCode are omitted, the set uses the elements' intrinsic
- * Object.operator== and Object.hashCode
- * @description Checks that if equals and hashCode are omitted then
- * Object.operator== and Object.hashCode are used
+ * If [equals] or [hashCode] are omitted, the set uses the elements' intrinsic
+ * [Object.operator==] and [Object.hashCode].
+ * @description Checks that if [equals] and [hashCode] are omitted then
+ * [Object.operator==] and [Object.hashCode] are used
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
@@ -19,7 +17,7 @@ import "dart:collection";
 
 class C {
   int get hashCode => 1;
-  bool operator ==(C c) {
+  bool operator ==(Object c) {
     return true;
   }
 }

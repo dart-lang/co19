@@ -14,6 +14,9 @@
  */
 
 main() {
-  void enum() {}
-  enum();
+  try {
+    void enum() {}
+    enum();
+  } catch (anything) {
+  }
 }

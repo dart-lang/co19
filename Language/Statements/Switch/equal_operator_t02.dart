@@ -18,7 +18,9 @@
  */
 
 main() {
-  switch (1.0) {
-    case 0.5:
-  }
+  try {
+    switch (1.0) {
+      case 0.5:
+    }
+  } catch (e) {}
 }

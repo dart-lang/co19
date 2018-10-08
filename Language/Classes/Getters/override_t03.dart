@@ -6,13 +6,11 @@
 /**
  * @assertion It is a static warning if a getter m1 overrides a getter m2 and 
  * the type of m1 is not a subtype of the type of m2.
- * @description Checks that a static warning is produced if the overriding
+ * @description Checks that a compile error is produced if the overriding
  * getter is implicit as the return types of both getters are not mutually 
  * assignable.
- * @static-warning
+ * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class A {
@@ -20,7 +18,7 @@ class A {
 }
 
 class C extends A {
-  int n; /// static type warning
+  int n;
 }
 
 main() {

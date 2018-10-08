@@ -9,7 +9,6 @@
  * is what FireFox does, so we match.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -19,6 +18,6 @@ main() {
     </form>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var inputElement = document.getElementById("inputElement");
+  InputElement inputElement = document.getElementById("inputElement");
   shouldBe(inputElement.size, 4);
 }

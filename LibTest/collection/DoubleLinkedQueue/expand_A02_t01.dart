@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Iterable expand(Iterable f(E element))
- * The returned Iterable is lazy, and calls f for each element of this every time it's iterated.
+ * The returned [Iterable] is lazy, and calls [f] for each element of this every
+ * time it's iterated.
  * @description Checks that the returned calls f for each element of this
  * every time it's iterated.
  * @author kaigorodov
@@ -23,14 +24,14 @@ Iterable f(int element) {
 main() {
   DoubleLinkedQueue<int> queue = new DoubleLinkedQueue<int>();
   
-  for (int k=0; k<10; k++) {
+  for (int k = 0; k < 10; k++) {
     queue.add(k);
   }
 
-  Iterable expanded=queue.expand(f);
-  int count2=0;
+  Iterable expanded = queue.expand(f);
+  int count2 = 0;
 
-  for (int k=1; k<10; k++) {
+  for (int k = 1; k < 10; k++) {
     Iterator it=expanded.iterator;
     while (it.moveNext()) {
       count2++;

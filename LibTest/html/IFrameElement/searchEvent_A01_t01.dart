@@ -11,11 +11,10 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var type = 'search';
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
 
   asyncStart();
   Element.searchEvent.forElement(x).listen((e) {

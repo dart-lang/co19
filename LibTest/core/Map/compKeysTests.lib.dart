@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Map<K, V> abstract class 
- * @description Checks that all members of [Map] are implemented, using comparable keys.
+ * @description Checks that all members of [Map] are implemented, using
+ * comparable keys.
  * @author kaigorodov
  */
 library compKeysTests;
@@ -32,7 +33,8 @@ import "length_A01_t01.test.dart" as length_A01_t01;
 import "values_A01_t01.test.dart" as values_A01_t01;
 import "operator_subscript_A01_t01.test.dart" as operator_subscript_A01_t01;
 import "operator_subscript_A01_t03.test.dart" as operator_subscript_A01_t03;
-import "operator_subscripted_assignment_A01_t01.test.dart" as operator_subscripted_assignment_A01_t01;
+import "operator_subscripted_assignment_A01_t01.test.dart" as
+          operator_subscripted_assignment_A01_t01;
 
 import "remove_A01_t01.test.dart" as remove_A01_t01;
 

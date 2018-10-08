@@ -11,25 +11,25 @@
  *  • f is asynchronous and the return type of f may not be assigned to
  *    Future<Null>.
  *
- * @description Checks that there's no static warning when a statement of the
+ * @description Checks that there's a static warning when a statement of the
  * form "return;" is used in an asynchronous function whose return type is
  * Future<Object>
  *
- * @static-clean
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
 
 Future<Object> bar() async {
-  return;
+  return; /// static type warning
 }
 
 class C {
   static Future<Object> sm() async {
-    return;
+    return; /// static type warning
   }
   Future<Object> foo() async {
-    return;
+    return; /// static type warning
   }
 }
 

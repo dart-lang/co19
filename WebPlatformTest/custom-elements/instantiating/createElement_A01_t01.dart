@@ -15,7 +15,6 @@
 
 import 'dart:html';
 import "../../../Utils/expect.dart";
-import '../testcommon.dart';
 
 class Foo extends HtmlElement {
   static const tag = 'x-foo';

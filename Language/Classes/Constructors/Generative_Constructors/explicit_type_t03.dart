@@ -12,7 +12,6 @@
  * @description Checks that the type of an initializing formal is the type of
  * the corresponding field.
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 class C {
@@ -24,5 +23,3 @@ main() {
   new C(1);
   new C(3.14);
 }
-
-

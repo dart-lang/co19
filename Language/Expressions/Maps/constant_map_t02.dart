@@ -10,9 +10,10 @@
  * in a constant map literal is not a compile-time constant.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
-  const {"key": [1, 2]};
+  try {
+    const {"key": [1, 2]};
+  } catch (e) {}
 }

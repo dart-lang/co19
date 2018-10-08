@@ -18,7 +18,9 @@
  */
 
 main() {
-  do
-  while (true);
+  try {
+    do
+    while (true);
+  } catch (x) {}
 }
 

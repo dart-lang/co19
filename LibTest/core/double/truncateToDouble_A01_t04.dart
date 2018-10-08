@@ -8,12 +8,11 @@
  * Returns the integer obtained by discarding any fractional digits from this.
  * @description Checks truncation of infinity.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  double inf = 1 / 0;
+  double inf = double.infinity;
   Expect.equals(inf, inf.truncateToDouble());
   Expect.equals(-inf, (-inf).truncateToDouble());
 }

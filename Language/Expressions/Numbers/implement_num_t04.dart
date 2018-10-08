@@ -16,5 +16,7 @@ class A {}
 class C extends A with num {}
 
 main() {
-  new C();
+  try {
+    new C();
+  } catch (e) {}
 }

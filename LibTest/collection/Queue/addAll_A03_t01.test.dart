@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Fails gracefully if supplied with an argument of a wrong type.
+ * @assertion void addAll(Iterable<E> iterable)
+ * Fails gracefully if supplied with an argument of a wrong type.
  * @description Tries to pass various wrong parameters to the method.
- * @static-warning
  * @author iefremov
  */
 library addAll_A03_t01;
@@ -15,7 +15,8 @@ import "../../../Utils/expect.dart";
 import "dart:collection";
 
 test(Queue create([Iterable content])) {
-  Expect.throws(() => create().addAll(1)); /// static type warning
-  Expect.throws(() => create().addAll(1.1)); /// static type warning
-  Expect.throws(() => create().addAll("")); /// static type warning
+  dynamic x1 = 1, x2 = 1.1, x3 = "";
+  Expect.throws(() => create().addAll(x1));
+  Expect.throws(() => create().addAll(x2));
+  Expect.throws(() => create().addAll(x3));
 }

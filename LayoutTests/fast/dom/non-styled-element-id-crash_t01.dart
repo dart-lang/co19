@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -21,7 +20,8 @@ main() {
     asyncEnd();
   }
 
-  var element = document.body.append(document.createElementNS("foo", "bar"));
+  HtmlElement element =
+      document.body.append(document.createElementNS("foo", "bar"));
   element.id = "bar";
   element.setAttribute("id", "bar");
   element.remove();

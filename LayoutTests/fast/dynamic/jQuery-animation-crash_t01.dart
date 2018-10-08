@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -46,7 +45,7 @@ main() {
     var elem = document.getElementById('i');
     elem.style.setProperty('display', 'block');
 
-    var val, props = { 'position': "absolute", 'visibility': "hidden", 'display':"block" }; 
+    var val, props = { 'position': "absolute", 'visibility': "hidden", 'display':"block" };
     getWH() {
       val = elem.offsetHeight;
     }

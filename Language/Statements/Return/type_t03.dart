@@ -11,25 +11,25 @@
  * Otherwise, it is a static type warning if T may not be assigned to the
  * declared return type of f.
  *
- * @description Checks that a static type warning occurs if the type
+ * @description Checks that compile error occurs if the type
  * Future<flatten(T)> may not be assigned to the declared return type of the
  * immediately enclosing function, marked async.
  *
- * @static-warning
+ * @compile-error
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
-import '../../../Utils/async_utils.dart';
+import '../../../Utils/expect.dart';
 
 Future<int> foo() async {
-  return 'a';  /// static type warning
+  return 'a';
 }
 
 main() {
   asyncStart();
   foo().then(
       (_) {
-        asyncEnd();
+        Expect.fail('Either runtime or compile error is expected');
       },
       onError: (e) {
         asyncEnd();

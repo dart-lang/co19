@@ -35,5 +35,7 @@ final x = 1;
 var y = 2;
 
 main() {
-  y = 3;
+  try {
+    y = 3;
+  } catch (e) {}
 }

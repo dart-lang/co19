@@ -11,17 +11,16 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.appendHtml('<canvas id="webgl-canvas" width="32px" ' +
       'height="32px"></canvas>', treeSanitizer: NodeTreeSanitizer.trusted);
 
-  var canvas;
+  dynamic canvas;
   var context;
 
   draw() {
-    var viewport = context.getParameter(wgl.VIEWPORT);
+    var viewport = context.getParameter(wgl.WebGL.VIEWPORT);
 
     debug('Testing viewport');
     shouldBeList(viewport, [20, 20, 10, 10]);
@@ -35,7 +34,7 @@ main() {
   context.viewport(20, 20, 10, 10);
 
   context.clearColor(255, 0, 0, 255);
-  context.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+  context.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
 
   // We need to ensure that the compositor has run before the drawing
   // takes place. Setting a timeout of zero causes the compositor to run before

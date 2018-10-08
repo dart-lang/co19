@@ -14,13 +14,12 @@
  * field v.
  * An initializer of the form v = e is equivalent to an initializer of the form
  * this.v = e.
- * @description Checks that in checked mode, it is a dynamic type error if o
- * is not null and the interface of the class of o is not a subtype of the
- * actual type of the field v.
- * @static-warning
+ * @description Checks that it is a compile error if o is not null and the
+ * interface of the class of o is not a subtype of the actual type of the
+ * field v.
+ * @compile-error
  * @author ilya
  */
-import "../../../../Utils/dynamic_check.dart";
 
 class A {}
 class B {}
@@ -31,6 +30,6 @@ class C<T> {
 }
 
 main() {
-  checkTypeError(() => new C<A>());
+  new C<A>();
 }
 

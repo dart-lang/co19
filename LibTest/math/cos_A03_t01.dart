@@ -4,19 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double cos(num x)
- * Throws an error is [x] is null.
- * @description Checks that Error is thrown when passed argument is a null.
+ * @assertion double cos(num radians)
+ * Converts radians to a double and returns the cosine of the value.
+ * @description Checks that Error is thrown when radians is a null (not a
+ * number).
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview undocumented
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
-  Expect.throws( () {
+  Expect.throws(() {
     Math.cos(null);
   });
 }

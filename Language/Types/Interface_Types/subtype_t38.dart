@@ -25,7 +25,7 @@
  * T <: S or S <: T.
  * @description Checks that unrelated generic types are not assignable even if
  * all their type arguments are.
- * @static-warning
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
  */
@@ -41,5 +41,5 @@ class D<T, S, U, X, Y, Z> {}
 D<A, B, int, num, Object, Map<List, Map<List, List>>> checker() {}
 
 main() {
-  C<A, B, int, num, Object, Map<List, Map<List, List>>> c = checker(); /// static-warning
+  C<A, B, int, num, Object, Map<List, Map<List, List>>> c = checker();
 }

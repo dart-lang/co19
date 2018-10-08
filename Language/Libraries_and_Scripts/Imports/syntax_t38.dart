@@ -23,7 +23,6 @@
  * @description Checks that it is not an error if the arguments of show/hide
  * combinators include identifiers named 'hide' and 'show' and that filtering
  * of the imported names is done correctly.
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -34,9 +33,4 @@ import "syntax_lib.dart" show hide, show;
 main() {
   Expect.equals(hide, "hide");
   Expect.equals(show, "show");
-
-  try {
-    var x = foo; /// static type warning cannot resolve
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
 }

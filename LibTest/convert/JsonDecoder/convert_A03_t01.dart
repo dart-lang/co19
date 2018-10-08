@@ -10,19 +10,15 @@
  * in input string is encountered.
  * @author kaigorodov
  */
-
 import "dart:convert";
 import "../../../Utils/expect.dart";
 import "table3.lib.dart" show table;
 
 main() {
   for (String source in table) {
-    JsonDecoder jdec=new JsonDecoder(null);
+    JsonDecoder jdec = new JsonDecoder(null);
     Expect.throws((){
         jdec.convert(source);
-      },
-      (e) => e is FormatException,
-      "bad string $source parsed"
-    );
+      }, (e) => e is FormatException, "Bad string $source parsed");
   }
 }

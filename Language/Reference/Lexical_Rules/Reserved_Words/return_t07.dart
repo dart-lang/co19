@@ -19,5 +19,8 @@ class C {
 }
 
 main() {
-  C.return();
+  try {
+    C.return();
+  } catch (anything) {
+  }
 }

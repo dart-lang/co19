@@ -17,5 +17,8 @@
 typedef void super();
 
 main() {
-  null is super;
+  try {
+    null is super;
+  } catch (anything) {
+  }
 }

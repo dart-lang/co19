@@ -26,12 +26,12 @@ class G<Q, R> {}
 class GG<S, T> extends G<S, T> {}
 
 typedef int func(num n, Pattern p);
-num f(double d, Pattern p) {return double.NAN;}
+num f(double d, Pattern p) {return double.nan;}
 
 main() {
   1 as int;
   0 as num;
-  double.NAN as num;
+  double.nan as num;
   "foo" as String;
   "bar" as Pattern;
   new C() as I;

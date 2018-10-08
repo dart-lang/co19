@@ -14,16 +14,17 @@
  *   top-level setter, then e is equivalent to the getter invocation id.
  * @description  Checks that if evaluation of the initializer expression of a
  * library variable is not successful, the variable is initialized with [:null:].
- * @static-warning
  * @author msyabro
  * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 
-var tlVar = ''.thatMethod(); /// static type warning - no such method, see "Ordinary invocation"
-int tlTyped = ''.thatMethod(); /// static type warning - no such method, see "Ordinary invocation"
-final tlFinal = ''.thatMethod(); /// static type warning - no such method, see "Ordinary invocation"
-final int tlFinalTyped = ''.thatMethod(); /// static type warning - no such method, see "Ordinary invocation"
+dynamic o = '';
+
+var tlVar = o.thatMethod();
+int tlTyped = o.thatMethod();
+final tlFinal = o.thatMethod();
+final int tlFinalTyped = o.thatMethod();
 
 
 main() {

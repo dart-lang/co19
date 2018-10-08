@@ -6,9 +6,9 @@
 /**
  * @assertion abstract int lastIndexOf(E element, [int start])
  * Returns -1 if element is not found.
- * @description Checks that -1 is returned if the element is not present in the list.
+ * @description Checks that -1 is returned if the element is not present in
+ * the list.
  * @author iefremov
- * @reviewer msyabro
  */
 library lastIndexOf_A02_t01;
 

@@ -20,7 +20,6 @@
  * @author ilya
  * @reviewer
  */
-
 import 'dart:convert';
 import "../../../Utils/expect.dart";
 
@@ -39,7 +38,7 @@ enc(String s) => s.runes
       ? new String.fromCharCode(x)
       : x == 32
         ? '+'
-        : UTF8.encode(new String.fromCharCode(x)).map(encodeOctet).join(''))
+        : utf8.encode(new String.fromCharCode(x)).map(encodeOctet).join(''))
   .join('');
 
 tryRange(start, end) {

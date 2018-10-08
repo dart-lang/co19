@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "../../resources/run-after-display.dart";
 
 main() {
@@ -29,7 +28,7 @@ main() {
 
   repaintTest()
   {
-    var canvas = document.getElementById("canvas");
+    dynamic canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
 
     ctx.fillStyle = "rgb(200,0,0)";

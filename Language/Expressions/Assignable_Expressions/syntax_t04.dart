@@ -28,13 +28,15 @@
  * be used in the left hand side of an assignment.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class S {}
 class A extends S {
   test() {
-    super = null;  }
+    try {
+      super = null;
+    } catch (e) {}
+  }
 }
 
 main() {

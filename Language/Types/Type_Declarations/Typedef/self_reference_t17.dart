@@ -16,5 +16,7 @@ typedef void F(G g);
 typedef void G(List<F> f);
 
 main() {
-  F x;
+  try {
+    F x;
+  } catch (e) {}
 }

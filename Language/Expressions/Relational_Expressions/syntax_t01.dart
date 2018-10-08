@@ -23,6 +23,7 @@
  * @author msyabro
  * @reviewer rodionov
  */
+import '../../../Utils/expect.dart';
 
 topLevelFunction() {}
 
@@ -47,63 +48,43 @@ class A extends S {
     super >= (super <= (super > (super < "")));
 
     // shift expression is an allowed type of argument for a relational expression
-    super >= 1 << 2;
+    try {super >= 1 << 2;} catch (e) {}
 
     // additive and multiplicative expressions are allowed arguments
     // for a shift expression
-    super >= 1 + 1 >> 2 * 2;
+    try {super >= 1 + 1 >> 2 * 2;} catch (e) {}
 
     //literal is primary is postfix expr. is shift expr.
-    1 >= false; /// 01: static type warning, runtime error
-    "abc" < null; /// 02: static type warning, runtime error
-    [1, 2, 3] > {"key" : "value"}; /// 03: static type warning, runtime error
-    this <= 0.25;
-
-    //constant literal is primary is postfix expr. is shift expr.
-    const [] > const {}; /// 04: static type warning, runtime error
-    const ["1", 2] >= const S(); /// 05: static type warning, runtime error
-    const [] < 1; /// 06: static type warning, runtime error
-    const {"a": 1, "b": 2} <= 1; /// 07: static type warning, runtime error
+    try {this <= 0.25;} catch (e) {}
 
     //invocation is postfix expr. is shift expr.
-    method() > topLevelFunction(); /// 08: runtime error
-    1 < method()()(); /// 09: runtime error
-    method() >= [1, 2]; /// 10: runtime error
-    topLevelFunction() <= 1; /// 11: runtime error
+    try {method() > topLevelFunction();} catch (e) {}
+    try {1 < method()()();} catch (e) {}
+    try {method() >= [1, 2];} catch (e) {}
+    try {topLevelFunction() <= 1;} catch (e) {}
 
     //additive expression is a shift expr.
-//    Expect.isFalse(1 + 2 < 2);
-     0 - 0 > null + null; /// 12: runtime error
-     [] + {} <= () {} - () => null; /// 13: static type warning, runtime error
-     "" - '' >= 0; /// 14: static type warning, runtime error
+    Expect.isFalse(1 + 2 < 2);
+    try { 0 - 0 > null + null;} catch (e) {}
 
     //multiplicative expression is a shift expr.
-    true * false < id.id / [](); /// 15: static type warning, runtime error
-    this[1] % null(1) > topLevelFunction()[0]++ ~/ {}()[0]; /// 16: static type warning, runtime error
-    2 * 3 >= 0 / 0;
-    0 ~/ 1 >= 1 - -1;
+    try {2 * 3 >= 0 / 0;} catch (e) {}
+    try {0 ~/ 1 >= 1 - -1;} catch (e) {}
 
     //unary expression is a shift expr.
-    -this > ~this; /// 17: static type warning, runtime error
-    --id < id++; /// 18: runtime error
-    ~-id >= !!false; /// 19: runtime error
-    ++1[1] <= ()=>2[0]--; /// 20: static type warning, runtime error
+    try {--id < id++;} catch (e) {}
+    try {~-id >= !!false;} catch (e) {}
 
     //identifier
-    id < id; /// 21: runtime error
-    id <= id; /// 22: runtime error
-    id > id; /// 23: runtime error
-    id >= id; /// 24: runtime error
+    try {id < id;} catch (e) {}
+    try {id <= id;} catch (e) {}
+    try {id > id;} catch (e) {}
+    try {id >= id;} catch (e) {}
 
     //function expression is primary is postfix expr. is shift expr.
     // issue 1189
-    ()=>0 < 1;
-    (var x) {} <= 0.5;  /// 25: static type warning, runtime error
-    () {return 0.5;} > () => 1;  /// 26: static type warning, runtime error
-    () {} >= () => null; /// 27: static type warning, runtime error
+    try { () => 0 < 1; } catch (e) {}
   }
-
-  var _id;
 }
 
 main() {

@@ -10,7 +10,6 @@
  * formal syntax is used by a factory constructor (as an optional parameter).
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
@@ -19,5 +18,7 @@ class C {
 }
 
 main() {
-  new C.i(null);
+  try {
+    new C.i(null);
+  } catch (v) {}
 }

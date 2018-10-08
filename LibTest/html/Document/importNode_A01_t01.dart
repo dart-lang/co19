@@ -15,15 +15,15 @@ import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-  var myButton="myButton";
-  Document d2=document.implementation.createHtmlDocument("Another Document");
+  var myButton = "myButton";
+  HtmlDocument d2 =
+      document.implementation.createHtmlDocument("Another Document");
   var x = new Element.html('<button id="$myButton"></button>');
   d2.body.append(x);
   Expect.equals(d2, x.ownerDocument, "x.ownerDocument");
   Expect.equals(x, d2.getElementById(myButton), "d2.getElementById 1");
-  var x2=document.importNode(x);
+  var x2 = document.importNode(x);
   Expect.isNull(x2.parentNode);
   Expect.equals(x, d2.getElementById(myButton), "d2.getElementById 2");
   Expect.equals(document, x2.ownerDocument, "x2.ownerDocument");
 }
-

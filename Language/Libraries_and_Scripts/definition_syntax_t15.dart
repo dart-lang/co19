@@ -32,5 +32,7 @@
 import "definition_syntax_t15_lib.dart";
 
 main() {
-  var someVar = 1;
+  try {
+    var someVar = 1;
+  } catch (e) {}
 }

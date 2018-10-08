@@ -6,9 +6,9 @@
 /**
  * @assertion E next
  * Return the successor of this element in its linked list.
- * Returns null if there is no successor in the linked list, or if this entry is
- * not currently in any list.
- * @description Checks that null is returned if there is no successor in the
+ * Returns [null] if there is no successor in the linked list, or if this entry
+ * is not currently in any list.
+ * @description Checks that [null] is returned if there is no successor in the
  * linked list
  * @author sgrekhov@unipro.ru
  */
@@ -18,7 +18,7 @@ import "LinkedListEntry.lib.dart";
 
 main() {
   MyLinkedListEntry<int> entry = new MyLinkedListEntry<int>(1);
-  LinkedList list = new LinkedList();
+  LinkedList<MyLinkedListEntry> list = new LinkedList<MyLinkedListEntry>();
   list.add(entry);
 
   Expect.isNull(entry.next);

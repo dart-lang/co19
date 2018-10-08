@@ -12,7 +12,6 @@
  * member of at least one of S1 ... Sj-1 and neither m nor m' are fields.
  * @description Checks that m does not override m' if m' is not accessible.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

@@ -1,25 +1,24 @@
 /*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
  * @assertion hashCode → int
- *  Get a hash code for this object.…
- *  read-only, inherited
- * @description Checks that hashCode is different for different elements
- * @author sgrekhov@unipro.ru
+ * Get a hash code for this object.…
+ * read-only, inherited
+ * @description Checks that hashCode is constant in time even if element
+ * is changed
+ * @author a.semenov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
-
+import "dart:math";
 main() {
-  double d = 3.14;
-  DoubleLinkedQueueEntry e1 = new DoubleLinkedQueueEntry(d);
-  DoubleLinkedQueueEntry e2 = new DoubleLinkedQueueEntry(d);
-  Expect.notEquals(e1.hashCode, e2.hashCode);
-
-  int old = e1.hashCode;
-  e1.element = -1;
-  Expect.equals(old, e1.hashCode);
+  DoubleLinkedQueueEntry d = new DoubleLinkedQueueEntry(pi);
+  int hashCode = d.hashCode;
+  for (Object o in [e, double.nan, -1, "hello", d]){
+    d.element = o;
+    Expect.equals(hashCode, d.hashCode);
+  }
 }

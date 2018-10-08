@@ -15,19 +15,17 @@
  * in which case the second parameter is a stack trace.
  * @author ilya
  */
-
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 const N = 10;
 
 main() {
-  var s = new Stream.fromIterable(new Iterable.generate(N, (x) => x));
+  Stream<int> s = new Stream.fromIterable(new Iterable.generate(N, (x) => x));
 
-  var errors = [];
-  var stackTraces = [];
-  var s2 = s.map((event) {
+  List errors = [];
+  List stackTraces = [];
+  Stream<int> s2 = s.map((event) {
     try {
       throw new Error();
     } catch (e, st) {

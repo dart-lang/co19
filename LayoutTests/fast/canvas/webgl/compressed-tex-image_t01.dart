@@ -13,10 +13,9 @@ import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement("canvas");
+  dynamic canvas = document.createElement("canvas");
   var gl = wtu.create3DContext(canvas);
 
   const COMPRESSED_RGB_S3TC_DXT1_EXT     = 0x83F0;
@@ -32,13 +31,13 @@ main() {
     testPassed("context exists");
 
     var tex = gl.createTexture();
-    gl.bindTexture(wgl.TEXTURE_2D, tex);
+    gl.bindTexture(wgl.WebGL.TEXTURE_2D, tex);
 
-    shouldGenerateGLError(gl, wgl.INVALID_ENUM, () => gl.compressedTexImage2D(wgl.TEXTURE_2D, 0, COMPRESSED_RGB_S3TC_DXT1_EXT, 4, 4, 0, new Uint8List(8)));
-    shouldGenerateGLError(gl, wgl.INVALID_ENUM, () => gl.compressedTexImage2D(wgl.TEXTURE_2D, 0, COMPRESSED_RGBA_S3TC_DXT1_EXT, 4, 4, 0, new Uint8List(8)));
-    shouldGenerateGLError(gl, wgl.INVALID_ENUM, () => gl.compressedTexImage2D(wgl.TEXTURE_2D, 0, COMPRESSED_RGBA_S3TC_DXT5_EXT, 4, 4, 0, new Uint8List(16)));
-    shouldGenerateGLError(gl, wgl.INVALID_ENUM, () => gl.compressedTexImage2D(wgl.TEXTURE_2D, 0, ETC1_RGB8_OES, 4, 4, 0, new Uint8List(8)));
-    shouldGenerateGLError(gl, wgl.INVALID_ENUM, () => gl.compressedTexImage2D(wgl.TEXTURE_2D, 0, COMPRESSED_RGB_PVRTC_4BPPV1_IMG, 8, 8, 0, new Uint8List(8)));
-    shouldGenerateGLError(gl, wgl.INVALID_ENUM, () => gl.compressedTexImage2D(wgl.TEXTURE_2D, 0, COMPRESSED_RGBA_PVRTC_4BPPV1_IMG, 8, 8, 0, new Uint8List(8)));
+    shouldGenerateGLError(gl, wgl.WebGL.INVALID_ENUM, () => gl.compressedTexImage2D(wgl.WebGL.TEXTURE_2D, 0, COMPRESSED_RGB_S3TC_DXT1_EXT, 4, 4, 0, new Uint8List(8)));
+    shouldGenerateGLError(gl, wgl.WebGL.INVALID_ENUM, () => gl.compressedTexImage2D(wgl.WebGL.TEXTURE_2D, 0, COMPRESSED_RGBA_S3TC_DXT1_EXT, 4, 4, 0, new Uint8List(8)));
+    shouldGenerateGLError(gl, wgl.WebGL.INVALID_ENUM, () => gl.compressedTexImage2D(wgl.WebGL.TEXTURE_2D, 0, COMPRESSED_RGBA_S3TC_DXT5_EXT, 4, 4, 0, new Uint8List(16)));
+    shouldGenerateGLError(gl, wgl.WebGL.INVALID_ENUM, () => gl.compressedTexImage2D(wgl.WebGL.TEXTURE_2D, 0, ETC1_RGB8_OES, 4, 4, 0, new Uint8List(8)));
+    shouldGenerateGLError(gl, wgl.WebGL.INVALID_ENUM, () => gl.compressedTexImage2D(wgl.WebGL.TEXTURE_2D, 0, COMPRESSED_RGB_PVRTC_4BPPV1_IMG, 8, 8, 0, new Uint8List(8)));
+    shouldGenerateGLError(gl, wgl.WebGL.INVALID_ENUM, () => gl.compressedTexImage2D(wgl.WebGL.TEXTURE_2D, 0, COMPRESSED_RGBA_PVRTC_4BPPV1_IMG, 8, 8, 0, new Uint8List(8)));
   }
 }

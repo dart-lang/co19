@@ -18,8 +18,8 @@
  * If some but not all of the mi , 1 ≤ i ≤ k are getters none of the mi are
  * inherited, and a static warning is issued.
  * @description Checks that if multiple members with the same name are inherited
- * but not all of them are getters then static warning issued
- * @static-warning
+ * but not all of them are getters then a compile error occurs
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 

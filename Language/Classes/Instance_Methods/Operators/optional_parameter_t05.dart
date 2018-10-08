@@ -10,7 +10,6 @@
  * operator [] specifies one optional named parameter.
  * @compile-error
  * @author ilya
- * @reviewer
  */
 
 class C {
@@ -18,5 +17,7 @@ class C {
 }
 
 main() {
-  var x = new C()[];
+  try {
+    var x = new C()[];
+  } catch (e) {}
 }

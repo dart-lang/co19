@@ -16,25 +16,15 @@
  * @description Checks that if there is no declaration and i occurs in static
  * function (of any kind), or static variable initializer, evaluation of i
  * causes a NoSuchMethodError to be thrown.
- * @static-warning
+ * @compile-error
  * @author ilya
  */
 import '../../../../Utils/expect.dart';
 
 class C {
   static test() =>  undeclared();
-  static get test2 => undeclared2();
-  static set test3 (_) => undeclared3();
-  static var test4 = undeclared4();
-
-  noSuchMethod(Invocation im) {
-    Expect.fail('must not be called');
-  }
 }
 
 main() {
-  Expect.throws(() => C.test(), (e) => e is NoSuchMethodError);
-  Expect.throws(() => C.test2, (e) => e is NoSuchMethodError);
-  Expect.throws(() => C.test3 = 1, (e) => e is NoSuchMethodError);
-  Expect.throws(() => C.test4, (e) => e is NoSuchMethodError);
+  C.test();
 }

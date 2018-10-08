@@ -5,15 +5,13 @@
  */
 /**
  * @description 
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   debug("Test calling revokeObjectUrl with no argument.");
-  shouldThrow(() => Url.revokeObjectUrl());
+  shouldThrow(() => (Url as dynamic).revokeObjectUrl());
 
   debug("Test calling revokeObjectUrl with empty Url.");
   Url.revokeObjectUrl("");

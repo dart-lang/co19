@@ -6,11 +6,11 @@
 /**
  * @assertion final bool isAbsolute
  * Returns whether the URI is absolute.
+ * A URI is an absolute URI in the sense of RFC 3986 if it has a scheme and no
+ * fragment.
  * @description Checks expected isAbsolute values
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
@@ -25,4 +25,3 @@ main() {
   Expect.isFalse(Uri.parse('../a/b/c').isAbsolute);
   Expect.isFalse(Uri.parse('a/b/c').isAbsolute);
 }
-

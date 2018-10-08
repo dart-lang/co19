@@ -38,14 +38,14 @@
  * constructor is declared abstract.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {
   const abstract C.id();
 }
 
-
 main() {
-  new C.id();
+  try {
+    new C.id();
+  } catch (e) {}
 }

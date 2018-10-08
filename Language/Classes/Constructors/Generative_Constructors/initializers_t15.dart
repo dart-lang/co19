@@ -17,7 +17,6 @@
  * @description Checks that cascaded invocations are allowed in field
  * initializers.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../../Utils/expect.dart";
 

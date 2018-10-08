@@ -16,5 +16,7 @@ var a = 1;
 const m = --a;
 
 main() {
-  print(m);
+  try {
+    print(m);
+  } catch (x) {}
 }

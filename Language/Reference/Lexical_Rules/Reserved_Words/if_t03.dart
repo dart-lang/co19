@@ -17,5 +17,8 @@
 typedef void if();
 
 main() {
-  null is if;
+  try {
+    null is if;
+  } catch (anything) {
+  }
 }

@@ -8,19 +8,16 @@
  * to a canvas in a frame-less document.
  */
 import "dart:html";
-import "dart:math" as Math;
-import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   // It is not clear frome the spec whether this is supposed to work and how.
   // Therefore, we do not validate the rendering results. We just make sure
   // this does not crash the browser.
-  var canvas1 = document.createElement('canvas');
+  dynamic canvas1 = document.createElement('canvas');
   var ctx1 = canvas1.getContext('2d');
   var htmlDoc = document.implementation.createHtmlDocument('');
   htmlDoc.adoptNode(canvas1);
-  var canvas2 = htmlDoc.createElement('canvas');
+  dynamic canvas2 = htmlDoc.createElement('canvas');
   var ctx2 = canvas2.getContext('2d');
 
   ctx1.font = 'italic 30px Arial';

@@ -6,7 +6,7 @@
 /**
  * @assertion LinkedList<E> list
  * Get the linked list containing this element.
- * Returns null if this entry is not currently in any list.
+ * Returns [null] if this entry is not currently in any list.
  * @description Checks that null is returned if this entry is not currently in
  * any list and correct list otherwise
  * @author sgrekhov@unipro.ru
@@ -19,12 +19,12 @@ main() {
   MyLinkedListEntry<int> entry = new MyLinkedListEntry<int>(1);
   Expect.isNull(entry.list);
 
-  LinkedList list = new LinkedList();
+  LinkedList<MyLinkedListEntry> list = new LinkedList<MyLinkedListEntry>();
   list.add(entry);
   Expect.identical(list, entry.list);
   list.remove(entry);
 
-  LinkedList list2 = new LinkedList();
+  LinkedList<MyLinkedListEntry> list2 = new LinkedList<MyLinkedListEntry>();
   list2.add(entry);
   Expect.identical(list2, entry.list);
 }

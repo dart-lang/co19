@@ -7,12 +7,10 @@
  * @description Series of tests to ensure correct behaviour of canvas.strokeRect()
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   // stroke rect with solid green
   debug("Test canvas.strokeRect() with solid green.");
@@ -31,13 +29,12 @@ main() {
 
   // stroke rect with a pattern
   debug("Test canvas.strokeRect() with a pattern.");
-  var canvas2 = document.createElement('canvas');
+  dynamic canvas2 = document.createElement('canvas');
   canvas2.width = 100;
   canvas2.height = 100;
   var ctx2 = canvas2.getContext('2d');
   ctx2.fillStyle = 'green';
   ctx2.fillRect(0, 0, 100, 100);
-  var pattern = ctx.createPattern(canvas2, 'repeat');
   ctx.strokeStyle = 'pattern';
   ctx.lineWidth = 100;
   ctx.strokeRect(50, 0, 100, 100);

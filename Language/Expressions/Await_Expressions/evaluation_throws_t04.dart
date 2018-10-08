@@ -17,7 +17,6 @@
  * @author a.semenov@unipro.ru
  */
 import '../../../Utils/expect.dart';
-import '../../../Utils/async_utils.dart';
 
 f() {
   return (1 ~/ 0);

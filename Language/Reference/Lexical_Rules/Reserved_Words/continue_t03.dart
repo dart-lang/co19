@@ -17,5 +17,8 @@
 typedef void continue();
 
 main() {
-  null is continue;
+  try {
+    null is continue;
+  } catch (anything) {
+  }
 }

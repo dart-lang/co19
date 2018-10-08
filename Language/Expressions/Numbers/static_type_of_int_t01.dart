@@ -9,7 +9,6 @@
  * integer literal to a typed int variable.
  * @static-clean
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {
@@ -18,6 +17,5 @@ main() {
   i = 2137483647;
   i = 2137483647;
   i = 9223372036854775807;
-  i = 999223372036854775807;
   i = 0xffffffffffffffff;
 }

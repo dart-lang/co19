@@ -7,12 +7,11 @@
  * @description Tests that Replaceable attributes are writable
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
   //window.innerHeight = 42;
   //shouldBe(window.innerHeight, 42);
   //in dart it's final
-  shouldThrow(() => window.innerHeight = 42);
+  shouldThrow(() => (window as dynamic).innerHeight = 42);
 }

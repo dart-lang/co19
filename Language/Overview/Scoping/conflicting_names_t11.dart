@@ -21,5 +21,7 @@ var conflictingName;
 var conflictingName;
 
 main() {
-  conflictingName = null;
+  try {
+    conflictingName = null;
+  } catch (e) {}
 }

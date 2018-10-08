@@ -7,13 +7,10 @@
  * @description Test the handling of non-integer source coordinates in
  * getImageData().
  */
-import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   dimensionsShouldBe(sx, sy, sw, sh, width, height)
   {

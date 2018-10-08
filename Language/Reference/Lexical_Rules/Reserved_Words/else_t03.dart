@@ -17,5 +17,8 @@
 typedef void else();
 
 main() {
-  null is else;
+  try {
+    null is else;
+  } catch (anything) {
+  }
 }

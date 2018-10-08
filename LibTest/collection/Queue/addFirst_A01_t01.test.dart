@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Adds [value] at the beginning of the queue.
+ * @assertion  void addFirst(E value)
+ * Adds [value] at the beginning of the queue.
  * @description Checks that [value] is added to the beginning of the queue.
  * @author msyabro
- * @reviewer varlax
  */
 library addFirst_A01_t01;
 
@@ -30,6 +30,6 @@ test(Queue create([Iterable content])) {
   for (var i = 0; i <= 1000; i++) {
     queue.addFirst(i);
     Expect.equals(i, queue.first);
-    Expect.equals(i+1, queue.length);
+    Expect.equals(i + 1, queue.length);
   }
 }

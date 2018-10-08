@@ -7,14 +7,11 @@
  * @description This test passes if it does not cause a crash
  */
 import "dart:html";
-import "dart:math" as Math;
-import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.append(document.createElement("p"))
     .append(new Text("This test passes if it does not cause a crash"));
-  var canvas = document.body.append(document.createElement("canvas"));
+  dynamic canvas = document.body.append(document.createElement("canvas"));
   canvas.width = 400;
   canvas.height = 400;
   var ctx = canvas.getContext('2d');

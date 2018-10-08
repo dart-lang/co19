@@ -9,8 +9,10 @@
  *            CharSet and returning that CharSet and the Boolean false.<br/>
  *            The production ClassRanges :: [empty] evaluates by returning the
  *            empty CharSet.<br/> 
- *            The production ClassRanges :: NonemptyClassRanges evaluates by evaluating 
- *            NonemptyClassRanges to obtain a CharSet and returning that CharSet. <br/>
+ *            The production ClassRanges :: NonemptyClassRanges evaluates by
+ *            evaluating
+ *            NonemptyClassRanges to obtain a CharSet and returning that
+ *            CharSet. <br/>
  *            NonemptyClassRanges ::<br/> 
  *            ClassAtom <br/> 
  *            ClassAtom NonemptyClassRangesNoDash<br/> 
@@ -35,7 +37,6 @@
  *              described.
  * @3rdparty sputnik-v1:S15.10.2.13_A1_T1.js-S15.10.2.13_A1_T17.js
  * @author rodionov
- * @reviewer msyabro
  * @note Issue 1297
  */
 import "../../../../Utils/expect.dart";

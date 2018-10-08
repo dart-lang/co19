@@ -35,10 +35,10 @@ test(() {
 
 test(() {
   var form = document.getElementById("form");
-  var i = document.createElement("input");
+  var i = document.createElement("input") as InputElement;
   i.name = "a2";
   form.append(i);
-  var j = document.createElement("input");
+  var j = document.createElement("input") as InputElement;
   j.name = "a03";
   form.append(j);
   assert_array_equals(form.children, [i, j]);

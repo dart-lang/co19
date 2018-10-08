@@ -11,7 +11,6 @@
  * an initializer for a constructor argument.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 class C  {
@@ -19,5 +18,7 @@ class C  {
 }
 
 main() {
-  var z = new C(1);
+  try {
+    var z = new C(1);
+  } catch (x) {}
 }

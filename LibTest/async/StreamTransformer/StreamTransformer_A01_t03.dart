@@ -13,19 +13,21 @@
  * starts listening to the bound stream, the listen method invokes the given
  * closure transformer.
  *
- * @description Checks that transformer is invoked when stream gets a
+ * @description Checks that [transformer] closure is invoked when stream gets a
  * subscription.
  * @author ilya
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 main() {
-  var s = new Stream.fromIterable([1]);
-  var tr = new StreamTransformer((stream, cancelOnError) {
-    asyncEnd();
-    return stream.listen(null);
-  });
+  Stream s = new Stream.fromIterable([1]);
+  StreamTransformer<int, dynamic> tr = new StreamTransformer(
+    (stream, cancelOnError) {
+      asyncEnd();
+      return stream.listen(null);
+    }
+  );
 
   asyncStart();
   s.transform(tr).toList();

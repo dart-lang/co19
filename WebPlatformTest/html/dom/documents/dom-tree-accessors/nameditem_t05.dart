@@ -45,71 +45,71 @@ void main() {
   document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
 test(() {
-  var embed = document.getElementsByTagName("embed")[0];
+  var embed = document.getElementsByTagName("embed")[0] as EmbedElement;
   assert_equals(embed.name, "test1");
 
-  var test1=document.getElementsByName("test1")[0];
+  var test1 = document.getElementsByName("test1")[0];
   assert_equals(test1, embed);
 }, "If there is one embed, it should be returned (name)");
 
 test(() {
-  var embed1 = document.getElementsByTagName("embed")[1];
+  var embed1 = document.getElementsByTagName("embed")[1] as EmbedElement;
   assert_equals(embed1.name, "test2");
-  var embed2 = document.getElementsByTagName("embed")[2];
+  var embed2 = document.getElementsByTagName("embed")[2] as EmbedElement;
   assert_equals(embed2.name, "test2");
 
-  var collection=document.getElementsByName("test2");
+  var collection = document.getElementsByName("test2");
   assert_array_equals(collection, [embed1, embed2]);
 }, "If there are two embeds, a collection should be returned. (name)");
 
 test(() {
-  var embed = document.getElementsByTagName("embed")[3];
+  var embed = document.getElementsByTagName("embed")[3] as EmbedElement;
   assert_equals(embed.id, "test3");
 
   Expect.equals(0, document.getElementsByName("test3").length, '"test3" in document should be false');
 }, "If there is one embed, it should not be returned (id)");
 
 test(() {
-  var embed1 = document.getElementsByTagName("embed")[4];
+  var embed1 = document.getElementsByTagName("embed")[4] as EmbedElement;
   assert_equals(embed1.id, "test4");
-  var embed2 = document.getElementsByTagName("embed")[5];
+  var embed2 = document.getElementsByTagName("embed")[5] as EmbedElement;
   assert_equals(embed2.id, "test4");
 
   Expect.equals(0, document.getElementsByName("test4").length, '"test4" in document should be false');
 }, "If there are two embeds, nothing should be returned. (id)");
 
 test(() {
-  var embed1 = document.getElementsByTagName("embed")[6];
+  var embed1 = document.getElementsByTagName("embed")[6] as EmbedElement;
   assert_equals(embed1.name, "test5");
-  var embed2 = document.getElementsByTagName("embed")[7];
+  var embed2 = document.getElementsByTagName("embed")[7] as EmbedElement;
   assert_equals(embed2.id, "test5");
 
-  var test5=document.getElementsByName("test5")[0];
+  var test5 = document.getElementsByName("test5")[0];
   assert_equals(test5, embed1);
 }, "If there are two embeds, a collection should be returned. (name and id)");
 
 test(() {
-  var embed1 = document.getElementsByTagName("embed")[8];
+  var embed1 = document.getElementsByTagName("embed")[8] as EmbedElement;
   assert_equals(embed1.id, "test6");
-  var embed2 = document.getElementsByTagName("embed")[9];
+  var embed2 = document.getElementsByTagName("embed")[9] as EmbedElement;
   assert_equals(embed2.name, "test6");
 
-  var test6=document.getElementsByName("test6")[0];
+  var test6 = document.getElementsByName("test6")[0];
   assert_equals(test6, embed2);
 }, "If there are two embeds, a collection should be returned. (id and name)");
 
 test(() {
-  var embed = document.getElementsByTagName("embed")[10];
+  var embed = document.getElementsByTagName("embed")[10] as EmbedElement;
   assert_equals(embed.id, "test7");
 
   Expect.equals(0, document.getElementsByName("test7").length, '"test7" in document should be false');
 }, "A name shouldn't affect getting an embed by id");
 
 test(() {
-  var embed = document.getElementsByTagName("embed")[11];
+  var embed = document.getElementsByTagName("embed")[11] as EmbedElement;
   assert_equals(embed.name, "test8");
 
-  var test8=document.getElementsByName("test8")[0];
+  var test8 = document.getElementsByName("test8")[0];
   assert_equals(test8, embed);
 }, "An id shouldn't affect getting an embed by name");
 

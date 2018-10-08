@@ -12,21 +12,19 @@
  * @author kaigorodov
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 check(value) {
-  Future future = new Future.error(value);
-
   asyncStart();
-  future.catchError((error) {
-    if (value == null) {
-      Expect.isTrue(error is NullThrownError);
-    } else {
-      Expect.identical(value, error);
-    }
-    asyncEnd();
-  });
+  new Future.error(value)
+    .catchError((error) {
+      if (value == null) {
+        Expect.isTrue(error is NullThrownError);
+      } else {
+        Expect.identical(value, error);
+      }
+      asyncEnd();
+    });
 }
 
 main() {

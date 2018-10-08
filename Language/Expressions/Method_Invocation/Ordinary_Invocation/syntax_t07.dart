@@ -19,5 +19,7 @@ class C {
 }
 
 main() {
-  C.f(name: null, 1);
+  try {
+    C.f(name: null, 1);
+  } catch (e) {}
 }

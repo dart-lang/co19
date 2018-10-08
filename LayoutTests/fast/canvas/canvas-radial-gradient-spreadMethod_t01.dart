@@ -7,12 +7,10 @@
  * @description Series of tests to ensure correct behaviour of spreadMethod to
  * a radial gradient.
  */
-import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   var radgrad = ctx.createRadialGradient(80,90,90,80,50,100);
   radgrad.addColorStop(0, 'green');

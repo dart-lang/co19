@@ -9,10 +9,9 @@
  * the scope of L, bound to the class defined by the mixin application M.
  * The name of the class is also set to C. Iff the class is prefixed by the
  * built-in identifier abstract, the class being defined is an abstract class.
- * @description Checks that class C is not abstract (can be instantiated by
- * new) if there are no abstract identifier but all classes in mixin
- * application are abstract and have abstract methods
- * @static-warning
+ * @description Checks that compile error is issued, if class C declared without
+ * 'abstract' identifier does not implement all abstract methods.
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 
@@ -24,7 +23,7 @@ abstract class S {
   int m();
 }
 
-class C = S with M; /// static type warning
+class C = S with M;
 
 main() {
   new C();

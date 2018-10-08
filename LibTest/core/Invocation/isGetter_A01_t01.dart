@@ -5,14 +5,15 @@
  */
 /**
  * @assertion final bool isGetter
- * Whether the invocation was a getter call. If so, both types of arguments is empty.
- * @description Checks that isGetter returns true for getters invocations and that
- * arguments are empty.
- * @static-warning
+ * Whether the invocation was a getter call. If so, both types of arguments is
+ * empty.
+ * @description Checks that isGetter returns true for getters invocations and
+ * that arguments are empty.
  * @author ilya
  */
 import "../../../Utils/expect.dart";
 
+@proxy
 class D {
   get getOnly {}
   set setOnly (x) {}
@@ -29,17 +30,10 @@ class C extends D {
     Expect.listEquals([], i.positionalArguments);
     Expect.mapEquals({}, i.namedArguments);
   }
-  test() {
-    foo;
-    setOnly;
-    super.foo;
-    super.setOnly;
-  }
 }
 
 main() {
-  var x = new C();
+  dynamic x = new C();
   x.foo;
   x.setOnly;
-  x.test();
 }

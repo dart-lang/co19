@@ -10,8 +10,6 @@
  * operator [] specifies an optional positional parameter.
  * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {
@@ -19,5 +17,7 @@ class C {
 }
 
 main() {
-  var x = new C()[1];
+  try {
+    var x = new C()[1];
+  } catch (e) {}
 }

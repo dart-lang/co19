@@ -5,22 +5,23 @@
  */
 /**
  * @assertion dynamic lastWhere(bool test(E value), {Object orElse()})
- * Returns the last element that satisfies the given predicate test.
- * If none matches, the result of invoking the orElse function is returned.
- * By default, when orElse is null, a StateError is thrown.
- * @description Checks that the correct value is returned, if the element is present in the list.
+ * Returns the last element that satisfies the given predicate [test].
+ * @description Checks that correct value is returned if the element presents in
+ * the list.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
 import "LinkedList.lib.dart";
 
-void check(LinkedList a, var element) {
-  Expect.equals(element, a.lastWhere((MyLinkedListEntry entry)=>entry.value==element).value);
+void check(LinkedList<MyLinkedListEntry> a, int element) {
+  Expect.equals(element,
+      a.lastWhere((MyLinkedListEntry entry) => entry.value == element).value);
 }
 
 main() {
-  LinkedList a = toLinkedList([42, 0, -1, 42, -1, 6031769, 0]);
+  LinkedList<MyLinkedListEntry> a =
+      toLinkedList([42, 0, -1, 42, -1, 6031769, 0]);
   check(a, 42);
   check(a, 0);
   check(a, -1);

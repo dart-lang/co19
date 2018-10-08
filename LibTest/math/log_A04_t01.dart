@@ -5,15 +5,16 @@
  */
 /**
  * @assertion double log(num x)
- * Throws an error if [x] is a null.
- * @description Checks that Error is thrown when passed argument is a null.
+ * Converts [x] to a double and returns the natural logarithm of the value.
+ * @description Checks that Error is thrown an argument is a null (not a
+ * number).
  * @author msyabro
  * @needsreview undocumented
  * @reviewer pagolubev
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   Expect.throws(() {

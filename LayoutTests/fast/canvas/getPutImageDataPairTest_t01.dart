@@ -7,9 +7,7 @@
  * @description putImageData(getImageData) pair test
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -19,7 +17,7 @@ main() {
       Result: <a id="result"></a>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var ctx;
+  dynamic ctx;
 
   getPutImageData(numIters, ctx, r, g, b, a) {
     var x = 0, y = 0, w = ctx.canvas.width, h = ctx.canvas.height;
@@ -56,7 +54,7 @@ main() {
     return true;
   }
 
-  var canvas = document.getElementById("c");
+  dynamic canvas = document.getElementById("c");
   ctx = canvas.getContext("2d");
   var passed = getPutImageData(50, ctx, 0, 0, 0, 0.0);
   passed = passed || getPutImageData(50, ctx, 0, 0, 0, 0.5);

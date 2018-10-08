@@ -21,11 +21,10 @@
  *
  * @description Checks different valid variants of asynchronous
  * generator functions
- *
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
-import '../../Utils/async_utils.dart';
+import '../../Utils/expect.dart';
 
 Stream<int> a1() async* {
   yield 1;
@@ -35,7 +34,7 @@ Stream a2() async* {
   yield 1;
 }
 
-a3() async* {
+Stream a3() async* {
   yield 2;
 }
 
@@ -47,7 +46,7 @@ Stream b2(String s) async* {
   yield s.length;
 }
 
-b3(z) async* {
+Stream b3(z) async* {
   yield z;
 }
 

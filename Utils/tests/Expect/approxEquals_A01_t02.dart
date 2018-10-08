@@ -33,29 +33,29 @@ main() {
   check(100.0, 101, 0.0, "");
   check(100.0, 101, 0.0, "not empty");
 
-  check(double.INFINITY, 0, MAX_DOUBLE);
-  check(double.INFINITY, 0, MAX_DOUBLE, "");
-  check(double.INFINITY, 0, MAX_DOUBLE, "not empty");
+  check(double.infinity, 0, MAX_DOUBLE);
+  check(double.infinity, 0, MAX_DOUBLE, "");
+  check(double.infinity, 0, MAX_DOUBLE, "not empty");
 
-  check(double.NEGATIVE_INFINITY, 0, MAX_DOUBLE);
-  check(double.NEGATIVE_INFINITY, 0, MAX_DOUBLE, "");
-  check(double.NEGATIVE_INFINITY, 0, MAX_DOUBLE, "not empty");
+  check(double.negativeInfinity, 0, MAX_DOUBLE);
+  check(double.negativeInfinity, 0, MAX_DOUBLE, "");
+  check(double.negativeInfinity, 0, MAX_DOUBLE, "not empty");
 
-  check(double.INFINITY, MAX_DOUBLE, MAX_DOUBLE);
-  check(double.INFINITY, MAX_DOUBLE, MAX_DOUBLE, "");
-  check(double.INFINITY, MAX_DOUBLE, MAX_DOUBLE, "not empty");
+  check(double.infinity, MAX_DOUBLE, MAX_DOUBLE);
+  check(double.infinity, MAX_DOUBLE, MAX_DOUBLE, "");
+  check(double.infinity, MAX_DOUBLE, MAX_DOUBLE, "not empty");
 
-  check(double.NEGATIVE_INFINITY, MAX_DOUBLE, MAX_DOUBLE);
-  check(double.NEGATIVE_INFINITY, MAX_DOUBLE, MAX_DOUBLE, "");
-  check(double.NEGATIVE_INFINITY, MAX_DOUBLE, MAX_DOUBLE, "not empty");
+  check(double.negativeInfinity, MAX_DOUBLE, MAX_DOUBLE);
+  check(double.negativeInfinity, MAX_DOUBLE, MAX_DOUBLE, "");
+  check(double.negativeInfinity, MAX_DOUBLE, MAX_DOUBLE, "not empty");
 
-  check(double.INFINITY, NEG_MAX_DOUBLE, MAX_DOUBLE);
-  check(double.INFINITY, NEG_MAX_DOUBLE, MAX_DOUBLE, "");
-  check(double.INFINITY, NEG_MAX_DOUBLE, MAX_DOUBLE, "not empty");
+  check(double.infinity, NEG_MAX_DOUBLE, MAX_DOUBLE);
+  check(double.infinity, NEG_MAX_DOUBLE, MAX_DOUBLE, "");
+  check(double.infinity, NEG_MAX_DOUBLE, MAX_DOUBLE, "not empty");
 
-  check(double.NEGATIVE_INFINITY, NEG_MAX_DOUBLE, MAX_DOUBLE);
-  check(double.NEGATIVE_INFINITY, NEG_MAX_DOUBLE, MAX_DOUBLE, "");
-  check(double.NEGATIVE_INFINITY, NEG_MAX_DOUBLE, MAX_DOUBLE, "not empty");
+  check(double.negativeInfinity, NEG_MAX_DOUBLE, MAX_DOUBLE);
+  check(double.negativeInfinity, NEG_MAX_DOUBLE, MAX_DOUBLE, "");
+  check(double.negativeInfinity, NEG_MAX_DOUBLE, MAX_DOUBLE, "not empty");
 }
 
 void check(num arg1, num arg2, num tolerance, [String reason = null]) {

@@ -10,33 +10,33 @@ import "dart:html";
 import "../../../testcommon.dart";
 
 main() {
-  var input = document.createElement("input");
+  InputElement input = document.createElement("input") as InputElement;
 
-  shouldBe(input.capture, false);
+  shouldBe(input.capture, null);
   shouldBe(input.attributes.containsKey('capture'), false);
 
   input.setAttribute("type", "file");
 
-  shouldBe(input.capture, false);
+  shouldBe(input.capture, null);
   shouldBe(input.attributes.containsKey('capture'), false);
 
   input.setAttribute("capture", "true");
-  shouldBe(input.capture, true);
+  shouldBe(input.capture, "true");
   shouldBe(input.attributes.containsKey('capture'), true);
 
   input.attributes.remove("capture");
-  shouldBe(input.capture, false);
+  shouldBe(input.capture, null);
   shouldBe(input.attributes.containsKey('capture'), false);
 
   input.setAttribute("capture", "'x'");
-  shouldBe(input.capture, true);
+  shouldBe(input.capture, "'x'");
   shouldBe(input.attributes.containsKey('capture'), true);
 
-  input.capture = false;
-  shouldBe(input.capture, false);
+  input.capture = "false";
+  shouldBe(input.capture, "false");
   shouldBe(input.attributes.containsKey('capture'), false);
 
-  input.capture = true;
-  shouldBe(input.capture, true);
+  input.capture = "true";
+  shouldBe(input.capture, "true");
   shouldBe(input.attributes.containsKey('capture'), true);
 }

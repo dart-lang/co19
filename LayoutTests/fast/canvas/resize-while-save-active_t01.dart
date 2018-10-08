@@ -7,9 +7,7 @@
  * @description 
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -17,7 +15,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById('mycanvas');
+  dynamic canvas = document.getElementById('mycanvas');
   var ctx = canvas.getContext('2d');
   ctx.fillStyle = "rgb(255,165,0)";
   ctx.fillRect(0, 0, 512, 512);

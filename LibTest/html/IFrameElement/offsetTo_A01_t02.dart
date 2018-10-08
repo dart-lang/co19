@@ -19,18 +19,13 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 import "../testcommon.dart";
 
 main() {
-  IFrameElement x = new Element.html(
-        '''<iframe  class="x">
-         </iframe>'''
-         , treeSanitizer: new NullTreeSanitizer());
-  IFrameElement y = new Element.html(
-        '''<iframe  class="y">
-         </iframe>'''
-         , treeSanitizer: new NullTreeSanitizer());
+  IFrameElement x = new Element.html('''<iframe  class="x">
+         </iframe>''', treeSanitizer: new NullTreeSanitizer());
+  IFrameElement y = new Element.html('''<iframe  class="y">
+         </iframe>''', treeSanitizer: new NullTreeSanitizer());
   document.body.append(x);
   document.body.append(y);
 

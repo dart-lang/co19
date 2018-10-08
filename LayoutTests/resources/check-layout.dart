@@ -39,7 +39,9 @@ int checkAttribute(output, node, attribute) {
     if (!isNotEmpty) {
         return null;
     }
-    String res2=res.substring(0, res.length-2);// cut suffix "px"
+    if (res.endsWith("px")) {
+      res = res.substring(0, res.length - 2); // cut suffix "px"
+    }
     return int.parse(res, onError:(String source){throw new FormatException("bad attr value:'$res'");});
   } else {
     return null;
@@ -206,7 +208,7 @@ bool checkLayout(selectorList, [outputContainer]) {
     checkedLayout |= checkExpectedValues(node.parentNode, failures);
     checkedLayout |= checkSubtreeExpectedValues(node, failures);
 
-    var container = node.parentNode.className == 'container' ? node.parentNode : node;
+    Node container = (node.parentNode as Element).className == 'container' ? node.parentNode : node;
 
     var pre = document.createElement('pre');
     if (failures.length > 0) {
@@ -214,7 +216,7 @@ bool checkLayout(selectorList, [outputContainer]) {
       result = false;
     }
     pre.append(new Text(failures.length > 0
-        ? "FAIL:\n" + failures.join('\n') + '\n\n' + container.outerHtml
+        ? "FAIL:\n" + failures.join('\n') + '\n\n' + (container as Element).outerHtml
         : "PASS"));
 
     var referenceNode = container;
@@ -239,7 +241,7 @@ bool checkLayout(selectorList, [outputContainer]) {
     return false;
   }
 
-  var pre = document.querySelector('.FAIL');
+  //var pre = document.querySelector('.FAIL');
   //if (pre)
   //  setTimeout(() { pre.previousSibling.scrollIntoView(); }, 0);
   return result;

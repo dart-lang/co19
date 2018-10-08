@@ -5,7 +5,7 @@
  */
 /**
  * @assertion void addFirst(E entry)
- * Add entry to the beginning of the list.
+ * Add [entry] to the beginning of the list.
  * @description Checks that method does not affect other content of the list
  * @author kaigorodov
  */
@@ -14,7 +14,7 @@ import "dart:collection";
 import "LinkedList.lib.dart";
 
 main() {
-  LinkedList list = new LinkedList();
+  LinkedList<MyLinkedListEntry> list = new LinkedList<MyLinkedListEntry>();
   Expect.isTrue(list.length == 0);
   list.addFirst(new MyLinkedListEntry(null));
   contentEquals([null], list);

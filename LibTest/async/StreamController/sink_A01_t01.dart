@@ -8,7 +8,6 @@
  * Returns a view of this object that only exposes the StreamSink interface.
  *
  * @description Checks that only the StreamSink interface is exposed.
- * @static-warning
  * @author kaigorodov
  */
 
@@ -17,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   StreamController controller = new StreamController();
-  StreamSink sink = controller.sink;
+  dynamic sink = controller.sink;
   Expect.isTrue(sink is StreamSink);
 
   sink.done;

@@ -6,8 +6,9 @@
 /**
  * @assertion It is a static warning if q is a constructor of an abstract class
  * and q is not a factory constructor.
- * @description Checks that invoking a non-factory constructor in an abstract class
- * produces a static warning.
+ * @description Checks that invoking a non-factory constructor in an abstract
+ * class produces a compile error
+ * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -17,5 +18,5 @@ abstract class C {
 }
 
 main() {
-  new C(); /// 01: static type warning, runtime error
+  new C();
 }

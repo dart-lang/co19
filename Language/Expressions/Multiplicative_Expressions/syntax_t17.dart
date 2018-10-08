@@ -19,8 +19,9 @@
  * A multiplicative expression is either a unary expression, or an invocation
  * of a multiplicative operator on either super or an expression e1, with
  * argument e2.
- * @description Checks that a type parameter name can be used as the right
+ * @description Checks that a type parameter name cannot be used as the right
  * operand of a multiplicative expression without a compile error.
+ * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -28,7 +29,7 @@
 
 class A<T> {
   test() {
-    1 ~/ T; /// 01: static type warning, runtime error
+    1 ~/ T;
   }
 }
 

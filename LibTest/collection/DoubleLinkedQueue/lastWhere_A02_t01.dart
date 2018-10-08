@@ -5,11 +5,8 @@
  */
 /**
  * @assertion dynamic lastWhere(bool test(E value), {Object orElse()})
- * Returns the last element that satisfies the given predicate test.
- * If none matches, the result of invoking the orElse function is returned.
- * By default, when orElse is null, a StateError is thrown.
- * @description Checks that the result of invoking the orElse function is returned
- * when none matches.
+ * If no element satisfies [test], the result of invoking the [orElse] function
+ * is returned.
  * @author kaigorodov
  */
 
@@ -21,9 +18,11 @@ class TestException {}
 check(List list) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(list);
   Expect.throws(() {
-      queue.lastWhere((int value)=>false, orElse: (){throw new TestException();});
+      queue.lastWhere((var value) => false, orElse: () {
+        throw new TestException();
+      });
     },
-    (e)=> e is TestException
+    (e) => e is TestException
   );
 }
 
@@ -32,5 +31,5 @@ main() {
   check([]);
   check(const[]);
   check(new List.from([]));
-  check([1,2,3]);
+  check([1, 2, 3]);
 }

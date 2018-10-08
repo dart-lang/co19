@@ -10,9 +10,7 @@
  * for DOM nodes in detached subtrees.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -27,7 +25,7 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
 
   shouldBe(window.getMatchedCssRules(document.getElementById("test"), '').length, 1);
-  var rule = window.getMatchedCssRules(document.getElementById("test"), '').item(0);
+  var rule = window.getMatchedCssRules(document.getElementById("test"), '')[0];
   debug("Removing &lt;style>...");
   style.remove();
   shouldBe(rule.parentRule, null);

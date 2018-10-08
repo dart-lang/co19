@@ -16,5 +16,8 @@
 typedef void enum();
 
 main() {
-  null is enum;
+  try {
+    null is enum;
+  } catch (anything) {
+  }
 }

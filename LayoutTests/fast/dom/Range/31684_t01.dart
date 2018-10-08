@@ -8,7 +8,6 @@
  * the range. (bug31684)
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

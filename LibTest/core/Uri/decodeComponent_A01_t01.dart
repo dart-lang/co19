@@ -10,11 +10,10 @@
  * basic and extended unicode characters on manually and library
  * encoded strings.
  * @author ilya
- * @reviewer
  */
-
 import 'dart:convert';
 import "../../../Utils/expect.dart";
+import "UriDataEncoder.lib.dart";
 
 String unreserved = "0123456789"
                     "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -28,7 +27,7 @@ manuallyEncode(String s) => s.runes
   .map((x) =>
       unreserved.runes.contains(x)
       ? new String.fromCharCode(x)
-      : UTF8.encode(new String.fromCharCode(x)).map(encodeOctet).join(''))
+      : utf8.encode(new String.fromCharCode(x)).map(encodeOctet).join(''))
   .join('');
 
 main() {

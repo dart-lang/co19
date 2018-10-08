@@ -20,7 +20,7 @@ import "../../../Utils/expect.dart";
 
 void testPropagationFlag(Event ev, bool expected, String desc) {
    var called = false;
-   var callback = (ev) { called = true; };
+   var callback = (Event ev) { called = true; };
    document.head.addEventListener("foo", callback);
    document.head.dispatchEvent(ev);
    Expect.equals(called, expected, desc);

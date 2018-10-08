@@ -122,9 +122,9 @@ const String htmlEL=r'''
 void main() {
   document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
-//        "use strict";
-
-        var testLI = document.getElementById("test_li"), testList = [], i = 0;
+        var testLI = document.getElementById("test_li") as LIElement;
+        var testList = [];
+        var i = 0;
 
         // "The [value] attribute has no default value" so, per http://www.w3.org/html/wg/drafts/html/CR/single-page.html#reflect, 
         // the default when unspecified is 0 

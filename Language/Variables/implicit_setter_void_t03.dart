@@ -9,12 +9,10 @@
  * with signature
  *   void set v = (T x)
  * whose execution sets the value of v to the incoming argument x.
- * @description Checks that a static warning is produced when assigning a value
+ * @description Checks that a compile error is produced when assigning a value
  * of type that may not be assigned to T, to the variable declared as T v = e;.
- * @static-warning
+ * @compile-error
  * @author pagolubev
- * @reviewer iefremov
- * @reviewer rodionov
  */
 import "../../Utils/dynamic_check.dart";
 
@@ -24,7 +22,5 @@ class A {
 
 main() {
   A a = new A();
-  checkTypeError(() {
-    a.v = false; /// static type warning 'bool' is not assignable to 'int'
-  });
+  a.v = false;
 }

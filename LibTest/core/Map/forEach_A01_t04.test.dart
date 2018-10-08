@@ -9,14 +9,13 @@
  * @description Checks that an exception thrown by the argument
  * function breaks iteration and is passed through to the caller.
  * @author varlax
- * @reviewer msyabro
  */
 library forEach_A01_t04;
 
 import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {
-  Map<String, Object> map = create();
+  Map map = create();
   
   map["1"] = 3;
   map["2"] = 5;
@@ -24,11 +23,11 @@ test(Map create([Map content])) {
   
   int count = 0;
   try {
-    map.forEach((String key, Object value) {
+    map.forEach((var key, var value) {
       if (count++ > 0) throw "stop";
     });
     Expect.fail("Exception expected");
-  } on String catch(e) {}
+  } on String {}
 
   Expect.isTrue(count == 2);
 }

@@ -7,24 +7,23 @@
  * @assertion void stop()
  * Stops the [Stopwatch].
  * The [elapsedTicks] count stops increasing.
- * If the [Stopwatch] is currently not running, then calling this method has no effect.
+ * If the [Stopwatch] is currently not running, then calling this method has no
+ * effect.
  * @description Checks that this method indeed stops the stopwatch.
  * @author kaigorodov
  */
 import "dart:async";
-
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-Duration delay=durationMs(10);
+Duration delay = durationMs(10);
 Stopwatch sw = new Stopwatch();
-int count=5;
-int ticks=-1;
+int count = 5;
+int ticks = -1;
 
 main() {
   sw.start();
   asyncStart();
-  new Timer(delay,proc1);
+  new Timer(delay, proc1);
 }
 
 void proc1() {
@@ -36,7 +35,7 @@ void proc1() {
 void proc2() {
   int e1 = sw.elapsedTicks;
   Expect.equals(ticks, e1);
-  if (count==0) {
+  if (count == 0) {
     asyncEnd();
     return;
   }

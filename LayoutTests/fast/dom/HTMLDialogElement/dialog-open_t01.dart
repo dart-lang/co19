@@ -8,7 +8,6 @@
  * visible after close() is called. bug 90931
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -16,7 +15,7 @@ main() {
     <dialog id="mydialog">It's my dialog.</dialog>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var dialog = document.getElementById('mydialog');
+  DialogElement dialog = document.getElementById('mydialog');
   var computedStyle = dialog.getComputedStyle();
   shouldBe(computedStyle.getPropertyValue('display'), 'none');
 

@@ -9,11 +9,13 @@
  * referenced at a source code location that is after its initializer, if any,
  * is complete, or a compile-time error occurs.
  * @description Checks that it is not a compile-error to reference the name of
- * local variable in its initializer if this name refers to inner declaraion in
+ * local variable in its initializer if this name refers to inner declaration in
  * an initializer.
  * @author ilya
  */
 
 main() {
-  var f = (f) => f;
+  try {
+    var f = (f) => f;
+  } catch (_) {};
 }

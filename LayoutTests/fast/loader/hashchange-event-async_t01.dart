@@ -9,8 +9,6 @@
  */
 import "dart:html";
 import "../../testharness.dart";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 const String htmlEL2 = r'''
     <div>

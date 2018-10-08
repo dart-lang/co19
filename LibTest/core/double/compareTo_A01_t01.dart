@@ -7,7 +7,6 @@
  * @assertion int compareTo(Comparable other)
  * @description Checks that [:compareTo():] returns 0 if values are equal.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

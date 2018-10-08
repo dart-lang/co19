@@ -12,7 +12,7 @@ import "../../../Utils/expect.dart";
 
 
 main() {
-  Expect.isFalse(double.INFINITY is int);
-  Expect.isTrue(double.INFINITY is double);
-  Expect.isTrue(double.INFINITY is num);
+  Expect.isFalse(double.infinity is int);
+  Expect.isTrue(double.infinity is double);
+  Expect.isTrue(double.infinity is num);
 }

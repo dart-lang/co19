@@ -4,9 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void setRange(int start, int end, Iterable<E> iterable, [int skipCount = 0])
- * If [start] equals [end] and [start].. [end] represents a
- * legal range, this method has no effect.
+ * @assertion
+ * void setRange(
+ *     int start,
+ *     int end,
+ *     Iterable<E> iterable, [
+ *     int skipCount = 0
+ * ])
+ * ...
+ * An empty range (with end == start) is valid.
  * @description Checks that the method has no effect if [end] equals [start].
  * @author msyabro
  */
@@ -14,7 +20,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 equal(obj1, obj2) {
   var res = obj1.equal(obj2);
@@ -23,26 +29,35 @@ equal(obj1, obj2) {
 
 listEquals(expected, actual) {
   Expect.equals(expected.length, actual.length);
-  for(int i = 0; i < expected.length; ++i) {
+  for (int i = 0; i < expected.length; ++i) {
     Expect.isTrue(equal(expected[i], actual[i]));
   }
 }
 
 main() {
-  var l = new Float32x4List.fromList([pack(.0),pack(.0),pack(.0),pack(.0),pack(.0),pack(.0),
-  pack(.0),pack(.0),pack(.0),pack(.0)]);
+  var l = new Float32x4List.fromList([
+    pack(.0), pack(.0), pack(.0), pack(.0), pack(.0), pack(.0), pack(.0),
+    pack(.0), pack(.0), pack(.0)
+  ]);
 
   l.setRange(1, 1, [pack(1.0), pack(2.0), pack(3.0)], 2);
-  listEquals([pack(.0),pack(.0),pack(.0),pack(.0),pack(.0),pack(.0),
-  pack(.0),pack(.0),pack(.0),pack(.0)], l);
+  listEquals([
+    pack(.0), pack(.0), pack(.0), pack(.0), pack(.0), pack(.0),
+    pack(.0), pack(.0), pack(.0), pack(.0)
+  ], l);
 
   l.setRange(0, 0, [pack(1.0), pack(2.0), pack(3.0)], 0);
-  listEquals([pack(.0),pack(.0),pack(.0),pack(.0),pack(.0),pack(.0),
-  pack(.0),pack(.0),pack(.0),pack(.0)], l);
+  listEquals([
+    pack(.0), pack(.0), pack(.0), pack(.0), pack(.0), pack(.0),
+    pack(.0), pack(.0), pack(.0), pack(.0)
+  ], l);
 
-  l.setRange(10, 10, [pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0),
-    pack(7.0), pack(8.0), pack(9.0), pack(10.0)], 1);
-  listEquals([pack(.0),pack(.0),pack(.0),pack(.0),pack(.0),pack(.0),
-  pack(.0),pack(.0),pack(.0),pack(.0)], l);
+  l.setRange(10, 10, [
+    pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0),
+    pack(5.0), pack(6.0), pack(7.0), pack(8.0), pack(9.0), pack(10.0)
+  ], 1);
+  listEquals([
+    pack(.0), pack(.0), pack(.0), pack(.0), pack(.0), pack(.0),
+    pack(.0), pack(.0), pack(.0), pack(.0)
+  ], l);
 }
-

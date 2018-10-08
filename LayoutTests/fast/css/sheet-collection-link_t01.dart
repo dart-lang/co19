@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -31,7 +30,7 @@ main() {
   document.head.append(f);
 
   runTest(_) {
-    var sheets = document.styleSheets;
+    dynamic sheets = document.styleSheets;
     shouldBe(sheets.length, index+11);
     for (var i = index; i < index+11; i++) {
       debug('test$i');

@@ -22,6 +22,8 @@ var conflictingName;
 class conflictingName {}
 
 main() {
-  conflictingName = 1;
-  new conflictingName();
+  try {
+    conflictingName = 1;
+    new conflictingName();
+  } catch (e) {}
 }

@@ -5,17 +5,14 @@
  */
 /**
  * @assertion Throws a FormatException if source is not a valid integer literal.
- * @description Check that exception is thrown if String can not be converted to int.
+ * @description Check that exception is thrown if String can not be converted
+ * to int.
  * @author msyabro
- * @reviewer pagolubev
  */
 import "../../../Utils/expect.dart";
 
 void checkFE(String string) {
-  try {
-    int.parse(string);
-    Expect.fail("FormatException is expected");
-  } on FormatException catch(e) {}
+  Expect.throws(() {int.parse(string);}, (e) => e is FormatException);
 }
 
 main() {

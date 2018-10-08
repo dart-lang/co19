@@ -7,17 +7,16 @@
  * @assertion An abstract method (respectively, abstract getter or abstract
  * setter) is an instance method, getter or setter that is not declared
  * external and does not provide an implementation.
- * @description Checks that instance method, getter or setter can be declared
- * without providing an implementation.
- * @static-warning
+ * @description Checks that instance method, getter or setter can not be
+ * declared without providing an implementation.
+ * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class C {
-  void m();   /// static type warning
-  int get g;    /// static type warning
-  set g(int v);   /// static type warning
+  void m();
+  int get g;
+  set g(int v);
 }
 
 main() {

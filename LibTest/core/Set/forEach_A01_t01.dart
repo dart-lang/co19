@@ -8,20 +8,19 @@
  * Applies the function [f] to each element of the collection.
  * @description Checks that forEach() browses every element of the set.
  * @author pagolubev
- * @reviewer msyabro
  */
 library forEach_A01_t01;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
 test(Set create([Set content])) {
-  Set<int> s = create();
+  Set s = create();
   s.addAll([1, 2, 3, 4, 5]);
 
   List<int> a = new List(s.length);
   int i = 0;
 
-  s.forEach((int x) {
+  s.forEach((var x) {
     a[i] = x;
     i++;
   });

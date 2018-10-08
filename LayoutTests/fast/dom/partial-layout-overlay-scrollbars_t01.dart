@@ -9,7 +9,6 @@
 import "dart:html";
 import "../../testcommon.dart";
 import "../../resources/testharness.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var style = new Element.html('''

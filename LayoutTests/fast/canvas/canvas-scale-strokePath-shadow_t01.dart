@@ -8,14 +8,12 @@
  * after scaling. A blue and red checkered pattern should be displayed.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   shouldBeAround(a, b) => shouldBeApprox(a, b, 20);
 
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   document.body.append(canvas);
   canvas.setAttribute('width', '600');
   canvas.setAttribute('height', '600');

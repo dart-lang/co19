@@ -5,16 +5,19 @@
  */
 /**
  * @assertion Int16List(int length)
+ * ...
  * It is an error if [length] is not a non-negative integer.
- * @description Checks that it is an error if [length] is not a non-negative integer.
+ * @description Checks that it is an error if [length] is not a non-negative
+ * integer.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(length) {
-  Expect.throws( () {
-    Int16List l = new Int16List(length);
+  Expect.throws(() {
+    new Int16List(length);
   });
 }
 

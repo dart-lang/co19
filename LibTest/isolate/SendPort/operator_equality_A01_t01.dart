@@ -11,7 +11,6 @@
  * point to the same ReceivePort even after closing the ReceivePort.
  *
  * @author msyabro
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

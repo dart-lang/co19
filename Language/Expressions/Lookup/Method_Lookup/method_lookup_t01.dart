@@ -21,7 +21,7 @@ class S {
  int m() { return 12345; }
 }
 
-class C extends S{
+class C extends S {
 }
 
 main()  {

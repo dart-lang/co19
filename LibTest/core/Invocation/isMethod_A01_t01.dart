@@ -6,12 +6,13 @@
 /**
  * @assertion final bool isMethod
  * Whether the invocation was a method call.
- * @description Checks that isMethod returns true for instance methods invocations.
- * @static-warning
+ * @description Checks that isMethod returns true for instance methods
+ * invocations.
  * @author ilya
  */
 import "../../../Utils/expect.dart";
 
+@proxy
 class D {
   method(x, y, z) {}
   noSuchMethod(Invocation i) {
@@ -19,27 +20,24 @@ class D {
   }
 }
 
+@proxy
 class C extends D {
   noSuchMethod(Invocation i) {
     Expect.isTrue(i.isMethod);
-  }
-  test() {
-    foo();
-    method();
-    super.foo();
-    super.method();
   }
   var d;
   C() : d = new D();
 }
 
-main() {
-  var x = new C();
+test(dynamic x) {
   var y = new C();
-  x+y;
-  -x;
+  x + y;
+  - x;
   x.foo();
   x.method();
-  x.test();
   x.d();
+}
+
+main() {
+  test(new C());
 }

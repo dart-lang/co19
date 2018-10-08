@@ -12,7 +12,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 void check(Node x) {
   var type = 'click';
@@ -28,8 +27,8 @@ void check(Node x) {
 }
 
 main() {
-  List<Node> targets=[
-    new Text("Text1"), 
+  List<Node> targets = [
+    new Text("Text1"),
     new Comment("Comment"),
     new IFrameElement(),
     document,
@@ -40,4 +39,3 @@ main() {
     check(x);
   }
 }
-

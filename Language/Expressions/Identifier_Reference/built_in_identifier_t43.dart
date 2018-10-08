@@ -15,5 +15,8 @@
 typedef int external();
 
 main() {
-  null is external;
+  try {
+    null is external;
+  } catch (anything) {
+  }
 }

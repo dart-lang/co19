@@ -24,12 +24,12 @@ class MyIFrameElement extends IFrameElement {
 
 main() {
   var ife;
-  Expect.throws((){
+  Expect.throws(() {
     ife = new IFrameElement.created();
   });
 
   var tag = 'my-iframe';
-  document.register(tag, MyIFrameElement, extendsTag:"iframe");
+  document.register(tag, MyIFrameElement, extendsTag: "iframe");
 
   ife = document.createElement('iframe', 'my-iframe');
   document.body.append(ife);

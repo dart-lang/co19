@@ -12,7 +12,6 @@
  * getter  declaration includes an empty formal parameter list.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class C {

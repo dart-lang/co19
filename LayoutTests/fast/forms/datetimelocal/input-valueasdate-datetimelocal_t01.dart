@@ -8,13 +8,12 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
-  var input = document.createElement('input');
+  InputElement input = document.createElement('input') as InputElement;
   input.type = 'datetime-local';
 
-  valueAsDateFor(stringValue) {
+  DateTime valueAsDateFor(String stringValue) {
     input.value = stringValue;
     return input.valueAsDate;
   }

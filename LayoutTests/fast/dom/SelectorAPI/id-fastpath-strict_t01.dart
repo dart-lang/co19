@@ -8,16 +8,15 @@
  * path for IDs is not overzelous.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var doc = new DomParser().parseFromString('''
+  HtmlDocument doc = new DomParser().parseFromString('''
    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
    "http://www.w3.org/TR/html4/strict.dtd">
     ''', 'text/html');
 
-  var root = doc.createElement('div');
+  DivElement root = doc.createElement('div');
   var correctNode = doc.createElement('div');
   correctNode.setAttribute("id", "testId");
   root.append(correctNode);

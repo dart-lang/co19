@@ -17,5 +17,8 @@
 class void { } // error
 
 main() {
-  null is void;
+  try {
+    null is void;
+  } catch (anything) {
+  }
 }

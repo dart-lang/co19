@@ -9,14 +9,14 @@
  * @description Checks that status text is "200 OK" for successful request.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
+import "dart:async";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
   asyncStart();
-  Future<HttpRequest> f=HttpRequest.request("test.dart");
-  f.then((HttpRequest r){
-      Expect.equals("200 OK", r.statusText);
-      asyncEnd();
-    });
+  Future<HttpRequest> f = HttpRequest.request("test.dart");
+  f.then((HttpRequest r) {
+    Expect.equals("200 OK", r.statusText);
+    asyncEnd();
+  });
 }

@@ -7,12 +7,10 @@
  * @assertion It is a  static warning if an instance method m1 overrides an
  * instance member m2 and m1 has a greater number of required parameters than 
  * m2.
- * @description Checks that a static warning is produced if m2 has no parameters
+ * @description Checks that a compile error is produced if m2 has no parameters
  * and m1 has a single required parameter.
- * @static-warning
+ * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class A {
@@ -20,7 +18,7 @@ class A {
 }
 
 class C extends A {
-  f(var x) { } /// static warning
+  f(var x) { }
 }
 
 main() {

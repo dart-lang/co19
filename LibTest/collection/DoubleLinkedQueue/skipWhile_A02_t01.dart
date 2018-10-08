@@ -6,23 +6,21 @@
 /**
  * @assertion Iterable<E> skipWhile(bool test(E value))
  * The filtering happens lazily.
- * @description Checks that the test method is not called when the skipWhile is executed.
+ * @description Checks that the [test] method is not called when [skipWhile] is
+ * executed.
  * @author kaigorodov
  */
 
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-DoubleLinkedQueue fromList(List list) {
-  return new DoubleLinkedQueue.from(list);
-}
-
-bool test(int value) {
+bool test(var value) {
   Expect.fail("test($value) called");
+  return false;
 }
 
 main() {
-  fromList([]).skipWhile(test);
-  fromList([1]).skipWhile(test);
-  fromList([1,3,7,4,5,6]).skipWhile(test);
+  new DoubleLinkedQueue.from([]).skipWhile(test);
+  new DoubleLinkedQueue.from([1]).skipWhile(test);
+  new DoubleLinkedQueue.from([1, 3, 7, 4, 5, 6]).skipWhile(test);
 }

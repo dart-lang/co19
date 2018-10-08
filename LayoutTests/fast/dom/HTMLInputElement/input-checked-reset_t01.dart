@@ -8,7 +8,6 @@
  * properly reset by both a reset input control and a reset button control.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

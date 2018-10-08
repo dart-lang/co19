@@ -6,8 +6,10 @@
 /**
  * @assertion bool remove(T value)
  * Removes [value] from the set. Returns true if [value] was in the set.
- * Returns false otherwise. The method has no effect if [value] value was not in the set.
- * @description Checks that remove() works as specified in various simple scenarios.
+ * Returns false otherwise. The method has no effect if [value] value was not in
+ * the set.
+ * @description Checks that remove() works as specified in various simple
+ * scenarios.
  * @author pagolubev
  */
 library remove_A01_t01;
@@ -15,12 +17,12 @@ import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
 test(Set create([Set content])) {
-  Set<int> s = create();
+  Set s = create();
 
   Expect.isTrue(!s.remove(0));
   Expect.isTrue(s.length == 0);
 
-  List<int> a = [-7, 5, 3, -22, 6, -1];
+  List a = [-7, 5, 3, -22, 6, -1];
   s.addAll(a);
 
   Expect.isTrue(!s.remove(0));

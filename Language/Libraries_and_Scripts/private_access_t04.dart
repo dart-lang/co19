@@ -10,19 +10,13 @@
  * getter or setter lookup failure.
  * @description Checks that an attempt to access a private top level variable
  * from outside library L in a top-level function context results in a
- * NoSuchMethodError.
- * @static-warning
+ * compile error.
+ * @compile-error
  * @author vasya
  * @reviewer msyabro
  */
-import "../../Utils/expect.dart";
-
 import "private_access_t04_lib.dart" as lib;
 
 main() {
-  try {
-    lib._topLevelDeclaration; /// static type warning
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {
-  }
+  lib._topLevelDeclaration;
 }

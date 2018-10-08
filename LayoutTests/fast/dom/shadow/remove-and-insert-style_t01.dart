@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -53,12 +52,12 @@ main() {
   }
 
   var host = document.getElementById('host');
-  var t = document.getElementById('t');
-  var t2 = document.getElementById('t2');
-  var sr = host.createShadowRoot();
+  TemplateElement t = document.getElementById('t');
+  TemplateElement t2 = document.getElementById('t2');
+  ShadowRoot sr = host.createShadowRoot();
   sr.append(t.content.clone(true));
   var container = sr.querySelector('#container');
-  var sr2 = container.createShadowRoot();
+  ShadowRoot sr2 = container.createShadowRoot();
   sr2.append(t2.content.clone(true));
 
   asyncStart();

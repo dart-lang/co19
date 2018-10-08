@@ -5,11 +5,9 @@
  */
 /**
  * @description Existence tests for .setCustomValidity property
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var parent = document.createElement('div');
@@ -27,11 +25,11 @@ main() {
     + '</form>',
     treeSanitizer: new NullTreeSanitizer());
 
-  shouldBeTrue(document.body.query("input").setCustomValidity is Function);
-  shouldBeTrue(document.body.query("button").setCustomValidity is Function);
-  shouldBeTrue(document.body.query("fieldset").setCustomValidity is Function);
-  shouldBeTrue(document.body.query("select").setCustomValidity is Function);
-  shouldBeTrue(document.body.query("textarea").setCustomValidity is Function);
-  shouldBeTrue(document.body.query("output").setCustomValidity is Function);
-  shouldBeTrue(document.body.query("object").setCustomValidity is Function);
+  shouldBeTrue((document.body.querySelector("input") as dynamic).setCustomValidity is Function);
+  shouldBeTrue((document.body.querySelector("button") as dynamic).setCustomValidity is Function);
+  shouldBeTrue((document.body.querySelector("fieldset") as dynamic).setCustomValidity is Function);
+  shouldBeTrue((document.body.querySelector("select") as dynamic).setCustomValidity is Function);
+  shouldBeTrue((document.body.querySelector("textarea") as dynamic).setCustomValidity is Function);
+  shouldBeTrue((document.body.querySelector("output") as dynamic).setCustomValidity is Function);
+  shouldBeTrue((document.body.querySelector("object") as dynamic).setCustomValidity is Function);
 }

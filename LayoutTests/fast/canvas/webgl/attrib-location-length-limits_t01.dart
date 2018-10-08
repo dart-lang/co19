@@ -8,11 +8,8 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -60,37 +57,37 @@ main() {
 
   debug("Test attrib location underneath the length limit");
   var program = wtu.loadProgramFromScript(gl, "goodVertexShader1", "fragmentShader");
-  shouldBe(gl.getProgramParameter(program, wgl.LINK_STATUS), true);
+  shouldBe(gl.getProgramParameter(program, wgl.WebGL.LINK_STATUS), true);
   var attribLoc = gl.getAttribLocation(program, "vPosition01234567890123456789012345678901234567890123456789012345678901234567890");
   if (attribLoc == -1) {
       testFailed("attrib location was -1, should not be");
   } else {
       testPassed("attrib location should not be -1");
   }
-  wtu.glErrorShouldBe(gl, wgl.NONE);
+  wtu.glErrorShouldBe(gl, wgl.WebGL.NONE);
 
   debug("Test attrib location exactly at the length limit");
   program = wtu.loadProgramFromScript(gl, "goodVertexShader2", "fragmentShader");
-  shouldBe(gl.getProgramParameter(program, wgl.LINK_STATUS), true);
+  shouldBe(gl.getProgramParameter(program, wgl.WebGL.LINK_STATUS), true);
   attribLoc = gl.getAttribLocation(program, "vPosition0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456");
   if (attribLoc == -1) {
       testFailed("attrib location was -1, should not be");
   } else {
       testPassed("attrib location should not be -1");
   }
-  wtu.glErrorShouldBe(gl, wgl.NONE);
+  wtu.glErrorShouldBe(gl, wgl.WebGL.NONE);
 
   debug("Test attrib location over the length limit");
   debug("Shader compilation should fail");
-  shouldBe(wtu.loadShaderFromScript(gl, "badVertexShader", wgl.VERTEX_SHADER, (err) {}), null);
-  wtu.glErrorShouldBe(gl, wgl.NONE);
+  shouldBe(wtu.loadShaderFromScript(gl, "badVertexShader", wgl.WebGL.VERTEX_SHADER, (err) {}), null);
+  wtu.glErrorShouldBe(gl, wgl.WebGL.NONE);
 
   debug("Attempt to bind too-long attrib location should produce error");
   program = gl.createProgram();
   gl.bindAttribLocation(program, 0, "vPosition01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567");
-  wtu.glErrorShouldBe(gl, wgl.INVALID_VALUE);
+  wtu.glErrorShouldBe(gl, wgl.WebGL.INVALID_VALUE);
 
   debug("Attempt to fetch too-long attrib location should produce error");
   shouldBe(gl.getAttribLocation(program, "vPosition01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567"), -1);
-  wtu.glErrorShouldBe(gl, wgl.INVALID_VALUE);
+  wtu.glErrorShouldBe(gl, wgl.WebGL.INVALID_VALUE);
 }

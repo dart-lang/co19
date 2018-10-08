@@ -18,5 +18,7 @@
 func() {}
 
 main() {
-  const func();
+  try {
+    const func();
+  } catch (e) {}
 }

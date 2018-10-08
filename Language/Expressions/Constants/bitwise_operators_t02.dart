@@ -21,5 +21,7 @@
 const m = ~true;
 
 main() {
-  print(m);
+  try {
+    print(m);
+  } catch (x) {}
 }

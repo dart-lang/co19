@@ -5,13 +5,11 @@
  */
 /**
  * @assertion double NAN
- * @description Checks that [:isNaN:] returns true for double.NAN.
+ * @description Checks that [:isNaN:] returns true for double.nan.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
-  Expect.isTrue(double.NAN.isNaN);
+  Expect.isTrue(double.nan.isNaN);
 }

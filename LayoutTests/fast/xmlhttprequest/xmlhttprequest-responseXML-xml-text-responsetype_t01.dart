@@ -8,8 +8,6 @@
  * @description This tests the XMLHttpRequest responseXML loading an XML document with responseType "text".
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
 
 void main() {

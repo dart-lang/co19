@@ -12,7 +12,6 @@
  * @description Checks that an initializing formal 'this.id' can be named and
  * is accessible by the name 'id'.
  * @author msyabro
- * @reviewer iefremov
  */
 import "../../../../Utils/expect.dart";
 

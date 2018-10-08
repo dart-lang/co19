@@ -18,29 +18,29 @@
  * @description Checks that if v is local variable or formal parameter, but
  * neither e1 nor e2 shows that v has any type T, then b does not show that
  * v has any promoted type. Local variable case.
- * @static-warning
  * @author ilya
  */
 import '../../../Utils/expect.dart';
 
 class C {}
+
 class D extends C {
   f() {}
 }
+
 class E extends D {
   f() {}
 }
 
 skyIsBlue(_) => true;
 
-f(C y) {
-  C x = y;
+f(var y) {
+  var x = y;
 
   closure () => x = new C();
 
   (x is D && skyIsBlue(closure())) && (x is C || x is D) ? x.f() : null;
 }
-
 
 main() {
   Expect.throws(() => f(new E()));

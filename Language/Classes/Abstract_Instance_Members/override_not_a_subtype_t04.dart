@@ -8,13 +8,12 @@
  * to methods apply to abstract methods.
  * It is a static warning if an instance method m1 overrides an instance member
  * m2 and the type of m1 is not a subtype of the type of m2.
- * @description Checks that a static warning is produced when the type of a
+ * @description Checks that a compile error is produced when the type of a
  * non-abstract m1 is not a subtype of the abstract m2's type because their
  * respective required parameter types are not mutually assignable even if the
  * class declaring the first method is not a direct subclass of the other.
- * @static-warning
+ * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 abstract class A {
@@ -25,7 +24,7 @@ abstract class B extends A {
 }
 
 class C extends B {
-  foo(String x) { /// static type warning
+  foo(String x) {
   }
 }
 

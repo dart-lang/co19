@@ -11,20 +11,14 @@
  * a raises x.
  *
  * @description Check that if e is a call to non existing function, then
- * await expression throws NoSuchMethodError.
- * @static-warning
+ * it is a compile error
+ * @compile-error
  * @author a.semenov@unipro.ru
  */
 import '../../../Utils/expect.dart';
-import '../../../Utils/async_utils.dart';
 
 test() async {
-  try {
-    await f(); /// static type warning
-    Expect.fail('await expression should throw NoSuchMethodError');
-  } catch (x) {
-    Expect.isTrue(x is NoSuchMethodError);
-  }
+  await f();
 }
 
 main() {

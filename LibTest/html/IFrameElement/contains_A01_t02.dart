@@ -12,8 +12,9 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
-  x.append(new Element.html('<div><pre><button></button></pre><span></span></div>'));
+  IFrameElement x = new IFrameElement();
+  x.append(
+      new Element.html('<div><pre><button></button></pre><span></span></div>'));
 
   var pre = x.querySelector('pre');
   var button = x.querySelector('button');

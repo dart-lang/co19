@@ -12,8 +12,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -46,41 +44,43 @@ main() {
       </script>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  toFloatList(list) => list.map((x) => x.toDouble()).toList();
+  List<double> toFloatList(list) =>
+      (list.map((x) => x.toDouble()) as Iterable<double>).toList();
   float32list(list) => new Float32List.fromList(toFloatList(list));
 
   init()
   {
-    var canvas2d = document.getElementById("canvas2d");
+    dynamic canvas2d = document.getElementById("canvas2d");
     var ctx2d = canvas2d.getContext("2d");
 
-    var gl = initWebGL("example", "vshader", "fshader", [ "vPosition", "texCoord0"],
+    var gl = initWebGL("example", "vshader", "fshader",
+        ["vPosition", "texCoord0"],
         [ 0, 0, 0, 1 ], 1);
-    var program = gl.getParameter(wgl.CURRENT_PROGRAM);
+    var program = gl.getParameter(wgl.WebGL.CURRENT_PROGRAM);
 
-    gl.disable(wgl.DEPTH_TEST);
-    gl.disable(wgl.BLEND);
+    gl.disable(wgl.WebGL.DEPTH_TEST);
+    gl.disable(wgl.WebGL.BLEND);
 
     var vertexObject = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
     gl.bufferData(
-        wgl.ARRAY_BUFFER,
+        wgl.WebGL.ARRAY_BUFFER,
         float32list([-1, 1,0, 1,1,0, -1,-1,0,
           -1,-1,0, 1,1,0,  1,-1,0]),
-        wgl.STATIC_DRAW);
+        wgl.WebGL.STATIC_DRAW);
     gl.enableVertexAttribArray(0);
-    gl.vertexAttribPointer(0, 3, wgl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(0, 3, wgl.WebGL.FLOAT, false, 0, 0);
 
     vertexObject = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
     gl.bufferData(
-        wgl.ARRAY_BUFFER,
+        wgl.WebGL.ARRAY_BUFFER,
         float32list([ 0,0, 1,0, 0,1,
           0,1, 1,0, 1,1]),
-        wgl.STATIC_DRAW);
+        wgl.WebGL.STATIC_DRAW);
     gl.enableVertexAttribArray(1);
-    gl.vertexAttribPointer(1, 2, wgl.FLOAT, false, 0, 0);
-    shouldBe(gl.getError(), wgl.NO_ERROR);
+    gl.vertexAttribPointer(1, 2, wgl.WebGL.FLOAT, false, 0, 0);
+    shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
 
     var colors = [
       [0,192,128,255],
@@ -92,11 +92,11 @@ main() {
     var textures = [];
     for (var ii = 0; ii < colors.length; ++ii) {
       var tex = gl.createTexture();
-      gl.activeTexture(wgl.TEXTURE0 + ii);
-      gl.bindTexture(wgl.TEXTURE_2D, tex);
+      gl.activeTexture(wgl.WebGL.TEXTURE0 + ii);
+      gl.bindTexture(wgl.WebGL.TEXTURE_2D, tex);
       textures.add(tex);
     }
-    shouldBe(gl.getError(), wgl.NO_ERROR);
+    shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
 
     // now use each texture unit to write into the textures,
     for (var ii = 0; ii < colors.length; ++ii) {
@@ -104,17 +104,18 @@ main() {
       ctx2d.fillStyle =
         "rgba(" + c.join(",") + ")";
       ctx2d.fillRect(0, 0, 1, 1);
-      gl.activeTexture(wgl.TEXTURE0 + ii);
-      gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, wgl.RGBA, wgl.UNSIGNED_BYTE, canvas2d);
+      gl.activeTexture(wgl.WebGL.TEXTURE0 + ii);
+      gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE,
+          canvas2d);
     }
-    shouldBe(gl.getError(), wgl.NO_ERROR);
+    shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
 
     var textureLoc = gl.getUniformLocation(program, "tex");
     var worldLoc = gl.getUniformLocation(program, "world");
-    shouldBe(gl.getError(), wgl.NO_ERROR);
+    shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
 
     gl.clearColor(1,0,0,1);
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
 
     for (var ii = 0; ii < colors.length; ++ii) {
       var x = ii % 2;
@@ -126,16 +127,16 @@ main() {
           0, 0.5, 0, 0,
           0, 0, 1, 0,
           -0.5 + x, -0.5 + y, 0, 1]));
-      gl.drawArrays(wgl.TRIANGLES, 0, 6);
+      gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 6);
     }
-    shouldBe(gl.getError(), wgl.NO_ERROR);
+    shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
 
     for (var ii = 0; ii < colors.length; ++ii) {
       var c = colors[ii];
       var x = ii % 2;
       var y = floor(ii / 2);
       var buf = new Uint8List(4);
-      gl.readPixels(x, y, 1, 1, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
+      gl.readPixels(x, y, 1, 1, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
       var msg = 'expected:' + c.join(',') + ' found: ' + buf.join(',');
       if (buf[0] != c[0] ||
           buf[1] != c[1] ||

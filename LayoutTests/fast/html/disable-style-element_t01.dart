@@ -11,9 +11,9 @@ import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
 
 main() {
-  var body = document.body;
+  BodyElement body = document.body;
 
-  var style1 = new Element.html('''
+  Element style1 = new Element.html('''
     <style>
     .test {
       color: red;
@@ -22,12 +22,12 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style1);
 
-  var style2 = new Element.html('''
+  Element style2 = new Element.html('''
     <style id="non-css" type="foo/bar"></style>
     ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style2);
 
-  var style3 = new Element.html('''
+  Element style3 = new Element.html('''
     <style id="s">
     .test {
       color: green;
@@ -36,8 +36,8 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style3);
 
-  var styleElement = document.getElementById('s');
-  var testElement = document.createElement('div');
+  StyleElement styleElement = document.getElementById('s') as StyleElement;
+  DivElement testElement = document.createElement('div') as DivElement;
   testElement.text = "Test element";
   testElement.className = 'test';
   document.body.append(testElement);
@@ -61,14 +61,14 @@ main() {
   Expect.equals("rgb(0, 128, 0)", testElement.getComputedStyle().color);
 
   // Test disconnected element
-  var newStyleElement = document.createElement('style');
+  StyleElement newStyleElement = document.createElement('style') as StyleElement;
   Expect.isFalse(newStyleElement.disabled);
 
   newStyleElement.disabled = true;
   Expect.isFalse(newStyleElement.disabled);
 
   // Test non-CSS element
-  var otherStyle = document.getElementById('non-css');
+  StyleElement otherStyle = document.getElementById('non-css') as StyleElement;
   Expect.isFalse(otherStyle.disabled);
 
   otherStyle.disabled = true;

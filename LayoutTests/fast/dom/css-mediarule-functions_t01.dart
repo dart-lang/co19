@@ -9,8 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-//import "pwd.dart";
 
 _shouldThrow(func(), name) =>
   shouldThrow(func, (e) => e is DomException && e.name == name);
@@ -23,49 +21,46 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
 
-  var styleSheet = document.getElementById('style1').sheet;
-  var mediaRule = styleSheet.cssRules[0];
+  CssStyleSheet styleSheet =
+      (document.getElementById('style1') as StyleElement).sheet;
+  CssMediaRule mediaRule = styleSheet.cssRules[0];
 
   // CSSMediaRule.insertRule(rule, index) tests
 
   debug('Test that insertRule works.');
-  var index = mediaRule
-    .insertRule(".test2 { color: blue; }", mediaRule.cssRules.length);
+  mediaRule.insertRule(".test2 { color: blue; }", mediaRule.cssRules.length);
 
   debug('Test that insertRule raises an exception for indexes greater than the length of the list.');
   _shouldThrow(() {
-    var index = mediaRule
-      .insertRule("p {color: red; }", mediaRule.cssRules.length + 1);
+    mediaRule.insertRule("p {color: red; }", mediaRule.cssRules.length + 1);
   }, DomException.INDEX_SIZE);
 
   debug('Test that insertRule raises an exception for indexes less than 0.');
   _shouldThrow(() {
-    var index = mediaRule.insertRule("p {color: red; }", -1);
+    mediaRule.insertRule("p {color: red; }", -1);
   }, DomException.INDEX_SIZE);
 
   debug('Test that insertRule raises an exception for malformed rules.');
   _shouldThrow(() {
-    var index = mediaRule.insertRule("badbeef }{", mediaRule.cssRules.length);
+    mediaRule.insertRule("badbeef }{", mediaRule.cssRules.length);
   }, DomException.SYNTAX);
 
   // Test that insertRule raises an exception for illegally placed rules.
   debug('ImportRule illegal inside a MediaRule.');
   _shouldThrow(() {
     // ImportRule illegal inside a MediaRule.
-    var index = mediaRule
-      .insertRule("@import url(sheet.css);", mediaRule.cssRules.length);
+    mediaRule.insertRule("@import url(sheet.css);", mediaRule.cssRules.length);
   }, DomException.HIERARCHY_REQUEST);
   debug('CharsetRule illegal inside a MediaRule.');
   _shouldThrow(() {
     // CharsetRule illegal inside a MediaRule.
-    var index = mediaRule
-      .insertRule("@charset \"ISO-8859-1\";", mediaRule.cssRules.length);
+    mediaRule.insertRule("@charset \"ISO-8859-1\";", mediaRule.cssRules.length);
   }, DomException.SYNTAX);
   debug('Nested MediaRule illegal inside a MediaRule.');
   _shouldThrow(() {
     // Nested MediaRule illegal inside a MediaRule.
-    var index = mediaRule
-      .insertRule("@media screen { p { color: red; } };", mediaRule.cssRules.length);
+    mediaRule.insertRule(
+        "@media screen { p { color: red; } };", mediaRule.cssRules.length);
   }, DomException.SYNTAX);
 
   // CSSMediaRule.deleteRule(index) tests

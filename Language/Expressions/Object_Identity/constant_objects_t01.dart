@@ -18,8 +18,11 @@ import "../../../Utils/expect.dart";
 class C {
   final x;
   const C(this.x);
-  bool operator ==(C other) {
-    return this.x != other.x;
+  bool operator ==(Object other) {
+    if (other is C) {
+      return this.x != other.x;
+    }
+    return true;
   }
 }
 
@@ -30,6 +33,6 @@ main() {
   Expect.isTrue(const C(1) == const C(2));
   Expect.isFalse(identical(const C(1), const C(2)));
 
-  Expect.isFalse(double.NAN == double.NAN);
-  Expect.isTrue(identical(double.NAN, double.NAN));
+  Expect.isFalse(double.nan == double.nan);
+  Expect.isTrue(identical(double.nan, double.nan));
 }

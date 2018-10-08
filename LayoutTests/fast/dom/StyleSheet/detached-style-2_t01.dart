@@ -8,13 +8,11 @@
  * when in document.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 
 main() {
-  var link = new Element.html('''
+  LinkElement link = new Element.html('''
     <link rel="stylesheet" href="$root/resources/detached-style.css" type="text/css" media="screen">
     ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(link);

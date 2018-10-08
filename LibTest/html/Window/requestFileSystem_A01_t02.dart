@@ -4,38 +4,35 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<FileSystem> requestFileSystem(int size, {bool persistent: false})
+ * @assertion Future<FileSystem> requestFileSystem(int size, {bool persistent:
+ * false})
  * Access a sandboxed file system of the specified size. If persistent is true,
- * the application will request permission from the user to create lasting storage.
- * This storage cannot be freed without the user's permission.
- * Returns a Future whose value stores a reference to the sandboxed file system for use.
- * Because the file system is sandboxed, applications cannot access file systems created
- * in other web pages.
+ * the application will request permission from the user to create lasting
+ * storage. This storage cannot be freed without the user's permission.
+ * Returns a Future whose value stores a reference to the sandboxed file system
+ * for use. Because the file system is sandboxed, applications cannot access
+ * file systems created in other web pages.
  * @description Checks that FileSystem is not accessible outside its web-page,
  * and a Directory can be created.
  * todo is it in other page?
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-  WindowBase nw=window;
+  Window nw = window;
 
   asyncStart();
   nw.requestFileSystem(10).then((FileSystem fs) {
-    fs.root. createDirectory("abc").then((Entry entry) {
+    fs.root.createDirectory("abc").then((Entry entry) {
       Expect.isTrue(entry.isDirectory);
       asyncEnd();
-    },
-    onError: (e){
+    }, onError: (e) {
       asyncEnd();
       Expect.fail("createDirectory:$e");
     });
-  },
-  onError: (e){
+  }, onError: (e) {
     asyncEnd();
     Expect.fail("requestFileSystem:$e");
   });
-    
 }

@@ -9,8 +9,6 @@
  * is less than the passed value and a value greater than 0 if 'this' is greater
  * than the passed value.
  * @author pagolubev
- * @needsreview Yields 0 when compares -.0 and .0.
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

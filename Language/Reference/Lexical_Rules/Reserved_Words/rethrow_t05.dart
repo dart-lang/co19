@@ -15,6 +15,9 @@
  */
 
 main() {
-  void rethrow() {}
-  rethrow();
+  try {
+    void rethrow() {}
+    rethrow();
+  } catch (anything) {
+  }
 }

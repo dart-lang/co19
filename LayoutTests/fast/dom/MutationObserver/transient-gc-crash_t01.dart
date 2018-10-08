@@ -8,8 +8,6 @@
  * should not cause a crash.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -21,7 +19,7 @@ main() {
   var observer = new MutationObserver(callback);
 
   var div = document.createElement('div');
-  var span = div.append(document.createElement('span'));
+  SpanElement span = div.append(document.createElement('span'));
   observer.observe(div, attributes: true, subtree: true);
   span.remove();
   div = null;

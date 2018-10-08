@@ -14,12 +14,12 @@ main() {
       <canvas id="canvas" width=600 height=300>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById('canvas');
+  dynamic canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
 
-  var Infinity = double.INFINITY;
-  var NegInfinity = double.NEGATIVE_INFINITY;
-  var NaN = double.NAN;
+  var Infinity = double.infinity;
+  var NegInfinity = double.negativeInfinity;
+  var NaN = double.nan;
 
   shouldThrow(() => ctx.createImageData(Infinity, Infinity));
   shouldThrow(() => ctx.createImageData(Infinity, 10));

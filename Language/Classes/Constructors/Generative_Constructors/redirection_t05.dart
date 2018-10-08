@@ -15,8 +15,6 @@
  * formals.
  * @compile-error
  * @author pagolubev
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class C {
@@ -26,5 +24,7 @@ class C {
 }
 
 main() {
-  var x = new C(1);
+  try {
+    var x = new C(1);
+  } catch (x) {}
 }

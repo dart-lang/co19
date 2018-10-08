@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -31,7 +29,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   var list = document.body.querySelectorAll("p");
-  for (var result = "", i = 0; i < list.length; ++i) {
+  for (var i = 0; i < list.length; ++i) {
     shouldBe(list[i].offsetWidth, (100 * (i & 1)));
   }
 }

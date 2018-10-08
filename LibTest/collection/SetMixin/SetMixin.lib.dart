@@ -7,9 +7,10 @@
  * @assertion abstract class SetMixin<K, V>
  * Mixin implementation of Set.
  * This class provides a base implementation of a Set that depends only on the
- * abstract members: add, contains, lookup, remove, iterator, length and toSet.
- * @description Implementation of add, contains, lookup, remove, iterator,
- * length and toSet.
+ * abstract members: [add], [contains], [lookup], [remove], [iterator], [length]
+ * and [toSet].
+ * @description Implementation of [add], [contains], [lookup], [remove],
+ * [iterator], [length] and [toSet].
  * @author sgrekhov@unipro.ru
  */
 library set_mixin_lib;
@@ -20,13 +21,14 @@ class SetMixinImpl<E> extends Object with SetMixin<E> {
 
   SetMixinImpl(): _set = new LinkedHashSet<E>();
 
-  SetMixinImpl.from(Iterable content): _set = new LinkedHashSet<E>.from(content);
+  SetMixinImpl.from(Iterable content): _set =
+      new LinkedHashSet<E>.from(content);
 
   bool add(E element) => _set.add(element);
 
   bool contains(Object element) => _set.contains(element);
 
-  E lookup(E element) => _set.lookup(element);
+  E lookup(Object element) => _set.lookup(element);
 
   bool remove(Object element) => _set.remove(element);
 

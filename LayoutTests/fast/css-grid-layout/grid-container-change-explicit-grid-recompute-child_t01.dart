@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "../../resources/check-layout.dart";
 import "pwd.dart";
 
@@ -51,7 +50,7 @@ main() {
 
   testGridDefinitions(gridTemplateRows, gridTemplateColumns, firstGridItemData, secondGridItemData, thirdGridItemData)
   {
-    var gridElement = document.getElementsByClassName("grid")[0];
+    dynamic gridElement = document.getElementsByClassName("grid")[0];
     gridElement.style.gridTemplateRows = gridTemplateRows;
     gridElement.style.gridTemplateColumns = gridTemplateColumns;
 

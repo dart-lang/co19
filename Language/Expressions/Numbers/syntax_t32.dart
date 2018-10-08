@@ -35,5 +35,7 @@
  */
 
 main() {
-  var i = 0x1g;
+  try {
+    var i = 0x1g;
+  } catch (e) {}
 }

@@ -26,11 +26,10 @@
  * valid according to this syntax do not cause any errors and such class can 
  * be instantiated. 
  * @author msyabro
- * @reviewer rodionov
  */
 
 abstract class I  {
-  factory I()=A;
+  factory I() = A;
 }
 
 class A implements I {
@@ -41,7 +40,7 @@ class A implements I {
   static f() {}
   get x {}
   set x(var v) {}
-  operator==(A other) {}
+  operator ==(dynamic other) {}
 
   var _x;
 }

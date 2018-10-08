@@ -9,8 +9,6 @@
  * @description Checks that operator ! cannot be defined in a user class.
  * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {
@@ -18,5 +16,7 @@ class C {
 }
 
 main() {
-  var b = !(new C());
+  try {
+    var b = !(new C());
+  } catch (x) {}
 }

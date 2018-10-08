@@ -19,7 +19,8 @@ import "../../../../../../../Utils/expectWeb.dart";
 
 void main() {
 
-var video = document.createElement('video');
+var video = document.createElement('video') as VideoElement;
+
 test((){
     assert_throws("", (){
         video.addTextTrack('foo');

@@ -8,14 +8,13 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
       <img style="display:none" id="img1">
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var img1 = document.getElementById('img1');
+  ImageElement img1 = document.getElementById('img1');
   img1.onError.listen((_) {
     asyncEnd();
   });

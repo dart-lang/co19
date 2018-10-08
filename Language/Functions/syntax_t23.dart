@@ -31,5 +31,7 @@
 f() => assert (false);
 
 main() {
-  f();
+  try {
+    f();
+  } catch (x) {}
 }

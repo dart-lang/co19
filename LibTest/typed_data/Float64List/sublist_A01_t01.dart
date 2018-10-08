@@ -4,8 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion List<int> sublist(int start, [int end])
- * Returns a new list containing the elements from [start] to [end].
+ * @assertion List<E> sublist(int start, [int end])
+ * Returns a new list containing the objects from [start] inclusive to [end]
+ * exclusive.
  * @description Checks that the returned list contains all elements
  * of [this] from [start] to [end].
  * @author msyabro
@@ -14,11 +15,11 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(var list, var start, var end) {
+void check(List<double> list, int start, int end) {
   var l = new Float64List.fromList(list);
   var res = l.sublist(start, end);
 
-  for(int i = start; i<end; ++i) {
+  for (int i = start; i < end; ++i) {
     Expect.equals(l[i], res[i - start]);
   }
 }

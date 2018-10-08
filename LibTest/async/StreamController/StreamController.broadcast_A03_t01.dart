@@ -6,32 +6,30 @@
 /**
  * @assertion StreamController.broadcast({void onListen(), void onCancel(),
  *                                       bool sync: false})
- * If sync is true, events may be fired directly by the stream's subscriptions
- * during an add, addError or close call.
+ * The controller does not have any internal queue of events, and if there
+ * are no listeners at the time the event is added, it will just be dropped,
+ * or, if it is an error, be reported as uncaught.
  *
- * If sync is false, the event will always be fired at a later time, after the
- * code adding the event has completed.
- *
- * @description Checks that if sync is false, the event will be passed to the
- * listener at a later time.
+ * @description Checks that data events are dropped if there are no listeners.
+ * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-
 main() {
-  StreamController controller = new StreamController.broadcast(sync: false);
-  Stream s = controller.stream;
-  bool onDataCalled = false;
+  StreamController controller = new StreamController.broadcast();
+  controller.add("lost");
+  controller.add("event");
   asyncStart();
-  s.listen((var event) {
-      onDataCalled = true;
-      asyncEnd();
-    }
+  List receivedData = [];
+  controller.stream.listen(
+      (data) => receivedData.add(data),
+      onDone: () {
+        Expect.listEquals(["published", "event"], receivedData);
+        asyncEnd();
+      }
   );
-  controller.add(1);
-  Expect.isFalse(onDataCalled);
+  controller.add("published");
+  controller.add("event");
   controller.close();
 }

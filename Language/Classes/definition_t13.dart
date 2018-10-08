@@ -14,11 +14,12 @@
  * empty.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class A []
 
 main() {
-  A a = new A();
+  try {
+    new A();
+  } catch (e) {}
 }

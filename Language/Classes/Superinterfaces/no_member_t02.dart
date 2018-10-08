@@ -16,11 +16,11 @@
  */
 
 abstract class I {
-  foo(var x);
+  foo(int x);
 }
 
 class C implements I { 
-  foo(int x) {}
+  foo(num x) {}
 }
 
 main () {

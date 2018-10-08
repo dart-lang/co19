@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -29,7 +28,7 @@ main() {
   var onsubmitCalled;
 
   FormElement form = document.body.querySelector('form');
-  form.onSubmit.listen((_) {onsubmitCalled = true; return false;});
+  form.onSubmit.listen((_) {onsubmitCalled = true;});
 
   runTest(_) {
     var button = document.getElementById('button');

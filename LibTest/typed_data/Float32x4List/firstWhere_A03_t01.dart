@@ -4,22 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion dynamic firstWhere(bool test(E element), {Object orElse()})
- * By default, when orElse is null, a [StateError] is thrown.
- * @description Checks that a [StateError] is thrown.
+ * @assertion E firstWhere(bool test(E element), {E orElse()})
+ * ...
+ * If [orElse] is omitted, it defaults to throwing a [StateError].
+ * @description Checks that a [StateError] is thrown when orElse is omitted and
+ * no element satisfied test.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-o() => new Float32x4.zero();
+Float32x4 o() => new Float32x4.zero();
 
-check(list) {
+check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
   try {
     l.firstWhere((e) => false);
     Expect.fail("StateError is expected");
-  } on StateError catch(ok) {}
+  } on StateError {}
 }
 
 main() {

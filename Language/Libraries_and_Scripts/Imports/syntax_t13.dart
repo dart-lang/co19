@@ -30,5 +30,7 @@
 import 7 + 7;
 
 main() {
-  someVar = 0;
+  try {
+    someVar = 0;
+  } catch (e) {}
 }

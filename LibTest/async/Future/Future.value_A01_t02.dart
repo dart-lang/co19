@@ -12,15 +12,12 @@
  * @author ilya
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  Future future = new Future.value();
-
   asyncStart();
-  future.then((fValue) {
-    Expect.equals(null, fValue);
+  new Future.value().then((value) {
+    Expect.isNull(value);
     asyncEnd();
   });
 }

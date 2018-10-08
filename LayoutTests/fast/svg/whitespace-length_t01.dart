@@ -25,13 +25,13 @@ const String htmlEL2 = r'''
 <div id=log></div>
 ''';
 
-var svg = document.querySelector("svg");
+Element svg = document.querySelector("svg");
 
 // test length values
-var EPSILON = Math.pow(2, -24); // float epsilon
-var whitespace = [ "", " ", "   ", "\r\n\t ", "\f" ];
-var garbage = [ "a", "e", "foo", ")90" ];
-var validunits = [ "", "em", "ex", "px", "in", "cm", "mm", "pt", "pc", "%" ];
+double EPSILON = Math.pow(2, -24); // float epsilon
+List<String> whitespace = [ "", " ", "   ", "\r\n\t ", "\f" ];
+List<String> garbage = [ "a", "e", "foo", ")90" ];
+List<String> validunits = [ "", "em", "ex", "px", "in", "cm", "mm", "pt", "pc", "%" ];
 
 void main() {
     document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
@@ -42,7 +42,7 @@ void main() {
 		 whitespace,
 		 [ "-47", ".1", "0.35", "1e-10", "+32", "+17E-1", "17e+2" ], // valid
 		 [], // invalid (split out the next line to whitespace-length-invalid.html because trybots were too slow )
-		     // [ double.NAN, double.INFINITY, double.NEGATIVE_INFINITY, "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1" ],
+		     // [ double.nan, double.infinity, double.negativeInfinity, "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1" ],
 		 validunits,
 		 garbage,
 		 (elm, value) { assert_approx_equals(elm.x.baseVal.valueInSpecifiedUnits, double.parse(value), EPSILON); },

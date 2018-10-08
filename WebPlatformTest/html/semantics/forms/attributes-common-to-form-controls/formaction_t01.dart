@@ -28,11 +28,11 @@ const String htmlEL='''
 void main() {
   document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   
-  var button=document.getElementsByTagName("button")[0];
-  var inputs=document.getElementsByTagName("input");
+  var button = document.getElementsByTagName("button")[0] as ButtonElement;
+  List<InputElement> inputs = document.getElementsByTagName("input");
   
-  Element relativeToAbsolute(relativeURL) {
-    var a = document.createElement('a');
+  String relativeToAbsolute(relativeURL) {
+    var a = document.createElement('a') as AnchorElement;
     a.href = relativeURL;
     return a.href;
   }

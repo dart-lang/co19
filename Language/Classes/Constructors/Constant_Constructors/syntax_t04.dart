@@ -12,7 +12,6 @@
  * end of constructor declaration is missing.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {
@@ -20,5 +19,7 @@ class A {
 }
 
 main() {
-  var a = const A();
+  try {
+    var a = const A();
+  } catch (x) {}
 }

@@ -28,7 +28,6 @@
  * can't be used in the left hand side of an assignment.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class A {
@@ -38,5 +37,7 @@ class A {
 
 main() {
   A a = new A();
-  a.test() = 1;
+  try {
+    a.test() = 1;
+  } catch (e) {}
 }

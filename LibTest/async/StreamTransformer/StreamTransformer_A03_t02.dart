@@ -16,29 +16,34 @@
  * @author ilya
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 // transform: skip evens, produce number and its double, convert errors to data
 myTransformer() {
-  return new StreamTransformer((s, _) {
-    var c = new StreamController();
-    s.listen((x) {
-      if (x.isOdd) {
-        c.add(x);
-        c.add(x*2);
-      }
-    }, onError:(x) {
-      c.add(x);
-    }, onDone:() {
-      c.close();
-    });
-    return c.stream.listen(null);
-  });
+  return new StreamTransformer(
+    (Stream s, _) {
+      StreamController c = new StreamController();
+      s.listen(
+        (x) {
+          if (x.isOdd) {
+            c.add(x);
+            c.add(x*2);
+          }
+        },
+        onError:(x) {
+          c.add(x);
+        },
+        onDone:() {
+          c.close();
+        }
+      );
+      return c.stream.listen(null);
+    }
+  );
 }
 
 main() {
-  var c = new StreamController();
+  StreamController c = new StreamController();
   c.add(1);
   c.add(2);
   c.add(3);
@@ -52,10 +57,12 @@ main() {
 
   asyncStart();
   
-  c.stream.transform(myTransformer()).toList().then((x) {
-    Expect.listEquals([1,2,3,6,5,10,1,2,3,4,5], x);
-    asyncEnd();
-  });
+  c.stream.transform(myTransformer()).toList().then(
+    (x) {
+      Expect.listEquals([1,2,3,6,5,10,1,2,3,4,5], x);
+      asyncEnd();
+    }
+  );
 
   c.close();
 }

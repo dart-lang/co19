@@ -8,8 +8,6 @@
  * @description Test for Buzilla Bug 15359: JPEG image not shown when height is specified as percentage inside a table
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 
 const String htmlEL2 = r'''

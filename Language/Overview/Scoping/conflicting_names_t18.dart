@@ -23,5 +23,7 @@ func() {
 }
 
 main() {
-  func();
+  try {
+    func();
+  } catch (e) {}
 }

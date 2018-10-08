@@ -5,21 +5,22 @@
  */
 /**
  * @assertion int compareTo(Comparable other)
- * @description Checks NaN as this value and as the argument.
+ * ...
+ * For ordering, the double NaN value is considered equal to itself, and greater
+ * than any numeric value
+ * @description Checks that NaN is greater than any other value
  * @author pagolubev
- * @needsreview NaN assumed to be greater than infinity.
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
 
 main() {
-  double nan = 0 / 0;
+  double nan = double.nan;
 
   List values = [
-    .0,
-    1 / 0,
-    1.7976931348623157e308, // max
+    0.0,
+    double.infinity,
+    double.maxFinite,
     2.2250738585072014e-308, // min normal
     4.9406564584124654e-324 // min
   ];

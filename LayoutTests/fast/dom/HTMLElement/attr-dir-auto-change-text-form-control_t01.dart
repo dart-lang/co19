@@ -7,7 +7,6 @@
  * @description Test that directionality is re-evaluated when dir attribute changes.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

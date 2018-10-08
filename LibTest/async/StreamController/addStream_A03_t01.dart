@@ -14,14 +14,12 @@
  * first error. Also checks that default value of cancelOnError is true.
  * @author ilya
  */
-
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-listen(stream, expectedData, expectedErrors) {
-  var actualData = [];
-  var actualErrors = [];
+void listen(Stream stream, List expectedData, List expectedErrors) {
+  List actualData = [];
+  List actualErrors = [];
 
   asyncStart();
   stream.listen(
@@ -35,17 +33,18 @@ listen(stream, expectedData, expectedErrors) {
         Expect.listEquals(expectedData, actualData);
         Expect.listEquals(expectedErrors, actualErrors);
         asyncEnd();
-      });
+      }
+  );
 }
 
 // new stream, negative data become errors
-toDataErrorStream(stream) => stream.map((x) => x < 0 ? throw x : x);
+Stream toDataErrorStream(Stream stream) => stream.map((x) => x < 0 ? throw x : x);
 
 main() {
-  var c = new StreamController();
-  var iter = [1, 2, 3, -1, -2, -3, 4, 5, 6];
-  var s1 = toDataErrorStream(new Stream.fromIterable(iter));
-  var s2 = toDataErrorStream(new Stream.fromIterable(iter));
+  StreamController c = new StreamController();
+  List iterable = [1, 2, 3, -1, -2, -3, 4, 5, 6];
+  Stream s1 = toDataErrorStream(new Stream.fromIterable(iterable));
+  Stream s2 = toDataErrorStream(new Stream.fromIterable(iterable));
 
   listen(c.stream, [1, 2, 3, 1, 2, 3], [-1, -1]);
 

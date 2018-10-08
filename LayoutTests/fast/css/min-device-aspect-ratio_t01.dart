@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -37,7 +36,7 @@ main() {
   doTest()
   {
     var headElement = document.head;
-    var linkElement = document.createElement("link");
+    dynamic linkElement = document.createElement("link");
     linkElement.rel = "stylesheet";
     var width;
     var height;

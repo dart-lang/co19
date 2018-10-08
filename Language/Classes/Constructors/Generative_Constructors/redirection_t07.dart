@@ -15,7 +15,6 @@
  * produces a compile error (Using a longer redirection chain).
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {
@@ -33,5 +32,7 @@ class C {
 }
 
 main() {
-  var x = new C.c0();
+  try {
+    var x = new C.c0();
+  } catch (x) {}
 }

@@ -9,22 +9,23 @@
  * document.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
   //var testDoc = document.implementation.createDocument("http://www.w3.org/1999/xhtml", "html");
-  var testDoc = document.implementation.createHtmlDocument('');
+  HtmlDocument testDoc = document.implementation.createHtmlDocument('');
   testDoc.documentElement.append(testDoc.createElement("body"));
-  testDoc.body.append(testDoc.createElement("p")).id = "p1";
-  testDoc.getElementById("p1").append(testDoc.createElement("span")).id = "s1";
-  testDoc.body.append(testDoc.createElement("span")).id = "s2";
-  testDoc.body.append(testDoc.createElement("div")).className = "d1";
+  (testDoc.body.append(testDoc.createElement("p")) as HtmlElement).id = "p1";
+  (testDoc.getElementById("p1").append(testDoc.createElement("span"))
+      as HtmlElement).id = "s1";
+  (testDoc.body.append(testDoc.createElement("span")) as HtmlElement).id = "s2";
+  (testDoc.body.append(testDoc.createElement("div")) as HtmlElement).className =
+      "d1";
 
-  var p1 = testDoc.getElementById("p1");
-  var s1 = testDoc.getElementById("s1");
-  var s2 = testDoc.getElementById("s2");
-  var d1 = testDoc.body.lastChild;
+  Element p1 = testDoc.getElementById("p1");
+  Element s1 = testDoc.getElementById("s1");
+  Element s2 = testDoc.getElementById("s2");
+  Element d1 = testDoc.body.lastChild;
 
   shouldBe(testDoc.querySelector('p'), p1);
   shouldBe(testDoc.querySelectorAll('span').length, 2);

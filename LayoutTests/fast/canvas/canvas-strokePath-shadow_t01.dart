@@ -7,15 +7,13 @@
  * @description Ensure correct behavior of canvas with path stroke shadow
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   // Level of tolerance we expect of most pixel comparisons in this test.
   shouldBeAlmost(_a, _b) => shouldBeCloseTo(_a, _b, 2);
 
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   document.body.append(canvas);
   canvas.setAttribute('width', '700');
   canvas.setAttribute('height', '700');

@@ -16,11 +16,8 @@
  * @description Checks that the assert statement succeeds if the conditional
  * expression evaluates to either true or () => true.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
-
-import '../../../Utils/dynamic_check.dart';
 
 bool t() {return true;}
 bool f() {return false;}
@@ -30,14 +27,11 @@ bool check() {flag = true; return flag;}
 
 main() {
   assert (check());
-  if (isCheckedMode()) {
-    Expect.isTrue(flag);
-  }
+  Expect.isTrue(flag); // TODO check if assert is effective
+
   assert (true);
   assert (true ? true : true);
   assert ((1 > 0 ? true && true : true || false));
-  assert (() => true);
-  assert (t);
-  assert ("string".contains("tri") ? t : f);
-  assert ("string".contains("tri") ? (() => true) : (() => false));
+  assert (t());
+  assert ("string".contains("tri") ? t() : f());
 }

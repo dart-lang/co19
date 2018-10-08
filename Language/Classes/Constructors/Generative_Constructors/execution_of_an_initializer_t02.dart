@@ -14,15 +14,12 @@
  * field v.
  * An initializer of the form v = e is equivalent to an initializer of the form
  * this.v = e.
- * @description Checks that runtime error occurs, not compile-error, by using
- * an initializer of the form this.v = e for already initiailized final
- * instance variable.
+ * @description Checks that a compile-error occurs, by using an initializer of
+ * the form this.v = e for already initiailized final instance variable.
  * @compile-error
  * @author ilya
  * @issue 13335
- * @issue 30036
  */
-import "../../../../Utils/expect.dart";
 
 class C {
   final x = 1;
@@ -30,5 +27,5 @@ class C {
 }
 
 main() {
-  Expect.throws(() => new C());
+  new C();
 }

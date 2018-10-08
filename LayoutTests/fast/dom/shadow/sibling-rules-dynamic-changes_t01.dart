@@ -21,12 +21,12 @@ main() {
   }
 
   debug("Dynamically change the :first-child");
-  var host = sandbox.append(document.createElement("div"));
+  DivElement host = sandbox.append(document.createElement("div"));
   var root = host.createShadowRoot();
   root.innerHtml = "<span>Black</span><style>:first-child { color: red; }</style>";
   document.body.offsetTop;
   var second = firstElementChild(root);
-  var first = root.insertBefore(document.createElement("span"), second);
+  SpanElement first = root.insertBefore(document.createElement("span"), second);
   first.text = "Red";
   shouldBeEqualToString(first.getComputedStyle().color, "rgb(255, 0, 0)");
   shouldBeEqualToString(second.getComputedStyle().color, "rgb(0, 0, 0)");
@@ -39,7 +39,7 @@ main() {
   root.innerHtml = "<style>:last-child { color: red; }</style><span>Black</span>";
   document.body.offsetTop;
   var secondToLast = lastElementChild(root);
-  var last = root.append(document.createElement("span"));
+  SpanElement last = root.append(document.createElement("span"));
   last.text = "Red";
   shouldBeEqualToString(last.getComputedStyle().color, "rgb(255, 0, 0)");
   shouldBeEqualToString(secondToLast.getComputedStyle().color, "rgb(0, 0, 0)");

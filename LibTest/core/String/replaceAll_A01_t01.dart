@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Returns a new string where all occurrences of [from] in this
- *            string are replaced with [to].
+ * string are replaced with [to].
  * @description Checks that this function replaces all pattern occurrences correctly
  * @author msyabro
  * @reviewer rodionov

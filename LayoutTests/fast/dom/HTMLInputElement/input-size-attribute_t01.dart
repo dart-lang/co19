@@ -7,11 +7,10 @@
  * @description HTMLInputElement size attribute test
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var input = document.createElement("input");
+  InputElement input = document.createElement("input");
 
   shouldBe(input.size, 20);
   input.setAttribute('size', '-1');

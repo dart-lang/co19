@@ -6,7 +6,7 @@
 /**
  * @assertion void insertAfter(E entry)
  * ...
- * This entry must be in a linked list when this method is called. The entry
+ * This entry must be in a linked list when this method is called. The [entry]
  * must not be in a linked list.
  * @description Checks that the entry inserted must not be in any linked list
  * @author sgrekhov@unipro.ru
@@ -16,8 +16,8 @@ import "../../../Utils/expect.dart";
 import "LinkedListEntry.lib.dart";
 
 main() {
-  LinkedList list1 = new LinkedList();
-  LinkedList list2 = new LinkedList();
+  LinkedList<MyLinkedListEntry> list1 = new LinkedList<MyLinkedListEntry>();
+  LinkedList<MyLinkedListEntry> list2 = new LinkedList<MyLinkedListEntry>();
   MyLinkedListEntry<int> entry1 = new MyLinkedListEntry<int>(1);
   MyLinkedListEntry<int> entry2 = new MyLinkedListEntry<int>(2);
   list1.add(entry1);

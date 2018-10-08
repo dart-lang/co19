@@ -12,10 +12,9 @@ import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   var gl = wtu.create3DContext(canvas);
   canvas.width = 0;
   canvas.height = 0;
@@ -23,11 +22,11 @@ main() {
   var program = wtu.setupTexturedQuad(gl);
   shouldBeTrue(program != null);
   var tex = gl.createTexture();
-  gl.bindTexture(wgl.TEXTURE_2D, tex);
+  gl.bindTexture(wgl.WebGL.TEXTURE_2D, tex);
   var pixel = new Uint8List.fromList([0, 255, 0, 255]);
   gl.texImage2D(
-      wgl.TEXTURE_2D, 0, wgl.RGBA, 1, 1, 0, wgl.RGBA, wgl.UNSIGNED_BYTE, pixel);
+      wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, 1, 1, 0, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, pixel);
   wtu.drawQuad(gl);
 
-  glErrorShouldBe(gl, wgl.NO_ERROR, "Should be no errors from setup.");
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "Should be no errors from setup.");
 }

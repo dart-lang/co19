@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -27,8 +26,8 @@ main() {
     <div></div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  document.styleSheets[0]
-    .insertRule('@import url("$root/resources/css-insert-import-rule.css");', 0);
+  (document.styleSheets[0] as CssStyleSheet).insertRule(
+      '@import url("$root/resources/css-insert-import-rule.css");', 0);
 
   asyncStart();
   window.onLoad.first.then((_) {

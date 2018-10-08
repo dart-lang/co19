@@ -6,17 +6,17 @@
 /**
  * @assertion double parse(String source, [double handleError(String source)])
  * Parse source as an double literal and return its value.
- * Accepts an optional sign (+ or -) followed by either the characters "Infinity",
- * the characters "NaN" or a floating-point representation.
- * A floating-point representation is composed of a mantissa and an optional exponent part.
- * The mantissa is either a decimal point (.) followed by a sequence of (decimal) digits,
- * or a sequence of digits optionally followed by a decimal point and optionally more digits.
- * The (optional) exponent part consists of the character "e" or "E", an optional sign,
- * and one or more digits.
- 
+ * Accepts an optional sign (+ or -) followed by either the characters
+ * "Infinity", the characters "NaN" or a floating-point representation.
+ * A floating-point representation is composed of a mantissa and an optional
+ * exponent part.
+ * The mantissa is either a decimal point (.) followed by a sequence of
+ * (decimal) digits, or a sequence of digits optionally followed by a decimal
+ * point and optionally more digits.
+ * The (optional) exponent part consists of the character "e" or "E", an
+ * optional sign, and one or more digits.
 * @description Checks that correct string can be converted to double.
  * @author msyabro
- * @reviewer pagolubev
  */
 import "../../../Utils/expect.dart";
 
@@ -36,8 +36,8 @@ main() {
   Expect.isTrue(double.parse("1.1e2") == 110);
   Expect.isTrue(double.parse("1E1") == 10);
 
-  Expect.isTrue(double.parse("Infinity") == double.INFINITY);
-  Expect.isTrue(double.parse("-Infinity") == double.NEGATIVE_INFINITY);
+  Expect.isTrue(double.parse("Infinity") == double.infinity);
+  Expect.isTrue(double.parse("-Infinity") == double.negativeInfinity);
   Expect.isTrue(double.parse("NaN").isNaN);
   Expect.isTrue(double.parse("-NaN").isNaN);
   

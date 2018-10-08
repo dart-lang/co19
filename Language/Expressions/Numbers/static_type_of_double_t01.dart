@@ -16,5 +16,5 @@ main() {
   double d = 1.0;
   d = 0.0;
   d = 124.12414148124e-1242;
-  d = double.NAN;
+  d = double.nan;
 }

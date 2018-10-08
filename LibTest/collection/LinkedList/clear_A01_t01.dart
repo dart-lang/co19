@@ -5,8 +5,7 @@
  */
 /**
  * @assertion  void clear()
- * Removes all elements in the list.
- * The length of the list becomes zero.
+ * Remove all elements from this linked list.
  * @description Checks that the length of the list becomes zero.
  * @author kaigorodov
  */
@@ -15,7 +14,7 @@ import "dart:collection";
 import "LinkedList.lib.dart";
 
 main() {
-  LinkedList a = new LinkedList();
+  LinkedList<MyLinkedListEntry> a = new LinkedList<MyLinkedListEntry>();
   Expect.isTrue(a.length == 0);
   a.clear();
   Expect.isTrue(a.length == 0);
@@ -24,7 +23,7 @@ main() {
   a.clear();
   Expect.isTrue(a.length == 0);
 
-  a=toLinkedList([1,2,3]);
+  a=toLinkedList([1, 2, 3]);
   Expect.isTrue(a.length == 3);
   a.clear();
   Expect.isTrue(a.length == 0);
@@ -35,5 +34,4 @@ main() {
   Expect.isTrue(a.length == 0);
   a.clear();
   Expect.isTrue(a.length == 0);
-
 }

@@ -8,19 +8,18 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
-  var input = document.createElement('input');
+  InputElement input = document.createElement('input') as InputElement;
   input.type = 'date';
 
-  valueAsDateFor(stringValue) {
+  DateTime valueAsDateFor(String stringValue) {
     input.value = stringValue;
     return input.valueAsDate;
   }
 
-  setValueAsDateAndGetValue(year, month, day) {
-    var date = new DateTime.utc(year, month, day);
+  String setValueAsDateAndGetValue(int year, int month, int day) {
+    DateTime date = new DateTime.utc(year, month, day);
     input.valueAsDate = date;
     return input.value;
   }

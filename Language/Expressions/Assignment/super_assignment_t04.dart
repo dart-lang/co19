@@ -19,7 +19,6 @@
 import '../../../Utils/expect.dart';
 
 class A {
-  var v = -1;
 }
 
 class B extends A {

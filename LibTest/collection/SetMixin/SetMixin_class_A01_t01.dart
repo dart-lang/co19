@@ -5,7 +5,7 @@
  */
 /**
  * @assertion abstract class SetMixin<K, V>
- * Mixin implementation of Set.
+ * Mixin implementation of [Set].
  * @description Checks that all members of [Set] are implemented.
  * @author sgrekhov@unipro.ru
  */

@@ -6,11 +6,11 @@
 /**
  * @assertion factory List([int length])
  * Creates a list of the given length.
- * The list is a fixed-length list if length is provided, and an empty growable list if length is omitted.
- * @description Checks that created list contains exactly length elements if length is provided.
+ * The list is a fixed-length list if length is provided, and an empty growable
+ * list if length is omitted.
+ * @description Checks that created list contains exactly length elements if
+ * length is provided.
  * @author iefremov
- * @reviewer msyabro
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 
@@ -28,23 +28,14 @@ void check(List a, int size) {
   a[size>>1] = 6031769;
   Expect.isTrue(a[size>>1] == 6031769);
 
-  try {
-    a[-1] = 0;
-    Expect.fail("expected RangeError");
-  } on RangeError catch(ok) {}
-  try {
-    a[size] = 0;
-    Expect.fail("expected RangeError");
-  } on RangeError catch(ok) {}
+  Expect.throws(() {a[-1] = 0;}, (e) => e is RangeError);
+  Expect.throws(() {a[size] = 0;}, (e) => e is RangeError);
 }
 
 main() {
   List a = new List(0);
   Expect.isTrue(a.length == 0);
-  try {
-    a[0] = 1;
-    Expect.fail("expected RangeError");
-  } on RangeError catch(ok) {}
+  Expect.throws(() {a[0] = 1;}, (e) => e is RangeError);
 
   check(new List(1), 1);
   check(new List(42), 42);

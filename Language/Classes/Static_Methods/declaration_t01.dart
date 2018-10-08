@@ -11,8 +11,6 @@
  * @description Checks that static methods cannot access instance fields.
  * @compile-error
  * @author vasya
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {
@@ -22,5 +20,7 @@ class C {
 }
 
 main() {
-  C.foo();
+  try {
+    C.foo();
+  } catch (e) {}
 }

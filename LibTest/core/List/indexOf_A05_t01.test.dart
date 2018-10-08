@@ -9,7 +9,6 @@
  * the index of o is returned.
  * @description Checks searching custom objects.
  * @author varlax
- * @reviewer iefremov
  */
 library indexOf_A05_t01;
 
@@ -19,8 +18,8 @@ checkList(List list, var elem, int expected) {
   Expect.equals(expected, list.indexOf(elem));
 }
 
-class Eq{
-  bool operator==(other) => other is Eq;
+class Eq {
+  bool operator ==(other) => other is Eq;
 }
 
 test(List create([int length])) {
@@ -28,14 +27,14 @@ test(List create([int length])) {
   checkList(a, null, 0);
   
   var o = new Object();
-  a[4]=o;
+  a[4] = o;
   checkList(a, o, 4);
 
-  a[8]=o;
+  a[8] = o;
   checkList(a, o, 4);
 
   Eq e = new Eq();
-  a[3]=e;
-  checkList(a,new Eq(),3);
+  a[3] = e;
+  checkList(a, new Eq(),3);
 }
 

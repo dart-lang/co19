@@ -11,12 +11,11 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../testcommon.dart";
 
 main() {
   var x = new Element.html('<p translate=no></p>');
   Expect.isFalse(x.translate, 'explicit no');
-  
+
   x = new Element.html('<p translate=yes></p>');
   Expect.isTrue(x.translate, 'explicit yes');
 

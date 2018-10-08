@@ -9,8 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var styles = new DocumentFragment.html('''
@@ -33,6 +31,8 @@ main() {
 
   var v = document.getElementsByTagName("input");
 
-  shouldBe(getComputedStyle(v[0], null).getPropertyValue('background-color'), 'rgb(0, 0, 255)');
-  shouldBe(getComputedStyle(v[1], null).getPropertyValue('background-color'), 'rgb(0, 255, 0)');
+  shouldBe(getComputedStyle(v[0], null).getPropertyValue('background-color'),
+      'rgb(0, 0, 255)');
+  shouldBe(getComputedStyle(v[1], null).getPropertyValue('background-color'),
+      'rgb(0, 255, 0)');
 }

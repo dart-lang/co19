@@ -7,14 +7,11 @@
  * @description Test WebKitMutationObserver.observe on attributes
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {
   var mutations, mutations2, mutationsWithOldValue;
   var calls;
-  var div;
 
   var runNextTest;
 
@@ -472,7 +469,7 @@ main() {
   }
 
   testAttributeFilter() {
-    var div, path;
+    var div;
     var observer;
     var finish;
 
@@ -618,7 +615,7 @@ main() {
   }
 
   testAttributeFilterNonHTMLDocument() {
-    var svgDoc, div, path;
+    var svgDoc, div;
     var observer;
     var finish;
 
@@ -668,7 +665,7 @@ main() {
   }
 
   testStyleAttributePropertyAccess() {
-    var div, path;
+    var div;
     var observer;
     var checkAndContinue;
     var finish;
@@ -722,7 +719,7 @@ main() {
   }
 
   testStyleAttributePropertyAccessOldValue() {
-    var div, path;
+    var div;
     var observer;
     var checkAndContinue;
     var finish;
@@ -776,7 +773,7 @@ main() {
   }
 
   testStyleAttributePropertyAccessIgnoreNoop() {
-    var div, path;
+    var div;
     var observer;
     var finish;
 

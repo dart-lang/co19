@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable<E> takeWhile(bool test(E element))
- * Every new [Iterator] of the returned [Iterable]
- * iterates over all elements of [this].
+ * @assertion Iterable<E> takeWhile(bool test(E value))
+ * ...
+ * Every new iterator of the returned iterable starts iterating over the
+ * elements of [this].
  * @description Checks that every new [Iterator] of the returned [Iterable]
  * iterates over all elements of [this].
  * @author msyabro
@@ -16,13 +17,14 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var count = 0;
-  test(e) {
+  int count = 0;
+
+  bool test(var e) {
     ++count;
     return e < 3.0;
   }
 
-  var list = new Float32List.fromList([1.0, 2.0, 3.0, 4.0, 5.0]);
+  Float32List list = new Float32List.fromList([1.0, 2.0, 3.0, 4.0, 5.0]);
   var res = list.takeWhile(test);
   Expect.equals(0, count);
   res.elementAt(0);

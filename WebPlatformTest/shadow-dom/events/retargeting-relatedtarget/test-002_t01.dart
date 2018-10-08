@@ -17,7 +17,6 @@
 
 import 'dart:html';
 import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import '../../testcommon.dart';
 
 main() {
@@ -44,7 +43,7 @@ main() {
 
   asyncStart();
 
-  d.body.addEventListener('mouseover', (event) {
+  d.body.addEventListener('mouseover', (dynamic event) {
     assert_equals(event.relatedTarget.getAttribute('id'), 'host', 'Wrong related target');
     asyncEnd();
   }, false);

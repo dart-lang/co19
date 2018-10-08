@@ -51,7 +51,7 @@ void main() {
     for (var j = 0; j < types.length; j++) {
       if (types[i] != types[j]) {
         test(() {
-          var input = document.createElement("input");
+          var input = document.createElement("input") as InputElement;
           input.type = types[i][type];
           if (types[i][type] == "file") {
             assert_throws("InvalidStateError", () {
@@ -61,7 +61,7 @@ void main() {
           } else {
             input.value = "  foo\rbar  ";
             input.type = types[j][type];  // change state
-            if (types[j][sanitizedValue] || types[j][sanitizedValue] == "") {
+            if (types[j][sanitizedValue] != null || types[j][sanitizedValue] == "") {
               assert_equals(input.value, types[j][sanitizedValue], "input.value should be " + types[j][sanitizedValue] + " after change of state");
             } else {
               assert_equals(input.value, "  foo\rbar  ", "input.value should be '  foo\\rbar  ' after change of state");

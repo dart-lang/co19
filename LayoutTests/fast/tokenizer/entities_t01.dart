@@ -10,7 +10,7 @@
 import "dart:html";
 import "../../testharness.dart";
 
-var entities = [
+List<String> entities = [
   "AElig;",
   "AElig",
   "AMP;",
@@ -386,7 +386,7 @@ var entities = [
   "#4294967361;",
   ];
 
-var characters = [
+List<String> characters = [
   "\u00C6",
   "\u00C6",
   "\u0026",
@@ -764,13 +764,13 @@ var characters = [
   
 void runTest(e) {
 
-  var entity, character, characterCode, result, resultCode;
+  String entity, character, characterCode, result, resultCode;
   for (int i = 0, len = entities.length; i < len; ++i) {
     entity = entities[i];
-    var elm = new Element.html('<p>&${entity}X</p>');
+    Element elm = new Element.html('<p>&${entity}X</p>');
     character = characters[i];
     resultCode = characterCode = "";
-    result = elm.firstChild.data.split("X")[0];
+    result = (elm.firstChild as dynamic).data.split("X")[0]; // TODO find out about 'data' property
     if (result.length == 1) {
       resultCode = " (\\u${result.codeUnitAt(0).toRadixString(16)})";
     }

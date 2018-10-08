@@ -5,7 +5,7 @@
  */
 /**
  * @assertion abstract class SetBase<E>
- * Base implementation of Set.
+ * Base implementation of [Set].
  * @description Checks that all members of [Set] are implemented.
  * @author sgrekhov@unipro.ru
  */
@@ -13,6 +13,6 @@ library inherited_tests_setbase;
 
 import "../../core/Set/all_tests.lib.dart" as set_tests;
 
-test(Set create([Set content])) {
+test(Set create([Iterable content])) {
   set_tests.test(create);
 }

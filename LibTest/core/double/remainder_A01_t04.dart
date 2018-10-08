@@ -8,13 +8,10 @@
  * @description Checks that if 'other' is infinite and 'this' is a
  * finite double the result equals 'this'.
  * @author pagolubev
- * @reviewer msyabro
- * @needsreview Undocumented.
  */
 import "../../../Utils/expect.dart";
 
-
-final inf = 1 / 0;
+final inf = double.infinity;
 
 final List values = const [
    .0,
@@ -42,7 +39,7 @@ final List values = const [
 ];
 
 main() {
-  values.forEach((double d) {
+  values.forEach((d) {
     Expect.equals(d, d.remainder(inf));
     Expect.equals(-d, (-d).remainder(inf));
     Expect.equals(d, d.remainder(-inf));

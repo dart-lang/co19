@@ -40,42 +40,24 @@ class A extends S {
     super << (super >> []);
 
     //literal with selector is a postfix expr. is an additive expr.
-    1()[0] << "string".string; /// 01: static type warning, runtime error
-    true >> {"key1": 0, "key2": 1}; /// 02: static type warning, runtime error
-    null >> false; /// 03: runtime error
-
-    //constant literal is a primary is an additive expr.
-    const [] >> const {}; /// 04: static type warning, runtime error
-    const ["1", 2] << const S(); /// 05: static type warning, runtime error
-    const [] >> 1; /// 06: static type warning, runtime error
+    try {null >> false;} catch (e) {}
 
     //invocation is a postfix expr. is an additive expr.
-    method() >> topLevelFunction(); /// 07: runtime error
-    1 << method()()(); /// 08: runtime error
-    method() >> [1, 2]; /// 09: runtime error
+    try {method() >> topLevelFunction();} catch (e) {}
+    try {1 << method()()();} catch (e) {}
+    try {method() >> [1, 2];} catch (e) {}
 
     //additive expressions
-     1 + 2 << 2;
-     0 - 0 >> null + null; /// 10: runtime error
-     [] + {} >> 0; /// 11: static type warning, runtime error
-
-    //multiplicative expressions
-    true * false << id.id / [](); /// 12: static type warning, runtime error
-    this[1] % null(1) >> topLevelFunction()[0]++ ~/ {}()[0]; /// 13: static type warning, runtime error
-    2 * 3 >> 0/0; /// 14: static type warning, runtime error
+    try { 1 + 2 << 2;} catch (e) {}
+    try { 0 - 0 >> null + null;} catch (e) {}
 
     //unary expressions
-    -this >> ~this; /// 15: static type warning, runtime error
-    --id << id++; /// 16: runtime error
-    ~-id << !!false; /// 17: runtime error
-    ++1[1] >> ()=>2[0]--; /// 18: static type warning, runtime error
+    try {--id << id++;} catch (e) {}
+    try {~-id << !!false;} catch (e) {}
 
     //function expression is a primary is an additive expr.
-     ()=>0 >> 1;
-     (var x) {} << 0.5;  /// 19: static type warning, runtime error
-     () {return 0.5;} >> () => 1;  /// 20: static type warning, runtime error
+    try { ()=>0 >> 1; } catch (e) {}
   }
-  var _id;
 }
 
 main() {

@@ -16,6 +16,9 @@
 
 main() {
   try {
-    int x = 0;
-  } catch (for) {}
+    try {
+      int x = 0;
+    } catch (for) {}
+  } catch (anything) {
+  }
 }

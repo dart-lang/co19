@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable<E> skipWhile(bool test(E element))
- * Every new [Iterator] of the returned [Iterable]
- * iterates over all elements of [this].
+ * @assertion Iterable<E> skipWhile(bool test(E value))
+ * Every new [Iterator] of the returned [Iterable] iterates over all elements
+ * of [this].
  * @description Checks that every new [Iterator] of the returned [Iterable]
  * iterates over all elements of [this].
  * @author msyabro
@@ -15,16 +15,18 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 main() {
   var count = 0;
-  test(e) {
+
+  bool test(Float32x4 e) {
     ++count;
     return e.x < 3.0;
   }
 
-  var list = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)]);
+  var list = new Float32x4List.fromList(
+      [pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)]);
   var res = list.skipWhile(test);
   Expect.equals(0, count);
   res.elementAt(0);

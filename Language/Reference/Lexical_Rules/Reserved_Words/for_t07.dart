@@ -19,5 +19,8 @@ class C {
 }
 
 main() {
-  C.for();
+  try {
+    C.for();
+  } catch (anything) {
+  }
 }

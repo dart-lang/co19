@@ -4,21 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion num max(num a, num b)
+ * @assertion T max<T extends num>(T a, T b)
  * Returns NaN if either argument is NaN.
- * @description Checks that if one of the arguments is NaN,
- * the result is also NaN.
+ * @description Checks that if one of the arguments is NaN, the result is also
+ * NaN.
  * @author msyabro
- * @reviewer pagolubev
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
-  List<double> data = [double.NEGATIVE_INFINITY, -1e200, -10, -0.001, 0, 0.001, 10, 1e200, double.INFINITY];
-  for(int i = 0; i < data.length; i++) {
-    Expect.isTrue(Math.max(double.NAN, data[i]).isNaN);
-    Expect.isTrue(Math.max(data[i], double.NAN).isNaN);
+  List<double> data = [
+    double.negativeInfinity, -1e200, -10.0, -0.001, 0.0, 0.001, 10.0, 1e200,
+    double.infinity
+  ];
+  for (int i = 0; i < data.length; i++) {
+    Expect.isTrue(Math.max(double.nan, data[i]).isNaN);
+    Expect.isTrue(Math.max(data[i], double.nan).isNaN);
   }
 }

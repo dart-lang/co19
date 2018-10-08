@@ -30,9 +30,7 @@
  * compile-error if 'this' is passed to an external function as a parameter.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
-
 
 f(var x) {
   throw x;
@@ -44,5 +42,7 @@ class C {
 }
 
 main() {
-  var c = new C();
+  try {
+    var c = new C();
+  } catch (x) {}
 }

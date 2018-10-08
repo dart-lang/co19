@@ -9,7 +9,6 @@
  * extend itself indirectly, by transition.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A extends D {}
@@ -18,5 +17,7 @@ class C extends B {}
 class D extends C {}
 
 main() {
-  A a = new A();
+  try {
+    new A();
+  } catch (e) {}
 }

@@ -17,19 +17,14 @@
  * NoSuchMethodError is thrown. If q has less than n positional parameters or
  * more than n required parameters, or if q lacks any of the keyword parameters
  * {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
- * @description Checks that a NoSuchMethodError is thrown if q is not
- * accessible.
- * @static-warning
+ * @description Checks that it is a compile error if q is not accessible.
+ * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
 
 import 'evaluation_t06_lib.dart';
 
 main() {
-  try {
-    new C._inaccessibleConstructor();
-    Expect.fail("Should throw NoSuchMethodError");
-  } on NoSuchMethodError catch (e) {}
+  new C._inaccessibleConstructor();
 }

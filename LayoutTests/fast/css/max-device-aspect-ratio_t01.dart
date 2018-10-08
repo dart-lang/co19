@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -20,7 +19,7 @@ main() {
   waitForStylesheetLoad()
   {
     count++;
-print(count);
+
     if (getComputedStyle(document.getElementById('description'), null).color == "rgb(0, 128, 0)") {
       //shouldBe(getComputedStyle(document.getElementById('description'), null).color, 'rgb(0, 128, 0)');
       asyncEnd();
@@ -38,7 +37,7 @@ print(count);
   doTest()
   {
     var headElement = document.head;
-    var linkElement = document.createElement("link");
+    dynamic linkElement = document.createElement("link");
     linkElement.rel = "stylesheet";
     var width;
     var height;

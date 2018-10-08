@@ -9,35 +9,16 @@
  * the declared return type of a function marked async* may not be assigned
  * to Stream.
  *
- * @description Check that static type warning is reported, if the declared
+ * @description Check that it is a compile error, if the declared
  * return type of synchronous generator function may not be assigned
  * to Iterable.
  *
- * @static-warning
+ * @compile-error
  * @author a.semenov@unipro.ru
  */
-import '../../Utils/dynamic_check.dart';
 
-int f() sync* { } /// static type warning
-
-String g() sync* { } /// static type warning
-
-dynamic a() sync* { } // ok
-
-Iterable b() sync* { } // ok
-
-class TestItearble<E> extends Iterable<E> {
-
-  @override
-  Iterator<E> get iterator => null;
-}
-
-TestItearble c() sync* { } // ok
+int f() sync* { }
 
 main() {
-  checkTypeError(f);
-  checkTypeError(g);
-  a();
-  b();
-  checkTypeError(c);
+  f();
 }

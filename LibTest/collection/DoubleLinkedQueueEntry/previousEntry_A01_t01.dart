@@ -5,6 +5,7 @@
  */
 /**
  * @assertion previousEntry() → DoubleLinkedQueueEntry<E>
+ * Returns the previous entry or [null] if there is none.
  * @description Checks that nextEntry() returns the previous element
  * @author sgrekhov@unipro.ru
  */

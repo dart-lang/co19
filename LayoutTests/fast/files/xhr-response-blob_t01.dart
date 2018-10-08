@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -31,7 +30,7 @@ main() {
     });
   }
 
-  testBlob("$root/resources/UTF8.txt", "text/plain", () {
+  testBlob("$root/resources/utf8.txt", "text/plain", () {
     testBlob("$root/resources/IntentionallyMissingFile.txt", "", () {
       testBlob("$root/resources/empty-file", "", asyncEnd);
     });

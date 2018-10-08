@@ -17,5 +17,8 @@
 typedef void with();
 
 main() {
-  null is with;
+  try {
+    null is with;
+  } catch (anything) {
+  }
 }

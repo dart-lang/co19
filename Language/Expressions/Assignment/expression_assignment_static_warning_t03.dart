@@ -11,14 +11,12 @@
  * ...
  * It is a static type warning if the static type of e2 may not be assigned to
  * the static type of the formal parameter of the setter v =.
- * @description Checks that it is a static type warning if the static type of e
+ * @description Checks that it is a compile error if the static type of e
  * may not be assigned to the static type of e1.v. Test that this statement is
  * transitive
- * @static-warning
+ * @compile-error
  * @author srekhov@unipro.ru
  */
-
-import '../../../Utils/dynamic_check.dart';
 
 class C {
   int v;
@@ -27,7 +25,5 @@ class C {
 main() {
   C c = new C();
   var y;
-  checkTypeError(() {
-    c.v = y = true; /// static type warning
-  });
+  c.v = y = true;
 }

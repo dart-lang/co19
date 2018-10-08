@@ -9,7 +9,6 @@
  * Exception: Unsupported operation: Cannot add to an unmodifiable list
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -26,8 +25,8 @@ main() {
     </form>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  document
-    .getElementsByName('set_sel')[0].options.add(new OptionElement(data: "A"));
+  (document.getElementsByName('set_sel')[0] as SelectElement).
+      options.add(new OptionElement(data: "A"));
   //document.my_form.set_sel.options[2] = new Option("B");
   //shouldBe("my_form.set_sel.options.length", "3");
 

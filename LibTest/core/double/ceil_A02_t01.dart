@@ -6,22 +6,19 @@
 /**
  * @assertion abstract int ceil()
  * If this is not finite (NaN or infinity), throws an UnsupportedError.
- * @description Checks that [:ceil():] called on a NaN throws an UnsupportedError.
+ * @description Checks that [:ceil():] called on a NaN throws an
+ * UnsupportedError
  * @author kaigorodov
  */
 import "dart:math" as Math;
 import "../../../Utils/expect.dart";
 
 check(double arg) {
-  Expect.throws(() {
-    arg.ceil();
-  },
-  (e)=>e is UnsupportedError
-  );
+  Expect.throws(() {arg.ceil();}, (e) => e is UnsupportedError);
 }
 
 main() {
-  double nan = double.NAN;
+  double nan = double.nan;
   check(nan);
   check(-nan);
   check(0/(1.0 - 1.0));

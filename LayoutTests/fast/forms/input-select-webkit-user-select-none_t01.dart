@@ -8,10 +8,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var f = new DocumentFragment.html('''
+  DocumentFragment f = new DocumentFragment.html('''
       <style>
       #sample {
           -webkit-user-select: none;
@@ -33,9 +32,9 @@ main() {
       </div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  $(id) { return document.getElementById(id); }
+  Element $(String id) { return document.getElementById(id); }
 
-  var sample = $('sample');
+  InputElement sample = $('sample') as InputElement;
   sample.focus();
   sample.select();
   shouldBe(sample.selectionStart, 0);

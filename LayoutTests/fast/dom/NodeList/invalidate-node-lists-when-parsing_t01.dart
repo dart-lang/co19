@@ -12,7 +12,6 @@
  * and after will be "not found", which is a failure.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -42,10 +41,10 @@ main() {
   testForElement(testName, elementId) {
     var found = containsElementWithId(document.body, elementId);
     // create lots of objects to force a garbage collection
-    var i = 0;
+    double i = 0.0;
     var s = '';
     while (i < 5000) {
-      i = i+1.11;
+      i = i + 1.11;
       s = s + " ";
     }
 

@@ -28,11 +28,11 @@ class Foo2 extends ParagraphElement {
 }
 
 main() {
-  document.register(Foo1.tag, Foo1);
+  document.registerElement(Foo1.tag, Foo1);
   var x = document.createElement(Foo1.tag);
   Expect.equals(HTML_NAMESPACE, x.namespaceUri);
 
-  document.register(Foo2.tag, Foo2, extendsTag: 'p');
+  document.registerElement(Foo2.tag, Foo2, extendsTag: 'p');
   x = document.createElement('p', Foo2.tag);
   Expect.equals(HTML_NAMESPACE, x.namespaceUri);
 }

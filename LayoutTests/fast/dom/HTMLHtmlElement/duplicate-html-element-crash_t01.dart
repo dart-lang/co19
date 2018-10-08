@@ -7,8 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../testcommon.dart";
 
 main() {
   var div = document.createElement('div');

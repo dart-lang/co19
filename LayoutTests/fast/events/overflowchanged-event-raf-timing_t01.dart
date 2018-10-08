@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var f = new DocumentFragment.html('''
@@ -28,7 +27,6 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   var scrollable = document.getElementById('scrollable');
-  var output = document.getElementById('output');
   var inside = document.getElementById('inside');
 
   var msgs = [];

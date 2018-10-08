@@ -20,7 +20,6 @@
  */
 import 'dart:async';
 import '../../../Utils/expect.dart';
-import '../../../Utils/async_utils.dart';
 
 Future f1() async {
   return new Future.delayed(new Duration(milliseconds: 50));

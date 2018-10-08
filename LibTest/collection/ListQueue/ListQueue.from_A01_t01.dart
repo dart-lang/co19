@@ -4,9 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory ListQueue.from(Iterable<E> source)
- * Create a queue initially containing the elements of [source].
- * @description Checks that created list contains all elements of [source] collection.
+ * @assertion factory ListQueue.from(Iterable elements)
+ * Create a [ListQueue] containing all [elements].
+ * The elements are added to the queue, as by [addLast], in the order given by
+ * [elements.iterator].
+ * @description Checks that created list contains all [elements] in correct
+ * order.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";

@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "../../resources/check-layout.dart";
 import "pwd.dart";
 
@@ -79,9 +78,9 @@ main() {
 
   changeGridDefinitionsAndCheckValues(_)
   {
-    var grid0 = document.getElementsByClassName("grid")[0];
-    var grid1 = document.getElementsByClassName("grid")[1];
-    var grid2 = document.getElementsByClassName("grid")[2];
+    dynamic grid0 = document.getElementsByClassName("grid")[0];
+    dynamic grid1 = document.getElementsByClassName("grid")[1];
+    dynamic  grid2 = document.getElementsByClassName("grid")[2];
     document.body.offsetLeft;
     grid0.style.gridTemplateColumns = "40% 60%";
 

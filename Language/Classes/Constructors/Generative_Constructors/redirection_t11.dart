@@ -14,7 +14,6 @@
  * @description Checks that only one constructor redirect clause is allowed.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 class A {}
@@ -26,5 +25,7 @@ class C extends A {
 }
 
 main() {
-  var x = new C();
+  try {
+    var x = new C();
+  } catch (x) {}
 }

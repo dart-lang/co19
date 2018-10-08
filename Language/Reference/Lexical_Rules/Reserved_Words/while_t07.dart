@@ -19,5 +19,8 @@ class C {
 }
 
 main() {
-  C.while();
+  try {
+    C.while();
+  } catch (anything) {
+  }
 }

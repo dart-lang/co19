@@ -38,7 +38,7 @@ void checkEq(int d, int h, int m, int s, int ms) {
 
 int seed = 1234567;
 int nextRand() {
-  seed = 0x3fffffff & ((seed >> 17) + seed * 199933 + 11);
+  seed = 0x3fffffff & ((seed >> 17) + seed * 199933  + 11);
   return (seed >> 5) & 127;
 }
 

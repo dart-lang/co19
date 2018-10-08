@@ -21,23 +21,17 @@
  *   values as {xn+1: on+1, ..., xn+k: on+k}.
  * Then the method noSuchMethod() is looked up in vo and invoked with argument
  * im, and the result of this invocation is the result of evaluating i.
- * @description Checks that a NoSuchMethodError is thrown if m is not null
- * and not function and getter is declared implicitly.
+ * @description Checks that it is a compile error if m is not null and not
+ * function and getter is declared implicitly.
+ * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  */
-import "../../../../Utils/expect.dart";
 
 class C {
   static var func = 1;
 }
 
 main()  {
-  try {
-    C.func();
-    Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch (e) {
-  } catch (e) {
-    Expect.fail("NoSuchMethodError expected, but ${e.runtimeType} ($e) thrown");
-  }
+  C.func();
 }

@@ -9,24 +9,19 @@
  * is Tid, where Tid is the type of the field named id in the immediately
  * enclosing class. It is a static warning if the static type of id is not
  * assignable to Tid.
- * @description Checks that it's a static-type warning if an explicit type of
+ * @description Checks that it's a compile error if an explicit type of
  * an initializing formal is not assignable to the type of the corresponding
  * field.
- * @static-warning
+ * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
-
-import "../../../../Utils/dynamic_check.dart";
 
 class C {
   String x;
 
-  C(int this.x) {} /// static type warning
+  C(int this.x) {}
 }
 
 main() {
-  checkTypeError(() => new C(1));
+  new C(1);
 }
-
-

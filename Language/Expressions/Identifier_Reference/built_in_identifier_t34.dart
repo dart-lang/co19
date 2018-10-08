@@ -15,5 +15,8 @@
 typedef int as();
 
 main() {
-  null is as;
+  try {
+    null is as;
+  } catch (anything) {
+  }
 }

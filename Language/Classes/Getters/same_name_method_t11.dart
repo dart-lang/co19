@@ -12,7 +12,6 @@
  * an implicit static getter and a method with the same name.
  * @compile-error
  * @author iefremov
- * @reviewer pagolubev
  */
 
 class C {
@@ -21,5 +20,7 @@ class C {
 }
 
 main() {
-  new C().foo();
+  try {
+    new C().foo();
+  } catch (e) {}
 }

@@ -32,7 +32,10 @@
 class S {}
 class A extends S {
   test() {
-    super--;  }
+    try {
+      super--;
+    } catch (e) {}
+  }
 }
 
 main() {

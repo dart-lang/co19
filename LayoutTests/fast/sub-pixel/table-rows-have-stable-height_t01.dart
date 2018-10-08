@@ -70,44 +70,44 @@ void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
-    var mainTable = document.getElementById('main');
-    var measureTable = document.getElementById('measure');
-    var rowHeights = [];
+    TableElement mainTable = document.getElementById('main') as TableElement;
+    TableElement measureTable = document.getElementById('measure') as TableElement;
+    List<num> rowHeights = [];
 
     void computeHeights() {
         rowHeights.length = 0;
         var rowElement = measureTable.tBodies[0].rows[0];
-        for (var i = 0; i < mainTable.tBodies[0].rows.length; i++) {
+        for (int i = 0; i < mainTable.tBodies[0].rows.length; i++) {
             // Set the size to a subpixel value, the exact value isn't
             // important but each row should have a different height.
-            var height = r((20 + i) * 0.93 + i);
+            num height = r((20 + i) * 0.93 + i);
             rowElement.style.height = '${height}px';
             var rect = rowElement.getBoundingClientRect();
             rowHeights.add(rect.bottom - rect.top);
         }
     }
 
-    void testHeights(zoom) {
+    void testHeights(num zoom) {
         document.body.style.zoom = zoom.toString();
         computeHeights();
-print("testHeights 1");
-        var rows = mainTable.tBodies[0].rows;
-        for (var i = 0; i < rows.length; i++) {
-            var rowElement = rows[i];
-print("testHeights 2 $i");
+        print("testHeights 1");
+        List<TableRowElement> rows = mainTable.tBodies[0].rows;
+        for (int i = 0; i < rows.length; i++) {
+            TableRowElement rowElement = rows[i];
+            print("testHeights 2 $i");
             rowElement.style.height = '${rowHeights[i]}px';
-print("testHeights 3 $i");
-            var rect = rowElement.getBoundingClientRect();
+            print("testHeights 3 $i");
+            Rectangle rect = rowElement.getBoundingClientRect();
             if (i>0) {
-print("testHeights 4 $i");
+                print("testHeights 4 $i");
                 rowElement.cells[0].firstChild.text = r(rowHeights[i]).toString();
                 rowElement.cells[1].firstChild.text = r(rect.height).toString();
                 rowElement.cells[2].firstChild.text = r(rect.bottom - rect.top).toString();
             }
         }
 
-        for (var i = 0; i < rows.length; i++) {
-            var rect = rows[i].getBoundingClientRect();
+        for (int i = 0; i < rows.length; i++) {
+            Rectangle rect = rows[i].getBoundingClientRect();
             shouldBe(r(rowHeights[i]), r(rect.height), 'rect.height at ${r(zoom * 100)}');
             shouldBe(r(rowHeights[i]), r(rect.bottom - rect.top), 'rect.bottom - rect.top at ${r(zoom * 100)}');
         }

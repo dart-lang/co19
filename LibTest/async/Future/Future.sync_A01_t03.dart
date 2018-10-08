@@ -18,24 +18,24 @@
  * @author ilya
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 check(value) {
   asyncStart();
 
-  new Future.sync(() => throw value)
-    .then((_) {
-     Expect.fail('should not be called');
-    })
-    .catchError((e) {
-      Expect.identical(value, null);
+  new Future.sync(() => throw value).then(
+    (_) {
+      Expect.fail("Created future should complete with error");
+    },
+    onError: (e) {
+      if (value==null){
+        Expect.isTrue(e is NullThrownError);
+      } else {
+        Expect.identical(value, e);
+      }
       asyncEnd();
-    }, test: (e) => e is NullThrownError)
-    .catchError((e) {
-      Expect.identical(value, e);
-      asyncEnd();
-    });
+    }
+  );
 }
 
 main() {

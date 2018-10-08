@@ -5,17 +5,18 @@
  */
 /**
  * @assertion Iterable<E> where(bool test(E element))
- * As long as the returned [Iterable] is not iterated over,
- * the supplied function [test] will not be invoked.
- * @description Checks that as long as the returned [Iterable] is not iterated over,
- * the supplied function [test] will not be invoked.
+ * ...
+ * As long as the returned [Iterable] is not iterated over, the supplied
+ * function [test] will not be invoked.
+ * @description Checks that as long as the returned [Iterable] is not iterated
+ * over, the supplied function [test] will not be invoked.
  * @author msyabro
  */
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 main() {
   var count = 0;

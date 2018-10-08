@@ -16,9 +16,7 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   var style = new Element.html('''
@@ -88,17 +86,17 @@ main() {
 
   draw(gl) {
     var buffer = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, buffer);
-    gl.bufferData(wgl.ARRAY_BUFFER, new Float32List.fromList([
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, buffer);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, new Float32List.fromList([
           80.0, 20.0,
           10.0, 10.0,
-          10.0, 80.0]), wgl.STATIC_DRAW);
+          10.0, 80.0]), wgl.WebGL.STATIC_DRAW);
 
     gl.enableVertexAttribArray(myPositionLocation);
-    gl.vertexAttribPointer(myPositionLocation, 2, wgl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(myPositionLocation, 2, wgl.WebGL.FLOAT, false, 0, 0);
 
     // draw
-    gl.drawArrays(wgl.TRIANGLES, 0, 3);
+    gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 3);
   }
 
   for (var i=0; i<8; ++i) {
@@ -107,7 +105,7 @@ main() {
       'preserveDrawingBuffer': (i % 4) >= 2,
       'antialias': (i % 2) == 1
     };
-    var can = document.createElement('canvas');
+    dynamic can = document.createElement('canvas');
     can.width = can.height = 100;
     can.style.position = "absolute";
     can.style.left = "${10 + (i % 4) * 120}px";

@@ -23,7 +23,7 @@ main() {
   var shadowRoot2 = host2.createShadowRoot();
   shadowRoot2.innerHtml = '<content select="div"></content>';
 
-  var content = shadowRoot2.querySelectorAll('content')[0];
+  ContentElement content = shadowRoot2.querySelectorAll('content')[0];
   var distributedNodes = content.getDistributedNodes();
 
   shouldBe(distributedNodes[0], shadowRoot1.getElementById("fallback"));

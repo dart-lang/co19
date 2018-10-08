@@ -12,10 +12,9 @@
  * ...
  * • Otherwise, e is equivalent to the property extraction this.id.
  * @description  Checks that if id is not declared nor inherited it is indeed
- * equivalent to this.id, by implementing noSuchMethod() in the class and
- * intercepting NoSuchMethodError.
- * @static-warning
+ * equivalent to this.id and caused compile error
  * @author ilya
+ * @compile-error
  */
 import '../../../Utils/expect.dart';
 
@@ -35,6 +34,5 @@ class C {
 
 main() {
   new C().test();
-
   Expect.equals(2, C.times);
 }

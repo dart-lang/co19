@@ -13,7 +13,7 @@ import "../../testcommon.dart";
 main() {
   var index = document.getElementsByTagName("style").length; // skip test framework's ones
 
-  var style = new Element.html(r'''
+  dynamic style = new Element.html(r'''
       <style id='style'>
       #A::after { content: 'A'; }
       #B::after { content: '\'B\''; }

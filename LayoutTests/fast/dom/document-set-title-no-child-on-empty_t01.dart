@@ -11,7 +11,7 @@ import "dart:html";
 import "../../testcommon.dart";
 
 main() {
-  var doc = new DomParser().parseFromString('''
+  HtmlDocument doc = new DomParser().parseFromString('''
     <!DOCTYPE html>
     <title>document title and the empty string</title>
     <body>

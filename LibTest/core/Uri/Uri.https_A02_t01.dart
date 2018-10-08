@@ -10,9 +10,7 @@
  * The userInfo, host and port components are set from the authority argument.
  * @description Checks correct components settings
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
@@ -27,4 +25,3 @@ main() {
   Expect.equals(host, x.host);
   Expect.equals(1234, x.port);
 }
-

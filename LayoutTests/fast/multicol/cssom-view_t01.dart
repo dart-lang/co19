@@ -51,12 +51,12 @@ void main() {
     shouldBe(elm5.offsetLeft, elm4.offsetLeft, "elm5.offsetLeft");
     shouldBe(elm5.offsetTop, elm3.offsetTop, "elm5.offsetTop");
 
-    var elements = document.getElementsByClassName('rodent');
-    for (var i = 0; i < elements.length; i++) {
-        var rects = elements[i].getClientRects();
+    List<Node> elements = document.getElementsByClassName('rodent');
+    for (int i = 0; i < elements.length; i++) {
+        List<Rectangle> rects = (elements[i] as Element).getClientRects();
         shouldBe(rects.length, 1, "i=$i,rects.length");
-        shouldBe(rects[0].left, elements[i].offsetLeft, "$i,rects[0].left");
-        shouldBe(rects[0].top, elements[i].offsetTop, "$i,rects[0].top");
+        shouldBe(rects[0].left, (elements[i] as Element).offsetLeft, "$i,rects[0].left");
+        shouldBe(rects[0].top, (elements[i] as Element).offsetTop, "$i,rects[0].top");
     }
     checkTestFailures();
 }

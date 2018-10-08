@@ -7,7 +7,6 @@
  * @assertion bool operator >(num other)
  * @description Checks .0 and -.0.
  * @author pagolubev
-  *@reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

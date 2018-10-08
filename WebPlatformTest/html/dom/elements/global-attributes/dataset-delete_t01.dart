@@ -18,15 +18,14 @@ import 'dart:html';
 import "../../../../Utils/expectWeb.dart";
 
 void main() {
-      void testDelete(attr, prop) {
+      bool testDelete(attr, prop) {
         var d = document.createElement("div");
         d.setAttribute(attr, "value");
-//        delete d.dataset[prop];
         d.dataset.remove(prop);
         return d.attributes.containsKey(attr) == false && d.getAttribute(attr) != "value";
       }
 
-      void testDeleteNoAdd(prop) {
+      bool testDeleteNoAdd(prop) {
         var d = document.createElement("div");
         d.dataset.remove(prop);
         return true;

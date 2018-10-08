@@ -29,7 +29,7 @@ testElement(elementName) {
 
   var iterator = new NodeIterator(shadowRoot, 0xFFFFFFFF);
   var node;
-  while (node = iterator.nextNode()) {
+  while ((node = iterator.nextNode())!=null) {
     assert_equals(node.ownerDocument, doc);
   }
 }

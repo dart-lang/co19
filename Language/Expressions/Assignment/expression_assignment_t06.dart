@@ -15,7 +15,6 @@
  * @description Checks the value of an assignment of the form e1.v = e2 is e
  * evaluated to o. Test the case when e1 is a constant type literal
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

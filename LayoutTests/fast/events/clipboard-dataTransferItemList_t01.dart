@@ -9,7 +9,6 @@
 import "dart:html";
 import "dart:convert";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -45,7 +44,7 @@ main() {
   copy(event)
   {
     event.preventDefault();
-    var copyMethod = document.getElementById('copyMethod');
+    SelectElement copyMethod = document.getElementById('copyMethod');
     if (copyMethod.selectedIndex == 0)
       legacyCopyStart(event.clipboardData);
     else if (copyMethod.selectedIndex == 1)
@@ -119,7 +118,7 @@ main() {
 
   paste(event)
   {
-    var pasteMethod= document.getElementById('pasteMethod');
+    SelectElement pasteMethod= document.getElementById('pasteMethod');
     if (pasteMethod.selectedIndex == 0)
       legacyPaste(event.clipboardData);
     else if (pasteMethod.selectedIndex == 1)
@@ -128,8 +127,8 @@ main() {
 
   runTest(copyMethodIndex, pasteMethodIndex)
   {
-    var copyMethod = document.getElementById('copyMethod');
-    var pasteMethod = document.getElementById('pasteMethod');
+    SelectElement copyMethod = document.getElementById('copyMethod');
+    SelectElement pasteMethod = document.getElementById('pasteMethod');
     copyMethod.selectedIndex = copyMethodIndex;
     pasteMethod.selectedIndex = pasteMethodIndex;
     debug('Running test with ' + copyMethod.value + ' copy handler and ' + pasteMethod.value + ' paste handler');

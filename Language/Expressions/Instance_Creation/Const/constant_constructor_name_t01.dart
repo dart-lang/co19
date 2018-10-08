@@ -18,5 +18,7 @@
 class  A {}
 
 main() {
-  const A.nonexistentConstructor();
+  try {
+    const A.nonexistentConstructor();
+  } catch (e) {}
 }

@@ -21,7 +21,9 @@
 
 
 main() {
-  L: if (true) {
-    continue L;
-  }
+  try {
+    L: if (true) {
+      continue L;
+    }
+  } catch (x) {}
 }

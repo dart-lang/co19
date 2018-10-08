@@ -29,7 +29,10 @@ class S {}
 
 class A extends S {
   test() {
-    1 >= super;  }
+    try {
+      1 >= super;
+    } catch (e) {}
+  }
 }
 
 main() {

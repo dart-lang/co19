@@ -42,7 +42,7 @@ void main() {
   }, '"multiple" attribute supported for input:email element');
 
   // When the multiple attribute is NOT specified on the element
-  var element = document.getElementsByTagName('input')[0];
+  var element = document.getElementsByTagName('input')[0] as InputElement;
   test((){
     element.value = '';
     assert_equals(element.value, '');
@@ -64,7 +64,7 @@ void main() {
   }, 'The value attribute, if specified and not empty, must have a value that is a single valid e-mail address');
   
   test((){
-    element.multiple=false;
+    element.multiple = false;
     element.value = '  user@example.com  , user2@example.com  ';
     assert_equals(element.value, 'user@example.com');
     assert_true(  validEmailRegexp.hasMatch(element.value));

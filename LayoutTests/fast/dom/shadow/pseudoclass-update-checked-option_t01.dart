@@ -10,7 +10,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -36,8 +35,8 @@ main() {
   shadowRoot1.innerHtml = '<content select="option:checked">';
   shadowRoot2.innerHtml = '<content select="option:checked">';
 
-  var content1 = shadowRoot1.querySelector('content');
-  var content2 = shadowRoot2.querySelector('content');
+  ContentElement content1 = shadowRoot1.querySelector('content');
+  ContentElement content2 = shadowRoot2.querySelector('content');
 
   asyncStart();
   setTimeout(() {
@@ -48,8 +47,8 @@ main() {
     shouldBe(nodes2.length, 1);
 
     debug('Flipping :checked state');
-    var option1 = document.getElementById('option1');
-    var option2 = document.getElementById('option2');
+    OptionElement option1 = document.getElementById('option1');
+    OptionElement option2 = document.getElementById('option2');
     option1.setAttribute('selected', 'true');
     option2.selected = false;
 

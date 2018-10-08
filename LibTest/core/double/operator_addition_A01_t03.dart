@@ -9,7 +9,6 @@
  * is positive infinity, if both operands are negative infinity the result is
  * negative infinity.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

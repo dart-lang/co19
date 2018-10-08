@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 void check(Node x) {
   var type = 'my_event';
@@ -24,7 +23,7 @@ void check(Node x) {
 }
 
 main() {
-  List<Node> targets=[
+  List<Node> targets = [
     new IFrameElement(),
     new DocumentFragment(),
   ];

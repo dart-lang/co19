@@ -17,15 +17,12 @@
  * NoSuchMethodError is thrown. If q has less than n positional parameters or
  * more than n required parameters, or if q lacks any of the keyword parameters
  * {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
- * @description Checks that a dynamic error occurs if T is not accessible.
- * @static-warning
+ * @description Checks that a compile error occurs if T is not accessible.
+ * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
 
 main() {
-  Expect.throws(() {
-    new C();
-  });
+  new C();
 }

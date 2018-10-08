@@ -8,7 +8,6 @@
  * Removes and returns the last element of this queue.
  * @description Checks that exactly the last element is removed and returned.
  * @author msyabro
- * @reviewer varlax
  */
 library removeLast_A01_t01;
 

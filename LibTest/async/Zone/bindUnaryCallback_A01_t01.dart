@@ -4,26 +4,38 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract ZoneUnaryCallback bindUnaryCallback(f(arg),
- *    {bool runGuarded: true})
- * @description Checks that f is run in the zone it was bound to.
+ * @assertion ZoneUnaryCallback<R, T> bindUnaryCallback<R, T>(
+ *                                      R callback(T argument)
+ *                                    )
+ *    Registers the provided callback and returns a function that will
+ * execute in this zone.
+ *    Equivalent to:
+ * ZoneCallback registered = this.registerUnaryCallback(callback);
+ * return (arg) => thin.runUnary(registered, arg);
+ * @description Checks that [callback] is run in the zone it was bound to.
  * @author ilya
+ * @author a.semenov@unipro.ru
  */
 
 import "dart:async";
-//import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var z = Zone.current;
+  Zone zone = Zone.current;
+  Zone callbackZone = null;
 
-  var boundCallback = z.bindUnaryCallback((x) {
-    Expect.equals(z, Zone.current);
-    return x;
-  });
+  int callback(int x) {
+    callbackZone = Zone.current;
+    return x * 2;
+  }
 
+  ZoneUnaryCallback<int, int> boundCallback =
+                                    zone.bindUnaryCallback<int, int>(callback);
+
+  int result = null;
   runZoned(() {
-    var res = boundCallback(1);
-    Expect.equals(1, res);
+    result = boundCallback(3);
   });
+  Expect.equals(6, result);
+  Expect.equals(zone, callbackZone);
 }

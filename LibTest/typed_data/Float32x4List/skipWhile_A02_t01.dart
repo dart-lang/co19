@@ -4,17 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable<E> skipWhile(bool test(E element))
+ * @assertion Iterable<E> skipWhile(bool test(E value))
  * The filtering happens lazily.
- * @description Checks that [test] is not invoked until returned
- * [Iterable] is not iterated.
+ * @description Checks that [test] is not invoked until returned [Iterable] is
+ * not iterated.
  * @author msyabro
  */
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 main() {
   var count = 0;

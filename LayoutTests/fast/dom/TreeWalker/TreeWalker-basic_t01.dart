@@ -7,8 +7,6 @@
  * @description This test checks the basic functionality of TreeWalker.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-//import "../../../testcommon.dart";
 import "../../../resources/testharness.dart";
 
 main() {
@@ -58,13 +56,6 @@ main() {
     assert_idl_attribute(walker.nextNode);
   }, 'Construct a TreeWalker by new TreeWalker().');
 
-  test(() {
-    assert_throws(() { new TreeWalker(); });
-    assert_throws(() { new TreeWalker(null); });
-    assert_throws(() { new TreeWalker(new Object()); });
-    assert_throws(() { new TreeWalker(1); });
-  }, 'Give an invalid root node to new TreeWalker().');
-
   // |expected| should be an object indicating the expected type of node.
   assert_node(actual, expected)
   {
@@ -82,7 +73,6 @@ main() {
     var root = createSampleDOM();
     var walker = new TreeWalker(root, 0xFFFFFFFF);
     var f = root.lastChild.firstChild.childNodes[1];  // An element node: div#f.
-    var body = document.body;  // An element outside |root|.
 
     assert_node(walker.currentNode, { 'type': DivElement, 'id': 'a' });
     assert_equals(walker.parentNode(), null);

@@ -27,7 +27,7 @@ main() {
     <a  href="http://dev.w3.org:0/html5/spec/infrastructure.html#interfaces-for-url-manipulation">http with port 0</a><br>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var links =  document.getElementsByTagName('a');
+  List<Node> links =  document.getElementsByTagName('a');
   var n = 10;
   Expect.equals(n, links.length);
 
@@ -44,8 +44,8 @@ main() {
     ['dev.w3.org', 'dev.w3.org:0']
     ];
 
-  for (var i=0; i<n; ++i) {
-    var a = links[i];
+  for (var i = 0; i < n; ++i) {
+    AnchorElement a = links[i] as AnchorElement;
     Expect.equals(expected[i][0], a.hostname, 'hostname #$i');
     Expect.equals(expected[i][1], a.host, 'host #$i');
   }

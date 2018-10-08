@@ -13,7 +13,6 @@
  * variable of the superinterface.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 abstract class I {
@@ -25,5 +24,7 @@ class C implements I {
 }
 
 main() {
-  new C(null);
+  try {
+    new C(null);
+  } catch (v) {}
 }

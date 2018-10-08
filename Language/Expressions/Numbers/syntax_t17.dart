@@ -36,5 +36,7 @@
  */
 
 main() {
-  var i = 0e1.0;
+  try {
+    var i = 0e1.0;
+  } catch (e) {}
 }

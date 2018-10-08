@@ -14,7 +14,6 @@
  * enclosing class.
  * @static-clean
  * @author iefremov
- * @reviewer rodionov
  */
 
 class S1 {}

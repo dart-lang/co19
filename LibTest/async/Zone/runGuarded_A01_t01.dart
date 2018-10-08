@@ -4,40 +4,35 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract dynamic runGuarded(f())
- * Executes the given function f in this zone.
- * Same as run but catches uncaught errors and gives them to
- * handleUncaughtError.
- * @description Checks that f is run in this zone and that uncaught errors
- * are passed to handleUncaughtError.
+ * @assertion void runGuarded(void action())
+ *    Executes the given action in this zone and catches synchronous errors.
+ *    This function is equivalent to:
+ * try {
+ *    this.run(action);
+ * } catch (e, s) {
+ *    this.handleUncaughtError(e, s);
+ * }
+ *    See run.
+ * @description Checks that [action] is run in this zone
  * @author ilya
+ * @author a.semenov@unipro.ru
  */
 
 import "dart:async";
-//import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-errorHandler(Zone self, ZoneDelegate parent, Zone zone, e, st) {
-  Expect.equals(0, e);
-}
+void test(Zone zone) {
+  Zone actionZone = null;
 
-newErrorZone (Zone z) =>
-  z.fork(specification: new ZoneSpecification(handleUncaughtError: errorHandler));
+  void action() {
+    actionZone = Zone.current;
+  }
 
-test(Zone z) {
-  var res = z.runGuarded(() {
-    Expect.equals(z, Zone.current);
-    return 1;
-  });
-
-  Expect.equals(1, res);
-  
-  z.runGuarded(() {
-    throw 0;
-  });
+  zone.runGuarded(action);
+  Expect.equals(zone, actionZone);
 }
 
 main() {
-  test(newErrorZone(Zone.current));
-  test(newErrorZone(Zone.current.fork()));
+  test(Zone.current);
+  test(Zone.current.fork());
 }

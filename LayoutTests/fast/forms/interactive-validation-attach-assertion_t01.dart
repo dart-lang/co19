@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -26,5 +24,5 @@ main() {
 
   asyncStart();
   setTimeout(check, 10);
-  document.body.queryAll('input')[1].click();
+  document.body.querySelectorAll('input')[1].click();
 }

@@ -39,19 +39,19 @@ class C {}
 class D extends C {}
 
 abstract class SI1 {
-  int method(int v, Pattern p, {num o1, String o2});
+  int method(num v, String p, {int o1, Pattern o2});
   int method2(C v, [D o]);
   int get gett0r;
   void set sett0r(int v);
-  C operator+(C v);
+  C operator +(C v);
 }
 
 abstract class SI2 {
   void method(num v, String p, {int o1, Pattern o2});
-  num method2(D v, [C o]);
+  num method2(C v, [D o]);
   num get gett0r;
   void set sett0r(num v);
-  D operator+(D v);
+  C operator +(C v);
 }
 
 abstract class I implements SI1, SI2 {}

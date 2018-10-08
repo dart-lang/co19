@@ -28,9 +28,10 @@
  * can't be used in the left hand side of an assignment.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
-  {int x; x = 1;} = null;
+  try {
+    {int x; x = 1;} = null;
+  } catch (e) {}
 }

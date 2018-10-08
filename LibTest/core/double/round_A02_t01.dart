@@ -8,14 +8,9 @@
  * If this is not finite (NaN or infinity), throws an UnsupportedError.
  * @description Checks that [:round():] on NaN throws an UnsupportedError.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() {
-      double.NAN.round();
-    },
-    (e)=>e is UnsupportedError
-  );
+  Expect.throws(() {double.nan.round();},(e) => e is UnsupportedError);
 }

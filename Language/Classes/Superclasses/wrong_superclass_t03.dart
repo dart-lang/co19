@@ -11,7 +11,6 @@
  * in a class's extends clause denotes a variable name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 int foo;
@@ -19,5 +18,7 @@ int foo;
 class A extends foo {}
 
 main() {
-  A a = new A();
+  try {
+    new A();
+  } catch (e) {}
 }

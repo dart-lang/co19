@@ -8,12 +8,10 @@
  * value.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   canvas.width = 100;
   canvas.height = 100;
   var ctx = canvas.getContext('2d');
@@ -43,7 +41,8 @@ main() {
     return data.join(',');
   }
 
-  // First we test with the canvas out-of-document, 'currentColor' should mean black
+  // First we test with the canvas out-of-document, 'currentColor' should mean
+  // black
   ctx.shadowColor = '#f00';
   shouldBe(ctx.shadowColor, '#ff0000');
   ctx.shadowColor = 'currentColor';

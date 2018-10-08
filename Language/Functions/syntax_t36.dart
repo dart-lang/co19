@@ -20,18 +20,17 @@
  * ;
  *
  * @description Checks different valid variants of asynchronous functions
- *
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
-import '../../Utils/async_utils.dart';
+import '../../Utils/expect.dart';
 
 // f() async => expression;
 Future<String> a1() async => 'a1';
 
 Future a2() async => 0;
 
-a3() async => 1;
+Future a3() async => 1;
 
 // f() { statements }
 Future<String> b1() async {
@@ -42,7 +41,7 @@ Future b2() async {
   return 2;
 }
 
-b3() async {
+Future b3() async {
   return 3;
 }
 
@@ -51,7 +50,7 @@ Future<String> c1(int x) async => 'c' + x.toString();
 
 Future c2(String y) async => y.length;
 
-c3(z) async => z;
+Future c3(z) async => z;
 
 // f(arg) { statements }
 Future<String> d1(int x) async {
@@ -62,7 +61,7 @@ Future d2(String y) async {
   return y.length;
 }
 
-d3(z) async {
+Future d3(z) async {
   return z;
 }
 

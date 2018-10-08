@@ -14,12 +14,11 @@
  * . . .
  * @description Checks that if fid is a static method of the superclass S,
  * then unqualified function invocation expression should produce a
- * NoSuchMethodError.
- * @static-warning
+ * compile error
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
 
 class S {
   static m() {}
@@ -32,8 +31,5 @@ class C extends S {
 }
 
 main() {
-  try {
-    print(new C().test());
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (ok) {}
+  new C().test();
 }

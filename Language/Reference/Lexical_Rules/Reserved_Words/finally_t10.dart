@@ -16,5 +16,8 @@
 library finally;
 
 main() {
-  int x = 1;
+  try {
+    int x = 1;
+  } catch (anything) {
+  }
 }

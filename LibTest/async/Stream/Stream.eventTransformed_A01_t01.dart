@@ -17,9 +17,7 @@
  * @description Checks that data events are produced according to transform.
  * @author ilya
  */
-
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 // transform: skip evens, produce number and its double
@@ -36,16 +34,12 @@ class MySink implements EventSink<int> {
   void close() => _sink.close();
 }
 
-var input = [1, 2, 3, 4, 5];
-var expected = [1, 2, 3, 6, 5, 10];
+List<int> input = [1, 2, 3, 4, 5];
+List<int> expected = [1, 2, 3, 6, 5, 10];
 
 main() {
-  var s = new Stream.fromIterable(input);
-  var s2 = new Stream.eventTransformed(s, (sink) => new MySink(sink));
+  Stream<int> s = new Stream.fromIterable(input);
+  Stream<int> s2 = new Stream.eventTransformed(s, (sink) => new MySink(sink));
 
-  asyncStart();
-  s2.toList().then((x) {
-    Expect.listEquals(expected, x);
-    asyncEnd();
-  });
+  AsyncExpect.data(expected, s2);
 }

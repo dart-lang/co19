@@ -4,24 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion bool remove(Object element)
- * Removes value from the list. Returns true if value was in the list.
- * Returns false otherwise.
- * @description Checks that [UnsupportedError] is thrown
- * since [Uint8ClampedList] is a fixed-size list.
- * @note undocumented
+ * @assertion bool remove(Object value)
+ * Removes the first occurrence of value from this list.
+ * ...
+ * An UnsupportedError occurs if the list is fixed-length.
+ * @description Checks that [UnsupportedError] is thrown since
+ * [Uint8ClampedList] is a fixed-length list.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list, element) {
+check(List<int> list, int element) {
   var l = new Uint8ClampedList.fromList(list);
   var length = l.length;
   try {
     l.remove(element);
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {};
+  } on UnsupportedError {};
   Expect.equals(length, l.length);
 }
 

@@ -13,7 +13,6 @@
  * result in a static warning.
  * @static-clean
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class S1 {}

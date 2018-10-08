@@ -5,30 +5,30 @@
  */
 /**
  * @assertion void removeWhere(bool test(E element))
- * Removes all elements of this list that satisfy test.
- * Throws an UnsupportedError, and doesn't remove elements,
- * if the length of [this] cannot be changed.
- * @description Checks that [UnsupportedError] is thrown
- * since [Int8List] is a fixed-size list.
- * @note undocumented
+ * Removes all objects from this list that satisfy test.
+ * ...
+ * Throws an UnsupportedError if this is a fixed-length list.
+ * @description Checks that [UnsupportedError] is thrown since [Int8List] is a
+ * fixed-length list.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
+check(List<int> list) {
   var l = new Int8List.fromList(list);
   var length = l.length;
   try {
     l.removeWhere((e) => false);
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {};
+  } on UnsupportedError {};
   Expect.equals(length, l.length);
 
   try {
     l.removeWhere((e) => true);
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {};
+  } on UnsupportedError {};
   Expect.equals(length, l.length);
 }
 

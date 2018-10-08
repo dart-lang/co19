@@ -4,27 +4,36 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final int lengthInBytes
+ * @assertion int lengthInBytes
  * Returns the length of this view, in bytes.
  * @description Checks that the correct length is returned.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-O() => new Float32x4.zero();
+Float32x4 O() => new Float32x4.zero();
 
-void check(list) {
+void check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
-  Expect.equals(list.length * Float32x4List.BYTES_PER_ELEMENT, l.lengthInBytes);
+  Expect.equals(list.length * Float32x4List.bytesPerElement, l.lengthInBytes);
 }
 
 main() {
   check([]);
   check([O()]);
-  check([O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
-         O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
-         O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
-         O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
-         O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O()]);
+  check([
+    O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+    O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+    O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+    O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+    O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+    O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+    O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+    O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+    O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+    O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(), O(),
+    O(), O(), O(), O(), O(), O(), O(), O(), O(), O()
+  ]);
 }

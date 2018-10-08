@@ -8,12 +8,8 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -84,23 +80,23 @@ main() {
 
   debug("Test uniform location underneath the length limit");
   var program = wtu.loadProgramFromScript(gl, "goodVertexShader1", "fragmentShader");
-  shouldBe(gl.getProgramParameter(program, wgl.LINK_STATUS), true);
+  shouldBe(gl.getProgramParameter(program, wgl.WebGL.LINK_STATUS), true);
   var uniformLoc = gl.getUniformLocation(program, "identifier70CharactersLong_01234567890123456789012345678901234567890.identifier64CharactersLong_0123456789012345678901234567890123456.identifier62CharactersLong_01234567890123456789012345678901234");
   shouldBeNonNull(uniformLoc);
-  wtu.glErrorShouldBe(gl, wgl.NONE);
+  wtu.glErrorShouldBe(gl, wgl.WebGL.NONE);
 
   debug("Test uniform location exactly at the length limit");
   program = wtu.loadProgramFromScript(gl, "goodVertexShader2", "fragmentShader");
-  shouldBe(gl.getProgramParameter(program, wgl.LINK_STATUS), true);
+  shouldBe(gl.getProgramParameter(program, wgl.WebGL.LINK_STATUS), true);
   uniformLoc = gl.getUniformLocation(program, "identifier128CharactersLong_0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789.identifier64CharactersLong_0123456789012345678901234567890123456.identifier62CharactersLong_01234567890123456789012345678901234");
   shouldBeNonNull(uniformLoc);
-  wtu.glErrorShouldBe(gl, wgl.NONE);
+  wtu.glErrorShouldBe(gl, wgl.WebGL.NONE);
 
   debug("Test uniform location over the length limit");
   program = wtu.loadProgramFromScript(gl, "badVertexShader", "fragmentShader");
-  wtu.glErrorShouldBe(gl, wgl.NONE);
-  shouldBe(gl.getProgramParameter(program, wgl.LINK_STATUS), true);
+  wtu.glErrorShouldBe(gl, wgl.WebGL.NONE);
+  shouldBe(gl.getProgramParameter(program, wgl.WebGL.LINK_STATUS), true);
   uniformLoc = gl.getUniformLocation(program, "identifier128CharactersLong_0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789.identifier64CharactersLong_0123456789012345678901234567890123456.identifier63CharactersLong_012345678901234567890123456789012345");
-  wtu.glErrorShouldBe(gl, wgl.INVALID_VALUE);
+  wtu.glErrorShouldBe(gl, wgl.WebGL.INVALID_VALUE);
   shouldBeNull(uniformLoc);
 }

@@ -22,8 +22,7 @@
  * should not be any static warnings.
  * @static-clean
  * @author msyabro
- * @reviewer rodionov
- * @needsreview issue 3223
+ * @issue 3223
  */
 import '../../../../Utils/expect.dart';
 
@@ -31,20 +30,9 @@ class A {
 }
 
 main()  {
-  var a = new A();
+  dynamic  a = new A();
 
-  try {
-    a.v.someMethod();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    a.v.someVariable;
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    a.v.anotherMethod();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (e) {}
+  Expect.throws(() {a.v.someMethod();}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {a.v.someVariable;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {a.v.someSetter = 1;}, (e) => e is NoSuchMethodError);
 }

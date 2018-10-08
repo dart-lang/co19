@@ -17,5 +17,8 @@
 class new { } // error
 
 main() {
-  null is new;
+  try {
+    null is new;
+  } catch (anything) {
+  }
 }

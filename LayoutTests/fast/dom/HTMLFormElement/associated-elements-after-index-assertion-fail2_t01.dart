@@ -9,7 +9,6 @@
  *  page is rendered.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

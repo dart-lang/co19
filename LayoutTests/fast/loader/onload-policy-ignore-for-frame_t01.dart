@@ -10,7 +10,6 @@
  * null from resource load delegate's willSendRequest.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../testharness.dart";
 
 const String htmlEL2 = r'''

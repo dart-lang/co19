@@ -6,8 +6,8 @@
 /**
  * @assertion SplayTreeMap.fromIterables(Iterable<K> keys, Iterable<V> values,
  * [int compare(K key1, K key2), bool isValidKey(potentialKey)])
- * @description Checks that if isValidKey supplied and returns false then
- * element is assumed not to be in a map
+ * @description Checks that if [isValidKey] function is supplied and returns
+ * [false] then element is assumed not to be in a map
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";
@@ -18,18 +18,18 @@ class C {
   C(this.value);
 }
 
-int compare(C key1, C key2) {
+int compare(var key1, var key2) {
   return key1.value - key2.value;
 }
 
-bool isValidKey(C potentialKey) => potentialKey.value != 3;
+bool isValidKey(var potentialKey) => potentialKey.value != 3;
 
 main() {
   C c1 = new C(1);
   C c2 = new C(2);
   C c3 = new C(3);
 
-  Iterable keys = [c1, c2, c3];
+  Iterable<C> keys = [c1, c2, c3];
   Iterable values = [1, 2, 3];
   SplayTreeMap map = new SplayTreeMap.fromIterables(keys, values, compare,
       isValidKey);

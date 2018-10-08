@@ -16,12 +16,11 @@
  */
 
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 int N = 10;
 const v = 99;
-List futures = [];
+List<Future<dynamic>> futures = [];
 int count = 0;
 
 main() {

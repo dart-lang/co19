@@ -6,7 +6,7 @@
 /**
  * @assertion void insertBefore(E entry)
  * ...
- * This entry must be in a linked list when this method is called. The entry
+ * This entry must be in a linked list when this method is called. The [entry]
  * must not be in a linked list.
  * @description Checks that this entry must be in a linked list when this method
  * is called

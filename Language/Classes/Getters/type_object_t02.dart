@@ -10,7 +10,6 @@
  * @description Check that the instance getter, added to the Type object by 
  * static getter declaration, is not added to the Type object of the current
  * class and not added to the Type object of the ancestor
- * See https://github.com/dart-lang/sdk/issues/23721
  * @author sgrekhov@unipro.ru
  * @issue 23721
  */

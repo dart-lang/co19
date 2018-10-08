@@ -8,11 +8,11 @@
  * Whether the invocation was a getter or a setter call.
  * @description Checks that isAccessor returns false for instance method
  * invocations.
- * @static-warning
  * @author ilya
  */
 import "../../../Utils/expect.dart";
 
+@proxy
 class D {
   method(x, y, z) {}
   noSuchMethod(Invocation i) {
@@ -20,27 +20,25 @@ class D {
   }
 }
 
+@proxy
 class C extends D {
   noSuchMethod(Invocation i) {
     Expect.isFalse(i.isAccessor);
-  }
-  test() {
-    foo();
-    method();
-    super.foo();
-    super.method();
   }
   var d;
   C() : d = new D();
 }
 
-main() {
-  var x = new C();
+test(dynamic x) {
   var y = new C();
-  x+y;
+  x + y;
   -x;
   x.foo();
   x.method();
   x.test();
   x.d();
+}
+
+main() {
+  test(new C());
 }

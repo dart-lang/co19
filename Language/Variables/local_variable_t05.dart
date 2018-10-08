@@ -15,5 +15,7 @@
  */
 
 main() {
-  var f = () => f;
+  try {
+    var f = () => f;
+  } catch (_) {};
 }

@@ -8,7 +8,6 @@
  * be a black box below.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

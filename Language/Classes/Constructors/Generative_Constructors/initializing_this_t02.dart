@@ -15,7 +15,6 @@
  * @compile-error
  * @author iefremov
  * @needsreview Not sure how to verify the type of the constructor function.
- * @reviewer kaigorodov
  */
 
 class C {
@@ -23,6 +22,8 @@ class C {
 }
 
 main() {
-  new C(1);
+  try {
+    new C(1);
+  } catch (x) {}
 }
 

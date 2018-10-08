@@ -23,30 +23,26 @@
  * @description Checks that if entryPoint is some string value, then type error
  * is arisen in checked mode or returned Future instance completes with error
  * otherwise
- * @static-warning
+ * @compile-error
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/dynamic_check.dart";
 
 main() {
   asyncStart();
   try {
-    Isolate.spawn("world", "hello").then( /// static type warning
+    Isolate.spawn("world", "hello").then( /// compile error
         (v) {
           Expect.fail("'world', 'hello') is expected to fail");
         },
         onError: (e) {
-          print("Future completed with error: $e");
-          Expect.isFalse(isCheckedMode());
+          Expect.fail("Future completed with error: $e");
           asyncEnd();
         }
     );
   } catch (e) {
     print("Caught an error: $e");
-    Expect.isTrue(isCheckedMode());
     asyncEnd();
   }
 }

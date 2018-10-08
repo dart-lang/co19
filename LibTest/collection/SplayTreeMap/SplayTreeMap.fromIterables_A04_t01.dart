@@ -6,8 +6,8 @@
 /**
  * @assertion SplayTreeMap.fromIterables(Iterable<K> keys, Iterable<V> values,
  * [int compare(K key1, K key2), bool isValidKey(potentialKey)])
- * @description Checks that if compare function specified, then it used for
- * keys comparison
+ * @description Checks that if [compare] function specified, then it is used for
+ * the keys comparison
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";
@@ -28,9 +28,9 @@ int compare(C key1, C key2) {
 main() {
   C c1 = new C(2);
   C c2 = new C(2);
-  Iterable keys = [new C(1), c1, c2];
-  Iterable values = [1, 2, 3];
-  SplayTreeMap map = new SplayTreeMap.fromIterables(keys, values, compare);
+  Iterable<C> keys = [new C(1), c1, c2];
+  Iterable<int> values = [1, 2, 3];
+  SplayTreeMap<C, int> map = new SplayTreeMap<C, int>.fromIterables(keys, values, compare);
 
   Expect.equals(2, map.length);
   Expect.equals(3, map[c1]);

@@ -8,15 +8,16 @@
  * accessible in the current scope; if type does denote such a class C it is
  * a static warning if the referenced constructor (be it type or type.id) is
  * not a constructor of C.
- * @description Checks that static warning is produced if referenced type in
+ * @description Checks that a compile error is produced if referenced type in
  * redirecting constructor is in fact an accessible type, but the
  * referenced name does not denote a constructor.
+ * @compile-error
  * @author ilya
  */
 
 class F {
-  factory F.foo() = C.foo; /// 01: static type warning, runtime error
-  factory F.bar() = C.bar; /// 02: static type warning, runtime error
+  factory F.foo() = C.foo;
+  factory F.bar() = C.bar;
 }
 
 class C implements F {
@@ -26,6 +27,7 @@ class C implements F {
 
 
 main() {
-  new F.foo(); /// 01: continued
-  new F.bar(); /// 02: continued
+  try {
+    new F.foo();
+  } catch (e) {}
 }

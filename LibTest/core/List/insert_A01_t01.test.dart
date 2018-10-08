@@ -15,25 +15,24 @@ library insert_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-void check(List a0, int index, var element) {
-  List a=new List.from(a0);
+void check(List create([int length]), List a0, int index, var element) {
+  List a = create();
+  a.insertAll(0, a0);
   a.insert(index, element);
-  Expect.equals(a0.length+1, a.length);
-  for (int k=0; k<index; k++) {
+  Expect.equals(a0.length + 1, a.length);
+  for (int k = 0; k < index; k++) {
     Expect.identical(a0[k], a[k]);
   }
   Expect.identical(element, a[index]);
-  for (int k=index; k<a0.length; k++) {
+  for (int k = index; k < a0.length; k++) {
     Expect.identical(a0[k], a[k+1]);
   }
 }
 
 test(List create([int length])) {
-  List a0=[1,3,3,4,5,6];
-  List a = create();
-  a.insertAll(0, a0);
-  check(a, 0, -1);
-  check(a, 3, -2);
-  check(a, a.length-1, -3);
-  check(a, a.length, -4);
+  List a0 = [1, 3, 3, 4, 5, 6];
+  check(create, a0, 0, -1);
+  check(create, a0, 3, -2);
+  check(create, a0, a0.length-1, -3);
+  check(create, a0, a0.length, -4);
 }

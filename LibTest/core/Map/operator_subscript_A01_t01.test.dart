@@ -6,17 +6,16 @@
 /**
  * @assertion  abstract V operator [](Object key)
  * Returns the value for the given [key] or null if [key] is not in the map.
- * @description Checks that the method returns the value to which the specified key is
- * mapped, or null if this map contains no mapping for the key.
+ * @description Checks that the method returns the value to which the specified
+ * key is mapped, or null if this map contains no mapping for the key.
  * @author msyabro
- * @reviewer varlax
  */
 library operator_subscript_A01_t01;
  
 import "../../../Utils/expect.dart";
  
 test(Map create([Map content])) {
-  Map<int, Object> intMap = create();  
+  Map intMap = create();
   
   Expect.isTrue(intMap[1] == null);
   intMap[1] = 1;

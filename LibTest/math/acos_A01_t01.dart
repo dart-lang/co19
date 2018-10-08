@@ -5,7 +5,7 @@
  */
 /**
  * @assertion double acos(num x)
- * Converts [x] to a double and returns the arc cosine of the value.
+ * Converts [x] to a double and returns its arc cosine in radians.
  *
  * @description Checks returned values on various arguments.
  *
@@ -16,8 +16,9 @@
  * @needsreview Returned value precision is not specified.
  * Checks exact match with values calculated with LibC.
  */
-import "../../Utils/expect.dart";
+
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   int vnum = 64;

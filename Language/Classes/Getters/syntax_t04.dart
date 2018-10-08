@@ -12,7 +12,6 @@
  * declaration includes a non-empty formal parameter list.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class C {
@@ -20,5 +19,7 @@ class C {
 }
 
 main() {
-  var x = new C().getter;
+  try {
+    var x = new C().getter;
+  } catch (e) {}
 }

@@ -8,14 +8,12 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "../../resources/testharness.dart";
-import "pwd.dart";
 
 main() {
   var index = document.getElementsByTagName("style").length; // skip test framework's ones
 
-  var styles = new DocumentFragment.html('''
+  dynamic styles = new DocumentFragment.html('''
       <style>:-webkit-any\( {}</style>
       <style>:nth-child\( {}</style>
       <style>:nth-of-type\( {}</style>
@@ -33,13 +31,13 @@ main() {
       <p id="log"></p>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var sheets = document.styleSheets;
+  dynamic sheets = document.styleSheets;
 
   test((){
     assert_equals(sheets.length, index+10, "StyleSheets.length");
   }, "All stylesheets present");
 
-  for (var i=index; i<sheets.length; i++) {
+  for (var i = index; i < sheets.length; i++) {
     test((){
       assert_equals(sheets[i].cssRules.length, 0, "cssRules.length");
     }, "Drop \"" + sheets[i].ownerNode.firstChild.data + "\"");

@@ -5,22 +5,23 @@
  */
 /**
  * @assertion void clear()
- * Removes all elements in the list.
- * The length of the list becomes zero.
- * Throws an [UnsupportedError], and retains all elements,
- * if the length of the list cannot be changed.
- * since [Float32List] is a fixed-size list.
+ * Removes all objects from this list; the length of the list becomes zero.
+ * Throws an [UnsupportedError], and retains all objects, if this is a
+ * fixed-length list.
+ * @description Checks that [UnsupportedError] is thrown since [Float32List] is
+ * a fixed-size list.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(length) {
+check(int length) {
   var l = new Float32List(length);
   try {
     l.clear();
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {}
+  } on UnsupportedError {}
   Expect.equals(length, l.length);
 }
 

@@ -9,15 +9,12 @@
  * by using its associated key.
  * Each key must be unique. Null values are supported, but null keys are not.
  * @description Checks that null keys are not supported.
- * @needsreview issue #13013
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
 
 main() {
   Map<String, Object> map = new Map<String, Object>();
-//  print("map[null] = ${map[null]}");
   map[null] = "123";
-  print("map[null] = ${map[null]}");
-  Expect.isFalse(map[null] == "1");
+  Expect.equals("123", map[null]);
 }

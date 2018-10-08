@@ -8,10 +8,6 @@
  * This operator implements bit-wise right-shift operation.
  * @description Uses a large number as an argument.
  * @author vasya
- * @needsreview No restrictions on this operator's argument are documented.
- * @reviewer msyabro
- * @reviewer rodionov
- * @needsreview issues 1136, 1137
  */
 
 main() {

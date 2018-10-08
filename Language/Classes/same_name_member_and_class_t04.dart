@@ -17,5 +17,5 @@ class A {
 }
 
 main() {
-  A a = new A();
+  new A();
 }

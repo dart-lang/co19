@@ -8,7 +8,7 @@
  * @description 
  */
 import "dart:html";
-import "../../testharness.dart";
+import "../../../Utils/expect.dart";
 
 const String htmlEL = r'''
     <div id="result"></div>
@@ -29,6 +29,6 @@ void crash(e)  {
 }
 
 void main() {
-    document.body.appendHtml(htmlEL, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
     window.onLoad.listen(crash);
 }

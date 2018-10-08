@@ -16,26 +16,26 @@ generateTest(pixelFormat, pixelType, prologue) {
   {
     debug('Testing ' + (useTexSubImage2D ? 'texSubImage2D' : 'texImage2D') +
         ' with flipY=$flipY and premultiplyAlpha=$premultiplyAlpha');
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
     // Enable writes to the RGBA channels
     gl.colorMask(true, true, true, false);
     var texture = gl.createTexture();
     // Bind the texture to texture unit 0
-    gl.bindTexture(wgl.TEXTURE_2D, texture);
+    gl.bindTexture(wgl.WebGL.TEXTURE_2D, texture);
     // Set up texture parameters
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MIN_FILTER, wgl.NEAREST);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MAG_FILTER, wgl.NEAREST);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MIN_FILTER, wgl.WebGL.NEAREST);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MAG_FILTER, wgl.WebGL.NEAREST);
     // Set up pixel store parameters
-    gl.pixelStorei(wgl.UNPACK_FLIP_Y_WEBGL, flipY ? 1 : 0);
-    gl.pixelStorei(wgl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, premultiplyAlpha ? 1 : 0);
+    gl.pixelStorei(wgl.WebGL.UNPACK_FLIP_Y_WEBGL, flipY ? 1 : 0);
+    gl.pixelStorei(wgl.WebGL.UNPACK_PREMULTIPLY_ALPHA_WEBGL, premultiplyAlpha ? 1 : 0);
     // Upload the image into the texture
     if (useTexSubImage2D) {
       // Initialize the texture to black first
-      gl.texImage2D(wgl.TEXTURE_2D, 0, pixelFormat, 1, 2, 0,
+      gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, pixelFormat, 1, 2, 0,
           pixelFormat, pixelType, null);
-      gl.texSubImage2D(wgl.TEXTURE_2D, 0, 0, 0, pixelFormat, pixelType, imageData);
+      gl.texSubImage2D(wgl.WebGL.TEXTURE_2D, 0, 0, 0, pixelFormat, pixelType, imageData);
     } else {
-      gl.texImage2D(wgl.TEXTURE_2D, 0, pixelFormat, pixelFormat, pixelType, imageData);
+      gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, pixelFormat, pixelFormat, pixelType, imageData);
     }
 
     // Point the uniform sampler to texture unit 0
@@ -75,7 +75,7 @@ generateTest(pixelFormat, pixelType, prologue) {
     runOneIteration(true, false, true,
         greenPremultiplyAlpha, redPremultiplyAlpha);
 
-    glErrorShouldBe(gl, wgl.NO_ERROR, "should be no errors");
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "should be no errors");
   }
 
   var init = ()
@@ -91,11 +91,11 @@ generateTest(pixelFormat, pixelType, prologue) {
     var program = wtu.setupTexturedQuad(gl);
     gl.clearColor(0,0,0,1);
     gl.clearDepth(1);
-    gl.disable(wgl.BLEND);
+    gl.disable(wgl.WebGL.BLEND);
 
     textureLoc = gl.getUniformLocation(program, "tex");
 
-    var canvas2d = document.getElementById("texcanvas");
+    dynamic canvas2d = document.getElementById("texcanvas");
     var context2d = canvas2d.getContext("2d");
     imageData = context2d.createImageData(1, 2);
     var data = imageData.data;

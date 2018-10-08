@@ -15,6 +15,8 @@
  */
 
 main() {
-  void super() {}
-  super();
+  try {
+    void super() {}
+    super();
+  } catch (x) {}
 }

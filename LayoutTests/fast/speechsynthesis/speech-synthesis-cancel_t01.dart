@@ -8,8 +8,7 @@
  * @description This tests that cancelling a speech job fires the right events.
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
+import "../../testcommon.dart";
 
 void main() {
     var speechSynthesis=window.speechSynthesis;

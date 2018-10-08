@@ -15,6 +15,9 @@
  */
 
 main() {
-  void assert() {}
-  assert();
+  try {
+    void assert() {}
+    assert();
+  } catch (anything) {
+  }
 }

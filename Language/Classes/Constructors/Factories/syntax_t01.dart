@@ -12,7 +12,6 @@
  * @description Checks various valid factory declarations, including those
  * referencing classes from another file.
  * @author iefremov
- * @reviewer rodionov
  */
 library test;
 import "../../../../Utils/expect.dart";
@@ -48,7 +47,7 @@ class AImpl implements lib.A {
   new C();
   new C.id(3);
 
-  var val = new lib.A();
+  AImpl val = new lib.A();
   Expect.equals(true, (val is AImpl));
   Expect.equals(1, val.methodA());
   Expect.equals(2, val.methodB());

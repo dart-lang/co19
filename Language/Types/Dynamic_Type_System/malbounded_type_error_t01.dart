@@ -10,9 +10,9 @@
  * checked mode.
  * In checked mode, it is a dynamic type error if a deferred, malformed or
  * malbounded type is used in a subtype test.
- * @description Checks that a dynamic type error occurs in checked mode when
+ * @description Checks that a compile error occurs in checked mode when
  * malbounded type is used in a subtype test.
- * @static-warning
+ * @compile-error
  * @author ilya
  */
 
@@ -21,8 +21,6 @@ import "../../../Utils/dynamic_check.dart";
 class C <T extends int> {}
 
 main() {
-  checkTypeError(() {
-    int is C<double>;   /// static type warning
-  });
+  int is C<double>;
 }
 

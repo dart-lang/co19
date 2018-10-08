@@ -12,12 +12,11 @@
  */
 
 import "dart:isolate";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable<int> data, bool test(int element), bool expected) {
-  ReceivePort s=IsolateStream.fromIterable(data);
+check(Iterable<int> data, bool test(var element), bool expected) {
+  ReceivePort s = IsolateStream.fromIterable(data);
   asyncStart();
   s.any(test).then((bool actual){
     Expect.equals(expected, actual);
@@ -26,9 +25,9 @@ check(Iterable<int> data, bool test(int element), bool expected) {
 }
 
 main() {
-  check([], (int element)=>true, false);
-  check([1,2,3], (int element)=>element==null, false);
-  check([1,2,3,null], (int element)=>element==null, true);
-  check(new Iterable.generate(0, (int index)=>index*2), (int element)=>true, false);
-  check(new Iterable.generate(10, (int index)=>index*5), (int element)=>element==30, true);
+  check([], (element) => true, false);
+  check([1,2,3], (element) => element == null, false);
+  check([1, 2, 3, null], (element) => element == null, true);
+  check(new Iterable.generate(0, (index) => index * 2), (element) => true, false);
+  check(new Iterable.generate(10, (index) => index * 5), (element) => element==30, true);
 }

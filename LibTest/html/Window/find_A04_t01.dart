@@ -10,7 +10,8 @@
  * from MDN:
  * aString:  The text string for which to search.
  * aWrapAround: Boolean. If true, specifies a wrap around search.
- * @description Checks that the string is found whith any value of `wrap` parameter.
+ * @description Checks that the string is found whith any value of `wrap`
+ * parameter.
  */
 import "dart:html";
 import "../../../UtilsHtml/expect.dart";
@@ -18,9 +19,9 @@ import "../../../UtilsHtml/expect.dart";
 main() {
   var text = 'text';
   document.body.append(new Text(text));
-  bool res=window.find(text, false, false, false, false, false, false);
+  bool res = window.find(text, false, false, false, false, false, false);
   Expect.isTrue(res, "text not found");
-  
-  res=window.find(text, false, false, true, false, false, false);
+
+  res = window.find(text, false, false, true, false, false, false);
   Expect.isTrue(res, "wrapped text not found");
 }

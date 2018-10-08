@@ -7,13 +7,14 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
   var range = document.createRange();
   var node = document.body;
-
+  test(range, node);
+}
+test(dynamic range, node) {
   [
     () => range.compareBoundaryPoints(),
     () => range.compareBoundaryPoints(0),

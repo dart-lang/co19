@@ -8,13 +8,12 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 _shouldThrow(func())
   => shouldThrow(func, (e) => e is DomException && e.name == DomException.INVALID_STATE);
 
 main() {
-  var input = document.createElement('input');
+  InputElement input = document.createElement('input') as InputElement;
 
   input.type = 'text';
   input.step = "3";

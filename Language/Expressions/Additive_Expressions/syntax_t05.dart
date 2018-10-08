@@ -21,8 +21,6 @@
  * must have at least two operands.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 class S {
@@ -31,7 +29,10 @@ class S {
 
 class A {
   test() {
-    super +;  }
+    try {
+      super +;
+    } catch (e) {}
+  }
 }
 
 main() {

@@ -8,7 +8,6 @@
  *            [str].
  * @description Tests this method with various patterns, flags and input strings.
  * @author rodionov
- * @reviewer msyabro
  * @note issue 1297
  */
 import "../../../Utils/expect.dart";
@@ -135,7 +134,8 @@ main() {
   
   check("java(script)?", "state: javascript is an extension of ecma script");
   check("java(script)?", "state: java and javascript are vastly different");
-  checkNeg("java(script)?", "state: both Java and JavaScript used in web development");
+  checkNeg("java(script)?",
+      "state: both Java and JavaScript used in web development");
   check("cd?e", "abcdef");
   check("cdx?e", "abcdef");
   check("o?pqrst", "pqrstuvw");
@@ -190,9 +190,12 @@ main() {
   check(r"(?!a|b)|c", "d");
   check(r"(.*?)a(?!(a+)b\2c)\2(.*)", "baaabaac");
   
-  check(r"([Jj]ava([Ss]cript)?)\sis\s(fun\w*)", "Learning javaScript is funny, really");
-  check(r"([Jj]ava([Ss]cript)?)\sis\s(fun\w*)", "Developing with Java is fun, try it");
-  checkNeg(r"([Jj]ava([Ss]cript)?)\sis\s(fun\w*)", "Developing with JavaScript is dangerous, do not try it without assistance");
+  check(r"([Jj]ava([Ss]cript)?)\sis\s(fun\w*)",
+      "Learning javaScript is funny, really");
+  check(r"([Jj]ava([Ss]cript)?)\sis\s(fun\w*)",
+      "Developing with Java is fun, try it");
+  checkNeg(r"([Jj]ava([Ss]cript)?)\sis\s(fun\w*)",
+      "Developing with JavaScript is dangerous, do not try it without assistance");
   check(r"(abc)", "abc");
   check(r"a(bc)d(ef)g", "abcdefg");
   check(r"(.{3})(.{4})", "abcdefgh");
@@ -316,15 +319,19 @@ main() {
 //  check(r"[\d][\0012-\0014]{1,}[^\d]", "line1\n\n\n\n\nline2"); // issue 1297
 }
 
-void check(String pattern, String str, {bool multiLine: false, bool ignoreCase: false}) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
+void check(String pattern, String str, {bool multiLine: false,
+  bool ignoreCase: false}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine,
+      caseSensitive: !ignoreCase);
   if(!re.hasMatch(str)) {
     Expect.fail("'/$pattern/' !~ '$str'");
   }
 }
 
-void checkNeg(String pattern, String str, {bool multiLine: false, bool ignoreCase: false}) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
+void checkNeg(String pattern, String str, {bool multiLine: false,
+  bool ignoreCase: false}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine,
+      caseSensitive: !ignoreCase);
   if(re.hasMatch(str)) {
     Expect.fail("'/$pattern/' ~ '$str'");
   }

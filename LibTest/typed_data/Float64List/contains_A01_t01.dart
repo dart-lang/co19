@@ -5,16 +5,17 @@
  */
 /**
  * @assertion bool contains(Object element)
- * Check whether the collection contains an element equal to element.
+ * Returns true if the collection contains an element equal to element.
  * @description Checks that true is returned if the collection contains
  * an element equal to [element], false otherwise.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l;
+  Float64List l;
   l = new Float64List.fromList([]);
   Expect.isFalse(l.contains(0.0));
   Expect.isFalse(l.contains("1"));

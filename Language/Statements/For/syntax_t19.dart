@@ -25,5 +25,7 @@
 import 'dart:async';
 
 main() async {
-  await for (var x = 1 in new Stream.fromIterable([1,2])) break;
+  try {
+    await for (var x = 1 in new Stream.fromIterable([1,2])) break;
+  } catch (x) {}
 }

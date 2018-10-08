@@ -21,9 +21,9 @@ main() {
     }
   }
   
-  Expect.isTrue(f > 0, "stopwatch frequency is not positive: $f");
+  Expect.isTrue(f > 0, "Stopwatch frequency is not positive: $f");
   
-  for (int k=0; k<10; k++) {
+  for (int k = 0; k < 10; k++) {
     check();
     sw.start();
     check();

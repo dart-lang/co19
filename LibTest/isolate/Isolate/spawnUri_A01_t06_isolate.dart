@@ -8,8 +8,6 @@
  */
 library spawnUri_A01_t06_isolate;
 
-import "dart:isolate";
-
 void main() {
   print("unittest-suite-success");
 }

@@ -8,6 +8,7 @@
  * @description 
  */
 import "dart:html";
+import "../../../../../Utils/expect.dart";
 import "../../xpath-test-pre.dart";
 import "test.dart";
 
@@ -70,8 +71,8 @@ void main() {
     shouldBe(evaluator.evaluate("substring(\'12345\', 2)", CHILD1, null, XPathResult.ANY_TYPE, null).stringValue, "2345");
     shouldBe(evaluator.evaluate("substring(\'12345\', 1.5, 2.6)", CHILD1, null, XPathResult.ANY_TYPE, null).stringValue, "234");
     shouldBe(evaluator.evaluate("substring(\'12345\', 0, 3)", CHILD1, null, XPathResult.ANY_TYPE, null).stringValue, "12");
-    shouldBe(evaluator.evaluate("substring(\'12345\', number(\'double.NAN\'), 3)", CHILD1, null, XPathResult.ANY_TYPE, null).stringValue, "");
-    shouldBe(evaluator.evaluate("substring(\'12345\', 1, number(\'double.NAN\'))", CHILD1, null, XPathResult.ANY_TYPE, null).stringValue, "");
+    shouldBe(evaluator.evaluate("substring(\'12345\', number(\'double.nan\'), 3)", CHILD1, null, XPathResult.ANY_TYPE, null).stringValue, "");
+    shouldBe(evaluator.evaluate("substring(\'12345\', 1, number(\'double.nan\'))", CHILD1, null, XPathResult.ANY_TYPE, null).stringValue, "");
     shouldBe(evaluator.evaluate("substring(\'12345\', -42, 1 div 0)", CHILD1, null, XPathResult.ANY_TYPE, null).stringValue, "12345");
     shouldBe(evaluator.evaluate("substring(\'12345\', -1 div 0, 1 div 0)", CHILD1, null, XPathResult.ANY_TYPE, null).stringValue, "");
     shouldBe(evaluator.evaluate("string-length(\'3.14Hi\')", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, 6);
@@ -89,23 +90,23 @@ void main() {
     shouldBe(evaluator.evaluate("true()", CHILD1, null, XPathResult.ANY_TYPE, null).booleanValue, true);
     shouldBe(evaluator.evaluate("false()", CHILD1, null, XPathResult.ANY_TYPE, null).booleanValue, false);
 
-    shouldBe(evaluator.evaluate("number(\'double.NAN\')", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, double.NAN);
+    shouldBe(evaluator.evaluate("number(\'double.nan\')", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, double.nan);
     shouldBe(evaluator.evaluate("floor(3.14)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, 3);
-    shouldBe(evaluator.evaluate("floor(number())", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, double.NAN);
-    shouldBe(evaluator.evaluate("floor(1 div 0)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, double.INFINITY);
-    shouldBe(evaluator.evaluate("floor(-1 div 0)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, -double.INFINITY);
+    shouldBe(evaluator.evaluate("floor(number())", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, double.nan);
+    shouldBe(evaluator.evaluate("floor(1 div 0)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, double.infinity);
+    shouldBe(evaluator.evaluate("floor(-1 div 0)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, -double.infinity);
     shouldBe(evaluator.evaluate("floor(0.5)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, 0);
     shouldBe(evaluator.evaluate("floor(-0.5)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, -1);
     shouldBe(evaluator.evaluate("ceiling(3.14)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, 4);
-    shouldBe(evaluator.evaluate("ceiling(number(\'double.NAN\'))", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, double.NAN);
-    shouldBe(evaluator.evaluate("ceiling(1 div 0)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, double.INFINITY);
+    shouldBe(evaluator.evaluate("ceiling(number(\'double.nan\'))", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, double.nan);
+    shouldBe(evaluator.evaluate("ceiling(1 div 0)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, double.infinity);
     shouldBe(evaluator.evaluate("ceiling(0.5)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, 1);
     shouldBe(evaluator.evaluate("ceiling(-0.5)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, -0);
     shouldBe(evaluator.evaluate("round(3.14)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, 3);
     shouldBe(evaluator.evaluate("round(-4.5)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, -4);
-    shouldBe(evaluator.evaluate("round(number(\'double.NAN\'))", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, double.NAN);
-    shouldBe(evaluator.evaluate("round(1 div 0)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, double.INFINITY);
-    shouldBe(evaluator.evaluate("round(-1 div 0)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, -double.INFINITY);
+    shouldBe(evaluator.evaluate("round(number(\'double.nan\'))", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, double.nan);
+    shouldBe(evaluator.evaluate("round(1 div 0)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, double.infinity);
+    shouldBe(evaluator.evaluate("round(-1 div 0)", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, -double.infinity);
     shouldBe(evaluator.evaluate("round(\'12345\')", CHILD1, null, XPathResult.ANY_TYPE, null).numberValue, 12345);
     shouldBe(evaluator.evaluate("lang(\'en\')", LCHILD1, null, XPathResult.ANY_TYPE, null).booleanValue, false);
     shouldBe(evaluator.evaluate("lang(\'en\')", LCHILD2, null, XPathResult.ANY_TYPE, null).booleanValue, true);

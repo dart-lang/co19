@@ -12,9 +12,7 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
 import "resources/desktop-gl-constants.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -25,7 +23,7 @@ main() {
 
   debug("Canvas.getContext");
 
-  var gl = create3DContext(document.getElementById("canvas"));
+  dynamic gl = create3DContext(document.getElementById("canvas"));
   if (gl == null) {
     testFailed("context does not exist");
   } else {
@@ -36,43 +34,43 @@ main() {
     var buffer = new Uint8List(2);
     var buf = new Uint16List.view(buffer.buffer);
     var tex = gl.createTexture();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, gl.createBuffer());
-    glErrorShouldBe(gl, wgl.NO_ERROR);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, gl.createBuffer());
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
     var tests = [
       () => gl.bindTexture(desktopGL['TEXTURE_3D'], tex),
       () => gl.blendEquation(desktopGL['MIN']),
       () => gl.blendEquation(desktopGL['MAX']),
-      () => gl.blendEquationSeparate(desktopGL['MIN'], wgl.FUNC_ADD),
-      () => gl.blendEquationSeparate(desktopGL['MAX'], wgl.FUNC_ADD),
-      () => gl.blendEquationSeparate(wgl.FUNC_ADD, desktopGL['MIN']),
-      () => gl.blendEquationSeparate(wgl.FUNC_ADD, desktopGL['MAX']),
-      () => gl.bufferData(wgl.ARRAY_BUFFER, 3, desktopGL['STATIC_READ']),
+      () => gl.blendEquationSeparate(desktopGL['MIN'], wgl.WebGL.FUNC_ADD),
+      () => gl.blendEquationSeparate(desktopGL['MAX'], wgl.WebGL.FUNC_ADD),
+      () => gl.blendEquationSeparate(wgl.WebGL.FUNC_ADD, desktopGL['MIN']),
+      () => gl.blendEquationSeparate(wgl.WebGL.FUNC_ADD, desktopGL['MAX']),
+      () => gl.bufferData(wgl.WebGL.ARRAY_BUFFER, 3, desktopGL['STATIC_READ']),
       () => gl.disable(desktopGL['CLIP_PLANE0']),
       () => gl.disable(desktopGL['POINT_SPRITE']),
-      () => gl.getBufferParameter(wgl.ARRAY_BUFFER, desktopGL['PIXEL_PACK_BUFFER']),
-      () => gl.hint(desktopGL['PERSPECTIVE_CORRECTION_HINT'], wgl.FASTEST),
+      () => gl.getBufferParameter(wgl.WebGL.ARRAY_BUFFER, desktopGL['PIXEL_PACK_BUFFER']),
+      () => gl.hint(desktopGL['PERSPECTIVE_CORRECTION_HINT'], wgl.WebGL.FASTEST),
       () => gl.isEnabled(desktopGL['CLIP_PLANE0']),
       () => gl.isEnabled(desktopGL['POINT_SPRITE']),
       //() => gl.pixelStorei(desktopGL['PACK_SWAP_BYTES'], 1),
-      () => gl.readPixels(0, 0, 1, 1, wgl.ALPHA, wgl.SHORT, buf),
+      () => gl.readPixels(0, 0, 1, 1, wgl.WebGL.ALPHA, wgl.WebGL.SHORT, buf),
     ];
     for (var ii = 0; ii < tests.length; ++ii) {
       tests[ii]();
-      glErrorShouldBe(gl, wgl.INVALID_ENUM, "test #$ii should return INVALID_ENUM.");
+      glErrorShouldBe(gl, wgl.WebGL.INVALID_ENUM, "test #$ii should return INVALID_ENUM.");
     }
 
-    gl.bindTexture(wgl.TEXTURE_2D, tex);
-    glErrorShouldBe(gl, wgl.NO_ERROR);
+    gl.bindTexture(wgl.WebGL.TEXTURE_2D, tex);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
     tests = [
-      () => gl.getTexParameter(wgl.TEXTURE_2D, desktopGL['GENERATE_MIPMAP']),
-      () => gl.texParameteri(desktopGL['TEXTURE_3D'], wgl.TEXTURE_MAG_FILTER, wgl.NEAREST),
-      () => gl.texParameteri(wgl.TEXTURE_2D, desktopGL['GENERATE_MIPMAP'], 1)
+      () => gl.getTexParameter(wgl.WebGL.TEXTURE_2D, desktopGL['GENERATE_MIPMAP']),
+      () => gl.texParameteri(desktopGL['TEXTURE_3D'], wgl.WebGL.TEXTURE_MAG_FILTER, wgl.WebGL.NEAREST),
+      () => gl.texParameteri(wgl.WebGL.TEXTURE_2D, desktopGL['GENERATE_MIPMAP'], 1)
     ];
     for (var ii = 0; ii < tests.length; ++ii) {
       tests[ii]();
-      glErrorShouldBe(gl, wgl.INVALID_ENUM, "test2 #$ii should return INVALID_ENUM.");
+      glErrorShouldBe(gl, wgl.WebGL.INVALID_ENUM, "test2 #$ii should return INVALID_ENUM.");
     }
   }
 }

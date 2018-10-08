@@ -20,5 +20,7 @@
 const m = (true || 0);
 
 main() {
-  print(m);
+  try {
+    print(m);
+  } catch (x) {}
 }

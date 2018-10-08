@@ -17,8 +17,9 @@ main() {
   var x = new DivElement();
   Expect.equals(HtmlNamespace, x.namespaceUri);
 
-  var y = new Element.html('<svg><circle></circle></svg>',
+  Element y = new Element.html('<svg><circle></circle></svg>',
       treeSanitizer: new NullTreeSanitizer());
+
   Expect.equals(SvgNamespace, y.namespaceUri);
-  Expect.equals(SvgNamespace, y.firstChild.namespaceUri);
+  Expect.equals(SvgNamespace, (y.firstChild as Element).namespaceUri);
 }

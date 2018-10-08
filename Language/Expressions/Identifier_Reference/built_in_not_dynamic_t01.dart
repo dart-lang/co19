@@ -15,5 +15,7 @@
 
 
 main() {
-  abstract foo;
+  try {
+    abstract foo;
+  } catch (x) {}
 }

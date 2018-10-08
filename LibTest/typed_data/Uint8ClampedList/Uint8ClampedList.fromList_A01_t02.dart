@@ -6,21 +6,22 @@
 /**
  * @assertion Uint8ClampedList.fromList(List<num> list)
  * Creates a [Uint8ClampedList] with the same size as the [elements] list
- * and copies over the elements.
- * @description Checks that a new [Uint8ClampedList] has the same size and elements as
- * the [elements].
+ * and copies over the values clamping when needed.
+ * @description Checks that a new [Uint8ClampedList] has the same size and
+ * elements as the [elements].
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array) {
+void check(List<int> array) {
   Uint8ClampedList l = new Uint8ClampedList.fromList(array);
   Expect.equals(l.length, array.length);
   Expect.listEquals(array, l);
 }
 
-void checkTruncation(array, expected) {
+void checkTruncation(List<int> array, List<int> expected) {
   Uint8ClampedList l = new Uint8ClampedList.fromList(array);
   Expect.equals(l.length, array.length);
   Expect.listEquals(expected, l);

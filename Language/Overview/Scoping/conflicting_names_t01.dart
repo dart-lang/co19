@@ -22,6 +22,8 @@ var conflictingName;
 conflictingName(p1) {}
 
 main() {
-  conflictingName = 1;
-  conflictingName(1);
+  try {
+    conflictingName = 1;
+    conflictingName(1);
+  } catch (e) {}
 }

@@ -12,10 +12,9 @@
  * constant type literal, then if v = is a setter that forwards to a static
  * setter, setter lookup fails. Otherwise, the body of v = is executed with its
  * formal parameter bound to o2 and this bound to o1.
- * @description Checks that if evaluation of e1 successful then e2 is evaluated
- * even if setter lookup failed. Test the case when e1 is a constant type
- * literal
- * @static-warning
+ * @description Checks that it is a compile error if setter lookup failed. Test
+ * the case when e1 is a constant type literal
+ * @compile-error
  * @author ilya
  */
 import '../../../Utils/expect.dart';
@@ -23,14 +22,11 @@ import '../../../Utils/expect.dart';
 class C {
 }
 
-int count=0;
+int count = 0;
 
 incCount() => ++count;
 
 main() {
-  Expect.throws(() {
-    C.noSetter = incCount(); // static warning: no setter
-  }, (e) => e is NoSuchMethodError);
-
+  Expect.throws(() {C.noSetter = incCount();}, (e) => e is NoSuchMethodError);
   Expect.equals(1, count);
 }

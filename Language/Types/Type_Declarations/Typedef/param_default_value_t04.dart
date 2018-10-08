@@ -17,5 +17,7 @@ import '../../../../Utils/expect.dart';
 typedef F(var a, var b, var c, var z = null);
 
 main() {
-  Expect.isFalse(() {} is F);
+  try {
+    Expect.isFalse(() {} is F);
+  } catch (x) {}
 }

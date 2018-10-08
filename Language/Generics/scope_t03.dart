@@ -10,8 +10,8 @@
  * (if these exist) and in the body of G.
  * @description Checks that type parameters are in scope in the body of G
  * (if G is a class declaration).
+ * @issue 29388
  * @author iefremov
- * @reviewer kaigorodov
  */
 import "../../Utils/expect.dart";
 

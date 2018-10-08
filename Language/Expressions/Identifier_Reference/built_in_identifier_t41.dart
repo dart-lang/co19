@@ -15,5 +15,8 @@
 class external {}
 
 main() {
-  null is external;
+  try {
+    null is external;
+  } catch (anything) {
+  }
 }

@@ -23,7 +23,7 @@ class C {
   }
   int v;
 
-  C operator + (C val) {
+  C operator +(C val) {
     throw new Exception();
     return new C(0);
   }
@@ -38,7 +38,7 @@ main() {
   C c2 = new C(2);
   try {
     (c1 + c2).v = e2();
-  } on Exception {
+  } catch (e) {
   }
   Expect.equals(1, c1. v);
   Expect.equals(0, count);

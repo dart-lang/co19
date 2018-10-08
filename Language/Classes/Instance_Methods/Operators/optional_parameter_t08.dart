@@ -11,7 +11,6 @@
  * required ones.
  * @compile-error
  * @author ilya
- * @reviewer
  */
 
 class C {
@@ -19,6 +18,8 @@ class C {
 }
 
 main() {
-  C c = new C();
-  c[0] = null;
+  try {
+    C c = new C();
+    c[0] = null;
+  } catch (e) {}
 }

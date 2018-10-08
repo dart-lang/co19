@@ -19,5 +19,8 @@ class C {
 }
 
 main() {
-  C.assert();
+  try {
+    C.assert();
+  } catch (anything) {
+  }
 }

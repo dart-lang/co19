@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -53,14 +52,14 @@ main() {
     debug('in table');
     shouldBeTrue(table.rows.contains(insertedRow));
     debug('tBodies');
-    shouldBe(table.tBodies.length > 0);
+    shouldBeTrue(table.tBodies.length > 0);
     debug('tFoot');
     shouldBeNonNull(table.tFoot);
     debug('tHead');
     shouldBeNonNull(table.tHead);
   }
 
-  var tables = document.getElementsByTagName("table");
+  List tables = document.getElementsByTagName("table");
   for(var i = 0; tables[i]; i++)
     insert(tables[i]);
 }

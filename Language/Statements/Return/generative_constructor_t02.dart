@@ -19,5 +19,7 @@ class C {
 }
 
 main() {
-  new C.foo();
+  try {
+    new C.foo();
+  } catch (x) {}
 }

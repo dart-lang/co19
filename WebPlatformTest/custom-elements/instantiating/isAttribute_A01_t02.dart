@@ -40,9 +40,9 @@ main() {
           treeSanitizer: new NoCheck());
     }
 
-    document.register(name, getFooClass(name), extendsTag: element);
+    document.registerElement(name, getFooClass(name), extendsTag: element);
     
-    var x = document.query('#qwe');
+    var x = document.querySelector('#qwe');
     Expect.equals(getFooClass(name), x.runtimeType);
   }
 }

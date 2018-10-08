@@ -5,50 +5,50 @@
  */
 /**
  * @assertion Iterable<E> takeWhile(bool test(E element))
- * Returns an [Iterable] that stops once [test] is not satisfied anymore.
- * @description Checks that all first elements that satisfy test are
- * retained, and elements after that are skipped.
+ * Returns a lazy iterable of the leading elements satisfying [test].
+ * @description Checks that all first elements that satisfy test are retained,
+ * and elements after that are skipped.
  * @author msyabro
  */
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(list, bool test(var element)) {
+void check(List<int> list, bool test(int element)) {
   var l = new Uint8ClampedList.fromList(list);
-  var it0=l.iterator;
-  var res=l.takeWhile(test);
-  var it=res.iterator;
-  var skipCount=0;
+  var it0 = l.iterator;
+  var res = l.takeWhile(test);
+  var it = res.iterator;
+  var skipCount = 0;
 
 // check that the beginning of a0 is identical to a
-  var hasNext0=it0.moveNext();
-  var len=0;
+  var hasNext0 = it0.moveNext();
+  var len = 0;
   for (;;) {
-    bool hasNext=it.moveNext();
+    bool hasNext = it.moveNext();
     if (!hasNext) break;
     Expect.isTrue(test(it0.current));
     Expect.equals(it0.current, it.current);
     len++;
-    hasNext0=it0.moveNext();
+    hasNext0 = it0.moveNext();
   }
   Expect.equals(len, res.length);
 
 // count the rest
   while (hasNext0) {
     skipCount++;
-    hasNext0=it0.moveNext();
+    hasNext0 = it0.moveNext();
   }
 
-  Expect.equals(l.length, len+skipCount);
+  Expect.equals(l.length, len + skipCount);
 }
 
 main() {
-  var a0=[1,3,7,4,5,6];
-  check(a0, (var element)=>element==1);
-  check(a0, (var element)=>true);
-  check(a0, (var element)=>false);
-  check(a0, (var element)=>element>4);
-  check(a0, (var element)=>element<4);
-  check(a0, (var element)=>element==4);
+  var a0 = [1, 3, 7, 4, 5, 6];
+  check(a0, (var element) => element == 1);
+  check(a0, (var element) => true);
+  check(a0, (var element) => false);
+  check(a0, (var element) => element > 4);
+  check(a0, (var element) => element < 4);
+  check(a0, (var element) => element == 4);
 }

@@ -17,5 +17,8 @@
 void f(var continue) {}
 
 main() {
-  f();
+  try {
+    f();
+  } catch (anything) {
+  }
 }

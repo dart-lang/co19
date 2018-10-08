@@ -8,7 +8,6 @@
  * INVALID_STATE_ERR if no selection is made.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -25,8 +24,8 @@ main() {
 
   sel.selectAllChildren(textNode);
 
-  shouldBe(sel.collapseToStart(), null);
-  shouldBe(sel.collapseToEnd(), null);
+  sel.collapseToStart();
+  sel.collapseToEnd();
 
   textNode.remove();
 }

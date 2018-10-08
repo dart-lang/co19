@@ -27,7 +27,4 @@ void main() {
   var head2 = document.createElement("head");
   document.documentElement.insertBefore(head2, head);
   assert_equals(document.head, head2);
-  Expect.throws((){
-    document.head = "";
-  });
 }

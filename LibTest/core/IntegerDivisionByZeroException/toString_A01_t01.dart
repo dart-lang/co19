@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Undocumented
- * @description Checks that this method causes no error and the result is not null and is indeed a String.
+ * @assertion String toString()
+ * @description Checks that this method causes no error and the result is not
+ * null and is indeed a String.
  * @author rodionov
- * @reviewer pagolubev
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
  

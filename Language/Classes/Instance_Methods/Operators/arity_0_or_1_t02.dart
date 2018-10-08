@@ -13,7 +13,6 @@
  * operator - specifies two parameters.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class C {
@@ -21,5 +20,7 @@ class C {
 }
 
 main() {
-  bool b = (new C() - new C());
+  try {
+    bool b = (new C() - new C());
+  } catch (ex) {}
 }

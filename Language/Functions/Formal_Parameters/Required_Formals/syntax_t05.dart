@@ -26,19 +26,15 @@
  *   metadata finalConstVarOrType? this '.' identifier formalParameterList?
  * ;
  * @description Checks that reassigning a final required parameter inside the
- * function produces a static warning and a NoSuchMethodError.
- * @static-warning
+ * function produces a compile error
+ * @compile-error
  * @author msyabro
  * @reviewer iefremov
  * @reviewer rodionov
  */
-import "../../../../Utils/expect.dart";
 
 func(final x) {
-  try {
-    x = 1; /// static warning cannot assign value to final variable
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
+  x = 1;
 }
 
 main() {

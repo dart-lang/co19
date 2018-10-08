@@ -15,7 +15,6 @@
  * the initializer list.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 
@@ -26,5 +25,7 @@ class C {
 }
 
 main() {
-  var x = new C();
+  try {
+    var x = new C();
+  } catch (x) {}
 }

@@ -12,7 +12,6 @@
  * with the value v, completer's future will complete with the error f.
  * @author ilya
  */
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";

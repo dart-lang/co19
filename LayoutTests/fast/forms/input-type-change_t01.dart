@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -22,8 +21,8 @@ main() {
       </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var text = document.getElementById('text');
-  var image = document.getElementById('image');
+  InputElement text = document.getElementById('text') as InputElement;
+  InputElement image = document.getElementById('image') as InputElement;
 
   change(_) {
     debug('Check metrics before the change:');

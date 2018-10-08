@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 import "../resources/common-pseudo-classes.dart";
 
 main() {

@@ -9,7 +9,6 @@
  * @description Checks that operator *= cannot be defined in a user class.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 class C {
@@ -17,6 +16,8 @@ class C {
 }
 
 main() {
-  var b = (new C());
-  b *= null;
+  try {
+    var b = (new C());
+    b *= null;
+  } catch (x) {}
 }

@@ -6,8 +6,8 @@
 /**
  * @assertion LinkedList<E> list
  * Get the linked list containing this element.
- * Returns null if this entry is not currently in any list.
- * @description Checks that null is returned if this entry is not currently in
+ * Returns [null] if this entry is not currently in any list.
+ * @description Checks that [null] is returned if this entry is not currently in
  * any list
  * @author sgrekhov@unipro.ru
  */

@@ -7,13 +7,10 @@
  * @description Series of tests to ensure correct behaviour of composite on a
  * fully transparent color.
  */
-import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   ctx.globalCompositeOperation = "source-over";
   ctx.fillStyle = 'rgba(0,0,0,0)';

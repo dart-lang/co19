@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var style = new Element.html('''
@@ -24,8 +23,8 @@ main() {
     <p id="test">This line should be green.</p>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var styleSheet = document.getElementById('style1').sheet;
-  var mediaRule = styleSheet.cssRules[0];
+  CssStyleSheet styleSheet = (document.getElementById('style1') as StyleElement).sheet;
+  CssMediaRule mediaRule = styleSheet.cssRules[0];
 
   mediaRule.insertRule("#test { color: green; }", mediaRule.cssRules.length);
 

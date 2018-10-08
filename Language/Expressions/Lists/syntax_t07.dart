@@ -17,5 +17,7 @@
  */
 
 main() {
-  var x = const 1, 2, 3];
+  try {
+    var x = const 1, 2, 3];
+  } catch (e) {}
 }

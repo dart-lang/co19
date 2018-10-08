@@ -17,11 +17,11 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x1=new IFrameElement();
+  IFrameElement x1 = new IFrameElement();
   x1.append(new Element.html('<div><a>A</a>Text</div>'));
   x1.hidden = true;
   document.body.append(x1);
-  IFrameElement x2=new IFrameElement();
+  IFrameElement x2 = new IFrameElement();
   x2.append(new Element.html('<div><a>A</a>Text</div>'));
   x2.hidden = true;
   document.body.append(x2);

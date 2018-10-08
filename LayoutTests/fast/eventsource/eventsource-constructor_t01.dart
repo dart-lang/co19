@@ -5,11 +5,9 @@
  */
 /**
  * @description 
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var f = new DocumentFragment.html('''
@@ -22,12 +20,7 @@ main() {
       <div id="result"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  log(x) {}
-
-  shouldThrow(() => new EventSource(), // no argument
-      (e) => e is NoSuchMethodError);
-
-  shouldThrow(() => new EventSource(""), // empty string
+   shouldThrow(() => new EventSource(""), // empty string
       (e) => e is DomException && e.name == DomException.SYNTAX);
 
   shouldThrow(() => new EventSource("http://webserver:eighty/"), // invalid URL

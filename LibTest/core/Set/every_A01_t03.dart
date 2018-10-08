@@ -15,8 +15,8 @@ import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
 test(Set create([Set content])) {
-  bool foo(int x) { return x > 0; }
-  Set<int> s = create();
+  bool foo(var x) { return x > 0; }
+  Set s = create();
   s.addAll([-1, -3, -11]);
   Expect.isTrue(!s.every(foo));
 

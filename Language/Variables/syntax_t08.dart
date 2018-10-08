@@ -36,5 +36,7 @@
  */
 
 main() {
-  var x y;
+  try {
+    var x y;
+  } catch (ok) {}
 }

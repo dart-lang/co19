@@ -10,8 +10,6 @@
  * No crash = test PASS
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../testcommon.dart";
 
 main() {
   var img = new ImageElement(); 

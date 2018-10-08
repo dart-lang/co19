@@ -10,7 +10,6 @@
  * @description Checks that in absence of an extends clause, a class still
  * extends Object.
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

@@ -29,5 +29,7 @@
 
 main() {
   var foo;
-  1 * foo = 2;
+  try {
+    1 * foo = 2;
+  } catch (ok) {}
 }

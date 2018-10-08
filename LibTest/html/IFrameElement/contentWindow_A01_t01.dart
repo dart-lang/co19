@@ -9,22 +9,20 @@
  * @issue #16937
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
-const text="Hi there!";
+const text = "Hi there!";
 
 main() {
-  IFrameElement ife=new IFrameElement();
+  IFrameElement ife = new IFrameElement();
   document.body.append(ife);
-  WindowBase nw=ife.contentWindow;
+  WindowBase nw = ife.contentWindow;
   asyncStart();
   nw.addEventListener("message", (Event event) {
-    Expect.equals(text, event.data);
+    Expect.equals(text, (event as MessageEvent).data);
     nw.close();
     asyncEnd();
   });
-  
-  nw.postMessage(text,  "*");
-  
+
+  nw.postMessage(text, "*");
 }

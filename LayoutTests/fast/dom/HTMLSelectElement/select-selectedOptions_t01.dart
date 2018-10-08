@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -26,7 +25,7 @@ main() {
         new OptionElement(data: "two", value: "value", selected: false));
   }
 
-  var mySelect = document.getElementById("test");
+  SelectElement mySelect = document.getElementById("test");
   reset(mySelect);
   var i = 0;
 

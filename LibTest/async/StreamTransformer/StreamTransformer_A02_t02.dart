@@ -17,19 +17,22 @@
  * @author ilya
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var s = new Stream.fromIterable([1]);
-  var tr = new StreamTransformer((_, __) {
-    var s2 = new Stream.fromIterable([2]);
-    return s2.listen(null);
-  });
+  Stream s = new Stream.fromIterable([1]);
+  StreamTransformer<int, dynamic> tr = new StreamTransformer(
+    (_, __) {
+      Stream s2 = new Stream.fromIterable([2]);
+      return s2.listen(null);
+    }
+  );
 
   asyncStart();
-  s.transform(tr).toList().then((x) {
-    Expect.listEquals([2], x);
-    asyncEnd();
-  });
+  s.transform(tr).toList().then(
+    (x) {
+      Expect.listEquals([2], x);
+      asyncEnd();
+    }
+  );
 }

@@ -11,7 +11,6 @@
  * @description Checks that a stackTrace can be passed to completeError.
  * @author ilya
  */
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";
@@ -32,12 +31,13 @@ main() {
     completer.completeError(e, st);
   }
 
-  future
-    .then((fValue) {Expect.fail('should not get here');})
-    .catchError((e, st) {
-      Expect.identical(error, e);
-      Expect.identical(stackTrace, st);
-      asyncEnd();
-    });
+  future.then(
+          (fValue) => Expect.fail('should not get here'),
+          onError:(e, st) {
+            Expect.identical(error, e);
+            Expect.identical(stackTrace, st);
+            asyncEnd();
+          }
+    );
 }
 

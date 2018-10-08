@@ -13,7 +13,6 @@
  * @assertion Content attribute of template element is read-only
  */
 
-import 'dart:html';
 import "../../../Utils/expect.dart";
 import '../testcommon.dart';
 

@@ -9,8 +9,6 @@
  */
 import "dart:html";
 import "../../testharness.dart";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 
 const String htmlEL2 = r'''
 <p>This test tests parsing of hash fragments in about:blank URLs
@@ -23,9 +21,10 @@ https://bugs.webkit.org/show_bug.cgi?id=35399</a>.</p>
 //<iframe style="display:none" name=inner id=inner" src="about:blank"></iframe>
 
 void onload_callback(e) {
-    var inner = document.getElementById("inner");
-    var old_hash = inner.location.hash;
-    inner.location.hash = "hash-ref";
+    var inner = document.getElementById("inner") as IFrameElement;
+    var old_hash = (inner.contentWindow.location as Location).hash;
+    (inner.contentWindow.location as Location).hash = "hash-ref";
+    var new_hash = (inner.contentWindow.location as Location).hash;
     var c = document.getElementById("content");
     if (new_hash == "#hash-ref") {
         c.innerHtml = "PASS";

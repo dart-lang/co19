@@ -14,5 +14,7 @@
  */
 
 main() {
-  import foo;
+  try {
+    import foo;
+  } catch (x) {}
 }

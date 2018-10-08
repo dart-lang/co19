@@ -5,17 +5,19 @@
  */
 /**
  * @assertion Iterable<E> where(bool test(E element))
+ * ...
  * Iterating multiple times over the the returned [Iterable]
  * will invoke the supplied function [test] multiple times on the same element.
  * @description Checks that iterating multiple times over the the returned
- * [Iterable] will invoke the supplied function [test] multiple times on the same element.
+ * [Iterable] will invoke the supplied function [test] multiple times on the
+ * same element.
  * @author msyabro
  */
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 main() {
   var count = 0;

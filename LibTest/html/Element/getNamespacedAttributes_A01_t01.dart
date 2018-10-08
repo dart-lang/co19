@@ -18,6 +18,6 @@ main() {
       treeSanitizer: new NullTreeSanitizer());
   var y = x.querySelector('foo');
 
-  Expect.mapEquals({'href':'foo', 'custom':'bar'},
+  Expect.mapEquals({'href': 'foo', 'custom': 'bar'},
       y.getNamespacedAttributes(XlinkNamespace));
 }

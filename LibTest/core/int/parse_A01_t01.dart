@@ -4,12 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion int parse(String source)
- * Parse source as an integer literal and return its value.
- * Accepts "0x" prefix for hexadecimal numbers, otherwise defaults to base-10.
+ * @assertion int parse(String source, {int radix, int onError(String source)})
+ * Parse source as a, possibly signed, integer literal and return its value.
+ *
+ * The source must be a non-empty sequence of base-radix digits, optionally
+ * prefixed with a minus or plus sign ('-' or '+').
+ * ...
  * @description Checks that correct string can be converted to int.
  * @author msyabro
- * @reviewer pagolubev
  */
 import "../../../Utils/expect.dart";
 
@@ -21,9 +23,6 @@ main() {
   Expect.isTrue(int.parse("0") == 0);
   Expect.isTrue(int.parse("-0") == 0);
   
-  Expect.isTrue(int.parse("9223372036854775808") == 9223372036854775808); //maximum int64 + 1
-  Expect.isTrue(int.parse("-9223372036854775809") == -9223372036854775809); //minimum int64 - 1
-  
   Expect.isTrue(int.parse("10") == 10);
   Expect.isTrue(int.parse("0x10") == 16);
   Expect.isTrue(int.parse("0xA") == 10);
@@ -32,4 +31,7 @@ main() {
   Expect.isTrue(int.parse(" 12") == 12);
   Expect.isTrue(int.parse("12 ") == 12);
   Expect.isTrue(int.parse("\n\t 12    ") == 12);
+
+  Expect.isTrue(int.parse("9223372036854775807") == 9223372036854775807);
+  Expect.isTrue(int.parse("-9223372036854775808") == -9223372036854775808);
 }

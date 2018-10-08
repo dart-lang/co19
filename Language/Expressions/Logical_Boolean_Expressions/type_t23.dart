@@ -19,11 +19,11 @@
  * e1 shows that v has type T, v is not mutated anywhere in its scope,
  * then the type of v is known to be T in e2, regardless of whether there are
  * closures capturing v.
- * @static-clean
  * @author ilya
  */
 
 class C {}
+
 class D extends C {
   f() {}
 }
@@ -31,19 +31,19 @@ class D extends C {
 skyIsBlue(_) => true;
 
 // formal parameter
-f1(C x) {
+f1(var x) {
   x is D && x.f() == null;
   (x is D && x.f() == null) && x.f() == null;
 }
 
 // formal parameter & closures
-f2(C x) {
+f2(var x) {
   x is D && skyIsBlue([x.f() == null, (() => x)()]);
   (x is D && skyIsBlue([x.f() == null, (() => x)()])) && x.f() == null;
 }
 
 // local variable
-f3(C y) {
+f3(var y) {
   C x = y;
 
   x is D && x.f() == null;
@@ -51,7 +51,7 @@ f3(C y) {
 }
 
 // local variable & closures
-f4(C y) {
+f4(var y) {
   C x = y;
   x is D && skyIsBlue([x.f() == null, (() => x)()]);
   (x is D && skyIsBlue([x.f() == null, (() => x)()])) && x.f() == null;

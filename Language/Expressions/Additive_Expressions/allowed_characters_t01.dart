@@ -9,7 +9,6 @@
  * @description Checks that different whitespace characters and line terminators
  * are allowed for additive expressions.
  * @author hlodvig
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

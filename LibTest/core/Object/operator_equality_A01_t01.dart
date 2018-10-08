@@ -4,17 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Implemented via identical(...).
+ * @assertion bool operator ==(other)
+ * The equality operator.
+ *
+ * The default behavior for all Objects is to return true if and only if this
+ * and other are the same object.
  * @description Checks that the method returns true for references to the same
- *              canonicalized Object and false for non-constant Objects.
+ * canonicalized Object and false for non-constant Objects.
  * @author rodionov
- * @reviewer pagolubev
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 
-main()
-{
+main() {
   Expect.isTrue(const Object() == const Object());
   Expect.isTrue(const Object() == (const Object() as dynamic));
 

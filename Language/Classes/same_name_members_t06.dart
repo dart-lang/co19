@@ -10,14 +10,15 @@
  * an instance method and an abstract getter of the same name.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class C {
   String f(int f) {}
-  int get f; //abstract
+  int get f;
 }
 
 main() {
-  C c = new C();
+  try {
+    new C();
+  } catch (e) {}
 }

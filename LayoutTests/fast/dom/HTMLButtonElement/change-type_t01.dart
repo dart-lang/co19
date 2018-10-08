@@ -9,8 +9,6 @@
  * Button type should be set using el.type.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -22,7 +20,7 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
 
   var didSubmit = false;
-  var btn;
+  ButtonElement btn;
   var txt;
 
   var form = document.getElementById("f");

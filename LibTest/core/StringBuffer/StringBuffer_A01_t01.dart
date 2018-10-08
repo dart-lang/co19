@@ -8,10 +8,8 @@
  * Creates the string buffer with an initial content. 
  * @description Checks that StringBuffer is created with correct content
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   Expect.equals("", new StringBuffer().toString());

@@ -36,15 +36,14 @@
  */
 
 import "dart:isolate";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 class Connection {
-  var expectedMessage;
+  String expectedMessage;
   var receivePort = new ReceivePort();
 
   Connection(int n) {
-    expectedMessage="spawnUri_A01_t01:$n";
+    expectedMessage = "spawnUri_A01_t01:$n";
     receivePort.listen(receiveHandler);
   }
   
@@ -65,7 +64,7 @@ class Connection {
 }
 
 main() {
-  for (int k=0; k<3; k++) {
+  for (int k = 0; k < 3; k++) {
     Connection conn = new Connection(k);
     conn.start();
   }

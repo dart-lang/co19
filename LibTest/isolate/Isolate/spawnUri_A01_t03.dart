@@ -37,7 +37,6 @@
  */
 import "dart:isolate";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 var expectedMessage="spawnUri_A01_t03";
 

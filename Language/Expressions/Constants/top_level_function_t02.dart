@@ -20,5 +20,7 @@
 const a = () => null;
 
 main() {
-  print(a);
+  try {
+    print(a);
+  } catch (x) {}
 }

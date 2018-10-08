@@ -8,7 +8,6 @@
  * @description webkit.org/b/29447: Replaced elements squeezed when width is specified as percentage inside a table with Auto layout
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../testharness.dart";
 
 const String squareBlue = "$testSuiteRoot/fast/replaced/resources/square-blue-100x100.png";

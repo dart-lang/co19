@@ -18,6 +18,8 @@
 class T<K,V> {}
 
 main() {
-  T<int, String;> id;
+  try {
+    T<int, String;> id;
+  } catch (x) {}
 }
 

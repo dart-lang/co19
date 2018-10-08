@@ -13,11 +13,10 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var type = 'click';
-  var x = new ButtonElement();
+  ButtonElement x = new ButtonElement();
   document.body.append(x);
 
   var n = 10;
@@ -25,14 +24,13 @@ main() {
 
   asyncStart();
 
-  genHandler() => (e) {
-    Expect.equals(0, numCalled++);
-    e.stopImmediatePropagation();
-    asyncEnd();
-  };
+  EventListener genHandler() => (e) {
+        Expect.equals(0, numCalled++);
+        e.stopImmediatePropagation();
+        asyncEnd();
+      };
 
-  for (var i=0; i<n; ++i)
-    x.addEventListener(type, genHandler());
+  for (var i = 0; i < n; ++i) x.addEventListener(type, genHandler());
 
   var event = new Event(type);
   x.dispatchEvent(event);

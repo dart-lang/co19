@@ -16,5 +16,7 @@ typedef F(G x);
 typedef G(F x);
 
 main() {
-  F x;
+  try {
+    F x;
+  } catch (e) {}
 }

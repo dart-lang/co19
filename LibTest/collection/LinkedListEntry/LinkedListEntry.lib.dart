@@ -5,7 +5,7 @@
  */
 import "dart:collection";
 
-class MyLinkedListEntry<E> extends LinkedListEntry {
+class MyLinkedListEntry<E> extends LinkedListEntry<MyLinkedListEntry<E>> {
   E value;
   MyLinkedListEntry(this.value);
   
@@ -13,3 +13,4 @@ class MyLinkedListEntry<E> extends LinkedListEntry {
     return "($value)";
   }
 }
+

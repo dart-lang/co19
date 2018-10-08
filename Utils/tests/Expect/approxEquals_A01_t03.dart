@@ -21,9 +21,9 @@ main() {
   final double MAX_DOUBLE = (2 - Math.pow(2.0, -52)) * Math.pow(2.0, 1023);
   final double NEG_MAX_DOUBLE = -1 * MAX_DOUBLE; 
 
-  check(0, 0, double.NEGATIVE_INFINITY);
-  check(0, 0, double.NEGATIVE_INFINITY, "");
-  check(0, 0, double.NEGATIVE_INFINITY, "not empty");
+  check(0, 0, double.negativeInfinity);
+  check(0, 0, double.negativeInfinity, "");
+  check(0, 0, double.negativeInfinity, "not empty");
 
   check(0, 0, NEG_MAX_DOUBLE);
   check(0, 0, NEG_MAX_DOUBLE, "");
@@ -34,21 +34,21 @@ main() {
   check(0, 0, NEG_MIN_DOUBLE, "not empty");
 
   // inf - inf -> NaN
-  check(double.INFINITY, double.INFINITY, double.INFINITY);
-  check(double.INFINITY, double.INFINITY, double.INFINITY, "");
-  check(double.INFINITY, double.INFINITY, double.INFINITY, "not empty");
+  check(double.infinity, double.infinity, double.infinity);
+  check(double.infinity, double.infinity, double.infinity, "");
+  check(double.infinity, double.infinity, double.infinity, "not empty");
 
-  check(double.NEGATIVE_INFINITY, double.NEGATIVE_INFINITY, double.INFINITY);
-  check(double.NEGATIVE_INFINITY, double.NEGATIVE_INFINITY, double.INFINITY, "");
-  check(double.NEGATIVE_INFINITY, double.NEGATIVE_INFINITY, double.INFINITY, "not empty");
+  check(double.negativeInfinity, double.negativeInfinity, double.infinity);
+  check(double.negativeInfinity, double.negativeInfinity, double.infinity, "");
+  check(double.negativeInfinity, double.negativeInfinity, double.infinity, "not empty");
 
-  check(0, double.NAN, double.INFINITY);
-  check(0, double.NAN, double.INFINITY, "");
-  check(0, double.NAN, double.INFINITY, "not empty");
+  check(0, double.nan, double.infinity);
+  check(0, double.nan, double.infinity, "");
+  check(0, double.nan, double.infinity, "not empty");
 
-  check(0, 0, double.NAN);
-  check(0, 0, double.NAN, "");
-  check(0, 0, double.NAN, "not empty");
+  check(0, 0, double.nan);
+  check(0, 0, double.nan, "");
+  check(0, 0, double.nan, "not empty");
 }
 
 void check(num arg1, num arg2, num tolerance, [String reason = null]) {

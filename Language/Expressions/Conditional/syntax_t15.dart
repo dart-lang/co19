@@ -18,7 +18,10 @@
 
 class A<T> {
   test() {
-    true ? T : '';  }
+    try {
+      true ? T : '';
+    } catch (e) {}
+  }
 }
 
 main() {

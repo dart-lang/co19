@@ -10,7 +10,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var body = document.body;
@@ -21,7 +20,7 @@ main() {
     Expect.identical(body, e.currentTarget);
     asyncEnd();
   });
-  
+
   div.onClick.listen((e) {
     Expect.identical(div, e.currentTarget);
     asyncEnd();

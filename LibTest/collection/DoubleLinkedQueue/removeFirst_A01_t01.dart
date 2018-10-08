@@ -13,40 +13,22 @@
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
+check(List list) {
+  DoubleLinkedQueue queue = new DoubleLinkedQueue.from(list);
+  while(queue.length > 0) {
+    Expect.equals(queue.removeFirst(), list[0]);
+    Expect.equals(queue.length, list.length - 1);
+    list.removeAt(0);
+    int i = 0;
+      queue.forEach((var element) {
+      Expect.equals(list[i++], element);
+    });
+  }
+}
+
 main() {
-  DoubleLinkedQueue list = new DoubleLinkedQueue();
-  list.addLast(1);
-  list.addLast("2");
-  list.addLast(true);
-
-  Expect.isTrue(list.length == 3);
-
-  Expect.isTrue(list.removeFirst() == 1);
-  Expect.isTrue(list.length == 2);
-  Expect.isTrue(list.first == "2");
-
-  Expect.isTrue(list.removeFirst() == "2");
-  Expect.isTrue(list.length == 1);
-  Expect.isTrue(list.first == true);
-
-  Expect.isTrue(list.removeFirst() == true);
-  Expect.isTrue(list.length == 0);
-
-  Queue queue = new Queue();
-  queue.addLast(1);
-  queue.addLast(1);
-  queue.addLast(1);
-
-  Expect.isTrue(queue.length == 3);
-
-  Expect.isTrue(queue.removeFirst() == 1);
-  Expect.isTrue(queue.length == 2);
-  Expect.isTrue(queue.first == 1);
-
-  Expect.isTrue(queue.removeFirst() == 1);
-  Expect.isTrue(queue.length == 1);
-  Expect.isTrue(queue.first == 1);
-
-  Expect.isTrue(queue.removeFirst() == 1);
-  Expect.isTrue(queue.length == 0);
+  check([1, "2", true]);
+  check([1, 1, 1, 1, 1]);
+  check([1, "128", 1, 1, 1]);
+  check([1, 1, 1, -7, 1]);
 }

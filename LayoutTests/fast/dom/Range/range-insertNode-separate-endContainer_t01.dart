@@ -8,7 +8,6 @@
  * when startContainer != endContainer
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

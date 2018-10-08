@@ -11,9 +11,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -38,7 +35,8 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  toFloatList(list) => list.map((x) => x.toDouble()).toList();
+  List<double> toFloatList(list) =>
+      (list.map((x) => x.toDouble()) as Iterable<double>).toList();
   float32list(list) => new Float32List.fromList(toFloatList(list));
 
   fail(x,y, buf, shouldBe)
@@ -55,16 +53,16 @@ main() {
     var gl = initWebGL("example", "vshader", "fshader", [ "vPosition"], [ 0, 0, 0, 1 ], 1);
 
     var vertexObject = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
-    gl.bufferData(wgl.ARRAY_BUFFER, float32list([ 0,0.5,0, -0.5,-0.5,0, 0.5,-0.5,0 ]), wgl.STATIC_DRAW);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, float32list([ 0,0.5,0, -0.5,-0.5,0, 0.5,-0.5,0 ]), wgl.WebGL.STATIC_DRAW);
     gl.enableVertexAttribArray(0);
-    gl.vertexAttribPointer(0, 3, wgl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(0, 3, wgl.WebGL.FLOAT, false, 0, 0);
 
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
-    gl.drawArrays(wgl.TRIANGLES, 0, 3);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
+    gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 3);
 
     var buf = new Uint8List(50 * 50 * 4);
-    gl.readPixels(0, 0, 50, 50, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
+    gl.readPixels(0, 0, 50, 50, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
 
     // Test several locations
     // First line should be all black

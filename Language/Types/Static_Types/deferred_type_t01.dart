@@ -11,7 +11,7 @@
  * libraries have successfully been loaded.
  * @description Checks that it is a static warning if a deferred type is used
  * in a type annotation, type test, type cast or as a type parameter.
- * @static-warning
+ * @compile-error
  * @author ngl@unipro.ru
  */
 
@@ -21,8 +21,5 @@ import "../somelib1.dart" deferred as p1;
 class C1<T> {}
 
 main() {
-  p1.C o1;  /// static type warning
-  Expect.throws(() => String is p1.C);  /// static type warning
-  Expect.throws(() => String as p1.C);  /// static type warning
-  C1<p1.C> o2;  /// static type warning
+  p1.C o1;
 }

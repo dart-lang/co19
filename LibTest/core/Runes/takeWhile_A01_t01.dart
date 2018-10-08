@@ -10,33 +10,32 @@
  * retained, and elements after that are skipped.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
-void check(string, bool test(var element)) {
+void check(string, bool test(int element)) {
   var runes = new Runes(string);
-  var it0=runes.iterator;
-  var res=runes.takeWhile(test);
-  var it=res.iterator;
-  var skipCount=0;
+  var it0 = runes.iterator;
+  var res = runes.takeWhile(test);
+  var it = res.iterator;
+  var skipCount = 0;
 
 // check that the beginning of a0 is identical to a
-  var hasNext0=it0.moveNext();
-  var len=0;
+  var hasNext0 = it0.moveNext();
+  var len = 0;
   for (;;) {
-    bool hasNext=it.moveNext();
+    bool hasNext = it.moveNext();
     if (!hasNext) break;
     Expect.isTrue(test(it0.current));
     Expect.equals(it0.current, it.current);
     len++;
-    hasNext0=it0.moveNext();
+    hasNext0 = it0.moveNext();
   }
   Expect.equals(len, res.length);
 
 // count the rest
   while (hasNext0) {
     skipCount++;
-    hasNext0=it0.moveNext();
+    hasNext0 = it0.moveNext();
   }
 
   Expect.equals(runes.length, len+skipCount);
@@ -44,10 +43,10 @@ void check(string, bool test(var element)) {
 
 main() {
   var a0='\x01\x03\x07\x04\x05\x06';
-  check(a0, (var element)=>element==1);
-  check(a0, (var element)=>true);
-  check(a0, (var element)=>false);
-  check(a0, (var element)=>element>4);
-  check(a0, (var element)=>element<4);
-  check(a0, (var element)=>element==4);
+  check(a0, (var element) => element == 1);
+  check(a0, (var element) => true);
+  check(a0, (var element) => false);
+  check(a0, (var element) => element > 4);
+  check(a0, (var element) => element < 4);
+  check(a0, (var element) => element == 4);
 }

@@ -11,7 +11,6 @@
  */
 import "../../../Utils/expect.dart";
 
-
 check(double d) {
   Expect.isTrue(d.isInfinite);
 }
@@ -19,13 +18,13 @@ check(double d) {
 main() {
   double inf = 1 / 0;
   check(inf + inf);
-  check(inf - 111111111111111111111111);
-  check(inf + 111111111111111111111111);
+  check(inf - 1111111111111111111);
+  check(inf + 1111111111111111111);
   check(inf + .0);
   check(inf - .0);
   
-  check((-inf) - 111111111111111111111111);
-  check((-inf) + 111111111111111111111111);
+  check((-inf) - 1111111111111111111);
+  check((-inf) + 1111111111111111111);
   check((-inf) + .0);
   check((-inf) - .0);
   

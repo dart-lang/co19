@@ -11,7 +11,6 @@
  */
 import "../../../Utils/expect.dart";
 
-
 check(double d) {
   double oldVal = d;
   d.truncateToDouble();

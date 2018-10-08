@@ -8,10 +8,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var f = new DocumentFragment.html('''
+  DocumentFragment f = new DocumentFragment.html('''
       <style>
        input { background:red }
        input:focus { background:lime }
@@ -24,15 +23,15 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   check([_]) {
-    shouldBe(document.activeElement, document.body.query("input"));
+    shouldBe(document.activeElement, document.body.querySelector("input"));
     asyncEnd();
   }
 
   test() {
-    var input = document.body.query('input');
-    var p = document.body.query('p');
+    Element input = document.body.querySelector('input');
+    Element p = document.body.querySelector('p');
     input = input..remove();
-    input.autofocus = true;
+    (input as InputElement).autofocus = true;
     input.addEventListener('focus', check, false);
     p.append(input);
     setTimeout(check, 1000);

@@ -16,8 +16,6 @@ import "LinkedList.lib.dart";
 
 main() {
   Expect.throws(() {
-      new LinkedList().addAll(null);
-    },
-    (e)=> e is Error
-  );
+      new LinkedList<MyLinkedListEntry>().addAll(null);
+    }, (e) => e is Error);
 }

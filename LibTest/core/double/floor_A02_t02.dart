@@ -10,18 +10,13 @@
  * infinity throws an UnsupportedError.
  * @author kaigorodov
  */
-import "dart:math" as Math;
 import "../../../Utils/expect.dart";
 
 check(double arg) {
-  Expect.throws(() {
-    arg.floor();
-  },
-  (e)=>e is UnsupportedError
-  );
+  Expect.throws(() {arg.floor();}, (e) =>e is UnsupportedError);
 }
 
 main() {
-  check(double.INFINITY);
-  check(double.NEGATIVE_INFINITY);
+  check(double.infinity);
+  check(double.negativeInfinity);
 }

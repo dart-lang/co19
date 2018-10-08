@@ -10,19 +10,13 @@
  * has fewer than [index] elements.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string) {
   var runes = new Runes(string);
-  try {
-    runes.elementAt(runes.length + 1);
-    Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
-  try {
-    runes.elementAt(-1);
-    Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  Expect.throws(() {runes.elementAt(runes.length + 1);},
+      (e) => e is RangeError);
+  Expect.throws(() {runes.elementAt(- 1);}, (e) => e is RangeError);
 }
 
 main() {

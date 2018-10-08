@@ -7,7 +7,6 @@
  * @description Test that inert nodes still get programmatic click events
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -27,7 +26,7 @@ main() {
     <dialog></dialog>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var dialog = document.querySelector('dialog');
+  DialogElement dialog = document.querySelector('dialog');
   dialog.showModal();
 
   var button = document.querySelector('button');

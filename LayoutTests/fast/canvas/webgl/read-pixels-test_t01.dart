@@ -12,8 +12,6 @@ import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "resources/desktop-gl-constants.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -21,7 +19,7 @@ main() {
       <div id="console"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById("example");
+  dynamic canvas = document.getElementById("example");
   var gl = create3DContext(canvas);
   var actual;
   var expected;
@@ -29,24 +27,25 @@ main() {
   var height = 2;
   var continueTestFunc;
 
-  continueTestAfterContextRestored() {
+  EventListener continueTestAfterContextRestored(Event event) {
     gl = create3DContext(canvas);
     var func = continueTestFunc;
     continueTestFunc = () { testFailed("should not be here"); };
     func();
+    return null;
   }
 
   continueTestPart2() {
     gl.viewport(0, 0, 1024, 1024);
     var program = wtu.setupTexturedQuad(gl);
     var loc = gl.getUniformLocation(program, "tex");
-    gl.disable(wgl.BLEND);
-    gl.disable(wgl.DEPTH_TEST);
+    gl.disable(wgl.WebGL.BLEND);
+    gl.disable(wgl.WebGL.DEPTH_TEST);
     var colors = [[255, 0, 0, 255], [0, 255, 0, 255], [0, 0, 255, 255]];
     var textures = [];
     var results = [];
     for (var ii = 0; ii < colors.length; ++ii) {
-      gl.activeTexture(wgl.TEXTURE0 + ii);
+      gl.activeTexture(wgl.WebGL.TEXTURE0 + ii);
       var tex = gl.createTexture();
       wtu.fillTexture(gl, tex, 1, 1, colors[ii]);
       textures.add(tex);
@@ -54,14 +53,14 @@ main() {
     for (var ii = 0; ii < colors.length; ++ii) {
       for (var jj = 0; jj < 0 + ii + 1; ++jj) {
         gl.uniform1i(loc, jj % 3);
-        gl.drawArrays(wgl.TRIANGLES, 0, 6);
+        gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 6);
       }
       var buf = new Uint8List(4);
-      gl.readPixels(512, 512, 1, 1, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
+      gl.readPixels(512, 512, 1, 1, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
       results.add(buf);
       for (var kk = 0; kk < 1; ++kk) {
         gl.uniform1i(loc, (ii + 1 + kk) % 3);
-        gl.drawArrays(wgl.TRIANGLES, 0, 6);
+        gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 6);
       }
     }
     for (var ii = 0; ii < colors.length; ++ii) {
@@ -71,7 +70,7 @@ main() {
       expected = [color[0], color[1], color[2], color[3]];
       shouldBeList(actual, expected);
     }
-    glErrorShouldBe(gl, wgl.NO_ERROR, "there should be no GL errors");
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "there should be no GL errors");
 
     debug("");
     asyncEnd();
@@ -79,7 +78,7 @@ main() {
 
   continueTestPart1() {
     gl.clearColor(0.5, 0.7, 1.0, 1);
-    gl.clear(wgl.COLOR_BUFFER_BIT);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT);
 
     var innerColor = [0.5, 0.7, 1.0, 1];
     var outerColor = [0, 0, 0, 0];
@@ -103,7 +102,7 @@ main() {
 
     checkBuffer(checkColor, x, y, oneColor, oneX, oneY) {
       var buf = new Uint8List(width * height * 4);
-      gl.readPixels(x, y, width, height, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
+      gl.readPixels(x, y, width, height, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
       for (var yy = 0; yy < height; ++yy) {
         for (var xx = 0; xx < width; ++xx) {
           var offset = (yy * width + xx) * 4;
@@ -127,50 +126,50 @@ main() {
           test['oneColor'], test['oneX'], test['oneY']);
     }
 
-    glErrorShouldBe(gl, wgl.NO_ERROR, "there should be no GL errors");
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "there should be no GL errors");
 
     var badFormats = [
     {
-      'format': wgl.RGB,
-      'type': wgl.UNSIGNED_BYTE,
+      'format': wgl.WebGL.RGB,
+      'type': wgl.WebGL.UNSIGNED_BYTE,
       'dest': new Uint8List(3),
-      'error': wgl.INVALID_OPERATION
+      'error': wgl.WebGL.INVALID_OPERATION
     },
     {
-      'format': wgl.RGB,
-      'type': wgl.UNSIGNED_SHORT_5_6_5,
+      'format': wgl.WebGL.RGB,
+      'type': wgl.WebGL.UNSIGNED_SHORT_5_6_5,
       'dest': new Uint8List(3),
-      'error': wgl.INVALID_OPERATION
+      'error': wgl.WebGL.INVALID_OPERATION
     },
     {
-      'format': wgl.RGBA,
-      'type': wgl.UNSIGNED_SHORT_5_5_5_1,
+      'format': wgl.WebGL.RGBA,
+      'type': wgl.WebGL.UNSIGNED_SHORT_5_5_5_1,
       'dest': new Uint16List(1),
-      'error': wgl.INVALID_OPERATION
+      'error': wgl.WebGL.INVALID_OPERATION
     },
     {
-      'format': wgl.RGBA,
-      'type': wgl.UNSIGNED_SHORT_4_4_4_4,
+      'format': wgl.WebGL.RGBA,
+      'type': wgl.WebGL.UNSIGNED_SHORT_4_4_4_4,
       'dest': new Uint16List(1),
-      'error': wgl.INVALID_OPERATION
+      'error': wgl.WebGL.INVALID_OPERATION
     },
     {
-      'format': wgl.ALPHA,
-      'type': wgl.UNSIGNED_BYTE,
+      'format': wgl.WebGL.ALPHA,
+      'type': wgl.WebGL.UNSIGNED_BYTE,
       'dest': new Uint8List(1),
-      'error': wgl.INVALID_OPERATION
+      'error': wgl.WebGL.INVALID_OPERATION
     },
     {
-      'format': wgl.LUMINANCE,
-      'type': wgl.UNSIGNED_BYTE,
+      'format': wgl.WebGL.LUMINANCE,
+      'type': wgl.WebGL.UNSIGNED_BYTE,
       'dest': new Uint8List(1),
-      'error': wgl.INVALID_ENUM
+      'error': wgl.WebGL.INVALID_ENUM
     },
     {
-      'format': wgl.LUMINANCE_ALPHA,
-      'type': wgl.UNSIGNED_BYTE,
+      'format': wgl.WebGL.LUMINANCE_ALPHA,
+      'type': wgl.WebGL.UNSIGNED_BYTE,
       'dest': new Uint8List(2),
-      'error': wgl.INVALID_ENUM
+      'error': wgl.WebGL.INVALID_ENUM
     }
     ];
     debug("");
@@ -197,7 +196,7 @@ main() {
     height = 1024;
     canvas.width = width;
     canvas.height = height;
-    if (gl.getError() != wgl.CONTEXT_LOST_WEBGL) {
+    if (gl.getError() != wgl.WebGL.CONTEXT_LOST_WEBGL) {
       continueTestPart2();
     }
   }
@@ -205,7 +204,7 @@ main() {
   continueTestFunc = continueTestPart1;
 
   gl.clearColor(1, 1, 1, 1);
-  gl.clear(wgl.COLOR_BUFFER_BIT);
+  gl.clear(wgl.WebGL.COLOR_BUFFER_BIT);
   // Resize the canvas to 2x2. This is an attempt to get stuff in the backbuffer.
   // that shouldn't be there.
   canvas.addEventListener("webglcontextrestored", continueTestAfterContextRestored, false);
@@ -214,7 +213,7 @@ main() {
 
   asyncStart();
 
-  if (gl.getError() != wgl.CONTEXT_LOST_WEBGL) {
+  if (gl.getError() != wgl.WebGL.CONTEXT_LOST_WEBGL) {
     continueTestPart1();
   }
 }

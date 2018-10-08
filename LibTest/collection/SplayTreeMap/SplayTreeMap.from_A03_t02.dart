@@ -6,8 +6,8 @@
 /**
  * @assertion SplayTreeMap.from(Map other, [int compare(K key1, K key2),
  * bool isValidKey(potentialKey)])
- * Creates a SplayTreeMap that contains all key/value pairs of other.
- * @description Checks that if isValidKey supplied and returns false then
+ * Creates a [SplayTreeMap] that contains all key/value pairs of [other].
+ * @description Checks that if [isValidKey] supplied and returns [false] then
  * element is assumed not to be in a map
  * @author sgrekhov@unipro.ru
  */
@@ -19,11 +19,11 @@ class C {
   C(this.value);
 }
 
-int compare(C key1, C key2) {
+int compare(var key1, var key2) {
   return key1.value - key2.value;
 }
 
-bool isValidKey(C potentialKey) => potentialKey.value != 3;
+bool isValidKey(var potentialKey) => potentialKey.value != 3;
 
 main() {
   C c1 = new C(1);

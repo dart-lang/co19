@@ -24,11 +24,9 @@
  * the bindings that resulted from the evaluation of the argument list, and
  * with this bound to vo. The value of i is the value returned after f is
  * executed.
- * @static-warning
  * @description Checks that the argument list is evaluated before a
  * NoSuchMethodError is thrown.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../../Utils/expect.dart";
 
@@ -46,9 +44,7 @@ int incCount() {
 }
 
 main()  {
-  try {
-    C.func(incCount()); /// static type warning - see "Static invocation"
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (ok) {}
+  dynamic c = new C();
+  Expect.throws(() {c.func(incCount());}, (e) => e is NoSuchMethodError);
   Expect.equals(1, count);
 }

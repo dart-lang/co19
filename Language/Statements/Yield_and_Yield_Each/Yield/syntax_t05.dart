@@ -18,7 +18,6 @@
 
 import 'dart:async';
 import '../../../../Utils/expect.dart';
-import '../../../../Utils/async_utils.dart';
 
 class A {
   static Stream<int> test() async* {

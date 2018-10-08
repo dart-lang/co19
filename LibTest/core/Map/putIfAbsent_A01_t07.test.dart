@@ -8,23 +8,20 @@
  * If [key] is not associated to a value, calls [ifAbsent] and
  * updates the map by mapping [key] to the value returned by [ifAbsent].
  * Returns the value in the map.
- * @description Checks that if [key] is already associated to a value, [ifAbsent]
- * is not called and its incorrect value is not detected.
- * @static-warning
+ * @description Checks that if [key] is already associated to a value,
+ * [ifAbsent] is not called and its incorrect value is not detected.
  * @author msyabro
- * @needsreview undocumented
- * @reviewer varlax
  */
 library putIfAbsent_A01_t07;
 
-import "../../../Utils/dynamic_check.dart";
+import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {
-  Map<String, Object> map = create();
-
+  Map map = create();
   map["1"] = 1;
-  
-  checkTypeError(() {
-    map.putIfAbsent("1", 1); /// static type warning
+
+  map.putIfAbsent("1", () {
+    Expect.fail("");
+    return 0;
   });
 }

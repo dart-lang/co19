@@ -21,5 +21,5 @@ main() {
   var p;
   try {
     var x = p == null ? throw "fail" : p;
-  } on String { }
+  } catch (e) { }
 }

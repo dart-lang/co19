@@ -5,10 +5,9 @@
  */
 /**
  * @assertion Constructs a regular expression.
- * @description Checks that it is possible to create a RegExp instance with various valid arguments
+ * @description Checks that it is possible to create a RegExp instance with
+ * various valid arguments
  * @author rodionov
- * @reviewer iefremov
- * @reviewer msyabro
  */
  
 

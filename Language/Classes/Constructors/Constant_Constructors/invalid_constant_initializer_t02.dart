@@ -13,7 +13,6 @@
  * mechanism is described in Classes.Constructors.Constant_Constructors.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {
@@ -30,5 +29,7 @@ class IntPair {
 
 
 main() {
-  var a = const A(const IntPair(1,2)); // parameter does not evaluate to int/bool/String, despite implementing the plus operator
+  try {
+    var a = const A(const IntPair(1,2)); // parameter does not evaluate to int/bool/String, despite implementing the plus operator
+  } catch (x) {}
 }

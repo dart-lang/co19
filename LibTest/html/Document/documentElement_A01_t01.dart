@@ -13,6 +13,6 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  var de= document.documentElement;
+  var de = document.documentElement;
   Expect.isTrue(de is HtmlHtmlElement, "${de.runtimeType}!=HtmlHtmlElement");
 }

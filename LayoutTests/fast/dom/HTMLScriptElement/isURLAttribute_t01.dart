@@ -8,8 +8,6 @@
  * does not cause an assertion to fail.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -20,7 +18,7 @@ main() {
 
   asyncStart();
   s0.onLoad.first.then((_) {
-    document.getElementById("target").src;
+    (document.getElementById("target") as ScriptElement).src;
     asyncEnd();
   });
 }

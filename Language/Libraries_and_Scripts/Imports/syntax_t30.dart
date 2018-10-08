@@ -30,5 +30,7 @@
 import "syntax_lib.dart" show foo, 8ar;
 
 main() {
-  someVar = 0;
+  try {
+    someVar = 0;
+  } catch (e) {}
 }

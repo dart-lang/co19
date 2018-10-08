@@ -6,15 +6,15 @@
 /**
  * @assertion List<E> toList({bool growable: true})
  * The list is fixed-length if [growable] is false.
- * @description Checks that the returned list is not fixed-length
- * if [growable] is true.
+ * @description Checks that the returned list is not fixed-length if [growable]
+ * is true.
  * @author msyabro
  */
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 main() {
   var list = new Float32x4List(1);

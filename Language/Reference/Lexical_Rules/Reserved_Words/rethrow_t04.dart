@@ -19,5 +19,8 @@ class C {
 }
 
 main() {
-  new C().rethrow is int;
+  try {
+    new C().rethrow is int;
+  } catch (anything) {
+  }
 }

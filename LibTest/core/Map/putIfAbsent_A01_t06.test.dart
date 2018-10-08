@@ -11,22 +11,14 @@
  * @description Tries to pass null as [ifAbsent] and checks that
  * an exception or error is thrown.
  * @author msyabro
- * @reviewer varlax
  */
 library putIfAbsent_A01_t06;
 
 import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {
-  Map<String, Object> map = create();
+  Map map = create();
 
-  Object putIfAbsent() {
-    return new Object();
-  }
-  
-  Expect.throws(() {
-    map.putIfAbsent("1", null);
-  });
-
+  Expect.throws(() {map.putIfAbsent("1", null);});
   Expect.isFalse(map.containsKey("1"));
 }

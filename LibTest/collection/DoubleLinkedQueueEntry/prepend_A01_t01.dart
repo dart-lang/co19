@@ -5,7 +5,8 @@
  */
 /**
  * @assertion prepend(E e) → void
- * @description Checks that prepend() adds element before this one
+ * Prepends the given [e] as entry just before this entry.
+ * @description Checks that [prepend()] adds element before this one
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";

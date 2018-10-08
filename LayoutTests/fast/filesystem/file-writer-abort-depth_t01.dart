@@ -9,16 +9,12 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "resources/file-writer-utils.dart";
 
 main() {
   document.body.appendHtml('<div id="console"></div>',
       treeSanitizer: NodeTreeSanitizer.trusted);
 
-  var sawWriteStart;
-  var sawAbort;
-  var sawWriteEnd;
   var writer;
   var blob = new Blob(["lorem ipsum"]);
   var recursionDepth = 0;

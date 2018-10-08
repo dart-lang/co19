@@ -21,13 +21,9 @@
  * @description Checks that putting another decimal digit after \0 in the
  *              pattern results in an error.
  * @author rodionov
- * @reviewer iefremov
- * @reviewer msyabro
- * @needsreview Undocumented in Dart
  * @note Issue 1294
  */
 import "../../../../Utils/expect.dart";
- 
 
 main() {
   bool fail = false;

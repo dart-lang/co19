@@ -5,14 +5,15 @@
  */
 /**
  * @assertion double asin(num x)
- * Returns a value in the range -PI..PI, or NaN if [x] is outside the range -1..1.
+ * Returns a value in the range -PI/2..PI/2, or NaN if [x] is outside the range
+ * -1..1.
  * @description Checks returned values on arguments outside [-1, 1].
  * @reviewer pagolubev
  * @author msyabro
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(Math.asin(-10).isNaN);
@@ -20,7 +21,7 @@ main() {
   Expect.isTrue(Math.asin(1.0000000000001).isNaN);
   Expect.isTrue(Math.asin(-1.0000000000001).isNaN);
 
-  Expect.isTrue(Math.asin(double.NAN).isNaN);
-  Expect.isTrue(Math.asin(double.INFINITY).isNaN);
-  Expect.isTrue(Math.asin(double.NEGATIVE_INFINITY).isNaN);
+  Expect.isTrue(Math.asin(double.nan).isNaN);
+  Expect.isTrue(Math.asin(double.infinity).isNaN);
+  Expect.isTrue(Math.asin(double.negativeInfinity).isNaN);
 }

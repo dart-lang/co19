@@ -14,7 +14,6 @@
  * @author kaigorodov
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
@@ -29,7 +28,7 @@ main() {
   asyncStart();
   f.then(
       (var v) {
-        Expect.fail('should not be called');
+        Expect.fail("Returned future should complete with error");
       },
       onError: (Object e) {
         Expect.equals(value, e);

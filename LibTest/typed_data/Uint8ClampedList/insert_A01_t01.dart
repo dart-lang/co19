@@ -4,12 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void insert(int index, E value)
+ * @assertion void insert(int index, E element)
  * Inserts the element at position [index] in the list.
- * This increases the length of the list by one and shifts
- * all elements at or after the [index] towards the end of the list.
- * @description Checks that [UnsupportedError] is thrown
- * since [Uint8ClampedList] is a fixed-size list.
+ * This increases the length of the list by one and shifts all elements at or
+ * after the [index] towards the end of the list.
+ * ...
+ * An UnsupportedError occurs if the list is fixed-length.
+ * @description Checks that [UnsupportedError] is thrown since
+ * [Uint8ClampedList] is a fixed-length list.
  * @author msyabro
  */
 import "dart:typed_data";
@@ -20,13 +22,13 @@ main() {
   try {
     l.insert(0, 0);
     Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError catch(ok) {}
+  } on UnsupportedError {}
   Expect.equals(10, l.length);
 
   l = new Uint8ClampedList(0);
   try {
     l.insert(0, 0);
     Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError catch(ok) {}
+  } on UnsupportedError {}
   Expect.equals(0, l.length);
 }

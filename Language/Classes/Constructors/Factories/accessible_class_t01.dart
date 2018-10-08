@@ -8,15 +8,18 @@
  * accessible in the current scope; if type does denote such a class C it is
  * a static warning if the referenced constructor (be it type or type.id) is
  * not a constructor of C.
- * @description Checks that static warning is produced if referenced type in
- * redirecting constructor is an undefined id.
+ * @description Checks that a compile error is produced if referenced type in
+ * redirecting constructor has an undefined id.
+ * @compile-error
  * @author ilya
  */
 
 class F {
-  factory F() = C; /// 01: static type warning, runtime error
+  factory F() = C;
 }
 
 main() {
-  new F();
+  try {
+    new F();
+  } catch (e) {}
 }

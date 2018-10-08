@@ -16,7 +16,7 @@ main() {
   var div, x;
   IFrameElement iframe;
 
-  void init () {
+  void init() {
     div = new Element.html('<div><iframe>Content1</iframe></div>');
     iframe = div.firstChild;
     x = 'Content2';
@@ -25,8 +25,8 @@ main() {
   init();
   iframe.insertAdjacentHtml('beforeBegin', x);
   Expect.equals('<div>Content2<iframe>Content1</iframe></div>', div.outerHtml,
-     'beforeBegin');
-  
+      'beforeBegin');
+
   init();
   iframe.insertAdjacentHtml('afterBegin', x);
   Expect.equals('<div><iframe>Content2Content1</iframe></div>', div.outerHtml,

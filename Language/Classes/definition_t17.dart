@@ -13,11 +13,12 @@
  * closing curly brackets are missed in an abstract class declaration.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 abstract class A
 
 main() {
-  A a = new A();
+  try {
+    new A();
+  } catch (e) {}
 }

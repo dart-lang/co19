@@ -17,7 +17,6 @@
  * constructor's initializer list contains a function call.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 f() {}
@@ -28,5 +27,7 @@ class A {
 }
 
 main() {
-  var a = const A();
+  try {
+    var a = const A();
+  } catch (x) {}
 }

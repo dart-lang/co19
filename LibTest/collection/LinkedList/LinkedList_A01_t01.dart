@@ -27,5 +27,5 @@ check(LinkedList l) {
 
 main() {
   check(new LinkedList<MyLinkedListEntry>());
-  check(new LinkedList());
+  //check(new LinkedList());
 }

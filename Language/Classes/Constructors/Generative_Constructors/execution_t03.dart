@@ -30,7 +30,6 @@
  * body are executed in the correct order and before the body of this class's
  * constructor.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 
@@ -67,7 +66,7 @@ class D extends C {
     writeLog("D");
   }
 
-  D.named() :  super.named("a", "b"), d4 = writeLog("d4"), d3 = writeLog("d3") {
+  D.named() :  d4 = writeLog("d4"), d3 = writeLog("d3"), super.named("a", "b") {
     writeLog("D.named");
   }
 

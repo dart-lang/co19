@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -29,8 +28,8 @@ main() {
 
   asyncStart();
   window.onLoad.listen((_) {
-    document.styleSheets[0]
-      .insertRule('@import url("$root/resources/css-insert-import-rule.css");', 0);
+    (document.styleSheets[0] as CssStyleSheet).insertRule(
+        '@import url("$root/resources/css-insert-import-rule.css");', 0);
 
     if (window.location.href.indexOf("foo") == -1) {
       window.location.href = window.location.href + "?foo=1";

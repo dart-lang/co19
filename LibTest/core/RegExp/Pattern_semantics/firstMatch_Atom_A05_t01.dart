@@ -14,7 +14,6 @@
  * @description Checks that this Atom is handled correctly.
  * @3rdparty sputnik-v1:S15.10.2.8_A4_T1.js-S15.10.2.8_A4_T9.js
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
@@ -27,11 +26,13 @@ main() {
   check(r".+", "....", 0, ["...."]);
   check(r".+", "abcdefghijklmnopqrstuvwxyz", 0, ["abcdefghijklmnopqrstuvwxyz"]);
   check(r".+", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 0, ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]);
-  check(r".+", r"`1234567890-=~!@#$%^&*()_+", 0, [r"`1234567890-=~!@#$%^&*()_+"]);
+  check(r".+", r"`1234567890-=~!@#$%^&*()_+", 0,
+      [r"`1234567890-=~!@#$%^&*()_+"]);
   check(r".+", r"""|\[{]};:"',<>.?/""", 0, [r"""|\[{]};:"',<>.?/"""]);
 }
 
-void check(String pattern, String str, int matchPos, List<String> expectedGroups) {
+void check(String pattern, String str, int matchPos,
+    List<String> expectedGroups) {
   RegExp re = new RegExp(pattern);
   Match fm = re.firstMatch(str);
   if(null == fm) {

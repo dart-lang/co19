@@ -25,5 +25,7 @@ const a9 = a8;
 const a10 = a9;
 
 main() {
-  print(a10);
+  try {
+    print(a10);
+  } catch (x) {}
 }

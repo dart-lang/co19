@@ -10,8 +10,6 @@
  * two functions of the same name.
  * @compile-error
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 
 class C {
@@ -22,6 +20,8 @@ class C {
 }
 
 main() {
-  C c = new C();
+  try {
+     new C();
+  } catch (e) {}
 }
 

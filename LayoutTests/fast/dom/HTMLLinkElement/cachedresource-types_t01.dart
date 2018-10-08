@@ -7,7 +7,6 @@
  * @description This test passes if it does not crash.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

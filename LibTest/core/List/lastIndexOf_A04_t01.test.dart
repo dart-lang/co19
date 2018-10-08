@@ -8,7 +8,6 @@
  * If start is not provided, it defaults to this.length - 1.
  * @description Checks searching w/o start.
  * @author varlax
- * @reviewer iefremov
  */
 library lastIndexOf_A04_t01;
 

@@ -15,17 +15,16 @@
  * mutated in s1 or within a closure, v is captured by closure in s1, but v is
  * potentially mutated elsewhere in its scope, then the type of v is not known
  * to be T in s1.
- * @static-warning
+ * @compile-error
  * @author ilya
  */
-import '../../../Utils/expect.dart';
 
 class C {}
 class D extends C {
   f() {}
 }
 
-f(C x) {
+test(C x) {
   var closure;
 
   if (x is D)
@@ -36,5 +35,5 @@ f(C x) {
 }
 
 main() {
-  Expect.throws(() => f(new D()));
+  test(new D());
 }

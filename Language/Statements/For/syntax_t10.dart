@@ -25,5 +25,7 @@
  */
 
 main() {
-  for ( var x in  ) break;
+  try {
+    for ( var x in  ) break;
+  } catch (x) {}
 }

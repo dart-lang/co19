@@ -8,7 +8,6 @@
  * Range::surroundContents.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -17,9 +16,9 @@ main() {
     <div id="insert" style="border: 1px solid red;"></div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var range = document.createRange();
+  Range range = document.createRange();
   var select = document.getElementById("select");
-  var text = select.firstChild;
+  Text text = select.firstChild;
 
   var insert = document.getElementById("insert");
 

@@ -29,8 +29,9 @@
  * A unary expression is either a postfix expression, an await expression or
  * an invocation of a prefix operator on an expression or an invocation of a
  * unary operator on either super or an expression e.
- * @description Checks that '-' can be used with
- * a reference to a class declaration without a compile error.
+ * @description Checks that '-' cannot be used with a reference to a class
+ * declaration without a compile error.
+ * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -39,5 +40,5 @@
 class A {}
 
 main() {
-  -A; /// 01: static type warning, runtime error
+  -A;
 }

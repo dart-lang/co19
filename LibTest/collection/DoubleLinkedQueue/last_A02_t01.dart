@@ -5,8 +5,8 @@
  */
 /**
  * @assertion final E last
- * If this is empty throws a StateError.
- * @description Checks that a StateError is thrown if no element is left.
+ * If this is empty throws a [StateError].
+ * @description Checks that [StateError] is thrown if no element is left.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
@@ -15,19 +15,11 @@ import "dart:collection";
 main() {
   DoubleLinkedQueue queue = new DoubleLinkedQueue();
   
-  Expect.throws(() {
-    queue.last;
-    },
-    (e)=> e is StateError
-  );
+  Expect.throws(() { queue.last; }, (e) => e is StateError);
   
   queue.addFirst(1);
   queue.addFirst(2);
   queue.clear();
   
-  Expect.throws(() {
-    queue.last;
-  },
-  (e)=> e is StateError
-  );
+  Expect.throws(() { queue.last; }, (e) => e is StateError);
 }

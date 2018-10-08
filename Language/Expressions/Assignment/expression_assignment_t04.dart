@@ -14,13 +14,12 @@
  * formal parameter bound to o2 and this bound to o1.
  * @description Checks that if evaluation of e1 successful then e2 is evaluated
  * even if setter lookup failed
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';
 
 class C {
-  C operator + (C val) {
+  C operator +(C val) {
     return new C();
   }
 }
@@ -29,8 +28,8 @@ int count = 0;
 int e2() => count++;
 
 main() {
-  C c1 = new C();
-  C c2 = new C();
-  Expect.throws(() {(c1 + c2).v = e2();}, (e) => e is NoSuchMethodError); /// static type warning
+  dynamic c1 = new C();
+  dynamic c2 = new C();
+  Expect.throws(() {(c1 + c2).v = e2();}, (e) => e is NoSuchMethodError);
   Expect.equals(1, count);
 }

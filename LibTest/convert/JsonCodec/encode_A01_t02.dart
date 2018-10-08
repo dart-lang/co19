@@ -10,12 +10,12 @@
  * (a value that is not a number, boolean, string, null, list or a map with
  * string keys), the toEncodable function is used to convert it to an object
  * that must be directly encodable.
- * If toEncodable is omitted, it defaults to calling .toJson() on the unencodable
- * object.
- * @description Checks that if a value is any other type than num, String, bool, Null, List, or Map,
- * a "toJson()" method is invoked on the object and the result, which must be a directly serializable value,
- * is serialized instead of the original value.
- * @note variable table in this test is used also in the test printOn_A02_t01.
+ * If toEncodable is omitted, it defaults to calling .toJson() on the
+ * unencodable object.
+ * @description Checks that if a value is any other type than num, String, bool,
+ * Null, List, or Map, a "toJson()" method is invoked on the object and the
+ * result, which must be a directly serializable value, is serialized instead of
+ * the original value.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
@@ -28,7 +28,7 @@ class S1 {
   S1(this.a, this.b);
   
   List toJson() {
-    return [a,b];
+    return [a, b];
   }
 }
 
@@ -39,11 +39,11 @@ class S2 {
   S2(this.a, this.b);
   
   Map toJson() {
-    return {a:b};
+    return {a: b};
   }
 }
 
-List<List<Object>> table=[
+List<List<Object>> table = [
   [new S1(1234, "1234"), '[1234,"1234"]'],
   [new S1(null, []), '[null,[]]'],
   [new S1(1.234, {}), '[1.234,{}]'],
@@ -53,10 +53,10 @@ List<List<Object>> table=[
 ];
 
 main() {
-  JsonCodec codec=new JsonCodec();
+  JsonCodec codec = new JsonCodec();
 
   for (List<Object> pair in table) {
-    String res=codec.encode(pair[0]);
+    String res = codec.encode(pair[0]);
     Expect.equals(pair[1], res);
   }
 }

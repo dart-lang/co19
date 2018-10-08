@@ -20,7 +20,7 @@
 import '../../../../Utils/expect.dart';
 
 class C {
-  Object obj;
+  Function obj;
   var dyn;
 }
 

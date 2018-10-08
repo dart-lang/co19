@@ -8,7 +8,6 @@
  * @note tbd need somehow check
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 
@@ -23,7 +22,8 @@ main() {
   shadowRoot.innerHtml = '<style>div { width: 100px; height: 100px; }</style><div></div>';
   sandbox.append(host);
   document.body.offsetLeft;
-  shadowRoot.styleSheets[0].insertRule('@import url($root/../resources/css-insert-import-rule.css);', 0);
+  (shadowRoot.styleSheets[0] as CssStyleSheet).insertRule(
+      '@import url($root/../resources/css-insert-import-rule.css);', 0);
 
   setTimeout(() {
   }, 0);

@@ -17,5 +17,8 @@
 typedef void const();
 
 main() {
-  null is const;
+  try {
+    null is const;
+  } catch (anything) {
+  }
 }

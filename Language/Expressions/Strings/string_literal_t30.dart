@@ -36,6 +36,8 @@
  */
 
 main() {
-  'stri
+  try {
+    'stri
 ng';
+  } catch (e) {}
 }

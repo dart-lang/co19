@@ -7,7 +7,7 @@
  * @assertion It is a compile-time error if a declared or derived mixin
  * explicitly declares a constructor.
  * @description Checks that it is a compile-time error if a derived mixin
- * explicitly declares a factorty constructor.
+ * explicitly declares a factory constructor.
  * @compile-error
  * @issue 24767
  * @author sgrekhov@unipro.ru

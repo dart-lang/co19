@@ -11,8 +11,6 @@
  * operator [] specifies two parameters.
  * @compile-error
  * @author vasya
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class C {
@@ -20,6 +18,8 @@ class C {
 }
 
 main() {
-  bool b = (new C()[1]);
+  try {
+    bool b = (new C()[1]);
+  } catch (ex) {}
 }
 

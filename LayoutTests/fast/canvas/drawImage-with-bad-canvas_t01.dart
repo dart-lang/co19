@@ -8,14 +8,10 @@
  * to allocate its backing store. This test passes by not crashing.
  */
 import "dart:html";
-import "dart:math" as Math;
-import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas1 = document.createElement("canvas");
-  var ctx1 = canvas1.getContext('2d');
-  var canvas2 = document.createElement("canvas");
+  dynamic canvas1 = document.createElement("canvas");
+  dynamic canvas2 = document.createElement("canvas");
   // Terapixel canvas should fail to allocate
   canvas2.width = 1000000;
   canvas2.height = 1000000;

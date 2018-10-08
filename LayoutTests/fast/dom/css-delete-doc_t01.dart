@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var iteration = 0;
@@ -18,7 +17,7 @@ main() {
   step1 = ([opt_media=false])
   {
     var doc = document.implementation.createHtmlDocument('');
-    var style = doc.createElement('style');
+    StyleElement style = doc.createElement('style');
     doc.head.append(style);
     sheet = style.sheet;
     if (opt_media) {

@@ -16,5 +16,8 @@
 typedef int typedef();
 
 main() {
-  null is typedef;
+  try {
+    null is typedef;
+  } catch (anything) {
+  }
 }

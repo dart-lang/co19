@@ -15,8 +15,8 @@ main() {
   Expect.isTrue(x.classes.contains("foo"), "foo");
   Expect.isTrue(x.classes.contains("bar"), "bar");
   Expect.isFalse(x.classes.contains("baz"), "baz");
-  
-  x.classes=["baz", "foo"];
+
+  x.classes = ["baz", "foo"];
   Expect.isTrue(x.classes.contains("foo"), "foo");
   Expect.isFalse(x.classes.contains("bar"), "bar");
   Expect.isTrue(x.classes.contains("baz"), "baz");

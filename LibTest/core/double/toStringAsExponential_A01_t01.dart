@@ -13,6 +13,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   for(int i = 0; i < 10; i++) {
-    Expect.equals('NaN', double.NAN.toStringAsExponential(i));
+    Expect.equals('NaN', double.nan.toStringAsExponential(i));
   }
 }

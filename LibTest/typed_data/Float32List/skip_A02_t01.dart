@@ -5,24 +5,31 @@
  */
 /**
  * @assertion Iterable<E> skip(int count)
- * If [this] has fewer than [n] elements, then the resulting [Iterable] will be empty.
+ * ...
+ * When the returned iterable is iterated, it starts iterating over this, first
+ * skipping past the initial count elements. If this has fewer than count
+ * elements, then the resulting Iterable is empty. After that, the remaining
+ * elements are iterated in the same order as in this iterable.
  * @description Checks that the returned [Iterable] is empty if [this] has
- * fewer than [n] elements.
+ * fewer than [count] elements.
  * @author msyabro
  */
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list, n) {
+check(List<double> list, int n) {
   var l = new Float32List.fromList(list);
   var res = l.skip(n);
   Expect.isTrue(res.isEmpty);
 }
 
 main() {
-  check([],1);
+  check([], 1);
   check([1.0, 2.0], 3);
-  check([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 100);
+  check([
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+  ], 100);
 }
 

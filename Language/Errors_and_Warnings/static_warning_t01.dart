@@ -12,15 +12,18 @@
  */
 import '../../Utils/expect.dart';
 
-class A {
-  int m() => 0;
-}
-
-class C extends A {
-  int m(int v) => v; /// static type warning
+class C {
+  C() { }
+  int foo() {
+    if (true) {
+      return 1;
+    } else {
+      return; /// static type warning
+    }
+  }
 }
 
 main() {
-  C c = new C();
-  Expect.equals(1, c.m(1));
+  new C().foo();
+  Expect.isTrue(true);
 }

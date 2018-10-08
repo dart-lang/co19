@@ -6,17 +6,15 @@
 /**
  * @assertion double operator %(num other)
  * @description Checks that if the divisor is infinite and the dividend is a
- * finite positive double the result equals the dividend, the result is infinity if dividend is negative.
+ * finite positive double the result equals the dividend, the result is infinity
+ * if dividend is negative.
  * @author pagolubev
- * @reviewer msyabro
- * @needsreview Undocumented.
  */
 import "../../../Utils/expect.dart";
 
+final inf = double.infinity;
 
-final inf = 1 / 0;
-
-final List values = const [
+final List<double> values = const [
    4.9406564584124654e-324, // min
    2.2250738585072014e-308, // min normal
    1.7976931348623157e308, // max normal
@@ -48,8 +46,8 @@ main() {
 
   values.forEach((double d) {
     Expect.equals(d, d % inf);
-    Expect.equals(double.INFINITY, (-d) % inf);
+    Expect.equals(double.infinity, (-d) % inf);
     Expect.equals(d, d % (-inf));
-    Expect.equals(double.INFINITY, (-d) % (-inf));
+    Expect.equals(double.infinity, (-d) % (-inf));
   });
 }

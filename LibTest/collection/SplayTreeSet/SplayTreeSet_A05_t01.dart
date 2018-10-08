@@ -30,7 +30,7 @@ bool isValidKey(potentialKey) {
   return potentialKey is String;
 }
 
-int compare(String key1, String key2) {
+int compare(var key1, var key2) {
   if (startTesting) {
     Expect.isTrue(isValidkeyCalled);
   }

@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -16,7 +15,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  var input = document.getElementById('x');
+  InputElement input = document.getElementById('x') as InputElement;
   input.onError.listen((_) {
     input.type = '';
     asyncEnd();

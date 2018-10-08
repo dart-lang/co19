@@ -18,5 +18,7 @@ class C {
 }
 
 main() {
-  C.f(1 2);
+  try {
+    C.f(1 2);
+  } catch (e) {}
 }

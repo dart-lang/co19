@@ -12,22 +12,21 @@
  * @description Check that if onError parameter is supplied, the isolate
  * captures and send only first error on given send port, errorAreFatal is true.
  * The isolate is active.
- * @static-warning
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
 void entryPoint(message) {
+  dynamic i2 = 2, i3 = 3, i4 = 4;
   // first error
-  new Future.delayed(ONE_SECOND, () => "b" + 2 ); /// static type warning
+  new Future.delayed(ONE_SECOND, () => "b" + i2);
   // second error
-  new Future.delayed(TWO_SECONDS, () => "c" + 3 ); /// static type warning
+  new Future.delayed(TWO_SECONDS, () => "c" + i3);
   // third error
-  new Future.delayed(THREE_SECONDS, () => "d" + 4 ); /// static type warning
+  new Future.delayed(THREE_SECONDS, () => "d" + i4);
 }
 
 test() async {

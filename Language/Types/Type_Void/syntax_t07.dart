@@ -16,5 +16,7 @@
 class A implements void {}
 
 main() {
-  new A();
+  try {
+    new A();
+  } catch (x) {}
 }

@@ -6,10 +6,10 @@
 /**
  * @assertion final bool isSetter
  * Whether the invocation was a setter call.
- * If so, arguments has exactly one positonal argument, and namedArguments is empty.
- * @description Checks that isSetter returns false for getters and instance methods
- * invocations.
- * @static-warning
+ * If so, arguments has exactly one positonal argument, and namedArguments is
+ * empty.
+ * @description Checks that isSetter returns false for getters and instance
+ * methods invocations.
  * @author ilya
  */
 import "../../../Utils/expect.dart";
@@ -23,33 +23,26 @@ class D {
   }
 }
 
+@proxy
 class C extends D {
   noSuchMethod(Invocation i) {
     Expect.isFalse(i.isSetter);
-  }
-  test() {
-    foo();
-    method();
-    foo;
-    setOnly;
-    super.foo();
-    super.method();
-    super.foo;
-    super.setOnly;
   }
   var d;
   C() : d = new D();
 }
 
-main() {
-  var x = new C();
+test(dynamic x) {
   var y = new C();
-  x+y;
-  -x;
+  x + y;
+  - x;
   x.foo();
   x.method();
   x.foo;
   x.setOnly;
-  x.test();
   x.d();
+}
+
+main() {
+  test(new C());
 }

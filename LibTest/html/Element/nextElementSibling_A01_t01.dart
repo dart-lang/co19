@@ -13,15 +13,16 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  var x = new Element.html('<span></span>');
+  Element x = new Element.html('<span></span>');
   Expect.isNull(x.nextElementSibling);
 
-  x = new Element.html('<div><span>span1</span>text-node<span>span2</span></div>');
-  var y = x.firstChild; // span1
+  x = new Element.html(
+      '<div><span>span1</span>text-node<span>span2</span></div>');
+  Element y = x.firstChild; // span1
 
   y = y.nextElementSibling; // span2, text node should be skipped
   Expect.isTrue(y is SpanElement);
-  
+
   y = y.nextElementSibling;
   Expect.isNull(y);
 }

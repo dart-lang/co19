@@ -8,9 +8,7 @@
  * blend modes when drawing a rectangle with shadow.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "canvas-blending-helpers.dart";
 
 main() {
@@ -20,14 +18,16 @@ main() {
   }
 
   checkBlendModeResult(i, context, sigma) {
-    var expectedColor = blendColors([129 / 255, 1, 129 / 255, 1], [1, 129 / 255, 129 / 255, 1], i);
+    var expectedColor = blendColors(
+        [129 / 255, 1, 129 / 255, 1], [1, 129 / 255, 129 / 255, 1], i);
     var ac = actualColor(0, 0);
     shouldBeCloseTo(ac[0], expectedColor[0], sigma);
     shouldBeCloseTo(ac[1], expectedColor[1], sigma);
     shouldBeCloseTo(ac[2], expectedColor[2], sigma);
     shouldBeCloseTo(ac[3], expectedColor[3], sigma);
 
-    var expectedShadowColor = blendColors([192 / 255, 192 / 255, 192 / 255, 1], [1, 129 / 255, 129 / 255, 1], i);
+    var expectedShadowColor = blendColors(
+        [192 / 255, 192 / 255, 192 / 255, 1], [1, 129 / 255, 129 / 255, 1], i);
     ac = actualColor(11, 11);
     shouldBeCloseTo(ac[0], expectedShadowColor[0], sigma);
     shouldBeCloseTo(ac[1], expectedShadowColor[1], sigma);
@@ -36,7 +36,7 @@ main() {
   }
 
   runTest() {
-    var canvas = document.createElement("canvas");
+    dynamic canvas = document.createElement("canvas");
     var sigma = 5;
     canvas.width = 12;
     canvas.height = 12;

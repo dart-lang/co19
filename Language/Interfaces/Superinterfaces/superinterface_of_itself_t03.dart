@@ -20,6 +20,8 @@ abstract class I implements J {}
 class A implements I {}
 
 main() {
-  new A();
+  try {
+    new A();
+  } catch (e) {}
 }
 

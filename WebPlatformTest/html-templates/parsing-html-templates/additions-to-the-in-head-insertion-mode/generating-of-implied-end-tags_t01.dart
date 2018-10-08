@@ -13,8 +13,6 @@
  * @assertion When template end tag is met, implied end tags should be generated
  */
 
-import 'dart:html';
-import "../../../../Utils/expect.dart";
 import '../../testcommon.dart';
 
 main() {

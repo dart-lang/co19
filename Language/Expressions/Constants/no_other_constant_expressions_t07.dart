@@ -18,5 +18,7 @@ class A {
 const a = new A();
 
 main() {
-  print(a);
+  try {
+    print(a);
+  } catch (x) {}
 }

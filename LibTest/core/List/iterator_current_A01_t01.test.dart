@@ -9,13 +9,14 @@
  * @description Checks that the current element in the iteration is returned.
  * @author kaigorodov
  */
+library iterator_current_A01_t01;
+
 import "../../../Utils/expect.dart";
 
-main() {
-  List a = new List();
-  a.length = 25476;
+test(List create([int length])) {
+  List a = create(25476);
   Iterator it = a.iterator;
-  for (var i=0; i < a.length; i++) {
+  for (var i = 0; i < a.length; i++) {
     it.moveNext();
     Expect.equals(null, it.current);
   }

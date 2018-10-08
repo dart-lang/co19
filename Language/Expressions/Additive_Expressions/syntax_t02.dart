@@ -21,10 +21,10 @@
  * must have at least two operands.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 main() {
-  1 +;
+  try {
+    1 +;
+  } catch (e) {}
 }

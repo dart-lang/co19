@@ -7,16 +7,16 @@
  * @assertion  abstract V remove(Object key)
  * Removes the association for the given key.
  * Returns the value for key in the map or null if key is not in the map.
- * @description Checks that the specified key is removed and mapped value is returned (if any).
+ * @description Checks that the specified key is removed and mapped value is
+ * returned (if any).
  * @author msyabro
- * @reviewer varlax
  */
 library remove_A01_t01;
 
 import "../../../Utils/expect.dart";
  
 test(Map create([Map content])) {
-  Map<String, Object> map = create();
+  Map map = create();
   
   Expect.isTrue(map.remove("1") == null);
   

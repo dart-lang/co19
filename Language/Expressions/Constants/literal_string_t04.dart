@@ -21,5 +21,7 @@
 const i1 = "${1 is int}";
 
 main() {
-  print(i1);
+  try {
+    print(i1);
+  } catch (x) {}
 }

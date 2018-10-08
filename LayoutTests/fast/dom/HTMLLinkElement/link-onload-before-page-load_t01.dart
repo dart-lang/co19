@@ -8,9 +8,6 @@
  * before the Load event for the window.
  */
 import "dart:html";
-import "resources/link-load-utilities.dart";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 
@@ -18,7 +15,7 @@ main() {
   var expectedLoadEventTargets = ["link", "body"];
   var ind = 0;
 
-  didReceiveLoadEvent(elementName) => (_) {
+  EventListener didReceiveLoadEvent(elementName) => (_) {
     var expectedTarget = expectedLoadEventTargets[ind++];
     shouldBe(elementName, expectedTarget);
     if (ind == 2) {

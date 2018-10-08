@@ -21,13 +21,15 @@
 
 
 main() {
-  var x = 1;
-  L:
-  switch (x) {
-    case 1:
-      x = 0;
-      continue L;
-    default:
-      x = 2;
-  }
+  try {
+    var x = 1;
+    L:
+    switch (x) {
+      case 1:
+        x = 0;
+        continue L;
+      default:
+        x = 2;
+    }
+  } catch (x) {}
 }

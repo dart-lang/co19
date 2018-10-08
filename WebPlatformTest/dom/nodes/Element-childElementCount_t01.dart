@@ -21,8 +21,8 @@ import "../../Utils/expectWeb.dart";
 
 void main() {
 
-  var body=document.body;
-  var el=body.createFragment(""""
+  var body = document.body;
+  var el = body.createFragment(""""
 <p id="parentEl">The result of
   <span id="first_element_child">
   <span>this</span> <span>test</span>
@@ -34,7 +34,6 @@ void main() {
 
 test(() {
   var parentEl = document.getElementById("parentEl");
-  assert_true(parentEl.contains("childElementCount"));
   assert_equals(parentEl.children.length, 3);
 }, "childElementCount");
 

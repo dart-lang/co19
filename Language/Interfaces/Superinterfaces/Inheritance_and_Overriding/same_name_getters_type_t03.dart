@@ -19,9 +19,9 @@
  * all i ∈ 1..k, or a static type warning occurs.
  * @description Checks that if all inherited members with the same name are
  * getters and their static types are not identical, but there is a getter
- * such that its type is subtype of types of all other getters then no static
- * warning issued
- * @static-clean
+ * such that its type is subtype of types of all other getters then, anyway,
+ * a compile error occurs
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 

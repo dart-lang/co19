@@ -14,8 +14,6 @@
  * @note (Classes/Getters) says that a getter cannot override a method so not
  * testing that.
  * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

@@ -4,14 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If this collection is empty, returns true.
- * @needsreview not documented
- * @description Checks that method always returns true on an empty list.
+ * @assertion bool every(bool f(E element))
+ * @description Checks that method always returns [true] on an empty list.
  * @author kaigorodov
  */
 import "dart:collection";
 import "../../../Utils/expect.dart";
+import "LinkedList.lib.dart";
 
 main() {
-  Expect.isTrue(new LinkedList().every((var v) {return true;}));
+  Expect.isTrue(new LinkedList<MyLinkedListEntry>().every((var v) => true));
 }

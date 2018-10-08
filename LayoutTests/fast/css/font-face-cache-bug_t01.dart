@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 getComputedStyle(x, [pseudoElement]) => x.getComputedStyle(pseudoElement);
@@ -44,8 +43,7 @@ main() {
   runTest() {
     var testDiv = document.getElementById('test');
     shouldBeApprox(
-        getNumValue(getComputedStyle(testDiv, '0').width, strip: "px"),
-        48, 2);
+        getNumValue(getComputedStyle(testDiv, '0').width, strip: "px"), 48, 2);
     asyncEnd();
   }
 

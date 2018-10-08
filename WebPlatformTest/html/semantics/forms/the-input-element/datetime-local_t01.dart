@@ -44,7 +44,7 @@ void main() {
   
   for (Map w in datetimeLocal) {
     test(() {
-      var input = document.createElement("input");
+      var input = document.createElement("input") as InputElement;
       input.type = "datetime-local";
       input.value = w[value];
       Map attrs=w[attributes]; 

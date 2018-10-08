@@ -9,12 +9,11 @@
  * @description Checks that [:roundToDouble():] on NaN returns NaN.
  * @needsreview #16102
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  double nan =double.NAN;
+  double nan =double.nan;
   Expect.isTrue(nan.roundToDouble().isNaN);
   Expect.isTrue((-nan).roundToDouble().isNaN);
 }

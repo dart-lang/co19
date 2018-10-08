@@ -8,7 +8,6 @@
  * @description
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../testharness.dart";
 
 const String htmlEL1 = r'''
@@ -45,14 +44,14 @@ const String htmlEL2 = r'''
     </nav>
 ''';
 
-firstElementChild(parent)  => parent.childNodes.firstWhere((x) => x is Element);
-lastElementChild(parent)  => parent.childNodes.lastWhere((x) => x is Element);
+Element firstElementChild(Node parent)  => parent.childNodes.firstWhere((x) => x is Element);
+Element lastElementChild(Node parent)  => parent.childNodes.lastWhere((x) => x is Element);
 
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
-    var list = document.getElementsByTagName('ul')[0];
+    UListElement list = document.getElementsByTagName('ul')[0] as UListElement;
     var firstLinkTop = firstElementChild(list).getBoundingClientRect().top;
     var lastLinkTop = lastElementChild(list).getBoundingClientRect().top;
 

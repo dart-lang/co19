@@ -14,7 +14,7 @@ import "dart:collection";
 import "LinkedListEntry.lib.dart";
 
 main() {
-  LinkedList list = new LinkedList();
+  LinkedList<MyLinkedListEntry> list = new LinkedList<MyLinkedListEntry>();
   MyLinkedListEntry<int> entry1 = new MyLinkedListEntry<int>(1);
   MyLinkedListEntry<int> entry2 = new MyLinkedListEntry<int>(2);
   MyLinkedListEntry<int> entry3 = new MyLinkedListEntry<int>(2);

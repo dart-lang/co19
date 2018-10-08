@@ -6,8 +6,8 @@
 /**
  * @assertion SplayTreeMap.fromIterables(Iterable<K> keys, Iterable<V> values,
  * [int compare(K key1, K key2), bool isValidKey(potentialKey)])
- * @description Checks that if isValidKey function specified, then it called
- * before compare call
+ * @description Checks that if [isValidKey] function is specified, then it is
+ * called before the [compare] call
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";
@@ -38,9 +38,9 @@ bool isValidKey(potentialKey) {
 main() {
   C c1 = new C(1);
   C c2 = new C(2);
-  Iterable keys = [c1, c2];
-  Iterable values = [1, 2];
-  SplayTreeMap map = new SplayTreeMap.fromIterables(keys, values, compare,
+  Iterable<C> keys = [c1, c2];
+  Iterable<int> values = [1, 2];
+  SplayTreeMap<C, int> map = new SplayTreeMap<C, int>.fromIterables(keys, values, compare,
       isValidKey);
 
   startTesting = true;

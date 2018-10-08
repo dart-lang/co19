@@ -16,5 +16,7 @@
 
 
 main() {
-  L: break L;
+  try {
+	L: break L;
+  } catch (x) {}
 }

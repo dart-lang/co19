@@ -18,5 +18,7 @@
  */
 
 main() {
-  var false;
+  try {
+    var false;
+  } catch (e) {}
 }

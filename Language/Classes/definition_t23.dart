@@ -13,8 +13,6 @@
  * to 'metadata abstract? class mixinApplicationClass' syntax do not cause any 
  * errors and can be instantiated.
  * @author ngl@unipro.ru
- * @author sgrekhov@unipro.ru
- * @issue dart-lang/co19#129
  */
 
 @A() abstract class I1<T> = A1 with B1;

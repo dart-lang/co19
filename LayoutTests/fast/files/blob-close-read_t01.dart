@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var blobContents = ['0123456789abcdef'];
@@ -17,7 +16,6 @@ main() {
   var sliced;
   var reader;
   var reader2;
-  var result;
 
   var runNextTest;
 
@@ -45,8 +43,8 @@ main() {
     blob.close();
     var reader = new FileReader();
     reader.onLoad.listen((event) {
-      result = event.target.result;
-      shouldBeEqualToString(result, blobContents[0].substring(2));
+      FileReader reader = event.target;
+      shouldBeEqualToString(reader.result, blobContents[0].substring(2));
     });
     reader.onLoadEnd.listen((_) {
       testPassed("readAsText() completed");
@@ -54,7 +52,8 @@ main() {
       runNextTest();
     });
     reader.onError.listen((event) {
-      testFailed("Received error event: ${event.target.error.code}");
+      testFailed(
+          "Received error event: ${(event.target as FileReader).error.name}");
     });
     reader.readAsText(sliced);
   }
@@ -72,7 +71,8 @@ main() {
       shouldBe(blob.size, 0);
     });
     reader.onLoad.listen((event) {
-      testPassed("FileReader loaded: ${event.target.result}");
+      FileReader target = event.target;
+      testPassed("FileReader loaded: ${target.result}");
     });
     reader.onLoadEnd.listen((_) {
       testPassed("readAsText() completed");
@@ -80,7 +80,8 @@ main() {
       runNextTest();
     });
     reader.onError.listen((event) {
-      testFailed("Received error event: ${event.target.error.code}");
+      FileReader target = event.target;
+      testFailed("Received error event: ${target.error.name}");
       runNextTest();
     });
     reader.readAsText(blob);

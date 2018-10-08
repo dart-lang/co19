@@ -5,10 +5,11 @@
  */
 /**
  * @assertion void retainWhere(bool test(E element))
- * Removes all elements of this list that fail to satisfy test.
- * Throws an UnsupportedError, if the length of [this] cannot be changed.
- * @description Checks that [UnsupportedError] is thrown
- * since [Int32List] is a fixed-size list.
+ * Removes all objects of this list that fail to satisfy test.
+ * ...
+ * Throws an UnsupportedError if this is a fixed-length list.
+ * @description Checks that [UnsupportedError] is thrown since [Int32List] is a
+ * fixed-length list.
  * @note undocumented
  * @author msyabro
  */
@@ -16,19 +17,19 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
+check(List<int> list) {
   var l = new Int32List.fromList(list);
   var length = l.length;
   try {
-    l.retainWhere( (e) => true );
+    l.retainWhere((e) => true );
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {};
+  } on UnsupportedError {};
   Expect.equals(length, l.length);
 
   try {
-    l.retainWhere( (e) => false );
+    l.retainWhere((e) => false );
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {};
+  } on UnsupportedError {};
   Expect.equals(length, l.length);
 
 }

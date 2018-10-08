@@ -22,6 +22,8 @@ void conflictingName() {}
 class conflictingName {}
 
 main() {
-  conflictingName();
-  new conflictingName();
+  try {
+    conflictingName();
+    new conflictingName();
+  } catch (e) {}
 }

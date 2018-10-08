@@ -7,8 +7,8 @@
  * @description Test reading data from a blob as an ArrayBuffer
  */
 import "dart:html";
+import "dart:typed_data";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var blob = new Blob(["HelloWorld"]);
@@ -24,8 +24,9 @@ main() {
     shouldBe(reader.readyState, FileReader.LOADING);
     shouldBe(reader.error, null);
     shouldNotBe(reader.result, null);
-    shouldBeTrue(reader.result.lengthInBytes >= 0);
-    shouldBeTrue(reader.result.lengthInBytes <= 10);
+    ByteBuffer result = reader.result;
+    shouldBeTrue(result.lengthInBytes >= 0);
+    shouldBeTrue(result.lengthInBytes <= 10);
   });
   reader.onAbort.listen((_) {
     testFailed("onabort invoked on reader");
@@ -37,7 +38,7 @@ main() {
     shouldBe(reader.readyState, FileReader.DONE);
     shouldBe(reader.error, null);
     shouldNotBe(reader.result, null);
-    shouldBe(reader.result.lengthInBytes, 10);
+    shouldBe((reader.result as ByteBuffer).lengthInBytes, 10);
     asyncEnd();
   });
 }

@@ -17,12 +17,11 @@
  */
 
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var error = new Error();
-  var stackTrace;
+  Error error = new Error();
+  StackTrace stackTrace;
   var s;
   try {
     throw error;

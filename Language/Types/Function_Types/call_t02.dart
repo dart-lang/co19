@@ -9,13 +9,12 @@
  * F. It is a static warning if a concrete class implements Function and does
  * not have a concrete method named call unless that class has an implementation
  * of noSuchMethod() distinct from the one declared in class Object.
- * @description Checks that it is a static warning if concrete class implements
+ * @description Checks that it is no compile error if concrete class implements
  * Function and has no method named call.
- * @static-warning
  * @author ilya
  */
 
-class C implements Function {}    /// static type warning
+class C implements Function {}
 
 main() {
   new C();

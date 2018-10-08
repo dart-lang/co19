@@ -7,9 +7,7 @@
  * @description Calling toDataUrl() on a huge canvas shouldn't crash.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -17,6 +15,6 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById('foo');
+  dynamic canvas = document.getElementById('foo');
   var url = canvas.toDataUrl();
 }

@@ -16,5 +16,8 @@ class A {}
 class C = A with Null;
 
 main() {
-  new C();
+  try {
+    new C();
+  } catch (e) {
+  }
 }

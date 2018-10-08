@@ -10,7 +10,6 @@
  * [Iterable] is not iterated.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

@@ -14,7 +14,6 @@
  * @description Checks that single listener on the future is informed.
  * @author kaigorodov
  */
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";

@@ -13,7 +13,6 @@
  * @description Checks that fields corresponding to an initializing formal
  * are assigned correctly.
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

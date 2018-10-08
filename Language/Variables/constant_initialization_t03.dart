@@ -22,7 +22,7 @@ class Foo {
 const int i = -100;
 const bool b = false;
 const String s = "string";
-const double pi = Math.PI;
+const double pi = Math.pi;
 const Foo foo = const Foo();
 const List l = const [0,1,2,3];
 const Map m = const {'a': 1, 'b': 2};
@@ -33,7 +33,7 @@ main() {
   Expect.identical(-100,  i);
   Expect.identical(false,  b);
   Expect.identical("string",  s);
-  Expect.identical(Math.PI,  pi);
+  Expect.identical(Math.pi,  pi);
   Expect.identical(const Foo(),  foo);
   Expect.identical(const [0,1,2,3],  l);
   Expect.identical(const {'a': 1, 'b': 2},  m);

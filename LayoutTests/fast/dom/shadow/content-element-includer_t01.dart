@@ -7,7 +7,6 @@
  * @description This tests the correctness of includers of forwarded children.
  */
 import "dart:html";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -22,8 +21,6 @@ main() {
     return insertionPoints[insertionPoints.length - 1];
   }
   var container = document.getElementById("container");
-
-  var shadowRoot = null;
 
   var elementWithoutShadow = document.createElement("div");
   container.append(elementWithoutShadow);

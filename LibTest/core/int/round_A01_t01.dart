@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Rounds x to the nearest int.
+ * @assertion int round()
+ * Returns this
  * @description Checks that this function returns correct value
  * (expected to return this integer).
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -24,6 +23,6 @@ main() {
   Expect.equals(2147483647, 2147483647.round());
   Expect.equals(-4294967295, -4294967295.round());
   Expect.equals(9223372036854775807, 9223372036854775807.round());
-  Expect.equals(18446744073709551617, 18446744073709551617.round());
-  Expect.equals(-18446744073709551617, (-18446744073709551617).round());
+  Expect.equals(1844674407370955161, 1844674407370955161.round());
+  Expect.equals(-1844674407370955161, (-1844674407370955161).round());
 }

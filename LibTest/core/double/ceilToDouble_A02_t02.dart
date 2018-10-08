@@ -14,6 +14,6 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals(double.INFINITY.ceilToDouble(), double.INFINITY);
-  Expect.equals(double.NEGATIVE_INFINITY.ceilToDouble(), double.NEGATIVE_INFINITY);
+  Expect.equals(double.infinity.ceilToDouble(), double.infinity);
+  Expect.equals(double.negativeInfinity.ceilToDouble(), double.negativeInfinity);
 }

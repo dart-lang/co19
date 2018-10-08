@@ -5,13 +5,13 @@
  */
 /**
  * @assertion interface HashSet<E>
- * HashSet()
- * Creates an empty hash set.
- * @description Checks that an empty hash set is created.
+ * HashSet({bool equals(E e1, E e2), int hashCode(E e),
+ * bool isValidKey(potentialKey) })
+ * Create a hash set using the provided [equals] as equality.
+ * @description Checks that default constructor without parameters creates an
+ * empty hash set.
  * @author rodionov
- * @reviewer msyabro
- * @needsreview undocumented
- */
+  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

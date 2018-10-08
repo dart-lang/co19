@@ -12,9 +12,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -37,8 +34,9 @@ main() {
       <div id="console"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var gl = initWebGL("example", "vshader", "fshader", [ "g_Position" ], [ 0, 0, 1, 1 ], 1);
-  var program = gl.getParameter(wgl.CURRENT_PROGRAM);
+  var gl = initWebGL("example", "vshader", "fshader", ["g_Position"],
+      [0, 0, 1, 1], 1);
+  var program = gl.getParameter(wgl.WebGL.CURRENT_PROGRAM);
 
   var vertices = new Float32List.fromList([
       1.0,  1.0, 0.0,
@@ -48,49 +46,50 @@ main() {
       -1.0, -1.0, 0.0,
       1.0, -1.0, 0.0]);
   var vbo = gl.createBuffer();
-  gl.bindBuffer(wgl.ARRAY_BUFFER, vbo);
-  gl.bufferData(wgl.ARRAY_BUFFER, vertices, wgl.STATIC_DRAW);
+  gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vbo);
+  gl.bufferData(wgl.WebGL.ARRAY_BUFFER, vertices, wgl.WebGL.STATIC_DRAW);
 
   gl.enableVertexAttribArray(0);
-  gl.vertexAttribPointer(0, 3, wgl.FLOAT, false, 0, 0);
+  gl.vertexAttribPointer(0, 3, wgl.WebGL.FLOAT, false, 0, 0);
 
   // Clear and set up
-  gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+  gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
   gl.useProgram(program);
   // Draw the triangle pair to the frame buffer
-  gl.drawArrays(wgl.TRIANGLES, 0, 6);
+  gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 6);
 
   // Ensure that the frame buffer is red at the sampled pixel
   var buf = new Uint8List(1 * 1 * 4);
-  gl.readPixels(2, 2, 1, 1, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
+  gl.readPixels(2, 2, 1, 1, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
   var passed = true;
   if (buf[0] != 255 ||
       buf[1] != 0 ||
       buf[2] != 0 ||
       buf[3] != 255) {
-        testFailed("Pixel at (2, 2) should have been (255, 0, 0, 255), was $buf");
+        testFailed(
+            "Pixel at (2, 2) should have been (255, 0, 0, 255), was $buf");
         passed = false;
       }
 
   if (passed) {
     // Now resize the canvas
-    var canvas = document.getElementById("example");
+    dynamic canvas = document.getElementById("example");
     canvas.width = 8;
     canvas.height = 8;
     // Do another render
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
-    gl.drawArrays(wgl.TRIANGLES, 0, 6);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
+    gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 6);
     // This time, because we did not change the viewport, it should
     // still be (0, 0, 4, 4), so only the lower-left quadrant should
     // have been filled.
     var buf = new Uint8List(1 * 1 * 4);
-    gl.readPixels(6, 6, 1, 1, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
-    var passed = true;
+    gl.readPixels(6, 6, 1, 1, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
     if (buf[0] != 0 ||
         buf[1] != 0 ||
         buf[2] != 255 ||
         buf[3] != 255) {
-          testFailed("Pixel at (6, 6) should have been (0, 0, 255, 255), was $buf");
+          testFailed(
+              "Pixel at (6, 6) should have been (0, 0, 255, 255), was $buf");
           passed = false;
         }
   }

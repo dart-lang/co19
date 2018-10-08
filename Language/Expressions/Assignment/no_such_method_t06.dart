@@ -15,9 +15,9 @@
  * Otherwise, If a occurs inside a top level or static function (be it function,
  * method, getter, or setter) or variable initializer, evaluation of a causes e
  * to be evaluated, after which a NoSuchMethodError is thrown.
- * @description Checks that if a inside a static getter then evaluation of
- * a causes e to be evaluated, after which a NoSuchMethodError is thrown.
- * @static-warning
+ * @description Checks that if an assignment a is inside a static getter then
+ * evaluation of a causes e to be evaluated, after which a NoSuchMethodError
+ * is thrown.
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';
@@ -31,7 +31,8 @@ int e() {
 
 class C {
   static int get f {
-    Expect.throws(() {v = e();}, (e) => e is NoSuchMethodError); /// static type warning
+    dynamic x = new Object();
+    Expect.throws(() {x.v = e();}, (e) => e is NoSuchMethodError);
     return 0;
   }
 }

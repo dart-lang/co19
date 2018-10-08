@@ -9,9 +9,7 @@
  * @description Checks that a data event is created.
  * @author kaigorodov
  */
-
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
@@ -19,11 +17,11 @@ main() {
   var value0 = 12345;
   controller.add(value0);
   asyncStart();
-  controller.stream.listen((value1) {
-    Expect.equals(value0, value1);
-  },
-  onDone:() {
-    asyncEnd();
-  });
+  controller.stream.listen(
+    (value1) {
+      Expect.equals(value0, value1);
+      asyncEnd();
+    }
+  );
   controller.close();
 }

@@ -23,5 +23,7 @@ class A extends C {
 }
 
 main() {
-  var a = const A();
+  try {
+    var a = const A();
+  } catch (x) {}
 }

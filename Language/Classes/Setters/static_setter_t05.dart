@@ -6,9 +6,9 @@
 /**
  * @assertion  It is a static warning if a class declares a static setter
  * named v= and also has a non-static member named v.
- * @description Checks that it is a static warning if a class declares a
+ * @description Checks that it is a compile error if a class declares a
  * static setter named v= and also has a non-static inherited method named v.
- * @static-warning
+ * @compile-error
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";

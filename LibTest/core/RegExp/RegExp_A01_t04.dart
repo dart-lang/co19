@@ -7,16 +7,9 @@
  * @assertion Constructs a regular expression.
  * @description Checks that using a null pattern argument results in Error.
  * @author rodionov
- * @reviewer iefremov
- * @reviewer msyabro
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
- 
 
 main() {
-  try {
-    RegExp re = new RegExp(null);
-    Expect.fail("Error expected");
-  } on Error catch(ok) { }
+  Expect.throws(() {new RegExp(null);});
 }

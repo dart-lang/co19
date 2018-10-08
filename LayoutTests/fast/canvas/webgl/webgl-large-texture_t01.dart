@@ -10,9 +10,6 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
-//import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -34,13 +31,13 @@ main() {
     var width = 3900;
     var height = 3900;
 
-    var canvas = document.getElementById('canvas');
+    dynamic canvas = document.getElementById('canvas');
     var gl = canvas.getContext('webgl');
 
-    gl.pixelStorei(wgl.UNPACK_COLORSPACE_CONVERSION_WEBGL, wgl.NONE);
+    gl.pixelStorei(wgl.WebGL.UNPACK_COLORSPACE_CONVERSION_WEBGL, wgl.WebGL.NONE);
 
     var texture = gl.createTexture();
-    gl.bindTexture(wgl.TEXTURE_2D, texture);
+    gl.bindTexture(wgl.WebGL.TEXTURE_2D, texture);
 
     var image = new ImageElement();
     image.onError.listen((e) {
@@ -57,23 +54,23 @@ main() {
       var pixels8 = new Uint8List(width * height * 4);
       var pixels32 = new Uint32List.view(pixels8.buffer);
 
-      if (width > gl.getParameter(wgl.MAX_TEXTURE_SIZE) ||
-          width > gl.getParameter(wgl.MAX_RENDERBUFFER_SIZE)) {
+      if (width > gl.getParameter(wgl.WebGL.MAX_TEXTURE_SIZE) ||
+          width > gl.getParameter(wgl.WebGL.MAX_RENDERBUFFER_SIZE)) {
           // The image is allowed to be too big to be used as a texture.
           asyncEnd();
           return;
       }
 
-      gl.texImage2DImage(wgl.TEXTURE_2D, 0, wgl.RGBA, wgl.RGBA, wgl.UNSIGNED_BYTE, image);
-      if (gl.getError() != wgl.NO_ERROR) {
+      gl.texImage2DImage(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, image);
+      if (gl.getError() != wgl.WebGL.NO_ERROR) {
         // Loading the texture is allowed to fail due to resource constraints.
         asyncEnd();
         return;
       }
       var fb = gl.createFramebuffer();
-      gl.bindFramebuffer(wgl.FRAMEBUFFER, fb);
-      gl.framebufferTexture2D(wgl.FRAMEBUFFER, wgl.COLOR_ATTACHMENT0, wgl.TEXTURE_2D, texture, 0);
-      gl.readPixels(0, 0, width, height, wgl.RGBA, wgl.UNSIGNED_BYTE, pixels8);
+      gl.bindFramebuffer(wgl.WebGL.FRAMEBUFFER, fb);
+      gl.framebufferTexture2D(wgl.WebGL.FRAMEBUFFER, wgl.WebGL.COLOR_ATTACHMENT0, wgl.WebGL.TEXTURE_2D, texture, 0);
+      gl.readPixels(0, 0, width, height, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, pixels8);
 
       // The image is filled with white, ignore last bit of each subpixel to account for decoding rounding differences.
       if ((andPixels(pixels32) & 0xfefefefe) != (0xfefefefe | 0)) {

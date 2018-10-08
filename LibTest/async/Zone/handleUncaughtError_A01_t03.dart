@@ -4,21 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract dynamic handleUncaughtError(error, StackTrace stackTrace)
+ * @assertion void handleUncaughtError(error, StackTrace stackTrace)
+ *  Handles uncaught asynchronous errors.
  * @description Checks that handleUncaughtError callback can be set via
  * ZoneSpecification and that correct callback is invoked. 
  * @author ilya
  */
 
 import "dart:async";
-//import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-var count = 0;
+int count = 0;
 var stackTraces={};
 
-newHandler() {
-  var id = ++count;
+HandleUncaughtErrorHandler newHandler() {
+  int id = ++count;
   return (Zone self, ZoneDelegate parent, Zone zone, e, st) {
     //print('Error handler #$id');
     Expect.identical(id, e);
@@ -26,10 +26,10 @@ newHandler() {
   };
 }
 
-newErrorZone (Zone z) =>
+Zone newErrorZone (Zone z) =>
   z.fork(specification: new ZoneSpecification(handleUncaughtError: newHandler()));
 
-test() {
+void test() {
   try {
     throw count; // i-th error should be caught by i-th handler
   } catch (e, st) {
@@ -45,4 +45,3 @@ test() {
 main() {
   newErrorZone(Zone.current).run(test);
 }
-

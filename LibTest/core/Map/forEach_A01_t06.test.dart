@@ -8,19 +8,18 @@
  * Applies f to each {key, value} pair of the map.
  * @description Checks that keys and values can be changed in [f].
  * @author msyabro
- * @reviewer varlax
  */
 library forEach_A01_t06;
 
 import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {
-  Map<String, Object> map = create();
+  Map map = create();
   
   map["1"] = 3;
   map["2"] = 5;
   
-  map.forEach((String key, int value) {
+  map.forEach((var key, var value) {
     map[key] = value + 1;
   });
   

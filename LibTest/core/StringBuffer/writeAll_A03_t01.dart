@@ -8,15 +8,9 @@
  * Passing null as argument results in an Error
  * @description Tries to pass null as argument
  * @author msyabro
- * @reviewer rodionov
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws((){
-    new StringBuffer().writeAll(null);
-  },
-  (e)=>e is Error
-  );
+  Expect.throws((){new StringBuffer().writeAll(null);}, (e) => e is Error);
 }

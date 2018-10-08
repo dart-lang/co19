@@ -8,8 +8,8 @@
  * resulting class implements those interfaces.
  * @description Checks that if the mixin application declares support for
  * interfaces and the resulting class does not implement those interfaces then
- * static warning occurs
- * @static-warning
+ * compile error occurs
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
@@ -24,7 +24,7 @@ class S {
 class M {
 }
 
-class C = S with M implements I; /// static type warning
+class C = S with M implements I;
 
 main() {
   C c = null;

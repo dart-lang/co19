@@ -6,22 +6,16 @@
 /**
  * @assertion It is a static warning if the type of e is may not be assigned to
  * the type of ek.
- * @description Checks that a static warning is produced if the type of the
+ * @description Checks that a compile error is produced if the type of the
  * switch expression's value cannot be assigned to any of the case expression
  * types.
- * @static-warning
+ * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
- * @reviewer msyabro
  */
-import '../../../Utils/dynamic_check.dart';
 
 main() {
-  checkTypeError(() {
-    switch (false) {
-      case 0: /// static warning
-      case 1: /// static warning
-    }
-  });
+  switch (false) {
+    case 0:
+    case 1:
+  }
 }

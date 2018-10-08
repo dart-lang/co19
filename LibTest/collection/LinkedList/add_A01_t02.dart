@@ -5,8 +5,9 @@
  */
 /**
  * @assertion void add(E entry)
- * Add entry to the end of the list.
- * @description Checks that method does not affect the existing content of the list
+ * Add [entry] to the end of the list.
+ * @description Checks that method does not affect the existing content of the
+ * list
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
@@ -14,7 +15,7 @@ import "dart:collection";
 import "LinkedList.lib.dart";
 
 main() {
-  LinkedList a = new LinkedList();
+  LinkedList<MyLinkedListEntry> a = new LinkedList<MyLinkedListEntry>();
   Expect.isTrue(a.length == 0);
   a.add(new MyLinkedListEntry(null));
   contentEquals([null], a);

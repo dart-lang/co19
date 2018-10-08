@@ -18,10 +18,9 @@
  *  argument im. However, if the implementation found cannot be invoked with
  *  a single positional argument, the implementation of noSuchMethod() in class
  *  Object is invoked on o1
- * @description Checks that it is a static type warning if e1 does not declare
- * a setter v and that such code results in a NoSuchMethodError. Test the case
- * when e1 is a static type literal
- * @static-warning
+ * @description Checks that it is a compile error if e1 does not declare
+ * a setter v. Test the case when e1 is a static type literal
+ * @compile-error
  * @author msyabro
  */
 import '../../../Utils/expect.dart';
@@ -29,7 +28,5 @@ import '../../../Utils/expect.dart';
 class C {}
 
 main() {
-  Expect.throws(() {
-    C.v = 2;  /// static type warning
-  }, (e) => e is NoSuchMethodError);
+  Expect.throws(() {C.v = 2;}, (e) => e is NoSuchMethodError);
 }

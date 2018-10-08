@@ -35,7 +35,8 @@ void main() {
   }, "DataListElement support");
   
   test(() {
-    assert_equals(document.getElementsByTagName("datalist")[0].options.item(0), document.getElementsByTagName("option")[0]);
+    assert_equals((document.getElementsByTagName("datalist")[0] as DataListElement).options[0],
+        document.getElementsByTagName("option")[0]);
   }, "DataListElement options item collection support");
   
   checkTestFailures();

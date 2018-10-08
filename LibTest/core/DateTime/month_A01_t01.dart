@@ -14,18 +14,18 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  check(DateTime.JANUARY);
-  check(DateTime.FEBRUARY);
-  check(DateTime.MARCH);
-  check(DateTime.APRIL);
-  check(DateTime.MAY);
-  check(DateTime.JUNE);
-  check(DateTime.JULY);
-  check(DateTime.AUGUST);
-  check(DateTime.SEPTEMBER);
-  check(DateTime.OCTOBER);
-  check(DateTime.NOVEMBER);
-  check(DateTime.DECEMBER);
+  check(DateTime.january);
+  check(DateTime.february);
+  check(DateTime.march);
+  check(DateTime.april);
+  check(DateTime.may);
+  check(DateTime.june);
+  check(DateTime.july);
+  check(DateTime.august);
+  check(DateTime.september);
+  check(DateTime.october);
+  check(DateTime.november);
+  check(DateTime.december);
 }
 
 // creates a new DateTime with valid year and day values, and the specified month

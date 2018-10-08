@@ -17,5 +17,8 @@
 void f(var extends) {}
 
 main() {
-  f();
+  try {
+    f();
+  } catch (anything) {
+  }
 }

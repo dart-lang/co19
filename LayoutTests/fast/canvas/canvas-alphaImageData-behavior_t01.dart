@@ -16,7 +16,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var ctx = getContext2d("canvas");
+  dynamic ctx = getContext2d("canvas");
   ctx.fillStyle = 'rgba(255, 0, 0, 0.01)';
   ctx.fillRect(0, 0, 1, 200);
   ctx.fillStyle = 'rgba(0, 255, 0, 0.995)';

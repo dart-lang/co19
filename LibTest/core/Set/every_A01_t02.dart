@@ -16,14 +16,14 @@ import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
 test(Set create([Set content])) {
-  Set<int> s = create();
+  Set s = create();
   s.addAll([1, -3, 10, 17]);
 
-  Set<int> outer = create();
-  s.every((int x) {
+  Set outer = create();
+  s.every((var x) {
     outer.add(x);
-    Set<int> inner = create();
-    s.every((int y) {
+    Set inner = create();
+    s.every((var y) {
       inner.add(y);
       return true;
     });

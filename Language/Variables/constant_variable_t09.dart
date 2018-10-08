@@ -20,7 +20,7 @@ const String s = "string";
 const x = 1;
 
 main() {
-  const double pi = Math.PI;
+  const double pi = Math.pi;
   const List l = const [0,1,2,3];
   const Map m = const {'a': 1, 'b': 2};
   const String e = "OneTwo";
@@ -29,7 +29,7 @@ main() {
   Expect.identical(-100, i);
   Expect.identical(false, b);
   Expect.identical("string", s);
-  Expect.identical(Math.PI, pi);
+  Expect.identical(Math.pi, pi);
   Expect.identical(const [0,1,2,3], l);
   Expect.identical(const {'a': 1, 'b': 2}, m);
   Expect.identical("OneTwo", e);

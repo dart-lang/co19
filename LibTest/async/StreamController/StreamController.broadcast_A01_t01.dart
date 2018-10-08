@@ -14,13 +14,11 @@
  * The controller distributes any events to all currently subscribed listeners
  * at the time when add, addError or close is called.
  *
- * @description Checks that the controller distributes any events to all
+ * @description Checks that the controller distributes all events to all
  * currently subscribed listeners.
  * @author kaigorodov
  */
-
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 check(List events0) {

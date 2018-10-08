@@ -24,7 +24,6 @@
 
 import "dart:isolate";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 var expectedMessage="message";
 
@@ -43,7 +42,7 @@ class Connection {
     asyncEnd();
   }
 
-  start(void entryPoint(message)) {
+  start(void entryPoint(SendPort message)) {
     asyncStart();
     Isolate.spawn(entryPoint, receivePort.sendPort);
     receivePort.listen(receiveHandler);

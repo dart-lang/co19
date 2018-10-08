@@ -10,8 +10,6 @@
  * more than once in the implements clause.
  * @compile-error
  * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
  */
 
 abstract class I {}
@@ -20,5 +18,7 @@ abstract class J {}
 class A implements I, J, I {}
 
 main() {
-  new A();
+  try {
+    new A();
+  } catch (e) {}
 }

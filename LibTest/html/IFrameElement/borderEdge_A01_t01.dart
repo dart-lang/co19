@@ -22,9 +22,9 @@ main() {
   IFrameElement x = new Element.html('<iframe id="id">some text</iframe>');
   x.hidden = false;
   document.body.append(x);
-  int width=x.borderEdge.width;
-  int height=x.borderEdge.height;
-  
+  int width = x.borderEdge.width;
+  int height = x.borderEdge.height;
+
   x.hidden = true;
   Expect.equals(width, x.borderEdge.width, 'width');
   Expect.equals(height, x.borderEdge.height, 'height');

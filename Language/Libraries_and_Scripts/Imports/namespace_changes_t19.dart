@@ -58,17 +58,12 @@
  *
  * @description Checks that all show/hide combinators used in a chain of
  * re-export are applied.
- * @static-warning
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
-import "../../../Utils/expect.dart";
-
 import "namespace_changes_lib_reexport2_filtered.dart";
 
 main() {
-  try {
-    new F(); /// static type warning  constructing an inaccessible class
-    Expect.fail("runtime error expected");
-  } on Error catch (ok) {}
+  new F();
 }

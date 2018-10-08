@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 getComputedStyle(x, [pseudoElement]) => x.getComputedStyle(pseudoElement);
 
@@ -26,7 +25,7 @@ main() {
       </div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var dialog = document.getElementById("dialog");
+  dynamic dialog = document.getElementById("dialog");
 
   dialog.showModal();
 

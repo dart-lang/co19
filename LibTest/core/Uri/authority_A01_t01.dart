@@ -10,7 +10,6 @@
  * Returns the empty string if there is no authority component.
  * @description Checks expected authority settings
  * @author ilya
- * @reviewer
  */
 
 import "../../../Utils/expect.dart";

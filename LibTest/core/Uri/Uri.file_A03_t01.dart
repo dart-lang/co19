@@ -13,9 +13,7 @@
  * created.
  * @description Checks cases when absolute and relative URIs are created
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

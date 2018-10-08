@@ -20,10 +20,10 @@
  *  with argument im.  However, if the implementation found cannot be invoked
  *  with a single positional argument, the implementation of noSuchMethod()
  *  in class Object is invoked on this
- * @description Checks that method noSuchMethod is invoked with the right
- * argument if there is no setter for v in Sdynamic.
- * @static-warning
+ * @description Checks that it is a compile error if there is no setter for v in
+ * Sdynamic.
  * @author sgrekhov@unipro.ru
+ * @compile-error
  */
 import '../../../Utils/expect.dart';
 
@@ -41,7 +41,7 @@ class A {
 
 class C extends A {
   test() {
-    Expect.throws(() {super.v = 1;}, (e) => e is TestException); /// static type warning
+    Expect.throws(() {super.v = 1;}, (e) => e is TestException);
   }
 }
 

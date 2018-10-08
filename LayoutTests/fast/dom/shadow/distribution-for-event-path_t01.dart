@@ -36,8 +36,8 @@ main() {
     [true, false].forEach((b) {
       el.addEventListener('click', (event) {
         log.add([
-          event.target.nodeName,
-          event.currentTarget.nodeName,
+          (event.target as Node).nodeName,
+          (event.currentTarget as Node).nodeName,
           phases[event.eventPhase]
           ]);
       }, b);

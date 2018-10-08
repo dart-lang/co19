@@ -13,35 +13,37 @@
  * is added, and will stay subscribed until this stream ends, or a callback
  * cancels the subscription.
  *
- * @description Checks that if the only subscription to broadcast stream cancel,
- * broadcast stream unsubscribes from underlying stream.
- * @author ilya
+ * @description Checks that the returned stream will unsubscribe from
+ * this stream when this stream ends.
+ *
+ * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-f(i) {
-  if (i > 0) {
-    Expect.fail('Subscription is still alive');
-  }
-}
-
 main() {
-  var s = new Stream.fromIterable(new Iterable.generate(5, (i) => f(i)));
-  var b = s.asBroadcastStream();
+  bool hasListener = false;
+  bool listenerCancelled = false;
+  StreamController controller = new StreamController(
+      onListen:() { hasListener = true;},
+      onCancel:() { listenerCancelled = true;}
+  );
+  Stream b = controller.stream.asBroadcastStream();
+  Expect.isFalse(hasListener);
+  Expect.isFalse(listenerCancelled);
 
   asyncStart();
-
-  var subs = b.listen(null);
-
-  subs.onData((_) {
-    subs.cancel();
-    asyncEnd();
-  });
-  subs.onDone(() {
-    Expect.fail('onDone event after cancel');
-  });
+  StreamSubscription subs;
+  subs = b.listen(
+      (_) { },
+      onDone: () {
+          Expect.isTrue(listenerCancelled);
+          asyncEnd();
+      }
+  );
+  Expect.isTrue(hasListener);
+  Expect.isFalse(listenerCancelled);
+  controller.add("a");
+  controller.add("b");
+  new Future(() => controller.close());
 }
-

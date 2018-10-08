@@ -16,21 +16,16 @@ import "../../../Utils/expect.dart";
 test(List create([int length])) {
 
   void check(List a0, int start, int end, Iterable iterable) {
-    List a=create();
+    List a = create();
     a.addAll(a0);
-    bool failed=false;
-    try {
-      a.replaceRange(start, end, iterable);
-      failed=true;
-    } on Error catch(ok) {}
-    Expect.isFalse(failed, "an error expected");
+    Expect.throws(() {a.replaceRange(start, end, iterable);});
   }
 
-  List a0=[1,3,3,4,5,6];
-  check(a0, -1, -1, [7,8,9]);
-  check(a0, 0, -1, [7,8,9]);
-  check(a0, 1, 0, [8,9]);
-  check(a0, a0.length+1, a0.length, [7,8,9,10]);
-  check(a0, a0.length-1, a0.length+1, [-1, 7,8,9]);
-  check(a0, -1, a0.length+1, [7,8,9,10]);
+  List a0 = [1, 3, 3, 4, 5, 6];
+  check(a0, -1, -1, [7, 8, 9]);
+  check(a0, 0, -1, [7, 8, 9]);
+  check(a0, 1, 0, [8, 9]);
+  check(a0, a0.length + 1, a0.length, [7, 8, 9, 10]);
+  check(a0, a0.length - 1, a0.length + 1, [-1, 7, 8, 9]);
+  check(a0, -1, a0.length + 1, [7, 8, 9, 10]);
 }

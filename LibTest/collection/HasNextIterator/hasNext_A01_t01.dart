@@ -5,8 +5,8 @@
  */
 /**
  * @assertion bool hasNext
- * @description Checks that hasNext returns true if iterator has next element to
- * iterate
+ * @description Checks that [hasNext] returns [true] if iterator has next
+ * element to iterate
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";

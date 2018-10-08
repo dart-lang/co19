@@ -10,7 +10,6 @@
  * The default List implementations use Comparable.compare if compare is omitted.
  * @description Checks sorting long integer arrays (lenghts: 32767, 32768, 32769).
  * @author iefremov
- * @reviewer msyabro
  */
 library sort_A01_t06;
 
@@ -23,7 +22,7 @@ test(List create([int length])) {
   }
 
   void check(var actual0, var expected) {
-    List actual=create();
+    List actual = create();
     actual.addAll(actual0);
     actual.sort(c);
     Expect.listEquals(expected, actual);

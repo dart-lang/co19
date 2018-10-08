@@ -15,5 +15,7 @@
 
 
 main() {
-  factory foo;
+  try {
+    factory foo;
+  } catch (x) {}
 }

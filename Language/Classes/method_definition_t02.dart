@@ -25,7 +25,6 @@
  * @description Checks that it is a compile-time error if a factory constructor
  * method definition does not include a body.
  * @compile-error
- * @reviewer rodionov
  * @author msyabro
  */
 
@@ -34,5 +33,7 @@ class A {
 }
 
 main() {
-  A i = new A();
+  try {
+    new A();
+  } catch (e) {}
 }

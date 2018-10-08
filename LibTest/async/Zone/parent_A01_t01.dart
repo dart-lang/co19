@@ -12,11 +12,10 @@
  */
 
 import "dart:async";
-//import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-var count=0;
-var N=20;
+var count = 0;
+var N = 20;
 
 test(Zone z) {
   z.fork().run(() {
@@ -28,7 +27,7 @@ test(Zone z) {
 }
 
 main() {
-  Expect.isNull(Zone.ROOT.parent);
+  Expect.isNull(Zone.root.parent);
 
   var z = Zone.current;
 

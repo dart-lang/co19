@@ -8,8 +8,6 @@
  * HTMLImageElement properties work correctly.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 
@@ -21,7 +19,7 @@ main() {
     <img id="image4" src="IntentionallyMissingFile.jpg" width="10" height="10">
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var i1 = document.getElementById('image1');
+  ImageElement i1 = document.getElementById('image1');
   i1.onLoad.listen((_) {
     debug('i1.naturalWidth');
     shouldBe(i1.naturalWidth, 75);
@@ -31,7 +29,7 @@ main() {
   });
   asyncStart();
 
-  var i2 = document.getElementById('image2');
+  ImageElement i2 = document.getElementById('image2');
   i2.onLoad.listen((_) {
     debug('i2.naturalWidth');
     shouldBe(i2.naturalWidth, 75);
@@ -41,7 +39,7 @@ main() {
   });
   asyncStart();
 
-  var i3 = document.getElementById('image3');
+  ImageElement i3 = document.getElementById('image3');
   i3.onError.listen((_) {
     debug('i3.naturalWidth');
     shouldBe(i3.naturalWidth, 0);
@@ -51,7 +49,7 @@ main() {
   });
   asyncStart();
 
-  var i4 = document.getElementById('image4');
+  ImageElement i4 = document.getElementById('image4');
   i4.onError.listen((_) {
     debug('i4.naturalWidth');
     shouldBe(i4.naturalWidth, 0);

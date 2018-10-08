@@ -16,18 +16,13 @@ import "../../../Utils/expect.dart";
 test(List create([int length])) {
 
   check(List a0, var index) {
-//    List a=create();
-//    a.addAll(a0);
-    List a=create();
+    List a = create();
     a.addAll(a0);
-    Expect.throws(() {
-        a.removeAt(index);
-      },
-      (e) => (e is ArgumentError) || (e is TypeError)
-    );
+    Expect.throws(() {a.removeAt(index);},
+        (e) => (e is ArgumentError) || (e is TypeError));
   }
 
-  List a0=[1,3,3,4,5,6];
+  List a0 = [1, 3, 3, 4, 5, 6];
   check(a0, true);
   check(a0, 0.0);
   check(a0, "3");

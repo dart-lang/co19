@@ -5,8 +5,8 @@
  */
 /**
  * @assertion final bool isEmpty
- * Returns true if there is no element in this collection.
- * @description Checks that method returns true only if queue is empty.
+ * Returns [true] if there is no element in this collection.
+ * @description Checks that method returns [true] only if queue is empty.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
@@ -26,6 +26,7 @@ main() {
   Expect.isFalse(list.isEmpty);
   
   list.removeFirst();
+  Expect.isFalse(list.isEmpty);
   list.removeFirst();
   Expect.isTrue(list.isEmpty);
   Expect.isTrue(list.isEmpty);

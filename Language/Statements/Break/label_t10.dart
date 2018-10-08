@@ -18,11 +18,13 @@
 
 
 main() {
-  L:
-  for (int i in [1,2]) {
-  }
+  try {
+    L:
+    for (int i in [1,2]) {
+    }
 
-  do {
-    break L;
-  } while (false);
+    do {
+      break L;
+    } while (false);
+  } catch (x) {}
 }

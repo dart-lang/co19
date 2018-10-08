@@ -19,12 +19,12 @@
 import 'dart:html';
 import "../../../../Utils/expectWeb.dart";
 
-const String value='value';
-const String expected='expected';
-const String testname='testname';
-const String attributes='attributes';
-const String min='min';
-const String max='max';
+const String VALUE = 'value';
+const String EXPECTED = 'expected';
+const String TESTNAME = 'testname';
+const String ATTRIBUTES = 'attributes';
+const String MIN = 'min';
+const String MAX = 'max';
 
 const String htmlEL='''
 ''';
@@ -33,35 +33,35 @@ void main() {
   document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
   var weeks = [
-    {value: "", expected: "", testname: "empty value"},
-    {value: "2014-W52", expected: "2014-W52", testname: "Valid value: Value should be 2014-W52"},
-    {value: "2014-W53", expected: "", testname: "2014 has 52 weeks: Value should be empty"},
-    {value: "2015-W53", expected: "2015-W53", testname: "2015 has 53 weeks: Value should be 2015-W53"},
-    {value: "2014", expected: "", testname: "Invalid value: year only"},
-    {value: "2014W", expected: "", testname: "Invalid value: no week number"},
-    {value: "2014W52", expected: "", testname: "Invalid value: no '-' (U+002D)"},
-    {value: "-W52", expected: "", testname: "Invalid value: yearless week"},
-    {value: "W52", expected: "", testname: "Invalid value: yearless week and no '-' (U+002D)"},
-    {value: "2014-W03", attributes: { min: "2014-W02" }, expected: "2014-W03", testname: "Value >= min attribute"},
-    {value: "2014-W01", attributes: { min: "2014-W02" }, expected: "2014-W02", testname: "Value < min attribute"},
-    {value: "2014-W10", attributes: { max: "2014-W11" }, expected: "2014-W10", testname: "Value <= max attribute"},
-    {value: "2014-W12", attributes: { max: "2014-W11" }, expected: "2014-W11", testname: "Value > max attribute"}
+    {VALUE: "", EXPECTED: "", TESTNAME: "empty value"},
+    {VALUE: "2014-W52", EXPECTED: "2014-W52", TESTNAME: "Valid value: Value should be 2014-W52"},
+    {VALUE: "2014-W53", EXPECTED: "", TESTNAME: "2014 has 52 weeks: Value should be empty"},
+    {VALUE: "2015-W53", EXPECTED: "2015-W53", TESTNAME: "2015 has 53 weeks: Value should be 2015-W53"},
+    {VALUE: "2014", EXPECTED: "", TESTNAME: "Invalid value: year only"},
+    {VALUE: "2014W", EXPECTED: "", TESTNAME: "Invalid value: no week number"},
+    {VALUE: "2014W52", EXPECTED: "", TESTNAME: "Invalid value: no '-' (U+002D)"},
+    {VALUE: "-W52", EXPECTED: "", TESTNAME: "Invalid value: yearless week"},
+    {VALUE: "W52", EXPECTED: "", TESTNAME: "Invalid value: yearless week and no '-' (U+002D)"},
+    {VALUE: "2014-W03", ATTRIBUTES: { MIN: "2014-W02" }, EXPECTED: "2014-W03", TESTNAME: "Value >= min attribute"},
+    {VALUE: "2014-W01", ATTRIBUTES: { MIN: "2014-W02" }, EXPECTED: "2014-W02", TESTNAME: "Value < min attribute"},
+    {VALUE: "2014-W10", ATTRIBUTES: { MAX: "2014-W11" }, EXPECTED: "2014-W10", TESTNAME: "Value <= max attribute"},
+    {VALUE: "2014-W12", ATTRIBUTES: { MAX: "2014-W11" }, EXPECTED: "2014-W11", TESTNAME: "Value > max attribute"}
   ];
 
   for (var i = 0; i < weeks.length; i++) {
     var w = weeks[i];
     test(() {
-      var input = document.createElement("input");
+      var input = document.createElement("input") as InputElement;
       input.type = "week";
-      input.value = w[value];
-      var attrs = w[attributes];
+      input.value = w[VALUE];
+      var attrs = w[ATTRIBUTES] as Map;
       if (attrs != null) {
         for (var attrName in attrs.keys) {
-          input.setAttribute(attrName, w[attributes][attrName]);
+          input.setAttribute(attrName, attrs[attrName]);
         }
       }
-      assert_equals(input.value, w[expected]);
-    }, w[testname]);
+      assert_equals(input.value, w[EXPECTED]);
+    }, w[TESTNAME]);
   }
 
   checkTestFailures();

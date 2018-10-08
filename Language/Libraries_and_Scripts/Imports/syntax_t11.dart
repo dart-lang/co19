@@ -32,5 +32,7 @@
 import as lib;
 
 main() {
-  someVar = 0;
+  try {
+    someVar = 0;
+  } catch (e) {}
 }

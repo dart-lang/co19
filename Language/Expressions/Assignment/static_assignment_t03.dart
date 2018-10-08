@@ -13,18 +13,16 @@
  * C.v = e.
  * @description Checks that an assignment of the form v = e, where v is a name
  * of a static getter in class C, is equivalent to the assignment C.v = e.
- * @static-warning
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/expect.dart';
 
 class C {
-  static int _v = -1;
 
-  static int get v => _v;
+  static int get v => 0;
   
   test() {
-    Expect.throws(() {v = 1;}, (e) => e is NoSuchMethodError); /// static type warning
+    v = 1;
   }
 }
 

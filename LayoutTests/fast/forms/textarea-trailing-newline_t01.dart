@@ -8,16 +8,15 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
       <p><textarea id="ta"></textarea></p>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var ta = document.getElementById("ta");
+  TextAreaElement ta = document.getElementById("ta") as TextAreaElement;
   ta.focus();
   document.execCommand("InsertLineBreak", false, '');
-  var result = ta.value;
+  String result = ta.value;
   shouldBe(result, "\n");
 }

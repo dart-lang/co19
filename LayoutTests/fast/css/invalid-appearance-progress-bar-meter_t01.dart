@@ -7,9 +7,6 @@
  * @description PASS if it doesn't crash. See Bug 40158.
  */
 import "dart:html";
-import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var inputForProgress = document.createElement("input");

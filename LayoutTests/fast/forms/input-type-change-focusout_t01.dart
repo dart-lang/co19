@@ -9,15 +9,14 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
       <input id="input" type='date' />
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var focusoutCalled = false;
-  var input = document.getElementById('input');
+  bool focusoutCalled = false;
+  InputElement input = document.getElementById('input') as InputElement;
 
   input.addEventListener('focusout', (_) {
     focusoutCalled = true;

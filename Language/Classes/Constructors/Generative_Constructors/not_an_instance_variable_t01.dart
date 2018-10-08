@@ -11,9 +11,6 @@
  * an initializer for a superclass instance variable.
  * @compile-error
  * @author vasya
- * @reviewer pagolubev
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class A {
@@ -25,5 +22,7 @@ class C extends A {
 }
 
 main() {
-  var z = new C();
+  try {
+    var z = new C();
+  } catch (x) {}
 }

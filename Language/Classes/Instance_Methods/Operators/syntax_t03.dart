@@ -23,8 +23,6 @@
  * to define an operator without a name because an instance method named 
  * 'operator' is allowed by the spec.
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {
@@ -32,5 +30,7 @@ class C {
 }
 
 main() {
-  C c = new C();
+  try {
+    C c = new C();
+  } catch (x) {}
 }

@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../testcommon.dart";
 
 main() {
   var testParent = document.createElement('div');
@@ -24,10 +23,10 @@ main() {
 
   testParent.innerHtml = '<article id="article2">Test that <article id="article3">an article element</article> can be nested inside another.</article>';
   var article3 = document.getElementById('article3');
-  Expect.equals("article2", article3.parentNode.id, 'test3');
+  Expect.equals("article2", (article3.parentNode as Element).id, 'test3');
 
-  function getWeight(id) {
-    var x = document.getElementById(id);
+  String getWeight(String id) {
+    Element x = document.getElementById(id);
     return x.getComputedStyle().getPropertyValue('font-weight');
   }
 

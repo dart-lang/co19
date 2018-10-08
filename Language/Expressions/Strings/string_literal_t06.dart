@@ -38,6 +38,8 @@
  */
 
 main() {
-  "new\
-  line";
+  try {
+    "new\
+    line";
+  } catch (e) {}
 }

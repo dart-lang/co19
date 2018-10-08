@@ -9,8 +9,6 @@
  */
 import "dart:html";
 import "dart:svg";
-import "../../../../Utils/expect.dart";
-import "../../../testcommon.dart";
 import "../../../resources/testharness.dart";
 
 class CustomSvgElement extends GElement {

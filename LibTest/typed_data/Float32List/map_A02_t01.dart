@@ -4,13 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable map(f(E element))
- * As long as the returned [Iterable] is not iterated over,
- * the supplied function [f] will not be invoked.
- * @description Checks that [f] will not be invoked until
- * the returned [Iterable] is not iterated over.
+ * @assertion Iterable<T> map<T>(T f(E element))
+ * This method returns a view of the mapped elements. As long as the returned
+ * [Iterable] is not iterated over, the supplied function f will not be invoked.
+ * @description Checks that [f] will not be invoked until the returned
+ * [Iterable] is not iterated over.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

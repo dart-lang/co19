@@ -5,15 +5,14 @@
  */
 /**
  * @assertion double INFINITY
- * @description Checks that double.INFINITY equals 1 / 0.
+ * @description Checks that double.infinity equals 1 / 0.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
 
 main() {
-  Expect.equals(1/0, double.INFINITY);
-  Expect.isTrue(double.INFINITY.isInfinite);
-  Expect.isFalse(double.INFINITY.isNegative);
+  Expect.equals(1/0, double.infinity);
+  Expect.isTrue(double.infinity.isInfinite);
+  Expect.isFalse(double.infinity.isNegative);
 }

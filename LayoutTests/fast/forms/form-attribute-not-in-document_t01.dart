@@ -9,18 +9,17 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
       <form id=myform></form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var input = document.createElement('input');
+  InputElement input = document.createElement('input') as InputElement;
   input.setAttribute('form', 'myform');
   shouldBeNull(input.form);
 
-  var div = document.createElement('div');
+  DivElement div = document.createElement('div') as DivElement;
   div.append(input);
   shouldBeNull(input.form);
 }

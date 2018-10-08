@@ -8,18 +8,14 @@
  * all of the type parameters of G. The type parameters of a generic class
  * declaration G are also in scope in the extends and implements clauses of G
  * (if these exist) and in the body of G.
- * @description Checks bounds of type parameters are checked at runtime.
- * @static-warning
+ * @description Checks bounds of type parameters are checked at compile time.
+ * @compile-error
  * @author iefremov
  * @reviewer kaigorodov
  */
 
-import "../../Utils/dynamic_check.dart";
-
 class Enum<E extends Enum<E>> {}
 
 main() {
-  checkTypeError(() {
-    var x = new Enum<int>(); /// static type warning
-  });
+  var x = new Enum<int>();
 }

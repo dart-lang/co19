@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -27,14 +26,14 @@ main() {
       </div>
       ''', treeSanitizer: new NullTreeSanitizer());
     
-  var t = document.getElementById("t");
-  var q = document.getElementById("q");
+  TextAreaElement t = document.getElementById("t") as TextAreaElement;
+  DivElement q = document.getElementById("q") as DivElement;
   t.focus();
   q.style.display = 'none';
   t.value = '';
 
-  var u = document.getElementById("u");
-  var r = document.getElementById("r");
+  InputElement u = document.getElementById("u") as InputElement;
+  DivElement r = document.getElementById("r") as DivElement;
   u.focus();
   r.style.display = 'none';
   u.value = '';

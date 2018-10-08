@@ -12,9 +12,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "resources/desktop-gl-constants.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -55,29 +52,29 @@ main() {
   {
     var size = 0;
     switch (format) {
-      case wgl.ALPHA:
+      case wgl.WebGL.ALPHA:
         size = 1;
         break;
-      case wgl.RGB:
+      case wgl.WebGL.RGB:
         size = 3;
         break;
-      case wgl.RGBA:
+      case wgl.WebGL.RGBA:
         size = 4;
         break;
       default:
         return -1;
     }
     switch (type) {
-      case wgl.UNSIGNED_BYTE:
+      case wgl.WebGL.UNSIGNED_BYTE:
         break;
-      case wgl.UNSIGNED_SHORT_5_6_5:
-        if (format != wgl.RGB)
+      case wgl.WebGL.UNSIGNED_SHORT_5_6_5:
+        if (format != wgl.WebGL.RGB)
           return -1;
         size = 2;
         break;
-      case wgl.UNSIGNED_SHORT_4_4_4_4:
-      case wgl.UNSIGNED_SHORT_5_5_5_1:
-        if (format != wgl.RGBA)
+      case wgl.WebGL.UNSIGNED_SHORT_4_4_4_4:
+      case wgl.WebGL.UNSIGNED_SHORT_5_5_5_1:
+        if (format != wgl.WebGL.RGBA)
           return -1;
         size = 2;
         break;
@@ -110,17 +107,17 @@ main() {
     // FIXME: not sure if the color packing is correct for UNSIGNED_SHORT_*.
     var color = [ 0, 0, 0, 0 ];
     switch (type) {
-      case wgl.UNSIGNED_BYTE:
+      case wgl.WebGL.UNSIGNED_BYTE:
         switch (format) {
-          case wgl.ALPHA:
+          case wgl.WebGL.ALPHA:
             color[0] = a;
             break;
-          case wgl.RGB:
+          case wgl.WebGL.RGB:
             color[0] = r;
             color[1] = g;
             color[2] = b;
             break;
-          case wgl.RGBA:
+          case wgl.WebGL.RGBA:
             color[0] = r;
             color[1] = g;
             color[2] = b;
@@ -130,16 +127,16 @@ main() {
             return null;
         }
         break;
-      case wgl.UNSIGNED_SHORT_5_6_5:
-        if (format != wgl.RGB)
+      case wgl.WebGL.UNSIGNED_SHORT_5_6_5:
+        if (format != wgl.WebGL.RGB)
           return null;
         r >>= 3;
         g >>= 2;
         b >>= 3;
         color[0] = (r << 11) + (g << 5) + b;
         break;
-      case wgl.UNSIGNED_SHORT_4_4_4_4:
-        if (format != wgl.RGBA)
+      case wgl.WebGL.UNSIGNED_SHORT_4_4_4_4:
+        if (format != wgl.WebGL.RGBA)
           return null;
         r >>= 4;
         g >>= 4;
@@ -147,8 +144,8 @@ main() {
         a >>= 4;
         color[0] = (r << 12) + (g << 8) + (b << 4) + a;
         break;
-      case wgl.UNSIGNED_SHORT_5_5_5_1:
-        if (format != wgl.RGBA)
+      case wgl.WebGL.UNSIGNED_SHORT_5_5_5_1:
+        if (format != wgl.WebGL.RGBA)
           return null;
         r >>= 3;
         g >>= 3;
@@ -166,33 +163,33 @@ main() {
   {
     debug("Testing PACK_ALIGNMENT = $packAlignment, width = $width, height = $height");
     gl.clearColor(1, 0.4, 0, 1);
-    gl.clear(wgl.COLOR_BUFFER_BIT);
-    gl.pixelStorei(wgl.PACK_ALIGNMENT, packAlignment);
-    glErrorShouldBe(gl, wgl.NO_ERROR);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT);
+    gl.pixelStorei(wgl.WebGL.PACK_ALIGNMENT, packAlignment);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
     var bytesPerPixel = calculatePixelBytes(format, type);
     var padding = calculatePaddingBytes(bytesPerPixel, packAlignment, width);
     var size = bytesPerPixel * width * height + padding * (height - 1);
     var isShort = false;
     switch (type) {
-      case wgl.UNSIGNED_SHORT_5_6_5:
-      case wgl.UNSIGNED_SHORT_4_4_4_4:
-      case wgl.UNSIGNED_SHORT_5_5_5_1:
+      case wgl.WebGL.UNSIGNED_SHORT_5_6_5:
+      case wgl.WebGL.UNSIGNED_SHORT_4_4_4_4:
+      case wgl.WebGL.UNSIGNED_SHORT_5_5_5_1:
         isShort = true;
     }
     if (isShort)
       size ~/= 2;
     if (size < 0)
       size = 0;
-    if (type == wgl.UNSIGNED_BYTE)
+    if (type == wgl.WebGL.UNSIGNED_BYTE)
       array = new Uint8List(size);
     else
       array = new Uint16List(size);
     gl.readPixels(0, 0, width, height, format, type, array);
     if (width < 0 || height < 0) {
-      glErrorShouldBe(gl, wgl.INVALID_VALUE);
+      glErrorShouldBe(gl, wgl.WebGL.INVALID_VALUE);
       return;
     } else {
-      glErrorShouldBe(gl, wgl.NO_ERROR);
+      glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
       if (array.length == 0)
         return;
     }
@@ -215,31 +212,31 @@ main() {
 
 
   shouldBeNonNull(gl = initWebGL('example', 'vshader', 'fshader', [ 'pos', 'colorIn' ], [ 0, 0, 0, 1 ], 1));
-  gl.disable(wgl.BLEND);
+  gl.disable(wgl.WebGL.BLEND);
 
   debug("Testing format = RGBA and type = UNSIGNED_BYTE");
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 1, 1, 2);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 2, 1, 2);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 4, 1, 2);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 8, 1, 2);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 4, 2, 2);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 8, 2, 2);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 4, 3, 2);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 8, 3, 2);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 4, 4, 2);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 8, 4, 2);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 8, 5, 1);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 4, 5, 2);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 8, 5, 2);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 8, 6, 2);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 8, 7, 2);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 8, 8, 2);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 1, 0, 0);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 2, 0, 0);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 4, 0, 0);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 8, 0, 0);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 1, -1, 1);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 2, 1, -1);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 4, 0, -1);
-  runTestIteration(wgl.RGBA, wgl.UNSIGNED_BYTE, 8, -1, -1);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 1, 1, 2);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 2, 1, 2);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 4, 1, 2);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 8, 1, 2);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 4, 2, 2);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 8, 2, 2);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 4, 3, 2);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 8, 3, 2);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 4, 4, 2);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 8, 4, 2);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 8, 5, 1);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 4, 5, 2);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 8, 5, 2);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 8, 6, 2);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 8, 7, 2);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 8, 8, 2);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 1, 0, 0);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 2, 0, 0);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 4, 0, 0);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 8, 0, 0);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 1, -1, 1);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 2, 1, -1);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 4, 0, -1);
+  runTestIteration(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, 8, -1, -1);
 }

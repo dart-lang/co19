@@ -22,7 +22,6 @@
  * @description Checks that the \b assertion is interpreted correctly.
  * @3rdparty sputnik-v1:S15.10.2.6_A3_T1.js-S15.10.2.6_A3_T15.js
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
@@ -34,7 +33,8 @@ main() {
   check(r"\bso", "pilot\nsoviet robot\topenoffice", matchPos: 6);
   checkNeg(r"so\b", "pilot\nsoviet robot\topenoffice");
   check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", matchPos: 3);
-  check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", caseSensitive: false, matchPos: 10);
+  check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", caseSensitive: false,
+      matchPos: 10);
   check(r"\bro", "pilot\nsoviet robot\topenoffice", matchPos: 13);
   checkNeg(r"r\b", "pilot\nsoviet robot\topenoffice");
   check(r"\brobot\b", "pilot\nsoviet robot\topenoffice", matchPos: 13);
@@ -45,8 +45,10 @@ main() {
   checkNeg(r"\be", "pilot\nsoviet robot\topenoffic\u0065");
 }
 
-void check(String pattern, String str, {bool multiLine: false, bool caseSensitive: true, int matchPos: -1}) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive);
+void check(String pattern, String str, {bool multiLine: false,
+    bool caseSensitive: true, int matchPos: -1}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine,
+      caseSensitive: caseSensitive);
   Match fm = re.firstMatch(str);
   if(null == fm) {
     Expect.fail("\"$pattern\" !~ \"$str\"");

@@ -19,8 +19,6 @@
  * @description Checks that various expressions fitted into this grammar don't
  * cause compile-time errors.
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 topLevelFunction() {}
@@ -42,42 +40,25 @@ class A extends S {
     //super is a primary
     super + 0;
     super - super[0];
-    super + super.foo - [0][1][2][3]; /// 01: runtime error
 
     // chaining
-     super + 0 - 1 + {} - null; /// 02: runtime error
-    0 - 1 + {} - null; /// 03: static type warning, runtime error
+    super + 0 - 1 + {} - null;
 
     // (...)
-    (this) + (1 ^ 0 & 4) - (1 <= 0); /// 04: runtime error
-
-    //literals with selectors
-    null + 5(); /// 05: static type warning, runtime error
-    true[0] + "x".x - [[[0]]].y; /// 06: static type warning, runtime error
-
-    //constants
-    const [] + const {};  /// 07: static type warning, runtime error
-    const ["1", 2] - const S(); /// 08: static type warning, runtime error
+    (this) + (1 ^ 0 & 4) - (1 <= 0);
 
     //invocations
-    method() + topLevelFunction(); /// 09: runtime error
-    this.method()(1)(1, 2) - id[0]().x; /// 10: runtime error
+    method() + topLevelFunction();
+    this.method()(1)(1, 2) - id[0]().x;
 
-    //multiplicative expressions
-    true * false + id.id / [](); /// 10: static type warning, runtime error
-    this[1] % null(1) - topLevelFunction()[0]++ ~/ {}()[0]; /// 10: static type warning, runtime error
 
     //unary expressions
-    -this + ~this; /// 11: static type warning, runtime error
-    --id - id++;  /// 12: runtime error
-    ~-id + !!false;  /// 13: runtime error
-    ++1[1] - ()=>2[0]--;  /// 14: static type warning, runtime error
+    --id - id++;
+    ~-id + !!false;
 
     //identifier
-    id + id - id;  /// 15: runtime error
+    id + id - id;
   }
-
-  var _id;
 }
 
 main() {

@@ -4,39 +4,43 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<dynamic> lastWhere(bool test(T element), {Object defaultValue()})
+ * @assertion Future<T> lastWhere (bool test(T element),
+ *     {@deprecated dynamic defaultValue(),  T orElse()})
+ *
  * Finds the last element in this stream matching test.
- * As firstWhere, except that the last matching element is found.
- * That means that the result cannot be provided before this stream is done.
- * @description Checks that if element is found, it is passed to the resulting future.
+ *
+ * If this stream emits an error, the returned future is completed with that
+ * error, and processing stops.
+ *
+ * Otherwise as firstWhere, except that the last matching element is found
+ * instead of the first. That means that a non-error result cannot be provided
+ * before this stream is done.
+ *
+ * The defaultValue parameter is deprecated, and orElse should be used instead.
+ * @description Checks that if element is found, it is passed to the resulting
+ * future.
  * @author kaigorodov
  */
-
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
-import "IsolateStream.dart" as IsolateStream;
 
 void check1(Iterable data, bool test(int element), var expected) {
-  Stream s=new Stream.fromIterable(data);
+  Stream<int> s = new Stream.fromIterable(data);
   asyncStart();
-  Future f=s.lastWhere(test);
-  f.then((int actual){
+  Future<int> f = s.lastWhere(test);
+  f.then((int actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });
 }
 
 void check2(Iterable data, bool test(int element), var expected) {
-  Stream s=new Stream.fromIterable(data);
+  Stream<int> s = new Stream.fromIterable(data);
   asyncStart();
-  Future f=s.lastWhere(
-    test,
-    defaultValue:(){
-      Expect.fail("should not be called");
-    }
-  );
-  f.then((int actual){
+  Future<int> f = s.lastWhere(test, orElse: () {
+    Expect.fail("should not be called");
+  });
+  f.then((int actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });
@@ -48,10 +52,12 @@ void check(Iterable data, bool test(int element), var expected) {
 }
 
 main() {
-  check([1,2,3], (int element)=>true, 3);
-  check([1,2,3], (int element)=>element!=null, 3);
-  check([1,2,3,null], (int element)=>element==null, null);
-  check([1,2,3], (int element)=>element>0, 3);
-  check(new Iterable.generate(10, (int index)=>index*5), (int element)=>element!=30, 45);
-  check(new Iterable.generate(10, (int index)=>index*5), (int element)=>element==30, 30);
+  check([1, 2, 3], (int element) => true, 3);
+  check([1, 2, 3], (int element) => element != null, 3);
+  check([1, 2, 3, null], (int element) => element == null, null);
+  check([1, 2, 3], (int element) => element > 0, 3);
+  check(new Iterable.generate(10, (int index) => index * 5),
+      (int element) => element != 30, 45);
+  check(new Iterable.generate(10, (int index) => index * 5),
+      (int element) => element == 30, 30);
 }

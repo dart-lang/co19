@@ -8,10 +8,8 @@
  * Clears the string buffer.
  * @description Checks that this method really clears the buffer
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   StringBuffer sb = new StringBuffer();
@@ -23,6 +21,11 @@ main() {
   Expect.equals("", sb.toString());
   
   sb = new StringBuffer("");
+  sb.clear();
+  Expect.equals("", sb.toString());
+
+  sb = new StringBuffer();
+  sb.writeln("123");
   sb.clear();
   Expect.equals("", sb.toString());
 }

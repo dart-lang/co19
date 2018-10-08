@@ -6,15 +6,14 @@
 /**
  * @assertion abstract double roundToDouble()
  * If this is not finite (NaN or infinity), returns this object unchanged.
- * @description Checks that [:roundToDouble():] on a positive or negative infinity
- * returns the same value.
- * @needsreview #16102
+ * @description Checks that [:roundToDouble():] on a positive or negative
+ * infinity returns the same value.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals(double.INFINITY.roundToDouble(), double.INFINITY);
-  Expect.equals(double.NEGATIVE_INFINITY.roundToDouble(), double.NEGATIVE_INFINITY);
+  Expect.equals(double.infinity.roundToDouble(), double.infinity);
+  Expect.equals(double.negativeInfinity.roundToDouble(),
+      double.negativeInfinity);
 }

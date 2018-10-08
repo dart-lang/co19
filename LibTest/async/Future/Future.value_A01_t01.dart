@@ -13,17 +13,16 @@
  * @author kaigorodov
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 check(value) {
-  Future future = new Future.value(value);
-
   asyncStart();
-  future.then((fValue) {
-    Expect.equals(value, fValue);
-    asyncEnd();
-  });
+  new Future.value(value).then(
+    (x) {
+      Expect.equals(value, x);
+      asyncEnd();
+    }
+  );
 }
 
 main() {

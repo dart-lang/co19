@@ -11,17 +11,16 @@
  */
 
 import "dart:async";
-//import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var z = Zone.current;
+  Zone zone = Zone.current;
 
   runZoned(() {
-    Expect.notEquals(z, Zone.current);
+    Expect.notEquals(zone, Zone.current);
   });
 
-  z.fork().run(() {
-    Expect.notEquals(z, Zone.current);
+  zone.fork().run(() {
+    Expect.notEquals(zone, Zone.current);
   });
 }

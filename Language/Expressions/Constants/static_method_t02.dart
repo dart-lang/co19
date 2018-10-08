@@ -27,6 +27,8 @@ class Bad {
 
 
 main() {
-  Bad b = new Bad();
-  b.test();
+  try {
+    Bad b = new Bad();
+    b.test();
+  } catch (x) {}
 }

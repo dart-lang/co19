@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -20,7 +19,7 @@ main() {
     shouldBe(result, expected);
   }
 
-  var e = document.getElementById("textfield");
+  InputElement e = document.getElementById("textfield") as InputElement;
   e.focus();
   e.setSelectionRange(0, 5);
 

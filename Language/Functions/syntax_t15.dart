@@ -31,5 +31,7 @@
 f() => for (int i = 0; i < 100; i++);
 
 main() {
-  f();
+  try {
+    f();
+  } catch (x) {}
 }

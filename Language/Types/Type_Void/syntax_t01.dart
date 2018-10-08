@@ -7,7 +7,7 @@
  * @assertion The special type void may only be used as the return type of a
  * function: it is a compile-time error to use void in any other context.
  * For example, as a type argument, or as the type of a variable or parameter.
- * @description Checks that with generalized void, specifying [void] as a type
+ * @description Checks that with generalized void specifying [void] as a type
  * argument causes no compile-time error.
  * @author iefremov
  */
@@ -15,5 +15,7 @@
 class A<T> {}
 
 main() {
-  A<void> a = null;
+  try {
+    A<void> a = null;
+  } catch (x) {}
 }

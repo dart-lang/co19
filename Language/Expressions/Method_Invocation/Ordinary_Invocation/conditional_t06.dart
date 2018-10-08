@@ -12,7 +12,6 @@
  * o.m(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k).
  * @description Check that e1?.id is equivalent to
  * ((x) => x == null?null : x.id)(e1). Test non-existing property
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
@@ -21,8 +20,8 @@ class C {
 }
 
 main() {
-  C c1 = new C();
-  C c2 = null;
-  Expect.throws(() {c1?.m();}, (e) => e is NoSuchMethodError); /// static type warning
-  Expect.isNull(c2?.m()); /// static type warning
+  dynamic c1 = new C();
+  dynamic c2 = null;
+  Expect.throws(() {c1?.m();}, (e) => e is NoSuchMethodError);
+  Expect.isNull(c2?.m());
 }

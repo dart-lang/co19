@@ -5,11 +5,10 @@
  */
 /**
  * @assertion  abstract Iterable<E> getRange(int start, int end)
- * Returns an Iterable that iterators over the elements in the range start to end exclusive.
- * The result of this function is backed by this.
+ * Returns an Iterable that iterators over the elements in the range start to
+ * end exclusive. The result of this function is backed by this.
  * @description Checks lists with valid ranges.
  * @author vasya
- * @reviewer varlax
  */
 library getRange_A01_t01;
 
@@ -18,7 +17,7 @@ import "../../../Utils/expect.dart";
 test(List create([int length])) {
 
   void check(List src, int start, int length) {
-    List a=create();
+    List a = create();
     a.addAll(src);
     Iterator dst = a.getRange(start, start+length).iterator;
     for(int i = 0; dst.moveNext(); i++) {

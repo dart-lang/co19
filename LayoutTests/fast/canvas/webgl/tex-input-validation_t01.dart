@@ -12,8 +12,6 @@ import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -93,9 +91,9 @@ main() {
       " target: " + enumToString(testCase['target']) +
       " border: ${testCase['border']}";
 
-    gl.renderbufferStorage(wgl.RENDERBUFFER, testCase['colorBufferFormat'], width, height);
-    glErrorShouldBe(gl, wgl.NO_ERROR);
-    shouldBe(gl.checkFramebufferStatus(wgl.FRAMEBUFFER), wgl.FRAMEBUFFER_COMPLETE);
+    gl.renderbufferStorage(wgl.WebGL.RENDERBUFFER, testCase['colorBufferFormat'], width, height);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+    shouldBe(gl.checkFramebufferStatus(wgl.WebGL.FRAMEBUFFER), wgl.WebGL.FRAMEBUFFER_COMPLETE);
 
     gl.copyTexImage2D(testCase['target'], level, testCase['internalFormat'], x, y, width, height, testCase['border']);
     error = testCase['expectedError'];
@@ -112,18 +110,18 @@ main() {
     var xoffset = 0;
     var yoffset = 0;
     var border = 0;
-    var type = wgl.UNSIGNED_BYTE;
+    var type = wgl.WebGL.UNSIGNED_BYTE;
     var msg = "" +
       " colorBufferFormat: " + enumToString(testCase['colorBufferFormat']) +
       " internalFormat: " + enumToString(testCase['internalFormat']) +
       " target: " + enumToString(testCase['target']);
 
-    gl.renderbufferStorage(wgl.RENDERBUFFER, testCase['colorBufferFormat'], width, height);
-    glErrorShouldBe(gl, wgl.NO_ERROR);
-    shouldBe(gl.checkFramebufferStatus(wgl.FRAMEBUFFER), wgl.FRAMEBUFFER_COMPLETE);
+    gl.renderbufferStorage(wgl.WebGL.RENDERBUFFER, testCase['colorBufferFormat'], width, height);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+    shouldBe(gl.checkFramebufferStatus(wgl.WebGL.FRAMEBUFFER), wgl.WebGL.FRAMEBUFFER_COMPLETE);
 
     gl.texImage2D(testCase['target'], level, testCase['internalFormat'], xoffset + width, yoffset + height, border, testCase['internalFormat'], type, null);
-    glErrorShouldBe(gl, wgl.NO_ERROR);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
     gl.copyTexSubImage2D(testCase['target'], level, xoffset, yoffset, x, y, width, height);
     error = testCase['expectedError'];
@@ -132,7 +130,7 @@ main() {
 
   testCopyFromInternalFBO(testCase)
   {
-    var target = wgl.TEXTURE_2D;
+    var target = wgl.WebGL.TEXTURE_2D;
     var level = 0;
     var x = 0;
     var y = 0;
@@ -141,9 +139,9 @@ main() {
     var xoffset = 0;
     var yoffset = 0;
     var border = 0;
-    var type = wgl.UNSIGNED_BYTE;
+    var type = wgl.WebGL.UNSIGNED_BYTE;
     var msg = "" +
-      " colorBufferFormat: " + enumToString(testCase['contextAlpha'] ? wgl.RGBA : wgl.RGB) +
+      " colorBufferFormat: " + enumToString(testCase['contextAlpha'] ? wgl.WebGL.RGBA : wgl.WebGL.RGB) +
       " internalFormat: " + enumToString(testCase['internalFormat']);
 
     if (testCase['contextAlpha'])
@@ -155,10 +153,10 @@ main() {
     gl.bindTexture(target, tex);
     if (testCase['subImage']) {
       gl.texImage2D(target, level, testCase['internalFormat'], xoffset + width, yoffset + height, border, testCase['internalFormat'], type, null);
-      glErrorShouldBe(gl, wgl.NO_ERROR);
+      glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
       gl.copyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height);
     } else {
-      glErrorShouldBe(gl, wgl.NO_ERROR);
+      glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
       gl.copyTexImage2D(target, level, testCase['internalFormat'], x, y, width, height, border);
     }
     error = testCase['expectedError'];
@@ -167,49 +165,49 @@ main() {
 
   shouldBeNonNull(gl = create3DContext());
   shouldBeNonNull(tex = gl.createTexture());
-  gl.bindTexture(wgl.TEXTURE_2D, tex);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  gl.bindTexture(wgl.WebGL.TEXTURE_2D, tex);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
   debug("");
   debug("Checking TexImage2D: a set of inputs that are valid in GL but invalid in GLES2");
 
   var testCases =
     [ {'target': 0x8064, // GL_PROXY_TEXTURE_2D
-      'internalFormat': wgl.RGBA,
+      'internalFormat': wgl.WebGL.RGBA,
       'border': 0,
-      'format': wgl.RGBA,
-      'type': wgl.UNSIGNED_BYTE,
-      'expectedError': wgl.INVALID_ENUM},
-  {'target': wgl.TEXTURE_2D,
+      'format': wgl.WebGL.RGBA,
+      'type': wgl.WebGL.UNSIGNED_BYTE,
+      'expectedError': wgl.WebGL.INVALID_ENUM},
+  {'target': wgl.WebGL.TEXTURE_2D,
     'internalFormat': 0x1903, // GL_RED
     'border': 0,
     'format': 0x1903, // GL_RED
-    'type': wgl.UNSIGNED_BYTE,
-    'expectedError': wgl.INVALID_ENUM},
-  {'target': wgl.TEXTURE_2D,
-    'internalFormat': wgl.RGBA,
+    'type': wgl.WebGL.UNSIGNED_BYTE,
+    'expectedError': wgl.WebGL.INVALID_ENUM},
+  {'target': wgl.WebGL.TEXTURE_2D,
+    'internalFormat': wgl.WebGL.RGBA,
     'border': 1,
-    'format': wgl.RGBA,
-    'type': wgl.UNSIGNED_BYTE,
-    'expectedError': wgl.INVALID_VALUE},
-  {'target': wgl.TEXTURE_2D,
-    'internalFormat': wgl.RGBA,
+    'format': wgl.WebGL.RGBA,
+    'type': wgl.WebGL.UNSIGNED_BYTE,
+    'expectedError': wgl.WebGL.INVALID_VALUE},
+  {'target': wgl.WebGL.TEXTURE_2D,
+    'internalFormat': wgl.WebGL.RGBA,
     'border': 0,
-    'format': wgl.RGB,
-    'type': wgl.UNSIGNED_BYTE,
-    'expectedError': wgl.INVALID_OPERATION},
-  {'target': wgl.TEXTURE_2D,
-    'internalFormat': wgl.RGBA,
+    'format': wgl.WebGL.RGB,
+    'type': wgl.WebGL.UNSIGNED_BYTE,
+    'expectedError': wgl.WebGL.INVALID_OPERATION},
+  {'target': wgl.WebGL.TEXTURE_2D,
+    'internalFormat': wgl.WebGL.RGBA,
     'border': 0,
-    'format': wgl.RGBA,
-    'type': wgl.BYTE,
-    'expectedError': wgl.INVALID_ENUM},
-  {'target': wgl.TEXTURE_2D,
-    'internalFormat': wgl.RGBA,
+    'format': wgl.WebGL.RGBA,
+    'type': wgl.WebGL.BYTE,
+    'expectedError': wgl.WebGL.INVALID_ENUM},
+  {'target': wgl.WebGL.TEXTURE_2D,
+    'internalFormat': wgl.WebGL.RGBA,
     'border': 0,
-    'format': wgl.RGBA,
-    'type': wgl.UNSIGNED_BYTE,
-    'expectedError': wgl.NO_ERROR} ];
+    'format': wgl.WebGL.RGBA,
+    'type': wgl.WebGL.UNSIGNED_BYTE,
+    'expectedError': wgl.WebGL.NO_ERROR} ];
 
   for (var ii = 0; ii < testCases.length; ++ii)
     testTexImage2D(testCases[ii]);
@@ -218,18 +216,18 @@ main() {
   debug("Checking TexSubImage2D: a set of inputs that are valid in GL but invalid in GLES2");
 
   testCases =
-    [ {'target': wgl.TEXTURE_2D,
+    [ {'target': wgl.WebGL.TEXTURE_2D,
       'format': 0x1903, // GL_RED
-      'type': wgl.UNSIGNED_BYTE,
-      'expectedError': wgl.INVALID_ENUM},
-  {'target': wgl.TEXTURE_2D,
-    'format': wgl.RGBA,
-    'type': wgl.BYTE,
-    'expectedError': wgl.INVALID_ENUM},
-  {'target': wgl.TEXTURE_2D,
-    'format': wgl.RGBA,
-    'type': wgl.UNSIGNED_BYTE,
-    'expectedError': wgl.NO_ERROR} ];
+      'type': wgl.WebGL.UNSIGNED_BYTE,
+      'expectedError': wgl.WebGL.INVALID_ENUM},
+  {'target': wgl.WebGL.TEXTURE_2D,
+    'format': wgl.WebGL.RGBA,
+    'type': wgl.WebGL.BYTE,
+    'expectedError': wgl.WebGL.INVALID_ENUM},
+  {'target': wgl.WebGL.TEXTURE_2D,
+    'format': wgl.WebGL.RGBA,
+    'type': wgl.WebGL.UNSIGNED_BYTE,
+    'expectedError': wgl.WebGL.NO_ERROR} ];
 
   for (var ii = 0; ii < testCases.length; ++ii)
     testTexSubImage2D(testCases[ii]);
@@ -239,21 +237,21 @@ main() {
 
   testCases =
     [ {'target': 0x0DE0, // GL_TEXTURE_1D
-      'pname': wgl.TEXTURE_WRAP_T,
-      'param': wgl.REPEAT,
-      'expectedError': wgl.INVALID_ENUM},
-  {'target': wgl.TEXTURE_2D,
+      'pname': wgl.WebGL.TEXTURE_WRAP_T,
+      'param': wgl.WebGL.REPEAT,
+      'expectedError': wgl.WebGL.INVALID_ENUM},
+  {'target': wgl.WebGL.TEXTURE_2D,
     'pname': 0x813A, // GL_TEXTURE_MIN_LOD
     'param': 0,
-    'expectedError': wgl.INVALID_ENUM},
-  {'target': wgl.TEXTURE_2D,
-    'pname': wgl.TEXTURE_WRAP_T,
+    'expectedError': wgl.WebGL.INVALID_ENUM},
+  {'target': wgl.WebGL.TEXTURE_2D,
+    'pname': wgl.WebGL.TEXTURE_WRAP_T,
     'param': 0x2900, // GL_CLAMP
-    'expectedError': wgl.INVALID_ENUM},
-  {'target': wgl.TEXTURE_2D,
-    'pname': wgl.TEXTURE_WRAP_T,
-    'param': wgl.REPEAT,
-    'expectedError': wgl.NO_ERROR} ];
+    'expectedError': wgl.WebGL.INVALID_ENUM},
+  {'target': wgl.WebGL.TEXTURE_2D,
+    'pname': wgl.WebGL.TEXTURE_WRAP_T,
+    'param': wgl.WebGL.REPEAT,
+    'expectedError': wgl.WebGL.NO_ERROR} ];
 
   for (var ii = 0; ii < testCases.length; ++ii)
     testTexParameter(testCases[ii]);
@@ -263,14 +261,14 @@ main() {
 
   testCases =
     [ {'target': 0x0DE0, // GL_TEXTURE_1D
-      'pname': wgl.TEXTURE_WRAP_T,
-      'expectedError': wgl.INVALID_ENUM},
-  {'target': wgl.TEXTURE_2D,
+      'pname': wgl.WebGL.TEXTURE_WRAP_T,
+      'expectedError': wgl.WebGL.INVALID_ENUM},
+  {'target': wgl.WebGL.TEXTURE_2D,
     'pname': 0x813A, // GL_TEXTURE_MIN_LOD
-    'expectedError': wgl.INVALID_ENUM},
-  {'target': wgl.TEXTURE_2D,
-    'pname': wgl.TEXTURE_WRAP_T,
-    'expectedError': wgl.NO_ERROR} ];
+    'expectedError': wgl.WebGL.INVALID_ENUM},
+  {'target': wgl.WebGL.TEXTURE_2D,
+    'pname': wgl.WebGL.TEXTURE_WRAP_T,
+    'expectedError': wgl.WebGL.NO_ERROR} ];
 
   for (var ii = 0; ii < testCases.length; ++ii)
     testGetTexParameter(testCases[ii]);
@@ -282,33 +280,33 @@ main() {
   var fbo = null;
 
   shouldBeNonNull(fbo = gl.createFramebuffer());
-  gl.bindFramebuffer(wgl.FRAMEBUFFER, fbo);
+  gl.bindFramebuffer(wgl.WebGL.FRAMEBUFFER, fbo);
   shouldBeNonNull(colorBuffer = gl.createRenderbuffer());
-  gl.bindRenderbuffer(wgl.RENDERBUFFER, colorBuffer);
-  gl.framebufferRenderbuffer(wgl.FRAMEBUFFER, wgl.COLOR_ATTACHMENT0, wgl.RENDERBUFFER, colorBuffer);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  gl.bindRenderbuffer(wgl.WebGL.RENDERBUFFER, colorBuffer);
+  gl.framebufferRenderbuffer(wgl.WebGL.FRAMEBUFFER, wgl.WebGL.COLOR_ATTACHMENT0, wgl.WebGL.RENDERBUFFER, colorBuffer);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
   testCases =
-    [ {'target': wgl.TEXTURE_2D,
-      'colorBufferFormat': wgl.RGB565,
+    [ {'target': wgl.WebGL.TEXTURE_2D,
+      'colorBufferFormat': wgl.WebGL.RGB565,
       'internalFormat': 0x8054, // GL_RGB16
       'border': 0,
-      'expectedError': wgl.INVALID_ENUM},
-  {'target': wgl.TEXTURE_2D,
-    'colorBufferFormat': wgl.RGB565,
-    'internalFormat': wgl.RGBA,
+      'expectedError': wgl.WebGL.INVALID_ENUM},
+  {'target': wgl.WebGL.TEXTURE_2D,
+    'colorBufferFormat': wgl.WebGL.RGB565,
+    'internalFormat': wgl.WebGL.RGBA,
     'border': 1,
-    'expectedError': wgl.INVALID_VALUE},
-  {'target': wgl.TEXTURE_2D,
-    'colorBufferFormat': wgl.RGB565,
-    'internalFormat': wgl.RGBA,
+    'expectedError': wgl.WebGL.INVALID_VALUE},
+  {'target': wgl.WebGL.TEXTURE_2D,
+    'colorBufferFormat': wgl.WebGL.RGB565,
+    'internalFormat': wgl.WebGL.RGBA,
     'border': 0,
-    'expectedError': wgl.INVALID_OPERATION},
-  {'target': wgl.TEXTURE_2D,
-    'colorBufferFormat': wgl.RGB565,
-    'internalFormat': wgl.RGB,
+    'expectedError': wgl.WebGL.INVALID_OPERATION},
+  {'target': wgl.WebGL.TEXTURE_2D,
+    'colorBufferFormat': wgl.WebGL.RGB565,
+    'internalFormat': wgl.WebGL.RGB,
     'border': 0,
-    'expectedError': wgl.NO_ERROR} ];
+    'expectedError': wgl.WebGL.NO_ERROR} ];
 
   for (var ii = 0; ii < testCases.length; ++ii)
     testCopyTexImage2D(testCases[ii]);
@@ -317,14 +315,14 @@ main() {
   debug("Checking CopyTexSubImage2D: a set of inputs that are valid in GL but invalid in GLES2");
 
   testCases =
-    [ {'target': wgl.TEXTURE_2D,
-      'colorBufferFormat': wgl.RGB5_A1,
-      'internalFormat': wgl.RGBA,
-      'expectedError': wgl.NO_ERROR},
-  {'target': wgl.TEXTURE_2D,
-    'colorBufferFormat': wgl.RGB565,
-    'internalFormat': wgl.RGBA,
-    'expectedError': wgl.INVALID_OPERATION} ];
+    [ {'target': wgl.WebGL.TEXTURE_2D,
+      'colorBufferFormat': wgl.WebGL.RGB5_A1,
+      'internalFormat': wgl.WebGL.RGBA,
+      'expectedError': wgl.WebGL.NO_ERROR},
+  {'target': wgl.WebGL.TEXTURE_2D,
+    'colorBufferFormat': wgl.WebGL.RGB565,
+    'internalFormat': wgl.WebGL.RGBA,
+    'expectedError': wgl.WebGL.INVALID_OPERATION} ];
 
   for (var ii = 0; ii < testCases.length; ++ii)
     testCopyTexSubImage2D(testCases[ii]);
@@ -332,24 +330,24 @@ main() {
   debug("");
   debug("Checking CopyTex{Sub}Image2D: copy from WebGL internal framebuffer");
 
-  testCases =
+  var testCases1 =
     [ {'contextAlpha': true,
-      'internalFormat': wgl.RGBA,
+      'internalFormat': wgl.WebGL.RGBA,
       'subImage': false,
-      'expectedError': wgl.NO_ERROR},
+      'expectedError': wgl.WebGL.NO_ERROR},
   {'contextAlpha': false,
-    'internalFormat': wgl.RGBA,
+    'internalFormat': wgl.WebGL.RGBA,
     'subImage': false,
-    'expectedError': wgl.INVALID_OPERATION},
+    'expectedError': wgl.WebGL.INVALID_OPERATION},
   {'contextAlpha': true,
-    'internalFormat': wgl.RGBA,
+    'internalFormat': wgl.WebGL.RGBA,
     'subImage': true,
-    'expectedError': wgl.NO_ERROR},
+    'expectedError': wgl.WebGL.NO_ERROR},
   {'contextAlpha': false,
-    'internalFormat': wgl.RGBA,
+    'internalFormat': wgl.WebGL.RGBA,
     'subImage': true,
-    'expectedError': wgl.INVALID_OPERATION} ];
+    'expectedError': wgl.WebGL.INVALID_OPERATION} ];
 
-  for (var ii = 0; ii < testCases.length; ++ii)
-    testCopyFromInternalFBO(testCases[ii]);
+  for (var ii = 0; ii < testCases1.length; ++ii)
+    testCopyFromInternalFBO(testCases1[ii]);
 }

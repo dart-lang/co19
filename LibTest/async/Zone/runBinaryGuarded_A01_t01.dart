@@ -4,40 +4,34 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract dynamic runBinaryGuarded(f(arg1, arg2), arg1, arg2)
- * Executes the given callback f in this zone.
- * Same as runBinary but catches uncaught errors and gives them to
- * handleUncaughtError. 
- * @description Checks that f is run in this zone with provided args and that
- * uncaught errors are passed to handleUncaughtError.
+ * @assertion avoid runBinaryGuarded<T1, T2>(
+ *                                    void action(T1 argument1, T2 argument2),
+ *                                    T1 argument1,
+ *                                    T2 argument2
+ *                  )
+ *    Executes the given action with argument1 and argument2 in this zone
+ * and catches synchronous errors.
+ *    See runGuarded.
+ * @description Checks that [action] is run in this zone with provided args.
  * @author ilya
+ * @author a.semenov@unipro.ru
  */
 
 import "dart:async";
-//import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-errorHandler(Zone self, ZoneDelegate parent, Zone zone, e, st) {
-  Expect.equals(0, e);
-}
+void test(Zone zone) {
+  Zone actionZone = null;
 
-newErrorZone (Zone z) =>
-  z.fork(specification: new ZoneSpecification(handleUncaughtError: errorHandler));
+  void action(int x, int y) {
+    actionZone = Zone.current;
+  }
 
-test(Zone z) {
-  var res = z.runBinaryGuarded((x,y) {
-    Expect.equals(z, Zone.current);
-    return x+y;
-  }, 1, 2);
-
-  Expect.equals(3, res);
-
-  z.runBinaryGuarded((x,y) {
-    throw 0;
-  }, 1, 2);
+  zone.runBinaryGuarded<int, int>(action, 1, 2);
+  Expect.equals(zone, actionZone);
 }
 
 main() {
-  test(newErrorZone(Zone.current));
-  test(newErrorZone(Zone.current.fork()));
+  test(Zone.current);
+  test(Zone.current.fork());
 }

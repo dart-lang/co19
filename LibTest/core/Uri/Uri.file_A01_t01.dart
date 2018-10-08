@@ -12,10 +12,20 @@
  * backward slash is not interpreted as path separator for non-Windows
  * semantics
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
+
+check(String path) {
+  Uri uri = new Uri.file(r'a/b', windows: false);
+
+  Expect.equals("", uri.scheme);
+  Expect.equals("", uri.userInfo);
+  Expect.equals("", uri.host);
+  Expect.equals("", uri.query);
+  Expect.equals(0, uri.port);
+  Expect.equals("", uri.fragment);
+  Expect.equals("a/b", uri.path);
+}
 
 main() {
   Expect.equals('a/b', new Uri.file(r'a/b', windows: false).path);
@@ -24,4 +34,3 @@ main() {
   Expect.notEquals('/a/b', new Uri.file(r'\a\b', windows: false).path);
   Expect.notEquals('/a/b', new Uri.file(r'/a\b', windows: false).path);
 }
-

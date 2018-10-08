@@ -5,7 +5,6 @@ import 'dart:html';
 import 'dart:web_gl' as wgl;
 import 'webgl-test.dart';
 import 'webgl-test-utils.dart' as wtu;
-import "../../../../../Utils/async_utils.dart";
 import "../../../../testcommon.dart";
 
 generateTest(pixelFormat, pixelType, prologue) {
@@ -16,32 +15,32 @@ generateTest(pixelFormat, pixelType, prologue) {
   {
     debug('Testing ' + (useTexSubImage2D ? 'texSubImage2D' : 'texImage2D') +
         ' with flipY=$flipY');
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
     // Disable any writes to the alpha channel
     gl.colorMask(true, true, true, false);
     var texture = gl.createTexture();
     // Bind the texture to texture unit 0
-    gl.bindTexture(wgl.TEXTURE_2D, texture);
+    gl.bindTexture(wgl.WebGL.TEXTURE_2D, texture);
     // Set up texture parameters
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MIN_FILTER, wgl.NEAREST);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MAG_FILTER, wgl.NEAREST);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_S, wgl.CLAMP_TO_EDGE);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_T, wgl.CLAMP_TO_EDGE);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MIN_FILTER, wgl.WebGL.NEAREST);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MAG_FILTER, wgl.WebGL.NEAREST);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_S, wgl.WebGL.CLAMP_TO_EDGE);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_T, wgl.WebGL.CLAMP_TO_EDGE);
     // Set up pixel store parameters
-    gl.pixelStorei(wgl.UNPACK_FLIP_Y_WEBGL, flipY ? 1 : 0);
-    gl.pixelStorei(wgl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 0);
+    gl.pixelStorei(wgl.WebGL.UNPACK_FLIP_Y_WEBGL, flipY ? 1 : 0);
+    gl.pixelStorei(wgl.WebGL.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 0);
     // Upload the videoElement into the texture
     if (useTexSubImage2D) {
       // Initialize the texture to black first
-      gl.texImage2D(wgl.TEXTURE_2D, 0, pixelFormat,
+      gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, pixelFormat,
           videoElement.videoWidth, videoElement.videoHeight, 0,
           pixelFormat, pixelType, null);
-      gl.texSubImage2D(wgl.TEXTURE_2D, 0, 0, 0, pixelFormat, pixelType, videoElement);
+      gl.texSubImage2D(wgl.WebGL.TEXTURE_2D, 0, 0, 0, pixelFormat, pixelType, videoElement);
     } else {
-      gl.texImage2D(wgl.TEXTURE_2D, 0, pixelFormat, pixelFormat, pixelType, videoElement);
+      gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, pixelFormat, pixelFormat, pixelType, videoElement);
     }
 
-    var c = document.createElement("canvas");
+    dynamic c = document.createElement("canvas");
     c.width = 16;
     c.height = 16;
     c.style.border = "1px solid black";
@@ -72,7 +71,7 @@ generateTest(pixelFormat, pixelType, prologue) {
     runOneIteration(videoElement, true, true, red, green);
     runOneIteration(videoElement, true, false, green, red);
 
-    glErrorShouldBe(gl, wgl.NO_ERROR, "should be no errors");
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "should be no errors");
   }
 
   var init = ()
@@ -92,7 +91,7 @@ generateTest(pixelFormat, pixelType, prologue) {
 
     textureLoc = gl.getUniformLocation(program, "tex");
 
-    var video = document.getElementById("vid");
+    dynamic video = document.getElementById("vid");
     video.addEventListener(
         "playing", (_) {
           runTest(video);

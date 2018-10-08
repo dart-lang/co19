@@ -8,11 +8,11 @@
  * Whether the invocation was a method call.
  * @description Checks that isMethod returns false for getters and setters
  * invocations.
- * @static-warning
  * @author ilya
  */
 import "../../../Utils/expect.dart";
 
+@proxy
 class D {
   get getOnly {}
   set setOnly (x) {}
@@ -25,23 +25,15 @@ class C extends D {
   noSuchMethod(Invocation i) {
     Expect.isFalse(i.isMethod);
   }
-  test() {
-    foo;
-    bar = 1;
-    setOnly;
-    getOnly = 1;
-    super.foo;
-    super.bar = 1;
-    super.setOnly;
-    super.getOnly = 1;
-  }
 }
 
-main() {
-  var x = new C();
+test(dynamic x) {
   x.foo;
   x.bar = 1;
   x.setOnly;
   x.getOnly = 1;
-  x.test();
+}
+
+main() {
+  test(new C());
 }

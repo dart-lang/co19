@@ -38,5 +38,7 @@
 f({var a}, var b) {}
 
 main() {
-  f(1, 1);
+  try {
+    f(1, 1);
+  } catch (x) {}
 }

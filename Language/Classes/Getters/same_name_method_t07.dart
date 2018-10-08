@@ -12,8 +12,6 @@
  * implicit getter and a method with the same name inherited from a superclass.
  * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class A {
@@ -25,5 +23,7 @@ class C extends A {
 }
 
 main() {
-  new C().foo();
+  try {
+    new C().foo();
+  } catch (e) {}
 }

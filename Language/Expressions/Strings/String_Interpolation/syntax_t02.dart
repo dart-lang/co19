@@ -21,5 +21,7 @@
  */
 
 main() {
-  '${() {return 1}}';
+  try {
+    '${() {return 1}}';
+  } catch (e) {}
 }

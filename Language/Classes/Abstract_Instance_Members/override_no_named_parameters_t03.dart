@@ -14,8 +14,6 @@
  * parameters of the same type.
  * @static-clean
  * @author rodionov
- * @reviewer iefremov
- * @reviewer kaigorodov
  */
 
 abstract class A {

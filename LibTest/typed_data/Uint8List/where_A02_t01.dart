@@ -5,10 +5,11 @@
  */
 /**
  * @assertion Iterable<E> where(bool test(E element))
- * As long as the returned [Iterable] is not iterated over,
- * the supplied function [test] will not be invoked.
- * @description Checks that as long as the returned [Iterable] is not iterated over,
- * the supplied function [test] will not be invoked.
+ * ...
+ * As long as the returned [Iterable] is not iterated over, the supplied
+ * function [test] will not be invoked.
+ * @description Checks that as long as the returned [Iterable] is not iterated
+ * over, the supplied function [test] is invoked.
  * @author msyabro
  */
 
@@ -17,7 +18,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var count = 0;
-  test(e) {
+  bool test(int e) {
     ++count;
     return true;
   }

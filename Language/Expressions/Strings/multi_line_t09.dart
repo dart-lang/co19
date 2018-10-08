@@ -30,7 +30,9 @@
  */
 
 main() {
-  r'''
-  incorrect string
-  """;
+  try {
+    r'''
+    incorrect string
+    """;
+  } catch (e) {}
 }

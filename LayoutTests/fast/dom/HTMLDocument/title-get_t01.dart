@@ -7,12 +7,11 @@
  * @description Tests: getting HTMLDocument::title
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
   var parser = new DomParser();
-  var doc = parser.parseFromString(
+  HtmlDocument doc = parser.parseFromString(
       '<!DOCTYPE html><head><title>test</title></head><body></body>',
       'text/html');
 

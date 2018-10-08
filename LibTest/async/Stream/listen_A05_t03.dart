@@ -17,12 +17,11 @@
  */
 
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var error = new Error();
-  var s = new Stream.fromFuture(new Future.error(error));
+  Error error = new Error();
+  Stream s = new Stream.fromFuture(new Future.error(error));
 
   asyncStart();
 

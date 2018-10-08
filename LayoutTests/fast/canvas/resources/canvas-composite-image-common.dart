@@ -6,22 +6,21 @@
 import "dart:html";
 import "dart:math" as Math;
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
-// This test should show a table of canvas elements. Onto the background of each a blue
-// square is drawn, either fully opaque or with some transparency, and then a clip and
-// transformation is applied. The clip only allows drawing in the left two thirds of the
-// canvas.
+// This test should show a table of canvas elements. Onto the background of each
+// a blue square is drawn, either fully opaque or with some transparency, and
+// then a clip and transformation is applied. The clip only allows drawing in
+// the left two thirds of the canvas.
 
-// Once each canvas has been set up, an image is drawn with the composite mode for that row.
-// Each row uses a different compositing mode. Different columns are used for when the
-// background is or isn't transparent, and when the image is drawn with or without a global
-// alpha.
+// Once each canvas has been set up, an image is drawn with the composite mode
+// for that row. Each row uses a different compositing mode. Different columns
+// are used for when the background is or isn't transparent, and when the image
+// is drawn with or without a global alpha.
 
-// The image is a green rectangle which gets skewed by transform and cut off by the clip.
-// In each row the green rectangle should be drawn with the appropriate compositing
-// mode, as per the HTML5 canvas spec. The background on the right should always be left
-// untouched due to the clip.
+// The image is a green rectangle which gets skewed by transform and cut off by
+// the clip. In each row the green rectangle should be drawn with the
+// appropriate compositing mode, as per the HTML5 canvas spec. The background on
+// the right should always be left untouched due to the clip.
 
 // These map to the rows of the table
 var compositeTypes = [
@@ -242,7 +241,7 @@ var expectedColors = [
 ];
 
 createOutputTable() {
-  var tableEl = document.getElementById('outputtable');
+  dynamic tableEl = document.getElementById('outputtable');
   var row = tableEl.insertRow(-1);
   var cell = row.insertCell(-1);
   var label;
@@ -257,7 +256,7 @@ createOutputTable() {
     label = new Text(compositeTypes[i]);
     cell.append(label);
     for (var j = 0; j < testNames.length; j++) {
-      var canvas = document.createElement('canvas');
+      CanvasElement canvas = document.createElement('canvas');
       canvas.width = 130;
       canvas.height = 40;
       canvas.id = compositeTypes[i] + testNames[j];
@@ -288,7 +287,7 @@ setupContext(context, alpha) {
   context.clip();
   context.translate(40, -10);
   context.scale(0.4, 0.6);
-  context.rotate(Math.PI / 8);
+  context.rotate(Math.pi / 8);
   context.translate(-10, -10);
 }
 

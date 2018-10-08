@@ -9,21 +9,20 @@
  * addOnExitListener and addErrorListener were called with the corresponding
  * parameter and was processed before the isolate starts running.
  *
- * @description heck that if onError parameter is supplied, the isolate
+ * @description Check that if onError parameter is supplied, the isolate
  * captures and send only first error on given send port, errorAreFatal is true.
  * The isolate is passive.
- * @static-warning
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
 void entryPoint(SendPort sendPort) {
   ReceivePort receivePort = new ReceivePort();
-  receivePort.listen( (_) => "a" + 1 ); /// stati type warning
+  dynamic i = 1;
+  receivePort.listen((_) => "a" + i);
   sendPort.send(receivePort.sendPort);
 }
 test() async {

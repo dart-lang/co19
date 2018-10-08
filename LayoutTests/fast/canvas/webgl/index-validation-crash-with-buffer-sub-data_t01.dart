@@ -12,9 +12,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -25,9 +22,9 @@ main() {
   var gl = create3DContext();
 
   var elementBuffer = gl.createBuffer();
-  gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, elementBuffer);
-  gl.bufferData(wgl.ELEMENT_ARRAY_BUFFER, 256, wgl.STATIC_DRAW);
+  gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, elementBuffer);
+  gl.bufferData(wgl.WebGL.ELEMENT_ARRAY_BUFFER, 256, wgl.WebGL.STATIC_DRAW);
   var data = new Uint8List(127);
-  gl.bufferSubData(wgl.ELEMENT_ARRAY_BUFFER, 63, data);
+  gl.bufferSubData(wgl.WebGL.ELEMENT_ARRAY_BUFFER, 63, data);
   testPassed("bufferSubData, when buffer object was initialized with null, did not crash");
 }

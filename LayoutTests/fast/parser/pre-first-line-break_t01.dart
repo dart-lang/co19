@@ -13,9 +13,9 @@ import "../../testharness.dart";
 void main() {
     description('Test for handling of line breaks following the pre element.');
 
-    var element = document.createElement("div");
+    Element element = document.createElement("div");
 
-    String roundTrip(string) {
+    String roundTrip(String string) {
         element.setInnerHtml(string, treeSanitizer:new NullTreeSanitizer());
         return element.innerHtml;
     }

@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../testcommon.dart";
 
 main() {
   var testParent = document.createElement('div');
@@ -28,7 +27,7 @@ main() {
   //debug('&lt;hgroup> can be nested inside &lt;hgroup>:');
   testParent.innerHtml = '<hgroup id="hgroup2">Test that <hgroup id="hgroup3">a hgroup element</hgroup> can be nested inside another.</hgroup>';
   var hgroup3 = document.getElementById('hgroup3');
-  Expect.equals("hgroup2", hgroup3.parentNode.id);
+  Expect.equals("hgroup2", (hgroup3.parentNode as Element).id);
 
   //debug('Residual style:');
   testParent.innerHtml = '<b><hgroup id="hgroup4"><h2>This text should be bold.</h2></hgroup> <span id="span1">This is also bold.</span></b>';

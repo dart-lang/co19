@@ -30,9 +30,11 @@
 f() => 1;
 
 main() {
-  switch(1) {
-    case 0:
-    case 2:
-    case f():
-  }
+  try {
+    switch(1) {
+      case 0:
+      case 2:
+      case f():
+    }
+  } catch (e) {}
 }

@@ -10,24 +10,17 @@
  * the given predicate is returned.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 
 main() {
   var runes = new Runes('\x01\x02\x03\x04\x05\x06\x09');
-  var res = runes.firstWhere(
-    (element) => element == 1
-  );
+  var res = runes.firstWhere((element) => element == 1);
   Expect.equals(1, res);
 
-  res = runes.firstWhere(
-          (element) => element > 6
-  );
+  res = runes.firstWhere((element) => element > 6);
   Expect.equals(9, res);
 
-  res = runes.firstWhere(
-          (element) => element > 1
-  );
+  res = runes.firstWhere((element) => element > 1);
   Expect.equals(2, res);
 }

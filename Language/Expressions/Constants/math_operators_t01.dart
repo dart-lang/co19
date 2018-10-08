@@ -26,8 +26,8 @@ final constList = const [
   3.14 + 1,
   1 + 3.14,
   3.14 + 3.14,
-  9999999999999999999 + 999999999999999999999,
-  0xFFFFFFFFFFFFFFFFFFFFFF + 0xfffffffffffffffffffffffffff,
+  999999999999999999 + 999999999999999,
+  0xFFFFFFFFFFFFFFFF + 0xffffffffffffffff,
   (0.0/0.0) + (0.0/0.0),
   (3.14 * 15926) + (1 ~/ 100)
 ];

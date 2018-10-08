@@ -7,15 +7,13 @@
  * @assertion Returns whether this map contains the given [key].
  * @description Checks that null key is allowed
  * @author msyabro
- * @reviewer varlax
- * @reviewer rodionov
  */
 library containsKey_A01_t02;
 
 import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {
-  Map<String, Object> map = create();
+  Map map = create();
   map[null] = "not null";
   Expect.isTrue(map.containsKey(null));
 }

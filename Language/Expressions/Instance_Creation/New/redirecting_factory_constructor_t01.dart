@@ -16,7 +16,7 @@
 import '../../../../Utils/expect.dart';
 
 class R<T> {
-  factory R.fc(T arg) = C;
+  factory R.fc(T arg) = C<T>;
 }
 
 class C<T> implements R<T> {
@@ -32,7 +32,7 @@ class C<T> implements R<T> {
      if (identical(value, null)) {
        return identical(other.value, null);
      }
-     return value==other.value;
+     return value == other.value;
    }
 }
 

@@ -11,10 +11,8 @@
  * @description Checks that the stream sends this' error to its subscribers.
  * @author kaigorodov
  */
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
-
 import "dart:async";
+import "../../../Utils/expect.dart";
 
 main() {
   Error error = new Error();
@@ -23,12 +21,13 @@ main() {
   Future f2 = stream.single;
 
   asyncStart();
-  f2.then((fValue) {
-    Expect.fail("unexpected value=$fValue");
-  },
-  onError: (Error e){
-    Expect.identical(error, e);
-    asyncEnd();
-  }
+  f2.then(
+    (fValue) {
+      Expect.fail("unexpected value=$fValue");
+    },
+    onError: (Error e){
+      Expect.identical(error, e);
+      asyncEnd();
+    }
   );
 }

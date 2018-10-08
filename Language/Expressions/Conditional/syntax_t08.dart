@@ -17,5 +17,7 @@
  */
 
 main() {
-  true ? 1 2;
+  try {
+    true ? 1 2;
+  } catch (e) {}
 }

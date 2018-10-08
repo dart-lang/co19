@@ -1,0 +1,47 @@
+/*
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion Directory.fromUri(Uri uri)
+ * Create a Directory object from a URI.
+ *
+ * If uri cannot reference a directory this throws UnsupportedError.
+ * @description Checks that this constructor creates a Directory object from a
+ * URI.
+ * @author sgrekhov@unipro.ru
+ */
+import "dart:io";
+import "../../../Utils/expect.dart";
+import "../file_utils.dart";
+
+main() {
+  Directory tmp = getTempDirectorySync();
+  try {
+    // test existing Directory
+    Uri uri = new Uri.directory(tmp.path);
+    Directory dir = new Directory.fromUri(uri);
+    Expect.equals(tmp.path + Platform.pathSeparator, dir.path);
+
+    // test not existing Directory
+    String dirName = getTempDirectoryName();
+    uri = new Uri.directory(Directory.current.path +
+        Platform.pathSeparator + dirName);
+    dir = new Directory.fromUri(uri);
+    Expect.equals(Directory.current.path + Platform.pathSeparator +
+        dirName + Platform.pathSeparator, dir.path);
+
+    // test file
+    File file = getTempFileSync();
+    try {
+      uri = new Uri.file(file.path);
+      dir = new Directory.fromUri(uri);
+      Expect.equals(file.path, dir.path);
+    } finally {
+      file.delete(recursive: true);
+    }
+  } finally {
+    tmp.delete(recursive: true);
+  }
+}

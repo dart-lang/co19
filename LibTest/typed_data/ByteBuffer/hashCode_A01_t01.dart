@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final int hashCode
+ * @assertion int hashCode
  * Get a hash code for this object. Hash codes are guaranteed to be
  * the same for objects that are equal when compared using the equality
  * operator ==.
@@ -15,7 +15,6 @@
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
-
 
 main() {
   var obj1 = new Int8List(10).buffer;

@@ -10,15 +10,16 @@
  * iteration order.
  * @author a.semenov@unipro.ru
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  List<double> data = [1.0, 2.1, 3.2, 4.3, 5.4, 6.5 ,7.6, 8.7, 9.8, 10.9];
+  List<double> data = [1.0, 2.1, 3.2, 4.3, 5.4, 6.5, 7.6, 8.7, 9.8, 10.9];
   Float32List list = new Float32List.fromList(data);
 
   Iterator<double> expected = list.iterator;
-  list.forEach( (e) {
+  list.forEach((e) {
     Expect.isTrue(expected.moveNext());
     Expect.equals(expected.current, e);
   });

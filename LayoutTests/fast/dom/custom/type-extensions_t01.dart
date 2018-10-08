@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "dart:svg";
-import "../../../testcommon.dart";
 import "../../../resources/testharness.dart";
 
 class Div extends DivElement {

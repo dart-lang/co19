@@ -16,8 +16,6 @@
  * formal, or via an intializer in constructor's intializer list.
  * @static-clean
  * @author vasya
- * @reviewer pagolubev
- * @reviewer iefremov
  */
 
 class C {
@@ -28,5 +26,7 @@ class C {
 }
 
 main() {
-  C c = new C("Initialization by means of an initializing formal of k");
+  try {
+    C c = new C("Initialization by means of an initializing formal of k");
+  } catch (x) {}
 }

@@ -13,16 +13,13 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
-  x.setNamespacedAttributes(XlinkNamespace, "href", "foo");
-  x.setNamespacedAttributes(XlinkNamespace, "custom", "bar");
-  Map attrs=x.getNamespacedAttributes(XlinkNamespace);
-  
+  IFrameElement x = new IFrameElement();
+  x.setAttributeNS(XlinkNamespace, "href", "foo");
+  x.setAttributeNS(XlinkNamespace, "custom", "bar");
+  Map attrs = x.getNamespacedAttributes(XlinkNamespace);
+
   print("length=${attrs.length}");
-  var key=attrs.keys[0];
-  var val=attrs[key];
-  print("attrs[$key]=$val;");
-  
+
   Expect.equals('foo', attrs["href"]);
   Expect.equals('bar', attrs["custom"]);
 }

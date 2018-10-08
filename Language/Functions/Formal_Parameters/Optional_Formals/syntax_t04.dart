@@ -23,5 +23,7 @@
 f([var x = ]) {}
 
 main() {
-  f();
+  try {
+    f();
+  } catch (x) {}
 }

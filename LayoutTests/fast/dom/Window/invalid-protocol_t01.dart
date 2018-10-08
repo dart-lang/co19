@@ -7,8 +7,6 @@
  * @description Test URL protocol setter.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -17,7 +15,7 @@ main() {
         (e) => e is DomException && e.name == DomException.SYNTAX);
   }
 
-  var a = document.createElement("a");
+  AnchorElement a = document.createElement("a");
   a.setAttribute("href", "http://www.apple.com/");
   document.body.append(a);
 

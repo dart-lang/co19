@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Map<K, V> abstract class 
- * @description Checks that all members of [Map] are implemented, using comparable keys.
+ * @description Checks that all members of [Map] are implemented, using
+ * comparable keys.
  * @author kaigorodov
  */
 library compKeysWarnTests;

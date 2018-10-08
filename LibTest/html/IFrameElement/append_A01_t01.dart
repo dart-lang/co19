@@ -12,7 +12,7 @@ import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   document.body.append(x);
   var y = new Comment("cool");
   x.append(y);

@@ -15,8 +15,6 @@
  * is the foster parent element (NOT the template's parent!)
  */
 
-import 'dart:html';
-import "../../../../Utils/expect.dart";
 import '../../testcommon.dart';
 
 main() {

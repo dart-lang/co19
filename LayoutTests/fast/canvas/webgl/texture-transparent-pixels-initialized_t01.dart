@@ -11,9 +11,7 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -28,11 +26,11 @@ main() {
 
   runTest(image)
   {
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
-    gl.enable(wgl.BLEND);
-    gl.blendFunc(wgl.SRC_ALPHA, wgl.ONE_MINUS_SRC_ALPHA);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
+    gl.enable(wgl.WebGL.BLEND);
+    gl.blendFunc(wgl.WebGL.SRC_ALPHA, wgl.WebGL.ONE_MINUS_SRC_ALPHA);
     // Bind the texture to texture unit 0
-    gl.bindTexture(wgl.TEXTURE_2D, texture);
+    gl.bindTexture(wgl.WebGL.TEXTURE_2D, texture);
     // Point the uniform sampler to texture unit 0
     gl.uniform1i(textureLoc, 0);
     // Draw the triangles
@@ -53,7 +51,7 @@ main() {
 
   init()
   {
-    var canvas = document.getElementById("example");
+    dynamic canvas = document.getElementById("example");
     gl = wtu.create3DContext(canvas);
     var program = wtu.setupTexturedQuad(gl);
     gl.clearColor(0.5,0.5,0.5,1);
@@ -72,10 +70,10 @@ main() {
         coeff, 0.0]);
 
     var vbo = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, vbo);
-    gl.bufferData(wgl.ARRAY_BUFFER, texCoords, wgl.STATIC_DRAW);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vbo);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, texCoords, wgl.WebGL.STATIC_DRAW);
     gl.enableVertexAttribArray(1);
-    gl.vertexAttribPointer(1, 2, wgl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(1, 2, wgl.WebGL.FLOAT, false, 0, 0);
 
     texture = wtu.loadTexture(gl, "$root/resources/bug-32888-texture.png", runTest);
   }

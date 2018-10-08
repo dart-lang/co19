@@ -8,8 +8,6 @@
  * @description Test for embedded iframe with height: 100% and anonymous table cell parent.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 
 const String htmlEL1 = r'''

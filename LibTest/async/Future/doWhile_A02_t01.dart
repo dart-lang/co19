@@ -4,48 +4,39 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  Future doWhile(dynamic f())
- * Perform an async operation repeatedly until it returns false.
+ * @assertion  Future doWhile(FutureOr<bool> f())
+ *    Perform an async operation repeatedly until it returns false.
  * . . .
- * The return values of all Futures are discarded. Any errors will cause the
- * iteration to stop and will be piped through the returned Future.
+ *    If a future returned by f completes with an error, iteration ends and
+ * the future returned by doWhile completes with the same error.
  *
- * @description Checks that any errors stop iteration, and error will be piped
- * through the returned Future.
+ * @description Checks that if [f] throws error, then returned future is
+ * completed with this error.
  * @author ngl@unipro.ru
  */
-import "../../../Utils/async_utils.dart";
+import "dart:async";
 import "../../../Utils/expect.dart";
 
-import "dart:async";
-
-const N = 4;
+const int N = 4;
 
 main() {
-
   int num = 0;
 
-  bool ff() {
+  FutureOr<bool> f() {
     if (num == 2) throw 5;
-    if (num < N) {
-      num++;
-      return true;
-    } else {
-      return false;
-    }
+    num++;
+    return (num < N);
   }
 
-  Future f = Future.doWhile(ff);
-
   asyncStart();
-  f.then((fValue) {
-      Expect.fail("Should not be here");
-      asyncEnd();
-    })
-   .catchError((e) {
+  Future.doWhile(f).then(
+    (_) {
+      Expect.fail("Returned future should fail with error");
+    },
+    onError: (e) {
       Expect.equals(2, num);
       Expect.equals(5, e);
       asyncEnd();
-    });
-
+    }
+  );
 }

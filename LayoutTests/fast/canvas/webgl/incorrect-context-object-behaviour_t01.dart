@@ -8,12 +8,8 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -27,35 +23,31 @@ main() {
   var programB = loadStandardProgram(contextB);
   var shaderA = loadStandardVertexShader(contextA);
   var shaderB = loadStandardVertexShader(contextB);
-  var textureA = contextA.createTexture();
   var textureB = contextB.createTexture();
-  var frameBufferA = contextA.createFramebuffer();
   var frameBufferB = contextB.createFramebuffer();
-  var renderBufferA = contextA.createRenderbuffer();
   var renderBufferB = contextB.createRenderbuffer();
   var locationA = contextA.getUniformLocation(programA, 'u_modelViewProjMatrix');
-  var locationB = contextB.getUniformLocation(programB, 'u_modelViewProjMatrix');
 
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.compileShader(shaderB));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.linkProgram(programB));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.attachShader(programA, shaderB));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.attachShader(programB, shaderA));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.attachShader(programB, shaderB));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.detachShader(programA, shaderB));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.detachShader(programB, shaderA));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.detachShader(programB, shaderB));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.shaderSource(shaderB, 'foo'));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.bindAttribLocation(programB, 0, 'foo'));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.bindFramebuffer(wgl.FRAMEBUFFER, frameBufferB));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.bindRenderbuffer(wgl.RENDERBUFFER, renderBufferB));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.bindTexture(wgl.TEXTURE_2D, textureB));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.framebufferRenderbuffer(wgl.FRAMEBUFFER, wgl.DEPTH_ATTACHMENT, wgl.RENDERBUFFER, renderBufferB));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.framebufferTexture2D(wgl.FRAMEBUFFER, wgl.COLOR_ATTACHMENT0, wgl.TEXTURE_2D, textureB, 0));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.getProgramParameter(programB, 0));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.getProgramInfoLog(programB));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.getShaderParameter(shaderB, 0));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.getShaderInfoLog(shaderB));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.getShaderSource(shaderB));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.getUniform(programB, locationA));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.getUniformLocation(programB, 'u_modelViewProjMatrix'));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.compileShader(shaderB));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.linkProgram(programB));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.attachShader(programA, shaderB));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.attachShader(programB, shaderA));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.attachShader(programB, shaderB));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.detachShader(programA, shaderB));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.detachShader(programB, shaderA));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.detachShader(programB, shaderB));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.shaderSource(shaderB, 'foo'));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.bindAttribLocation(programB, 0, 'foo'));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.bindFramebuffer(wgl.WebGL.FRAMEBUFFER, frameBufferB));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.bindRenderbuffer(wgl.WebGL.RENDERBUFFER, renderBufferB));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.bindTexture(wgl.WebGL.TEXTURE_2D, textureB));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.framebufferRenderbuffer(wgl.WebGL.FRAMEBUFFER, wgl.WebGL.DEPTH_ATTACHMENT, wgl.WebGL.RENDERBUFFER, renderBufferB));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.framebufferTexture2D(wgl.WebGL.FRAMEBUFFER, wgl.WebGL.COLOR_ATTACHMENT0, wgl.WebGL.TEXTURE_2D, textureB, 0));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.getProgramParameter(programB, 0));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.getProgramInfoLog(programB));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.getShaderParameter(shaderB, 0));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.getShaderInfoLog(shaderB));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.getShaderSource(shaderB));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.getUniform(programB, locationA));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.getUniformLocation(programB, 'u_modelViewProjMatrix'));
 }

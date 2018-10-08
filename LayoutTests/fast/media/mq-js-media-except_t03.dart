@@ -37,14 +37,14 @@ const String htmlEL2 = r'''
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    var styleSheet=document.styleSheets[document.styleSheets.length-1];
-    var result=document.getElementById("result");
+    CssStyleSheet styleSheet = document.styleSheets[document.styleSheets.length-1] as CssStyleSheet;
+    Element result = document.getElementById("result");
 
     // This shouldn't throw.
     styleSheet.media.mediaText = ",,,,";
     result.innerHtml = "Success. This text should not be red.";
 
     // This shouldn't throw.
-    styleSheet.cssRules[1].media.mediaText = ",,,,";
+    (styleSheet.cssRules[1] as CssMediaRule).media.mediaText = ",,,,";
     result.innerHtml = "Success. This text should not be red.";
 }

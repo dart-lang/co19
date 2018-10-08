@@ -12,8 +12,6 @@
  * an explicitly declared getter and a static method with the same name.
  * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {
@@ -22,5 +20,7 @@ class C {
 }
 
 main() {
-  C.foo();
+  try {
+    C.foo();
+  } catch (e) {}
 }

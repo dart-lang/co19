@@ -9,10 +9,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var sel = document.createElement('select');
+  SelectElement sel = document.createElement('select') as SelectElement;
   document.body.append(sel);
 
   shouldBe(sel.length, 0);

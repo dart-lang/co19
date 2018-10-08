@@ -8,12 +8,9 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "resources/desktop-gl-constants.dart";
-import "../../../../Utils/async_utils.dart";
 
 class _Test {
   var creationAttributes;
@@ -93,7 +90,6 @@ main() {
   var g_count = 0;
   var gl;
   var canvas;
-  var premultipledAlpha;
 
   doNextTest() {
     if (g_count < tests.length) {
@@ -111,39 +107,39 @@ main() {
 
       var program = wtu.setupTexturedQuad(gl);
 
-      glErrorShouldBe(gl, wgl.NO_ERROR, "Should be no errors from setup.");
+      glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "Should be no errors from setup.");
       var tex = gl.createTexture();
       wtu.fillTexture(gl, tex, 2, 2, test.sentColor, 0);
       var loc = gl.getUniformLocation(program, "tex");
       gl.uniform1i(loc, 0);
-      gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MIN_FILTER, wgl.LINEAR);
-      gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MAG_FILTER, wgl.LINEAR);
-      gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_S, wgl.CLAMP_TO_EDGE);
-      gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_T, wgl.CLAMP_TO_EDGE);
+      gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MIN_FILTER, wgl.WebGL.LINEAR);
+      gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MAG_FILTER, wgl.WebGL.LINEAR);
+      gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_S, wgl.WebGL.CLAMP_TO_EDGE);
+      gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_T, wgl.WebGL.CLAMP_TO_EDGE);
 
       wtu.drawQuad(gl);
-      glErrorShouldBe(gl, wgl.NO_ERROR, "Should be no errors from drawing.");
+      glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "Should be no errors from drawing.");
 
       loadTexture(event) {
         var pngTex = gl.createTexture();
         // not needed as it's the default
-        // gl.pixelStorei(wgl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 0);
-        gl.pixelStorei(wgl.UNPACK_COLORSPACE_CONVERSION_WEBGL, 0);
-        gl.bindTexture(wgl.TEXTURE_2D, pngTex);
+        // gl.pixelStorei(wgl.WebGL.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 0);
+        gl.pixelStorei(wgl.WebGL.UNPACK_COLORSPACE_CONVERSION_WEBGL, 0);
+        gl.bindTexture(wgl.WebGL.TEXTURE_2D, pngTex);
         if (test.imageFormat != null) {
           // create texture from image
-          gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, wgl.RGBA, wgl.UNSIGNED_BYTE, event.target);
+          gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, event.target);
         } else {
           // create texture from canvas
-          gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, wgl.RGBA, wgl.UNSIGNED_BYTE, canvas);
+          gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, canvas);
         }
-        gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MIN_FILTER, wgl.LINEAR);
-        gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MAG_FILTER, wgl.LINEAR);
-        gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_S, wgl.CLAMP_TO_EDGE);
-        gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_T, wgl.CLAMP_TO_EDGE);
-        glErrorShouldBe(gl, wgl.NO_ERROR, "Should be no errors from creating copy.");
+        gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MIN_FILTER, wgl.WebGL.LINEAR);
+        gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MAG_FILTER, wgl.WebGL.LINEAR);
+        gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_S, wgl.WebGL.CLAMP_TO_EDGE);
+        gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_T, wgl.WebGL.CLAMP_TO_EDGE);
+        glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "Should be no errors from creating copy.");
         wtu.drawQuad(gl);
-        glErrorShouldBe(gl, wgl.NO_ERROR, "Should be no errors from 2nd drawing.");
+        glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "Should be no errors from 2nd drawing.");
         wtu.checkCanvas(
             gl, test.expectedColor,
             "should draw with ${test.expectedColor}", test.errorRange);
@@ -161,7 +157,7 @@ main() {
                setTimeout(doNextTest, 0);
              } else {
                // Load string into the texture
-               var input = document.createElement("img");
+               dynamic input = document.createElement("img");
                input.onLoad.listen(loadTexture);
                input.src = imageUrl;
              }

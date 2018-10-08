@@ -8,7 +8,6 @@
  * set is determined by the value of that form control.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

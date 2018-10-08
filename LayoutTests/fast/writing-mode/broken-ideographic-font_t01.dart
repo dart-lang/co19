@@ -8,7 +8,6 @@
  * @description Broken Ideographic Font
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../testcommon.dart";
 
 const String htmlEL1 = '''

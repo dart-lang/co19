@@ -9,8 +9,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -34,11 +32,11 @@ main() {
 
   // Create shadow trees
 
-  var host1 = document.getElementById("host1");
+  dynamic host1 = document.getElementById("host1");
   var match1 = host1.createShadowRoot().append(document.createElement("div"));
   match1.className = "match";
 
-  var host2 = document.getElementById("host2");
+  dynamic host2 = document.getElementById("host2");
   var innerHost = host2.createShadowRoot().append(document.createElement("div"));
   var match2 = innerHost.createShadowRoot().append(document.createElement("div"));
   match2.className = "match";

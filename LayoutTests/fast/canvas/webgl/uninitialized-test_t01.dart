@@ -12,9 +12,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -23,7 +20,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById("canvas");
+  dynamic canvas = document.getElementById("canvas");
   var gl = create3DContext(canvas);
   if (gl == null)
     testFailed("Context created.");
@@ -32,8 +29,8 @@ main() {
 
   setupTexture(texWidth, texHeight) {
     var texture = gl.createTexture();
-    gl.bindTexture(wgl.TEXTURE_2D, texture);
-    gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, texWidth, texHeight, 0, wgl.RGBA, wgl.UNSIGNED_BYTE, null);
+    gl.bindTexture(wgl.WebGL.TEXTURE_2D, texture);
+    gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, texWidth, texHeight, 0, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, null);
 
     // this can be quite undeterministic so to improve odds of seeing uninitialized data write bits
     // into tex then delete texture then re-create one with same characteristics (driver will likely reuse mem)
@@ -43,26 +40,26 @@ main() {
     for (var i = 0; i < badData.length; ++i)
       badData[i] = i % 255;
 
-    gl.texSubImage2D(wgl.TEXTURE_2D, 0, 0, 0, texWidth, texHeight, wgl.RGBA, wgl.UNSIGNED_BYTE, badData);
+    gl.texSubImage2D(wgl.WebGL.TEXTURE_2D, 0, 0, 0, texWidth, texHeight, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, badData);
     gl.finish(); // make sure it has been uploaded
 
     gl.deleteTexture(texture);
     gl.finish(); // make sure it has been deleted
 
     texture = gl.createTexture();
-    gl.bindTexture(wgl.TEXTURE_2D, texture);
+    gl.bindTexture(wgl.WebGL.TEXTURE_2D, texture);
     return texture;
   }
 
   checkNonZeroPixels(texture, texWidth, texHeight, skipX, skipY, skipWidth, skipHeight, skipR, skipG, skipB, skipA) {
-    gl.bindTexture(wgl.TEXTURE_2D, null);
+    gl.bindTexture(wgl.WebGL.TEXTURE_2D, null);
     var fb = gl.createFramebuffer();
-    gl.bindFramebuffer(wgl.FRAMEBUFFER, fb);
-    gl.framebufferTexture2D(wgl.FRAMEBUFFER, wgl.COLOR_ATTACHMENT0, wgl.TEXTURE_2D, texture, 0);
-    shouldBe(gl.checkFramebufferStatus(wgl.FRAMEBUFFER), wgl.FRAMEBUFFER_COMPLETE);
+    gl.bindFramebuffer(wgl.WebGL.FRAMEBUFFER, fb);
+    gl.framebufferTexture2D(wgl.WebGL.FRAMEBUFFER, wgl.WebGL.COLOR_ATTACHMENT0, wgl.WebGL.TEXTURE_2D, texture, 0);
+    shouldBe(gl.checkFramebufferStatus(wgl.WebGL.FRAMEBUFFER), wgl.WebGL.FRAMEBUFFER_COMPLETE);
 
     var data = new Uint8List(texWidth * texHeight * 4);
-    gl.readPixels(0, 0, texWidth, texHeight, wgl.RGBA, wgl.UNSIGNED_BYTE, data);
+    gl.readPixels(0, 0, texWidth, texHeight, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, data);
 
     var k = 0;
     for (var y = 0; y < texHeight; ++y) {
@@ -95,149 +92,149 @@ main() {
   debug("Reading an uninitialized texture (texImage2D) should succeed with all bytes set to 0.");
 
   var tex = setupTexture(width, height);
-  gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, width, height, 0, wgl.RGBA, wgl.UNSIGNED_BYTE, null);
+  gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, width, height, 0, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, null);
   checkNonZeroPixels(tex, width, height, 0, 0, 0, 0, 0, 0, 0, 0);
   gl.deleteTexture(tex);
   gl.finish();
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
   debug("");
   debug("Reading an uninitialized portion of a texture (copyTexImage2D) should succeed with all bytes set to 0.");
 
   tex = setupTexture(width, height);
   var fbo = gl.createFramebuffer();
-  gl.bindFramebuffer(wgl.FRAMEBUFFER, fbo);
+  gl.bindFramebuffer(wgl.WebGL.FRAMEBUFFER, fbo);
   var rbo = gl.createRenderbuffer();
-  gl.bindRenderbuffer(wgl.RENDERBUFFER, rbo);
+  gl.bindRenderbuffer(wgl.WebGL.RENDERBUFFER, rbo);
   var fboWidth = 16;
   var fboHeight = 16;
-  gl.renderbufferStorage(wgl.RENDERBUFFER, wgl.RGBA4, fboWidth, fboHeight);
-  gl.framebufferRenderbuffer(wgl.FRAMEBUFFER, wgl.COLOR_ATTACHMENT0, wgl.RENDERBUFFER, rbo);
-  shouldBe(gl.checkFramebufferStatus(wgl.FRAMEBUFFER), wgl.FRAMEBUFFER_COMPLETE);
+  gl.renderbufferStorage(wgl.WebGL.RENDERBUFFER, wgl.WebGL.RGBA4, fboWidth, fboHeight);
+  gl.framebufferRenderbuffer(wgl.WebGL.FRAMEBUFFER, wgl.WebGL.COLOR_ATTACHMENT0, wgl.WebGL.RENDERBUFFER, rbo);
+  shouldBe(gl.checkFramebufferStatus(wgl.WebGL.FRAMEBUFFER), wgl.WebGL.FRAMEBUFFER_COMPLETE);
   gl.clearColor(1.0, 0.0, 0.0, 1.0);
-  gl.clear(wgl.COLOR_BUFFER_BIT);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
-  gl.copyTexImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, 0, 0, width, height, 0);
+  gl.clear(wgl.WebGL.COLOR_BUFFER_BIT);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+  gl.copyTexImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, 0, 0, width, height, 0);
   checkNonZeroPixels(tex, width, height, 0, 0, fboWidth, fboHeight, 255, 0, 0, 255);
   gl.deleteTexture(tex);
   gl.finish();
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
   debug("");
   debug("Reading an uninitialized portion of a texture (copyTexImage2D with negative x and y) should succeed with all bytes set to 0.");
 
   tex = setupTexture(width, height);
   fbo = gl.createFramebuffer();
-  gl.bindFramebuffer(wgl.FRAMEBUFFER, fbo);
+  gl.bindFramebuffer(wgl.WebGL.FRAMEBUFFER, fbo);
   rbo = gl.createRenderbuffer();
-  gl.bindRenderbuffer(wgl.RENDERBUFFER, rbo);
+  gl.bindRenderbuffer(wgl.WebGL.RENDERBUFFER, rbo);
   fboWidth = 16;
   fboHeight = 16;
-  gl.renderbufferStorage(wgl.RENDERBUFFER, wgl.RGBA4, fboWidth, fboHeight);
-  gl.framebufferRenderbuffer(wgl.FRAMEBUFFER, wgl.COLOR_ATTACHMENT0, wgl.RENDERBUFFER, rbo);
-  shouldBe(gl.checkFramebufferStatus(wgl.FRAMEBUFFER), wgl.FRAMEBUFFER_COMPLETE);
+  gl.renderbufferStorage(wgl.WebGL.RENDERBUFFER, wgl.WebGL.RGBA4, fboWidth, fboHeight);
+  gl.framebufferRenderbuffer(wgl.WebGL.FRAMEBUFFER, wgl.WebGL.COLOR_ATTACHMENT0, wgl.WebGL.RENDERBUFFER, rbo);
+  shouldBe(gl.checkFramebufferStatus(wgl.WebGL.FRAMEBUFFER), wgl.WebGL.FRAMEBUFFER_COMPLETE);
   gl.clearColor(1.0, 0.0, 0.0, 1.0);
-  gl.clear(wgl.COLOR_BUFFER_BIT);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  gl.clear(wgl.WebGL.COLOR_BUFFER_BIT);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
   var x = -8;
   var y = -8;
-  gl.copyTexImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, x, y, width, height, 0);
+  gl.copyTexImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, x, y, width, height, 0);
   checkNonZeroPixels(tex, width, height, -x, -y, fboWidth, fboHeight, 255, 0, 0, 255);
   gl.deleteTexture(tex);
   gl.finish();
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
   debug("");
   debug("Reading an uninitialized portion of a texture (copyTexImage2D from WebGL internal fbo) should succeed with all bytes set to 0.");
 
   tex = setupTexture(width, height);
-  gl.bindFramebuffer(wgl.FRAMEBUFFER, null);
+  gl.bindFramebuffer(wgl.WebGL.FRAMEBUFFER, null);
   gl.clearColor(0.0, 1.0, 0.0, 0.0);
-  gl.clear(wgl.COLOR_BUFFER_BIT);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
-  gl.copyTexImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, 0, 0, width, height, 0);
+  gl.clear(wgl.WebGL.COLOR_BUFFER_BIT);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+  gl.copyTexImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, 0, 0, width, height, 0);
   checkNonZeroPixels(tex, width, height, 0, 0, canvas.width, canvas.height, 0, 255, 0, 0);
   gl.deleteTexture(tex);
   gl.finish();
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
   debug("");
   debug("Reading an uninitialized portion of a texture (copyTexSubImage2D) should succeed with all bytes set to 0.");
 
   tex = gl.createTexture();
-  gl.bindTexture(wgl.TEXTURE_2D, tex);
+  gl.bindTexture(wgl.WebGL.TEXTURE_2D, tex);
   var data = new Uint8List(width * height * 4);
   for (var i = 0; i < width * height * 4; ++i)
     data[i] = 255;
-  gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, width, height, 0, wgl.RGBA, wgl.UNSIGNED_BYTE, data);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, width, height, 0, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, data);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
   fbo = gl.createFramebuffer();
-  gl.bindFramebuffer(wgl.FRAMEBUFFER, fbo);
+  gl.bindFramebuffer(wgl.WebGL.FRAMEBUFFER, fbo);
   rbo = gl.createRenderbuffer();
-  gl.bindRenderbuffer(wgl.RENDERBUFFER, rbo);
+  gl.bindRenderbuffer(wgl.WebGL.RENDERBUFFER, rbo);
   fboWidth = 16;
   fboHeight = 16;
-  gl.renderbufferStorage(wgl.RENDERBUFFER, wgl.RGBA4, fboWidth, fboHeight);
-  gl.framebufferRenderbuffer(wgl.FRAMEBUFFER, wgl.COLOR_ATTACHMENT0, wgl.RENDERBUFFER, rbo);
-  shouldBe(gl.checkFramebufferStatus(wgl.FRAMEBUFFER), wgl.FRAMEBUFFER_COMPLETE);
+  gl.renderbufferStorage(wgl.WebGL.RENDERBUFFER, wgl.WebGL.RGBA4, fboWidth, fboHeight);
+  gl.framebufferRenderbuffer(wgl.WebGL.FRAMEBUFFER, wgl.WebGL.COLOR_ATTACHMENT0, wgl.WebGL.RENDERBUFFER, rbo);
+  shouldBe(gl.checkFramebufferStatus(wgl.WebGL.FRAMEBUFFER), wgl.WebGL.FRAMEBUFFER_COMPLETE);
   gl.clearColor(1.0, 0.0, 0.0, 1.0);
-  gl.clear(wgl.COLOR_BUFFER_BIT);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
-  gl.copyTexSubImage2D(wgl.TEXTURE_2D, 0, 0, 0, 0, 0, width, height);
+  gl.clear(wgl.WebGL.COLOR_BUFFER_BIT);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+  gl.copyTexSubImage2D(wgl.WebGL.TEXTURE_2D, 0, 0, 0, 0, 0, width, height);
   checkNonZeroPixels(tex, width, height, 0, 0, fboWidth, fboHeight, 255, 0, 0, 255);
   gl.deleteTexture(tex);
   gl.finish();
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
   debug("");
   debug("Reading an uninitialized portion of a texture (copyTexSubImage2D with negative x and y) should succeed with all bytes set to 0.");
 
   tex = gl.createTexture();
-  gl.bindTexture(wgl.TEXTURE_2D, tex);
+  gl.bindTexture(wgl.WebGL.TEXTURE_2D, tex);
   data = new Uint8List(width * height * 4);
   for (var i = 0; i < width * height * 4; ++i)
     data[i] = 255;
-  gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, width, height, 0, wgl.RGBA, wgl.UNSIGNED_BYTE, data);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, width, height, 0, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, data);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
   fbo = gl.createFramebuffer();
-  gl.bindFramebuffer(wgl.FRAMEBUFFER, fbo);
+  gl.bindFramebuffer(wgl.WebGL.FRAMEBUFFER, fbo);
   rbo = gl.createRenderbuffer();
-  gl.bindRenderbuffer(wgl.RENDERBUFFER, rbo);
+  gl.bindRenderbuffer(wgl.WebGL.RENDERBUFFER, rbo);
   fboWidth = 16;
   fboHeight = 16;
-  gl.renderbufferStorage(wgl.RENDERBUFFER, wgl.RGBA4, fboWidth, fboHeight);
-  gl.framebufferRenderbuffer(wgl.FRAMEBUFFER, wgl.COLOR_ATTACHMENT0, wgl.RENDERBUFFER, rbo);
-  shouldBe(gl.checkFramebufferStatus(wgl.FRAMEBUFFER), wgl.FRAMEBUFFER_COMPLETE);
+  gl.renderbufferStorage(wgl.WebGL.RENDERBUFFER, wgl.WebGL.RGBA4, fboWidth, fboHeight);
+  gl.framebufferRenderbuffer(wgl.WebGL.FRAMEBUFFER, wgl.WebGL.COLOR_ATTACHMENT0, wgl.WebGL.RENDERBUFFER, rbo);
+  shouldBe(gl.checkFramebufferStatus(wgl.WebGL.FRAMEBUFFER), wgl.WebGL.FRAMEBUFFER_COMPLETE);
   gl.clearColor(1.0, 0.0, 0.0, 1.0);
-  gl.clear(wgl.COLOR_BUFFER_BIT);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  gl.clear(wgl.WebGL.COLOR_BUFFER_BIT);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
   x = -8;
   y = -8;
-  gl.copyTexSubImage2D(wgl.TEXTURE_2D, 0, 0, 0, x, y, width, height);
+  gl.copyTexSubImage2D(wgl.WebGL.TEXTURE_2D, 0, 0, 0, x, y, width, height);
   checkNonZeroPixels(tex, width, height, -x, -y, fboWidth, fboHeight, 255, 0, 0, 255);
   gl.deleteTexture(tex);
   gl.finish();
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
   debug("");
   debug("Reading an uninitialized portion of a texture (copyTexSubImage2D from WebGL internal fbo) should succeed with all bytes set to 0.");
 
   tex = gl.createTexture();
-  gl.bindTexture(wgl.TEXTURE_2D, tex);
+  gl.bindTexture(wgl.WebGL.TEXTURE_2D, tex);
   data = new Uint8List(width * height * 4);
   for (var i = 0; i < width * height * 4; ++i)
     data[i] = 255;
-  gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, width, height, 0, wgl.RGBA, wgl.UNSIGNED_BYTE, data);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
-  gl.bindFramebuffer(wgl.FRAMEBUFFER, null);
+  gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, width, height, 0, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, data);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+  gl.bindFramebuffer(wgl.WebGL.FRAMEBUFFER, null);
   gl.clearColor(0.0, 1.0, 0.0, 0.0);
-  gl.clear(wgl.COLOR_BUFFER_BIT);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
-  gl.copyTexSubImage2D(wgl.TEXTURE_2D, 0, 0, 0, 0, 0, width, height);
+  gl.clear(wgl.WebGL.COLOR_BUFFER_BIT);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+  gl.copyTexSubImage2D(wgl.WebGL.TEXTURE_2D, 0, 0, 0, 0, 0, width, height);
   checkNonZeroPixels(tex, width, height, 0, 0, canvas.width, canvas.height, 0, 255, 0, 0);
   gl.deleteTexture(tex);
   gl.finish();
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
   //TODO: uninitialized vertex array buffer
   //TODO: uninitialized vertex elements buffer

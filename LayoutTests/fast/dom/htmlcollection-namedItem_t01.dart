@@ -7,7 +7,6 @@
  * @description HTMLCollection namedItem Method
  */
 import "dart:html";
-import "../../testcommon.dart";
 
 main() {
   var form = document.createElement('form');

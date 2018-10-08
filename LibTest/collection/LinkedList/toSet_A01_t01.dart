@@ -5,8 +5,9 @@
  */
 /**
  * @assertion Set<E> toSet()
- * Creates a Set containing the elements of this Iterable.
- * @description Checks that the result Set contains all the elements of this Iterable.
+ * Creates a [Set] containing containing the same elements as this iterable.
+ * @description Checks that the result [Set] contains all the elements of this
+ * [Iterable].
  * @author kaigorodov
  */
 import "dart:collection";
@@ -14,8 +15,8 @@ import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
 void check(List a0) {
-  LinkedList<MyLinkedListEntry> llist=toLinkedList(a0);
-  Set<MyLinkedListEntry> set=llist.toSet();
+  LinkedList<MyLinkedListEntry> llist = toLinkedList(a0);
+  Set<MyLinkedListEntry> set = llist.toSet();
 
   for (MyLinkedListEntry entry in llist) {
     Expect.isTrue(set.contains(entry));
@@ -24,6 +25,6 @@ void check(List a0) {
 
 main() {
   check([]);
-  check(["1","2","3","4","5"]);
-  check([null, [null], [], [1,2,3], [[null]]]);
+  check(["1", "2", "3", "4", "5"]);
+  check([null, [null], [], [1, 2, 3], [[null]]]);
 }

@@ -6,9 +6,9 @@
 /**
  * @assertion E previous
  * Return the predecessor of this element in its linked list.
- * Returns null if there is no predecessor in the linked list, or if this entry
- * is not currently in any list.
- * @description Checks that null is returned if this entry is not currently in
+ * Returns [null] if there is no predecessor in the linked list, or if this
+ * entry is not currently in any list.
+ * @description Checks that [null] is returned if this entry is not currently in
  * any list
  * @author sgrekhov@unipro.ru
  */

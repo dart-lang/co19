@@ -16,5 +16,7 @@
 class void {}
 
 main() {
-  new void();
+  try {
+    new void();
+  } catch (anything) {}
 }

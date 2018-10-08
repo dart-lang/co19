@@ -8,7 +8,6 @@
  * lifetime.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -16,8 +15,8 @@ main() {
     <template id="template"><span></span></template>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var template = document.getElementById('template');
-  var span = template.content.firstChild;
+  TemplateElement template = document.getElementById('template');
+  SpanElement span = template.content.firstChild;
   shouldBe(span.tagName, "SPAN");
 
   span = null;

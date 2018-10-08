@@ -8,7 +8,6 @@
  *            string [str] and returns the matched string.
  * @description Checks that the correct string is returned.
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
  
@@ -23,12 +22,15 @@ main() {
   check(r"[^e]$", "pairs\nmakes\tdouble", true, true, "s");
   check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, true, "Ot");
   check(r"[^o]t\b", "pilOt\nsoviet robot\topenoffice", false, false, "et");
-  check(r"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", false, true, "robot");
+  check(r"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", false, true,
+      "robot");
   check(r"(?=(a+))", "baaabac", false, true, "");
   check(r"(?!a|b)|c", "bc", false, true, "");
 }
 
-void check(String pattern, String str, bool multiLine, bool caseSensitive, String expectedMatch) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive);
+void check(String pattern, String str, bool multiLine, bool caseSensitive,
+    String expectedMatch) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine,
+      caseSensitive: caseSensitive);
   Expect.equals(expectedMatch, re.stringMatch(str));
 }

@@ -13,7 +13,6 @@
  * mechanism is described in Classes.Constructors.Constant_Constructors.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {
@@ -22,6 +21,8 @@ class A {
 }
 
 main() {
-  DateTime d = new DateTime.now();
-  var a = const A(d.millisecond);
+  try {
+    DateTime d = new DateTime.now();
+    var a = const A(d.millisecond);
+  } catch (x) {}
 }

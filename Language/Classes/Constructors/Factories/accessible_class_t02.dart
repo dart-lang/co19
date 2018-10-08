@@ -8,17 +8,20 @@
  * accessible in the current scope; if type does denote such a class C it is
  * a static warning if the referenced constructor (be it type or type.id) is
  * not a constructor of C.
- * @description Checks that static warning is produced if referenced type in
- * redirecting constructor is a library variable.
+ * @description Checks that a compile error is produced if referenced type in
+ * redirecting constructor is a variable.
+ * @compile-error
  * @author ilya
  */
 
 var variable;
 
 class F {
-  factory F() = variable; /// 01: static type warning, runtime error
+  factory F() = variable;
 }
 
 main() {
-  new F();
+  try {
+    new F();
+  } catch (e) {}
 }

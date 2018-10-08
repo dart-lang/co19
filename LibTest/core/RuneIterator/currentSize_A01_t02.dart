@@ -13,10 +13,10 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  var it = new RuneIterator('1234567890');
+  dynamic it = new RuneIterator('1234567890');
   it.moveNext();
   try {
-    it.currentSize = 5;
+  it.currentSize = 5;
     Expect.fail('[currentSize] should be final');
   } on NoSuchMethodError catch(ok) {}
 }

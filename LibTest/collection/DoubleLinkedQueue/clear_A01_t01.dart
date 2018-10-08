@@ -6,7 +6,7 @@
 /**
  * @assertion void clear()
  * Removes all elements in the queue. The size of the queue becomes zero.
- * @description Check that all elements of the queue removed.
+ * @description Checks that all elements of the queue removed.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";

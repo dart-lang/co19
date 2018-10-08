@@ -13,7 +13,7 @@ import "dart:math" as Math;
 import "../../testcommon.dart";
 
 main() {
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   document.body.append(canvas);
   canvas.setAttribute('width', '300');
   canvas.setAttribute('height', '300');
@@ -23,8 +23,8 @@ main() {
   ctx.lineJoin = 'bevel';
   ctx.lineWidth = 12;
   ctx.beginPath();
-  ctx.arc(200, 50, 40, Math.PI / 2, -Math.PI / 2, false);
-  ctx.arc(100, 50, 40, Math.PI / 2, -Math.PI / 2, false);
+  ctx.arc(200, 50, 40, Math.pi / 2, -Math.pi / 2, false);
+  ctx.arc(100, 50, 40, Math.pi / 2, -Math.pi / 2, false);
   ctx.stroke();
 
   var imageData = ctx.getImageData(0, 0, 1, 1);

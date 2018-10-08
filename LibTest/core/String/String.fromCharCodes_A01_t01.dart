@@ -7,10 +7,8 @@
  * @assertion Allocates a new String for the specified [charCodes].
  * @description Checks that a correct string is created
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   String str = new String.fromCharCodes([0x61, 0x62, 0x63, 0x64]);

@@ -25,12 +25,9 @@
  * Then I has a method named n, with r required parameters of type dynamic,
  * h positional parameters of type dynamic, named parameters s of type dynamic
  * and return type dynamic.
- * @description Checks that there's a static warning produced when attempting
- * to access an interface member that is not inherited from either of the two
- * superinterfaces that declare a member with the same name because of the
- * conflict described in this assertion. Members in question are methods with
- * different number of required parameters.
- * @static-warning
+ * @description Checks that there's a compile-error if two members with the same
+ * name but different number of arguments are inherited
+ * @compile-error
  * @author rodionov
  */
 

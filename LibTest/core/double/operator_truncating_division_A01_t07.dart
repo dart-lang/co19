@@ -7,10 +7,8 @@
  * @assertion int operator ~/(num other)
  * @description Performs returned value checks on a bunch of values.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 
 check(int expected, double a, double b) {
   Expect.identical(expected, a ~/ b);

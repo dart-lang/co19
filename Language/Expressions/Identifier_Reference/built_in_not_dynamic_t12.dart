@@ -14,5 +14,7 @@
  */
 
 main() {
-  static foo;
+  try {
+    static foo;
+  } catch (x) {}
 }

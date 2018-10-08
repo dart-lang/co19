@@ -13,7 +13,6 @@
  * declaration is missing the formal parameter list.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {
@@ -21,5 +20,7 @@ class C {
 }
 
 main() {
-  new C();
+  try {
+    new C();
+  } catch (x) {}
 }

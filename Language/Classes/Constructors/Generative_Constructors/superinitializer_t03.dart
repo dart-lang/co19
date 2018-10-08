@@ -10,7 +10,6 @@
  * constructor includes two identical superinitializers in its initializer list.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {
@@ -23,5 +22,7 @@ class B extends A {
 }
 
 main() {
-  var x = new B();
+  try {
+    var x = new B();
+  } catch (x) {}
 }

@@ -26,12 +26,12 @@ var testStrings = ["\u02E5\u02E9", "\u02E9\u02E5", "\u02E7\u02E9",
 
 void testString(int i) {
     String s=testStrings[i];
-    var fast = document.getElementById("fastPath");
-    fast.firstChild.data = s;
-    var fastWidth = fast.offsetWidth;
-    var slow = document.getElementById("slowPath");
-    slow.firstChild.data = s;
-    var slowWidth = slow.offsetWidth;
+    Element fast = document.getElementById("fastPath");
+    (fast.firstChild as Text).data = s;
+    int fastWidth = fast.offsetWidth;
+    Element slow = document.getElementById("slowPath");
+    (slow.firstChild as Text).data = s;
+    int slowWidth = slow.offsetWidth;
     shouldBe(fastWidth, slowWidth, "testStrings[$i]=$s");
 }
 

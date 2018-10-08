@@ -8,7 +8,6 @@
  * HTMLOutputElement was removed.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -16,7 +15,7 @@ main() {
     <output id="parentOutput"><span class="inner" id="first"></span><span class="inner" id="second"></span></output>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var list = document.getElementsByClassName("inner");
+  List list = document.getElementsByClassName("inner");
   debug("The number of spans before removal is ${list.length}");
   var beforeLength = list.length;
   document.getElementById("first").remove();

@@ -4,15 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract void addError(Object error, [Object stackTrace])
+ * @assertion void addError(Object error, [StackTrace stackTrace])
  * Send or enqueue an error event.
  *
  * @description Checks that an error event is created.
  * @author kaigorodov
  */
-
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
@@ -20,14 +18,14 @@ main() {
   var error0 = 12345;
   controller.addError(error0);
   asyncStart();
-  controller.stream.listen((value) {
-    Expect.fail("unexpected onData call");
-  },
-  onError: (error1) {
-    Expect.equals(error0, error1);
-  },
-  onDone: () {
-    asyncEnd();
-  });
+  controller.stream.listen(
+    (value) {
+      Expect.fail("unexpected onData call");
+    },
+    onError: (error1) {
+      Expect.equals(error0, error1);
+      asyncEnd();
+    }
+  );
   controller.close();
 }

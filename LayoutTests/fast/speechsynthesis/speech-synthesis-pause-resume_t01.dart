@@ -8,8 +8,7 @@
  * @description This tests that pausing/resuming speech jobs works as expected.
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
+import "../../testcommon.dart";
 
 void main() {
     var u = new SpeechSynthesisUtterance("this is a test");

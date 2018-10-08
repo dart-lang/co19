@@ -15,7 +15,7 @@ main() {
     <div id="container"><input type=checkbox></div>''',
     treeSanitizer: new NullTreeSanitizer());
 
-  var result = document.caretRangeFromPoint(40, 20);
+  dynamic result = document.caretRangeFromPoint(40, 20);
   Expect.equals('DIV', result.startContainer.tagName);
   Expect.equals(1, result.startOffset);
   Expect.equals(result.endContainer, result.startContainer);

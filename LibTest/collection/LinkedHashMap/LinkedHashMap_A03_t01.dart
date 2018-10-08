@@ -7,21 +7,21 @@
  * @assertion LinkedHashMap({bool equals(K key1, K key2), int hashCode(K key),
  * bool isValidKey(potentialKey)})
  * ...
- * If equals is provided, it is used to compare the keys in the table with new
- * keys. If equals is omitted, the key's own Object.operator== is used instead.
- * Similar, if hashCode is provided, it is used to produce a hash value for keys
- * in order to place them in the hash table. If it is omitted, the key's own
- * Object.hashCode is used.
- * @description Checks that if equals and hashCode is provided, it is used to
- * compare the keys and produce hash value for keys
+ * If [equals] is provided, it is used to compare the keys in the table with new
+ * keys. If [equals] is omitted, the key's own [Object.operator==] is used
+ * instead. Similar, if [hashCode] is provided, it is used to produce a hash
+ * alue for keys in order to place them in the hash table. If it is omitted, the
+ * key's own [Object.hashCode] is used.
+ * @description Checks that if both [equals] and [hashCode] are provided, they
+ * are used to compare the keys and produce hash values.
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-bool myEquals(int key1, int key2) =>
+bool myEquals(var key1, var key2) =>
     key1 > 0 && key2 > 0 || key1 <= 0 && key2 <= 0;
-int myHashCode(int key) => key > 0 ? 1 : -1;
+int myHashCode(var key) => key > 0 ? 1 : -1;
 
 check(LinkedHashMap map, List keysExpected, List valuesExpected) {
   Expect.equals(keysExpected.length, map.keys.length);

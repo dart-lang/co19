@@ -13,8 +13,6 @@
  * a single formal parameter.
  * @compile-error
  * @author vasya
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class C {
@@ -22,5 +20,7 @@ class C {
 }
 
 main() {
-  var x = C.getter;
+  try {
+    var x = C.getter;
+  } catch (e) {}
 }

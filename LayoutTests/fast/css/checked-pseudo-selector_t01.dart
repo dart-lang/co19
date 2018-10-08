@@ -39,7 +39,7 @@ main() {
     ["option1","option2","option3","option4","radio1","radio2","checkbox1","checkbox2"];
 
   isCheckedOrSelected(id) {
-    var obj = document.getElementById(id);
+    dynamic obj = document.getElementById(id);
     if (obj.checked || obj.selected)
       return true;
   }

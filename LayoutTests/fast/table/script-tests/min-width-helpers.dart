@@ -3,7 +3,7 @@ library min_width_helpers;
 import "dart:html";
 import "../../../testharness.dart";
 
-var testNotes = """======== General notes ========
+String testNotes = """======== General notes ========
 
 The stylesheet used to style the table in each test is available at: 
 <a href="$testSuiteRoot/fast/table/resources/min-width.css">LayoutTests/fast/table/resources/min-width.css</a>
@@ -19,15 +19,15 @@ void computeLogicalWidth(writingMode, direction, tableStyle)
 """;
 
 /* All tables will be generated to have the following intrinsic widths. */
-var minIntrinsicLogicalWidth = 100;
-var maxIntrinsicLogicalWidth = 250;
+int minIntrinsicLogicalWidth = 100;
+int maxIntrinsicLogicalWidth = 250;
 
 /* Tests will cover all permutations of the follow properties and settings. */
-var tableTypes = ["html", "css"];
-var displays = ["block", "inline"];
-var writingModes = ["horizontal", "vertical"];
-var directions = ["ltr", "rtl"];
-var logicalWidthsCombinations = [
+List<String> tableTypes = ["html", "css"];
+List<String> displays = ["block", "inline"];
+List<String> writingModes = ["horizontal", "vertical"];
+List<String> directions = ["ltr", "rtl"];
+List<Map<String,Object>> logicalWidthsCombinations = [
     /* fixed min-width, auto width */
     {"min-width": "500px", "width": null, "computed-width": {"css": "500px", "html": "470px"}},
     {"min-width": "150px", "width": null, "computed-width": {"css": "250px", "html": "250px"}},
@@ -64,7 +64,7 @@ void runTests(tableType, computeLogicalWidth) {
             logicalWidthsCombinations.forEach((logicalWidthsCombination) {
                 var tableStyle = createTableStyle(writingMode, logicalWidthsCombination);
                 shouldBe(computeLogicalWidth(writingMode, direction, tableStyle),
-                      logicalWidthsCombination["computed-width"][tableType],
+                      (logicalWidthsCombination["computed-width"] as Map)[tableType],
                       logicalWidthsCombination.toString());
             });
 

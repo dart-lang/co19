@@ -15,8 +15,10 @@
  */
 
 main() {
-  assert:
-  do {
-    break assert;
-  } while (false);
+  try {
+    assert:
+    do {
+      break assert;
+    } while (false);
+  } catch (x) {}
 }

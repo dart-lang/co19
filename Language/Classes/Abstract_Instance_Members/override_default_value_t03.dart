@@ -10,13 +10,12 @@
  * m2, the signature of m2 explicitly specifies a default value for a formal
  * parameter p and the signature of m1 specifies a different default value for
  * p.
- * @description Checks that it is a static warning if an instance method
+ * @description Checks that it is a compile error if an instance method
  * overrides an abstract method and has a different default value for its
  * optional parameter.
- * @static-warning
+ * @issue 27476
+ * @compile-error
  * @author msyabro
- * @reviewer rodionov
- * @reviewer kaigorodov
  */
 
 abstract class A {
@@ -24,7 +23,7 @@ abstract class A {
 }
 
 class C extends A {
-  foo([x = '']) { /// static type warning
+  foo([x = '']) {
   }
 }
 

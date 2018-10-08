@@ -8,14 +8,12 @@
  * the callback even if JS has lost references.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {
   var _observer;
 
-  addObserver(node, fn) {
+  addObserver(node, MutationCallback fn) {
     var observer = new MutationObserver(fn);
     _observer = observer;
     observer.observe(node, attributes:true);

@@ -8,11 +8,9 @@
  * @description Tests aborting XMLHttpRequest 'arraybuffer' loading with the .responseType and .response attributes.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
 
-var xhr = 0;
+HttpRequest xhr;
 
 void abort(e) {
     print("abort() 1");

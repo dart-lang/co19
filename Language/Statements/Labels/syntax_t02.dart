@@ -22,5 +22,7 @@
 
 
 main() {
-  L while (true) { break L; }
+  try {
+    L while (true) { break L; }
+  } catch (x) {}
 }

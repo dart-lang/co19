@@ -21,23 +21,23 @@ check(List l) {
   try {
     l.clear();
     failures.add("clear");
-  } on UnsupportedError catch (ok) {}
+  } on UnsupportedError {}
   try {
     l.length = 123;
     failures.add("set length");
-  } on UnsupportedError catch (ok) {}
+  } on UnsupportedError {}
   try {
     l.add(null);
     failures.add("add");
-  } on UnsupportedError catch (ok) {}
+  } on UnsupportedError {}
   try {
     l.removeLast();
     failures.add("removeLast");
-  } on UnsupportedError catch (ok) {}
+  } on UnsupportedError {}
   try {
     l.removeRange(0, 1);
     failures.add("removeRange");
-  } on UnsupportedError catch (ok) {}
+  } on UnsupportedError {}
 }
 
 test(Iterable create([Iterable content])) {

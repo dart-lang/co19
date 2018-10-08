@@ -10,22 +10,19 @@
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
-import "../../../Utils/dynamic_check.dart";
 
 check(message) {
   AssertionError ae = new AssertionError(message);
   Expect.equals(message, ae.message);
 
-  if (isCheckedMode()) {
-    bool thrown = false;
-    try {
-      assert(false, message);
-    } on AssertionError catch (e) {
-      Expect.equals(message, e.message);
-      thrown = true;
-    }
-    Expect.isTrue(thrown);
+  bool thrown = false;
+  try {
+    assert(false, message);
+  } on AssertionError catch (e) {
+    Expect.equals(message, e.message);
+    thrown = true;
   }
+  Expect.isTrue(thrown);
 }
 
 main() {

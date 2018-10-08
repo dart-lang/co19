@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final Type runtimeType
+ * @assertion Type runtimeType
  * A representation of the runtime type of the object.
  * @description Checks that the correct [Type] is returned.
  * @author msyabro
@@ -19,4 +19,3 @@ main() {
   Expect.isTrue(type is Type);
   Expect.stringEquals("Uint8List", obj.runtimeType.toString());
 }
-

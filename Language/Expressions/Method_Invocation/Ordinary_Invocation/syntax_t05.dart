@@ -6,15 +6,14 @@
 /**
  * @assertion An unconditional ordinary method invocation i has the form
  * o.m(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k).
- * @description Checks that argument list may end with comma.
+ * @description Checks that argument list may have comma on the end.
  * @author msyabro
  * @reviewer kaigorodov
  */
-class C {
-  f(a, b, c, ) {}
-}
 
 main() {
-  C o = new C();
-  o.f(1, 2, 3, );
+  var o;
+  try {
+    o.f(1, 2, 3, );
+  } catch (e) {}
 }

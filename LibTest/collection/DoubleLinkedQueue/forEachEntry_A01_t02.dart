@@ -5,7 +5,7 @@
  */
 /**
  * @assertion void forEachEntry(void f(DoubleLinkedQueueEntry<E> element))
- * @description Checks forEach() on empty list.
+ * @description Checks [forEachEntry()] on empty list.
  * @author kaigorodov
  */
 
@@ -17,7 +17,7 @@ main() {
   
   int count = 0;
   queue.forEachEntry((var entry) {
-    var element=entry.element;
+    var element = entry.element;
     count++;
   });
   

@@ -55,7 +55,7 @@ main() {
   var varfunc = (() => "varfunc");
   Expect.equals("varfunc", varfunc());
 
-  var varnotfunc = 1;
+  dynamic varnotfunc = 1;
   try {
     varnotfunc();
     Expect.fail("NoSuchMethodError expected");

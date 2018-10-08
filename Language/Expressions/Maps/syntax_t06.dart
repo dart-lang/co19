@@ -21,5 +21,7 @@
  */
 
 main() {
-  var map=<String, int>{, "key1": 1, "key2" : 2, "key3": 3};
+  try {
+    var map=<String, int>{, "key1": 1, "key2" : 2, "key3": 3};
+  } catch (e) {}
 }

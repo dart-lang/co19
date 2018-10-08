@@ -11,13 +11,12 @@
  * expression evaluates to v.
  * Otherwise, if v is null, the cast expression evaluates to v.
  * In all other cases, a CastError is thrown.
- * @description Checks that if T is undeclared identifier, then T is malformed,
- * and TypeError is thrown, not CastError.
- * @static-warning
+ * @description Checks that if T is undeclared identifier, then compile error
+ * occurs
+ * @compile-error
  * @author ilya
  */
-import '../../../Utils/expect.dart';
 
 main() {
-  Expect.throws(() => 1 as Unknown, (e) => e is TypeError); /// static type warning
+  1 as Unknown;
 }

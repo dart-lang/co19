@@ -12,9 +12,9 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  var x = new Element.html('<div title="one"><p title="two"></p></div>',
+  Element x = new Element.html('<div title="one"><p title="two"></p></div>',
       treeSanitizer: new NullTreeSanitizer());
 
   Expect.equals("one", x.title);
-  Expect.equals("two", x.firstChild.title);
+  Expect.equals("two", (x.firstChild as Element).title);
 }

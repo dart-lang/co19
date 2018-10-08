@@ -7,15 +7,12 @@
  * @description Test WebKitMutationObserver.observe on CharacterData nodes
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {
   var mutations;
   var mutations2;
   var mutationsWithOldValue;
-  var calls;
   var charDataNode;
   var runNextTest;
 

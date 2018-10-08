@@ -6,25 +6,25 @@
 /**
  * @assertion Unary expressions invoke unary operators on objects.
  * unaryExpression:
- *   preï¬�xOperator unaryExpression |
+ *   preﬁxOperator unaryExpression |
  *   awaitExpression |
- *   postï¬�xExpression |
+ *   postﬁxExpression |
  *   (minusOperator | tildeOperator) super |
  *   incrementOperator assignableExpression
  * ;
- * preï¬�xOperator:
+ * preﬁxOperator:
  *   minusOperator |
  *   negationOperator |
  *   tildeOperator
  * ;
  * minusOperator:
- *   â€˜-â€™ |
+ *   ‘-’ |
  * ;
  * negationOperator:
- *   â€˜!â€™ |
+ *   ‘!’ |
  * ;
  * tildeOperator:
- *   â€˜Ëœâ€™
+ *   ‘˜’
  * ;
  * A unary expression is either a postfix expression, an await expression or
  * an invocation of a prefix operator on an expression or an invocation of a
@@ -39,5 +39,7 @@
 
 main() {
   var x = 1;
-  ++x--;
+  try {
+    ++x--;
+  } catch (e) {}
 }

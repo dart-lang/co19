@@ -4,30 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion dynamic firstWhere(bool test(E element), {Object orElse()})
+ * @assertion E firstWhere(bool test(E element), {E orElse()})
  * Returns the first element that satisfies the given predicate [test].
- * @description Checks that the first element that satisfies
- * the given predicate is returned.
+ * @description Checks that the first element that satisfies the given predicate
+ * [test] is returned.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-
 main() {
   var l = new Uint8List.fromList([1, 2, 3, 4, 5, 6, 9]);
-  var res = l.firstWhere(
-    (element) => element == 1
-  );
+  var res = l.firstWhere((element) => element == 1);
   Expect.equals(1, res);
 
-  res = l.firstWhere(
-          (element) => element > 6
-  );
+  res = l.firstWhere((element) => element > 6);
   Expect.equals(9, res);
 
-  res = l.firstWhere(
-          (element) => element > 1
-  );
+  res = l.firstWhere((element) => element > 1);
   Expect.equals(2, res);
 }

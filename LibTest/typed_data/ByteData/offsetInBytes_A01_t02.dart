@@ -4,20 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final int offsetInBytes
+ * @assertion int offsetInBytes
  * Returns the offset in bytes into the underlying byte buffer of this view.
- * @description Checks that [offsetInBytes] is final and can't be set
+ * @description Checks that [offsetInBytes] is read-only and can't be set.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(count) {
-  var l = new ByteData(count);
+  dynamic l = new ByteData(count);
   try {
     l.offsetInBytes = 0;
-    Expect.fail("[offsetInBytes] should be final");
-  } on NoSuchMethodError catch(ok) {}
+    Expect.fail("[offsetInBytes] should be read-only");
+  } on NoSuchMethodError {}
 }
 
 main() {

@@ -18,5 +18,7 @@
 func(this, p) {}
 
 main() {
-  func(1, 2);
+  try {
+    func(1, 2);
+  } catch (e) {}
 }

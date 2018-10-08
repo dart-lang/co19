@@ -8,12 +8,8 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "resources/desktop-gl-constants.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -21,7 +17,7 @@ main() {
       <canvas id="canvas">
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas;
+  dynamic canvas;
   var gl;
   var shouldGenerateGLError;
 
@@ -36,38 +32,38 @@ main() {
   gl = wtu.create3DContext(canvas);
   shouldGenerateGLError = wtu.shouldGenerateGLError;
 
-  shouldGenerateGLError(gl, wgl.NO_ERROR, () => buffer = gl.createBuffer());
+  shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => buffer = gl.createBuffer());
   shouldBeFalse(gl.isBuffer(buffer));
-  shouldGenerateGLError(gl, wgl.NO_ERROR, () => gl.bindBuffer(wgl.ARRAY_BUFFER, buffer));
+  shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, buffer));
   shouldBeTrue(gl.isBuffer(buffer));
   debug("");
 
-  shouldGenerateGLError(gl, wgl.NO_ERROR, () => framebuffer = gl.createFramebuffer());
+  shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => framebuffer = gl.createFramebuffer());
   shouldBeFalse(gl.isFramebuffer(framebuffer));
-  shouldGenerateGLError(gl, wgl.NO_ERROR, () => gl.bindFramebuffer(wgl.FRAMEBUFFER, framebuffer));
+  shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => gl.bindFramebuffer(wgl.WebGL.FRAMEBUFFER, framebuffer));
   shouldBeTrue(gl.isFramebuffer(framebuffer));
   debug("");
 
-  shouldGenerateGLError(gl, wgl.NO_ERROR, () => renderbuffer = gl.createRenderbuffer());
+  shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => renderbuffer = gl.createRenderbuffer());
   shouldBeFalse(gl.isRenderbuffer(renderbuffer));
-  shouldGenerateGLError(gl, wgl.NO_ERROR, () => gl.bindRenderbuffer(wgl.RENDERBUFFER, renderbuffer));
+  shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => gl.bindRenderbuffer(wgl.WebGL.RENDERBUFFER, renderbuffer));
   shouldBeTrue(gl.isRenderbuffer(renderbuffer));
   debug("");
 
-  shouldGenerateGLError(gl, wgl.NO_ERROR, () => texture = gl.createTexture());
+  shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => texture = gl.createTexture());
   shouldBeFalse(gl.isTexture(texture));
-  shouldGenerateGLError(gl, wgl.NO_ERROR, () => gl.bindTexture(wgl.TEXTURE_2D, texture));
+  shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => gl.bindTexture(wgl.WebGL.TEXTURE_2D, texture));
   shouldBeTrue(gl.isTexture(texture));
   debug("");
 
-  shouldGenerateGLError(gl, wgl.NO_ERROR, () => program = gl.createProgram());
+  shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => program = gl.createProgram());
   shouldBeTrue(gl.isProgram(program));
-  shouldGenerateGLError(gl, wgl.NO_ERROR, () => gl.deleteProgram(program));
+  shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => gl.deleteProgram(program));
   shouldBeFalse(gl.isProgram(program));
   debug("");
 
-  shouldGenerateGLError(gl, wgl.NO_ERROR, () => shader = gl.createShader(wgl.VERTEX_SHADER));
+  shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => shader = gl.createShader(wgl.WebGL.VERTEX_SHADER));
   shouldBeTrue(gl.isShader(shader));
-  shouldGenerateGLError(gl, wgl.NO_ERROR, () => gl.deleteShader(shader));
+  shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => gl.deleteShader(shader));
   shouldBeFalse(gl.isShader(shader));
 }

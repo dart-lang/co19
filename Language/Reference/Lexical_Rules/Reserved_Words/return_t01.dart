@@ -17,5 +17,8 @@
 class return { } // error
 
 main() {
-  null is return;
+  try {
+    null is return;
+  } catch (anything) {
+  }
 }

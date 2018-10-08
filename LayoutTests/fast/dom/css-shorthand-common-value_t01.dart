@@ -12,7 +12,7 @@ import "dart:html";
 import "../../testcommon.dart";
 
 main() {
-  var style = new Element.html('''
+  StyleElement style = new Element.html('''
     <style>
     #test {
         border: 10px solid red;
@@ -22,9 +22,10 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);
 
-  var sheet = style.sheet;
+  CssStyleSheet sheet = style.sheet;
   var expected = 'solid red';
-  var actual = sheet.cssRules[0].style.getPropertyValue('border');
+  var actual =
+    (sheet.cssRules[0] as CssStyleRule).style.getPropertyValue('border');
 
   shouldBe(actual, expected);
 }

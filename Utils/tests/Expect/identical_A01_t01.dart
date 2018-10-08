@@ -20,9 +20,9 @@ main()
   Expect.identical(null, null, "");
   Expect.identical(null, null, "not empty");
 
-  Expect.identical(double.NAN, double.NAN);
-  Expect.identical(double.NAN, double.NAN, "");
-  Expect.identical(double.NAN, double.NAN, "not empty");
+  Expect.identical(double.nan, double.nan);
+  Expect.identical(double.nan, double.nan, "");
+  Expect.identical(double.nan, double.nan, "not empty");
 
   Expect.identical(1, 1);
   Expect.identical(1, 1, "");

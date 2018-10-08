@@ -9,19 +9,17 @@
  * @description Checks that the message can be sent to the main window.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
-const text="Hi there!";
+const text = "Hi there!";
 
 main() {
   asyncStart();
   window.addEventListener("message", (Event event) {
     print("ev=$event");
-    Expect.equals(text, event.data);
+    Expect.equals(text, (event as MessageEvent).data);
     asyncEnd();
   });
-  
-  window.postMessage(text,  "*");
-  
+
+  window.postMessage(text, "*");
 }

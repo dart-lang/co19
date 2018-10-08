@@ -20,10 +20,12 @@
 main() {
   var x = 1;
 
-  switch (x) {
-    case 0:
-    case 2:
-    case "false":
-    default:
-  }
+  try {
+    switch (x) {
+      case 0:
+      case 2:
+      case "false":
+      default:
+    }
+  } catch (e) {}
 }

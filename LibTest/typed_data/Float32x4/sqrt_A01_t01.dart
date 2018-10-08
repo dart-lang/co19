@@ -6,8 +6,8 @@
 /**
  * @assertion Float32x4 sqrt()
  * Returns the square root of this.
- * @description Checks that the returned value contains square
- * roots of corresponding lanes of [this].
+ * @description Checks that the returned value contains square root of
+ * corresponding lanes of [this].
  * @author msyabro
  * @note eps increased from 1e-7 to 1e-6 as asked in co19 issue #666.
  */
@@ -19,11 +19,11 @@ import "../../../Utils/expect.dart";
 check(x, y, z, w) {
   var obj = new Float32x4(x,y,z,w);
   var res = obj.sqrt();
-  double eps=1e-6;
-  Expect.approxEquals(sqrt(obj.x), res.x, (res.x*eps).abs());
-  Expect.approxEquals(sqrt(obj.y), res.y, (res.y*eps).abs());
-  Expect.approxEquals(sqrt(obj.z),res.z, (res.z*eps).abs());
-  Expect.approxEquals(sqrt(obj.w), res.w, (res.w*eps).abs());
+  double eps = 1e-6;
+  Expect.approxEquals(sqrt(obj.x), res.x, (res.x * eps).abs());
+  Expect.approxEquals(sqrt(obj.y), res.y, (res.y * eps).abs());
+  Expect.approxEquals(sqrt(obj.z), res.z, (res.z * eps).abs());
+  Expect.approxEquals(sqrt(obj.w), res.w, (res.w * eps).abs());
 }
 
 main() {

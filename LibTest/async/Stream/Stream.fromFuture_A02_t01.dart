@@ -11,41 +11,18 @@
  * fire one data event, and then close with a done-event.
  * @author kaigorodov
  */
-
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
-
-const int value = 123;
-
-check(Future f) {
-  bool seen = false;
-  Stream s = new Stream.fromFuture(f);
-
-  asyncStart();
-
-  s.listen((int event) {
-    Expect.equals(false, seen, "onData");
-    Expect.equals(value, event);
-    seen = true;
-  }, onError: (_) {
-    Expect.fail("onError called unexpectedly");
-  }, onDone: () {
-    Expect.equals(true, seen, "onDone");
-    asyncEnd();
-  });
-}
 
 main() {
   // using immediate sync future
-  check(new Future.sync(() => value));
+  AsyncExpect.data([123], new Stream.fromFuture(new Future.sync(() => 123)));
 
   // using immediate future
-  check(new Future(() => value));
+  AsyncExpect.data(["abc"], new Stream.fromFuture(new Future(() => "abc")));
 
   // using completable future
   Completer completer = new Completer();
-  check(completer.future);
-  completer.complete(value);
+  AsyncExpect.data([3.14], new Stream.fromFuture(completer.future));
+  completer.complete(3.14);
 }
-

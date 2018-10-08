@@ -5,9 +5,11 @@
  */
 /**
  * @assertion void setAll(int index, Iterable<E> iterable)
- * It is an error if the [iterable] is longer than length - [index].
- * @description Checks that an error is thrown if
- * the [iterable] is longer than length - index.
+ * ...
+ * The iterable must not have more elements than what can fit from index to
+ * length.
+ * @description Checks that an error is thrown if the [iterable] is longer than
+ * length - index.
  * @author msyabro
  */
 
@@ -17,23 +19,22 @@ import "../../../Utils/expect.dart";
 
 main() {
   var l = new Float64List.fromList([]);
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(0, [1.0]);
   });
 
   l = new Float64List.fromList([1.0, 2.0, 3.0]);
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(0, [1.0, 2.0, 3.0, 4.0]);
   });
 
   l = new Float64List.fromList([1.0, 2.0, 3.0]);
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(1, [1.0, 2.0, 3.0]);
   });
 
   l = new Float64List.fromList([1.0, 2.0, 3.0]);
-  Expect.throws( () {
+  Expect.throws(() {
     l.setAll(2, [1.0, 2.0]);
   });
 }
-

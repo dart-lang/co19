@@ -7,7 +7,6 @@
  * @assertion Returns [null] if there is no match.
  * @description Checks that null is returned when appropriate.
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
  

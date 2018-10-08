@@ -12,19 +12,19 @@ import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
 
 main() {
-  var body = document.body;
+  BodyElement body = document.body;
 
   body.setInnerHtml('''
     <div id="testDiv"></div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
   // Create a pending stylesheet, this href intentionally 404s.
-  var linkTag = document.createElement('link');
+  LinkElement linkTag = document.createElement('link') as LinkElement;
   linkTag.href = 'IntentionallyMissingFile.css';
   linkTag.rel = 'stylesheet';
   document.head.append(linkTag);
 
-  var textDiv = document.createElement('div');
+  DivElement textDiv = document.createElement('div') as DivElement;
   textDiv.setAttribute('id', 'text');
   textDiv.append(new Text('test'));
   document.getElementById('testDiv').append(textDiv);

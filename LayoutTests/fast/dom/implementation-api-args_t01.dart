@@ -29,13 +29,8 @@ main() {
     }
   }
 
-  _shouldThrow1(func)
-    => shouldThrow(func, (e) => e is NoSuchMethodError);
-
   debug('\nDocumentType createDocumentType(DOMString qualifiedName, DOMString publicId, DOMString systemId);');
-  _shouldThrow1(() => document.implementation.createDocumentType());
-  _shouldThrow1(() => document.implementation.createDocumentType("qualifiedName"));
-  _shouldThrow1(() => document.implementation.createDocumentType("qualifiedName", "publicId"));
+  testImpl(document.implementation, "qualifiedName", "qualifiedName", "publicId");
 
   var docType;
   shouldNotThrow(() => docType = document.implementation.createDocumentType("qualifiedName", "publicId", "systemId"));
@@ -45,9 +40,7 @@ main() {
   //shouldBeEqualToString(docType.systemId, 'systemId');
 
   debug('\nXMLDocument createDocument(DOMString? namespace, [TreatNullAs=EmptyString] DOMString qualifiedName, DocumentType? doctype);');
-  _shouldThrow1(() => document.implementation.createDocument());
-  _shouldThrow1(() => document.implementation.createDocument("namespace"));
-  _shouldThrow1(() => document.implementation.createDocument("namespace", "qualifiedName"));
+  testImpl(document.implementation, "namespace", "namespace", "qualifiedName");
 
   var doc;
   shouldNotThrow(() => doc = document.implementation.createDocument("namespace", "qualifiedName", null));
@@ -69,4 +62,13 @@ main() {
   //validateDocument(doc, 'HtmlDocument', "http://www.w3.org/1999/xhtml", "HTML");
   shouldNotThrow(() => doc = document.implementation.createHtmlDocument("title"));
   validateDocument(doc, 'HtmlDocument', "http://www.w3.org/1999/xhtml", "HTML");
+}
+
+testImpl(dynamic impl, String name1, String name2, String id) {
+  _shouldThrow1(func)
+  => shouldThrow(func, (e) => e is NoSuchMethodError);
+
+  _shouldThrow1(() => impl.createDocumentType());
+  _shouldThrow1(() => impl.createDocumentType("qualifiedName"));
+  _shouldThrow1(() => impl.createDocumentType("qualifiedName", "publicId"));
 }

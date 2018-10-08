@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var style = new Element.html('''
@@ -23,7 +22,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   draw(w, h) {
-    var canvas = document.getElementById("canvas");
+    dynamic canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("4d");
     shouldBeNull(ctx);
   }

@@ -20,5 +20,7 @@ class A {}
 class C extends A with {}
 
 main() {
-  A a = new A();
+  try {
+    new A();
+  } catch (e) {}
 }

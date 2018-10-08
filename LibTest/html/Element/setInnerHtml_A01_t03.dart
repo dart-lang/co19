@@ -22,9 +22,9 @@ main() {
   var x = document.body;
   x.setInnerHtml('<div foo="foo"><bar id="bar"></bar></div>',
       treeSanitizer: new NullTreeSanitizer());
-  var div = x.firstChild;
+  DivElement div = x.firstChild;
 
-  Expect.mapEquals({'foo':'foo'}, div.attributes);
+  Expect.mapEquals({'foo': 'foo'}, div.attributes);
 
   var bar = div.querySelector('#bar');
   Expect.equals('BAR', bar.tagName);

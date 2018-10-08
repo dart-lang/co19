@@ -16,17 +16,18 @@
  * @author ilya
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var s = new Stream.fromIterable([1]);
-  var tr = new StreamTransformer((stream, cancelOnError) {
-    Expect.identical(s, stream);
-    asyncEnd();
-    return stream.listen(null);
-  });
+  Stream source = new Stream.fromIterable([1]);
+  StreamTransformer<int, dynamic> tr = new StreamTransformer(
+    (stream, cancelOnError) {
+      Expect.identical(source, stream);
+      asyncEnd();
+      return stream.listen(null);
+    }
+  );
 
   asyncStart();
-  s.transform(tr).toList();
+  source.transform(tr).toList();
 }

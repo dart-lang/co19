@@ -6,8 +6,8 @@
 /**
  * @assertion void retainWhere(bool test(E element))
  * ...
- * The test function must not throw or modify the queue.
- * @description Checks that if test function modifies the queue the exception is
+ * The [test] function must not throw or modify the queue.
+ * @description Checks that if [test] function modifies the queue the exception is
  * thrown and operation stops
  * @issue 26587
  * @author sgrekhov@unipro.ru

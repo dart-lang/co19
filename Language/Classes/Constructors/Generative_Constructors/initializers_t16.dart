@@ -18,7 +18,6 @@
  * initializer results in a compile-time error.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {
@@ -27,5 +26,7 @@ class C {
 }
 
 main() {
-  new C();
+  try {
+    new C();
+  } catch (ok) {}
 }

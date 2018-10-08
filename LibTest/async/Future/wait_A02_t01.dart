@@ -7,15 +7,13 @@
  * @assertion Future<List> wait(Iterable<Future> futures,
  *                {bool eagerError: false, void cleanUp(successValue)})
  * If any of the futures in the list completes with an error, the resulting
- * future also completes with an error.
- * Otherwise the value of the returned future will be a list of all the values
- * that were produced.
- * @description Checks that the returned future is completed when one of the
- * futures in the list is completed with exception.
+ * future also completes with an error. Otherwise the value of the returned
+ * future will be a list of all the values that were produced.
+ * @description Checks that the returned future is completed with error if all
+ * of the futures in the list are completed with error.
  * @author iefremov
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
@@ -31,20 +29,16 @@ main() {
   var future4 = completer4.future;
   var future5 = completer5.future;
 
-  future1.catchError((e) => true);
-  future2.catchError((e) => true);
-  future3.catchError((e) => true);
-  future4.catchError((e) => true);
-
   var f = Future.wait([future1, future2, future3, future4, future5]);
 
   asyncStart();
   f.then(
       (value) {
-        Expect.fail("Should not be here");
+        Expect.fail("Returned future should complete with error");
         asyncEnd();
       },
-      onError: (Object err) {
+      onError: (error) {
+        Expect.isTrue([1, 2, 3, 4, 5].contains(error), "error: $error");
         Expect.isTrue(completer1.isCompleted);
         Expect.isTrue(completer2.isCompleted);
         Expect.isTrue(completer3.isCompleted);

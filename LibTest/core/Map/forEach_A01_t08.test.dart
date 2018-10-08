@@ -8,22 +8,21 @@
  * Applies f to each {key, value} pair of the map.
  * @description Nested forEach.
  * @author msyabro
- * @reviewer varlax
  */
 library forEach_A01_t08;
 
 import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {
-  Map<String, Object> map = create();
+  Map map = create();
   
   map["1"] = 3;
   map["2"] = 5;
   
   int count = 0;
-  map.forEach((String key1, Object value1) {
-    map.forEach((String key2, Object value2) {
-      map.forEach((String key3, Object value3) {count++;});
+  map.forEach((var key1, var value1) {
+    map.forEach((var key2, var value2) {
+      map.forEach((var key3, var value3) {count++;});
     });
   });
   Expect.isTrue(count == 8);

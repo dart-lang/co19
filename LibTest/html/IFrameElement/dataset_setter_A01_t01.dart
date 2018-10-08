@@ -17,8 +17,8 @@ main() {
   IFrameElement x = new Element.html('<iframe data-foo-bar="1"></iframe>',
       treeSanitizer: new NullTreeSanitizer());
 
-  x.dataset={'fooBar':'one', 'fooBarBaz': 'two'};
+  x.dataset = {'fooBar': 'one', 'fooBarBaz': 'two'};
 
-  Expect.mapEquals({'data-foo-bar':'one', 'data-foo-bar-baz':'two'},
-      x.attributes);
+  Expect.mapEquals(
+      {'data-foo-bar': 'one', 'data-foo-bar-baz': 'two'}, x.attributes);
 }

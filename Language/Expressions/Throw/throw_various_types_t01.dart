@@ -13,24 +13,24 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  var last = -1;
+  var v1 = -1;
   try {
-    throw last;
+    throw v1;
   } catch (e) {
-    Expect.equals(last, e);
+    Expect.equals(v1, e);
   }
 
-  last = {"1": 1, "2": 2, "3": 3, "4": 4};
+  var v2 = {"1": 1, "2": 2, "3": 3, "4": 4};
   try {
-    throw last;
+    throw v2;
   } catch (e) {
-    Expect.equals(last, e);
+    Expect.equals(v2, e);
   }
 
-  last = () => null;
+  var v3 = () => null;
   try {
-    throw last;
+    throw v3;
   } catch (e) {
-    Expect.equals(last, e);
+    Expect.equals(v3, e);
   }
 }

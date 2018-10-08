@@ -17,5 +17,8 @@
 typedef void in();
 
 main() {
-  null is in;
+  try {
+    null is in;
+  } catch (anything) {
+  }
 }

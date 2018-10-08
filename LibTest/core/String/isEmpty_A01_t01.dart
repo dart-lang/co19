@@ -5,18 +5,16 @@
  */
 /**
  * @assertion Returns whether this string is empty.
- * @description Checks that this method works correctly
+ * @description Checks that this property works correctly
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
-  Expect.isTrue("".isEmpty == true);
-  Expect.isTrue(" ".isEmpty == false);
-  Expect.isTrue("""
-  """.isEmpty == false); 
-  Expect.isTrue("\u0000".isEmpty == false);
-  Expect.isTrue("u0000".isEmpty == false);
+  Expect.isTrue("".isEmpty);
+  Expect.isFalse(" ".isEmpty);
+  Expect.isFalse("""
+    """.isEmpty);
+  Expect.isFalse("\u0000".isEmpty);
+  Expect.isFalse("u0000".isEmpty);
 }

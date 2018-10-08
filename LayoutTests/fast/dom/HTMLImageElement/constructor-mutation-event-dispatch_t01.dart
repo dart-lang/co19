@@ -11,8 +11,6 @@
  * No crash means test PASS.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../testcommon.dart";
 
 main() {
   document.addEventListener("DOMSubtreeModified", (_) {}, true);

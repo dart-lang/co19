@@ -11,7 +11,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 class IFrameElement1 extends IFrameElement {
   IFrameElement1.created() : super.created();
@@ -23,7 +22,7 @@ class IFrameElement1 extends IFrameElement {
 
 main() {
   var tag = 'x-foo';
-  document.register(tag, IFrameElement1, extendsTag:"iframe");
+  document.register(tag, IFrameElement1, extendsTag: "iframe");
 
   asyncStart();
   IFrameElement1 x = new Element.tag(tag);

@@ -5,14 +5,15 @@
  */
 /**
  * @assertion final bool isGetter
- * Whether the invocation was a getter call. If so, both types of arguments is empty.
- * @description Checks that isGetter returns false for setters and instance method
- * invocations.
- * @static-warning
+ * Whether the invocation was a getter call. If so, both types of arguments is
+ * empty.
+ * @description Checks that isGetter returns false for setters and instance
+ * method invocations.
  * @author ilya
  */
 import "../../../Utils/expect.dart";
 
+@proxy
 class D {
   method(x, y, z) {}
   get getOnly {}
@@ -22,33 +23,27 @@ class D {
   }
 }
 
+@proxy
 class C extends D {
   noSuchMethod(Invocation i) {
     Expect.isFalse(i.isGetter);
-  }
-  test() {
-    foo();
-    method();
-    bar = 1;
-    getOnly = 1;
-    super.foo();
-    super.method();
-    super.bar = 1;
-    super.getOnly = 1;
   }
   var d;
   C() : d = new D();
 }
 
-main() {
-  var x = new C();
+test(dynamic x) {
   var y = new C();
-  x+y;
-  -x;
+  x + y;
+  - x;
   x.foo();
   x.method();
   x.bar = 1;
   x.getOnly = 1;
-  x.test();
   x.d();
+
+}
+
+main() {
+  test(new C());
 }

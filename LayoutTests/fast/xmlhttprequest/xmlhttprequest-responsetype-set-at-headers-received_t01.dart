@@ -9,8 +9,7 @@
  * modifiable in the HEADERS_RECEIVED state.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
+import "../../testcommon.dart";
 
 void main() {
     HttpRequest xhr = new HttpRequest();

@@ -17,33 +17,42 @@
  * @author ilya
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var c = new StreamController();
+  StreamController c = new StreamController();
   c.addError(1);
   c.add(2);
 
-  var tr = new StreamTransformer((stream, cancelOnError) {
-    return stream.listen((x) {
-      Expect.fail('unexpected call to OnData');
-    }, onError:((x) {
-      Expect.fail('unexpected call to OnError');
-    }), onDone: () {
-      Expect.fail('unexpected call to OnDone');
-    });
-  });
+  StreamTransformer tr = new StreamTransformer(
+    (Stream stream, bool cancelOnError) {
+      return stream.listen(
+        (x) {
+          Expect.fail('unexpected call to OnData');
+        },
+        onError:(x) {
+          Expect.fail('unexpected call to OnError');
+        },
+        onDone:() {
+          Expect.fail('unexpected call to OnDone');
+        }
+      );
+    }
+  );
 
   asyncMultiStart(3);
 
-  c.stream.transform(tr).listen((x) {
-    asyncEnd();
-  }, onError:((x) {
-    asyncEnd();
-  }), onDone: () {
-    asyncEnd();
-  });
+  c.stream.transform(tr).listen(
+    (x) {
+      asyncEnd();
+    },
+    onError:(x) {
+      asyncEnd();
+    },
+    onDone:() {
+      asyncEnd();
+    }
+  );
 
   c.close();
 }

@@ -5,13 +5,11 @@
  */
 /**
  * @description Test required arguments of URL object.
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  shouldThrow(() => Url.createObjectUrl());
-  shouldThrow(() => Url.revokeObjectUrl());
+  shouldThrow(() => (Url as dynamic).createObjectUrl());
+  shouldThrow(() => (Url as dynamic).revokeObjectUrl());
 }

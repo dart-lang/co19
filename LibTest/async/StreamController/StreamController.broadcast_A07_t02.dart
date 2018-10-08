@@ -15,7 +15,6 @@
  */
 
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
@@ -30,7 +29,5 @@ main() {
 
   Expect.isFalse(onCancelCalled);
   StreamSubscription subs = controller.stream.listen((event) {});
-
   subs.cancel();
-  Expect.isTrue(onCancelCalled);
 }

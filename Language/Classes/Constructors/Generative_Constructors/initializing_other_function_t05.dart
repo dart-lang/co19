@@ -10,7 +10,6 @@
  * formal syntax is used by a static method.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
@@ -19,5 +18,7 @@ class C {
 }
 
 main() {
-  C.foo(null);
+  try {
+    C.foo(null);
+  } catch (v) {}
 }

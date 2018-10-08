@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -23,7 +22,7 @@ main() {
     testFailed('should not happen');
   }
 
-  var form = document.body.querySelector('form');
+  FormElement form = document.body.querySelector('form');
   form.addEventListener("reset", eventHandlerOne, true);
   form.addEventListener("reset", eventHandlerTwo, true);
   form.reset();

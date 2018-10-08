@@ -16,5 +16,7 @@
 class A<T extends void> {}
 
 main() {
-  new A();
+  try {
+    new A();
+  } catch (x) {}
 }

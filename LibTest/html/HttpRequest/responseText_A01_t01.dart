@@ -9,17 +9,16 @@
  * @description Checks that the property is not empty in case of success.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
+import "dart:async";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
   asyncStart();
-  Future<HttpRequest> f=HttpRequest.request("test.html");
-  f.then((HttpRequest r){
-      Expect.isTrue(r.responseText.length>0);
-      asyncEnd();
-    },
-    onError:(Object error){
-      Expect.fail("request.onLoad.listen:onError($error)");
-    });
+  Future<HttpRequest> f = HttpRequest.request("test.html");
+  f.then((HttpRequest r) {
+    Expect.isTrue(r.responseText.length > 0);
+    asyncEnd();
+  }, onError: (Object error) {
+    Expect.fail("request.onLoad.listen:onError($error)");
+  });
 }

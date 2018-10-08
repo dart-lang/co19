@@ -10,7 +10,6 @@
  * method on the result of a setter and expecting no warnings.
  * @static-clean
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {
@@ -22,7 +21,5 @@ f(x) => ((new C()).foo = x).asdf();
 main() {
   try {
     f(null);
-  } on NoSuchMethodError {
-    // ok, because we call not existing method
-  }
+  } catch (e) {}
 }

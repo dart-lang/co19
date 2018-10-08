@@ -12,7 +12,6 @@
  * (referenced as this.name).
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {
@@ -24,6 +23,8 @@ class C {
 }
 
 main() {
-  C c = new C(0, 1);
-  print(c.x);
+  try {
+    C c = new C(0, 1);
+    print(c.x);
+  } catch (x) {}
 }

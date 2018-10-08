@@ -5,20 +5,18 @@
  */
 /**
  * @assertion double operator *(num other)
- * @description Checks that if both operands are infinite the result is infinity.
+ * @description Checks that if both operands are infinite the result is infinity
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
-
-final double positive_infinity = 1 / 0;
-final double negative_infinity = -1 / 0;
-
 main() {
-  Expect.equals(positive_infinity, positive_infinity * positive_infinity);
-  Expect.equals(positive_infinity, negative_infinity * negative_infinity);
+  Expect.equals(double.infinity, double.infinity * double.infinity);
+  Expect.equals(double.infinity,
+      double.negativeInfinity * double.negativeInfinity);
 
-  Expect.equals(negative_infinity, positive_infinity * negative_infinity);
-  Expect.equals(negative_infinity, negative_infinity * positive_infinity);
+  Expect.equals(double.negativeInfinity,
+      double.infinity * double.negativeInfinity);
+  Expect.equals(double.negativeInfinity,
+      double.negativeInfinity * double.infinity);
 }

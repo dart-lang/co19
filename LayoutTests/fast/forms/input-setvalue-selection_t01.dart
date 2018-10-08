@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -20,7 +19,7 @@ main() {
       </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var input = document.body.querySelector("input");
+  InputElement input = document.body.querySelector("input") as InputElement;
   input.value = "1";
   // the insertion point should be at the end
   shouldBe(input.selectionStart, 1);

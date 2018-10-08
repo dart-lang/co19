@@ -4,11 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final bool isNotEmpty
+ * @assertion  bool isNotEmpty
  * Returns true if there is at least one element in this collection.
- * @description Checks that this method returns true iff [this] has at least one element.
+ * @description Checks that this method returns true iff [this] has at least
+ * one element.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

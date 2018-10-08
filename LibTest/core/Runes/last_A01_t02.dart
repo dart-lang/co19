@@ -9,15 +9,11 @@
  * @description Checks that [last] is final and can't be set.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string) {
-  var runes = new Runes(string);
-  try {
-    runes.last = 0;
-    Expect.fail("[last] should be final");
-  } on NoSuchMethodError catch(ok) {}
+  dynamic runes = new Runes(string);
+  Expect.throws(() {runes.last = 0;}, (e) => e is NoSuchMethodError);
 }
 
 

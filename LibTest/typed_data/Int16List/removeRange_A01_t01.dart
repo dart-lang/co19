@@ -5,24 +5,26 @@
  */
 /**
  * @assertion void removeRange(int start, int end)
- * Removes the elements in the range start to end exclusive.
- * Throws an UnsupportedError, and doesn't remove elements,
- * if the length of [this] cannot be changed.
- * @description Checks that [UnsupportedError] is thrown
- * since [Int16List] is a fixed-size list.
+ * Removes the objects in the range start inclusive to end exclusive.
+ * ...
+ * Throws an UnsupportedError if this is a fixed-length list. In that case the
+ * list is not modified.
+ * @description Checks that [UnsupportedError] is thrown since [Int16List] is a
+ * fixed-length list.
  * @note undocumented
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
+check(List<int> list) {
   var l = new Int16List.fromList(list);
   var length = l.length;
   try {
     l.removeRange(0, 1);
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {};
+  } on UnsupportedError {};
   Expect.equals(length, l.length);
 }
 

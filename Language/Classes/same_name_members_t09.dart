@@ -10,14 +10,15 @@
  * a variable and an abstract getter of the same name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {
   var f = 0;
-  String get f; //abstract
+  String get f;
 }
 
 main() {
-  C c = new C();
+  try {
+    new C();
+  } catch (e) {}
 }

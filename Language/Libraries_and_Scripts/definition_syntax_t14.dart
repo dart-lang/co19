@@ -29,5 +29,7 @@
 import "definition_syntax_t14_lib.dart";
 
 main() {
-  var someVar = 1;
+  try {
+    var someVar = 1;
+  } catch (e) {}
 }

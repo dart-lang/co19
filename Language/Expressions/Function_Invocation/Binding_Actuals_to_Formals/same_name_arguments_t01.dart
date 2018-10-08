@@ -15,5 +15,7 @@
 func({int np1, int np2, int np3}) {}
 
 main() {
-  func(np1: 1, np2: 2, np2: 2);
+  try {
+    func(np1: 1, np2: 2, np2: 2);
+  } catch (e) {}
 }

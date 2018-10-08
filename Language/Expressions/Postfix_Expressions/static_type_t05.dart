@@ -8,7 +8,7 @@
  * identifier, is equivalent to executing (){var r = v; v = r - 1; return r}().
  * The static type of such an expression is the static type of v.
  * @description Checks that static type of v-- is static type of v
- * @static-clean
+ * static-clean
  * @author sgrekhov@unipro.ru
  */
 
@@ -18,5 +18,5 @@ main() {
   try {
     int a2;
     int b2 = a2--;;
-  } on NoSuchMethodError {}
+  } catch (e) {}
 }

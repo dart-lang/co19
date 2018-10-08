@@ -13,6 +13,7 @@
 library test_common;
 
 import 'dart:html';
+import 'dart:mirrors';
 export 'testharness.dart';
 
 var HTML5_ELEMENT_NAMES = [

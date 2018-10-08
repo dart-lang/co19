@@ -17,5 +17,8 @@
 class default { } // error
 
 main() {
-  null is default;
+  try {
+    null is default;
+  } catch (anything) {
+  }
 }

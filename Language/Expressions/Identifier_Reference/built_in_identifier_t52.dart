@@ -15,5 +15,8 @@
 typedef int part();
 
 main() {
-  null is part;
+  try {
+    null is part;
+  } catch (anything) {
+  }
 }

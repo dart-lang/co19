@@ -6,30 +6,19 @@
 /**
  * @assertion String iterableToFullString(Iterable iterable,
  * [String leftDelimiter = '(', String rightDelimiter = ')'])
- * Converts an Iterable to a string.
+ * Converts an [Iterable] to a string.
  * Converts each elements to a string, and separates the results by ", ". Then
- * wraps the result in leftDelimiter and rightDelimiter.
- * Unlike iterableToShortString, this conversion doesn't omit any elements or
- * puts any limit on the size of the result.
- * Handles circular references where converting one of the elements to a string
- * ends up converting iterable to a string again.
+ * wraps the result in [leftDelimiter] and [rightDelimiter].
  * @description Checks that IterableBase.iterableToFullString() converts each
- * elements to a string, and separates the results by ", ".
- * @author sgrekhov@unipro.ru
+ * elements to a string, separates the results by ", ", and than wraps into "("
+ * and ")" if delimiters are not clearly specified.
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
 main() {
-  String expected = "";
-  List<int> l = new List<int>();
-  for (int i = -100; i <= 100; i++) {
-    l.add(i);
-    expected += i.toString();
-    if (i != 100) {
-      expected += ", ";
-    }
-  }
-  expected = "(" + expected + ")";
+  String expected = "(1, 2, 3, 4, 5)";
+  List l = [1, 2, 3, 4, 5];
   Expect.equals(expected, IterableBase.iterableToFullString(l));
 }

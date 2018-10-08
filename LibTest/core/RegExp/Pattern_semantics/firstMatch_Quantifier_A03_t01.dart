@@ -10,15 +10,17 @@
  *              scenarios.
  * @3rdparty sputnik-v1:S15.10.2.7_A5_T1.js-S15.10.2.7_A5_T12.js
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
 
 main() {
-  check("java(script)?", "state: javascript is an extension of ecma script", 7, ["javascript", "script"]);
-  check("java(script)?", "state: java and javascript are vastly different", 7, ["java", null]);
-  checkNeg("java(script)?", "state: both Java and JavaScript used in web development");
+  check("java(script)?", "state: javascript is an extension of ecma script", 7,
+      ["javascript", "script"]);
+  check("java(script)?", "state: java and javascript are vastly different", 7,
+      ["java", null]);
+  checkNeg("java(script)?",
+      "state: both Java and JavaScript used in web development");
   check("cd?e", "abcdef", 2, ["cde"]);
   check("cdx?e", "abcdef", 2, ["cde"]);
   check("o?pqrst", "pqrstuvw", 0, ["pqrst"]);
@@ -31,7 +33,8 @@ main() {
   check(".?.?.?.?.?.?.?", "test", 0, ["test"]);
 }
 
-void check(String pattern, String str, [int matchPos = -1, List<String> expectedGroups = null]) {
+void check(String pattern, String str, [int matchPos = -1,
+List<String> expectedGroups = null]) {
   RegExp re = new RegExp(pattern);
   Match fm = re.firstMatch(str);
   if(null == fm) {

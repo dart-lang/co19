@@ -20,6 +20,8 @@
 
 main() {
   var foo;
-  foo = true;
-  break;
+  try {
+    foo = true;
+    break;
+  } catch (e) { }
 }

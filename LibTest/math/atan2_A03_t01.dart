@@ -5,13 +5,14 @@
  */
 /**
  * @assertion double atan2(num a, num b)
- * The result is negative when [a] is negative
- * (including when [a] is the double -0.0).
+ * The result is negative when [a] is negative (including when [a] is the
+ * double -0.0).
  * @description Checks that if [a] is negative, the result is negative.
  * @author msyabro
  */
-import "../../Utils/expect.dart";
+
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(Math.atan2(-.0, 1).isNegative);
@@ -20,9 +21,11 @@ main() {
   Expect.isTrue(Math.atan2(-.5, 0.2).isNegative);
   Expect.isTrue(Math.atan2(-.5, -0.2).isNegative);
 
-  Expect.isTrue(Math.atan2(-1e2, double.INFINITY).isNegative);
-  Expect.isTrue(Math.atan2(-1e2, double.NEGATIVE_INFINITY).isNegative);
+  Expect.isTrue(Math.atan2(-1e2, double.infinity).isNegative);
+  Expect.isTrue(Math.atan2(-1e2, double.negativeInfinity).isNegative);
 
-  Expect.isTrue(Math.atan2(double.NEGATIVE_INFINITY, double.INFINITY).isNegative);
-  Expect.isTrue(Math.atan2(double.NEGATIVE_INFINITY, double.NEGATIVE_INFINITY).isNegative);
+  Expect.isTrue(Math.atan2(
+      double.negativeInfinity, double.infinity).isNegative);
+  Expect.isTrue(Math.atan2(
+      double.negativeInfinity, double.negativeInfinity).isNegative);
 }

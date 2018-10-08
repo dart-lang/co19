@@ -25,10 +25,12 @@ import "../../../Utils/expect.dart";
 void check(expected) {
   StreamController controller = new StreamController();
   StreamIterator streamIterator = new StreamIterator(controller.stream);
+  asyncStart();
   controller.add(expected);
-  streamIterator.moveNext().then((var value) {
+  streamIterator.moveNext().then((bool value) {
     Expect.isTrue(value);
     Expect.equals(expected, streamIterator.current);
+    asyncEnd();
   });
   controller.close();
 }

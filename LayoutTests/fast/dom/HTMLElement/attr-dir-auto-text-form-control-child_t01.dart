@@ -8,7 +8,6 @@
  * not determined by the value of its child text form control.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

@@ -15,8 +15,6 @@ main() {
       <ul id="console"></ul>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var div = document.getElementById("div");
-  var original = window.scrollX;
   window.scrollTo(-1, 0);
   shouldBe(window.scrollX, 0);
 }

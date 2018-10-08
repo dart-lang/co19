@@ -4,8 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Uri parse(String uri)
- * Creates a new URI object by parsing a URI string.
+ * @assertion Uri parse(String uri, [int start = 0, int end])
+ * Creates a new Uri object by parsing a URI string.
+ *
+ * If start and end are provided, only the substring from start to end is parsed
+ * as a URI.
+ *
+ * If the string is not valid as a URI or URI reference, a FormatException is
+ * thrown.
  * @description Checks that components of well-formed URI match
  * appropriate regexp match groups.
  * RFC-3986 The following line is the regular expression for
@@ -18,9 +24,7 @@
  * query     = $7
  * fragment  = $9
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 var r = new RegExp(r'^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?');

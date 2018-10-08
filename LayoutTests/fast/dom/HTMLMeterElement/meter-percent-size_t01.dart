@@ -7,7 +7,6 @@
  * @description Tests that percentage sizes on a meter element doesn't crash.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

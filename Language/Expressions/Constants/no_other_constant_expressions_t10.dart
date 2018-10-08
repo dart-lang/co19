@@ -19,5 +19,7 @@ class A {
 const m = A.m();
 
 main() {
-  print(m);
+  try {
+    print(m);
+  } catch (x) {}
 }

@@ -8,14 +8,13 @@
  * The number of {key, value} pairs in the map.
  * @description Checks that in length stored correct size of the map.
  * @author msyabro
- * @reviewer varlax
  */
 library length_A01_t01;
  
 import "../../../Utils/expect.dart";
  
 test(Map create([Map content])) {
-  Map<String, Object> map = create();  
+  Map map = create();
   Expect.isTrue(map.length == 0);
   
   map["1"] = 1;

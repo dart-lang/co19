@@ -5,17 +5,18 @@
  */
 /**
  * @assertion Point<T> operator +(Point<T> other)
- * @description checks that if at least one of coordinates is null,
+ * @description Checks that if at least one of coordinates is null,
  * an Exception is thrown.
  * @note undocumented
  * @author kaigorodov
  */
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 
 void check(num x1, num y1, num x2, num y2) {
-  Expect.throws((){
-    return new Point(x, y) + new Point(x2, y2);
+  Expect.throws(() {
+    new Point(x1, y1) + new Point(x2, y2);
   });
 }
 

@@ -14,14 +14,13 @@
  * are parsed correctly when trivial copying reviver function used.
  * @author kaigorodov
  */
-
 import "dart:convert";
 import "../../../Utils/expect.dart";
 import "table1.lib.dart" show table;
 
 main() {
   for (List<Object> pair in table) {
-    JsonDecoder jdec=new JsonDecoder((key, value)=>value);
+    JsonDecoder jdec = new JsonDecoder((key, value) => value);
     Object res = jdec.convert(pair[1]);
     Expect.deepEquals(pair[0], res);
   }

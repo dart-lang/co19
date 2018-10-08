@@ -15,5 +15,7 @@
 typedef F(List<F> x);
 
 main() {
-  F x;
+  try {
+    F x;
+  } catch (e) {}
 }

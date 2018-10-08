@@ -12,14 +12,13 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../testcommon.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
-  Map attrs={'id':'id1', 'foo':'foo1'};
-  x.attributes=attrs;
+  IFrameElement x = new IFrameElement();
+  Map<String, String> attrs = {'id': 'id1', 'foo': 'foo1'};
+  x.attributes = attrs;
 
-  var y = x.clone(false);
+  IFrameElement y = x.clone(false);
   Expect.mapEquals(attrs, y.attributes, 'shallow copy');
 
   y = x.clone(true);

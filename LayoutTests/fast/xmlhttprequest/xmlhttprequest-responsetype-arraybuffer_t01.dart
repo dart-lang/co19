@@ -10,11 +10,9 @@
  */
 import "dart:html";
 import "dart:typed_data";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
 
-var xhr = 0;
+HttpRequest xhr;
 var lastState = 0;
 
 void stateChange(e) {
@@ -60,7 +58,7 @@ void load(e) {
     var buffer8 = new Uint8List.view(buffer);
 
     var totalLength = buffer8.length;
-    debug('response length : ' + totalLength + ".");
+    debug('response length : $totalLength .');
     
     // Log the bytes at the start, in the middle, and near the end:
     logBytesAtOffset(buffer8, 0);
@@ -73,20 +71,21 @@ void load(e) {
         sum += buffer8[i];
     }
     
-    debug('checksum : ' + sum);
+    debug('checksum : $sum');
 
     // Check that xhr.responseText throws an exception:
     try {
         var x = xhr.responseText;
     } catch(e) {
-        testPassed("exception correctly thrown when xhr.responseText is accessed but responseType is 'arraybuffer' : " + e + ".");
+        testPassed("exception correctly thrown when xhr.responseText is accessed but responseType is 'arraybuffer' : $e .");
     }
 
     // Check that xhr.responseXML throws an exception:
     try {
-        var x = xhr.responseXML;
+        dynamic z = xhr; // avoid compile error 'responseXML' is not defined for the class 'HttpRequest'
+        var x = z.responseXML;
     } catch(e) {
-        testPassed("exception correctly thrown when xhr.responseXML is accessed but responseType is 'arraybuffer' : " + e + ".");
+        testPassed("exception correctly thrown when xhr.responseXML is accessed but responseType is 'arraybuffer' : $e .");
     }
     
     // Test .response garbage collection.

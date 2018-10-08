@@ -38,7 +38,6 @@
  * constructor declaration with initializers includes a body.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A {
@@ -47,5 +46,7 @@ class A {
 }
 
 main() {
-  A a = const A();
+  try {
+    const A();
+  } catch (e) {}
 }

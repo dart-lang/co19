@@ -7,10 +7,8 @@
  * @assertion void write(Object obj)
  * Adds the contents of obj, converted to a string, to the buffer.
  * @description Tries to pass null or an object that isn't a String as argument,
- *              correct string conversion expected ("null" in case of null)
+ * correct string conversion expected ("null" in case of null)
  * @author msyabro
- * @reviewer rodionov
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 

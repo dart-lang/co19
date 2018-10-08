@@ -38,5 +38,7 @@ func(const x) {
 }
 
 main() {
-  func(1);
+  try {
+    func(1);
+  } catch (e) {}
 }

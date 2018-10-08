@@ -7,7 +7,6 @@
  * @description This test checks some DOM Range exceptions.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 _shouldThrow(func(), name) =>

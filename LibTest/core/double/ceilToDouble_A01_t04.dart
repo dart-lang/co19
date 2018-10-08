@@ -7,10 +7,9 @@
  * @assertion abstract double ceilToDouble()
  * Returns the least integer value no smaller than this.
  * The result is a double.
- * @description Checks that if [:ceilToDouble():] is called on a value already equal
- * to a mathematical integer, then the result is the same value.
+ * @description Checks that if [:ceilToDouble():] is called on a value already
+ * equal to a mathematical integer, then the result is the same value.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "dart:math" as Math;
 import "../../../Utils/expect.dart";

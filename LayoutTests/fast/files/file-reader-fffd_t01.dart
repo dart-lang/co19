@@ -9,7 +9,6 @@
 import "dart:html";
 import "dart:typed_data";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var array = new Uint8List.fromList([65, 245, 246, 247, 248, 249, 250, 251,
@@ -17,8 +16,8 @@ main() {
   var blob = new Blob([array]);
   var reader = new FileReader();
   reader.onLoad.listen((event) {
-    var fileString = event.target.result;
-    shouldBe(fileString,
+    FileReader target = event.target;
+    shouldBe(target.result,
       'A\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDB');
     asyncEnd();
   });

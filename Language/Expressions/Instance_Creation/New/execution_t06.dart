@@ -41,7 +41,7 @@ class S {
 }
 
 class C extends S {
-  C.name(p1): super(new A().logAndAdd1(2)), y = f(p1) {
+  C.name(p1):  y = f(p1), super(new A().logAndAdd1(2)) {
     evalOrder.write(6);
   }
   var y;
@@ -50,5 +50,5 @@ class C extends S {
 main() {
   evalOrder = new StringBuffer();
   new C.name(new A().logAndAdd3(1));
-  Expect.equals("124356", evalOrder.toString());
+  Expect.equals("142356", evalOrder.toString());
 }

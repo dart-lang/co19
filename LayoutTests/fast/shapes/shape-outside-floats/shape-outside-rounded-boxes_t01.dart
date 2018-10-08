@@ -11,6 +11,7 @@ import "dart:html";
 import "dart:math" as Math;
 import "../../../testharness.dart";
 import "../resources/subpixel-utils.dart" as SubPixelLayout;
+import "../../../testcommon.dart" as TestCommon;
 
 const String htmlEL1 = r'''
 <style>
@@ -71,7 +72,7 @@ void main() {
     shouldBe(elementRect('a').left, 0);
 
     shouldBe(elementRect('b').top, 20);
-    shouldBeCloseTo(elementRect('b').left, cornerEllipseRightXIntercept(40, 0, 100, 30), SubPixelLayout.resolution());
+    TestCommon.shouldBeCloseTo(elementRect('b').left, cornerEllipseRightXIntercept(40, 0, 100, 30), SubPixelLayout.resolution());
 
     shouldBe(elementRect('c').top, 40);
     shouldBe(elementRect('c').left, 100);
@@ -80,7 +81,7 @@ void main() {
     shouldBe(elementRect('d').left, 100);
 
     shouldBe(elementRect('e').top, 80);
-    shouldBeCloseTo(elementRect('e').left, cornerEllipseRightXIntercept(40, 0, 100, 30), SubPixelLayout.resolution());
+    TestCommon.shouldBeCloseTo(elementRect('e').left, cornerEllipseRightXIntercept(40, 0, 100, 30), SubPixelLayout.resolution());
 
     shouldBe(elementRect('f').top, 100);
     shouldBe(elementRect('f').left, 0);

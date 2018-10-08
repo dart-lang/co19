@@ -35,5 +35,7 @@
  */
 
 main() {
-  final ;
+  try {
+    final ;
+  } catch (ok) {}
 }

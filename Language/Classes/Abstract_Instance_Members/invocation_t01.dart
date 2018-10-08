@@ -9,17 +9,16 @@
  * unless a suitable member a is available in a superclass, in which case a is
  * invoked.
  * @description Checks that invoking an abstract method, getter or setter
- * results in a NoSuchMethodError.
- * @static-warning
+ * results in a compile error.
+ * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
 class C {
-  void m();   /// static type warning
-  int get g;    /// static type warning
-  set g(int v);   /// static type warning
+  void m();
+  int get g;
+  set g(int v);
 }
 
 main() {

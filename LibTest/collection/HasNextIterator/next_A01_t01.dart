@@ -5,7 +5,7 @@
  */
 /**
  * @assertion E next()
- * @description Checks that next moves iteration to the next element
+ * @description Checks that [next] moves iteration to the next element
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";

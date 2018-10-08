@@ -37,7 +37,7 @@ void check(int d1, int h1, int m1, int s1, int ms1, int d2, int h2, int m2,
 
 int seed = 1234567;
 int nextRand() {
-  seed = 0x3fffffff & ((seed >> 17) + seed * 199933 + 11);
+  seed = 0x3fffffff & ((seed >> 17) + seed * 199933  + 11);
   return (seed >> 5) & 127;
 }
 

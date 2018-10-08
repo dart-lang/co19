@@ -13,7 +13,6 @@
  * @description Checks that static members don't conflict with static methods
  * of a class.
  * @author msyabro
- * @reviewer iefremov
  */
 
 class S {

@@ -10,20 +10,15 @@
  * of e.
  * In any case where Ti, 1 <= i <= n + k, is not specified, it is considered
  * to have been specified as dynamic.
- * @description Checks that a static type warning occurs when assigning a
+ * @description Checks that a compile error occurs when assigning a
  * function literal of the form
  * (T1 a1,...,Tn an, [Tn+1 xn+1 = d1,...,Tn+k xn+k = dk]) => e
  * to a variable whose type is not a function type.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
 
-import '../../../Utils/dynamic_check.dart';
-
 main() {
-  bool b;
-  checkTypeError( () {
-    b = (int x, int y, [double a, double b]) => 1; /// static type warning
-  });
+  bool b = (int x, int y, [double a, double b]) => 1;
 }

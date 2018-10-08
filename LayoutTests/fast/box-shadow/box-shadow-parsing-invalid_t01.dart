@@ -12,7 +12,7 @@ import "../../testcommon.dart";
 main() {
   // These have to be global for the test helpers to see them.
   var stylesheet, cssRule, declaration;
-  var styleElement = document.createElement("style");
+  dynamic styleElement = document.createElement("style");
   document.head.append(styleElement);
   stylesheet = styleElement.sheet;
 

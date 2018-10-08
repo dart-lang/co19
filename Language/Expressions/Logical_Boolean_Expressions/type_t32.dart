@@ -20,20 +20,20 @@
  * closure, v is captured by a closure in e2, but v is potentially mutated
  * elsewhere in its scope, then the type of v is not known to be T in e2.
  * Local variable case.
- * @static-warning
  * @author ilya
  */
 import '../../../Utils/expect.dart';
 
 class C {}
+
 class D extends C {
   f() {}
 }
 
 skyIsBlue(_) => true;
 
-f(C y) {
-  C x = y;
+f(var y) {
+  var x = y;
   var closure;
   x is D && skyIsBlue(closure = () => x.f() /*throws*/);
 

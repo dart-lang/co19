@@ -16,5 +16,7 @@ main() {
   evenHandler(x) => x.isEven ? 1 : oddHandler(x);
   oddHandler(x) => x.isOdd ? 1 : evenHandler(x);
 
-  evenHandler(1);
+  try {
+    evenHandler(1);
+  } catch (_) {}
 }

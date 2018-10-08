@@ -19,5 +19,8 @@ class C {
 }
 
 main() {
-  new C().assert is int;
+  try {
+    new C().assert is int;
+  } catch (anything) {
+  }
 }

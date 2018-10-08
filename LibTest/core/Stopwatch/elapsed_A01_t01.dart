@@ -11,11 +11,9 @@
  * @author kaigorodov
  */
 import "dart:async";
-
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-Duration delay=durationMs(50);
+Duration delay = durationMs(50);
 Stopwatch sw = new Stopwatch();
 Duration e0;
 
@@ -23,7 +21,7 @@ main() {
   sw.start();
   e0 = sw.elapsed;
   asyncStart();
-  new Timer(delay,proc1);
+  new Timer(delay, proc1);
 }
 
 void proc1() {

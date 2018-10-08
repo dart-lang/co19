@@ -6,9 +6,9 @@
 /**
  * @assertion void removeWhere(bool test(E element))
  * ...
- * The test function must not throw or modify the queue.
- * @description Checks that if test function throws an exception then operation
- * stops
+ * The [test] function must not throw or modify the queue.
+ * @description Checks that if [test] function throws an exception then
+ * operation stops
  * @author sgrekhov@unipro.ru
  */
 library removeWhere_A02_t01;
@@ -26,6 +26,6 @@ bool throwFunction(var element) {
 
 test(Queue create([Iterable content])) {
   Queue a = create([-3, -2, -1, 0, 1, 2, 3, -1]);
-  Expect.throws(() {a.removeWhere(throwFunction);});
+  Expect.throws(() { a.removeWhere(throwFunction); });
   Expect.iterableEquals([0, 1, 2, 3, -1], a);
 }

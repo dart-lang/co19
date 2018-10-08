@@ -16,41 +16,14 @@
  *    Then flatten(T) = S.
  *    In any other circumstance, flatten(T) = T.
  *
- * @description Check that static type warning is issued, if static type of
+ * @description Check that it is a compile error if static type of
  * await expression does no match with expected type.
- *
- * @static-warning
+ * @compile-error
  * @author a.semenov@unipro.ru
  */
-import 'dart:async';
-
-import '../../../Utils/expect.dart';
-import '../../../Utils/dynamic_check.dart';
-import '../../../Utils/async_utils.dart';
 
 static_int(int x) => x;
-static_bool(bool x) => x;
-
-check(f()) {
-  return f().then(
-          (value) {
-            if (isCheckedMode()) {
-              Expect.fail("Type error expected in checked mode");
-            }
-          },
-          onError: (error) {
-            Expect.isTrue(isCheckedMode() && (error is TypeError),
-              'Unexpected error: $error');
-          });
-}
 
 main() {
-  asyncStart();
-  List checks = [
-    check(() async => static_int(await true)), /// static type warning
-    check(() async => static_int(await 'hello')), /// static type warning
-    check(() async => static_bool(await 1)), /// static type warning
-    check(() async => static_bool(await 'world')), /// static type warning
-  ];
-  Future.wait(checks).then((value) => asyncEnd());
+  var f = () async => static_int(await true);
 }

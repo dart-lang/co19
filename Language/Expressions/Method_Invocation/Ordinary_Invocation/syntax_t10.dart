@@ -7,7 +7,7 @@
  * @assertion An unconditional ordinary method invocation i has the form
  * o.m(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k).
  * @description Checks static invocations, when o denotes a class in the
- * current scope. Argument list may end with a comma.
+ * current scope. Argument list may have comma on the end.
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -17,5 +17,7 @@ class C {
 }
 
 main() {
-  C.f(1, 2, 3, );
+  try {
+    C.f(1, 2, 3, );
+  } catch (e) {}
 }

@@ -11,11 +11,10 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var type = 'click';
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   document.body.append(x);
 
   asyncMultiStart(3);
@@ -29,7 +28,7 @@ main() {
     Expect.equals(type, e.type);
     asyncEnd();
   });
-  
+
   x.on[type].listen((e) {
     Expect.equals(type, e.type);
     asyncEnd();

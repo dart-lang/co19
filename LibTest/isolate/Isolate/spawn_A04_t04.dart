@@ -11,22 +11,22 @@
  *
  * @description Check that with errorAreFatal set to false the isolate is
  * only suspended on any error. The isolate is active.
- * @static-warning
  * @issue #26652
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
 void entryPoint(SendPort sendPort) {
+  dynamic i1 = 1, i2 = 2, i3 = 3, i4 = 4;
+
   new Future.delayed(ONE_SECOND).then(
      (_) {
         sendPort.send("second");
         // An error that should stop the isolate
-        sendPort.send(", "+2); /// static type warning
+        sendPort.send(", " + i2);
         sendPort.send("attempt");
      }
   );
@@ -34,7 +34,7 @@ void entryPoint(SendPort sendPort) {
      (_) {
         sendPort.send("third");
         // An error that should stop the isolate
-        sendPort.send(", "+3); /// static type warning
+        sendPort.send(", " + i3);
         sendPort.send("attempt");
      }
   );
@@ -42,13 +42,13 @@ void entryPoint(SendPort sendPort) {
      (_) {
         sendPort.send("finish");
         // An error that should stop the isolate
-        sendPort.send(", "+4); /// static type warning
+        sendPort.send(", " + i4);
         sendPort.send("attempt");
      }
   );
   sendPort.send("hello");
   // An error that should stop the isolate
-  sendPort.send(", "+1); /// static type warning
+  sendPort.send(", " + i1);
   sendPort.send("world");
 }
 

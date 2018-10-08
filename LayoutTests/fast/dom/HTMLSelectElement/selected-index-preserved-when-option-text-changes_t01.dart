@@ -8,7 +8,6 @@
  * element with no selected option (-1) should preserve that option
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -29,7 +28,7 @@ main() {
     <div id="console"></div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var mySelect;
+  SelectElement mySelect;
 
   runTest() {
     debug("Setting selected index to -1");

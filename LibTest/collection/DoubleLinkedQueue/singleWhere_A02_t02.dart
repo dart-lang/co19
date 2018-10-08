@@ -5,24 +5,22 @@
  */
 /**
  * @assertion abstract E singleWhere(bool test(E value))
- * If no or more than one element match then a StateError is thrown.
- * @description Checks that a StateError is thrown if more than one element matches.
+ * Otherwise, if there are no matching elements, or if there is more than one
+ * matching element, a [StateError] is thrown.
+ * @description Checks that a [StateError] is thrown if more than one element
+ * matches.
  * @author kaigorodov
  */
 
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-check(List a, test(value)) {
+check(List a, bool test(value)) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(a);
-  Expect.throws(() {
-    queue.singleWhere(test);
-    },
-    (e)=> e is StateError
-  );
+  Expect.throws(() { queue.singleWhere(test); }, (e) => e is StateError);
 }
 
 main() {
-  check(const[1,2,-5,-6,1], (value)=>value==1);
-  check([1,2,-3,4,-1], (value)=>value<0);
+  check(const[ 1, 2, -5, -6, 1], (value) => value == 1);
+  check([1, 2, -3, 4, -1], (value) => value < 0);
 }

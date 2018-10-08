@@ -33,7 +33,7 @@ const String htmlEL2 = r'''
 ''';
 
 num widthForEmptySelect(size) {
-    var selectElement = new Element.tag('select');
+    SelectElement selectElement = new Element.tag('select') as SelectElement;
     selectElement.size = size;
     document.body.append(selectElement);
     var selectWidth = selectElement.getBoundingClientRect().width;
@@ -54,8 +54,8 @@ var optionPaddingStart = 3;
 var optionPaddingEnd = 2;
 
 void testListbox(id) {
-    var element = document.getElementById(id);
-    var emptyWidth = widthForEmptySelect(element.size);
+    Element element = document.getElementById(id);
+    int emptyWidth = widthForEmptySelect((element as dynamic).size);
     Element firstElementChild=element.childNodes.firstWhere((x) => x is Element);
     var textWidth = widthForText(firstElementChild.text);
     var dropdownWidth = element.getBoundingClientRect().width;

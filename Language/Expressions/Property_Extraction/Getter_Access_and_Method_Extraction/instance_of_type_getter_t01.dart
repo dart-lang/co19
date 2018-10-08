@@ -17,10 +17,9 @@ import '../../../../Utils/expect.dart';
 
 class C {
   static int get s => 0;
-  int get g => 1;
 }
 
 main() {
-  var o = new C();
+  dynamic o = new C();
   Expect.throws(() {o.runtimeType.s;}, (e) => e is NoSuchMethodError);
 }

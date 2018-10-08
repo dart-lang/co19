@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -99,9 +98,10 @@ main() {
     debug('initial innerHtml');
     shouldBe(test.innerHtml, initial);
 
-    if (command['selector'] != null)
-      command['selector'](test);
-    else {
+    if (command['selector'] != null) {
+      Function f = command['selector'];
+      f(test);
+    } else {
       InputElement input = document.body.querySelector('input');
       input.focus();
       window.getSelection().selectAllChildren(test);

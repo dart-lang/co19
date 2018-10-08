@@ -4,29 +4,30 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Removes all elements of the queue.
+ * @assertion  void clear()
+ * Removes all elements in the queue. The size of the queue becomes zero.
  * @description Check that all elements of the queue removed.
  * @author msyabro
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-main() {
-  Queue list = new Queue();
-  list.clear();
-  Expect.isTrue(list.isEmpty);
+test(Queue create([Iterable content])) {
+  Queue queue = create();
+  queue.clear();
+  Expect.isTrue(queue.isEmpty);
   
-  list.addFirst(1);
-  list.addFirst(1);
-  Expect.isFalse(list.isEmpty);
-  list.clear();
-  Expect.isTrue(list.isEmpty);
-  list.clear();
-  Expect.isTrue(list.isEmpty);
+  queue.addFirst(1);
+  queue.addFirst(1);
+  Expect.isFalse(queue.isEmpty);
+  queue.clear();
+  Expect.isTrue(queue.isEmpty);
+
+  queue.clear();
+  Expect.isTrue(queue.isEmpty);
   for(int i = 0; i < 1000; i++) {
-    list.add(i);
+    queue.add(i);
   }
-  list.clear();
-  Expect.isTrue(list.isEmpty);
+  queue.clear();
+  Expect.isTrue(queue.isEmpty);
 }

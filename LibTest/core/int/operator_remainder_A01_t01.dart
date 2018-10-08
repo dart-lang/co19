@@ -10,9 +10,6 @@
  * @description Checks that this operator returns correct value for integer
  *              arguments (including 0).
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
- * @needsreview modulo operatio is not specified (issue 493).
  */
 import "../../../Utils/expect.dart";
 
@@ -31,15 +28,11 @@ main() {
   Expect.equals(0, 2147483647 % 2147483647);
   Expect.equals(1, 2147483647 % 2147483646);
 
-  Expect.equals(18446744073709551616,
-      18446744073709551616 % 18446744073709551617);
-  Expect.equals(0, 18446744073709551616 % 18446744073709551616);
-  Expect.equals(1, 18446744073709551616 % 18446744073709551615);
+  Expect.equals(1844674407370955161,
+      1844674407370955161 % 1844674407370955162);
+  Expect.equals(0, 1844674407370955161 % 1844674407370955161);
+  Expect.equals(1, 1844674407370955162 % 1844674407370955161);
 
-  Expect.equals(0, 0 % 18446744073709551616);
-  Expect.equals(0, 0 % -18446744073709551616);
-
-  // 2^100 % 3^50
-  Expect.equals(691521709937297972926156,
-      1267650600228229401496703205376 % 717897987691852588770249);
+  Expect.equals(0, 0 % 1844674407370955161);
+  Expect.equals(0, 0 % -1844674407370955161);
 }

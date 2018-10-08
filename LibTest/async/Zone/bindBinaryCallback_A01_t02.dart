@@ -4,34 +4,41 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract ZoneBinaryCallback bindBinaryCallback(f(arg1, arg2),
- *    {bool runGuarded: true})
- * @description Checks expected effect of runGuarded parameter and that
- * default is true.
+ * @assertion ZoneBinaryCallback<R, T1, T2> bindBinaryCallback<R, T1, T2>(
+ *            R callback(T1 argument1, T2 argument2)
+ * )
+ * Registers the provided callback and returns a function that will execute
+ * in this zone.
+ * Equivalent to:
+ *    ZoneCallback registered = registerBinaryCallback(callback);
+ *    return (arg1, arg2) => thin.runBinary(registered, arg1, arg2);
+ * @description Checks that synchronous [callback] errors are not caught in zone
  * @author ilya
+ * @author a.semenov@unipro.ru
  */
 
 import "dart:async";
-//import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-handler(Zone self, ZoneDelegate parent, Zone zone, e, st) {
-  Expect.equals(1, e);
-}
-
 main() {
-  var z = Zone.current.fork(specification: new ZoneSpecification(
-        handleUncaughtError: handler));
+  int handlerCallCount = 0;
 
-  var bound = z.bindBinaryCallback((x,y) => throw 1);
-  
-  bound(1,2);
+  void handler(Zone self, ZoneDelegate parent, Zone zone, e, st) {
+    handlerCallCount++;
+  }
 
-  bound = z.bindBinaryCallback((x,y) => throw 1, runGuarded:true);
-  
-  bound(1,2);
+  Zone zone = Zone.current.fork(
+      specification: new ZoneSpecification(
+        handleUncaughtError: handler
+      )
+  );
 
-  var boundThrows = z.bindBinaryCallback((x,y) => throw 1, runGuarded:false);
+  int callback(int x, int y) {
+    throw "callback error";
+  }
 
-  Expect.throws(() => boundThrows(1,2));
+  ZoneBinaryCallback<int,int,int> boundCallback =
+                              zone.bindBinaryCallback<int,int,int>(callback);
+  Expect.throws(() => boundCallback(1,2), (e) => e=="callback error");
+  Expect.equals(0, handlerCallCount);
 }

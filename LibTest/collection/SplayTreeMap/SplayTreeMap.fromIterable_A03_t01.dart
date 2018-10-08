@@ -7,11 +7,10 @@
  * @assertion SplayTreeMap.fromIterable(Iterable iterable,
  * {K key(element), V value(element), int compare(K key1, K key2),
  * bool isValidKey(potentialKey)})
- * ...
- * For each element of the iterable this constructor computes a key/value pair,
- * by applying key and value respectively.
+ * For each element of the [iterable] this constructor computes a key/value
+ * pair, by applying [key] and [value] respectively.
  * @description Checks that for each element of the iterable this constructor
- * computes a key/value pair, by applying key and value respectively
+ * computes a key/value pair, by applying [key] and [value] respectively
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";
@@ -25,8 +24,8 @@ check(Iterable expectedKeys, Iterable expectedValues, Map m2) {
   }
 }
 
-int getKey(int element) => element * 2;
-String getValue(int element) => "value=" + element.toString();
+int getKey(var element) => element * 2;
+String getValue(var element) => "value=" + element.toString();
 
 main() {
   SplayTreeMap map = new SplayTreeMap.fromIterable([],

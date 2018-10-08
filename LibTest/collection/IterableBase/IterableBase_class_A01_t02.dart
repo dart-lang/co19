@@ -5,10 +5,10 @@
  */
 /**
  * @assertion const IterableBase()
- * This class implements all methods of Iterable except Iterable.iterator
+ * This class implements all methods of [Iterable] except [Iterable.iterator]
  * in terms of iterator.
- * @description Checks that this class implements all methods of Iterable
- * except Iterable.iterator
+ * @description Checks that this class implements all methods of [Iterable]
+ * except [Iterable.iterator]
  * @author kaigorodov
  */
 import "dart:collection";
@@ -21,7 +21,7 @@ class MyIterable extends IterableBase {
 
   MyIterable.from(Iterable content): _content = new List.from(content);
 
-  Iterator<int> get iterator {
+  Iterator get iterator {
     return _content.iterator;
   }
 }

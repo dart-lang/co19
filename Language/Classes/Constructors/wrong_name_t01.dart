@@ -12,7 +12,6 @@
  * definition does not begin with the name of its class.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {
@@ -20,5 +19,7 @@ class C {
 }
 
 main() {
-  new C();
+  try {
+  	new C();
+  } catch (e) {}
 }

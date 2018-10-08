@@ -15,7 +15,6 @@
  * variable initialization expression.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {
@@ -26,5 +25,7 @@ class A {
 var a = const A(new DateTime.now().millisecondsSinceEpoch);
 
 main() {
-  var b = a;
+  try {
+    var b = a;
+  } catch (x) {}
 }

@@ -7,7 +7,6 @@
  * @assertion final bool multiLine
  * Whether this regular expression matches multiple lines.  
  * @description Checks that this property holds the correct value.
- * @reviewer pagolubev
  * @author rodionov
  */
 import "../../../Utils/expect.dart";
@@ -20,6 +19,7 @@ main() {
 }
 
 void check(String pattern, String str, bool multiLine, bool caseSensitive) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive);
+  RegExp re = new RegExp(pattern, multiLine: multiLine,
+      caseSensitive: caseSensitive);
   Expect.equals(multiLine, re.isMultiLine);
 }

@@ -13,12 +13,11 @@
  * @author kaigorodov
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-const maxCount=5;
+const int maxCount=5;
 
-check(int periodMs) {
+void check(int periodMs) {
   String id = "s$periodMs";
   Duration period = durationMs(periodMs);
   StreamSubscription<int> subs;
@@ -28,7 +27,7 @@ check(int periodMs) {
     Expect.equals(count, computationCount,
         "periodic($id): count=$count, computationCount=$computationCount");
     if (count > maxCount) {
-      Expect.fail("stream works after cancellation");
+      Expect.fail("Stream events should not be generated after cancellation");
     }
     count++;
     if (count == maxCount) {
@@ -36,7 +35,7 @@ check(int periodMs) {
       asyncEnd();
     }
   });
-  subs = s.listen((data) {});
+  subs = s.listen((data) {}) as  StreamSubscription<int>;
 }
 
 main() {

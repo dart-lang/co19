@@ -6,20 +6,22 @@
 /**
  * @assertion void addAll(Iterable<E> iterable)
  * Appends all elements of the iterable to the end of this list.
- * Throws an [UnsupportedError] if the list is not extendable.
- * @description Checks that [UnsupportedError] is thrown
- * since [Float32List] is a fixed-size list.
+ * Extends the length of the list by the number of objects in iterable. Throws
+ * an [UnsupportedError] if this list is fixed-length.
+ * @description Checks that [UnsupportedError] is thrown since [Float32List] is
+ * a fixed-size list.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 check(length) {
   var l = new Float32List(length);
   try {
-    l.addAll([]);
+    l.addAll([1.0, 2.0]);
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {}
+  } on UnsupportedError {}
   Expect.equals(length, l.length);
 }
 

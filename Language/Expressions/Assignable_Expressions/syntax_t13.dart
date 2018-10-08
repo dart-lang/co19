@@ -28,9 +28,10 @@
  * can't be used in the left hand side of an assignment.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
-  while (true) {} = null;
+  try {
+    while (true) {} = null;
+  } catch (e) {}
 }

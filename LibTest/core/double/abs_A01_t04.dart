@@ -7,10 +7,8 @@
  * @assertion double abs()
  * @description Checks that if the value is NaN, the result is NaN.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   double nan = 0 / 0;

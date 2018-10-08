@@ -9,16 +9,17 @@
  * setter) or variable initializer and there is neither a local variable
  * declaration with name v nor setter declaration with name v = in the lexical
  * scope enclosing the assignment.
- * @description Checks that it is a static warning if an assignment of the form
+ * @description Checks that it is a compile error if an assignment of the form
  * v = e occurs inside a static getter and and there is neither a local
  * variable declaration with name v nor setter declaration with name v = in the
  * lexical scope enclosing the assignment.
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 
 class C {
   static get test {
-    v = 1; /// 01: static type warning, runtime error
+    v = 1;
     return null;
   }
 }

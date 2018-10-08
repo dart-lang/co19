@@ -10,16 +10,19 @@
  * @description Checks that if neither T is more specific than S, nor
  * S is more specific than T, is-expression does not show that v has type T.
  * Local variable case.
- * @static-warning
  * @author ilya
  */
+import '../../../Utils/expect.dart';
 
 class C {}
-class D { f() {} }
+
+class D {
+  f() {}
+}
 
 f(C y) {
   C x = y;
-  x is D ? x.f() : null;
+  Expect.isFalse(x is D);
 }
 
 main() {

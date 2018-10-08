@@ -4,21 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Hence, the static checker will issue warnings if one attempts to
- * access a member of the result of a void method invocation (even for members
- * of null, such as ==). Likewise, passing the result of a void method as a
- * parameter or assigning it to a variable will cause a warning unless the
- * variable/formal parameter has type dynamic.
- * @description Checks that assigning the result of a void method invocation to
- * a variable whose declared type is not dynamic results in a static warning.
- * @static-warning
- * @author rodionov
- * @needsreview Assertion of this test cites non-normative text.
- * Possibly, this text in the spec should be normative?
+ * @assertion In an expression of the form e1 = e2 where e1 is an
+ * assignableExpression denoting a variable or parameter of type void, e2 may
+ * have the type void.
+ * @description Checks that it is a compile error when assigning the result of
+ * a void method invocation to a variable whose declared type is not dynamic
+ * @compile-error
+ * @author sgrekhov@unipro.ru
  */
 
-void foo() {return;}
+void foo() {
+  return;
+}
 
 main() {
-  int i = foo(); /// static type warning
+  int i = foo();
 }

@@ -5,8 +5,9 @@
  */
 /**
  * @assertion Iterable<E> takeWhile(bool test(E element))
- * Every new [Iterator] of the returned [Iterable]
- * iterates over all elements of [this].
+ * ...
+ * Every new [Iterator] of the returned [Iterable] starts iterating over the
+ * elements of [this].
  * @description Checks that every new [Iterator] of the returned [Iterable]
  * iterates over all elements of [this].
  * @author msyabro
@@ -17,7 +18,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var count = 0;
-  test(e) {
+  bool test(int e) {
     ++count;
     return e < 3;
   }

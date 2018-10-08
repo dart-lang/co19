@@ -8,8 +8,6 @@
  * https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/imports/index.html#dfn-element-removed-flag.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 
@@ -22,7 +20,7 @@ main() {
   {
     // element-removed flag is not set at start
     //staticImport = window.staticImportLink;
-    var staticImport = document.getElementById('staticImportLink');
+    LinkElement staticImport = document.getElementById('staticImportLink') as LinkElement;
     //Expect.isNotNull(staticImport.import);
 
     // element-removed flag is set when the element removed.
@@ -33,12 +31,19 @@ main() {
     document.head.append(staticImport);
     Expect.isNull(staticImport.import);
   }
-  
-  var dynamicImport, dynamicImportEager;
+
+  LinkElement dynamicImport, dynamicImportEager;
 
   testDynamicImportRemovingEagerly()
   {
-    check(event)
+    var checkEvent = (Event event) => null;
+
+    check()
+    {
+      checkEvent(null);
+    }
+
+    checkEvent = (Event event)
     {
       if (document.getElementById('greet') == null) {
         setTimeout(check, 0);
@@ -49,12 +54,12 @@ main() {
       document.head.append(dynamicImportEager);
       Expect.isNull(dynamicImportEager.import);
       asyncEnd();
-    }
+    };
 
     dynamicImportEager = document.createElement("link");
     dynamicImportEager.setAttribute("rel", "import");
     dynamicImportEager.setAttribute("href", "$root/resources/setting-greet-var.html");
-    dynamicImportEager.addEventListener("load", check);
+    dynamicImportEager.addEventListener("load", checkEvent);
     asyncStart();
     document.head.append(dynamicImportEager);
 
@@ -77,7 +82,7 @@ main() {
       asyncEnd();
     };
 
-    dynamicImport = document.createElement("link");
+    dynamicImport = document.createElement("link") as LinkElement;
     dynamicImport.setAttribute("rel", "import");
     dynamicImport.setAttribute("href", "$root/resources/bye.html");
     dynamicImport.addEventListener("load", check);

@@ -22,7 +22,8 @@
  * @static-clean
  * @author a.semenov@unipro.ru
  */
-import '../../../Utils/async_utils.dart';
+import "dart:async";
+import '../../../Utils/expect.dart';
 
 Future<bool> test() async {
   bool b = await true;

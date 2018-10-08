@@ -11,8 +11,6 @@
  * in a compile-time error.
  * @compile-error
  * @author pagolubev
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class C {
@@ -20,5 +18,7 @@ class C {
 }
 
 main() {
-  var c = new C();
+  try {
+    var c = new C();
+  } catch (x) {}
 }

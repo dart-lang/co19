@@ -7,12 +7,7 @@
  * @description Tests that canvas does not crash on resize.
  */
 import "dart:html";
-import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   var style = new Element.html('''
@@ -27,8 +22,7 @@ main() {
 
   start(_)
   {
-    var canvas = document.getElementById('example');
-    var gl = wtu.create3DContext(canvas);
+    dynamic canvas = document.getElementById('example');
 
     // Change the size of the canvas's backing store to match the size it is displayed.
     canvas.width = canvas.clientWidth;

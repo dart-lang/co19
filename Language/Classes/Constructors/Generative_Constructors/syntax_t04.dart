@@ -11,7 +11,6 @@
  * declares a return type.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {
@@ -19,5 +18,7 @@ class C {
 }
 
 main() {
-  var c = new C();
+  try {
+    var c = new C();
+  } catch (x) {}
 }

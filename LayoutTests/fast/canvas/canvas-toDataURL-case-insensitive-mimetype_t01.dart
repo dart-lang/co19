@@ -7,12 +7,10 @@
  * @description Test that toDataUrl(mimeType) ignores the case of 'mimeType'.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
 
   tryMimeType(mimeType) {
     var re = new RegExp(r"^data:([^;,]+)[;,].*");

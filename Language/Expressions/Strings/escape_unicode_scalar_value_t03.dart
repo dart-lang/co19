@@ -21,5 +21,7 @@
  */
 
 main() {
-  '\u{ffg}';
+  try {
+    '\u{ffg}';
+  } catch (e) {}
 }

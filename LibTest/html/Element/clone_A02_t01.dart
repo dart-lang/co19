@@ -15,17 +15,19 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  var x = new Element.html('<div id="id1" foo="foo1">'
-                             '<pre id="id2" foo="foo2"></pre>text'
-                           '</div>',
+  var x = new Element.html(
+      '<div id="id1" foo="foo1">'
+      '<pre id="id2" foo="foo2"></pre>text'
+      '</div>',
       treeSanitizer: new NullTreeSanitizer());
 
-  var y = x.clone(false);
-  Expect.mapEquals({'id':'id1', 'foo':'foo1'}, y.attributes, 'shallow copy');
+  Element y = x.clone(false);
+  Expect.mapEquals({'id': 'id1', 'foo': 'foo1'}, y.attributes, 'shallow copy');
 
   y = x.clone(true);
-  Expect.mapEquals({'id':'id1', 'foo':'foo1'}, y.attributes, 'deep copy');
+  Expect.mapEquals({'id': 'id1', 'foo': 'foo1'}, y.attributes, 'deep copy');
 
   var pre = y.querySelector('pre');
-  Expect.mapEquals({'id':'id2', 'foo':'foo2'}, pre.attributes, 'deep copy, children');
+  Expect.mapEquals(
+      {'id': 'id2', 'foo': 'foo2'}, pre.attributes, 'deep copy, children');
 }

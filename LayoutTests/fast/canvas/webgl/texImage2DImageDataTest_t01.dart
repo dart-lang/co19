@@ -11,9 +11,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -58,28 +55,30 @@ main() {
   checkGLError()
   {
     var error = gl.getError();
-    if (error != wgl.NO_ERROR) {
-      testFailed("Expected wgl.NO_ERROR, got $error");
+    if (error != wgl.WebGL.NO_ERROR) {
+      testFailed("Expected wgl.WebGL.NO_ERROR, got $error");
     }
   }
 
-  toFloatList(list) => list.map((x) => x.toDouble()).toList();
+  List<double> toFloatList(list) =>
+      (list.map((x) => x.toDouble()) as Iterable<double>).toList();
   float32list(list) => new Float32List.fromList(toFloatList(list));
 
   init()
   {
     // Set up a canvas to get image data from
-    var canvas2d = document.getElementById("texcanvas");
+    dynamic canvas2d = document.getElementById("texcanvas");
     var context2d = canvas2d.getContext("2d");
     context2d.fillStyle = 'red';
     context2d.fillRect(0,0,64,64);
 
-    gl = initWebGL("example", "vshader", "fshader", [ "vPosition", "vTexCoord0"], [ 1, 0, 1, 1 ], 100);
-    var program = gl.getParameter(wgl.CURRENT_PROGRAM);
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+    gl = initWebGL("example", "vshader", "fshader",
+        [ "vPosition", "vTexCoord0"], [ 1, 0, 1, 1 ], 100);
+    var program = gl.getParameter(wgl.WebGL.CURRENT_PROGRAM);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
 
     var vertexObject = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
     var vertices = float32list([
         -1,  1, 0,
         -1, -1, 0,
@@ -95,36 +94,38 @@ main() {
         1, 1,
         0, 0]);
     var g_texCoordOffset = vertices.lengthInBytes;
-    gl.bufferData(wgl.ARRAY_BUFFER, g_texCoordOffset + texCoords.lengthInBytes, wgl.STATIC_DRAW);
-    gl.bufferSubData(wgl.ARRAY_BUFFER, 0, vertices);
-    gl.bufferSubData(wgl.ARRAY_BUFFER, g_texCoordOffset, texCoords);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, g_texCoordOffset + texCoords.lengthInBytes,
+        wgl.WebGL.STATIC_DRAW);
+    gl.bufferSubData(wgl.WebGL.ARRAY_BUFFER, 0, vertices);
+    gl.bufferSubData(wgl.WebGL.ARRAY_BUFFER, g_texCoordOffset, texCoords);
 
     gl.enableVertexAttribArray(0);
-    gl.vertexAttribPointer(0, 3, wgl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(0, 3, wgl.WebGL.FLOAT, false, 0, 0);
     gl.enableVertexAttribArray(1);
-    gl.vertexAttribPointer(1, 2, wgl.FLOAT, false, 0, g_texCoordOffset);
+    gl.vertexAttribPointer(1, 2, wgl.WebGL.FLOAT, false, 0, g_texCoordOffset);
 
     // Create a texture from the canvas's image data
     var tex = gl.createTexture();
-    gl.bindTexture(wgl.TEXTURE_2D, tex);
-    gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, wgl.RGBA, wgl.UNSIGNED_BYTE, context2d.getImageData(0, 0, 64, 64));
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_S, wgl.CLAMP_TO_EDGE);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_T, wgl.CLAMP_TO_EDGE);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MIN_FILTER, wgl.NEAREST);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MAG_FILTER, wgl.NEAREST);
+    gl.bindTexture(wgl.WebGL.TEXTURE_2D, tex);
+    gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE,
+        context2d.getImageData(0, 0, 64, 64));
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_S, wgl.WebGL.CLAMP_TO_EDGE);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_T, wgl.WebGL.CLAMP_TO_EDGE);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MIN_FILTER, wgl.WebGL.NEAREST);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MAG_FILTER, wgl.WebGL.NEAREST);
 
     var g_textureLoc = gl.getUniformLocation(program, "tex");
     gl.uniform1i(g_textureLoc, 0);
 
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
-    gl.drawArrays(wgl.TRIANGLES, 0, 6);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
+    gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 6);
 
     checkGLError();
 
     // Test several locations
     // Each line should be all red 
     var buf = new Uint8List(64 * 64 * 4);
-    gl.readPixels(0, 0, 64, 64, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
+    gl.readPixels(0, 0, 64, 64, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
 
     var offset15 = 3840; // (15*64) * 4
     var offset40 = 10240; // (40*64) * 4

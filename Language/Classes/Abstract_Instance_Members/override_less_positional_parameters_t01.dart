@@ -8,10 +8,10 @@
  * apply to abstract methods.
  * It is a static warning if an instance method m1 overrides an instance member
  * m2 and m1 has fewer positional parameters than m2.
- * @description Checks that it is a static warning if an instance method m1
+ * @description Checks that it is a compile error if an instance method m1
  * overrides an abstract instance member m2 and m1 has fewer positional
  * parameters than m2.
- * @static-warning
+ * @compile-error
  * @author iefremov
  */
 
@@ -20,7 +20,8 @@ abstract class A {
 }
 
 class C extends A {
-  foo(var a, [x]) {} /// static warning
+  foo(var a, [x]) {}
+  foo(var a, [x]) {}
 }
 
 main() {

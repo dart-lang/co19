@@ -8,15 +8,9 @@
  * This operator implements bit-wise left-shift operation.
  * @description Uses a negative number as argument.
  * @author vasya
- * @reviewer msyabro
- * @needsreview undocumented
- * @needsreview issue 1137
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  try {
-    int val = 1 << (-1);
-    Expect.fail("ArgumentError expected for negative argument!");
-  } on ArgumentError catch(ok){}
+  Expect.throws(() {1 << (-1);}, (e) => e is ArgumentError);
 }

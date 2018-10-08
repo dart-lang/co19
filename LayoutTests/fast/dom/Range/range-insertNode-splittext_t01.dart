@@ -8,7 +8,6 @@
  * text nodes
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -24,10 +23,10 @@ main() {
 
   shouldBe(p.childNodes.length, 3);
   shouldBe(p.childNodes[0], t1);
-  shouldBeEqualToString(p.childNodes[0].data, "12");
+  shouldBeEqualToString((p.childNodes[0] as Text).data, "12");
   shouldBe(p.childNodes[1], t2);
-  shouldBeEqualToString(p.childNodes[1].data, "ABCDE");
-  shouldBeEqualToString(p.childNodes[2].data, "345");
+  shouldBeEqualToString((p.childNodes[1] as Text).data, "ABCDE");
+  shouldBeEqualToString((p.childNodes[2] as Text).data, "345");
 
   var t3 = p.childNodes[2];
 

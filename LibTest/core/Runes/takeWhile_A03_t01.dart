@@ -11,12 +11,11 @@
  * iterates over all elements of [this].
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
   var count = 0;
-  test(e) {
+  bool test(e) {
     ++count;
     return e < 3;
   }

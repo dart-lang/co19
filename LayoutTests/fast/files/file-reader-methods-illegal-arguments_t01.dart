@@ -7,14 +7,11 @@
  * @description Test FileReader methods and their argument type checking.
  */
 import "dart:html";
-import "dart:typed_data";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var blob = new Blob(["aa"]);
   var fileReader;
-  var method;
 
   selectFunc(obj, name) {
     switch (name) {

@@ -11,13 +11,19 @@
  * affect the segments returned.
  * @description Checks that segments are decoded
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
   var x = new Uri(path: '%C2%AA/%C2%AA');
   Expect.listEquals(['\u00AA', '\u00AA'], x.pathSegments);
-}
 
+  x = new Uri(path: 'some path1/another path2');
+  Expect.listEquals(['some path1', 'another path2'], x.pathSegments);
+
+  x = new Uri(path: '/some path1/another path2');
+  Expect.listEquals(['some path1', 'another path2'], x.pathSegments);
+
+  x = new Uri(path: '/a/b/c/d/');
+  Expect.listEquals(['a', 'b', 'c', 'd', ''], x.pathSegments);
+}

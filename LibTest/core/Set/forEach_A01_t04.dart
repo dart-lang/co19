@@ -15,14 +15,14 @@ import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
 test(Set create([Set content])) {
-  Set<int> s = create();
+  Set s = create();
   s.addAll([1, -3, 10, 17]);
 
-  Set<int> outer = create();
-  s.forEach((int x) {
+  Set outer = create();
+  s.forEach((var x) {
     outer.add(x);
-    Set<int> inner = create();
-    s.forEach((int y) {
+    Set inner = create();
+    s.forEach((var y) {
       inner.add(y);
     });
     Expect.isTrue(inner.containsAll(s));

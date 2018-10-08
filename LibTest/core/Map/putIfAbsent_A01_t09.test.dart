@@ -11,7 +11,6 @@
  * @description Checks that it's possible to pass a static function as
  * the second argument.
  * @author msyabro
- * @needsreview undocumented
  */
 library putIfAbsent_A01_t09;
 
@@ -22,6 +21,6 @@ class A {
 }
 
 test(Map create([Map content])) {
-  Map<String, Object> map = create();
+  Map map = create();
   map.putIfAbsent("1", A.f);
 }

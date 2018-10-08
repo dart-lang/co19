@@ -5,6 +5,7 @@
  */
 /**
  * @assertion List<int> sublist(int start, [int end])
+ * ...
  * If [end] is omitted, the [length] of [this] is used.
  * @description Checks that if [end] is omitted, the [length] of [this] is used.
  * @author msyabro
@@ -13,11 +14,11 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(var list, var start) {
+void check(List<int> list, int start) {
   var l = new Uint8ClampedList.fromList(list);
   var res = l.sublist(start);
 
-  for(int i = start; i<l.length; ++i) {
+  for (int i = start; i < l.length; ++i) {
     Expect.equals(l[i], res[i - start]);
   }
 }

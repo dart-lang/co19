@@ -6,20 +6,19 @@
 /**
  * @assertion final Duration elapsed
  * Returns the elapsedTicks counter converted to a Duration.
- * @description Checks that this method returns 0 if the stopwatch has never been started.
+ * @description Checks that this method returns 0 if the stopwatch has never
+ * been started.
  * @author kaigorodov
  */
 import "dart:async";
-
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-Duration delay=durationMs(50);
+Duration delay = durationMs(50);
 Stopwatch sw = new Stopwatch();
 
 main() {
   asyncStart();
-  new Timer(delay,proc1);
+  new Timer(delay, proc1);
 }
 
 void proc1() {

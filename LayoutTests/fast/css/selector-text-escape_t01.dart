@@ -8,11 +8,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
-  var style = new Element.html(r'''
+  dynamic style = new Element.html(r'''
       <style type="text/css">
       /* Control characters */
       .\01_class {

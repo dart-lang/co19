@@ -7,10 +7,8 @@
  * @assertion bool isInfinite
  * @description Checks non infinite double values.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 
 check(double d) {
   Expect.isFalse(d.isInfinite);

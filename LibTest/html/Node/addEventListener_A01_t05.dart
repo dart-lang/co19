@@ -11,34 +11,32 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 var n = 1;
 
 void check(Node x) {
   var type = 'click';
 
-  genHandler() => (e) {
-    Expect.equals(type, e.type);
-    asyncEnd();
-  };
+  EventListener genHandler() => (e) {
+        Expect.equals(type, e.type);
+        asyncEnd();
+      };
 
-  for (var i=0; i<n; ++i)
-    x.addEventListener(type, genHandler());
+  for (var i = 0; i < n; ++i) x.addEventListener(type, genHandler());
 
   var event = new Event(type);
   x.dispatchEvent(event);
 }
 
 main() {
-  List<Node> targets=[
-    new Text("Text1"), 
+  List<Node> targets = [
+    new Text("Text1"),
     new Comment("Comment"),
     new IFrameElement(),
     document,
     new DocumentFragment(),
   ];
-  asyncMultiStart(targets.length*n);
+  asyncMultiStart(targets.length * n);
   for (Node x in targets) {
     check(x);
   }

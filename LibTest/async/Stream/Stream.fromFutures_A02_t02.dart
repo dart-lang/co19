@@ -14,12 +14,10 @@
  *
  * @description Checks that if one future has completed before calling
  * Stream.fromFutures, their result will be output on the created stream in
- * some unspecified order. The stream is closed whem all futures completed.
+ * some unspecified order. The stream is closed when all futures completed.
  * @author ngl@unipro.ru
  */
-
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 const N = 4;
@@ -28,28 +26,30 @@ List<Completer> completers = new List<Completer>(N);
 List<Future> futures = new List<Future>(N);
 int num = 0;
 
-
 main() {
   for (int k = 0; k < N; k++) {
     completers[k] = new Completer();
     futures[k] = completers[k].future;
-    if (k == 1) {
-      completers[k].complete(k);
-    }
   }
+  completers[1].complete(1);
 
   Stream s = new Stream.fromFutures(futures);
-
+  List<int> events = [];
   asyncStart();
 
-  s.listen((int event) {
-    num++;
-  }, onError: (_) {
-    Expect.fail("onError called unexpectedly");
-  }, onDone: () {
-    Expect.equals(N, num, "onDone");
-    asyncEnd();
-  });
+  s.listen(
+    (var event) {
+      events.add(event);
+    },
+    onError: (_) {
+      Expect.fail("onError called unexpectedly");
+    },
+    onDone: () {
+      events.sort();
+      Expect.listEquals([0,1,2,3], events);
+      asyncEnd();
+    }
+  );
 
   for (int k = 0; k < N; k++) {
     if (k != 1) {
@@ -57,4 +57,3 @@ main() {
     }
   }
 }
-

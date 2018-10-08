@@ -13,21 +13,20 @@
  * constructor.
  * It is a compile-time error if a local variable v is final and v is not
  * initialized at its point of declaration.
- * @description Checks that a static warning occurs if a final instance
+ * @description Checks that a compile error occurs if a final instance
  * variable that has been initialized in declaration is also initialized in
  * a constructor.
+ * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  * @issue 12539
- * @issue 27226
  */
 
 class C {
   final v = 1;
   
-  C(this.v) {} /// 01: static type warning, runtime error
+  C(this.v) {}
 }
 
 main() {
-  new C(1); /// 01: continued
+  new C(1);
 }

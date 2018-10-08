@@ -34,5 +34,7 @@ class Generic<T> {
 }
 
 main() {
-  Generic{int} t;
+  try {
+    Generic{int} t;
+  } catch (x) {}
 }

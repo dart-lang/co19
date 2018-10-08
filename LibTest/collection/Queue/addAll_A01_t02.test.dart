@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Adds all elements of [collection] at the end of the queue. The
- *            length of the queue is extended by the length of [collection].
+ * @assertion  void addAll(Iterable<E> iterable)
+ * Adds all elements of [iterable] at the end of the queue. The length of the
+ * queue is extended by the length of iterable.
  * @description Checks that method appends new elements and does not affect 
  * the existing elements of the queue.
  * @author msyabro
- * @reviewer varlax
  */
 library addAll_A01_t02;
  
@@ -30,6 +30,6 @@ test(Queue create([Iterable content])) {
   queue.addAll(["1","2","3"]);
   check(["1", "2", "3"], queue);
 
-  queue.addAll([null,0, false, "0"]);
+  queue.addAll([null, 0, false, "0"]);
   check(["1", "2", "3", null, 0, false, "0"], queue);
 }

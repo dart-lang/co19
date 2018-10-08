@@ -10,6 +10,7 @@
  * @description Checks that all elements of the new [Float32x4List] are zero.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -20,7 +21,7 @@ equal(obj1, obj2) {
 
 void check(int length) {
   Float32x4List l = new Float32x4List(length);
-  for(int i = 0; i < length; ++i) {
+  for (int i = 0; i < length; ++i) {
     Expect.isTrue(equal(new Float32x4.zero(), l[i]));
   }
 }

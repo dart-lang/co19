@@ -19,7 +19,6 @@
 
 import 'dart:html';
 import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import '../../testcommon.dart';
 
 main() {
@@ -71,7 +70,7 @@ main() {
 
     inp4.focus();
 
-    s.addEventListener('DOMFocusIn', (event) {
+    s.addEventListener('DOMFocusIn', (dynamic event) {
       assert_equals(event.target.getAttribute('id'), 'inp1', 'Inside shadow tree: ' +
         'Event for nodes, distributed ' +
         'agains insertion points shouldn\'t be retargeted');
@@ -79,7 +78,7 @@ main() {
     }, false);
 
 
-    d.body.addEventListener('DOMFocusIn', (event) {
+    d.body.addEventListener('DOMFocusIn', (dynamic event) {
       assert_equals(event.target.getAttribute('id'), 'inp1', 'Outside shadow tree: ' +
         'Event for nodes, distributed ' +
         'agains insertion points shouldn\'t be retargeted');

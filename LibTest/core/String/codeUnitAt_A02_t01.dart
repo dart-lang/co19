@@ -6,18 +6,14 @@
 /**
  * @assertion  abstract int codeUnitAt(int index)
  * Throws RangeError if [index] is out of bounds
- * @description Checks that an RangeError is thrown when the index is out of range
+ * @description Checks that an RangeError is thrown when the index is out of
+ * range
  * @author msyabro
- * @reviewer rodionov
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 
 void checkIOOR(String str, int index) {
-  try {
-    str.codeUnitAt(index);
-    Expect.fail("RangeError is expected");
-  } on RangeError catch(e) {}
+  Expect.throws(() {str.codeUnitAt(index);}, (e) => e is RangeError);
 }
 
 main() {

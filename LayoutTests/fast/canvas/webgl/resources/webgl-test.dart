@@ -66,7 +66,7 @@ create3DContext([canvas, attributes]) {
 }
 
 getGLErrorAsString(ctx, err) {
-  if (err == wgl.NO_ERROR) {
+  if (err == wgl.WebGL.NO_ERROR) {
     return "NO_ERROR";
   }
   /*for (var name in ctx) {
@@ -153,14 +153,14 @@ createProgram(gl, vshaders, fshaders, [attribs])
   var i;
 
   for (i = 0; i < vshaders.length; ++i) {
-    var shader = loadShader(gl, vshaders[i], wgl.VERTEX_SHADER);
+    var shader = loadShader(gl, vshaders[i], wgl.WebGL.VERTEX_SHADER);
     if (shader == null)
       return null;
     shaders.add(shader);
   }
 
   for (i = 0; i < fshaders.length; ++i) {
-    var shader = loadShader(gl, fshaders[i], wgl.FRAGMENT_SHADER);
+    var shader = loadShader(gl, fshaders[i], wgl.WebGL.FRAGMENT_SHADER);
     if (shader == null)
       return null;
     shaders.add(shader);
@@ -180,7 +180,7 @@ createProgram(gl, vshaders, fshaders, [attribs])
   gl.linkProgram(prog);
 
   // Check the link status
-  var linked = gl.getProgramParameter(prog, wgl.LINK_STATUS);
+  var linked = gl.getProgramParameter(prog, wgl.WebGL.LINK_STATUS);
   if (!linked) {
     // something went wrong with the link
     var error = gl.getProgramInfoLog(prog);
@@ -205,7 +205,7 @@ createProgram(gl, vshaders, fshaders, [attribs])
 // this program in the 'program' property of the returned context.
 //
 // [for dart just return a context and program is accessible by
-//  gl.getParameter(wgl.CURRENT_PROGRAM)]
+//  gl.getParameter(wgl.WebGL.CURRENT_PROGRAM)]
 //
 // For each string in the passed attribs array, bind an attrib with that name
 // at that index.  Once the attribs are bound, link the program and then use
@@ -234,9 +234,9 @@ initWebGL(canvasName, vshader, fshader, attribs, clearColor, clearDepth, [contex
   gl.clearColor(clearColor[0], clearColor[1], clearColor[2], clearColor[3]);
   gl.clearDepth(clearDepth);
 
-  gl.enable(wgl.DEPTH_TEST);
-  gl.enable(wgl.BLEND);
-  gl.blendFunc(wgl.SRC_ALPHA, wgl.ONE_MINUS_SRC_ALPHA);
+  gl.enable(wgl.WebGL.DEPTH_TEST);
+  gl.enable(wgl.WebGL.BLEND);
+  gl.blendFunc(wgl.WebGL.SRC_ALPHA, wgl.WebGL.ONE_MINUS_SRC_ALPHA);
 
   return gl;
 }
@@ -269,15 +269,15 @@ loadShader(ctx, shaderId, shaderType, [isFile=false])
   if (isFile)
     shaderSource = getShaderSource(shaderId);
   else {
-    var shaderScript = document.getElementById(shaderId);
+    dynamic shaderScript = document.getElementById(shaderId);
     if (shaderScript == null) {
       shaderSource = shaderId;
     } else {
       if (shaderScript.type == "x-shader/x-vertex") {
-        shaderType = wgl.VERTEX_SHADER;
+        shaderType = wgl.WebGL.VERTEX_SHADER;
       } else if (shaderScript.type == "x-shader/x-fragment") {
-        shaderType = wgl.FRAGMENT_SHADER;
-      } else if (shaderType != wgl.VERTEX_SHADER && shaderType != wgl.FRAGMENT_SHADER) {
+        shaderType = wgl.WebGL.FRAGMENT_SHADER;
+      } else if (shaderType != wgl.WebGL.VERTEX_SHADER && shaderType != wgl.WebGL.FRAGMENT_SHADER) {
         webglTestLog("*** Error: unknown shader type");
         return null;
       }
@@ -300,7 +300,7 @@ loadShader(ctx, shaderId, shaderType, [isFile=false])
   ctx.compileShader(shader);
 
   // Check the compile status
-  var compiled = ctx.getShaderParameter(shader, wgl.COMPILE_STATUS);
+  var compiled = ctx.getShaderParameter(shader, wgl.WebGL.COMPILE_STATUS);
   if (!compiled) {
     // Something went wrong during compilation; get the error
     var error = ctx.getShaderInfoLog(shader);
@@ -332,16 +332,16 @@ loadStandardProgram(context) {
 
 loadProgram(context, vertexShaderPath, fragmentShaderPath, [isFile=true]) {
   var program = context.createProgram();
-  context.attachShader(program, loadShader(context, vertexShaderPath, wgl.VERTEX_SHADER, isFile));
-  context.attachShader(program, loadShader(context, fragmentShaderPath, wgl.FRAGMENT_SHADER, isFile));
+  context.attachShader(program, loadShader(context, vertexShaderPath, wgl.WebGL.VERTEX_SHADER, isFile));
+  context.attachShader(program, loadShader(context, fragmentShaderPath, wgl.WebGL.FRAGMENT_SHADER, isFile));
   context.linkProgram(program);
   return program;
 }
 
 loadStandardVertexShader(context) {
-  return loadShader(context, "$root/vertexShader.vert", wgl.VERTEX_SHADER, true);
+  return loadShader(context, "$root/vertexShader.vert", wgl.WebGL.VERTEX_SHADER, true);
 }
 
 loadStandardFragmentShader(context) {
-  return loadShader(context, "$root/fragmentShader.frag", wgl.FRAGMENT_SHADER, true);
+  return loadShader(context, "$root/fragmentShader.frag", wgl.WebGL.FRAGMENT_SHADER, true);
 }

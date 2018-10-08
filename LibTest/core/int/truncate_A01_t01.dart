@@ -6,10 +6,8 @@
 /**
  * @assertion int truncate()
  * Truncates the value of int.
- * @description Checks that this function returns correct value.
+ * @description Checks that this method returns this value.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -24,6 +22,6 @@ main() {
   Expect.equals(2147483647, 2147483647.truncate());
   Expect.equals(-4294967295, -4294967295.truncate());
   Expect.equals(9223372036854775807, 9223372036854775807.truncate());
-  Expect.equals(18446744073709551617, 18446744073709551617.truncate());
-  Expect.equals(-18446744073709551617, (-18446744073709551617).truncate());
+  Expect.equals(1844674407370955161, 1844674407370955161.truncate());
+  Expect.equals(-1844674407370955161, (-1844674407370955161).truncate());
 }

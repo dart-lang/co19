@@ -17,40 +17,40 @@ import "../../../Utils/expect.dart";
 import "dart:convert";
 
 List cyclist1() {
-  var res=[1,2,3];
+  List<Object> res = [1, 2, 3];
   res.add(res);
   return res;
 }
 
 List cyclist2() {
-  var res=[1,2,3];
-  var intlist=[4,5,6];
+  List<Object> res = [1, 2, 3];
+  List<Object> intlist = [4, 5, 6];
   intlist.add(res);
   res.add(intlist);
   return res;
 }
 
 Map cycmap0() {
-  Map<String, Object> res={};
-  res["kkk"]=res;
+  Map<String, Object> res = {};
+  res["kkk"] = res;
   return res;
 }
 
 Map cycmap1() {
-  Map<String, Object> res={"1":1, "2":2, "3":3};
-  res["100"]=res;
+  Map<String, Object> res = {"1": 1, "2": 2, "3": 3};
+  res["100"] = res;
   return res;
 }
 
 Map cycmap2() {
-  Map<String, Object> res={"1":1, "2":2, "3":3};
-  Map<String, Object> intlist={"4":4, "5":5, "6":6};
-  intlist["54"]=res;
-  res["22"]=intlist;
+  Map<String, Object> res = {"1": 1, "2": 2, "3": 3};
+  Map<String, Object> intlist = {"4": 4, "5": 5, "6": 6};
+  intlist["54"] = res;
+  res["22"] = intlist;
   return res;
 }
 
-List<Object> table=[
+List<Object> table = [
   cyclist1(),
   cyclist2(),
   cycmap0(),
@@ -59,13 +59,12 @@ List<Object> table=[
 ];
 
 main() {
-  bool failed=false;
-  JsonCodec codec=new JsonCodec();
+  bool failed = false;
+  JsonCodec codec = new JsonCodec();
   for (Object obj in table) {
     try {
-      String res=codec.encode(obj);
-      print("error expected but result returned: $res");
-      failed=true;
+      String res = codec.encode(obj);
+      failed = true;
     } on JsonCyclicError catch(e) {
     }
     if (failed) {

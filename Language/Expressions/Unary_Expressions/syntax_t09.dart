@@ -39,5 +39,7 @@
 
 main() {
   var x = 1;
-  ++ ++x;
+  try {
+    ++ ++x;
+  } catch (e) {}
 }

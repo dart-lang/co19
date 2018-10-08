@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -18,10 +17,10 @@ main() {
       <input/>
       <input autofocus/>
       ''', treeSanitizer: new NullTreeSanitizer());
-      
-  var a = document.queryAll("input");
 
-  shouldBeTrue(a[0].autofocus);
-  shouldBeFalse(a[1].autofocus);
-  shouldBeTrue(a[2].autofocus);
+  ElementList<Element> a = document.querySelectorAll("input");
+
+  shouldBeTrue((a[0] as InputElement).autofocus);
+  shouldBeFalse((a[1] as InputElement).autofocus);
+  shouldBeTrue((a[2] as InputElement).autofocus);
 }

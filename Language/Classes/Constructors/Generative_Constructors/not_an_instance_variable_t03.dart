@@ -11,7 +11,6 @@
  * an initializer for a static class variable.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C  {
@@ -21,5 +20,7 @@ class C  {
 }
 
 main() {
-  var z = new C();
+  try {
+    var z = new C();
+  } catch (x) {}
 }

@@ -1,32 +1,37 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable<E> take(int n)
- * Returns an Iterable with at most n elements.
- * The returned Iterable may contain fewer than n elements, if this contains fewer than n elements.
- * It is an error if n is negative.
- * @description checks that some error is thrown if n is negative.
- * @author kaigorodov
+ * @assertion Iterable<E> take(int count)
+ * The returned [Iterable] may contain fewer than [count] elements, if this
+ * contains fewer than [count] elements.
+ * @description Checks that if given linked list contains fewer than [count]
+ * elements, returned [Iterable] contains all the elements from the list.
+ * @author iarkh@unipro.ru
  */
-import "dart:math" as Math;
 import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
 check(List a0, int n) {
-  LinkedList<MyLinkedListEntry<int>> a=toLinkedList(a0);
-  Iterable res;
-  Expect.throws(() {
-      res=a.take(n);
-    }
-  );
+  LinkedList<MyLinkedListEntry<int>> a = toLinkedList(a0);
+  Iterable<MyLinkedListEntry<int>> it = a.take(n);
+  Expect.equals(a.length, it.length);
+  int k = 0;
+  for (MyLinkedListEntry<int> entry in it) {
+    Expect.equals(a0[k], entry.value);
+    k++;
+  }      
 }
 
 main() {
-  check([1,2,-3,4], -1);
-  check(const[1,2,-5,-6, 100], -2);
-  check(const[null,2,-5,-6, 100], -1000);
+  check([1, 2, -3, 4], 5);
+  check([11, 2, -3, 4], 5);
+  check([1, 22, -3, 4], 10);
+  check(const[1, 2, -5, -6, 100], 21);
+  check(const[1, -1, 2,-5,-6], 14);
+  check(const[0, 0, 1, 2, -5, -6], 8);
+  check(const[0, 0, 1, 2, -5, -6], 10);
 }

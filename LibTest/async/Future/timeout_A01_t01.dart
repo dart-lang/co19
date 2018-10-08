@@ -11,23 +11,21 @@
  * this future completes in time.
  *
  * @description Checks that returned future is completed with with the same
- * value as this future.
+ * value as this future, if this future completes in time.
  * @author ngl@unipro.ru
  */
-import "../../../Utils/async_utils.dart";
+import "dart:async";
 import "../../../Utils/expect.dart";
 
-import "dart:async";
-
 check(var value) {
-  Future future = new Future(() => value);
-  Future f1 = future.timeout(new Duration(microseconds:1));
-
   asyncStart();
-  f1.then((fValue) {
-    Expect.identical(value, fValue);
-    asyncEnd();
-  });
+  Future future = new Future.value(value);
+  future.timeout(new Duration(milliseconds:1)).then(
+    (v) {
+      Expect.identical(value, v);
+      asyncEnd();
+    }
+  );
 }
 
 main() {

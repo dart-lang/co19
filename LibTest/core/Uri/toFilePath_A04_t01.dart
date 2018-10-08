@@ -11,9 +11,7 @@
  * UnsupportedError.
  * @description Checks that exceptions are thrown
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

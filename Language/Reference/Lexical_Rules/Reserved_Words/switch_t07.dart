@@ -19,5 +19,8 @@ class C {
 }
 
 main() {
-  C.switch();
+  try {
+    C.switch();
+  } catch (anything) {
+  }
 }

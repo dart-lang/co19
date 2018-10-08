@@ -5,18 +5,19 @@
  */
 /**
  * @assertion double asin(num x)
- * Throws an error if [x] is null.
- * @description Checks that Error is thrown when passed argument is a null.
+ * Converts [x] to a double and returns its arc sine in radians.
+ * @description Checks that Error is thrown when passed argument is a null (not
+ * a number).
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview undocumented
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
-  Expect.throws( () {
+  Expect.throws(() {
     Math.asin(null);
   });
 }

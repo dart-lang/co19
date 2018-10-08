@@ -7,7 +7,6 @@
  * @description Custom element wrappers in templates should be retained
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 class Custom extends HtmlElement {
@@ -26,11 +25,10 @@ main() {
     </div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  document.querySelector('template').content.ownerDocument
-    .register('x-custom', Custom);
+  TemplateElement template = document.querySelector('template');
+  (template.content.ownerDocument as HtmlDocument).register('x-custom', Custom);
 
-  var template = document.querySelector('template');
-  var customElement = template.content.querySelector('x-custom');
+  Custom customElement = template.content.querySelector('x-custom');
   shouldBeEqualToString(customElement.expando, 'present');
 
   var container = document.getElementById('container');

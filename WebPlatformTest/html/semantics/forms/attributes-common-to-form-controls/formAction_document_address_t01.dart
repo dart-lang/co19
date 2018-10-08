@@ -44,39 +44,39 @@ void main() {
       
       // formaction content attribute is missing
       test(() {
-        var formAction = document.querySelector('#missing button').formAction;
+        var formAction = (document.querySelector('#missing button') as ButtonElement).formAction;
         var address = window.location.href;
         assert_equals(formAction, address);
       }, "Check if button.formAction is the document's address when formaction content attribute is missing");
 
       test(() {
-        var formAction = document.querySelector('#missing input').formAction;
+        var formAction = (document.querySelector('#missing input') as InputElement).formAction;
         var address = window.location.href;
         assert_equals(formAction, address);
       }, "Check if input.formAction is the document's address when formaction content attribute is missing");
 
       // formaction content attribute value is empty string
       test(() {
-        var formAction = document.querySelector('#empty_string button').formAction;
+        var formAction = (document.querySelector('#empty_string button') as ButtonElement).formAction;
         var address = window.location.href;
         assert_equals(formAction, address);
       }, "Check if button.formAction is the document's address when formaction content attribute value is empty string");
 
       test(() {
-        var formAction = document.querySelector('#empty_string input').formAction;
+        var formAction = (document.querySelector('#empty_string input') as InputElement).formAction;
         var address = window.location.href;
         assert_equals(formAction, address);
       }, "Check if input.formAction is the document's address when formaction content attribute value is empty string");
 
       // formaction content attribute value is not assigned, just for comparison with empty string above
       test(() {
-        var formAction = document.querySelector('#no_assigned_value button').formAction;
+        var formAction = (document.querySelector('#no_assigned_value button') as ButtonElement).formAction;
         var address = window.location.href;
         assert_equals(formAction, address);
       }, "Check if button.formAction is the document's address when formaction content attribute value is not assigned");
 
       test(() {
-        var formAction = document.querySelector('#no_assigned_value input').formAction;
+        var formAction = (document.querySelector('#no_assigned_value input') as ButtonElement).formAction;
         var address = window.location.href;
         assert_equals(formAction, address);
       }, "Check if input.formAction is the document's address when formaction content attribute value is not assigned");

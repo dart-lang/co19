@@ -7,8 +7,6 @@
  * @description Test for Range.expand()
  */
 import "dart:html";
-import 'dart:convert';
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

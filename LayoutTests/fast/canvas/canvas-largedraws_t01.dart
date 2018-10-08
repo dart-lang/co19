@@ -8,18 +8,16 @@
  */
 import "dart:html";
 import "dart:math" as Math;
-import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   newCanvasContext() {
-    var canvas = document.createElement("canvas");
+    dynamic canvas = document.createElement("canvas");
     canvas.width = 100;
     canvas.height = 100;
     return canvas.getContext("2d");
   }
 
-  var ctx = newCanvasContext();
+  dynamic ctx = newCanvasContext();
   ctx.fillStyle = '#0f0';
   ctx.fillRect(0, 0, 100, 50);
   ctx.moveTo(10500000000, 10500000000);
@@ -40,9 +38,9 @@ main() {
   ctx.fillStyle = '#0f0';
   ctx.fillRect(0, 0, 100, 50);
   ctx.scale(2, -4500000000);
-  ctx.arc(25, 50, 56, 0, 2*Math.PI, false);
+  ctx.arc(25, 50, 56, 0, 2*Math.pi, false);
   ctx.fill();
-  ctx.arc(105000000005, -105000000005, 105000000004, 0, 10500000000*Math.PI, false);
+  ctx.arc(105000000005, -105000000005, 105000000004, 0, 10500000000*Math.pi, false);
   ctx.fill();
   ctx.getImageData(50, 25, 1, 1);
 }

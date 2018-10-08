@@ -74,8 +74,6 @@ main() {
         "</xsl:template>" +
     "</xsl:stylesheet>";
 
-  var count = 0;
-
   shouldSupport(content, mimeType, [expected])
   {
     debug(mimeType);

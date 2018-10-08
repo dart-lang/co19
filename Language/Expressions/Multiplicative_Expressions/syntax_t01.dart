@@ -43,42 +43,29 @@ class A extends S {
 
   test() {
     //super
-    super * 1;
-    super / true;
-    super % new S();
-    super ~/ [1][0]++;
+    try {super * 1;} catch (ok) {}
+    try {super / true;} catch (ok) {}
+    try {super % new S();} catch (ok) {}
+    try {super ~/ [1][0]++;} catch (ok) {}
 
     // chaining
-    super * 1 / 2 % 3 ~/ 4 % 5 / 6 * 7; /// 01: runtime error
+    try {super * 1 / 2 % 3 ~/ 4 % 5 / 6 * 7;} catch (ok) {}
 
     //literals with selectors
-    null * "string"; /// 02: runtime error
-    this.id * (true(1, 2).val / 1[1]); /// 03: static type warning, runtime error
-    1(1, 2)[3] * (null(1, []).val / (1.x % {}["s"])); /// 04: static type warning, runtime error
-    "s" * (true / (2 % ([]() ~/ {}))); /// 05: static type warning, runtime error
-
-    //constants
-    const [] * const [1]; /// 06: static type warning, runtime error
-    const {} % const []; /// 07: static type warning, runtime error
-    const [1, 2, 3] / const {"1": 1} ~/ const S(); /// 08: static type warning, runtime error
+    try {null * "string"; } catch (e) {}
 
     //invocations
-    method() * topLevelFunction(); /// 09: runtime error
-    this.method()(1)(1, 2) / id[0]().x; /// 10: runtime error
-    id % topLevelFunction().x; /// 11: runtime error
-    method(this) ~/ id[1](); /// 12: static type warning, runtime error
+    try {method() * topLevelFunction();} catch (e) {}
+    try {this.method()(1)(1, 2) / id[0]().x;} catch (e) {}
+    try {id % topLevelFunction().x;} catch (e) {}
 
     //unary expressions
-    -this * ~this; /// 13: static type warning, runtime error
-    --id / id++; /// 14: runtime error
-    ~-id % !!false; /// 15: runtime error
-    ++1[1] ~/ ()=>2[0]--; /// 16: static type warning, runtime error
+    try {--id / id++;} catch (e) {}
+    try {~-id % !!false;} catch (e) {}
 
     //identifier and chaining
-    id * id / id % id ~/ id; /// 17: runtime error
+    try {id * id / id % id ~/ id; } catch (e) {}
   }
-
-  var _id;
 }
 
 main() {

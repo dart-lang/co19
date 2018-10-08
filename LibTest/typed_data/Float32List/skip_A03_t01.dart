@@ -5,8 +5,9 @@
  */
 /**
  * @assertion Iterable<E> skip(int count)
- * It is an error if [n] is negative.
- * @description Checks that it is an error if [n] is negative.
+ * ...
+ * The [count] must not be negative.
+ * @description Checks that it is an error if [count] is negative.
  * @author msyabro
  */
 

@@ -11,9 +11,9 @@
  * In short, any arity mismatch results in all type arguments being dropped,
  * and replaced with the correct number of type arguments, all set to dynamic.
  * Of course, a static warning will be issued.
- * @description Checks that a static warning is produced if G has fewer type
+ * @description Checks that a compile error is produced if G has fewer type
  * parameters than needed.
- * @static-warning
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
  */
@@ -21,5 +21,5 @@
 class A<T, U> {}
 
 main() {
-  A<int> a = null; /// static type warning
+  A<int> a = null;
 }

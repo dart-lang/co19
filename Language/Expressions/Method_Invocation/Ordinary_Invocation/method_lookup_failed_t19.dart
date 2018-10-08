@@ -21,12 +21,11 @@
  *   values as {xn+1: on+1, ..., xn+k: on+k}.
  * Then the method noSuchMethod() is looked up in vo and invoked with argument
  * im, and the result of this invocation is the result of evaluating i.
- * @description Checks that a NoSuchMethodError is thrown if C does not
+ * @description Checks that it is a compile error if C does not
  * denote a class in the current scope, or if C does not declare a static
  * method or getter with the required name.
- * @static-warning
+ * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../../Utils/expect.dart";
 
@@ -37,18 +36,6 @@ class S {
 class C extends S {}
 
 main()  {
-  try {
-    NonExistentClass.func(); /// static type warning - undefined name
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (ok) {}
-
-  try {
-    C.func(); /// static type warning
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (ok) {}
-
-  try {
-    var x = C.getter; /// static type warning
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (ok) {}
+  Expect.throws(() {C.func();}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {C.getter;}, (e) => e is NoSuchMethodError);
 }

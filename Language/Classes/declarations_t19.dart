@@ -38,7 +38,6 @@
  * constructor declaration does not end with a semicolon.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A {
@@ -47,5 +46,7 @@ class A {
 }
 
 main() {
-  A a = new A.B();
+  try {
+    new A.B();
+  } catch (e) {}
 }

@@ -10,7 +10,6 @@
  */
 import "dart:html";
 import "dart:svg";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 class CustomHtmlElement extends HtmlElement {
@@ -47,7 +46,7 @@ main() {
   shouldBe(html2.namespaceUri, "http://www.w3.org/1999/xhtml");
   var html3 = document.createElementNS('http://www.w3.org/1999/xhtml', 'html-foo');
   shouldBe(html3.namespaceUri, "http://www.w3.org/1999/xhtml");
-  var html4 = createElementFromHtml('<html-foo></html-foo>');
+  HtmlElement html4 = createElementFromHtml('<html-foo></html-foo>');
   shouldBe(html4.namespaceUri, "http://www.w3.org/1999/xhtml");
 
   var notHtml = document.createElementNS('http://www.example.com/', 'html-foo');
@@ -65,16 +64,16 @@ main() {
   var svg2 = document.createElementNS('http://www.w3.org/2000/svg', 'svg-foo');
   shouldBe(svg2.tagName, "svg-foo");
   shouldBe(svg2.namespaceUri, "http://www.w3.org/2000/svg");
-  var svg3 = createElementFromSvg('<svg-foo></svg-foo>');
+  SvgElement svg3 = createElementFromSvg('<svg-foo></svg-foo>');
   shouldBe(svg3.tagName, "svg-foo");
   shouldBe(svg3.namespaceUri, "http://www.w3.org/2000/svg");
 
-  var notSvg1 = document.createElement('svg-foo');
+  Element notSvg1 = document.createElement('svg-foo');
   shouldBe(notSvg1.namespaceUri, "http://www.w3.org/1999/xhtml");
   shouldBeFalse(notSvg1 is CustomSvgElement);
   shouldBeFalse(notSvg1 is UnknownElement);
   shouldBeTrue(notSvg1 is HtmlElement);
-  var notSvg2 = createElementFromHtml('<svg-foo></svg-foo>');
+  HtmlElement notSvg2 = createElementFromHtml('<svg-foo></svg-foo>');
   shouldBe(notSvg2.namespaceUri, "http://www.w3.org/1999/xhtml");
   shouldBeFalse(notSvg2 is CustomSvgElement);
   shouldBeFalse(notSvg2 is UnknownElement);

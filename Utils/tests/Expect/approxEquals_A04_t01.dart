@@ -30,12 +30,12 @@ main() {
   check(0, NEG_MIN_DOUBLE, null, "");
   check(0, NEG_MIN_DOUBLE, null, "not empty");
 
-  check(MAX_DOUBLE, double.INFINITY);
-  check(double.NAN, double.NEGATIVE_INFINITY);
+  check(MAX_DOUBLE, double.infinity);
+  check(double.nan, double.negativeInfinity);
 
   check(20, 2, 1);
   check(MIN_DOUBLE, MAX_DOUBLE, 123, "sddsd");
-  check(0, -0.0, double.NAN, "");
+  check(0, -0.0, double.nan, "");
 }
 
 void check(num arg1, num arg2, [num tol = null, String reason = null]) {

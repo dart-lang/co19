@@ -12,7 +12,6 @@
  * and has the correct length.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string) {

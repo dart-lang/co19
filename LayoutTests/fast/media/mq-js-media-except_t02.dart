@@ -44,10 +44,10 @@ void main() {
     // The following is valid according to the CSS 2.1 note: "Media Queries
     // supercedes this error handling.", as it is malformed and should be
     // represented as "not all".
-    List cssRules=document.styleSheets[document.styleSheets.length-1].cssRules;
-    cssRules[1].media.mediaText = "screen and resolution > 40dpi";
+    List<CssRule> cssRules = (document.styleSheets[document.styleSheets.length-1] as CssStyleSheet).cssRules;
+    (cssRules[1] as CssMediaRule).media.mediaText = "screen and resolution > 40dpi";
     document.getElementById("result").innerHtml = "This text should be green.";
-    String mediaText=cssRules[1].media.mediaText;
+    String mediaText = (cssRules[1] as CssMediaRule).media.mediaText;
     document.getElementById("details").innerHtml = "New media: $mediaText";
     Expect.equals("not all", mediaText);
 }

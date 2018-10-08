@@ -8,13 +8,12 @@
  * source image.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
-  var ctx, invalidImage;
+  dynamic ctx;
+  var invalidImage;
 
   draw(_) {
     // null images should throw TypeError

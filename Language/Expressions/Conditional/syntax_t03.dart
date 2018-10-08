@@ -21,7 +21,10 @@ class S {}
 
 class A extends S {
   test() {
-    true ? super : 2;  }
+    try {
+      true ? super : 2;
+    } catch (e) {}
+  }
 }
 
 main() {

@@ -10,9 +10,7 @@
  * @note no CanvasRenderingContext2D.isContextLost()
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var ctx, lostEventHasFired;
@@ -51,7 +49,7 @@ main() {
     asyncEnd();
   }
 
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   canvas.addEventListener('contextlost', contextLost);
   canvas.addEventListener('contextrestored', contextRestored);
   ctx = canvas.getContext('2d');
@@ -70,3 +68,4 @@ main() {
   verifyContextLost(true); // Restoration is async.
   asyncStart();
 }
+

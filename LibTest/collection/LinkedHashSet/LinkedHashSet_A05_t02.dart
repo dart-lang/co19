@@ -6,24 +6,21 @@
 /**
  * @assertion LinkedHashMap({bool equals(K key1, K key2), int hashCode(K key),
  * bool isValidKey(potentialKey)})
- * ...
- * If the equals or hashCode methods won't work on all objects, but only on some
- * instances of E, the isValidKey predicate can be used to restrict the keys
- * that the functions are applied to. Any key for which isValidKey returns false
- * is automatically assumed to not be in the set when asking contains.
- *
- * If equals or hashCode are omitted, the set uses the elements' intrinsic
- * Object.operator== and Object.hashCode
- * @description Checks that if isValidKey returns false then value is assumed to
- * not be in the set when asking contains
+ * If the [equals] or [hashCode] methods won't work on all objects, but only on
+ * some instances of [E], the [isValidKey] predicate can be used to restrict the
+ * keys that the functions are applied to. Any key for which [isValidKey]
+ * returns false is automatically assumed to not be in the set when asking
+ * [contains].
+ * @description Checks that if [isValidKey] returns [false] then value is
+ * assumed to not be in the set when asking [contains]
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-bool myEquals(int key1, int key2) => key1 == key2;
+bool myEquals(var key1, var key2) => key1 == key2;
 
-int myHashCode(int key) => key.hashCode;
+int myHashCode(var key) => key.hashCode;
 
 bool isValidKey(var potentialKey) {
   return (potentialKey is int) && potentialKey < 100;

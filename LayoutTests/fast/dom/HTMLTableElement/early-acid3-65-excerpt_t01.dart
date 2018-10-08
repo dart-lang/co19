@@ -8,11 +8,10 @@
  * and see if the table is as expected
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var table = document.createElement('table');
+  TableElement table = document.createElement('table');
   table.append(document.createElement('tbody'));
   var tr1 = document.createElement('tr');
   table.append(tr1);
@@ -23,7 +22,7 @@ main() {
   // <table><tbody/><caption/><thead/><tr/>
   table.lastChild.replaceWith(table.firstChild); // move the <tbody/> to the end and remove the <tr>
   // <table><caption/><thead/><tbody/>
-  var tr2 = table.tBodies[0].insertRow(0);
+  table.tBodies[0].insertRow(0);
   // <table><caption/><thead/><tbody><tr/></tbody>
   shouldBe(table.tBodies[0].rows[0].rowIndex, 0);
   shouldBe(table.tBodies[0].rows[0].sectionRowIndex, 0);

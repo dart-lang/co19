@@ -13,7 +13,6 @@
  * instance variable of the superclass.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class S {
@@ -25,5 +24,7 @@ class C extends S {
 }
 
 main() {
-  new C(null);
+  try {
+    new C(null);
+  } catch (v) {}
 }

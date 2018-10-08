@@ -6,7 +6,7 @@
 /**
  * @assertion SplayTreeMap([int compare(K key1, K key2),
  * bool isValidKey(potentialKey)])
- * @description Checks that this constructor creates an empty SplayTreeMap
+ * @description Checks that this constructor creates an empty [playTreeMap]
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";

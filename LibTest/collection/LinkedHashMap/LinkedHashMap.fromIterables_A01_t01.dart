@@ -5,10 +5,10 @@
  */
 /**
  * @assertion LinkedHashMap.fromIterables(Iterable<K> keys, Iterable<V> values)
- * Creates a LinkedHashMap associating the given keys to values.
+ * Creates a [LinkedHashMap] associating the given [keys] to [values].
  *
- * This constructor iterates over keys and values and maps each element of keys
- * to the corresponding element of values.
+ * This constructor iterates over [keys] and [values] and maps each element of
+ * [keys] to the corresponding element of [values].
  * @description Checks that created hash map contains all elements of the given
  * [keys] and [values].
  * @author sgrekhov@unipro.ru

@@ -8,7 +8,6 @@
  * @description
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 
 const String htmlEL1 = r'''
@@ -66,10 +65,10 @@ void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
-    var inlines = document.getElementsByClassName('inline');
-    var referenceWidth = inlines[0].offsetWidth;
-    for (var i = 1; i < inlines.length; i++) {
-        shouldBe(inlines[i].offsetWidth, referenceWidth, "$i");
+    List<Node> inlines = document.getElementsByClassName('inline');
+    int referenceWidth = (inlines[0] as Element).offsetWidth;
+    for (int i = 1; i < inlines.length; i++) {
+        shouldBe((inlines[i] as Element).offsetWidth, referenceWidth, "$i");
     }
     checkTestFailures();
 }

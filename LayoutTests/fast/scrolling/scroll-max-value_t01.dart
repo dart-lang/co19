@@ -64,7 +64,8 @@ void main() {
             'the way to the right.');
     } else {
         testFailed('Setting el.scrollLeft = 100000000 scrolls to ' +
-            el.scrollLeft + ', expected ' + expectedScrollLeft + '.');
+            el.scrollLeft.toString() + ', expected ' +
+            expectedScrollLeft.toString() + '.');
     }
 
     var expectedScrollTop = firstElementChild.offsetHeight -
@@ -74,7 +75,8 @@ void main() {
             'the way to the bottom.');
     } else {
         testFailed('Setting el.scrollTop = 100000000 scrolls to ' +
-            el.scrollTop + ', expected ' + expectedScrollTop + '.');
+            el.scrollTop.toString() + ', expected ' +
+            expectedScrollTop.toString() + '.');
     }
 
     checkTestFailures();

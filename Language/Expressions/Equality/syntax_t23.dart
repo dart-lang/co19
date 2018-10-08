@@ -23,7 +23,7 @@
 
 class A<T> {
   test() {
-    T == 1;
+    try {T == 1;} catch (e) {}
   }
 }
 

@@ -10,24 +10,22 @@
  * @description Checks that the single element is returned.
  * @author kaigorodov
  */
-
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-void check(Iterable data, bool test(int element), var expected) {
-  Stream s=IsolateStream.fromIterable(data);
+void check(Iterable data, bool test(var element), var expected) {
+  Stream s = IsolateStream.fromIterable(data);
   asyncStart();
-  Future f=s.singleWhere(test);
-  f.then((int actual){
+  Future f = s.singleWhere(test);
+  f.then((var actual){
     Expect.equals(expected, actual);
     asyncEnd();
   });
 }
 
 main() {
-  check([1,2,3,null], (int element)=>element==null, null);
-  check([1,2,3], (int element)=>element>2, 3);
-  check(new Iterable.generate(10, (int index)=>index*5), (int element)=>element==30, 30);
+  check([1, 2, 3, null], (var element) => element == null, null);
+  check([1, 2, 3], (var element) => element > 2, 3);
+  check(new Iterable.generate(10, (int index) => index * 5), (var element) => element == 30, 30);
 }

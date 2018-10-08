@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -29,7 +28,8 @@ main() {
 
   asyncStart();
   window.onLoad.listen((_) {
-    shouldBe(document.getElementsByClassName('one')[0].getComputedStyle()
+    Element e = document.getElementsByClassName('one')[0];
+    shouldBe(e.getComputedStyle()
       .backgroundColor, 'rgb(0, 128, 0)');
     asyncEnd();
   });

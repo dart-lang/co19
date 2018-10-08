@@ -13,8 +13,7 @@
  *
  * @description Checks that if N is referenced by L and N would be introduced
  * by implicit import of 'dart:core' and library whose URI does not begin with
- * 'dart:', then N from dart:core is hidden. Also checks that static warning is
- * issued.
+ * 'dart:', then compile error is issued
  * @static-warning
  * @author ilya
  */
@@ -24,5 +23,5 @@ import "../../../Utils/expect.dart";
 import "implicit_hide_lib.dart";
 
 main() {
-  Expect.equals('MYLIST', List.typename);
+  Expect.equals('MYLIST', List.typename); /// static-type warning
 }

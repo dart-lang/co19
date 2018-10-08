@@ -7,17 +7,16 @@
  * @assertion final Events on
  * This is an ease-of-use accessor for event streams which should only be used
  * when an explicit accessor is not available.
- * @description Checks that the accessor works for standart events.
+ * @description Checks that the accessor works for standard events.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
-const eventType='keydown';
+const eventType = 'keydown';
 
 main() {
   asyncStart();
-  document.on[eventType].listen((KeyboardEvent e) {
+  document.on[eventType].listen((Event e) {
     Expect.equals(eventType, e.type);
     asyncEnd();
   });

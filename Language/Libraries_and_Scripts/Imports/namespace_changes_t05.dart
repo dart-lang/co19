@@ -58,17 +58,12 @@
  *
  * @description Checks that names imported from library B with prefix P are not
  * available without it.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
-import "../../../Utils/expect.dart";
-
 import "namespace_changes_lib.dart" as P;
 
 main() {
-  try {
-    var x = aFoo; /// static type warning cannot resolve
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {}
+  var x = aFoo;
 }

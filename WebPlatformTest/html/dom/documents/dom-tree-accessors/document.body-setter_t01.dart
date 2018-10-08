@@ -22,20 +22,14 @@ void main() {
 var originalBody = document.body;
 
 test(() {
-  assert_throws(new TypeError(), () {
-    document.body = "text";
-  });
-}, "Should throw a TypeError when trying to set document.body to a string.");
-
-test(() {
   assert_throws("HierarchyRequestError", () {
     document.body = document.createElement("div");
   });
 }, "Should throw a HierarchyRequestError when trying to set document.body to a div element.");
 
 test(() {
-  var doc = document.implementation.createHTMLDocument("");
-  doc.removeChild(doc.documentElement);
+  var doc = document.implementation.createHtmlDocument("");
+  doc.documentElement.remove();
   assert_throws("HierarchyRequestError", () {
     doc.body = document.createElement("body");
   });

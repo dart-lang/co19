@@ -10,7 +10,6 @@
  * unrelated class available in the same scope.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 class Z {}
@@ -21,5 +20,7 @@ class C {
 }
 
 main() {
-  new C();
+  try {
+    new C();
+  } catch (anything) {}
 }

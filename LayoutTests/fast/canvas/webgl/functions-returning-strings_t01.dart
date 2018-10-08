@@ -9,11 +9,8 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -33,7 +30,7 @@ main() {
   if (gl == null) {
     testFailed("context does not exist");
   } else {
-    var vs = gl.createShader(wgl.VERTEX_SHADER);
+    var vs = gl.createShader(wgl.WebGL.VERTEX_SHADER);
     shouldReturnString(gl.getShaderSource(vs));
     shouldReturnString(gl.getShaderInfoLog(vs));
     gl.shaderSource(vs, validVertexShaderString);
@@ -41,7 +38,7 @@ main() {
     shouldReturnString(gl.getShaderSource(vs));
     shouldReturnString(gl.getShaderInfoLog(vs));
 
-    var fs = gl.createShader(wgl.FRAGMENT_SHADER);
+    var fs = gl.createShader(wgl.WebGL.FRAGMENT_SHADER);
     shouldReturnString(gl.getShaderSource(fs));
     shouldReturnString(gl.getShaderInfoLog(fs));
     gl.shaderSource(fs, validFragmentShaderString);
@@ -61,9 +58,9 @@ main() {
     var exts = gl.getSupportedExtensions();
     shouldBeTrue(exts is List<String>);
 
-    shouldReturnString(gl.getParameter(wgl.VENDOR));
-    shouldReturnString(gl.getParameter(wgl.RENDERER));
-    shouldReturnString(gl.getParameter(wgl.VERSION));
-    shouldReturnString(gl.getParameter(wgl.SHADING_LANGUAGE_VERSION));
+    shouldReturnString(gl.getParameter(wgl.WebGL.VENDOR));
+    shouldReturnString(gl.getParameter(wgl.WebGL.RENDERER));
+    shouldReturnString(gl.getParameter(wgl.WebGL.VERSION));
+    shouldReturnString(gl.getParameter(wgl.WebGL.SHADING_LANGUAGE_VERSION));
   }
 }

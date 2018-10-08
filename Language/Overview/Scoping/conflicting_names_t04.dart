@@ -22,6 +22,8 @@ var conflictingName;
 typedef conflictingName();
 
 main() {
-  conflictingName = 1;
-  conflictingName func = null;
+  try {
+    conflictingName = 1;
+    conflictingName func = null;
+  } catch (e) {}
 }

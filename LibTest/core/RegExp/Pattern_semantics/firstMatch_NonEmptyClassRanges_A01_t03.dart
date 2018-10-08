@@ -10,7 +10,8 @@
  *            <li>Evaluate the first ClassAtom to obtain a CharSet A. </li>
  *            <li>Evaluate the second ClassAtom to obtain a CharSet B.</li>
  *            <li>Evaluate ClassRanges to obtain a CharSet C. </li>
- *            <li>Call CharacterRange(A, B) and let D be the resulting CharSet.</li>
+ *            <li>Call CharacterRange(A, B) and let D be the resulting
+ *            CharSet.</li>
  *            <li>Return the union of CharSets D and C.</li>
  *            </ol>
  *            <br/> The abstract operation CharacterRange takes two CharSet
@@ -37,8 +38,6 @@
  *              end limit causes an error.
  * @3rdparty sputnik-v1:S15.10.2.15_A1_T1.js-S15.10.2.15_A1_T41.js
  * @author rodionov
- * @needsreview undocumented behavior on error
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
@@ -53,9 +52,8 @@ main() {
 }
 
 void checkNeg(String pattern, [String testStr = ""]) {
-  try {
+  Expect.throws(() {
     RegExp re = new RegExp(pattern);
     re.firstMatch(testStr);
-    Expect.fail("FormatException is expected");
-  } on FormatException catch(ok) { } 
+  }, (e) => e is FormatException);
 }

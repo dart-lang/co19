@@ -17,5 +17,8 @@
 typedef void rethrow();
 
 main() {
-  null is rethrow;
+  try {
+    null is rethrow;
+  } catch (anything) {
+  }
 }

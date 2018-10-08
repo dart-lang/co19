@@ -15,30 +15,30 @@ library iterator_A01_t01;
  
 import "../../../Utils/expect.dart";
 
-test(Iterable create([Iterable content]), {bool isSet:false}) {
+test(Iterator create([Iterable content]), {bool isSet: false}) {
   
-  void checkIterator(Iterable a) {
+  void checkIterator(Iterator it, Iterable a) {
     List l = new List.from(a);
-    for (var element in a) {
-      Expect.isTrue(l.contains(element));
-      l.remove(element);
+    while (it.moveNext()) {
+      Expect.isTrue(l.contains(it.current));
+      l.remove(it.current);
     }
     Expect.isTrue(l.isEmpty);
   }
-
-  Expect.isTrue(create().iterator is Iterator);
   
-  checkIterator(create([]));
-  checkIterator(create(const [null, 0, 1, const []]));
+  checkIterator(create([]), []);
+  checkIterator(create(const [null, 0, 1, const []]), const [null, 0, 1, const []]);
   if (!isSet) {
-    checkIterator(create(new List.filled(300, 0)));
-    checkIterator(create(new List(300)));
+    List l = new List.filled(300, 0);
+    checkIterator(create(l), l);
+    l = new List(300);
+    checkIterator(create(l), l);
   }
 
   List a = new List(365);
   for (var i = 0; i < a.length; i++) {
     a[i] = i;
   }
-  checkIterator(create(a));
-  checkIterator(create([0, 1, 2, 3, 4, 5]));
+  checkIterator(create(a), a);
+  checkIterator(create([0, 1, 2, 3, 4, 5]), [0, 1, 2, 3, 4, 5]);
 }

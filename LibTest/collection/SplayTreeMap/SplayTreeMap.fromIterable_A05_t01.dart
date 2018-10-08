@@ -7,8 +7,8 @@
  * @assertion SplayTreeMap.fromIterable(Iterable iterable,
  * {K key(element), V value(element), int compare(K key1, K key2),
  * bool isValidKey(potentialKey)})
- * @description Checks that if compare function specified, then it used for
- * keys comparison
+ * @description Checks that if [compare] function specified, then it is used for
+ * the keys comparison
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";
@@ -21,7 +21,7 @@ class C {
   C(this.value);
 }
 
-int compare(C key1, C key2) {
+int compare(var key1, var key2) {
   compareCalled = true;
   return key1.value - key2.value;
 }

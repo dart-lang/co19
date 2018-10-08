@@ -16,7 +16,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 import "../testcommon.dart";
 
 main() {
@@ -36,7 +35,7 @@ main() {
 
   Expect.equals(10, div1.offsetTo(b).x, "div1 relative to body x");
   Expect.equals(10, div1.offsetTo(b).y, "div1 relative to body y");
-  
+
   Expect.equals(50, div2.offsetTo(div1).x, "div2 relative to div1 x");
   Expect.equals(50, div2.offsetTo(div1).y, "div2 relative to div1 y");
 

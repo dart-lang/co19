@@ -7,7 +7,6 @@
  * @description Tests focus when a modal dialog is opened.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -30,16 +29,16 @@ main() {
     </dialog>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var outerButton = document.getElementById('outer-button');
+  ButtonElement outerButton = document.getElementById('outer-button');
   shouldBe(document.activeElement, outerButton);
 
   debug('Test that focus goes to body if the dialog has no focusable elements, including itself');
-  var outerDialog = document.getElementById('outer-dialog');
+  DialogElement outerDialog = document.getElementById('outer-dialog');
   outerDialog.showModal();
   shouldBe(document.activeElement, document.body);
 
   debug('Test that an autofocus element in the dialog gets focus.');
-  var dialog = document.getElementById('dialog');
+  DialogElement dialog = document.getElementById('dialog');
   dialog.showModal();
   var autofocusButton = document.getElementById('autofocus-button');
   shouldBe(document.activeElement, autofocusButton);
@@ -53,12 +52,12 @@ main() {
   dialog.close('');
 
   debug('... or else the dialog itself gets focus.');
-  var buttons = dialog.querySelectorAll('button');
+  List buttons = dialog.querySelectorAll('button');
   for (var i = 0; i < buttons.length; ++i)
     buttons[i].hidden = true;
   dialog.showModal();
   shouldBe(document.activeElement, dialog);
   dialog.close('');
 
-  document.getElementById('outer-dialog').close('');
+  (document.getElementById('outer-dialog') as DialogElement).close('');
 }

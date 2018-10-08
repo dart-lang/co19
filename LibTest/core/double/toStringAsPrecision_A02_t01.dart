@@ -1,4 +1,3 @@
-import "../../../Utils/expect.dart";
 /*
  * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
@@ -9,13 +8,9 @@ import "../../../Utils/expect.dart";
  * Throws [Error] if [fractionDigits] is null.
  * @description Checks that the correct exception is thrown.
  * @author msyabro
- * @needsreview undocumented
  */
+import "../../../Utils/expect.dart";
 
 main() {
-  bool fail = false;
-  try {
-    .1.toStringAsPrecision(null);
-    Expect.fail('Error is expected');
-  } on Error catch(e) {}
+  Expect.throws(() {0.1.toStringAsPrecision(null);});
 }

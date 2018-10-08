@@ -9,16 +9,15 @@
  * getter from the HTMLOptionsCollection
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var select1 = document.createElement("select");
+  SelectElement select1 = document.createElement("select");
   document.body.append(select1);
   select1.setInnerHtml('<option value="Value" name="test">',
       treeSanitizer: new NullTreeSanitizer());
 
-  var select2 = document.createElement("select");
+  SelectElement select2 = document.createElement("select");
   document.body.append(select2);
   select2.setInnerHtml(
     '<option value="Value1" name="test"><option value="Value2" name="test">',

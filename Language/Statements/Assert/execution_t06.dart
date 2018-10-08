@@ -13,15 +13,13 @@
  * we say that the assertion failed. If r is true, we say that the assertion
  * succeeded. If the assertion succeeded, execution of the assert statement is
  * complete. If the assertion failed, an AssertionError is thrown.
- * @description Checks that a dynamic type error occurs if the conditional
+ * @description Checks that a compile error occurs if the conditional
  * expression e evaluates to a function that returns a function that returns a
  * value of type bool.
- * @static-warning
+ * @compile-error
  * @author rodionov
  * @reviewer iefremov
  */
-
-import '../../../Utils/dynamic_check.dart';
 
 typedef bool boolfunc();
 
@@ -30,7 +28,5 @@ boolfunc foo() {
 }
 
 main() {
-  checkTypeError(() {
-    assert (foo); /// static type warning
-  });
+  assert (foo);
 }

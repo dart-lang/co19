@@ -7,7 +7,6 @@
  * @assertion double remainder(num other)
  * @description Checks that if 'other' is zero the result is NaN.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
@@ -43,7 +42,7 @@ checkNaN(d) {
 }
 
 main() {
-  values.forEach((double d) {
+  values.forEach((d) {
     checkNaN(d.remainder(0));
     checkNaN((-d).remainder(0));
   });

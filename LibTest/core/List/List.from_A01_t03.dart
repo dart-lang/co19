@@ -7,13 +7,15 @@
  * @assertion factory List.from(Iterable other, {bool growable: true})
  * Creates an list with the elements of other.
  * The order in the list will be the order provided by the iterator of other.
- * The returned list is growable if growable is true, otherwise it's a fixed length list.
- * @description Checks that the list created with growable==false cannot change it's size.
+ * The returned list is growable if growable is true, otherwise it's a fixed
+ * length list.
+ * @description Checks that the list created with growable==false cannot change
+ * it's size.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
 
-List<String> failures=new List<String>();
+List<String> failures = new List<String>();
  
 check(List l) {
   try {
@@ -33,19 +35,20 @@ check(List l) {
     failures.add("removeLast");
   } on UnsupportedError catch (ok) {}
   try {
-    l.removeRange(0,1);
+    l.removeRange(0, 1);
     failures.add("removeRange");
   } on UnsupportedError catch (ok) {}
 }
 
 main() {
   check(new List.from([], growable:false));
-  List src = [null, [null], [], [1,2,3], [[null]]];
+  List src = [null, [null], [], [1, 2, 3], [[null]]];
   List a = new List.from(src, growable:false);
   check(a);
   if (failures.isEmpty) return;
-  StringBuffer sb=new StringBuffer();
-  sb.write("following operations do not cause UnsupportedError on fixed-sized list:\n");
+  StringBuffer sb = new StringBuffer();
+  sb.write("Following operations do not cause UnsupportedError on fixed-sized "
+      + "list:\n");
   sb.writeAll(failures, ", ");
   Expect.fail(sb.toString());
 }

@@ -10,19 +10,17 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var type = 'error';
   var x = new IFrameElement();
-  
+
   asyncStart();
   x.onError.listen((e) {
     Expect.equals(type, e.type);
     asyncEnd();
   });
-  
+
   var event = new Event(type);
   x.dispatchEvent(event);
-
 }

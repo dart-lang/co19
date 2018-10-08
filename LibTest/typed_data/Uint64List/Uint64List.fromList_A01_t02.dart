@@ -5,16 +5,17 @@
  */
 /**
  * @assertion Uint64List.fromList(List<num> list)
- * Creates a [Uint64List] with the same size as the [elements] list
- * and copies over the elements.
+ * Creates a [Uint64List] with the same length as the [elements] list and copies
+ * over the elements.
  * @description Checks that a new [Uint64List] has the same size and elements as
  * the [elements].
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array) {
+void check(List<int> array) {
   Uint64List l = new Uint64List.fromList(array);
   Expect.equals(l.length, array.length);
   Expect.listEquals(array, l);
@@ -23,6 +24,6 @@ void check(array) {
 main() {
   check([]);
   check([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]);
-  check([18446744073709551615, 9223372036854775808]);
+  check([1844674407370955161, 922337203685477580]);
   check([1000, 1000, 1000]);
 }

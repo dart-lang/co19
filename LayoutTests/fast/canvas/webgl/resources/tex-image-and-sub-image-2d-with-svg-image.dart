@@ -1,18 +1,14 @@
 
 library tex_image_and_sub_image_2d_with_svg_image;
 
-import 'dart:html';
 import 'dart:svg' as svg;
 import 'dart:web_gl' as wgl;
-import 'webgl-test.dart';
 import 'webgl-test-utils.dart' as wtu;
-import "../../../../../Utils/async_utils.dart";
 import "../../../../testcommon.dart";
 
 generateTest(pixelFormat, pixelType, pathToTestRoot, prologue) {
   var gl = null;
   var textureLoc = null;
-  var imgCanvas;
   var red = [255, 0, 0];
   var green = [0, 255, 0];
 
@@ -21,27 +17,27 @@ generateTest(pixelFormat, pixelType, pathToTestRoot, prologue) {
   {
     debug('Testing ' + (useTexSubImage2D ? 'texSubImage2D' : 'texImage2D') +
         ' with flipY=$flipY');
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
     var texture = gl.createTexture();
     // Bind the texture to texture unit 0.
-    gl.bindTexture(wgl.TEXTURE_2D, texture);
+    gl.bindTexture(wgl.WebGL.TEXTURE_2D, texture);
     // Set up texture parameters.
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MIN_FILTER, wgl.NEAREST);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MAG_FILTER, wgl.NEAREST);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_S, wgl.CLAMP_TO_EDGE);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_T, wgl.CLAMP_TO_EDGE);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MIN_FILTER, wgl.WebGL.NEAREST);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MAG_FILTER, wgl.WebGL.NEAREST);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_S, wgl.WebGL.CLAMP_TO_EDGE);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_T, wgl.WebGL.CLAMP_TO_EDGE);
     // Set up pixel store parameters.
-    gl.pixelStorei(wgl.UNPACK_FLIP_Y_WEBGL, flipY ? 1 : 0);
-    gl.pixelStorei(wgl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 0);
-    gl.pixelStorei(wgl.UNPACK_COLORSPACE_CONVERSION_WEBGL, wgl.NONE);
+    gl.pixelStorei(wgl.WebGL.UNPACK_FLIP_Y_WEBGL, flipY ? 1 : 0);
+    gl.pixelStorei(wgl.WebGL.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 0);
+    gl.pixelStorei(wgl.WebGL.UNPACK_COLORSPACE_CONVERSION_WEBGL, wgl.WebGL.NONE);
     // Upload the image into the texture.
     if (useTexSubImage2D) {
       // Initialize the texture to black first.
-      gl.texImage2D(wgl.TEXTURE_2D, 0, pixelFormat, image.width, image.height, 0,
+      gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, pixelFormat, image.width, image.height, 0,
           pixelFormat, pixelType, null);
-      gl.texSubImage2D(wgl.TEXTURE_2D, 0, 0, 0, pixelFormat, pixelType, image);
+      gl.texSubImage2D(wgl.WebGL.TEXTURE_2D, 0, 0, 0, pixelFormat, pixelType, image);
     } else
-      gl.texImage2D(wgl.TEXTURE_2D, 0, pixelFormat, pixelFormat, pixelType, image);
+      gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, pixelFormat, pixelFormat, pixelType, image);
 
     // Point the uniform sampler to texture unit 0.
     gl.uniform1i(textureLoc, 0);

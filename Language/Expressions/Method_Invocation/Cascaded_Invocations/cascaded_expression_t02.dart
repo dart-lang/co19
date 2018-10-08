@@ -16,10 +16,7 @@ import '../../../../Utils/expect.dart';
 class C {}
 
 main() {
-  var o = new C();
-  try {
-    var result = o..method();
-    Expect.fail('NoSuchMethodError is expected');
-  } on NoSuchMethodError catch (e) {}
+  dynamic o = new C();
+  Expect.throws(() {var result = o..method();}, (e) => e is NoSuchMethodError);
 }
 

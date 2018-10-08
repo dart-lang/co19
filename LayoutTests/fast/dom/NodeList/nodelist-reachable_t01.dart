@@ -7,7 +7,6 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -22,5 +21,5 @@ main() {
   shouldBe(document.getElementsByName("radios").length, 2);
   //document.getElementsByTagName("body");
   //document.querySelector("form").elements["radios"];
-  shouldBe(document.querySelector("input").labels.length, 0);
+  shouldBe((document.querySelector("input") as InputElement).labels.length, 0);
 }

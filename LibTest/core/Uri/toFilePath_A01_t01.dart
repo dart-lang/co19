@@ -15,9 +15,7 @@
  * server and a UNC path is returned.
  * @description Checks absolute and relative URIs for non Windows semantics
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

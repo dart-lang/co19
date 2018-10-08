@@ -5,22 +5,23 @@
  */
 /**
  * @assertion String join([String separator = ""])
- * Converts each element to a String and concatenates the strings.
- * Converts each element to a String by calling Object.toString on it.
- * Then concatenates the strings, optionally separated by the separator string.
- * @description Checks that the method's result equals to the specified result.
+ * Converts each element to a [String] and concatenates the strings.
+ * Iterates through elements of this iterable, converts each one to a [String]
+ * by calling [Object.toString], and then concatenates the strings, with the
+ * [separator] string interleaved between the elements.
+ * @description Checks that the method result equals to the specified result.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
 import "LinkedList.lib.dart";
 
-String join(LinkedList a, [String separator = ""]) {
-  StringBuffer sb=new StringBuffer();
-  bool first=true;
+String join(LinkedList<MyLinkedListEntry> a, [String separator = ""]) {
+  StringBuffer sb = new StringBuffer();
+  bool first = true;
   for (var element in a) {
     if (first) {
-      first=false;
+      first = false;
     } else {
       sb.write(separator);
     }
@@ -34,12 +35,12 @@ void check(LinkedList a, [String separator = ""]) {
 }
 
 main() {
-  check(new LinkedList());
-  check(new LinkedList(), ", ");
-  LinkedList a0=toLinkedList(["1","3",4,null,6]);
+  check(new LinkedList<MyLinkedListEntry>());
+  check(new LinkedList<MyLinkedListEntry>(), ", ");
+  LinkedList a0 = toLinkedList(["1", "3", 4, null, 6]);
   check(a0);
   check(a0, ":");
-  a0.addAll([1.0,3.14].map((e)=>new MyLinkedListEntry(e)));
+  a0.addAll([1.0, 3.14].map((e) => new MyLinkedListEntry(e)));
   check(a0);
   check(a0, ", ");
 }

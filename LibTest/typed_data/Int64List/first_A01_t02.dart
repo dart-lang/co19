@@ -4,37 +4,41 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final E first
+ * @assertion E first
  * Returns the first element.
- * @description Checks that [first] is final and can't be set.
+ * @description Checks that [first] can be set.
  * @author msyabro
+ * @author sgrekhov@unipro.ru
+ * @issue dart-lang/co19#130
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array) {
-  var l = new Int64List.fromList(array);
-  try {
-    l.first = 0;
-    Expect.fail("[first] should be final");
-  } on NoSuchMethodError catch(ok) {}
+void check(List<int> array) {
+  dynamic l = new Int64List.fromList(array);
+  l.first = 3;
+  Expect.equals(3, l.first);
 }
+
 void checkClear(length) {
-  var l = new Int64List(length);
-  try {
-    l.first = 0;
-    Expect.fail("[first] should be final");
-  } on NoSuchMethodError catch(ok) {}
+  dynamic l = new Int64List(length);
+  l.first = 3;
+  Expect.equals(3, l.first);
 }
 
 main() {
   check([1]);
   check([1, 2, 3, 4, 5]);
-  check([1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  check([
+    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+  ]);
 
   checkClear(1);
   checkClear(100);

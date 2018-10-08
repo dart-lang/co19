@@ -11,16 +11,15 @@
  * @needsreview issue #16757
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
   var request = new HttpRequest();
   request.open('GET', "IntentionallyMissingFile");
   asyncStart();
-  request.onError.listen((event){
-      UtilsHtml.show("request.onError.listen: $event");
-      asyncEnd();
-    });
+  request.onError.listen((event) {
+    UtilsHtml.show("request.onError.listen: $event");
+    asyncEnd();
+  });
   request.send();
 }

@@ -7,10 +7,10 @@
  * @assertion It is a static warning if a class C declares an instance getter 
  * named v and an accessible static member named v or v = is declared in a 
  * superclass of C.
- * @description Checks that a static warning is arisen if a class has an 
+ * @description Checks that a compile error is arisen if a class has an
  * explicitly declared instance getter and an explicitly declared static 
  * setter with the same name in a superclass.
- * @static-warning
+ * @compile-error
  * @author ngl@unipro.ru
  */
 
@@ -22,7 +22,7 @@ class A {
 }
 
 class C extends A {
-  get v { return 5; }  /// static type warning
+  get v { return 5; }
 }
 
 main() {

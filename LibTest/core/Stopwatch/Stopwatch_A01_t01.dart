@@ -8,7 +8,6 @@
  * @description Checks that this constructor executes without error and the
  *              elapsed count is indeed 0 and doesn't change.
  * @author rodionov
- * @reviewer pagolubev
  */
 import "../../../Utils/expect.dart";
  

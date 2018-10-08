@@ -7,14 +7,11 @@
  * @assertion double operator unary-()
  * @description Checks [:unary-():] on a infinity.
  * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
-  double inf = double.INFINITY;
+  double inf = double.infinity;
   double negativeInf = -inf;
   Expect.isTrue(negativeInf.isNegative);
   Expect.isFalse((-negativeInf).isNegative);

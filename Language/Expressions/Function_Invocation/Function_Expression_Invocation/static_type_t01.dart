@@ -6,32 +6,14 @@
 /**
  * @assertion It is a static warning if the static type F of ef may not
  * be assigned to a function type.
- * @description Checks that it is a static warning if the static type F of ef
+ * @description Checks that it is a compile error if the static type F of ef
  * may not be assigned to a function type.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
+
 main() {
   int e = 1;
-  try {
-    e(); /// static type warning
-    Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch (ok) {}
-
-  try {
-    ("String1")(null, null); /// static type warning
-    Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    [](); /// static type warning
-    Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    false(); /// static type warning
-    Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch (e) {}
+  e();
 }

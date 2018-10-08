@@ -9,11 +9,8 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -21,8 +18,7 @@ main() {
       <div id="console"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var err;
-  var canvas = document.getElementById("example");
+  dynamic canvas = document.getElementById("example");
   var gl = wtu.create3DContext(canvas);
   var program = wtu.setupTexturedQuad(gl);
 
@@ -30,7 +26,7 @@ main() {
   var blue = [0, 0, 255, 255];
   var tex0 = gl.createTexture();
   wtu.fillTexture(gl, tex0, 1, 1, blue, 0);
-  gl.activeTexture(wgl.TEXTURE1);
+  gl.activeTexture(wgl.WebGL.TEXTURE1);
   var tex1 = gl.createTexture();
   wtu.fillTexture(gl, tex1, 1, 1, green, 0);
 

@@ -5,13 +5,12 @@
  */
 /**
  * @assertion Undocumented
- * @description Checks that this constructor executes without error for various sets of arguments (including null).
+ * @description Checks that this constructor executes without error for various
+ * sets of arguments (including null).
  * @author rodionov
- * @reviewer pagolubev
- * @needsreview undocumented
  */
 
-sym ([String s = '']) => new Symbol(s);
+Symbol sym ([String s = '']) => new Symbol(s);
 
 main() {
   new NoSuchMethodError(null, sym(), null, null);

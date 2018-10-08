@@ -17,10 +17,10 @@ import "../../../Utils/expect.dart";
 check(x1, y1, z1, w1) {
   var op1 = new Float32x4(x1, y1, z1, w1);
   var res = -op1;
-  Expect.approxEquals(-x1, res.x, (res.x/1e7).abs());
-  Expect.approxEquals(-y1, res.y, (res.y/1e7).abs());
-  Expect.approxEquals(-z1, res.z, (res.z/1e7).abs());
-  Expect.approxEquals(-w1, res.w, (res.w/1e7).abs());
+  Expect.approxEquals(-x1, res.x, (res.x / 1e7).abs());
+  Expect.approxEquals(-y1, res.y, (res.y / 1e7).abs());
+  Expect.approxEquals(-z1, res.z, (res.z / 1e7).abs());
+  Expect.approxEquals(-w1, res.w, (res.w / 1e7).abs());
 }
 
 main() {

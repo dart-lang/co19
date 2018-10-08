@@ -14,7 +14,7 @@ main() {
   elementNotInDocument.id = "element-not-in-document";
   elementNotInDocument.addEventListener('click', (event) {
     shouldBe(event.path.length, 1);
-    shouldBe(event.path[0].id, "element-not-in-document");
+    shouldBe((event.path[0] as HtmlElement).id, "element-not-in-document");
   });
   var clickEvent = new MouseEvent("click", canBubble: true,
       cancelable: false, view: window, detail: 0,

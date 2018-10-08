@@ -6,20 +6,22 @@
 /**
  * @assertion bool operator ==(other)
  * The equality operator.
- * It must by symmetric: for all objects o1 and o2, o1 == o2 and o2 == o1
- * must either both be true, or both be false.
- * @description checks that the equality operator is symmetric.
+ * ...
+ * It must by symmetric: For all objects o1 and o2, o1 == o2 and o2 == o1 must
+ * either both be true, or both be false.
+ * @description Checks that the equality operator is symmetric.
  * @needsreview #16170
  * @author kaigorodov
  */
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 
 const List<num> values = const [
    0, -1, 1, 10, -10,
    0.0, -1.0, 1.0, 10.0, -10.0,
-   double.INFINITY, double.MAX_FINITE, double.MIN_POSITIVE, -double.MAX_FINITE,
-   -double.MIN_POSITIVE, double.NAN, double.NEGATIVE_INFINITY
+   double.infinity, double.maxFinite, double.minPositive, -double.maxFinite,
+   -double.minPositive, double.nan, double.negativeInfinity
  ];
  
 main() {
@@ -27,13 +29,15 @@ main() {
     for (int j = 0; j < values.length; j++) {
       for (int k = 0; k < values.length; k++) {
         for (int l = 0; l < values.length; l++) {
-          Rectangle r1=new Rectangle(values[i], values[j], values[k], values[l]);
-          Rectangle r2=new Rectangle(values[k], values[l], values[i], values[j]);
-    	  var res1 = (r1==r2);
-    	  var res2 = (r2==r1);
-    	  var res= (res1==res2);
-    	  Expect.isTrue(res);
-    	  Expect.isNotNull(res);
+          Rectangle r1 =
+              new Rectangle(values[i], values[j], values[k], values[l]);
+          Rectangle r2 =
+              new Rectangle(values[k], values[l], values[i], values[j]);
+          var res1 = (r1 == r2);
+          var res2 = (r2 == r1);
+          var res = (res1 == res2);
+          Expect.isTrue(res);
+          Expect.isNotNull(res);
         }
       }
     }

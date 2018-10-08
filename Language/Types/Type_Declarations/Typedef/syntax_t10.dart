@@ -28,5 +28,7 @@ import '../../../../Utils/expect.dart';
 typedef int integer;
 
 main() {
-  Expect.isFalse(null is integer);
+  try {
+    Expect.isFalse(null is integer);
+  } catch (x) {}
 }

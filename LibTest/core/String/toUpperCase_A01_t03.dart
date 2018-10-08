@@ -9,7 +9,6 @@
  *            this otherwise.
  * @description Checks that this method does not affect non-alphabetic strings
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

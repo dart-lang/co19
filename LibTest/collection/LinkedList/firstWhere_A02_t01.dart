@@ -5,9 +5,10 @@
  */
 /**
  * @assertion dynamic firstWhere(bool test(E value), {Object orElse()})
- * If none matches, the result of invoking the orElse function is returned.
- * @description Checks that the result of invoking the orElse function is returned
- * when none matches.
+ * If no element satisfies [test], the result of invoking the [orElse] function
+ * is returned.
+ * @description Checks that the result of invoking the [orElse\ function is
+ * returned when none matches [test].
  * @author kaigorodov
  */
 import "dart:collection";
@@ -19,9 +20,10 @@ class TestException {}
 check(List list0) {
   LinkedList<MyLinkedListEntry> list = toLinkedList(list0);
   Expect.throws(() {
-      list.firstWhere((MyLinkedListEntry entry)=>false, orElse: (){throw new TestException();});
+      list.firstWhere((MyLinkedListEntry entry) => false,
+          orElse: (){ throw new TestException(); });
     },
-    (e)=> e is TestException
+    (e) => e is TestException
   );
 }
 
@@ -30,5 +32,5 @@ main() {
   check([]);
   check(const[]);
   check(new List.from([]));
-  check([1,2,3]);
+  check([1, 2, 3]);
 }

@@ -16,5 +16,7 @@
 typedef F([F x]);
 
 main() {
-  null is F;
+  try {
+    null is F;
+  } catch (x) {}
 }

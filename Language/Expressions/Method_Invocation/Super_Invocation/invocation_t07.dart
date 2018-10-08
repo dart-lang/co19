@@ -30,5 +30,7 @@ class C implements I {
 }
 
 main() {
-  new I.foo();
+  try {
+    new I.foo();
+  } catch (x) {}
 }

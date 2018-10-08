@@ -12,7 +12,6 @@
  * @description Checks that various correct constructor parameters do not
  * produce compile-time errors.
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {

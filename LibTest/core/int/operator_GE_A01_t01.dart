@@ -7,11 +7,8 @@
  * @assertion Relational operator >=.
  * @description Checks that the operation returns correct value.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
-
 import "dart:math" as Math;
 
 main() {
@@ -23,23 +20,22 @@ main() {
   Expect.isTrue(2 >= 1);
   Expect.isFalse(0 >= 1);
   Expect.isFalse(-10 >= 9);
-  Expect.isFalse(18446744073709551616 >= 27670116110564327424); //2^64 + 2^63 > 2^64
 
   Expect.isTrue(2147483647 >= 2147483647);
   Expect.isTrue(-2147483647 >= -2147483648);
   Expect.isTrue(4294967296 >= 4294967295);
   Expect.isTrue(-4294967295 >= -4294967295);
-  Expect.isTrue(9223372036854775808 >= 9223372036854775807);
+  Expect.isTrue(9223372036854775807 >= 9223372036854775806);
   Expect.isTrue(-9223372036854775807 >= -9223372036854775808);
   
   // non-int argument
   Expect.isTrue(0 >= 0.0);
   Expect.isTrue(0 >= -0.0);
-  Expect.isTrue(0 >= double.NEGATIVE_INFINITY);
-  Expect.isTrue((-0x8000000000000000000000000000000000000000000) >= double.NEGATIVE_INFINITY);
-  Expect.isFalse(0 >= double.NAN);
-  Expect.isFalse(0 >= double.INFINITY);
-  Expect.isFalse(0x8000000000000000000000000000000000000000000 >= double.INFINITY);
+  Expect.isTrue(0 >= double.negativeInfinity);
+  Expect.isTrue((-0x800000000000000) >= double.negativeInfinity);
+  Expect.isFalse(0 >= double.nan);
+  Expect.isFalse(0 >= double.infinity);
+  Expect.isFalse(0x8000000000000000 >= double.infinity);
   Expect.isFalse(0 >= MIN_DOUBLE);
   Expect.isTrue(0 >= NEG_MIN_DOUBLE);
 }

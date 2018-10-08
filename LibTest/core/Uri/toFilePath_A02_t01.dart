@@ -10,9 +10,7 @@
  * the returned file path will also end with a slash.
  * @description Checks the cases with trailing slash and backslash
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

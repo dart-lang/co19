@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -54,14 +53,14 @@ main() {
       <br>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var div = document.getElementById("div1");
-  var image1 = document.getElementById("image1");
+  DivElement div = document.getElementById("div1") as DivElement;
+  InputElement image1 = document.getElementById("image1") as InputElement;
   debug('Test case #1 : Image, HTML inline setting as \"160\", \"80\"');
   shouldBe(image1.width, 160);
   shouldBe(image1.height, 80);
 
-  div = document.getElementById("div2");
-  var image2 = document.getElementById("image2");
+  div = document.getElementById("div2") as DivElement;
+  InputElement image2 = document.getElementById("image2") as InputElement;
   debug('Test case #2 : Image, Setting by JavaScript API as \"260\", \"130\"');
   image2.width = 260;
   image2.height = 130;
@@ -84,8 +83,8 @@ main() {
   shouldBe(image4.width, 120);
   shouldBe(image4.height, 60);*/
 
-  div = document.getElementById("div5");
-  var text1 = document.getElementById("text1");
+  div = document.getElementById("div5") as DivElement;
+  InputElement text1 = document.getElementById("text1") as InputElement;
   debug('Test case #5 : Text, Setting by JavaScript API as \"100\", \"50\"');
   text1.width = 100;
   text1.height = 50;
@@ -101,8 +100,8 @@ main() {
   shouldBe(text1.width, 60);
   shouldBe(text1.height, 40);
 
-  div = document.getElementById("div6");
-  var file1 = document.getElementById("file1");
+  div = document.getElementById("div6") as DivElement;
+  InputElement file1 = document.getElementById("file1") as InputElement;
   debug('Test case #6 : File, Setting by JavaScript API as \"100\", \"50\"');
   file1.width = 100;
   file1.height = 50;
@@ -118,8 +117,8 @@ main() {
   shouldBe(file1.width, 60);
   shouldBe(file1.height, 40);
 
-  div = document.getElementById("div7");
-  var date1 = document.getElementById("date1");
+  div = document.getElementById("div7") as DivElement;
+  InputElement date1 = document.getElementById("date1") as InputElement;
   debug('Test case #7 : Date, Setting by JavaScript API as \"100\", \"50\"');
   date1.width = 100;
   date1.height = 50;
@@ -135,8 +134,8 @@ main() {
   shouldBe(date1.width, 60);
   shouldBe(date1.height, 40);
 
-  div = document.getElementById("div8");
-  var button1 = document.getElementById("button1");
+  div = document.getElementById("div8") as DivElement;
+  InputElement button1 = document.getElementById("button1") as InputElement;
   debug('Test case #8 : Button, Setting by JavaScript API as \"100\", \"50\"');
   button1.width = 100;
   button1.height = 50;

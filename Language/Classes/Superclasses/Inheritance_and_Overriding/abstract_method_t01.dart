@@ -6,11 +6,10 @@
 /**
  * @assertion It is a static warning if a non-abstract class inherits an
  * abstract method.
- * @description Checks that it is a static warning if a non-abstract class
+ * @description Checks that it is a compile error if a non-abstract class
  * inherits an abstract method.
- * @static-warning
+ * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 
@@ -18,8 +17,11 @@ abstract class A {
   foo();
 }
 
-class B extends A { } /// 01: static type warning
+class B extends A {
+}
 
 main() {
-  (new B()).foo(); /// 01: runtime error
+  try {
+    (new B()).foo();
+  } catch (e) {}
 }

@@ -41,7 +41,7 @@ class C {}
 class Checker<S> {
   Checker() {}
 
-  check(var t) {
+  check(dynamic t) {
     Expect.isTrue(t is S);
     S ss = t;
   }

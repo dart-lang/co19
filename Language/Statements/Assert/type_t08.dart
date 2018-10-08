@@ -12,5 +12,5 @@
  */
 
 main() {
-  assert (true ? (() => true) : (() => 1));
+  assert (true ? true : false);
 }

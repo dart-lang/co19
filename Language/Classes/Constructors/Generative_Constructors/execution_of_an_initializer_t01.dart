@@ -17,7 +17,6 @@
  * @description Checks that RHS expression is evaluated in both forms of an
  * initializer.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

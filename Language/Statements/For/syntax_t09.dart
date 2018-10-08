@@ -26,6 +26,8 @@
  */
 
 main() {
-  for ( var x, y in new List(10) ) break;
+  try {
+    for ( var x, y in new List(10) ) break;
+  } catch (x) {}
 }
 

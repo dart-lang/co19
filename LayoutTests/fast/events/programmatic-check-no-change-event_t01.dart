@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -21,7 +20,7 @@ main() {
 	
   var changeEventCount = 0;
 
-  var cb = document.getElementById("myCheckbox");
+  CheckboxInputElement cb = document.getElementById("myCheckbox");
 
   cb.onChange.listen((_) => changeEventCount++);
 

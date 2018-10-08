@@ -5,17 +5,18 @@
  */
 /**
  * @assertion Int8List.view(ByteBuffer buffer, [int byteOffset = 0, int length])
- * Changes in the [Int8List] will be visible in the byte
- * buffer and vice versa.
+ * ...
+ * Changes in the [Int8List] will be visible in the byte buffer and vice versa.
  * @description Checks that changes in the [Int8List] will be visible in
  * the byte buffer and vice versa.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var tmp = new Int8List.fromList([0,0,0]);
+  var tmp = new Int8List.fromList([0, 0, 0]);
   var byteBuffer = tmp.buffer;
   var l = new Int8List.view(byteBuffer, 0, 3);
 

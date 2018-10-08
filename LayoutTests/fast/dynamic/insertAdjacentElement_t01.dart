@@ -5,11 +5,9 @@
  */
 /**
  * @description 
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -65,11 +63,11 @@ main() {
    }) && passes;
    passes = assertThrows(() {
      // should throw TypeError
-     document.getElementById("container").insertAdjacentElement("beforeEnd");
+    (document.getElementById("container") as dynamic).insertAdjacentElement("beforeEnd");
    }) && passes;
    passes = assertThrows(() {
      // should throw TypeError
-     document.getElementById("container").insertAdjacentElement();
+    (document.getElementById("container") as dynamic).insertAdjacentElement();
    }) && passes;
 
    var elt = document.createElement("div");

@@ -5,8 +5,8 @@
  */
 /**
  * @assertion Future.delayed(Duration duration, [dynamic computation()])
- * Creates a future that completes after a delay.
- * The computation will be executed after the given duration has passed, and
+ *    Creates a future that runs its computation after a delay.
+ *    The computation will be executed after the given duration has passed, and
  * the future is completed with the result. If the duration is 0 or less, it
  * completes no sooner than in the next event-loop iteration.
  * @description Checks that a future created with the Future.delayed()
@@ -14,17 +14,15 @@
  * @author kaigorodov
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(delay, value) {
-  Future future = new Future.delayed(durationMs(delay), () => value);
-
+void check(delay, value) {
   asyncStart();
-  future.then((fValue) {
-    Expect.equals(value, fValue);
-    asyncEnd();
-  });
+  new Future.delayed(durationMs(delay), () => value)
+    .then((v) {
+      Expect.equals(value, v);
+      asyncEnd();
+    });
 }
 
 main() {

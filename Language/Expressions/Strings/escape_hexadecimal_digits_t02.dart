@@ -16,5 +16,7 @@
  */
 
 main() {
-  "\xx";
+  try {
+    "\xx";
+  } catch (e) {}
 }

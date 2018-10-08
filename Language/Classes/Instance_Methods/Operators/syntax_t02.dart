@@ -23,8 +23,6 @@
  * method name is used without the operator keyword.
  * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {
@@ -32,6 +30,8 @@ class C {
 }
 
 main() {
-  C c = new C();
-  var x = c ~/ 'a';
+  try {
+    C c = new C();
+    var x = c ~/ 'a';
+  } catch (x) {}
 }

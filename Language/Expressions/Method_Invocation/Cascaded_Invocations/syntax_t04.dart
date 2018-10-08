@@ -28,6 +28,8 @@ class C {
 
 main() {
   var o = new C();
-  o.. ..m1();
+  try {
+    o.. ..m1();
+  } catch (e) {}
 }
 

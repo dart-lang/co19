@@ -13,10 +13,9 @@
  * Then the type of v is known to be T in s1.
  * @description Checks that if b shows that v has type T, but v is potentially
  * mutated in s1, then the type of v is not known to be T in s1.
- * @static-warning
+ * @compile-error
  * @author ilya
  */
-import '../../../Utils/expect.dart';
 
 class C {}
 class D extends C {
@@ -26,10 +25,10 @@ class D extends C {
 f(C x) {
   if (x is D) {
     x = new C();
-    x.f(); // throws
+    x.f();
   }
 }
 
 main() {
-  Expect.throws(() => f(new D()));
+  f(new D());
 }

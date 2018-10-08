@@ -15,8 +15,6 @@
  * superinitializer.
  * @compile-error
  * @author pagolubev
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class A {}
@@ -27,5 +25,7 @@ class C extends A {
 }
 
 main() {
-  var x = new C();
+  try {
+    var x = new C();
+  } catch (x) {}
 }

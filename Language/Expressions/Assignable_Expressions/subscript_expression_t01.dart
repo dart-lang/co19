@@ -10,7 +10,6 @@
  * evaluated as a method invocation of the operator method [] on e1 with
  * argument e2.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

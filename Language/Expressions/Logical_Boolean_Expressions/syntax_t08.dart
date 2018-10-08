@@ -22,5 +22,7 @@
  */
 
 main() {
-  true || || false;
+  try {
+    true || || false;
+  } catch (e) {}
 }

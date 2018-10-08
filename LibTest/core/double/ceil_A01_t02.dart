@@ -8,9 +8,7 @@
  * Returns the least integer no smaller than this.
  * @description Checks [:ceil():] on a bunch of adjacent values.
  * @author pagolubev
- * @reviewer msyabro
  */
-import "dart:math" as Math;
 import "../../../Utils/expect.dart";
 
 check(int expected, double argument) {

@@ -55,8 +55,7 @@
  * @description Checks that if a library is load successfully, prefix is
  * mapped to a non-deferred prefix object, and top-level declarations from
  * the imported library became accessed in the current library with specified
- * prefix. If a call loadLibrary fails nothing happens, and one again has the
- * option to call loadLibrary again.
+ * prefix.
  * @author ngl@unipro.ru
  */
 import "dart:async";

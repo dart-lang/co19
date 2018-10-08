@@ -29,8 +29,9 @@
  * A unary expression is either a postfix expression, an await expression or
  * an invocation of a prefix operator on an expression or an invocation of a
  * unary operator on either super or an expression e.
- * @description Checks that '~' can be used with
+ * @description Checks that '~' cannot be used with
  * a reference to a type parameter without a compile error.
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  * @reviewer kaigorodov
@@ -38,7 +39,7 @@
 
 class A <T> {
   test() {
-    ~T; /// 01: static type warning, runtime error
+    ~T;
   }
 }
 

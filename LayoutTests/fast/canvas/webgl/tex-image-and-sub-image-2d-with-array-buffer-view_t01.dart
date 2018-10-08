@@ -24,9 +24,6 @@ main() {
 
   // These two declarations need to be global for "shouldBe" to see them
   var buf = null;
-  var idx = 0;
-  var pixel = [0, 0, 0, 1];
-  var correctColor = null;
 
   generateRGBAData(type, unpackAlignment)
   {
@@ -34,7 +31,7 @@ main() {
       [ 255,   0,   0, 255,
         0,   255,   0,   0 ];
     switch (type) {
-      case wgl.UNSIGNED_BYTE: {
+      case wgl.WebGL.UNSIGNED_BYTE:
         var rowWidth = max([unpackAlignment, 4]);
         var data = new Uint8List(2 * rowWidth);
         for (var y = 0; y < 2; ++y) {
@@ -44,9 +41,7 @@ main() {
           }
         }
         return data;
-      }
-      break;
-      case wgl.UNSIGNED_SHORT_4_4_4_4: {
+      case wgl.WebGL.UNSIGNED_SHORT_4_4_4_4:
         var rowWidth = max([unpackAlignment, 2]) ~/ 2;
         var data = new Uint16List(2 * rowWidth);
         for (var y = 0; y < 2; ++y) {
@@ -57,9 +52,7 @@ main() {
               | (sourceData[4 * y + 3] >> 4));
         }
         return data;
-      }
-      break;
-      case wgl.UNSIGNED_SHORT_5_5_5_1: {
+      case wgl.WebGL.UNSIGNED_SHORT_5_5_5_1:
         var rowWidth = max([unpackAlignment, 2]) ~/ 2;
         var data = new Uint16List(2 * rowWidth);
         for (var y = 0; y < 2; ++y) {
@@ -70,16 +63,15 @@ main() {
               | (sourceData[4 * y + 3] >> 7));
         }
         return data;
-      }
     }
   }
 
   typeToString(type)
   {
     switch (type) {
-      case wgl.UNSIGNED_BYTE:  return 'UNSIGNED_BYTE';
-      case wgl.UNSIGNED_SHORT_5_5_5_1:  return 'UNSIGNED_SHORT_5_5_5_1';
-      case wgl.UNSIGNED_SHORT_4_4_4_4:  return 'UNSIGNED_SHORT_4_4_4_4';
+      case wgl.WebGL.UNSIGNED_BYTE:  return 'UNSIGNED_BYTE';
+      case wgl.WebGL.UNSIGNED_SHORT_5_5_5_1:  return 'UNSIGNED_SHORT_5_5_5_1';
+      case wgl.WebGL.UNSIGNED_SHORT_4_4_4_4:  return 'UNSIGNED_SHORT_4_4_4_4';
     }
     return 'Unknown type $type';
   }
@@ -92,36 +84,36 @@ main() {
         ', flipY=$flipY, premultiplyAlpha=$premultiplyAlpha');
     gl.colorMask(true, true, true, true);
     gl.clearColor(0, 0, 0, 1.0);
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
     // Enable writes to the RGB channels
     gl.colorMask(true, true, true, false);
     var texture = gl.createTexture();
     // Bind the texture to texture unit 0
-    gl.bindTexture(wgl.TEXTURE_2D, texture);
+    gl.bindTexture(wgl.WebGL.TEXTURE_2D, texture);
     // Set up texture parameters
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MIN_FILTER, wgl.NEAREST);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MAG_FILTER, wgl.NEAREST);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MIN_FILTER, wgl.WebGL.NEAREST);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MAG_FILTER, wgl.WebGL.NEAREST);
     // Set up pixel store parameters
-    gl.pixelStorei(wgl.UNPACK_ALIGNMENT, unpackAlignment);
-    gl.pixelStorei(wgl.UNPACK_FLIP_Y_WEBGL, flipY ? 1 : 0);
-    gl.pixelStorei(wgl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, premultiplyAlpha ? 1 : 0);
+    gl.pixelStorei(wgl.WebGL.UNPACK_ALIGNMENT, unpackAlignment);
+    gl.pixelStorei(wgl.WebGL.UNPACK_FLIP_Y_WEBGL, flipY ? 1 : 0);
+    gl.pixelStorei(wgl.WebGL.UNPACK_PREMULTIPLY_ALPHA_WEBGL, premultiplyAlpha ? 1 : 0);
     // Generate the data
     var data = generateRGBAData(type, unpackAlignment);
-    if (gl.getError() != wgl.NO_ERROR)
+    if (gl.getError() != wgl.WebGL.NO_ERROR)
       testFailed("GL error before texture upload");
     // Upload the image into the texture
     if (useTexSubImage2D) {
       // Initialize the texture to black first
-      gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, 1, 2, 0,
-          wgl.RGBA, type, null);
-      if (gl.getError() != wgl.NO_ERROR)
+      gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, 1, 2, 0,
+          wgl.WebGL.RGBA, type, null);
+      if (gl.getError() != wgl.WebGL.NO_ERROR)
         testFailed("GL error after texImage2D(null)");
-      gl.texSubImage2D(wgl.TEXTURE_2D, 0, 0, 0, 1, 2, wgl.RGBA, type, data);
-      if (gl.getError() != wgl.NO_ERROR)
+      gl.texSubImage2D(wgl.WebGL.TEXTURE_2D, 0, 0, 0, 1, 2, wgl.WebGL.RGBA, type, data);
+      if (gl.getError() != wgl.WebGL.NO_ERROR)
         testFailed("GL error after texSubImage2D");
     } else {
-      gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, 1, 2, 0, wgl.RGBA, type, data);
-      if (gl.getError() != wgl.NO_ERROR)
+      gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, 1, 2, 0, wgl.WebGL.RGBA, type, data);
+      if (gl.getError() != wgl.WebGL.NO_ERROR)
         testFailed("GL error after texImage2D");
     }
 
@@ -132,7 +124,7 @@ main() {
 
     // Read back the rendering results
     buf = new Uint8List(1 * 2 * 4);
-    gl.readPixels(0, 0, 1, 2, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
+    gl.readPixels(0, 0, 1, 2, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
     // Check the top pixel and bottom pixel and make sure they have
     // the right color.
     debug("Checking bottom pixel");
@@ -148,7 +140,7 @@ main() {
     var redPremultiplyAlpha = [255, 0, 0, 255];
     var greenPremultiplyAlpha = [0, 0, 0, 255];
 
-    var types = [ wgl.UNSIGNED_BYTE, wgl.UNSIGNED_SHORT_5_5_5_1, wgl.UNSIGNED_SHORT_4_4_4_4 ];
+    var types = [ wgl.WebGL.UNSIGNED_BYTE, wgl.WebGL.UNSIGNED_SHORT_5_5_5_1, wgl.WebGL.UNSIGNED_SHORT_4_4_4_4 ];
     var unpackAlignments = [ 1, 2, 4, 8 ];
 
     for (var i = 0; i < types.length; ++i) {
@@ -178,7 +170,7 @@ main() {
   var canvas = document.getElementById("example");
   gl = wtu.create3DContext(canvas);
   var program = wtu.setupTexturedQuad(gl);
-  gl.disable(wgl.BLEND);
+  gl.disable(wgl.WebGL.BLEND);
 
   gl.clearColor(0,0,0,1);
   gl.clearDepth(1);

@@ -26,5 +26,7 @@
  */
 
 main() {
-  for (var i = 0 i < 1 ++i) { }
+  try {
+    for (var i = 0 i < 1 ++i) { }
+  } catch (x) {}
 }

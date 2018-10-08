@@ -18,6 +18,6 @@ main() {
 
   var x = document.body;
   x.innerHtml = 'text';
-  
+
   Expect.equals('text', x.firstChild.nodeValue, 'parsed');
 }

@@ -7,7 +7,6 @@
  * @description Tests that inert elements do not match the :disabled selector.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -34,8 +33,8 @@ main() {
     <dialog></dialog>
     ''', treeSanitizer: new NullTreeSanitizer());
   
-  document.querySelector('dialog').showModal();
-  var button = document.querySelector('button');
+  (document.querySelector('dialog') as DialogElement).showModal();
+  ButtonElement button = document.querySelector('button');
   button.classes.add('trigger-style-recalc');
   var color = button.getComputedStyle().getPropertyValue('color');
   shouldBe(color, 'rgb(0, 128, 0)');

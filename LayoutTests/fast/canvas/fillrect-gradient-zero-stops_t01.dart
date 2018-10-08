@@ -7,9 +7,7 @@
  * @description 
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -18,7 +16,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var ctx = getContext2d("c");
+  dynamic ctx = getContext2d("c");
   ctx.fillStyle = ctx.createLinearGradient(0, 0, 0, 50);
   ctx.fillRect(0, 0, 300, 150);
 }

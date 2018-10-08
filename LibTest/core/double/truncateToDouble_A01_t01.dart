@@ -8,10 +8,8 @@
  * Returns the integer obtained by discarding any fractional digits from this.
  * @description Checks [:truncateToDouble():] on a bunch of values.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 
 check(double expected, double argument) {
   Expect.equals(expected, argument.truncateToDouble());

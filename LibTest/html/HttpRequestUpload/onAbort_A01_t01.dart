@@ -9,17 +9,16 @@
  * @description Checks the state an event is fired when the request is aborted.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
   var request = new HttpRequest();
-  HttpRequestUpload upload=request.upload;
+  HttpRequestUpload upload = request.upload;
   request.open('GET', "test.dart");
-  upload.onAbort.listen((event){
-      UtilsHtml.show("request.onAbort.listen: $event");
-      asyncEnd();
-    });
+  upload.onAbort.listen((event) {
+    UtilsHtml.show("request.onAbort.listen: $event");
+    asyncEnd();
+  });
   asyncStart();
   request.send();
   request.abort();

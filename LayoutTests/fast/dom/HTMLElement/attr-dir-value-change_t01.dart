@@ -8,7 +8,6 @@
  * dir=auto set, has its dir attribute changed.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

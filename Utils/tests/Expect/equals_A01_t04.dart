@@ -14,18 +14,18 @@ import "../../../Utils/expect.dart";
 
 main() {
    Expect.throws((){
-      Expect.equals(double.NAN, "string");
+      Expect.equals(double.nan, "string");
    }, null, "string");
    Expect.throws((){
-      Expect.equals(double.NAN, null);
+      Expect.equals(double.nan, null);
    }, null, "null");
    Expect.throws((){
-      Expect.equals(double.NAN, 0);
+      Expect.equals(double.nan, 0);
    }, null, "zero");
    Expect.throws((){
-      Expect.equals(double.NAN, double.INFINITY);
+      Expect.equals(double.nan, double.infinity);
    }, null, "Infinity");
-   Expect.equals(double.NAN, double.NAN);
+   Expect.equals(double.nan, double.nan);
    Expect.equals(0.0/0.0, 0.0/0.0);
-   Expect.equals(double.NAN, 0.0/0.0);
+   Expect.equals(double.nan, 0.0/0.0);
 }

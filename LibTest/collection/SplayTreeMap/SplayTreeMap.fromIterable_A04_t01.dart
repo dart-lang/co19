@@ -7,11 +7,10 @@
  * @assertion SplayTreeMap.fromIterable(Iterable iterable,
  * {K key(element), V value(element), int compare(K key1, K key2),
  * bool isValidKey(potentialKey)})
- * ...
- * If no functions are specified for key and value the default is to use the
- * iterable value itself.
+ * If no functions are specified for [key] and [value] the default is to use the
+ * [iterable] value itself.
  * @description Checks that if no functions for keys and values specified then
- * iterable values are used
+ * [iterable] values are used
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";

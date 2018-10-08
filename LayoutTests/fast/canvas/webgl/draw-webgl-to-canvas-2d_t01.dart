@@ -8,11 +8,7 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -62,7 +58,7 @@ main() {
 
   renderWebGL(gl) {
     gl.clearColor(0, 1, 0, 1);
-    gl.clear(wgl.COLOR_BUFFER_BIT);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT);
   }
 
   drawWebGLToCanvas2D(ctx2D, canvas3D, isDrawingBufferUndefined) {

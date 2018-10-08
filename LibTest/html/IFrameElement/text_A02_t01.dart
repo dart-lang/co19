@@ -12,12 +12,11 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../testcommon.dart";
 
 main() {
-  var x = new Comment('comment');
+  Comment x = new Comment('comment');
   Expect.equals('comment', x.text);
 
-  x = new Text('text');
-  Expect.equals('text', x.text);
+  Text y = new Text('text');
+  Expect.equals('text', y.text);
 }

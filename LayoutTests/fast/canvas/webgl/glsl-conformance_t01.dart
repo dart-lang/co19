@@ -9,11 +9,8 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -475,7 +472,6 @@ main() {
       var fShaderId = info['fShaderId'];
       var passMsg = info['passMsg'];
       var vShaderSource = info['vShaderSource'];
-      var vShaderTest = info['vShaderTest'];
       var vShaderSuccess = info['vShaderSuccess'];
       var fShaderSource = info['fShaderSource'];
       var fShaderSuccess = info['fShaderSuccess'];
@@ -484,18 +480,12 @@ main() {
       passMsg = '[' + vShaderId + '/' + fShaderId + ']: ' + passMsg;
       log(passMsg);
       //debug(fShaderId);
-      var vShader = wtu.loadShader(gl, vShaderSource, wgl.VERTEX_SHADER);
-      if (vShaderTest != null) {
-        if (!vShaderTest(vShader)) {
-          testFailed(passMsg);
-          continue;
-        }
-      }
+      var vShader = wtu.loadShader(gl, vShaderSource, wgl.WebGL.VERTEX_SHADER);
       if ((vShader != null) != vShaderSuccess) {
         testFailed(passMsg);
         continue;
       }
-      var fShader = wtu.loadShader(gl, fShaderSource, wgl.FRAGMENT_SHADER);
+      var fShader = wtu.loadShader(gl, fShaderSource, wgl.WebGL.FRAGMENT_SHADER);
       //debug(fShader == null ? "fail" : "succeed");
       if ((fShader != null) != fShaderSuccess) {
         testFailed(passMsg);
@@ -507,7 +497,7 @@ main() {
         gl.attachShader(program, vShader);
         gl.attachShader(program, fShader);
         gl.linkProgram(program);
-        var linked = gl.getProgramParameter(program, wgl.LINK_STATUS);
+        var linked = gl.getProgramParameter(program, wgl.WebGL.LINK_STATUS);
         if (!linked) {
           var error = gl.getProgramInfoLog(program);
           log("*** Error linking program: $error");

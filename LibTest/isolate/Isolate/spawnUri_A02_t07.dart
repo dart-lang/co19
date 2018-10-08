@@ -33,30 +33,26 @@
  * @description Checks that if uri is List instance, then spawnUri throws an
  * exception in checked mode or returned Future instance is completed with
  * error.
- * @static-warning
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/dynamic_check.dart";
 
 main() {
+  dynamic l = [];
   asyncStart();
   try {
-    Isolate.spawnUri([], ["hello"], "world").then( /// static type warning
+    Isolate.spawnUri(l, ["hello"], "world").then(
         (v) {
           Expect.fail("Isolate.spawnUri([], ['hello'], 'world') should fail");
         },
         onError: (e) {
-          print("Future is completed with error: $e");
-          Expect.isFalse(isCheckedMode());
+          Expect.fail("Future is completed with error: $e");
           asyncEnd();
         }
     );
   } catch (e) {
     print("Caught an error: $e");
-    Expect.isTrue(isCheckedMode());
     asyncEnd();
   }
 }

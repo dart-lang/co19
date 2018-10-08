@@ -20,7 +20,7 @@
 import "../../../../Utils/expect.dart";
 
 class C {
-  static Object f1;
+  static Function f1;
 }
 
 class A {}

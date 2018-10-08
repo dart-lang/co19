@@ -15,30 +15,22 @@
  * Then the method noSuchMethod() is looked up in Sdynamic and invoked on this
  * with argument im, and the result of this invocation is the result of
  * evaluating i.
- * @description Checks that noSuchMethod is invoked if there's a static getter
+ * @description Checks that it is a compile error if there's a static getter
  * named m in the invoking class's superclass.
- * @static-warning
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
-import '../../../../Utils/expect.dart';
 
 class TestException {}
 
 class S {
   static int get sm {return 3;}
-
-  noSuchMethod(Invocation im) {
-    throw new TestException();
-  }
 }
 
 class A extends S {
   test() {
-    try {
-      super.sm(); /// static type warning
-      Expect.fail("Exception is expected");
-    } on TestException catch (e) {}
+    super.sm();
   }
 }
 

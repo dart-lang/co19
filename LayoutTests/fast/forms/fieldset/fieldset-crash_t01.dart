@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -18,7 +17,7 @@ main() {
       </fieldset>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var fieldsets = document.getElementsByTagName("fieldset");
+  List<Node> fieldsets = document.getElementsByTagName("fieldset");
   //var fieldsets = document.body.queryAll("fieldset");
-  fieldsets[1].disabled = true;
+  (fieldsets[1] as FieldSetElement).disabled = true;
 }

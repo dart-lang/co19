@@ -15,10 +15,10 @@ import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
 test(Set create([Set content])) {
-  Set<int> s = create();
+  Set s = create();
 
   int i = 0;
-  void foo(int x) {
+  void foo(var x) {
     i++;
   }
   s.forEach(foo);

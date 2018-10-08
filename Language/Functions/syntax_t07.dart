@@ -29,7 +29,9 @@
  */
 
 main() {
-  function();
+  try {
+    function();
+  } catch (x) {}
 }
 
 function() }

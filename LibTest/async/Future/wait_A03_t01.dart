@@ -15,7 +15,6 @@
  * @author ngl@unipro.ru
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
@@ -31,16 +30,19 @@ main() {
   var future4 = completer4.future;
   var future5 = completer5.future;
 
-  var f = Future.wait([future1, future2, future3, future4, future5],
-      eagerError: true);
+  var f = Future.wait(
+      [future1, future2, future3, future4, future5],
+      eagerError: true
+  );
 
   asyncStart();
   f.then(
       (value) {
-        Expect.fail("Should not be here");
+        Expect.fail("Returned future should complete with error");
         asyncEnd();
       },
-      onError: (Object err) {
+      onError: (Object error) {
+        Expect.equals(2, error);
         Expect.isTrue(completer1.isCompleted);
         Expect.isTrue(completer2.isCompleted);
         Expect.isFalse(completer3.isCompleted);

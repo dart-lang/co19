@@ -7,16 +7,15 @@
  * @description 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
-  var style = document.createElement('style');
+  StyleElement style = document.createElement('style');
   style.append(new Text("input { color: green; }"));
   style.append(new Text("input:checked { color: red; }"));
   document.documentElement.firstChild.append(style);
 
-  var input1 = document.createElement('input');
+  InputElement input1 = document.createElement('input');
   input1.type = 'radio';
   document.body.append(input1);
   input1.checked = true;

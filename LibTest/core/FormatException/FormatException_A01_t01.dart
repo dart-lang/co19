@@ -5,9 +5,9 @@
  */
 /**
  * @assertion Creates a new FormatException with an optional error message.
- * @description Checks that this constructor executes without error with or without String arguments (including null).
+ * @description Checks that this constructor executes without error with or
+ * without String arguments (including null).
  * @author rodionov
- * @reviewer msyabro
  */
  
 main() {

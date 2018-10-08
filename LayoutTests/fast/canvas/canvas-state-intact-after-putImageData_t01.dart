@@ -7,13 +7,10 @@
  * @description Test that the rendering context state is intact after a call to
  * putImageData()
  */
-import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   ctx.fillStyle = 'red';
   ctx.fillRect(0, 0, 1, 1);

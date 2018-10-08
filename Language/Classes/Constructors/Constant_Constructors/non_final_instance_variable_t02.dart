@@ -10,7 +10,6 @@
  * constant constructor inherits a non-final instance variable.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {
@@ -25,5 +24,7 @@ class A extends CC {
 }
 
 main() {
-  var a = const A();
+  try {
+    var a = const A();
+  } catch (x) {}
 }

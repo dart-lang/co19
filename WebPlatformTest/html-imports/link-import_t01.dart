@@ -29,19 +29,18 @@ void main() {
     document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
     
     test(() {
-//      var import = document.getElementById("linkImport").import;
       var linkImport = linkElement("linkImport");
-//      print("linkImport is ${linkImport.runtimeType}");
       var import = linkImport.import;
       assert_true(import is DocumentFragment, "import is ${import.runtimeType}");
-      var target=import.querySelector("#target");
+      var target = import.querySelector("#target");
       assert_true(target is DocumentFragment, "target is ${target.runtimeType}");
     }, 
-    "Check on loaded import. It must return the imported fragment for the import, represented by the link element."
+    "Check on loaded import. It must return the imported fragment for the "
+        + "import, represented by the link element."
     );
     
     test(() {
-      var linkImport = document.getElementById("linkImport");
+      var linkImport = document.getElementById("linkImport") as LinkElement;
       assert_equals(linkImport.import, linkImport.import);
     }, 
     "Check on object identity. The same object must be returned each time."

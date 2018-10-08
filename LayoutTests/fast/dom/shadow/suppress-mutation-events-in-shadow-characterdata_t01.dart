@@ -25,7 +25,7 @@ main() {
 
   shadow.append(div);
   div.innerHtml = "Hello, ";
-  div.firstChild.appendData("World!");
+  (div.firstChild as CharacterData).appendData("World!");
   shouldBeFalse(fired);
   shouldBe(div.innerHtml, 'Hello, World!');
 }

@@ -11,7 +11,7 @@ import "../../testcommon.dart";
 
 main() {
   // do not indent
-  var style = new Element.html(r'''
+  dynamic style = new Element.html(r'''
 <style>
 #a:nth-child(1n+0) { color: green; }
 #b:nth-child(n+0)  { color: green; }

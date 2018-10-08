@@ -9,7 +9,6 @@
  * @description Checks that [complete] on object created by Completer.sync()
  * indeed completes the future synchronously.
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 import "dart:async";

@@ -5,18 +5,20 @@
  */
 /**
  * @assertion ByteData(int length)
- * Creates a [ByteData] of the specified length (in elements), all of
- * whose elements are initially zero.
- * @description Checks that an instance of [ByteData] of the specified length is created.
+ * Creates a [ByteData] of the specified length (in elements), all of whose bytes
+ * are initially zero.
+ * @description Checks that an instance of [ByteData] of the specified length
+ * is created.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(int length) {
   var l = new ByteData(length);
   Expect.isTrue(l is ByteData);
-  Expect.equals(l.length, length);
+  Expect.equals(l.lengthInBytes, length);
 }
 
 main() {

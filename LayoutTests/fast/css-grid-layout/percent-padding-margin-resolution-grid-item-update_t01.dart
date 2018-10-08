@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "../../resources/check-layout.dart";
 import "pwd.dart";
 
@@ -58,7 +57,7 @@ main() {
 
   changeGridTrackSizesAndCheckLayout(_)
   {
-    var grid = document.getElementsByClassName("grid")[0];
+    dynamic grid = document.getElementsByClassName("grid")[0];
     grid.offsetLeft;
     grid.style.gridTemplateColumns = "100px 300px";
     grid.style.gridTemplateRows = "50px 150px";

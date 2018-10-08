@@ -7,9 +7,7 @@
  * @description 
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var style = new Element.html('''
@@ -25,7 +23,7 @@ main() {
 
   asyncStart();
   window.onLoad.listen((_) {
-    var canvas = document.getElementById("mycanvas");
+    dynamic canvas = document.getElementById("mycanvas");
     canvas.getContext("2d").fillRect(0, 0, canvas.width, canvas.height);
     var imgData1 = canvas.getContext("2d").getImageData(0, 0, 1, 1);
     shouldBeList(imgData1.data, [0,0,0,255]);

@@ -7,19 +7,17 @@
  * @description Transient registrations should be cleared even without delivery.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {
   var mutationsDelivered = false;
-  function callback(mutations, observer) {
+  callback(mutations, observer) {
     mutationsDelivered = true;
   }
   var observer = new MutationObserver(callback);
 
-  var div = document.createElement('div');
-  var span = div.append(document.createElement('span'));
+  DivElement div = document.createElement('div');
+  SpanElement span = div.append(document.createElement('span'));
   observer.observe(div, attributes: true, subtree: true);
   span.remove();
   asyncStart();

@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Returns true if the value represented by this int object is negative.
+ * @assertion Returns true if the value represented by this int object is
+ * negative.
  * @description Checks that this method returns correct value.
  * @author vasya
  * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -22,8 +22,6 @@ main() {
   for (var i = 0; i <= 100; i++){
     Expect.isFalse(i.isNegative);
   }
-  Expect.isFalse(9223372036854775808.isNegative);
+  Expect.isFalse(9223372036854775807.isNegative);
   Expect.isTrue((-9223372036854775808).isNegative);
-  Expect.isFalse(21332142137489273849723146271467234672164712364701264072347213640214702647263407264.isNegative);
-  Expect.isTrue((-21332142137489273849723146271467234672164712364701264072347213640214702647263407264).isNegative);
 }

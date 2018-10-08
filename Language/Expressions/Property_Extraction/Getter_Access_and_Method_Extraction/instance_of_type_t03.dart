@@ -19,6 +19,6 @@ import '../../../../Utils/expect.dart';
 import 'instance_of_type_lib.dart' as lib;
 
 main() {
-  var o = new lib.C();
+  dynamic o = new lib.C();
   Expect.throws(() {o.runtimeType.s;}, (e) => e is NoSuchMethodError);
 }

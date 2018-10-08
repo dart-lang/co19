@@ -17,5 +17,8 @@
 typedef void for();
 
 main() {
-  null is for;
+  try {
+    null is for;
+  } catch (anything) {
+  }
 }

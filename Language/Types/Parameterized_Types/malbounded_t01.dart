@@ -10,9 +10,9 @@
  * Note, that, in checked mode, it is a dynamic type error if a malbounded type
  * is used in a type test as specified in 19.2.
  * Any use of a malbounded type gives rise to a static warning.
- * @description Checks that it is a static warning if a single type argument
+ * @description Checks that it is a compile error if a single type argument
  * violates the bound.
- * @static-warning
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
  */
@@ -20,5 +20,5 @@
 class A<T extends String> {}
 
 main() {
-  A<int> a; /// static type warning
+  A<int> a;
 }

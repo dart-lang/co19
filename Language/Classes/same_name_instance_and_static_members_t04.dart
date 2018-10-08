@@ -10,11 +10,10 @@
  * abstract instance method and declares a static field with the same name.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class A {
-  int f(); //abstract
+  int f();
 }
 
 class B extends A {
@@ -22,5 +21,7 @@ class B extends A {
 }
 
 main() {
-  B a = new B();
+  try {
+    new B();
+  } catch (e) {}
 }

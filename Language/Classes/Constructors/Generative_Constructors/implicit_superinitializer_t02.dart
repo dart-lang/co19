@@ -10,7 +10,6 @@
  * @description Checks that implicit super constructor is invoked after all of
  * k's initializers.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

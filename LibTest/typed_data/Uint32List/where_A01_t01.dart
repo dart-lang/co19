@@ -5,23 +5,24 @@
  */
 /**
  * @assertion Iterable<E> where(bool test(E element))
- * Returns a lazy [Iterable] with all elements that satisfy the predicate [test].
- * @description Checks that the returned [Iterable] contains all elements
- * from [this] that satisfy [test], and all other elements are skipped.
+ * Returns a new lazy [Iterable] with all elements that satisfy the predicate
+ * [test].
+ * @description Checks that the returned [Iterable] contains all elements from
+ * [this] that satisfy [test], and all other elements are skipped.
  * @author msyabro
  */
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(list, bool test (var element)) {
+void check(List<int> list, bool test (int element)) {
   var l = new Uint32List.fromList(list);
   var res = l.where(test);
 
   var count = 0;
 
-  for(int i = 0 ; i < list.length; ++i) {
-    if(test(l[i])) {
+  for (int i = 0 ; i < list.length; ++i) {
+    if (test(l[i])) {
       Expect.equals(l[i], res.elementAt(count));
       ++count;
     }

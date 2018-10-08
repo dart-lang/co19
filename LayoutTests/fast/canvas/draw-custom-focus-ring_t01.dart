@@ -7,9 +7,7 @@
  * @description Canvas test: drawCustomFocusRing
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -25,7 +23,7 @@ main() {
   var button1 = document.getElementById("button1");
   var button2 = document.getElementById("button2");
 
-  var canvas = getContext2d("canvas");
+  dynamic canvas = getContext2d("canvas");
   canvas.beginPath();
   canvas.rect(50, 50, 200, 100);
   canvas.fill();

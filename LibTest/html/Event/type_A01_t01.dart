@@ -10,7 +10,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   Expect.equals('click', new Event('click').type);

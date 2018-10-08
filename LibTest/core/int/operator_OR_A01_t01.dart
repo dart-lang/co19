@@ -29,13 +29,7 @@ void main() {
   // check int32
   Expect.equals(0x180000000, 0x100000000 | 0x80000000);
   // check int64
-  Expect.equals(0x18000000000000000, 0x10000000000000000 | 0x8000000000000000);
+  Expect.equals(0x1800000000000000, 0x1000000000000000 | 0x800000000000000);
   
-  Expect.equals(0x7fffffffffffffffff, 0x7fffffffffffffffff | 400000000000000000);
-
-  // assuming a large int is represented using minimum number of bytes required and the leftmost bit stands for the sign
-  int bignum = 0x265ABCF6285BC6235DCBA78638653786378;
-  Expect.equals(bignum, bignum | bignum);
-  Expect.equals(-1, bignum | (-1 - bignum));
+  Expect.equals(0x7fffffffffffffff, 0x7fffffffffffffff | 400000000000000000);
 }
-

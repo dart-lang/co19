@@ -40,7 +40,7 @@ class C {
 }
 
 main()  {
-  var o = new C();
+  dynamic o = new C();
   try {
     o.nonExistingMethod();
     Expect.fail("Exception is expected");

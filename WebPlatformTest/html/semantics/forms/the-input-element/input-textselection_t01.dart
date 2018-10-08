@@ -27,7 +27,7 @@ void main() {
                  "file", "submit", "image", "reset", "button"];
   valid.forEach((aType) {
     test(() {
-      var input = document.createElement("input");
+      var input = document.createElement("input") as InputElement;
       input.type = aType;
       assert_equals(input.type, aType, "Input type unsupported");
       input.select();
@@ -41,7 +41,7 @@ void main() {
 
   invalid.forEach((aType) {
     test(() {
-      var input = document.createElement("input");
+      var input = document.createElement("input") as InputElement;
       input.type = aType;
       assert_equals(input.type, aType, "Input type unsupported");
       assert_throws("InvalidStateError", () { input.select(); }, "Should throw with type " + aType);

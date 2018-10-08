@@ -15,22 +15,23 @@
  *   of e causes a NoSuchMethod to be thrown.
  * @description Checks that NoSuchMethodError is thrown if undeclared
  * identifier is used in a static context.
- * @static-warning
  * @author kaigorodov
  * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 
-x1() => undeclared;       // in a body of library function
-get x2 => undeclared;     // in a body of library getter
-set x3 (_) => undeclared; // in a body of library setter
-var x4 = undeclared;      // in an initializer of a library variable
+dynamic o = '';
+
+x1() => o.undeclared;       // in a body of library function
+get x2 => o.undeclared;     // in a body of library getter
+set x3 (_) => o.undeclared; // in a body of library setter
+var x4 = o.undeclared;      // in an initializer of a library variable
 
 class C {
-  static x1() => undeclared;       // in a body of class static function
-  static get x2 => undeclared;     // in a body of class static getter
-  static set x3 (_) => undeclared; // in a body of class static setter
-  static var x4 = undeclared;      // in an initializer of a class static variable
+  static x1() => o.undeclared;       // in a body of class static function
+  static get x2 => o.undeclared;     // in a body of class static getter
+  static set x3 (_) => o.undeclared; // in a body of class static setter
+  static var x4 = o.undeclared;      // in an initializer of a class static variable
 }
 
 main() {

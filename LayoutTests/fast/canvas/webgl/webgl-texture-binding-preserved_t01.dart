@@ -12,13 +12,13 @@ import "dart:web_gl" as wgl;
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
-  document.body.appendHtml('<canvas id="webgl-canvas" width="32px" ' +
-      'height="32px"></canvas>', treeSanitizer: NodeTreeSanitizer.trusted);
+  document.body
+    .appendHtml('<canvas id="webgl-canvas" width="32px" height="32px"></canvas>',
+      treeSanitizer: NodeTreeSanitizer.trusted);
 
-  var canvas;
+  dynamic canvas;
   var context;
 
   draw() {
@@ -36,18 +36,17 @@ main() {
   context = create3DContext(canvas);
 
   var program = wtu.setupTexturedQuad(context);
-  var bufferObjects = wtu.setupUnitQuad(context);
   var texture = wtu.createColoredTexture(context, 1, 1, [0, 0, 255, 255]);
 
   context.uniform1i(context.getUniformLocation(program, "tex"), 0);
 
-  context.activeTexture(wgl.TEXTURE0 + 5);
-  context.bindTexture(wgl.TEXTURE_2D, texture);
+  context.activeTexture(wgl.WebGL.TEXTURE0 + 5);
+  context.bindTexture(wgl.WebGL.TEXTURE_2D, texture);
 
   context.viewport(0, 0, canvas.width, canvas.height);
 
   context.clearColor(255, 0, 0, 255);
-  context.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+  context.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
 
   // We need to ensure that the compositor has run before the drawing
   // takes place.  requestAnimationFrame was tried for this purpose,

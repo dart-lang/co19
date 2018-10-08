@@ -16,7 +16,6 @@
  * @author a.semenov@unipro.ru
  */
 import '../../../Utils/expect.dart';
-import '../../../Utils/async_utils.dart';
 
 final Exception E1 = new Exception("1");
 

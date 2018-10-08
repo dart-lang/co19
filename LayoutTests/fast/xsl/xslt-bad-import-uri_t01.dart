@@ -8,8 +8,6 @@
  * @description This tests that a bad @import URI does not cause a crash. 
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
 
 main() {

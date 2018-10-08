@@ -8,13 +8,10 @@
  * Regression test for https://bugs.webkit.org/show_bug.cgi?id=41884 :
  * Implement bufferData and bufferSubData with ArrayBuffer as input
  */
-import "dart:html";
 import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   var gl = create3DContext();
@@ -27,34 +24,35 @@ main() {
   var buf = gl.createBuffer();
   shouldBeNonNull(buf);
 
-  gl.bufferData(wgl.ARRAY_BUFFER, array, wgl.STATIC_DRAW);
-  glErrorShouldBe(gl, wgl.INVALID_OPERATION);
+  gl.bufferData(wgl.WebGL.ARRAY_BUFFER, array, wgl.WebGL.STATIC_DRAW);
+  glErrorShouldBe(gl, wgl.WebGL.INVALID_OPERATION);
 
-  gl.bindBuffer(wgl.ARRAY_BUFFER, buf);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, buf);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
-  gl.bufferData(wgl.ARRAY_BUFFER, -10, wgl.STATIC_DRAW);
-  glErrorShouldBe(gl, wgl.INVALID_VALUE);
+  gl.bufferData(wgl.WebGL.ARRAY_BUFFER, -10, wgl.WebGL.STATIC_DRAW);
+  glErrorShouldBe(gl, wgl.WebGL.INVALID_VALUE);
 
-  // This should not crash, but the selection of the overload is ambiguous per Web IDL.
-  gl.bufferData(wgl.ARRAY_BUFFER, null, wgl.STATIC_DRAW);
+  // This should not crash, but the selection of the overload is ambiguous per
+  // Web IDL.
+  gl.bufferData(wgl.WebGL.ARRAY_BUFFER, null, wgl.WebGL.STATIC_DRAW);
   gl.getError();
 
-  gl.bufferData(wgl.ARRAY_BUFFER, array, wgl.STATIC_DRAW);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  gl.bufferData(wgl.WebGL.ARRAY_BUFFER, array, wgl.WebGL.STATIC_DRAW);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
   buffer = new Uint8List(64);
   array = buffer.buffer;
 
-  gl.bufferSubData(wgl.ARRAY_BUFFER, -10, array);
-  glErrorShouldBe(gl, wgl.INVALID_VALUE);
+  gl.bufferSubData(wgl.WebGL.ARRAY_BUFFER, -10, array);
+  glErrorShouldBe(gl, wgl.WebGL.INVALID_VALUE);
 
-  gl.bufferSubData(wgl.ARRAY_BUFFER, -10, new Float32List(8));
-  glErrorShouldBe(gl, wgl.INVALID_VALUE);
+  gl.bufferSubData(wgl.WebGL.ARRAY_BUFFER, -10, new Float32List(8));
+  glErrorShouldBe(gl, wgl.WebGL.INVALID_VALUE);
 
-  gl.bufferSubData(wgl.ARRAY_BUFFER, 10, array);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  gl.bufferSubData(wgl.WebGL.ARRAY_BUFFER, 10, array);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
-  gl.bufferSubData(wgl.ARRAY_BUFFER, 10, null);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  gl.bufferSubData(wgl.WebGL.ARRAY_BUFFER, 10, null);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 }

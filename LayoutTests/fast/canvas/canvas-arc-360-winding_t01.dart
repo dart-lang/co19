@@ -12,7 +12,7 @@ import "dart:math" as Math;
 import "../../testcommon.dart";
 
 main() {
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   document.body.append(canvas);
   canvas.setAttribute('width', '300');
   canvas.setAttribute('height', '150');
@@ -23,7 +23,7 @@ main() {
   ctx.beginPath();
   for (r = 200; r >= 10; r -= 10) {
     ctx.moveTo(150 + r, 75);
-    ctx.arc(150, 75, r, 0, Math.PI*2, anticlockwise);
+    ctx.arc(150, 75, r, 0, Math.pi*2, anticlockwise);
     ctx.closePath();
     anticlockwise = !anticlockwise;
   }

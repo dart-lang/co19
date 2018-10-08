@@ -4,26 +4,32 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Float32x4List.view(ByteBuffer buffer, [int byteOffset = 0, int length])
- * Throws [RangeError] if [offsetInBytes] or [length] are negative, or
- * if [offsetInBytes] + ([length] * elementSizeInBytes) is greater than
- * the length of [buffer].
+ * @assertion
+ * Float32x4List.view(
+ *     ByteBuffer buffer, [
+ *     int byteOffset = 0,
+ *     int length
+ * ])
+ * Throws [RangeError] if [offsetInBytes] or [length] are negative, or if
+ * [offsetInBytes] + ([length] * elementSizeInBytes) is greater than the length
+ * of [buffer].
  * @description Checks that [RangeError] is thrown if [offsetInBytes] +
  * ([length] * elementSizeInBytes) is greater than the length of [buffer].
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
-void check(array, offset, length) {
+void check(List<Float32x4> array, int offset, int length) {
   var tmp = new Float32x4List.fromList(array);
   var byteBuffer = tmp.buffer;
   try {
-    var l = new Float32x4List.view(byteBuffer, offset, length);
+    new Float32x4List.view(byteBuffer, offset, length);
     Expect.fail("RangeError exception is expected");
-  } on RangeError catch(ok) {
+  } on RangeError {
   }
 }
 
@@ -31,8 +37,11 @@ main() {
   check([], 0, 1);
   check([pack(0.0)], 0, 5);
   check([pack(0.0)], 1, 2);
-  check([pack(100.0), pack(50.0)], 2*16, 1);
+  check([pack(100.0), pack(50.0)], 2 * 16, 1);
   check([pack(100.0), pack(50.0)], 4, 20);
-  check([pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0), pack(7.0), pack(8.0),
-  pack(9.0), pack(10.0), pack(11.0), pack(12.0), pack(13.0), pack(14.0), pack(15.0), pack(16.0), pack(17.0)], 20, 20);
+  check([
+    pack(0.0), pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0),
+    pack(6.0), pack(7.0), pack(8.0), pack(9.0), pack(10.0), pack(11.0),
+    pack(12.0), pack(13.0), pack(14.0), pack(15.0), pack(16.0), pack(17.0)
+  ], 20, 20);
 }

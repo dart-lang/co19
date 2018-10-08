@@ -6,13 +6,13 @@
 /**
  * @assertion SplayTreeMap.from(Map other, [int compare(K key1, K key2),
  * bool isValidKey(potentialKey)])
- * Creates a SplayTreeMap that contains all key/value pairs of other.
- * @description Checks that it is an error if [other] is null
+ * Creates a [SplayTreeMap] that contains all key/value pairs of [other].
+ * @description Checks that it is an error if [other] is [null]
  * @author sgrekhov@unipro.ru
  */
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() {new SplayTreeMap.from(null);});
+  Expect.throws(() { new SplayTreeMap.from(null); });
 }

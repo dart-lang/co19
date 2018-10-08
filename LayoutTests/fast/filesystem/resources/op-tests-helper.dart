@@ -2,7 +2,6 @@ library op_tests_helper;
 
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 import "fs-test-util.dart";
 
 toString(obj) {

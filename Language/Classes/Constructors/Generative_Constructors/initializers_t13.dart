@@ -18,7 +18,6 @@
  * initializer references an explicit setter method rather than a variable.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {
@@ -30,6 +29,8 @@ class C {
 }
 
 main() {
-  new C();
+  try {
+    new C();
+  } catch (v) {}
 }
 

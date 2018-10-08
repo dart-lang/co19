@@ -9,13 +9,12 @@
  * @description Checks that added listener works.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
-	
-const myType="myType";
+
+const myType = "myType";
 
 main() {
-  Event ev0=new Event(myType);
+  Event ev0 = new Event(myType);
   asyncStart();
   window.addEventListener(myType, (Event event) {
     Expect.equals(ev0, event);

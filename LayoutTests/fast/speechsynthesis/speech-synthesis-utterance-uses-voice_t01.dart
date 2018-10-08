@@ -8,8 +8,7 @@
  * @description This tests that we can get synthesizer voices on the Mac 
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
+import "../../testcommon.dart";
 
 void main() {
     var speechSynthesis=window.speechSynthesis;

@@ -24,12 +24,13 @@
 import 'dart:html';
 import "../../Utils/expectWeb.dart";
 
-void toASCIIUppercase(str) {
-  var diff = "a".charCodeAt(0) - "A".charCodeAt(0);
+String toASCIIUppercase(String str) {
+  var diff = "a".codeUnitAt(0) - "A".codeUnitAt(0);
   var res = "";
   for (var i = 0; i < str.length; ++i) {
-    if ("a" <= str[i] && str[i] <= "z") {
-      res += String.fromCharCode(str.charCodeAt(i) - diff);
+    if ("a".codeUnitAt(0) <= str.codeUnitAt(i)
+        && str.codeUnitAt(i) <= "z".codeUnitAt(0)) {
+      res += new String.fromCharCode(str.codeUnitAt(i) - diff);
     } else {
       res += str[i];
     }
@@ -39,7 +40,7 @@ void toASCIIUppercase(str) {
 
 void main() {
 
-test(() {
+
   var HTMLNS = "http://www.w3.org/1999/xhtml",
       valid = [
         //[input, localName],
@@ -80,25 +81,22 @@ test(() {
        "foo>",
        "<foo>",
        "f<oo"
-     ]
+     ];
 
   valid.forEach((t) {
     test(() {
-      var elt = document.createElement(t[0])
-      assert_true(elt instanceof Element)
-      assert_true(elt instanceof Node)
-      assert_equals(elt.localName, t[1])
-      assert_equals(elt.tagName, toASCIIUppercase(t[1]))
-      assert_equals(elt.prefix, null)
-      assert_equals(elt.namespaceURI, HTMLNS)
+      var elt = document.createElement(t[0]);
+      assert_true(elt is Element);
+      assert_true(elt is Node);
+      assert_equals(elt.localName, t[1]);
+      assert_equals(elt.tagName, toASCIIUppercase(t[1]));
+      assert_equals(elt.namespaceUri, HTMLNS);
     }, "createElement(" + format_value(t[0]) + ")");
   });
   invalid.forEach((arg) {
-    test(() {
-      assert_throws("INVALID_CHARACTER_ERR", () { document.createElement(arg) })
-    }, "createElement($arg)");
+    assert_throws("INVALID_CHARACTER_ERR", () { document.createElement(arg); });
   });
-})
+
 
 checkTestFailures();
 }

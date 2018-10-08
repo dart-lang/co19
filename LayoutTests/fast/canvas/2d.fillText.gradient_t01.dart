@@ -30,7 +30,7 @@ main() {
     ctx.fillText("I", -5, 100);
   }
 
-  var canvas = document.getElementById('c');
+  dynamic canvas = document.getElementById('c');
   var ctx = canvas.getContext("2d");
   drawCanvas(ctx);
 

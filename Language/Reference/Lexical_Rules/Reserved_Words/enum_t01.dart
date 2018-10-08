@@ -16,5 +16,8 @@
 class enum { } // error
 
 main() {
-  null is enum;
+  try {
+    null is enum;
+  } catch (anything) {
+  }
 }

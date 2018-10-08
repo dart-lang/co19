@@ -14,8 +14,6 @@
  * it gets its own template contents owner
  */
 
-import 'dart:html';
-import "../../../Utils/expect.dart";
 import '../testcommon.dart';
 
 main() {
@@ -25,7 +23,8 @@ main() {
 
     doc.body.append(template);
 
-    assert_not_equals(template.content.ownerDocument, doc, 'Wrong template content owner');
+    assert_not_equals(template.content.ownerDocument, doc,
+        'Wrong template content owner');
 
   }, 'Test the template contents owner document when enclosing document has '
   + 'no browsing content. Template element is created by createElement()');
@@ -39,7 +38,8 @@ main() {
 
     var template = doc.querySelector('template');
 
-    assert_not_equals(template.content.ownerDocument, doc, 'Wrong template content owner');
+    assert_not_equals(template.content.ownerDocument, doc,
+        'Wrong template content owner');
 
   }, 'Test the template contents owner document when enclosing document has '
   + 'no browsing content. Template element is created by innerHtml');

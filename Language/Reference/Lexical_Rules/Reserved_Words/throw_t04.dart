@@ -19,5 +19,8 @@ class C {
 }
 
 main() {
-  new C().throw is int;
+  try {
+    new C().throw is int;
+  } catch (anything) {
+  }
 }

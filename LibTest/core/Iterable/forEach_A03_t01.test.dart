@@ -6,10 +6,8 @@
 /**
  * @assertion abstract void forEach(void f(E element))
  * Any error in the function [f] breaks the cycle.
- * @needsreview undocumented
  * @description Checks that predicate exception goes through to the caller
  * @author varlax
- * @reviewer iefremov
  */
 library forEach_A03_t01;
 import "../../../Utils/expect.dart";

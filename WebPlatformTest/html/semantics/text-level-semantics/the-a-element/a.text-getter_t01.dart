@@ -1,4 +1,4 @@
-/*
+  /*
  * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
@@ -29,15 +29,14 @@ const String htmlEL = r'''
 
 void main() {
   document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
-  var b;
-  var e = document.getElementById("test")
+  Node e = document.getElementById("test")
                 .append(document.createElement("a"));
-  e.href = "d";
+  (e as AnchorElement).href = "d";
   e.append(new Text("a "));
   e.append(new Text("b "));
   e.append(new Text("c "));
-  var list = document.getElementById("test")
-                     .queryAll("a");
+  ElementList<Element> list = document.getElementById("test")
+                     .querySelectorAll("a");
 
   for (var i = 0, il = list.length; i < il; ++i) {
     test(() {

@@ -28,5 +28,7 @@ class A {}
 typedef A B;
 
 main() {
-  new A();
+  try {
+    new A();
+  } catch (x) {}
 }

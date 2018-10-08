@@ -10,14 +10,13 @@
  * @description Checks that the accessor works for custom events.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
-const eventType='siberianFrost';
+const eventType = 'siberianFrost';
 
 main() {
   asyncStart();
-  document.on[eventType].listen((CustomEvent e) {
+  document.on[eventType].listen((Event e) {
     Expect.equals(eventType, e.type);
     asyncEnd();
   });

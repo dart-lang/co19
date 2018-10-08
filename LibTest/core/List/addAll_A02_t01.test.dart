@@ -9,8 +9,6 @@
  * @description Checks that UnsupportedError is thrown
  * if the list is not extendable.
  * @author vasya
- * @reviewer iefremov
- * @reviewer varlax
  */
 library addAll_A02_t01;
 
@@ -19,13 +17,9 @@ import "../../../Utils/expect.dart";
 test(List create([int length])) {
 
   void check(Iterable content, collection) {
-    List list=create(collection.length);
+    List list = create(collection.length);
     list.setRange(0, collection.length, collection);
-    Expect.throws(() {
-        list.addAll(collection);
-      },
-      (e)=> e is UnsupportedError
-    );
+    Expect.throws(() {list.addAll(collection);}, (e) => e is UnsupportedError);
   }
 
   check(new List(100), ["1", "2", "3"]);

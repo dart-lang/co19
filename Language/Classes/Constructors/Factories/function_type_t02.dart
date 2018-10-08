@@ -6,17 +6,17 @@
 /**
  * @assertion It is a static warning if the function type of k' is not a
  * subtype of the type of k.
- * @description Checks that static warning is produced if factory constructor
+ * @description Checks that a compile error is produced if factory constructor
  * redirects to a constructor whose type is not a subtype of factory
  * constructor function type. Checks the case when constructor return types
  * are not assignable.
- * @static-warning
+ * @compile-error
  * @author ilya
  */
 import "../../../../Utils/dynamic_check.dart";
 
 class F {
-  factory F(x) = C;
+  factory F(x) = C; /// static type warning
 }
 
 class C { // does not implement F, not assignable to F

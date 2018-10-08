@@ -20,15 +20,16 @@
  * the first operand in a additive expression.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 class S {}
 
 class A extends S {
   test() {
-    1 + super;  }
+    try {
+      1 + super;
+    } catch (e) {}
+  }
 }
 
 main() {

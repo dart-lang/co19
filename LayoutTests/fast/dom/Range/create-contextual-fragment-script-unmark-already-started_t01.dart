@@ -8,7 +8,6 @@
  * it parsed as already started.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -25,5 +24,5 @@ main() {
       document.body.appendChild(document.createElement('p'));
     </script>"""));
 
-  shouldBe(document.body.queryAll('p').length, 1);
+  shouldBe(document.body.querySelectorAll('p').length, 1);
 }

@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -24,11 +23,11 @@ main() {
       </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  shouldBe(document.body.queryAll("fieldset")[0].checkValidity(), true);
-  shouldBe(document.body.queryAll("input")[0].checkValidity(), true);
-  shouldBe(document.body.queryAll("button")[0].checkValidity(), true);
-  shouldBe(document.body.queryAll("select")[0].checkValidity(), true);
-  shouldBe(document.body.queryAll("textarea")[0].checkValidity(), true);
-  shouldBe(document.body.queryAll("output")[0].checkValidity(), true);
-  shouldBe(document.body.queryAll("object")[0].checkValidity(), true);
+  shouldBe((document.body.querySelectorAll("fieldset")[0] as FieldSetElement).checkValidity(), true);
+  shouldBe((document.body.querySelectorAll("input")[0] as InputElement).checkValidity(), true);
+  shouldBe((document.body.querySelectorAll("button")[0] as ButtonElement).checkValidity(), true);
+  shouldBe((document.body.querySelectorAll("select")[0] as SelectElement).checkValidity(), true);
+  shouldBe((document.body.querySelectorAll("textarea")[0] as TextAreaElement).checkValidity(), true);
+  shouldBe((document.body.querySelectorAll("output")[0] as OutputElement).checkValidity(), true);
+  shouldBe((document.body.querySelectorAll("object")[0] as ObjectElement).checkValidity(), true);
 }

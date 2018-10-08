@@ -31,7 +31,7 @@ main() {
 
   for (var element in elements) {
     var name = 'x-foo-$element';
-    document.register(name, getFooClass(name), extendsTag: element);
+    document.registerElement(name, getFooClass(name), extendsTag: element);
     if (HTML5_TABLE_ELEMENTS.contains(element)) {
       document.body.setInnerHtml('<table><$element id="qwe" is="$name"></$element></table>',
           treeSanitizer: new NoCheck());
@@ -40,7 +40,7 @@ main() {
           treeSanitizer: new NoCheck());
     }
     
-    var x = document.query('#qwe');
+    var x = document.querySelector('#qwe');
     Expect.equals(getFooClass(name), x.runtimeType);
   }
 }

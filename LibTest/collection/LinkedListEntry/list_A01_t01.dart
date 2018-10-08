@@ -6,7 +6,7 @@
 /**
  * @assertion LinkedList<E> list
  * Get the linked list containing this element.
- * Returns null if this entry is not currently in any list.
+ * Returns [null] if this entry is not currently in any list.
  * @description Checks that the the linked list containing this element
  * @author sgrekhov@unipro.ru
  */
@@ -16,7 +16,7 @@ import "LinkedListEntry.lib.dart";
 
 main() {
   MyLinkedListEntry<int> entry = new MyLinkedListEntry<int>(1);
-  LinkedList list = new LinkedList();
+  LinkedList<MyLinkedListEntry> list = new LinkedList<MyLinkedListEntry>();
   list.add(entry);
 
   Expect.identical(list, entry.list);

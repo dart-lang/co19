@@ -11,16 +11,16 @@
  *
  * @description Check that with errorAreFatal set to false the isolate is
  * only suspended on first error. The isolate is active.
- * @static-warning
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
 void entryPoint(SendPort sendPort) {
+  dynamic i = 1;
+
   // this should awake the isolate from suspended state, caused by error
   new Future.delayed(TWO_SECONDS).then(
       (_) {
@@ -29,7 +29,7 @@ void entryPoint(SendPort sendPort) {
   );
   sendPort.send("hello");
   // An error that should stop the isolate
-  sendPort.send(", "+1); /// static type warning
+  sendPort.send(", " + i);
   sendPort.send("world");
 }
 
@@ -42,7 +42,7 @@ test() async {
   List receivedData = [];
   await for (var data in receivePort) {
     receivedData.add(data);
-    if (data=="hello") {
+    if (data == "hello") {
       Expect.equals("ping", await ping(isolate, "ping", THREE_SECONDS));
     } else if (data == "finish") {
       receivePort.close();

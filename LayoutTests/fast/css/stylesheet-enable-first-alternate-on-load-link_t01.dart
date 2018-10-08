@@ -8,13 +8,12 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
   var index = document.getElementsByTagName("link").length; // skip test framework's ones
 
-  var f = new DocumentFragment.html('''
+  dynamic f = new DocumentFragment.html('''
       <link rel="stylesheet" href="$root/resources/red.css" media="all" title="Default Style Sheet" type="text/css" />
       <link rel="alternate stylesheet" href="$root/resources/green.css" media="all" title="green" type="text/css" />
       ''', treeSanitizer: new NullTreeSanitizer());
@@ -25,9 +24,9 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   test(_) {
-    var red = document.getElementsByTagName("link")[index];
+    dynamic red = document.getElementsByTagName("link")[index];
     red.disabled = true;
-    var green = document.getElementsByTagName("link")[index+1];
+    dynamic  green = document.getElementsByTagName("link")[index+1];
     green.disabled = true;
     green.disabled = false;
 

@@ -7,9 +7,10 @@
  * @assertion Let C be a class declaration that includes MA in a with clause.
  * It is a static warning if C does not implement, directly or indirectly, all
  * the direct superinterfaces of M
- * @description Checks that it is no static warning if M has implicit
- * superinterfaces and C does implement them
- * @static-clean
+ * @description Checks that it is a compile error to derive a mixin from a
+ * class which has a superclass other than Object, even if C does implement them
+ * @issue 26409
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";

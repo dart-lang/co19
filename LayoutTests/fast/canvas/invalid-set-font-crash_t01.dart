@@ -7,9 +7,7 @@
  * @description This test should not crash.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -19,7 +17,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   init() {
-    var ctx = getContext2d("canvas");
+    dynamic ctx = getContext2d("canvas");
     ctx.font = "font-family: Helvetica; font-size: 48pt; font-color: #000000";
     ctx.fillText("Hello world", 10, 200);
   }

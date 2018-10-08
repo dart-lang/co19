@@ -13,7 +13,7 @@
  * A declaration m is accessible to library L if m is declared in L or if m is 
  * public.
  * @description Checks that public declarations declared in a library are 
- * accessible when the library is imported.
+ * accessible if the library is imported.
  * @author msyabro
  * @reviewer iefremov
  */

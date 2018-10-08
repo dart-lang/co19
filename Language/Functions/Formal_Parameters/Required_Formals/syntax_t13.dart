@@ -35,5 +35,7 @@
 main() {
   f(this.x(y)) {}
 
-  f((x) {});
+  try {
+    f((x) {});
+  } catch (e) {}
 }

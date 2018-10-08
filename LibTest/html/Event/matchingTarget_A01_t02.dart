@@ -14,7 +14,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var body = document.body;
@@ -27,7 +26,7 @@ main() {
     }, (e) => e is UnsupportedError);
     asyncEnd();
   });
-  
+
   asyncStart();
   id1.click();
 }

@@ -10,17 +10,16 @@
  *    • Otherwise, it is a dynamic type error if o is not null and the runtime
  * type of o is not a subtype of the actual return type of f.
  *
- * @description Checks that in checked mode it is a dynamic type error if o is
+ * @description Checks that compile error is raised if o is
  * not null and Future<S> is not a subtype of the actual return type of the
  * immediately enclosing async function.
  *
+ * @compile-error
  * @issue 26133
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
 import '../../../Utils/expect.dart';
-import '../../../Utils/dynamic_check.dart';
-import '../../../Utils/async_utils.dart';
 
 var r = 'a';
 
@@ -30,11 +29,10 @@ main() {
   asyncStart();
   foo().then(
       (_) {
-        Expect.isFalse(isCheckedMode());
-        asyncEnd();
+        Expect.fail('Either runtime or compile error is expected');
       },
       onError: (e) {
-        Expect.isTrue(isCheckedMode());
+        // TODO catch compile error as well
         Expect.isTrue(e is TypeError);
         asyncEnd();
       }

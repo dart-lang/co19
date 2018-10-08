@@ -11,9 +11,6 @@
  * an initializer for a global variable.
  * @compile-error
  * @author vasya
- * @reviewer pagolubev
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 var x;
@@ -23,5 +20,7 @@ class C  {
 }
 
 main() {
-  var z = new C();
+  try {
+    var z = new C();
+  } catch (x) {}
 }

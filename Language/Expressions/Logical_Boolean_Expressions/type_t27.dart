@@ -18,7 +18,6 @@
  * @description Checks that if v is local variable or formal parameter,
  * e1 shows that v has type T, but v is mutated in e2,
  * then the type of v is not known to be T in e2. Formal parameter case.
- * @static-warning
  * @author ilya
  */
 import '../../../Utils/expect.dart';
@@ -30,7 +29,7 @@ class D extends C {
 
 skyIsBlue(_) => true;
 
-f(C x) {
+f(var x) {
   x is D && skyIsBlue([x = new C(), x.f() /*throws*/]);
 }
 

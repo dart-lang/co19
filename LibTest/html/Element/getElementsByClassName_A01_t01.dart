@@ -14,15 +14,13 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  var x = new Element.html(
-      '''<div class="foo">
+  var x = new Element.html('''<div class="foo">
            <table></table>
            <button class="foo"></button>
            <span class="bar">
              <pre class="foo"></pre>
            </span>
-         </div>''',
-      treeSanitizer: new NullTreeSanitizer());
+         </div>''', treeSanitizer: new NullTreeSanitizer());
 
   var y = x.getElementsByClassName('foo');
 

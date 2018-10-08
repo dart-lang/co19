@@ -5,11 +5,9 @@
  */
 /**
  * @description required attribute presence test
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -22,8 +20,8 @@ main() {
       </select>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  requiredFor(id) {
-    return document.getElementById(id).required;
+  bool requiredFor(String id) {
+    return (document.getElementById(id) as dynamic).required;
   }
 
   shouldBeTrue(requiredFor("input"));

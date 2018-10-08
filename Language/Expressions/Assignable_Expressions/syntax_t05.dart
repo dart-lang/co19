@@ -28,10 +28,11 @@
  * be used with assignableSelector in the left hand side of an assignment.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
   var id = 1;
-  id++ = 1;
+  try {
+    id++ = 1;
+  } catch (e) {}
 }

@@ -27,7 +27,6 @@
  * S1 <: S<G1> and S2 <: S<G2> then T is a subtype of S<G1> as well as S<G2>
  * and every other supertype of S.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

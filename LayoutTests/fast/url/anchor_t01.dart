@@ -24,9 +24,9 @@ List cases = [
 
 void main() {
     
-    for (var i = 0; i < cases.length; ++i) {
-      String actual=canonicalize('http://www.example.com/#${cases[i][0]}');
-      String expected='http://www.example.com/#${cases[i][1]}';
+    for (int i = 0; i < cases.length; ++i) {
+      String actual = canonicalize('http://www.example.com/#${cases[i][0]}');
+      String expected = 'http://www.example.com/#${cases[i][1]}';
       test((){
           Expect.equals(expected, actual);
       }, "$i");

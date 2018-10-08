@@ -70,7 +70,7 @@ class Checker<T> {
     check2(x);
   }
 
-  check2(var x) {
+  check2(dynamic x) {
     T t = x;
   }
 }

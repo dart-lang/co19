@@ -7,11 +7,8 @@
  * @description Checks that there is no crash
  */
 import "dart:html";
-import "dart:math" as Math;
-import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement("canvas");
+  dynamic canvas = document.createElement("canvas");
   canvas.getContext("2d").getImageData(10, 0xffffffff, 2147483647, 10);
 }

@@ -9,11 +9,9 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -23,12 +21,12 @@ main() {
       <script id="vshader" type="x-shader/x-vertex">abc//defＮＯＴＡＳＣＩＩ</script>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById("example");
+  dynamic canvas = document.getElementById("example");
   var gl = wtu.create3DContext(canvas);
   var original = document.getElementById("vshader").text;
-  var shader = gl.createShader(wgl.VERTEX_SHADER);
+  var shader = gl.createShader(wgl.WebGL.VERTEX_SHADER);
   gl.shaderSource(shader, original);
   var source = gl.getShaderSource(shader);
   shouldBe(source, original);
-  glErrorShouldBe(gl, wgl.NO_ERROR, "Should be no errors.");
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "Should be no errors.");
 }

@@ -8,8 +8,6 @@
  * @description Tests HttpRequest 'text' loading with the .responseType and .response attributes. 
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
 
 const String htmlEL = r'''

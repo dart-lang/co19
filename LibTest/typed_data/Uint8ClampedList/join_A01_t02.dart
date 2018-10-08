@@ -5,17 +5,19 @@
  */
 /**
  * @assertion String join([String separator = ""])
- * Converts each element to a String and concatenates the strings.
- * Converts each element to a String by calling Object.toString on it.
- * Then concatenates the strings, optionally separated by the separator string.
- * @description Checks that if [separator] is omitted, elements of [this]
- * are not separated in the returned String.
+ * Converts each element to a [String] and concatenates the strings.
+ * Iterates through elements of this iterable, converts each one to a String by
+ * calling Object.toString, and then concatenates the strings, with the
+ * separator string interleaved between the elements.
+ * @description Checks that if [separator] is omitted, elements of [this] are
+ * not separated in the returned String.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list, expectedString) {
+check(List<int> list, String expectedString) {
   var l = new Uint8ClampedList.fromList(list);
   var s = l.join();
   Expect.stringEquals(expectedString, s);

@@ -5,23 +5,26 @@
  */
 /**
  * @assertion bool remove(Object element)
- * Removes value from the list. Returns true if value was in the list.
- * Returns false otherwise.
- * @description Checks that [UnsupportedError] is thrown
- * since [Float32List] is a fixed-size list.
+ * Removes the first occurrence of value from this list.
+ * Returns true if value was in the list, false otherwise.
+ * The method has no effect if value was not in the list.
+ * An UnsupportedError occurs if the list is fixed-length.
+ * @description Checks that [UnsupportedError] is thrown since [Float32List] is
+ * a fixed-size list.
  * @note undocumented
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list, element) {
+check(List<double> list, double element) {
   var l = new Float32List.fromList(list);
   var length = l.length;
   try {
     l.remove(element);
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {};
+  } on UnsupportedError {};
   Expect.equals(length, l.length);
 }
 

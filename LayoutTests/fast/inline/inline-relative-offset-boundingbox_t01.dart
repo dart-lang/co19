@@ -19,11 +19,11 @@ void main() {
     description('<a href="https://bugs.webkit.org/show_bug.cgi?id=91168">Bug 91168</a>: REGRESSION: RenderInline boundingBox ignores relative position offset');
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     Element inline = document.getElementById("inlineElement");
-    var inlineRect = inline.getBoundingClientRect();
-    var inlineLeftOffset = inline.style.left;
-    inlineLeftOffset=inlineLeftOffset.substring(0,inlineLeftOffset.length-2);// cut suffix "px"
-    inlineLeftOffset=double.parse(inlineLeftOffset);
-    var parent = inline.parentNode;
+    Rectangle inlineRect = inline.getBoundingClientRect();
+    String inlineLeftOffset = inline.style.left;
+    inlineLeftOffset = inlineLeftOffset.substring(0,inlineLeftOffset.length-2);// cut suffix "px"
+    num inlineLeftOffsetNum = double.parse(inlineLeftOffset);
+    Element parent = inline.parentNode as Element;
     var parentRect = parent.getBoundingClientRect();
-    Expect.equals(parentRect.left + inlineLeftOffset, inlineRect.left);
+    Expect.equals(parentRect.left + inlineLeftOffsetNum, inlineRect.left);
 }

@@ -10,8 +10,6 @@
  * operator []= specifies a single parameter.
  * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {
@@ -19,5 +17,7 @@ class C {
 }
 
 main() {
-  new C()[0] = new C();
+  try {
+    new C()[0] = new C();
+  } catch (ex) {}
 }

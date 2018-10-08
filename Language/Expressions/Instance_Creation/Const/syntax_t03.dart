@@ -20,5 +20,7 @@ class A {
 }
 
 main() {
-  const ();
+  try {
+    const ();
+  } catch (e) {}
 }

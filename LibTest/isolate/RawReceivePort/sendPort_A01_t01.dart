@@ -13,31 +13,28 @@
  */
 
 import "dart:isolate";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 RawReceivePort receivePort = new RawReceivePort(receiveHandler);
-var receivedMessage=null;
+int expectedMessage = 10;
 
-void receiveHandler(var message) {
-  if (receivedMessage!=null) {
-    Expect.equals(receivedMessage, message+1);
-  }
-  receivedMessage=message;
-  if (message==0) {
+void receiveHandler(int message) {
+  Expect.equals(expectedMessage, message);
+  expectedMessage--;
+  if (message == 0) {
     asyncEnd();
     receivePort.close();
   }
 }
 
-void iMain(SendPort replyPort) {
-  for (int k=10; k>=0; k--) {
+void iMain(var replyPort) {
+  for (int k = expectedMessage; k >= 0; k--) {
     replyPort.send(k);
   }
 }
 
 main() {
-  var sendPort=receivePort.sendPort;
+  Object sendPort = receivePort.sendPort;
   Expect.isTrue(sendPort is SendPort);
   asyncStart();
   Isolate.spawn(iMain, sendPort);

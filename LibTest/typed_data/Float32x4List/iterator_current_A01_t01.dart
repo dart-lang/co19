@@ -4,15 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final E current
+ * @assertion E current
  * Gets the current element in the iteration.
  * @description Checks that the current element in the iteration is returned.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 equal(obj1, obj2) {
   var res = obj1.equal(obj2);
@@ -20,7 +21,7 @@ equal(obj1, obj2) {
 }
 
 
-void checkNext(list) {
+void checkNext(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
   var it = l.iterator;
   var i = 0;
@@ -33,9 +34,9 @@ main() {
   checkNext([pack(1.0)]);
   checkNext([pack(1.0), pack(2.0), pack(3.0)]);
 
-  var a = new List(255);
+  var a = new List<Float32x4>(255);
   for (var i=0; i < a.length; i++) {
-    a[i] = pack((a.length - i)*1.0);
+    a[i] = pack((a.length - i) * 1.0);
   }
   checkNext(a);
 }

@@ -7,10 +7,11 @@
  * @assertion E first
  * Returns the first element.
  * Throws a StateError if this is empty. Otherwise returns the first element
- * in the iteration order, equivalent to (iterator..moveNext()).current.
+ * in the iteration order, equivalent to this.elementAt(0).
  * @description Checks that a [StateError] is thrown if a list is empty.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -19,5 +20,5 @@ main() {
   try {
     l.first;
     Expect.fail("StateError is expected");
-  } on StateError catch(ok) {}
+  } on StateError {}
 }

@@ -6,9 +6,9 @@
 /**
  * @assertion LinkedHashMap({bool equals(K key1, K key2), int hashCode(K key),
  * bool isValidKey(potentialKey)})
- * Creates an insertion-ordered hash-table based Map.
- * @description Checks that LinkedHashMap preserves insertion order if addAll is
- * used to add elements to the map.
+ * Creates an insertion-ordered hash-table based [Map].
+ * @description Checks that [inkedHashMap] preserves insertion order if [addAll]
+ * is used to add elements to the map.
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";

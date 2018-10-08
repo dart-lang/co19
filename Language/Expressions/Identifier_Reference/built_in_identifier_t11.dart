@@ -16,5 +16,8 @@
 class factory {}
 
 main() {
-  null is factory;
+  try {
+    null is factory;
+  } catch (anything) {
+  }
 }

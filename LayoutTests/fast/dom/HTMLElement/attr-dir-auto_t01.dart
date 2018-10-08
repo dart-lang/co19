@@ -8,7 +8,6 @@
  * determined by the first child text node of that element.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

@@ -7,7 +7,6 @@
  * @assertion Throws RangeError if one of indices is out of bounds
  * @description Checks that exception is thrown.
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
  

@@ -10,10 +10,9 @@
  * checked mode.
  * In checked mode, it is a dynamic type error if a deferred, malformed or
  * malbounded type is used in a subtype test.
- * @description Checks that a dynamic type error occurs (in checked mode and in
- * product mode) when deferred type is used in a subtype test (explicit and
- * implicit).
- * @static-warning
+ * @description Checks that a compile error occurs if deferred type is used
+ * in an explicit subtype test.
+ * @compile-error
  * @author ngl@unipro.ru
  */
 
@@ -22,10 +21,5 @@ import "../somelib1.dart" deferred as p;
 class A {}
 
 main() {
-  try {
-    A is p.C;     /// static type warning
-  } on TypeError catch (e) {}
-  try {
-  A a = new p.C();      /// static type warning
-  } on TypeError catch (e) {}
+  A is p.C;
 }

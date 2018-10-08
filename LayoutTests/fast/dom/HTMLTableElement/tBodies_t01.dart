@@ -8,14 +8,13 @@
  * cases where there is unusual nesting.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
   checkTBodyNesting(tag)
   {
     debug(tag);
-    var table = document.createElement("table");
+    TableElement table = document.createElement("table");
     var container = document.createElement(tag);
     var tbody = document.createElement("tbody");
     table.append(container);

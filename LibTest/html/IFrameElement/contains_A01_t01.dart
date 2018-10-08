@@ -12,6 +12,6 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   Expect.isTrue(x.contains(x));
 }

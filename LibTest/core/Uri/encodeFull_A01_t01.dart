@@ -8,12 +8,10 @@
  * Encode the string uri using percent-encoding to make it safe for literal
  * use as a full URI.
  * All characters except uppercase and lowercase letters, digits
- * and the characters !#$&'()*+,-./:;=?@_~ are percent-encoded.
+ * and the characters !$&'()*+,-./:;=?@_~ are percent-encoded.
  * @description Checks that basic and extended unicode characters are encoded
  * @author ilya
- * @reviewer
  */
-
 import 'dart:convert';
 import "../../../Utils/expect.dart";
 
@@ -23,7 +21,7 @@ encodeOctet(int x) =>
 
 manuallyEncodeFull(String s) => s.runes
   .map((x) =>
-      UTF8.encode(new String.fromCharCode(x)).map(encodeOctet).join(''))
+      utf8.encode(new String.fromCharCode(x)).map(encodeOctet).join(''))
   .join('');
 
 main() {

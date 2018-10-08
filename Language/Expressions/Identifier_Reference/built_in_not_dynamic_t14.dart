@@ -14,6 +14,8 @@
  */
 
 main() {
-  deferred foo;
+  try {
+    deferred foo;
+  } catch (x) {}
 }
 

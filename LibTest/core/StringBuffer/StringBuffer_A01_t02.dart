@@ -9,11 +9,8 @@
  * @description Tries to pass an argument that is null or isn't a String,
  * correct string conversion expected ("null" in case of null)
  * @author msyabro
- * @reviewer rodionov
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
-
 
 main() {
   Expect.equals("null", new StringBuffer(null).toString());

@@ -28,9 +28,10 @@
  * can't be used in the left hand side of an assignment.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
-  (2 + 2) = 1;
+  try {
+    (2 + 2) = 1;
+  } catch (e) {}
 }

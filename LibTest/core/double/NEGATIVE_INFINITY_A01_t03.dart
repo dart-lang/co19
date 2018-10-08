@@ -10,11 +10,10 @@
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
-  Expect.isFalse((double.NEGATIVE_INFINITY > 0));
-  Expect.isTrue((double.NEGATIVE_INFINITY < 0));
-  Expect.isFalse((double.NEGATIVE_INFINITY >= 0));
-  Expect.isTrue((double.NEGATIVE_INFINITY <= 0));
-  Expect.isFalse((double.NEGATIVE_INFINITY == 0));
+  Expect.isFalse((double.negativeInfinity > 0));
+  Expect.isTrue((double.negativeInfinity < 0));
+  Expect.isFalse((double.negativeInfinity >= 0));
+  Expect.isTrue((double.negativeInfinity <= 0));
+  Expect.isFalse((double.negativeInfinity == 0));
 }

@@ -31,5 +31,7 @@
 f() => class A {};
 
 main() {
-  f();
+  try {
+    f();
+  } catch (x) {}
 }

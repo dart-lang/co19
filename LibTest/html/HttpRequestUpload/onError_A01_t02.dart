@@ -11,17 +11,16 @@
  * @needsreview issue #16757
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
   HttpRequest request = new HttpRequest();
-  HttpRequestUpload upload=request.upload;
+  HttpRequestUpload upload = request.upload;
   request.open('GET', "IntentionallyMissingFile");
   asyncStart();
-  upload.onError.listen((event){
-      UtilsHtml.show("request.onError.listen: $event");
-      asyncEnd();
-    });
+  upload.onError.listen((event) {
+    UtilsHtml.show("request.onError.listen: $event");
+    asyncEnd();
+  });
   request.send();
 }

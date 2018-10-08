@@ -7,21 +7,18 @@
  * @description Series of tests to ensure correct results of the winding rule.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var tmpimg = document.createElement('canvas');
+  dynamic tmpimg = document.createElement('canvas');
   tmpimg.width = 200;
   tmpimg.height = 200;
   var ctx = tmpimg.getContext('2d');
 
   // Create the image for blending test with images.
-  var img = document.createElement('canvas');
+  dynamic img = document.createElement('canvas');
   img.width = 100;
   img.height = 100;
-  var imgCtx = img.getContext('2d');
 
   pixelDataAtPoint()
   {

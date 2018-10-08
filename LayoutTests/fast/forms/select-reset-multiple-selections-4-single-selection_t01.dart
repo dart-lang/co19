@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -28,9 +27,9 @@ main() {
       </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var selectElement = document.getElementById("select1");
+  SelectElement selectElement = document.getElementById("select1") as SelectElement;
   shouldBe(selectElement.value, "3");
-  selectElement.queryAll("option")[1].selected=true;
+  (selectElement.querySelectorAll("option")[1] as OptionElement).selected=true;
   shouldBe(selectElement.value, "2");
   document.getElementById("reset1").click();
   shouldBe(selectElement.value, "3");

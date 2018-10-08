@@ -12,9 +12,7 @@
  * @description Checks that leading slash does not affect the segments
  * returned
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

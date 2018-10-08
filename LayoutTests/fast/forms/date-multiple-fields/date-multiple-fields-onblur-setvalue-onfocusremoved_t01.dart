@@ -8,10 +8,9 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
-  var f = new DocumentFragment.html('''
+  DocumentFragment f = new DocumentFragment.html('''
       <style>
       input:focus {
           background: blue;
@@ -25,7 +24,7 @@ main() {
       <a></a>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var testInput = document.getElementById('test');
+  InputElement testInput = document.getElementById('test') as InputElement;
   testInput.addEventListener('blur', (_) {
     testInput.value = '';
   });

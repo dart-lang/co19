@@ -5,13 +5,9 @@
  */
 /**
  * @assertion LinkedHashSet()
- * Creates an empty Set.
- * The created Set is a HashSet. As such, it considers elements that are equal
- * (using ==) to be undistinguishable, and requires them to have a compatible
- * Object.hashCode implementation.
- * @description Checks that an empty LinkedHashSet is created
+ * Creates an empty [Set].
+ * @description Checks that an empty [LinkedHashSet] is created
  * @author msyabro
- * @reviewer pagolubev
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

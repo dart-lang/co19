@@ -12,8 +12,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -48,7 +46,6 @@ main() {
   shouldBeNonNull(gl);
 
   fail(x,y, buf, shouldBe) {
-    var i = (y*50+x) * 4;
     var reason = "pixel at ($x,$y) is ${buf.sublist(0,4)}, should be $shouldBe";
     testFailed(reason);
   }
@@ -75,7 +72,7 @@ main() {
     gl.compileShader(shader);
 
     // Check the compile status
-    var compiled = gl.getShaderParameter(shader, wgl.COMPILE_STATUS);
+    var compiled = gl.getShaderParameter(shader, wgl.WebGL.COMPILE_STATUS);
     if (!compiled) {
       // Something went wrong during compilation; get the error
       var error = gl.getShaderInfoLog(shader);
@@ -90,34 +87,34 @@ main() {
 
   var program = gl.createProgram();
   gl.bindAttribLocation(program, 0, "gl_foo");
-  glErrorShouldBe(gl, wgl.INVALID_OPERATION,
+  glErrorShouldBe(gl, wgl.WebGL.INVALID_OPERATION,
       "bindAttribLocation should return INVALID_OPERATION if name starts with 'gl_'");
   gl.bindAttribLocation(program, 0, "gl_TexCoord0");
-  glErrorShouldBe(gl, wgl.INVALID_OPERATION,
+  glErrorShouldBe(gl, wgl.WebGL.INVALID_OPERATION,
       "bindAttribLocation should return INVALID_OPERATION if name starts with 'gl_'");
 
-  var vs = loadShader(wgl.VERTEX_SHADER, "vshader");
-  var fs = loadShader(wgl.FRAGMENT_SHADER, "fshader");
+  var vs = loadShader(wgl.WebGL.VERTEX_SHADER, "vshader");
+  var fs = loadShader(wgl.WebGL.FRAGMENT_SHADER, "fshader");
   gl.attachShader(program, vs);
   gl.attachShader(program, fs);
 
   var positions = gl.createBuffer();
-  gl.bindBuffer(wgl.ARRAY_BUFFER, positions);
-  gl.bufferData(wgl.ARRAY_BUFFER, new Float32List.fromList([ 0.0,0.5,0.0, -0.5,-0.5,0.0, 0.5,-0.5,0.0 ]), wgl.STATIC_DRAW);
+  gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, positions);
+  gl.bufferData(wgl.WebGL.ARRAY_BUFFER, new Float32List.fromList([ 0.0,0.5,0.0, -0.5,-0.5,0.0, 0.5,-0.5,0.0 ]), wgl.WebGL.STATIC_DRAW);
 
   var colors = gl.createBuffer();
-  gl.bindBuffer(wgl.ARRAY_BUFFER, colors);
-  gl.bufferData(wgl.ARRAY_BUFFER, new Float32List.fromList([
+  gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, colors);
+  gl.bufferData(wgl.WebGL.ARRAY_BUFFER, new Float32List.fromList([
       0.0,1.0,0.0,1.0,
       0.0,1.0,0.0,1.0,
-      0.0,1.0,0.0,1.0]), wgl.STATIC_DRAW);
+      0.0,1.0,0.0,1.0]), wgl.WebGL.STATIC_DRAW);
 
   setBindLocations(colorLocation, positionLocation) {
     gl.bindAttribLocation(program, positionLocation, "vPosition");
     gl.bindAttribLocation(program, colorLocation, "vColor");
     gl.linkProgram(program);
     gl.useProgram(program);
-    var linked = (gl.getProgramParameter(program, wgl.LINK_STATUS) != 0);
+    var linked = (gl.getProgramParameter(program, wgl.WebGL.LINK_STATUS) != 0);
     assertMsg(linked, "program linked successfully");
 
     debug("vPosition: ${gl.getAttribLocation(program, 'vPosition')}");
@@ -127,25 +124,23 @@ main() {
     assertMsg(gl.getAttribLocation(program, "vColor") == colorLocation,
         "location of vColor should be $colorLocation");
 
-    var ploc = gl.getAttribLocation(program, "vPosition");
-    var cloc = gl.getAttribLocation(program, "vColor");
-    gl.bindBuffer(wgl.ARRAY_BUFFER, positions);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, positions);
     gl.enableVertexAttribArray(positionLocation);
-    gl.vertexAttribPointer(positionLocation, 3, wgl.FLOAT, false, 0, 0);
-    gl.bindBuffer(wgl.ARRAY_BUFFER, colors);
+    gl.vertexAttribPointer(positionLocation, 3, wgl.WebGL.FLOAT, false, 0, 0);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, colors);
     gl.enableVertexAttribArray(colorLocation);
-    gl.vertexAttribPointer(colorLocation, 4, wgl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(colorLocation, 4, wgl.WebGL.FLOAT, false, 0, 0);
   }
 
   checkDraw(colorLocation, positionLocation, r, g, b, a) {
     gl.clearColor(0, 0, 0, 1);
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
-    gl.drawArrays(wgl.TRIANGLES, 0, 3);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
+    gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 3);
 
     var width = 50;
     var height = 50;
     var buf = new Uint8List(width * height * 4);
-    gl.readPixels(0, 0, width, height, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
+    gl.readPixels(0, 0, width, height, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
 
     checkPixel(x, y, r, g, b, a) {
       var offset = (y * width + x) * 4;
@@ -166,7 +161,6 @@ main() {
       success = success && checkPixel(i, 0, 0, 0, 0, 255);
 
     // Line 15 should be red for at least 10 rgba pixels starting 20 pixels in
-    var offset = (15 * 50 + 20) * 4;
     for (var i = 0; i < 10; ++i)
       success = success && checkPixel(20 + i, 15, r, g, b, a);
 
@@ -189,5 +183,5 @@ main() {
   gl.vertexAttrib4f(0, 1, 0, 0, 1);
   checkDraw(0, 3, 255, 0, 0, 255);
 
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 }

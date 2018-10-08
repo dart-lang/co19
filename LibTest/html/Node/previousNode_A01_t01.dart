@@ -14,14 +14,14 @@ import "../../../Utils/expect.dart";
 void check(Node x) {
   Expect.isNull(x.previousNode);
 
-  var body=document.body;
-  var child=body.lastChild;
+  var body = document.body;
+  var child = body.lastChild;
   body.append(x);
   Expect.equals(child, x.previousNode);
 }
 
 main() {
-  List<Node> targets=[
+  List<Node> targets = [
     new Comment("comment"),
     new Text("text"),
     new DocumentFragment(),

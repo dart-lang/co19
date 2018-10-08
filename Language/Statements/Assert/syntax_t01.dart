@@ -16,5 +16,5 @@
  */
 
 main() {
-  assert(false)
+  assert (false)
 }

@@ -32,10 +32,8 @@
  *            except for \b, \B, and backreferences. Inside a CharacterClass, \b
  *            means the backspace character, while \B and backreferences raise
  *            errors. Using a backreference inside a ClassAtom causes an error.
- * @description Checks that using \B inside a ClassAtom causes an error.
+ * @description Checks that using \B inside a ClassAtom doesn't cause an error.
  * @author rodionov
- * @needsreview undocumented behavior on error
- * @reviewer msyabro
  * @note issue 1299
  */
 import "../../../../Utils/expect.dart";
@@ -48,14 +46,7 @@ main() {
   checkNeg(r"(a)[\B]?", "aa");
 }
 
-void checkNeg(String pattern, [String testStr = ""]) {
-  bool fail = false;
-  try {
+void checkNeg(String pattern, [String testStr = ""] ) {
     RegExp re = new RegExp(pattern);
     re.firstMatch(testStr);
-    fail = true;
-  } catch(ok) { } // FIXME
-  if(fail) {
-    Expect.fail("Some exception expected");
-  }
 }

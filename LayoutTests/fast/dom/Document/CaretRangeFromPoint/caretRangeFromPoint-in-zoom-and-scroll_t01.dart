@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../../../../Utils/expect.dart";
-import "../../../../../Utils/async_utils.dart";
 import "../../../../testcommon.dart";
 
 main() {
@@ -43,27 +42,27 @@ main() {
     asyncEnd();
   }
     
-  function checkBase(event)
+  checkBase(event)
   {
     checkNodeAndOffsetFromCaretRangeFromPoint("check base", event);
   }
 
-  function checkScroll(event)
+  checkScroll(event)
   {
     checkNodeAndOffsetFromCaretRangeFromPoint("check scroll", event);
   }
 
-  function checkZoom(event)
+  checkZoom(event)
   {
     checkNodeAndOffsetFromCaretRangeFromPoint("check zoom", event);
   }
 
-  function checkZoomScroll(event)
+  checkZoomScroll(event)
   {
     checkNodeAndOffsetFromCaretRangeFromPoint("check zoom and scroll", event);
   }
 
-  function scrollPage(x, y)
+  scrollPage(x, y)
   {
     window.scrollTo(x.round(), y.round());
   }
@@ -95,7 +94,7 @@ main() {
   // Test zoom.
   asyncStart();
   window.addEventListener("click", checkZoom, false);
-  node.style.zoom = 2.0;
+  node.style.zoom = "2.0";
   rects = range.getClientRects();
   x = rects[0].left;
   y = rects[0].top + rects[0].width / 2;
@@ -108,6 +107,6 @@ main() {
   scrollPage(x, 0);
   sendClick(x, y);
   scrollPage(0, 0);
-  node.style.zoom = 1.0;
+  node.style.zoom = "1.0";
   window.removeEventListener("click", checkZoomScroll, false);
 }

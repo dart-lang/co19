@@ -30,5 +30,7 @@
 import as lib show foo;
 
 main() {
-  someVar = 0;
+  try {
+    someVar = 0;
+  } catch (e) {}
 }

@@ -11,7 +11,6 @@
  * the form e1[e2] = e3 is still returned even if no []= operator was found in
  * the type of e1, as long as noSuchMethod() is overridden and no exception
  * is thrown.
- * @static-warning
  * @author rodionov
  */
 import '../../../Utils/expect.dart';
@@ -26,9 +25,9 @@ class C {
 }
 
 main() {
-  C c = new C();
-  Expect.equals(1, c[1] = 1); /// static type warning - invoking an unknown instance member, see "Ordinary invocation"
-  Expect.equals(2, c[false] = 2); /// static type warning - invoking an unknown instance member, see "Ordinary invocation"
-  Expect.equals("12", c["foo"] = "1" "2"); /// static type warning - invoking an unknown instance member, see "Ordinary invocation"
-  Expect.equals(true, c[-1.11] = 1 < 2); /// static type warning - invoking an unknown instance member, see "Ordinary invocation"
+  dynamic c = new C();
+  Expect.equals(1, c[1] = 1);
+  Expect.equals(2, c[false] = 2);
+  Expect.equals("12", c["foo"] = "1" "2");
+  Expect.equals(true, c[-1.11] = 1 < 2);
 }

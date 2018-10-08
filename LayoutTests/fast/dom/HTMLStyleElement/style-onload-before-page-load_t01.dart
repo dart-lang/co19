@@ -8,15 +8,13 @@
  * before the Load event for the window.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {
   var count=0;
   var expectedLoadEventTargets = ["style", "body"];
 
-  didReceiveLoadEvent(elementName) => (_) {
+  EventListener didReceiveLoadEvent(elementName) => (_) {
     var expectedTarget = expectedLoadEventTargets[count++];
     shouldBe(elementName, expectedTarget);
     if (count == 2)

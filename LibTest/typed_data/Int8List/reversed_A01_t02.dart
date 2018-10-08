@@ -4,26 +4,27 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final Iterable<E> reversed
- * Returns an [Iterable] of the elements of this [List] in reverse order.
- * @description Checks that [reversed] is final and can't be set.
+ * @assertion Iterable<E> reversed
+ * Returns an [Iterable] of the objecs of this list in reverse order.
+ * @description Checks that [reversed] is read-only and can't be set.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
-  var l = new Int8List.fromList(list);
+check(List<int> list) {
+  dynamic l = new Int8List.fromList(list);
   try {
     l.reversed = list;
-    Expect.fail("[reversed] should be final");
-  } on NoSuchMethodError catch(ok) {}
+    Expect.fail("[reversed] should be read-only");
+  } on NoSuchMethodError {}
 }
 
 main() {
   check([]);
-  var list = new List(255);
-  for(int i = 0; i < 255; ++i) {
+  var list = new List<int>(255);
+  for (int i = 0; i < 255; ++i) {
     list[i] = i;
   }
   check(list);

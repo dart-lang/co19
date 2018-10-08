@@ -13,7 +13,6 @@
  * a constructor is declared as a constant variable.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {

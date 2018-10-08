@@ -9,11 +9,10 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
-var NaN = double.NAN;
-var Inf = double.INFINITY;
-var NegInf = double.NEGATIVE_INFINITY;
+var NaN = double.nan;
+var Inf = double.infinity;
+var NegInf = double.negativeInfinity;
 
 main() {
   document.body.setInnerHtml('''
@@ -57,7 +56,7 @@ main() {
     shouldBeList(getPixel(x, y), colour);
   }
 
-  var canvas = document.getElementById("canvas");
+  dynamic canvas = document.getElementById("canvas");
   context = canvas.getContext("2d");
 
   var buffer = context.createImageData(100,100);
@@ -237,7 +236,7 @@ main() {
   shouldThrow(() => context.putImageData(buffer, 0, 0, 0, 0, 0, null));
 
   // Ensure we don't mess up bounds clipping checks
-  var rectcanvas = document.createElement("canvas");
+  dynamic rectcanvas = document.createElement("canvas");
   rectcanvas.width = 20;
   rectcanvas.height = 10;
   var rectbuffer = rectcanvas.getContext("2d");

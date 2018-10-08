@@ -8,8 +8,6 @@
  * Applies f to each {key, value} pair of the map.
  * @description Checks that all mappings are iterated exactly once.
  * @author varlax
- * @reviewer varlax
- * @reviewer msyabro
  */
 library forEach_A01_t01;
 
@@ -21,16 +19,16 @@ test(Map create([Map content])) {
   keys[0] = 0;
   keys[1] = 0;
   List values = new List(2);
-  void f(int i, Object value) {
+  void f(var i, var value) {
     keys[i] += 1;
     values[i] = value;
   }
   
-  Map<int, Object> map = create();
+  Map map = create();
   map[0] = "3";
   map[1] = "5";
   map.forEach(f);
   
-  Expect.isTrue(keys[0]==1 && keys[1]==1);
-  Expect.isTrue(values[0]=="3" && values[1]=="5");    
+  Expect.isTrue(keys[0] == 1 && keys[1] == 1);
+  Expect.isTrue(values[0] == "3" && values[1] == "5");
 }

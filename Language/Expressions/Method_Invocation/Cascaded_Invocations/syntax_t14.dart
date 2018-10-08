@@ -28,6 +28,8 @@ class C {
 }
 
 main() {
-  new C().test();
+  try {
+    new C().test();
+  } catch (e) {}
 }
 

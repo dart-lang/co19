@@ -9,19 +9,18 @@
  * @description Checks that only single event is fired.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
   HttpRequest request = new HttpRequest();
-  HttpRequestUpload upload=request.upload;
-  bool first=true;
+  HttpRequestUpload upload = request.upload;
+  bool first = true;
   request.open('GET', "test.dart");
   asyncStart();
-  upload.onLoadStart.listen((event){
-      Expect.isTrue(first);
-      first=false;
-      asyncEnd();
-    });
+  upload.onLoadStart.listen((event) {
+    Expect.isTrue(first);
+    first = false;
+    asyncEnd();
+  });
   request.send();
 }

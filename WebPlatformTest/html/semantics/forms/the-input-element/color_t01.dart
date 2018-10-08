@@ -53,7 +53,7 @@ void main() {
   for (var i = 0; i < colors.length; i++) {
     var w = colors[i];
     test(() {
-      var input = document.createElement("input");
+      var input = document.createElement("input") as InputElement;
       input.type = "color";
       input.value = w[value];
       assert_equals(input.value, w[expected]);

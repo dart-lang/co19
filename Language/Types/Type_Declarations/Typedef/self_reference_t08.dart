@@ -15,5 +15,7 @@
 typedef F<T extends F>();
 
 main() {
-  F<int> x;
+  try {
+    F<int> x;
+  } catch (e) {}
 }

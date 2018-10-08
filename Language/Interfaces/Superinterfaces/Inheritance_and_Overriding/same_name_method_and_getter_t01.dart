@@ -6,12 +6,11 @@
 /**
  * @assertion It is a static warning if m is a method and m' is a getter, or
  * if m is a getter and m' is a method.
- * @description Checks that there is a static warning if class has a method
- * and its superinterface has getter with the same name
- * @static-warning
+ * @description Checks that there is a compile error if class has a method
+ * and its superinterface has a getter with the same name
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import '../../../../Utils/expect.dart';
 
 class A {
   int get m => 0;
@@ -25,5 +24,5 @@ class C implements A {
 
 main() {
   C c = new C();
-  Expect.equals(1, c.m(), "Method should return correct value");
+  c.m();
 }

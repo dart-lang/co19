@@ -5,19 +5,18 @@
  */
 /**
  * @assertion final bool isNotEmpty
- * Returns true if there is at least one element in this collection.
- * @description Checks various lists, that the method returns false if there is
- * no elements in the list, true otherwise.
+ * Returns [true] if there is at least one element in this collection.
+ * @description Checks various lists, that the method returns [false] if there
+ * is no elements in the list, [true] otherwise.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
-import "dart:collection";
 import "LinkedList.lib.dart";
 
 main() {
   Expect.isFalse(toLinkedList([]).isNotEmpty);
   Expect.isTrue(toLinkedList([null]).isNotEmpty);
-  Expect.isTrue(toLinkedList(const[0,1,2,3,4]).isNotEmpty);
+  Expect.isTrue(toLinkedList(const[0, 1, 2, 3, 4]).isNotEmpty);
   Expect.isTrue(toLinkedList([[]]).isNotEmpty);
 
   Expect.isFalse(toLinkedList(new List.from([])).isNotEmpty);

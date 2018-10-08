@@ -25,7 +25,7 @@
  * T <: S or S <: T.
  * @description Checks that two generic types are not assignable if even one
  * type argument is not assignable.
- * @static-warning
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
  */
@@ -39,5 +39,5 @@ class C<T, S, U> {}
 C<num, double, B> f() {}
 
 main() {
-  C<int, num, A> c = f(); /// static type warning
+  C<int, num, A> c = f();
 }

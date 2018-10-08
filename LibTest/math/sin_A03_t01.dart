@@ -4,19 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double sin(num x)
- * Throws an error if [x] is null.
- * @description Checks that Error is thrown when passed argument is a null.
+ * @assertion double sin(num radians)
+ * Converts [radians] to a double and returns the sine of the value.
+ * @description Checks that Error is thrown when radian is a null (not a
+ * number).
  * @author msyabro
  * @reviewer pagolubev
  * @needsreview undocumented
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
-  Expect.throws( () {
+  Expect.throws(() {
     Math.sin(null);
   });
 }

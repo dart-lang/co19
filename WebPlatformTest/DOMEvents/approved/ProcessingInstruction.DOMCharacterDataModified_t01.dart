@@ -13,8 +13,9 @@
  * after web-platform-tests/DOMEvents/tests/approved/ProcessingInstruction.DOMCharacterDataModified.html
  *
  * @assertion ProcessingInstruction.data and DOMCharacterDataModified event 
- * @description DOMCharacterDataModified event fires after ProcessingInstruction.data have been modified,
- * but the node itself has not been inserted or deleted. The proximal event target of this
+ * @description DOMCharacterDataModified event fires after
+ * ProcessingInstruction.data have been modified, but the node itself has not
+ * been inserted or deleted. The proximal event target of this
  * event shall be the ProcessingInstruction node.
  */
 
@@ -26,15 +27,16 @@ void main() {
 <iframe id="helper" style="display: none"></iframe>
    """, treeSanitizer: NodeTreeSanitizer.trusted);
 
-   var HELPER = document.getElementById("helper");
+   var HELPER = document.getElementById("helper") as IFrameElement;
     
    asyncStart();
   
    HELPER.onLoad.drain().then((v) {
-      assert_true(HELPER.contentWindow.TestResult);
+      dynamic wnd = HELPER.contentWindow;
+      assert_true(wnd.TestResult);
       asyncEnd();
    });
     
-   HELPER.src = //  "./support/ProcessingInstruction.DOMCharacterDataModified.xml";
+   HELPER.src =
    "$testSuiteRoot/DOMEvents/approved/support/ProcessingInstruction.DOMCharacterDataModified.xml";
 }

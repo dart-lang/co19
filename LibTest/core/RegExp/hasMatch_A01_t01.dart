@@ -46,9 +46,10 @@ main() {
   String MarkupSPE = "<(!($DeclCE)?|\\?($PI_CE)?|/($EndTagCE)?|($ElemTagCE)?)";
   String XML_SPE = "$TextSE|$MarkupSPE";
   
-  List<String> patterns = [TextSE, UntilHyphen, Until2Hyphens, CommentCE, UntilRSBs, CDATA_CE, S, NameStrt, NameChar,
-                            Name, QuoteSE, DT_IdentSE, MarkupDeclCE, S1,UntilQMs, PI_Tail, DT_ItemSE, DocTypeCE, DeclCE, 
-                            PI_CE, EndTagCE, AttValSE, ElemTagCE, MarkupSPE, XML_SPE];
+  List<String> patterns = [TextSE, UntilHyphen, Until2Hyphens, CommentCE,
+    UntilRSBs, CDATA_CE, S, NameStrt, NameChar, Name, QuoteSE, DT_IdentSE,
+    MarkupDeclCE, S1,UntilQMs, PI_Tail, DT_ItemSE, DocTypeCE, DeclCE,
+    PI_CE, EndTagCE, AttValSE, ElemTagCE, MarkupSPE, XML_SPE];
   
   String html = """
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -73,10 +74,8 @@ main() {
 </html>
 """;
 
-  //print("Input:\n$html");
   patterns.forEach((String s) {
     RegExp re = new RegExp(s);
-    //print("testing pattern: \"$s\"");
     re.hasMatch(html);
   });
 }

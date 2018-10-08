@@ -6,8 +6,7 @@
 /**
  * @assertion final E last
  * Returns the last element.
- * If this is empty throws a StateError.
- * @description Check that method returns the last element.
+ * @description Checks that method returns the last element.
  * @author kaigorodov
 */
 import "../../../Utils/expect.dart";

@@ -20,10 +20,6 @@ import "../../../../Utils/expectWeb.dart";
 
 void main() {
 
-  var throwingObject = () {
-    throw Error();
-  };
-
   var src="$testSuiteRoot/media/sound_5.mp3";
   
   var tests = [
@@ -34,7 +30,8 @@ void main() {
   ];
 
   tests.forEach((t) {
-    var fn = t[0], expectedSrc = t[1], description = t[2];
+    Function fn = t[0];
+    var expectedSrc = t[1], description = t[2];
     test(() {
       var element = fn();
       assert_equals(element.localName, "audio");
@@ -47,11 +44,5 @@ void main() {
     }, description);
   });
 
-test(() {
-  assert_throws("NoSuchMethodError", () {
-    new AudioElement("", throwingObject);
-  });
-}, "Extra argument");
-  
    checkTestFailures();
 }

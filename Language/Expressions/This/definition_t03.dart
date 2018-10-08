@@ -23,5 +23,7 @@ class A implements this {
 }
 
 main() {
-  new A();
+  try {
+    new A();
+  } catch (e) {}
 }

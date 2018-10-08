@@ -4,28 +4,33 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion num pow(num x, num y)
- * if [y] is Infinity and the absolute value of [x] is greater than 1,
+ * @assertion num pow(num x, num exponent)
+ * For doubles, pow(x, y) handles edge cases as follows:
+ * ...
+ *  - if [y] is Infinity and the absolute value of [x] is greater than 1,
  * the result is Infinity.
- * @description Checks the result when [y] is Infinity and
- * the absolute value of [x] is greater than 1.
+ * @description Checks the result when [y] is Infinity and the absolute value
+ * of [x] is greater than 1.
  * @author pagolubev
  * @reviewer msyabro
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
-  Expect.equals(double.INFINITY, Math.pow(1.0000000000000002, double.INFINITY));
-  Expect.equals(double.INFINITY, Math.pow(-1.0000000000000002, double.INFINITY));
+  Expect.equals(double.infinity, Math.pow(1.0000000000000002, double.infinity));
+  Expect.equals(
+      double.infinity, Math.pow(-1.0000000000000002, double.infinity));
 
-  Expect.equals(double.INFINITY, Math.pow(2, double.INFINITY));
-  Expect.equals(double.INFINITY, Math.pow(-2, double.INFINITY));
+  Expect.equals(double.infinity, Math.pow(2, double.infinity));
+  Expect.equals(double.infinity, Math.pow(-2, double.infinity));
 
-  Expect.equals(double.INFINITY, Math.pow(123.123, double.INFINITY));
-  Expect.equals(double.INFINITY, Math.pow(-123.123, double.INFINITY));
+  Expect.equals(double.infinity, Math.pow(123.123, double.infinity));
+  Expect.equals(double.infinity, Math.pow(-123.123, double.infinity));
 
-  Expect.equals(double.INFINITY, Math.pow(1.7976931348623157e308, double.INFINITY));
-  Expect.equals(double.INFINITY, Math.pow(-1.7976931348623157e308, double.INFINITY));
+  Expect.equals(
+      double.infinity, Math.pow(1.7976931348623157e308, double.infinity));
+  Expect.equals(
+      double.infinity, Math.pow(-1.7976931348623157e308, double.infinity));
 }

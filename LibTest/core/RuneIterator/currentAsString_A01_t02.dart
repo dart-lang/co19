@@ -13,7 +13,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  var it = new RuneIterator('a');
+  dynamic it = new RuneIterator('a');
 
   try {
     it.currentAsString = '1';

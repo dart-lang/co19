@@ -5,12 +5,9 @@
  */
 /**
  * @assertion HashMap.fromIterables(Iterable<K> keys, Iterable<V> values)
- * Creates a HashMap associating the given keys to values.
- * This constructor iterates over keys and values and maps each element of keys
- * to the corresponding element of values.
- * If keys contains the same object multiple times, the last occurrence
- * overwrites the previous value.
- * It is an error if the two Iterables don't have the same length.
+ * Creates a HashMap associating the given [keys] to [values].
+ * This constructor iterates over [keys] and [values] and maps each element of
+ * [keys] to the corresponding element of [values].
  * @description Checks that created hash map contains all elements of the
  * iteratables
  * @author sgrekhov@unipro.ru

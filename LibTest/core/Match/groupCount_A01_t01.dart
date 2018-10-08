@@ -7,12 +7,13 @@
  * @assertion Returns the number of groups in the regular expression. 
  * @description Checks that method returns correct value.
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
-void check(String str, String pattern, int quantity, {bool multiLine: false, bool caseSensitive: true}) {
-  RegExp re = new RegExp(pattern, multiLine: multiLine, caseSensitive: caseSensitive);
+void check(String str, String pattern, int quantity,
+    {bool multiLine: false, bool caseSensitive: true}) {
+  RegExp re = new RegExp(pattern, multiLine: multiLine,
+      caseSensitive: caseSensitive);
   Match m = re.firstMatch(str);
   Expect.equals(quantity, m.groupCount);
 }

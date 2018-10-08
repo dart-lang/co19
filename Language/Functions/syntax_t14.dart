@@ -31,5 +31,7 @@
 f() => if (1 > 0) 1 else 2;
 
 main() {
-  f();
+  try {
+    f();
+  } catch (x) {}
 }

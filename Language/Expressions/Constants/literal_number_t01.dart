@@ -30,8 +30,7 @@ final constList = const [
   92233720368547758080.9223372036854775808E-92233720368547758080,
   0xFF,
   0xFfFfFfFf,
-  0xFFffFFffFFffFFff,
-  0xffffFFffffFFffffFFffffFFffffFFff
+  0xFFffFFffFFffFFff
 ];
 
 main() {

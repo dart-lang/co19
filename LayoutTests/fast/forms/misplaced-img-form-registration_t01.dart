@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -17,4 +16,3 @@ main() {
       <FORM><SELECT><IMG>
       ''', treeSanitizer: new NullTreeSanitizer());
 }
-

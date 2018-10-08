@@ -20,7 +20,7 @@ test(Iterable create([Iterable content])) {
   Iterable s = create([1, -3, 10, 17]);
 
   Set outer = new Set();
-  s.any((num x) {
+  s.any((var x) {
     outer.add(x);
     return false;
   });

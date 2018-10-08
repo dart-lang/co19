@@ -13,7 +13,6 @@
  * then the type of v is known to be T in e2.
  * @description Checks that if e1 shows that v has type T, but v2 is potentially
  * mutated in e2, then the type of v is not known to be T in e2.
- * @static-warning
  * @author ilya
  */
 import '../../../Utils/expect.dart';
@@ -23,7 +22,7 @@ class D extends C {
   f() {}
 }
 
-f(C x) {
+f(var x) {
   x is D ? [x = new C(), x.f() /*throws*/] : null;
 }
 

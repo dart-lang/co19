@@ -14,8 +14,6 @@
  * copied if 'copy children flag' set to true.
  */
 
-import 'dart:html';
-import "../../../Utils/expect.dart";
 import '../testcommon.dart';
 
 main() {
@@ -29,7 +27,8 @@ main() {
   var template = doc.querySelector('#tmpl1');
   var copy = template.clone(true);
 
-  assert_not_equals(copy.content, null, 'Template clone content attribute should not be null');
+  assert_not_equals(copy.content, null,
+      'Template clone content attribute should not be null');
 
   assert_equals(copy.content.childNodes.length, 2,
     'Wrong number of template content\'s copy child nodes');
@@ -52,7 +51,8 @@ main() {
   var template = doc.querySelector('#tmpl1');
   var copy = template.clone(false);
 
-  assert_not_equals(copy.content, null, 'Template clone content attribute is null');
+  assert_not_equals(copy.content, null,
+      'Template clone content attribute is null');
 
   assert_equals(copy.content.childNodes.length, 0,
     'Wrong number of template content\'s copy child nodes');

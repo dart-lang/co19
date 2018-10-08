@@ -5,12 +5,10 @@
  */
 /**
  * @description Test the Blob constructor.
- * @static-warning
  */
 import "dart:html";
 import "dart:typed_data";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   // Test the different ways you can construct a Blob.
@@ -21,8 +19,8 @@ main() {
   shouldBeTrue(new Blob(['hello'], 'text/html', 'transparent') is Blob);
 
   // Test invalid blob parts.
-  shouldThrow(() => new Blob('hello'));
-  shouldThrow(() => new Blob(0));
+  shouldThrow(() => new Blob('hello' as dynamic));
+  shouldThrow(() => new Blob(0 as dynamic));
 
   // Test valid blob parts.
   shouldBeTrue(new Blob([]) is Blob);

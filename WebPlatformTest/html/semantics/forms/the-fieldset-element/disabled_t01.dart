@@ -56,35 +56,53 @@ void main() {
   document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
   test( () {
-    assert_true(document.getElementById('fs').disabled, "The fieldset is disabled");
-    assert_false(document.getElementById('clubname').willValidate, "fieldset is disabled so is input 'clubname'");
-    assert_false(document.getElementById('clubnum').willValidate, "fieldset is disabled so is input 'clubnum'");
-    assert_true(document.getElementById('clubc_l1').willValidate, "input 'clubc_l1' is descendant of the first legend child of the fieldset. It should not be disabled");
-    assert_true(document.getElementById('clubr_l1').willValidate, "input 'clubr_l1' is descendant of the first legend child of the fieldset. It should not be disabled");
-    assert_true(document.getElementById('clubt_l1').willValidate, "input 'clubt_l1' is descendant of the first legend child of the fieldset. It should not be disabled");
-    assert_false(document.getElementById('club_l2').willValidate, "input 'club_l2' is a descendant of the second legend child of the fieldset. It should be disabled");
+    assert_true((document.getElementById('fs') as FieldSetElement).disabled,
+        "The fieldset is disabled");
+    assert_false((document.getElementById('clubname') as InputElement).willValidate, 
+        "fieldset is disabled so is input 'clubname'");
+    assert_false((document.getElementById('clubnum') as InputElement).willValidate, 
+        "fieldset is disabled so is input 'clubnum'");
+    assert_true((document.getElementById('clubc_l1') as InputElement).willValidate,
+        "input 'clubc_l1' is descendant of the first legend child of the fieldset. It should not be disabled");
+    assert_true((document.getElementById('clubr_l1') as InputElement).willValidate,
+        "input 'clubr_l1' is descendant of the first legend child of the fieldset. It should not be disabled");
+    assert_true((document.getElementById('clubt_l1') as InputElement).willValidate,
+        "input 'clubt_l1' is descendant of the first legend child of the fieldset. It should not be disabled");
+    assert_false((document.getElementById('club_l2') as InputElement).willValidate,
+        "input 'club_l2' is a descendant of the second legend child of the fieldset. It should be disabled");
   }, "The disabled attribute, when specified, causes all the form control descendants of the fieldset element, excluding those that are descendants of the fieldset element's first legend element child, if any, to be disabled.");
 
   test( () {
-    assert_true(document.getElementById('fs2').disabled, "The fieldset is disabled");
-    assert_false(document.getElementById('clubname2').willValidate, "fieldset is disabled so is input 'clubname2'");
-    assert_false(document.getElementById('clubnum2').willValidate, "fieldset is disabled so is input 'clubnum2'");
-    assert_false(document.getElementById('club2').willValidate, "the first legend is not a child of the disbled fieldset: input 'club2' is disabled");
+    assert_true((document.getElementById('fs2') as FieldSetElement).disabled,
+        "The fieldset is disabled");
+    assert_false((document.getElementById('clubname2') as InputElement).willValidate,
+        "fieldset is disabled so is input 'clubname2'");
+    assert_false((document.getElementById('clubnum2') as InputElement).willValidate,
+        "fieldset is disabled so is input 'clubnum2'");
+    assert_false((document.getElementById('club2') as InputElement).willValidate,
+        "the first legend is not a child of the disbled fieldset: input 'club2' is disabled");
   }, "The first 'legend' element is not a child of the disabled fieldset: Its descendants should be disabled.");
 
   test( () {
-    assert_true(document.getElementById('fs3').disabled, "The fieldset is disabled");
-    assert_false(document.getElementById('clubname3').willValidate, "fieldset is disabled so is input 'clubname3'");
-    assert_false(document.getElementById('clubnum3').willValidate, "fieldset is disabled so is input 'clubnum3'");
-    assert_false(document.getElementById('club3').willValidate,
+    assert_true((document.getElementById('fs3') as FieldSetElement).disabled,
+        "The fieldset is disabled");
+    assert_false((document.getElementById('clubname3') as InputElement).willValidate,
+        "fieldset is disabled so is input 'clubname3'");
+    assert_false((document.getElementById('clubnum3') as InputElement).willValidate,
+        "fieldset is disabled so is input 'clubnum3'");
+    assert_false((document.getElementById('club3') as InputElement).willValidate,
        "the first legend is not a child of the disbled fieldset: input 'club3' is disabled");
   }, "The <legend> element is not a child of the disabled fieldset: Its descendants should be disabled.");
 
   test( () {
-    assert_true(document.getElementById('fs4').disabled, "The fieldset is disabled");
-    assert_false(document.getElementById('clubname4').willValidate, "fieldset is disabled so is input 'clubname4'");
-    assert_false(document.getElementById('clubnum4').willValidate, "fieldset is disabled so is input 'clubnum4'");
-    assert_true(document.getElementById('club4').willValidate, "the first legend a child of the disbled fieldset: input 'club4' is disabled");
+    assert_true((document.getElementById('fs4') as FieldSetElement).disabled,
+        "The fieldset is disabled");
+    assert_false((document.getElementById('clubname4') as InputElement).willValidate,
+        "fieldset is disabled so is input 'clubname4'");
+    assert_false((document.getElementById('clubnum4') as InputElement).willValidate,
+        "fieldset is disabled so is input 'clubnum4'");
+    assert_true((document.getElementById('club4') as InputElement).willValidate,
+        "the first legend a child of the disbled fieldset: input 'club4' is disabled");
   }, "The <legend> element is child of the disabled fieldset: Its descendants should be disabled.");
 
   checkTestFailures();

@@ -12,9 +12,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -46,7 +43,7 @@ main() {
   var gl = initWebGL("example", "vshader", "fshader", [ "vPosition"], [ 0, 0, 0, 1 ], 1);
 
   for (var ii = 2; ii <= 4; ++ii) {
-    var program = gl.getParameter(wgl.CURRENT_PROGRAM);
+    var program = gl.getParameter(wgl.WebGL.CURRENT_PROGRAM);
     var loc = gl.getUniformLocation(program, "world$ii");
     var matLess = new Float32List(ii*ii-1);
     var mat = new Float32List(ii*ii);
@@ -60,15 +57,15 @@ main() {
       case 4: func = gl.uniformMatrix4fv; break;
     }
     func(loc, false, matLess);
-    glErrorShouldBe(gl, wgl.INVALID_VALUE, "should fail with insufficient array size for " + name);
+    glErrorShouldBe(gl, wgl.WebGL.INVALID_VALUE, "should fail with insufficient array size for " + name);
     func(loc, false, mat);
-    glErrorShouldBe(gl, wgl.NO_ERROR, "should succeed with correct array size for " + name);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "should succeed with correct array size for " + name);
     func(loc, false, matMore);
-    glErrorShouldBe(gl, wgl.INVALID_VALUE, "should fail with more than 1 array size for " + name);
+    glErrorShouldBe(gl, wgl.WebGL.INVALID_VALUE, "should fail with more than 1 array size for " + name);
     func(loc, false, mat);
-    glErrorShouldBe(gl, wgl.NO_ERROR, "can call " + name + "with transpose = false");
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "can call " + name + "with transpose = false");
     //according to OpenGL ES 2.0 spec:
     func(loc, true, mat);
-    glErrorShouldBe(gl, wgl.INVALID_VALUE, name + " should return INVALID_VALUE with transpose = true");
+    glErrorShouldBe(gl, wgl.WebGL.INVALID_VALUE, name + " should return INVALID_VALUE with transpose = true");
   }
 }

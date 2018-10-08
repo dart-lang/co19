@@ -6,15 +6,16 @@
 /**
  * @assertion It is a static warning if the specified URI of a deferred import
  * does not refer to a library declaration.
- * @description Checks that it is a static type warning if the URI in a
+ * @description Checks that it is a compile error if the URI in a
  * deferred import directive refers to a part declaration which is not a
  * library declaration.
+ * @compile-error
  * @author ngl@unipro.ru
  */
 
 library my_lib;
-import "invalid_uri_t01_part.dart" deferred as p; /// 01: static type warning
+import "invalid_uri_t01_part.dart" deferred as p;
 
 main() {
-  p.foo = 'abc'; /// 01: runtime error
+  p.foo = 'abc';
 }

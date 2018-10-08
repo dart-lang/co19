@@ -6,7 +6,6 @@
 /**
  * @description Each form control in this document exposes a validity attribute
  * that returns a live instance of ValidityState.
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
@@ -24,11 +23,11 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   List<Node> controls = document.getElementsByName("victim");
-  for (var i = 0; i < controls.length; ++i) {
-    debug('===> Tests for ' + controls[i].tagName);
+  for (int i = 0; i < controls.length; ++i) {
+    debug('===> Tests for ' + (controls[i] as Element).tagName);
     var validity1, validity2;
-    validity1 = controls[i].validity;
-    validity2 = controls[i].validity;
+    validity1 = (controls[i] as dynamic).validity;
+    validity2 = (controls[i] as dynamic).validity;
     shouldBeTrue(validity1 is ValidityState);
     shouldBe(validity1, validity2);
   }

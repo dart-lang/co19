@@ -17,7 +17,6 @@
 import "dart:isolate";
 import "dart:async";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 void entryPoint(SendPort sendPort) {
   sendPort.send("response");
@@ -28,7 +27,7 @@ test() async {
   ReceivePort receivePort = new ReceivePort();
   receivePort.listen(
       (data) {
-        Expect.isFalse(paused, "Isolate should be in paused state");
+        Expect.isFalse(paused, "Isolate should not be in paused state");
         Expect.equals("response", data);
         asyncEnd();
         receivePort.close();

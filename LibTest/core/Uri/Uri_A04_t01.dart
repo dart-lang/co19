@@ -13,9 +13,7 @@
  * 443 respectively is set.
  * @description Checks ports normalization
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

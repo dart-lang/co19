@@ -16,5 +16,8 @@
 class set {}
 
 main() {
-  null is set;
+  try {
+    null is set;
+  } catch (anything) {
+  }
 }

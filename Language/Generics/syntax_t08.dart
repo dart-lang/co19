@@ -22,5 +22,7 @@
 class C<T, >{}
 
 main() {
-  new C();
+  try {
+    new C();
+  } catch (x) {}
 }

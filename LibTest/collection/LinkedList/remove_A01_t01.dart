@@ -5,31 +5,41 @@
  */
 /**
  * @assertion bool remove(E entry)
- * Remove entry from the list. This is the same as calling entry.unlink().
- * If entry is not in the list, false is returned.
+ * Remove [entry] from the linked list.
+ * @description Checks that [remove] removes element from the linked list.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
 import "LinkedList.lib.dart";
 
-check(LinkedList<MyLinkedListEntry<Object>> llist, MyLinkedListEntry<Object> entry, bool expected) {
-  var l1=llist.length;
-  bool r = llist.remove(entry);
-  if (expected) {
-     Expect.isTrue(r);
-     Expect.equals(l1-1, llist.length);
-  } else {
-     Expect.isFalse(r);
-     Expect.equals(l1, llist.length);
-  }
+check(LinkedList<MyLinkedListEntry> llist,
+    MyLinkedListEntry<Object> entry) {
+  int length = llist.length;
+  List initial = llist.toList();
+
+  llist.remove(entry);
+  Expect.equals(length - 1, llist.length);
+  Expect.isFalse(llist.contains(entry));
+  initial.forEach((var entry) {
+    Expect.isTrue(initial.contains(entry));
+  });
 }
 
 main() {
-  LinkedList<MyLinkedListEntry<Object>> a = new LinkedList<MyLinkedListEntry<Object>>();
-  check(a, new MyLinkedListEntry<Object>(2), false);
-  MyLinkedListEntry<Object> entry=new MyLinkedListEntry<Object>(2);
+  LinkedList<MyLinkedListEntry> a = new LinkedList<MyLinkedListEntry>();
+  MyLinkedListEntry entry = new MyLinkedListEntry(2);
   a.add(entry);
-  check(a, entry, true);
-  check(a, entry, false);
+  check(a, entry);
+
+  a.add(new MyLinkedListEntry(28));
+  a.add(new MyLinkedListEntry(2));
+  a.add(new MyLinkedListEntry(2));
+  a.add(entry);
+  a.add(new MyLinkedListEntry(-11));
+  a.add(new MyLinkedListEntry(0));
+  check(a, entry);
+
+  a.add(entry);
+  check(a, entry);
 }

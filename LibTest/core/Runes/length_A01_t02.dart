@@ -13,9 +13,9 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  var runes = new Runes('');
+  dynamic runes = new Runes('');
   try {
-    runes.length = 1;
+  runes.length = 1;
     Expect.fail('[length] should be final');
   } on NoSuchMethodError catch (ok) {}
 

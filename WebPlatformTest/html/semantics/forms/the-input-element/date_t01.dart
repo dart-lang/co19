@@ -32,19 +32,19 @@ const String htmlEL='''
     </div>
 ''';
 
-const String value='value';
-const String expected='expected';
-const String testname='testname';
+const String value = 'value';
+const String expected = 'expected';
+const String testname = 'testname';
 
 void main() {
   document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
-  InputElement valid=document.getElementById("valid");
-  InputElement too_small_value=document.getElementById("too_small_value");
-  InputElement too_large_value=document.getElementById("too_large_value");
-  InputElement invalid_min=document.getElementById("invalid_min");
-  InputElement invalid_max=document.getElementById("invalid_max");
-  InputElement min_larger_than_max=document.getElementById("min_larger_than_max");
-  InputElement invalid_value=document.getElementById("invalid_value");
+  InputElement valid = document.getElementById("valid");
+  InputElement too_small_value = document.getElementById("too_small_value");
+  InputElement too_large_value = document.getElementById("too_large_value");
+  InputElement invalid_min = document.getElementById("invalid_min");
+  InputElement invalid_max = document.getElementById("invalid_max");
+  InputElement min_larger_than_max = document.getElementById("min_larger_than_max");
+  InputElement invalid_value = document.getElementById("invalid_value");
 
   test(() {
     assert_equals(valid.type, "date");
@@ -103,7 +103,7 @@ void main() {
       {value: "2016-02-29", expected: "2016-02-29", testname: "2016 is a leap year: February has 29 days"}
     ];
     for (var numDay in numDays) {
-      var input = document.createElement("input");
+      var input = document.createElement("input") as InputElement;
       input.type = "date";
       input.value = numDay[value];
       assert_equals(input.value, numDay[expected], numDay[testname]);

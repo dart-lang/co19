@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   testCrossfade(css, queryProp)
@@ -28,7 +26,7 @@ main() {
   // Valid
 
   shouldBe(testCrossfade("opacity: 500%", "opacity"), "1");
-  shouldBe(testCrossfade("background-image: -webkit-cross-fade(url(\"\"dummy://example.png\"\"), url(\"\"dummy://example.png\"\"), 50%)", "background-image"), "-webkit-cross-fade(url(\"\"dummy://example.png\"\"), url(\"\"dummy://example.png\"\"), 0.5)");
+  shouldBe(testCrossfade("background-image: -webkit-cross-fade(url(\"dummy://example.png\"), url(\"dummy://example.png\"), 50%)", "background-image"), "-webkit-cross-fade(url(\"dummy://example.png\"), url(\"dummy://example.png\"), 0.5)");
   shouldBe(testCrossfade("background-image: -webkit-cross-fade(-webkit-cross-fade(url(dummy://a.png), url(dummy://b.png), 25%), url(\"dummy://example.png\"), 50%)", "background-image"), "-webkit-cross-fade(-webkit-cross-fade(url(dummy://a.png), url(dummy://b.png), 0.25), url(\"dummy://example.png\"), 0.5)");
   shouldBe(testCrossfade("background-image: -webkit-cross-fade(url(dummy://c.png), -webkit-cross-fade(url(dummy://a.png), url(dummy://b.png), 25%), 50%)", "background-image"), "-webkit-cross-fade(url(dummy://c.png), -webkit-cross-fade(url(dummy://a.png), url(dummy://b.png), 0.25), 0.5)");
   shouldBe(testCrossfade("background-image: -webkit-cross-fade(-webkit-linear-gradient(black, white), url(\"dummy://example.png\"), 10%)", "background-image"), "-webkit-cross-fade(-webkit-linear-gradient(top, black, white), url(\"dummy://example.png\"), 0.1)");

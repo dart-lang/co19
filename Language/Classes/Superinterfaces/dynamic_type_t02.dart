@@ -10,7 +10,6 @@
  * in the type list of a class's implements clause.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 abstract class I {}
@@ -19,5 +18,7 @@ abstract class J {}
 class A implements I, dynamic, J {}
 
 main() {
-  new A();
+  try {
+    new A();
+  } catch (e) {}
 }

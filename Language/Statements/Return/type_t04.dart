@@ -18,16 +18,16 @@
  * @author a.semenov@unipro.ru
   */
 import 'dart:async';
-import '../../../Utils/async_utils.dart';
+import '../../../Utils/expect.dart';
 
 abstract class I {}
 class S implements I {}
 class C extends S {}
 
-Future<S> foo() async {  return new C(); }
+Future<S> foo() async {  return new S(); }
 Future<I> foo2() async { return new C(); }
-Future<C> bar() async {  return new S(); }
-bar2() async { return new C(); }
+Future<C> bar() async {  return new C(); }
+Future bar2() async { return new C(); }
 
 main() {
   asyncStart();

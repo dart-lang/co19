@@ -7,8 +7,6 @@
  * @assertion Constructs a map with the default implementation.
  * @description Checks that map can be created with key of function type.
  * @author msyabro
- * @reviewer varlax
- * @reviewer iefremov
  */
  
 typedef void SomeFunction();

@@ -31,8 +31,7 @@ typedef int _Bar<A, B>(A a, [B b]);
 
 main() {
   _Foo foo = () {return;};
-  _Bar bar = (int a, [bool b]) {return 0;};
-  _Bar akbar = (int a, [bool b]) => 0;
-  _Baz baz = (_Bar b, [int i]) {};
+  _Bar<int, bool> bar = (int a, [bool b]) {return 0;};
+  _Bar<int, bool> akbar = (int a, [bool b]) => 0;
 }
 

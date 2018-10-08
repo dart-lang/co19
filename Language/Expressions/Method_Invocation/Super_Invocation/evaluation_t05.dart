@@ -21,25 +21,20 @@
  * the bindings that resulted from the evaluation of the argument list, and
  * with this bound to the current value of this. The value of i is the value
  * returned after f is executed.
- * @description Checks that the method lookup fails if a form super.m() has a
+ * @description Checks that it's a compile error if a form super.m() has a
  * parameters mismatch listed above with the enclosing class's instance method.
- * @static-warning
+ * Test less positional parameters
+ * @compile-error
  * @author ilya
  */
-import '../../../../Utils/expect.dart';
 
 class S {
   positional(x, y, [u, v]) {}
-  named(x, y, {foo, bar}) {}
 }
 
 class C extends S {
   test() {
-    Expect.throws(() => super.positional(1));   /// static type warning
-    Expect.throws(() => super.positional(1, 2, 3, 4, 5)); /// static type warning
-    Expect.throws(() => super.named(1));  /// static type warning
-    Expect.throws(() => super.named(1, 2, 3));  /// static type warning
-    Expect.throws(() => super.named(1, 2, foo:0, a:1)); /// static type warning
+    super.positional(1);
   }
 }
 

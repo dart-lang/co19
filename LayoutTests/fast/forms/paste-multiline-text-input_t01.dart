@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -16,8 +15,8 @@ main() {
       <input id=inputId size=60 /><br>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  getInput() {
-    return document.getElementById('inputId');
+  InputElement getInput() {
+    return document.getElementById('inputId') as InputElement;
   }
 
   jsEscape(s) {
@@ -52,7 +51,7 @@ main() {
   var TEST_NAME_3 = "Trailing newline test";
 
   testInputField(input_value, expected) {
-    var input = getInput();
+    InputElement input = getInput();
     input.focus();
     document.execCommand("SelectAll", false, null);
     document.execCommand("InsertText", false, input_value);

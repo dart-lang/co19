@@ -10,7 +10,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var body = document.body;
@@ -26,7 +25,7 @@ main() {
     Expect.equals(Event.BUBBLING_PHASE, e.eventPhase);
     asyncEnd();
   });
-  
+
   Element.clickEvent.forElement(div).listen((e) {
     Expect.equals(Event.AT_TARGET, e.eventPhase);
     asyncEnd();

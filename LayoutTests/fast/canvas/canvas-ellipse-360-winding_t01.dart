@@ -10,10 +10,9 @@
 import "dart:html";
 import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   document.body.append(canvas);
   canvas.setAttribute('width', '300');
   canvas.setAttribute('height', '150');
@@ -24,7 +23,7 @@ main() {
   ctx.beginPath();
   for (r = 200; r >= 10; r -= 10) {
     ctx.moveTo(150 + r, 75);
-    ctx.ellipse(150, 75, r, r * 1.2, 0, 0, Math.PI * 2, anticlockwise);
+    ctx.ellipse(150, 75, r, r * 1.2, 0, 0, Math.pi * 2, anticlockwise);
     ctx.closePath();
     anticlockwise = !anticlockwise;
   }

@@ -13,8 +13,6 @@ import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "resources/desktop-gl-constants.dart";
-import "../../../../Utils/async_utils.dart";
 
 class _State {
   var vao;
@@ -44,7 +42,7 @@ main() {
       </script>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById("canvas");
+  dynamic canvas = document.getElementById("canvas");
   var gl = create3DContext(canvas);
   var ext = null;
   var vao = null;
@@ -73,7 +71,7 @@ main() {
     var VERTEX_ARRAY_BINDING_OES = 0x85B5;
 
     gl.getParameter(VERTEX_ARRAY_BINDING_OES);
-    glErrorShouldBe(gl, wgl.INVALID_ENUM, "VERTEX_ARRAY_BINDING_OES should not be queryable if extension is disabled");
+    glErrorShouldBe(gl, wgl.WebGL.INVALID_ENUM, "VERTEX_ARRAY_BINDING_OES should not be queryable if extension is disabled");
   }
 
   runBindingTestEnabled() {
@@ -82,7 +80,7 @@ main() {
     shouldBe(wgl.OesVertexArrayObject.VERTEX_ARRAY_BINDING_OES, 0x85B5);
 
     gl.getParameter(wgl.OesVertexArrayObject.VERTEX_ARRAY_BINDING_OES);
-    glErrorShouldBe(gl, wgl.NO_ERROR, "VERTEX_ARRAY_BINDING_OES query should succeed if extension is enable");
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "VERTEX_ARRAY_BINDING_OES query should succeed if extension is enable");
 
     // Default value is null
     if (gl.getParameter(wgl.OesVertexArrayObject.VERTEX_ARRAY_BINDING_OES) == null) {
@@ -97,20 +95,20 @@ main() {
     shouldBeNull(gl.getParameter(wgl.OesVertexArrayObject.VERTEX_ARRAY_BINDING_OES));
     ext.bindVertexArray(vao0);
     if (gl.getParameter(wgl.OesVertexArrayObject.VERTEX_ARRAY_BINDING_OES) == vao0) {
-      testPassed("gl.getParameter(wgl.OesVertexArrayObject.VERTEX_ARRAY_BINDING_OES) is expected VAO");
+      testPassed("gl.getParameter(wgl.WebGL.OesVertexArrayObject.VERTEX_ARRAY_BINDING_OES) is expected VAO");
     } else {
-      testFailed("gl.getParameter(wgl.OesVertexArrayObject.VERTEX_ARRAY_BINDING_OES) is not expected VAO");
+      testFailed("gl.getParameter(wgl.WebGL.OesVertexArrayObject.VERTEX_ARRAY_BINDING_OES) is not expected VAO");
     }
     ext.bindVertexArray(vao1);
     if (gl.getParameter(wgl.OesVertexArrayObject.VERTEX_ARRAY_BINDING_OES) == vao1) {
-      testPassed("gl.getParameter(wgl.OesVertexArrayObject.VERTEX_ARRAY_BINDING_OES) is expected VAO");
+      testPassed("gl.getParameter(wgl.WebGL.OesVertexArrayObject.VERTEX_ARRAY_BINDING_OES) is expected VAO");
     } else {
-      testFailed("gl.getParameter(wgl.OesVertexArrayObject.VERTEX_ARRAY_BINDING_OES) is not expected VAO");
+      testFailed("gl.getParameter(wgl.WebGL.OesVertexArrayObject.VERTEX_ARRAY_BINDING_OES) is not expected VAO");
     }
     ext.deleteVertexArray(vao1);
     shouldBeNull(gl.getParameter(wgl.OesVertexArrayObject.VERTEX_ARRAY_BINDING_OES));
     ext.bindVertexArray(vao1);
-    glErrorShouldBe(gl, wgl.INVALID_OPERATION, "binding a deleted vertex array object");
+    glErrorShouldBe(gl, wgl.WebGL.INVALID_OPERATION, "binding a deleted vertex array object");
     ext.bindVertexArray(null);
     shouldBeNull(gl.getParameter(wgl.OesVertexArrayObject.VERTEX_ARRAY_BINDING_OES));
     ext.deleteVertexArray(vao1);
@@ -120,7 +118,7 @@ main() {
     debug("Testing object creation");
 
     vao = ext.createVertexArray();
-    glErrorShouldBe(gl, wgl.NO_ERROR, "createVertexArray should not set an error");
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "createVertexArray should not set an error");
     shouldBeNonNull(vao);
 
     // Expect false if never bound
@@ -142,10 +140,10 @@ main() {
 
     var states = [];
 
-    var attrCount = gl.getParameter(wgl.MAX_VERTEX_ATTRIBS);
+    var attrCount = gl.getParameter(wgl.WebGL.MAX_VERTEX_ATTRIBS);
     for (var n = 0; n < attrCount; n++) {
-      gl.bindBuffer(wgl.ARRAY_BUFFER, null);
-      gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, null);
+      gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, null);
+      gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, null);
 
       var state = new _State();
       states.add(state);
@@ -161,16 +159,16 @@ main() {
 
       if (n % 2 == 0) {
         var buffer = state.buffer = gl.createBuffer();
-        gl.bindBuffer(wgl.ARRAY_BUFFER, buffer);
-        gl.bufferData(wgl.ARRAY_BUFFER, 1024, wgl.STATIC_DRAW);
+        gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, buffer);
+        gl.bufferData(wgl.WebGL.ARRAY_BUFFER, 1024, wgl.WebGL.STATIC_DRAW);
 
-        gl.vertexAttribPointer(n, 1 + n % 4, wgl.FLOAT, true, n * 4, n * 4);
+        gl.vertexAttribPointer(n, 1 + n % 4, wgl.WebGL.FLOAT, true, n * 4, n * 4);
       }
 
       if (n % 2 == 0) {
         var elbuffer = state.elbuffer = gl.createBuffer();
-        gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, elbuffer);
-        gl.bufferData(wgl.ELEMENT_ARRAY_BUFFER, 1024, wgl.STATIC_DRAW);
+        gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, elbuffer);
+        gl.bufferData(wgl.WebGL.ELEMENT_ARRAY_BUFFER, 1024, wgl.WebGL.STATIC_DRAW);
       }
 
       ext.bindVertexArray(null);
@@ -182,7 +180,7 @@ main() {
 
       ext.bindVertexArray(state.vao);
 
-      var isEnabled = gl.getVertexAttrib(n, wgl.VERTEX_ATTRIB_ARRAY_ENABLED);
+      var isEnabled = gl.getVertexAttrib(n, wgl.WebGL.VERTEX_ATTRIB_ARRAY_ENABLED);
       if ((n % 2 == 1) || isEnabled) {
         // Valid
       } else {
@@ -190,15 +188,15 @@ main() {
         anyMismatch = true;
       }
 
-      var buffer = gl.getVertexAttrib(n, wgl.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING);
+      var buffer = gl.getVertexAttrib(n, wgl.WebGL.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING);
       if (n % 2 == 0) {
         if (buffer == state.buffer) {
           // Matched
-          if ((gl.getVertexAttrib(n, wgl.VERTEX_ATTRIB_ARRAY_SIZE) == 1 + n % 4) &&
-              (gl.getVertexAttrib(n, wgl.VERTEX_ATTRIB_ARRAY_TYPE) == wgl.FLOAT) &&
-              (gl.getVertexAttrib(n, wgl.VERTEX_ATTRIB_ARRAY_NORMALIZED) == true) &&
-              (gl.getVertexAttrib(n, wgl.VERTEX_ATTRIB_ARRAY_STRIDE) == n * 4) &&
-              (gl.getVertexAttribOffset(n, wgl.VERTEX_ATTRIB_ARRAY_POINTER) == n * 4)) {
+          if ((gl.getVertexAttrib(n, wgl.WebGL.VERTEX_ATTRIB_ARRAY_SIZE) == 1 + n % 4) &&
+              (gl.getVertexAttrib(n, wgl.WebGL.VERTEX_ATTRIB_ARRAY_TYPE) == wgl.WebGL.FLOAT) &&
+              (gl.getVertexAttrib(n, wgl.WebGL.VERTEX_ATTRIB_ARRAY_NORMALIZED) == true) &&
+              (gl.getVertexAttrib(n, wgl.WebGL.VERTEX_ATTRIB_ARRAY_STRIDE) == n * 4) &&
+              (gl.getVertexAttribOffset(n, wgl.WebGL.VERTEX_ATTRIB_ARRAY_POINTER) == n * 4)) {
                 // Matched
               } else {
                 testFailed("VERTEX_ATTRIB_ARRAY_* not preserved");
@@ -216,7 +214,7 @@ main() {
         }
       }
 
-      var elbuffer = gl.getParameter(wgl.ELEMENT_ARRAY_BUFFER_BINDING);
+      var elbuffer = gl.getParameter(wgl.WebGL.ELEMENT_ARRAY_BUFFER_BINDING);
       if (n % 2 == 0) {
         if (elbuffer == state.elbuffer) {
           // Matched
@@ -254,7 +252,7 @@ main() {
     ext.bindVertexArray(null);
     gl.vertexAttrib4f(0, 0, 1, 2, 3);
 
-    v = gl.getVertexAttrib(0, wgl.CURRENT_VERTEX_ATTRIB);
+    v = gl.getVertexAttrib(0, wgl.WebGL.CURRENT_VERTEX_ATTRIB);
     if (!(v[0] == 0 && v[1] == 1 && v[2] == 2 && v[3] == 3)) {
       testFailed("Vertex attrib value not round-tripped?");
       anyFailed = true;
@@ -262,7 +260,7 @@ main() {
 
     ext.bindVertexArray(vao0);
 
-    v = gl.getVertexAttrib(0, wgl.CURRENT_VERTEX_ATTRIB);
+    v = gl.getVertexAttrib(0, wgl.WebGL.CURRENT_VERTEX_ATTRIB);
     if (!(v[0] == 0 && v[1] == 1 && v[2] == 2 && v[3] == 3)) {
       testFailed("Vertex attrib value reset across bindings");
       anyFailed = true;
@@ -271,7 +269,7 @@ main() {
     gl.vertexAttrib4f(0, 4, 5, 6, 7);
     ext.bindVertexArray(null);
 
-    v = gl.getVertexAttrib(0, wgl.CURRENT_VERTEX_ATTRIB);
+    v = gl.getVertexAttrib(0, wgl.WebGL.CURRENT_VERTEX_ATTRIB);
     if (!(v[0] == 4 && v[1] == 5 && v[2] == 6 && v[3] == 7)) {
       testFailed("Vertex attrib value bound to buffer");
       anyFailed = true;
@@ -300,33 +298,33 @@ main() {
       var opt_positionLocation = 0;
       var opt_texcoordLocation = 1;
       var vertexObject = gl.createBuffer();
-      gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
-      gl.bufferData(wgl.ARRAY_BUFFER, new Float32List.fromList([
+      gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
+      gl.bufferData(wgl.WebGL.ARRAY_BUFFER, new Float32List.fromList([
             1.0 * s,  1.0 * s, 0.0,
             -1.0 * s,  1.0 * s, 0.0,
             -1.0 * s, -1.0 * s, 0.0,
             1.0 * s,  1.0 * s, 0.0,
             -1.0 * s, -1.0 * s, 0.0,
-            1.0 * s, -1.0 * s, 0.0]), wgl.STATIC_DRAW);
+            1.0 * s, -1.0 * s, 0.0]), wgl.WebGL.STATIC_DRAW);
       gl.enableVertexAttribArray(opt_positionLocation);
-      gl.vertexAttribPointer(opt_positionLocation, 3, wgl.FLOAT, false, 0, 0);
+      gl.vertexAttribPointer(opt_positionLocation, 3, wgl.WebGL.FLOAT, false, 0, 0);
 
       vertexObject = gl.createBuffer();
-      gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
-      gl.bufferData(wgl.ARRAY_BUFFER, new Float32List.fromList([
+      gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
+      gl.bufferData(wgl.WebGL.ARRAY_BUFFER, new Float32List.fromList([
             1.0 * s, 1.0 * s,
             0.0 * s, 1.0 * s,
             0.0 * s, 0.0 * s,
             1.0 * s, 1.0 * s,
             0.0 * s, 0.0 * s,
-            1.0 * s, 0.0 * s]), wgl.STATIC_DRAW);
+            1.0 * s, 0.0 * s]), wgl.WebGL.STATIC_DRAW);
       gl.enableVertexAttribArray(opt_texcoordLocation);
-      gl.vertexAttribPointer(opt_texcoordLocation, 2, wgl.FLOAT, false, 0, 0);
+      gl.vertexAttribPointer(opt_texcoordLocation, 2, wgl.WebGL.FLOAT, false, 0, 0);
     };
 
     readLocation(x, y) {
       var pixels = new Uint8List(1 * 1 * 4);
-      gl.readPixels(x, y, 1, 1, wgl.RGBA, wgl.UNSIGNED_BYTE, pixels);
+      gl.readPixels(x, y, 1, 1, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, pixels);
       return pixels;
     };
     testPixel(blackList, whiteList) {
@@ -390,15 +388,15 @@ main() {
     gl.useProgram(program);
 
     var positionBuffer = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, positionBuffer);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, positionBuffer);
     gl.bufferData(
-        wgl.ARRAY_BUFFER,
+        wgl.WebGL.ARRAY_BUFFER,
         new Float32List.fromList([
           1.0,  1.0,
           -1.0,  1.0,
           -1.0, -1.0,
           1.0, -1.0]),
-        wgl.STATIC_DRAW);
+        wgl.WebGL.STATIC_DRAW);
 
     var colors = [
       [255,   0,   0, 255],
@@ -414,32 +412,32 @@ main() {
       vaos.add(vao);
       ext.bindVertexArray(vao);
       // Set the position buffer
-      gl.bindBuffer(wgl.ARRAY_BUFFER, positionBuffer);
+      gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, positionBuffer);
       gl.enableVertexAttribArray(0);
-      gl.vertexAttribPointer(0, 2, wgl.FLOAT, false, 0, 0);
+      gl.vertexAttribPointer(0, 2, wgl.WebGL.FLOAT, false, 0, 0);
 
       var elementBuffer = gl.createBuffer();
       elementBuffers.add(elementBuffer);
-      gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, elementBuffer);
+      gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, elementBuffer);
       gl.bufferData(
-          wgl.ELEMENT_ARRAY_BUFFER,
+          wgl.WebGL.ELEMENT_ARRAY_BUFFER,
           new Uint8List.fromList([0, 1, 2, 0, 2, 3]),
-          wgl.STATIC_DRAW);
+          wgl.WebGL.STATIC_DRAW);
 
       // Setup the color attrib
       var color = colors[ii];
       if (ii < 3) {
         var colorBuffer = gl.createBuffer();
         colorBuffers.add(colorBuffer);
-        gl.bindBuffer(wgl.ARRAY_BUFFER, colorBuffer);
-        gl.bufferData(wgl.ARRAY_BUFFER, new Uint8List.fromList(
+        gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, colorBuffer);
+        gl.bufferData(wgl.WebGL.ARRAY_BUFFER, new Uint8List.fromList(
               [ color[0], color[1], color[2], color[3],
               color[0], color[1], color[2], color[3],
               color[0], color[1], color[2], color[3],
               color[0], color[1], color[2], color[3]
-              ]), wgl.STATIC_DRAW);
+              ]), wgl.WebGL.STATIC_DRAW);
         gl.enableVertexAttribArray(1);
-        gl.vertexAttribPointer(1, 4, wgl.UNSIGNED_BYTE, true, 0, 0);
+        gl.vertexAttribPointer(1, 4, wgl.WebGL.UNSIGNED_BYTE, true, 0, 0);
       } else {
         gl.vertexAttrib4f(1, color[0] / 255, color[1] / 255, color[2] / 255, color[3] / 255);
       }
@@ -462,7 +460,7 @@ main() {
     for (var ii = 0; ii < colors.length; ++ii) {
       var color = colors[ii];
       ext.bindVertexArray(vaos[ii]);
-      gl.drawElements(wgl.TRIANGLES, 6, wgl.UNSIGNED_BYTE, 0);
+      gl.drawElements(wgl.WebGL.TRIANGLES, 6, wgl.WebGL.UNSIGNED_BYTE, 0);
       wtu.checkCanvas(gl, color, "should be $color");
     }
 
@@ -490,37 +488,37 @@ main() {
     // create shared element buuffer
     var elementBuffer = gl.createBuffer();
     // bind to default
-    gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, elementBuffer);
+    gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, elementBuffer);
     gl.bufferData(
-        wgl.ELEMENT_ARRAY_BUFFER,
+        wgl.WebGL.ELEMENT_ARRAY_BUFFER,
         new Uint8List.fromList([0, 1, 2, 0, 2, 3]),
-        wgl.STATIC_DRAW);
+        wgl.WebGL.STATIC_DRAW);
 
     // first create the buffers for no vao draw.
     var nonVAOColorBuffer = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, nonVAOColorBuffer);
-    gl.bufferData(wgl.ARRAY_BUFFER, new Uint8List.fromList(
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, nonVAOColorBuffer);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, new Uint8List.fromList(
           [ 0, 255, 0, 255,
           0, 255, 0, 255,
           0, 255, 0, 255,
           0, 255, 0, 255,
-          ]), wgl.STATIC_DRAW);
+          ]), wgl.WebGL.STATIC_DRAW);
 
     // shared position buffer.
     var positionBuffer = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, positionBuffer);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, positionBuffer);
     gl.bufferData(
-        wgl.ARRAY_BUFFER,
+        wgl.WebGL.ARRAY_BUFFER,
         new Float32List.fromList([
           1.0,  1.0,
           -1.0,  1.0,
           -1.0, -1.0,
           1.0, -1.0]),
-        wgl.STATIC_DRAW);
+        wgl.WebGL.STATIC_DRAW);
 
     // attach position buffer to default
     gl.enableVertexAttribArray(1);
-    gl.vertexAttribPointer(1, 2, wgl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(1, 2, wgl.WebGL.FLOAT, false, 0, 0);
 
     // now create vao
     var vao = ext.createVertexArray();
@@ -528,27 +526,27 @@ main() {
 
     // attach the position buffer vao
     gl.enableVertexAttribArray(1);
-    gl.vertexAttribPointer(1, 2, wgl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(1, 2, wgl.WebGL.FLOAT, false, 0, 0);
 
     var vaoColorBuffer = gl.createBuffer();
     gl.enableVertexAttribArray(0);
-    gl.vertexAttribPointer(0, 4, wgl.UNSIGNED_BYTE, true, 0, 0);
-    gl.bindBuffer(wgl.ARRAY_BUFFER, vaoColorBuffer);
-    gl.bufferData(wgl.ARRAY_BUFFER, new Uint8List.fromList(
+    gl.vertexAttribPointer(0, 4, wgl.WebGL.UNSIGNED_BYTE, true, 0, 0);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vaoColorBuffer);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, new Uint8List.fromList(
           [ 255, 0, 0, 255,
           255, 0, 0, 255,
           255, 0, 0, 255,
           255, 0, 0, 255,
-          ]), wgl.STATIC_DRAW);
+          ]), wgl.WebGL.STATIC_DRAW);
     gl.enableVertexAttribArray(0);
-    gl.vertexAttribPointer(0, 4, wgl.UNSIGNED_BYTE, true, 0, 0);
+    gl.vertexAttribPointer(0, 4, wgl.WebGL.UNSIGNED_BYTE, true, 0, 0);
 
     // now set the buffer back to the nonVAOColorBuffer
-    gl.bindBuffer(wgl.ARRAY_BUFFER, nonVAOColorBuffer);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, nonVAOColorBuffer);
 
     // bind to vao
-    gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, elementBuffer);
-    gl.drawElements(wgl.TRIANGLES, 6, wgl.UNSIGNED_BYTE, 0);
+    gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, elementBuffer);
+    gl.drawElements(wgl.WebGL.TRIANGLES, 6, wgl.WebGL.UNSIGNED_BYTE, 0);
     wtu.checkCanvas(gl, [255, 0, 0, 255], "should be red");
 
     // unbind vao
@@ -558,8 +556,8 @@ main() {
     // If the WebGL impl is emulating VAOs it must make sure
     // it correctly restores this binding.
     gl.enableVertexAttribArray(0);
-    gl.vertexAttribPointer(0, 4, wgl.UNSIGNED_BYTE, true, 0, 0);
-    gl.drawElements(wgl.TRIANGLES, 6, wgl.UNSIGNED_BYTE, 0);
+    gl.vertexAttribPointer(0, 4, wgl.WebGL.UNSIGNED_BYTE, true, 0, 0);
+    gl.drawElements(wgl.WebGL.TRIANGLES, 6, wgl.WebGL.UNSIGNED_BYTE, 0);
     wtu.checkCanvas(gl, [0, 255, 0, 255], "should be green");
   }
 
@@ -588,7 +586,7 @@ main() {
       runDrawTests();
       runDeleteTests();
       runArrayBufferBindTests();
-      glErrorShouldBe(gl, wgl.NO_ERROR, "there should be no errors");
+      glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "there should be no errors");
     }
   }
 }

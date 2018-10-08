@@ -24,9 +24,9 @@ const String htmlEL2 = r'''
 void main() {
     document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
-    var EPSILON = Math.pow(2, -24); // float epsilon
-    var whitespace = [ "", " ", "   ", "\r\n\t ", "\f" ];
-    var garbage = [ "a", "e", "foo", ")90" ];
+    double EPSILON = Math.pow(2, -24); // float epsilon
+    List<String>  whitespace = [ "", " ", "   ", "\r\n\t ", "\f" ];
+    List<String>  garbage = [ "a", "e", "foo", ")90" ];
 
     testType("<angle>",
              document.querySelector("marker"),
@@ -34,7 +34,7 @@ void main() {
              0, // expected default value
              whitespace,
              [ "-47", ".1", "0.35", "1e-10", "+32", "+17E-1", "17e+2" ], // valid
-             [ double.NAN, double.INFINITY, double.NEGATIVE_INFINITY, "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1" ], // invalid
+             [ double.nan.toString(), double.infinity.toString(), double.negativeInfinity.toString(), "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1" ], // invalid
              [ "", "deg", "rad", "grad" ], // valid units
              garbage,
              (elm, value) {

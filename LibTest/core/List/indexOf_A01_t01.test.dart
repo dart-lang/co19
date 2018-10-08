@@ -13,8 +13,6 @@
  * is present.
  * @author iefremov
  * @author varlax
- * @reviewer msyabro
- * @reviewer varlax
  */
 library indexOf_A01_t01;
 

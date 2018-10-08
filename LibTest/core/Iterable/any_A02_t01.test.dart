@@ -10,7 +10,6 @@
  * test return true, otherwise returns false.
  * @description Checks that exception thrown in [test] breaks the iteration.
  * @author msyabro
- * @reviewer varlax
  */
 library any_A02_t01;
  
@@ -22,7 +21,7 @@ test(Iterable create([Iterable content])) {
      create([1, 2]).any((var element) {
       throw ++count;
     });
-  } on int catch(e) {
+  } on int {
     Expect.equals(1, count);
   }
   
@@ -31,7 +30,7 @@ test(Iterable create([Iterable content])) {
      create([1, 2, 3, 4, 5]).any((var element) {
       throw ++count;
     });
-  } on int catch(e) {
+  } on int {
     Expect.equals(1, count);
   }
 }

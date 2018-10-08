@@ -13,8 +13,13 @@
  * @issue #25496
  * @author ngl@unipro.ru
  */
+import '../../../../Utils/expect.dart';
 import '../lib.dart' as lb;
 
 main() {
-  lb.toString();
+  try {
+    lb.toString();
+    Expect.fail("");
+  }
+  catch (e) {}
 }

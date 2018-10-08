@@ -27,9 +27,11 @@
  */
 
 main() {
-  List<List<int>> f1() {return null;}
-  List<List<int>>> f2() {return null;}
+  try {
+    List<List<int>> f1() {return null;}
+    List<List<int>>> f2() {return null;}
 
-  f1();
-  f2();
+    f1();
+    f2();
+  } catch (x) {}
 }

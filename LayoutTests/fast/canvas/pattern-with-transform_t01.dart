@@ -8,9 +8,7 @@
  * ignored https://bugs.webkit.org/show_bug.cgi?id=21498
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   pixelValueAt(context, x, y) {
@@ -21,11 +19,10 @@ main() {
   pixelShouldBe(context, x, y, expectedPixel) {
     var pixel = pixelValueAt(context, x, y);
 
-    var pixelString = "pixel $x,$y";
     shouldBeList(pixel, expectedPixel);
   }
 
-  var canvas;
+  dynamic canvas;
 
   fillWithColor(context, color) {
     context.save();
@@ -42,7 +39,7 @@ main() {
 
   document.body.append(canvas);
 
-  var patternImage = document.createElement("canvas");
+  dynamic patternImage = document.createElement("canvas");
   patternImage.height = 10;
   patternImage.width = 10;
   var patternImageCtx = patternImage.getContext('2d');

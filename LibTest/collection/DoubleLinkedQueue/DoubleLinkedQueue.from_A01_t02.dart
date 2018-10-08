@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertionfactory DoubleLinkedQueue.from(Iterable<E> other)
- * Creates a queue with the elements of other.
- * The order in the queue will be the order provided by the iterator of other.
+ * @assertionfactory DoubleLinkedQueue.from(Iterable elements)
+ * Creates a double-linked queue containing all elements.
+ * The element order in the queue is as if the elements were added using
+ * addLast in the order provided by elements.iterator.
  * @description Checks constructor with custom Iterable.
  * @author kaigorodov
  */
@@ -14,9 +15,9 @@ import "../../../Utils/expect.dart";
 import "dart:collection";
 
 class CustomIterator<T> implements Iterator<T> {
-  CustomIterator(List list)
-  :_array = list, _length = list.length, _pos = -1 { }
-  
+  CustomIterator(List<T> list)
+      :_array = list, _length = list.length, _pos = -1 { }
+
   bool moveNext() {
     if(_pos + 1 < _length) {
       _pos++;
@@ -30,14 +31,14 @@ class CustomIterator<T> implements Iterator<T> {
     if (_pos < 0) {
       throw new StateError("No element selected yet, use moveNext()");
     }
-    
+
     if(_pos >= _length) {
       throw new StateError("Impossible: current position >= length.");
     }
-    
+
     return _array[_pos];
   }
-  
+
   final List<T> _array;
   final int _length;
   int _pos;
@@ -45,11 +46,11 @@ class CustomIterator<T> implements Iterator<T> {
 
 class IterableClass extends IterableBase {
   List internalArray;
-  
+
   IterableClass() {
     internalArray = [1, 2, 3];
   }
-  
+
   Iterator get iterator {
     return new CustomIterator(internalArray);
   }

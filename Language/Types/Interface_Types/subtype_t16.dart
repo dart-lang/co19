@@ -26,9 +26,7 @@
  * @description Checks assignability (no static warnings) of S and T where T is
  * type parameter and S is it's upper bound.
  * Note: detailed checks are contained in tests for the next assertion.
- * @static-clean
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

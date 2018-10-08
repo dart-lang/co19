@@ -8,13 +8,8 @@
  * @description Checks that if one of the operands is a zero and the other is 
  * an infinity the result is NaN.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
-
-final double positive_infinity = 1 / 0;
-final double negative_infinity = -1 / 0;
 
 checkNaN(d) {
   var msg = 'expected: NaN, actual: $d';
@@ -22,15 +17,15 @@ checkNaN(d) {
 }
 
 main() {
-  checkNaN(positive_infinity * .0);
-  checkNaN(.0 * positive_infinity);
+  checkNaN(double.infinity * .0);
+  checkNaN(.0 * double.infinity);
 
-  checkNaN(positive_infinity * (-.0));
-  checkNaN((-.0) * positive_infinity);
+  checkNaN(double.infinity * (-.0));
+  checkNaN((-.0) * double.infinity);
 
-  checkNaN(negative_infinity * .0);
-  checkNaN(.0 * negative_infinity);
+  checkNaN(double.negativeInfinity * .0);
+  checkNaN(.0 * double.negativeInfinity);
 
-  checkNaN(negative_infinity * (-.0));
-  checkNaN((-.0) * negative_infinity);
+  checkNaN(double.negativeInfinity * (-.0));
+  checkNaN((-.0) * double.negativeInfinity);
 }

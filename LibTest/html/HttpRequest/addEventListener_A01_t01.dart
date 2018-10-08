@@ -9,13 +9,12 @@
  * @description Checks that added listener works.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-const myType="myType";
+const myType = "myType";
 
 main() {
-  Event ev0=new Event(myType);
+  Event ev0 = new Event(myType);
   var request = new HttpRequest();
   asyncStart();
   request.addEventListener(myType, (Event event) {

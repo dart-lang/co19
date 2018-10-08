@@ -14,13 +14,12 @@ import "../testcommon.dart";
 
 main() {
   var h = '<iframe class="y"></iframe>';
-  IFrameElement x = new Element.html(h
-         , treeSanitizer: new NullTreeSanitizer());
-  String y=x.outerHtml;
+  IFrameElement x = new Element.html(h, treeSanitizer: new NullTreeSanitizer());
+  String y = x.outerHtml;
   Expect.equals(h, y);
 
   h = 'Content Text';
   x.innerHtml = h;
-  y=x.outerHtml;
+  y = x.outerHtml;
   Expect.equals('<iframe class="y">$h</iframe>', y);
 }

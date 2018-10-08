@@ -17,7 +17,6 @@
  * constructor's initializer list contains non-constant list literal.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {
@@ -26,5 +25,7 @@ class A {
 }
 
 main() {
-  var a = const A(1);
+  try {
+    var a = const A(1);
+  } catch (x) {}
 }

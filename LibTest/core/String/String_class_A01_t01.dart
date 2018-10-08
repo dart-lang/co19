@@ -5,11 +5,10 @@
  */
 /**
  * @assertion The String class represents character strings. Strings are
- *            immutable.
+ * immutable.
  * @description Checks that invoking various methods of String class doesn't
- *              change the original object
+ * change the original object
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

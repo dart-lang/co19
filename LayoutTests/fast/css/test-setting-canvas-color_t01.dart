@@ -9,8 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 bool isRedColor(String color) {
   String s = color.toLowerCase().replaceAll(" ", "");
@@ -27,7 +25,7 @@ main() {
       <canvas id="canvas">
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById("canvas");
+  dynamic canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
 
   shouldSuccessfullyParse(color) {

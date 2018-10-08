@@ -10,10 +10,7 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -34,7 +31,7 @@ main() {
       <div id="console"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById("example");
+  dynamic canvas = document.getElementById("example");
   var gl = wtu.create3DContext(canvas);
   var program = wtu.setupProgram(
       gl,
@@ -48,31 +45,31 @@ main() {
   var textureLoc = gl.getUniformLocation(program, "tex");
 
   var texture = gl.createTexture();
-  gl.bindTexture(wgl.TEXTURE_2D, texture);
-  gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_S, wgl.CLAMP_TO_EDGE);
-  gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_T, wgl.CLAMP_TO_EDGE);
-  gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MIN_FILTER, wgl.NEAREST);
-  gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MAG_FILTER, wgl.NEAREST);
+  gl.bindTexture(wgl.WebGL.TEXTURE_2D, texture);
+  gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_S, wgl.WebGL.CLAMP_TO_EDGE);
+  gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_T, wgl.WebGL.CLAMP_TO_EDGE);
+  gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MIN_FILTER, wgl.WebGL.NEAREST);
+  gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MAG_FILTER, wgl.WebGL.NEAREST);
   // Allocate the texture object
-  gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.ALPHA, textureWidth, textureHeight, 0, wgl.ALPHA, wgl.UNSIGNED_BYTE, null);
+  gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.ALPHA, textureWidth, textureHeight, 0, wgl.WebGL.ALPHA, wgl.WebGL.UNSIGNED_BYTE, null);
   // Prepare the image data
   var array = new Uint8List(textureWidth);
   for (var i = 0; i < textureWidth; i++)
     array[i] = i;
   // Fill the texture object with data -- this is actually the code path being tested
-  gl.texSubImage2D(wgl.TEXTURE_2D, 0, 0, 0, textureWidth, textureHeight, wgl.ALPHA, wgl.UNSIGNED_BYTE, array);
+  gl.texSubImage2D(wgl.WebGL.TEXTURE_2D, 0, 0, 0, textureWidth, textureHeight, wgl.WebGL.ALPHA, wgl.WebGL.UNSIGNED_BYTE, array);
 
   // Clear and set up
-  gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
-  gl.bindTexture(wgl.TEXTURE_2D, texture);
+  gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
+  gl.bindTexture(wgl.WebGL.TEXTURE_2D, texture);
   gl.useProgram(program);
   gl.uniform1i(textureLoc, 0);
   // Draw the texture to the frame buffer
-  gl.drawArrays(wgl.TRIANGLES, 0, 6);
+  gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 6);
 
   // Read back the frame buffer
   var buf = new Uint8List(textureWidth * textureHeight * 4);
-  gl.readPixels(0, 0, textureWidth, textureHeight, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
+  gl.readPixels(0, 0, textureWidth, textureHeight, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
 
   // Verify the frame buffer's contents
   for (var i = 0; i < textureWidth; i++) {

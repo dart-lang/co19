@@ -11,7 +11,8 @@ import "dart:html";
 import "../../testcommon.dart";
 
 main() {
-  var stopElement = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+  var stopElement =
+      document.createElementNS("http://www.w3.org/2000/svg", "stop");
   stopElement.style.setProperty("stop-color", "blue");
 
   var colorString = "rgb(00000000000000000000";

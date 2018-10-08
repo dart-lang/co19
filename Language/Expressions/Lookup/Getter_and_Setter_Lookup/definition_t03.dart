@@ -45,9 +45,9 @@ class Sub2 extends C2 {
 }
 
 main()  {
-  var o = new C1();
-  Expect.equals(1, o.v);
+  var o1 = new C1();
+  Expect.equals(1, o1.v);
 
-  o = new C2();
-  Expect.equals(2, o.v);
+  var o2 = new C2();
+  Expect.equals(2, o2.v);
 }

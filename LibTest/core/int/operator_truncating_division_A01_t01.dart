@@ -4,11 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion This operator implements truncating division.
+ * @assertion int operator ~/(num other)
+ * Truncating division operator.
+ *
+ * If either operand is a double then the result of the truncating division
+ * a ~/ b is equivalent to (a / b).truncate().toInt().
+ * If both operands are ints then a ~/ b performs the truncating integer
+ * division.
  * @description Checks that this operator returns correct value.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -26,9 +30,8 @@ main() {
   check(0, 0 ~/ 2147483647);
   check(-10, (-21) ~/ 2);
 
-  check(9223372036854775808, 18446744073709551616 ~/ 2);
-  check(-9223372036854775808, 18446744073709551616 ~/ -2);
-  check(2, 18446744073709551616 ~/ 9223372036854775808);
-  check(1249999988, 123456789012345678901234567890 ~/ 98765432109876543210);
+  check(922337203685477580, 1844674407370955161 ~/ 2);
+  check(-922337203685477580, 1844674407370955161 ~/ -2);
+  check(0, 1844674407370955161 ~/ 9223372036854775807);
 }
 

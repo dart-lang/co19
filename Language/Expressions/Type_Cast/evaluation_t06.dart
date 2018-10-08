@@ -15,7 +15,6 @@
  * G<T1,...,Tn> and G is generic type with different number of parameters, then
  * T is not malformed (see Types/Parameterized Types) and CastError is thrown,
  * not TypeError.
- * @static-warning
  * @author rodionov
  * @reviewer iefremov
  */
@@ -24,8 +23,8 @@ import '../../../Utils/expect.dart';
 class G<S, T> {}
 
 main() {
-  // G<int> is G<dynamic,dynamic>, not malformed
-  Expect.throws(() => [] as G<int>, (e) => e is CastError);
+  // G is G<dynamic,dynamic>, not malformed
+  Expect.throws(() => [] as G, (e) => e is CastError);
 
-  new G() as G<int>;
+  new G() as G;
 }

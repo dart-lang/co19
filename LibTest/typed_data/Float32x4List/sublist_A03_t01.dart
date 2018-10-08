@@ -4,9 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion List<int> sublist(int start, [int end])
- * It is an error if [start] or [end] are not indices into [this],
- * or if [end] is before [start].
+ * @assertion List<E> sublist(int start, [int end])
+ * ...
+ * An error occurs if [start] is outside the range 0 .. length or if [end] is
+ * outside the range start .. length.
  * @description Checks that it is an error if [end] is before [start].
  * @author msyabro
  */
@@ -14,16 +15,17 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 main() {
-  var list = new Float32x4List.fromList([pack(.0), pack(.0), pack(.0), pack(.0)]);
+  var list = new Float32x4List.fromList([pack(.0), pack(.0), pack(.0),
+      pack(.0)]);
 
-  Expect.throws( () {
+  Expect.throws(() {
     list.sublist(3, 2);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     list.sublist(4, 0);
   });
 }

@@ -10,10 +10,9 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../testcommon.dart";
 
 main() {
-  IFrameElement x=new IFrameElement();
+  IFrameElement x = new IFrameElement();
   x.setAttribute('id', 'id');
   x.setAttribute('custom', 'foobar');
 

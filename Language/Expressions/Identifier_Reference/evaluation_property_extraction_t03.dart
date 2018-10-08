@@ -13,11 +13,10 @@
  * • Otherwise, e is equivalent to the property extraction this.id.
  * @description  Checks that identifier expression can not refer to a static
  * variable in a superclass of the current class.
- * @static-warning
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
  */
-import '../../../Utils/expect.dart';
 
 class A {
   static var x = 3;
@@ -30,8 +29,5 @@ class B extends A {
 }
 
 main() {
-  try {
-    print(new B().func());
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (ok) {}
+  new B().func();
 }

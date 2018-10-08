@@ -17,5 +17,8 @@
 void f(var assert) {}
 
 main() {
-  f();
+  try {
+    f();
+  } catch (anything) {
+  }
 }

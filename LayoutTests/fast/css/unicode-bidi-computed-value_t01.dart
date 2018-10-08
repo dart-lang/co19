@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -45,7 +43,7 @@ main() {
     ['span', {'style': 'unicode-bidi: bidi-override isolate isolate;'}, 'normal'],
     ['span', {'style': 'unicode-bidi: bidi-override bad-value;'}, 'normal'],
     ['span', {'style': 'unicode-bidi: bidi-override embed;'}, 'normal'],
-  ].forEach((test) {
+    ].forEach((test) {
       shouldBe(styleOf(test[0], test[1]).unicodeBidi, test[2]);
     });
 }

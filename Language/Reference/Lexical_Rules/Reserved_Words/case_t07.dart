@@ -19,5 +19,8 @@ class C {
 }
 
 main() {
-  C.case();
+  try {
+    C.case();
+  } catch (anything) {
+  }
 }

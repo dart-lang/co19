@@ -23,5 +23,7 @@ class A {
 }
 
 main() {
-  new A().f();
+  try {
+    new A().f();
+  } catch (x) {}
 }

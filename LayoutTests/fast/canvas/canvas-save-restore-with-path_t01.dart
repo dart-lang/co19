@@ -10,7 +10,6 @@
 import "dart:html";
 import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var context;
@@ -33,7 +32,7 @@ main() {
     shouldBeList(getPixel(x, y), colour);
   }
 
-  var canvas = document.createElement("canvas");
+  dynamic canvas = document.createElement("canvas");
   canvas.width = 100;
   canvas.height = 100;
 
@@ -64,7 +63,7 @@ main() {
   // Test rotate
   context.beginPath();
   context.save();
-  context.rotate(90/180 * Math.PI);
+  context.rotate(90/180 * Math.pi);
   context.rect(50, -50, 50, 50);
   context.restore();
   context.fill();

@@ -17,5 +17,8 @@
 void f(var const) {}
 
 main() {
-  f();
+  try {
+    f();
+  } catch (anything) {
+  }
 }

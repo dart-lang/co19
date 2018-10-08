@@ -10,21 +10,19 @@
  * assigned the value of the corresponding actual parameter, unless id is a
  * final variable that has already been initialized, in which case a runtime
  * error occurs.
- * @description Checks that runtime error occurs, not compile-error, if id
- * is final instance variable that has already been initialized.
- * are assigned correctly.
+ * @description Checks that a compile error occurs, if id is final instance
+ * variable that has already been initialized.
  * @compile-error
  * @author ilya
  * @issue 13335
  */
-import "../../../../Utils/expect.dart";
 
 class A {
-  A(this.a, this.b);
   var a;
   final b = 2;
+  A(this.a, this.b);
 }
 
 main() {
-  Expect.throws(() => new A(1, 2));
+  new A(1, 2);
 }

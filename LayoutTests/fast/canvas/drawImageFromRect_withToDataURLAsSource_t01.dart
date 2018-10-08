@@ -7,9 +7,7 @@
  * @description 
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -20,8 +18,8 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   init() {
-    var imgCanvas = document.getElementById("c1");
-    var imgCanvas2 = document.getElementById("c2");
+    dynamic imgCanvas = document.getElementById("c1");
+    dynamic imgCanvas2 = document.getElementById("c2");
 
     var imgCtx = imgCanvas.getContext("2d");
     var imgCtx2 = imgCanvas2.getContext("2d");
@@ -37,7 +35,7 @@ main() {
         new Rectangle(0, 0, 32, 32),
         sourceRect: new Rectangle(0, 1, 1, 1));
 
-    var result = document.getElementById("result");
+    dynamic result = document.getElementById("result");
     var data = imgCtx2.getImageData(0,0,1,1).data;
     var red = data[0];
     var green = data[1];

@@ -10,9 +10,6 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   var gl;
@@ -56,7 +53,7 @@ main() {
     var shaderNode = document.getElementById("fragmentShader"); // fragmentShader has been defined at the top
     var shaderSource = getShaderSource(shaderNode);
 
-    var shader = gl.createShader(wgl.FRAGMENT_SHADER);
+    var shader = gl.createShader(wgl.WebGL.FRAGMENT_SHADER);
     gl.shaderSource(shader, shaderSource);
     gl.compileShader(shader);
 
@@ -68,7 +65,7 @@ main() {
     var shaderNode = document.getElementById("vertexShader");
     var shaderSource = getShaderSource(shaderNode);
 
-    var shader = gl.createShader(wgl.VERTEX_SHADER);
+    var shader = gl.createShader(wgl.WebGL.VERTEX_SHADER);
     gl.shaderSource(shader, shaderSource);
     gl.compileShader(shader);
 
@@ -77,7 +74,7 @@ main() {
 
   initialize()
   {
-    var canvas = document.getElementById("canvas");
+    dynamic canvas = document.getElementById("canvas");
     gl = canvas.getContext("experimental-webgl");
 
     var vertexShader = getVertexShader();
@@ -92,7 +89,7 @@ main() {
     gl.useProgram(shaderProgram);
 
     var buffer = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, buffer);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, buffer);
   }
 
   draw(r, g, b)
@@ -100,13 +97,13 @@ main() {
     var vertices = [ 0.0, 0.8, 0.0,
         -0.8, -0.8, 0.0,
         0.8, -0.8, 0.0 ];
-    gl.bufferData(wgl.ARRAY_BUFFER, new Float32List.fromList(vertices), wgl.STATIC_DRAW);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, new Float32List.fromList(vertices), wgl.WebGL.STATIC_DRAW);
 
-    gl.vertexAttribPointer(0, 3, wgl.FLOAT, false, 0, 0); // Load the vertex data
+    gl.vertexAttribPointer(0, 3, wgl.WebGL.FLOAT, false, 0, 0); // Load the vertex data
     gl.enableVertexAttribArray(0);
     gl.clearColor(r, g, b, 1);
-    gl.clear(wgl.COLOR_BUFFER_BIT);
-    gl.drawArrays(wgl.TRIANGLES, 0, 3);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT);
+    gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 3);
   }
 
   initialize();

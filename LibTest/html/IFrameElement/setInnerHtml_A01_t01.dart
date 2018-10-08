@@ -17,13 +17,12 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../testcommon.dart";
 
 main() {
   IFrameElement x = new IFrameElement();
   x.setInnerHtml('<div foo="foo"><bar id="bar"></bar></div>');
-  var div = x.firstChild;
-print("div=${div.runtimeType} ${div.toString()}");
+  DivElement div = x.firstChild;
+  print("div=${div.runtimeType} ${div.toString()}");
   Expect.mapEquals({}, div.attributes);
 
   var bar = div.querySelector('#bar');

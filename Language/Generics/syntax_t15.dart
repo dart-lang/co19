@@ -23,5 +23,7 @@
 class C<T extend >{}
 
 main() {
-  new C();
+  try {
+    new C();
+  } catch (x) {}
 }

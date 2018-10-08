@@ -17,5 +17,8 @@
 class extends {} // error
 
 main() {
-  null is extends;
+  try {
+    null is extends;
+  } catch (anything) {
+  }
 }

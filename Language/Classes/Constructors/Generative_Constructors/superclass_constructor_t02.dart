@@ -13,7 +13,6 @@
  * contains an explicit super() superinitializer.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class S {
@@ -25,5 +24,7 @@ class C extends S {
 }
 
 main() {
-  new C();
+  try {
+    new C();
+  } catch (v) {}
 }

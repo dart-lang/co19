@@ -8,14 +8,13 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   document.body.append(canvas);
   canvas.setAttribute('width', '100');
   canvas.setAttribute('height', '100');
-  var ctx = canvas.getContext('2d');
+  dynamic ctx = canvas.getContext('2d');
 
   debug("resetTransform should reset other transforms.");
   ctx.save();

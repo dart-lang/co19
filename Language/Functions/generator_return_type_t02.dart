@@ -9,36 +9,16 @@
  * the declared return type of a function marked async* may not be assigned
  * to Stream.
  *
- * @description Check that static type warning is reported, if the declared
- * return type of a function marked async* may not be assigned to Stream.
- *
- * @static-warning
+ * @description Check that it is a compile error, if the declared
+ * return type of synchronous generator function may not be assigned
+ * to Iterable but is void.
+ * @issue 32192
+ * @compile-error
  * @author a.semenov@unipro.ru
  */
-import 'dart:async';
-import '../../Utils/dynamic_check.dart';
 
-int f() async* { } /// static type warning
-
-String g() async* { } /// static type warning
-
-dynamic a() async* { } // ok
-
-Stream b() async* { } // ok
-
-class TestStream<T> extends Stream<T> {
-
-  @override
-  StreamSubscription<T> listen(void onData(T event),
-      {Function onError, void onDone(), bool cancelOnError}) => null;
-}
-
-TestStream c() async* { } // ok
+void h() sync* { }
 
 main() {
-  checkTypeError(f);
-  checkTypeError(g);
-  a();
-  b();
-  checkTypeError(c);
+  h();
 }

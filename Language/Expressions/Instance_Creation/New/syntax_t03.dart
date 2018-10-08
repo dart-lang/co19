@@ -20,5 +20,7 @@ class A {
 }
 
 main() {
-  new ();
+  try {
+    new ();
+  } catch (e) {}
 }

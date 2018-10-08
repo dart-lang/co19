@@ -6,8 +6,6 @@
 /**
  * @assertion final E first
  * Returns the first element.
- * If this is empty throws a StateError.
- * Otherwise this method is equivalent to this.elementAt(0).
  * @description Checks that the first element of the list is returned.
  * @author kaigorodov
  */
@@ -16,8 +14,8 @@ import "dart:collection";
 import "LinkedList.lib.dart";
 
 main() {
-  MyLinkedListEntry head=new MyLinkedListEntry("head");
-  LinkedList a = new LinkedList();
+  MyLinkedListEntry head = new MyLinkedListEntry("head");
+  LinkedList<MyLinkedListEntry> a = new LinkedList<MyLinkedListEntry>();
   Expect.equals(0, a.length);
   a.add(head);
   Expect.equals(head, a.first);

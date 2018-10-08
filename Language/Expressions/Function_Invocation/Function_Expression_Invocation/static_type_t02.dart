@@ -10,7 +10,6 @@
  * ef is Object, dynamic or bottom.
  * @static-clean
  * @author rodionov
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 
@@ -41,12 +40,13 @@ main() {
   Expect.throws(() => (new A()).field("foo", "bar"));
 
   try {
-    null(p1: 1);
+    Function func;
+    func();
     Expect.fail("NoSuchMethodError is expected");
   } on NoSuchMethodError catch (e) {}
 
   try {
-    Object o1;
+    dynamic o1;
     o1();
     Expect.fail("NoSuchMethodError is expected");
   } on NoSuchMethodError catch (e) {}

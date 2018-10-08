@@ -28,12 +28,14 @@
  * can't be used in the left hand side of an assignment.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class A {
   test() {
-    this = new A();  }
+    try {
+      this = new A();
+    } catch (e) {}
+  }
 }
 
 main() {

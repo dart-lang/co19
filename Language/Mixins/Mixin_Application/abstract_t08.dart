@@ -10,13 +10,11 @@
  * The name of the class is also set to C. Iff the class is prefixed by the
  * built-in identifier abstract, the class being defined is an abstract class.
  * @description Checks that class C<T1,...,Tn> is abstract (cannot be
- * instantiated by new) if there are abstract identifier even if all classes in
+ * instantiated by new) if there is abstract identifier, even if all classes in
  * mixin application are not abstract
- * @static-warning
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import "../../../Utils/expect.dart";
-
 class M {
 }
 
@@ -26,5 +24,5 @@ class S {
 abstract class C<T1, T2, T3> = S with M;
 
 main() {
-  Expect.throws(() {C<int, bool, String> c = new C<int, bool, String>();}); /// static type warning
+  new C<int, bool, String>();
 }

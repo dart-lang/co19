@@ -7,7 +7,6 @@
  * @description Test for bug 13514
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -22,7 +21,7 @@ main() {
     }
   }
 
-  var elem = document.getElementById('elem');
+  Element elem = document.getElementById('elem');
 
   elem.childNodes.length;
   //elem.childNodes[0].length;

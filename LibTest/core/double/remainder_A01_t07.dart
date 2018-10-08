@@ -5,7 +5,8 @@
  */
 /**
  * @assertion double remainder(num other)
- * @description Checks on values that is neither an infinity, nor a zero, nor a NaN
+ * @description Checks on values that is neither an infinity, nor a zero,
+ * nor a NaN
  * @author msyabro
  */
 import "../../../Utils/expect.dart";

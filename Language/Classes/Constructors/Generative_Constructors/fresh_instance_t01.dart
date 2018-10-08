@@ -10,8 +10,6 @@
  * @description Checks that instances created using different invocations
  * of a generative constructor are not identical.
  * @author pagolubev
- * @reviewer iefremov
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

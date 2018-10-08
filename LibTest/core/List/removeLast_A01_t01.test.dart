@@ -8,7 +8,6 @@
  * Pops and returns the last element of the list.
  * @description Checks that the last element of the list is returned.
  * @author vasya
- * @reviewer msyabro
  */
 library removeLast_A01_t01;
 

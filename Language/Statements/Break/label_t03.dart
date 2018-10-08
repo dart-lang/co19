@@ -18,10 +18,12 @@
  */
 
 main() {
-  switch (0) {
-    L:
-    case 0:
-    case 1:
-      break L;
-  }
+  try {
+    switch (0) {
+      L:
+      case 0:
+      case 1:
+        break L;
+    }
+  } catch (x) {}
 }

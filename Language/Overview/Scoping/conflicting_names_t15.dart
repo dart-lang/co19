@@ -21,5 +21,7 @@ typedef conflictingName();
 typedef conflictingName(p1, p2);
 
 main() {
-  conflictingName func = null;
+  try {
+    conflictingName func = null;
+  } catch (e) {}
 }

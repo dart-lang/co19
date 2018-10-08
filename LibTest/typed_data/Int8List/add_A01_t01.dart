@@ -6,11 +6,12 @@
 /**
  * @assertion void add(E value)
  * Adds value at the end of the list, extending the length by one.
- * Throws an [UnsupportedError] if the list is not extendable.
- * @description Checks that [UnsupportedError] is thrown
- * since [Int8List] is a fixed-size list.
+ * Throws an [UnsupportedError] if the list is fixed-length.
+ * @description Checks that [UnsupportedError] is thrown since [Int8List] is a
+ * fixed-length list.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -19,7 +20,7 @@ check(length) {
   try {
     l.add(0);
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {}
+  } on UnsupportedError {}
   Expect.equals(length, l.length);
 }
 

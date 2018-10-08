@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final Type runtimeType
+ * @assertion Type runtimeType
  * A representation of the runtime type of the object.
- * @description Checks that [runtimeType] is final and can not be set.
+ * @description Checks that [runtimeType] is read-only and can not be set.
  * @author msyabro
  */
 
@@ -14,10 +14,9 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var obj = new Uint16List(0);
+  dynamic obj = new Uint16List(0);
   try {
     obj.runtimeType = null;
-    Expect.fail("[runtimeType] should be final");
-  } on NoSuchMethodError catch(ok) {}
+    Expect.fail("[runtimeType] should be read-only");
+  } on NoSuchMethodError {}
 }
-

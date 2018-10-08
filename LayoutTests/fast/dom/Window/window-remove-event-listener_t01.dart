@@ -7,7 +7,6 @@
  * @description Regression test to ensure that removeEventListener works.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

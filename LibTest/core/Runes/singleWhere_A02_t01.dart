@@ -10,26 +10,15 @@
  * matches [test].
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
   var runes = new Runes('');
-  try {
-    runes.singleWhere( (e) => true);
-    Expect.fail("StateError is expected");
-  } on StateError catch(ok) {}
+  Expect.throws(() {runes.singleWhere( (e) => true);}, (e) => e is StateError);
 
   runes = new Runes('\x01\x02\x03\x04\x05');
-  try {
-    runes.singleWhere( (e) => e == 0);
-    Expect.fail("StateError is expected");
-  } on StateError catch(ok) {}
+  Expect.throws(() {runes.singleWhere( (e) => e == 0);}, (e) => e is StateError);
 
   runes = new Runes('\x01\x02\x03\x04\x05');
-  try {
-    runes.singleWhere( (e) => false);
-    Expect.fail("StateError is expected");
-  } on StateError catch(ok) {}
+  Expect.throws(() {runes.singleWhere( (e) => false);}, (e) => e is StateError);
 }
-

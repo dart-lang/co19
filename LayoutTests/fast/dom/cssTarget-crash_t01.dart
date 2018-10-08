@@ -10,7 +10,6 @@
 import "dart:html";
 import "dart:math";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -25,7 +24,7 @@ main() {
       asyncEnd();
       return;
     }
-    var form = document.body.querySelector('form');
+    FormElement form = document.body.querySelector('form');
     form.submit();
     var x = new Random().nextDouble();
     setTimeout(doIt, 10);

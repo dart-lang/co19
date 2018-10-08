@@ -8,8 +8,9 @@
  * i ∈ 1..h+k and let Sq be the type of the named parameter q of f.
  * . . .
  * It is a static warning if m < h or if m > n.
- * @description Checks that it is a static warning if more actual arguments
+ * @description Checks that it is a compile error if more actual arguments
  * than there're formal parameters are provided to a static method invocation.
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
@@ -19,5 +20,5 @@ class C {
 }
 
 main() {
-  C.func(1, 2 ,3, 4); /// 01: static type warning, runtime error
+  C.func(1, 2 ,3, 4);
 }

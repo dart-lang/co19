@@ -89,7 +89,6 @@ import "toSet_A01_t01.test.dart" as toSet_A01_t01;
 import "where_A01_t01.test.dart" as where_A01_t01;
 import "where_A01_t02.test.dart" as where_A01_t02;
 import "where_A01_t03.test.dart" as where_A01_t03;
-import "where_A01_t04.test.dart" as where_A01_t04;
 import "where_A01_t05.test.dart" as where_A01_t05;
 import "where_A01_t06.test.dart" as where_A01_t06;
 import "where_A01_t07.test.dart" as where_A01_t07;
@@ -178,7 +177,6 @@ test(Iterable create([Iterable content]), {bool isSet:false}) {
   where_A01_t01.test(create);
   where_A01_t02.test(create);
   where_A01_t03.test(create);
-  where_A01_t04.test(create);
   where_A01_t05.test(create);
   where_A01_t06.test(create);
   where_A01_t07.test(create, isSet:isSet);

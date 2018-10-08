@@ -5,26 +5,25 @@
  */
 /**
  * @assertion void forEach(void f(E element))
- * Applies the function f to each element of this collection.
- * @description Checks that something is thrown when the argument is null or
- * has a type that is incompatible with the required function type.
- * @static-warning
+ * Applies the function [f] to each element of this collection.
+ * @description Checks that exception thrown in [f] breaks the iteration.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
-import "../../../Utils/dynamic_check.dart";
 
 main() {
   DoubleLinkedQueue queue = new DoubleLinkedQueue();
   
-  //empty queue just ignores invalid arg 
-  queue.forEach(null);
-  checkTypeError(() => queue.forEach(0)); /// static type warning
-
   queue.addLast(1);
-  Expect.throws(() => queue.forEach(null));
-  Expect.throws(() => queue.forEach(1)); /// static type warning
-  Expect.throws(() => queue.forEach(1.1)); /// static type warning
-  Expect.throws(() => queue.forEach("1")); /// static type warning
+  queue.addLast(2);
+  
+  int count = 0;
+  try {
+    queue.forEach((var element) {
+      throw ++count;
+    });
+  } on Object catch(e) {
+    Expect.equals(1, count);
+  }
 }

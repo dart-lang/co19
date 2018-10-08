@@ -12,12 +12,11 @@
  * future is completed with that exception.
  * @author kaigorodov
  */
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";
 
-List futures = [];
+List<Future<dynamic>> futures = [];
 int count=0;
 
 check(value) {
@@ -28,7 +27,7 @@ check(value) {
 
   asyncStart();
   futures.add(future.then(
-   (fValue) {Expect.fail('should not get here');},
+    (fValue) => Expect.fail('should not get here'),
     onError: (Object asyncError) {
       Expect.equals(value, asyncError);
       count++;

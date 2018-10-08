@@ -19,5 +19,8 @@ class C {
 }
 
 main() {
-  new C().case is int;
+  try {
+    new C().case is int;
+  } catch (anything) {
+  }
 }

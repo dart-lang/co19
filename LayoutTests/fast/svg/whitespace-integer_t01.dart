@@ -25,9 +25,9 @@ const String htmlEL2 = r'''
 <div id=log></div>
 ''';
 
-var EPSILON = Math.pow(2, -24); // float epsilon
-var whitespace = [ "", " ", "   ", "\r\n\t ", "\f" ];
-var garbage = [ "a", "e", "foo", ")90" ];
+double EPSILON = Math.pow(2, -24); // float epsilon
+List<String> whitespace = [ "", " ", "   ", "\r\n\t ", "\f" ];
+List<String>  garbage = [ "a", "e", "foo", ")90" ];
 
 void main() {
     document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
@@ -38,7 +38,7 @@ void main() {
 		 0, // expected default value (FIXME: should be 1)
 		 whitespace,
 		 [ "-47", "0", "+32", "1241245" ],
-		 [ double.NAN, double.INFINITY, double.NEGATIVE_INFINITY, "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1", "+17E-1", "17e+2", "0.35", "1e-10", ".1" ],
+		 [ double.nan.toString(), double.infinity.toString(), double.negativeInfinity.toString(), "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1", "+17E-1", "17e+2", "0.35", "1e-10", ".1" ],
 		 [""], // valid units
 		 garbage,
 		 (elm, value) { assert_equals(elm.numOctaves.baseVal, int.parse(value)); },

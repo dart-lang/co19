@@ -12,5 +12,5 @@ import "../../testcommon.dart";
 main() {
   var div = document.createElement("div");
   div.innerHtml = "<i>This should be italic.</i>";
-  shouldBe(div.firstChild.namespaceUri, 'http://www.w3.org/1999/xhtml');
+  shouldBe((div.firstChild as Element).namespaceUri, 'http://www.w3.org/1999/xhtml');
 }

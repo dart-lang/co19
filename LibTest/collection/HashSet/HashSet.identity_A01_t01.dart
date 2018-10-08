@@ -17,14 +17,15 @@ import "dart:collection";
 
 class C {
   int get hashCode => 1;
-  bool operator ==(C c) {
+  bool operator ==(dynamic c) {
     return true;
   }
 }
 
 main() {
   HashSet<C> set1 = new HashSet<C>.identity();
-  HashSet<C> set2 = new HashSet<C>(equals: identical, hashCode: identityHashCode);
+  HashSet<C> set2 = new HashSet<C>(
+      equals: identical, hashCode: identityHashCode);
   HashSet<C> set3 = new HashSet<C>();
 
   C val1 = new C();

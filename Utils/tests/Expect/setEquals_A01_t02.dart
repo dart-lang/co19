@@ -24,13 +24,13 @@ main() {
   check(new Set.from([0, 235892385, '', "abracadabra"]), 
       [0, 235892385, 54, "abracadabra"], "not empty");
   
-  check(new Set.from([double.NAN]), [double.NAN]);
-  check(new Set.from([double.NAN]), [double.NAN], "");
-  check(new Set.from([double.NAN]), [double.NAN], "not empty");
+  check(new Set.from([double.nan]), [double.nan]);
+  check(new Set.from([double.nan]), [double.nan], "");
+  check(new Set.from([double.nan]), [double.nan], "not empty");
 
-  check(new Queue.from([double.NAN]), new Set.from([double.NAN]));
-  check(new Queue.from([double.NAN]), new Set.from([double.NAN]), "");
-  check(new Queue.from([double.NAN]), new Set.from([double.NAN]), "not empty");
+  check(new Queue.from([double.nan]), new Set.from([double.nan]));
+  check(new Queue.from([double.nan]), new Set.from([double.nan]), "");
+  check(new Queue.from([double.nan]), new Set.from([double.nan]), "not empty");
 }
 
 void check(Iterable arg1, Iterable arg2, [String reason = null]) {

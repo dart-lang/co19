@@ -4,23 +4,28 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Uint8List.view(ByteBuffer buffer, [int byteOffset = 0, int length])
- * Creates an [Uint8List] _view_ of the specified region in
- * the specified byte buffer.
- * @description Checks that a new instance has the same elements as
- * the specified region.
+ * @assertion
+ * Uint8List.view(
+ *     ByteBuffer buffer, [
+ *     int byteOffset = 0,
+ *     int length
+ * ])
+ * Creates an [Uint8List] view of the specified region in buffer.
+ * @description Checks that a new instance has the same elements as the
+ * specified region.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array, offset, length) {
+void check(List<int> array, int offset, int length) {
   var tmp = new Uint8List.fromList(array);
   var byteBuffer = tmp.buffer;
   var l = new Uint8List.view(byteBuffer, offset, length);
   Expect.equals(length, l.length);
-  for(int i = 0; i < l.length; ++i) {
-    Expect.equals(tmp[offset ~/ Uint8List.BYTES_PER_ELEMENT + i], l[i]);
+  for (int i = 0; i < l.length; ++i) {
+    Expect.equals(tmp[offset ~/ Uint8List.bytesPerElement + i], l[i]);
   }
 }
 

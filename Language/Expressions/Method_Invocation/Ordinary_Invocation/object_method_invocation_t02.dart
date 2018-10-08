@@ -13,9 +13,14 @@
  * @issue #25496
  * @author ngl@unipro.ru
  */
+import '../../../../Utils/expect.dart';
 
 class A {}
 
 main() {
-  A.toString();
+  try {
+    A.toString();
+    Expect.fail("");
+  }
+  catch (e) {}
 }

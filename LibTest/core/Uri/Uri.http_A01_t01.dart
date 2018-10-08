@@ -10,13 +10,10 @@
  * The scheme is always set to http.
  * @description Checks correct scheme setting
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals('http', new Uri.http('foo.bar', '\u0001').scheme);
   Expect.equals('http', new Uri.http('','').scheme);
 }
-

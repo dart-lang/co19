@@ -18,10 +18,11 @@ main() {
       treeSanitizer: new NullTreeSanitizer());
 
   document.getElementById('container').setInnerHtml(
-      '<span id="test-span" style="background-image: url(\'IntentionallyMissingFile.png\')"></span>',
+      '<span id="test-span" style="background-image:url(\'IntentionallyMissingFile.png\')"></span>',
       treeSanitizer: new NullTreeSanitizer());
   
   var cssUriWasResolvedAgainstDocumentUri = document.getElementById("test-span")
     .style.backgroundImage == 'url("IntentionallyMissingFile.png")';
+
   Expect.isTrue(cssUriWasResolvedAgainstDocumentUri);
 }

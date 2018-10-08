@@ -7,10 +7,13 @@
  * @assertion Undocumented: const UnimplementedError()
  * @description Checks that this constructor executes without error.
  * @author rodionov
- * @reviewer pagolubev
- * @needsreview undocumented
  */
- 
+import "../../../Utils/expect.dart";
+
 main() {
-  new UnimplementedError();
+  UnimplementedError ue1 = new UnimplementedError();
+  Expect.isNull(ue1.message);
+
+  UnimplementedError ue2 = new UnimplementedError("Unimplented test");
+  Expect.equals("Unimplented test", ue2.message);
 }

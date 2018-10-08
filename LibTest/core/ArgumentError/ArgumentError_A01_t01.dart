@@ -6,15 +6,16 @@
 /**
  * @assertion new ArgumentError([message])
  * The message describes the erroneous argument. 
- * @description Checks that this constructor executes without error for various strings and null.
+ * @description Checks that this constructor executes without error for various
+ * strings and null.
  * @author kaigorodov
  */
 
 import "../../../Utils/expect.dart";
  
 void check(var message) {
-  ArgumentError err=new ArgumentError(message);
-  Expect.identical(message, err.message);
+  ArgumentError err = new ArgumentError(message);
+  Expect.equals(message, err.message);
 }
 
 main() {

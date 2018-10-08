@@ -7,17 +7,14 @@
  * @assertion Let e be a new expression of the form
  * new T.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) or the form
  * new T(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
- * @description Checks that it is a dynamic error
- * if T.id is not a class accessible in the current scope.
+ * @description Checks that it is a compile error if T.id is not a class
+ * accessible in the current scope.
  * Named constructor case.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
 
 main() {
-  Expect.throws(() {
-    new UnavailableType.namedConstructor();
-  });
+  new UnavailableType.namedConstructor();
 }

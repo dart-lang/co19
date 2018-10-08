@@ -5,16 +5,18 @@
  */
 /**
  * @assertion Int8List.view(ByteBuffer buffer, [int byteOffset = 0, int length])
- * If the length is not specified, it defaults to null, which
- * indicates that the view extends to the end of the byte buffer.
- * @description Checks that if the [length] is not specified,
+ * ...
+ * If the length is not specified, it defaults to null, which indicates that
  * the view extends to the end of the byte buffer.
+ * @description Checks that if the [length] is not specified, the view extends
+ * to the end of the byte buffer.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array, offset, numberOfElements, lastElement) {
+void check(List<int> array, int offset, int numberOfElements, int lastElement) {
   var tmp = new Int8List.fromList(array);
   var byteBuffer = tmp.buffer;
   var l = new Int8List.view(byteBuffer, offset);
@@ -23,7 +25,10 @@ void check(array, offset, numberOfElements, lastElement) {
 }
 
 main() {
-  check([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], 0, 18, 17);
-  check([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], 1, 17, 17);
-  check([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], 17, 1, 17);
+  check([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], 0, 18,
+      17);
+  check([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], 1, 17,
+      17);
+  check([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], 17, 1,
+      17);
 }

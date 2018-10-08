@@ -10,7 +10,6 @@
  * @description Checks that constructor name cannot contain 3 identifiers.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 class C {
@@ -20,5 +19,7 @@ class C {
 
 
 main() {
-  new C.c3();
+  try {
+    new C.c3();
+  } catch (x) {}
 }

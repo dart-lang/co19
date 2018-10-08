@@ -5,24 +5,19 @@
  */
 /**
  * @assertion Undocumented
- * @description Checks that this method causes no error and the result is not null and is indeed a String.
- * @static-warning
+ * @description Checks that this method causes no error and the result is not
+ * null and is indeed a String.
  * @author rodionov
- * @reviewer msyabro
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 
-import "../../../Utils/dynamic_check.dart";
-
 main() {
- if(isCheckedMode()) {
-    try {
-      int x = true; /// static type warning 
-      Expect.fail("TypeError expected");
-    } on TypeError catch(e) {
-      Expect.isTrue(e.toString() != null);
-      Expect.isTrue(e.toString() is String);
-    }
+  dynamic i = true;
+  try {
+    int x = i;
+    Expect.fail("TypeError expected");
+  } on TypeError catch(e) {
+    Expect.isTrue(e.toString() != null);
+    Expect.isTrue(e.toString() is String);
   }
 }

@@ -22,5 +22,7 @@
 f({var x: var z}) {}
 
 main() {
-  f();
+  try {
+    f();
+  } catch (x) {}
 }

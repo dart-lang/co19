@@ -8,8 +8,6 @@
  * @description Layout test for WebKit bug 85581
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 
 const String squareBlue = "$testSuiteRoot/fast/replaced/resources/square-blue-100x100.png";

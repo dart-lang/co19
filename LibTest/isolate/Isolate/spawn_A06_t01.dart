@@ -11,18 +11,15 @@
  *
  * @description Check that if onError parameter is supplied, the isolate
  * captures and sends error via given send port.
- * @static-warning
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
-import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
-import "IsolateUtil.dart";
 
 void entryPoint(message) {
+  dynamic i = 1;
   // intentional error
-  var x = "a" + 1; /// static type warning
+  var x = "a" + i;
 }
 
 main() {

@@ -31,12 +31,6 @@ test(() {
   assert_true(lst is HtmlCollection, "Should return an HtmlCollection");
 }, "Interfaces");
 
-test(() {
-  var l = document.getElementsByTagName("nosuchtag");
-  assert_throws("Unsupported operation", () {
-    l[5] = "foopy";
-  });
-}, "Shouldn't be able to set unsigned properties on a HtmlCollection (non-strict mode)");
 
 /* TODO how to set strict mode?
 test(() {
@@ -50,7 +44,7 @@ test(() {
 
 test(() {
   assert_equals(document.createElementNS("http://www.w3.org/1999/xhtml", "i").localName, "i"); // Sanity
-  var i = document.body.append(document.createElementNS("http://www.w3.org/1999/xhtml", "I"));
+  var i = document.body.append(document.createElementNS("http://www.w3.org/1999/xhtml", "I")) as Element;
   assert_equals(i.localName, "I");
   assert_equals(i.tagName, "I");
   assert_equals(document.getElementsByTagName("I").length, 0);

@@ -8,7 +8,6 @@
  * no src attribute. 
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 

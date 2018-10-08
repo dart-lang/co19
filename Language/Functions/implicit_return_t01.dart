@@ -27,5 +27,5 @@ void g() {}
 main() {
   Expect.equals(null, func());
   Expect.equals(null, f());
-  Expect.equals(null, g());
+  g();
 }

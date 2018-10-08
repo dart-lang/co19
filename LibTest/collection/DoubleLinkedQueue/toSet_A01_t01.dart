@@ -5,8 +5,10 @@
  */
 /**
  * @assertion Set<E> toSet()
- * Creates a Set containing the elements of this Iterable.
- * @description Checks that proper Set with correct element order is created.
+ * Creates a [Set] containing the elements of this [Iterable].  ...
+ * The order of the elements in the set is not guaranteed to be the same as for
+ * the iterable.
+ * @description Checks that proper [Set] is created.
  * @author kaigorodov
  */
 
@@ -14,7 +16,7 @@ import "dart:collection";
 import "../../../Utils/expect.dart";
 
 void checkEquals(Iterable expected, Set actual) {
-  Set set0=new Set();
+  Set set0 = new Set();
   for (var el in expected) {
     set0.add(el);
   }
@@ -28,11 +30,12 @@ main() {
   Expect.equals(0, a.length);
   Expect.equals(0, q.length);
 
-  q.addAll([1,"2","3","4","5", "4", 1]);
+  q.addAll([1, "2", "3", "4", "5", "4", 1]);
   a = q.toSet();
   checkEquals(q, a);
 
-  DoubleLinkedQueue src = new DoubleLinkedQueue.from([null, [null], [], [1,2,3], [[null]]]);
+  DoubleLinkedQueue src = new DoubleLinkedQueue.from(
+      [null, [null], [], [1,2,3], [[null]]]);
   a = src.toSet();
   checkEquals(src, a);
 }

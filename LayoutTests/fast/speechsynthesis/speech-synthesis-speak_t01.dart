@@ -8,8 +8,7 @@
  * @description This tests that the basic mechanisms of speaking text work, including sending the job and receving the callback. 
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
+import "../../testcommon.dart";
 
 void main() {
     var speechSynthesis=window.speechSynthesis;

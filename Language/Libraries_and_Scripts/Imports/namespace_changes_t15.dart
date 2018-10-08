@@ -59,16 +59,12 @@
  * @description Checks that all specified show and hide combinators are applied
  * and if a name is hidden by any of them, it's undefined in the resulting
  * namespace.
- * @static-warning
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
-import "../../../Utils/expect.dart";
-
 import "namespace_changes_lib.dart" show aFoo, aFunc hide aFunc;
 
 main() {
-  Expect.throws(() {
-    aFunc();
-  });
+  aFunc();
 }

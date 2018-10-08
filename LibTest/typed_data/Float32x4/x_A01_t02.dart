@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final double x
+ * @assertion double x
  * Extracted x value.
- * @description Checks that [x] is final and can't be set.
+ * @description Checks that [x] is read-only and can't be set.
  * @author msyabro
  */
 
@@ -14,9 +14,9 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var obj = new Float32x4(0.0 ,0.0, 0.0, 0.0);
+  dynamic obj = new Float32x4(0.0, 0.0, 0.0, 0.0);
   try {
     obj.x = 1e-1;
-    Expect.fail("[x] should be final");
-  } on NoSuchMethodError catch(ok) {}
+    Expect.fail("[x] should be read-only");
+  } on NoSuchMethodError {}
 }

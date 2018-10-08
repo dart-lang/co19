@@ -14,12 +14,10 @@
  * generated nor fired and onDone event does not happen.
  * @author ilya
  */
-
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-f(i) {
+int f(int i) {
   if (i < 5)
     return i;
   if (i == 5)
@@ -29,18 +27,25 @@ f(i) {
 }
 
 main() {
-  var it = new Iterable.generate(10, (i) => f(i));
-  Stream s = new Stream.fromIterable(it);
-
+  Iterable<int> it = new Iterable<int>.generate(10, (int i) => f(i));
+  Stream<int> s = new Stream<int>.fromIterable(it);
+  List events = [];
   asyncStart();
 
-  s.listen((x) {
-    Expect.isTrue(x < 5, 'unexpected onData event');
-  }, onError: (e) {
-    Expect.equals(5, e);
-    asyncEnd();
-  }, onDone: () {
-    Expect.fail('unexpected onDone event');
-  });
+  s.listen(
+    (int x) {
+      events.add(x);
+    },
+    onError: (error) {
+      events.add(error);
+      // wait some time for additional (wrong) events
+      new Future.delayed(durationMs(500), () {
+        Expect.listEquals([0,1,2,3,4,5], events);
+        asyncEnd();
+      });
+    },
+    onDone: () {
+      events.add("done");
+    }
+  );
 }
-

@@ -9,8 +9,8 @@
  * classDefinition:
  *   metadata abstract? class mixinApplicationClass
  * ;
- * mixinClassApplication:
- *   identifer typeParameters? `=' mixinApplication `;'
+ * mixinApplicationClass:
+ *   identifier typeParameters? `=' mixinApplication `;'
  *
  * mixinApplication:
  *   type mixins interfaces?
@@ -22,11 +22,12 @@
  * superclass is the application of the mixin composition Mk−1∗...∗M1 to S.
  * In both cases above, C declares the same instance members as M (respec-
  * tively, Mk).
- * @description Test that mixin can be derived from a class whose superclass is
- * not an Object and has all of its setters
+ * @description Checks that it is no compile error to derive a mixin from a
+ * class which has a superclass other than Object, even if mixin has all of its
+ * setters
+ * @issue 26409
  * @author sgrekhov@unipro.ru
  */
-import '../../../Utils/expect.dart';
 
 class S {
   void set s1(val) {}

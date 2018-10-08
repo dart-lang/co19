@@ -5,21 +5,20 @@
  */
 /**
  * @assertion void setInt8(int byteOffset, int value)
- * Throws [RangeError] if [byteOffset] is negative, or
- * greater than or equal to the length of this object.
- * @description Checks that [RangeError] is thrown if
- * [byteOffset] is negative
+ * ...
+ * Throws [RangeError] if [byteOffset] is negative, or greater than or equal to
+ * the length of this object.
+ * @description Checks that [RangeError] is thrown if [byteOffset] is negative.
  * @author msyabro
  */
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-
 main() {
   var byteData = new ByteData(0);
   try {
     byteData.setInt8(-1, 0);
     Expect.fail("RangeError is expected");
-  } on RangeError catch(ok) {}
+  } on RangeError {}
 }

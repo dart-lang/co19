@@ -4,18 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable map(f(E element))
+ * @assertion Iterable<T> map<t>(T f(E e))
  * The transformed elements will not be cached. Iterating multiple times
- * over the the returned [Iterable] will invoke the supplied
- * function [f] multiple times on the same element.
- * @description Checks that [f] will be invoked every time
- * [Iterable] is iterated.
+ * over the the returned [Iterable] will invoke the supplied function [f]
+ * multiple times on the same element.
+ * @description Checks that [f] will be invoked every time [Iterable] is
+ * iterated.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 main() {
   var count = 0;
@@ -24,7 +25,8 @@ main() {
     return e;
   }
 
-  var l = new Float32x4List.fromList([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)]);
+  var l = new Float32x4List.fromList(
+      [pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)]);
   var res = l.map(f);
 
   res.elementAt(0);

@@ -9,10 +9,10 @@
  * @description Checks that [exp] returns NaN if [x] is NaN.
  * @author msyabro
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
-  Expect.isTrue(Math.exp(double.NAN).isNaN);
+  Expect.isTrue(Math.exp(double.nan).isNaN);
 }

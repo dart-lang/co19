@@ -5,6 +5,7 @@
  */
 /**
  * @assertion nextEntry() → DoubleLinkedQueueEntry<E>
+ * Returns the next entry or [null] if there is none.
  * @description Checks that nextEntry() returns the next element
  * @author sgrekhov@unipro.ru
  */

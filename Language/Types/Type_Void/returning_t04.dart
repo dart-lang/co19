@@ -10,15 +10,14 @@
  * checked mode, a dynamic type error would arise if a non-null object was
  * returned from a void method (since no object has runtime type dynamic).
  * @description Checks that returning a non-null value with non-dynamic static
- * type from within a void method results in both static type warning but no
- * error
- * @static-warning
+ * type from within a void method produces compile error.
+ * @compile-error
  * @author rodionov
  */
 
 void foo() {
   Object o = new Object();
-  return o; /// static type warning
+  return o;
 }
 
 main() {

@@ -36,5 +36,7 @@
 f(static var x) {}
 
 main() {
-  f(1);
+  try {
+    f(1);
+  } catch (x) {}
 }

@@ -17,5 +17,7 @@
 static void f() {}
 
 main() {
-  f();
+  try {
+    f();
+  } catch (x) {}
 }

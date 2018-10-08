@@ -21,7 +21,6 @@
  * @description Checks that the execution order as well as type parameters
  * binding for both named and unnamed superinitializers are correct.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

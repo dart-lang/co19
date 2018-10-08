@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -17,7 +16,7 @@ main() {
       </fieldset>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var input1 = document.getElementById('input1');
+  InputElement input1 = document.getElementById('input1') as InputElement;
   debug('A form control in a disabled fieldset is not focusable:');
   input1.focus();
   shouldBe(document.activeElement, document.body);

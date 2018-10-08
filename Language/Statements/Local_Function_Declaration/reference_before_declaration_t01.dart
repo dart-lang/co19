@@ -15,5 +15,8 @@
  */
 
 main() {
-  func();  void func() {}
+  try {
+    func();
+  } catch (e) {}
+  void func() {}
 }

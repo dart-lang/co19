@@ -15,16 +15,17 @@ main() {
   var x = new Element.html('<span></span>');
   Expect.isNull(x.nextNode);
 
-  x = new Element.html('<div><span>span1</span>text node<span>span2</span></div>');
+  x = new Element.html(
+      '<div><span>span1</span>text node<span>span2</span></div>');
   var y = x.firstChild; // span1
   Expect.equals('span1', y.text);
 
   y = y.nextNode; // text node should not be skipped
   Expect.equals('text node', y.text);
-  
+
   y = y.nextNode; // span2
   Expect.equals('span2', y.text);
-  
+
   y = y.nextNode;
   Expect.isNull(y);
 }

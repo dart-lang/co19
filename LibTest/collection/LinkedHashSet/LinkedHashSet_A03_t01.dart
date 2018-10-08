@@ -6,17 +6,19 @@
 /**
  * @assertion LinkedHashSet({bool equals(E e1, E e2), int hashCode(E e),
  * bool isValidKey(potentialKey)})
- * Create an insertion-ordered hash set using the provided equals and hashCode
- * @description Checks that if equals and hashCode is provided, it is used to
- * compare the keys and produce hash value for keys
+ * Create an insertion-ordered hash set using the provided [equals] and
+ * [hashCode]. The provided [equals] must define a stable equivalence relation,
+ * and [hashCode] must be consistent with [equals]
+ * @description Checks that if consistent [equals] and [hashCode] are provided,
+ * they are used to compare the keys and produce hash value for keys
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-bool myEquals(int key1, int key2) =>
+bool myEquals(var key1, var key2) =>
     key1 > 0 && key2 > 0 || key1 <= 0 && key2 <= 0;
-int myHashCode(int key) => key > 0 ? 1 : -1;
+int myHashCode(var key) => key > 0 ? 1 : -1;
 
 check(LinkedHashSet set, List expected) {
   Expect.equals(expected.length, set.length);

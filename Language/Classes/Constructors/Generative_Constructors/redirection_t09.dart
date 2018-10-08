@@ -15,7 +15,6 @@
  * constructor references a method rather than another constructor.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 
@@ -25,5 +24,7 @@ class C {
 }
 
 main() {
-  var x = new C();
+  try {
+    var x = new C();
+  } catch (x) {}
 }

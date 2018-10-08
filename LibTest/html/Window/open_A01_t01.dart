@@ -12,7 +12,7 @@ import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-  WindowBase nw=window.open("about:blank", "_blank");
+  WindowBase nw = window.open("about:blank", "_blank");
   Expect.isTrue(nw is WindowBase);
   nw.close();
 }

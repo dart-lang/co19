@@ -20,10 +20,10 @@ main() {
     </div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var imported = document.getElementById('container')
+  Element imported = document.getElementById('container')
     .insertBefore(document.importNode(document.getElementById('original'),true),
         document.getElementById('cloneTitle'));
-  var cloned = document.getElementById('container')
+  Element cloned = document.getElementById('container')
     .append(document.getElementById('original').clone(true));
 
   shouldBe(imported.getAttribute('style'), 'background: #7F7FFF; padding: 3px');

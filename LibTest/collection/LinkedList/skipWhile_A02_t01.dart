@@ -6,16 +6,16 @@
 /**
  * @assertion Iterable<E> skipWhile(bool test(E value))
  * The filtering happens lazily.
- * starting from the first element that does not satisfy test.
- * @description Checks that the test method is not called when the skipWhile is executed.
+ * @description Checks that the [test] method is not called when the [skipWhile]
+ * is executed.
  * @author kaigorodov
  */
-import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
 bool test(var value) {
   Expect.fail("test($value) called");
+  return false;
 }
 
 void check(List a0) {
@@ -25,5 +25,5 @@ void check(List a0) {
 main() {
   check([]);
   check([1]);
-  check([1,3,7,4,5,6]);
+  check([1, 3, 7, 4, 5, 6]);
 }

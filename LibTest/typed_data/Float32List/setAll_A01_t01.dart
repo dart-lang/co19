@@ -5,9 +5,9 @@
  */
 /**
  * @assertion void setAll(int index, Iterable<E> iterable)
- * Overwrites elements of this with the elemenst of [iterable]
- * starting at position [index] in the list.
- * This operation does not increase the length of [this].
+ * Overwrites objects of this with the objects of [iterable], starting at
+ * position [index] in this list.
+ * This operation does not increase the length of this.
  * @description Checks that method overwrites elements correctly.
  * @author msyabro
  */
@@ -16,21 +16,24 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new Float32List.fromList([0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]);
+  var l = new Float32List.fromList(
+      [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]);
 
   l.setAll(9, [1.0]);
-  Expect.listEquals([0,0,0,0,0,0,0,0, 0,1.0], l);
+  Expect.listEquals([0, 0, 0, 0, 0, 0, 0, 0, 0, 1.0], l);
 
   l.setAll(2, [2.0, 2.0, 2.0, 2.0]);
-  Expect.listEquals([0,0,2.0,2.0,2.0,2.0,0,0,0,1.0], l);
+  Expect.listEquals([0, 0, 2.0, 2.0, 2.0, 2.0, 0, 0, 0, 1.0], l);
 
   l.setAll(0, [3.0, 3.0, 3.0, 3.0, 3.0]);
-  Expect.listEquals([3.0,3.0,3.0,3.0,3.0,2.0,0,0,0,1.0], l);
+  Expect.listEquals([3.0, 3.0, 3.0, 3.0, 3.0, 2.0, 0, 0, 0, 1.0], l);
 
   l.setAll(0, [11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0]);
-  Expect.listEquals([11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0], l);
+  Expect.listEquals(
+      [11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0], l);
 
   l.setAll(0, []);
-  Expect.listEquals([11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0], l);
+  Expect.listEquals(
+      [11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0, 11.0], l);
 }
 

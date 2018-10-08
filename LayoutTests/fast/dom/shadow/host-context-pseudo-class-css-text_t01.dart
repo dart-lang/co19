@@ -30,7 +30,7 @@ main() {
   CssStyleSheet sh1 = se1.sheet;
 
   shouldBeLikeString(sh1.cssRules[0].cssText,
-      ":host-context(*) { display: block; }");
+      ":host-context(*){display:block;}");
 
   StyleElement se2 = document.getElementById('style-invalid');
   CssStyleSheet sh2 = se2.sheet;

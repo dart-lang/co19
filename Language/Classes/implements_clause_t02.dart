@@ -8,7 +8,6 @@
  * in its implements clause.
  * @description Checks that class can implement one or more interfaces.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import "../../Utils/expect.dart";
 

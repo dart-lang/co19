@@ -38,7 +38,6 @@
  * constructor is declared abstract.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {
@@ -47,5 +46,7 @@ class C {
 
 
 main() {
-  new C();
+  try {
+    new C();
+  } catch (e) {}
 }

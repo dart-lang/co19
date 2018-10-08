@@ -8,7 +8,6 @@
  * Returns the 16-bit UTF-16 code unit at the given index.
  * @description Checks that the returned code point is correct
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

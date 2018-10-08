@@ -10,9 +10,7 @@
  * output to be a green rect.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -20,7 +18,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
   document.body.id = "body";
 
-  var canvas = document.getElementById("test");
+  dynamic canvas = document.getElementById("test");
   var context = canvas.getContext("2d");
   context.fillStyle = '#f00';
   context.fillRect(0, 0, canvas.width, canvas.height);
@@ -29,7 +27,8 @@ main() {
     context.fillRect(0, 0, canvas.width, 0);
     context.fillRect(0, 0, 0, canvas.height);
   } catch (e) {
-    var node = new Text("FAIL -- an exception was thrown when drawing a 0 sized rect");
+    var node = new Text(
+        "FAIL -- an exception was thrown when drawing a 0 sized rect");
     document.getElementById("body").append(node);
     return;
   }

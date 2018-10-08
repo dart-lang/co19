@@ -19,5 +19,7 @@
  */
 
 main() {
-  var x = (as int);
+  try {
+    var x = (as int);
+  } catch (x) {}
 }

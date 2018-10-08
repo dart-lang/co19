@@ -10,7 +10,6 @@
  * It is an error if startIndex is negative or greater than length.
  * @description Checks that this function works correctly
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

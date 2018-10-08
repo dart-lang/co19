@@ -15,5 +15,7 @@ class A {}
 class C extends A with String {}
 
 main() {
-  new C();
+  try {
+    new C();
+  } catch (e) {}
 }

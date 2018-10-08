@@ -6,8 +6,8 @@
 /**
  * @assertion SplayTreeMap.from(Map other, [int compare(K key1, K key2),
  * bool isValidKey(potentialKey)])
- * Creates a SplayTreeMap that contains all key/value pairs of other.
- * @description Checks that this constructor creates an SplayTreeMap that
+ * Creates a [SplayTreeMap] that contains all key/value pairs of [other].
+ * @description Checks that this constructor creates a [SplayTreeMap] that
  * contains all elements of [other]
  * @author sgrekhov@unipro.ru
  */

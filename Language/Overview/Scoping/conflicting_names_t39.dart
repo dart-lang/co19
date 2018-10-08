@@ -20,5 +20,7 @@
 typedef f([x, x]);
 
 main() {
-  (([x, xx]) {}) is f;
+  try {
+    (([x, xx]) {}) is f;
+  } catch (x) {}
 }

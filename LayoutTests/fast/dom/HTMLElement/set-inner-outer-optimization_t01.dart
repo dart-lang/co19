@@ -11,7 +11,6 @@
  * @needsreview is this relevant for dart?
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -60,8 +59,9 @@ main() {
     oldContent = parent.firstChild.firstChild;
     var resultValue;
     if (propertyName == 'innerHtml') {
-      parent.firstChild.innerHtml = newValue;
-      resultValue = parent.firstChild.innerHtml;
+      HtmlElement parentElement = parent.firstChild;
+      parentElement.innerHtml = newValue;
+      resultValue = parentElement.innerHtml;
     }
     if (propertyName == 'text') {
       parent.firstChild.text = newValue;

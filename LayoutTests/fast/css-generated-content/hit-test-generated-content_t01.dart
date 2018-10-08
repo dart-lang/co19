@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var style = new Element.html('''
@@ -42,7 +41,6 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   var hitElement = document.elementFromPoint(58, 58);
-  var results = document.getElementById('results');
   shouldBeNonNull(hitElement);
   shouldBe(hitElement.id, 'target');
 }

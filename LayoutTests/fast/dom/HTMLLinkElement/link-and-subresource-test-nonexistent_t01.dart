@@ -9,8 +9,6 @@
  * loaded correctly as a subresource, even if the URI doesn't exist.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {

@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -24,6 +22,6 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   document.body.offsetLeft; // force style recalc
-  document.body.queryAll("div")[1].className = "";
-  shouldBe(getComputedStyle(document.body.queryAll('div')[1], null).backgroundColor, 'rgba(0, 0, 0, 0)');
+  document.body.querySelectorAll("div")[1].className = "";
+  shouldBe(getComputedStyle(document.body.querySelectorAll('div')[1], null).backgroundColor, 'rgba(0, 0, 0, 0)');
 }

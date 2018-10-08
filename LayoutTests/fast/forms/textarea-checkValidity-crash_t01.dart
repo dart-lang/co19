@@ -9,10 +9,9 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var ta = document.createElement('textarea');
+  TextAreaElement ta = document.createElement('textarea') as TextAreaElement;
   ta.setAttribute('maxlength', '1');
   ta.value = 'abc'; // Make it dirty && invalid.
   ta.checkValidity(); // This made an assertion failure.

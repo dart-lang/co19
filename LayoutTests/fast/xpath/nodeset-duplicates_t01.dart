@@ -22,9 +22,9 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-    document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
-    XPathEvaluator evaluator = new XPathEvaluator();
-    var result = evaluator.evaluate("//div//div | //div/div", document, null,
-        XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    Expect.equals(2, result.snapshotLength);
+  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
+  XPathEvaluator evaluator = new XPathEvaluator();
+  var result = evaluator.evaluate("//div//div | //div/div", document, null,
+      XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+  Expect.equals(2, result.snapshotLength);
 }

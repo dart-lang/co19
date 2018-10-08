@@ -17,25 +17,17 @@
  * . . .
  * In checked mode, if T or any of its superclasses is malbounded a dynamic
  * error occurs.
- * @description  Checks that it is a dynamic type error in checked mode if a
+ * @description  Checks that it is a compile error in checked mode if a
  * type argument of a class in a new expression is not a subtype of its bound.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
-
-import '../../../../Utils/dynamic_check.dart';
 
 class C<T extends num> {
   C() {}
 }
 
 main() {
-  checkTypeError( () {
-    new C<bool>(); /// static type warning - incompatible type arguments, see "Instance creation"
-  });
-
-  checkTypeError( () {
-    new C<String>(); /// static type warning - incompatible type arguments, see "Instance creation"
-  });
+  new C<bool>();
 }

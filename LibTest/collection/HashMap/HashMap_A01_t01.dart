@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Creates a map with the default implementation.
+ * @assertion HashMap({bool equals(K key1, K key2), int hashCode(K key),
+ * bool isValidKey(potentialKey) })
+ * Creates an unordered hash-table based Map.
  * @description Checks that an empty hash map is created
  * @author msyabro
- * @reviewer pagolubev
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

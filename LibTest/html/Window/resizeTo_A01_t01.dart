@@ -11,23 +11,23 @@
 import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
-void check(WindowBase nw, int nx, int ny) {
+void check(Window nw, int nx, int ny) {
   nw.resizeBy(nx, ny);
   Expect.equals(nx, nw.innerWidth);
   Expect.equals(ny, nw.innerHeight);
 }
 
 main() {
-  WindowBase nw=window.open("about:blank", "_blank");
+  Window nw = window.open("about:blank", "_blank");
   try {
-    check(nw,0,0);
-    check(nw,1,0);
-    check(nw,0,1);
-    check(nw,1,1);
-    check(nw,-1,0);
-    check(nw,0,-1);
-    check(nw,-1,-1);
-    check(nw,100,100);
+    check(nw, 0, 0);
+    check(nw, 1, 0);
+    check(nw, 0, 1);
+    check(nw, 1, 1);
+    check(nw, -1, 0);
+    check(nw, 0, -1);
+    check(nw, -1, -1);
+    check(nw, 100, 100);
   } finally {
     nw.close();
   }

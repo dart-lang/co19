@@ -10,7 +10,6 @@
  * Each key must be unique. Null values are supported, but null keys are not.
  * @description Checks thet the map works correctly with hashcode collisions.
  * @author msyabro
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 

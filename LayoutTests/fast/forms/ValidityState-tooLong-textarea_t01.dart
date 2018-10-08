@@ -10,7 +10,7 @@ import "dart:html";
 import "../../testcommon.dart";
 
 main() {
-  var textarea = document.createElement('textarea');
+  TextAreaElement textarea = document.createElement('textarea') as TextAreaElement;
   document.body.append(textarea);
 
   debug('No maxlength and no value');
@@ -71,7 +71,7 @@ main() {
   debug('');
   debug('A value set by resetting a form doesn\'t make tooLong true.');
   // Make a dirty textarea.
-  var parent = document.createElement('div');
+  DivElement parent = document.createElement('div') as DivElement;
   document.body.append(parent);
   parent.setInnerHtml('<form><textarea maxlength=2>abcdef</textarea></form>',
       treeSanitizer: new NullTreeSanitizer());
@@ -80,7 +80,7 @@ main() {
   textarea.setSelectionRange(6, 6);
   document.execCommand('delete', false, '');
   shouldBeTrue(textarea.validity.tooLong);
-  parent.firstChild.reset();
+  (parent.firstChild as FormElement).reset();
   shouldBe(textarea.value, "abcdef");
   shouldBeFalse(textarea.validity.tooLong);
 
@@ -90,7 +90,7 @@ main() {
       treeSanitizer: new NullTreeSanitizer());
   textarea = parent.firstChild;
   shouldBeFalse(textarea.validity.tooLong);
-  parent.firstChild.innerHtml = 'abcdef';
+  (parent.firstChild as Element).innerHtml = 'abcdef';
   shouldBe(textarea.value, "abcdef");
   shouldBeFalse(textarea.validity.tooLong);
 }

@@ -8,11 +8,8 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -22,32 +19,32 @@ main() {
 
   debug("Canvas.getContext");
 
-  var gl = create3DContext(document.getElementById("canvas"));
+  dynamic gl = create3DContext(document.getElementById("canvas"));
   if (gl == null) {
     testFailed("context does not exist");
   } else {
     testPassed("context exists");
 
     var buf = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, buf);
-    assertMsg(gl.getError() == wgl.NO_ERROR,
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, buf);
+    assertMsg(gl.getError() == wgl.WebGL.NO_ERROR,
         "should be able to bind buffer.");
-    gl.bindBuffer(wgl.ARRAY_BUFFER, null);
-    assertMsg(gl.getError() == wgl.NO_ERROR,
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, null);
+    assertMsg(gl.getError() == wgl.WebGL.NO_ERROR,
         "should be able to unbind buffer.");
-    gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, buf);
-    assertMsg(gl.getError() == wgl.INVALID_OPERATION,
+    gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, buf);
+    assertMsg(gl.getError() == wgl.WebGL.INVALID_OPERATION,
         "should get INVALID_OPERATION if attempting to bind buffer to different target");
 
     buf = gl.createBuffer();
-    gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, buf);
-    assertMsg(gl.getError() == wgl.NO_ERROR,
+    gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, buf);
+    assertMsg(gl.getError() == wgl.WebGL.NO_ERROR,
         "should be able to bind buffer.");
-    gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, null);
-    assertMsg(gl.getError() == wgl.NO_ERROR,
+    gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, null);
+    assertMsg(gl.getError() == wgl.WebGL.NO_ERROR,
         "should be able to unbind buffer.");
-    gl.bindBuffer(wgl.ARRAY_BUFFER, buf);
-    assertMsg(gl.getError() == wgl.INVALID_OPERATION,
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, buf);
+    assertMsg(gl.getError() == wgl.WebGL.INVALID_OPERATION,
         "should get INVALID_OPERATION if attempting to bind buffer to different target");
   }
 }

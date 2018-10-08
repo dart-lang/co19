@@ -7,9 +7,9 @@
  * @assertion It is a static warning if the implicit interface of a class
  * C includes an instance member m of type F and C declares or inherits a
  * corresponding instance member m of type F' if F' is not a subtype of F.
- * @description Checks that it is a static warning if the type F' of
+ * @description Checks that it is a compile error if the type F' of
  * inherited instance member m is not a subtype of F.
- * @static-warning
+ * @compile-error
  * @author ilya
  */
 
@@ -21,7 +21,7 @@ class S {
   foo() {}
 }
 
-class C extends S implements I {} /// static type warning
+class C extends S implements I {}
 
 main () {
   new C();

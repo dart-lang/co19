@@ -8,18 +8,16 @@
  * blend modes.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var tmpimg = document.createElement('canvas');
+  dynamic tmpimg = document.createElement('canvas');
   tmpimg.width = 200;
   tmpimg.height = 200;
   var ctx = tmpimg.getContext('2d');
 
   // Create the image for blending test with images.
-  var img = document.createElement('canvas');
+  dynamic img = document.createElement('canvas');
   img.width = 200;
   img.height = 200;
   var imgCtx = img.getContext('2d');
@@ -35,7 +33,8 @@ main() {
 
   // Create expected results.
   var blendModes =
-    // [blendMode, expectations solid on solid, expectations solid on alpha, expectations alpha on solid, expectations alpha on alpha]
+    // [blendMode, expectations solid on solid, expectations solid on alpha,
+    // expectations alpha on solid, expectations alpha on alpha]
     [
     ['source-over',
     [[255, 0, 0, 255],[255, 255, 0, 255],[0, 128, 0, 255],[0, 0, 255, 255]],

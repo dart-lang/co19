@@ -11,11 +11,12 @@
  * in a class's extends clause denotes a type variable.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class A<T> extends T {}
 
 main() {
-  A a = new A();
+  try {
+    new A();
+  } catch (e) {}
 }

@@ -16,5 +16,7 @@
 const m = 1 % 0;
 
 main() {
-  print(m);
+  try {
+    print(m);
+  } catch (anything) {}
 }

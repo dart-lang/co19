@@ -28,9 +28,10 @@
  * can't be used in the left hand side of an assignment.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
-  switch (1) {case 1: true; default: false;} = null;
+  try {
+    switch (1) {case 1: true; default: false;} = null;
+  } catch (e) {}
 }

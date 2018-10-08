@@ -20,5 +20,7 @@
 
 
 main() {
-  continue;
+  try {
+    continue;
+  } catch (x) {}
 }

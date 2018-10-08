@@ -24,5 +24,7 @@
  */
 
 main() async {
-  await for () {}
+  try {
+    await for () {}
+  } catch (x) {}
 }

@@ -34,9 +34,7 @@
  * attempts to access this.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
-
 
 class C {
   C() : v = f() {}
@@ -47,5 +45,7 @@ class C {
 }
 
 main() {
-  var c = new C();
+  try {
+    var c = new C();
+  } catch (x) {}
 }

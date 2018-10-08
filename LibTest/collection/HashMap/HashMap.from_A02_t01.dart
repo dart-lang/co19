@@ -7,7 +7,6 @@
  * @assertion Throws Error if [other] is null
  * @description Checks that Error is thrown if the argument is null.
  * @author msyabro
- * @reviewer pagolubev
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";

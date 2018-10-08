@@ -13,7 +13,6 @@
  * any member of the class.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {
@@ -21,5 +20,7 @@ class C {
 }
 
 main() {
-  new C(null);
+  try {
+    new C(null);
+  } catch (v) {}
 }

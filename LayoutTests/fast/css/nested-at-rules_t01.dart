@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -54,7 +53,7 @@ main() {
   asyncStart();
   window.onLoad.listen((_) {
     CssStyleSheet ss = document.styleSheets[index];
-    var rules = ss.cssRules;
+    dynamic rules = ss.cssRules;
     shouldEvaluateTo(rules.length, 2);
 
     shouldBe(rules[0].type, CssRule.STYLE_RULE);

@@ -19,9 +19,10 @@
  * A multiplicative expression is either a unary expression, or an invocation
  * of a multiplicative operator on either super or an expression e1, with
  * argument e2.
- * @description Checks that reference to a function type alias name can't be
+ * @description Checks that reference to a function type alias name cannot be
  * used as the left operand of a multiplicative expression without a compile
  * error.
+ * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  * @reviewer rodionov
@@ -30,5 +31,5 @@
 typedef int f();
 
 main() {
-  f * 1; /// 01: static type warning, runtime error
+  f * 1;
 }

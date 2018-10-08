@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final double z
+ * @assertion double z
  * Extracted z value.
  * @description Checks that the correct value is returned.
  * @author msyabro
@@ -14,8 +14,8 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 check(z) {
-  var obj = new Float32x4(0.0 ,0.0, z, 0.0);
-  Expect.approxEquals(z, obj.z, (z/1e7).abs());
+  var obj = new Float32x4(0.0, 0.0, z, 0.0);
+  Expect.approxEquals(z, obj.z, (z / 1e7).abs());
 }
 
 main() {

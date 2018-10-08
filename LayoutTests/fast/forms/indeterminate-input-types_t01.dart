@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -32,59 +31,59 @@ main() {
       </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var radioInput = document.getElementById("radioInput");
+  RadioButtonInputElement radioInput = document.getElementById("radioInput") as RadioButtonInputElement;
   radioInput.indeterminate = true;
   shouldBeTrue(radioInput.indeterminate);
 
-  var checkboxInput = document.getElementById("checkboxInput");
+  CheckboxInputElement checkboxInput = document.getElementById("checkboxInput") as CheckboxInputElement;
   checkboxInput.indeterminate = true;
   shouldBeTrue(checkboxInput.indeterminate);
 
-  var dateInput = document.getElementById("dateInput");
+  DateInputElement dateInput = document.getElementById("dateInput") as DateInputElement;
   dateInput.indeterminate = true;
   shouldBeTrue(dateInput.indeterminate);
 
-  var emailInput = document.getElementById("emailInput");
+  EmailInputElement emailInput = document.getElementById("emailInput") as EmailInputElement;
   emailInput.indeterminate = true;
   shouldBeTrue(emailInput.indeterminate);
 
-  var fileInput = document.getElementById("fileInput");
+  FileUploadInputElement fileInput = document.getElementById("fileInput") as FileUploadInputElement;
   fileInput.indeterminate = true;
   shouldBeTrue(fileInput.indeterminate);
 
-  var numberInput = document.getElementById("numberInput");
+  NumberInputElement numberInput = document.getElementById("numberInput") as NumberInputElement;
   numberInput.indeterminate = true;
   shouldBeTrue(numberInput.indeterminate);
 
-  var passwordInput = document.getElementById("passwordInput");
+  PasswordInputElement passwordInput = document.getElementById("passwordInput") as PasswordInputElement;
   passwordInput.indeterminate = true;
   shouldBeTrue(passwordInput.indeterminate);
 
-  var rangeInput = document.getElementById("rangeInput");
+  RangeInputElement rangeInput = document.getElementById("rangeInput") as RangeInputElement;
   rangeInput.indeterminate = true;
   shouldBeTrue(rangeInput.indeterminate);
 
-  var searchInput = document.getElementById("searchInput");
+  SearchInputElement searchInput = document.getElementById("searchInput") as SearchInputElement;
   searchInput.indeterminate = true;
   shouldBeTrue(searchInput.indeterminate);
 
-  var submitInput = document.getElementById("submitInput");
+  SubmitButtonInputElement submitInput = document.getElementById("submitInput") as SubmitButtonInputElement;
   submitInput.indeterminate = true;
   shouldBeTrue(submitInput.indeterminate);
 
-  var telInput = document.getElementById("telInput");
+  TelephoneInputElement telInput = document.getElementById("telInput") as TelephoneInputElement;
   telInput.indeterminate = true;
   shouldBeTrue(telInput.indeterminate);
 
-  var timeInput = document.getElementById("timeInput");
+  TimeInputElement timeInput = document.getElementById("timeInput") as TimeInputElement;
   timeInput.indeterminate = true;
   shouldBeTrue(timeInput.indeterminate);
 
-  var urlInput = document.getElementById("urlInput");
+  UrlInputElement urlInput = document.getElementById("urlInput") as UrlInputElement;
   urlInput.indeterminate = true;
   shouldBeTrue(urlInput.indeterminate);
 
-  var weekInput = document.getElementById("weekInput");
+  WeekInputElement weekInput = document.getElementById("weekInput") as WeekInputElement;
   weekInput.indeterminate = true;
   shouldBeTrue(weekInput.indeterminate);
 }

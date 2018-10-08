@@ -32,5 +32,5 @@ f() => throw "exception";
 main() {
   try {
     f();
-  } on String {}
+  } catch (x) {}
 }

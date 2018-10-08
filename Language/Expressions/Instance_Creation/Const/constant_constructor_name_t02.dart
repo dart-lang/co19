@@ -20,5 +20,7 @@ class  A {
 }
 
 main() {
-  const A.nonConstCtor();
+  try {
+    const A.nonConstCtor();
+  } catch (e) {}
 }

@@ -9,10 +9,13 @@
  */
 import "dart:html";
 import "../../../../Utils/expect.dart";
-import "../../../testcommon.dart";
 
 main() {
+  dynamic impl = document.implementation;
+  test(impl);
+}
 
+test (dynamic impl) {
   Expect.throws(() {
     impl.createDocument();
   }, (e) => e is NoSuchMethodError,

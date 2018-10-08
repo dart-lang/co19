@@ -4,19 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable<E> skipWhile(bool test(E element))
- * When the iterator encounters an element e that does not satisfy test,
- * it discards e and moves into the finished state.
- * That is, it will not ask or provide any more elements.
- * @description Checks that once an element does not satisfy
- * the [test] every later element is skipped.
+ * @assertion Iterable<E> takeWhile(bool test(E value))
+ * ...
+ * The elements can be computed by stepping through iterator until an element
+ * is found where test(element) is false. At that point, the returned iterable
+ * stops (its moveNext() returns false).
+ * @description Checks that once an element does not satisfy the [test] every
+ * later element is skipped.
  * @author msyabro
  */
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 equal(obj1, obj2) {
   var res = obj1.equal(obj2);
@@ -24,10 +25,11 @@ equal(obj1, obj2) {
 }
 
 main() {
-  var list = new Float32x4List.fromList([pack(1.0), pack(1.0), pack(2.0), pack(1.0), pack(1.0), pack(1.0)]);
+  var list = new Float32x4List.fromList(
+      [pack(1.0), pack(1.0), pack(2.0), pack(1.0), pack(1.0), pack(1.0)]);
   var res = list.takeWhile((e) => e.x == 1.0);
   Expect.equals(2, res.length);
-  for(int i = 1; i < 2; ++i) {
+  for (int i = 1; i < 2; ++i) {
     Expect.isTrue(equal(pack(1.0), res.elementAt(i)));
   }
 }

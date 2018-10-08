@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 main() {
   var x = new Element.html('<span></span>');
   Expect.isNull(x.firstChild);
-  
+
   x = document.body;
   x.innerHtml = 'text node<div></div>';
 

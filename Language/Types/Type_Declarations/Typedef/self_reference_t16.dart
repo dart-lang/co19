@@ -17,5 +17,7 @@ typedef H G();
 typedef void H(List<F> f);
 
 main() {
-  F x;
+  try {
+    F x;
+  } catch (e) {}
 }

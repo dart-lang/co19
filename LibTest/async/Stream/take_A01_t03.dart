@@ -14,9 +14,7 @@
  * the resulting stream ends with a done event.
  * @author kaigorodov
  */
-
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 int eventCount = 2; // the length of the source stream
@@ -27,7 +25,8 @@ void main() {
   Stream s = new Stream.fromIterable(it).map((x) => throw new ArgumentError(x));
   Stream t = s.take(takeCount);
   asyncStart();
-  t.listen((value) {
+  t.listen(
+    (value) {
       Expect.fail("onData call not expected");
     },
     onError: (error) {

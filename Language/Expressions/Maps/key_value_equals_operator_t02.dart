@@ -17,12 +17,12 @@
 import '../../../Utils/expect.dart';
 
 main() {
-  var x = const {"abc": 1};
-  Expect.equals(1, x["abc"]);
-  x = const {1: 1};
-  Expect.equals(1, x[1]);
-  x = const {#abc: 1};
-  Expect.equals(1, x[#abc]);
-  x = const {const Symbol("abc"): 1};
-  Expect.equals(1, x[const Symbol("abc")]);
+  var x1 = const {"abc": 1};
+  Expect.equals(1, x1["abc"]);
+  var x2 = const {1: 1};
+  Expect.equals(1, x2[1]);
+  var x3 = const {#abc: 1};
+  Expect.equals(1, x3[#abc]);
+  var x4 = const {const Symbol("abc"): 1};
+  Expect.equals(1, x4[const Symbol("abc")]);
 }

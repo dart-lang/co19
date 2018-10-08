@@ -13,7 +13,6 @@
  * lookup has failed or succeeded.
  * @description Checks that the value of an assignment expression is o2
  * even if setter lookup failed.
- * @static-warning
  * @author msyabro
  */
 import '../../../Utils/expect.dart';
@@ -29,9 +28,9 @@ class C {
 }
 
 main() {
-  C c = new C();
-  Expect.equals(1, c.nonExistingSetter = 1); /// static type warning
-  Expect.equals(2, c.nonExistingSetter = 2); /// static type warning
-  Expect.equals("12", c.nonExistingSetter = "1" "2"); /// static type warning
-  Expect.equals(true, c.nonExistingSetter = 1 < 2); /// static type warning
+  dynamic c = new C();
+  Expect.equals(1, c.nonExistingSetter = 1);
+  Expect.equals(2, c.nonExistingSetter = 2);
+  Expect.equals("12", c.nonExistingSetter = "1" "2");
+  Expect.equals(true, c.nonExistingSetter = 1 < 2);
 }

@@ -6,18 +6,19 @@
 /**
  * @assertion dynamic firstWhere(bool test(E element), {Object orElse()})
  * If orElse is omitted, it defaults to throwing a StateError.
- * @description Checks that a [StateError] is thrown.
+ * @description Checks that a [StateError] is thrown if orElse is omitted.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
+check(List<double> list) {
   var l = new Float32List.fromList(list);
   try {
     l.firstWhere((e) => false);
     Expect.fail("StateError is expected");
-  } on StateError catch(ok) {}
+  } on StateError {}
 }
 
 main() {

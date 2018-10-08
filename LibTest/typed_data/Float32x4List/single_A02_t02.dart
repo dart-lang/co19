@@ -4,30 +4,37 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final E single
- * If [this] is empty or has more than one element throws a [StateError].
- * @description Checks that a [StateError] is thrown if [this]
- * has more than one element.
+ * @assertion E single
+ * ...
+ * Throws a [StateError] if [this] is empty or has more than one element.
+ * @description Checks that a [StateError] is thrown if [this] has more than
+ * one element.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
-check(array) {
+check(List<Float32x4> array) {
   var l = new Float32x4List.fromList(array);
   try {
     l.single;
     Expect.fail("StateError is expected");
-  } on StateError catch(ok) {}
+  } on StateError {}
 }
 
 main() {
   check([pack(1.0), pack(2.0)]);
-  check([pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
-         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
-         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
-         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
-         pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0)]);
+  check([
+    pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+    pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+    pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+    pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+    pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+    pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+    pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0), pack(1.0),
+    pack(1.0), pack(1.0), pack(1.0)
+  ]);
 }

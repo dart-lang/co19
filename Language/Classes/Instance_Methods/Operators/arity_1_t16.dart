@@ -11,7 +11,6 @@
  * operator [] specifies no parameters.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {
@@ -19,5 +18,7 @@ class C {
 }
 
 main() {
-  bool b = new C()[0];
+  try {
+    bool b = new C()[0];
+  } catch (ex) {}
 }

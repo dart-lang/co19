@@ -11,9 +11,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -39,7 +36,6 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   fail(x,y, name, buf, shouldBe) {
-    var i = (y*50+x) * 4;
     var reason = "pixel in $name at ($x,$y)is ${buf.sublist(0,4)}, should be $shouldBe";
     testFailed(reason);
   }
@@ -48,24 +44,24 @@ main() {
     testPassed("drawing is correct in " + name);
   }
 
-  var gl;
+  dynamic gl;
 
   init() {
     debug("There should be 5 red triangles on 5 black squares above");
 
-    debug("This test checks that drawImage and readPixels are not effected by wgl.Pixelstorei(wgl.PACK_ALIGNMENT) and visa versa");
+    debug("This test checks that drawImage and readPixels are not effected by wgl.WebGL.Pixelstorei(wgl.WebGL.PACK_ALIGNMENT) and visa versa");
 
     var canvas3d = document.getElementById("example");
     gl = initWebGL("example", "vshader", "fshader", [ "vPosition"], [ 0, 0, 0, 1 ], 1);
 
     var vertexObject = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
-    gl.bufferData(wgl.ARRAY_BUFFER, new Float32List.fromList([ 0.0,0.5,0.0, -0.5,-0.5,0.0, 0.5,-0.5,0.0 ]), wgl.STATIC_DRAW);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, new Float32List.fromList([ 0.0,0.5,0.0, -0.5,-0.5,0.0, 0.5,-0.5,0.0 ]), wgl.WebGL.STATIC_DRAW);
     gl.enableVertexAttribArray(0);
-    gl.vertexAttribPointer(0, 3, wgl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(0, 3, wgl.WebGL.FLOAT, false, 0, 0);
 
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
-    gl.drawArrays(wgl.TRIANGLES, 0, 3);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
+    gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 3);
 
     checkData(buf, name) {
       // Test several locations
@@ -102,7 +98,7 @@ main() {
 
     checkColors() {
       var buf = new Uint8List(50 * 50 * 4);
-      gl.readPixels(0, 0, 50, 50, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
+      gl.readPixels(0, 0, 50, 50, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
       checkData(buf, "3d context");
       var imgData = ctx2d.getImageData(0, 0, 50, 50);
       checkData(imgData.data, "2d context");
@@ -110,13 +106,13 @@ main() {
 
     var table = [1, 2, 4, 8];
     for (var ii = 0; ii < table.length; ++ii) {
-      gl.pixelStorei(wgl.PACK_ALIGNMENT, table[ii]);
-      CanvasElement canvas = document.getElementById("2d0$ii");
+      gl.pixelStorei(wgl.WebGL.PACK_ALIGNMENT, table[ii]);
+      dynamic canvas = document.getElementById("2d0$ii");
       ctx2d = canvas.getContext("2d");
       ctx2d.globalCompositeOperation = 'copy';
       ctx2d.drawImage(canvas3d, 0, 0);
       checkColors();
-      assertMsg(gl.getParameter(wgl.PACK_ALIGNMENT) == table[ii],
+      assertMsg(gl.getParameter(wgl.WebGL.PACK_ALIGNMENT) == table[ii],
           "PACK_ALIGNMENT is ${table[ii]}");
     }
   }

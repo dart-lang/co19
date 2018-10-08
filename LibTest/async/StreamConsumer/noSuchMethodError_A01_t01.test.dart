@@ -10,16 +10,14 @@
  * @description Checks that if a non-existent method or property is accessed a
  * method noSuchMethod is invoked. The default behavior of a noSuchMethod is to
  * throw a NoSuchMethodError.
- * @static-warning
  * @author ngl@unipro.ru
  */
 library noSuchMethodError_A01_t01;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 test(StreamConsumer create()) {
-  StreamConsumer cs1 = create();
+  dynamic cs1 = create();
 
   try {
     cs1.m1();   /// static type warning

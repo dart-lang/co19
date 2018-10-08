@@ -7,9 +7,9 @@
  * @assertion LinkedHashSet.identity()
  * Creates an insertion-ordered identity-based set.
  * Effectively a shorthand for:
- * new LinkedHashSet(equals: identical, hashCode: identityHashCode)
+ * [new LinkedHashSet(equals: identical, hashCode: identityHashCode)]
  * @description Checks that created hash set is equivalent of
- * new HashSet<E>(equals: identical, hashCode: identityHashCode)
+ * [new HashSet<E>(equals: identical, hashCode: identityHashCode)]
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
@@ -17,7 +17,7 @@ import "dart:collection";
 
 class C {
   int get hashCode => 1;
-  bool operator ==(C c) {
+  bool operator ==(Object c) {
     return true;
   }
 }

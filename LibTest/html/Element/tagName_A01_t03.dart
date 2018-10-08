@@ -19,9 +19,8 @@ class Foo extends HtmlElement {
 main() {
   var tag = 'x-foo';
   document.register(tag, Foo);
-  var x = new Element.html('<$tag></$tag>',
-      treeSanitizer: new NullTreeSanitizer());
+  var x =
+      new Element.html('<$tag></$tag>', treeSanitizer: new NullTreeSanitizer());
 
   Expect.equals(tag.toUpperCase(), x.tagName);
 }
-

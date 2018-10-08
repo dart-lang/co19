@@ -7,17 +7,13 @@
  * @assertion null list elements result in an ArgumentError
  * @description Tries to pass a list with null values
  * @author msyabro
- * @reviewer rodionov
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 
-
-void check(List list) {
-  try {
-    String str = new String.fromCharCodes(list);
-    Expect.fail("ArgumentError is expected");
-  } on ArgumentError catch(e) {}
+void check(List<int> list) {
+  Expect.throws(() {
+    new String.fromCharCodes(list);
+  }, (e) => e is ArgumentError);
 }
 
 main() {

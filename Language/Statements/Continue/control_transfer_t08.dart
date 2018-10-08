@@ -19,7 +19,6 @@
  * @author a.semenov@unipro.ru
  */
 import '../../../Utils/expect.dart';
-import '../../../Utils/async_utils.dart';
 import 'stream_utils.dart' as StreamUtils;
 
 test() async {

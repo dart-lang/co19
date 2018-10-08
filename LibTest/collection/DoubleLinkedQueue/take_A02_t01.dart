@@ -4,28 +4,22 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iterable<E> take(int n)
- * It is an error if n is negative.
+ * @assertion Iterable<E> take(int count)
+ * The [count] must not be negative.
  * @description checks that an Error is thrown if n is negative.
  * @author kaigorodov
  */
 
 import "dart:collection";
-import "dart:math" as Math;
 import "../../../Utils/expect.dart";
 
 check(List a, int n) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(a);
-  Iterable res;
-  Expect.throws(() {
-      res=queue.take(n);
-    },
-    (e)=> e is Error
-  );
+  Expect.throws(() { queue.take(n); }, (e) => e is Error);
 }
 
 main() {
-  check([1,2,-3,4], -1);
-  check(const[1,2,-5,-6, 100], -1);
-  check(const[null,2,-5,-6, 100], -1000);
+  check([1, 2, -3, 4], -1);
+  check(const[1, 2, -5, -6, 100], -1);
+  check(const[null, 2, -5, -6, 100], -1000);
 }

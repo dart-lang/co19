@@ -13,7 +13,6 @@ import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -23,11 +22,11 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   debug("This test isn't appropriate to include in the WebGL conformance suite, since the browser's behavior when applying a color profile can't be guaranteed.");
-  var canvas = document.getElementById("example");
+  dynamic canvas = document.getElementById("example");
   var gl = wtu.create3DContext(canvas);
   var program = wtu.setupTexturedQuad(gl);
 
-  glErrorShouldBe(gl, wgl.NO_ERROR, "Should be no errors from setup.");
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "Should be no errors from setup.");
 
   var imgURLs = [
     '$root/resources/tan-1x1-with-alpha.png'
@@ -38,8 +37,8 @@ main() {
     var loc = gl.getUniformLocation(program, "tex");
     gl.uniform1i(loc, 0);
 
-    gl.disable(wgl.BLEND);
-    gl.disable(wgl.DEPTH_TEST);
+    gl.disable(wgl.WebGL.BLEND);
+    gl.disable(wgl.WebGL.DEPTH_TEST);
 
     var width = canvas.width;
     var height = canvas.height;
@@ -60,19 +59,19 @@ main() {
     }
 
     var tex = gl.createTexture();
-    gl.bindTexture(wgl.TEXTURE_2D, tex);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_S, wgl.CLAMP_TO_EDGE);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_T, wgl.CLAMP_TO_EDGE);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MIN_FILTER, wgl.NEAREST);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MAG_FILTER, wgl.NEAREST);
+    gl.bindTexture(wgl.WebGL.TEXTURE_2D, tex);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_S, wgl.WebGL.CLAMP_TO_EDGE);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_T, wgl.WebGL.CLAMP_TO_EDGE);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MIN_FILTER, wgl.WebGL.NEAREST);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MAG_FILTER, wgl.WebGL.NEAREST);
 
     var buf = new Uint8List(width * height * 4);
 
-    gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, wgl.RGBA, wgl.UNSIGNED_BYTE,
+    gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE,
         imgs['$root/resources/tan-1x1-with-alpha.png']);
-    glErrorShouldBe(gl, wgl.NO_ERROR, "Should be no errors from setup");
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "Should be no errors from setup");
     wtu.drawQuad(gl);
-    gl.readPixels(0, 0, width, height, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
+    gl.readPixels(0, 0, width, height, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
     // This generous range is still enough to catch the regression.
     checkPixelRange(buf, 0, 0, [163, 126, 94, 129], 20);
     asyncEnd();

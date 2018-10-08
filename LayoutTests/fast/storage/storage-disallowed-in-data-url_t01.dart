@@ -8,8 +8,6 @@
  * @description This tests that storage methods throw exceptions with reasonable messages inside 'data:' URLs.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 
 const String htmlEL2 = r'''
@@ -22,9 +20,9 @@ void main() {
     var errorsSeen = 0;
     var exceptionMessage;
     asyncStart();
-    window.addEventListener('message', (e) {
+    window.addEventListener('message', (Event e) {
         errorsSeen++;
-        exceptionMessage = e.data;
+        exceptionMessage =  (e as dynamic).data;
 //        print("exceptionMessage=$exceptionMessage;");
         if (errorsSeen == 1) {
             Expect.equals("Failed to read the 'localStorage' property from 'Window': Storage is disabled inside 'data:' URLs.", exceptionMessage);

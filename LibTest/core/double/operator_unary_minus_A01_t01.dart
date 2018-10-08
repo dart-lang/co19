@@ -7,8 +7,6 @@
  * @assertion double operator unary-()
  * @description Checks [:unary-():] on a bunch of values.
  * @author pagolubev
- * @reviewer msyabro
- * @needsreview Should the check with '.0' be taken out to a separate test?
  */
 import "../../../Utils/expect.dart";
 

@@ -17,8 +17,8 @@
  * namedArgument:
  *   label expression
  * ;
- * @description Checks that it is no compile-time error when the argument list
- * in a function invocation expression ends with a comma.
+ * @description Checks that there is no  compile-time error when the argument
+ * list in a function invocation expression ends with a comma.
  * @author msyabro
  * @reviewer rodionov
  */

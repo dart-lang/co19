@@ -9,7 +9,6 @@
  * are available by the time DOMContentLoaded event fires.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../testharness.dart";
 
 const String htmlEL1 = r'''
@@ -31,7 +30,7 @@ void init(evt) {
     } else {
         window.scrollTo(1000, 2000);
         window.name = "second/load";
-        runLater((){location.reload(true);}, 0);
+        runLater((){window.location.reload();}, 0);
     }
 }
 

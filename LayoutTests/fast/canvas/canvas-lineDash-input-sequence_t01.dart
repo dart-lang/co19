@@ -8,17 +8,15 @@
  * sequence
  */
 import "dart:html";
-import "dart:math" as Math;
 import "dart:typed_data";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   document.body.append(canvas);
   canvas.setAttribute('width', '700');
   canvas.setAttribute('height', '700');
-  var ctx = canvas.getContext('2d');
+  dynamic ctx = canvas.getContext('2d');
 
   var intValues = [5, 15, 25];
   var floatValues = [5.0, 15.0, 25.0];

@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 class Data {
   var expectedElementID;
@@ -218,7 +217,6 @@ th { height: 30px; }
 
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var q;
   var data = {};
 
   /*
@@ -231,13 +229,8 @@ th { height: 30px; }
   });
   */
 
-  log(s) {
-    var resultsDiv = document.getElementById('results');
-    resultsDiv.innerHtml += s + '<br>';
-  }
-
   dispatchEvent(clientX, clientY, expectedElementID, expectedOffsetX, expectedOffsetY) {
-    var e = new MouseEvent("click", canBubble: true, cancelable: true,
+    MouseEvent e = new MouseEvent("click", canBubble: true, cancelable: true,
         view: window, detail: 1,
         screenX: 1, screenY: 1,
         clientX: clientX, clientY: clientY,
@@ -248,7 +241,7 @@ th { height: 30px; }
     d.expectedOffsetX = expectedOffsetX;
     d.expectedOffsetY = expectedOffsetY;
     data[e] = d;
-    var target = document.elementFromPoint(e.clientX, e.clientY);
+    var target = document.elementFromPoint(e.client.x, e.client.y);
     target.dispatchEvent(e);   
   }
 

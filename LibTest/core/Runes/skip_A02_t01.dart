@@ -10,7 +10,6 @@
  * fewer than [n] elements.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string, n) {
@@ -24,4 +23,3 @@ main() {
   check('12', 3);
   check('just a string', 100);
 }
-

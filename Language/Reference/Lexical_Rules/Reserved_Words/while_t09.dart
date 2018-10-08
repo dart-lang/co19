@@ -16,6 +16,9 @@
 
 main() {
   try {
-    int x = 0;
-  } catch (while) {}
+    try {
+      int x = 0;
+    } catch (while) {}
+  } catch (anything) {
+  }
 }

@@ -32,5 +32,7 @@
 import 'top_level_syntax_t04_lib.dart';
 
 main() {
-  var someVar = '';
+  try {
+    var someVar = '';
+  } catch (e) {}
 }

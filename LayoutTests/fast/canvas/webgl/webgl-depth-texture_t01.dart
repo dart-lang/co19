@@ -13,7 +13,6 @@ import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -42,12 +41,8 @@ main() {
 
   var canvas = document.getElementById("canvas");
   var gl = wtu.create3DContext(canvas, {'antialias': false});
-  var program = wtu.setupTexturedQuad(gl);
   var ext = null;
-  var vao = null;
   var tex;
-  var name;
-  var supportedFormats;
 
   runSupportedTest(extensionEnabled) {
     var name = wtu.getSupportedExtensionWithKnownPrefixes(gl, "WEBGL_depth_texture");
@@ -70,20 +65,20 @@ main() {
     debug("Testing binding enum with extension disabled");
 
     var tex = gl.createTexture();
-    gl.bindTexture(wgl.TEXTURE_2D, tex);
-    shouldGenerateGLError(gl, wgl.INVALID_ENUM,
-        () => gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.DEPTH_COMPONENT, 1, 1, 0,
-                            wgl.DEPTH_COMPONENT, wgl.UNSIGNED_SHORT, null));
-    shouldGenerateGLError(gl, wgl.INVALID_ENUM,
-        () => gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.DEPTH_COMPONENT, 1, 1, 0,
-                            wgl.DEPTH_COMPONENT, wgl.UNSIGNED_INT, null));
+    gl.bindTexture(wgl.WebGL.TEXTURE_2D, tex);
+    shouldGenerateGLError(gl, wgl.WebGL.INVALID_ENUM,
+        () => gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.DEPTH_COMPONENT, 1, 1, 0,
+                            wgl.WebGL.DEPTH_COMPONENT, wgl.WebGL.UNSIGNED_SHORT, null));
+    shouldGenerateGLError(gl, wgl.WebGL.INVALID_ENUM,
+        () => gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.DEPTH_COMPONENT, 1, 1, 0,
+                            wgl.WebGL.DEPTH_COMPONENT, wgl.WebGL.UNSIGNED_INT, null));
   }
 
   dumpIt(gl, res, msg) {
     //return;  // comment out to debug
     debug(msg);
     var actualPixels = new Uint8List(res * res * 4);
-    gl.readPixels(0, 0, res, res, wgl.RGBA, wgl.UNSIGNED_BYTE, actualPixels);
+    gl.readPixels(0, 0, res, res, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, actualPixels);
 
     for (var yy = 0; yy < res; ++yy) {
       var strs = [];
@@ -101,7 +96,7 @@ main() {
     var res = 8;
 
     // make canvas for testing.
-    var canvas2 = document.createElement("canvas");
+    dynamic canvas2 = document.createElement("canvas");
     canvas2.width = res;
     canvas2.height = res;
     var ctx = canvas2.getContext("2d");
@@ -113,9 +108,9 @@ main() {
     gl.uniform2f(gl.getUniformLocation(program, "u_resolution"), res, res);
 
     var buffer = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, buffer);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, buffer);
     gl.bufferData(
-        wgl.ARRAY_BUFFER,
+        wgl.WebGL.ARRAY_BUFFER,
         new Float32List.fromList(
           [1.0,  1.0,  1.0,
           -1.0,  1.0,  0.0,
@@ -124,14 +119,14 @@ main() {
           -1.0, -1.0, -1.0,
            1.0, -1.0,  0.0,
           ]),
-        wgl.STATIC_DRAW);
+        wgl.WebGL.STATIC_DRAW);
     gl.enableVertexAttribArray(0);
-    gl.vertexAttribPointer(0, 3, wgl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(0, 3, wgl.WebGL.FLOAT, false, 0, 0);
 
     var parameters = [
-    {'attachment': wgl.DEPTH_ATTACHMENT, 'format': wgl.DEPTH_COMPONENT, 'type': wgl.UNSIGNED_SHORT, 'data': new Uint16List(1)},
-    {'attachment': wgl.DEPTH_ATTACHMENT, 'format': wgl.DEPTH_COMPONENT, 'type': wgl.UNSIGNED_INT, 'data': new Uint32List(1)},
-    {'attachment': wgl.DEPTH_STENCIL_ATTACHMENT, 'format': wgl.DEPTH_STENCIL, 'type': wgl.DepthTexture.UNSIGNED_INT_24_8_WEBGL, 'data': new Uint32List(1)}
+    {'attachment': wgl.WebGL.DEPTH_ATTACHMENT, 'format': wgl.WebGL.DEPTH_COMPONENT, 'type': wgl.WebGL.UNSIGNED_SHORT, 'data': new Uint16List(1)},
+    {'attachment': wgl.WebGL.DEPTH_ATTACHMENT, 'format': wgl.WebGL.DEPTH_COMPONENT, 'type': wgl.WebGL.UNSIGNED_INT, 'data': new Uint32List(1)},
+    {'attachment': wgl.WebGL.DEPTH_STENCIL_ATTACHMENT, 'format': wgl.WebGL.DEPTH_STENCIL, 'type': wgl.DepthTexture.UNSIGNED_INT_24_8_WEBGL, 'data': new Uint32List(1)}
     ];
 
     for (var ii = 0; ii < parameters.length; ++ii) {
@@ -144,109 +139,109 @@ main() {
 
       // check that cubemaps are not allowed.
       var cubeTex = gl.createTexture();
-      gl.bindTexture(wgl.TEXTURE_CUBE_MAP, cubeTex);
+      gl.bindTexture(wgl.WebGL.TEXTURE_CUBE_MAP, cubeTex);
       
       var targets = [
-        wgl.TEXTURE_CUBE_MAP_POSITIVE_X,
-        wgl.TEXTURE_CUBE_MAP_NEGATIVE_X,
-        wgl.TEXTURE_CUBE_MAP_POSITIVE_Y,
-        wgl.TEXTURE_CUBE_MAP_NEGATIVE_Y,
-        wgl.TEXTURE_CUBE_MAP_POSITIVE_Z,
-        wgl.TEXTURE_CUBE_MAP_NEGATIVE_Z
+        wgl.WebGL.TEXTURE_CUBE_MAP_POSITIVE_X,
+        wgl.WebGL.TEXTURE_CUBE_MAP_NEGATIVE_X,
+        wgl.WebGL.TEXTURE_CUBE_MAP_POSITIVE_Y,
+        wgl.WebGL.TEXTURE_CUBE_MAP_NEGATIVE_Y,
+        wgl.WebGL.TEXTURE_CUBE_MAP_POSITIVE_Z,
+        wgl.WebGL.TEXTURE_CUBE_MAP_NEGATIVE_Z
       ];
       for (var target in targets) {
-        shouldGenerateGLError(gl, wgl.INVALID_OPERATION, () {
+        shouldGenerateGLError(gl, wgl.WebGL.INVALID_OPERATION, () {
           gl.texImage2D(target, 1, format, 1, 1, 0, format, type, null);
         });
       }
 
       // check 2d textures.
       tex = gl.createTexture();
-      gl.bindTexture(wgl.TEXTURE_2D, tex);
-      gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_S, wgl.CLAMP_TO_EDGE);
-      gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_T, wgl.CLAMP_TO_EDGE);
-      gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MIN_FILTER, wgl.LINEAR);
-      gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MAG_FILTER, wgl.LINEAR);
+      gl.bindTexture(wgl.WebGL.TEXTURE_2D, tex);
+      gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_S, wgl.WebGL.CLAMP_TO_EDGE);
+      gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_T, wgl.WebGL.CLAMP_TO_EDGE);
+      gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MIN_FILTER, wgl.WebGL.LINEAR);
+      gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MAG_FILTER, wgl.WebGL.LINEAR);
 
       // test level > 0
-      shouldGenerateGLError(gl, wgl.INVALID_OPERATION, () {
-        gl.texImage2D(wgl.TEXTURE_2D, 1, format, 1, 1, 0, format, type, null);
+      shouldGenerateGLError(gl, wgl.WebGL.INVALID_OPERATION, () {
+        gl.texImage2D(wgl.WebGL.TEXTURE_2D, 1, format, 1, 1, 0, format, type, null);
       });
 
       // test with data
-      shouldGenerateGLError(gl, wgl.INVALID_OPERATION, () {
-        gl.texImage2D(wgl.TEXTURE_2D, 0, format, 1, 1, 0, format, type, data);
+      shouldGenerateGLError(gl, wgl.WebGL.INVALID_OPERATION, () {
+        gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, format, 1, 1, 0, format, type, data);
       });
 
       // test with canvas
-      shouldGenerateGLError(gl, [wgl.INVALID_VALUE, wgl.INVALID_ENUM, wgl.INVALID_OPERATION], () {
-        gl.texImage2DCanvas(wgl.TEXTURE_2D, 0, format, format, type, canvas2);
+      shouldGenerateGLError(gl, [wgl.WebGL.INVALID_VALUE, wgl.WebGL.INVALID_ENUM, wgl.WebGL.INVALID_OPERATION], () {
+        gl.texImage2DCanvas(wgl.WebGL.TEXTURE_2D, 0, format, format, type, canvas2);
       });
 
       // test copyTexImage2D
-      shouldGenerateGLError(gl, [wgl.INVALID_ENUM, wgl.INVALID_OPERATION], () {
-        gl.copyTexImage2D(wgl.TEXTURE_2D, 0, format, 0, 0, 1, 1, 0);
+      shouldGenerateGLError(gl, [wgl.WebGL.INVALID_ENUM, wgl.WebGL.INVALID_OPERATION], () {
+        gl.copyTexImage2D(wgl.WebGL.TEXTURE_2D, 0, format, 0, 0, 1, 1, 0);
       });
 
       // test real thing
-      shouldGenerateGLError(gl, wgl.NO_ERROR, () {
-        gl.texImage2D(wgl.TEXTURE_2D, 0, format, res, res, 0, format, type, null);
+      shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () {
+        gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, format, res, res, 0, format, type, null);
       });
 
       // test texSubImage2D
-      shouldGenerateGLError(gl, wgl.INVALID_OPERATION, () {
-        gl.texSubImage2D(wgl.TEXTURE_2D, 0, 0, 0, 1, 1, format, type, data);
+      shouldGenerateGLError(gl, wgl.WebGL.INVALID_OPERATION, () {
+        gl.texSubImage2D(wgl.WebGL.TEXTURE_2D, 0, 0, 0, 1, 1, format, type, data);
       });
 
       // test copyTexSubImage2D
-      shouldGenerateGLError(gl, wgl.INVALID_OPERATION, () {
-        gl.copyTexSubImage2D(wgl.TEXTURE_2D, 0, 0, 0, 0, 0, 1, 1);
+      shouldGenerateGLError(gl, wgl.WebGL.INVALID_OPERATION, () {
+        gl.copyTexSubImage2D(wgl.WebGL.TEXTURE_2D, 0, 0, 0, 0, 0, 1, 1);
       });
 
       // test generateMipmap
-      shouldGenerateGLError(gl, wgl.INVALID_OPERATION, () {
-        gl.generateMipmap(wgl.TEXTURE_2D);
+      shouldGenerateGLError(gl, wgl.WebGL.INVALID_OPERATION, () {
+        gl.generateMipmap(wgl.WebGL.TEXTURE_2D);
       });
 
       var fbo = gl.createFramebuffer();
-      gl.bindFramebuffer(wgl.FRAMEBUFFER, fbo);
-      gl.framebufferTexture2D(wgl.FRAMEBUFFER, attachment, wgl.TEXTURE_2D, tex, 0);
+      gl.bindFramebuffer(wgl.WebGL.FRAMEBUFFER, fbo);
+      gl.framebufferTexture2D(wgl.WebGL.FRAMEBUFFER, attachment, wgl.WebGL.TEXTURE_2D, tex, 0);
       // TODO: remove this check if the spec is updated to require these combinations to work.
-      if (gl.checkFramebufferStatus(wgl.FRAMEBUFFER) != wgl.FRAMEBUFFER_COMPLETE)
+      if (gl.checkFramebufferStatus(wgl.WebGL.FRAMEBUFFER) != wgl.WebGL.FRAMEBUFFER_COMPLETE)
       {
         // try adding a color buffer.
         var colorTex = gl.createTexture();
-        gl.bindTexture(wgl.TEXTURE_2D, colorTex);
-        gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_S, wgl.CLAMP_TO_EDGE);
-        gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_T, wgl.CLAMP_TO_EDGE);
-        gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MIN_FILTER, wgl.LINEAR);
-        gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MAG_FILTER, wgl.LINEAR);
-        gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, res, res, 0, wgl.RGBA, wgl.UNSIGNED_BYTE, null);
-        gl.framebufferTexture2D(wgl.FRAMEBUFFER, wgl.COLOR_ATTACHMENT0, wgl.TEXTURE_2D, colorTex, 0);
+        gl.bindTexture(wgl.WebGL.TEXTURE_2D, colorTex);
+        gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_S, wgl.WebGL.CLAMP_TO_EDGE);
+        gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_T, wgl.WebGL.CLAMP_TO_EDGE);
+        gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MIN_FILTER, wgl.WebGL.LINEAR);
+        gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MAG_FILTER, wgl.WebGL.LINEAR);
+        gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, res, res, 0, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, null);
+        gl.framebufferTexture2D(wgl.WebGL.FRAMEBUFFER, wgl.WebGL.COLOR_ATTACHMENT0, wgl.WebGL.TEXTURE_2D, colorTex, 0);
       }
 
-      shouldBe(gl.checkFramebufferStatus(wgl.FRAMEBUFFER), wgl.FRAMEBUFFER_COMPLETE);
+      shouldBe(gl.checkFramebufferStatus(wgl.WebGL.FRAMEBUFFER), wgl.WebGL.FRAMEBUFFER_COMPLETE);
 
       // use the default texture to render with while we return to the depth texture.
-      gl.bindTexture(wgl.TEXTURE_2D, null);
+      gl.bindTexture(wgl.WebGL.TEXTURE_2D, null);
 
       // render the z-quad
-      gl.enable(wgl.DEPTH_TEST);
+      gl.enable(wgl.WebGL.DEPTH_TEST);
       gl.clearColor(1, 0, 0, 1);
-      gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
-      gl.drawArrays(wgl.TRIANGLES, 0, 6);
+      gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
+      gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 6);
 
       dumpIt(gl, res, "--first--");
 
       // render the depth texture.
-      gl.bindFramebuffer(wgl.FRAMEBUFFER, null);
-      gl.bindTexture(wgl.TEXTURE_2D, tex);
+      gl.bindFramebuffer(wgl.WebGL.FRAMEBUFFER, null);
+      gl.bindTexture(wgl.WebGL.TEXTURE_2D, tex);
       gl.clearColor(0, 0, 1, 1);
-      gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
-      gl.drawArrays(wgl.TRIANGLES, 0, 6);
+      gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
+      gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 6);
 
       var actualPixels = new Uint8List(res * res * 4);
-      gl.readPixels(0, 0, res, res, wgl.RGBA, wgl.UNSIGNED_BYTE, actualPixels);
+      gl.readPixels(0, 0, res, res, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, actualPixels);
 
       dumpIt(gl, res, "--depth--");
 
@@ -300,18 +295,18 @@ main() {
       }
 
       // check limitations
-      gl.bindFramebuffer(wgl.FRAMEBUFFER, fbo);
-      gl.framebufferTexture2D(wgl.FRAMEBUFFER, attachment, wgl.TEXTURE_2D, null, 0);
-      var badAttachment = attachment == wgl.DEPTH_ATTACHMENT ? wgl.DEPTH_STENCIL_ATTACHMENT : wgl.DEPTH_ATTACHMENT;
-      shouldGenerateGLError(gl, wgl.NO_ERROR, () {
-        gl.framebufferTexture2D(wgl.FRAMEBUFFER, badAttachment, wgl.TEXTURE_2D, tex, 0);
+      gl.bindFramebuffer(wgl.WebGL.FRAMEBUFFER, fbo);
+      gl.framebufferTexture2D(wgl.WebGL.FRAMEBUFFER, attachment, wgl.WebGL.TEXTURE_2D, null, 0);
+      var badAttachment = attachment == wgl.WebGL.DEPTH_ATTACHMENT ? wgl.WebGL.DEPTH_STENCIL_ATTACHMENT : wgl.WebGL.DEPTH_ATTACHMENT;
+      shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () {
+        gl.framebufferTexture2D(wgl.WebGL.FRAMEBUFFER, badAttachment, wgl.WebGL.TEXTURE_2D, tex, 0);
       });
-      shouldNotBe(gl.checkFramebufferStatus(wgl.FRAMEBUFFER), wgl.FRAMEBUFFER_COMPLETE);
-      shouldGenerateGLError(gl, wgl.INVALID_FRAMEBUFFER_OPERATION, () {
-        gl.clear(wgl.DEPTH_BUFFER_BIT);
+      shouldNotBe(gl.checkFramebufferStatus(wgl.WebGL.FRAMEBUFFER), wgl.WebGL.FRAMEBUFFER_COMPLETE);
+      shouldGenerateGLError(gl, wgl.WebGL.INVALID_FRAMEBUFFER_OPERATION, () {
+        gl.clear(wgl.WebGL.DEPTH_BUFFER_BIT);
       });
-      gl.bindFramebuffer(wgl.FRAMEBUFFER, null);
-      shouldBe(gl.getError(), wgl.NO_ERROR);
+      gl.bindFramebuffer(wgl.WebGL.FRAMEBUFFER, null);
+      shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
     }
   }
 

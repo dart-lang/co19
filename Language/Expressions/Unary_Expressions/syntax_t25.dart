@@ -38,5 +38,7 @@
  */
 
 main() {
-  !{int x; x = 1;};
+  try {
+    !{int x; x = 1;};
+  } catch (e) {}
 }

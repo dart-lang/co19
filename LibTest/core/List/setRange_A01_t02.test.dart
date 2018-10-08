@@ -4,16 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract void setRange(int start, int end, Iterable<E> iterable, [int skipCount = 0])
+ * @assertion abstract void setRange(int start, int end, Iterable<E> iterable,
+ * [int skipCount = 0])
  * Copies the elements of iterable, skipping the skipCount first elements into
  * the range start to end exclusive of this.
  * If start equals end and represent a legal range, this method has no effect.
  * It is an error if start.. end is not a valid range pointing into the this.
- * It is an error if the iterable does not have enough elements after skipping skipCount elements.
+ * It is an error if the iterable does not have enough elements after skipping
+ * skipCount elements.
  * @description Checks that all needed elements are copied.
  * @author iefremov
- * @reviewer msyabro
- * @reviewer varlax
  */
 library setRange_A01_t02;
 

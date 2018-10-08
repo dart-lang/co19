@@ -19,10 +19,10 @@ class C {}
 f(var x) {
   var y = x;
 
-  x is C ? x.unknown() : null; // formal parameter
-  y is C ? y.unknown() : null; // local variable
+  Expect.isTrue(x is C);
+  Expect.isTrue(y is C);
 }
 
 main() {
-  Expect.throws(() => f(new C()));
+  f(new C());
 }

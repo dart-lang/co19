@@ -5,9 +5,10 @@
  */
 /**
  * @assertion E elementAt(int index)
- * Returns the indexth element.
- * If this has fewer than index elements throws a RangeError.
- * @description Checks that a RangeError is thrown if this has fewer than index elements.
+ * The [index] must be non-negative and less than [length]. Index zero
+ * represents the first element (so [iterable.elementAt(0)] is equivalent to
+ * [iterable.first]).
+ * @description Checks that a RangeError is thrown if index is incorrect.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
@@ -16,24 +17,25 @@ import "dart:collection";
 DoubleLinkedQueue queue = new DoubleLinkedQueue();
 
 void check(int index) {
-  Expect.throws(() {
-    queue.elementAt(index);
-    },
-    (e)=> e is RangeError
-  );
+  Expect.throws(() { queue.elementAt(index); }, (e) => e is RangeError);
 }
 
 main() {
   check(0);
-  
+  check (-10);
+
   queue.addFirst(1);
   check(1);
   check(2);
+  check (-10);
 
   queue.addFirst(2);
   check(2);
+  check(10);
+  check (-10);
 
   queue.clear();
   check(0);
   check(1000);
+  check (-10);
 }

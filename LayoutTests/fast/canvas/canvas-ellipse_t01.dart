@@ -9,10 +9,9 @@
 import "dart:html";
 import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   document.body.append(canvas);
   canvas.setAttribute('width', '400');
   canvas.setAttribute('height', '400');
@@ -25,14 +24,14 @@ main() {
   ctx.lineWidth = 10;
   ctx.beginPath();
   ctx.moveTo(0, 100);
-  ctx.ellipse(200, 200, 100, 150, Math.PI / 9, -Math.PI, Math.PI * 5 / 9, false);
+  ctx.ellipse(200, 200, 100, 150, Math.pi / 9, -Math.pi, Math.pi * 5 / 9, false);
   ctx.lineTo(0, 300);
   ctx.stroke();
 
   var imageData, data;
 
-  // Verify the method must add a straight line from the last point in the subpath
-  // to the start point of the ellipse.
+  // Verify the method must add a straight line from the last point in the
+  // subpath to the start point of the ellipse.
   imageData = ctx.getImageData(5, 103, 1, 1);
   data = imageData.data;
   shouldBe(data[0], 0);

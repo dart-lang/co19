@@ -11,14 +11,13 @@
  * @description Checks that anything thrown by the argument function
  * breaks operation and is passed through to the caller.
  * @author varlax
- * @reviewer msyabro
  */
 library putIfAbsent_A01_t10;
 
 import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {
-  Map<String, Object> map = create();
+  Map map = create();
 
   Object f() {
     throw "Exception!";

@@ -16,5 +16,8 @@
 typedef int get();
 
 main() {
-  null is get;
+  try {
+    null is get;
+  } catch (anything) {
+  }
 }

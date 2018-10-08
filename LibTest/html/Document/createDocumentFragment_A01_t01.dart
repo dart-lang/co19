@@ -12,7 +12,6 @@ import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-
-  DocumentFragment df=document.createDocumentFragment();
+  DocumentFragment df = document.createDocumentFragment();
   Expect.equals(0, df.childNodes.length);
 }

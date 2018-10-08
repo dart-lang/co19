@@ -5,7 +5,8 @@
  */
 /**
  * @assertion Map<K, V> abstract class 
- * @description Checks that all members of [Map] are implemented, using non-comparable keys.
+ * @description Checks that all members of [Map] are implemented, using
+ * non-comparable keys.
  * @author kaigorodov
  */
 library nonCompKeysTests;

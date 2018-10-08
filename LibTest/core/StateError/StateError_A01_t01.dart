@@ -4,13 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Undocumented
+ * @assertion StateError(String message)
  * @description Checks that this constructor executes without error.
  * @author rodionov
- * @reviewer msyabro
- * @needsreview undocumented
  */
- 
+import "../../../Utils/expect.dart";
+
 main() {
-  new StateError("State error");
+  StateError se = new StateError("State error");
+  Expect.equals("State error", se.message);
+
+  StateError se2 = new StateError("");
+  Expect.equals("", se2.message);
 }

@@ -7,12 +7,10 @@
  * @assertion It is a static warning if an instance method m1 overrides an 
  * instance member m2 and m1 does not declare all the named parameters declared 
  * by m2.
- * @description Checks that a static warning is produced if m1 has fewer named 
+ * @description Checks that a compile error is produced if m1 has fewer named
  * parameters than m2 (1 vs. 0) and neither have any required parameters.
- * @static-warning
+ * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class A {
@@ -20,11 +18,10 @@ class A {
 }
 
 class C extends A {
-  f() { } /// static warning
+  f() { }
 }
 
 main() {
   new A().f(x:1);
   new C().f();
 }
-

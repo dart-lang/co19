@@ -6,6 +6,8 @@
 /**
  * @assertion final RuneIterator iterator
  * Returns an Iterator that iterates over this Iterable object.
+ * @description Checks that [iterator] is final and can't be set (causes compile
+ * error in strong mode.
  * @description Checks that [iterator] is final and can't be set.
  * @author msyabro
  */
@@ -13,9 +15,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  var runes = new Runes('');
-  try {
-    runes.iterator = runes.iterator;
-    Expect.fail("[iterator] should be final");
-  } on NoSuchMethodError catch(ok) {}
+  dynamic runes = new Runes('');
+  Expect.throws(() {runes.iterator = runes.iterator;},
+      (e) => e is NoSuchMethodError);
 }

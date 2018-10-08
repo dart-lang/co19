@@ -10,7 +10,6 @@
  * @description Checks that method noSuchMethod is invoked
  * (which results in NoSuchMethodError) if the type of e1 doesn't define an
  * []= operator.
- * @static-warning
  * @author rodionov
  * @author sgrekhov@unipro.ru
  */
@@ -21,6 +20,6 @@ class C {
 }
 
 main() {
-  C c = new C();
-  Expect.throws(() {c[0] = 1;}, (e) => e is NoSuchMethodError); /// static type warning
+  dynamic c = new C();
+  Expect.throws(() {c[0] = 1;}, (e) => e is NoSuchMethodError);
 }

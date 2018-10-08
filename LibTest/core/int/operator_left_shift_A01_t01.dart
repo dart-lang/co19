@@ -7,10 +7,8 @@
  * @assertion int operator <<(int shiftAmount)
  * This operator implements bit-wise left-shift operation.
  * @description Checks that this operator returns correct value for non-negative
- *              and not exceedingly large arguments.
+ * and not exceedingly large arguments.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -49,8 +47,4 @@ main() {
   Expect.equals(-4, -1 << 2);
   Expect.equals(-2, -1 << 1);
   Expect.equals(-1, -1 << 0);
-  
-  Expect.equals(0x40000000000000000000000000000000000000, 0x10000000000000000000000000 << 50); //2^100 << 50
-  Expect.equals(0x10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
-  1 << 1024);
 }

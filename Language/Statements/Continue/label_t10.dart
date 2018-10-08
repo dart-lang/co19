@@ -20,9 +20,11 @@
 
 
 main() {
-  L: try {
-    var x = 1;
-  } finally {
-    continue L;
-  }
+  try {
+    L: try {
+      var x = 1;
+    } finally {
+      continue L;
+    }
+  } catch (x) {}
 }

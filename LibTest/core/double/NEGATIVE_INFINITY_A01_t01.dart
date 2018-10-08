@@ -5,15 +5,13 @@
  */
 /**
  * @assertion double NEGATIVE_INFINITY
- * @description Checks that double.NEGATIVE_INFINITY equals -double.INFINITY.
+ * @description Checks that double.negativeInfinity equals -double.infinity.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
-  Expect.equals(-double.INFINITY, double.NEGATIVE_INFINITY);
-  Expect.isTrue(double.NEGATIVE_INFINITY.isInfinite);
-  Expect.isTrue(double.NEGATIVE_INFINITY.isNegative);
+  Expect.equals(-double.infinity, double.negativeInfinity);
+  Expect.isTrue(double.negativeInfinity.isInfinite);
+  Expect.isTrue(double.negativeInfinity.isNegative);
 }

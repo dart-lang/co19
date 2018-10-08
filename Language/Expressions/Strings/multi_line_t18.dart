@@ -30,5 +30,7 @@
  */
 
 main() {
-  '''foo'';
+  try {
+    '''foo'';
+  } catch (e) {}
 }

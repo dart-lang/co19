@@ -5,10 +5,10 @@
  */
 /**
  * @assertion IterableMixin<E> abstract class
- * This Iterable mixin implements all Iterable members except iterator.
- * All other methods are implemented in terms of iterator.
- * @description Checks that this class implements all methods of Iterable
- * except Iterable.iterator
+ * This [Iterable] mixin implements all [Iterable] members except [iterator].
+ * All other methods are implemented in terms of [iterator].
+ * @description Checks that this class implements all methods of [Iterable]
+ * except [Iterable.iterator]
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";

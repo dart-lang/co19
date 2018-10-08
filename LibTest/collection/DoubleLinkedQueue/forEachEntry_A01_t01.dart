@@ -5,7 +5,8 @@
  */
 /**
  * @assertion void forEachEntry(void f(DoubleLinkedQueueEntry<E> element))
- * @description Checks that forEach() iterates over each element of the queue.
+ * @description Checks that [forEachEntry()] iterates over each element of the
+ * queue.
  * @author kaigorodov
  */
 
@@ -22,7 +23,7 @@ main() {
   List a = new List(100);
   
   queue.forEachEntry((var entry) {
-    var element=entry.element;
+    var element = entry.element;
     a[element] = element;
   });
   

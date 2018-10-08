@@ -18,12 +18,14 @@ void check(Node x) {
   x.append(new Text('text'));
 
   var y = x.clone(false);
-  Expect.isFalse(identical(x.firstChild, y.firstChild), "first: ${x.firstChild}!=${y.firstChild}");
-  Expect.isFalse(identical(x.lastChild, y.lastChild), "last: ${x.firstChild}!=${y.firstChild}");
+  Expect.isFalse(identical(x.firstChild, y.firstChild),
+      "first: ${x.firstChild}!=${y.firstChild}");
+  Expect.isFalse(identical(x.lastChild, y.lastChild),
+      "last: ${x.firstChild}!=${y.firstChild}");
 }
 
 main() {
-  List<Node> targets=[
+  List<Node> targets = [
     new IFrameElement(),
     new DocumentFragment(),
   ];

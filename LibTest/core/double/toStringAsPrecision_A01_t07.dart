@@ -1,4 +1,3 @@
-import "../../../Utils/expect.dart";
 /*
  * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
@@ -6,19 +5,12 @@ import "../../../Utils/expect.dart";
  */
  /**
  * @assertion String toStringAsPrecision(int precision)
- * @description Checks that an exception is thrown when [fractionDigit] is too big.
+ * @description Checks that an exception is thrown when [fractionDigit] is too
+  * big.
  * @author msyabro
- * @needsreview exception and [fractionDigit] limits is unspecified. From sources  code
- * [fractionDigit] should be in interval [1,21].
  */
+import "../../../Utils/expect.dart";
 
 main() {
-  bool fail = false;
-  try {
-    .1.toStringAsPrecision(22);
-    fail = true;
-  } catch(e) {}
-  if(fail) {
-    Expect.fail("Expected exception");
-  }
+  Expect.throws(() {0.1.toStringAsPrecision(22);});
 }

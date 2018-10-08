@@ -19,5 +19,8 @@ class C {
 }
 
 main() {
-  new C().while is int;
+  try {
+    new C().while is int;
+  } catch (anything) {
+  }
 }

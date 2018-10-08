@@ -7,9 +7,9 @@
  * @assertion  It is a compile time error if an element of a constant list
  * literal is not a compile-time constant. It is a compile time error if the
  * type argument of a constant list literal includes a type parameter.
- * @description Checks that it is a compile-time error if the type argument
- * of a constant list literal includes a type variable.
- * @compile-error
+ * @description Checks that it is no error if the type argument of a constant
+ * list literal includes a type variable.
+ * @issue 27492
  * @author msyabro
  * @reviewer kaigorodov
  */

@@ -5,9 +5,10 @@
  */
 /**
  * @assertion List<E> toList({bool growable: true})
+ * ...
  * The list is fixed-length if [growable] is false.
- * @description Checks that the returned list is not fixed-length
- * if [growable] is true.
+ * @description Checks that the returned list is not fixed-length if [growable]
+ * is true.
  * @author msyabro
  */
 
@@ -16,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var list = new Int16List.fromList([0]);
-  var resList = list.toList(growable:true);
+  var resList = list.toList(growable: true);
 
   resList.length = 2;
   Expect.equals(2, resList.length);

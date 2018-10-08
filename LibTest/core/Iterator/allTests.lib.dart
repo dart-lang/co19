@@ -9,7 +9,6 @@
  * Returns false otherwise.
  * @description Checks that this method works as specified.
  * @author pagolubev
- * @reviewer msyabro
  */
 library allTests_A01_t01;
 
@@ -17,7 +16,7 @@ import "current_A01_t01.test.dart" as libCurrentNext;
 import "Iterator_A01_t01.test.dart" as libIterator;
 import "moveNext_A01_t01.test.dart" as libMoveNext;
 
-test(Iterable create([Iterable content]), {bool isSet:false}) {
+test(Iterator create([Iterable content]), {bool isSet:false}) {
   libCurrentNext.test(create, isSet:isSet);  
   libIterator.test(create, isSet:isSet);  
   libMoveNext.test(create, isSet:isSet);  

@@ -5,22 +5,23 @@
  */
 /**
  * @assertion Iterable<E> take(int count)
- * The returned [Iterable] may contain fewer than [n] elements,
- * if [this] contains fewer than [n] elements.
- * @description Checks that the returned [Iterable] contains
- * fewer then [n] elements if [this] contains fewer then [n] elements.
+ * ...
+ * The returned [Iterable] may contain fewer than [count] elements, if [this]
+ * contains fewer than [count] elements.
+ * @description Checks that the returned [Iterable] contains fewer then [count]
+ * elements if [this] contains fewer then [count] elements.
  * @author msyabro
  */
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(var list, var n) {
+void check(List<double> list, int n) {
   var l = new Float32List.fromList(list);
   var res = l.take(n);
   Expect.equals(l.length, res.length);
 
-  for(int i = 0; i < l.length; ++i) {
+  for (int i = 0; i < l.length; ++i) {
     Expect.equals(l[i], res.elementAt(i));
   }
 }

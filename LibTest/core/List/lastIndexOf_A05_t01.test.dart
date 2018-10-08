@@ -9,7 +9,6 @@
  * the index of e is returned.
  * @description Checks searching custom objects.
  * @author varlax
- * @reviewer iefremov
  */
 library lastIndexOf_A05_t01;
 
@@ -20,7 +19,7 @@ checkList(List list, var elem, int expected) {
 }
 
 class Eq{
-  bool operator==(other) => other is Eq;
+  bool operator ==(other) => other is Eq;
 }
 
 test(List create([int length])) {
@@ -28,14 +27,14 @@ test(List create([int length])) {
   checkList(a, null, 9);
   
   var o = new Object();
-  a[4]=o;
+  a[4] = o;
   checkList(a, o, 4);
 
-  a[8]=o;
+  a[8] = o;
   checkList(a, o, 8);
 
   Eq e = new Eq();
-  a[3]=e;
+  a[3] = e;
   checkList(a,new Eq(),3);
 
   a[7] = new Eq();

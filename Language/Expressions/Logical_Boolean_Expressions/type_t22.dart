@@ -18,11 +18,11 @@
  * @description Checks that if v is local variable or formal parameter, either
  * e1 or e2 shows that v has type T, v is not mutated in e2 or in a closure,
  * then b shows that v has type T even if v is mutated in e1.
- * @static-clean
  * @author ilya
  */
 
 class C {}
+
 class D extends C {
   f() {}
 }
@@ -38,7 +38,6 @@ f2(C y) {
 
   skyIsBlue(x = new D()) && (x is D && skyIsBlue((() => x)())) ? x.f() : null;
 }
-
 
 main() {
   f1(new D());

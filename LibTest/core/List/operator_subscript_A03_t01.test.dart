@@ -7,30 +7,23 @@
  * @assertion abstract E operator [](int index)
  * Throws [Error] if [index] is of invalid type.
  * @description Checks that the exception is thrown as expected.
- * @needsreview undocumented
  * @author varlax
- * @reviewer iefremov
  */
 library operator_subscript_A03_t01;
 
 import "../../../Utils/expect.dart";
-import "../../../Utils/dynamic_check.dart";
 
 test(List create([int length])) {
 
   void check(List a0, var idx) {
-    List a=create(a0.length);
+    List a = create(a0.length);
     a.setRange(0, a0.length, a0);
-    Expect.throws(() {
-        a[idx];
-      },
-      (e)=> e is Error
-    );
+    Expect.throws(() {a[idx];}, (e) => e is Error);
   }
 
   check(const [null], 0.0);
-  check(['sd','sd'], 'sd');
+  check(['sd', 'sd'], 'sd');
   check(new List.from(<int>[null, 1, 0]), true);
-  check(new List(100), {"a":0});
+  check(new List(100), {"a": 0});
   check(new List(100), []);
 }

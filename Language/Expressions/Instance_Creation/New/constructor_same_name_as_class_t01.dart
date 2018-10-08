@@ -10,22 +10,17 @@
  *   If e of the form new T(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) it
  *   is a static warning if the type T does not declare a constructor with the
  *   same name as the declaration of T.
- * @description Checks that it is a static warning if a class does not declare
+ * @description Checks that it is a compile error if a class does not declare
  * a constructor with the same name.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
 
 class C {
   C.constructor() {}
 }
 
 main() {
-  Expect.throws(
-    () {new C();}, /// static warning - unavailable constructor,
-                   /// see "Instance creation|New"
-    (e) => e is NoSuchMethodError
-  );
+  new C();
 }

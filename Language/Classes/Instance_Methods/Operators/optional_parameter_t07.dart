@@ -10,7 +10,6 @@
  * operator []= specifies one optional named parameter.
  * @compile-error
  * @author ilya
- * @reviewer
  */
 
 class C {
@@ -18,6 +17,8 @@ class C {
 }
 
 main() {
-  C c = new C();
-  c[] = null;
+  try {
+    C c = new C();
+    c[] = null;
+  } catch (e) {}
 }

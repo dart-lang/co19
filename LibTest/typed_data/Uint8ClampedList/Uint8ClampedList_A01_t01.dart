@@ -7,9 +7,11 @@
  * @assertion Uint8ClampedList(int length)
  * Creates an [Uint8ClampedList] of the specified length (in elements), all of
  * whose elements are initially zero.
- * @description Checks that an instance of Uint8ClampedList of the specified length is created.
+ * @description Checks that an instance of Uint8ClampedList of the specified
+ * length is created.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

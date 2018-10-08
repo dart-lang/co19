@@ -17,5 +17,7 @@ abstract class A extends num {}
 class B implements A {}
 
 main() {
-  new B();
+  try {
+    new B();
+  } catch (x) {}
 }

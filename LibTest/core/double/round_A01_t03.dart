@@ -11,13 +11,12 @@
  * @description Checks that if the value is already equal to a mathematical
  * integer, then the result is the same as the value.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "dart:math" as Math;
 import "../../../Utils/expect.dart";
 
 check(int arg) {
-  double argd=arg.toDouble();
+  double argd = arg.toDouble();
   Expect.equals(arg, argd.round());
   Expect.equals(-arg, (-argd).round());
 }

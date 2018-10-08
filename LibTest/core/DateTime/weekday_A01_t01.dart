@@ -15,19 +15,19 @@ import "../../../Utils/expect.dart";
 
 void check(year, m, d){
   DateTime dt = new DateTime(year, m, d);
-  Expect.equals(DateTime.MONDAY, dt.weekday);
+  Expect.equals(DateTime.monday, dt.weekday);
   dt = new DateTime(year, m, d+1);
-  Expect.equals(DateTime.TUESDAY, dt.weekday);
+  Expect.equals(DateTime.tuesday, dt.weekday);
   dt = new DateTime(year, m, d+2);
-  Expect.equals(DateTime.WEDNESDAY, dt.weekday);
+  Expect.equals(DateTime.wednesday, dt.weekday);
   dt = new DateTime(year, m, d+3);
-  Expect.equals(DateTime.THURSDAY, dt.weekday);
+  Expect.equals(DateTime.thursday, dt.weekday);
   dt = new DateTime(year, m, d+4);
-  Expect.equals(DateTime.FRIDAY, dt.weekday);
+  Expect.equals(DateTime.friday, dt.weekday);
   dt = new DateTime(year, m, d+5);
-  Expect.equals(DateTime.SATURDAY, dt.weekday);
+  Expect.equals(DateTime.saturday, dt.weekday);
   dt = new DateTime(year, m, d+6);
-  Expect.equals(DateTime.SUNDAY, dt.weekday);
+  Expect.equals(DateTime.sunday, dt.weekday);
 }
 
 main() {

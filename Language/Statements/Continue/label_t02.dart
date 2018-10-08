@@ -20,9 +20,11 @@
  */
 
 main() {
-  var counter = 10;
-  for (var i = 0 ; i < 5; ++i ) L: {
-    counter--;
-  }
-  continue L;
+  try {
+    var counter = 10;
+    for (var i = 0 ; i < 5; ++i ) L: {
+      counter--;
+    }
+    continue L;
+  } catch (x) {}
 }

@@ -5,24 +5,14 @@
  */
 /**
  * @assertion void forEach(void action(E entry))
- * Call action with each entry in the list.
+ * Call [action] with each entry in the list.
  * @description Checks that no exception is thrown if the list is empty.
  * @author kaigorodov
  */
 import "dart:collection";
-import "../../../Utils/dynamic_check.dart";
+import "LinkedList.lib.dart";
 
 main() {
-  new LinkedList().forEach(null);
-  new LinkedList().forEach((var v){});
-
-  if(isCheckedMode()) {
-    return;
-  }
-  var action=1;
-  new LinkedList().forEach(action);
-  action="";
-  new LinkedList().forEach(action);
-  action=3.14;
-  new LinkedList().forEach(action);
+  new LinkedList<MyLinkedListEntry>().forEach(null);
+  new LinkedList<MyLinkedListEntry>().forEach((var v){});
 }

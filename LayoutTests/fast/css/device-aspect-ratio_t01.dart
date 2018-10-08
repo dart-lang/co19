@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 getComputedStyle(x, [pseudoElement]) => x.getComputedStyle(pseudoElement);
@@ -40,8 +39,8 @@ main() {
 
   doTest()
   {
-    var headElement = document.getElementById("myhead");
-    var linkElement = document.createElement("link");
+    dynamic headElement = document.getElementById("myhead");
+    dynamic linkElement = document.createElement("link");
     linkElement.rel = "stylesheet";
     linkElement.media = "screen and (device-aspect-ratio: ${window.screen.width}/${window.screen.height}";
     linkElement.href = "$root/resources/device-aspect-ratio.css";

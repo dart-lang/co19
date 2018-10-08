@@ -51,13 +51,13 @@ main() {
   check(0, NEG_MIN_DOUBLE, "not empty");
 
   // inf / 10000 -> inf
-  Expect.approxEquals(double.INFINITY, 0);
-  Expect.approxEquals(double.INFINITY, 0, null, "");
-  Expect.approxEquals(double.INFINITY, 0, null, "not empty");
+  Expect.approxEquals(double.infinity, 0);
+  Expect.approxEquals(double.infinity, 0, null, "");
+  Expect.approxEquals(double.infinity, 0, null, "not empty");
 
-  Expect.approxEquals(double.NEGATIVE_INFINITY, 0);
-  Expect.approxEquals(double.NEGATIVE_INFINITY, 0, null, "");
-  Expect.approxEquals(double.NEGATIVE_INFINITY, 0, null, "not empty");
+  Expect.approxEquals(double.negativeInfinity, 0);
+  Expect.approxEquals(double.negativeInfinity, 0, null, "");
+  Expect.approxEquals(double.negativeInfinity, 0, null, "not empty");
 }
 
 void check(num arg1, num arg2, [String reason = null]) {

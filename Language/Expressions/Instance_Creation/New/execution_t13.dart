@@ -40,8 +40,8 @@ main() {
   Expect.equals(2, o.y);
   Expect.equals(3, o.z);
 
-  o = new B.name();
-  Expect.equals(true, o.x);
-  Expect.equals(false, o.y);
-  Expect.equals(0, o.z);
+  var b = new B.name();
+  Expect.equals(true, b.x);
+  Expect.equals(false, b.y);
+  Expect.equals(0, b.z);
 }

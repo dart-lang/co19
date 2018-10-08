@@ -4,17 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Uint32List.fromList(List<num> list)
- * Creates a [Uint32List] with the same size as the [elements] list
- * and copies over the elements.
+ * @assertion Uint32List.fromList(List<int> list)
+ * Creates a [Uint32List] with the same size as the [elements] list and copies
+ * over the elements.
  * @description Checks that a new [Uint32List] has the same size and elements as
  * the [elements].
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(array) {
+void check(List<int> array) {
   Uint32List l = new Uint32List.fromList(array);
   Expect.equals(l.length, array.length);
   Expect.listEquals(array, l);

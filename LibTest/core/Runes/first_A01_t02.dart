@@ -9,11 +9,10 @@
  * @description Checks that [first] is final and can't be set.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string) {
-  var runes = new Runes(string);
+  dynamic runes = new Runes(string);
   try {
     runes.first = 0;
     Expect.fail("[first] should be final");

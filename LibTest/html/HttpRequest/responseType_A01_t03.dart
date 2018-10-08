@@ -17,7 +17,7 @@ import "../../../UtilsHtml/expect.dart";
 
 main() {
   var request = new HttpRequest();
-  Expect.throws(()->{
-    request.responseType="undefined";
+  Expect.throws(() {
+    request.responseType = "undefined";
   });
 }

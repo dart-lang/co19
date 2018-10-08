@@ -4,15 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final E current
+ * @assertion E current
  * Gets the current element in the iteration.
  * @description Checks that the current element in the iteration is returned.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void checkNext(list) {
+void checkNext(List<double> list) {
   var l = new Float64List.fromList(list);
   var it = l.iterator;
   var i = 0;
@@ -25,9 +26,9 @@ main() {
   checkNext([1.0]);
   checkNext([1.0, 2.0, 3.0]);
 
-  var a = new List(255);
-  for (var i=0; i < a.length; i++) {
-    a[i] = (a.length - i)*1.0;
+  var a = new List<double>(255);
+  for (var i = 0; i < a.length; i++) {
+    a[i] = (a.length - i) * 1.0;
   }
   checkNext(a);
 }

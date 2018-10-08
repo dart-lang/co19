@@ -9,9 +9,7 @@
  * Returns the empty string if there is no fragment identifier component.
  * @description Checks expected fragment settings
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
@@ -21,4 +19,3 @@ main() {
   x = new Uri.http('host', 'path');
   Expect.equals('', x.fragment);
 }
-

@@ -10,7 +10,8 @@
  * checked mode, a dynamic type error would arise if a non-null object was
  * returned from a void method (since no object has runtime type dynamic).
  * @description Checks that returning null or a value with static type dynamic
- * from within a void method does not result in a static type warning.
+ * from within a void method does not result in a static type warning or any
+ * error
  * @static-clean
  * @author rodionov
  */

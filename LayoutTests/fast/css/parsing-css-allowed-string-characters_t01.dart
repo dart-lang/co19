@@ -8,12 +8,10 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   // do not indent
-  var style = new Element.html(r'''
+  dynamic style = new Element.html(r'''
 <style>
 /*
   === Warning ===
@@ -32,7 +30,8 @@ main() {
 "; } /* Newline. Invalid string */
 #g:after { content:"11:"; }
 #h:after { content:"12:"; } /* Newline. Invalid string */
-#i:after { content:"13:"; } /* Newline. Invalid string */
+#i:after { content:"13:
+"; } /* Newline. Invalid string */
 #j:after { content:"14:"; }
 #k:after { content:"20:"; }
 #l:after { content:"30:"; }

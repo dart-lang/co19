@@ -15,5 +15,8 @@
 class export {}
 
 main() {
-  null is export;
+  try {
+    null is export;
+  } catch (anything) {
+  }
 }

@@ -19,5 +19,7 @@
  */
 
 main () {
-  1 is 1;
+  try {
+    1 is 1;
+  } catch (e) {}
 }

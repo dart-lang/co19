@@ -8,10 +8,8 @@
  * @description Checks that 0.0123456789 and -0.0123456789 are properly rounded
  * and converted to string with 'fractionDigits' ranging from 0 to 10.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
-
 
 check(String expected, int digits) {
   Expect.equals(expected, 0.0123456789.toStringAsFixed(digits));

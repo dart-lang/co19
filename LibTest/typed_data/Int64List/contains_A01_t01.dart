@@ -5,11 +5,16 @@
  */
 /**
  * @assertion bool contains(Object element)
- * Check whether the collection contains an element equal to element.
- * @description Checks that true is returned if the collection contains
- * an element equal to [element], false otherwise.
+ * Returns true if the collection contains an element equal to element.
+ * This operation will check each element in order for being equal to element,
+ * unless it has a more efficient way to find an element equal to element.
+ * The equality used to determine whether element is equal to an element of the
+ * iterable defaults to the Object.== of the element.
+ * @description Checks that true is returned if the collection contains an
+ * element equal to [element], false otherwise.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

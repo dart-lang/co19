@@ -13,7 +13,6 @@
  * included file conflict with top-level definitions in this library.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 library Parts_test_lib;

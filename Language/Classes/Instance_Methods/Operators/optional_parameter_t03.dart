@@ -10,8 +10,6 @@
  * operator []= specifies one optional positional parameter.
  * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {
@@ -19,6 +17,8 @@ class C {
 }
 
 main() {
-  C c = new C();
-  c[0] = null;
+  try {
+    C c = new C();
+    c[0] = null;
+  } catch (e) {}
 }

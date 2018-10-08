@@ -15,6 +15,9 @@
  */
 
 main() {
-  void catch() {}
-  catch();
+  try {
+    void catch() {}
+    catch();
+  } catch (anything) {
+  }
 }

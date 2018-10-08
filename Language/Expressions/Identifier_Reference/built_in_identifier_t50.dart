@@ -15,5 +15,8 @@
 class part {}
 
 main() {
-  null is part;
+  try {
+    null is part;
+  } catch (anything) {
+  }
 }

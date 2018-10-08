@@ -54,25 +54,19 @@ class A extends S {
     id == topLevelFunction();
     method() != id;
 
-    //relational expressions
-    1 < 2 == true > false; /// 01: static type warning, runtime error
-    true >= false == id > 7; /// 02: static type warning, runtime error
-
     //shift expressions
-    1 >> -1 != () {}; /// 03: runtime error
-    1 << 2 != null >> null; /// 04: runtime error
+    try {1 >> -1 != () {};} catch (e) {}
+    try {1 << 2 != null >> null;} catch (e) {}
 
     //additive expressions
-     1 + 2 == 2;
-     0 - 0 != null + null; /// 05: runtime error
+    try { 1 + 2 == 2;} catch (e) {}
+    try { 0 - 0 != null + null;} catch (e) {}
 
     //multiplicative expressions
-    true * false == id.id / [](); /// 06: static type warning, runtime error
-    0 ~/ 1 != 1 - -1;
+    try {0 ~/ 1 != 1 - -1;} catch (e) {}
 
     //unary expressions
-    -this == ~this; /// 07: static type warning, runtime error
-    ~-id != !!false; /// 08: runtime error
+    try {~-id != !!false;} catch (e) {}
   }
 }
 

@@ -13,9 +13,6 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  var it = new RuneIterator('');
-  Expect.throws(() {
-      it.string = ' ';
-    }
-  );
+  dynamic it = new RuneIterator('');
+  Expect.throws(() {it.string = ' ';});
 }

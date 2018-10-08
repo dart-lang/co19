@@ -11,7 +11,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var type = 'click';
@@ -29,7 +28,7 @@ main() {
     Expect.equals(type, e.type);
     asyncEnd();
   });
-  
+
   x.on[type].listen((e) {
     Expect.equals(type, e.type);
     asyncEnd();

@@ -15,6 +15,8 @@
  */
 
 main() {
-  void default() {}
-  default ();
+  try {
+    void default() {}
+    default ();
+  } catch (x) {}
 }

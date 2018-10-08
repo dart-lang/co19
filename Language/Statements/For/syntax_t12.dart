@@ -25,5 +25,7 @@
  */
 
 main() {
-  for (var l = 1 in new List(100)) break;
+  try {
+    for (var l = 1 in new List(100)) break;
+  } catch (x) {}
 }

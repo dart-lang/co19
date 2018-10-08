@@ -7,7 +7,6 @@
  * @description To pass, this test should not crash
  */
 import "dart:html";
-import "../../testcommon.dart";
 
 main() {
   var o = new Text('');

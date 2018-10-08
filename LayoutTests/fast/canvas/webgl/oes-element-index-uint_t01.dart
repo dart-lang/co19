@@ -13,8 +13,6 @@ import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "resources/desktop-gl-constants.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -40,12 +38,11 @@ main() {
       </script>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas = document.getElementById("canvas");
+  dynamic canvas = document.getElementById("canvas");
   var gl = create3DContext(canvas);
   var ext = null;
-  var vao = null;
 
-  toFloatList(list) => list.map((x) => x.toDouble()).toList();
+  List<double> toFloatList(list) => (list.map((x) => x.toDouble()) as Iterable<double>).toList();
   float32list(list) => new Float32List.fromList(toFloatList(list));
 
   runSupportedTest(extensionEnabled) {
@@ -99,29 +96,29 @@ main() {
       quadArray[idx++] = 0.0;
 
       var vertexObject = gl.createBuffer();
-      gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
-      gl.bufferData(wgl.ARRAY_BUFFER, quadArray, wgl.STATIC_DRAW);
+      gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
+      gl.bufferData(wgl.WebGL.ARRAY_BUFFER, quadArray, wgl.WebGL.STATIC_DRAW);
 
       // Create an unsigned int index buffer that indexes the last 4 vertices
       var baseIndex = (quadArrayLen ~/ 3) - 4;
 
       var indexObject = gl.createBuffer();
-      gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, indexObject);
-      gl.bufferData(wgl.ELEMENT_ARRAY_BUFFER, new Uint32List.fromList([
+      gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, indexObject);
+      gl.bufferData(wgl.WebGL.ELEMENT_ARRAY_BUFFER, new Uint32List.fromList([
             baseIndex + 0,
             baseIndex + 1,
             baseIndex + 2,
             baseIndex + 2,
             baseIndex + 3,
-            baseIndex + 0]), wgl.STATIC_DRAW);
+            baseIndex + 0]), wgl.WebGL.STATIC_DRAW);
 
       var opt_positionLocation = 0;
       gl.enableVertexAttribArray(opt_positionLocation);
-      gl.vertexAttribPointer(opt_positionLocation, 3, wgl.FLOAT, false, 0, 0);
+      gl.vertexAttribPointer(opt_positionLocation, 3, wgl.WebGL.FLOAT, false, 0, 0);
     }
     readLocation(x, y) {
       var pixels = new Uint8List(1 * 1 * 4);
-      gl.readPixels(x, y, 1, 1, wgl.RGBA, wgl.UNSIGNED_BYTE, pixels);
+      gl.readPixels(x, y, 1, 1, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, pixels);
       return pixels;
     }
     testPixel(blackList, whiteList) {
@@ -141,8 +138,8 @@ main() {
     }
     verifyDraw(drawNumber, s) {
       gl.clearColor(1.0, 1.0, 1.0, 1.0);
-      gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
-      gl.drawElements(wgl.TRIANGLES, 6, wgl.UNSIGNED_INT, 0);
+      gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
+      gl.drawElements(wgl.WebGL.TRIANGLES, 6, wgl.WebGL.UNSIGNED_INT, 0);
 
       var blackList = [];
       var whiteList = [];
@@ -170,15 +167,15 @@ main() {
 
     sizeInBytes(type) {
       switch (type) {
-        case wgl.BYTE:
-        case wgl.UNSIGNED_BYTE:
+        case wgl.WebGL.BYTE:
+        case wgl.WebGL.UNSIGNED_BYTE:
           return 1;
-        case wgl.SHORT:
-        case wgl.UNSIGNED_SHORT:
+        case wgl.WebGL.SHORT:
+        case wgl.WebGL.UNSIGNED_SHORT:
           return 2;
-        case wgl.INT:
-        case wgl.UNSIGNED_INT:
-        case wgl.FLOAT:
+        case wgl.WebGL.INT:
+        case wgl.WebGL.UNSIGNED_INT:
+        case wgl.WebGL.FLOAT:
           return 4;
         default:
           throw "unknown type";
@@ -204,41 +201,41 @@ main() {
     debug("Testing with valid indices");
 
     var bufferComplete = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, bufferComplete);
-    gl.bufferData(wgl.ARRAY_BUFFER, dataComplete, wgl.STATIC_DRAW);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, bufferComplete);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, dataComplete, wgl.WebGL.STATIC_DRAW);
     var elements = gl.createBuffer();
-    gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, elements);
-    gl.bufferData(wgl.ELEMENT_ARRAY_BUFFER, indices, wgl.STATIC_DRAW);
+    gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, elements);
+    gl.bufferData(wgl.WebGL.ELEMENT_ARRAY_BUFFER, indices, wgl.WebGL.STATIC_DRAW);
     gl.useProgram(program);
     var vertexLoc = gl.getAttribLocation(program, "a_vertex");
     var normalLoc = gl.getAttribLocation(program, "a_normal");
-    gl.vertexAttribPointer(vertexLoc, 4, wgl.FLOAT, false, 7 * sizeInBytes(wgl.FLOAT), 0);
+    gl.vertexAttribPointer(vertexLoc, 4, wgl.WebGL.FLOAT, false, 7 * sizeInBytes(wgl.WebGL.FLOAT), 0);
     gl.enableVertexAttribArray(vertexLoc);
-    gl.vertexAttribPointer(normalLoc, 3, wgl.FLOAT, false, 7 * sizeInBytes(wgl.FLOAT), 4 * sizeInBytes(wgl.FLOAT));
+    gl.vertexAttribPointer(normalLoc, 3, wgl.WebGL.FLOAT, false, 7 * sizeInBytes(wgl.WebGL.FLOAT), 4 * sizeInBytes(wgl.WebGL.FLOAT));
     gl.enableVertexAttribArray(normalLoc);
-    shouldBe(gl.checkFramebufferStatus(wgl.FRAMEBUFFER), wgl.FRAMEBUFFER_COMPLETE);
-    glErrorShouldBe(gl, wgl.NO_ERROR);
-    gl.drawElements(wgl.TRIANGLES, 3, wgl.UNSIGNED_INT, 0);
-    glErrorShouldBe(gl, wgl.NO_ERROR);
+    shouldBe(gl.checkFramebufferStatus(wgl.WebGL.FRAMEBUFFER), wgl.WebGL.FRAMEBUFFER_COMPLETE);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+    gl.drawElements(wgl.WebGL.TRIANGLES, 3, wgl.WebGL.UNSIGNED_INT, 0);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
     debug("Testing with out-of-range indices");
 
     var bufferIncomplete = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, bufferIncomplete);
-    gl.bufferData(wgl.ARRAY_BUFFER, dataIncomplete, wgl.STATIC_DRAW);
-    gl.vertexAttribPointer(vertexLoc, 4, wgl.FLOAT, false, 7 * sizeInBytes(wgl.FLOAT), 0);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, bufferIncomplete);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, dataIncomplete, wgl.WebGL.STATIC_DRAW);
+    gl.vertexAttribPointer(vertexLoc, 4, wgl.WebGL.FLOAT, false, 7 * sizeInBytes(wgl.WebGL.FLOAT), 0);
     gl.enableVertexAttribArray(vertexLoc);
     gl.disableVertexAttribArray(normalLoc);
     debug("Enable vertices, valid");
-    glErrorShouldBe(gl, wgl.NO_ERROR);
-    gl.drawElements(wgl.TRIANGLES, 3, wgl.UNSIGNED_INT, 0);
-    glErrorShouldBe(gl, wgl.NO_ERROR);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+    gl.drawElements(wgl.WebGL.TRIANGLES, 3, wgl.WebGL.UNSIGNED_INT, 0);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
     debug("Enable normals, out-of-range");
-    gl.vertexAttribPointer(normalLoc, 3, wgl.FLOAT, false, 7 * sizeInBytes(wgl.FLOAT), 4 * sizeInBytes(wgl.FLOAT));
+    gl.vertexAttribPointer(normalLoc, 3, wgl.WebGL.FLOAT, false, 7 * sizeInBytes(wgl.WebGL.FLOAT), 4 * sizeInBytes(wgl.WebGL.FLOAT));
     gl.enableVertexAttribArray(normalLoc);
-    glErrorShouldBe(gl, wgl.NO_ERROR);
-    gl.drawElements(wgl.TRIANGLES, 3, wgl.UNSIGNED_INT, 0);
-    glErrorShouldBe(gl, wgl.INVALID_OPERATION);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+    gl.drawElements(wgl.WebGL.TRIANGLES, 3, wgl.WebGL.UNSIGNED_INT, 0);
+    glErrorShouldBe(gl, wgl.WebGL.INVALID_OPERATION);
 
     debug("Test with enabled attribute that does not belong to current program");
 
@@ -246,17 +243,17 @@ main() {
     var extraLoc = max([vertexLoc, normalLoc]) + 1;
     gl.enableVertexAttribArray(extraLoc);
     debug("Enable an extra attribute with null");
-    glErrorShouldBe(gl, wgl.NO_ERROR);
-    gl.drawElements(wgl.TRIANGLES, 3, wgl.UNSIGNED_INT, 0);
-    glErrorShouldBe(gl, wgl.INVALID_OPERATION);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+    gl.drawElements(wgl.WebGL.TRIANGLES, 3, wgl.WebGL.UNSIGNED_INT, 0);
+    glErrorShouldBe(gl, wgl.WebGL.INVALID_OPERATION);
     debug("Enable an extra attribute with insufficient data buffer");
-    gl.vertexAttribPointer(extraLoc, 3, wgl.FLOAT, false, 7 * sizeInBytes(wgl.FLOAT), 4 * sizeInBytes(wgl.FLOAT));
-    glErrorShouldBe(gl, wgl.NO_ERROR);
-    gl.drawElements(wgl.TRIANGLES, 3, wgl.UNSIGNED_INT, 0);
+    gl.vertexAttribPointer(extraLoc, 3, wgl.WebGL.FLOAT, false, 7 * sizeInBytes(wgl.WebGL.FLOAT), 4 * sizeInBytes(wgl.WebGL.FLOAT));
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+    gl.drawElements(wgl.WebGL.TRIANGLES, 3, wgl.WebGL.UNSIGNED_INT, 0);
     debug("Pass large negative index to vertexAttribPointer");
-    gl.vertexAttribPointer(normalLoc, 3, wgl.FLOAT, false, 7 * sizeInBytes(wgl.FLOAT), -2000000000 * sizeInBytes(wgl.FLOAT));
-    glErrorShouldBe(gl, wgl.INVALID_VALUE);
-    gl.drawElements(wgl.TRIANGLES, 3, wgl.UNSIGNED_INT, 0);
+    gl.vertexAttribPointer(normalLoc, 3, wgl.WebGL.FLOAT, false, 7 * sizeInBytes(wgl.WebGL.FLOAT), -2000000000 * sizeInBytes(wgl.WebGL.FLOAT));
+    glErrorShouldBe(gl, wgl.WebGL.INVALID_VALUE);
+    gl.drawElements(wgl.WebGL.TRIANGLES, 3, wgl.WebGL.UNSIGNED_INT, 0);
     gl.disableVertexAttribArray(vertexLoc);
   }
 
@@ -268,58 +265,58 @@ main() {
     gl.useProgram(program);
     var vertexObject = gl.createBuffer();
     gl.enableVertexAttribArray(0);
-    gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
     // 4 vertices -> 2 triangles
-    gl.bufferData(wgl.ARRAY_BUFFER, float32list([ 0,0,0, 0,1,0, 1,0,0, 1,1,0 ]), wgl.STATIC_DRAW);
-    gl.vertexAttribPointer(0, 3, wgl.FLOAT, false, 0, 0);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, float32list([ 0,0,0, 0,1,0, 1,0,0, 1,1,0 ]), wgl.WebGL.STATIC_DRAW);
+    gl.vertexAttribPointer(0, 3, wgl.WebGL.FLOAT, false, 0, 0);
 
     var indexObject = gl.createBuffer();
 
-    gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, indexObject);
+    gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, indexObject);
     var indices = new Uint32List.fromList([ 10000, 0, 1, 2, 3, 10000 ]);
-    gl.bufferData(wgl.ELEMENT_ARRAY_BUFFER, indices, wgl.STATIC_DRAW);
-    shouldGenerateGLError(gl, wgl.NO_ERROR, () => gl.drawElements(wgl.TRIANGLE_STRIP, 4, wgl.UNSIGNED_INT, 4));
-    shouldGenerateGLError(gl, wgl.INVALID_OPERATION, () => gl.drawElements(wgl.TRIANGLE_STRIP, 4, wgl.UNSIGNED_INT, 0));
-    shouldGenerateGLError(gl, wgl.INVALID_OPERATION, () => gl.drawElements(wgl.TRIANGLE_STRIP, 4, wgl.UNSIGNED_INT, 8));
+    gl.bufferData(wgl.WebGL.ELEMENT_ARRAY_BUFFER, indices, wgl.WebGL.STATIC_DRAW);
+    shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => gl.drawElements(wgl.WebGL.TRIANGLE_STRIP, 4, wgl.WebGL.UNSIGNED_INT, 4));
+    shouldGenerateGLError(gl, wgl.WebGL.INVALID_OPERATION, () => gl.drawElements(wgl.WebGL.TRIANGLE_STRIP, 4, wgl.WebGL.UNSIGNED_INT, 0));
+    shouldGenerateGLError(gl, wgl.WebGL.INVALID_OPERATION, () => gl.drawElements(wgl.WebGL.TRIANGLE_STRIP, 4, wgl.WebGL.UNSIGNED_INT, 8));
     indices[0] = 2;
     indices[5] = 1;
-    shouldGenerateGLError(gl, wgl.NO_ERROR, () => gl.drawElements(wgl.TRIANGLE_STRIP, 4, wgl.UNSIGNED_INT, 4));
-    shouldGenerateGLError(gl, wgl.INVALID_OPERATION, () => gl.drawElements(wgl.TRIANGLE_STRIP, 4, wgl.UNSIGNED_INT, 0));
-    shouldGenerateGLError(gl, wgl.INVALID_OPERATION, () => gl.drawElements(wgl.TRIANGLE_STRIP, 4, wgl.UNSIGNED_INT, 8));
+    shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => gl.drawElements(wgl.WebGL.TRIANGLE_STRIP, 4, wgl.WebGL.UNSIGNED_INT, 4));
+    shouldGenerateGLError(gl, wgl.WebGL.INVALID_OPERATION, () => gl.drawElements(wgl.WebGL.TRIANGLE_STRIP, 4, wgl.WebGL.UNSIGNED_INT, 0));
+    shouldGenerateGLError(gl, wgl.WebGL.INVALID_OPERATION, () => gl.drawElements(wgl.WebGL.TRIANGLE_STRIP, 4, wgl.WebGL.UNSIGNED_INT, 8));
   }
 
   runResizedBufferTests() {
     debug("Test that updating the size of a vertex buffer is properly noticed by the WebGL implementation.");
 
     var program = wtu.setupProgram(gl, ["vs", "fs"], ["vPosition", "vColor"]);
-    glErrorShouldBe(gl, wgl.NO_ERROR, "after initialization");
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "after initialization");
 
     var vertexObject = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
-    gl.bufferData(wgl.ARRAY_BUFFER, float32list(
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, float32list(
           [-1,1,0, 1,1,0, -1,-1,0,
-          -1,-1,0, 1,1,0, 1,-1,0]), wgl.STATIC_DRAW);
+          -1,-1,0, 1,1,0, 1,-1,0]), wgl.WebGL.STATIC_DRAW);
     gl.enableVertexAttribArray(0);
-    gl.vertexAttribPointer(0, 3, wgl.FLOAT, false, 0, 0);
-    glErrorShouldBe(gl, wgl.NO_ERROR, "after vertex setup");
+    gl.vertexAttribPointer(0, 3, wgl.WebGL.FLOAT, false, 0, 0);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "after vertex setup");
 
     var texCoordObject = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, texCoordObject);
-    gl.bufferData(wgl.ARRAY_BUFFER, float32list(
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, texCoordObject);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, float32list(
           [0,0, 1,0, 0,1,
-          0,1, 1,0, 1,1]), wgl.STATIC_DRAW);
+          0,1, 1,0, 1,1]), wgl.WebGL.STATIC_DRAW);
     gl.enableVertexAttribArray(1);
-    gl.vertexAttribPointer(1, 2, wgl.FLOAT, false, 0, 0);
-    glErrorShouldBe(gl, wgl.NO_ERROR, "after texture coord setup");
+    gl.vertexAttribPointer(1, 2, wgl.WebGL.FLOAT, false, 0, 0);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "after texture coord setup");
 
     // Now resize these buffers because we want to change what we're drawing.
-    gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
-    gl.bufferData(wgl.ARRAY_BUFFER, float32list([
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, float32list([
           -1,1,0, 1,1,0, -1,-1,0, 1,-1,0,
-          -1,1,0, 1,1,0, -1,-1,0, 1,-1,0]), wgl.STATIC_DRAW);
-    glErrorShouldBe(gl, wgl.NO_ERROR, "after vertex redefinition");
-    gl.bindBuffer(wgl.ARRAY_BUFFER, texCoordObject);
-    gl.bufferData(wgl.ARRAY_BUFFER, new Uint8List.fromList([
+          -1,1,0, 1,1,0, -1,-1,0, 1,-1,0]), wgl.WebGL.STATIC_DRAW);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "after vertex redefinition");
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, texCoordObject);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, new Uint8List.fromList([
           255, 0, 0, 255,
           255, 0, 0, 255,
           255, 0, 0, 255,
@@ -327,9 +324,9 @@ main() {
           0, 255, 0, 255,
           0, 255, 0, 255,
           0, 255, 0, 255,
-          0, 255, 0, 255]), wgl.STATIC_DRAW);
-    gl.vertexAttribPointer(1, 4, wgl.UNSIGNED_BYTE, false, 0, 0);
-    glErrorShouldBe(gl, wgl.NO_ERROR, "after texture coordinate / color redefinition");
+          0, 255, 0, 255]), wgl.WebGL.STATIC_DRAW);
+    gl.vertexAttribPointer(1, 4, wgl.WebGL.UNSIGNED_BYTE, false, 0, 0);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "after texture coordinate / color redefinition");
 
     var numQuads = 2;
     var indices = new Uint32List(numQuads * 6);
@@ -344,11 +341,11 @@ main() {
       indices[offset + 5] = quad + 3;
     }
     var indexObject = gl.createBuffer();
-    gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, indexObject);
-    gl.bufferData(wgl.ELEMENT_ARRAY_BUFFER, indices, wgl.STATIC_DRAW);
-    glErrorShouldBe(gl, wgl.NO_ERROR, "after setting up indices");
-    gl.drawElements(wgl.TRIANGLES, numQuads * 6, wgl.UNSIGNED_INT, 0);
-    glErrorShouldBe(gl, wgl.NO_ERROR, "after drawing");
+    gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, indexObject);
+    gl.bufferData(wgl.WebGL.ELEMENT_ARRAY_BUFFER, indices, wgl.WebGL.STATIC_DRAW);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "after setting up indices");
+    gl.drawElements(wgl.WebGL.TRIANGLES, numQuads * 6, wgl.WebGL.UNSIGNED_INT, 0);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "after drawing");
   }
 
   runVerifiesTooManyIndicesTests() {
@@ -360,30 +357,30 @@ main() {
     var vertexObject = gl.createBuffer();
     gl.enableVertexAttribArray(0);
     gl.disableVertexAttribArray(1);
-    gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
     // 4 vertices -> 2 triangles
-    gl.bufferData(wgl.ARRAY_BUFFER, float32list([ 0,0,0, 0,1,0, 1,0,0, 1,1,0 ]), wgl.STATIC_DRAW);
-    gl.vertexAttribPointer(0, 3, wgl.FLOAT, false, 0, 0);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, float32list([ 0,0,0, 0,1,0, 1,0,0, 1,1,0 ]), wgl.WebGL.STATIC_DRAW);
+    gl.vertexAttribPointer(0, 3, wgl.WebGL.FLOAT, false, 0, 0);
 
     var indexObject = gl.createBuffer();
 
     debug("Test out of range indices");
-    gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, indexObject);
-    gl.bufferData(wgl.ELEMENT_ARRAY_BUFFER, new Uint32List.fromList([ 10000, 0, 1, 2, 3, 10000 ]), wgl.STATIC_DRAW);
-    shouldGenerateGLError(gl, wgl.NO_ERROR, () => gl.drawElements(wgl.TRIANGLE_STRIP, 4, wgl.UNSIGNED_INT, 4));
-    shouldGenerateGLError(gl, wgl.INVALID_OPERATION, () => gl.drawElements(wgl.TRIANGLE_STRIP, 4, wgl.UNSIGNED_INT, 0));
-    shouldGenerateGLError(gl, wgl.INVALID_OPERATION, () => gl.drawElements(wgl.TRIANGLE_STRIP, 4, wgl.UNSIGNED_INT, 8));
+    gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, indexObject);
+    gl.bufferData(wgl.WebGL.ELEMENT_ARRAY_BUFFER, new Uint32List.fromList([ 10000, 0, 1, 2, 3, 10000 ]), wgl.WebGL.STATIC_DRAW);
+    shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => gl.drawElements(wgl.WebGL.TRIANGLE_STRIP, 4, wgl.WebGL.UNSIGNED_INT, 4));
+    shouldGenerateGLError(gl, wgl.WebGL.INVALID_OPERATION, () => gl.drawElements(wgl.WebGL.TRIANGLE_STRIP, 4, wgl.WebGL.UNSIGNED_INT, 0));
+    shouldGenerateGLError(gl, wgl.WebGL.INVALID_OPERATION, () => gl.drawElements(wgl.WebGL.TRIANGLE_STRIP, 4, wgl.WebGL.UNSIGNED_INT, 8));
   }
 
   runCrashWithBufferSubDataTests() {
     debug('Verifies that the index validation code which is within bufferSubData does not crash.');
 
     var elementBuffer = gl.createBuffer();
-    gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, elementBuffer);
-    gl.bufferData(wgl.ELEMENT_ARRAY_BUFFER, 256, wgl.STATIC_DRAW);
+    gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, elementBuffer);
+    gl.bufferData(wgl.WebGL.ELEMENT_ARRAY_BUFFER, 256, wgl.WebGL.STATIC_DRAW);
     var data = new Uint32List(127);
-    gl.bufferSubData(wgl.ELEMENT_ARRAY_BUFFER, 64, data);
-    glErrorShouldBe(gl, wgl.INVALID_VALUE, "after attempting to update a buffer outside of the allocated bounds");
+    gl.bufferSubData(wgl.WebGL.ELEMENT_ARRAY_BUFFER, 64, data);
+    glErrorShouldBe(gl, wgl.WebGL.INVALID_VALUE, "after attempting to update a buffer outside of the allocated bounds");
     testPassed("bufferSubData, when buffer object was initialized with null, did not crash");
   }
 
@@ -412,7 +409,7 @@ main() {
       runVerifiesTooManyIndicesTests();
       runCrashWithBufferSubDataTests();
 
-      glErrorShouldBe(gl, wgl.NO_ERROR, "there should be no errors");
+      glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "there should be no errors");
     }
   }
 }

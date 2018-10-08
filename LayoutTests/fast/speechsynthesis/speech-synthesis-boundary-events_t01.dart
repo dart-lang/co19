@@ -8,7 +8,7 @@
  * @description This tests that a speech job will generate the correct boundary events.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
+import "../../testcommon.dart";
 
 void main() {
     var u = new SpeechSynthesisUtterance("this is a test");

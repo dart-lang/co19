@@ -9,21 +9,15 @@
  * (T1,...,Tn, {Tn+1 xn+1,...,Tn+k xn+k}) -> Iterable.
  * In any case where Ti, 1 <= i <= n + k, is not specified, it is considered
  * to have been specified as dynamic.
- * @description Checks that it is a static type warning if a function literal
+ * @description Checks that it is a compile error if a function literal
  * of the form (T1 a1,...,Tn an, {Tn+1 xn+1 = d1,...,Tn+k xn+k = dk}) sync* {s}
  * with two parameters is assigned to a variable of a function type with
  * parameters that do not correspond to function literal parameters.
- * @static-warning
+ * @compile-error
  * @author ngl@unipro.ru
  */
-import 'dart:async';
-import '../../../Utils/dynamic_check.dart';
-
 typedef Iterable iterFuncParam(List p1, {List p2});
 
 main() {
-  iterFuncParam ifp1;
-  checkTypeError(
-      () {ifp1 = (List p1, {Map p2}) sync* {};} /// static type warning
-  );
+  iterFuncParam ifp1 = (List p1, {Map p2}) sync* {};
 }

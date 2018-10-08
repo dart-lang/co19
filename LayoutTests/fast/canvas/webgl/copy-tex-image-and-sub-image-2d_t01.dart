@@ -11,8 +11,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -56,7 +54,7 @@ main() {
     else
       gl = initWebGL("antialiasOff", "vshader", "fshader", [ "g_Position", "g_TexCoord0" ], [ 0, 0, 0, 1 ], 1, { 'antialias': false });
 
-    var program = gl.getParameter(wgl.CURRENT_PROGRAM);
+    var program = gl.getParameter(wgl.WebGL.CURRENT_PROGRAM);
 
     var textureLoc = gl.getUniformLocation(program, "tex");
 
@@ -77,50 +75,50 @@ main() {
     var texCoordOffset = vertices.lengthInBytes;
 
     var vbo = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, vbo);
-    gl.bufferData(wgl.ARRAY_BUFFER,
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vbo);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER,
         texCoordOffset + texCoords.lengthInBytes,
-        wgl.STATIC_DRAW);
-    gl.bufferSubData(wgl.ARRAY_BUFFER, 0, vertices);
-    gl.bufferSubData(wgl.ARRAY_BUFFER, texCoordOffset, texCoords);
+        wgl.WebGL.STATIC_DRAW);
+    gl.bufferSubData(wgl.WebGL.ARRAY_BUFFER, 0, vertices);
+    gl.bufferSubData(wgl.WebGL.ARRAY_BUFFER, texCoordOffset, texCoords);
 
     gl.enableVertexAttribArray(0);
-    gl.vertexAttribPointer(0, 3, wgl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(0, 3, wgl.WebGL.FLOAT, false, 0, 0);
     gl.enableVertexAttribArray(1);
-    gl.vertexAttribPointer(1, 2, wgl.FLOAT, false, 0, texCoordOffset);
+    gl.vertexAttribPointer(1, 2, wgl.WebGL.FLOAT, false, 0, texCoordOffset);
 
     gl.colorMask(true, true, true, false);
-    gl.disable(wgl.BLEND);
+    gl.disable(wgl.WebGL.BLEND);
     debug('Testing copyTexImage2D');
 
     // Red canvas
     gl.clearColor(1, 0, 0, 1);
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
 
     var texture = gl.createTexture();
     // Bind the texture to texture unit 0
-    gl.bindTexture(wgl.TEXTURE_2D, texture);
+    gl.bindTexture(wgl.WebGL.TEXTURE_2D, texture);
     // Set up texture
-    gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, 2, 2, 0, wgl.RGBA, wgl.UNSIGNED_BYTE, null);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MIN_FILTER, wgl.NEAREST);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MAG_FILTER, wgl.NEAREST);
+    gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, 2, 2, 0, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, null);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MIN_FILTER, wgl.WebGL.NEAREST);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MAG_FILTER, wgl.WebGL.NEAREST);
 
-    glErrorShouldBe(gl, wgl.NO_ERROR);
-    gl.copyTexImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, 0, 0, 2, 2, 0);
-    glErrorShouldBe(gl, wgl.NO_ERROR);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+    gl.copyTexImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, 0, 0, 2, 2, 0);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
     // Green canvas
     gl.clearColor(0, 1, 0, 1);
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
 
     // Point the uniform sampler to texture unit 0
     gl.uniform1i(textureLoc, 0);
     // Draw the triangles
-    gl.drawArrays(wgl.TRIANGLES, 0, 6);
+    gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 6);
 
     // Read back the rendering results, should be red
     var buf = new Uint8List(2 * 2 * 4);
-    gl.readPixels(0, 0, 2, 2, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
+    gl.readPixels(0, 0, 2, 2, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
     var idx = 0;
     correctColor = [255, 0, 0];
     for (var y = 0; y < 2; y++) {
@@ -137,21 +135,21 @@ main() {
 
     // Green canvas
     gl.clearColor(0, 1, 0, 1);
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
 
-    glErrorShouldBe(gl, wgl.NO_ERROR);
-    gl.copyTexSubImage2D(wgl.TEXTURE_2D, 0, 0, 0, 0, 0, 2, 2);
-    glErrorShouldBe(gl, wgl.NO_ERROR);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+    gl.copyTexSubImage2D(wgl.WebGL.TEXTURE_2D, 0, 0, 0, 0, 0, 2, 2);
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
     // Blue canvas
     gl.clearColor(0, 0, 1, 1);
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
 
     // Draw the triangles
-    gl.drawArrays(wgl.TRIANGLES, 0, 6);
+    gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 6);
 
     // Read back the rendering results, should be green
-    gl.readPixels(0, 0, 2, 2, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
+    gl.readPixels(0, 0, 2, 2, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
     correctColor = [0, 255, 0];
     for (var y = 0; y < 2; y++) {
       for (var x = 0; x < 2; x++) {

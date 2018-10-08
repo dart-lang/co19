@@ -20,5 +20,7 @@ class A {
 }
 
 main() {
-  const A.method();
+  try {
+    const A.method();
+  } catch (e) {}
 }

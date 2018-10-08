@@ -36,18 +36,18 @@ class C {
 main() {
   B b = new B();
   Expect.identical(b.checked, null);
-  var a = new B();
-  Expect.equals(b, a);
-  Expect.identical(b.checked, a);
+  var a1 = new B();
+  Expect.equals(b, a1);
+  Expect.identical(b.checked, a1);
 
-  a = new A();
-  Expect.equals(b, a);
-  Expect.identical(b.checked, a);
+  var a2 = new A();
+  Expect.equals(b, a2);
+  Expect.identical(b.checked, a2);
 
   Expect.equals(new A(), new C());
 
   try {
     Expect.equals(new C(), new C());
     throw "ExpectException expected";
-  } on ExpectException catch(ok) {}
+  } on ExpectException {}
 }

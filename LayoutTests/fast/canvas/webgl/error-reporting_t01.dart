@@ -8,11 +8,8 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 var shouldBeUndefined = shouldBeNull;
 
@@ -31,43 +28,43 @@ main() {
   // discovered in the synthetic error generation and in the WebGL
   // implementation itself.
 
-  glErrorShouldBe(context, wgl.NO_ERROR);
+  glErrorShouldBe(context, wgl.WebGL.NO_ERROR);
 
   debug("Testing getActiveAttrib");
   // Synthetic OpenGL error
   shouldBeNull(context.getActiveAttrib(null, 2));
-  glErrorShouldBe(context, wgl.INVALID_VALUE);
+  glErrorShouldBe(context, wgl.WebGL.INVALID_VALUE);
   // Error state should be clear by this point
-  glErrorShouldBe(context, wgl.NO_ERROR);
+  glErrorShouldBe(context, wgl.WebGL.NO_ERROR);
   // Real OpenGL error
   shouldBeNull(context.getActiveAttrib(program, 2));
-  glErrorShouldBe(context, wgl.INVALID_VALUE);
+  glErrorShouldBe(context, wgl.WebGL.INVALID_VALUE);
   // Error state should be clear by this point
-  glErrorShouldBe(context, wgl.NO_ERROR);
+  glErrorShouldBe(context, wgl.WebGL.NO_ERROR);
 
   debug("Testing getActiveUniform");
   // Synthetic OpenGL error
   shouldBeNull(context.getActiveUniform(null, 0));
-  glErrorShouldBe(context, wgl.INVALID_VALUE);
+  glErrorShouldBe(context, wgl.WebGL.INVALID_VALUE);
   // Error state should be clear by this point
-  glErrorShouldBe(context, wgl.NO_ERROR);
+  glErrorShouldBe(context, wgl.WebGL.NO_ERROR);
   // Real OpenGL error
   shouldBeNull(context.getActiveUniform(program, 50));
-  glErrorShouldBe(context, wgl.INVALID_VALUE);
+  glErrorShouldBe(context, wgl.WebGL.INVALID_VALUE);
   // Error state should be clear by this point
-  glErrorShouldBe(context, wgl.NO_ERROR);
+  glErrorShouldBe(context, wgl.WebGL.NO_ERROR);
 
   debug("Testing attempts to manipulate the default framebuffer");
-  shouldBeUndefined(context.bindFramebuffer(wgl.FRAMEBUFFER, null));
-  glErrorShouldBe(context, wgl.NO_ERROR);
-  shouldBeUndefined(context.framebufferRenderbuffer(wgl.FRAMEBUFFER, wgl.DEPTH_ATTACHMENT, wgl.RENDERBUFFER, null));
+  shouldBeUndefined(context.bindFramebuffer(wgl.WebGL.FRAMEBUFFER, null));
+  glErrorShouldBe(context, wgl.WebGL.NO_ERROR);
+  shouldBeUndefined(context.framebufferRenderbuffer(wgl.WebGL.FRAMEBUFFER, wgl.WebGL.DEPTH_ATTACHMENT, wgl.WebGL.RENDERBUFFER, null));
   // Synthetic OpenGL error
-  glErrorShouldBe(context, wgl.INVALID_OPERATION);
+  glErrorShouldBe(context, wgl.WebGL.INVALID_OPERATION);
   // Error state should be clear by this point
-  glErrorShouldBe(context, wgl.NO_ERROR);
-  shouldBeUndefined(context.framebufferTexture2D(wgl.FRAMEBUFFER, wgl.COLOR_ATTACHMENT0, wgl.TEXTURE_2D, null, 0));
+  glErrorShouldBe(context, wgl.WebGL.NO_ERROR);
+  shouldBeUndefined(context.framebufferTexture2D(wgl.WebGL.FRAMEBUFFER, wgl.WebGL.COLOR_ATTACHMENT0, wgl.WebGL.TEXTURE_2D, null, 0));
   // Synthetic OpenGL error
-  glErrorShouldBe(context, wgl.INVALID_OPERATION);
+  glErrorShouldBe(context, wgl.WebGL.INVALID_OPERATION);
   // Error state should be clear by this point
-  glErrorShouldBe(context, wgl.NO_ERROR);
+  glErrorShouldBe(context, wgl.WebGL.NO_ERROR);
 }

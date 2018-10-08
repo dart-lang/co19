@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -21,9 +20,10 @@ main() {
       </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  document.getElementById('sel').options[1].selected = true;
-  //shouldBe(document.getElementById('sel').options.selectedIndex, 1);
-  shouldBe(document.getElementById('sel').options[1].selected, true);
-  document.getElementById('sel').options[1].text = "PASS";
-  shouldBe(document.getElementById('sel').options[1].text, "PASS");
+  OptionElement opt =
+      (document.getElementById('sel') as SelectElement).options[1];
+  //shouldBe(opt.selectedIndex, 1);
+  shouldBe(opt.selected, true);
+  opt.text = "PASS";
+  shouldBe(opt.text, "PASS");
 }

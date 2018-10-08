@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   asyncStart();
@@ -27,7 +26,7 @@ main() {
 
   test() {
     (() {
-      var img = document.createElement('img');
+      ImageElement img = document.createElement('img');
       img.onLoad.listen((_) {
         testFailed('FAIL');
         finishTesting();

@@ -27,21 +27,20 @@
  * T is a type parameter and S is a type parameter bound (T and S are complex
  * generics). Checks their mutual assignability (no static type warnings) as
  * well.
+ * @issue 27556
  * @static-clean
  * @author iefremov
  * @reviewer rodionov
  */
-import "../../../Utils/expect.dart";
 
 class I<A, B, T> {}
 class J<A, B, T> extends I<A, B, T> {}
 class K extends J {}
 class C implements K {}
 
-// supposedly, f_1 <=> f and f_2 <=> f (see Types/Function Types)
-typedef J f(I<J, List<Map>, num> i, [List j]);
-typedef K f_1(I<K, List<Map<int, num>>, int> i, [List<Map> j]);
-typedef C f_2(I<K, List<Map<int, num>>, int> i, [List<Map> j]);
+typedef J f(I<K, List<Map<int, double>>, int> i, [List<Map> j]);
+typedef K f_1(I<J, List<Map<int, num>>, num> i, [List<Map> j]);
+typedef C f_2(I<J, List<Map<int, num>>, num> i, [List<Map> j]);
 
 class Checker_I<T extends I<f, num, List<Map<num, Map>>>> implements I {
   Checker_I() {}
@@ -49,7 +48,6 @@ class Checker_I<T extends I<f, num, List<Map<num, Map>>>> implements I {
   Checker_I<I<f, num, List<Map<num, Map>>>> _() {}
 
   check() {
-    Expect.isTrue(new Checker_I<T>() is Checker_I<I>);
     Checker_I<I<f, num, List<Map<num, Map>>>> i1 = new Checker_I<T>();
     Checker_I<T> i2 = _();
   }
@@ -57,7 +55,7 @@ class Checker_I<T extends I<f, num, List<Map<num, Map>>>> implements I {
 
 main() {
   new Checker_I().check();
-  new Checker_I<I<dynamic, dynamic, dynamic>>().check();
+  new Checker_I<I<f, num, List<Map<num, Map>>>>().check();
   new Checker_I<I<f_1, int, List<Map<int, Map<int, int>>>>>().check();
   new Checker_I<I<f_2, int, List<Map<int, Map<int, int>>>>>().check();
   new Checker_I<J<f_1, int, List<Map<int, Map<int, int>>>>>().check();

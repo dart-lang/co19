@@ -5,7 +5,7 @@
  */
 /**
  * @assertion void addFirst(E entry)
- * Add entry to the beginning of the list.
+ * Add [entry] to the beginning of the list.
  * @description Checks that [entry] is added to the beginning of the list.
  * @author kaigorodov
  */
@@ -29,6 +29,6 @@ main() {
   for (var i = 0; i <= 1000; i++) {
     list.addFirst(new MyLinkedListEntry(i));
     Expect.equals(i, list.first.value);
-    Expect.equals(i+1, list.length);
+    Expect.equals(i + 1, list.length);
   }
 }

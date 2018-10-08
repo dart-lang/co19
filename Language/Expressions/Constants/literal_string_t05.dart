@@ -21,5 +21,7 @@
 const i1 = "${1.toString()}";
 
 main() {
-  print(i1);
+  try {
+    print(i1);
+  } catch (x) {}
 }

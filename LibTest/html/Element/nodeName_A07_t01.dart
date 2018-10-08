@@ -15,6 +15,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals('DIV', new DivElement().nodeName, 'ctor');
-  
+
   Expect.equals('DIV', new Element.html('<div></div>').nodeName, 'parsed');
 }

@@ -6,12 +6,11 @@
 /** 
  * @description 
  */
-import "dart:html";
 import "../../testcommon.dart";
 import "../../resources/testharness.dart";
 
 main() {
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   test(() {
     ctx.fillStyle = "#008000";

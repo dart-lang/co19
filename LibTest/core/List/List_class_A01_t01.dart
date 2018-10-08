@@ -8,11 +8,10 @@
  * @description Checks that List-specific methods work as specified.
  * @author kaigorodov
  */
-import "dart:collection";
 import "allListTests.lib.dart";
 
-List create([int length=null]) {
-  if (length==null) {
+List create([int length = null]) {
+  if (length == null) {
     return new List();
   } else {
     return new List(length);

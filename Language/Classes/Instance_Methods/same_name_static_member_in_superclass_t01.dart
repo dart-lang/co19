@@ -7,12 +7,11 @@
  * @assertion It is a static warning if a class C declares an instance method
  * named n and an accessible static member named n is declared in a superclass 
  * of C.
- * @description Checks that a static warning is produced when a class declares 
+ * @description Checks that a compile error is produced when a class declares
  * an instance method with the same name as a static variable in its superclass.
- * @static-warning
+ * @issue 27476
+ * @compile-error
  * @author vasya
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class A {
@@ -20,11 +19,10 @@ class A {
 }
 
 class C extends A {
-  f() { /// static type warning
+  f() {
   }
 }
 
 main() {
   new C().f();
 }
-

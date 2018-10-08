@@ -5,19 +5,20 @@
  */
 /**
  * @assertion Iterable map(f(E element))
- * As long as the returned Iterable is not iterated over, the supplied function f will not be invoked.
- * @description Checks that the supplied function f will not be invoked if the returned
- * Iterable is not iterated over.
+ * As long as the returned [Iterable] is not iterated over, the supplied
+ * function [f] will not be invoked.
+ * @description Checks that the supplied function [f] will not be invoked if the
+ * returned [Iterable] is not iterated over.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
 import "LinkedList.lib.dart";
 
-bool invoked=false;
+bool invoked = false;
 
 f(var element) {
-  invoked=true;
+  invoked = true;
   return element;
 }
 
@@ -27,7 +28,7 @@ void check(List<int> a) {
 }
 
 main() {
-  List<int> a=new List<int>();
+  List<int> a = new List<int>();
   check(a);
   a.add(22);
   check(a);
@@ -35,7 +36,7 @@ main() {
   check(a);
   a.add(11);
   check(a);
-  for (int k=-100; k<200; k++) {
+  for (int k = -100; k < 200; k++) {
     a.add(k);
   }
   check(a);

@@ -18,7 +18,6 @@
  */
 import 'dart:async';
 import '../../../Utils/expect.dart';
-import '../../../Utils/async_utils.dart';
 
 Future<int> f() {
   return new Future<int>(() => (1 ~/ 0));

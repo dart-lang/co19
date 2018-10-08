@@ -6,10 +6,9 @@
 /**
  * @assertion An assignment of the form super[e1] = e2 is equivalent to the
  * expression super.[e1] = e2
- * @description Checks that method noSuchMethod is invoked
- * (which results in NoSuchMethodError) if superclass doesn't define an
- * []= operator.
- * @static-warning
+ * @description Checks that it is a compile error if superclass doesn't define
+ * an []= operator.
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';
@@ -20,7 +19,7 @@ class A {
 
 class C extends A {
   test() {
-    Expect.throws(() {super[0] = 1;}, (e) => e is NoSuchMethodError); /// static type warning
+    Expect.throws(() {super[0] = 1;}, (e) => e is NoSuchMethodError);
   }
 }
 

@@ -15,12 +15,11 @@
  * Then the method noSuchMethod() is looked up in Sdynamic and invoked on this
  * with argument im, and the result of this invocation is the result of
  * evaluating i.
- * @description Checks that noSuchMethod is invoked if there're no members,
+ * @description Checks that it is a compile error if there're no members,
  * instance or static, with the required name in the invoking class's
  * superclass.
- * @static-warning
+ * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 
@@ -35,7 +34,7 @@ class S {
 class A extends S {
   test() {
     try {
-      super.nonExistingMethod(); /// static type warning
+      super.nonExistingMethod();
       Expect.fail("Exception is expected");
     } on TestException catch (e) {}
   }

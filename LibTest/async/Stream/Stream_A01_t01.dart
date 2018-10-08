@@ -13,7 +13,7 @@ import "dart:async";
 
 class MyStream<T> extends Stream<T> {
   StreamSubscription<T> listen(void onData(T event),
-                   {void onError(error), void onDone(), bool cancelOnError}) 
+                   {Function onError, void onDone(), bool cancelOnError})
   {
     return null; 
   }

@@ -16,10 +16,6 @@ import "../../../Utils/expect.dart";
 main() {
   var runes = new Runes('a');
   var resList = runes.toList(growable:false);
-
-  try {
-    resList.length = 10;
-    Expect.fail("List should be fixed-length");
-  } on UnsupportedError catch(ok) {}
+  Expect.throws(() {resList.length = 10;}, (e) => e is UnsupportedError);
   Expect.equals(1, resList.length);
 }

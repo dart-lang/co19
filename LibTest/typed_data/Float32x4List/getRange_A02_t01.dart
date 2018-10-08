@@ -5,15 +5,16 @@
  */
 /**
  * @assertion Iterable<E> getRange(int start, int end)
- * The result of this function is backed by [this].
- * @description Checks that the result of [getRange] is
- * backed by [this].
+ * Returns an [Iterable] that iterates over the elements in the range [start]
+ * inclusive to [end] exclusive.
+ * @description Checks that the result of [getRange] is backed by [this].
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 equal(obj1, obj2) {
   var res = obj1.equal(obj2);
@@ -21,7 +22,8 @@ equal(obj1, obj2) {
 }
 
 main() {
-  var l = new Float32x4List.fromList([pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0)]);
+  var l = new Float32x4List.fromList(
+      [pack(0.0), pack(0.0), pack(0.0), pack(0.0), pack(0.0)]);
   var res = l.getRange(0, 5);
   Expect.isTrue(equal(pack(0.0), res.elementAt(0)));
   l[0] = pack(1.0);

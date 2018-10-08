@@ -15,6 +15,8 @@
  */
 
 main() {
-  void break() {}
-  break();
+  try {
+    void break() {}
+    break();
+  } catch (x) {}
 }

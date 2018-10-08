@@ -9,11 +9,8 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -22,7 +19,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var gl;
+  dynamic gl;
 
   checkPrefix(expected, enum_val) {
     debug(expected);
@@ -42,10 +39,10 @@ main() {
   } else {
     testPassed("context exists");
 
-    checkPrefix("WebGL 1.0", wgl.VERSION);
-    checkPrefix("WebGL GLSL ES 1.0", wgl.SHADING_LANGUAGE_VERSION);
-    shouldBeNonNull(gl.getParameter(wgl.VENDOR));
-    shouldBeNonNull(gl.getParameter(wgl.RENDERER));
-    shouldBe(gl.getError(), wgl.NO_ERROR);
+    checkPrefix("WebGL 1.0", wgl.WebGL.VERSION);
+    checkPrefix("WebGL GLSL ES 1.0", wgl.WebGL.SHADING_LANGUAGE_VERSION);
+    shouldBeNonNull(gl.getParameter(wgl.WebGL.VENDOR));
+    shouldBeNonNull(gl.getParameter(wgl.WebGL.RENDERER));
+    shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
   }
 }

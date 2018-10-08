@@ -7,8 +7,6 @@
  * @assertion Undocumented: const Exception([var msg])
  * @description Checks that this constructor executes without error for various arguments (including null).
  * @author rodionov
- * @reviewer msyabro
- * @needsreview undocumented
  */
  
 main() {

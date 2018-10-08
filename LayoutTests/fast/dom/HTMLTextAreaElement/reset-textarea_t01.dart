@@ -7,7 +7,6 @@
  * @description This test verifies that textarea controls are properly reset.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -24,8 +23,8 @@ main() {
     debug(element.id);
     shouldBe(element.value, element.defaultValue);
   }
-  var noDefaultText = document.getElementById("noDefaultText");
-  var hasDefaultText = document.getElementById("hasDefaultText");
+  TextAreaElement noDefaultText = document.getElementById("noDefaultText");
+  TextAreaElement hasDefaultText = document.getElementById("hasDefaultText");
   noDefaultText.value = "Not the default value.";
   hasDefaultText.value = "Not the default value.";
   document.getElementById("resetButton").click();

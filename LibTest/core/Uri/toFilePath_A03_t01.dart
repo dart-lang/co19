@@ -10,11 +10,9 @@
  * relative to the current drive on the designated drive. That is for the
  * URI file:///c:abc calling toFilePath will throw as a path segment cannot
  * contain colon on Windows.
- * @description Checks that exception is thrown
+ * @description Checks that exception is thrown for file:///c:abc on Windows
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

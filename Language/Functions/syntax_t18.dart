@@ -31,5 +31,7 @@
 f() => do {1 + 1;} while (true);
 
 main() {
-  f();
+  try {
+    f();
+  } catch (x) {}
 }

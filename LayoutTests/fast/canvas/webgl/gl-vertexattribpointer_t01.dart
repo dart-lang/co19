@@ -12,8 +12,6 @@ import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -24,7 +22,7 @@ main() {
 
   debug("Canvas.getContext");
 
-  var gl = create3DContext(document.getElementById("canvas"));
+  dynamic gl = create3DContext(document.getElementById("canvas"));
   if (gl == null) {
     testFailed("context does not exist");
   } else {
@@ -34,22 +32,22 @@ main() {
 
     var FIXED = 0x140C;
 
-    gl.vertexAttribPointer(0, 3, wgl.FLOAT, false, 0, 12);
-    glErrorShouldBe(gl, wgl.INVALID_OPERATION,
+    gl.vertexAttribPointer(0, 3, wgl.WebGL.FLOAT, false, 0, 12);
+    glErrorShouldBe(gl, wgl.WebGL.INVALID_OPERATION,
         "vertexAttribPointer should fail if no buffer is bound");
 
     var vertexObject = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
-    gl.bufferData(wgl.ARRAY_BUFFER, new Float32List(0), wgl.STATIC_DRAW);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, new Float32List(0), wgl.WebGL.STATIC_DRAW);
 
-    gl.vertexAttribPointer(0, 1, wgl.INT, false, 0, 0);
-    glErrorShouldBe(gl, wgl.INVALID_ENUM,
+    gl.vertexAttribPointer(0, 1, wgl.WebGL.INT, false, 0, 0);
+    glErrorShouldBe(gl, wgl.WebGL.INVALID_ENUM,
         "vertexAttribPointer should not support INT");
-    gl.vertexAttribPointer(0, 1, wgl.UNSIGNED_INT, false, 0, 0);
-    glErrorShouldBe(gl, wgl.INVALID_ENUM,
+    gl.vertexAttribPointer(0, 1, wgl.WebGL.UNSIGNED_INT, false, 0, 0);
+    glErrorShouldBe(gl, wgl.WebGL.INVALID_ENUM,
         "vertexAttribPointer should not support UNSIGNED_INT");
     gl.vertexAttribPointer(0, 1, FIXED, false, 0, 0);
-    glErrorShouldBe(gl, wgl.INVALID_ENUM,
+    glErrorShouldBe(gl, wgl.WebGL.INVALID_ENUM,
         "vertexAttribPointer should not support FIXED");
 
     checkVertexAttribPointer(
@@ -61,15 +59,15 @@ main() {
               ", $normalize" +
               ", $stride" +
               ", $offset" +
-              ") should " + (err == wgl.NO_ERROR ? "succeed " : "fail ") + reason);
+              ") should " + (err == wgl.WebGL.NO_ERROR ? "succeed " : "fail ") + reason);
         }
 
     var types = [
-    { 'type':wgl.BYTE,           'bytesPerComponent': 1 },
-    { 'type':wgl.UNSIGNED_BYTE,  'bytesPerComponent': 1 },
-    { 'type':wgl.SHORT,          'bytesPerComponent': 2 },
-    { 'type':wgl.UNSIGNED_SHORT, 'bytesPerComponent': 2 },
-    { 'type':wgl.FLOAT,          'bytesPerComponent': 4 },
+    { 'type':wgl.WebGL.BYTE,           'bytesPerComponent': 1 },
+    { 'type':wgl.WebGL.UNSIGNED_BYTE,  'bytesPerComponent': 1 },
+    { 'type':wgl.WebGL.SHORT,          'bytesPerComponent': 2 },
+    { 'type':wgl.WebGL.UNSIGNED_SHORT, 'bytesPerComponent': 2 },
+    { 'type':wgl.WebGL.FLOAT,          'bytesPerComponent': 4 },
     ];
 
     for (var ii = 0; ii < types.length; ++ii) {
@@ -95,15 +93,15 @@ main() {
             strideSet = [0, bytesPerElement];
           for (var kk = 0; kk < strideSet.length; ++kk) {
             var stride = strideSet[kk];
-            var err = wgl.NO_ERROR;
+            var err = wgl.WebGL.NO_ERROR;
             var reason = "";
               if (offset != 0) {
                 reason = "because offset is bad";
-                err = wgl.INVALID_OPERATION;
+                err = wgl.WebGL.INVALID_OPERATION;
               }
             if (stride % bytesPerComponent != 0) {
               reason = "because stride is bad";
-              err = wgl.INVALID_OPERATION;
+              err = wgl.WebGL.INVALID_OPERATION;
             }
             checkVertexAttribPointer(
                 gl, err, reason, size, type, false, stride, offset);
@@ -112,10 +110,10 @@ main() {
 
           if (offset == 0) {
             checkVertexAttribPointer(
-                gl, wgl.NO_ERROR, "at stride limit",
+                gl, wgl.WebGL.NO_ERROR, "at stride limit",
                 size, type, false, stride, offset);
             checkVertexAttribPointer(
-                gl, wgl.INVALID_VALUE, "over stride limit",
+                gl, wgl.WebGL.INVALID_VALUE, "over stride limit",
                 size, type, false,
                 stride + bytesPerComponent, offset);
           }

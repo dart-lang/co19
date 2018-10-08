@@ -22,5 +22,7 @@
  */
 
 main() {
-  var map = {"1" 1};
+  try {
+    var map = {"1" 1};
+  } catch (e) {}
 }

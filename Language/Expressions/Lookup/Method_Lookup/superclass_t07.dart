@@ -21,7 +21,7 @@ class B extends lib.A {
 }
 
 main() {
-  B b = new B();
+  dynamic b = new B();
   Expect.equals(2, b._m());
   Expect.throws(() {b._privateMethod();}, (e) => e is NoSuchMethodError);
 }

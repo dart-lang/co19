@@ -19,7 +19,7 @@ class Things extends Enum<Things> {}
 class SubThings extends Things {}
 
 main() {
-    var x1 = new Enum<Enum>();
+    var x1 = new Enum<Things>();
     var x2 = new Things();
     var x3 = new SubThings();
 }

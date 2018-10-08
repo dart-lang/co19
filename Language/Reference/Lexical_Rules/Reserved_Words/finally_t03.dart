@@ -17,5 +17,8 @@
 typedef void finally();
 
 main() {
-  null is finally;
+  try {
+    null is finally;
+  } catch (anything) {
+  }
 }

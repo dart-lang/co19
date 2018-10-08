@@ -7,9 +7,8 @@
  * @assertion void writeAll(Iterable objects, [String separator = ""])
  * Iterates over the given objects and writes them in sequence.
  * @description Tries to pass a list with elements that are null or aren't
- *              Strings as argument, correct string conversion expected
+ * Strings as argument, correct string conversion expected
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -19,7 +18,6 @@ class A {
     return "class A";
   }
 }
-
 
 main() {
   StringBuffer sb = new StringBuffer();

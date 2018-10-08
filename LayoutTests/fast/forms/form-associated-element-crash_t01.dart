@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -18,13 +17,12 @@ main() {
       PASS
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var element = document.createElement('input');
+  InputElement element = document.createElement('input') as InputElement;
 
   delay() {
     element.remove();
-    element = 0;
     gc();
-    var form = document.createElement('form');
+    FormElement form = document.createElement('form') as FormElement;
     form.setAttribute('id', 'form2');
     document.body.append(form);
     asyncEnd();

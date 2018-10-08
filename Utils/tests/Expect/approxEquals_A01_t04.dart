@@ -34,6 +34,6 @@ main() {
   Expect.approxEquals(MAX_DOUBLE, MIN_DOUBLE, MAX_DOUBLE, "not empty");
   Expect.approxEquals(NEG_MAX_DOUBLE, NEG_MIN_DOUBLE, MAX_DOUBLE, "not empty");
 
-  Expect.approxEquals(MAX_DOUBLE, NEG_MAX_DOUBLE, double.INFINITY);
+  Expect.approxEquals(MAX_DOUBLE, NEG_MAX_DOUBLE, double.infinity);
   Expect.approxEquals(MIN_DOUBLE, NEG_MIN_DOUBLE, 0.0000000001, "");
 }

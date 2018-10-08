@@ -5,7 +5,7 @@
  */
 /**
  * @assertion K lastKey()
- * Get the last key in the map. Returns null if the map is empty.
+ * Get the last key in the map.
  * @description Checks that the last key in a map is returned
  * @author sgrekhov@unipro.ru
  */

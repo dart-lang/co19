@@ -16,7 +16,6 @@
  * @reviewer kaigorodov
  */
 import 'dart:isolate';
-import '../../../Utils/async_utils.dart';
 import '../../../Utils/expect.dart';
 
 var expectedMessage="message";

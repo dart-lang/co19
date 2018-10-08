@@ -6,14 +6,14 @@
 /**
  * @assertion void sort([int compare(E a, E b)])
  * Sorts the list according to the order specified by the compare function.
- * @description Checks sorting various integer arrays.
+ * @description Checks that sorting is correct.
  * @author msyabro
  */
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void check(var list, var expected) {
+void check(List<double> list, List<double> expected) {
   var actual = new Float64List.fromList(list);
   int c(var a, var b) {
     return a < b ? -1 : (a == b ? 0 : 1);
@@ -29,6 +29,11 @@ main() {
   check([1.0, 2.0, 4.0, 3.0, 5.0, 6.0], [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]);
   check([2.0, 1.0, 4.0, 3.0, 6.0, 5.0], [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]);
   check([6.0, 5.0, 4.0, 3.0, 2.0, 1.0], [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]);
-  check([9.0, 9.0, 1.0, 2.0, 3.0, 0.0,  3.0, 2.0, 2.0, 3.0, 4.0, 1.0, 9.0, 5.0, 7.0, 7.0, 5.0, 6.0, 1.0, 0.0, 4.0, 8.0, 8.0, 8.0, 5.0, 4.0, 6.0, 7.0, 6.0, 0.0],
-         [0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 3.0, 3.0, 4.0, 4.0, 4.0, 5.0, 5.0, 5.0, 6.0, 6.0, 6.0, 7.0, 7.0, 7.0, 8.0, 8.0, 8.0, 9.0, 9.0, 9.0]);
+  check([
+    9.0, 9.0, 1.0, 2.0, 3.0, 0.0, 3.0, 2.0, 2.0, 3.0, 4.0, 1.0, 9.0, 5.0, 7.0,
+    7.0, 5.0, 6.0, 1.0, 0.0, 4.0, 8.0, 8.0, 8.0, 5.0, 4.0, 6.0, 7.0, 6.0, 0.0
+  ], [
+    0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 3.0, 3.0, 4.0, 4.0, 4.0,
+    5.0, 5.0, 5.0, 6.0, 6.0, 6.0, 7.0, 7.0, 7.0, 8.0, 8.0, 8.0, 9.0, 9.0, 9.0
+  ]);
 }

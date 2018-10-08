@@ -31,9 +31,7 @@
  * initialized using another variable).
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
-
 
 class C {
   const C();
@@ -43,5 +41,7 @@ class C {
 }
 
 main() {
-  var c = const C();
+  try {
+    var c = const C();
+  } catch (e) {}
 }

@@ -7,14 +7,10 @@
  * @assertion In checked mode, it is a dynamic type error if a factory returns
  * a non-null object whose type is not a subtype of its actual return type.
  * @description Checks that returning an object whose type is not subtype of M
- * from factory M.id produces a dynamic type error in checked mode.
- * @static-warning
+ * from factory M.id produces a compile error.
+ * @compile-error
  * @author pagolubev
- * @reviewer iefremov
- * @reviewer rodionov
  */
-
-import "../../../../Utils/dynamic_check.dart";
 
 class C {}
 
@@ -23,7 +19,5 @@ class A {
 }
 
 main() {
-  checkTypeError( () {
-    new A.foo();
-  });
+  new A.foo();
 }

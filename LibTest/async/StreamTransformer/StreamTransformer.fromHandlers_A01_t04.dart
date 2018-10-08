@@ -14,24 +14,25 @@
  * @author ilya
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var s = new Stream.fromIterable([1,2,3,4,5]);
+  Stream s = new Stream.fromIterable([1,2,3,4,5]);
   
   // odd numbers as data events, even numbers as error events
   s = s.map((x) => x.isOdd ? x : throw x);
 
-  var tr = new StreamTransformer.fromHandlers(
+  StreamTransformer<int, dynamic> tr = new StreamTransformer.fromHandlers(
       handleData:(x, sink) { sink.add(x); },
       handleError: (x, st, sink) { sink.add(x); },
       handleDone: (sink) { sink.add(6); sink.add(7); sink.close(); }
   );
   
   asyncStart();
-  s.transform(tr).toList().then((x) {
-    Expect.listEquals([1,2,3,4,5,6,7], x);
-    asyncEnd();
-  });
+  s.transform(tr).toList().then(
+    (x) {
+      Expect.listEquals([1,2,3,4,5,6,7], x);
+      asyncEnd();
+    }
+  );
 }

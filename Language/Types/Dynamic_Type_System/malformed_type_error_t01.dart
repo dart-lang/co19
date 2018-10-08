@@ -10,9 +10,10 @@
  * checked mode.
  * In checked mode, it is a dynamic type error if a deferred, malformed or
  * malbounded type is used in a subtype test.
- * @description Checks that a dynamic type error occurs in checked mode when
- * a variable is being assigned an expression of incompatible type (failed
- * implicit subtype test).
+ * @description Checks that a compile type error occurs if a variable is
+ * being assigned an expression of incompatible type (failed implicit subtype
+ * test).
+ * @compile-error
  * @author rodionov
  * @reviewer iefremov
  */
@@ -21,7 +22,5 @@ import "../../../Utils/dynamic_check.dart";
 
 main() {
   var i = 1;
-  checkTypeError( () {
-    String v = i;
-  });
+  String v = i;
 }

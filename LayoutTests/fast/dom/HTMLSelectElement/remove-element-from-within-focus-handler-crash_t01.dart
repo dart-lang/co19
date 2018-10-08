@@ -7,7 +7,6 @@
  * @description Layout test for bug 23858
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -23,7 +22,7 @@ main() {
     </select>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var select = document.getElementById('bomb');
+  SelectElement select = document.getElementById('bomb');
 
   select.onFocus.listen((_) {
     select.remove();

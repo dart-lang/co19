@@ -9,16 +9,12 @@
  * returns 'Infinity' and '-Infinity' respectively regardless of the
  * 'fractionDigits' value.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
-  double inf = 1 / 0;
-
   for(int i = 0; i < 10; i++) {
-    Expect.equals('Infinity', inf.toStringAsFixed(i));
-    Expect.equals('-Infinity', (-inf).toStringAsFixed(i));
+    Expect.equals('Infinity', double.infinity.toStringAsFixed(i));
+    Expect.equals('-Infinity', double.negativeInfinity.toStringAsFixed(i));
   }
 }

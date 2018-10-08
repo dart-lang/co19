@@ -11,9 +11,7 @@
  * must not be encoded as this constructor encodes the path.
  * @description Checks expected path settings
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
@@ -22,5 +20,10 @@ main() {
   
   x = new Uri.https('', '/foo/\u0000/\u0001');
   Expect.equals('/foo/%00/%01', x.path);
-}
 
+  x = new Uri.https('', '/foo/ й / ф /%/');
+  Expect.equals('/foo/%20%D0%B9%20/%20%D1%84%20/%25/', x.path);
+
+  x = new Uri.https('', r'/foo/\/');
+  Expect.equals('/foo/%5C/', x.path);
+}

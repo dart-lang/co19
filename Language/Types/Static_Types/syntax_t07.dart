@@ -33,5 +33,7 @@ class G<T> {
 }
 
 main() {
-  G<null> t;
+  try {
+    G<null> t;
+  } catch (x) {}
 }

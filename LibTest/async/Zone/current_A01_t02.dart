@@ -11,28 +11,27 @@
  */
 
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  var z = Zone.current;
+  Zone zone = Zone.current;
 
   asyncStart();
   new Future.value(1).then((_) {
-    Expect.equals(z, Zone.current);
+    Expect.equals(zone, Zone.current);
 
     zoned() {
-      var z2 = Zone.current;
-      Expect.notEquals(z, z2);
+      Zone zone2 = Zone.current;
+      Expect.notEquals(zone, zone2);
 
       asyncStart();
       new Future.value(2).then((_) {
-        Expect.equals(z2, Zone.current);
+        Expect.equals(zone2, Zone.current);
         asyncEnd();
       });
     }
 
-    z.fork().run(zoned);
+    zone.fork().run(zoned);
       
     asyncEnd();
   });

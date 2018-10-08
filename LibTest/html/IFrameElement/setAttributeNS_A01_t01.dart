@@ -15,19 +15,20 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  var x = new Element.html('<svg><iframe xlink:href="1" xlink:custom="2"></iframe></svg>',
+  var x = new Element.html(
+      '<svg><iframe xlink:href="1" xlink:custom="2"></iframe></svg>',
       treeSanitizer: new NullTreeSanitizer());
-  var y = x.firstChild;
+  Element y = x.firstChild;
 
   y.setAttributeNS(XlinkNamespace, 'href', 'foo');
   Expect.equals('foo', y.getAttributeNS(XlinkNamespace, 'href'),
       'change standard attribute');
-  
+
   y.setAttributeNS(XlinkNamespace, 'custom', 'bar');
   Expect.equals('bar', y.getAttributeNS(XlinkNamespace, 'custom'),
       'change custom attribute');
-  
+
   y.setAttributeNS(XlinkNamespace, 'new', 'one');
-  Expect.equals('one', y.getAttributeNS(XlinkNamespace, 'new'),
-      'add new attribute');
+  Expect.equals(
+      'one', y.getAttributeNS(XlinkNamespace, 'new'), 'add new attribute');
 }

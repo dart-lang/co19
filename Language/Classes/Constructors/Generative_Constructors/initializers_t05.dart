@@ -18,7 +18,6 @@
  * list is empty (a lone colon).
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {
@@ -26,5 +25,7 @@ class C {
 }
 
 main() {
-  new C();
+  try {
+    new C();
+  } catch (x) {}
 }

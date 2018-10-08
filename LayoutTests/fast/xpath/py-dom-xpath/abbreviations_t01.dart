@@ -119,7 +119,7 @@ doc = (new DomParser()).parseFromString(
     '    </chapter>' +
     '</doc>',
     'application/xml');
-test(doc, '//item[@id="3"]', '../@lang', [doc.getElementsByTagName("chapter")[0].getAttribute("lang")]);
+test(doc, '//item[@id="3"]', '../@lang', [(doc.getElementsByTagName("chapter")[0] as Element).getAttribute("lang")]);
 
 doc = (new DomParser()).parseFromString(
     '<doc>' +

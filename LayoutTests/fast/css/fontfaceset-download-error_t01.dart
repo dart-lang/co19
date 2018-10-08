@@ -40,7 +40,7 @@ main() {
       /* Test 5: Multiple errors */
       @font-face {
           font-family: myfont5;
-          src: url('resources/IntentionallyMissingFile.otf'), url(data:application/x-truetype-font,));
+          src: url('resources/IntentionallyMissingFile.otf'), url(data:application/x-truetype-font,);
       }
       </style>
       ''', treeSanitizer: new NullTreeSanitizer());
@@ -86,7 +86,6 @@ main() {
     document.fonts.addEventListener('loading', onLoading);
     document.fonts.addEventListener('loadingdone', onLoadingDone);
     document.fonts.addEventListener('loadingerror', onLoadingError);
-
   }
 
   if (document.fonts != null)

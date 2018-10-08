@@ -5,16 +5,14 @@
  */
 /**
  * @assertion String decodeQueryComponent(String encodedComponent,
- * {Encoding encoding: UTF8})
+ * {Encoding encoding: utf8})
  * Decodes the percent-encoding in encodedComponent, converting pluses
  * to spaces
  * @description Checks expected results on unreserved characters and
  * basic and extended unicode characters on manually and library
  * encoded strings.
  * @author ilya
- * @reviewer
  */
-
 import 'dart:convert';
 import "../../../Utils/expect.dart";
 
@@ -32,7 +30,7 @@ manuallyEncodeQuery(String s) => s.runes
       ? new String.fromCharCode(x)
       : x == 32
         ? '+'
-        : UTF8.encode(new String.fromCharCode(x)).map(encodeOctet).join(''))
+        : utf8.encode(new String.fromCharCode(x)).map(encodeOctet).join(''))
   .join('');
 
 main() {

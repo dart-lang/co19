@@ -5,7 +5,7 @@
  */
 /**
  * @assertion final _DoubleLinkedQueueIterator<E> iterator
- * Returns an Iterator that iterates over this Iterable object.
+ * Returns an [Iterator] that iterates over this Iterable object.
  * @description Checks that correctly typed [Iterator] is returned.
  * @author kaigorodov
  */

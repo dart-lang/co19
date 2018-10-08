@@ -10,8 +10,6 @@
  * setter's formal parameter list consists of a single optional parameter.
  * @compile-error
  * @author vasya
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class C {
@@ -19,5 +17,7 @@ class C {
 }
 
 main() {
-  C.setter = null;
+  try {
+    C.setter = null;
+  } catch (e) {}
 }

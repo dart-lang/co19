@@ -18,8 +18,9 @@
  * ;
  * A relational expression is either a bitwise expression, or an invocation of
  * a relational operator on either super or an expression e1, with argument e2.
- * @description Checks that a reference to a type alias declaration can be used
- * as the first operand in a relational expression without a compile error.
+ * @description Checks that a reference to a type alias declaration cannot be
+ * used as the first operand in a relational expression without a compile error.
+ * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
  */
@@ -27,5 +28,5 @@
 typedef void proc();
 
 main() {
-  proc <= 1; /// 01: static type warning, runtime error
+  proc <= 1;
 }

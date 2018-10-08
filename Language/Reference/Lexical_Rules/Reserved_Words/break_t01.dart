@@ -17,5 +17,8 @@
 class break { } // error
 
 main() {
-  null is break;
+  try {
+    null is break;
+  } catch (anything) {
+  }
 }

@@ -6,11 +6,10 @@
 /**
  * @description Test that createObjectURL with no argument should throw an
  * exception.
- * @static-warning
  */
 import "dart:html";
 import "../../testcommon.dart";
 
 main() {
-  shouldThrow(() => Url.createObjectUrl());
+  shouldThrow(() => (Url as dynamic).createObjectUrl());
 }

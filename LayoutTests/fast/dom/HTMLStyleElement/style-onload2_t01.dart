@@ -9,15 +9,13 @@
  * for the window is dispatched.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {
   var numberOfFiredLoadEvents = 0;
   var expectedNumberOfFiredLoadEvents = 2;
 
-  checkIfDone(elementName) => (_) {
+  EventListener checkIfDone(elementName) => (_) {
     ++numberOfFiredLoadEvents;
 
     if (numberOfFiredLoadEvents < expectedNumberOfFiredLoadEvents

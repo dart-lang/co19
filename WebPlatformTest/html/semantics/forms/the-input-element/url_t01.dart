@@ -34,12 +34,12 @@ const String htmlEL='''
 void main() {
   document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 		test((){
-			var element = document.getElementById('type_support');
+			var element = document.getElementById('type_support') as InputElement;
 			assert_equals(element.type, 'url');
 		}, 'url type supported on input element');
 
 		test((){
-			var element = document.getElementById('set_value_LF');
+			var element = document.getElementById('set_value_LF') as InputElement;
 			element.value = 'a\u000Aa';
 			assert_equals(element.value, 'aa');
 
@@ -53,15 +53,15 @@ void main() {
 		}, 'The value must not be set with "LF" (U+000A) or "CR" (U+000D)');
 
 		test((){
-			var element = document.getElementById('value_with_CRLF');
+			var element = document.getElementById('value_with_CRLF') as InputElement;
 			assert_equals(element.value, 'aa');
 		}, 'The value sanitization algorithm is as follows: Strip line breaks from the value');
 
 		test((){
-			var element = document.getElementById('value_with_leading_trailing_white_space');
+			var element = document.getElementById('value_with_leading_trailing_white_space') as InputElement;
 			assert_equals(element.value, 'aa');
 
-			element = document.getElementById('value_with_leading_trailing_inner_white_space');
+			element = document.getElementById('value_with_leading_trailing_inner_white_space') as InputElement;
 			assert_equals(element.value, 'a a');
 		}, 'The value sanitization algorithm is as follows: Strip leading and trailing whitespace from the value.');
 

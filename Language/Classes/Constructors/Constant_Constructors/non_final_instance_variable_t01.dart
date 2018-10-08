@@ -10,7 +10,6 @@
  * constant constructor also declares a non-final instance variable.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {
@@ -19,5 +18,7 @@ class A {
 }
 
 main() {
-  var a = const A();
+  try {
+    var a = const A();
+  } catch (x) {}
 }

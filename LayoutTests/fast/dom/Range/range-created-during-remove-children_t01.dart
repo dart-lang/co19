@@ -7,7 +7,6 @@
  * @description Range objects should be updated after set innerHTML.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -33,7 +32,7 @@ main() {
   document.body.addEventListener('blur', eventHandler, true);
   document.body.addEventListener('DOMNodeRemovedFromDocument', eventHandler, true);
 
-  $('sample').firstChild.focus();
+  ($('sample').firstChild as Element).focus();
   $('sample').innerHtml = '';
 
   shouldBe(ranges["blur"].startOffset, 0);

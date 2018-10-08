@@ -10,7 +10,7 @@
  * yet, but it has been scheduled, and it is too late to add more events.
  *
  * @description Checks that the property returns correct value. Checks that an
- * error is thrown if more events added when the stream is closed.
+ * error is thrown if events are added after the stream is closed.
  * @author kaigorodov
  */
 
@@ -32,8 +32,5 @@ main() {
   controller.close();
   Expect.isTrue(controller.isClosed);
 
-  Expect.throws(() {
-    controller.add(0);
-    print("add() works after close()");
-  });
+  Expect.throws(() =>  controller.add(0), null, "add() works after close()");
 }

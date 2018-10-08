@@ -4,42 +4,35 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  Future doWhile(dynamic f())
- * Perform an async operation repeatedly until it returns false.
- *
- * Runs f repeatedly, starting the next iteration only when the Future returned
- * by f completes to true. Returns a Future that completes once f returns false.
+ * @assertion  Future doWhile(FutureOr<bool> f())
+ *    Performs an async operation repeatedly until it returns false.
+ *    The function f is called repeatedly while it returns either the bool
+ * value true or a Future which completes with the value true.
+ *    If a call to f returns false or a Future that completes to false,
+ * iteration ends and the future returned by doWhile is completed.
  *
  * @description Checks that doWhile runs f repeatedly, if f returns true, and
  * returns a Future that completes once f returns false.
  * @author ngl@unipro.ru
  */
-import "../../../Utils/async_utils.dart";
+import "dart:async";
 import "../../../Utils/expect.dart";
 
-import "dart:async";
-
-const N = 3;
+const int N = 3;
 
 main() {
   int num = 0;
 
-  bool ff() {
-    if (num < N) {
-      num++;
-      return true;
-    } else {
-      return false;
-    }
+  FutureOr<bool> f() {
+    num++;
+    return num < N;
   }
 
-  Future f = Future.doWhile(ff);
-
   asyncStart();
-  f.then((fValue) {
-    Expect.equals(N, num);
-    asyncEnd();
-  });
-
+  Future.doWhile(f).then(
+    (_) {
+      Expect.equals(N, num);
+      asyncEnd();
+    }
+  );
 }
-

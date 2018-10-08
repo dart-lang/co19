@@ -45,27 +45,27 @@ main() {
   Expect.approxEquals(100, 100, -0.0, "");
   Expect.approxEquals(100, 100, -0.0, "not empty");
 
-  Expect.approxEquals(double.INFINITY, 0, double.INFINITY);
-  Expect.approxEquals(double.INFINITY, 0, double.INFINITY, "");
-  Expect.approxEquals(double.INFINITY, 0, double.INFINITY, "not empty");
+  Expect.approxEquals(double.infinity, 0, double.infinity);
+  Expect.approxEquals(double.infinity, 0, double.infinity, "");
+  Expect.approxEquals(double.infinity, 0, double.infinity, "not empty");
 
-  Expect.approxEquals(double.NEGATIVE_INFINITY, 0, double.INFINITY);
-  Expect.approxEquals(double.NEGATIVE_INFINITY, 0, double.INFINITY, "");
-  Expect.approxEquals(double.NEGATIVE_INFINITY, 0, double.INFINITY, "not empty");
+  Expect.approxEquals(double.negativeInfinity, 0, double.infinity);
+  Expect.approxEquals(double.negativeInfinity, 0, double.infinity, "");
+  Expect.approxEquals(double.negativeInfinity, 0, double.infinity, "not empty");
 
-  Expect.approxEquals(double.INFINITY, MAX_DOUBLE, double.INFINITY);
-  Expect.approxEquals(double.INFINITY, MAX_DOUBLE, double.INFINITY, "");
-  Expect.approxEquals(double.INFINITY, MAX_DOUBLE, double.INFINITY, "not empty");
+  Expect.approxEquals(double.infinity, MAX_DOUBLE, double.infinity);
+  Expect.approxEquals(double.infinity, MAX_DOUBLE, double.infinity, "");
+  Expect.approxEquals(double.infinity, MAX_DOUBLE, double.infinity, "not empty");
 
-  Expect.approxEquals(double.NEGATIVE_INFINITY, MAX_DOUBLE, double.INFINITY);
-  Expect.approxEquals(double.NEGATIVE_INFINITY, MAX_DOUBLE, double.INFINITY, "");
-  Expect.approxEquals(double.NEGATIVE_INFINITY, MAX_DOUBLE, double.INFINITY, "not empty");
+  Expect.approxEquals(double.negativeInfinity, MAX_DOUBLE, double.infinity);
+  Expect.approxEquals(double.negativeInfinity, MAX_DOUBLE, double.infinity, "");
+  Expect.approxEquals(double.negativeInfinity, MAX_DOUBLE, double.infinity, "not empty");
 
-  Expect.approxEquals(double.INFINITY, NEG_MAX_DOUBLE, double.INFINITY);
-  Expect.approxEquals(double.INFINITY, NEG_MAX_DOUBLE, double.INFINITY, "");
-  Expect.approxEquals(double.INFINITY, NEG_MAX_DOUBLE, double.INFINITY, "not empty");
+  Expect.approxEquals(double.infinity, NEG_MAX_DOUBLE, double.infinity);
+  Expect.approxEquals(double.infinity, NEG_MAX_DOUBLE, double.infinity, "");
+  Expect.approxEquals(double.infinity, NEG_MAX_DOUBLE, double.infinity, "not empty");
 
-  Expect.approxEquals(double.NEGATIVE_INFINITY, NEG_MAX_DOUBLE, double.INFINITY);
-  Expect.approxEquals(double.NEGATIVE_INFINITY, NEG_MAX_DOUBLE, double.INFINITY, "");
-  Expect.approxEquals(double.NEGATIVE_INFINITY, NEG_MAX_DOUBLE, double.INFINITY, "not empty");
+  Expect.approxEquals(double.negativeInfinity, NEG_MAX_DOUBLE, double.infinity);
+  Expect.approxEquals(double.negativeInfinity, NEG_MAX_DOUBLE, double.infinity, "");
+  Expect.approxEquals(double.negativeInfinity, NEG_MAX_DOUBLE, double.infinity, "not empty");
 }

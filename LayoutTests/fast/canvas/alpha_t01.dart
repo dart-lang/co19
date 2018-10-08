@@ -17,10 +17,10 @@ main() {
       <canvas id="canvas4" width="8" height="8"></canvas>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var canvas1 = document.getElementById("canvas1");
-  var canvas2 = document.getElementById("canvas2");
-  var canvas3 = document.getElementById("canvas3");
-  var canvas4 = document.getElementById("canvas4");
+  dynamic canvas1 = document.getElementById("canvas1");
+  dynamic canvas2 = document.getElementById("canvas2");
+  dynamic canvas3 = document.getElementById("canvas3");
+  dynamic canvas4 = document.getElementById("canvas4");
 
   var ctx1 = canvas1.getContext("2d");
   var ctx2 = canvas2.getContext("2d", {} );

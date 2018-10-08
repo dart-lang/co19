@@ -6,15 +6,10 @@
 /**
  * @assertion
  * HashMap.fromIterable(Iterable iterable, {K key(element), V value(element)})
- * Creates a HashMap where the keys and values are computed from the iterable.
- * For each element of the iterable this constructor computes a key/value pair,
- * by applying key and value respectively.
  * The keys of the key/value pairs do not need to be unique. The last occurrence
  * of a key will simply overwrite any previous value.
- * If no values are specified for key and value the default is the identity
- * function.
  * @description Checks that if key/value pairs are not unique then the last
- * occurence overwrites any previous value
+ * occurrence overwrites any previous value
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";

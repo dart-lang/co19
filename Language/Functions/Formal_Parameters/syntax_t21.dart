@@ -36,5 +36,7 @@
 void f(var a, [var b], [var c]) {}
 
 main () {
-  f(1, 2, 3);
+  try {
+    f(1, 2, 3);
+  } catch (x) {}
 }

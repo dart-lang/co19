@@ -10,7 +10,6 @@
  * a function and a static getter of the same name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {
@@ -19,5 +18,7 @@ class C {
 }
 
 main() {
-  C c = new C();
+  try {
+    new C();
+  } catch (e) {}
 }

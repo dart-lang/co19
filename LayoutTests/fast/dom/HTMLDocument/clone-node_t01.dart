@@ -7,13 +7,12 @@
  * @description Tests cloneNode for HTMLDocument.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
   shouldBeTrue(document.clone(false) is HtmlDocument);
-  shouldBe(document.clone(true).title, document.title);
+  shouldBe((document.clone(true)as HtmlDocument).title, document.title);
   var doc = document.implementation.createHtmlDocument('title');
   shouldBeTrue(doc.clone(false) is HtmlDocument);
-  shouldBe(doc.clone(true).title, doc.title);
+  shouldBe((doc.clone(true) as HtmlDocument).title, doc.title);
 }

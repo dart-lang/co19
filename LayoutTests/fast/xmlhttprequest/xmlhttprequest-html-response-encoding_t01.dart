@@ -10,7 +10,6 @@
  * HttpRequest doesn't use a correct content type for file:// URLs.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../testcommon.dart";
 
 const String url1251 = '$testSuiteRoot/fast/xmlhttprequest/resources/1251.html';

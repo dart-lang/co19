@@ -6,18 +6,17 @@
 /**
  * @assertion It is a static type warning if the type of e can not be assigned
  * to bool.
- * @description Checks that it is a static type warning if the type of e may not
+ * @description Checks that it is a compile error if the type of e may not
  * be assigned to bool.
- * @static-warning
+ * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
-void f() {}
+int f() => 1;
 
 main() {
   do {
     break;
-  } while (f()); /// static type warning
+  } while (f());
 }
 

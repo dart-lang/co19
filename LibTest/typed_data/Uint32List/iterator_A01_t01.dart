@@ -4,16 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final Iterator<E> iterator
- * Returns an [Iterator] that iterates over this [Iterable] object.
- * @description Checks that the returned [Iterator] iterates over
- * all elements of this [Iterable] object.
+ * @assertion Iterator<E> iterator
+ * Returns a new [Iterator] that allows iterating the elements of this
+ * [Iterable].
+ * @description Checks that the returned [Iterator] iterates over all elements
+ * of this [Iterable].
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-void checkIterator(list) {
+void checkIterator(List<int> list) {
   var l = new Uint32List.fromList(list);
   var it = l.iterator;
   var i = 0;
@@ -27,7 +29,7 @@ main() {
   checkIterator([]);
   checkIterator([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
-  var a = new List(255);
+  var a = new List<int>(255);
   for (var i = 0; i < a.length; i++) {
     a[i] = i;
   }

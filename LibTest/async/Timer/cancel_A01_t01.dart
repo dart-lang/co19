@@ -11,15 +11,13 @@
  */
 
 import "dart:async";
-
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  int delay=20;
-  int count=0;
+  int delay = 20;
+  int count = 0;
 
-  Timer timer=new Timer.periodic(durationMs(delay), (Timer t) {
+  Timer timer = new Timer.periodic(durationMs(delay), (Timer t) {
     count++;
     }
   );
@@ -33,4 +31,3 @@ main() {
   });
   
 }
-

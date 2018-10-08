@@ -9,12 +9,8 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
 import "resources/tex-image-and-sub-image-2d-with-canvas.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -26,5 +22,5 @@ main() {
     return true;
   }
 
-  generateTest(wgl.RGBA, wgl.UNSIGNED_SHORT_4_4_4_4, testPrologue)();
+  generateTest(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_SHORT_4_4_4_4, testPrologue)();
 }

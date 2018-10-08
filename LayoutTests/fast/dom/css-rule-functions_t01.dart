@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var style = new DocumentFragment.html('''
@@ -35,7 +34,7 @@ main() {
     <div class="div5">This is div3. This text should not be purple because the stylesheet with that rule has been disabled.</div>
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  var s1 = document.getElementById('style1').sheet;
+  CssStyleSheet s1 = (document.getElementById('style1') as StyleElement).sheet;
 
   // First append a style rule
   s1.insertRule('div.div2 {color: blue}', s1.cssRules.length);
@@ -43,7 +42,7 @@ main() {
   // Next, remove the first style rule
   s1.deleteRule(0);
 
-  s1 = document.getElementById('style2').sheet;
+  s1 = (document.getElementById('style2') as StyleElement).sheet;
 
   // Append a rule using the IE method
   s1.addRule('div.div4', 'color: green');
@@ -51,7 +50,7 @@ main() {
   // Remove a rule using the IE method;
   s1.removeRule(0);
 
-  var s3 = document.getElementById('style3').sheet;
+  var s3 = (document.getElementById('style3') as StyleElement).sheet;
   s3.disabled = true;
 
   color (klass) => document.querySelector('.$klass').getComputedStyle().color;

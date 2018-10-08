@@ -16,5 +16,8 @@
 class static {}
 
 main() {
-  null is static;
+  try {
+    null is static;
+  } catch (anything) {
+  }
 }

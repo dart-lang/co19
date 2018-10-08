@@ -30,6 +30,8 @@
  */
 
 main() {
-  """
-  incorrect string;
+  try {
+    """
+    incorrect string;
+  } catch (e) {}
 }

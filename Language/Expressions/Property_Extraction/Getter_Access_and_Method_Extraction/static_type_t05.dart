@@ -21,20 +21,16 @@
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
-import '../../../../Utils/dynamic_check.dart';
 
 class A {
 }
 
-@proxy class C {
+class C {
 }
 
 main() {
-  if (isCheckedMode()) {
-    try {
-      var o = new C();
-      A i = o.m; // Here we expect that static type of new o.m is dynamic.
-                 // Dynamic can be assigned to A without static warning.
-    } on NoSuchMethodError {}
-  }
+  try {
+    dynamic o = new C();
+    A i = o.m;
+  } on NoSuchMethodError {}
 }

@@ -20,9 +20,9 @@ f(int x) => x++;
 main() {
   try {
     C c = throw 1;
-  } on int {}
+  } catch (e) {}
 
   try {
     f(throw new C());
-  } on C {}
+  } catch (e) {}
 }

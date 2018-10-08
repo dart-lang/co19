@@ -8,7 +8,6 @@
  * @needsreview
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -19,12 +18,12 @@ main() {
         'text/xml');
 
   shouldBeFalse(doc is HtmlDocument);
-  var template3 = doc.querySelector('template');
+  TemplateElement template3 = doc.querySelector('template');
   var templateContentOwnerDocument = template3.content.ownerDocument;
   shouldNotBe(doc, templateContentOwnerDocument);
   shouldBeFalse(templateContentOwnerDocument is HtmlDocument);
 
-  var template4 = doc.createElement('template');
+  TemplateElement template4 = doc.createElement('template');
   templateContentOwnerDocument = template4.content.ownerDocument;
   shouldNotBe(doc, templateContentOwnerDocument);
   shouldBeFalse(templateContentOwnerDocument is HtmlDocument);

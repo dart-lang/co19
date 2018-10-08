@@ -11,7 +11,6 @@
  * required one.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
@@ -19,5 +18,7 @@ class C {
 }
 
 main() {
-  var x = new C()[1];
+  try {
+    var x = new C()[1];
+  } catch (e) {}
 }

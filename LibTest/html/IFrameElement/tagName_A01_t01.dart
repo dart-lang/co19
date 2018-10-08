@@ -10,13 +10,11 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../testcommon.dart";
 
 main() {
-  IFrameElement x = new Element.html('<iframe></iframe>');  
+  IFrameElement x = new Element.html('<iframe></iframe>');
   Expect.equals("IFRAME", x.tagName);
 
-  x = new IFrameElement();  
+  x = new IFrameElement();
   Expect.equals("IFRAME", x.tagName);
 }
-

@@ -5,8 +5,9 @@
  */
 /**
  * @assertion void forEach(void f(E element))
- * Applies the function f to each element of this collection.
- * @description Checks forEach() on empty list.
+ * Applies the function [f] to each element of this collection in iteration
+ * order.
+ * @description Checks [forEach()] on empty list.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";

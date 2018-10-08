@@ -7,13 +7,10 @@
  * @description Test that color values are properly clamped (R, G, B should be
  * 0-255), alpha 0.0-1.0
  */
-import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var ctx = createContext2d("canvas");
+  dynamic ctx = createContext2d("canvas");
 
   ctx.shadowColor = 'rgba(0,0,0,0)';
   shouldBe(ctx.shadowColor, 'rgba(0, 0, 0, 0)');

@@ -11,9 +11,7 @@
  * affect the segments returned.
  * @description Checks that empty list is returned if path is empty
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

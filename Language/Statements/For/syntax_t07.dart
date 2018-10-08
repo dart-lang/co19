@@ -17,20 +17,17 @@
  *   localVariableDeclaration |
  *   expression? ';'
  * ;
- * @description Checks that it is a runtime error when the iteration variable
+ * @description Checks that it is a compile error when the iteration variable
  * identifier in a 'identifier in expression' loop variety is not declared
  * prior to the for statement.
- * @static-warning
+ * @compile-error
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
  */
-import '../../../Utils/expect.dart';
 
 main() {
-  try {
-    for (l in new List(5)) /// static type warning
-      break;
-    Expect.fail("NoSuchMethodError expected when calling undefined getter.");
-  } on NoSuchMethodError catch (ex) {}
+  for (l in new List(5)) {
+    break;
+  }
 }

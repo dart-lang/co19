@@ -11,7 +11,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var ev = new Event.eventType('MouseEvent', 'mousedown');
@@ -22,9 +21,8 @@ main() {
 
   ev = new Event.eventType('KeyboardEvent', 'keyup',
       canBubble: false, cancelable: false);
-  
+
   Expect.isTrue(ev is KeyboardEvent);
   Expect.isFalse(ev.bubbles);
   Expect.isFalse(ev.cancelable);
-
 }

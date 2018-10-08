@@ -9,11 +9,9 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -29,14 +27,14 @@ main() {
   draw() {
     ctx.fillStyle = "rgb(200, 0, 0)";
     ctx.fillRect(0, 0, 256, 256);
-    gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, wgl.RGBA, wgl.UNSIGNED_BYTE, canvas2d);
+    gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, canvas2d);
 
     wtu.drawQuad(gl);
     wtu.checkCanvasRect(gl, 0, 0, 1, 1, [200, 0, 0, 255], "Should have rendered red.", 1);
 
     ctx.fillStyle = "rgb(0, 0, 200)";
     ctx.fillRect(0, 0, 256, 256);
-    gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, wgl.RGBA, wgl.UNSIGNED_BYTE, canvas2d);
+    gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, canvas2d);
     ctx.fillStyle = "rgb(200, 0, 0)";
     ctx.fillRect(0, 0, 256, 256);
 
@@ -57,11 +55,10 @@ main() {
   ctx = canvas2d.getContext("2d");
 
   var program = wtu.setupTexturedQuad(gl);
-  var bufferObjects = wtu.setupUnitQuad(gl);
 
   var texture = gl.createTexture();
-  gl.bindTexture(wgl.TEXTURE_2D, texture);
-  gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MIN_FILTER, wgl.LINEAR);
+  gl.bindTexture(wgl.WebGL.TEXTURE_2D, texture);
+  gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MIN_FILTER, wgl.WebGL.LINEAR);
 
   gl.uniform1i(gl.getUniformLocation(program, "tex"), 0);
   gl.viewport(0, 0, canvas.width, canvas.height);

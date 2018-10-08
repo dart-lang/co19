@@ -9,14 +9,9 @@
  * @description Checks that it is an error if [n] is negative.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
   var runes = new Runes('');
-
-  Expect.throws(() {
-    runes.skip(-1);
-  });
+  Expect.throws(() {runes.skip(-1);});
 }
-

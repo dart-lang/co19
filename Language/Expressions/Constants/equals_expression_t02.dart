@@ -27,5 +27,7 @@ final a = const A();
 const m = (a == 1);
 
 main() {
-  print(m);
+  try {
+    print(m);
+  } catch (x) {}
 }

@@ -21,7 +21,6 @@
  * @author a.semenov@unipro.ru
  */
 import '../../../Utils/expect.dart';
-import '../../../Utils/async_utils.dart';
 
 test() async {
   Expect.equals(1, await 1);

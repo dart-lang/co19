@@ -9,15 +9,14 @@
  *  - m overrides a concrete member, or
  *  - C has a noSuchMethod() method distinct from the one declared in class
  *    Object.
- * @description Checks that it is a static warning if an abstract method is
+ * @description Checks that it is a compile error if an abstract method is
  * declared in a concrete class.
- * @static-warning
+ * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class A {
-  foo([x]); /// static type warning
+  foo([x]);
 }
 
 class B extends A {

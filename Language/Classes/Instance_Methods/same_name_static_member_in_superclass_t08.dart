@@ -12,7 +12,6 @@
  * superclass.
  * @static-clean
  * @author kaigorodov
- * @reviewer rodionov
  */
 import "same_name_static_member_in_superclass_lib.dart";
 

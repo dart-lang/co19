@@ -17,22 +17,17 @@
  *   subclass of Function that fails to implement call will also provoke a
  *   warning, as this exemption is limited to type Function, and does not apply
  *   to its subtypes.
- * @description Checks that it is a static type warning if T does not have an
+ * @description Checks that it is a compile error if T does not have an
  * instance member named m.
- * @static-warning
+ * @compile-error
  * @author msyabro
  * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
 
 class C {}
 
 main() {
   C o = new C();
-  Expect.throws(() {
-    o.nonExistingMethod();
-  }
-  , (e) => e is NoSuchMethodError
-  );
+  o.nonExistingMethod();
 }
 

@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -22,9 +21,9 @@ main() {
       </form>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var select = document.getElementById('select');
+  SelectElement select = document.getElementById('select') as SelectElement;
   debug('before reset');
-  var index = select.selectedIndex;
+  int index = select.selectedIndex;
   shouldBe(index, 0);
   debug('after reset');
   index = select.selectedIndex;

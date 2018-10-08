@@ -15,7 +15,7 @@ import "set.lib.dart";
 import "../../../Utils/expect.dart";
 
 test(Set create([Set content])) {
-  Set<int> s = create();
+  Set s = create();
 
   s.removeAll([].toSet());
   Expect.isTrue(s.length == 0);

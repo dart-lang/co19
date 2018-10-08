@@ -17,21 +17,17 @@
  * NoSuchMethodError is thrown. If q has less than n positional parameters or
  * more than n required parameters, or if q lacks any of the keyword parameters
  * {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
- * @description  Checks that AbstractClassInstantiationError is thrown if q is
- * a named non-factory constructor of an abstract class.
- * @static-warning
+ * @description  Checks that it is a compile error if q is a named non-factory
+ * constructor of an abstract class.
+ * @compile-error
  * @author kaigorodov
  * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
 
 abstract class C {
   C.namedConstructor() {}
 }
 
 main() {
-  try {
-    new C.namedConstructor();
-    Expect.fail("Should throw AbstractClassInstantiationError");
-  } on AbstractClassInstantiationError catch (e) {}
+  new C.namedConstructor();
 }

@@ -16,13 +16,12 @@ import "../../../Utils/expect.dart";
 main() {
   var completer = new Completer();
 
-  completer.future
-    .then((_) {
-      Expect.fail('should not complete with a value');
-    })
-    .catchError((e) {
-      Expect.isTrue(e is NullThrownError);
-    });
+  completer.future.then(
+      (_) => Expect.fail('should not complete with a value'),
+      onError: (e) {
+        Expect.isTrue(e is NullThrownError);
+      }
+    );
 
   completer.completeError(null);
 }

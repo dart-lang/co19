@@ -12,7 +12,6 @@
  * all lowercase letters.
  * @description Check scheme normalization
  * @author ilya
- * @reviewer
  */
 
 import "../../../Utils/expect.dart";

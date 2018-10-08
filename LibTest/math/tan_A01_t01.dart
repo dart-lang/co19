@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion double tan(num x)
- * Converts [x] to a double and returns the tangent of the value.
+ * @assertion double tan(num radians)
+ * Converts [radians] to a double and returns the tangent of the value.
  *
  * @description Checks set of values.
  *
@@ -15,8 +15,9 @@
  * @3rdparty sputnik-v1: S15.8.2.18_A7.js
  * @needsreview Returned value precision is not specified.
  */
-import "../../Utils/expect.dart";
+
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   int vnum = 64;
@@ -153,8 +154,7 @@ main() {
   y[62] = 20.03689788997819200000;
   y[63] = 16331239353195370.00000000000000000000;
   
-  
-  var val;
+
   for (int i = 0; i < vnum; i++) {
     Expect.approxEquals(y[i], Math.tan(x[i]), (y[i]/1e7).abs());
   }

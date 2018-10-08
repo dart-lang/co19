@@ -9,9 +9,7 @@
  * The result is a double.
  * @description Checks [:ceilToDouble():] on a bunch of adjacent values.
  * @author pagolubev
- * @reviewer msyabro
  */
-import "dart:math" as Math;
 import "../../../Utils/expect.dart";
 
 check(double expected, double argument) {

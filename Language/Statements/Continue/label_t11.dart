@@ -19,7 +19,9 @@
  */
 
 main() {
-  L: {
-    continue L;
-  }
+  try {
+    L: {
+      continue L;
+    }
+  } catch (x) {}
 }

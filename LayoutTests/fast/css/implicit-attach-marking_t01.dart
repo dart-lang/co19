@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -18,7 +16,7 @@ main() {
 
   asyncStart();
   window.requestAnimationFrame((_) {
-    var div = document.getElementById('root').append(document.createElement("div"));
+    dynamic div = document.getElementById('root').append(document.createElement("div"));
     div.text = "Test that implicit attach marks all ancestors on insert.";
     shouldBeTrue(div.offsetTop > 0);
     asyncEnd();

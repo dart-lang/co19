@@ -30,5 +30,7 @@
 f(var y) => int x;
 
 main() {
-  f(null);
+  try {
+    f(null);
+  } catch (x) {}
 }

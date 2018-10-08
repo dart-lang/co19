@@ -13,7 +13,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var body = document.body;
@@ -30,7 +29,7 @@ main() {
     Expect.identical(id1, e.matchingTarget);
     asyncEnd();
   });
-  
+
   body.onClick.matches('.class').listen((e) {
     Expect.identical(class1, e.matchingTarget);
     asyncEnd();

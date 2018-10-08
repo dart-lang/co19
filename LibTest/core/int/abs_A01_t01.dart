@@ -7,8 +7,6 @@
  * @assertion Returns the absolute value of int.
  * @description Checks that the method returns correct value.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -19,7 +17,7 @@ main() {
   Expect.equals(15, (-15).abs());
   Expect.equals(4294967295, (-4294967295).abs());
   Expect.equals(9223372036854775807, (-9223372036854775807).abs());
-  Expect.equals(9223372036854775808, 9223372036854775808.abs());
-  Expect.equals(18446744073709551617, (-18446744073709551617).abs());
-  Expect.equals(0x8000000000000000, (-0x8000000000000000).abs());
+  Expect.equals(922337203685477580, 922337203685477580.abs());
+  Expect.equals(1844674407370955161, (-1844674407370955161).abs());
+  Expect.equals(0x8000000000000000, (-0x800000000000000).abs());
 }

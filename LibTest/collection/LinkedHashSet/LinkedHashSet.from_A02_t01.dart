@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Throws Error if [other] is null
- * @description Checks that Error is thrown if the argument is null.
+ * @assertion factory LinkedHashSet.from(Iterable<E> iterable)
+ * @description Checks that [Error] is thrown if the argument is [null].
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";

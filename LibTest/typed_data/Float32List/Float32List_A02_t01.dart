@@ -5,16 +5,19 @@
  */
 /**
  * @assertion Float32List(int length)
- * It is an error if [length] is not a non-negative integer.
- * @description Checks that it is an error if [length] is not a non-negative integer.
+ * Creates an [Float32List] of the specified length (in elements), all of
+ * whose elements are initially zero.
+ * @description Checks that it is an error if [length] is not a non-negative
+ * integer.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(length) {
-  Expect.throws( () {
-    Float32List l = new Float32List(length);
+  Expect.throws(() {
+    new Float32List(length);
   });
 }
 

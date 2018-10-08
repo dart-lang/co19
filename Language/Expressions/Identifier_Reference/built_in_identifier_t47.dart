@@ -15,5 +15,8 @@
 class library {}
 
 main() {
-  null is library;
+  try {
+    null is library;
+  } catch (anything) {
+  }
 }

@@ -8,8 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "pwd.dart";
 
 main() {
   var style = new Element.html('''
@@ -32,7 +30,7 @@ main() {
       <div style="height:5px; width:5px; background-color:green; visibility: hidden"></div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var expected = getComputedStyle(document.body.queryAll("div")[2], null).backgroundColor;
-  shouldBe(getComputedStyle(document.body.queryAll("div")[0], null).backgroundColor, expected);
-  shouldBe(getComputedStyle(document.body.queryAll("div")[1], null).backgroundColor, expected);
+  var expected = getComputedStyle(document.body.querySelectorAll("div")[2], null).backgroundColor;
+  shouldBe(getComputedStyle(document.body.querySelectorAll("div")[0], null).backgroundColor, expected);
+  shouldBe(getComputedStyle(document.body.querySelectorAll("div")[1], null).backgroundColor, expected);
 }

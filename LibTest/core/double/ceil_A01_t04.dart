@@ -9,7 +9,6 @@
  * @description Checks that if [:ceil():] is called on a value already equal
  * to a mathematical integer, then the result is the same value.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "dart:math" as Math;
 import "../../../Utils/expect.dart";

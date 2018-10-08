@@ -36,5 +36,7 @@ func(final x()) {
 }
 
 main() {
-  func(() {});
+  try {
+    func(() {});
+  } catch (e) {}
 }

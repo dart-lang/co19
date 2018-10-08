@@ -12,7 +12,6 @@
  * ...
  * • Otherwise, e is equivalent to the property extraction this.id.
  * @description Checks that latter case is evaluated correctly.
- * @static-warning
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -20,14 +19,11 @@ import '../../../Utils/expect.dart';
 
 class A {
   A() : y = 10;
-  func() {
-    try {
-      x; /// static type warning
-      Expect.fail("NoSuchMethodError expected");
-    } on NoSuchMethodError catch (e) {}
 
+  func() {
     Expect.equals(10, y);
   }
+
   var y;
 }
 

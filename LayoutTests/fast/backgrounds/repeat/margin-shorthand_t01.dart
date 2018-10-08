@@ -12,7 +12,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -28,7 +27,7 @@ main() {
   iconMarginValue()
   {
     var iconDiv = document.getElementById('icon');
-    var rules = window.getMatchedCssRules(iconDiv,'');
+    dynamic rules = window.getMatchedCssRules(iconDiv,'');
     return rules[1] != null ? rules[1].style.getPropertyValue('margin') : 'null';
   }
 

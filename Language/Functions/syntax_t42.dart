@@ -20,11 +20,10 @@
  * ;
  *
  * @description Checks different valid variants of asynchronous static methods
- *
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
-import '../../Utils/async_utils.dart';
+import '../../Utils/expect.dart';
 
 // f() async => expression;
 class A {
@@ -32,7 +31,7 @@ class A {
 
   static Future a2() async => 0;
 
-  static a3() async => 1;
+  static Future<int> a3() async => 1;
 }
 
 // f() { statements }
@@ -45,7 +44,7 @@ class B {
     return 2;
   }
 
-  static b3() async {
+  static Future<int> b3() async {
     return 3;
   }
 }
@@ -55,7 +54,7 @@ class C {
 
   static Future c2(String y) async => y.length;
 
-  static c3(z) async => z;
+  static Future c3(z) async => z;
 }
 
 // f(arg) { statements }
@@ -68,7 +67,7 @@ class D {
     return y.length;
   }
 
-  static d3(z) async {
+  static Future d3(z) async {
     return z;
   }
 }

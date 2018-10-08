@@ -3,9 +3,9 @@ library common_setrangetext;
 import "dart:html";
 import "../../../testcommon.dart";
 
-runTestsShouldPass(tagName, [attributes=const {}]) {
-  InputElement element = document.createElement(tagName);
-  for (var key in attributes.keys)
+void runTestsShouldPass(String tagName, [Map<String,String> attributes=const {}]) {
+  InputElement element = document.createElement(tagName) as InputElement;
+  for (String key in attributes.keys)
     element.setAttribute(key, attributes[key]);
   document.body.append(element);
   debug("<hr>");
@@ -131,9 +131,9 @@ runTestsShouldPass(tagName, [attributes=const {}]) {
   shouldThrow(() => element.setRangeText('A', start:7, end:3));
 }
 
-runTestsShouldFail(tagName, [attributes=const {}]) {
-  var element = document.createElement(tagName);
-  for (var key in attributes.keys)
+void runTestsShouldFail(String tagName, [Map<String, String> attributes=const {}]) {
+  InputElement element = document.createElement(tagName) as InputElement;
+  for (String key in attributes.keys)
     element.setAttribute(key, attributes[key]);
 
   document.body.append(element);
@@ -143,7 +143,7 @@ runTestsShouldFail(tagName, [attributes=const {}]) {
     shouldThrow(() => element.value = '0123456789XYZ');
   else
     element.value = '0123456789XYZ';
-  var initialValue = element.value;
+  String initialValue = element.value;
   shouldThrow(() => element.setRangeText('ABC', start:0, end:0));
   // setRangeText() shouldn't do anything on non-text form controls.
   shouldBeEqualToString(element.value, initialValue);

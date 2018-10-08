@@ -19,5 +19,7 @@
  */
 
 main () {
-  if (1 < 2) {} is bool;
+  try {
+    if (1 < 2) {} is bool;
+  } catch (e) {}
 }

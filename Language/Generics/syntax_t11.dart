@@ -23,5 +23,7 @@
 class C<T<T>>{}
 
 main() {
-  new C();
+  try {
+    new C();
+  } catch (x) {}
 }

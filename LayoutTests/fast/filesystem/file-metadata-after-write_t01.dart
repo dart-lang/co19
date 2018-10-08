@@ -9,8 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
-import "resources/fs-test-util.dart";
 
 main() {
   var fileEntryForCleanup;
@@ -67,7 +65,8 @@ main() {
       fileEntryForCleanup = entry;
       writeTextToFile(entry, testText1, (_) {
         debug('Write succeeded.');
-        entry.file().then((file) => onWrittenFile(entry, file), onError: onError);
+        (entry as FileEntry).file().then((file) =>
+            onWrittenFile(entry, file), onError: onError);
       });
     }, onError: onError);
   }, onError: onError);

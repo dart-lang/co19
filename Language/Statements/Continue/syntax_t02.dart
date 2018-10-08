@@ -19,7 +19,9 @@
 
 
 main() {
-  L: do {
-    continue L
-  } while (false);
+  try {
+    L: do {
+      continue L
+    } while (false);
+  } catch (x) {}
 }

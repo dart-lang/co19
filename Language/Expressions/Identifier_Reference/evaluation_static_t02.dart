@@ -15,7 +15,6 @@
  *   C.id.
  * @description Checks that reference to a static setter is evaluated to the
  * getter invocation.
- * @static-warning
  * @author ngl@unipro.ru
  */
 import '../../../Utils/expect.dart';
@@ -25,7 +24,6 @@ class C {
     Expect.equals(C.c, c);
     Expect.equals(C.s1, 2);
     Expect.equals(C.s1 = 4, 4);
-    Expect.throws(() {C.s2;}, (e) => e is NoSuchMethodError);
     Expect.equals(C.s2 = 5, 5);
   }
   static var c = 1;

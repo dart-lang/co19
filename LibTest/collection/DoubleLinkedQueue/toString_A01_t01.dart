@@ -6,8 +6,10 @@
 /**
  * @assertion String toString()
  * Returns a string representation of this object.
- * @description Checks that string representation of this queue contains representation
- * of its elements.
+ * Elements are represented by their own [toString] results.
+ * The default representation always contains the first three elements.
+ * @description Checks that string representation of this queue always contains
+ * representation of its first three elements.
  * @author kaigorodov
  */
 
@@ -16,14 +18,23 @@ import "../../../Utils/expect.dart";
 
 void check(List elements) {
   DoubleLinkedQueue q = new DoubleLinkedQueue.from(elements);
-  String rep=q.toString();
+  String rep = q.toString();
   
-  for (var element in elements) {
-    Expect.isTrue(rep.contains(element.toString()));
-  }
+  Expect.isTrue(rep.contains(elements[0].toString()));
+  Expect.isTrue(rep.contains(elements[1].toString()));
+  Expect.isTrue(rep.contains(elements[2].toString()));
 }
 
 main() {
-  check([1,"2","345", "rfq"]);
-  check([null, [null], [], [1,2,3], [[null]]]);
+  check([1, "2", "345", "rfq"]);
+  check([null, [null], [], [1, 2, 3], [[null]]]);
+  check([1, "2", "345", "rfq"]);
+  check([1, new Error(), 25, 4, null, "adc", null, 28, new Error(), 17, 8, 5]);
+
+  List aList = new List();
+  for(int i = 0; i < 99; i++) aList.add(i);
+  check(aList);
+
+  for(int i = 99; i < 500; i++) aList.add(i);
+  check(aList);
 }

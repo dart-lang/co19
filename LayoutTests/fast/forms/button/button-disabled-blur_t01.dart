@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -24,7 +23,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var button = document.body.querySelector('button');
+  ButtonElement button = document.body.querySelector('button') as ButtonElement;
   button.onClick.listen((_) {
     button.disabled = true;
   });

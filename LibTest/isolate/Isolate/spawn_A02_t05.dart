@@ -22,15 +22,14 @@
  *
  * @description Checks that if entryPoint is top level function without
  * arguments, then type error is arisen in checked mode or returned
- * Future instance completes with error otherwise
- * @static-warning
+ * Future instance completes with error otherwise. Compile error arises in
+ * strong mode
+ * @compile-error
  * @issue #26588
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/dynamic_check.dart";
 
 entryPointNoArgs() {
   print("entryPointNoArgs is called");
@@ -39,19 +38,17 @@ entryPointNoArgs() {
 main() {
   asyncStart();
   try {
-    Isolate.spawn(entryPointNoArgs, "hello").then( /// static type warning
+    Isolate.spawn(entryPointNoArgs, "hello").then( /// compile error
         (v) {
           Expect.fail("Isolate.spawn(entryPointNoArgs, 'hello') is expected to fail");
         },
         onError: (e) {
-          print("Future completed with error: $e");
-          Expect.isFalse(isCheckedMode());
+          Expect.fail("Future completed with error: $e");
           asyncEnd();
         }
     );
   } catch (e) {
     print("Caught an error: $e");
-    Expect.isTrue(isCheckedMode());
     asyncEnd();
   }
 }

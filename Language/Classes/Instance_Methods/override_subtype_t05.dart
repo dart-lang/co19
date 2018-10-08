@@ -11,33 +11,32 @@
  * parameters.
  * @static-clean
  * @author ilya
- * @reviewer
  */
 
 class Super {}
 class Sub extends Super {}
 
 class A {
-  int     f1() {}
+  num     f1() {}
   Super   f2() {}
   Super   f3() {}
   Sub     f4() {}
 
   int     f5(Super x) {}
   Super   f6(Super x) {}
-  Super   f7(Super x) {}
+  Super   f7(Sub x) {}
   Sub     f8(Super x) {}
 }
 
 class C extends A {
-  dynamic f1() {}
+  int f1() {}
   Super   f2() {}
   Sub     f3() {}
-  Super   f4() {}
+  Sub   f4() {}
 
   int     f5(dynamic x) {}
   Super   f6(Super x) {}
-  Super   f7(Sub x) {}
+  Super   f7(Super x) {}
   Sub     f8(Super x) {}
 }
 
@@ -45,4 +44,3 @@ main() {
   new A();
   new C();
 }
-

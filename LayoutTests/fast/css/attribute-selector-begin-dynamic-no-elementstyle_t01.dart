@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var style = new Element.html('''
@@ -30,7 +29,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   change() {
-    var element = document.getElementsByTagName('div')[0];
+    dynamic element = document.getElementsByTagName('div')[0];
     element.attributes['test'] = '0XYZ';
     asyncEnd();
   }

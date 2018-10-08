@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -19,7 +18,7 @@ main() {
 
   var es = new EventSource("$root/pwd.dart"); // use existing file to supress a warning
 
-  var a = (_) {};
+  EventListener a = (_) {};
   es.onOpen.listen(a);
 
   var flag = false;

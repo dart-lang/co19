@@ -5,30 +5,21 @@
  */
 /**
  * @assertion Future.microtask(dynamic computation())
- * Creates a future containing the result of calling computation
+ *    Creates a future containing the result of calling computation
  * asynchronously with scheduleMicrotask.
- * If executing computation throws, the returned future is completed with the
+ *    If executing computation throws, the returned future is completed with the
  * thrown error.
- * If calling computation returns a Future, completion of the created future
- * will wait until the returned future completes, and will then complete with
- * the same result.
- * If calling computation returns a non-future value, the returned future is
- * completed with that value.
  * @description Checks that if computation() throws, the created future
  * is completed with the same error.
  * @author ilya
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
   var value = [1, 2, 3];
-
   asyncStart();
-  Future future = new Future.microtask(() => throw value);
-
-  future
+  new Future.microtask(() => throw value)
     .catchError((e) {
       Expect.identical(value, e);
       asyncEnd();

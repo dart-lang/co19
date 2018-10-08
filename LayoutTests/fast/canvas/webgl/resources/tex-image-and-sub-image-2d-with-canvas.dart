@@ -12,27 +12,27 @@ generateTest(pixelFormat, pixelType, prologue) {
   {
     debug('Testing ' + (useTexSubImage2D ? 'texSubImage2D' : 'texImage2D') +
         ' with flipY=$flipY');
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
     // Disable any writes to the alpha channel
     gl.colorMask(true, true, true, false);
     var texture = gl.createTexture();
     // Bind the texture to texture unit 0
-    gl.bindTexture(wgl.TEXTURE_2D, texture);
+    gl.bindTexture(wgl.WebGL.TEXTURE_2D, texture);
     // Set up texture parameters
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MIN_FILTER, wgl.NEAREST);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MAG_FILTER, wgl.NEAREST);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MIN_FILTER, wgl.WebGL.NEAREST);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MAG_FILTER, wgl.WebGL.NEAREST);
     // Set up pixel store parameters
-    gl.pixelStorei(wgl.UNPACK_FLIP_Y_WEBGL, flipY ? 1 : 0);
-    gl.pixelStorei(wgl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 0);
-    gl.pixelStorei(wgl.UNPACK_COLORSPACE_CONVERSION_WEBGL, wgl.NONE);
+    gl.pixelStorei(wgl.WebGL.UNPACK_FLIP_Y_WEBGL, flipY ? 1 : 0);
+    gl.pixelStorei(wgl.WebGL.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 0);
+    gl.pixelStorei(wgl.WebGL.UNPACK_COLORSPACE_CONVERSION_WEBGL, wgl.WebGL.NONE);
     // Upload the image into the texture
     if (useTexSubImage2D) {
       // Initialize the texture to black first
-      gl.texImage2D(wgl.TEXTURE_2D, 0, pixelFormat, image.width, image.height, 0,
+      gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, pixelFormat, image.width, image.height, 0,
           pixelFormat, pixelType, null);
-      gl.texSubImage2D(wgl.TEXTURE_2D, 0, 0, 0, pixelFormat, pixelType, image);
+      gl.texSubImage2D(wgl.WebGL.TEXTURE_2D, 0, 0, 0, pixelFormat, pixelType, image);
     } else {
-      gl.texImage2D(wgl.TEXTURE_2D, 0, pixelFormat, pixelFormat, pixelType, image);
+      gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, pixelFormat, pixelFormat, pixelType, image);
     }
 
     // Point the uniform sampler to texture unit 0
@@ -58,7 +58,7 @@ generateTest(pixelFormat, pixelType, prologue) {
     runOneIteration(image, true, true, red, green);
     runOneIteration(image, true, false, green, red);
 
-    glErrorShouldBe(gl, wgl.NO_ERROR, "should be no errors");
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "should be no errors");
   }
 
   var init = ()
@@ -76,7 +76,7 @@ generateTest(pixelFormat, pixelType, prologue) {
     gl.clearColor(0,0,0,1);
     gl.clearDepth(1);
 
-    var testCanvas = document.createElement('canvas');
+    dynamic testCanvas = document.createElement('canvas');
     testCanvas.width = 1;
     testCanvas.height = 2;
     var ctx = testCanvas.getContext("2d");

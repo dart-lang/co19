@@ -14,7 +14,6 @@
  * not empty.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A (
@@ -22,5 +21,7 @@ class A (
 )
 
 main() {
-  A a = new A();
+  try {
+    new A();
+  } catch (e) {}
 }

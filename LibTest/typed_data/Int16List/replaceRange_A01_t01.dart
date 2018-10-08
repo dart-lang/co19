@@ -5,11 +5,13 @@
  */
 /**
  * @assertion void replaceRange(int start, int end, Iterable<E> iterable)
- * Removes the elements in the range start to end exclusive and
- * replaces them with the contents of the iterable.
- * Throws an UnsupportedError, if the length of [this] cannot be changed.
- * @description Checks that [UnsupportedError] is thrown
- * since [Int16List] is a fixed-size list.
+ * Removes the objects in the range start inclusive to end exclusive and inserts
+ * the contents of replacement in its place.
+ * ...
+ * This method does not work on fixed-length lists, even when replacement has
+ * the same number of elements as the replaced range
+ * @description Checks that [UnsupportedError] is thrown since [Int16List] is a
+ * fixed-length list.
  * @note undocumented
  * @author msyabro
  */
@@ -17,19 +19,19 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
+check(List<int> list) {
   var l = new Int16List.fromList(list);
   var length = l.length;
   try {
-    l.replaceRange(0,1,[0]);
+    l.replaceRange(0, 1, [0]);
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {};
+  } on UnsupportedError {};
   Expect.equals(length, l.length);
 
   try {
-    l.replaceRange(0,100,[0, 1, 2]);
+    l.replaceRange(0, 100, [0, 1, 2]);
     Expect.fail("This operation should not be supported");
-  } on UnsupportedError catch(ok) {};
+  } on UnsupportedError {};
   Expect.equals(length, l.length);
 
 }

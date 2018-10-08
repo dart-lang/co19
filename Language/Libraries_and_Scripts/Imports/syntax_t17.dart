@@ -30,5 +30,7 @@
 import '1_Imports'_lib.dart';
 
 main() {
-  someVar = 0;
+  try {
+    someVar = 0;
+  } catch (e) {}
 }

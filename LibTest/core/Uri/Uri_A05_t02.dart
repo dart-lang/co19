@@ -18,9 +18,7 @@
  * path a leading slash / is prepended if not already there.
  * @description Checks that path set via [pathSegments] is correctly encoded
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 var notEncoded = "0123456789"

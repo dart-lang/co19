@@ -24,7 +24,6 @@
  * @description Checks that when m is a getter, then invocation of the form
  * C.m() is equivalent to the expression C.m(...), which in turn is
  * equivalent to C.m.call(...).
- * @static-warning
  * @author rodionov
  * @reviewer kaigorodov
  */
@@ -43,16 +42,6 @@ class C {
 }
 
 main() {
-  try {
-    C.m();  /// static type warning
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (ok) {}
-
   Expect.equals("call(1, foo)", C.m(1));
   Expect.equals("call(2, bar)", C.m(2, "bar"));
-
-  try {
-    C.m(1, 2, 3);  /// static type warning
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (ok) {}
 }

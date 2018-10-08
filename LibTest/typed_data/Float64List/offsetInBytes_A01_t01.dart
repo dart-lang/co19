@@ -4,15 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion final int offsetInBytes
+ * @assertion int offsetInBytes
  * Returns the offset in bytes into the underlying byte buffer of this view.
  * @description Checks that the returned offset is correct.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(array, offset, length) {
+check(List<double> array, int offset, int length) {
   var tmp = new Float64List.fromList(array);
   var byteBuffer = tmp.buffer;
   var l = new Float64List.view(byteBuffer, offset, length);
@@ -20,11 +21,10 @@ check(array, offset, length) {
 }
 
 main() {
-  var elemSize = Float64List.BYTES_PER_ELEMENT;
+  var elemSize = Float64List.bytesPerElement;
   check([], 0, 0);
   check([1.0], 0, 1);
   check([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0], 0, 1);
   check([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0], 9 * elemSize, 1);
   check([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0], 5 * elemSize, 5);
-
 }

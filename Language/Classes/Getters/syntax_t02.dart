@@ -12,8 +12,6 @@
  * is missing.
  * @author iefremov
  * @compile-error
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {
@@ -21,6 +19,8 @@ class C {
 }
 
 main() {
-  new C();
+  try {
+    new C();
+  } catch (e) {}
 }
 

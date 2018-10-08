@@ -7,7 +7,6 @@
  * @description This tests the DOM 4 remove method on a Text node.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {

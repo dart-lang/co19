@@ -13,7 +13,6 @@
  *              from the basic plane)
  * @3rdparty sputnik-v1:S15.10.2.12_A1_T1.js-S15.10.2.12_A1_T5.js
  * @author rodionov
- * @reviewer msyabro
  * @note issue 1296
  */
 import "../../../../Utils/expect.dart";

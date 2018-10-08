@@ -5,12 +5,11 @@
  */
 /**
  * @assertion double operator unary-()
- * @description Checks that [:unary-():] does not alter the object it was invoked on.
+ * @description Checks that [:unary-():] does not alter the object it was
+ * invoked on.
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
-
 
 check(double d) {
   double oldVal = d;

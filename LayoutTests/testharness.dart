@@ -7,8 +7,8 @@ export "../Utils/expect.dart";
 export "resources/testharness.dart";
 
 const String testSuiteRoot="/root_dart/tests/co19/src/LayoutTests";
-const NaN=double.NAN;
-const Infinity=double.INFINITY;
+const NaN=double.nan;
+const Infinity=double.infinity;
 var HtmlNamespace = 'http://www.w3.org/1999/xhtml';
 var SvgNamespace = "http://www.w3.org/2000/svg";
 var XlinkNamespace = "http://www.w3.org/1999/xlink";
@@ -76,7 +76,7 @@ void test(void func(), String testName, [properties]) {
   }
 }
 
-void shouldThrow(func(), [check, reason]) {
+void shouldThrow(void func(), [bool check(exception), reason]) {
     test((){
        Expect.throws(func, check, reason);
     }, reason);
@@ -106,7 +106,7 @@ void checkTestFailures() {
 }
 
 void description(String descr) {
-    document.body.appendHtml(descr, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(descr, treeSanitizer:new NullTreeSanitizer());
 }
 
 var reason;
@@ -117,7 +117,7 @@ debug(msg) {
   var x = document.getElementById('console');
   if (x != null) {
     var span = document.createElement("span");
-    span.setInnerHtml(msg + '<br />', treeSanitizer: new NullTreeSanitizer());
+    span.setInnerHtml(msg + '<br />', treeSanitizer:new NullTreeSanitizer());
     x.append(span);
   }
   reason = msg;

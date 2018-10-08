@@ -18,6 +18,6 @@ main() {
   
   for(int i = 0; i < 100; i++) {
     list.addLast(i);
-    Expect.isTrue(list.length == i+1);
+    Expect.isTrue(list.length == i + 1);
   }
 }

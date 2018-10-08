@@ -10,6 +10,7 @@
  * elements left.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
@@ -25,7 +26,7 @@ main() {
 
   l = new Float32List(1000);
   it = l.iterator;
-  for(var i = 0; i < 1000; ++i) {
+  for (var i = 0; i < 1000; ++i) {
     Expect.isTrue(it.moveNext());
   }
   Expect.isFalse(it.moveNext());

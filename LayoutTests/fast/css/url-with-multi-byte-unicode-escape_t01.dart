@@ -10,7 +10,7 @@ import "dart:html";
 import "../../testcommon.dart";
 
 main() {
-  var style = new Element.html(r'''
+  dynamic style = new Element.html(r'''
       <style>#test { background-image: url("data:\100")} #test { background-color: green !important }</style>
       ''', treeSanitizer: new NullTreeSanitizer());
   document.head.append(style);

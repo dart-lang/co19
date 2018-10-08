@@ -10,11 +10,9 @@
  * and value in the returned map has been decoded. If there is no query the
  * empty map is returned. The returned map is unmodifiable and will throw
  * UnsupportedError on any calls that would mutate it.
- * @description Checks the case with empty map
+ * @description Checks the case with an empty map
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
@@ -22,4 +20,3 @@ main() {
   Expect.mapEquals({}, new Uri().queryParameters);
   Expect.mapEquals({}, Uri.parse('http://host/path').queryParameters);
 }
-

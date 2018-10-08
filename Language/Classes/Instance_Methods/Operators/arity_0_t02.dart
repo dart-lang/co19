@@ -10,8 +10,6 @@
  * operator ~ specifies one parameter.
  * @compile-error
  * @author vasya
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class C {
@@ -19,5 +17,7 @@ class C {
 }
 
 main() {
-  var x = ~(new C());
+  try {
+    var x = ~(new C());
+  } catch (e) {}
 }

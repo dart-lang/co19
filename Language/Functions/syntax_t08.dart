@@ -29,7 +29,9 @@
  */
 
 main() {
-  f();
+  try {
+    f();
+  } catch (x) {}
 }
 
 f() return 1;

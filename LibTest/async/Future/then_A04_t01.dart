@@ -5,40 +5,36 @@
  */
 /**
  * @assertion Future then(dynamic onValue(T value), {Function onError})
- * If onError is not given, and this future completes with an error, the error
+ *    If onError is not given, and this future completes with an error, the error
  * is forwarded directly to the returned future.
  * @description Checks that if onError is not given, the error is forwarded
  * directly to the returned future.
- * @author kaigorodov
+ * @author a.semenov@unipro.ru
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 
-main() {
-  Completer completer = new Completer();
-  Future f = completer.future;
-
-  Future f1 = f.then((fValue) {
-    return 0;
-  });
-
-  completer.completeError(2);
-
-  int res = null;
-  Object err = null;
+void check(Object value) {
   asyncStart();
-  Future f2 = f1.then(
-      (int fValue) {res = fValue;},
-      onError: (Object e) {
+  new Future.error(value).then(
+      (_) {
+        Expect.fail("Initial future should complete with error");
+      }
+  ).then(
+      (_) {
+        Expect.fail("Returned future should complete with error");
+      },
+      onError: (error) {
+        Expect.equals(value, error);
         asyncEnd();
-        err = e;
       }
   );
+}
 
-  runAfter(f2, () {
-    Expect.equals(null, res);
-    Expect.equals(2, err);
-  });
+main() {
+    check("0");
+    check(20);
+    check(3.14);
+    check(new Error());
 }

@@ -10,38 +10,26 @@
  * a subtype of type of m2
  * @static-clean
  * @author ilya
- * @reviewer
  */
 
 class Super {}
 class Sub extends Super {}
 
 class A {
-  int      induced_getter1;
-  Super    induced_getter2;
-  Super    induced_getter3;
-  Sub      induced_getter4;
-
-  int      get declared_getter1 {}
-  Super    get declared_getter2 {}
-  Super    get declared_getter3 {}
-  Sub      get declared_getter4 {}
+  num get getter1 => 0;
+  Super get getter2 => null;
+  Super get getter3 => null;
+  Object get getter4 => new Object();
 }
 
 class C extends A {
-  dynamic  induced_getter1;
-  Super    induced_getter2;
-  Sub      induced_getter3;
-  Super    induced_getter4;
-  
-  dynamic  get declared_getter1 {}
-  Super    get declared_getter2 {}
-  Sub      get declared_getter3 {}
-  Super    get declared_getter4 {}
+  int get getter1 => 1;
+  Super get getter2 => null;
+  Sub get getter3 => null;
+  Super get getter4 => new Super();
 }
 
 main() {
   new A();
   new C();
 }
-

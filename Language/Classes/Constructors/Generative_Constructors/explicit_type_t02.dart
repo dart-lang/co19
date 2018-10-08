@@ -11,12 +11,9 @@
  * assignable to Tid.
  * @description Checks that the type of an initializing formal is the type of
  * the corresponding field.
- * @static-warning
+ * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
-
-import "../../../../Utils/dynamic_check.dart";
 
 class C {
   C(this.x) {}
@@ -25,9 +22,5 @@ class C {
 
 main() {
   new C('');
-  checkTypeError(
-    () => new C(1) /// static type warning
-  );
+  new C(1);
 }
-
-

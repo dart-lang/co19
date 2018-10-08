@@ -11,7 +11,6 @@
  * in a class's implements clause denotes a function type.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef void foo();
@@ -19,5 +18,7 @@ typedef void foo();
 class A implements foo {}
 
 main() {
-  A a = new A();
+  try {
+    new A();
+  } catch (e) {}
 }

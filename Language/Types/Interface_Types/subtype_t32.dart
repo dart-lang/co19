@@ -23,9 +23,9 @@
  * . . .
  * An interface type T may be assigned to a type S, written T <=> S, if either
  * T <: S or S <: T.
- * @description Checks that int cannot be assigned to double (static warning)
+ * @description Checks that int cannot be assigned to double (compile error)
  * as such assignment doesn't meet any of these conditions.
- * @static-warning
+ * @compile-error
  * @author iefremov
  * @reviewer rodionov
  */
@@ -33,5 +33,5 @@
 int f() {}
 
 main() {
-  double d = f(); /// static type warning
+  double d = f();
 }

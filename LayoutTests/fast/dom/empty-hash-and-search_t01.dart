@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -21,9 +20,9 @@ main() {
 
   var location = window.location;
   var out = document.getElementById('out');
-  var link1 = document.getElementById('link1');
-  var link2 = document.getElementById('link2');
-  var link3 = document.getElementById('link3');
+  AnchorElement link1 = document.getElementById('link1');
+  AnchorElement link2 = document.getElementById('link2');
+  AnchorElement link3 = document.getElementById('link3');
 
   asyncStart();
 

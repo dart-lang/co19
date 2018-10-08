@@ -25,5 +25,7 @@
  */
 
 main() {
-  for {;;}  {}
+  try {
+    for {;;}  {}
+  } catch (x) {}
 }

@@ -14,12 +14,11 @@
  * is being assigned to variables with various declared types.
  * @static-clean
  * @author rodionov
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 
 class C {
-  Object f1;
+  Function f1;
 }
 
 class A {}

@@ -10,22 +10,20 @@
  *
  * @description Checks that the function body of the form async => e is
  * equivalent to a body of the form async {return e;}.
- *
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
 import '../../Utils/expect.dart';
-import '../../Utils/async_utils.dart';
 
-foo1() async => 1;
+Future foo1() async => 1;
 
-foo2() async {
+Future foo2() async {
   return 1;
 }
 
-bar1(int val) async => val * 2;
+Future bar1(int val) async => val * 2;
 
-bar2(int val) async {
+Future bar2(int val) async {
   return val * 2;
 }
 

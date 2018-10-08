@@ -11,12 +11,10 @@
  *
  * @description Check that with errorAreFatal set to true the isolate is
  * terminated on first error. The isolate is active.
- * @static-warning
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
@@ -29,7 +27,8 @@ void entryPoint(SendPort sendPort) {
   );
   sendPort.send("hello");
   // An error that should stop the isolate
-  sendPort.send(", "+1); /// static type warning
+  dynamic i = 1;
+  sendPort.send(", " + i); /// static type warning
   sendPort.send("world");
 }
 

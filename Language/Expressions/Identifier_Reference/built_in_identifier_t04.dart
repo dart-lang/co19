@@ -16,5 +16,8 @@
 typedef int abstract();
 
 main() {
-  null is abstract;
+  try {
+    null is abstract;
+  } catch (anything) {
+  }
 }

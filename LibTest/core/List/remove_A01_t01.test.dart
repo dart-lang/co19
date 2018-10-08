@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 test(List create([int length])) {
 
   check(List a0, Object value, bool expected) {
-    List a=create();
+    List a = create();
     a.addAll(a0);
   
     bool r = a.remove(value);
@@ -33,7 +33,7 @@ test(List create([int length])) {
   check([], 1, false);
   check([1], 1, true);
   check(new List.from([]), true, false);
-  List a=new List();
+  List a = new List();
   check(a, 2, false);
   a.add(2);
   check(a, 2, true);

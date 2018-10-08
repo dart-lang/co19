@@ -10,7 +10,6 @@
  * @description Check that the instance method, added to the Type object by
  * static method declaration, is not added to Type object of this class and
  * not added to the Type of the ancestor
- * See https://github.com/dart-lang/sdk/issues/23721
  * @author sgrekhov@unipro.ru
  * @issue 23721
  */
@@ -32,7 +31,7 @@ class C extends A {
 
 main() {
   C c = new C();
-  Type t = c.runtimeType;
+  dynamic t = c.runtimeType;
 
   Expect.throws(() {var x = t.a1();}, (e) => e is NoSuchMethodError);
   Expect.throws(() {var x = t.a2();}, (e) => e is NoSuchMethodError);

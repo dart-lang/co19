@@ -9,12 +9,11 @@
  * @description Checks that an event is dispatched.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
-const eventType='keydown';
+const eventType = 'keydown';
 
-void check(Node x) {
+void check(dynamic x) {
   x.onKeyDown.listen((KeyboardEvent e) {
     Expect.equals(eventType, e.type);
     asyncEnd();
@@ -23,7 +22,7 @@ void check(Node x) {
 }
 
 main() {
-  List<Node> targets=[
+  List<Node> targets = [
     new IFrameElement(),
     document,
   ];

@@ -11,9 +11,7 @@
  * the characters -_.!~*'() are percent-encoded.
  * @description Checks that basic and extended unicode characters are encoded
  * @author ilya
- * @reviewer
  */
-
 import 'dart:convert';
 import "../../../Utils/expect.dart";
 
@@ -23,7 +21,7 @@ encodeOctet(int x) =>
 
 manuallyEncodeFull(String s) => s.runes
   .map((x) =>
-      UTF8.encode(new String.fromCharCode(x)).map(encodeOctet).join(''))
+      utf8.encode(new String.fromCharCode(x)).map(encodeOctet).join(''))
   .join('');
 
 main() {

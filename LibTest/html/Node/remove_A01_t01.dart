@@ -12,19 +12,19 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 void check(Node x) {
-  var body=document.body;
-  var lastChild=body.lastChild;
-  
+  var body = document.body;
+  var lastChild = body.lastChild;
+
   body.append(x);
   Expect.equals(x, body.lastChild, "lastChild after append");
-  
+
   x.remove();
   Expect.equals(lastChild, body.lastChild, "lastChild after remove");
 }
 
 main() {
-  List<Node> targets=[
-    new Text("Text1"), 
+  List<Node> targets = [
+    new Text("Text1"),
     new Comment("Comment"),
 //    new DocumentFragment(),
   ];

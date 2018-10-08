@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {
@@ -20,7 +19,7 @@ main() {
   document.onReadyStateChange.listen((_) {
     var readyState = document.readyState;
     if (readyState == 'complete') {
-      var e = document.getElementById("imageElement");
+      InputElement e = document.getElementById("imageElement") as InputElement;
       e.setAttribute("style", "display:none");
       shouldBe(e.width, 16);
       shouldBe(e.height, 16);

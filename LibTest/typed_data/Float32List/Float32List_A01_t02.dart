@@ -10,12 +10,13 @@
  * @description Checks that all elements of the new [Float32List] are zero.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(int length) {
   Float32List l = new Float32List(length);
-  for(int i = 0; i < length; ++i) {
+  for (int i = 0; i < length; ++i) {
     Expect.equals(0.0, l[i]);
   }
 }

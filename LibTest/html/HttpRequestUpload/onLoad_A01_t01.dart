@@ -9,31 +9,30 @@
  * @description Checks the state of request at variuos moments of time.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
   HttpRequest request = new HttpRequest();
   request.open('GET', "test.dart");
   Expect.equals(HttpRequest.OPENED, request.readyState, "after open");
-  HttpRequestUpload upload=request.upload;
+  HttpRequestUpload upload = request.upload;
   asyncStart();
-  upload.onLoad.listen((event){
-      switch(request.readyState) {
-        case HttpRequest.DONE:
-          asyncEnd();
-          break;
-        case HttpRequest.HEADERS_RECEIVED:
-          break;
-        case HttpRequest.LOADING:
-          break;
-        default:
-          Expect.fail("request.onLoad.listen: unexpected readyState:${request.readyState}");
-        }
-    },
-    onError:(Object error){
-      Expect.fail("request.onLoad.listen:onError($error)");
-    });
+  upload.onLoad.listen((event) {
+    switch (request.readyState) {
+      case HttpRequest.DONE:
+        asyncEnd();
+        break;
+      case HttpRequest.HEADERS_RECEIVED:
+        break;
+      case HttpRequest.LOADING:
+        break;
+      default:
+        Expect.fail(
+            "request.onLoad.listen: unexpected readyState:${request.readyState}");
+    }
+  }, onError: (Object error) {
+    Expect.fail("request.onLoad.listen:onError($error)");
+  });
   request.send();
   Expect.equals(HttpRequest.OPENED, request.readyState, "after send");
 }

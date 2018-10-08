@@ -10,12 +10,11 @@
 import "dart:html";
 import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   shouldBeAround(a, b) => shouldBeApprox(a, b, 15);
 
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   document.body.append(canvas);
   canvas.setAttribute('width', '600');
   canvas.setAttribute('height', '1100');
@@ -29,7 +28,7 @@ main() {
 
   strokePath(x, y) {
     ctx.beginPath();
-    ctx.arc(x, y, 75, 0, Math.PI*2, true);
+    ctx.arc(x, y, 75, 0, Math.pi*2, true);
     ctx.stroke();
   }
 
@@ -41,7 +40,7 @@ main() {
   ctx.shadowBlur = 10;
   strokePath(150, 400);
 
-  ctx.rotate(Math.PI/2);
+  ctx.rotate(Math.pi/2);
 
   // Rotated alpha shadow.
   ctx.shadowBlur = 0;

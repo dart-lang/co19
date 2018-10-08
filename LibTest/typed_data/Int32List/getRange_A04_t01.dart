@@ -5,29 +5,34 @@
  */
 /**
  * @assertion Iterable<E> getRange(int start, int end)
- * It is an error if the start and end are not valid ranges
- * at the time of the call to this method.
- * @description Checks that an error is thrown.
+ * ...
+ * The provide range, given by start and end, must be valid at the time of the
+ * call.
+ * A range from start to end is valid if 0 <= start <= end <= len, where len is
+ * this list's length.
+ * @description Checks that an error is thrown f the start and end are not
+ * valid ranges.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
+check(List<int> list) {
   var l = new Int32List.fromList(list);
-  Expect.throws( () {
+  Expect.throws(() {
     l.getRange(-1, list.length);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.getRange(0, list.length + 1);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.getRange(-1, list.length + 1);
   });
 
-  Expect.throws( () {
+  Expect.throws(() {
     l.getRange(0x80000000, 0x7fffffff);
   });
 }
@@ -35,5 +40,5 @@ check(list) {
 main() {
   check([]);
   check([1]);
-  check([0,0,0,0,0,0,0,0,0,0]);
+  check([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
 }

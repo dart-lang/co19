@@ -19,8 +19,9 @@ main() {
       treeSanitizer: new NullTreeSanitizer());
   var y = x.querySelector('pre');
   Expect.isFalse(x.isContentEditable, 'default');
-  
-  x = new Element.html('<div contenteditable="true"><span><pre></pre></span></div>',
+
+  x = new Element.html(
+      '<div contenteditable="true"><span><pre></pre></span></div>',
       treeSanitizer: new NullTreeSanitizer());
   y = x.querySelector('pre');
   Expect.isTrue(x.isContentEditable, 'inherited true');

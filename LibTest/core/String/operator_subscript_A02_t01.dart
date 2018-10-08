@@ -8,8 +8,6 @@
  * @description Checks that passing an argument that is out of this string's
  * valid index range results in an RangeError
  * @author msyabro
- * @reviewer rodionov
- * @needsreview Undocumented
  */
 import "../../../Utils/expect.dart";
 

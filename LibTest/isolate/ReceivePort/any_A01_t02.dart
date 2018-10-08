@@ -14,24 +14,23 @@
 
 import "dart:async";
 import "dart:isolate";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
 main() {
-  int count=0;
-  int first=0;
-  bool encountered=false;
-  bool test(int element) {
+  int count = 0;
+  int first = 0;
+  bool encountered = false;
+  bool test(var element) {
      bool res = element % 10 == 0;
      if (res && !encountered) {
-       encountered=true;
-       first=element;
+       encountered = true;
+       first = element;
      }
      return res;
   }
   asyncStart();
-  ReceivePort stream=IsolateStream.fromIterable(new Iterable.generate(100, (_) => ++count));
+  ReceivePort stream = IsolateStream.fromIterable(new Iterable.generate(100, (_) => ++count));
   Future<bool>  f = stream.any(test);
   f.then((x) {
       Expect.isTrue(x);

@@ -12,7 +12,6 @@
  * an initializing formal of k (field initializer uses just the variable name).
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {
@@ -21,6 +20,8 @@ class C {
 }
 
 main() {
-  C c = new C(0, 1);
-  print(c.x);
+  try {
+    C c = new C(0, 1);
+    print(c.x);
+  } catch (x) {}
 }

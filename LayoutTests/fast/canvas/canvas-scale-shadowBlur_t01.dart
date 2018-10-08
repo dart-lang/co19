@@ -9,16 +9,15 @@
 import "dart:html";
 import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   shouldBeAround(a, b) => shouldBeApprox(a, b, 10);
 
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   document.body.append(canvas);
   canvas.setAttribute('width', '600');
   canvas.setAttribute('height', '600');
-  var ctx = canvas.getContext('2d');
+  dynamic ctx = canvas.getContext('2d');
 
   ctx.shadowBlur = 25;
   ctx.shadowOffsetX = 100;
@@ -28,7 +27,7 @@ main() {
   // top left
   ctx.shadowColor = 'rgba(255, 0, 0, 1.0)';
   ctx.scale(4, 4);
-  ctx.rotate(Math.PI/2);
+  ctx.rotate(Math.pi/2);
   ctx.translate(25, -50);
   ctx.fillRect(0, 0, 25, 25);
 

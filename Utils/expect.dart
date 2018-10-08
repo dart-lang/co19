@@ -3,7 +3,11 @@
 // BSD-style license that can be found in the LICENSE file.
 
 library Expect;
+import "dart:async";
+
 part "expect_common.dart";
+part "async_utils.dart";
+part "lang_feature_check.dart";
 
 /**
  * Expect is used for tests that do not want to make use of the

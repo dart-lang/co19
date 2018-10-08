@@ -22,5 +22,7 @@
  */
 
 main() {
-  "key": 1 };
+  try {
+    "key": 1 };
+  } catch (e) {}
 }

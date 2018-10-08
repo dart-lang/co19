@@ -27,5 +27,7 @@
 func(p1, p2) {}
 
 main() {
-  func(1 2);
+  try {
+    func(1 2);
+  } catch (e) {}
 }

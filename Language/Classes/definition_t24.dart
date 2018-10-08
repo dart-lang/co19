@@ -5,7 +5,7 @@
  */
 /**
  * @assertion classDefinition:
- *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+ *   metadata abstract? class identifier typeParameters? (superclass mixins?)?
  * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
  *   metadata abstract? class mixinApplicationClass
  * ;

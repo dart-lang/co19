@@ -15,6 +15,8 @@
  */
 
 main() {
-  void else() {}
-  else();
+  try {
+    void else() {}
+    else();
+  } catch (x) {}
 }

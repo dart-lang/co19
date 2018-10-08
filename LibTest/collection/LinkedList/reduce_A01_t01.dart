@@ -17,15 +17,17 @@ import "LinkedList.lib.dart";
 
 check(List<int> a, combine, num expected) {
   LinkedList<MyLinkedListEntry<int>> llist = toLinkedList(a);
-  MyLinkedListEntry<int> combine2(MyLinkedListEntry<int> value, MyLinkedListEntry<int> element) =>
-    new MyLinkedListEntry<int>(combine(value.value, element.value));
-  int actual=llist.reduce(combine2).value;
+  MyLinkedListEntry<int> combine2(
+      MyLinkedListEntry<int> value, MyLinkedListEntry<int> element) =>
+        new MyLinkedListEntry<int>(combine(value.value, element.value));
+  int actual = llist.reduce(combine2).value;
   Expect.equals(expected, actual);
 }	
 
 main() {
-  check([1,2,-3], (value, element) => value+element, 0);
-  check([1,2,-3], (value, element) => value*element, -6);
-  check([0,2,-3], (value, element) => value*element, 0);
-  check(const[1,2,-5,-6], (value, element) => max(value,element), 2);
+  check([1, 2, -3], (value, element) => value + element, 0);
+  check([1, 2, -3], (value, element) => value * element, -6);
+  check([0, 2, -3], (value, element) => value * element, 0);
+  check(
+      const[1, 2, -5, -6], (num value, num element) => max(value, element), 2);
 }

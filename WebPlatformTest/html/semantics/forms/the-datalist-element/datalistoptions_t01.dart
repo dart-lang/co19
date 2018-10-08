@@ -40,21 +40,21 @@ void main() {
   document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
 
   test((){
-    var datalist = document.getElementById('numbers'),
-        labels = [],
-        values = [];
+    var datalist = document.getElementById('numbers') as DataListElement;
+    var labels = [];
+    var values = [];
     assert_equals(datalist.options.length, 3, "The datalist has 3 options. Disabled and empty value options aren't taken into account");
 
     for (var i = 0, len = datalist.options.length; i < len; i++) {
-      labels.add(datalist.options[i].label);
-      values.add(datalist.options[i].value);
+      labels.add((datalist.options[i] as OptionElement).label);
+      values.add((datalist.options[i] as OptionElement).value);
     }
     assert_array_equals(labels, ["zero", "one", "two"]);
     assert_array_equals(values, ["0", "1", "2"]);
   }, "options label/value");
 
   test((){
-    assert_false(document.getElementById('num').willValidate);
+    assert_false((document.getElementById('num') as SelectElement).willValidate);
   }, "If an element has a datalist element ancestor, it is barred from constraint validation");
 
   checkTestFailures();

@@ -4,17 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion num pow(num x, num y)
+ * @assertion num pow(num x, num exponent)
  * If [x] is an int and exponent is a non-negative int, the result is an int,
- * otherwise both arguments are converted to doubles first,
- * and the result is a double.
+ * otherwise both arguments are converted to doubles first, and the result is
+ * a double.
  * @description Checks that if [x] is an int and [y] is a non-negative int,
  * the result is an int.
  * @author msyabro
  */
-import "../../Utils/expect.dart";
 
 import "dart:math" as Math;
+import "../../Utils/expect.dart";
 
 main() {
   Expect.isTrue(Math.pow(0, 0) is int);

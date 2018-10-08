@@ -9,13 +9,11 @@
  *     initializedVariableDeclaration ’;’
  *   ;
  * @description Checks several assignments of variables declared as "T id;"
- * that are correct in checked mode and do not produce static warnings.
+ * that are correct and do not produce static warnings.
  * @author vasya
  * @reviewer rodionov
  * @reviewer iefremov
  */
-
-import '../../../Utils/dynamic_check.dart';
 
 class S {}
 class T extends S {}
@@ -25,9 +23,7 @@ main() {
   T id;
   id = new C();
 
-  checkTypeError(() {
-    id = new S();
-  });
+  id = new T();
 
   bool id1;
   id1 = false;

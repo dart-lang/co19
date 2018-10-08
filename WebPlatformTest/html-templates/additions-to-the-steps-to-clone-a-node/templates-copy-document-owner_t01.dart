@@ -10,17 +10,17 @@
  * http://www.w3.org/Consortium/Legal/2008/04-testsuite-copyright.html
  */
 /**
- * @assertion ownerDocument of cloned template content is set to template content owner
+ * @assertion ownerDocument of cloned template content is set to template
+ * content owner
  */
 
 import 'dart:html';
-import "../../../Utils/expect.dart";
 import '../testcommon.dart';
 
 checkOwnerDocument(node, doc) {
     if (node != null) {
         assert_equals(node.ownerDocument, doc,
-                'Wrong ownerDocument of the template copy\'s node ' + node.nodeName);
+           'Wrong ownerDocument of the template copy\'s node ' + node.nodeName);
         for (var i = 0; i < node.childNodes.length; i++) {
             if (node.childNodes[i].nodeType == Node.ELEMENT_NODE) {
                 checkOwnerDocument(node.childNodes[i], doc);

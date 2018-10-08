@@ -25,6 +25,7 @@
  * T <: S or S <: T.
  * @description Checks that GenericType<T> is mutually assignable (no static
  * type warnings) with GenericType<S> where T and S are trivial generics.
+ * @issue 27556
  * @static-clean
  * @author iefremov
  * @reviewer rodionov
@@ -35,12 +36,11 @@ class J extends I {}
 class K extends J {}
 class L extends K {}
 
-typedef J f(List<num> l, [J i]);
-typedef I f_1(List<Object> l, [I i]);
-typedef K f_2(List<int> l, [L i]);
+typedef J f(List<int> l, [L i]);
+typedef J f_1(List<num> l, [I i]);
+typedef K f_2(List<int> l, [K i]);
 
 main() {
-  List<List> l1 = () {}();
   List l1_ = new List<List>();
 
   List<List> l2 = new List<List<List>>();

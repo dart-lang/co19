@@ -18,13 +18,13 @@
 import "../../../../Utils/expect.dart";
 
 main() {
-  var bar = true;
+  dynamic bar = true;
   /*
     bar = false;
   */
   Expect.equals(true, bar);
 
-  var foo;
+  dynamic foo;
   /*
     var foo = 1;
     throw foo;

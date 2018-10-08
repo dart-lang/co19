@@ -4,20 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion dynamic lastWhere(bool test(E element), {Object orElse()})
- * By default, when orElse is null, a [StateError] is thrown.
- * @description Checks that a [StateError] is thrown.
+ * @assertion E lastWhere(bool test(E element), {E orElse()})
+ * ...
+ * If orElse is omitted, it defaults to throwing a StateError.
+ * @description Checks that a [StateError] is thrown if no element satisties
+ * [test] and [orelse] is omitted.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-check(list) {
+check(List<int> list) {
   var l = new Int64List.fromList(list);
   try {
     l.lastWhere((e) => false);
     Expect.fail("StateError is expected");
-  } on StateError catch(ok) {}
+  } on StateError {}
 }
 
 main() {

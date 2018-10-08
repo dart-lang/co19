@@ -17,33 +17,21 @@
  * smallest integer such that h >= k and sh is non-empty. The sequence of
  * statements sh is executed if it exists. If execution reaches the point after
  * sh then a runtime error occurs, unless h = n.
- * @description Checks that falling through produces a runtime error, unless
- * the current case clause is empty or the last case clause.
- * @static-warning
+ * @description Checks that falling through produces no error, if the current
+ * case clause is empty or the last case clause.
  * @author msyabro
  * @reviewer rodionov
  * @issue 7537
  */
 import '../../../Utils/expect.dart';
 
-test(value) {
-  var result;
-
-  switch (value) {
-    case 1:  result = 1;
-             break;
-    case 2:  result = 2; /// static warning - case fall-through, see "Switch"
-    case 3:  result = 3; // shouldn't be a warning - issue 7537
-  }
-  return result;
-}
-
 testEmptyCases(value) {
   var result;
 
   switch (value) {
     case 1:
-    case 2: result = 1; /// static warning - case fall-through, see "Switch"
+    case 2: result = 1;
+            break;
     case 3:
     case 4: result = 2;
             break;
@@ -55,16 +43,9 @@ testEmptyCases(value) {
 }
 
 main() {
-  Expect.equals(1, test(1));
-  Expect.equals(3, test(3));
-  Expect.equals(null, test(100));
-
-  Expect.throws(() {test(2);});
-
   Expect.equals(null, testEmptyCases(5));
   Expect.equals(null, testEmptyCases(6));
   Expect.equals(2, testEmptyCases(3));
-
-  Expect.throws(() {testEmptyCases(1);});
-  Expect.throws(() {testEmptyCases(2);});
+  Expect.equals(1, testEmptyCases(1));
+  Expect.equals(1, testEmptyCases(2));
 }

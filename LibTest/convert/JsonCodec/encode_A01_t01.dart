@@ -10,7 +10,8 @@
  * (a value that is not a number, boolean, string, null, list or a map with
  * string keys), the toEncodable function is used to convert it to an object
  * that must be directly encodable.
- * @description Checks that num, String, bool, Null, List, and Map values are serialized correctly.
+ * @description Checks that num, String, bool, Null, List, and Map values are
+ * serialized correctly.
  * @note variable table in this test is used also in the test decode_A01_t01.
  * @author kaigorodov
  */
@@ -20,7 +21,7 @@ import "../JsonDecoder/table1.lib.dart" show table;
 
 main() {
   for (List<Object> pair in table) {
-    String res=new JsonCodec().encode(pair[0]);
+    String res = new JsonCodec().encode(pair[0]);
     Expect.equals(pair[1], res);
   }
 }

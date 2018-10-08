@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var style = new Element.html('''
@@ -44,7 +43,7 @@ main() {
 
   var div = document.body.querySelector('div');
   div.addEventListener('webkitTransitionEnd', (event) {
-    shouldBeEqualToString(event.target.tagName, 'DIV');
+    shouldBeEqualToString((event.target as Element).tagName, 'DIV');
     if (event.target == div) {
       asyncEnd();
     }

@@ -9,21 +9,19 @@
  * observations are transient.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {
   var _observer;
 
-  addObserver(node, fn) {
+  addObserver(node, MutationCallback fn) {
     var observer = new MutationObserver(fn);
     _observer = observer;
     observer.observe(node, attributes:true, subtree: true);
   }
 
   var root = document.createElement('div');
-  var child = root.append(document.createElement('span'));
+  SpanElement child = root.append(document.createElement('span'));
   addObserver(root, (records, observer) {
     shouldBe(observer, _observer);
     asyncEnd();

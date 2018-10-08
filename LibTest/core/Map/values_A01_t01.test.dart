@@ -8,14 +8,13 @@
  * The values of this.
  * @description Checks that an Iterable with all values is returned.
  * @author msyabro
- * @reviewer varlax
  */
 library values_A01_t01;
 
 import "../../../Utils/expect.dart";
  
 test(Map create([Map content])) {
-  Map<String, Object> map = create();
+  Map map = create();
     
   Iterable a = map.values;
   Expect.isTrue(a.length == 0);

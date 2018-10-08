@@ -5,10 +5,9 @@
  */
 /**
  * @assertion Returns a substring of this string in the given range.
- *            [startIndex] is inclusive and [endIndex] is exclusive.
+ * [startIndex] is inclusive and [endIndex] is exclusive.
  * @description Checks that the returned substring is correct
  * @author msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

@@ -9,7 +9,6 @@
  * class C that forwards to the static method.
  * @description Check that static method declaration doesn't add the instance
  * method with the same name to the Type object of this class
- * See https://github.com/dart-lang/sdk/issues/23721
  * @author sgrekhov@unipro.ru
  * @issue 23721
  */
@@ -25,7 +24,7 @@ class C {
 
 main() {
   C c = new C();
-  Type t = c.runtimeType;
+  dynamic t = c.runtimeType;
 
   Expect.throws(() {var x = t.m();}, (e) => e is NoSuchMethodError);
   Expect.throws(() {var x = t.s1();}, (e) => e is NoSuchMethodError);

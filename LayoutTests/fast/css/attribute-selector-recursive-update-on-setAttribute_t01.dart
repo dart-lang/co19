@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var style = new Element.html('''
@@ -30,8 +29,8 @@ main() {
       </div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var entry= document.getElementsByClassName("entry")[0];
-  var toggle = document.getElementsByClassName("toggle")[0];
+  dynamic entry= document.getElementsByClassName("entry")[0];
+  dynamic toggle = document.getElementsByClassName("toggle")[0];
 
   shouldBe(toggle.getComputedStyle().color, 'rgb(0, 128, 0)');
   entry.setAttribute("status", "bar");

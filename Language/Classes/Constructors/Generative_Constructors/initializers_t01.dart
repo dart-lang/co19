@@ -16,7 +16,6 @@
  * ;
  * @description Checks various valid variations of an initializer list.
  * @author iefremov
- * @reviewer rodionov
  */
 
 typedef void FType();
@@ -29,11 +28,11 @@ class S {
 }
 
 class C extends S{
-  C() : super(), Cc = null, $ = const[], x = "";
+  C() : Cc = null, $ = const[], x = "", super();
 
   C.noSuper() : Cc = null, $ = const[], x = "", func = foo;
   C.onlySuper() : super();
-  C.usingThis():  this.Cc = null, this.$ = const[], super(), this.x = "";
+  C.usingThis():  this.Cc = null, this.$ = const[], this.x = "", super();
   C.complexSuper() : super.named(1, const[], z:new C(), $ : new S(), o : null);
   C.cond(bool b) : this.x = b ? 1 : 2;
   C.fromF(FType f) : func = f {}

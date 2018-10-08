@@ -8,13 +8,12 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
-  var input = document.createElement('input');
+  InputElement input = document.createElement('input') as InputElement;
   document.body.append(input);
 
-  stepMismatchFor(value, step, min, [disabled=false]) {
+  bool stepMismatchFor(String value, String step, String min, [bool disabled=false]) {
     input.min = min;
     input.step = step;
     input.value = value;

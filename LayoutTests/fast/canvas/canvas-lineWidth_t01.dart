@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -27,7 +26,7 @@ main() {
     }
   }
 
-  var ctx = getContext2d("canvas");
+  dynamic ctx = getContext2d("canvas");
 
   ctx.strokeStyle = 'blue';
 

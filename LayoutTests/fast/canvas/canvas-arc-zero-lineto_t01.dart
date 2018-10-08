@@ -17,7 +17,7 @@ main() {
       <div>PASS</div>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  var ctx = getContext2d("canvas");
+  dynamic ctx = getContext2d("canvas");
   ctx.lineWidth = 4;
 
   shouldBeBlackPixel(x,y)
@@ -35,7 +35,7 @@ main() {
   // moveTo + empty arc (swing == 0)
   ctx.beginPath();
   ctx.moveTo(20, 20);
-  ctx.arc(80, 30, 10, -Math.PI/2, -Math.PI/2, true);
+  ctx.arc(80, 30, 10, -Math.pi/2, -Math.pi/2, true);
   ctx.stroke();
   shouldBeBlackPixel(50, 20);
 
@@ -48,7 +48,7 @@ main() {
 
   // empty arc (swing == 0) + lineTo
   ctx.beginPath();
-  ctx.arc(20, 50, 10, Math.PI/2, Math.PI/2, false);
+  ctx.arc(20, 50, 10, Math.pi/2, Math.pi/2, false);
   ctx.lineTo(80, 60);
   ctx.stroke();
   shouldBeBlackPixel(50, 60);

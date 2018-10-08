@@ -13,11 +13,12 @@
  * bracket is missed in a class type definition. Class body is empty.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A {
 
 main() {
-  A a = new A();
+  try {
+    new A();
+  } catch (e) {}
 }

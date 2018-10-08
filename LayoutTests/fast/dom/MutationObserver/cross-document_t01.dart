@@ -7,8 +7,6 @@
  * @description Test that MutationObservers move correctly across documents
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {

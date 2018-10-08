@@ -31,9 +31,7 @@
  * results in a compile-time error.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
-
 
 class C {
   C() : v = this.fnl {}
@@ -45,5 +43,7 @@ class C {
 }
 
 main() {
-  var c = new C();
+  try {
+    var c = new C();
+  } catch (x) {}
 }

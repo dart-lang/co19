@@ -7,7 +7,8 @@
  * @assertion void addAll(Iterable<E> iterable)
  * Adds all elements of [collection] at the end of the queue.
  * The length of the queue is extended by the length of [iterable].
- * @description Checks that all elements of the [iterable] are added to the empty queue.
+ * @description Checks that all elements of the [iterable] are added to the
+ * empty queue.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
@@ -37,7 +38,7 @@ main() {
   tmp.addLast(1);
   tmp.addLast(2);
   queue.addAll(tmp);
-  check([1, 2],queue);
+  check([1, 2], queue);
   
   queue = new DoubleLinkedQueue();
   queue.addAll([]);

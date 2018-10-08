@@ -8,7 +8,6 @@
  * with no "selected" attributes are properly cleared when reset.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -33,7 +32,7 @@ main() {
   test(elementId)
   {
     debug(elementId);
-    var testSelectElement = document.getElementById(elementId);
+    SelectElement testSelectElement = document.getElementById(elementId);
     var result = "FAILED";
     if (testSelectElement.selectedIndex == -1)
     {

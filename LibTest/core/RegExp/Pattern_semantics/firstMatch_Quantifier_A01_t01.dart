@@ -10,7 +10,6 @@
  *              scenarios.
  * @3rdparty sputnik-v1:S15.10.2.7_A4_T1.js-S15.10.2.7_A4_T19.js
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
@@ -21,7 +20,8 @@ main() {
   check("[^\"]*", "before\'i\'start", 0, ["before\'i\'start"]);
   check("[^\"]*", "alice \"sweep\": \"don\'t\"", 0, ["alice "]);
   check("[^\"]*", "alice \u0022sweep\u0022: \"don\'t\"", 0, ["alice "]);
-  check("[\"\'][^\"\']*[\"\']", "alice \u0022sweep\u0022: \"don\'t\"", 6, ["\"sweep\""]);
+  check("[\"\'][^\"\']*[\"\']", "alice \u0022sweep\u0022: \"don\'t\"", 6,
+      ["\"sweep\""]);
   check("[\"\'][^\"\']*[\"\']", "alice cries out: \'don\'t\'", 17, ["\'don\'"]);
   checkNeg("[\"\'][^\"\']*[\"\']", "alice cries out: don\'t");
   check("[\"\'][^\"\']*[\"\']", "alice cries out: \"\"", 17, ["\"\""]);
@@ -39,7 +39,8 @@ main() {
   checkNeg("[xyz]*1", "a0.b2.c3");
 }
 
-void check(String pattern, String str, [int matchPos = -1, List<String> expectedGroups = null]) {
+void check(String pattern, String str, [int matchPos = -1,
+    List<String> expectedGroups = null]) {
   RegExp re = new RegExp(pattern);
   Match fm = re.firstMatch(str);
   if(null == fm) {

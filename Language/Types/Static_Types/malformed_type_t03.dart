@@ -14,19 +14,19 @@
  * Any use of a malformed type gives rise to a static warning. A malformed type
  * is then interpreted as dynamic by the static type checker and the runtime
  * unless explicitly specified otherwise.
- * @description Checks that it is a static warning if a type variable is used
+ * @description Checks that it is a compile error if a type variable is used
  * in static context as a type of static method parameter.
- * @static-warning
+ * @compile-error
  * @author kaigorodov
  */
 
 
 class C<T> {
-   static int f(T v) {  /// static type warning
+   static int f(T v) {
      return 12;
    }
 }
 
 main() {
-  C.f(null); /// static type warning
+  C.f(null);
 }

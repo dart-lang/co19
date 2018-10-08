@@ -23,20 +23,18 @@
  *
  * @author a.semenov@unipro.ru
  */
-import 'dart:async';
-import '../../../../Utils/async_utils.dart';
 import '../../../../Utils/expect.dart';
 
-Iterable generator(Iterable iterable) sync* {
-  for (var o in iterable) {
+Iterable<int> generator(Iterable<int> iterable) sync* {
+  for (int o in iterable) {
     yield o;
   }
 }
 
 main() {
-  List data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  List log = [];
-  Iterable iterable = generator(data);
+  List<int> data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  List<int> log = [];
+  Iterable<int> iterable = generator(data);
   Iterator<int> it = iterable.iterator;
   while (it.moveNext()) {
     log.add(it.current);

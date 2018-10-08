@@ -13,14 +13,14 @@
  * @description Checks that the Future completes with a floating point value
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
+import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  Window nw=document.window;
-  Future<num>  animationFrame=nw.animationFrame;
+  Window nw = document.window;
+  Future<num> animationFrame = nw.animationFrame;
   asyncStart();
-  animationFrame.then((num){
+  animationFrame.then((num) {
     Expect.isTrue(num is double);
     print("num=$num");
     asyncEnd();

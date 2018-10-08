@@ -10,7 +10,6 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 import "../testcommon.dart";
 
 main() {
@@ -24,8 +23,6 @@ main() {
 </div>''', treeSanitizer: new NullTreeSanitizer());
 
   var div2 = document.body.querySelector('#div2');
-
-  var b = document.body;
 
   Expect.equals(50, div2.offset.left, 'left');
   Expect.equals(60, div2.offset.top, 'top');

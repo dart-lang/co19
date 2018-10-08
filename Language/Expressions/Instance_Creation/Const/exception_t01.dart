@@ -21,5 +21,7 @@ class A {
 const a = const A();
 
 main() {
-  a;
+  try {
+    a;
+  } catch (e) {}
 }

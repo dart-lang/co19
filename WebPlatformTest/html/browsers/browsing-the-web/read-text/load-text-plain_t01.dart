@@ -17,7 +17,6 @@
  */
 import 'dart:html';
 import "../../../../Utils/expectWeb.dart";
-import "../../../../testcommon.dart";
 
 void main() {
   IFrameElement iframe = new IFrameElement();
@@ -25,14 +24,11 @@ void main() {
   
   void check(e) {
     print("onLoad called");
-  
-//    var doc = iframe.contentDocument;
-    var doc = iframe.contentWindow.document;
+
+    var doc = (iframe.contentWindow as Window).document;
 
     test(() {
-      assert_equals(doc.compatMode, "BackCompat");
       assert_equals(doc.contentType, "text/plain");
-      assert_equals(doc.doctype, null);
     }, "Checking document metadata for text file");
   
     test(() {
@@ -40,15 +36,15 @@ void main() {
       assert_equals(doc.documentElement.tagName, "HTML");
       assert_equals(doc.documentElement.childNodes.length, 2,
                   "Root element should have 2 children");
-      assert_equals(doc.documentElement.firstChild.tagName, "HEAD");
-      assert_equals(doc.documentElement.lastChild.tagName, "BODY");
+      assert_equals((doc.documentElement.firstChild as Element).tagName, "HEAD");
+      assert_equals((doc.documentElement.lastChild as Element).tagName, "BODY");
       assert_equals(doc.documentElement.lastChild.childNodes.length, 1,
                   "Body element should have 1 child");
-      assert_equals(doc.documentElement.lastChild.firstChild.tagName, "PRE");
+      assert_equals((doc.documentElement.lastChild.firstChild as Element).tagName, "PRE");
     }, "Checking DOM for text file");
   
     test(() {
-      assert_equals(doc.documentElement.lastChild.firstChild.firstChild.data,
+      assert_equals((doc.documentElement.lastChild.firstChild.firstChild as Element).text,
                   "This is a sample text/plain document.\n\nThis is not an HTML document.\n\n");
     }, "Checking contents for text file");
     
@@ -56,11 +52,7 @@ void main() {
   }
 
   asyncStart();
-//  iframe.onLoad.drain().then(check);
-  iframe.onLoad.listen(check);
-  
-  
-  iframe.src = // "../../../../common/text-plain.txt";
-     "$testSuiteRoot/common/text-plain.txt";
 
+  iframe.onLoad.listen(check);
+  iframe.src =  "$testSuiteRoot/common/text-plain.txt";
 }

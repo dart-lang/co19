@@ -11,9 +11,6 @@ import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "resources/webgl-test-utils.dart" as wtu;
-import "resources/desktop-gl-constants.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''
@@ -48,13 +45,13 @@ main() {
 
   runTest() {
     var gl = initWebGL('testbed', 'vshader', 'fshader', ['pos', 'colorIn'], [0, 0, 0, 1], 1, { 'antialias': false });
-    var program = gl.getParameter(wgl.CURRENT_PROGRAM);
+    var program = gl.getParameter(wgl.WebGL.CURRENT_PROGRAM);
     if (gl == null) {
       testFailed('initWebGL(..) failed');
       return false;
     }
-    gl.disable(wgl.BLEND);
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+    gl.disable(wgl.WebGL.BLEND);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
 
     // The choice of (0.4, 0.4) ensures that the centers of the surrounding
     // pixels are not contained within the point when it is of size 1, but
@@ -67,14 +64,14 @@ main() {
     var colorOffset = vertices.lengthInBytes;
 
     var vbo = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, vbo);
-    gl.bufferData(wgl.ARRAY_BUFFER, colorOffset + colors.lengthInBytes, wgl.STATIC_DRAW);
-    gl.bufferSubData(wgl.ARRAY_BUFFER, 0, vertices);
-    gl.bufferSubData(wgl.ARRAY_BUFFER, colorOffset, colors);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vbo);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, colorOffset + colors.lengthInBytes, wgl.WebGL.STATIC_DRAW);
+    gl.bufferSubData(wgl.WebGL.ARRAY_BUFFER, 0, vertices);
+    gl.bufferSubData(wgl.WebGL.ARRAY_BUFFER, colorOffset, colors);
 
-    gl.vertexAttribPointer(0, 3, wgl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(0, 3, wgl.WebGL.FLOAT, false, 0, 0);
     gl.enableVertexAttribArray(0);
-    gl.vertexAttribPointer(1, 4, wgl.UNSIGNED_BYTE, true, 0, colorOffset);
+    gl.vertexAttribPointer(1, 4, wgl.WebGL.UNSIGNED_BYTE, true, 0, colorOffset);
     gl.enableVertexAttribArray(1);
 
     var locPointSize = gl.getUniformLocation(program, 'pointSize');
@@ -82,9 +79,9 @@ main() {
     debug('Draw a point of size 1 and verify it does not touch any other pixels.');
 
     gl.uniform1f(locPointSize, 1.0);
-    gl.drawArrays(wgl.POINTS, 0, vertices.length ~/ 3);
+    gl.drawArrays(wgl.WebGL.POINTS, 0, vertices.length ~/ 3);
     var buf = new Uint8List(2 * 2 * 4);
-    gl.readPixels(0, 0, 2, 2, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
+    gl.readPixels(0, 0, 2, 2, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
     var index = 0;
     for (var y = 0; y < 2; ++y) {
       for (var x = 0; x < 2; ++x) {
@@ -98,17 +95,13 @@ main() {
         index += 4;
       }
     }
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
 
     debug('Draw a point of size 2 and verify it fills the appropriate region.');
 
-    var pointSizeRange = gl.getParameter(wgl.ALIASED_POINT_SIZE_RANGE);
-    //if (pointSizeRange < 2.0)
-    //  return true;
-
     gl.uniform1f(locPointSize, 2.0);
-    gl.drawArrays(wgl.POINTS, 0, vertices.length ~/ 3);
-    gl.readPixels(0, 0, 2, 2, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
+    gl.drawArrays(wgl.WebGL.POINTS, 0, vertices.length ~/ 3);
+    gl.readPixels(0, 0, 2, 2, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
     index = 0;
     for (var y = 0; y < 2; ++y) {
       for (var x = 0; x < 2; ++x) {

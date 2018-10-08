@@ -19,8 +19,10 @@
 
 
 main() {
-  var L = "label";
-  while (true) {
-    break L;
-  }
+  try {
+    var L = "label";
+    while (true) {
+      break L;
+    }
+  } catch (x) {}
 }

@@ -7,7 +7,6 @@
  * @description Test should not crash
  */
 import "dart:html";
-import "../../../testcommon.dart";
 
 main() {
   var host = document.createElement('div');

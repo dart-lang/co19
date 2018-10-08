@@ -12,7 +12,6 @@ import "dart:svg" as svg;
 import "dart:web_audio" as audio;
 import "dart:web_gl" as webgl;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   // AnimationEvent
@@ -77,8 +76,8 @@ main() {
   //shouldBeTrue(new Event.eventType('MutationEvents', '') is Event);
 
   // OverflowEvent
-  shouldBeTrue(new Event.eventType('OverflowEvent', '') is OverflowEvent);
-  shouldBeTrue(new Event.eventType('OverflowEvent', '') is Event);
+  //shouldBeTrue(new Event.eventType('OverflowEvent', '') is OverflowEvent);
+  //shouldBeTrue(new Event.eventType('OverflowEvent', '') is Event);
 
   // PageTransitionEvent
   shouldBeTrue(new Event.eventType('PageTransitionEvent', '') is PageTransitionEvent);
@@ -135,14 +134,6 @@ main() {
   // SVGEvents (Event alternative)
   shouldBeTrue(new Event.eventType('SVGEvents', '') is Event);
 
-  // SVGZoomEvent
-  shouldBeTrue(new Event.eventType('SVGZoomEvent', '') is svg.ZoomEvent);
-  shouldBeTrue(new Event.eventType('SVGZoomEvent', '') is Event);
-
-  // SVGZoomEvents (SVGZoomEvent alternative)
-  shouldBeTrue(new Event.eventType('SVGZoomEvents', '') is svg.ZoomEvent);
-  shouldBeTrue(new Event.eventType('SVGZoomEvents', '') is Event);
-
   // CloseEvent
   shouldBeTrue(new Event.eventType('CloseEvent', '') is CloseEvent);
   shouldBeTrue(new Event.eventType('CloseEvent', '') is Event);
@@ -188,8 +179,4 @@ main() {
 
   // OrientationEvent (Event alternative)
   // shouldBeTrue(new Event.eventType('OrientationEvent', '') is Event);
-
-  // AutocompleteErrorEvent
-  shouldBeTrue(new Event.eventType('AutocompleteErrorEvent', '') is AutocompleteErrorEvent);
-  shouldBeTrue(new Event.eventType('AutocompleteErrorEvent', '') is Event);
 }

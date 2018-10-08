@@ -30,9 +30,7 @@
  * compile-error when a constructor's initializer refers to an instance method.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
-
 
 class C {
   C() : v = f {}
@@ -42,5 +40,7 @@ class C {
 }
 
 main() {
-  var c = new C();
+  try {
+    var c = new C();
+  } catch (x) {}
 }

@@ -8,7 +8,6 @@
  */
 import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var f = new DocumentFragment.html('''
@@ -26,7 +25,7 @@ main() {
       <p><input autofocus="autofocus"/></p>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  document.body.queryAll('input')[0].focus();
+  document.body.querySelectorAll('input')[0].focus();
 
-  shouldBe(document.activeElement, document.body.queryAll('input')[0]);
+  shouldBe(document.activeElement, document.body.querySelectorAll('input')[0]);
 }

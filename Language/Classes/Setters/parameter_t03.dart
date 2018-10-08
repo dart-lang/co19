@@ -10,8 +10,6 @@
  * formal parameter list is empty.
  * @compile-error
  * @author iefremov
- * @reviewer pagolubev
- * @reviewer rodionov
  */
 
 class C {
@@ -19,5 +17,7 @@ class C {
 }
 
 main() {
-  (new C()).setter = null;
+  try {
+    (new C()).setter = null;
+  } catch (e) {}
 }

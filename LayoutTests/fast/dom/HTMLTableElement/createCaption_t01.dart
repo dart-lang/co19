@@ -10,7 +10,6 @@
  * If a caption does exist, the method should return a pointer to it.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 main() {
@@ -50,19 +49,21 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
 
   captionfruit() {
-    var x = document.getElementById('fruitTable').createCaption();
+    var x =
+       (document.getElementById('fruitTable') as TableElement).createCaption();
     x.innerHtml="<b>Fruity</b>";
   }
 
   captionveggie() {
-    var x = document.getElementById('veggieTable').createCaption();
+    var x =
+      (document.getElementById('veggieTable') as TableElement).createCaption();
     x.innerHtml="<b>Vegetabley</b>";
   }
 
   captionfruit();
   captionveggie();
 
-  var captions = document.body.queryAll('caption');
+  var captions = document.body.querySelectorAll('caption');
   shouldBe(captions.length, 2);
   shouldBe(captions[0].text, "Fruity");
   shouldBe(captions[1].text, "Vegetabley");

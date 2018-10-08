@@ -4,17 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Float32x4List.view(ByteBuffer buffer, [int byteOffset = 0, int length])
- * Changes in the [Float32x4List] will be visible in the byte
- * buffer and vice versa.
+ * @assertion
+ * Float32x4List.view(
+ *     ByteBuffer buffer, [
+ *     int byteOffset = 0,
+ *     int length
+ * ])
+ * Changes in the [Float32x4List] will be visible in the byte buffer and vice
+ * versa.
  * @description Checks that changes in the [Float32x4List] will be visible in
  * the byte buffer and vice versa.
  * @author msyabro
  */
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pack(v) => new Float32x4.splat(v);
+Float32x4 pack(v) => new Float32x4.splat(v);
 
 equal(obj1, obj2) {
   var res = obj1.equal(obj2);
@@ -22,7 +28,7 @@ equal(obj1, obj2) {
 }
 
 main() {
-  var tmp = new Float32x4List.fromList([pack(0.0),pack(0.0),pack(0.0)]);
+  var tmp = new Float32x4List.fromList([pack(0.0), pack(0.0), pack(0.0)]);
   var byteBuffer = tmp.buffer;
   var l = new Float32x4List.view(byteBuffer, 0, 3);
 

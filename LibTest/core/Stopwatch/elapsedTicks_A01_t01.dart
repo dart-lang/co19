@@ -7,7 +7,8 @@
  * @assertion final int elapsedTicks
  * Returns the elapsed number of clock ticks since calling [start]
  * while the [Stopwatch] is running.
- * Returns the elapsed number of clock ticks between calling [start] and calling [stop].
+ * Returns the elapsed number of clock ticks between calling [start] and calling
+ * [stop].
  * Returns 0 if the [Stopwatch] has never been started.
  * The elapsed number of clock ticks increases by [frequency] every second.
  * @description Checks that the elapsed tick count increases all the time once
@@ -15,30 +16,28 @@
  * @author kaigorodov
  */
 import "dart:async";
-
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
-Duration delay=durationMs(10);
+Duration delay = durationMs(10);
 Stopwatch sw = new Stopwatch();
-int count=5;
+int count = 5;
 int e0;
 
 main() {
   sw.start();
   e0 = sw.elapsedTicks;
   asyncStart();
-  new Timer(delay,proc1);
+  new Timer(delay, proc1);
 }
 
 void proc1() {
   int e1 = sw.elapsedTicks;
-  Expect.isTrue(e1>e0);
-  if (count==0) {
+  Expect.isTrue(e1 > e0);
+  if (count == 0) {
     asyncEnd();
     return;
   }
   count--;
-  e0=e1;
-  new Timer(delay,proc1);
+  e0 = e1;
+  new Timer(delay, proc1);
 }

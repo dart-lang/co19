@@ -7,9 +7,7 @@
  * @description This test ensures that Canvas and CanvasRenderingContext2D work
  * correctly if the rendering context outlives the canvas element
  */
-import "dart:html";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var context;
@@ -33,7 +31,7 @@ main() {
   }
 
   prepareCanvas() {
-    var context = createContext2d("canvas");
+    dynamic context = createContext2d("canvas");
     context.fillStyle = "green";
     context.fillRect(0,0,100,100);
     return context;

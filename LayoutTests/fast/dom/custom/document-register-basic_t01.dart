@@ -7,7 +7,6 @@
  * @description Testing document.register() basic behaviors.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
 import "../../../testcommon.dart";
 
 class Foo extends HtmlElement {
@@ -64,16 +63,16 @@ main() {
   shouldBe(createdFoo.lastChild, childDiv);
 
   debug('Parser initiated instantiation');
-  var container = document.getElementById('container');
+  Element container = document.getElementById('container');
   container.setInnerHtml('<x-foo></x-foo>',
     treeSanitizer: new NullTreeSanitizer());
-  var parsedFoo = container.firstChild;
+  Foo parsedFoo = container.firstChild;
   shouldBeTrue(parsedFoo is Foo);
   shouldBe(parsedFoo.tagName, "X-FOO");
 
   debug('Ensuring the wrapper is retained');
   parsedFoo.someProperty = 'hello';
-  shouldBe(parsedFoo.someProperty, container.firstChild.someProperty);
+  shouldBe(parsedFoo.someProperty, (container.firstChild as Foo).someProperty);
 
   debug('Having another constructor');
   document.register('x-bar', Bar);
@@ -98,9 +97,9 @@ main() {
   container.setInnerHtml('<X-BAR></X-BAR><X-Bar></X-Bar>',
     treeSanitizer: new NullTreeSanitizer());
   shouldBeTrue(container.firstChild is Bar);
-  shouldBe(container.firstChild.tagName, "X-BAR");
+  shouldBe((container.firstChild as Bar).tagName, "X-BAR");
   shouldBeTrue(container.lastChild is Bar);
-  shouldBe(container.lastChild.tagName, "X-BAR");
+  shouldBe((container.lastChild as Element).tagName, "X-BAR");
 
   debug("Constructors shouldn't interfere with each other");
   shouldBe((new Foo()).tagName, "X-FOO");

@@ -8,9 +8,7 @@
  * scaling. A blue and red checkered pattern should be displayed.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   shouldBeAround(a, b) => shouldBeApprox(a, b, 10);
@@ -18,10 +16,10 @@ main() {
   // Create auxiliary canvas to draw to and create an image from.
   // This is done instead of simply loading an image from the file system
   // because that would throw a SECURITY_ERR DOM Exception.
-  var aCanvas = document.createElement('canvas');
+  dynamic aCanvas = document.createElement('canvas');
   aCanvas.setAttribute('width', '50');
   aCanvas.setAttribute('height', '50');
-  var aCtx = aCanvas.getContext('2d');
+  dynamic aCtx = aCanvas.getContext('2d');
 
   // Fill the same canvas.
   aCtx.fillStyle = 'rgba(0, 0, 255, 1)';
@@ -140,7 +138,7 @@ main() {
   img.src = aCanvas.toDataUrl(); // set a data URI of the base64 encoded image as the source
 
   // Create master canvas.
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   document.body.append(canvas);
   canvas.setAttribute('width', '1000');
   canvas.setAttribute('height', '1000');

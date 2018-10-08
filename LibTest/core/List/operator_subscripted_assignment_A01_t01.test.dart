@@ -6,7 +6,8 @@
 /**
  * @assertion  abstract void operator []=(int index, E value)
  * Sets the value at the given index in the list to value.
- * @description Checks that needed element is correctly assigned in fixed size lists. 
+ * @description Checks that needed element is correctly assigned in fixed size
+ * lists.
  * @author kaigorodov
  */
 library operator_subscripted_assignment_A01_t01;
@@ -15,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 test(List create([int length])) {
   List from(List content) {
-    List res=create(content.length);
+    List res = create(content.length);
     res.setRange(0, content.length, content);
     return res;
   }
@@ -33,7 +34,8 @@ test(List create([int length])) {
 
   a = create(3);
   
-  a[0] = 1;a[2] = 3;
+  a[0] = 1;
+  a[2] = 3;
   Expect.listEquals([1, null, 3], a);
   
   a[2] = null;

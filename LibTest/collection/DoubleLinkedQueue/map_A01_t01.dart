@@ -5,9 +5,10 @@
  */
 /**
  * @assertion abstract Iterable map(f(E element))
- * Returns a lazy Iterable where each element e of this is replaced by the result of f(e).
- * This method returns a view of the mapped elements.
- * @description Checks that the resulting Iterable contains all the results of f(e).
+ * Returns a new lazy Iterable with elements that are created by calling f on
+ * each element of this Iterable in iteration order.
+ * @description Checks that the resulting [Iterable] contains all the results of
+ * [f(e)].
  * @author kaigorodov
  */
 
@@ -19,8 +20,8 @@ f(var element) {
 }
     
 void checkResult(DoubleLinkedQueue queue) {
-  int count=0;
-  Iterable mapIter=queue.map(f);
+  int count = 0;
+  Iterable mapIter = queue.map(f);
   for (var el in mapIter) {
     Expect.listEquals(f(queue.elementAt(count)), el);
     count++;
@@ -37,7 +38,7 @@ main() {
   checkResult(queue);
   queue.add(11);
   checkResult(queue);
-  for (int k=-100; k<200; k++) {
+  for (int k = -100; k < 200; k++) {
     queue.add(k);
   }
   checkResult(queue);

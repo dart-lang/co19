@@ -10,11 +10,9 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../testcommon.dart";
 
 main() {
   var x = new Element.html('<div></div>');
   x.innerHtml = '<button>foo</button>';
   Expect.isTrue(x.firstChild is ButtonElement);
-
 }

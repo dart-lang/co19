@@ -12,7 +12,7 @@
  */
 import "../../../Utils/expect.dart";
 
-final List values = const [
+final List<double> values = const [
    .0,
    4.9406564584124654e-324, // min
    2.2250738585072014e-308, // min normal
@@ -39,15 +39,8 @@ final List values = const [
    0/0
 ];
 
-check(double val) {
-  try {
-    val % null;
-    Expect.fail("Error is expected");
-  } on Error catch(e){}
-}
-
 main()  {
   values.forEach((double val) {
-    check(val);
+    Expect.throws(() {val % null;}, (e) => e is Error);
   });
 }

@@ -15,8 +15,6 @@
  * this is a parse error; ignore the token
  */
 
-import 'dart:html';
-import "../../../../Utils/expect.dart";
 import '../../testcommon.dart';
 
 main() {

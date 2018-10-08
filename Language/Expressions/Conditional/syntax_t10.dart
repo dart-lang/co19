@@ -12,6 +12,7 @@
  * ;
  * @description Checks that a reference to a class declaration can be used
  * as the condition in a conditional expression without a compile error.
+ * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
  */
@@ -19,5 +20,5 @@
 class A {}
 
 main() {
-  A ? 1 : 2; /// 01: static type warning, dynamic type error
+  A ? 1 : 2;
 }

@@ -15,5 +15,7 @@
 typedef F<T extends List<F>>();
 
 main() {
-  F<int> x;
+  try {
+    F<int> x;
+  } catch (e) {}
 }

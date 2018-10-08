@@ -10,22 +10,21 @@
  * @description Checks that readyState is changed every time an event is fired.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
   var request = new HttpRequest();
-  var oldState=null;
+  var oldState = null;
   request.open('GET', "test.dart");
   asyncStart();
-  request.onReadyStateChange.listen((event){
-      var newState=request.readyState;
+  request.onReadyStateChange.listen((event) {
+    var newState = request.readyState;
 //  print("  newState=$newState");
-      Expect.isFalse(newState==oldState);
-      oldState=newState;
-      if (HttpRequest.DONE==newState) {
-        asyncEnd();
-      }
-    });
+    Expect.isFalse(newState == oldState);
+    oldState = newState;
+    if (HttpRequest.DONE == newState) {
+      asyncEnd();
+    }
+  });
   request.send();
 }

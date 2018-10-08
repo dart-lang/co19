@@ -6,7 +6,8 @@
 /**
  * @assertion Node clone(bool deep)
  * Returns a copy of this node.
- * If deep is true, then all of this node's children and decendents are copied as well.
+ * If deep is true, then all of this node's children and decendents are copied
+ * as well.
  * If deep is false, then only this node is copied.
  * @description Checks that document is deeply cloned if deep==false.
  * @needsreview issue #16409
@@ -23,13 +24,13 @@ void check(Node n1, Node n2) {
   var ch1 = n1.childNodes;
   var ch2 = n2.childNodes;
   Expect.listEquals(ch1, ch2);
-  for (int k=0; k<ch1.length; k++) {
+  for (int k = 0; k < ch1.length; k++) {
     check(ch1[k], ch2[k]);
   }
 }
 
 main() {
-  Document cd=document.clone(true);
+  Document cd = document.clone(true);
   Expect.isNotNull(cd, "document.clone(true)==null");
   check(document, cd);
 }

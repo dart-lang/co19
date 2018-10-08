@@ -15,7 +15,6 @@
  * specify a default value for its optional parameter.
  * @static-clean
  * @author msyabro
- * @reviewer rodionov
  */
 
 class C {

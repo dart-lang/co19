@@ -14,12 +14,13 @@
  * clause. Class body is empty.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class S {}
 class A extends S
 
 main() {
-  A a = new A();
+  try {
+    new A();
+  } catch (e) {}
 }

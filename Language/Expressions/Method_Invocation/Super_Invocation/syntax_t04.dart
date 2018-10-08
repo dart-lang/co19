@@ -18,7 +18,10 @@ class S {
 
 class A extends S {
   test() {
-    super.f(new Object() new Object());  }
+    try {
+      super.f(new Object() new Object());
+    } catch (e) {}
+  }
 }
 
 main() {

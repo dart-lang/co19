@@ -8,19 +8,18 @@
  */
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
-  var input = document.createElement('input');
+  InputElement input = document.createElement('input') as InputElement;
   input.type = 'datetime-local';
 
-  valueAsNumberFor(stringValue) {
+  num valueAsNumberFor(String stringValue) {
     input.value = stringValue;
     return input.valueAsNumber;
   }
 
-  setValueAsNumberAndGetValue(year, month, day, hour, minute, second, msec) {
-    var date = new DateTime.utc(year, month, day, hour, minute, second, msec);
+  String setValueAsNumberAndGetValue(int year, int month, int day, int hour, int minute, int second, int msec) {
+    DateTime date = new DateTime.utc(year, month, day, hour, minute, second, msec);
     input.valueAsNumber = date.millisecondsSinceEpoch;
     return input.value;
   }
@@ -45,8 +44,8 @@ main() {
   input.valueAsNumber = NaN;
   shouldBeNaN(input.valueAsNumber);
   shouldBeEqualToString(input.value, '');
-  shouldThrow(() => input.valueAsNumber = double.INFINITY);
-  shouldThrow(() => input.valueAsNumber = double.NEGATIVE_INFINITY);
+  shouldThrow(() => input.valueAsNumber = double.infinity);
+  shouldThrow(() => input.valueAsNumber = double.negativeInfinity);
   /*
   shouldBeNaN('input.valueAsNumber = new DateTime.utc(275760, 9, 13, 0, 0, 0, 1); input.valueAsNumber');
   shouldBeEqualToString('input.valueAsNumber = new DateTime.utc(275760, 9, 13, 0, 0, 0, 1); input.value', '');

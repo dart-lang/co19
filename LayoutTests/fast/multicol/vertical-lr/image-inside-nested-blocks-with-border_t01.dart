@@ -22,9 +22,9 @@ const String htmlEL2 = r'''
 
 const String width = "width", height = "height";
 
-Map floatOffset(float) {
+Map floatOffset(Element float) {
     var parentRect = document.getElementById('tests').getBoundingClientRect();
-    Rect rect = float.getBoundingClientRect();
+    Rectangle rect = float.getBoundingClientRect();
     return { width: rect.left - parentRect.left, height: rect.top - parentRect.top  };
 }
 
@@ -37,7 +37,7 @@ void main() {
     document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
     for  (List test in tests) {
-        var float = document.getElementById(test[0]);
+        Element float = document.getElementById(test[0]);
         Map result = floatOffset(float);
         float.style.color = "red";
         shouldBe(result[width], test[1], "width");

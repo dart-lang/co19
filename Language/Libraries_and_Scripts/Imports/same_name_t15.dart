@@ -13,16 +13,16 @@
  * • If N is referenced as a type, it is treated as a malformed type.
  * It is neither an error nor a warning if N is introduced by two or more
  * imports but never referred to.
- * @description Checks that it is a static type warning if two different
+ * @description Checks that it is a compile error if two different
  * libraries introduce the same name (one of them via re-export) to the top
  * level scope of L and L uses it in a type cast expression.
+ * @compile-error
  * @author rodionov
  * @reviewer kaigorodov
  */
-
 import "same_name_t11_p1_lib.dart";
 import "same_name_t11_p2_lib.dart";
 
 main() {
-  1 as foo; /// 01: static type warning, runtime error
+  1 as foo;
 }

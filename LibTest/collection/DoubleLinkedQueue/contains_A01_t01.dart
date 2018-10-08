@@ -5,7 +5,7 @@
  */
 /**
  * @assertion bool contains(Object element)
- * Returns true if the collection contains an element equal to element.
+ * Returns true if the collection contains an element equal to [element].
  * @description Checks that the method returns true if at least one element
  * of this collection equals to element.
  * @author kaigorodov

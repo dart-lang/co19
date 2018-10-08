@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion LinkedHashMap<K, V> abstract class 
- * Implements HashMap<K, V>
- * @description Checks that LinkedHashMap implements HashMap.
+ * @assertion LinkedHashMap<K, V> abstract class implements HashMap<K, V>
+ * A hash-table based implementation of [Map].
+ * @description Checks that [LinkedHashMap] implements [HashMap].
  * @author kaigorodov
  */
 import "dart:collection";

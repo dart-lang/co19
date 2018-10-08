@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The effect of a static getter declaration in class C is to add 
- * an instance getter with the same name and signature to the Type object for 
- * class C that forwards to the static getter.
- * @description Check that static getter declaration doesn/t add the instance
+ * @assertion Otherwise, i is a getter invocation. Let f be the result of looking
+ * up getter m in o with respect to L. If o is an instance of Type but e is not
+ * a constant type literal, then if f is a getter that forwards to a static
+ * getter, getter lookup fails
+ * @description Check that static getter declaration doesn't add the instance
  * getter with the same name to the Type object of this class
- * See https://github.com/dart-lang/sdk/issues/23721
  * @author sgrekhov@unipro.ru
  * @issue 23721
  */

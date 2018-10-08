@@ -8,12 +8,10 @@
  * rect works correctly.
  */
 import "dart:html";
-import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   var ctx = canvas.getContext('2d');
 
   ctx.lineWidth = 10;
@@ -21,7 +19,7 @@ main() {
   ctx.strokeStyle = 'green';
   ctx.strokeRect(0, 0, 100, 100);
 
-  var ctx2 = createContext2d("canvas");
+  dynamic ctx2 = createContext2d("canvas");
 
   ctx2.fillStyle = 'red';
   ctx2.fillRect(0, 0, 100, 100);

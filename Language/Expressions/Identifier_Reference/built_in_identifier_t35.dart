@@ -16,5 +16,8 @@
 class deferred {}
 
 main() {
-  null is deferred;
+  try {
+    null is deferred;
+  } catch (anything) {
+  }
 }

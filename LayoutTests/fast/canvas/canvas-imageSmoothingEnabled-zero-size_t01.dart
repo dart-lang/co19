@@ -7,11 +7,9 @@
  * @description This test passes by not crashing
  */
 import "dart:html";
-import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
-  var canvas = document.createElement('canvas');
+  dynamic canvas = document.createElement('canvas');
   canvas.width = 0;
   canvas.height = 0;
   var context = canvas.getContext('2d');

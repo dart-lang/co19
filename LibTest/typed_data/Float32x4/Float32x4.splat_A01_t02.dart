@@ -14,13 +14,13 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var obj = new Float32x4.splat(0.0/0.0);
+  var obj = new Float32x4.splat(0.0 / 0.0);
   Expect.isTrue(obj.x.isNaN);
   Expect.isTrue(obj.y.isNaN);
   Expect.isTrue(obj.z.isNaN);
   Expect.isTrue(obj.w.isNaN);
 
-  obj = new Float32x4.splat(1.0/0.0);
+  obj = new Float32x4.splat(1.0 / 0.0);
   Expect.isTrue(obj.x.isInfinite);
   Expect.isFalse(obj.x.isNegative);
   Expect.isTrue(obj.y.isInfinite);
@@ -30,7 +30,7 @@ main() {
   Expect.isTrue(obj.w.isInfinite);
   Expect.isFalse(obj.w.isNegative);
 
-  obj = new Float32x4.splat(1.0/-0.0);
+  obj = new Float32x4.splat(1.0 / -0.0);
   Expect.isTrue(obj.x.isInfinite);
   Expect.isTrue(obj.x.isNegative);
   Expect.isTrue(obj.y.isInfinite);

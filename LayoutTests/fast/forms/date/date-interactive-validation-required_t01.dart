@@ -7,12 +7,9 @@
  * @description 
  */
 import "dart:html";
-import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 import "../resources/common-interactive-validation-required.dart";
 
 main() {
-  //asyncStart();
   testInteractiveValidationRequired({
     'expectedValue' : '2012-08-25',
     'inputType' : 'date',

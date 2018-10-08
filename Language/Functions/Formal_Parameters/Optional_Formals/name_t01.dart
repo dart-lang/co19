@@ -14,6 +14,8 @@
  */
 
 main() {
-  void func({var _x}) {}
-  func(_x: 1);
+  try {
+    void func({var _x}) {}
+    func(_x: 1);
+  } catch (x) {}
 }

@@ -6,16 +6,15 @@
 /**
  * @assertion final E first
  * Returns the first element.
- * If this is empty throws a StateError.
- * Otherwise this method is equivalent to this.elementAt(0).
  * @description Checks that a StateError is thrown when this is empty.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
+import "LinkedList.lib.dart";
 
 main() {
-  LinkedList a = new LinkedList();
+  LinkedList<MyLinkedListEntry> a = new LinkedList<MyLinkedListEntry>();
   Expect.throws(() {
       a.first;
     },

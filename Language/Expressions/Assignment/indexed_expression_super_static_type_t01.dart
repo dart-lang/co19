@@ -26,5 +26,4 @@ class D {}
 main() {
   C c = new C();
   c.test();
-
 }
