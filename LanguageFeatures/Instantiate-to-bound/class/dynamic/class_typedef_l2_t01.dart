@@ -44,34 +44,21 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks instantiation to bounds for the class with [typedef]
  *  parameter:
- *    typedef G<X> = Function(X);
- *    class A<X extends G<A<X>>> {}
- * @compile-error
- * @Issue 34560, 34623
+ *  class A<X> {}
+ *  typedef G<X extends A<X>> = X Function();class B<X extends A<G<X>>> {}
+ * @Issue 34560
  * @author iarkh@unipro.ru
  */
 import "dart:async";
 import "../../../../Utils/expect.dart";
 
-typedef G<X> = Function(X);
-class A<X extends G<A<X>>> {}
+class A<X> {}
+typedef G<X extends A<X>> = X Function();
+class B<X extends A<G<X>>> {}
 
 main() {
-  A source;
-  var fsource = toF(source);
-  F<A<G<A<Null>>>> target = fsource;
-
-  F<A<G<A<dynamic>>>> target0 = fsource; //# 01: compile-time error
-
-  F<A<dynamic>> target1 = fsource;             //# 02: compile-time error
-  F<A<G<dynamic>>> target2 = fsource;          //# 03: compile-time error
-  F<A<G<A<G<dynamic>>>>> target3 = fsource;    //# 04: compile-time error
-  F<A<G<A<G<A<dynamic>>>>>> target4 = fsource; //# 05: compile-time error
-
-  F<A<Null>> target5 = fsource;             //# 06: compile-time error
-  F<A<G<Null>>> target6 = fsource;          //# 07: compile-time error
-  F<A<G<A<G<Null>>>>> target7 = fsource;    //# 08: compile-time error
-  F<A<G<A<G<A<Null>>>>>> target8 = fsource; //# 09: compile-time error
-
-  A();  //# 10: compile-time error
+  Expect.equals(
+    typeOf<B<A<G<dynamic>>>>(),
+    typeOf<B>()
+  );
 }
