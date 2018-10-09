@@ -42,18 +42,32 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for class
- *  [A<String, X extends A<Null, A<String,X>>>]
- * @Issue 34727
+ * @description Checks instantiation to bounds for the very simple case: [A<X
+ *  extends num>]
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
 
-class A<Y extends String, X extends A<Null, A<String,X>>> {}
+class A<X extends A<X>> {}
+class B<X extends B<X>> {}
+
+class C<X1 extends A<X1>, X2 extends B<X2>, X3 extends C<A<Null>, B<Null>, X3>> {}
+
+class C1<X1 extends X3, X3 extends C1<Null, C1<X1, X3>>> {}
+
+class C2<X1 extends C2<Null>> {}
+
+class C3<X1 extends X3, X3 extends C1<Null, Null>> {}
+
+class C6<String, X3 extends C6<Null, C6<num, X3>>> {}
+
+class C7<X1 extends C7<X1, X2, X3>, X2 extends X1, X3 extends X2> {}
 
 main() {
-  Expect.equals(
-    typeOf<A<String, A<Null, A<String, dynamic>>>>(),
-    typeOf<A>(),
-  );
+  C7 source;
+  var fsource = toF(source);
+  print (typeOf<C7>());
+
+//  F<C7<dynamic, C7<dynamic, dynamic, dynamic>, dynamic>> target = fsource;
+  C7();
 }

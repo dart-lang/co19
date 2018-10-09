@@ -49,13 +49,13 @@
  */
 import "../../../../Utils/expect.dart";
 
-class A<String, X extends A<Null, A<String,X>>> {}
+class A<Y extends String, X extends A<Null, A<String, X>>> {}
 
 main() {
   A source;
   var fsource = toF(source);
 
-  F<A<dynamic, A<Null, A<dynamic, dynamic>>>> target = fsource;
+  F<A<String, A<Null, A<String, dynamic>>>> target = fsource;
 
   F<A<dynamic, dynamic>> target1 = fsource;                         //# 01: compile-time error
   F<A<dynamic, A<dynamic, A<dynamic, dynamic>>>> target2 = fsource; //# 02: compile-time error

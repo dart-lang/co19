@@ -49,11 +49,11 @@
  */
 import "../../../../Utils/expect.dart";
 
-class A<String, X extends A<void, A<String,X>>> {}
+class A<Y extends String, X extends A<void, A<String,X>>> {}
 
 main() {
   Expect.equals(
-    typeOf<A<dynamic, A<void, A<dynamic, dynamic>>>>(),
+    typeOf<A<String, A<void, A<String, dynamic>>>>(),
     typeOf<A>(),
   );
 }

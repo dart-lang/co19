@@ -55,7 +55,7 @@ main() {
   A source;
   var fsource = toF(source);
 
-  F<A<dynamic, A<void, A<dynamic, dynamic>>>> target = fsource;
+  F<A<String, A<void, A<String, dynamic>>>> target = fsource;
 
   F<A<dynamic, dynamic>> target1 = fsource;                         //# 01: compile-time error
   F<A<dynamic, A<dynamic, A<dynamic, dynamic>>>> target2 = fsource; //# 02: compile-time error

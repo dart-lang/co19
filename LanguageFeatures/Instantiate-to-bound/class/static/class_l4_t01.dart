@@ -42,18 +42,31 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for class
- *  [A<String, X extends A<Null, A<String,X>>>]
- * @Issue 34727
+ * @description Checks that instantiate-to-bounds works as expected for the
+ * classes:
+ *   class A<X> {}
+ *   class B<X> extends A<X> {}
+ *   class G<X1 extends A<X1>, X2 extends A<X1>, X3 extends B, X4 extends X2> {}
+ * @compile-error
+ * @Issue 34264, 34560
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
 
-class A<Y extends String, X extends A<Null, A<String,X>>> {}
+class A<X> {}
+class B<X> extends A<X> {}
+
+class G<X1 extends A<X1>, X2 extends A<X1>, X3 extends B, X4 extends X2> {}
 
 main() {
-  Expect.equals(
-    typeOf<A<String, A<Null, A<String, dynamic>>>>(),
-    typeOf<A>(),
-  );
+  G source;
+
+  var fsource = toF(source);
+
+  F<G<A<dynamic>, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>> target = fsource;
+
+  F<G<A<dynamic>, A<dynamic>, B<dynamic>, A<dynamic>>> target1 = fsource;       //# 01: compile-time error
+  F<G<A<dynamic>, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>> target2 = fsource; //# 02: compile-time error
+
+  G(); //# 03: compile-time error
 }
