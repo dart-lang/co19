@@ -46,6 +46,7 @@
  *  parameter:
  *    typedef G<X> = X Function();
  *    class A<X extends G<A<X>>> {}
+ * @compile-error
  * @Issue 34560, 34623
  * @author iarkh@unipro.ru
  */
