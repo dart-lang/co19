@@ -13,27 +13,34 @@
  * It is a compile time error for the mixin declaration if this class
  * declarations would not be valid.
  *
- * @description Checks that it is a compile-time error for the mixin declaration
- * if its super classes contain getters with the same name and different return
- * types.
- * @compile-error
- * @author ngl@unipro.ru
+ * @description Checks that mixin declaration may have no implementation of all
+ * declared methods and properties
+ * @author sgrekhov@unipro.ru
  */
 
-class I {
-  int get i1 => 1;
+abstract class I {
+  int get i1;
+  void i2();
+  void set i3(int);
 }
-class J {}
+abstract class J {
+  int get j1;
+  void j2();
+  void set j3(int);
+}
 
-class B {
-  double get i1 => 2.0;
+abstract class B {
+  int get b1;
+  void b2();
+  void set b3(int);
 }
-class C {}
+abstract class C {
+  int get c1;
+  void c2();
+  void set c3(int);
+}
 
 mixin M on B, C implements I, J {}
 
-class MA with M {}
-
 main() {
-  new MA();
 }

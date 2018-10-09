@@ -13,8 +13,7 @@
  *
  * @description Checks that there is no compile error if a mixin is applied to a
  * class that implements all the 'on' type requirements of the mixin
- * declaration. Test 'extends' implementation of 'on' clause interfaces
- * @author ngl@unipro.ru
+ * declaration. Test 'mixin' implementation of 'on' clause interfaces
  * @author sgrekhov@unipro.ru
  */
 import "../../Utils/expect.dart";
@@ -28,14 +27,15 @@ class A {
   }
   String a3() => "A.a3";
 }
-abstract class B extends A {
+abstract class B {
   String get b1;
   void set b2(String v);
   String b3();
 }
-class C extends B {
+
+class C extends B with A {
   String get b1 => "C.b1";
-  void set b2(String v) {
+  set b2(String v) {
     console = "C:$v";
   }
   String b3() => "C.b3";

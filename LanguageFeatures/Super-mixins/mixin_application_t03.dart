@@ -11,43 +11,67 @@
  * implementation of the super-invoked members compatible with the
  * super-constraint interface.
  *
- * @description Checks that it is not a compile error to apply a mixin to a
+ * @description Checks that there is no compile error if a mixin is applied to a
  * class that implements all the 'on' type requirements of the mixin
- * declaration.
- * @author ngl@unipro.ru
+ * declaration. Test 'implements' implementation of 'on' clause interfaces
+ * @author sgrekhov@unipro.ru
  */
+import "../../Utils/expect.dart";
 
-class I {}
-class J {}
+String console;
 
-abstract class B<X extends num> {
-  X get gi;
-  set si(X p);
-  X f();
+class A {
+  String get a1 => "A.a1";
+  set a2(String v) {
+    console = "A:$v";
+  }
+  String a3() => "A.a3";
+}
+abstract class B {
+  String get b1;
+  void set b2(String v);
+  String b3();
+}
+class C implements A, B {
+  String get a1 => "C.a1";
+  set a2(String v) {
+    console = "C:$v";
+  }
+  String a3() => "C.a3";
+
+  String get b1 => "C.b1";
+  void set b2(String v) {
+    console = "C:$v";
+  }
+  String b3() => "C.b3";
 }
 
-abstract class C<Y extends num> {
-  Y get gj;
-  set sj(Y p);
-  Y g();
+mixin M on A, B {
+  String get m1 => "m1";
+  void set m2(String v) {
+    console = "M:$v";
+  }
+  String m3() => "m3";
 }
 
-mixin M<X, Y> on B, C implements I, J {
-  int f1();
-}
-
-class MA<X, Y> with M {
-  num i = 1;
-  num j = 2;
-  num get gi => i;
-  set si(num p) => i = p;
-  num f() => 11;
-  num get gj => j;
-  set sj(num p) => j = p;
-  num g() => 12;
-  int f1() => 3;
+class MA extends C with M {
 }
 
 main() {
-  new MA<int, int>();
+  MA ma = new MA();
+
+  Expect.equals("C.a1", ma.a1);
+  ma.a2 = "a2";
+  Expect.equals("C:a2", console);
+  Expect.equals("C.a3", ma.a3());
+
+  Expect.equals("C.b1", ma.b1);
+  ma.b2 = "b2";
+  Expect.equals("C:b2", console);
+  Expect.equals("C.b3", ma.b3());
+
+  Expect.equals("m1", ma.m1);
+  ma.m2 = "m2";
+  Expect.equals("M:m2", console);
+  Expect.equals("m3", ma.m3());
 }

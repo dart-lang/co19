@@ -14,26 +14,23 @@
  * declarations would not be valid.
  *
  * @description Checks that it is a compile-time error for the mixin declaration
- * if classes from implements clause contain methods with the same name and
- * different return types.
+ * if its super classes contain getters with the same name and different return
+ * types. Test several interfaces in 'on' and 'implements' clauses
  * @compile-error
  * @author ngl@unipro.ru
  */
 
 class I {
-  int i1() => 1;
+  int get i1 => 1;
 }
-class J {
-  double i1() => 2.0;
-}
+class J {}
 
-class B {}
+class B {
+  double get i1 => 2.0;
+}
 class C {}
 
 mixin M on B, C implements I, J {}
 
-class MA with M {}
-
 main() {
-  new MA();
 }
