@@ -35,7 +35,7 @@ mixin M2 on B, C implements I, J {
 }
 
 mixin M3 on B, C implements I, J {
-  set M3(p);    //# 03: compile-time error
+  void set M3(p);    //# 03: compile-time error
 }
 
 mixin M4 on B, C implements I, J {

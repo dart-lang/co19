@@ -16,39 +16,58 @@
  * declaration.
  * @compile-error
  * @author ngl@unipro.ru
+ * @author sgrekhov@unipro.ru
  */
 
-class I {}
-class J {}
+abstract class I {
+  int get i;
+}
+abstract class J {
+  int get j;
+}
 
 abstract class B {
-  int get gi;
-  set si(int p);
-  int f();
+  int get b;
 }
-class C {}
-
-mixin M on B, C implements I, J {}
-
-class MA1 with M {} //# 01: compile-time error
-
-class MA2 with M {  //# 02: compile-time error
-  int i = 1;
-  int get gi => i;
-  set si(int p) => i = p;
+abstract class C {
+  int get c;
 }
 
-class MA3 with M {  //# 03: compile-time error
-  int i = 1;
-  int get gi => i;
-  int f() => 1;
+mixin M on B, C implements I, J {
+  int get m;
 }
 
-class MA4 with M {  //# 04: compile-time error
-  int i = 1;
-  set si(int p) => i = p + 1;
-  int f() => 2;
+//  int get i;   not implemented
+class A {           //# 01: compile-time error
+  int get j => 2;   //# 01: compile-time error
+  int get b => 3;   //# 01: compile-time error
+  int get c => 4;   //# 01: compile-time error
+}                   //# 01: compile-time error
+
+//  int get j;   not implemented
+class A {           //# 02: compile-time error
+  int get i => 1;   //# 02: compile-time error
+  int get b => 3;   //# 02: compile-time error
+  int get c => 4;   //# 02: compile-time error
+}                   //# 02: compile-time error
+
+//  int get b;   not implemented
+class A {           //# 03: compile-time error
+  int get i => 1;   //# 03: compile-time error
+  int get j => 2;   //# 03: compile-time error
+  int get c => 4;   //# 03: compile-time error
+}                   //# 03: compile-time error
+
+//  int get c;   not implemented
+class A {           //# 04: compile-time error
+  int get i => 1;   //# 04: compile-time error
+  int get j => 2;   //# 04: compile-time error
+  int get b => 3;   //# 04: compile-time error
+}                   //# 04: compile-time error
+
+class MA extends A with M {
 }
 
 main() {
+  new MA();
 }

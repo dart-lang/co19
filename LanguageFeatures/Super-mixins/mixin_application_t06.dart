@@ -13,13 +13,26 @@
  *
  * @description Checks that there is no compile error if a mixin is applied to a
  * class that implements all the 'on' type requirements of the mixin
- * declaration. Test 'extends' implementation of 'on' clause interfaces
- * @author ngl@unipro.ru
+ * declaration. Test 'mixin' implementation of 'on' clause interfaces and
+ * 'implements' part of the mixin
  * @author sgrekhov@unipro.ru
  */
 import "../../Utils/expect.dart";
 
 String console;
+
+class I {
+  String get i1 => "I.i1";
+  set i2(String v) {
+    console = "I:$v";
+  }
+  String i3() => "I.i3";
+}
+abstract class J {
+  String get j1;
+  void set j2(String v);
+  String j3();
+}
 
 class A {
   String get a1 => "A.a1";
@@ -33,20 +46,33 @@ abstract class B extends A {
   void set b2(String v);
   String b3();
 }
-class C extends B {
+class C extends B with A implements J {
   String get b1 => "C.b1";
   void set b2(String v) {
     console = "C:$v";
   }
   String b3() => "C.b3";
+
+  String get j1 => "J.j1";
+  set j2(String v) {
+    console = "J:$v";
+  }
+  String j3() => "J.j3";
+
 }
 
-mixin M on A, B {
+mixin M on A, B implements I, J {
   String get m1 => "m1";
   void set m2(String v) {
     console = "M:$v";
   }
   String m3() => "m3";
+
+  String get i1 => "I.i1";
+  set i2(String v) {
+    console = "I:$v";
+  }
+  String i3() => "I.i3";
 }
 
 class MA extends C with M {
