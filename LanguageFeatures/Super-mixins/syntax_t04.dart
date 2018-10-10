@@ -14,11 +14,13 @@
  */
 
 class B {}
-class C {}
+class C extends B {}
 
 mixin M on B, C {}
 
-class MA with M {}
+class A extends C {}
+
+class MA extends A with M {}
 
 main() {
   new MA();

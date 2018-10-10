@@ -4,17 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A mixin declaration syntax separate from class declarations:
- * mixinDeclaration :
- *   metadata? 'mixin' identifier typeParameters? ('on' types)?
- *     ('implements' types)? '{' mixinMember* '}'
+ * @assertion The mixinMember production allows the same instance or static
+ * members that a class would allow, but no constructors (for now).
  *
- * @description Checks that mixin declaration above is correct.
+ * @description Checks that mixin declaration doesn't allow constructors.
  * @author ngl@unipro.ru
  */
-
-class S {}
-class T {}
 
 class I {}
 class J {}
@@ -22,7 +17,9 @@ class J {}
 class B {}
 class C {}
 
-mixin M<X extends S, Y extends T> on B, C implements I, J {}
+mixin M on B, C implements I, J {
+  M() {}
+}
 
 class A implements B, C, I, J {}
 

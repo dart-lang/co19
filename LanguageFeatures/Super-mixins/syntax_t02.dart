@@ -21,7 +21,9 @@ class C {}
 
 mixin M on B, C implements I, J {}
 
-class MA with M {}
+class A implements B, C, I, J {}
+
+class MA extends A with M {}
 
 main() {
   new MA();

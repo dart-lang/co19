@@ -7,8 +7,9 @@
  * @assertion The mixinMember production allows the same instance or static
  * members that a class would allow, but no constructors (for now).
  *
- * @description Checks that mixin declaration doesn't allow constructors.
- * @author ngl@unipro.ru
+ * @description Checks that mixin declaration doesn't allow constructors. Test
+ * named constructor
+ * @author sgrekhov@unipro.ru
  */
 
 class I {}
@@ -18,10 +19,12 @@ class B {}
 class C {}
 
 mixin M on B, C implements I, J {
-  M() {}
+  M.named() {}
 }
 
-class MA with M {}
+class A implements B, C, I, J {}
+
+class MA extends A with M {}
 
 main() {
   new MA();
