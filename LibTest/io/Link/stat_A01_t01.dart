@@ -25,8 +25,9 @@ main() {
   asyncStart();
   link.stat().then((FileStat fs) {
     Expect.equals(FileSystemEntityType.link, fs.type);
-    asyncEnd();
   }).whenComplete(() {
     deleteLinkWithTarget(link);
+  }).then((_) {
+    asyncEnd();
   });
 }
