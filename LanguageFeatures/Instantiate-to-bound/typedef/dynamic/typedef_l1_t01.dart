@@ -48,8 +48,6 @@
  */
 import "../../../../Utils/expect.dart";
 
-class A<X> {}
-
 typedef F_ret<X extends num> = X Function();
 typedef F_param<X extends num> = Function(X);
 
