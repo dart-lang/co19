@@ -23,16 +23,17 @@ main() {
   File file = getTempFileSync();
   asyncStart();
   file.stat().then((FileStat fs) {
-    FileStat.stat(file.path).then((FileStat fs2) {
+    return FileStat.stat(file.path).then((FileStat fs2) {
       Expect.equals(fs2.type, fs.type);
       Expect.equals(fs2.mode, fs.mode);
       Expect.equals(fs2.changed, fs.changed);
       Expect.equals(fs2.modified, fs.modified);
       Expect.equals(fs2.size, fs.size);
       Expect.equals(fs2.accessed, fs.accessed);
-      asyncEnd();
     });
   }).whenComplete(() {
-    file.delete();
+    return file.delete();
+  }).then((_) {
+    asyncEnd();
   });
 }

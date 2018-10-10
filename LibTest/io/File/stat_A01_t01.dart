@@ -25,8 +25,9 @@ main() {
   asyncStart();
   file.stat().then((FileStat fs) {
     Expect.equals(FileSystemEntityType.file, fs.type);
-    asyncEnd();
   }).whenComplete(() {
-    file.delete(recursive: true);
+    return file.delete(recursive: true);
+  }).then((_) {
+    asyncEnd();
   });
 }

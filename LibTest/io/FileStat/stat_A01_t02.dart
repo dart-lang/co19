@@ -29,8 +29,9 @@ main() {
     Expect.equals(file.statSync().accessed, fs.accessed);
     Expect.equals(file.statSync().changed, fs.changed);
     Expect.equals(file.statSync().modified, fs.modified);
-    asyncEnd();
   }).whenComplete(() {
-    file.delete();
+    return file.delete();
+  }).then((_) {
+    asyncEnd();
   });
 }

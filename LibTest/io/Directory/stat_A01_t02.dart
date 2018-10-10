@@ -23,16 +23,17 @@ main() {
   Directory dir = getTempDirectorySync();
   asyncStart();
   dir.stat().then((FileStat fs) {
-    FileStat.stat(dir.path).then((FileStat fs2) {
+    return FileStat.stat(dir.path).then((FileStat fs2) {
       Expect.equals(fs2.type, fs.type);
       Expect.equals(fs2.mode, fs.mode);
       Expect.equals(fs2.changed, fs.changed);
       Expect.equals(fs2.modified, fs.modified);
       Expect.equals(fs2.size, fs.size);
       Expect.equals(fs2.accessed, fs.accessed);
-      asyncEnd();
     });
   }).whenComplete(() {
-    dir.delete(recursive: true);
+    return dir.delete(recursive: true);
+  }).then((_) {
+    asyncEnd();
   });
 }
