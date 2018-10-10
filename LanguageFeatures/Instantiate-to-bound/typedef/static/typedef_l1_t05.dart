@@ -43,20 +43,20 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for [typedef
- *  G<X extends List<X>> = X Function()]
- * @Issue 34559
+ *  G<X extends List<X>> = Function(X)]
+ * @Issue 34699
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
 
-typedef G<X extends List<X>> = X Function();
+typedef G<X extends List<X>> = Function(X);
 
 main() {
   G source;
   var fsource = toF(source);
-  F<G<List<dynamic>>> target = fsource;
+  F<G<List<Null>>> target = fsource;
 
-  F<G<List<Null>>> target1 = fsource;             //# 01: compile-time error
+  F<G<List<dynamic>>> target1 = fsource;          //# 01: compile-time error
 
   F<G<dynamic>> target2 = fsource;                //# 02: compile-time error
   F<G<List<G<dynamic>>>> target3 = fsource;       //# 03: compile-time error

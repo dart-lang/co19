@@ -42,28 +42,21 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works correctly for:
- *   class A<X extends A<X>> {}
- *   typedef G<X extends A<X>> = X Function();
+ * @description Checks that instantiate-to-bounds works correctly for [typedef
+ *  G<X, Y extends X> = X Function(Y)]
+ * @Issue 34699
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
 
-class A<X extends A<X>> {}
-typedef G<X extends A<X>> = X Function();
+typedef G<X, Y extends X> = X Function(Y);
 
 main() {
   G source;
   var fsource = toF(source);
-  F<G<A<dynamic>>> target = fsource;
+  F<G<dynamic, Null>> target = fsource;
 
-  F<G<A<Null>>> target1 = fsource;          //# 01: compile-time error
-
-  F<G<dynamic>> target2 = fsource;          //# 02: compile-time error
-  F<G<A<G<dynamic>>>> target3 = fsource;    //# 03: compile-time error
-  F<G<A<G<A<dynamic>>>>> target4 = fsource; //# 04: compile-time error
-
-  F<G<Null>> target5 = fsource;             //# 05: compile-time error
-  F<G<A<G<Null>>>> target6 = fsource;       //# 06: compile-time error
-  F<G<A<G<A<Null>>>>> target7 = fsource;    //# 07: compile-time error
+  F<G<Null, dynamic>> target1 = fsource;    //# 01: compile-time error
+  F<G<Null, Null>> target2 = fsource;       //# 02: compile-time error
+  F<G<dynamic, dynamic>> target3 = fsource; //# 03: compile-time error
 }
