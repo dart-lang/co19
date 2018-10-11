@@ -23,9 +23,6 @@ class C {
       '${(const [0]).removeLast()}';
     }, (e) => e is UnsupportedError);
     Expect.throws(() {
-      '${null.someMethod()}';
-    }, (e) => e is NoSuchMethodError);
-    Expect.throws(() {
       '${id()}';
     }, (e) => e is NoSuchMethodError);
   }
