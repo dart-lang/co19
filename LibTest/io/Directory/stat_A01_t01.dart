@@ -25,8 +25,9 @@ main() {
   asyncStart();
   dir.stat().then((FileStat fs) {
     Expect.equals(FileSystemEntityType.directory, fs.type);
-    asyncEnd();
   }).whenComplete(() {
-    dir.delete(recursive: true);
+    return dir.delete(recursive: true);
+  }).then((_) {
+    asyncEnd();
   });
 }
