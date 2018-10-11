@@ -9,12 +9,12 @@
  * @description Checks that if evaluation of expression e results in exception,
  * string interpolation 's1${e}s2' raises the same exception.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 
 class C {
   var id;
+  dynamic x = null;
   test() {
     Expect.throws(() {
       '${[][10]}';
@@ -22,6 +22,9 @@ class C {
     Expect.throws(() {
       '${(const [0]).removeLast()}';
     }, (e) => e is UnsupportedError);
+    Expect.throws(() {
+      '${x.someMethod()}';
+    }, (e) => e is NoSuchMethodError);
     Expect.throws(() {
       '${id()}';
     }, (e) => e is NoSuchMethodError);
