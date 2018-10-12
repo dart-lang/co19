@@ -8,34 +8,38 @@
  * Shuffles the elements of this list randomly.
  * @description Checks that [this] is shuffled randomly.
  * @author ngl@unipro.ru
+ * @author sgrekhov@unipro.ru
  */
-
 import "dart:typed_data";
-import "dart:math";
 import "../../../Utils/expect.dart";
 
-check(List<int> list, Int64List sl) {
+bool isOrderChanged(List<int> list, Int64List sl) {
   Expect.equals(list.length, sl.length);
-
-  bool p = true;
+  bool found = false;
+  bool moved = false;
   for (int i = 0; i < list.length; i++) {
-    Expect.isTrue(sl.contains(list[i]), "Element ${list[i]} is not in sl");
-    if (sl[i] != list[i]) p = false;
+    for (int j = 0; j < list.length; j++) {
+      if (list[i] == sl[j]) {
+        found = true;
+        if (i != j) moved = true;
+        break;
+      }
+    }
+    Expect.isTrue(found, "Element ${list[i]} not found in shuffled list");
   }
-  Expect.isFalse(p, "sl wasn't shuffled");
+  return moved;
 }
 
 main() {
   List<int> list = [0, 1, 2, 3, 4, 5];
-  var sl = new Int64List.fromList(list);
-  sl.shuffle();
-  check(list, sl);
-
-  sl = new Int64List.fromList(list);
-  sl.shuffle(new Random());
-  check(list, sl);
-
-  sl = new Int64List.fromList(list);
-  sl.shuffle(new Random(6));
-  check(list, sl);
+  var counter = 0;
+  for (int i = 0; i < 10; i++) {
+    var sl = new Int64List.fromList(list);
+    sl.shuffle();
+    if (!isOrderChanged(list, sl)) {
+      counter++;
+    }
+  }
+  /* We allow a couple of shuffles return data in the same order */
+  Expect.isTrue(counter < 3);
 }

@@ -15,10 +15,10 @@ import "dart:math";
 import "../../../Utils/expect.dart";
 
 main() {
-  List<double> list = [0.0, 1.0, 2.0, 3.0, 4.0, 5.0];
-  var shuffled1 = new Float64List.fromList(list);
+  List<int> list = [0, 1, 2, 3, 4, 5];
+  var shuffled1 = new Uint8List.fromList(list);
   shuffled1.shuffle(new Random(6));
-  var shuffled2 = new Float64List.fromList(list);
+  var shuffled2 = new Uint8List.fromList(list);
   shuffled2.shuffle(new Random(6));
 
   Expect.listEquals(shuffled1, shuffled2);

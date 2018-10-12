@@ -8,40 +8,38 @@
  * Shuffles the elements of this list randomly.
  * @description Checks that [this] is shuffled randomly.
  * @author ngl@unipro.ru
+ * @author sgrekhov@unipro.ru
  */
-
 import "dart:typed_data";
-import "dart:math";
 import "../../../Utils/expect.dart";
 
-check(List<int> list, Uint8List sl) {
+bool isOrderChanged(List<int> list, Uint8List sl) {
   Expect.equals(list.length, sl.length);
-  bool p1 = false;
-  bool p2 = true;
+  bool found = false;
+  bool moved = false;
   for (int i = 0; i < list.length; i++) {
     for (int j = 0; j < list.length; j++) {
       if (list[i] == sl[j]) {
-        p1 = true;
-        if (i != j) p2 = false;
+        found = true;
+        if (i != j) moved = true;
         break;
       }
     }
-    Expect.isTrue(p1, "Element ${list[i]} is not in sl");
+    Expect.isTrue(found, "Element ${list[i]} not found in shuffled list");
   }
-  Expect.isFalse(p2, "sl wasn't shuffled");
+  return moved;
 }
 
 main() {
-  var list = [1, 2, 3, 4, 5, 6];
-  var sl = new Uint8List.fromList(list);
-  sl.shuffle();
-  check(list, sl);
-
-  sl = new Uint8List.fromList(list);
-  sl.shuffle(new Random());
-  check(list, sl);
-
-  sl = new Uint8List.fromList(list);
-  sl.shuffle(new Random(6));
-  check(list, sl);
+  List<int> list = [0, 1, 2, 3, 4, 5];
+  var counter = 0;
+  for (int i = 0; i < 10; i++) {
+    var sl = new Uint8List.fromList(list);
+    sl.shuffle();
+    if (!isOrderChanged(list, sl)) {
+      counter++;
+    }
+  }
+  /* We allow a couple of shuffles return data in the same order */
+  Expect.isTrue(counter < 3);
 }

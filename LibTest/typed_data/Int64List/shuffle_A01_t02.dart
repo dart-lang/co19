@@ -13,7 +13,7 @@ import "dart:typed_data";
 import "dart:math";
 import "../../../Utils/expect.dart";
 
-bool isOrderChanged(List<double> list, Float64List sl) {
+bool isOrderChanged(List<int> list, Int64List sl) {
   Expect.equals(list.length, sl.length);
   bool found = false;
   bool moved = false;
@@ -31,10 +31,10 @@ bool isOrderChanged(List<double> list, Float64List sl) {
 }
 
 main() {
-  List<double> list = [0.0, 1.0, 2.0, 3.0, 4.0, 5.0];
+  List<int> list = [0, 1, 2, 3, 4, 5];
   var counter = 0;
   for (int i = 0; i < 10; i++) {
-    var sl = new Float64List.fromList(list);
+    var sl = new Int64List.fromList(list);
     sl.shuffle(new Random());
     if (!isOrderChanged(list, sl)) {
       counter++;
