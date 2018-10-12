@@ -13,19 +13,13 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-i32x4p(n) => new Int32x4(n, n + 1, n + 2, n + 3);
-
-equal(o1, o2) {
-  return o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
-}
-
-bool isOrderChanged(List<Int32x4> list, Int32x4List sl) {
+bool isOrderChanged(List<double> list, Float64List sl) {
   Expect.equals(list.length, sl.length);
   bool moved = false;
   for (int i = 0; i < list.length; i++) {
     bool found = false;
     for (int j = 0; j < list.length; j++) {
-      if (equal(list[i], sl[j])) {
+      if (list[i] == sl[j]) {
         found = true;
         if (i != j) moved = true;
         break;
@@ -37,11 +31,10 @@ bool isOrderChanged(List<Int32x4> list, Int32x4List sl) {
 }
 
 main() {
-  List<Int32x4> list = [i32x4p(1), i32x4p(2), i32x4p(3), i32x4p(4), i32x4p(5),
-                        i32x4p(6)];
+  List<double> list = [0.0, 1.0, 2.0, 3.0, 4.0, 5.0];
   var counter = 0;
   for (int i = 0; i < 10; i++) {
-    var sl = new Int32x4List.fromList(list);
+    var sl = new Float64List.fromList(list);
     sl.shuffle();
     if (!isOrderChanged(list, sl)) {
       counter++;

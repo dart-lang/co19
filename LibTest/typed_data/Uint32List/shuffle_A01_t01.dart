@@ -15,9 +15,9 @@ import "../../../Utils/expect.dart";
 
 bool isOrderChanged(List<int> list, Uint32List sl) {
   Expect.equals(list.length, sl.length);
-  bool found = false;
   bool moved = false;
   for (int i = 0; i < list.length; i++) {
+    bool found = false;
     for (int j = 0; j < list.length; j++) {
       if (list[i] == sl[j]) {
         found = true;

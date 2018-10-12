@@ -17,9 +17,9 @@ f64x2(x, y) => new Float64x2(x, y);
 
 bool isOrderChanged(List<Float64x2> list, Float64x2List sl) {
   Expect.equals(list.length, sl.length);
-  bool found = false;
   bool moved = false;
   for (int i = 0; i < list.length; i++) {
+    bool found = false;
     for (int j = 0; j < list.length; j++) {
       if (list[i].x == sl[j].x && list[i].y == sl[j].y) {
         found = true;

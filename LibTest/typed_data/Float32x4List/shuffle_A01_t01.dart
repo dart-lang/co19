@@ -22,9 +22,9 @@ equal(obj1, obj2) {
 
 bool isOrderChanged(List<Float32x4> list, Float32x4List sl) {
   Expect.equals(list.length, sl.length);
-  bool found = false;
   bool moved = false;
   for (int i = 0; i < list.length; i++) {
+    bool found = false;
     for (int j = 0; j < list.length; j++) {
       if (equal(list[i], sl[j])) {
         found = true;
