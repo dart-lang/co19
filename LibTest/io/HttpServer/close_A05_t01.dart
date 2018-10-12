@@ -23,7 +23,7 @@ test() async {
   String helloWorld = 'Hello, test world!';
   HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   int port = server.port;
-  server.close(force: true);
+  await server.close(force: true);
   server = await HttpServer.bind(InternetAddress.loopbackIPv4, port);
 
   asyncStart();
