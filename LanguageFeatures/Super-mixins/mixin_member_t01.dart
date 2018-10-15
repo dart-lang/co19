@@ -8,9 +8,11 @@
  * members that a class would allow, but no constructors (for now).
  *
  * @description Checks that mixin declaration allows same instance or static
- * members that a class would allow.
+ * members that a class would allow. Test abstract members
  * @author ngl@unipro.ru
+ * @author sgrekhov@unipro.ru
  */
+import "../../Utils/expect.dart";
 
 class I {}
 class J {}
@@ -19,27 +21,42 @@ class B {}
 class C {}
 
 mixin M on B, C implements I, J {
-  static int s1 = 1;
-  static int get gs => s1;
-  static set ss(int v) {
-    s1 = v;
+  static String s = "S.s";
+  static String get gs => s;
+  static set ss(String v) {
+    s = v;
   }
-  static num sf() => 11;
-  int i1;
-  int get gi;
-  set si(int v);
-  num mi();
+  static String sf() => "S.sf()";
+
+  String i;
+  String get gi;
+  set si(String v);
+  String mi();
 }
 
-class MA with M {
-  int i1 = 2;
-  int get gi => i1;
-  set si(int v) {
-    i1 = v;
+class A implements B, C, I, J {
+}
+
+class MA extends A with M {
+  String i = "MA.i";
+  String get gi => i;
+  set si(String v) {
+    i = v;
   }
-  num mi() => 22;
+  String mi() => "MA.mi()";
 }
 
 main() {
-  new MA();
+  Expect.equals("S.s", M.s);
+  Expect.equals("S.sf()", M.sf());
+  Expect.equals("S.s", M.gs);
+  M.ss = "x";
+  Expect.equals("x", M.gs);
+
+  MA ma = new MA();
+  Expect.equals("MA.i", ma.i);
+  Expect.equals("MA.mi()", ma.mi());
+  Expect.equals("MA.i", ma.gi);
+  ma.si = "xx";
+  Expect.equals("xx", ma.gi);
 }

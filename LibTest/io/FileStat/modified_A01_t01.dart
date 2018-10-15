@@ -20,7 +20,7 @@ main() {
   asyncStart();
     FileStat.stat(file.path).then((FileStat fs) {
       DateTime modified1 = fs.modified;
-      file.writeAsBytes([1, 2, 3]).timeout(new Duration(seconds: 2)).then((_) {
+      file.writeAsBytes([1, 2, 3]).then((_) {
         try {
           FileStat fs2 = FileStat.statSync(file.path);
           if (Platform.isWindows) {

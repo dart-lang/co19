@@ -8,6 +8,7 @@
  * members that a class would allow, but no constructors (for now).
  *
  * @description Checks that mixin declaration doesn't allow constructors.
+ * @compile-error
  * @author ngl@unipro.ru
  */
 
@@ -21,7 +22,9 @@ mixin M on B, C implements I, J {
   M() {}
 }
 
-class MA with M {}
+class A implements B, C, I, J {}
+
+class MA extends A with M {}
 
 main() {
   new MA();

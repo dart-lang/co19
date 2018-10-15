@@ -29,12 +29,13 @@ main() {
     Expect.equals(FileSystemEvent.modify, event.type);
     asyncEnd();
   });
-  link.update(target2.path).then((_) {}).timeout(new Duration(seconds: 1)).then((_) {
-    target2.createTempSync();
-    s.cancel().then((_) {
-      target1.delete(recursive: true);
-      target2.delete(recursive: true);
-      link.delete();
+  link.update(target2.path).then((_) {
+    new Future.delayed(new Duration(seconds: 1), () {
+      s.cancel().then((_) {
+        target1.delete(recursive: true);
+        target2.delete(recursive: true);
+        link.delete();
+      });
     });
   });
 }

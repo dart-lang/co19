@@ -21,6 +21,7 @@ class B {}
 class C {}
 
 const IM = 1;
+
 class AM {
   const AM();
 }

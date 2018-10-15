@@ -23,9 +23,11 @@ main() {
     Expect.isTrue((event as FileSystemCreateEvent).isDirectory);
     asyncEnd();
   });
-  dir.createTemp().timeout(new Duration(seconds: 1)).then((_) {
-    s.cancel().then((_) {
-      dir.delete(recursive: true);
+  dir.createTemp().then((_) {
+    new Future.delayed(new Duration(seconds: 1), () {
+      s.cancel().then((_) {
+        dir.delete(recursive: true);
+      });
     });
   });
 }

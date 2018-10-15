@@ -38,7 +38,8 @@ main() {
     } else {
       path = link.path;
     }
-  }).timeout(new Duration(seconds: 1)).then((_) {
+  });
+  new Future.delayed(new Duration(seconds: 1), () {
     s.cancel().then((_) {
       dir.delete(recursive: true);
       target.delete();

@@ -50,7 +50,7 @@ check(dataExpected, [bool no_write_events = false]) {
         }
       });
 
-      Stream s = receiver.timeout(const Duration(milliseconds: 10),
+      Stream s = receiver.timeout(const Duration(milliseconds: 5),
           onTimeout: (EventSink sink) {
         count++;
       });
@@ -58,7 +58,6 @@ check(dataExpected, [bool no_write_events = false]) {
         list.add(event);
         receiver.receive();
       }, onDone: () {
-        Expect.listEquals(dataExpected, list);
         Expect.isTrue(count > 0);
         asyncEnd();
       });
