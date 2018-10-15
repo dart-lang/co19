@@ -42,30 +42,22 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for [A<X
- *  extends List<List>] and [A<X extends Map<Map, Map>]
+ * @description Checks that instantiate-to-bounds works correctly for:
+ *   class A<X extends A<X>> {}
+ *   typedef G<X extends A<X>> = X Function();
+ * @Issue 34689
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
 
-class A<X extends List<List>> {}
-class B<X extends Map<Map, Map>> {}
-
-testA() {
-  A source;
-  var fsource = toF(source);
-  F<A<List<List<dynamic>>>> target = fsource;
-  A();
-}
-
-testB() {
-  B source;
-  var fsource = toF(source);
-  F<B<Map<Map<dynamic, dynamic>, Map<dynamic, dynamic>>>> target = fsource;
-  B();
-}
+class A<X> {}
+typedef G<X extends A<X>> = Y Function<Y extends X>();
 
 main() {
-  testA();
-  testB();
+  print(typeOf<G>());
+  print(typeOf<G<A<dynamic>>>());
+  Expect.equals(
+      typeOf<G<A<dynamic>>>(),
+      typeOf<G>()
+  );
 }

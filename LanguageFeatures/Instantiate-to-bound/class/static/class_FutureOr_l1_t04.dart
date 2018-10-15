@@ -49,7 +49,9 @@
  * @author iarkh@unipro.ru
  */
 import "dart:async";
-import "../../../../Utils/expect.dart";
+
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
 class A<X extends FutureOr<A<X>>> {}
 

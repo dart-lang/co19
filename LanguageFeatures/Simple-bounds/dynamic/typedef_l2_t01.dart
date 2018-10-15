@@ -42,23 +42,17 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks instantiation to bounds for the very simple cases: [A<X
- *  extends List<List>>], [B<X extends Map<Map, Map>>]
+ * @description Checks that instantiate-to-bounds works correctly for [typedef]
+ * with covariant parameter: [typedef G<X extends num>]
  * @author iarkh@unipro.ru
  */
-import "../../../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
-class A<X extends List<List>> {}
-class B<X extends Map<Map, Map>> {}
-
+class A<X> {}
+class B<X> {}
+typedef G<X extends A<B>, Y extends B<A>> = void Function<X1 extends X, Y1 extends Y>(X);
+typedef G_expected = void Function<X1 extends A<B>, Y1 extends B<A>>(A<B>);
 
 main() {
-  Expect.equals(
-    typeOf<A>(),
-    typeOf<A<List<List<dynamic>>>>(),
-  );
-  Expect.equals(
-    typeOf<B>(),
-    typeOf<B<Map<Map<dynamic, dynamic>, Map<dynamic, dynamic>>>>(),
-  );
+  Expect.equals(G_expected, G);
 }

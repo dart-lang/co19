@@ -42,30 +42,19 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for [A<X
- *  extends List<int>] and [A<X extends Map<int, int>]
+ * @description Checks that instantiate-to-bounds works as expected for
+ * [class A<X extends A<X>>] and [FutureOr<A>]
+ * @Issue 34560
  * @author iarkh@unipro.ru
  */
+import "dart:async";
 import "../../../../Utils/expect.dart";
 
-class A<X extends List<int>> {}
-class B<X extends Map<int, int>> {}
-
-testA() {
-  A source;
-  var fsource = toF(source);
-  F<A<List<int>>> target = fsource;
-  A();
-}
-
-testB() {
-  B source;
-  var fsource = toF(source);
-  F<B<Map<int, int>>> target = fsource;
-  B();
-}
+class A<X extends A<X>> {}
 
 main() {
-  testA();
-  testB();
+  Expect.equals(
+    typeOf<FutureOr<A>>(),
+    typeOf<FutureOr<A<A<dynamic>>>>(),
+  );
 }

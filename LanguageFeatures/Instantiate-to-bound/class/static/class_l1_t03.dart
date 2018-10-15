@@ -42,32 +42,33 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for [A<X
- *  extends List>] and [A<X extends Map>]
+ * @description Checks instantiation to bounds for:
+ *  class A<X extends A<X>> {}
+ *  class B<X extends A<A<X>>> {}
+ * @Issue 34560, 34726
  * @author iarkh@unipro.ru
  */
-import "../../../../Utils/expect.dart";
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
-class A<X extends List> {}
-class B<X extends Map> {}
-
-testA() {
-  A source;
-  var fsource = toF(source);
-  F<A<List>> target1 = fsource;
-  F<A<List<dynamic>>> target2 = fsource;
-  A();
-}
-
-testB() {
-  B source;
-  var fsource = toF(source);
-  F<B<Map>> target1 = fsource;
-  F<B<Map<dynamic, dynamic>>> target2 = fsource;
-  B();
-}
+class A<X extends A<X>> {}
+class B<X extends A<A<X>>> {}
 
 main() {
-  testA();
-  testB();
+  B source;
+  var fsource = toF(source);
+
+  F<B<A<A<dynamic>>>> target = fsource;
+
+  F<B<dynamic>> target1 = fsource;             //# 01: compile-time error
+  F<B<A<dynamic>>> target2 = fsource;          //# 02: compile-time error
+  F<B<A<A<A<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
+  F<B<A<A<A<A<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
+
+  F<B<Null>> target5 = fsource;             //# 05: compile-time error
+  F<B<A<Null>>> target6 = fsource;          //# 06: compile-time error
+  F<B<A<A<A<Null>>>>> target7 = fsource;    //# 07: compile-time error
+  F<B<A<A<A<A<Null>>>>>> target8 = fsource; //# 08: compile-time error
+
+  B(); //# 09: compile-time error
 }

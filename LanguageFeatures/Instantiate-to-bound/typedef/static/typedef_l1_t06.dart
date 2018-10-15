@@ -47,7 +47,8 @@
  *   typedef G<X extends A<X>> = X Function();
  * @author iarkh@unipro.ru
  */
-import "../../../../Utils/expect.dart";
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
 class A<X extends A<X>> {}
 typedef G<X extends A<X>> = X Function();

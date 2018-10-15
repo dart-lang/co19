@@ -49,7 +49,8 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-import "../../../../Utils/expect.dart";
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
 class M<X> {}
 class A<X extends A<X>> extends M<A<A<A<A<X>>>>> {}

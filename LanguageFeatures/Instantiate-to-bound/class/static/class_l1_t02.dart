@@ -42,25 +42,30 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for
- *  [A<X extends A<X>>]
- * @Issue 34560, 34623
- * @compile-error
+ * @description Checks instantiation to bounds for class [A<X extends A<A<X>>>]
+ * @Issue 34560
  * @author iarkh@unipro.ru
  */
-import "../../../../Utils/expect.dart";
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
-class A<X extends A<X>> {}
+class A<X extends A<A<X>>> {}
 
 main() {
   A source;
   var fsource = toF(source);
-  F<A<A<dynamic>>> target = fsource;
+
+  F<A<A<A<dynamic>>>> target = fsource;
 
   F<A<dynamic>> target1 = fsource;             //# 01: compile-time error
-  F<A<A<A<dynamic>>>> target2 = fsource;       //# 02: compile-time error
+  F<A<A<dynamic>>> target2 = fsource;          //# 02: compile-time error
   F<A<A<A<A<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
   F<A<A<A<A<A<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
 
-  A();  //# 05: compile-time error
+  F<A<Null>> target5 = fsource;             //# 05: compile-time error
+  F<A<A<Null>>> target6 = fsource;          //# 06: compile-time error
+  F<A<A<A<A<Null>>>>> target7 = fsource;    //# 07: compile-time error
+  F<A<A<A<A<A<Null>>>>>> target8 = fsource; //# 08: compile-time error
+
+  A(); //# 09: compile-time error
 }

@@ -42,17 +42,18 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks instantiation to bounds for the very simple case:
- *  [A<X extends num>]
+ * @description Checks that instantiate-to-bounds works as expected for [A<X
+ *  extends A<X>>]
+ * @Issue 34560
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
 
-class A<X extends num> {}
+class A<X extends A<X>> {}
 
 main() {
   Expect.equals(
     typeOf<A>(),
-    typeOf<A<num>>(),
+    typeOf<A<A<dynamic>>>(),
   );
 }
