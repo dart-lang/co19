@@ -9,6 +9,7 @@
  *
  * @description Checks that mixin declaration doesn't allow constructors. Test
  * factory constructor
+ * @issue 24767
  * @author sgrekhov@unipro.ru
  */
 

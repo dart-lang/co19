@@ -8,6 +8,7 @@
  * members that a class would allow, but no constructors (for now).
  *
  * @description Checks that mixin declaration doesn't allow constructors.
+ * @issue 24767
  * @author sgrekhov@unipro.ru
  */
 
