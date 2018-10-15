@@ -13,18 +13,18 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that simple bounds are correct for [typedef] with [X
- * extends FutureOr] parameter (invariant)
+ * @description Checks that simple bounds are correct when class parameter is
+ * [FutureOr<List>]
  * @author iarkh@unipro.ru
  */
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-typedef G<X extends FutureOr> = X Function(X);
+class A<X extends FutureOr<List>> {}
 
 main() {
   Expect.equals(
-    typeOf<G<FutureOr<dynamic>>>(),
-    typeOf<G>()
+    typeOf<A<FutureOr<List>>>(),
+    typeOf<A>(),
   );
 }

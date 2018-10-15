@@ -24,6 +24,11 @@ class A<X> {}
 
 main() {
   Expect.equals(
+    typeOf<FutureOr<dynamic>>(),
+    typeOf<FutureOr>(),
+  );
+
+  Expect.equals(
     typeOf<FutureOr<A<dynamic>>>(),
     typeOf<FutureOr<A>>(),
   );

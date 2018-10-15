@@ -24,7 +24,7 @@ typedef G<X extends FutureOr> = Function(X);
 
 main() {
   Expect.equals(
-    typeOf<G<FutureOr>>(),
+    typeOf<G<FutureOr<dynamic>>>(),
     typeOf<G>()
   );
 }

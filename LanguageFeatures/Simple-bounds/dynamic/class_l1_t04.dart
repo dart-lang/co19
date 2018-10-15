@@ -25,11 +25,11 @@ class B<X extends Map<Map, Map>> {}
 
 main() {
   Expect.equals(
-    typeOf<A>(),
     typeOf<A<List<List<dynamic>>>>(),
+    typeOf<A>(),
   );
   Expect.equals(
-    typeOf<B>(),
     typeOf<B<Map<Map<dynamic, dynamic>, Map<dynamic, dynamic>>>>(),
+    typeOf<B>(),
   );
 }

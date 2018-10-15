@@ -23,7 +23,7 @@ class A<X extends num> {}
 
 main() {
   Expect.equals(
-    typeOf<A>(),
     typeOf<A<num>>(),
+    typeOf<A>(),
   );
 }

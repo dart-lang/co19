@@ -23,8 +23,7 @@ import "../../../Utils/expect.dart";
 typedef G<X extends FutureOr> = X Function(X);
 
 main() {
-  Expect.equals(
-    typeOf<G<FutureOr<dynamic>>>(),
-    typeOf<G>()
-  );
+  G<FutureOr> source;
+  var fsource = toF(source);
+  F<G<FutureOr>> target = fsource;
 }
