@@ -23,9 +23,11 @@ main() {
     Expect.isFalse(event.isDirectory);
     asyncEnd();
   });
-  getTempFile(parent: dir).timeout(new Duration(seconds: 1)).then((_) {
-    s.cancel().then((_) {
-      dir.delete(recursive: true);
+  getTempFile(parent: dir).then((_) {
+    new Future.delayed(new Duration(seconds: 1), () {
+      s.cancel().then((_) {
+        dir.delete(recursive: true);
+      });
     });
   });
 }

@@ -25,9 +25,11 @@ main() {
     Expect.equals(FileSystemEvent.create, event.type);
     asyncEnd();
   });
-  dir.createTemp().then((_) {}).timeout(new Duration(seconds: 1)).then((_) {
-    s.cancel().then((_) {
-      dir.delete(recursive: true);
+  dir.createTemp().then((_) {
+    new Future.delayed(new Duration(seconds: 1), () {
+      s.cancel().then((_) {
+        dir.delete(recursive: true);
+      });
     });
   });
 }

@@ -25,11 +25,12 @@ main() {
     Expect.isFalse(event.isDirectory);
     asyncEnd();
   });
-  getTempLink(parent: dir, target: target.path)
-      .timeout(new Duration(seconds: 1)).then((_) {
-    s.cancel().then((_) {
-      dir.delete(recursive: true);
-      target.delete();
+  getTempLink(parent: dir, target: target.path).then((_) {
+    new Future.delayed(new Duration(seconds: 1), () {
+      s.cancel().then((_) {
+        dir.delete(recursive: true);
+        target.delete();
+      });
     });
   });
 }
