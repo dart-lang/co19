@@ -46,7 +46,8 @@ check(dataExpected, [bool no_write_events = false]) {
         list.add(event);
         receiver.receive();
       }, onDone: () {
-        Expect.isTrue(list.length <= dataExpected.length);
+        int list_length = list.length;
+        Expect.listEquals(dataExpected.sublist(0, list_length), list);
         asyncEnd();
       });
       new Timer(const Duration(milliseconds: 200), () {
