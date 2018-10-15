@@ -15,10 +15,11 @@ import '../../../../Utils/expect.dart';
 
 class C {
   var id;
+  dynamic x = null;
   test() {
     Expect.throws(() {"${[][10]}";}, (e) => e is RangeError);
-    Expect.throws(() {"${(const []).add(1)}";}, (e) => e is UnsupportedError);
-    Expect.throws(() {"${null.someMethod()}";}, (e) => e is NoSuchMethodError);
+    Expect.throws(() {"${(const [0]).removeLast()}";}, (e) => e is UnsupportedError);
+    Expect.throws(() {"${x.someMethod()}";}, (e) => e is NoSuchMethodError);
     Expect.throws(() {"${id()}";}, (e) => e is NoSuchMethodError);
   }
 }
