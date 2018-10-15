@@ -24,13 +24,13 @@ class B<X extends Map<int, int>> {}
 
 main() {
   Expect.equals(
-    typeOf<A>(),
     typeOf<A<List<int>>>(),
+    typeOf<A>(),
   );
 
   Expect.equals(
-    typeOf<B>(),
     typeOf<B<Map<int, int>>>(),
+    typeOf<B>(),
   );
 
 }

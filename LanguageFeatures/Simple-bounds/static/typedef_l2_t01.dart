@@ -50,9 +50,11 @@ import "../../../Utils/expect.dart";
 
 class A<X> {}
 class B<X> {}
+
 typedef G<X extends A<B>, Y extends B<A>> = void Function<X1 extends X, Y1 extends Y>(X);
 typedef G_expected = void Function<X1 extends A<B>, Y1 extends B<A>>(A<B>);
 
 main() {
-  Expect.equals(G_expected, G);
+  G<A<B>, B<A>> source;
+  G_expected target = source;
 }
