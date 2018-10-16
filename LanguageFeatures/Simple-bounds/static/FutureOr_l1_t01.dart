@@ -20,10 +20,8 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-class A<X> {}
-
 main() {
-  FutureOr<A> source;
+  FutureOr source;
   var fsource = toF(source);
-  F<FutureOr<A<dynamic>>> target = fsource;
+  F<FutureOr<dynamic>> target = fsource;
 }

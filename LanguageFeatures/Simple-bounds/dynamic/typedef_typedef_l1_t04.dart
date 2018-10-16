@@ -20,7 +20,5 @@ typedef G2<X extends G1<num>> = void Function();
 typedef G_expected = void Function();
 
 main() {
-  Expect.equals(
-    G_expected, G2
-  );
+  Expect.equals(G_expected, G2);
 }

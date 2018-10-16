@@ -23,7 +23,7 @@ import "../../../Utils/expect.dart";
 typedef G<X extends num> = X Function();
 
 main() {
-  G<num> source;
+  G source;
   var fsource = toF(source);
   F<G<num>> target = fsource;
 }

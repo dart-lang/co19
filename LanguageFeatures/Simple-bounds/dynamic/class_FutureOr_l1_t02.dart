@@ -24,7 +24,7 @@ class A<X extends FutureOr<List>> {}
 
 main() {
   Expect.equals(
-    typeOf<A<FutureOr<List>>>(),
+    typeOf<A<FutureOr<List<dynamic>>>>(),
     typeOf<A>(),
   );
 }

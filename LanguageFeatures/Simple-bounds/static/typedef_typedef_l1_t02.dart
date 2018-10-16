@@ -21,5 +21,5 @@ typedef G_expected = void Function(G1<num>);
 main() {
   G2 source;
   var fsource = toF(source);
-  F<G_expected> target = fsource;
+  void Function(G1<num>) target = source;
 }

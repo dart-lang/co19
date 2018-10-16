@@ -14,17 +14,14 @@
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [typedef] with [X
- * extends A] parameter (covariant)
+ * extends num] parameter (covariant)
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
-class A<X> {}
-typedef G<X extends A> = X Function();
+typedef G<X extends num> = void Function<Y extends X>();
+typedef G_expected = void Function<Y extends num>();
 
 main() {
-  Expect.equals(
-    typeOf<G<A>>(),
-    typeOf<G>()
-  );
+  Expect.equals(G_expected, G);
 }

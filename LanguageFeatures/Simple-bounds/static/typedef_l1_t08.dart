@@ -14,16 +14,16 @@
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [typedef] with [X
- * extends A] parameter (not used)
+ * extends A] parameter (invariant)
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
 class A<X> {}
-typedef G<X extends A> = void Function();
+typedef G<X extends A> = X Function(X);
 
 main() {
-  G<A> source;
+  G source;
   var fsource = toF(source);
-  F<G<A>> target = fsource;
+  F<G<A<dynamic>>> target = fsource;
 }

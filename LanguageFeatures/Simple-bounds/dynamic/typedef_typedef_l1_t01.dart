@@ -15,11 +15,9 @@
 import "../../../Utils/expect.dart";
 
 typedef G1<X> = X Function();
-typedef G2<X extends G1<num>> = void Function<Y extends X>();
-typedef G_expected = void Function<Y extends G1<num>>();
+typedef G2<X extends G1<num>> = X Function();
+typedef G_expected = G1<num> Function();
 
 main() {
-  Expect.equals(
-    G_expected, G2
-  );
+  Expect.equals(G_expected, G2);
 }

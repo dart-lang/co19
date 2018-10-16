@@ -25,6 +25,6 @@ class A<X extends FutureOr> {}
 main() {
   A source;
   var fsource = toF(source);
-  F<A<FutureOr>> target = fsource;
+  F<A<FutureOr<dynamic>>> target = fsource;
   A();
 }

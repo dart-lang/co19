@@ -19,7 +19,7 @@
  */
 import "../../../Utils/expect.dart";
 
-typedef G<X extends num> = X Function();
+typedef G<X extends num> = void Function();
 
 main() {
   Expect.equals(

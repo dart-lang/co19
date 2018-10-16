@@ -20,11 +20,9 @@
 import "../../../Utils/expect.dart";
 
 class A<X> {}
-typedef G<X extends A> = X Function();
+typedef G<X extends A> = void Function<Y extends X>();
 
 main() {
-  Expect.equals(
-    typeOf<G<A>>(),
-    typeOf<G>()
-  );
+  G source;
+  void Function<X extends A>() target = source;
 }
