@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
 /**
  * @assertion Let [G] be a generic class or parameterized type alias with formal
  * type parameter declarations [F1] .. [Fk] containing formal type parameters
@@ -10,6 +15,7 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [typedef] with
  * [typedef] parameter (covariant)
+ * @Issue 33625
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
