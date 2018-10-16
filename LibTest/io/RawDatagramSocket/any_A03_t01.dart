@@ -35,7 +35,6 @@ check([bool no_write_events = false]) {
         if (sent > 3) {
           timer.cancel();
           producer.close();
-          receiver.close();
         }
       });
 
@@ -62,6 +61,7 @@ check([bool no_write_events = false]) {
           Expect.equals(2, count);
         }
       }).whenComplete(() {
+        receiver.close();
         asyncEnd();
       });
     });
