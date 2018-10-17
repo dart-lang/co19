@@ -18,7 +18,7 @@
  * is equivalent to the interface of the class declared as
  * abstract class A<X extends S, Y extends S> extends A$super<X, Y>
  *   implements D, E { body' }
- *   @compile-error
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 
