@@ -9,7 +9,7 @@
  * class declaration currently does.
  *
  * @description Checks that a mixin declaration contains all the non-static
- * members declared by the mixin
+ * members declared by the mixin.
  * @author sgrekhov@unipro.ru
  */
 import "../../Utils/expect.dart";
