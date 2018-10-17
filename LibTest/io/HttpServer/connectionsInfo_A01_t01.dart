@@ -23,21 +23,22 @@ test() async {
   Expect.equals(0, server.connectionsInfo().active);
   Expect.equals(0, server.connectionsInfo().total);
 
-  asyncStart();
   int count = 0;
   server.listen((HttpRequest request) {
     count++;
     request.response.write(helloWorld);
     Expect.equals(1, server.connectionsInfo().active);
-    Expect.equals(2, server.connectionsInfo().total);
+    Expect.isTrue(server.connectionsInfo().total >= 1 &&
+        server.connectionsInfo().total <= 2);
     request.response.close();
 
     Expect.equals(1, server.connectionsInfo().active);
-    Expect.equals(2, server.connectionsInfo().total);
+    Expect.isTrue(server.connectionsInfo().total >= 1 &&
+        server.connectionsInfo().total <= 2);
 
     if (count > 1) {
-      server.close();
       asyncEnd();
+      server.close();
     }
   });
 
@@ -46,16 +47,12 @@ test() async {
       .parse("http://${InternetAddress.loopbackIPv4.address}:${server.port}");
   client.getUrl(uri).then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-        response.transform(utf8.decoder).listen((content) {
-    });
+        response.transform(utf8.decoder).listen((content) {});
   });
   client.getUrl(uri).then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-        response.transform(utf8.decoder).listen((content) {
-    });
+        response.transform(utf8.decoder).listen((content) {});
   });
-
-  asyncEnd();
 }
 
 main() {
