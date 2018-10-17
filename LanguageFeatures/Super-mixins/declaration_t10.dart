@@ -23,19 +23,19 @@
  */
 
 abstract class B {
-  String get b;
+  String get b;         //# 01: compile-time error
 }
 
 class C {
-  String get c => "C";
+  String get c => "C";  //# 02: compile-time error
 }
 
 class D {
-  String get d => "D";
+  String get d => "D";  //# 03: compile-time error
 }
 
 abstract class E {
-  String get e;
+  String get e;         //# 04: compile-time error
 }
 
 mixin A on B, C implements D, E {
