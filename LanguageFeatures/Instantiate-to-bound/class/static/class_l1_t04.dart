@@ -42,24 +42,34 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for class
- *  [A<String, X extends A<void, A<String,X>>>]
- * @Issue 34560
+ * @description Checks that instantiation to bounds works as expected for
+ * [class A<X extends A<X>>], [class B<X extends A<A<X>>>]
+ * @compile-error
+ * @Issue 34623, 34726
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 
-class A<String, X extends A<void, A<String,X>>> {}
+class A<X extends A<X>> {}
+class B<X extends A<A<X>>> {}
 
 main() {
-  A source;
+  B source;
   var fsource = toF(source);
 
-  F<A<String, A<void, A<String, dynamic>>>> target = fsource;
+  F<B<A<A<dynamic>>>> target = fsource;
 
-  F<A<dynamic, dynamic>> target1 = fsource;                         //# 01: compile-time error
-  F<A<dynamic, A<dynamic, A<dynamic, dynamic>>>> target2 = fsource; //# 02: compile-time error
+  F<B<dynamic>> target1 = fsource;             //# 01: compile-time error
+  F<B<A<dynamic>>> target2 = fsource;          //# 02: compile-time error
+  F<B<A<A<A<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
+  F<B<A<A<A<A<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
 
-  A(); //# 03: compile-time error
+  F<B<Null>> target5 = fsource;             //# 05: compile-time error
+  F<B<A<Null>>> target6 = fsource;          //# 06: compile-time error
+  F<B<A<A<Null>>>> target7 = fsource;       //# 06: compile-time error
+  F<B<A<A<A<Null>>>>> target8 = fsource;    //# 07: compile-time error
+  F<B<A<A<A<A<Null>>>>>> target9 = fsource; //# 08: compile-time error
+
+  B(); //# 10: compile-time error
 }

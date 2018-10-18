@@ -42,19 +42,18 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for the
- *  class [O<X extends M<O<X>>>].
- * @Issue 34560
+ * @description Checks that instantiate-to-bounds works as expected for class
+ *  [A<String, X extends A<void, A<String,X>>>]
+ * @Issue 34727
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
 
-class M<X> {}
-class O<X extends M<O<X>>> {}
+class A<Y extends String, X extends A<void, A<String,X>>> {}
 
 main() {
   Expect.equals(
-    typeOf<O>(),
-    typeOf<O<M<O<dynamic>>>>(),
+    typeOf<A<String, A<void, A<String, dynamic>>>>(),
+    typeOf<A>(),
   );
 }

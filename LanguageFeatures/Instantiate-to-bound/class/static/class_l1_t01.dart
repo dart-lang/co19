@@ -43,8 +43,8 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for
- *  [A<X extends A<X>>]
- * @Issue 34560, 34623
+ * [class A<X extends A<X>>]
+ * @Issue 34623
  * @compile-error
  * @author iarkh@unipro.ru
  */

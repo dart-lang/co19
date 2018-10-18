@@ -42,25 +42,34 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works for the class [A<X
- *  extends A<X>> extends M<A<A<A<A<X>>>>>]
- * @Issue #34560, #34623
- * See also issue 33786 and test LanguageFeatures/class/extra/class_33786.dart
+ * @description Checks that instantiate-to-bounds works as expected for the
+ * class [O<X extends M<O<X>>>].
  * @compile-error
+ * @Issue 34623
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 
 class M<X> {}
-class A<X extends A<X>> extends M<A<A<A<A<X>>>>> {}
+class O<X extends M<O<X>>> {}
 
 main() {
-  A source;
+  O source;
   var fsource = toF(source);
-  F<A<A<dynamic>>> target = fsource;
-  F<A<dynamic>> target1 = fsource;          //# 01: compile-time error
-  F<A<A<A<dynamic>>>> target2 = fsource;    //# 02: compile-time error
-  F<A<A<A<A<dynamic>>>>> target3 = fsource; //# 03: compile-time error
-  A();                                      //# 04: compile-time error
+
+  F<O<M<O<dynamic>>>> target = fsource;
+
+  F<O<dynamic>> target1 = fsource;             //# 01: compile-time error
+  F<O<M<dynamic>>> target2 = fsource;          //# 02: compile-time error
+  F<O<M<O<M<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
+  F<O<M<O<M<O<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
+
+  F<O<Null>> target5 = fsource;             //# 05: compile-time error
+  F<O<M<Null>>> target6 = fsource;          //# 06: compile-time error
+  F<O<M<O<Null>>>> target7 = fsource;       //# 06: compile-time error
+  F<O<M<O<M<Null>>>>> target8 = fsource;    //# 07: compile-time error
+  F<O<M<O<M<O<Null>>>>>> target9 = fsource; //# 08: compile-time error
+
+  O(); //# 10: compile-time error
 }

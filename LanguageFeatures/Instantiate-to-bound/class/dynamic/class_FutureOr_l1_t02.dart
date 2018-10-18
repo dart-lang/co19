@@ -42,18 +42,19 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks instantiation to bounds for the very simple case: [A<X
- *  extends FutureOr<String>>]
+ * @description Checks instantiation to bounds for [class A<X extends
+ * FutureOr<A<X>>]
+ * @Issue 34264
  * @author iarkh@unipro.ru
  */
 import "dart:async";
 import "../../../../Utils/expect.dart";
 
-class A<X extends FutureOr<String>> {}
+class A<X extends FutureOr<A<X>>> {}
 
 main() {
   Expect.equals(
-    typeOf<A>(),
-    typeOf<A<FutureOr<String>>>(),
+    typeOf<A<FutureOr<A<dynamic>>>>(),
+    typeOf<A>()
   );
 }

@@ -42,28 +42,38 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for [A<X
- *  extends FutureOr<X>]
+ * @description Checks that instantiate-to-bounds works as expected for the
+ * class [class O<X extends M<O<M<O<M<O<X>>>>>>>].
  * @compile-error
- * @Issue 34264, 34560, 34623
+ * @Issue 34623
  * @author iarkh@unipro.ru
  */
-import "dart:async";
-
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 
-class A<X extends FutureOr<A<X>>> {}
+class M<X> {}
+class O<X extends M<O<M<O<M<O<X>>>>>>> {}
 
 main() {
-  A source;
+  O source;
   var fsource = toF(source);
-  F<A<FutureOr<A<dynamic>>>> target = fsource;
 
-  F<A<dynamic>> target1 = fsource;                           //# 01: compile-time error
-  F<A<FutureOr<dynamic>>> target2 = fsource;                 //# 02: compile-time error
-  F<A<FutureOr<A<FutureOr<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
-  F<A<FutureOr<A<FutureOr<A<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
+  F<O<M<O<M<O<M<O<dynamic>>>>>>>> target = fsource;
 
-  A(); //# 05: compile-time error
+  F<O<dynamic>> target1 = fsource;             //# 01: compile-time error
+  F<O<M<dynamic>>> target2 = fsource;          //# 02: compile-time error
+  F<O<M<O<M<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
+  F<O<M<O<M<O<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
+  F<O<M<O<M<O<M<dynamic>>>>>>> target5 = fsource; //# 05: compile-time error
+
+  F<O<M<O<M<O<M<O<M<dynamic>>>>>>>>> target6 = fsource;    //# 06: compile-time error
+  F<O<M<O<M<O<M<O<M<O<dynamic>>>>>>>>>> target7 = fsource; //# 07: compile-time error
+
+  F<O<Null>> target8 = fsource;             //# 08: compile-time error
+  F<O<M<Null>>> target9  = fsource;          //# 09: compile-time error
+  F<O<M<O<Null>>>> target10 = fsource;       //# 10: compile-time error
+  F<O<M<O<M<Null>>>>> target11 = fsource;    //# 11: compile-time error
+  F<O<M<O<M<O<Null>>>>>> target12 = fsource; //# 12: compile-time error
+
+  O(); //# 13: compile-time error
 }

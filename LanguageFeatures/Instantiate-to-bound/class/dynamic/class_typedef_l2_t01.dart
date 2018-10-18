@@ -42,14 +42,12 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks instantiation to bounds for the class with [typedef]
- *  parameter:
- *  class A<X> {}
- *  typedef G<X extends A<X>> = X Function();class B<X extends A<G<X>>> {}
- * @Issue 34560
+ * @description Checks instantiation to bounds for the class B with [typedef]
+ *  parameter: [class A<X>], [typedef G<X extends A<X>> = X Function()], [class
+ *  B<X extends A<G<X>>>] (covariant)
+ * @Issue 34833
  * @author iarkh@unipro.ru
  */
-import "dart:async";
 import "../../../../Utils/expect.dart";
 
 class A<X> {}

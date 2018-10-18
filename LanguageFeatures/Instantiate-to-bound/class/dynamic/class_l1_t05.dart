@@ -42,19 +42,18 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks instantiation to bounds for the class [A<X extends A<X>>
- *  extends M<A<A<A<A<X>>>>>]
- * @Issue 33786
+ * @description Checks that instantiate-to-bounds works as expected for the
+ * class [O<X extends M<O<X>>>].
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
 
 class M<X> {}
-class A<X extends A<X>> extends M<A<A<A<A<X>>>>> {}
+class O<X extends M<O<X>>> {}
 
 main() {
   Expect.equals(
-    typeOf<A>(),
-    typeOf<A<A<dynamic>>>(),
+    typeOf<O<M<O<dynamic>>>>(),
+    typeOf<O>()
   );
 }

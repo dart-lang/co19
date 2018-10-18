@@ -48,7 +48,6 @@
  *   typedef G<X extends A<X>> = X Function();
  *   class B<X extends A<G<X>>> {}
  * @compile-error
- * Issue 34560
  * @author iarkh@unipro.ru
  */
 import "dart:async";
