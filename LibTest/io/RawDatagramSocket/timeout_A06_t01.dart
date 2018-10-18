@@ -48,7 +48,7 @@ check(dataExpected, errorCountExpected, [bool no_write_events = false]) {
       });
 
       Stream bcs = receiver.asBroadcastStream();
-      Stream s = bcs.timeout(durationMs(1));//,
+      Stream s = bcs.timeout(durationMs(1));
       s.listen((event) {
 
         list1.add(event);
@@ -57,22 +57,23 @@ check(dataExpected, errorCountExpected, [bool no_write_events = false]) {
         Expect.isTrue(e is TimeoutException);
         count1++;
       }, onDone: () {
-        Expect.isTrue(errorCountExpected >= count1);
       });
 
-
+      Timer timer;
       s.listen((event) {
         list2.add(event);
+        if (timer != null) timer.cancel();
+        timer = new Timer(const Duration(milliseconds: 200), () {
+          Expect.isNull(receiver.receive());
+          receiver.close();
+        });
       }, onError: (e) {
         Expect.isTrue(e is TimeoutException);
         count2++;
       }, onDone: () {
-        Expect.isTrue(errorCountExpected >= count2);
+        Expect.equals(count1, count2);
+        Expect.deepEquals(list1, list2);
         asyncEnd();
-      });
-      new Timer(const Duration(milliseconds: 200), () {
-        Expect.isNull(receiver.receive());
-        receiver.close();
       });
     });
   });
