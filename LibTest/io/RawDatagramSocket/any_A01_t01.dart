@@ -29,6 +29,7 @@ check(int expectedValue, [bool no_write_events = false]) {
       }
       int sent = 0;
       int count = 0;
+      int nullWriteData = 0;
 
       new Timer.periodic(const Duration(microseconds: 1), (timer) {
         producer.send([sent], address, receiver.port);
@@ -36,7 +37,6 @@ check(int expectedValue, [bool no_write_events = false]) {
         if (sent > 3) {
           timer.cancel();
           producer.close();
-          receiver.close();
         }
       });
 
@@ -46,22 +46,33 @@ check(int expectedValue, [bool no_write_events = false]) {
         if (d != null) {
           return d.data[0] == expectedValue;
         } else {
+          if (x == RawSocketEvent.write) {
+            nullWriteData = 1;
+          }
           return false;
         }
       }
 
+      Timer commonTimer;
       receiver.any((event) => test(event)).then((value) {
         Expect.equals(true, value);
-        Expect.equals(expectedValue + 1, count);
+        Expect.equals(expectedValue, count - 1 - nullWriteData);
       }).whenComplete(() {
+        commonTimer.cancel();
+        receiver.close();
         asyncEnd();
+      });
+
+      commonTimer = new Timer(const Duration(seconds: 1), () {
+        receiver.close();
+        Expect.fail('Test failed as it was executed more then 1 second.');
       });
     });
   });
 }
 
 main() {
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 4; i++) {
     check(i);
     check(i, true);
   }

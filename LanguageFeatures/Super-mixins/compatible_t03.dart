@@ -39,16 +39,16 @@ abstract class C3<Y extends List<double>> {
 }
 
 // The same name getters with different return types
-mixin M1 on B1, C1 {}  //# 01: compile-time error
+mixin M1 on B1<List<int>>, C1<List<double>> {}  //# 01: compile-time error
 
 // The same name getter and method with the same return types
-mixin M2 on B1, C2 {] //# 02: compile-time error
+mixin M2 on B1<List<int>>, C2<List<int>> {} //# 02: compile-time error
 
 // The same name methods with different return types
-mixin M3 on B2, C2 {} //# 03: compile-time error
+mixin M3 on B2<List<double>>, C2<List<int>> {} //# 03: compile-time error
 
 // The methods with the same return types and different parameters number
-mixin M4 on B3, C3 {} //# 04: compile-time error
+mixin M4 on B3<List<double>, List<int>>, C3<List<double>> {} //# 04: compile-time error
 
 main() {
 }

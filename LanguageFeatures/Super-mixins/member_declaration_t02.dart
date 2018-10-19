@@ -15,30 +15,34 @@
  * declaration.
  *
  * @description Checks that it is a compile error if a mixin member has the same
- * name as a mixin declaration.
+ * name as a mixin declaration. Test type parameters
  * @compile-error
- * @author ngl@unipro.ru
+ * @author sgrekhov@unipro.ru
  */
+class S {}
+class T {}
+class X extends S {}
+class Y extends T {}
 
 class I {}
 class J {}
 
-class B {}
-class C {}
+class B<T> {}
+class C<T> {}
 
-mixin M1 on B, C implements I, J {
+mixin M1<X extends S, Y extends T> on B<X>, C<Y> implements I, J {
   int M1 = 1;    //# 01: compile-time error
 }
 
-mixin M2 on B, C implements I, J {
+mixin M2<X extends S, Y extends T>  on B<X>, C<Y> implements I, J {
   int get M2;    //# 02: compile-time error
 }
 
-mixin M3 on B, C implements I, J {
+mixin M3<X extends S, Y extends T>  on B<X>, C<Y> implements I, J {
   void set M3(p);    //# 03: compile-time error
 }
 
-mixin M4 on B, C implements I, J {
+mixin M4<X extends S, Y extends T>  on B<X>, C<Y> implements I, J {
   int M4();    //# 04: compile-time error
 }
 
