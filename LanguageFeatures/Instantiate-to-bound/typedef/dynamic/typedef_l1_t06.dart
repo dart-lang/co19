@@ -42,10 +42,8 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works correctly for:
- *   class A<X extends A<X>> {}
- *   typedef G<X extends A<X>> = X Function();
- * @Issue 34560
+ * @description Checks that instantiate-to-bounds works correctly for [class A<X
+ * extends A<X>>], [typedef G<X extends A<X>> = X Function()] (covariant)
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
@@ -55,7 +53,7 @@ typedef G<X extends A<X>> = X Function();
 
 main() {
   Expect.equals(
-    typeOf<G<A<dynamic>>>(),
-    typeOf<G>()
+      typeOf<G<A<dynamic>>>(),
+      typeOf<G>()
   );
 }

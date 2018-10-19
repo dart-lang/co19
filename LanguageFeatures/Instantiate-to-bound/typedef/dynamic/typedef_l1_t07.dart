@@ -42,9 +42,8 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works correctly for:
- *   class A<X extends A<X>> {}
- *   typedef G<X extends A<X>> = X Function();
+ * @description Checks that instantiate-to-bounds works correctly for [class A<X
+ * extends A<X>>], [typedef G<X extends A<X>> = X Function()] (covariant)
  * @Issue 34689
  * @author iarkh@unipro.ru
  */
@@ -55,7 +54,7 @@ typedef G<X extends A<X>> = Function(X);
 
 main() {
   Expect.equals(
-    typeOf<G<A<Null>>>(),
-    typeOf<G>()
+      typeOf<G<A<Null>>>(),
+      typeOf<G>()
   );
 }

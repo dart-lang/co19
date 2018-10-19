@@ -42,17 +42,19 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for
- * [class A<X extends num>] and [FutureOr<A>]
+ * @description Checks that instantiate-to-bounds works correctly for [class A<X
+ * extends A<X>>], [typedef G<X extends A<X>> = void Function<Y extends X>()]
+ * (unused)
+ * @Issue 34867
  * @author iarkh@unipro.ru
  */
-import "dart:async";
 import "../../../../Utils/expect.dart";
 
 class A<X extends A<X>> {}
+typedef G<X extends A<X>> = void Function<Y extends X>();
+
+typedef G_expected = void Function<X extends A<X>>();
 
 main() {
-  FutureOr<A> source;
-  var fsource = toF(source);
-  F<FutureOr<A<A<dynamic>>>> target = fsource;
+  Expect.equals(G_expected, G);
 }

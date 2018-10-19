@@ -43,16 +43,17 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for [typedef
- *  G<X extends List<X>> = X Function()]
+ * X extends A<X>> = X Function(X)] (not used)
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
 
-typedef G<X extends List<X>> = X Function();
+class A<X> {}
+typedef G<X extends A<X>> = void Function();
 
 main() {
   Expect.equals(
-    typeOf<G<List<dynamic>>>(),
-    typeOf<G>()
+      typeOf<G<A<dynamic>>>(),
+      typeOf<G>()
   );
 }
