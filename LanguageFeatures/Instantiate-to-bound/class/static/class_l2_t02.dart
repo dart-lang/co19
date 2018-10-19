@@ -44,27 +44,27 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for [A<X1
  *  extends X2, X2 extends A<X1, X2>>]
- * @Issue 34560,34623
+ * @Issue 34623
  * @compile-error
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 
-class B<X extends B<X>> {}
-class A<X extends B<X>> {}
+class A<X> {}
+class B<X> {}
+class G<X extends A<X1>, X1 extends B<X>> {}
 
 main() {
-  A source;
+  G source;
   var fsource = toF(source);
 
+  F<G<A<dynamic>, B<dynamic>>> target = fsource;
 
-  F<A<B<dynamic>>> target = fsource;
+  F<G<A<B<dynamic>>, B<A<B<dynamic>>>>> target1 = fsource; //# 01: compile-time error
+  F<G<A<B>, B<A<B>>>> target2 = fsource;                  //# 02: compile-time error
+  F<G<A<B>, B<A<B<A>>>>> target3 = fsource;               //# 03: compile-time error
+  F<G<A<B>, B<A<B<dynamic>>>>> target4 = fsource;         //# 04: compile-time error
 
-  F<A<dynamic>> target1 = fsource;             //# 01: compile-time error
-  F<A<B<B<dynamic>>>> target2 = fsource;       //# 02: compile-time error
-  F<A<B<B<B<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
-  F<A<B<B<B<B<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
-
-  A();  //# 05: compile-time error
+  G();   //# 05: compile-time error
 }

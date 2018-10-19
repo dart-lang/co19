@@ -42,18 +42,20 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for class
- *  [A<String, X extends A<void, A<String,X>>>]
- * @Issue 34560
+ * @description Checks that instantiate-to-bounds works as expected for [class
+ * G<X extends A<B>, X1 extends B<X>> ]
  * @author iarkh@unipro.ru
  */
-import "../../../../Utils/expect.dart";
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
-class A<Y extends String, X extends A<void, A<String,X>>> {}
+class A<X> {}
+class B<X> {}
+class G<X extends A<B>, X1 extends B<X>> {}
 
 main() {
-  Expect.equals(
-    typeOf<A<String, A<void, A<String, dynamic>>>>(),
-    typeOf<A>(),
-  );
+  G source;
+  var fsource = toF(source);
+  F<G<A<B<dynamic>>, B<A<B<dynamic>>>>> target = fsource;
+  G();
 }

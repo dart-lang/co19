@@ -42,9 +42,9 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for [A<X1
- *  extends X2, X2 extends A<X1, X2>>]
- * @Issue 34560,34623
+ * @description Checks that instantiate-to-bounds works as expected for [class
+ * A<X1 extends X2, X2 extends A<X1, X2>>]
+ * @Issue 34623
  * @compile-error
  * @author iarkh@unipro.ru
  */

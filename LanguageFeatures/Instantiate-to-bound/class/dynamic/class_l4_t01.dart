@@ -42,11 +42,9 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for the
- * classes:
- *   class A<X> {}
- *   class B<X> extends A<X> {}
- *   class G<X1 extends A<X1>, X2 extends A<X1>, X3 extends B, X4 extends X2> {}
+ * @description Checks that instantiate-to-bounds works as expected for [class
+ * A<X>], [class B<X> extends A<X>], [class G<X1 extends A<X1>, X2 extends
+ * A<X1>, X3 extends B, X4 extends X2>].
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
@@ -57,6 +55,7 @@ class B<X> extends A<X> {}
 class G<X1 extends A<X1>, X2 extends A<X1>, X3 extends B, X4 extends X2> {}
 
 main() {
+  print(typeOf<G>());
   Expect.equals(
     typeOf<G<A<dynamic>, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>>(),
     typeOf<G>()

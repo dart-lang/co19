@@ -44,7 +44,6 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for the
  *  class [G<X1 extends X2, X2 extends X3, X3 extends G<X1, X2, X3>>]
- * @Issue 34560
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
@@ -53,7 +52,7 @@ class G<X1 extends X2, X2 extends X3, X3 extends G<X1, X2, X3>> {}
 
 main() {
   Expect.equals(
-    typeOf<G>(),
     typeOf<G<dynamic, dynamic, G<dynamic, dynamic, dynamic>>>(),
+    typeOf<G>()
   );
 }

@@ -43,17 +43,28 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for [A<X
- *  extends FutureOr<String>]
+ * extends FutureOr<A<X>>]
+ * @compile-error
+ * @Issue 34264, 34623
  * @author iarkh@unipro.ru
  */
 import "dart:async";
-import "../../../../Utils/expect.dart";
 
-class A<X extends FutureOr<String>> {}
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
+
+// Does not work here because of the issue 34264
+class A<X extends FutureOr<A<X>>> {}
 
 main() {
   A source;
   var fsource = toF(source);
-  F<A<FutureOr<String>>> target = fsource;
-  A();
+  F<A<FutureOr<A<dynamic>>>> target = fsource;
+
+  F<A<dynamic>> target1 = fsource;                           //# 01: compile-time error
+  F<A<FutureOr<dynamic>>> target2 = fsource;                 //# 02: compile-time error
+  F<A<FutureOr<A<FutureOr<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
+  F<A<FutureOr<A<FutureOr<A<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
+
+  A(); //# 05: compile-time error
 }

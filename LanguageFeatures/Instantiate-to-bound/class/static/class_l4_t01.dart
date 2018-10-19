@@ -42,13 +42,11 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for the
- * classes:
- *   class A<X> {}
- *   class B<X> extends A<X> {}
- *   class G<X1 extends A<X1>, X2 extends A<X1>, X3 extends B, X4 extends X2> {}
+ * @description Checks that instantiate-to-bounds works as expected for [class
+ * A<X>], [class B<X> extends A<X>], [class G<X1 extends A<X1>, X2 extends
+ * A<X1>, X3 extends B, X4 extends X2>]
  * @compile-error
- * @Issue 34264, 34560
+ * @Issue
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();
@@ -56,7 +54,6 @@ F<X> toF<X>(X x) => null;
 
 class A<X> {}
 class B<X> extends A<X> {}
-
 class G<X1 extends A<X1>, X2 extends A<X1>, X3 extends B, X4 extends X2> {}
 
 main() {
@@ -66,8 +63,9 @@ main() {
 
   F<G<A<dynamic>, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>> target = fsource;
 
-  F<G<A<dynamic>, A<dynamic>, B<dynamic>, A<dynamic>>> target1 = fsource;       //# 01: compile-time error
-  F<G<A<dynamic>, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>> target2 = fsource; //# 02: compile-time error
+  F<G<A<dynamic>, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>> target1 = fsource; //# 01: compile-time error
+  F<G<A<dynamic>, A<dynamic>, B<dynamic>, A<dynamic>>> target2 = fsource;       //# 02: compile-time error
+  F<G<A<dynamic>, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>> target3 = fsource; //# 03: compile-time error
 
-  G(); //# 03: compile-time error
+  G(); //# 04: compile-time error
 }

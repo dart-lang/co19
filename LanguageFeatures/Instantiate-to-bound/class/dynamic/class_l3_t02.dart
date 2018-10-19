@@ -43,8 +43,9 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for the
- *  classes [A<X extends B>], [B<X extends C>], [C<X extends A<B>>]
- * @Issue 34560, 34636
+ * classes [A<X extends B>], [B<X extends C>], [C<X extends A<B>>]
+ * @compile-error
+ * @Issue 34636
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";

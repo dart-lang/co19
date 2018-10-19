@@ -42,19 +42,18 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks instantiation to bounds for the very simple case: [A<X
- *  extends FutureOr<A<X>>>]
- * @Issue 34264
+ * @description Checks that instantiation to bounds works OK for the class with
+ * [typedef G<X> = Function(X)] parameter (contravariant)
  * @author iarkh@unipro.ru
  */
-import "dart:async";
 import "../../../../Utils/expect.dart";
 
-class A<X extends FutureOr<A<X>>> {}
+typedef G<X> = Function(X);
+class A<X extends G<A<X>>> {}
 
 main() {
   Expect.equals(
-    typeOf<A>(),
-    typeOf<A<FutureOr<A<dynamic>>>>(),
+    typeOf<A<G<A<dynamic>>>>(),
+    typeOf<A>()
   );
 }

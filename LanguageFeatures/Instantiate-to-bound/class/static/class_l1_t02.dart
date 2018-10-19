@@ -42,8 +42,10 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks instantiation to bounds for class [A<X extends A<A<X>>>]
- * @Issue 34560
+ * @description Checks that instantiation to bounds works OK for [class A<X
+ * extends A<A<X>>>]
+ * @Issue 34623
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();
