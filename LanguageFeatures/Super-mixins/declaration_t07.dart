@@ -6,7 +6,7 @@
 /**
  * @assertion A mixin declaration defines an interface. The interface for this
  * mixin declaration is equivalent to the interface of the class declared as:
- *  abstract class A<X extends S, Y extends S> extends A$super<X, Y>
+ *  abstract class A<X extends S, Y extends T> extends A$super<X, Y>
  *    implements D, E { body' }
  * where body' contains abstract declarations corresponding to the instance
  * members of body of the mixin A.
