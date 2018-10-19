@@ -16,7 +16,7 @@
  * @description Checks that a mixin declaration in form
  * mixin A<X extends S, Y extends T> on B, C implements D, E { body }
  * is equivalent to the interface of the class declared as
- * abstract class A<X extends S, Y extends S> extends A$super<X, Y>
+ * abstract class A<X extends S, Y extends T> extends A$super<X, Y>
  *   implements D, E { body' }.
  * @author sgrekhov@unipro.ru
  */
