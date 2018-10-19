@@ -17,10 +17,15 @@
  * mixin A<X extends S, Y extends T> on B, C implements D, E { body }
  * is equivalent to the interface of the class declared as
  * abstract class A<X extends S, Y extends T> extends A$super<X, Y>
- *   implements D, E { body' }
+ *   implements D, E { body' }.
  * @author sgrekhov@unipro.ru
  */
 import "../../Utils/expect.dart";
+
+class S {}
+class T {}
+class X extends S {}
+class Y extends T {}
 
 abstract class B {
   String get b;
@@ -38,10 +43,15 @@ abstract class E {
   String get e;
 }
 
-mixin A on B, C implements D, E {
+mixin A<X extends S, Y extends T> on B, C implements D, E {
+  S x = new S();
+  T y = new T();
 }
 
-class AI implements A {
+class AI implements A<X, Y> {
+  X x = new X();
+  Y y = new Y();
+
   String get b => "AI";
   String get c => "AI";
   String get d => "AI";

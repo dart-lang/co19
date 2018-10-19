@@ -42,15 +42,12 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks instantiation to bounds for the class with [typedef]
- *  parameter:
- *    typedef G<X> = Function(X);
- *    class A<X extends G<A<X>>> {}
+ * @description Checks that instantiation to bounds works OK for the class with
+ * [typedef G<X> = X Function()] parameter (contravariant)
  * @compile-error
  * @Issue 34623
  * @author iarkh@unipro.ru
  */
-import "dart:async";
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 

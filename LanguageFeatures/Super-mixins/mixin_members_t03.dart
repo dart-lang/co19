@@ -1,0 +1,136 @@
+/*
+ * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion The mixin introduced by a mixin declaration contains all the
+ * non-static members declared by the mixin, just as the mixin derived from a
+ * class declaration currently does.
+ *
+ * @description Checks that a mixin declaration contains all the non-static
+ * members declared by the mixin.
+ * @author sgrekhov@unipro.ru
+ */
+import "../../Utils/expect.dart";
+
+class S {}
+class T {}
+class X extends S {}
+class Y extends T {}
+
+class I<T> {
+  String iProperty = "I property";
+  String iMethod() => "I method";
+  String get iGetter => "I getter";
+  void set iSetter(String val) {}
+}
+
+abstract class J<T> {
+  String jProperty;
+  String jMethod();
+  String get jGetter;
+  void set jSetter(String val);
+}
+
+class A<T> {
+  String aProperty = "A property";
+  String aMethod() => "A method";
+  String get aGetter => "A getter";
+  void set aSetter(String val) {}
+}
+
+abstract class B<T> {
+  String bProperty;
+  String bMethod();
+  String get bGetter;
+  void set bSetter(String);
+}
+
+class C<T1, T2> implements A<T1>, B<T2> {
+  String iProperty = "C I property";
+  String iMethod() => "C I method";
+  String get iGetter => "C I getter";
+  void set iSetter(String val) {}
+
+  String jProperty = "C J property";
+  String jMethod() => "C J method";
+  String get jGetter => "C J getter";
+  void set jSetter(String) {}
+
+  String aProperty = "C A property";
+  String aMethod() => "C A method";
+  String get aGetter => "C A getter";
+  void set aSetter(String) {}
+
+  String bProperty = "C B property";
+  String bMethod() => "C B method";
+  String get bGetter => "C B getter";
+  void set bSetter(String) {}
+}
+
+mixin M<T1, T2> on A<T1>, B<T2> implements I<T1>, J<T2> {
+  String mProperty = "M property";
+  String mMethod() => "M method";
+  String get mGetter => "M getter";
+  void set mSetter(String val) {}
+}
+
+class MA extends C<X, Y> with M<X, Y> {
+  test() {
+    Expect.equals("C I property", this.iProperty);
+    Expect.equals("C I method", this.iMethod());
+    Expect.equals("C I getter", this.iGetter);
+    this.iSetter = "x";
+
+    Expect.equals("C J property", this.jProperty);
+    Expect.equals("C J method", this.jMethod());
+    Expect.equals("C J getter", this.jGetter);
+    this.jSetter = "x";
+
+    Expect.equals("C A property", this.aProperty);
+    Expect.equals("C A method", this.aMethod());
+    Expect.equals("C A getter", this.aGetter);
+    this.aSetter = "x";
+
+    Expect.equals("C B property", this.bProperty);
+    Expect.equals("C B method", this.bMethod());
+    Expect.equals("C B getter", this.bGetter);
+    this.bSetter = "x";
+
+    Expect.equals("M property", this.mProperty);
+    Expect.equals("M method", this.mMethod());
+    Expect.equals("M getter", this.mGetter);
+    this.mSetter = "x";
+  }
+}
+
+main() {
+  MA ma = new MA();
+  Expect.equals("C I property", ma.iProperty);
+  Expect.equals("C I method", ma.iMethod());
+  Expect.equals("C I getter", ma.iGetter);
+  ma.iSetter = "x";
+
+  Expect.equals("C J property", ma.jProperty);
+  Expect.equals("C J method", ma.jMethod());
+  Expect.equals("C J getter", ma.jGetter);
+  ma.jSetter = "x";
+
+  Expect.equals("C A property", ma.aProperty);
+  Expect.equals("C A method", ma.aMethod());
+  Expect.equals("C A getter", ma.aGetter);
+  ma.aSetter = "x";
+
+  Expect.equals("C B property", ma.bProperty);
+  Expect.equals("C B method", ma.bMethod());
+  Expect.equals("C B getter", ma.bGetter);
+  ma.bSetter = "x";
+
+  Expect.equals("M property", ma.mProperty);
+  Expect.equals("M method", ma.mMethod());
+  Expect.equals("M getter", ma.mGetter);
+  ma.mSetter = "x";
+
+  ma.test();
+}
