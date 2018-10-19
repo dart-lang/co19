@@ -46,7 +46,7 @@
  * A<X>], [class B<X> extends A<X>], [class G<X1 extends A<X1>, X2 extends
  * A<X1>, X3 extends B, X4 extends X2>]
  * @compile-error
- * @Issue
+ * @Issue 34623, 34861
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();
