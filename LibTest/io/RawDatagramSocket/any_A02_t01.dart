@@ -29,6 +29,7 @@ main() {
       receiver.writeEventsEnabled = false;
       int sent = 0;
       int count = 0;
+      int expectedCount = 5;
 
       new Timer.periodic(const Duration(microseconds: 1), (timer) {
         producer.send([sent], address, receiver.port);
@@ -36,22 +37,26 @@ main() {
         if (sent > 3) {
           timer.cancel();
           producer.close();
-          receiver.close();
         }
       });
 
+      Timer timer;
       bool test(x) {
         count++;
-        if (count > 4) {
-          Expect.fail('count = $count. It should not be more then 4.');
-        }
+        receiver.receive();
+        if (timer != null) timer.cancel();
+        timer = new Timer(const Duration(milliseconds: 200), () {
+          Expect.isNull(receiver.receive());
+          receiver.close();
+        });
         return x == expectedEvent;
       }
 
       receiver.any((event) => test(event)).then((value) {
         Expect.equals(false, value);
-        Expect.equals(4, count);
+        Expect.equals(expectedCount, count);
       }).whenComplete(() {
+        timer.cancel();
         asyncEnd();
       });
     });

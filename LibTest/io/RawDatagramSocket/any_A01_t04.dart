@@ -29,6 +29,7 @@ check([bool no_write_events = false]) {
       }
       int sent = 0;
       int count = 0;
+      int expectedCount = 5;
 
       new Timer.periodic(const Duration(microseconds: 1), (timer) {
         producer.send([sent], address, receiver.port);
@@ -36,14 +37,22 @@ check([bool no_write_events = false]) {
         if (sent > 3) {
           timer.cancel();
           producer.close();
-          receiver.close();
         }
       });
 
+      Timer timer;
       bool test(RawSocketEvent x) {
         count++;
         var d = receiver == null ? null : receiver.receive();
+        if (timer != null) timer.cancel();
+        timer = new Timer(const Duration(milliseconds: 200), () {
+           Expect.isNull(receiver.receive());
+           receiver.close();
+        });
         if (d == null) {
+          if (x == RawSocketEvent.write) {
+            expectedCount = 1;
+          }
           return true;
         } else {
           return false;
@@ -52,8 +61,9 @@ check([bool no_write_events = false]) {
 
       receiver.any((event) => test(event)).then((value) {
         Expect.equals(true, value);
-        Expect.equals(4, count);
+        Expect.equals(expectedCount, count);
       }).whenComplete(() {
+        timer.cancel();
         asyncEnd();
       });
     });

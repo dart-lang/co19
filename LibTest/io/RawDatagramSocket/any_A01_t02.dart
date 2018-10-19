@@ -28,7 +28,6 @@ check([bool no_write_events = false]) {
       if (no_write_events) {
         receiver.writeEventsEnabled = false;
       }
-      receiver.writeEventsEnabled = false;
       int sent = 0;
       int count = 0;
 
@@ -38,7 +37,6 @@ check([bool no_write_events = false]) {
         if (sent > 3) {
           timer.cancel();
           producer.close();
-          receiver.close();
         }
       });
 
@@ -47,15 +45,23 @@ check([bool no_write_events = false]) {
         return x == expectedEvent;
       }
 
+      Timer commonTimer;
       receiver.any((event) => test(event)).then((value) {
         Expect.equals(true, value);
-        if (receiver.writeEventsEnabled) {
+        if (no_write_events == false) {
           Expect.equals(2, count);
         } else {
           Expect.equals(1, count);
         }
       }).whenComplete(() {
+        commonTimer.cancel();
+        receiver.close();
         asyncEnd();
+      });
+
+      commonTimer = new Timer(const Duration(seconds: 1), () {
+        receiver.close();
+        Expect.fail('Test failed as it was executed more then 1 second.');
       });
     });
   });

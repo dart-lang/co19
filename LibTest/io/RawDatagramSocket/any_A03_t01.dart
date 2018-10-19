@@ -51,6 +51,7 @@ check([bool no_write_events = false]) {
         }
       }
 
+      Timer commonTimer;
       receiver.any((event) => test(event)).then((value) {
         Expect.fail('Should completed with throw.');
       }).catchError((error) {
@@ -61,8 +62,14 @@ check([bool no_write_events = false]) {
           Expect.equals(2, count);
         }
       }).whenComplete(() {
+        commonTimer.cancel();
         receiver.close();
         asyncEnd();
+      });
+
+      commonTimer = new Timer(const Duration(seconds: 1), () {
+        receiver.close();
+        Expect.fail("Test failed as it was executed more then 1 second.");
       });
     });
   });
