@@ -42,29 +42,15 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that [Future] variable type parameter can be nested
+ * @description Checks that instantiate-to-bounds works correctly for [class A<X
+ * extends A<X>>], [typedef G<X extends A<X>> = X Function()] (covariant)
+ * @Issue 34623
  * @author iarkh@unipro.ru
  */
-import "dart:async";
+class A<X extends A<X>> {}
+typedef G<X extends A<X>> = void Function<Y extends X>();
 
 main() {
-  Future f = new Future(() => 12345);
-
-  Future<FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<
-      FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<
-          FutureOr<FutureOr<FutureOr>>>>>>>>>>>>>>>> fff = f;
-
-  f = fff;
-
-  fff = null;
-  f = fff;
-
-  Future<dynamic> fd = fff;
-  Future<Object> fo = fff;
-
-  FutureOr<dynamic> fd1 = fff;
-  FutureOr<Object> fo1 = fff;
-
-  fff= fd;
-  fff = fo;
+  G source;
+  void Function<X extends A<dynamic>>() target = source;
 }

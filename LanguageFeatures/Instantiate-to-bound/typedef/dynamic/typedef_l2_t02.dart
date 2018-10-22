@@ -42,50 +42,19 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that [Future] variable type parameter can be nested
- * @Issue 34482
+ * @description Checks that instantiate-to-bounds works correctly for [typedef
+ *  G<X, Y extends X> = X Function(Y)]
+ * @Issue 34689
  * @author iarkh@unipro.ru
  */
-import "dart:async";
-import "../../../Utils/expect.dart";
+import "../../../../Utils/expect.dart";
+
+class A<X> {}
+typedef G<X extends A<X>, Y extends A<X>> = X Function(Y);
 
 main() {
-  Future f = new Future(() => 12345);
-  Future f1 = new Future(() => "12345");
-  Future<int> fi = new Future<int>(() => 12345);
-  Future<String> fs = new Future<String>(() => "string");
-
-  FutureOr fo = new Future(() => 12345);
-  FutureOr fo1 = new Future(() => "incorrect");
-  FutureOr fo2 = 10;
-  FutureOr fo3 = "testagain";
-  FutureOr<int> foi = new Future<int>(() => 12345);
-  FutureOr<int> foi1 = 0;
-  FutureOr<String> fos = new Future<String>(() => "test");
-  FutureOr<String> fos1 = "test";
-
-  Future<FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<
-      FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<
-          FutureOr<FutureOr<FutureOr<int>>>>>>>>>>>>>>>>> fff;
-
-  // fff = f;
-
-  Expect.throws(() { fff = f1; }, (e) => e is TypeError );
-
-  fff = fi;
-
-  // fff = fo;
-
-  Expect.throws(() { fff = fo1; }, (e) => e is TypeError );
-  Expect.throws(() { fff = fo2; }, (e) => e is TypeError );
-  Expect.throws(() { fff = fo3; }, (e) => e is TypeError );
-
-  //fff = foi;
-  //fff = foi1;
-  //fff = fos;
-  //fff = fos1;
-
-
-  //fff = fs;
-
+  Expect.equals(
+    typeOf<G<dynamic, Null>>(),
+    typeOf<G>()
+  );
 }

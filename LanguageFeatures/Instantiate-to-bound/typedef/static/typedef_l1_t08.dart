@@ -42,22 +42,28 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that [FutureOr] variable can be assigned to the variable
- *  of another type (see issue #34276 for more details)
+ * @description Checks that instantiate-to-bounds works correctly for [class A<X
+ * extends A<X>>], [typedef G<X extends A<X>> = X Function()] (invariant)
  * @author iarkh@unipro.ru
  */
-import "dart:async";
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
+
+class A<X extends A<X>> {}
+typedef G<X extends A<X>> = X Function(X);
 
 main() {
-  FutureOr f1;
-  int i = f1;
+  G source;
+  var fsource = toF(source);
+  F<G<A<dynamic>>> target = fsource;
 
-  FutureOr<int> f2;
-  i = f2;
+  F<G<A<Null>>> target1 = fsource; //# 01: compile-time error
 
-  FutureOr<FutureOr> f3;
-  String s = f3;
+  F<G<A<A<dynamic>>>> target2 = fsource;       //# 02: compile-time error
+  F<G<A<A<A<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
+  F<G<A<A<A<A<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
 
-  FutureOr<List<String>> f4;
-  List<String> l = f4;
+  F<G<A<A<Null>>>> target5 = fsource;       //# 05: compile-time error
+  F<G<A<A<A<Null>>>>> target6 = fsource;    //# 06: compile-time error
+  F<G<A<A<A<A<Null>>>>>> target7 = fsource; //# 07: compile-time error
 }

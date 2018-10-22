@@ -44,16 +44,20 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for [typedef
  *  G<X, Y extends X> = X Function(Y)]
- * @Issue 34689
+ * @Issue 34623, 34689
  * @author iarkh@unipro.ru
  */
-import "../../../../Utils/expect.dart";
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
 typedef G<X, Y extends X> = X Function(Y);
 
 main() {
-  Expect.equals(
-    typeOf<G<dynamic, Null>>(),
-    typeOf<G>()
-  );
+  G source;
+  var fsource = toF(source);
+  F<G<dynamic, Null>> target = fsource;
+
+  F<G<Null, dynamic>> target1 = fsource;    //# 01: compile-time error
+  F<G<Null, Null>> target2 = fsource;       //# 02: compile-time error
+  F<G<dynamic, dynamic>> target3 = fsource; //# 03: compile-time error
 }
