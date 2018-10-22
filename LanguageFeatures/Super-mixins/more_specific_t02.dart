@@ -27,7 +27,14 @@ class C {
   double get b1 => 3.14;
 }
 
-mixin M on B, C implements I, J {}
+bool called = false;
+
+mixin M on B, C implements I, J {
+  test() {
+    called = true;
+    Expect.equals(-3.14, super.b1);
+  }
+}
 
 class A implements B, C {
   double get b1 => -3.14;
@@ -38,6 +45,6 @@ class MA extends A with M {
 
 main() {
   MA ma = new MA();
-  Expect.equals(-3.14, ma.b1);
+  ma.test();
+  Expect.isTrue(called);
 }
-
