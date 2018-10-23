@@ -39,6 +39,10 @@ check([bool no_write_events = false]) {
       int received2 = 0;
       int sent = 0;
       int listen = 0;
+      int totalSent = 0;
+      int nullWriteData = 0;
+      int closeEvent = 1;
+
       void onListen(StreamSubscription<RawSocketEvent> subs) {
         listen++;
       }
@@ -46,10 +50,13 @@ check([bool no_write_events = false]) {
       var s = receiver.asBroadcastStream(onListen: onListen);
 
       new Timer.periodic(const Duration(microseconds: 1), (timer) {
-        producer.send([sent], address, receiver.port);
+        totalSent += producer.send([sent], address, receiver.port);
         sent++;
         if (sent > 6) {
           timer.cancel();
+          if (totalSent != sent) {
+            Expect.fail('$totalSent messages were sent instead of $sent.');
+          }
           producer.close();
         }
       });
@@ -61,7 +68,10 @@ check([bool no_write_events = false]) {
       ss1 = s.listen((event) {
         Expect.equals(1, listen);
         received1++;
-        receiver.receive();
+        Datagram d = receiver.receive();
+        if (event == RawSocketEvent.write && d == null) {
+          nullWriteData = 1;
+        }
         if (received1 == 3) {
           ss1.cancel();
 
@@ -69,15 +79,17 @@ check([bool no_write_events = false]) {
             Expect.equals(2, listen);
             received2++;
             receiver.receive();
-            if (timer2 != null) timer2.cancel();
+            if (timer2 != null) {
+              timer2.cancel();
+            }
             timer2 = new Timer(const Duration(milliseconds: 200), () {
               Expect.isNull(receiver.receive());
               receiver.close();
             });
           }, onDone: () {
-            Expect.equals(7, sent);
             Expect.equals(3, received1);
-            Expect.isTrue(5 >= received2);
+            var expected = totalSent + closeEvent + nullWriteData - 3;
+            Expect.equals(expected, received2);
             ss2.cancel();
             asyncEnd();
           });

@@ -35,14 +35,20 @@ check([bool no_write_events = false]) {
       int received1 = 0;
       int received2 = 0;
       int sent = 0;
+      int totalSent = 0;
+      int nullWriteData = 0;
+      int closeEvent = 1;
 
       var s = receiver.asBroadcastStream();
 
       new Timer.periodic(const Duration(microseconds: 1), (timer) {
-        producer.send([sent], address, receiver.port);
+        totalSent += producer.send([sent], address, receiver.port);
         sent++;
         if (sent > 3) {
           timer.cancel();
+          if (totalSent != sent) {
+            Expect.fail('$totalSent messages were sent instead of $sent.');
+          }
           producer.close();
         }
       });
@@ -51,33 +57,28 @@ check([bool no_write_events = false]) {
       StreamSubscription ss2;
       ss1 = s.listen((event) {
         received1++;
-        var datagram = receiver.receive();
-        if (datagram != null) {
-          Expect.isTrue(sent >= received1);
+        Datagram d = receiver.receive();
+        if (event == RawSocketEvent.write && d == null) {
+          nullWriteData = 1;
         }
-        if (timer2 != null) timer2.cancel();
-        timer2 = new Timer(const Duration(milliseconds: 200), () {
-          Expect.isNull(receiver.receive());
-          receiver.close();
-        });
       }, onDone: () {
         ss1.cancel();
       });
 
       ss2 = s.listen((event) {
         received2++;
-        var datagram = receiver.receive();
-        if (datagram != null) {
-          Expect.isTrue(sent >= received2);
+        if (timer2 != null) {
+          timer2.cancel();
         }
-        if (timer2 != null) timer2.cancel();
         timer2 = new Timer(const Duration(milliseconds: 200), () {
           Expect.isNull(receiver.receive());
           receiver.close();
         });
       }, onDone: () {
+        int expected = totalSent + closeEvent + nullWriteData;
+        Expect.equals(expected, received1);
+        Expect.equals(expected, received2);
         ss2.cancel();
-        receiver.close();
         asyncEnd();
       });
     });

@@ -36,14 +36,20 @@ check([bool no_write_events = false]) {
       int received1 = 0;
       int received2 = 0;
       int sent = 0;
+      int totalSent = 0;
+      int nullWriteData = 0;
+      int closeEvent = 1;
 
       var mss = receiver.asBroadcastStream();
 
       new Timer.periodic(const Duration(microseconds: 1), (timer) {
-        producer.send([sent], address, receiver.port);
+        totalSent += producer.send([sent], address, receiver.port);
         sent++;
         if (sent > 6) {
           timer.cancel();
+          if (totalSent != sent) {
+            Expect.fail('$totalSent messages were sent instead of $sent.');
+          }
           producer.close();
         }
       });
@@ -51,10 +57,6 @@ check([bool no_write_events = false]) {
       StreamSubscription ss;
       ss = mss.listen((event) {
         received1++;
-        var datagram = receiver.receive();
-        if (datagram != null) {
-          Expect.isTrue(sent >= received1);
-        }
         if (received1 == 3) {
           ss.cancel();
         }
@@ -63,19 +65,19 @@ check([bool no_write_events = false]) {
       mss.listen((event) {
         received2++;
         var datagram = receiver.receive();
-        if (datagram != null) {
-          Expect.equals(sent, received2);
-          Expect.equals(sent - 1, datagram.data[0]);
+        if (event == RawSocketEvent.write && datagram == null) {
+          nullWriteData = 1;
         }
-        if (timer2 != null) timer2.cancel();
+        if (timer2 != null) {
+          timer2.cancel();
+        }
         timer2 = new Timer(const Duration(milliseconds: 200), () {
           Expect.isNull(receiver.receive());
           receiver.close();
         });
       }, onDone: () {
-        Expect.equals(7, sent);
         Expect.equals(3, received1);
-        Expect.isTrue(8 >= received2);
+        Expect.equals(totalSent + closeEvent + nullWriteData, received2);
         asyncEnd();
       });
     });

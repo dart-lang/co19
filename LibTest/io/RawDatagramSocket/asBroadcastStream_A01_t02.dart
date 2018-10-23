@@ -35,14 +35,20 @@ check([bool no_write_events = false]) {
       Timer timer2;
       int received = 0;
       int sent = 0;
+      int totalSent = 0;
+      int nullWriteData = 0;
+      int closeEvent = 1;
 
       var mss = receiver.asBroadcastStream();
 
       new Timer.periodic(const Duration(microseconds: 1), (timer) {
-        producer.send([sent], address, receiver.port);
+        totalSent += producer.send([sent], address, receiver.port);
         sent++;
         if (sent > 6) {
           timer.cancel();
+          if (totalSent != sent) {
+            Expect.fail('$totalSent messages were sent instead of $sent.');
+          }
           producer.close();
         }
       });
@@ -50,18 +56,18 @@ check([bool no_write_events = false]) {
       mss.listen((event) {
         received++;
         var datagram = receiver.receive();
-        if (datagram != null) {
-          Expect.isTrue(sent >= received);
+        if (event == RawSocketEvent.write && datagram == null) {
+          nullWriteData = 1;
         }
-        if (received == 3) {
-          receiver.close();
+        if (timer2 != null) {
+          timer2.cancel();
         }
-        if (timer2 != null) timer2.cancel();
         timer2 = new Timer(const Duration(milliseconds: 200), () {
           Expect.isNull(receiver.receive());
-          Expect.isTrue(7 > received);
+          receiver.close();
         });
       }, onDone: () {
+        Expect.equals(totalSent + closeEvent + nullWriteData, received);
         asyncEnd();
       });
     });
