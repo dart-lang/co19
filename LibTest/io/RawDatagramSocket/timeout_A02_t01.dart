@@ -41,12 +41,16 @@ check(List dataExpected, [bool no_write_events = false]) {
       int sent = 0;
       List list = [];
       bool writeDataNotNull = false;
+      int totalSent = 0;
 
       new Timer.periodic(const Duration(milliseconds: 20), (timer) {
-        producer.send([sent], address, receiver.port);
+        totalSent += producer.send([sent], address, receiver.port);
         sent++;
         if (sent > 2) {
           timer.cancel();
+          if (totalSent != sent) {
+            Expect.fail('$totalSent messages were sent instead of $sent.');
+          }
           producer.close();
         }
       });
@@ -62,7 +66,9 @@ check(List dataExpected, [bool no_write_events = false]) {
         if (event == RawSocketEvent.write && d != null) {
           writeDataNotNull = true;
         }
-        if (timer != null) timer.cancel();
+        if (timer != null) {
+          timer.cancel();
+        }
         timer = new Timer(const Duration(milliseconds: 200), () {
           Expect.isNull(receiver.receive());
           receiver.close();
@@ -71,11 +77,11 @@ check(List dataExpected, [bool no_write_events = false]) {
         Expect.isTrue(count > 0);
         if (writeDataNotNull) {
           dataExpected.removeAt(1);
-          Expect.deepEquals(dataExpected, list);
-        } else {
-          Expect.deepEquals(dataExpected, list);
         }
-        timer.cancel();
+        Expect.deepEquals(dataExpected, list);
+        if (timer != null) {
+          timer.cancel();
+        }
         asyncEnd();
       });
     });

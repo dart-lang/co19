@@ -34,25 +34,44 @@ check(dataExpected, [bool no_write_events = false]) {
         receiver.writeEventsEnabled = false;
       }
       int sent = 0;
+      Timer timer;
       List list = [];
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
+      int totalSent = 0;
+      int nullWriteData = 0;
+
+      totalSent += producer.send([sent++], address, receiver.port);
+      totalSent += producer.send([sent++], address, receiver.port);
+      totalSent += producer.send([sent++], address, receiver.port);
+      if (totalSent != sent) {
+        Expect.fail('$totalSent messages were sent instead of $sent.');
+      }
       producer.close();
 
-      Stream s = receiver.timeout(const Duration(milliseconds: 10),
+      Stream s = receiver.timeout(const Duration(milliseconds: 20),
           onTimeout: (EventSink sink) => sink.close());
       s.listen((event) {
         list.add(event);
-        receiver.receive();
+        Datagram d = receiver.receive();
+        if (event == RawSocketEvent.write && d == null) {
+          nullWriteData = 1;
+        }
+        if (timer != null) {
+          timer.cancel();
+        }
+        timer = new Timer(const Duration(milliseconds: 200), () {
+          Expect.isNull(receiver.receive());
+          receiver.close();
+        });
       }, onDone: () {
+        if (timer != null) {
+          timer.cancel();
+        }
         int list_length = list.length;
-        Expect.listEquals(dataExpected.sublist(0, list_length), list);
+        if (nullWriteData == 1) {
+          dataExpected.insert(1, RawSocketEvent.read);
+        }
+        Expect.deepEquals(dataExpected.sublist(0, list_length), list);
         asyncEnd();
-      });
-      new Timer(const Duration(milliseconds: 200), () {
-        Expect.isNull(receiver.receive());
-        receiver.close();
       });
     });
   });
