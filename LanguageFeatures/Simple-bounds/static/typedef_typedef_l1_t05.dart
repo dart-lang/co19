@@ -15,7 +15,6 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [typedef] with
  * [typedef] parameter (covariant)
- * @Issue 33625
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";

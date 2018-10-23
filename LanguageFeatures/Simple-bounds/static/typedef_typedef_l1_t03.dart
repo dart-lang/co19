@@ -21,7 +21,7 @@
 import "../../../Utils/expect.dart";
 
 typedef G1<X> = X Function();
-typedef G2<X extends G1<num>> = void Function<Y extends X>();
+typedef G2<X extends G1<num>> = Y Function<Y extends X>();
 
 main() {
   G2 source;

@@ -21,10 +21,9 @@ import "../../../Utils/expect.dart";
 
 typedef G1<X> = X Function();
 typedef G2<X extends G1<num>> = void Function(X);
-typedef G_expected = void Function(G1<num>);
 
 main() {
   G2 source;
   var fsource = toF(source);
-  void Function(G1<num>) target = source;
+  F<G2<G1<num>>> target = fsource;
 }
