@@ -43,8 +43,14 @@ main() {
       int counter = 0;
       Timer timer;
       List list = [];
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
+      int totalSent = 0;
+      int closeEvent = 1;
+
+      totalSent += producer.send([sent++], address, receiver.port);
+      totalSent += producer.send([sent++], address, receiver.port);
+      if (totalSent != sent) {
+        Expect.fail('$totalSent messages were sent instead of $sent.');
+      }
       producer.close();
 
       Stream s = receiver.distinct((previous, next) => previous == next);
@@ -60,8 +66,11 @@ main() {
           receiver.close();
         });
       }).onDone(() {
-        Expect.equals(3, counter);
-        Expect.listEquals(expected, list);
+        if (timer != null) {
+          timer.cancel();
+        }
+        Expect.equals(totalSent + closeEvent, counter);
+        Expect.deepEquals(expected, list);
         asyncEnd();
       });
     });

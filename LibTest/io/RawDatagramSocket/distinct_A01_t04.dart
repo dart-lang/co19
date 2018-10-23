@@ -44,9 +44,14 @@ main() {
       var received = 0;
       Timer timer;
       List list = [];
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
+      int totalSent = 0;
+
+      totalSent += producer.send([sent++], address, receiver.port);
+      totalSent += producer.send([sent++], address, receiver.port);
+      totalSent += producer.send([sent++], address, receiver.port);
+      if (totalSent != sent) {
+        Expect.fail('$totalSent messages were sent instead of $sent.');
+      }
       producer.close();
 
       Stream bcs = receiver.asBroadcastStream();
@@ -54,10 +59,9 @@ main() {
       s.listen((event) {
         list.add(event);
         counter++;
-      },onDone: () {
+      }, onDone: () {
         Expect.equals(3, counter);
-        Expect.equals(4, received);
-        Expect.listEquals(expected, list);
+        Expect.deepEquals(expected, list);
         asyncEnd();
       });
       bcs.listen((event) {
@@ -70,6 +74,11 @@ main() {
           Expect.isNull(receiver.receive());
           receiver.close();
         });
+      }, onDone: () {
+        if (timer != null) {
+          timer.cancel();
+        }
+        Expect.equals(4, received);
       });
     });
   });

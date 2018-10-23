@@ -21,8 +21,8 @@
  * event is.
  *
  * @description Checks that the returned stream contains only the last event
- * when equals is omitted and this stream was canceled before method distinct
- * usage.
+ * when equals is '(previous, next) => false' and this stream was canceled
+ * before method distinct usage.
  * @author ngl@unipro.ru
  */
 import "dart:io";
@@ -41,9 +41,14 @@ main() {
       int counter = 0;
       Timer timer;
       List list = [];
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
+      int totalSent = 0;
+
+      totalSent += producer.send([sent++], address, receiver.port);
+      totalSent += producer.send([sent++], address, receiver.port);
+      totalSent += producer.send([sent++], address, receiver.port);
+      if (totalSent != sent) {
+        Expect.fail('$totalSent messages were sent instead of $sent.');
+      }
       producer.close();
       receiver.close();
 
@@ -60,8 +65,11 @@ main() {
           receiver.close();
         });
       }).onDone(() {
+        if (timer != null) {
+          timer.cancel();
+        }
         Expect.equals(1, counter);
-        Expect.listEquals(expected, list);
+        Expect.deepEquals(expected, list);
         asyncEnd();
       });
     });

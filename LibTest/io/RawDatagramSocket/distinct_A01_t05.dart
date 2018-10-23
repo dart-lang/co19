@@ -43,9 +43,16 @@ main() {
       Timer timer;
       List list = [];
       List errorList = [];
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
+      int totalSent = 0;
+      int nullWriteData = 0;
+      int closeEvent = 1;
+
+      totalSent += producer.send([sent++], address, receiver.port);
+      totalSent += producer.send([sent++], address, receiver.port);
+      totalSent += producer.send([sent++], address, receiver.port);
+      if (totalSent != sent) {
+        Expect.fail('$totalSent messages were sent instead of $sent.');
+      }
       producer.close();
 
       Stream bcs = receiver.asBroadcastStream();
@@ -58,15 +65,19 @@ main() {
         counter2++;
       }, onDone: () {
         Expect.equals(1, counter1);
-        Expect.equals(3, counter2);
-        Expect.equals(4, received);
-        Expect.listEquals(expected1, list);
-        Expect.listEquals(expected2, errorList);
-        asyncEnd();
+        Expect.equals(totalSent + nullWriteData, counter2);
+        Expect.deepEquals(expected1, list);
+        if (nullWriteData != 0) {
+          expected2.add('ex');
+        }
+        Expect.deepEquals(expected2, errorList);
       });
 
       bcs.listen((event) {
-        receiver.receive();
+        Datagram d = receiver.receive();
+        if (event == RawSocketEvent.write && d == null) {
+          nullWriteData = 1;
+        }
         received++;
         if (timer != null) {
           timer.cancel();
@@ -75,6 +86,12 @@ main() {
           Expect.isNull(receiver.receive());
           receiver.close();
         });
+      }, onDone: () {
+        if (timer != null) {
+          timer.cancel();
+        }
+        Expect.equals(totalSent + closeEvent + nullWriteData, received);
+        asyncEnd();
       });
     });
   });

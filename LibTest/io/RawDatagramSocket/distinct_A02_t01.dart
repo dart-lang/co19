@@ -39,10 +39,16 @@ main() {
       List list1 = [];
       List list2 = [];
       List list3 = [];
+      int totalSent = 0;
+      int nullWriteData = 0;
+      int closeEvent = 1;
 
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
+      totalSent += producer.send([sent++], address, receiver.port);
+      totalSent += producer.send([sent++], address, receiver.port);
+      totalSent += producer.send([sent++], address, receiver.port);
+      if (totalSent != sent) {
+        Expect.fail('$totalSent messages were sent instead of $sent.');
+      }
       producer.close();
 
       Stream bcs = receiver.asBroadcastStream();
@@ -54,7 +60,7 @@ main() {
         counter1++;
       }, onDone: () {
         Expect.equals(3, counter1);
-        Expect.listEquals(expected, list1);
+        Expect.deepEquals(expected, list1);
       });
 
       s.listen((event) {
@@ -62,7 +68,7 @@ main() {
         counter2++;
       }, onDone: () {
         Expect.equals(3, counter2);
-        Expect.listEquals(expected, list2);
+        Expect.deepEquals(expected, list2);
       });
 
       s.listen((event) {
@@ -70,11 +76,14 @@ main() {
         counter3++;
       }, onDone: () {
         Expect.equals(3, counter3);
-        Expect.listEquals(expected, list3);
+        Expect.deepEquals(expected, list3);
       });
 
       bcs.listen((event) {
-        receiver.receive();
+        Datagram d = receiver.receive();
+        if (event == RawSocketEvent.write && d == null) {
+          nullWriteData = 1;
+        }
         received++;
         if (timer != null) {
           timer.cancel();
@@ -82,10 +91,13 @@ main() {
         timer = new Timer(const Duration(milliseconds: 200), () {
           Expect.isNull(receiver.receive());
           receiver.close();
-          if (received == 4) {
-            asyncEnd();
-          }
         });
+      }, onDone: () {
+        if (timer != null) {
+          timer.cancel();
+        }
+        Expect.equals(totalSent + closeEvent + nullWriteData, received);
+        asyncEnd();
       });
     });
   });
