@@ -16,24 +16,28 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
+class S {}
+class T {}
+class X extends S {}
+class Y extends T {}
 
-abstract class B {
-  void foo(int x);
+abstract class B<T1> {
+  T1 foo(T1 x);
 }
 
-mixin M on B {
-  void bar() {
-    super.foo("test");
+mixin M<T1 extends S, T2 extends T> on B<T2> {
+  void test(T1 t1) {
+    super.foo(t1);
   }
 }
 
-class C implements B {
-  void foo(int x) {}
+class C<T1> implements B<T1> {
+  T1 foo(T1 x) => x;
 }
 
-class MA extends C with M {
+class MA extends C<Y> with M<X, Y> {
 }
 
 main() {
-  new MA().bar();
+  new MA().test(new X());
 }
