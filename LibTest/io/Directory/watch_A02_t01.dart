@@ -19,21 +19,17 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  bool called = false;
   Directory dir = getTempDirectorySync();
+  Directory child1 = getTempDirectorySync(parent: dir);
   asyncStart();
-  StreamSubscription s =
-      dir.watch(events: FileSystemEvent.create).listen((FileSystemEvent event) {
-    Expect.isFalse(called);
-    called = true;
-  });
-  Directory child = dir.createTempSync();
-  child.createTempSync();
-
-  new Future.delayed(new Duration(seconds: 1)).then((_) {
+  StreamSubscription s = null;
+  s = dir.watch().listen((FileSystemEvent event) {
     s.cancel().then((_) {
       dir.delete(recursive: true);
+    }).then((_) {
+      Expect.equals(FileSystemEvent.modify, event.type);
       asyncEnd();
     });
   });
+  child1.createTemp();
 }

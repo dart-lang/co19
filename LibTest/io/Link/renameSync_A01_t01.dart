@@ -20,16 +20,15 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Link link = getTempLinkSync();
-  String newPath = getTempFilePath();
+  Directory sandbox = getTempDirectorySync();
+  Link link = getTempLinkSync(parent: sandbox);
+  String newPath = getTempFilePath(parent: sandbox);
   Link renamed = null;
   try {
     renamed = link.renameSync(newPath);
     Expect.isTrue(renamed.existsSync());
     Expect.isFalse(link.existsSync());
   } finally {
-    if (renamed != null) {
-      renamed.delete();
-    }
+    sandbox.delete(recursive: true);
   }
 }

@@ -20,8 +20,9 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory srcDir = getTempDirectorySync();
-  Directory targetDir = getTempDirectorySync();
+  Directory sandbox = getTempDirectorySync();
+  Directory srcDir = getTempDirectorySync(parent: sandbox);
+  Directory targetDir = getTempDirectorySync(parent: sandbox);
   targetDir.createTempSync();
 
   asyncStart();
@@ -35,11 +36,6 @@ main() {
       renamed.delete();
     }
   }).whenComplete(() {
-    if (srcDir.existsSync()) {
-      srcDir.delete(recursive: true);
-    }
-    if (targetDir.existsSync()) {
-      targetDir.delete(recursive: true);
-    }
+    sandbox.delete(recursive: true);
   });
 }

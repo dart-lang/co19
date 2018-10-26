@@ -20,15 +20,15 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory srcDir = getTempDirectorySync();
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  Directory srcDir = getTempDirectorySync(parent: sandbox);
+  File file = getTempFileSync(parent: sandbox);
 
   try {
     Expect.throws(() {srcDir.renameSync(file.path);});
     Expect.isTrue(srcDir.existsSync());
     Expect.isTrue(file.existsSync());
   } finally {
-    srcDir.delete();
-    file.delete();
+    sandbox.delete(recursive: true);
   }
 }

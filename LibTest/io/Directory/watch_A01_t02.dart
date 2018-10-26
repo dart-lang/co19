@@ -20,21 +20,20 @@ import "../file_utils.dart";
 
 main() {
   Directory dir = getTempDirectorySync();
-  bool called = false;
+  Directory child = dir.createTempSync();
+
   asyncStart();
   StreamSubscription s =
       dir.watch(events: FileSystemEvent.create).listen((FileSystemEvent event) {
-    Expect.isFalse(called);
-    called = true;
-    Expect.equals(FileSystemEvent.create, event.type);
+    Expect.fail("Wrong event arrived");
   });
-  Directory child = dir.createTempSync();
-  child.delete();
-
-  new Future.delayed(new Duration(seconds: 1)).then((_) {
-    s.cancel().then((_) {
-      dir.delete(recursive: true);
-      asyncEnd();
+  child.delete().then((_) {
+    new Future.delayed(new Duration(seconds: 1)).then((_) {
+      s.cancel().then((_) {
+        dir.delete(recursive: true);
+        asyncEnd();
+      });
     });
   });
+
 }
