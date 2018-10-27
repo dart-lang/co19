@@ -44,7 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks instantiation to bounds for [class A<X extends
  * FutureOr<A<X>>]
- * @Issue 34264
+ * @Issue 34264, 34948
  * @author iarkh@unipro.ru
  */
 import "dart:async";

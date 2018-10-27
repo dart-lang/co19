@@ -55,7 +55,6 @@ class B<X> extends A<X> {}
 class G<X1 extends A<X1>, X2 extends A<X1>, X3 extends B, X4 extends X2> {}
 
 main() {
-  print(typeOf<G>());
   Expect.equals(
     typeOf<G<A<dynamic>, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>>(),
     typeOf<G>()

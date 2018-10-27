@@ -45,7 +45,7 @@
  * @description Checks that instantiate-to-bounds works as expected for [class
  * A<String, X extends A<Null, A<String,X>>>]
  * @compile-error
- * @Issue 34623, 34727
+ * @Issue 34727, 34948, 34950
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();

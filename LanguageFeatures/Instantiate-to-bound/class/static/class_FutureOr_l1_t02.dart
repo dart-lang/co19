@@ -45,7 +45,7 @@
  * @description Checks that instantiate-to-bounds works as expected for [A<X
  * extends FutureOr<A<X>>]
  * @compile-error
- * @Issue 34264, 34623
+ * @Issue 34264, 34948
  * @author iarkh@unipro.ru
  */
 import "dart:async";

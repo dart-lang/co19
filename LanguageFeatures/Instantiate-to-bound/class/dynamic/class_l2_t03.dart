@@ -44,15 +44,14 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for class
  * [A<String, X extends A<Null, A<String,X>>>]
- * @Issue 34727
+ * @Issue 34727, 34948
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
 
-class A<Y extends String, X extends A<Null, A<String,X>>> {}
+class A<Y extends String, X extends A<Null, A<String, X>>> {}
 
 main() {
-  print(typeOf<A>());
   Expect.equals(
     typeOf<A<String, A<Null, A<String, dynamic>>>>(),
     typeOf<A>(),

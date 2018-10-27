@@ -45,7 +45,7 @@
  * @description Checks instantiation to bounds for the class B with [typedef]
  *  parameter: [class A<X>], [typedef G<X extends A<X>> = X Function()], [class
  *  B<X extends A<G<X>>>] (covariant)
- * @Issue 34833
+ * @Issue 34833, 34948
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";

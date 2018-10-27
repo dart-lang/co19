@@ -44,7 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for [A<X
  * extends FutureOr<X>]
- * @Issue 34623, 34845
+ * @Issue 34845, 34947
  * @compile-error
  * @author iarkh@unipro.ru
  */
