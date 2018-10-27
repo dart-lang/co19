@@ -17,7 +17,6 @@
  * function parameter (not used)
  * @author iarkh@unipro.ru
  */
-import "dart:async";
 import "../../../Utils/expect.dart";
 
 typedef G<X> = void Function();

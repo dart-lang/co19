@@ -17,7 +17,6 @@
  * extends num] parameter (contravariant)
  * @author iarkh@unipro.ru
  */
-import "dart:async";
 import "../../../Utils/expect.dart";
 
 typedef G<X extends num> = Function(X);
