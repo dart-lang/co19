@@ -8,7 +8,6 @@
  * if function argument parameter extends void) Checks that function cannot have
  * parameter which extends [void].
  * @compile-error
- * @Issue 33699
  * @author iarkh@unipro.ru
  */
 

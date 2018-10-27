@@ -7,7 +7,6 @@
  * @description Regression test for the issue 33624 (Dart does not throw error
  * when analyzer fails with "type_argument_not_matching_bounds" error for
  * mixins).
- * @Issue 33308
  * @compile-error
  * @author iarkh@unipro.ru
  */

@@ -9,7 +9,6 @@
  * declaring [class A<X extends A> {}] after [class A<X extends C>] causes
  * compile error.
  * @compile error
- * @Issue 34635
  * @author iarkh@unipro.ru
  */
 class A<X extends C> {}

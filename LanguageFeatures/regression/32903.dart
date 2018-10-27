@@ -7,7 +7,6 @@
  * @description Regression test for the issue 32903 (Dartanalyzer 2.0
  * incorrectly throws [type_argument_not_matching_bounds] error for
  * super-bounded types in preview-dart-2 mode).
- * @Issue 32903
  * @author iarkh@unipro.ru
  */
 import "dart:async";
