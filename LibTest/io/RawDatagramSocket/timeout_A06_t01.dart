@@ -38,11 +38,16 @@ check(dataExpected, errorCountExpected, [bool no_write_events = false]) {
       int sent = 0;
       List list1 = [];
       List list2 = [];
+      int totalSent = 0;
+
       new Timer.periodic(const Duration(milliseconds: 40), (timer) {
-        producer.send([sent], address, receiver.port);
+        totalSent += producer.send([sent], address, receiver.port);
         sent++;
         if (sent > 2) {
           timer.cancel();
+          if (totalSent != sent) {
+            Expect.fail('$totalSent messages were sent instead of $sent.');
+          }
           producer.close();
         }
       });
@@ -50,7 +55,6 @@ check(dataExpected, errorCountExpected, [bool no_write_events = false]) {
       Stream bcs = receiver.asBroadcastStream();
       Stream s = bcs.timeout(durationMs(1));
       s.listen((event) {
-
         list1.add(event);
         receiver.receive();
       }, onError: (e) {
@@ -62,7 +66,9 @@ check(dataExpected, errorCountExpected, [bool no_write_events = false]) {
       Timer timer;
       s.listen((event) {
         list2.add(event);
-        if (timer != null) timer.cancel();
+        if (timer != null) {
+          timer.cancel();
+        }
         timer = new Timer(const Duration(milliseconds: 200), () {
           Expect.isNull(receiver.receive());
           receiver.close();
@@ -71,6 +77,10 @@ check(dataExpected, errorCountExpected, [bool no_write_events = false]) {
         Expect.isTrue(e is TimeoutException);
         count2++;
       }, onDone: () {
+        if (timer != null) {
+          timer.cancel();
+        }
+        print('$no_write_events  $count1 $count2  $list1 $list2');
         Expect.equals(count1, count2);
         Expect.deepEquals(list1, list2);
         asyncEnd();

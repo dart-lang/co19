@@ -43,15 +43,25 @@ main() {
       int counter = 0;
       Timer timer;
       List list = [];
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
+      int totalSent = 0;
+      int nullWriteData = 0;
+      int closeEvent = 1;
+
+      totalSent += producer.send([sent++], address, receiver.port);
+      totalSent += producer.send([sent++], address, receiver.port);
+      totalSent += producer.send([sent++], address, receiver.port);
+      if (totalSent != sent) {
+        Expect.fail('$totalSent messages were sent instead of $sent.');
+      }
       producer.close();
 
       Stream s = receiver.distinct((previous, next) => false);
       s.listen((event) {
         list.add(event);
-        receiver.receive();
+        Datagram d = receiver.receive();
+        if (event == RawSocketEvent.write && d == null) {
+          nullWriteData = 1;
+        }
         counter++;
         if (timer != null) {
           timer.cancel();
@@ -61,8 +71,14 @@ main() {
           receiver.close();
         });
       }).onDone(() {
-        Expect.equals(4, counter);
-        Expect.listEquals(expected, list);
+        if (timer != null) {
+          timer.cancel();
+        }
+        Expect.equals(totalSent + closeEvent + nullWriteData, counter);
+        if (nullWriteData != 0) {
+          expected.insert(1, RawSocketEvent.read);
+        }
+        Expect.deepEquals(expected, list);
         asyncEnd();
       });
     });

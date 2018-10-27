@@ -21,7 +21,7 @@ import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-check(dataExpected, [bool no_write_events = false]) {
+check(List dataExpected, [bool no_write_events = false]) {
   asyncStart();
   var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {
@@ -30,22 +30,41 @@ check(dataExpected, [bool no_write_events = false]) {
         receiver.writeEventsEnabled = false;
       }
       int sent = 0;
+      Timer timer;
       List list = [];
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
+      int totalSent = 0;
+      int nullWriteData = 0;
+
+      totalSent += producer.send([sent++], address, receiver.port);
+      totalSent += producer.send([sent++], address, receiver.port);
+      if (totalSent != sent) {
+        Expect.fail('$totalSent messages were sent instead of $sent.');
+      }
       producer.close();
 
       Stream s = receiver.timeout(const Duration(milliseconds: 300));
       s.listen((event) {
         list.add(event);
-        receiver.receive();
+        Datagram d = receiver.receive();
+        if (event == RawSocketEvent.write && d == null) {
+          nullWriteData = 1;
+        }
+        if (timer != null) {
+          timer.cancel();
+        }
+        timer = new Timer(const Duration(milliseconds: 200), () {
+          Expect.isNull(receiver.receive());
+          receiver.close();
+        });
       }, onDone: () {
-        Expect.listEquals(dataExpected, list);
+        if (timer != null) {
+          timer.cancel();
+        }
+        if (nullWriteData != 0) {
+          dataExpected.insert(1, RawSocketEvent.read);
+        }
+        Expect.deepEquals(dataExpected, list);
         asyncEnd();
-      });
-      new Timer(const Duration(milliseconds: 200), () {
-        Expect.isNull(receiver.receive());
-        receiver.close();
       });
     });
   });
