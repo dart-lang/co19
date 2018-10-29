@@ -27,7 +27,7 @@ run_main() async {
       (Process process) async {
     process.stdin.writeln("Hello");
     await process.stdout.toList().then((out) {
-      Expect.listEquals([72, 101, 108, 108, 111], toFlatList(out));
+      Expect.listEquals([72, 101, 108, 108, 111], flattenList<int>(out));
       called++;
     });
   });

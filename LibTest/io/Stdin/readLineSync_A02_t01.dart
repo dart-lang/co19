@@ -40,7 +40,7 @@ run_main() async {
       await process.stdout.toList().then((out) {
         // Correct substring sequence should be: Start -> 1 -> 2 -> End
         Expect.listEquals([83, 116, 97, 114, 116, 49, 50, 69, 110, 100],
-            toFlatList(out));
+            flattenList<int>(out));
         called++;
       });
     });

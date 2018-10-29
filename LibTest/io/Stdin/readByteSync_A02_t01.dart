@@ -40,7 +40,7 @@ run_main() async {
         });
         await process.stdout.toList().then((out) {
           // Expected result is: [5-1OK] string
-          Expect.listEquals([53, 45, 49, 79, 75, 10], toFlatList(out));
+          Expect.listEquals([53, 45, 49, 79, 75, 10], flattenList<int>(out));
           called++;
         });
       });

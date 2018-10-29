@@ -9,14 +9,5 @@
  */
 library stdin_utils;
 
-List<int> toFlatList(List list) {
-  List<int> result = [];
-  for (int i = 0; i < list.length; i++) {
-    if (list[i] is List) {
-      result.addAll(toFlatList(list[i]));
-    } else {
-      result.add(list[i]);
-    }
-  }
-  return result;
-}
+List<T> flattenList<T>(List list) =>
+    list.expand((e) => e is List ? e : [e]).cast<T>().toList();
