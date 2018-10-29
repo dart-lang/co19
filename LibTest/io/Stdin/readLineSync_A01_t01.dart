@@ -4,7 +4,6 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion int readByteSync()
  * @assertion String readLineSync({
  *   Encoding encoding: systemEncoding,
  *   bool retainNewlines: false
@@ -15,6 +14,7 @@
  */
 import "../../../Utils/expect.dart";
 import "dart:io";
+import "stdin_utils.dart";
 
 run_process() { stdout.write(stdin.readLineSync()); }
 
@@ -27,7 +27,7 @@ run_main() async {
       (Process process) async {
     process.stdin.writeln("Hello");
     await process.stdout.toList().then((out) {
-      Expect.listEquals([[72, 101, 108, 108, 111]], out);
+      Expect.listEquals([72, 101, 108, 108, 111], toFlatList(out));
       called++;
     });
   });

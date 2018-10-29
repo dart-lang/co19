@@ -4,7 +4,6 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion int readByteSync()
  * @assertion String readLineSync({
  *   Encoding encoding: systemEncoding,
  *   bool retainNewlines: false
@@ -16,6 +15,7 @@
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
+import "stdin_utils.dart";
 
 run_process() {
   stdout.write("Start");
@@ -39,7 +39,8 @@ run_main() async {
     await process.exitCode.then((_) async {
       await process.stdout.toList().then((out) {
         // Correct substring sequence should be: Start -> 1 -> 2 -> End
-        Expect.listEquals([[83, 116, 97, 114, 116, 49, 50, 69, 110, 100]], out);
+        Expect.listEquals([83, 116, 97, 114, 116, 49, 50, 69, 110, 100],
+            toFlatList(out));
         called++;
       });
     });
