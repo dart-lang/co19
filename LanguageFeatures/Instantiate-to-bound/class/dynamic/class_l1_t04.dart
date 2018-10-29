@@ -45,7 +45,7 @@
  * @description Checks that instantiation to bounds works for:
  * [class A<X extends A<X>>],
  * ;class B<X extends A<A<X>>>]
- * @Issue 34726
+ * @Issue 34726, 34948
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";

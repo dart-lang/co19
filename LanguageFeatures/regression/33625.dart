@@ -9,8 +9,6 @@
  *    [typedef F<X> = X Function();
  *    typedef G<X extends F> = X Function();]
  * throw error because parameter bound type is not instantiated.
- * @compile-error
- * @Issue 33625
  * @author iarkh@unipro.ru
  */
 

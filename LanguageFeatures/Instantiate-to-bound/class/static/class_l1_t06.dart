@@ -45,7 +45,6 @@
  * @description Checks that instantiate-to-bounds works as expected for the
  * class [class O<X extends M<O<M<O<M<O<X>>>>>>>].
  * @compile-error
- * @Issue 34623
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();

@@ -45,7 +45,6 @@
  * @description Checks that instantiation to bounds works OK for the class with
  * [typedef G<X> = X Function()] parameter (contravariant)
  * @compile-error
- * @Issue 34623
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();
@@ -57,9 +56,9 @@ class A<X extends G<A<X>>> {}
 main() {
   A source;
   var fsource = toF(source);
-  F<A<G<A<Null>>>> target = fsource;
+  F<A<G<A<dynamic>>>> target = fsource;
 
-  F<A<G<A<dynamic>>>> target0 = fsource; //# 01: compile-time error
+  F<A<G<A<Null>>>> target0 = fsource; //# 01: compile-time error
 
   F<A<dynamic>> target1 = fsource;             //# 02: compile-time error
   F<A<G<dynamic>>> target2 = fsource;          //# 03: compile-time error

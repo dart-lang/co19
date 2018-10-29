@@ -44,8 +44,8 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for
  * [class A<X extends A<X>>]
- * @Issue 34623
  * @compile-error
+ * Issue 34950
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();

@@ -44,12 +44,13 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks instantiation to bounds for [class A<X extends
  * FutureOr<X>>]
+ * @Issue 34947
  * @author iarkh@unipro.ru
  */
 import "dart:async";
 import "../../../../Utils/expect.dart";
 
-class A<X extends FutureOr<AX>> {}
+class A<X extends FutureOr<X>> {}
 
 main() {
   Expect.equals(

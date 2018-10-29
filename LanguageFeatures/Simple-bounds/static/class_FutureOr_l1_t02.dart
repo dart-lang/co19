@@ -15,6 +15,7 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct when class parameter is
  * [FutureOr<List>]
+ * @Issue 34948
  * @author iarkh@unipro.ru
  */
 import "dart:async";

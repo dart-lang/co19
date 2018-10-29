@@ -9,7 +9,6 @@
  * and 34700 (Analyzer does not reject typedef which has a reference to itself).
  * Checks that compile error appears if [typedef] references itself directly.
  * @compile-error
- * @Issue 34700
  * @author iarkh@unipro.ru
  */
 

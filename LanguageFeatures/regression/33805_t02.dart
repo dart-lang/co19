@@ -8,7 +8,6 @@
  * try to assign a function result to row variable). Checks that error appears
  * if row variable is passed to the function parameter
  * @compile-error
- * @Issue 33805
  * @author iarkh@unipro.ru
  */
 class A<X> {}
