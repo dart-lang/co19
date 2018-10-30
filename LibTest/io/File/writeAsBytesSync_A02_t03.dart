@@ -30,14 +30,14 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
-
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   try {
     file.writeAsBytesSync([1, 1, 1, 1, 1]);
     file.writeAsBytesSync([3, 1, 4, 1, 5], mode: FileMode.append);
     Expect.isTrue(file.existsSync());
     Expect.listEquals([1, 1, 1, 1, 1, 3, 1, 4, 1, 5], file.readAsBytesSync());
   } finally {
-    file.delete();
+    sandbox.delete(recursive: true);
   }
 }

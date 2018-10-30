@@ -19,13 +19,13 @@
  * @description Checks that if file path is wrong then this operation fails
  * @author sgrekhov@unipro.ru
  */
-
 import "dart:io";
 import "../file_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  File f = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File f = getTempFileSync(parent: sandbox);
   String path = "/" + f.absolute.path; // wrong file path
   File file = new File(path);
 
@@ -35,5 +35,7 @@ main() {
     Expect.fail("Error expected");
   }, onError: (_) {
     f.delete();
+  }).whenComplete(() {
+    sandbox.delete(recursive: true);
   });
 }

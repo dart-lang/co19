@@ -21,13 +21,14 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   RandomAccessFile raFile = file.openSync(mode: FileMode.read);
   try {
     Expect.isNotNull(raFile);
     Expect.throws(() {raFile.writeByteSync(1);});
   } finally {
     raFile.closeSync();
-    file.delete();
+    sandbox.delete(recursive: true);
   }
 }

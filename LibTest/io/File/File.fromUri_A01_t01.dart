@@ -17,8 +17,9 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File tmp = getTempFileSync();
-  Directory tmpDir = getTempDirectorySync();
+  Directory sandbox = getTempDirectorySync();
+  File tmp = getTempFileSync(parent: sandbox);
+  Directory tmpDir = getTempDirectorySync(parent: sandbox);
   try {
     Uri uri = new Uri.file(tmp.path);
     File file = new File.fromUri(uri);
@@ -35,7 +36,6 @@ main() {
     file = new File.fromUri(uri);
     Expect.equals(tmpDir.path, file.path);
   } finally {
-    tmp.delete();
-    tmpDir.delete();
+    sandbox.delete(recursive: true);
   }
 }

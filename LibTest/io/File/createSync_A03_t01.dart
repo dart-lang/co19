@@ -22,7 +22,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File tmp = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File tmp = getTempFileSync(parent: sandbox);
   tmp.writeAsStringSync("Existing file content");
   File file = new File(tmp.path);
 
@@ -32,6 +33,6 @@ main() {
     Expect.equals(tmp.path, file.path);
     Expect.equals("Existing file content", file.readAsStringSync());
   } finally {
-    tmp.delete();
+    sandbox.delete(recursive: true);
   }
 }

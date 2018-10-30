@@ -26,9 +26,14 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
-  file.deleteSync();
-  Expect.throws(() {
-    file.deleteSync(recursive: false);
-  });
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
+  try {
+    file.deleteSync();
+    Expect.throws(() {
+      file.deleteSync(recursive: false);
+    });
+  } finally {
+    sandbox.delete(recursive: true);
+  }
 }

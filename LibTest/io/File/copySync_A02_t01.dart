@@ -19,8 +19,9 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file1 = getTempFileSync();
-  File file2 = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file1 = getTempFileSync(parent: sandbox);
+  File file2 = getTempFileSync(parent: sandbox);
   file2.writeAsStringSync("Existing file content");
 
   File copied = null;
@@ -30,7 +31,6 @@ main() {
     Expect.isTrue(copied.existsSync());
     Expect.equals("", copied.readAsStringSync());
   } finally {
-    file1.delete();
-    file2.delete();
+    sandbox.delete(recursive: true);
   }
 }

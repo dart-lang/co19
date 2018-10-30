@@ -23,13 +23,14 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   file.writeAsBytesSync([1, 2, 3]);
   asyncStart();
   file.openRead().listen((data) {
     Expect.throws(() {file.deleteSync();});
   }).onDone(() {
     asyncEnd();
-    file.deleteSync();
+    sandbox.delete(recursive: true);
   });
 }

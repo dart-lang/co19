@@ -21,13 +21,13 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   asyncStart();
   file.stat().then((FileStat fs) {
     Expect.equals(FileSystemEntityType.file, fs.type);
   }).whenComplete(() {
-    return file.delete(recursive: true);
-  }).then((_) {
     asyncEnd();
+    sandbox.delete(recursive: true);
   });
 }

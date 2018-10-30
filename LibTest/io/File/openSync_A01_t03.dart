@@ -20,7 +20,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   file.writeAsStringSync("Lily was here");
   String path = "/" + file.absolute.path;
   File f = new File(path);
@@ -29,6 +30,6 @@ main() {
       f.openSync(mode: FileMode.read);
     }, (e) => e is FileSystemException);
   } finally {
-    file.delete();
+    sandbox.delete(recursive: true);
   }
 }

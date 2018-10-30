@@ -21,7 +21,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   try {
     FileStat fs = file.statSync();
     FileStat fs2 = FileStat.statSync(file.path);
@@ -32,6 +33,6 @@ main() {
     Expect.equals(fs2.size, fs.size);
     Expect.equals(fs2.accessed, fs.accessed);
   } finally {
-    file.delete();
+    sandbox.delete(recursive: true);
   }
 }
