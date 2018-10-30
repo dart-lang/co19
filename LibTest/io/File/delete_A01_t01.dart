@@ -31,11 +31,14 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   asyncStart();
   file.delete().then((deleted) {
     Expect.isFalse(file.existsSync());
     Expect.isFalse(deleted.existsSync());
     asyncEnd();
+  }).whenComplete(() {
+    sandbox.delete(recursive: true);
   });
 }

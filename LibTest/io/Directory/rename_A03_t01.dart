@@ -20,8 +20,9 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory srcDir = getTempDirectorySync();
-  File target = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  Directory srcDir = getTempDirectorySync(parent: sandbox);
+  File target = getTempFileSync(parent: sandbox);
 
   asyncStart();
   srcDir.rename(target.path).then((d) {
@@ -32,7 +33,6 @@ main() {
     Expect.isTrue(e is FileSystemException);
     asyncEnd();
   }).whenComplete(() {
-    srcDir.delete(recursive: true);
-    target.delete(recursive: true);
+    sandbox.delete(recursive: true);
   });
 }

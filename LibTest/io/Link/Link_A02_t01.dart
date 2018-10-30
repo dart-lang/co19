@@ -15,12 +15,13 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
+  Directory sandbox = getTempDirectorySync();
+  Directory dir = getTempDirectorySync(parent: sandbox);
   try {
     Link link = new Link(dir.path + Platform.pathSeparator + "tmp.dart");
     Expect.equals(dir.path + Platform.pathSeparator + "tmp.dart",
         link.absolute.path);
   } finally {
-    dir.delete(recursive: true);
+    sandbox.delete(recursive: true);
   }
 }

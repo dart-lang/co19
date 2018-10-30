@@ -19,6 +19,13 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = new File(getTempFilePath());
-  Expect.throws(() {file.lastAccessedSync();}, (e) => e is FileSystemException);
+  Directory sandbox = getTempDirectorySync();
+  File file = new File(getTempFilePath(parent: sandbox));
+  try {
+    Expect.throws(() {
+      file.lastAccessedSync();
+    }, (e) => e is FileSystemException);
+  } finally {
+    sandbox.delete(recursive: true);
+  }
 }

@@ -15,16 +15,17 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
+  Directory sandbox = getTempDirectorySync();
   // create 2 Directories
-  Directory dir1 = getTempDirectorySync();
-  Directory dir2 = getTempDirectorySync();
+  Directory dir1 = getTempDirectorySync(parent: sandbox);
+  Directory dir2 = getTempDirectorySync(parent: sandbox);
   String dir2Name = getEntityName(dir2);
 
   // create file in dir2
   String fileName = getTempFileName();
   File file = getTempFileSync(parent: dir2, name: fileName);
   // create link to the directory dir 1
-  Link link1 = getTempLinkSync(target: dir1.path);
+  Link link1 = getTempLinkSync(target: dir1.path, parent: sandbox);
   // in dir1 create link to dir1
   Link link2 = getTempLinkSync(parent: dir1, target: ".");
 
@@ -46,7 +47,6 @@ main() {
   try {
     Expect.isTrue(f.existsSync());
   } finally {
-    deleteLinkWithTarget(link1);
-    dir2.delete(recursive: true);
+    sandbox.delete(recursive: true);
   }
 }

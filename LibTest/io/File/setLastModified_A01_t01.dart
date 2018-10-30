@@ -17,7 +17,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   DateTime oldDate = file.lastModifiedSync();
   DateTime newDate = oldDate.add(new Duration(days: -1));
 
@@ -26,6 +27,6 @@ main() {
     Expect.equals(newDate, file.lastModifiedSync());
     asyncEnd();
   }).whenComplete(() {
-    file.delete();
+    sandbox.delete(recursive: true);
   });
 }

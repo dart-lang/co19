@@ -20,7 +20,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Link link = getTempLinkSync();
+  Directory sandbox = getTempDirectorySync();
+  Link link = getTempLinkSync(parent: sandbox);
   asyncStart();
   link.stat().then((FileStat fs) {
     return FileStat.stat(link.path).then((FileStat fs2) {
@@ -32,7 +33,7 @@ main() {
       Expect.equals(fs2.accessed, fs.accessed);
     });
   }).whenComplete(() {
-    deleteLinkWithTarget(link);
+    sandbox.delete(recursive: true);
   }).then((_) {
     asyncEnd();
   });

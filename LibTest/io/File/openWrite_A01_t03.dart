@@ -27,7 +27,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   file.writeAsStringSync("UTF-8: кириллица ");
   IOSink sink = file.openWrite(mode: FileMode.writeOnly);
   sink.write("прекрасна");
@@ -37,7 +38,7 @@ main() {
       Expect.equals("прекрасна", file.readAsStringSync());
       asyncEnd();
     } finally {
-      file.delete();
+      sandbox.delete(recursive: true);
     }
   });
 }

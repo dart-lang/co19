@@ -27,13 +27,14 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   file.writeAsStringSync("UTF-8: кириллица прекрасна");
   try {
     Expect.throws(() {
       file.openWrite(mode: FileMode.read);
     });
   } finally {
-    file.delete();
+    sandbox.delete(recursive: true);
   }
 }

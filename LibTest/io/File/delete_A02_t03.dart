@@ -29,8 +29,9 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory target = getTempDirectorySync();
-  Link link = getTempLinkSync(target: target.path);
+  Directory sandbox = getTempDirectorySync();
+  Directory target = getTempDirectorySync(parent: sandbox);
+  Link link = getTempLinkSync(target: target.path, parent: sandbox);
   File file = new File(link.path);
 
   asyncStart();
@@ -40,6 +41,6 @@ main() {
     Expect.isFalse(link.existsSync());
     asyncEnd();
   }).whenComplete(() {
-    target.delete();
+    sandbox.delete(recursive: true);
   });
 }

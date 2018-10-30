@@ -25,7 +25,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  String dirPath = getTempDirectoryPath();
+  Directory sandbox = getTempDirectorySync();
+  String dirPath = getTempDirectoryPath(parent: sandbox);
   String filePath = dirPath + Platform.pathSeparator + getTempFileName();
   File file = new File(filePath);
   asyncStart();
@@ -34,6 +35,6 @@ main() {
     Expect.equals(file.path, created.path);
     asyncEnd();
   }).whenComplete(() {
-    new Directory(dirPath).delete(recursive: true);
+    sandbox.delete(recursive: true);
   });
 }

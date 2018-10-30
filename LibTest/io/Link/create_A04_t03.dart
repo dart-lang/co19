@@ -36,14 +36,15 @@ import "../file_utils.dart";
 
 main() {
   if (Platform.isWindows) {
-    Directory target = getTempDirectorySync();
-    Link link = new Link(getTempFilePath());
+    Directory sandbox = getTempDirectorySync();
+    Directory target = getTempDirectorySync(parent: sandbox);
+    Link link = new Link(getTempFilePath(parent: sandbox));
     asyncStart();
     link.create(target.path).then((Link created) {
       Expect.isTrue(link.existsSync());
       asyncEnd();
     }).whenComplete(() {
-      deleteLinkWithTarget(link);
+      sandbox.delete(recursive: true);
     });
   }
 }

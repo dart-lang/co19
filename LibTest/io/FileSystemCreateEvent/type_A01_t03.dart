@@ -16,18 +16,18 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
-  Directory target = getTempDirectorySync();
+  Directory sandbox = getTempDirectorySync();
+  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory target = getTempDirectorySync(parent: sandbox);
   asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
-    Expect.equals(FileSystemEvent.create, event.type);
-    asyncEnd();
-  });
-  getTempLinkSync(parent: dir, target: target.path);
-  new Future.delayed(new Duration(seconds: 1), () {
+  StreamSubscription s = null;
+  s = dir.watch().listen((FileSystemEvent event) {
     s.cancel().then((_) {
-      dir.delete(recursive: true);
-      target.delete();
+      sandbox.delete(recursive: true);
+    }).then((_) {
+      Expect.equals(FileSystemEvent.create, event.type);
+      asyncEnd();
     });
   });
+  getTempLinkSync(parent: dir, target: target.path);
 }

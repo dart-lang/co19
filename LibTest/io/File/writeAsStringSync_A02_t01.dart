@@ -31,11 +31,12 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   try {
     file.writeAsStringSync("File content: Кириллица прекрасна");
     Expect.equals("File content: Кириллица прекрасна", file.readAsStringSync());
   } finally {
-    file.delete();
+    sandbox.delete(recursive: true);
   }
 }

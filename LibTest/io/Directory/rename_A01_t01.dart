@@ -20,9 +20,10 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
+  Directory sandbox = getTempDirectorySync();
+  Directory dir = getTempDirectorySync(parent: sandbox);
   String oldName = dir.path;
-  String newName = getTempDirectoryPath();
+  String newName = getTempDirectoryPath(parent: sandbox);
 
   asyncStart();
   dir.rename(newName).then((renamed) {
@@ -36,8 +37,6 @@ main() {
       renamed.delete();
     }
   }).whenComplete(() {
-    if (dir.existsSync()) {
-      dir.delete(recursive: true);
-    }
+    sandbox.delete(recursive: true);
   });
 }

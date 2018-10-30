@@ -29,14 +29,16 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
+  Directory sandbox = getTempDirectorySync();
   // create 2 Directories
-  Directory dir1 = getTempDirectorySync();
-  Directory dir2 = getTempDirectorySync();
+  Directory dir1 = getTempDirectorySync(parent: sandbox);
+  Directory dir2 = getTempDirectorySync(parent: sandbox);
   String dir2Name = getEntityName(dir2);
 
   var rnd = new Random(new DateTime.now().microsecondsSinceEpoch);
   // create link to the directory dir1
   Link link1 = getTempLinkSync(
+      parent: sandbox,
       target: dir1.path,
       name: "resolveSymbolicLinksSync_A01_t01_1_" +
           rnd.nextInt(10000).toString() +
@@ -61,7 +63,6 @@ main() {
     Expect.equals(dir1.path, link2.resolveSymbolicLinksSync());
     Expect.equals(dir2.path, link3.resolveSymbolicLinksSync());
   } finally {
-    deleteLinkWithTarget(link1);
-    dir2.delete(recursive: true);
+    sandbox.delete(recursive: true);
   }
 }

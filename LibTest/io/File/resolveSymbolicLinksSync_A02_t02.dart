@@ -27,10 +27,14 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   file.deleteSync();
-
-  Expect.throws(() {
-    file.resolveSymbolicLinksSync();
-  }, (e) => e is FileSystemException);
+  try {
+    Expect.throws(() {
+      file.resolveSymbolicLinksSync();
+    }, (e) => e is FileSystemException);
+  } finally {
+    sandbox.delete(recursive: true);
+  }
 }

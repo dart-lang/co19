@@ -27,8 +27,9 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory target = new Directory(getTempDirectoryPath());
-  Link link1 = getTempLinkSync(target: target.path);
+  Directory sandbox = getTempDirectorySync();
+  Directory target = new Directory(getTempDirectoryPath(parent: sandbox));
+  Link link1 = getTempLinkSync(target: target.path, parent: sandbox);
 
   asyncStart();
   link1.resolveSymbolicLinks().then((String path) {
@@ -37,6 +38,6 @@ main() {
     Expect.isTrue(e is FileSystemException);
     asyncEnd();
   }).whenComplete(() {
-    link1.delete();
+    sandbox.delete(recursive: true);
   });
 }

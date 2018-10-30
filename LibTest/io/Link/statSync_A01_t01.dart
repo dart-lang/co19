@@ -21,10 +21,11 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Link link = getTempLinkSync();
+  Directory sandbox = getTempDirectorySync();
+  Link link = getTempLinkSync(parent: sandbox);
   try {
     Expect.equals(FileSystemEntityType.link, link.statSync().type);
   } finally {
-    deleteLinkWithTarget(link);
+    sandbox.delete(recursive: true);
   }
 }

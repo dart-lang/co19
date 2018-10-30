@@ -19,14 +19,14 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory target = getTempDirectorySync();
-  Directory newTarget = getTempDirectorySync();
-  Link link = getTempLinkSync(target: target.path);
+  Directory sandbox = getTempDirectorySync();
+  Directory target = getTempDirectorySync(parent: sandbox);
+  Directory newTarget = getTempDirectorySync(parent: sandbox);
+  Link link = getTempLinkSync(target: target.path, parent: sandbox);
   try {
     link.updateSync(newTarget.path);
     Expect.equals(newTarget.path, link.targetSync());
   } finally {
-    deleteLinkWithTarget(link);
-    target.delete();
+    sandbox.delete(recursive: true);
   }
 }

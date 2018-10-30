@@ -24,13 +24,14 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = new File(getTempFilePath());
+  Directory sandbox = getTempDirectorySync();
+  File file = new File(getTempFilePath(parent: sandbox));
   asyncStart();
   file.create().then((File created) {
     Expect.isTrue(created.existsSync());
     Expect.equals(file.path, created.path);
     asyncEnd();
   }).whenComplete(() {
-    file.delete();
+    sandbox.delete(recursive: true);
   });
 }

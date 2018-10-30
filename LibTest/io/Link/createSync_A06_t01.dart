@@ -35,7 +35,8 @@ import "../file_utils.dart";
 
 main() {
   if (!Platform.isWindows) {
-    Directory dir = getTempDirectorySync();
+    Directory sandbox = getTempDirectorySync();
+    Directory dir = getTempDirectorySync(parent: sandbox);
     String dirName = getTempDirectoryName();
     Directory target = new Directory(dir.path +
         Platform.pathSeparator + dirName);
@@ -46,7 +47,7 @@ main() {
       link.createSync(dirName);
       Expect.equals(dirName, link.targetSync());
     } finally {
-      dir.delete(recursive: true);
+      sandbox.delete(recursive: true);
     }
   }
 }

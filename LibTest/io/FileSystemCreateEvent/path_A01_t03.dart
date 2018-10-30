@@ -17,32 +17,32 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory dir = getTempDirectorySync();
-  Directory target = getTempDirectorySync();
-  String path = null;
-  asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
-    if (path != null) {
-      Expect.equals(path, event.path);
-      asyncEnd();
-    } else {
-      path = event.path;
-    }
-  });
+String path = null;
 
-  getTempLink(parent: dir, target: target.path).then((Link link) {
-    if (path != null) {
-      Expect.equals(link.path, path);
-      asyncEnd();
-    } else {
-      path = link.path;
-    }
-  });
-  new Future.delayed(new Duration(seconds: 1), () {
+test(String toTest, StreamSubscription s, Directory dir) {
+  if (path == null) {
+    path = toTest;
+  } else {
     s.cancel().then((_) {
       dir.delete(recursive: true);
-      target.delete();
+    }).then((_) {
+      Expect.equals(path, toTest);
+      asyncEnd();
     });
+  }
+}
+
+main() {
+  Directory sandbox = getTempDirectorySync();
+  Directory dir = getTempDirectorySync(parent: sandbox);
+  Directory target = getTempDirectorySync(parent: sandbox);
+
+  asyncStart();
+  StreamSubscription s = null;
+  s = dir.watch().listen((FileSystemEvent event) {
+    test(event.path, s, sandbox);
+  });
+  getTempLink(parent: dir, target: target.path).then((Link link) {
+    test(link.path, s, sandbox);
   });
 }

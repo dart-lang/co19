@@ -27,7 +27,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   Directory dir = new Directory(file.path);
   bool thrown = false;
   try {
@@ -36,7 +37,7 @@ main() {
     thrown = true;
     Expect.isTrue(file.existsSync());
   } finally {
-    file.delete();
+    sandbox.delete(recursive: true);
     Expect.isTrue(thrown);
   }
 }

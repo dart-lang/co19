@@ -22,12 +22,13 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
+  Directory sandbox = getTempDirectorySync();
   asyncStart();
-  Directory dir = new Directory(getTempDirectoryPath());
+  Directory dir = new Directory(getTempDirectoryPath(parent: sandbox));
   dir.create().then((created) {
     Expect.isTrue(created.existsSync());
     asyncEnd();
   }).whenComplete(() {
-    dir.delete();
+    sandbox.delete(recursive: true);
   });
 }

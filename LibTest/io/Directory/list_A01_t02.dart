@@ -42,7 +42,8 @@ List<String> setUp(Directory parent, List<String> directories) {
 }
 
 main() {
-  Directory dir = getTempDirectorySync();
+  Directory sandbox = getTempDirectorySync();
+  Directory dir = getTempDirectorySync(parent: sandbox);
   List<String> expected = ["a", "b", "c", "d"];
   expected = setUp(dir, expected);
 
@@ -54,6 +55,6 @@ main() {
     Expect.listEquals(expected, found);
     asyncEnd();
   }).whenComplete(() {
-    dir.delete(recursive: true);
+    sandbox.delete(recursive: true);
   });
 }

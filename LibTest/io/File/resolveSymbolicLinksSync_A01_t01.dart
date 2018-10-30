@@ -29,9 +29,10 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
+  Directory sandbox = getTempDirectorySync();
   // create 2 Directories
-  Directory dir1 = getTempDirectorySync();
-  Directory dir2 = getTempDirectorySync();
+  Directory dir1 = getTempDirectorySync(parent: sandbox);
+  Directory dir2 = getTempDirectorySync(parent: sandbox);
   String dir2Name = getEntityName(dir2);
 
   // create file in dir2
@@ -40,24 +41,19 @@ main() {
   var rnd = new Random(new DateTime.now().microsecondsSinceEpoch);
   // create link to the directory dir1
   Link link1 = getTempLinkSync(
+      parent: sandbox,
       target: dir1.path,
-      name: "resolveSymbolicLinksSync_A01_t01_1_" +
-          rnd.nextInt(10000).toString() +
-          ".lnk");
+      name: "link1.lnk");
   // in dir1 create link to dir1
   Link link2 = getTempLinkSync(
       parent: dir1,
       target: ".",
-      name: "resolveSymbolicLinksSync_A01_t01_2_" +
-          rnd.nextInt(10000).toString() +
-          ".lnk");
+      name: "link2.lnk");
   // in dir1 create link to dir2
   Link link3 = getTempLinkSync(
       parent: dir1,
       target: ".." + Platform.pathSeparator + dir2Name,
-      name: "resolveSymbolicLinksSync_A01_t01_3_" +
-          rnd.nextInt(10000).toString() +
-          ".lnk");
+      name: "link3.lnk");
 
   // Try to access file following the links
   String path = link1.path +
@@ -72,7 +68,6 @@ main() {
   try {
     Expect.equals(file.path, f.resolveSymbolicLinksSync());
   } finally {
-    deleteLinkWithTarget(link1);
-    dir2.delete(recursive: true);
+    sandbox.delete(recursive: true);
   }
 }

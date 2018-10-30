@@ -17,7 +17,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   DateTime oldDate = file.lastAccessedSync();
   DateTime newDate = oldDate.add(new Duration(days: -1));
 
@@ -29,5 +30,7 @@ main() {
   }, onError: (e) {
     Expect.isTrue(e is FileSystemException);
     asyncEnd();
+  }).whenComplete(() {
+    sandbox.delete(recursive: true);
   });
 }

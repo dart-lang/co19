@@ -24,7 +24,8 @@ import "../file_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {
-  File f = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File f = getTempFileSync(parent: sandbox);
   f.writeAsStringSync("Test");
   String path = "/" + f.absolute.path;
   File file = new File(path);
@@ -33,5 +34,7 @@ main() {
     Expect.fail("Exception expected");
   }, onError: (_) {
     f.delete();
+  }).whenComplete(() {
+    sandbox.delete(recursive: true);
   });
 }

@@ -25,7 +25,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
+  Directory sandbox = getTempDirectorySync();
+  Directory dir = getTempDirectorySync(parent: sandbox);
   File file = new File(dir.path);
   asyncStart();
   file.create(recursive: false).then((File created) {
@@ -34,6 +35,6 @@ main() {
     Expect.isTrue(e is FileSystemException);
     asyncEnd();
   }).whenComplete(() {
-    dir.delete();
+    sandbox.delete(recursive: true);
   });
 }

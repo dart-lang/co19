@@ -19,7 +19,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File tmp = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File tmp = getTempFileSync(parent: sandbox);
   try {
     String path = tmp.path;
     Link link = new Link(path);
@@ -39,6 +40,6 @@ main() {
     }
     Expect.equals("file", link.uri.scheme);
   } finally {
-    tmp.delete();
+    sandbox.delete(recursive: true);
   }
 }
