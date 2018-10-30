@@ -19,17 +19,19 @@ import "../file_utils.dart";
 main() {
   Directory dir = getTempDirectorySync();
   asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
+  StreamSubscription s = null;
+  s = dir.watch().listen((FileSystemEvent event) {
     if (event is FileSystemModifyEvent) {
-      Expect.isTrue(event.isDirectory);
-      asyncEnd();
+      try {
+        Expect.isTrue(event.isDirectory);
+        asyncEnd();
+      } finally {
+        s.cancel().then((_) {
+          dir.delete(recursive: true);
+        });
+      }
     }
   });
   Directory d = getTempDirectorySync(parent: dir);
   getTempFileSync(parent: d);
-  new Future.delayed(new Duration(seconds: 1), () {
-    s.cancel().then((_) {
-      dir.delete(recursive: true);
-    });
-  });
 }

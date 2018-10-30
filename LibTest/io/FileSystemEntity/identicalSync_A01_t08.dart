@@ -27,8 +27,9 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
+  Directory sandbox = getTempDirectorySync();
   String linkName = getTempFileName();
-  File target = getTempFileSync();
+  File target = getTempFileSync(parent: sandbox);
   Link link =
       new Link(Directory.current.path + Platform.pathSeparator + linkName);
   link.createSync(target.path);
@@ -37,5 +38,6 @@ main() {
     Expect.isTrue(FileSystemEntity.identicalSync(linkName, link.path));
   } finally {
     deleteLinkWithTarget(link);
+    sandbox.delete(recursive: true);
   }
 }

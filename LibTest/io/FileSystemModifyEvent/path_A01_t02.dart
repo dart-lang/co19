@@ -22,18 +22,20 @@ main() {
   Directory dir = getTempDirectorySync();
   String path = null;
   asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
+  StreamSubscription s = null;
+  s = dir.watch().listen((FileSystemEvent event) {
     if (event is FileSystemModifyEvent) {
-      Expect.equals(path, event.path);
-      asyncEnd();
+      try {
+        Expect.equals(path, event.path);
+        asyncEnd();
+      } finally {
+        s.cancel().then((_) {
+          dir.delete(recursive: true);
+        });
+      }
     }
   });
   File f = getTempFileSync(parent: dir);
   path = f.path;
   f.writeAsStringSync("File modified");
-  new Future.delayed(new Duration(seconds: 1)).then((_) {
-    s.cancel().then((_) {
-      dir.delete(recursive: true);
-    });
-  });
 }

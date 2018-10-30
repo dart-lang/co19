@@ -20,17 +20,19 @@ import "../file_utils.dart";
 main() {
   Directory dir = getTempDirectorySync();
   asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
+  StreamSubscription s = null;
+  s = dir.watch().listen((FileSystemEvent event) {
     if (event is FileSystemModifyEvent) {
-      Expect.isFalse(event.isDirectory);
-      asyncEnd();
+      try {
+        Expect.isFalse(event.isDirectory);
+        asyncEnd();
+      } finally {
+        s.cancel().then((_) {
+          dir.delete(recursive: true);
+        });
+      }
     }
   });
   File f = getTempFileSync(parent: dir);
   f.writeAsStringSync("File modified");
-  new Future.delayed(new Duration(seconds: 1), () {
-    s.cancel().then((_) {
-      dir.delete(recursive: true);
-    });
-  });
 }
