@@ -17,10 +17,6 @@
  */
 import "../../Utils/expect.dart";
 
-class S {}
-class T {}
-class X extends S {}
-class Y extends T {}
 
 class I {}
 class J {}
@@ -32,17 +28,17 @@ abstract class C<T1> {
   T1 get b1;
 }
 
-mixin M<X extends S, Y extends T> on B<X>, C<X> implements I, J {
+mixin M<X> on B<X>, C<X> implements I, J {
   test() {
     Expect.equals("A", super.b1);
   }
 }
 
-class A implements B, C {
+class A implements B<String>, C<String> {
   String get b1 => "A";
 }
 
-class MA extends A with M {
+class MA extends A with M<String> {
 }
 
 main() {
