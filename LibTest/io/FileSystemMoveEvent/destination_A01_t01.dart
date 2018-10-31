@@ -18,22 +18,24 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
+  Directory sandbox = getTempDirectorySync();
+  Directory dir = getTempDirectorySync(parent: sandbox);
   File renamed = null;
   asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
+  StreamSubscription s = null;
+  s = dir.watch().listen((FileSystemEvent event) {
     if (event is FileSystemMoveEvent) {
       if (event.destination != null) {
-        Expect.equals(renamed.path, event.destination);
+        try {
+          Expect.equals(renamed.path, event.destination);
+          asyncEnd();
+        } finally {
+          dir.delete(recursive: true);
+          s.cancel();
+        }
       }
-      asyncEnd();
     }
   });
   File file = getTempFileSync(parent: dir);
   renamed = file.renameSync(getTempFilePath(parent: dir));
-  new Future.delayed(new Duration(seconds: 1), () {
-    s.cancel().then((_) {
-      dir.delete(recursive: true);
-    });
-  });
 }

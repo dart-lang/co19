@@ -16,9 +16,7 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  if (Platform.isMacOS) {
-    Expect.isFalse(FileSystemEntity.isWatchSupported);
-  } else {
+  if (!Platform.isMacOS) {
     Expect.isTrue(FileSystemEntity.isWatchSupported);
   }
 }

@@ -21,17 +21,19 @@ main() {
   Directory dir = getTempDirectorySync();
   File f = null;
   asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
+  StreamSubscription s = null;
+  s = dir.watch().listen((FileSystemEvent event) {
     if (event is FileSystemModifyEvent) {
-      Expect.isTrue(event.contentChanged);
-      asyncEnd();
+      try {
+        Expect.isTrue(event.contentChanged);
+        asyncEnd();
+      } finally {
+        s.cancel().then((_) {
+          dir.delete(recursive: true);
+        });
+      }
     }
   });
   f = getTempFileSync(parent: dir);
   f.setLastAccessedSync(new DateTime.now());
-  new Future.delayed(new Duration(seconds: 1), () {
-    s.cancel().then((_) {
-      dir.delete(recursive: true);
-    });
-  });
 }

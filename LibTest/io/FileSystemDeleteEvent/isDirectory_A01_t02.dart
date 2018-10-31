@@ -18,21 +18,23 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
+  Directory sandbox = getTempDirectorySync();
   File f = null;
   asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
+  StreamSubscription s = null;
+  s = sandbox.watch().listen((FileSystemEvent event) {
     if (event is FileSystemDeleteEvent) {
-      Expect.isFalse(event.isDirectory);
-      asyncEnd();
+      try {
+        Expect.isFalse(event.isDirectory);
+        asyncEnd();
+      } finally {
+        s.cancel().then((_) {
+          sandbox.delete(recursive: true);
+        });
+      }
     } else {
       f.delete();
     }
   });
-  f = getTempFileSync(parent: dir);
-  new Future.delayed(new Duration(seconds: 1), () {
-    s.cancel().then((_) {
-      dir.delete(recursive: true);
-    });
-  });
+  f = getTempFileSync(parent: sandbox);
 }

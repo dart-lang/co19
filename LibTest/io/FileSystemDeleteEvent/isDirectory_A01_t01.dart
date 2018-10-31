@@ -18,25 +18,27 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
+  Directory sandbox = getTempDirectorySync();
   Directory d = null;
   asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
+  StreamSubscription s = null;
+  s = sandbox.watch().listen((FileSystemEvent event) {
     if (event is FileSystemDeleteEvent) {
-      if (Platform.isWindows) {
-        Expect.isFalse(event.isDirectory);
-      } else {
-        Expect.isTrue(event.isDirectory);
+      try {
+        if (Platform.isWindows) {
+          Expect.isFalse(event.isDirectory);
+        } else {
+          Expect.isTrue(event.isDirectory);
+        }
+        asyncEnd();
+      } finally {
+        s.cancel().then((_) {
+          sandbox.delete(recursive: true);
+        });
       }
-      asyncEnd();
     } else {
       d.delete();
     }
   });
-  d = dir.createTempSync();
-  new Future.delayed(new Duration(seconds: 1), () {
-    s.cancel().then((_) {
-      dir.delete(recursive: true);
-    });
-  });
+  d = sandbox.createTempSync();
 }

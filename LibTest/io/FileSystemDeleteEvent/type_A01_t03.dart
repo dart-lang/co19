@@ -16,14 +16,21 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
+  Directory sandbox = getTempDirectorySync();
   Link link = null;
   int createCount = 0;
   asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
+  StreamSubscription s = null;
+  s = sandbox.watch().listen((FileSystemEvent event) {
     if (event is FileSystemDeleteEvent) {
-      Expect.equals(FileSystemEvent.delete, event.type);
-      asyncEnd();
+      try {
+        Expect.equals(FileSystemEvent.delete, event.type);
+        asyncEnd();
+      } finally {
+        s.cancel().then((_) {
+          sandbox.delete(recursive: true);
+        });
+      }
     } else {
       createCount++;
       if (createCount > 1) {
@@ -31,10 +38,5 @@ main() {
       }
     }
   });
-  link = getTempLinkSync(parent: dir);
-  new Future.delayed(new Duration(seconds: 1), () {
-    s.cancel().then((_) {
-      dir.delete(recursive: true);
-    });
-  });
+  link = getTempLinkSync(parent: sandbox);
 }

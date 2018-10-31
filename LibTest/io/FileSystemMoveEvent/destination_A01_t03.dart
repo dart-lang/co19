@@ -21,19 +21,20 @@ main() {
   Directory dir = getTempDirectorySync();
   Link renamed = null;
   asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
+  StreamSubscription s = null;
+  s = dir.watch().listen((FileSystemEvent event) {
     if (event is FileSystemMoveEvent) {
       if (event.destination != null) {
-        Expect.equals(renamed.path, event.destination);
+        try {
+          Expect.equals(renamed.path, event.destination);
+          asyncEnd();
+        } finally {
+          dir.delete(recursive: true);
+          s.cancel();
+        }
       }
-      asyncEnd();
     }
   });
   Link link = getTempLinkSync(parent: dir);
   renamed = link.renameSync(getTempFilePath(parent: dir));
-  new Future.delayed(new Duration(seconds: 1), () {
-    s.cancel().then((_) {
-      dir.delete(recursive: true);
-    });
-  });
 }

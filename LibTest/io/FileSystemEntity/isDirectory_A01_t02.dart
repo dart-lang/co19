@@ -23,8 +23,8 @@ main() {
     FileSystemEntity.type(dir.path).then((t) {
       Expect.equals(t, FileSystemEntityType.directory);
       asyncEnd();
-    }).whenComplete(() {
-      dir.delete();
     });
+  }).whenComplete(() {
+    dir.delete(recursive: true);
   });
 }
