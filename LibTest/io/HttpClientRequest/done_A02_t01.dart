@@ -18,7 +18,6 @@ import "../../../Utils/expect.dart";
 var localhost = InternetAddress.loopbackIPv4.address;
 
 test(String method) async {
-  asyncStart();
   String helloWorld = "Hello test world!";
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
@@ -27,16 +26,21 @@ test(String method) async {
   });
 
   HttpClient client = new HttpClient();
-  client.open(method, localhost, server.port + 1, "")
-      .then((HttpClientRequest request) {
-        request.done.catchError((_) {
-          server.close();
-          asyncEnd();
-        });
-        return request.close();
+  bool called = false;
+  var request = await client.open(
+      method, server.address.address, server.port, '');
+  request.done.catchError((_) {
+    called = true;
   });
+  try {
+    await request.close();
+  } catch (error) {
+  }
+  await client.close();
+  await server.close();
+  Expect.isTrue(called);
 }
 
 main() {
-  test("no-such-method");
+  test("");
 }
