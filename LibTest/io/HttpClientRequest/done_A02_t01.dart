@@ -26,21 +26,22 @@ test(String method) async {
   });
 
   HttpClient client = new HttpClient();
-  bool called = false;
-  var request = await client.open(
+  int counter = 0;
+  final request = await client.open(
       method, server.address.address, server.port, '');
   request.done.catchError((_) {
-    called = true;
+    counter++;
   });
   try {
     await request.close();
   } catch (error) {
+    counter++;
   }
   await client.close();
   await server.close();
-  Expect.isTrue(called);
+  Expect.equals(2, counter);
 }
 
 main() {
-  test("");
+  test(""); // Use an empty string here as a not a valid HTTP method
 }
