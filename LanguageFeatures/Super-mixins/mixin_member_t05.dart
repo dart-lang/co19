@@ -41,7 +41,7 @@ mixin M<X1 extends S, Y1 extends T> on B<X1>, C<Y1> implements I<S>, J<T> {
 class A<T1, T2, T3, T4> implements B<T1>, C<T2>, I<T3>, J<T4> {
 }
 
-class MA<X1 extends X, Y1 extends Y> extends A<X, Y, S, T> with M<X, Y> {
+class MA<X1 extends X, Y1 extends Y> extends A<X, Y1, S, T> with M<X, Y1> {
   Y1 i = null;
   Y1 get gi => i;
   set si(Y v) {

@@ -49,8 +49,8 @@ mixin A<X extends S, Y extends T> on B, C implements D, E {
 }
 
 class AI implements A<X, Y> {
-  X x = new X();
-  Y y = new Y();
+  S x = new X();
+  T y = new Y();
 
   String get b => "AI";
   String get c => "AI";
