@@ -36,14 +36,13 @@ class C<T, S> extends B<T> implements J<S> {
 
 mixin M<X extends S, Y extends T> on A<X>, B<X> implements I<X>, J<X> {}  //# 01: compile-time error
 class MA extends C<X, Y> with M<X, Y> {}                                  //# 01: compile-time error
-main() {MA ma = new MA();}                                                //# 01: compile-time error
 
 mixin M<X extends S, Y extends T> on A<X>, B<Y> implements I<X>, J<Y> {}  //# 02: compile-time error
 class MA extends C<X, Y> with M<X, Y> {}                                  //# 02: compile-time error
-main() {MA ma = new MA();}                                                //# 02: compile-time error
 
 mixin M<X extends S, Y extends T> on A<Y>, B<X> implements I<X>, J<Y> {}  //# 03: compile-time error
 class MA extends C<X, Y> with M<X, Y> {}                                  //# 03: compile-time error
-main() {MA ma = new MA();}                                                //# 03: compile-time error
 
+main() {
+}
 
