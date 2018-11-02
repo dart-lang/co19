@@ -27,15 +27,11 @@ main() {
 
   asyncStart();
   dir.rename(newName).then((renamed) {
-    try {
-      Expect.equals(newName, renamed.path);
-      Expect.isTrue(renamed.existsSync());
-      File oldFile = new File(oldName);
-      Expect.isFalse(oldFile.existsSync());
-      asyncEnd();
-    } finally {
-      renamed.delete();
-    }
+    Expect.equals(newName, renamed.path);
+    Expect.isTrue(renamed.existsSync());
+    File oldFile = new File(oldName);
+    Expect.isFalse(oldFile.existsSync());
+    asyncEnd();
   }).whenComplete(() {
     sandbox.delete(recursive: true);
   });

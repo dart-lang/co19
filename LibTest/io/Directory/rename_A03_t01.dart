@@ -26,8 +26,6 @@ main() {
 
   asyncStart();
   srcDir.rename(target.path).then((d) {
-    srcDir.delete(recursive: true);
-    target.delete(recursive: true);
     Expect.fail("Exception expected");
   }, onError: (e) {
     Expect.isTrue(e is FileSystemException);

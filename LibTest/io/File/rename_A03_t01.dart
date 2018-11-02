@@ -26,7 +26,6 @@ main() {
 
   asyncStart();
   file.rename(target.path).then((renamed) {
-    renamed.delete();
     Expect.fail("FileSystemException expected");
   }, onError: (e) {
     Expect.isTrue(e is FileSystemException);
