@@ -8,7 +8,7 @@
  * final
  * Is true if the event target was a directory.
  * @description Checks that this property returns true if the event target was a
- * directory. Test create directory synchronously
+ * directory. Test create link synchronously
  * @issue 30359
  * @author sgrekhov@unipro.ru
  */
@@ -18,19 +18,19 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory sandbox = getTempDirectorySync();
+  inSandbox(_main, delay: 2);
+}
+
+_main(Directory sandbox) async {
   Directory dir = getTempDirectorySync(parent: sandbox);
   Directory target = getTempDirectorySync(parent: sandbox);
   asyncStart();
 
-  StreamSubscription s = null;
-  s = dir.watch().listen((FileSystemEvent event) {
-    s.cancel().then((_) {
-      sandbox.delete(recursive: true);
-    }).then((_) {
-      Expect.isTrue(event.isDirectory);
+  dir.watch().listen((FileSystemEvent event) {
+    if (event is FileSystemCreateEvent) {
+      Expect.isFalse(event.isDirectory);
       asyncEnd();
-    });
+    }
   });
   getTempLinkSync(parent: dir, target: target.path);
 }

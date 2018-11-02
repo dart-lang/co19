@@ -11,23 +11,25 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
-import "dart:async";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory sandbox = getTempDirectorySync();
+  inSandbox(_main, delay: 2);
+}
+
+_main(Directory sandbox) async {
   Directory dir = getTempDirectorySync(parent: sandbox);
   Directory target = getTempDirectorySync(parent: sandbox);
+
   asyncStart();
-  StreamSubscription s = null;
-  s = dir.watch().listen((FileSystemEvent event) {
-    s.cancel().then((_) {
-      sandbox.delete(recursive: true);
-    }).then((_) {
+  bool first = true;
+  dir.watch().listen((FileSystemEvent event) {
+    if (first) {
+      first = false;
       Expect.equals(FileSystemEvent.create, event.type);
       asyncEnd();
-    });
+    }
   });
   getTempLinkSync(parent: dir, target: target.path);
 }

@@ -8,7 +8,8 @@
  * final
  * Is true if the event target was a directory.
  * @description Checks that this property returns true if the event target was a
- * directory.
+ * directory. Test watched directory deleted async
+ * @issue 35032
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -20,12 +21,18 @@ main() {
 }
 
 _main(Directory sandbox) async {
+  Directory dir = getTempDirectorySync(parent: sandbox);
+
   asyncStart();
-  sandbox.watch().listen((FileSystemEvent event) {
-    if (event is FileSystemCreateEvent) {
-      Expect.isTrue(event.isDirectory);
+  dir.watch().listen((FileSystemEvent event) {
+    if (event is FileSystemDeleteEvent) {
+      if (Platform.isWindows) {
+        Expect.isFalse(event.isDirectory);
+      } else {
+        Expect.isTrue(event.isDirectory);
+      }
       asyncEnd();
     }
   });
-  sandbox.createTemp();
+  dir.deleteSync();
 }
