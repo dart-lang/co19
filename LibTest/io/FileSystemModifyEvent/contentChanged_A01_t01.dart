@@ -13,27 +13,23 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
-import "dart:async";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
-  File f = null;
+  inSandbox(_main, delay: 2);
+}
+
+_main(Directory sandbox) async {
+
+  Directory dir = getTempDirectorySync(parent: sandbox);
+  File f = getTempFileSync(parent: dir);
   asyncStart();
-  StreamSubscription s = null;
-  s = dir.watch().listen((FileSystemEvent event) {
+  dir.watch().listen((FileSystemEvent event) {
     if (event is FileSystemModifyEvent) {
-      try {
-        Expect.isTrue(event.contentChanged);
+        Expect.isFalse(event.contentChanged);
         asyncEnd();
-      } finally {
-        s.cancel().then((_) {
-          dir.delete(recursive: true);
-        });
-      }
     }
   });
-  f = getTempFileSync(parent: dir);
   f.setLastAccessedSync(new DateTime.now());
 }

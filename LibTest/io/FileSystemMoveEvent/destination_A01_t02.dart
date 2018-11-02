@@ -13,28 +13,24 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
-import "dart:async";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
+  inSandbox(_main, delay: 2);
+}
+
+_main(Directory sandbox) async {
+  Directory dir = getTempDirectorySync(parent: sandbox);
   Directory renamed = null;
   asyncStart();
-  StreamSubscription s = null;
-  s = dir.watch().listen((FileSystemEvent event) {
+  sandbox.watch().listen((FileSystemEvent event) {
     if (event is FileSystemMoveEvent) {
       if (event.destination != null) {
-        try {
-          Expect.equals(renamed.path, event.destination);
-          asyncEnd();
-        } finally {
-          dir.delete(recursive: true);
-          s.cancel();
-        }
+        Expect.equals(renamed.path, event.destination);
+        asyncEnd();
       }
     }
   });
-  Directory d = getTempDirectorySync(parent: dir);
-  renamed = d.renameSync(getTempDirectoryPath(parent: dir));
+  renamed = dir.renameSync(getTempDirectoryPath(parent: sandbox));
 }

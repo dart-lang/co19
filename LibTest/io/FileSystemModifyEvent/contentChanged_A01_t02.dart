@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion bool isDirectory
- * final
- * Is true if the event target was a directory.
- * @description Checks that this property returns true if the event target was a
- * directory. Test Directory
+ * @assertion bool contentChanged
+ *  final
+ * If the content was changed and not only the attributes, contentChanged is
+ * true.
+ * @description Checks that this property returns true if the content was
+ * changed
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -20,14 +21,15 @@ main() {
 }
 
 _main(Directory sandbox) async {
+
   Directory dir = getTempDirectorySync(parent: sandbox);
-  Directory d = getTempDirectorySync(parent: dir);
+  File f = getTempFileSync(parent: dir);
   asyncStart();
   dir.watch().listen((FileSystemEvent event) {
-    if (event is FileSystemMoveEvent) {
-      Expect.isTrue(event.isDirectory);
-      asyncEnd();
+    if (event is FileSystemModifyEvent) {
+        Expect.isTrue(event.contentChanged);
+        asyncEnd();
     }
   });
-  d.renameSync(getTempDirectoryPath(parent: dir));
+  f.writeAsStringSync("Lily was here");
 }
