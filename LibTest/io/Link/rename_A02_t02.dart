@@ -20,20 +20,17 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Link link = getTempLinkSync();
-  Directory dir = getTempDirectorySync();
+  Directory sandbox = getTempDirectorySync();
+  Link link = getTempLinkSync(parent: sandbox);
+  Directory dir = getTempDirectorySync(parent: sandbox);
 
   asyncStart();
   link.rename(dir.path).then((renamed) {
-    renamed.delete();
     Expect.fail("FileSystemException expected");
   }, onError: (e) {
     Expect.isTrue(e is FileSystemException);
     asyncEnd();
   }).whenComplete(() {
-    if (link.existsSync()) {
-      link.delete();
-    }
-    dir.delete();
+    sandbox.delete(recursive: true);
   });
 }

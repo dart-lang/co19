@@ -30,7 +30,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   file.writeAsStringSync("Old content");
   asyncStart();
   String toWrite = "New content";
@@ -38,6 +39,6 @@ main() {
     Expect.equals("New content", file.readAsStringSync());
     asyncEnd();
   }).whenComplete(() {
-    file.delete();
+    sandbox.delete(recursive: true);
   });
 }

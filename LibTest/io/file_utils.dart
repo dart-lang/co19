@@ -13,6 +13,21 @@ import "dart:io";
 import "dart:async";
 import "dart:math";
 
+Future<void> inSandbox(void test(Directory sandbox), {int delay}) async {
+  Directory sandbox = getTempDirectorySync();
+  try {
+    return await test(sandbox);
+  } finally {
+    if (delay != null && delay > 0) {
+      new Future.delayed(new Duration(seconds: delay)).then((_) {
+        sandbox.delete(recursive: true);
+      });
+    } else {
+      sandbox.delete(recursive: true);
+    }
+  }
+}
+
 /**
  * Creates temporary file in a parent directory
  */

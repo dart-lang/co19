@@ -17,10 +17,15 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   file.writeAsBytesSync([1, 2, 3, 4, 127]);
   file.deleteSync();
-  Expect.throws(() {
-    file.readAsBytesSync();
-  }, (e) => e is FileSystemException);
+  try {
+    Expect.throws(() {
+      file.readAsBytesSync();
+    }, (e) => e is FileSystemException);
+  } finally {
+    sandbox.delete(recursive: true);
+  }
 }

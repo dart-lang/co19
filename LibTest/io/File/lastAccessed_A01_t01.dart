@@ -20,13 +20,14 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   asyncStart();
   file.lastAccessed().then((DateTime date) {
     Expect.isNotNull(date);
     Expect.isTrue(date.difference(new DateTime.now()).inSeconds <= 1);
     asyncEnd();
   }).whenComplete(() {
-    file.delete();
+    sandbox.delete(recursive: true);
   });
 }

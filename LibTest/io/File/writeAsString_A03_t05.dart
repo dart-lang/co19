@@ -31,7 +31,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = new File(getTempFilePath());
+  Directory sandbox = getTempDirectorySync();
+  File file = new File(getTempFilePath(parent: sandbox));
   asyncStart();
   file.writeAsString("File content", mode: FileMode.read).then((f) {
     Expect.fail("FileSystemException is expected");
@@ -39,5 +40,7 @@ main() {
     Expect.isTrue(e is FileSystemException);
     Expect.isFalse(file.existsSync());
     asyncEnd();
+  }).whenComplete(() {
+    sandbox.delete(recursive: true);
   });
 }

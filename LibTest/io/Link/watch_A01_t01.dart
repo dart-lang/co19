@@ -20,9 +20,10 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory target1 = getTempDirectorySync();
-  Directory target2 = getTempDirectorySync();
-  Link link = getTempLinkSync(target: target1.path);
+  Directory sandbox = getTempDirectorySync();
+  Directory target1 = getTempDirectorySync(parent: sandbox);
+  Directory target2 = getTempDirectorySync(parent: sandbox);
+  Link link = getTempLinkSync(target: target1.path, parent: sandbox);
 
   asyncStart();
   StreamSubscription s = link.watch().listen((FileSystemEvent event) {
@@ -32,9 +33,7 @@ main() {
   link.update(target2.path).then((_) {
     new Future.delayed(new Duration(seconds: 1), () {
       s.cancel().then((_) {
-        target1.delete(recursive: true);
-        target2.delete(recursive: true);
-        link.delete();
+        sandbox.delete(recursive: true);
       });
     });
   });

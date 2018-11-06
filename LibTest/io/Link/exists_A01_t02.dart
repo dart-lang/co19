@@ -23,11 +23,14 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Link link = new Link(getTempFilePath());
+  Directory sandbox = getTempDirectorySync();
+  Link link = new Link(getTempFilePath(parent: sandbox));
   asyncStart();
 
   link.exists().then((result) {
     Expect.isFalse(result);
     asyncEnd();
+  }).whenComplete(() {
+    sandbox.delete(recursive: true);
   });
 }

@@ -19,8 +19,9 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
+  Directory sandbox = getTempDirectorySync();
   Encoding encoding = Encoding.getByName("iso-8859-1");
-  File file = getTempFileSync();
+  File file = getTempFileSync(parent: sandbox);
 
   IOSink sink = file.openWrite(encoding: encoding);
   sink.writeCharCode(0xe2);
@@ -32,7 +33,7 @@ main() {
       Expect.equals("â\nã", file.readAsStringSync(encoding: encoding));
       asyncEnd();
     } finally {
-      file.delete();
+      sandbox.delete(recursive: true);
     }
   });
 }

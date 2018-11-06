@@ -26,7 +26,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 test(FileMode mode) {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   file.writeAsStringSync("Lily was here");
   String path = "/" + file.absolute.path;
   File f = new File(path);
@@ -35,7 +36,7 @@ test(FileMode mode) {
     file.delete();
     Expect.fail("Error expected");
   }, onError: (_) {
-    file.delete();
+    sandbox.delete(recursive: true);
   });
 }
 

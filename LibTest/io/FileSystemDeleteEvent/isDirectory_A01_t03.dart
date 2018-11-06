@@ -13,31 +13,29 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
-import "dart:async";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
-  Directory d = null;
+  inSandbox(_main, delay: 2);
+}
+
+_main(Directory sandbox) async {
+  Directory d = sandbox.createTempSync();
   asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
+  bool first = true;
+  sandbox.watch().listen((FileSystemEvent event) {
     if (event is FileSystemDeleteEvent) {
-      if (Platform.isWindows) {
-        Expect.isFalse(event.isDirectory);
-      } else {
-        Expect.isTrue(event.isDirectory);
+      if (first) {
+        first = false;
+        if (Platform.isWindows) {
+          Expect.isFalse(event.isDirectory);
+        } else {
+          Expect.isTrue(event.isDirectory);
+        }
+        asyncEnd();
       }
-      asyncEnd();
-    } else {
-      d.deleteSync();
     }
   });
-  d = dir.createTempSync();
-
-  new Future.delayed(new Duration(seconds: 1)).then((_) {
-    s.cancel().then((_) {
-      dir.delete(recursive: true);
-    });
-  });
+  d.delete();
 }

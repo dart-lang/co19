@@ -31,7 +31,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   String toWrite = "File content: Кириллица прекрасна";
   asyncStart();
   file.writeAsString(toWrite).then((f) {
@@ -39,6 +40,6 @@ main() {
     Expect.equals(toWrite, file.readAsStringSync());
     asyncEnd();
   }).whenComplete(() {
-    file.delete();
+    sandbox.delete(recursive: true);
   });
 }

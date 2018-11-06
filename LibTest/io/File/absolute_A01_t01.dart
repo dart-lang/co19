@@ -18,7 +18,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   try {
     Expect.isNotNull(file.absolute);
     Expect.equals(file.path, file.absolute.path);
@@ -29,6 +30,6 @@ main() {
     Expect.equals(Directory.current.path + Platform.pathSeparator + fileName,
         file.absolute.path);
   } finally {
-    file.delete();
+    sandbox.delete(recursive: true);
   }
 }

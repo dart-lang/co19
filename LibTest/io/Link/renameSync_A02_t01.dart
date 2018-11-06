@@ -21,11 +21,12 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory target1 = getTempDirectorySync();
-  Directory target2 = getTempDirectorySync();
+  Directory sandbox = getTempDirectorySync();
+  Directory target1 = getTempDirectorySync(parent: sandbox);
+  Directory target2 = getTempDirectorySync(parent: sandbox);
 
-  Link link1 = getTempLinkSync(target: target1.path);
-  Link link2 = getTempLinkSync(target: target2.path);
+  Link link1 = getTempLinkSync(target: target1.path, parent: sandbox);
+  Link link2 = getTempLinkSync(target: target2.path, parent: sandbox);
 
   Link renamed = null;
   try {
@@ -34,16 +35,6 @@ main() {
     Expect.isTrue(renamed.existsSync());
     Expect.isFalse(link1.existsSync());
   } finally {
-    if (renamed != null) {
-      renamed.delete();
-    }
-    if (link1.existsSync()) {
-      link1.delete();
-    }
-    if (link2.existsSync()) {
-      link2.delete();
-    }
-    target1.delete();
-    target2.delete();
+    sandbox.delete(recursive: true);
   }
 }

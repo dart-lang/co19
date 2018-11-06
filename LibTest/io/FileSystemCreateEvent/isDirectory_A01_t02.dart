@@ -17,17 +17,16 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
+  inSandbox(_main, delay: 2);
+}
+
+_main(Directory sandbox) async {
   asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
-    Expect.isFalse(event.isDirectory);
-    asyncEnd();
+  sandbox.watch().listen((FileSystemEvent event) {
+    if (event is FileSystemCreateEvent) {
+      Expect.isFalse(event.isDirectory);
+      asyncEnd();
+    }
   });
-  getTempFile(parent: dir).then((_) {
-    new Future.delayed(new Duration(seconds: 1), () {
-      s.cancel().then((_) {
-        dir.delete(recursive: true);
-      });
-    });
-  });
+  getTempFile(parent: sandbox);
 }

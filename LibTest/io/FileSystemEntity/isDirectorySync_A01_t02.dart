@@ -23,6 +23,6 @@ main() {
     Expect.equals(
         FileSystemEntity.typeSync(dir.path), FileSystemEntityType.directory);
   } finally {
-    dir.delete();
+    dir.delete(recursive: true);
   }
 }

@@ -23,14 +23,15 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
+  Directory sandbox = getTempDirectorySync();
+  Directory dir = getTempDirectorySync(parent: sandbox);
   File file = new File(dir.path);
   try {
     Expect.throws(() {
       file.createSync();
     }, (e) => e is FileSystemException);
   } finally {
-    dir.delete();
+    sandbox.delete(recursive: true);
   }
 
 }

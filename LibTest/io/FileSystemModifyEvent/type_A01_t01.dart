@@ -12,24 +12,22 @@
  * @issue 30429
  */
 import "dart:io";
-import "dart:async";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
+  inSandbox(_main, delay: 2);
+}
+
+_main(Directory sandbox) async {
+  Directory dir = getTempDirectorySync(parent: sandbox);
+  File file = getTempFileSync(parent: dir);
   asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
+  dir.watch().listen((FileSystemEvent event) {
     if (event is FileSystemModifyEvent) {
       Expect.equals(FileSystemEvent.modify, event.type);
       asyncEnd();
     }
   });
-  File file = getTempFileSync(parent: dir);
   file.writeAsStringSync("File modified");
-  new Future.delayed(new Duration(seconds: 1), () {
-    s.cancel().then((_) {
-      dir.delete(recursive: true);
-    });
-  });
 }

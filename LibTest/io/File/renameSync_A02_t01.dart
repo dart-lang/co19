@@ -20,8 +20,9 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
-  File target = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
+  File target = getTempFileSync(parent: sandbox);
   file.writeAsStringSync("Source");
   target.writeAsStringSync("Target");
 
@@ -32,6 +33,6 @@ main() {
     Expect.equals("Source", renamed.readAsStringSync());
     Expect.isFalse(file.existsSync());
   } finally {
-    renamed.delete();
+    sandbox.delete(recursive: true);
   }
 }

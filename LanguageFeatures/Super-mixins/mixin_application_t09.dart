@@ -25,19 +25,19 @@ class Y extends T {}
 
 String console;
 
-class A<T> {
+class A<T1> {
   String get a1 => "A.a1";
   set a2(String v) {
     console = "A:$v";
   }
   String a3() => "A.a3";
 }
-abstract class B<T> {
+abstract class B<T1> {
   String get b1;
   void set b2(String v);
   String b3();
 }
-class C<T, S> implements A<T>, B<S> {
+class C<T1, S1> implements A<T1>, B<S1> {
   String get a1 => "C.a1";
   set a2(String v) {
     console = "C:$v";
@@ -51,7 +51,7 @@ class C<T, S> implements A<T>, B<S> {
   String b3() => "C.b3";
 }
 
-mixin M<X extends S, Y extends T> on A<Y>, B<X> {
+mixin M<X1 extends S, Y1 extends T> on A<Y1>, B<X1> {
   String get m1 => "m1";
   void set m2(String v) {
     console = "M:$v";
@@ -59,7 +59,7 @@ mixin M<X extends S, Y extends T> on A<Y>, B<X> {
   String m3() => "m3";
 }
 
-class MA<X, Y> extends C<Y, X> with M<X, Y> {
+class MA<X1 extends S, Y1 extends T> extends C<Y1, X1> with M<X1, Y1> {
 }
 
 main() {

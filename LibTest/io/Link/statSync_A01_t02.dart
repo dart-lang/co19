@@ -21,7 +21,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Link link = getTempLinkSync();
+  Directory sandbox = getTempDirectorySync();
+  Link link = getTempLinkSync(parent: sandbox);
   try {
     FileStat fs = link.statSync();
     FileStat fs2 = FileStat.statSync(link.path);
@@ -32,6 +33,6 @@ main() {
     Expect.equals(fs2.size, fs.size);
     Expect.equals(fs2.accessed, fs.accessed);
   } finally {
-    deleteLinkWithTarget(link);
+    sandbox.delete(recursive: true);
   }
 }

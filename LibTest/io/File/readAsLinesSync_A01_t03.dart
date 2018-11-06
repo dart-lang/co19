@@ -19,11 +19,12 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   file.writeAsStringSync("Line 1\nLine 2\rLine3");
   try {
     Expect.listEquals(["Line 1", "Line 2", "Line3"], file.readAsLinesSync());
   } finally {
-    file.delete();
+    sandbox.delete(recursive: true);
   }
 }

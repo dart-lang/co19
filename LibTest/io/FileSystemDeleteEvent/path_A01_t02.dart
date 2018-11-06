@@ -13,28 +13,26 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
-import "dart:async";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Directory dir = getTempDirectorySync();
-  String path = null;
-  File f = null;
+  inSandbox(_main, delay: 2);
+}
+
+_main(Directory sandbox) async {
+  File f = getTempFileSync(parent: sandbox);
+  String path = f.path;
   asyncStart();
-  StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
+  bool first = true;
+  sandbox.watch().listen((FileSystemEvent event) {
     if (event is FileSystemDeleteEvent) {
-      Expect.equals(path, event.path);
-      asyncEnd();
-    } else {
-      f.delete();
+      if (first) {
+        first = false;
+        Expect.equals(path, event.path);
+        asyncEnd();
+      }
     }
   });
-  f = getTempFileSync(parent: dir);
-  path = f.path;
-  new Future.delayed(new Duration(seconds: 1)).then((_) {
-    s.cancel().then((_) {
-      dir.delete(recursive: true);
-    });
-  });
+  f.deleteSync();
 }

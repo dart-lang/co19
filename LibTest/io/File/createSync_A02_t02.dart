@@ -23,7 +23,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  String dirPath = getTempDirectoryPath();
+  Directory sandbox = getTempDirectorySync();
+  String dirPath = getTempDirectoryPath(parent: sandbox);
   String filePath = dirPath + Platform.pathSeparator + getTempFileName();
   File file = new File(filePath);
   try {
@@ -31,6 +32,6 @@ main() {
     Expect.isTrue(file.existsSync());
     Expect.equals(filePath, file.path);
   } finally {
-    file.parent.delete(recursive: true);
+    sandbox.delete(recursive: true);
   }
 }

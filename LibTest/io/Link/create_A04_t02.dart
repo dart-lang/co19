@@ -37,20 +37,16 @@ import "../file_utils.dart";
 
 main() {
   if (Platform.isWindows) {
-    File file = getTempFileSync();
-    Link link = new Link(getTempFilePath());
+    Directory sandbox = getTempDirectorySync();
+    File file = getTempFileSync(parent: sandbox);
+    Link link = new Link(getTempFilePath(parent: sandbox));
     asyncStart();
     link.create(file.path).then((Link created) {
       Expect.fail("Link shouldn't be created on Windows");
     }, onError: (e) {
       asyncEnd();
     }).whenComplete(() {
-      try {
-        file.delete();
-      } on Exception {}
-      try {
-        link.delete();
-      } finally {}
+      sandbox.delete(recursive: true);
     });
   }
 }

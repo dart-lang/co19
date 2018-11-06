@@ -35,7 +35,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  Link tmp = getTempLinkSync();
+  Directory sandbox = getTempDirectorySync();
+  Link tmp = getTempLinkSync(parent: sandbox);
   Link link = new Link(tmp.path);
   asyncStart();
   link.create(tmp.targetSync()).then((Link created) {
@@ -44,6 +45,6 @@ main() {
   }, onError: (_) {
     asyncEnd();
   }).whenComplete(() {
-    deleteLinkWithTarget(tmp);
+    sandbox.delete(recursive: true);
   });
 }

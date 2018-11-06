@@ -20,7 +20,8 @@ import "../file_utils.dart";
 
 main() {
   Encoding encoding = Encoding.getByName("iso-8859-1");
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
 
   IOSink sink = file.openWrite(encoding: encoding);
   sink.writeCharCode(0xe2);
@@ -32,7 +33,7 @@ main() {
       Expect.listEquals(["â", "ã"], file.readAsLinesSync(encoding: encoding));
       asyncEnd();
     } finally {
-      file.delete();
+      sandbox.delete(recursive: true);
     }
   });
 }

@@ -21,7 +21,8 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  File file = getTempFileSync();
+  Directory sandbox = getTempDirectorySync();
+  File file = getTempFileSync(parent: sandbox);
   file.writeAsBytesSync([0, 1, 2, 3, 4]);
   RandomAccessFile raFile = file.openSync(mode: FileMode.writeOnlyAppend);
   try {
@@ -32,6 +33,6 @@ main() {
     Expect.throws(() {raFile.readByteSync();}, (e) => e is FileSystemException);
   } finally {
     raFile.closeSync();
-    file.delete();
+    sandbox.delete(recursive: true);
   }
 }

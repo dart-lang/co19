@@ -24,7 +24,7 @@ class J<T1> {}
 class B<T1> {}
 class C<T1> {}
 
-mixin M<X extends S, Y extends T> on B<X>, C<Y> implements I<S>, J<T> {
+mixin M<X extends num, Y extends num> on B<X>, C<Y> implements I<S>, J<T> {
   static String s = "S.s";
   static String get gs => s;
   static set ss(String v) {
@@ -43,7 +43,7 @@ mixin M<X extends S, Y extends T> on B<X>, C<Y> implements I<S>, J<T> {
 class A<T1, T2, T3, T4> implements B<T1>, C<T2>, I<T3>, J<T4> {
 }
 
-class MA<X extends num, Y extends num> extends A<X, Y, S, T> with M<X, Y>  {
+class MA<X1 extends num, Y1 extends num> extends A<X1, Y1, S, T> with M<X1, Y1>  {
 }
 
 main() {

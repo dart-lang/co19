@@ -35,19 +35,15 @@ import "../file_utils.dart";
 
 main() {
   if (Platform.isWindows) {
-    File target = getTempFileSync();
-    Link link = new Link(getTempFilePath());
+    Directory sandbox = getTempDirectorySync();
+    File target = getTempFileSync(parent: sandbox);
+    Link link = new Link(getTempFilePath(parent: sandbox));
     try {
       Expect.throws(() {
         link.createSync(target.path);
       });
     } finally {
-      try {
-        link.delete();
-      } on Exception {}
-      try {
-        target.delete();
-      } on Exception {}
+      sandbox.delete(recursive: true);
     }
   }
 }
