@@ -1,4 +1,4 @@
- /*
+/*
  * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
@@ -28,6 +28,7 @@
  *   [M] be the union of [M1 .. Mp] (that is, all variables that participate in
  *   a dependency cycle). Let [i] be in [1 .. k]. If [Xi] does not belong to [M]
  *   then [Ui,m+1 = Ui,m]. Otherwise there exists a [q] such that [Xi] belongs
+ *   to [Mq]; [Ui,m+1] is then obtained from [Ui,m] by replacing every covariant
  *   occurrence of a variable in [Mq] by [dynamic], and replacing every
  *   contravariant occurrence of a variable in [Mq] by [Null].
  *
@@ -41,30 +42,19 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works correctly for [typedef
- *  G<X extends A<X>> = X Function()] (contravariant)
- * @compile-error
- * @Issue 34689, 34699
+ * @description Checks that instantiate-to-bounds works correctly for [typedef]
+ * with two related parameters: [typedef G<X extends A<X>, Y extends A<Y>>
+ * @Issue 34689
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+import "../../../../Utils/expect.dart";
 
 class A<X> {}
-typedef G<X extends A<X>> = Function(X);
+typedef G<X extends A<X>, Y extends A<Y>> = X Function(Y);
 
 main() {
-  G source;
-  var fsource = toF(source);
-  F<G<A<Null>>> target = fsource;
-
-  F<G<A<dynamic>>> target1 = fsource; //# 01: compile-time error
-
-  F<G<A<A<dynamic>>>> target2 = fsource;       //# 02: compile-time error
-  F<G<A<A<A<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
-  F<G<A<A<A<A<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
-
-  F<G<A<A<Null>>>> target5 = fsource;       //# 05: compile-time error
-  F<G<A<A<A<Null>>>>> target6 = fsource;    //# 06: compile-time error
-  F<G<A<A<A<A<Null>>>>>> target7 = fsource; //# 07: compile-time error
+  Expect.equals(
+    typeOf<G<A<dynamic>, A<Null>>>(),
+    typeOf<G>()
+  );
 }
