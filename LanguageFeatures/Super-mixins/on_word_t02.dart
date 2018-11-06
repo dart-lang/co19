@@ -20,7 +20,9 @@ class C {}
 
 mixin on on B, C implements I, J {}
 
-class MA with on {
+class A implements B, C, I, J {}
+
+class MA extends A with on {
 }
 
 main() {

@@ -27,13 +27,15 @@ mixin M2 on B, on implements I, J {}
 mixin M3 on B, C implements on, J {}
 mixin M4 on B, C implements I, on {}
 
-class MA1 with M1 {
+class A implements B, C, I, J, on {}
+
+class MA1 extends A with M1 {
 }
-class MA2 with M2 {
+class MA2 extends A with M2 {
 }
-class MA3 with M3 {
+class MA3 extends A with M3 {
 }
-class MA4 with M4 {
+class MA4 extends A with M4 {
 }
 
 main() {
