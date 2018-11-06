@@ -8,7 +8,8 @@
  * class.
  *
  * @description Checks that a mixin declaration introduces an interface and
- * therefore can be extended.
+ * therefore it cannot be extended.
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 
