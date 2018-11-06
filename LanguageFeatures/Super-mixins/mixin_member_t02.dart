@@ -33,6 +33,7 @@ mixin M on B, C implements I, J {
     i = v;
   }
   String mi() => "M.mi()";
+  int operator -() => i.length - 1;
 }
 
 class A implements B, C, I, J {
@@ -49,9 +50,11 @@ main() {
   Expect.equals("x", M.gs);
 
   MA ma = new MA();
+  Expect.equals(2, -ma);
   Expect.equals("M.i", ma.i);
   Expect.equals("M.mi()", ma.mi());
   Expect.equals("M.i", ma.gi);
   ma.si = "xx";
   Expect.equals("xx", ma.gi);
+  Expect.equals(1, -ma);
 }

@@ -38,6 +38,7 @@ mixin M<X extends num, Y extends num> on B<X>, C<Y> implements I<S>, J<T> {
     i = v;
   }
   Y mi() => 22.0 as Y;
+  Type operator ~() => i.runtimeType;
 }
 
 class A<T1, T2, T3, T4> implements B<T1>, C<T2>, I<T3>, J<T4> {
@@ -54,6 +55,7 @@ main() {
   Expect.equals("x", M.gs);
 
   MA ma = new MA<int, double>();
+  Expect.equals(double, ~ma);
   Expect.equals(2.0, ma.i);
   Expect.equals(22.0, ma.mi());
   Expect.equals(2.0, ma.gi);
