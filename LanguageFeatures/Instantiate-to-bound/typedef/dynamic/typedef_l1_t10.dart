@@ -45,7 +45,6 @@
  * @description Checks that instantiate-to-bounds works correctly for [class A<X
  * extends A<X>>], [typedef G<X extends A<X>> = void Function<Y extends X>()]
  * (unused)
- * @Issue 34867
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";

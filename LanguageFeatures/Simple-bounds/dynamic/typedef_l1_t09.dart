@@ -24,7 +24,7 @@ typedef G<X extends A> = void Function();
 
 main() {
   Expect.equals(
-    typeOf<G<A>>(),
+    typeOf<G<A<dynamic>>>(),
     typeOf<G>()
   );
 }
