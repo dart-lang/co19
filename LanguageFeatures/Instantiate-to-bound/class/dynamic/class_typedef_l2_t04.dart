@@ -43,12 +43,12 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works OK for [typedef G<X> =
- * Function(X)], [class A<X extends G<A<X, Y>>, Y extends X>] (covariant)
+ * void Function()], [class A<X extends G<A<X, Y>>, Y extends X>] (unused)
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
 
-typedef G<X> = Function(X);
+typedef G<X> = void Function();
 class A<X extends G<A<X, Y>>, Y extends X> {}
 
 main() {

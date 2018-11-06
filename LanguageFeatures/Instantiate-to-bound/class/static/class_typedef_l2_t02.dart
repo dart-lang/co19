@@ -42,38 +42,27 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks instantiation to bounds for the class with [typedef]
- *  parameter:
- *   class A<X> {}
- *   typedef G<X extends A<X>> = Function(X);
- *   class B<X extends A<G<X>>> {}
+ * @description Checks that instantiation to bounds works OK for [typedef G<X> =
+ * Function(X)], [class A<X extends G<A<X, Y>>, Y extends X>]
  * @compile-error
- * Issue 34699
  * @author iarkh@unipro.ru
  */
 import "dart:async";
-
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 
-class A<X> {}
-typedef G<X extends A<X>> = Function(X);
-class B<X extends A<G<X>>> {}
+
+typedef G<X> = Function(X);
+class A<X extends G<A<X, Y>>, Y extends X> {}
 
 main() {
   A source;
   var fsource = toF(source);
-  F<B<A<G<Null>>>> target = fsource;
+  F<A<G<A<dynamic, dynamic>>, dynamic>> target = fsource;
 
-  F<B<A<G<dynamic>>>> target0 = fsource;      //# 01: compile-time error
+  F<A<dynamic, dynamic>> target1 = fsource;                   //# 01: compile-time error
+  F<A<G<dynamic>, dynamic>> target2 = fsource;                //# 02: compile-time error
+  F<A<G<A<G<dynamic>, dynamic>>, dynamic>> target3 = fsource; //# 03: compile-time error
 
-  F<B<Null>> target1 = fsource;            //# 02: compile-time error
-  F<B<A<Null>>> target2 = fsource;         //# 03: compile-time error
-  F<B<A<G<A<Null>>>>> target3 = fsource;   //# 04: compile-time error
-
-  F<B<dynamic>> target4 = fsource;          //# 05: compile-time error
-  F<B<A<dynamic>>> target5 = fsource;       //# 06: compile-time error
-  F<B<A<G<A<dynamic>>>>> target6 = fsource; //# 07: compile-time error
-
-  B();
+  A();  //# 04: compile-time error
 }

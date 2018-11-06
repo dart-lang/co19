@@ -42,18 +42,34 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiation to bounds works OK for [typedef G<X> =
- * Function(X)], [class A<X extends G<A<X, Y>>, Y extends X>] (covariant)
+ * @description Checks that instantiation to bounds works OK for the class with
+ * [typedef G<X> = X Function()] parameter (contravariant)
+ * @compile-error
+ * @Issue 35064
  * @author iarkh@unipro.ru
  */
-import "../../../../Utils/expect.dart";
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
-typedef G<X> = Function(X);
-class A<X extends G<A<X, Y>>, Y extends X> {}
+typedef G<X> = void Function();
+class A<X extends G<A<X>>> {}
 
 main() {
-  Expect.equals(
-      typeOf<A<G<A<dynamic, dynamic>>, dynamic>>(),
-      typeOf<A>()
-  );
+  A source;
+  var fsource = toF(source);
+  F<A<G<A<dynamic>>>> target = fsource;
+
+  F<A<G<A<Null>>>> target0 = fsource; //# 01: compile-time error
+
+  F<A<dynamic>> target1 = fsource;
+  F<A<G<dynamic>>> target2 = fsource;
+  F<A<G<A<G<dynamic>>>>> target3 = fsource;
+  F<A<G<A<G<A<dynamic>>>>>> target4 = fsource;
+
+  F<A<Null>> target5 = fsource;             //# 02: compile-time error
+  F<A<G<Null>>> target6 = fsource;
+  F<A<G<A<G<Null>>>>> target7 = fsource;
+  F<A<G<A<G<A<Null>>>>>> target8 = fsource;
+
+  A();
 }
