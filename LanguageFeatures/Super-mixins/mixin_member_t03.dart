@@ -35,6 +35,7 @@ mixin M<X extends S, Y extends T> on B<X>, C<Y> implements I<S>, J<T> {
   String get gi;
   set si(String v);
   String mi();
+  String operator +(MA v);
 }
 
 class A<T1, T2, T3, T4> implements B<T1>, C<T2>, I<T3>, J<T4> {
@@ -47,6 +48,7 @@ class MA extends A<X, Y, S, T> with M<X, Y> {
     i = v;
   }
   String mi() => "MA.mi()";
+  String operator +(MA v) => i + '+1';
 }
 
 main() {
@@ -57,9 +59,11 @@ main() {
   Expect.equals("x", M.gs);
 
   MA ma = new MA();
+  Expect.equals("MA.i+1", ma + ma);
   Expect.equals("MA.i", ma.i);
   Expect.equals("MA.mi()", ma.mi());
   Expect.equals("MA.i", ma.gi);
   ma.si = "xx";
   Expect.equals("xx", ma.gi);
+  Expect.equals("xx+1", ma + ma);
 }
