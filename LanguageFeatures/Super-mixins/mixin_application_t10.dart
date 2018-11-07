@@ -32,11 +32,13 @@ class I<T> {
     console = "I:$v";
   }
   String i3() => "I.i3";
+  String operator ~() => i1.substring(0, 1);
 }
 abstract class J<T> {
   String get j1;
   void set j2(String v);
   String j3();
+  String operator -() => j1.substring(0, 1);
 }
 
 class A<T> {
@@ -45,11 +47,13 @@ class A<T> {
     console = "A:$v";
   }
   String a3() => "A.a3";
+  String operator +(A v) => a1.substring(0, 1);
 }
 abstract class B<T> {
   String get b1;
   void set b2(String v);
   String b3();
+  String operator -(B v) => b1.substring(0, 1);
 }
 class C<T1, T2, T3> implements A<T1>, B<T2>, J<T3> {
   String get a1 => "C.a1";
@@ -57,18 +61,21 @@ class C<T1, T2, T3> implements A<T1>, B<T2>, J<T3> {
     console = "C:$v";
   }
   String a3() => "C.a3";
+  String operator +(A v) => a1.substring(0, 3);
+
   String get b1 => "C.b1";
   void set b2(String v) {
     console = "C:$v";
   }
   String b3() => "C.b3";
+  String operator -(B v) => b1.substring(0, 3);
 
   String get j1 => "J.j1";
   set j2(String v) {
     console = "J:$v";
   }
   String j3() => "J.j3";
-
+  String operator -() => j1.substring(0, 3);
 }
 
 mixin M<X extends S, Y extends T>  on A<X>, B<Y> implements I<S>, J<T> {
@@ -83,6 +90,7 @@ mixin M<X extends S, Y extends T>  on A<X>, B<Y> implements I<S>, J<T> {
     console = "I:$v";
   }
   String i3() => "I.i3";
+  String operator ~() => i1.substring(0, 3);
 }
 
 class MA extends C<X, Y, T> with M<X, Y> {
@@ -95,14 +103,19 @@ main() {
   ma.a2 = "a2";
   Expect.equals("C:a2", console);
   Expect.equals("C.a3", ma.a3());
+  Expect.equals("C.a", ma + ma);
 
   Expect.equals("C.b1", ma.b1);
   ma.b2 = "b2";
   Expect.equals("C:b2", console);
   Expect.equals("C.b3", ma.b3());
+  Expect.equals("C.b", ma - ma);
 
   Expect.equals("m1", ma.m1);
   ma.m2 = "m2";
   Expect.equals("M:m2", console);
   Expect.equals("m3", ma.m3());
+
+  Expect.equals("I.i", ~ma);
+  Expect.equals("J.j", -ma);
 }
