@@ -43,7 +43,7 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works OK for [typedef G<X> =
- * X Function()], [class A<X extends G<A<X, Y>>, Y extends X>]
+ * X Function()], [class A<X extends G<A<Y, X>>, Y extends G<A<X, Y>>>]
  * @compile-error
  * @author iarkh@unipro.ru
  */
@@ -52,16 +52,18 @@ F<X> toF<X>(X x) => null;
 
 
 typedef G<X> = X Function();
-class A<X extends G<A<X, Y>>, Y extends X> {}
+class A<X extends G<A<Y, X>>, Y extends G<A<X, Y>>> {}
 
 main() {
   A source;
   var fsource = toF(source);
-  F<A<G<A<dynamic, dynamic>>, dynamic>> target = fsource;
+  F<A<G<A<dynamic, dynamic>>, G<A<dynamic, dynamic>>>> target = fsource;
 
-  F<A<dynamic, dynamic>> target1 = fsource;                   //# 01: compile-time error
-  F<A<G<dynamic>, dynamic>> target2 = fsource;                //# 02: compile-time error
-  F<A<G<A<G<dynamic>, dynamic>>, dynamic>> target3 = fsource; //# 03: compile-time error
+  F<A<dynamic, G<A<dynamic, dynamic>>>> target1 = fsource;                   //# 01: compile-time error
+  F<A<G<dynamic>, G<A<dynamic, dynamic>>>> target2 = fsource;                //# 02: compile-time error
+  F<A<G<A<G<dynamic>, dynamic>>, G<A<dynamic, dynamic>>>> target3 = fsource; //# 03: compile-time error
+  F<A<G<A<dynamic, dynamic>>, dynamic>> target4 = fsource;                   //# 04: compile-time error
+  F<A<G<A<dynamic, dynamic>>, G<dynamic>>> target5 = fsource;                //# 05: compile-time error
 
   A();  //# 04: compile-time error
 }

@@ -48,7 +48,6 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-import "dart:async";
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 

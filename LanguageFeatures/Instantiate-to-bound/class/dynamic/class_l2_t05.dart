@@ -42,26 +42,18 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiation to bounds works OK for [typedef G<X> =
- * X Function()], [class A<X extends G<A<X, Y>>, Y extends X>]
- * @compile-error
+ * @description Checks that instantiate-to-bounds works as expected for the
+ * class [A<X1 extends B<X1>, X2 extends X1>]
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+import "../../../../Utils/expect.dart";
 
-
-typedef G<X> = X Function();
-class A<X extends G<A<X, Y>>, Y extends X> {}
+class B<X> {}
+class A<X1 extends B<X1>, X2 extends X1> {}
 
 main() {
-  A source;
-  var fsource = toF(source);
-  F<A<G<A<dynamic, dynamic>>, dynamic>> target = fsource;
-
-  F<A<dynamic, dynamic>> target1 = fsource;                   //# 01: compile-time error
-  F<A<G<dynamic>, dynamic>> target2 = fsource;                //# 02: compile-time error
-  F<A<G<A<G<dynamic>, dynamic>>, dynamic>> target3 = fsource; //# 03: compile-time error
-
-  A();  //# 04: compile-time error
+  Expect.equals(
+    typeOf<A<B<dynamic>, B<dynamic>>>(),
+    typeOf<A>()
+  );
 }

@@ -44,7 +44,7 @@
  * @description Checks that instantiate-to-bounds works correctly for [typedef
  *  G<X extends A<X>> = X Function()] (contravariant)
  * @compile-error
- * @Issue 34689
+ * @Issue 34689, 34699
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();
