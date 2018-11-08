@@ -43,19 +43,19 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for [typedef]
- * with two related parameters: [typedef G<X extends A<X>, Y extends A<Y>> = X
- * Function(Y)]
+ * with two related parameters: [typedef G<X extends A<X>, Y extends X> = void
+ * Function(X)]
  * @Issue 34689
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
 
 class A<X> {}
-typedef G<X extends A<X>, Y extends A<Y>> = X Function(Y);
+typedef G<X extends A<X>, Y extends X> = void Function(X);
 
 main() {
   Expect.equals(
-    typeOf<G<A<dynamic>, A<Null>>>(),
-    typeOf<G>()
+      typeOf<G<A<Null>, A<dynamic>>>(),
+      typeOf<G>()
   );
 }
