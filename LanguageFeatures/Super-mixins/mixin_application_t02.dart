@@ -27,11 +27,13 @@ class I {
     console = "I:$v";
   }
   String i3() => "I.i3";
+  String operator ~() => i1.substring(0, 2);
 }
 abstract class J {
   String get j1;
   void set j2(String v);
   String j3();
+  String operator -();
 }
 
 class A {
@@ -40,11 +42,13 @@ class A {
     console = "A:$v";
   }
   String a3() => "A.a3";
+  String operator +(A v) => v.a1.substring(0, 1);
 }
 abstract class B extends A {
   String get b1;
   void set b2(String v);
   String b3();
+  String operator -(B v);
 }
 class C extends B implements J {
   String get b1 => "C.b1";
@@ -52,13 +56,14 @@ class C extends B implements J {
     console = "C:$v";
   }
   String b3() => "C.b3";
+  String operator -(B v) => v.b1.substring(0, 1);
 
   String get j1 => "J.j1";
   set j2(String v) {
     console = "J:$v";
   }
   String j3() => "J.j3";
-
+  String operator -() => j1.substring(0, 1);
 }
 
 mixin M on A, B implements I, J {
@@ -73,6 +78,7 @@ mixin M on A, B implements I, J {
     console = "I:$v";
   }
   String i3() => "I.i3";
+  String operator ~() => i1.substring(0, 1);
 }
 
 class MA extends C with M {
@@ -85,14 +91,19 @@ main() {
   ma.a2 = "a2";
   Expect.equals("A:a2", console);
   Expect.equals("A.a3", ma.a3());
+  Expect.equals("A", ma + ma);
 
   Expect.equals("C.b1", ma.b1);
   ma.b2 = "b2";
   Expect.equals("C:b2", console);
   Expect.equals("C.b3", ma.b3());
+  Expect.equals("C", ma - ma);
 
   Expect.equals("m1", ma.m1);
   ma.m2 = "m2";
   Expect.equals("M:m2", console);
   Expect.equals("m3", ma.m3());
+
+  Expect.equals("I", ~ma);
+  Expect.equals("J", -ma);
 }

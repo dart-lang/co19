@@ -27,11 +27,13 @@ class A {
     console = "A:$v";
   }
   String a3() => "A.a3";
+  String operator -() => a1.substring(0, 1);
 }
 abstract class B extends A {
   String get b1;
   void set b2(String v);
   String b3();
+  String operator ~();
 }
 class C extends B {
   String get b1 => "C.b1";
@@ -39,6 +41,7 @@ class C extends B {
     console = "C:$v";
   }
   String b3() => "C.b3";
+  String operator ~() => b1.substring(0, 1);
 }
 
 mixin M on A, B {
@@ -47,6 +50,7 @@ mixin M on A, B {
     console = "M:$v";
   }
   String m3() => "m3";
+  String operator +(M v) => v.m1 + '+1';
 }
 
 class MA extends C with M {
@@ -59,14 +63,17 @@ main() {
   ma.a2 = "a2";
   Expect.equals("A:a2", console);
   Expect.equals("A.a3", ma.a3());
+  Expect.equals("A", -ma);
 
   Expect.equals("C.b1", ma.b1);
   ma.b2 = "b2";
   Expect.equals("C:b2", console);
   Expect.equals("C.b3", ma.b3());
+  Expect.equals("C", ~ma);
 
   Expect.equals("m1", ma.m1);
   ma.m2 = "m2";
   Expect.equals("M:m2", console);
   Expect.equals("m3", ma.m3());
+  Expect.equals("m1+1", ma + ma);
 }

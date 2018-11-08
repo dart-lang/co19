@@ -27,11 +27,13 @@ class I {
     console = "I:$v";
   }
   String i3() => "I.i3";
+  String operator ~() => i1.substring(0, 1);
 }
 abstract class J {
   String get j1;
   void set j2(String v);
   String j3();
+  String operator -();
 }
 
 class A {
@@ -63,7 +65,7 @@ class C implements A, B, J {
     console = "J:$v";
   }
   String j3() => "J.j3";
-
+  String operator -() => j1.substring(2, 3);
 }
 
 mixin M on A, B implements I, J {
@@ -78,6 +80,7 @@ mixin M on A, B implements I, J {
     console = "I:$v";
   }
   String i3() => "I.i3";
+  String operator ~() => i1.substring(2, 3);
 }
 
 class MA extends C with M {
@@ -100,4 +103,7 @@ main() {
   ma.m2 = "m2";
   Expect.equals("M:m2", console);
   Expect.equals("m3", ma.m3());
+
+  Expect.equals("i", ~ma);
+  Expect.equals("j", -ma);
 }

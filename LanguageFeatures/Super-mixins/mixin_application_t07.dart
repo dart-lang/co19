@@ -32,11 +32,13 @@ class A<T> {
     console = "A:$v";
   }
   String a3() => "A.a3";
+  String operator ~() => a1.substring(0, 1);
 }
 abstract class B<T> extends A<T> {
   String get b1;
   void set b2(String v);
   String b3();
+  String operator -();
 }
 class C<T> extends B<T> {
   String get b1 => "C.b1";
@@ -44,6 +46,7 @@ class C<T> extends B<T> {
     console = "C:$v";
   }
   String b3() => "C.b3";
+  String operator -() => b1.substring(0, 3);
 }
 
 mixin M<X extends S, Y extends T> on A<X>, B<X> {
@@ -64,11 +67,13 @@ main() {
   ma.a2 = "a2";
   Expect.equals("A:a2", console);
   Expect.equals("A.a3", ma.a3());
+  Expect.equals("A", ~ma);
 
   Expect.equals("C.b1", ma.b1);
   ma.b2 = "b2";
   Expect.equals("C:b2", console);
   Expect.equals("C.b3", ma.b3());
+  Expect.equals("C.b", -ma);
 
   Expect.equals("m1", ma.m1);
   ma.m2 = "m2";
