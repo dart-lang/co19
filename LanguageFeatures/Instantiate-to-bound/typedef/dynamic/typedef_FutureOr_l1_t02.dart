@@ -43,16 +43,18 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for [typedef
- * X extends A<X>> = X Function(X)] (covariant)
+ *  G<X extends FutureOr<X>> = Function(X)] (contravariant)
+ * @Issue 34689
  * @author iarkh@unipro.ru
  */
+import "dart:async";
 import "../../../../Utils/expect.dart";
 
-class A<X> {}
-typedef G<X extends A<X>> = void Function<Y extends X>();
-
-typedef G_expected = void Function<X extends A<dynamic>>();
+typedef G<X extends FutureOr<X>> = void Function(X);
 
 main() {
-  Expect.equals(G_expected, G);
+  Expect.equals(
+    typeOf<G<FutureOr<Null>>>(),
+    typeOf<G>()
+  );
 }
