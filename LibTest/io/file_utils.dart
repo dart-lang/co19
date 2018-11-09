@@ -12,20 +12,37 @@ library file_utils;
 import "dart:io";
 import "dart:async";
 import "dart:math";
+import "../../Utils/expect.dart";
 
-Future<void> inSandbox(void test(Directory sandbox), {int delay}) async {
+final int eventsTimeout = 45;
+
+Future<void> inSandbox(void test(Directory sandbox)) async {
   Directory sandbox = getTempDirectorySync();
   try {
     return await test(sandbox);
   } finally {
-    if (delay != null && delay > 0) {
-      new Future.delayed(new Duration(seconds: delay)).then((_) {
-        sandbox.delete(recursive: true);
-      });
-    } else {
-      sandbox.delete(recursive: true);
-    }
+    sandbox.delete(recursive: true);
   }
+}
+
+Future<void> testFileSystemEvent<T extends FileSystemEvent>(Directory dir,
+    {void createEvent(Directory parent),
+    void testEvent(FileSystemEvent event)}) async {
+  final eventCompleter = new Completer<FileSystemEvent>();
+  StreamSubscription subscription;
+  subscription = dir.watch().listen((FileSystemEvent event) {
+    if (event is T) {
+      eventCompleter.complete(event);
+      subscription.cancel();
+    }
+  });
+  createEvent(dir);
+  final event = await eventCompleter.future
+      .timeout(Duration(seconds: eventsTimeout), onTimeout: () {
+    subscription.cancel();
+    Expect.fail("No event was fired for $eventsTimeout seconds");
+  });
+  testEvent(event);
 }
 
 /**

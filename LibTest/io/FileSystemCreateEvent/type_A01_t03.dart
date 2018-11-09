@@ -15,21 +15,19 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-  inSandbox(_main, delay: 2);
+  inSandbox(_main);
 }
 
 _main(Directory sandbox) async {
   Directory dir = getTempDirectorySync(parent: sandbox);
   Directory target = getTempDirectorySync(parent: sandbox);
-
   asyncStart();
-  bool first = true;
-  dir.watch().listen((FileSystemEvent event) {
-    if (first) {
-      first = false;
-      Expect.equals(FileSystemEvent.create, event.type);
-      asyncEnd();
-    }
-  });
-  getTempLinkSync(parent: dir, target: target.path);
+
+  await testFileSystemEvent<FileSystemCreateEvent>(dir,
+      createEvent: (Directory parent) {
+        getTempLinkSync(parent: parent, target: target.path);
+      }, testEvent: (FileSystemEvent event) {
+        Expect.equals(FileSystemEvent.create, event.type);
+      });
+  asyncEnd();
 }

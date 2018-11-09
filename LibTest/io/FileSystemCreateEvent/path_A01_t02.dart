@@ -16,29 +16,20 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-String path = null;
-
-test(String toTest) {
-  if (path == null) {
-    path = toTest;
-  } else {
-    Expect.equals(path, toTest);
-  }
-}
-
 main() {
-  inSandbox(_main, delay: 2);
+  inSandbox(_main);
 }
 
 _main(Directory sandbox) async {
+  Directory dir = getTempDirectorySync(parent: sandbox);
   asyncStart();
-  sandbox.watch().listen((FileSystemEvent event) {
-    if (event is FileSystemCreateEvent) {
-      test(event.path);
-      asyncEnd();
-    }
-  });
-  getTempFile(parent: sandbox).then((File f) {
-    test(f.path);
-  });
+
+  String path = null;
+  await testFileSystemEvent<FileSystemCreateEvent>(dir,
+      createEvent: (Directory parent) {
+        path = getTempFileSync(parent: parent).path;
+      }, testEvent: (FileSystemEvent event) {
+        Expect.equals(path, event.path);
+      });
+  asyncEnd();
 }
