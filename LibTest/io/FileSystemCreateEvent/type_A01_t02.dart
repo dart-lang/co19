@@ -23,9 +23,9 @@ _main(Directory sandbox) async {
   asyncStart();
 
   await testFileSystemEvent<FileSystemCreateEvent>(dir,
-      createEvent: (Directory parent) {
-        getTempFileSync(parent: parent);
-      }, testEvent: (FileSystemEvent event) {
+      createEvent: () {
+        getTempFileSync(parent: dir);
+      }, test: (FileSystemEvent event) {
         Expect.equals(FileSystemEvent.create, event.type);
       });
   asyncEnd();

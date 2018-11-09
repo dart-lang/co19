@@ -21,28 +21,31 @@ Future<void> inSandbox(void test(Directory sandbox)) async {
   try {
     return await test(sandbox);
   } finally {
-    sandbox.delete(recursive: true);
+    sandbox.deleteSync(recursive: true);
   }
 }
 
 Future<void> testFileSystemEvent<T extends FileSystemEvent>(Directory dir,
-    {void createEvent(Directory parent),
-    void testEvent(FileSystemEvent event)}) async {
+    {void createEvent(),
+    void test(FileSystemEvent event), int stopAfter = 1}) async {
   final eventCompleter = new Completer<FileSystemEvent>();
+  int eventCounter = 0;
   StreamSubscription subscription;
   subscription = dir.watch().listen((FileSystemEvent event) {
     if (event is T) {
-      eventCompleter.complete(event);
-      subscription.cancel();
+      if (eventCounter++ < stopAfter) {
+        eventCompleter.complete(event);
+        subscription.cancel();
+      }
     }
   });
-  createEvent(dir);
+  createEvent();
   final event = await eventCompleter.future
       .timeout(Duration(seconds: eventsTimeout), onTimeout: () {
     subscription.cancel();
     Expect.fail("No event was fired for $eventsTimeout seconds");
   });
-  testEvent(event);
+  test(event);
 }
 
 /**

@@ -27,9 +27,9 @@ _main(Directory sandbox) async {
 
   String path = null;
   await testFileSystemEvent<FileSystemCreateEvent>(dir,
-      createEvent: (Directory parent) {
-        path = getTempLinkSync(parent: parent, target: target.path).path;
-      }, testEvent: (FileSystemEvent event) {
+      createEvent: () {
+        path = getTempLinkSync(parent: dir, target: target.path).path;
+      }, test: (FileSystemEvent event) {
         Expect.equals(path, event.path);
       });
   asyncEnd();
