@@ -42,9 +42,9 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for [A<X
- * extends FutureOr<X>]
- * @Issue 34947
+ * @description Checks that instantiate-to-bounds works correctly for [typedef
+ *  G<X extends FutureOr<X>> = X Function(X)] (invariant)
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 import "dart:async";
@@ -52,11 +52,11 @@ import "dart:async";
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 
-class A<X extends FutureOr<X>> {}
+typedef G<X extends FutureOr<X>> = X Function(X);
 
 main() {
-  A source;
+  G source;
   var fsource = toF(source);
-  F<A<FutureOr<dynamic> >> target = fsource;
-  A();
+  F<G<FutureOr<dynamic>>> target = fsource;
+  F<G<FutureOr<Null>>> target1 = fsource;   //# 01: compile-time error
 }
