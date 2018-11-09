@@ -13,20 +13,18 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that instantiate-to-bounds works as expected for [class
- * G<X extends A<B>, X1 extends B<X>> ]
+ * @description Checks that instantiate-to-bounds works as expected for:
+ * [class A<X>], [class B<X extends A, Y extends X>]
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+import "../../../Utils/expect.dart";
 
 class A<X> {}
-class B<X> {}
-class G<X extends A<B>, X1 extends B<X>> {}
+class B<X extends A, Y extends X> {}
 
 main() {
-  G source;
+  B source;
   var fsource = toF(source);
-  F<G<A<B<dynamic>>, B<A<B<dynamic>>>>> target = fsource;
-  G();
+  F<B<A<dynamic>, A<dynamic>>> target = fsource;
+  B();
 }

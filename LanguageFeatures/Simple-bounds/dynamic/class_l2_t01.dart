@@ -14,18 +14,17 @@
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
  * @description Checks that instantiate-to-bounds works as expected for:
- * [class A<X>], [class B<X>], [class G<X extends A<B>, X1 extends B<X>>>]
+ * [class A<X>], [class B<X extends A, Y extends X>]
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
 class A<X> {}
-class B<X> {}
-class G<X extends A<B>, X1 extends B<X>> {}
+class B<X extends A, Y extends X> {}
 
 main() {
   Expect.equals(
-    typeOf<G<A<B<dynamic>>, B<A<B<dynamic>>>>>(),
-    typeOf<G>(),
+    typeOf<B<A<dynamic>, A<dynamic>>>(),
+    typeOf<B>(),
   );
 }

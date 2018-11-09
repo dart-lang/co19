@@ -15,16 +15,19 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for the class with
  * function parameter (contravariant)
+ * @Issue 34689, 35114, 35115
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
 typedef G<X> = Function(X);
-class A<X extends G<num>> {}
+class A<X extends G> {}
 
 main() {
   A source;
   var fsource = toF(source);
-  F<A<G<num>>> target2 = fsource;
+  F<A<G<Null>>> target = fsource;
+  F<A<G<dynamic>>> target1 = fsource;  //# 01: compile-time error
   A();
 }

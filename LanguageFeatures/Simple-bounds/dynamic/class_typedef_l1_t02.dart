@@ -15,16 +15,17 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for the class with
  * function parameter (contravariant)
+ * @Issue 34689, 35114, 35115
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
-typedef G<X> = Function(X);
-class A<X extends G<num>> {}
+typedef G<X> = void Function(X);
+class A<X extends G> {}
 
 main() {
   Expect.equals(
-      typeOf<A<G<num>>>(),
+      typeOf<A<G<Null>>>(),
       typeOf<A>()
   );
 }

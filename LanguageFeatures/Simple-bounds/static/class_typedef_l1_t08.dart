@@ -20,7 +20,7 @@
 import "../../../Utils/expect.dart";
 
 typedef G<X> = void Function();
-class A<X extends G> {}
+class A<X extends G<int>> {}
 
 main() {
   A source;

@@ -13,18 +13,19 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that simple bounds are correct for the class with
- * function parameter (not used)
+ * @description Checks that instantiate-to-bounds works as expected for:
+ * [class A<X>], [class B<X>], [class G<X extends A<B>, X1 extends B<X>>>]
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
-typedef G<X> = void Function();
-class A<X extends G> {}
+class A<X> {}
+class B<X> {}
+class G<X extends A<B>, X1 extends B<X>> {}
 
 main() {
-  A source;
-  var fsource = toF(source);
-  F<A<G<dynamic>>> target = fsource;
-  A();
+  Expect.equals(
+    typeOf<G<A<B<dynamic>>, B<A<B<dynamic>>>>>(),
+    typeOf<G>(),
+  );
 }
