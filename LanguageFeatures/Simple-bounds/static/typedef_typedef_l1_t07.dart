@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
@@ -14,22 +13,20 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that instantiate-to-bounds works correctly for [typedef
- *  G<X, Y extends X> = X Function(Y)]
+ * @description Checks that simple bounds are correct for [typedef] with
+ * [typedef] parameter (contravariant)
+ * @compile-error
  * @Issue 34689, 34699
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+import "../../../Utils/expect.dart";
 
-typedef G<X, Y extends X> = X Function(Y);
+typedef G1<X> = X Function();
+typedef G2<X extends G1> = void Function(X);
 
 main() {
-  G source;
+  G2 source;
   var fsource = toF(source);
-  F<G<dynamic, Null>> target = fsource;
-
-  F<G<Null, dynamic>> target1 = fsource;    //# 01: compile-time error
-  F<G<Null, Null>> target2 = fsource;       //# 02: compile-time error
-  F<G<dynamic, dynamic>> target3 = fsource; //# 03: compile-time error
+  F<G2<G1<Null>>> target = fsource;
+  F<G2<G1<dynamic>>> target1 = fsource; //# 01: compile-time error
 }

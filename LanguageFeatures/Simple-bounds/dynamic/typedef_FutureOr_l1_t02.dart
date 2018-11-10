@@ -15,6 +15,7 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [typedef] with [X
  * extends FutureOr] parameter (contravariant)
+ * @Issue 34689
  * @author iarkh@unipro.ru
  */
 import "dart:async";
@@ -24,7 +25,7 @@ typedef G<X extends FutureOr> = Function(X);
 
 main() {
   Expect.equals(
-    typeOf<G<FutureOr<dynamic>>>(),
+    typeOf<G<FutureOr<Null>>>(),
     typeOf<G>()
   );
 }
