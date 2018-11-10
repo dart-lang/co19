@@ -45,7 +45,7 @@
  * @description Checks that instantiate-to-bounds works correctly for [typedef]
  * with two related parameters: [typedef G<X extends A<X>, Y extends X> = void
  * Function(X, Y)]
- * @Issue 34682, 35068
+ * @Issue 34689, 34699, 35068
  * @compile-error
  * @author iarkh@unipro.ru
  */
@@ -59,7 +59,7 @@ main() {
   G source;
   var fsource = toF(source);
   F<G<A<Null>, A<Null>>> target = fsource;
-  F<G<A<dynamic>, dynamic>> target1 = fsource;     //# 01: compile-time error
+  F<G<A<dynamic>, dynamic>> target1 = fsource;    //# 01: compile-time error
   F<G<A<dynamic>, Null>> target2 = fsource;       //# 02: compile-time error
   F<G<A<dynamic>, A<dynamic>>> target3 = fsource; //# 03: compile-time error
   F<G<dynamic, A<dynamic>>> target4 = fsource;    //# 04: compile-time error

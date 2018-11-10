@@ -45,7 +45,7 @@
  * @description Checks that instantiate-to-bounds works correctly for [typedef]
  * with two related parameters: [typedef G<X extends A<X>, Y extends X> = void
  * Function<Y1 extends Y>(X, Y)]
- * @Issue 34689, 35068
+ * @Issue 34689, 34699
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();
@@ -56,5 +56,5 @@ typedef G<X extends A<X>, Y extends X> = void Function<Y1 extends Y>(X, Y);
 
 main() {
   G source;
-  void Function<X extends A<dynamic>>(A<Null>, A<dynamic>>) target = source;
+  void Function<X extends A<dynamic>>(A<Null>, A<dynamic>) target = source;
 }

@@ -59,9 +59,9 @@ main() {
   var fsource = toF(source);
   F<A<G<A<dynamic>>>> target = fsource;
 
-  F<A<G<A<Null>>>> target0 = fsource; //# 01: compile-time error
+  F<A<G<A<Null>>>> target0 = fsource;
 
-  F<A<dynamic>> target1 = fsource;
+  F<A<dynamic>> target1 = fsource;          //# 01: compile-time error
   F<A<G<dynamic>>> target2 = fsource;
   F<A<G<A<G<dynamic>>>>> target3 = fsource;
   F<A<G<A<G<A<dynamic>>>>>> target4 = fsource;

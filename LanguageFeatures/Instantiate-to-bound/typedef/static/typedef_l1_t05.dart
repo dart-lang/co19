@@ -53,4 +53,5 @@ typedef G<X extends A<X>> = void Function<Y extends X>();
 main() {
   G source;
   void Function<X extends A<dynamic>>() target = source;
+  void Function<X extends A<Null>>() target1 = source; //# 01: compile-time error
 }

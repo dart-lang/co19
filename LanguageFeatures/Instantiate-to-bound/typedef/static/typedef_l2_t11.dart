@@ -55,5 +55,5 @@ typedef G<X extends A<X>, Y extends X> = void Function<X1 extends X>(Y);
 
 main() {
   G source;
-  void Function<X extends A<dynamic>>(A<dynamic>) target = source;
+  void Function<X extends A<dynamic>>(A<Null>) target = source;
 }

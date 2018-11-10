@@ -67,9 +67,9 @@ main() {
 
   F<B<Null>> target5 = fsource;             //# 05: compile-time error
   F<B<A<Null>>> target6 = fsource;          //# 06: compile-time error
-  F<B<A<A<Null>>>> target7 = fsource;       //# 06: compile-time error
-  F<B<A<A<A<Null>>>>> target8 = fsource;    //# 07: compile-time error
-  F<B<A<A<A<A<Null>>>>>> target9 = fsource; //# 08: compile-time error
+  F<B<A<A<Null>>>> target7 = fsource;       //# 07: compile-time error
+  F<B<A<A<A<Null>>>>> target8 = fsource;    //# 08: compile-time error
+  F<B<A<A<A<A<Null>>>>>> target9 = fsource; //# 09: compile-time error
 
   B(); //# 10: compile-time error
 }

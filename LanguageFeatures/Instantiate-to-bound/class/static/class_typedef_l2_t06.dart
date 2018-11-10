@@ -65,5 +65,5 @@ main() {
   F<A<G<A<dynamic, dynamic>>, dynamic>> target4 = fsource;                   //# 04: compile-time error
   F<A<G<A<dynamic, dynamic>>, G<dynamic>>> target5 = fsource;                //# 05: compile-time error
 
-  A();  //# 04: compile-time error
+  A();  //# 06: compile-time error
 }
