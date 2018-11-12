@@ -12,20 +12,45 @@ library file_utils;
 import "dart:io";
 import "dart:async";
 import "dart:math";
+import "../../Utils/expect.dart";
 
-Future<void> inSandbox(void test(Directory sandbox), {int delay}) async {
-  Directory sandbox = getTempDirectorySync();
+final int eventsTimeout = 45;
+
+Future<void> inSandbox(void test(Directory sandbox), {Directory sandbox}) async {
+  if (sandbox == null) {
+    sandbox = getTempDirectorySync();
+  }
   try {
     return await test(sandbox);
   } finally {
-    if (delay != null && delay > 0) {
-      new Future.delayed(new Duration(seconds: delay)).then((_) {
-        sandbox.delete(recursive: true);
-      });
-    } else {
-      sandbox.delete(recursive: true);
-    }
+    sandbox.deleteSync(recursive: true);
   }
+}
+
+Future<void> testFileSystemEvent<T extends FileSystemEvent>(Directory dir,
+    {Future<void> createEvent(),
+    void test(FileSystemEvent event), bool failIfNoEvent = true}) async {
+  final eventCompleter = new Completer<FileSystemEvent>();
+  bool first = true;
+  StreamSubscription subscription;
+  subscription = dir.watch().listen((FileSystemEvent event) async {
+    if (event is T) {
+      if (first) {
+        first = false;
+        eventCompleter.complete(event);
+        await subscription.cancel();
+      }
+    }
+  });
+  await createEvent();
+  final event = await eventCompleter.future
+      .timeout(Duration(seconds: eventsTimeout), onTimeout: () async {
+    await subscription.cancel();
+    if (failIfNoEvent) {
+      Expect.fail("No event was fired for $eventsTimeout seconds");
+    }
+  });
+  test(event);
 }
 
 /**

@@ -13,21 +13,21 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
-import "dart:async";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  inSandbox(_main, delay: 2);
+main() async {
+  await inSandbox(_main);
 }
 
 _main(Directory sandbox) async {
   asyncStart();
-  sandbox.watch().listen((FileSystemEvent event) {
-    if (event is FileSystemCreateEvent) {
-      Expect.isTrue(event.isDirectory);
-      asyncEnd();
-    }
-  });
-  sandbox.createTempSync();
+
+  await testFileSystemEvent<FileSystemCreateEvent>(sandbox,
+      createEvent: () {
+        sandbox.createTempSync();
+      }, test: (FileSystemEvent event) {
+        Expect.isTrue(event.isDirectory);
+      });
+  asyncEnd();
 }
