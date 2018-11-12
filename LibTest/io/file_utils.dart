@@ -16,8 +16,10 @@ import "../../Utils/expect.dart";
 
 final int eventsTimeout = 45;
 
-Future<void> inSandbox(void test(Directory sandbox)) async {
-  Directory sandbox = getTempDirectorySync();
+Future<void> inSandbox(void test(Directory sandbox), {Directory sandbox}) async {
+  if (sandbox == null) {
+    sandbox = getTempDirectorySync();
+  }
   try {
     return await test(sandbox);
   } finally {
@@ -26,24 +28,27 @@ Future<void> inSandbox(void test(Directory sandbox)) async {
 }
 
 Future<void> testFileSystemEvent<T extends FileSystemEvent>(Directory dir,
-    {void createEvent(),
-    void test(FileSystemEvent event), int stopAfter = 1}) async {
+    {Future<void> createEvent(),
+    void test(FileSystemEvent event), bool failIfNoEvent = true}) async {
   final eventCompleter = new Completer<FileSystemEvent>();
-  int eventCounter = 0;
+  bool first = true;
   StreamSubscription subscription;
-  subscription = dir.watch().listen((FileSystemEvent event) {
+  subscription = dir.watch().listen((FileSystemEvent event) async {
     if (event is T) {
-      if (eventCounter++ < stopAfter) {
+      if (first) {
+        first = false;
         eventCompleter.complete(event);
-        subscription.cancel();
+        await subscription.cancel();
       }
     }
   });
-  createEvent();
+  await createEvent();
   final event = await eventCompleter.future
-      .timeout(Duration(seconds: eventsTimeout), onTimeout: () {
-    subscription.cancel();
-    Expect.fail("No event was fired for $eventsTimeout seconds");
+      .timeout(Duration(seconds: eventsTimeout), onTimeout: () async {
+    await subscription.cancel();
+    if (failIfNoEvent) {
+      Expect.fail("No event was fired for $eventsTimeout seconds");
+    }
   });
   test(event);
 }

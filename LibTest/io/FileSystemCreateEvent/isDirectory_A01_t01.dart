@@ -15,16 +15,16 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  inSandbox(_main);
+main() async {
+  await inSandbox(_main);
 }
 
 _main(Directory sandbox) async {
   asyncStart();
 
   await testFileSystemEvent<FileSystemCreateEvent>(sandbox,
-      createEvent: () {
-        sandbox.createTemp();
+      createEvent: () async {
+        await sandbox.createTemp();
       }, test: (FileSystemEvent event) {
         Expect.isTrue(event.isDirectory);
       });

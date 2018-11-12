@@ -7,6 +7,10 @@
  * @assertion bool isDirectory
  * final
  * Is true if the event target was a directory.
+ *
+ * Note that if the file has been deleted by the time the event has arrived,
+ * this will always be false on Windows. In particular, it will always be false
+ * for delete events.
  * @description Checks that this property returns true if the event target was a
  * directory. Test File
  * @issue 30429
@@ -16,19 +20,20 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  inSandbox(_main, delay: 2);
+main() async {
+  await inSandbox(_main);
 }
 
 _main(Directory sandbox) async {
   Directory dir = getTempDirectorySync(parent: sandbox);
-  File f = getTempFileSync(parent: dir);
+
   asyncStart();
-  dir.watch().listen((FileSystemEvent event) {
-    if (event is FileSystemModifyEvent) {
-      Expect.isFalse(event.isDirectory);
-      asyncEnd();
-    }
-  });
-  f.writeAsStringSync("Lily was here");
+  await testFileSystemEvent<FileSystemModifyEvent>(dir,
+      createEvent: () {
+        File f = getTempFileSync(parent: dir);
+        f.writeAsStringSync("Lily was here");
+      }, test: (FileSystemEvent event) {
+        Expect.isFalse(event.isDirectory);
+      });
+  asyncEnd();
 }

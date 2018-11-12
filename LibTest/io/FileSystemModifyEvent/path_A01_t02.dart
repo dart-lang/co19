@@ -17,19 +17,20 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  inSandbox(_main, delay: 2);
+main() async {
+  await inSandbox(_main);
 }
 
 _main(Directory sandbox) async {
   Directory dir = getTempDirectorySync(parent: sandbox);
   File f = getTempFileSync(parent: dir);
+
   asyncStart();
-  dir.watch().listen((FileSystemEvent event) {
-    if (event is FileSystemModifyEvent) {
-      Expect.equals(f.path, event.path);
-      asyncEnd();
-    }
-  });
-  f.writeAsStringSync("File modified");
+  await testFileSystemEvent<FileSystemModifyEvent>(dir,
+      createEvent: () {
+        f.writeAsStringSync("Lily was here");
+      }, test: (FileSystemEvent event) {
+        Expect.equals(f.path, event.path);
+      });
+  asyncEnd();
 }

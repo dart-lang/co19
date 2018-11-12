@@ -17,8 +17,8 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  inSandbox(_main);
+main() async {
+  await inSandbox(_main);
 }
 
 _main(Directory sandbox) async {
@@ -27,8 +27,8 @@ _main(Directory sandbox) async {
   asyncStart();
 
   await testFileSystemEvent<FileSystemCreateEvent>(dir,
-      createEvent: () {
-        getTempLink(parent: dir, target: target.path);
+      createEvent: () async {
+        await getTempLink(parent: dir, target: target.path);
       }, test: (FileSystemEvent event) {
         Expect.isFalse(event.isDirectory);
       });
