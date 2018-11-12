@@ -21,11 +21,11 @@ main() async {
 }
 
 _main(Directory sandbox) async {
+  Directory d = sandbox.createTempSync();
   asyncStart();
 
   await testFileSystemEvent<FileSystemDeleteEvent>(sandbox,
       createEvent: () async {
-        Directory d = sandbox.createTempSync();
         await d.delete();
       }, test: (FileSystemEvent event) {
         if (Platform.isWindows) {

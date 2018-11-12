@@ -23,11 +23,10 @@ main() async {
 
 _main(Directory sandbox) async {
   Directory dir = getTempDirectorySync(parent: sandbox);
-
+  File f = getTempFileSync(parent: dir);
   asyncStart();
   await testFileSystemEvent<FileSystemModifyEvent>(dir,
       createEvent: () {
-        File f = getTempFileSync(parent: dir);
         f.setLastAccessedSync(new DateTime.now());
       }, test: (FileSystemEvent event) {
         Expect.isFalse((event as FileSystemModifyEvent).contentChanged);

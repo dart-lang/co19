@@ -22,11 +22,10 @@ main() async {
 
 _main(Directory sandbox) async {
   Directory dir = getTempDirectorySync(parent: sandbox);
-
+  File f = getTempFileSync(parent: dir);
   asyncStart();
   await testFileSystemEvent<FileSystemModifyEvent>(dir,
       createEvent: () {
-        File f = getTempFileSync(parent: dir);
         f.writeAsStringSync("Lily was here");
       }, test: (FileSystemEvent event) {
         Expect.isTrue((event as FileSystemModifyEvent).contentChanged);

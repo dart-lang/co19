@@ -21,12 +21,12 @@ main() async {
 }
 
 _main(Directory sandbox) async {
+  File f = getTempFileSync(parent: sandbox);
   asyncStart();
 
   String path;
   await testFileSystemEvent<FileSystemDeleteEvent>(sandbox,
       createEvent: () {
-        File f = getTempFileSync(parent: sandbox);
         path = f.path;
         f.deleteSync();
       }, test: (FileSystemEvent event) {

@@ -20,11 +20,11 @@ main() async {
 }
 
 _main(Directory sandbox) async {
+  Link l = getTempLinkSync(parent: sandbox);
   asyncStart();
 
   await testFileSystemEvent<FileSystemDeleteEvent>(sandbox,
       createEvent: () {
-        Link l = getTempLinkSync(parent: sandbox);
         l.deleteSync();
       }, test: (FileSystemEvent event) {
         Expect.isFalse(event.isDirectory);
