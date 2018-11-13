@@ -15,16 +15,16 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  File file = getTempFileSync();
-  try {
-    FileStat fs = FileStat.statSync(file.path);
-    Expect.equals(0, fs.size);
+main() async {
+  await inSandbox(_main);
+}
 
-    file.writeAsBytesSync([0, 1, 2]);
-    fs = FileStat.statSync(file.path);
-    Expect.equals(3, fs.size);
-  } finally {
-    file.delete();
-  }
+_main(Directory sandbox) async {
+  File file = getTempFileSync(parent: sandbox);
+  FileStat fs = FileStat.statSync(file.path);
+  Expect.equals(0, fs.size);
+
+  file.writeAsBytesSync([0, 1, 2]);
+  fs = FileStat.statSync(file.path);
+  Expect.equals(3, fs.size);
 }

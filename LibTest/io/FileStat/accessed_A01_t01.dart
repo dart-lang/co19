@@ -16,16 +16,16 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  File file = getTempFileSync();
-  try {
-    FileStat fs = FileStat.statSync(file.path);
-    if (Platform.isWindows) {
-      Expect.isTrue(fs.accessed.difference(new DateTime.now()).inDays <= 1);
-    } else {
-      Expect.isTrue(fs.accessed.difference(new DateTime.now()).inSeconds <= 5);
-    }
-  } finally {
-    file.delete();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
+  File file = getTempFileSync(parent: sandbox);
+  FileStat fs = FileStat.statSync(file.path);
+  if (Platform.isWindows) {
+    Expect.isTrue(fs.accessed.difference(new DateTime.now()).inDays <= 1);
+  } else {
+    Expect.isTrue(fs.accessed.difference(new DateTime.now()).inSeconds <= 5);
   }
 }

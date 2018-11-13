@@ -18,18 +18,18 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  File file = getTempFileSync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
+  File file = getTempFileSync(parent: sandbox);
   file.writeAsBytesSync([3, 1, 4, 1, 5, 9, 2, 6]);
-  try {
-    FileStat fs = FileStat.statSync(file.path);
-    Expect.equals(FileSystemEntityType.file, fs.type);
-    Expect.equals(8, fs.size);
-    Expect.equals(file.statSync().mode, fs.mode);
-    Expect.equals(file.statSync().accessed, fs.accessed);
-    Expect.equals(file.statSync().changed, fs.changed);
-    Expect.equals(file.statSync().modified, fs.modified);
-  } finally {
-    file.delete();
-  }
+  FileStat fs = FileStat.statSync(file.path);
+  Expect.equals(FileSystemEntityType.file, fs.type);
+  Expect.equals(8, fs.size);
+  Expect.equals(file.statSync().mode, fs.mode);
+  Expect.equals(file.statSync().accessed, fs.accessed);
+  Expect.equals(file.statSync().changed, fs.changed);
+  Expect.equals(file.statSync().modified, fs.modified);
 }

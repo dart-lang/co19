@@ -16,23 +16,23 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  File file = getTempFileSync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
+  File file = getTempFileSync(parent: sandbox);
   asyncStart();
-    FileStat.stat(file.path).then((FileStat fs) {
-      DateTime changed1 = fs.changed;
-      file.writeAsBytes([1, 2, 3]).then((_) {
-        try {
-          FileStat fs2 = FileStat.statSync(file.path);
-          if (Platform.isWindows) {
-            Expect.equals(changed1, fs2.changed);
-          } else {
-            Expect.isTrue(changed1.microsecond < fs2.changed.microsecond);
-          }
-          asyncEnd();
-        } finally {
-          file.delete();
-        }
-      });
+  await FileStat.stat(file.path).then((FileStat fs) async {
+    DateTime changed1 = fs.changed;
+    await file.writeAsBytes([1, 2, 3]).then((_) {
+      FileStat fs2 = FileStat.statSync(file.path);
+      if (Platform.isWindows) {
+        Expect.equals(changed1, fs2.changed);
+      } else {
+        Expect.isTrue(changed1.microsecond < fs2.changed.microsecond);
+      }
+      asyncEnd();
     });
+  });
 }
