@@ -18,17 +18,25 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory dir = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
+  Directory dir = getTempDirectorySync(parent: sandbox);
+
+  final eventCompleter = new Completer<FileSystemEvent>();
+  StreamSubscription subscription;
   asyncStart();
-  StreamSubscription s = null;
-  s = dir.watch().listen((FileSystemEvent event) {
-    s.cancel().then((_) {
-      dir.delete(recursive: true);
-    }).then((_) {
-      Expect.equals(FileSystemEvent.create, event.type);
-      asyncEnd();
-    });
+  subscription = dir.watch().listen((FileSystemEvent event) async {
+    eventCompleter.complete(event);
+    await subscription.cancel();
+    Expect.equals(FileSystemEvent.create, event.type);
+    asyncEnd();
   });
-  dir.createTemp();
+  dir.createTempSync();
+  await eventCompleter.future
+      .timeout(Duration(seconds: eventsTimeout), onTimeout: () async {
+    await subscription.cancel();
+  });
 }
