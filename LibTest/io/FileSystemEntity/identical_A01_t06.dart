@@ -26,17 +26,20 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
+main() async {
+  Directory sandbox = getTempDirectorySync(parent: Directory.current);
+  await inSandbox(_main, sandbox: sandbox);
+}
+
+_main(Directory sandbox) async {
   String dirName = getTempDirectoryName();
   Directory dir =
-      new Directory(Directory.current.path + Platform.pathSeparator + dirName);
+      new Directory(sandbox.path + Platform.pathSeparator + dirName);
   dir.createSync();
 
   asyncStart();
-  FileSystemEntity.identical(dirName, dirName).then((result) {
-    Expect.isTrue(result);
-    asyncEnd();
-  }).whenComplete(() {
-    dir.delete();
-  });
+  bool result = await FileSystemEntity.identical(
+      getEntityName(sandbox) + Platform.pathSeparator + dirName,
+      getEntityName(sandbox) + Platform.pathSeparator + dirName);
+  Expect.isTrue(result);
 }
