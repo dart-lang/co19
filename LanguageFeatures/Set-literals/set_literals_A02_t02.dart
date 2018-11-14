@@ -16,16 +16,29 @@
  */
 import "../../Utils/expect.dart";
 
+test(Set<Object> s, String type) {
+  Expect.equals(type, s.runtimeType.toString());
+}
+
 main() {
   var v1  = const {1, 2, 3};
-  Expect.isTrue(v1 is Set<int>);
+  test(v1, "Set<int>");
 
   var v2  = const {'1', '2', '3'};
-  Expect.isTrue(v2 is Set<String>);
+  test(v2, "Set<String>");
 
-  var v3  = const {1, 2, 3.14};
-  Expect.isTrue(v3 is Set<num>);
+  var v3  = const {'1', 2, '3'};
+  test(v3, "Set<Object>");
 
-  var v4  = const {'1', 2, '3'};
-  Expect.isTrue("Set<dynamic>", v4.runtimeType.toString());
+  var v4  = {1, 2, 3,};
+  test(v4, "Set<int>");
+
+  var v5  = {'1', '2', '3',};
+  test(v5, "Set<String>");
+
+  var v6  = {'1', 2, '3',};
+  test(v6, "Set<Object>");
+
+  var v7  = {1, 2, 3.14,};
+  test(v7, "Set<num>");
 }
