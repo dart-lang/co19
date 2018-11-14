@@ -7,7 +7,7 @@
  * @assertion Future<bool> isFile(String path)
  * Checks if type(path) returns FileSystemEntityType.file.
  * @description Checks that this property returns true if type(path) returns
- * FileSystemEntityType.file. Test Directory
+ * FileSystemEntityType.file. Test Link
  * @issue 30410
  * @author sgrekhov@unipro.ru
  */
@@ -15,17 +15,18 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   Link link = getTempLinkSync(parent: sandbox);
   asyncStart();
-  FileSystemEntity.isFile(link.path).then((result) {
+  await FileSystemEntity.isFile(link.path).then((result) {
     Expect.isFalse(result);
     FileSystemEntity.type(link.path).then((t) {
       Expect.equals(t, FileSystemEntityType.link);
       asyncEnd();
     });
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }

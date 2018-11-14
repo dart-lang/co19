@@ -26,16 +26,18 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
+main() async {
+  Directory sandbox = getTempDirectorySync(parent: Directory.current);
+  await inSandbox(_main, sandbox: sandbox);
+}
+
+_main(Directory sandbox) async {
   String fileName = getTempFileName();
-  File file = new File(Directory.current.path + Platform.pathSeparator + fileName);
+  File file = new File(sandbox.path + Platform.pathSeparator + fileName);
   file.createSync();
 
-  asyncStart();
-  FileSystemEntity.identical(fileName, fileName).then((result) {
-    Expect.isTrue(result);
-    asyncEnd();
-  }).whenComplete(() {
-    file.delete();
-  });
+  bool result = await FileSystemEntity.identical(
+      getEntityName(sandbox) + Platform.pathSeparator,
+      getEntityName(sandbox) + Platform.pathSeparator);
+  Expect.isTrue(result);
 }

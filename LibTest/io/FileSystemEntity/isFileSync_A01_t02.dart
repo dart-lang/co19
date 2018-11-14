@@ -15,14 +15,13 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   Directory dir = getTempDirectorySync(parent: sandbox);
-  try {
-    Expect.isFalse(FileSystemEntity.isFileSync(dir.path));
-    Expect.equals(
-        FileSystemEntity.typeSync(dir.path), FileSystemEntityType.directory);
-  } finally {
-    sandbox.delete(recursive: true);
-  }
+  Expect.isFalse(FileSystemEntity.isFileSync(dir.path));
+  Expect.equals(
+      FileSystemEntity.typeSync(dir.path), FileSystemEntityType.directory);
 }
