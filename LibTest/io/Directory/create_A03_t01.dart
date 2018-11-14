@@ -30,7 +30,7 @@ _main(Directory sandbox) async {
   asyncStart();
   Directory tmp = new Directory(getTempDirectoryPath(parent: sandbox));
   Directory dir = new Directory(getTempDirectoryPath(parent: tmp));
-  dir.create(recursive: true).then((created) {
+  await dir.create(recursive: true).then((created) {
     Expect.isTrue(created.existsSync());
     asyncEnd();
   });
