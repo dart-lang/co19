@@ -27,15 +27,16 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   asyncStart();
-  FileSystemEntity.identical(getTempFileName(), file.path).then((_) {
+  await FileSystemEntity.identical(getTempFileName(), file.path).then((_) {
     Expect.fail("Error is expected");
   }, onError: (e) {
     asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }

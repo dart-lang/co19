@@ -26,14 +26,13 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
-  File file = getTempFileSync(parent: sandbox);
-  asyncStart();
-  FileSystemEntity.identical(file.path, file.path).then((result) {
-    Expect.isTrue(result);
-    asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
-  });
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
+  File file1 = getTempFileSync(parent: sandbox);
+  File file2 = new File(file1.path);
+  var result = await FileSystemEntity.identical(file1.path, file2.path);
+  Expect.isTrue(result);
 }
