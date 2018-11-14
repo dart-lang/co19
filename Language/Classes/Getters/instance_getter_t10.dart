@@ -15,18 +15,22 @@
  * • method named n, and has a getter or a setter with basename n.
  * • static member with basename n, and has an instance member with basename n.
  *
- * @description Checks that it is not a compile error if a class C has an
- * implicitly declared instance getter and a static variable declared in its
- * superclass with the same name.
+ * @description Checks that a compile error is arisen if a class has a declared
+ * static setter and an inherited implicitly declared instance setter with the
+ * same name.
+ * @compile-error
  * @author ngl@unipro.ru
  */
 
 class A {
-  static int v;
+  int v = 5;
 }
 
 class C extends A {
-  int v = 5;
+  static int n;
+  static set v(int v1) {
+    n = v1;
+  }
 }
 
 main() {
