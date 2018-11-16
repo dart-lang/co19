@@ -26,4 +26,6 @@ main() {
   var x;
   var v1 = const {1, 2, '3', new A()};                  //# 01: compile-time error
   var v2 = const [const B(), const C(), const A(), x];  //# 02: compile-time error
+  const v3 = {1, 2, '3', new A()};                      //# 03: compile-time error
+  const v4 = [const B(), const C(), const A(), x];      //# 04: compile-time error
 }

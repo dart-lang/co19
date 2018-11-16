@@ -17,15 +17,38 @@
 import "../../Utils/expect.dart";
 
 main() {
-  var v1  = const {1, 2, 3};
+  var v1 = const {1, 2, 3};
   Expect.isTrue(v1 is Set<int>);
 
-  var v2  = const {'1', '2', '3'};
-  Expect.isTrue(v2 is Set<String>);
+  const v2 = {1, 2, 3};
+  Expect.isTrue(v2 is Set<int>);
 
-  var v3  = const {1, 2, 3.14};
-  Expect.isTrue(v3 is Set<num>);
+  var v3 = {1, 2, 3};
+  Expect.isTrue(v3 is Set<int>);
 
-  var v4  = const {'1', 2, '3'};
-  Expect.isTrue("Set<dynamic>", v4.runtimeType.toString());
+  var v4 = const {'1', '2', '3'};
+  Expect.isTrue(v4 is Set<String>);
+
+  const v5 = {'1', '2', '3'};
+  Expect.isTrue(v5 is Set<String>);
+
+  var v6 = {'1', '2', '3'};
+  Expect.isTrue(v6 is Set<String>);
+
+  var v7 = const {'1', 2, '3', null};
+  Expect.isTrue(v7 is Set<Object>);
+
+  const v8 = {'1', 2, '3', null};
+  Expect.isTrue(v8 is Set<Object>);
+
+  var v9 = {'1', 2, '3', null};
+  Expect.isTrue(v9 is Set<Object>);
+
+  dynamic d;
+
+  var v10 = {'1', 2, '3', null, d};
+  Expect.isTrue(v10 is Set<dynamic>);
+
+  var v11  = {1, 2, 3.14};
+  Expect.isTrue(v11 is Set<num>);
 }

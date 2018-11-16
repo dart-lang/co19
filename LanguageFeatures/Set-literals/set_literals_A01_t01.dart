@@ -17,25 +17,25 @@ import "../../Utils/expect.dart";
 main() {
   var v1  = const <int> {1, 2, 3,};
   Expect.equals(3, v1.length);
-  Expect.setEquals(new Set.from([1, 2, 3]), v1);
+  Expect.iterableEquals(new Set.from([1, 2, 3]), v1);
 
   var v2  = <int> {1, 2, 3, 4,};
   Expect.equals(4, v2.length);
-  Expect.setEquals(new Set.from([1, 2, 3, 4]), v2);
+  Expect.iterableEquals(new Set.from([1, 2, 3, 4]), v2);
 
   var v3  = {1, 2, 3, 4, 5,};
   Expect.equals(5, v3.length);
-  Expect.setEquals(new Set.from([1, 2, 3, 4, 5]), v3);
+  Expect.iterableEquals(new Set.from([1, 2, 3, 4, 5]), v3);
 
   var v4  = const <int> {1, 2, 3};
   Expect.equals(3, v1.length);
-  Expect.setEquals(new Set.from([1, 2, 3]), v4);
+  Expect.iterableEquals(new Set.from([1, 2, 3]), v4);
 
   var v5  = <int> {1, 2, 3, 4};
   Expect.equals(4, v2.length);
-  Expect.setEquals(new Set.from([1, 2, 3, 4]), v5);
+  Expect.iterableEquals(new Set.from([1, 2, 3, 4]), v5);
 
   var v6  = {1, 2, 3, 4, 5};
   Expect.equals(5, v3.length);
-  Expect.setEquals(new Set.from([1, 2, 3, 4, 5]), v6);
+  Expect.iterableEquals(new Set.from([1, 2, 3, 4, 5]), v6);
 }
