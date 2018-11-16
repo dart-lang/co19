@@ -14,19 +14,19 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  inSandbox(_main, delay: 2);
+main() async {
+  await inSandbox(_main);
 }
 
 _main(Directory sandbox) async {
   Directory dir = getTempDirectorySync(parent: sandbox);
   Directory d = getTempDirectorySync(parent: dir);
   asyncStart();
-  dir.watch().listen((FileSystemEvent event) {
-    if (event is FileSystemMoveEvent) {
-      Expect.equals(FileSystemEvent.move, event.type);
-      asyncEnd();
-    }
-  });
-  d.renameSync(getTempDirectoryPath(parent: dir));
+  await testFileSystemEvent<FileSystemMoveEvent>(dir,
+      createEvent: () {
+        d.renameSync(getTempDirectoryPath(parent: dir));
+      }, test: (FileSystemEvent event) {
+        Expect.equals(FileSystemEvent.move, event.type);
+      }, failIfNoEvent: false);
+  asyncEnd();
 }

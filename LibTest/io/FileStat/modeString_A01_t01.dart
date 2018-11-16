@@ -18,16 +18,16 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  File file = getTempFileSync();
-  try {
-    FileStat fs = FileStat.statSync(file.path);
-    if (Platform.isWindows) {
-      Expect.equals("rw-rw-rw-", fs.modeString());
-    } else {
-      Expect.equals("rw-rw-rw-", fs.modeString());
-    }
-  } finally {
-    file.delete();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
+  File file = getTempFileSync(parent: sandbox);
+  FileStat fs = FileStat.statSync(file.path);
+  if (Platform.isWindows) {
+    Expect.equals("rw-rw-rw-", fs.modeString());
+  } else {
+    Expect.equals("rw-rw-rw-", fs.modeString());
   }
 }

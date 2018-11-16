@@ -14,19 +14,19 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  inSandbox(_main, delay: 2);
+main() async {
+  await inSandbox(_main);
 }
 
 _main(Directory sandbox) async {
-  bool first = true;
+  Directory dir = getTempDirectorySync(parent: sandbox);
   asyncStart();
-  sandbox.watch().listen((FileSystemEvent event) {
-    if (first) {
-      first = false;
-      Expect.equals(FileSystemEvent.create, event.type);
-      asyncEnd();
-    }
-  });
-  sandbox.createTempSync();
+
+  await testFileSystemEvent<FileSystemCreateEvent>(dir,
+      createEvent: () {
+        dir.createTempSync();
+      }, test: (FileSystemEvent event) {
+        Expect.equals(FileSystemEvent.create, event.type);
+      });
+  asyncEnd();
 }

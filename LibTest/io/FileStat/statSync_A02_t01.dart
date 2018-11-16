@@ -17,8 +17,12 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  File file = new File(getTempFilePath());
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
+  File file = new File(getTempFilePath(parent: sandbox));
   FileStat fs = FileStat.statSync(file.path);
   Expect.equals(FileSystemEntityType.notFound, fs.type);
   Expect.equals(-1, fs.size);

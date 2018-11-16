@@ -14,17 +14,18 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   Link link = getTempLinkSync(parent: sandbox);
   asyncStart();
-  FileSystemEntity.isLink(link.path).then((result) {
+  await FileSystemEntity.isLink(link.path).then((result) {
     Expect.isTrue(result);
     FileSystemEntity.type(link.path, followLinks: false).then((t) {
       Expect.equals(t, FileSystemEntityType.link);
       asyncEnd();
     });
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }

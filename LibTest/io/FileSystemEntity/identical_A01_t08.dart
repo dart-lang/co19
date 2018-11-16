@@ -27,18 +27,19 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
+main() async {
+  Directory sandbox = getTempDirectorySync(parent: Directory.current);
+  await inSandbox(_main, sandbox: sandbox);
+}
+
+_main(Directory sandbox) async {
   String linkName = getTempFileName();
-  File target = getTempFileSync();
+  File target = getTempFileSync(parent: sandbox);
   Link link =
-      new Link(Directory.current.path + Platform.pathSeparator + linkName);
+      new Link(sandbox.path + Platform.pathSeparator + linkName);
   link.createSync(target.path);
 
-  asyncStart();
-  FileSystemEntity.identical(link.path, linkName).then((result) {
-    Expect.isTrue(result);
-    asyncEnd();
-  }).whenComplete(() {
-    deleteLinkWithTarget(link);
-  });
+  bool result = await FileSystemEntity.identical(link.path,
+      getEntityName(sandbox) + Platform.pathSeparator + linkName);
+  Expect.isTrue(result);
 }

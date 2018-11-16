@@ -4,15 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Unless explicitly stated otherwise, all ordinary rules that apply
- * to methods apply to abstract methods.
- * It is a static warning if a class C declares an instance method named n and
- * an accessible static member named n is declared in a superclass of C.
- * @description Checks that a compile error is produced when a class declares
+ * @assertion It is a static warning if an abstract member m is declared or
+ * inherited in a concrete class C unless:
+ *  • m overrides a concrete member, or
+ *  • C has a noSuchMethod() method distinct from the one declared in class
+ *    Object.
+ * @description Checks that there is no a compile error when a class declares
  * an abstract or concrete method with the same name as a static getter in its
  * superclass.
  * @issue 27476
- * @compile-error
  * @author rodionov
  */
 

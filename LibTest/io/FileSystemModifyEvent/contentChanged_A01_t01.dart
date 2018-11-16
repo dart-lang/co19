@@ -8,28 +8,28 @@
  *  final
  * If the content was changed and not only the attributes, contentChanged is
  * true.
- * @description Checks that this property returns true if the content was
+ * @description Checks that this property returns false if the content was not
  * changed
+ * @issue 35112
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  inSandbox(_main, delay: 2);
+main() async {
+  await inSandbox(_main);
 }
 
 _main(Directory sandbox) async {
-
   Directory dir = getTempDirectorySync(parent: sandbox);
   File f = getTempFileSync(parent: dir);
   asyncStart();
-  dir.watch().listen((FileSystemEvent event) {
-    if (event is FileSystemModifyEvent) {
-        Expect.isFalse(event.contentChanged);
-        asyncEnd();
-    }
-  });
-  f.setLastAccessedSync(new DateTime.now());
+  await testFileSystemEvent<FileSystemModifyEvent>(dir,
+      createEvent: () {
+        f.setLastAccessedSync(new DateTime.now());
+      }, test: (FileSystemEvent event) {
+        Expect.isFalse((event as FileSystemModifyEvent).contentChanged);
+      });
+  asyncEnd();
 }

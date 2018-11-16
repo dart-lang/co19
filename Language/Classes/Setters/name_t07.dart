@@ -4,11 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The name of a setter is obtained by appending the string ‘=’
- * to the identifier given in its signature. Hence, a setter name can never
- * conflict with, override or be overridden by a getter or method.
- * @description Checks that there is no compile-time error if a class has
+ * @assertion A setter declaration may conflict with other declarations (10.11).
+ * Let C be a class. It is a compile-time error if C declares a
+ * • constructor named C.n and a static member with basename n.
+ * • getter or a setter with basename n, and has a method named n.
+ * • method named n, and has a getter or a setter with basename n.
+ * • static member with basename n, and has an instance member with basename n.
+ *
+ * @description Checks that there is a compile-time error if a class has
  * an explicitly defined setter and an static method with the same name.
+ * @compile-error
  * @author iefremov
  */
 

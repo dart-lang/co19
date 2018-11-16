@@ -16,23 +16,21 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  inSandbox(_main, delay: 2);
+main() async {
+  await inSandbox(_main);
 }
 
 _main(Directory sandbox) async {
   File f = getTempFileSync(parent: sandbox);
-  String path = f.path;
   asyncStart();
-  bool first = true;
-  sandbox.watch().listen((FileSystemEvent event) {
-    if (event is FileSystemDeleteEvent) {
-      if (first) {
-        first = false;
+
+  String path;
+  await testFileSystemEvent<FileSystemDeleteEvent>(sandbox,
+      createEvent: () {
+        path = f.path;
+        f.deleteSync();
+      }, test: (FileSystemEvent event) {
         Expect.equals(path, event.path);
-        asyncEnd();
-      }
-    }
-  });
-  f.deleteSync();
+      });
+  asyncEnd();
 }

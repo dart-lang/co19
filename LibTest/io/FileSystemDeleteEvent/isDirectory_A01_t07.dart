@@ -16,23 +16,21 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  inSandbox(_main, delay: 2);
+main() async {
+  if (!Platform.isWindows) {
+    await inSandbox(_main);
+  }
 }
 
 _main(Directory sandbox) async {
   Directory dir = getTempDirectorySync(parent: sandbox);
 
   asyncStart();
-  dir.watch().listen((FileSystemEvent event) {
-    if (event is FileSystemDeleteEvent) {
-      if (Platform.isWindows) {
+  await testFileSystemEvent<FileSystemDeleteEvent>(dir,
+      createEvent: () {
+        dir.deleteSync();
+      }, test: (FileSystemEvent event) {
         Expect.isFalse(event.isDirectory);
-      } else {
-        Expect.isTrue(event.isDirectory);
-      }
-      asyncEnd();
-    }
-  });
-  dir.deleteSync();
+      });
+  asyncEnd();
 }
