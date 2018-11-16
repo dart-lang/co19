@@ -4,8 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion
- * A method declaration may conflict with other declarations (10.11).
+ * @assertion A method declaration may conflict with other declarations (10.11).
  * Let C be a class. It is a compile-time error if C declares a
  * • constructor named C.n and a static member with basename n.
  * • getter or a setter with basename n, and has a method named n.
@@ -13,13 +12,13 @@
  * • static member with basename n, and has an instance member with basename n.
  *
  * @description Checks that it is a compile error if a class C declares an
- * instance method named n and inherits a setter named n=.
+ * instance method named n and an inherited instance getter named n.
  * @compile-error
- * @author kaigorodov
+ * @author ngl@unipro.ru
  */
 
 class A {
-  set foo(int a) {}
+  get foo {}
 }
 
 class C extends A {
