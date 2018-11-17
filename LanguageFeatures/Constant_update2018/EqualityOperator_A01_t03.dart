@@ -9,12 +9,13 @@
  * types. Users had to rewrite their code to [!identical(e1, null)]. This was
  * changed so that the [==] expression is always allowed as long as one of the
  * operands is [null].
- * @description Checks that [==] operator is allowed if one of the operands is
- * [null].
+ * @description Checks that compile-time exception is thrown if one of the [==]
+ * operand is [null] and another one is not a potentially constant.
  * @compile-error
  * @author iarkh@unipro.ru
  */
-import "../../Utils/expect.dart";
+class A {}
+A a;
 
 class MyClass {
   final String option;
@@ -23,6 +24,14 @@ class MyClass {
         this.option = stringOption;
 }
 
+class MyClass1 {
+  final String option;
+  const MyClass1()
+      : assert(a == null),
+        this.option = stringOption; // #01: compile-time error
+}
+
 main() {
-  const MyClass c = MyClass("test"); //#1: compile-time error
+  const MyClass c = MyClass(123);   // #02: compile-time error
+  const bool a1 = (a == null);      // #03: compile-time error
 }

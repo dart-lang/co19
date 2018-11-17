@@ -10,7 +10,7 @@
  * changed so that the [==] expression is always allowed as long as one of the
  * operands is [null].
  * @description Checks that [==] operator is allowed if one of the operands is
- * [null].
+ * [null] in potentially constant or compile-time constant.
  * @author iarkh@unipro.ru
  */
 import "../../Utils/expect.dart";

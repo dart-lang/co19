@@ -10,7 +10,7 @@
  * A compile-time constant type means any type that doesn't contain free type
  * variables, so the type expression always resolves to the exact same type.
  * @description Checks that an expression of the form [e as T] is not accepted
- * and causes compile time error if [e] is not a constant.
+ * and causes compile time error if [e] is not a compile-time constant.
  * @compile-error
  * @author iarkh@unipro.ru
  */
@@ -20,10 +20,10 @@ dynamic str1;
 
 class MyClass {
   final String obj;
-  const MyClass() : obj = str as String; //# 02: compile-time error
+  const MyClass() : obj = str as String; //# 01: compile-time error
 }
 
 main() {
-  const String obj1 = str as String;   //# 01: compile-time error
-  const String obj2 = str1 as String;  //# 01: compile-time error
+  const String obj1 = str as String;   //# 02: compile-time error
+  const String obj2 = str1 as String;  //# 03: compile-time error
 }
