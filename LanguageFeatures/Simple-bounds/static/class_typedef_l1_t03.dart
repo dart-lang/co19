@@ -18,7 +18,6 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
 
 typedef G<X> = X Function(X);
 class A<X extends G> {}
