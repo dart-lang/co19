@@ -8,21 +8,22 @@
  * its branches, depending on whether the condition expression evaluates to
  * [true] or [false]. The other branch must also be a potenatially constant
  * expression.
- * @description Checks that conditional operator [?]/[:] rejects the second
- * operand if the first one is [true].
+ * @description Checks that conditional operator [?]/[:] does not calculate the
+ * first branch if condition is potentially constant and [false].
+ * operand if the first one is [false].
  * @author iarkh@unipro.ru
  */
 import "../../Utils/expect.dart";
 
 class MyClass {
   final bool res;
-  const MyClass(bool test) : res = (true ?? test : (null as String).length);
+  const MyClass(bool test) : res = (test ?? (null as String).length : true);
 }
 
 main() {
-  const MyClass c1 = MyClass(true);
+  const MyClass c1 = MyClass(false);
   Expect.isTrue(c1.res);
 
-  const String str = true ? "OK" : (null as String).length;
+  const String str = false ? (null as String).length : "OK";
   Expect.equals("OK", str);
 }
