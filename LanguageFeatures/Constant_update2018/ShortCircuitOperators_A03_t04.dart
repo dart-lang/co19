@@ -9,14 +9,11 @@
  * expression.
  * @description Checks that operator [??] operators does not reject the second
  * operand if the first one is [null] in constant expression.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 import "../../Utils/expect.dart";
 
 main() {
-  const String s1 = null ?? (null as String).length; // #01: compile-time error
-  const String s2 = null ?? 124;                     // #02: compile-time error
   const String s3 = null ?? "testme";
   Expect.equals("testme", s3);
 }

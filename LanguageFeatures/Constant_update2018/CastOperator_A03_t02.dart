@@ -11,7 +11,6 @@
  * variables, so the type expression always resolves to the exact same type.
  * @description Checks that an expression of the form [e as T] is not accepted
  * and causes compile time error if parameter type is incorrect.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 dynamic anObject = "";
