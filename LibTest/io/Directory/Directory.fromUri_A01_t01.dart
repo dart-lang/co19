@@ -41,11 +41,7 @@ _main(Directory sandbox) async {
 
   // test file
   File file = getTempFileSync(parent: sandbox);
-  try {
-    uri = new Uri.file(file.path);
-    dir = new Directory.fromUri(uri);
-    Expect.equals(file.path, dir.path);
-  } finally {
-    file.delete(recursive: true);
-  }
+  uri = new Uri.file(file.path);
+  dir = new Directory.fromUri(uri);
+  Expect.equals(file.path, dir.path);
 }
