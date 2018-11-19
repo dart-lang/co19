@@ -40,7 +40,7 @@ _main(Directory sandbox) async {
       dir.path);
 
   // test file
-  File file = getTempFileSync();
+  File file = getTempFileSync(parent: sandbox);
   try {
     uri = new Uri.file(file.path);
     dir = new Directory.fromUri(uri);
