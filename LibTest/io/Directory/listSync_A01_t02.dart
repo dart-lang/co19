@@ -40,8 +40,12 @@ List<String> setUp(Directory parent, List<String> directories) {
   return created;
 }
 
-main() {
-  Directory dir = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
+  Directory dir = sandbox;
   List<String> expected = ["a", "b", "c", "d"];
   expected = setUp(dir, expected);
 
@@ -49,9 +53,5 @@ main() {
   dir.listSync().forEach((entity) {
     found.add(entity.path);
   });
-  try {
-    Expect.listEquals(expected, found);
-  } finally {
-    dir.delete(recursive: true);
-  }
+  Expect.setEquals(new Set.from(expected), new Set.from(found));
 }

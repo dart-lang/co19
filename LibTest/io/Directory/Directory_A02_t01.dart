@@ -20,13 +20,12 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory tmp = getTempDirectorySync();
-  try {
-    Directory dir = new Directory(tmp.path);
-    Expect.equals(tmp.path,
-        dir.absolute.path);
-  } finally {
-    tmp.delete(recursive: true);
-  }
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
+  Directory tmp = getTempDirectorySync(parent: sandbox);
+  Directory dir = new Directory(tmp.path);
+  Expect.equals(tmp.path, dir.absolute.path);
 }

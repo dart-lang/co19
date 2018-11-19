@@ -44,19 +44,21 @@ List<String> setUp(Directory parent, Map directories) {
   return created;
 }
 
-main() {
-  Directory dir = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
+  Directory dir = sandbox;
   Map struct = {"a": null, "b": null, "c": {"c1": null, "c2": null}, "d": null};
   List<String> created = setUp(dir, struct);
 
   asyncStart();
   List<String> found = new List<String>();
-  dir.list(recursive: true).forEach((entity) {
+  await dir.list(recursive: true).forEach((entity) {
     found.add(entity.path);
   }).then((_) {
-    Expect.listEquals(created, found);
+    Expect.setEquals(new Set.from(created), new Set.from(found));
     asyncEnd();
-  }).whenComplete(() {
-    dir.delete(recursive: true);
   });
 }
