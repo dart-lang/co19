@@ -11,7 +11,6 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-import "../../Utils/expect.dart";
 
 const bool b1 = true;
 const int b2 = 0;

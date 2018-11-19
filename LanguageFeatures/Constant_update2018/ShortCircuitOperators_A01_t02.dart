@@ -14,7 +14,6 @@
  * @description Checks that [&&] throws error if the first operand of [&&]
  * operation is not [bool] or it is [false] and the second one is incorrect in
  * constant expression.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 const int i = 25;
