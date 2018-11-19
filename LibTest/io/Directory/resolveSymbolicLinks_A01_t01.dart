@@ -27,8 +27,11 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   // create 2 Directories
   Directory dir1 = getTempDirectorySync(parent: sandbox, name: "dir1");
   Directory dir2 = getTempDirectorySync(parent: sandbox, name: "dir2");
@@ -64,10 +67,8 @@ main() {
   Directory dir = new Directory(path);
 
   asyncStart();
-  dir.resolveSymbolicLinks().then((String path) {
+  await dir.resolveSymbolicLinks().then((String path) {
     Expect.equals(dir3.path, path);
     asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }

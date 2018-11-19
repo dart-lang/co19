@@ -19,16 +19,18 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   asyncStart();
-  Directory parent = getTempDirectorySync();
-  parent.createTemp("co19").then((dir) {
+  Directory parent = getTempDirectorySync(parent: sandbox);
+  await parent.createTemp("co19").then((dir) {
     Expect.equals(parent.absolute.path, dir.parent.absolute.path);
     Expect.isTrue(dir.path
         .startsWith("co19", (dir.parent.path + Platform.pathSeparator).length));
     Expect.isTrue(dir.existsSync());
     asyncEnd();
-  }).whenComplete(() {
-    parent.delete(recursive: true);
   });
 }
