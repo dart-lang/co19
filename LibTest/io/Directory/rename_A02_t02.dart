@@ -11,8 +11,8 @@
  * If newPath identifies an existing directory, that directory is replaced. If
  * newPath identifies an existing file, the operation fails and the future
  * completes with an exception.
- * @description Checks that if newPath identifies an existing directory, that
- * directory is replaced
+ * @description Checks that if newPath identifies an existing directory and
+ * this directory is not empty,then an error occurs
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -26,11 +26,9 @@ main() async {
 _main(Directory sandbox) async {
   Directory srcDir = getTempDirectorySync(parent: sandbox);
   Directory targetDir = getTempDirectorySync(parent: sandbox);
-  asyncStart();
-  await srcDir.rename(targetDir.path).then((renamed) {
-    Expect.equals(targetDir.path, renamed.path);
-    Expect.isTrue(renamed.existsSync());
-    Expect.isFalse(srcDir.existsSync());
-    asyncEnd();
-  });
+  targetDir.createTempSync();
+  try {
+    await srcDir.rename(targetDir.path);
+    Expect.fail("Directory should not be renamed");
+  } catch (_) {}
 }

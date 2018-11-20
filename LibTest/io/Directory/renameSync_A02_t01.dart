@@ -26,7 +26,6 @@ main() async {
 _main(Directory sandbox) async {
   Directory srcDir = getTempDirectorySync(parent: sandbox);
   Directory targetDir = getTempDirectorySync(parent: sandbox);
-  targetDir.createTempSync();
 
   srcDir.renameSync(targetDir.path);
   Expect.isTrue(targetDir.existsSync());
