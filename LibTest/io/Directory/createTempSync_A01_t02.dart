@@ -18,15 +18,15 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory parent = getTempDirectorySync();
-  try {
-    Directory dir = parent.createTempSync("co19");
-    Expect.equals(parent.path, dir.parent.path);
-    Expect.isTrue(dir.path.startsWith("co19",
-        (dir.parent.path + Platform.pathSeparator).length));
-    Expect.isTrue(dir.existsSync());
-  } finally {
-    parent.delete(recursive: true);
-  }
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
+  Directory parent = getTempDirectorySync(parent: sandbox);
+  Directory dir = parent.createTempSync("co19");
+  Expect.equals(parent.path, dir.parent.path);
+  Expect.isTrue(dir.path
+      .startsWith("co19", (dir.parent.path + Platform.pathSeparator).length));
+  Expect.isTrue(dir.existsSync());
 }

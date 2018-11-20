@@ -19,10 +19,14 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory dir = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
+  Directory dir = sandbox;
   asyncStart();
-  dir.stat().then((FileStat fs) {
+  await dir.stat().then((FileStat fs) {
     return FileStat.stat(dir.path).then((FileStat fs2) {
       Expect.equals(fs2.type, fs.type);
       Expect.equals(fs2.mode, fs.mode);
@@ -31,8 +35,6 @@ main() {
       Expect.equals(fs2.size, fs.size);
       Expect.equals(fs2.accessed, fs.accessed);
     });
-  }).whenComplete(() {
-    return dir.delete(recursive: true);
   }).then((_) {
     asyncEnd();
   });

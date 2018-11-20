@@ -14,16 +14,16 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   String dirName = getTempDirectoryName();
   Directory dir = new Directory(dirName);
   Expect.equals(dirName, dir.path);
 
-  Directory tmp = getTempDirectorySync();
-  try {
-    dir = new Directory(tmp.path);
-    Expect.equals(tmp.path, dir.path);
-  } finally {
-    tmp.delete(recursive: true);
-  }
+  Directory tmp = sandbox;
+  dir = new Directory(tmp.path);
+  Expect.equals(tmp.path, dir.path);
 }

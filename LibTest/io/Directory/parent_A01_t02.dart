@@ -14,18 +14,18 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory tmp = getTempDirectorySync();
-  try {
-    Directory child = getTempDirectorySync(parent: tmp);
-    Directory dir = new Directory(child.path);
-    Expect.equals(tmp.path, dir.parent.path);
+main() async {
+  await inSandbox(_main);
+}
 
-    String notExisting = tmp.path + Platform.pathSeparator +
-        getTempDirectoryName();
-    dir = new Directory(notExisting);
-    Expect.equals(tmp.path, dir.parent.path);
-  } finally {
-    tmp.delete(recursive: true);
-  }
+_main(Directory sandbox) async {
+  Directory tmp = sandbox;
+  Directory child = getTempDirectorySync(parent: tmp);
+  Directory dir = new Directory(child.path);
+  Expect.equals(tmp.path, dir.parent.path);
+
+  String notExisting =
+      tmp.path + Platform.pathSeparator + getTempDirectoryName();
+  dir = new Directory(notExisting);
+  Expect.equals(tmp.path, dir.parent.path);
 }

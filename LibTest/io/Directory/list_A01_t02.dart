@@ -41,20 +41,21 @@ List<String> setUp(Directory parent, List<String> directories) {
   return created;
 }
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   Directory dir = getTempDirectorySync(parent: sandbox);
   List<String> expected = ["a", "b", "c", "d"];
   expected = setUp(dir, expected);
 
   asyncStart();
   List<String> found = new List<String>();
-  dir.list().forEach((entity) {
+  await dir.list().forEach((entity) {
     found.add(entity.path);
   }).then((_) {
-    Expect.listEquals(expected, found);
+    Expect.setEquals(new Set.from(expected), new Set.from(found));
     asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }

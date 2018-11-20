@@ -27,18 +27,20 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory dir = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
+  Directory dir = getTempDirectorySync(parent: sandbox);
   Directory sub = dir.createTempSync();
 
   asyncStart();
   bool thrown = false;
-  dir.delete(recursive: false).catchError((_) {
+  await dir.delete(recursive: false).catchError((_) {
     thrown = true;
   }).then((_) {
     Expect.isTrue(thrown);
     asyncEnd();
-  }).whenComplete(() {
-    dir.delete(recursive: true);
   });
 }
