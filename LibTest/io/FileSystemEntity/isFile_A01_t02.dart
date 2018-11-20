@@ -24,7 +24,7 @@ _main(Directory sandbox) async {
   await FileSystemEntity.isFile(dir.path).then((result) {
     Expect.isFalse(result);
     FileSystemEntity.type(dir.path).then((t) {
-      Expect.equals(t, FileSystemEntityType.directory);
+      Expect.equals(FileSystemEntityType.directory, t);
       asyncEnd();
     });
   });
