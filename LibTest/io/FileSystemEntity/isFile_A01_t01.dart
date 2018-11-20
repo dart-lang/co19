@@ -21,11 +21,9 @@ main() async {
 _main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   asyncStart();
-  await FileSystemEntity.isFile(file.path).then((result) {
-    Expect.isTrue(result);
-    FileSystemEntity.type(file.path).then((t) {
-      Expect.equals(FileSystemEntityType.file, t);
-      asyncEnd();
-    });
-  });
+  bool result = await FileSystemEntity.isFile(file.path);
+  Expect.isTrue(result);
+  FileSystemEntityType t = await FileSystemEntity.type(file.path);
+  Expect.equals(FileSystemEntityType.file, t);
+  asyncEnd();
 }

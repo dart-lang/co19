@@ -22,9 +22,9 @@ main() async {
 _main(Directory sandbox) async {
   Directory dir = getTempDirectorySync(parent: sandbox);
   asyncStart();
-  await FileSystemEntity.isLink(dir.path).then((result) {
+  await FileSystemEntity.isLink(dir.path).then((result) async {
     Expect.isFalse(result);
-    FileSystemEntity.type(dir.path, followLinks: false).then((t) {
+    await FileSystemEntity.type(dir.path, followLinks: false).then((t) {
       Expect.equals(FileSystemEntityType.directory, t);
       asyncEnd();
     });
