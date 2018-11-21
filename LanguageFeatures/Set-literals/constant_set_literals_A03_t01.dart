@@ -27,15 +27,15 @@ test(expected, actual) {
 }
 
 main() {
-  var v1 = const {1, 2 + 1, 3 - 1, 3,};
+  var v1 = const {1, 2 + 1, 3 - 1, };
   test({1, 3, 2}, v1);
 
-  const v2 = {1, 2 + 1, 3 - 1, 3,};
+  const v2 = {1, 2 + 1, 3 - 1, };
   test({1, 3, 2}, v2);
 
-  const v3 = {'1', '2' + '1', "3 - 1", null, "1", null};
+  const v3 = {'1', '2' + '1', "3 - 1", null,};
   test({'1', '21', '3 - 1', null}, v3);
 
-  var v4 = const {'1', '2' + '1', "3 - 1", null, "1", null};
+  var v4 = const {'1', '2' + '1', "3 - 1", null};
   test({'1', '21', '3 - 1', null}, v4);
 }
