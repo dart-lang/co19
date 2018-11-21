@@ -19,18 +19,19 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   File file1 = getTempFileSync(parent: sandbox);
   File file2 = getTempFileSync(parent: sandbox);
   file2.writeAsStringSync("Existing file content");
   asyncStart();
-  file1.copy(file2.path).then((File copied) {
+  await file1.copy(file2.path).then((File copied) {
     Expect.equals(file2.path, copied.path);
     Expect.isTrue(copied.existsSync());
     Expect.equals("", copied.readAsStringSync());
     asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }

@@ -29,16 +29,17 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   asyncStart();
-  file.writeAsBytes([0, 1, 2, 255], mode: FileMode.read).then((f) {
+  await file.writeAsBytes([0, 1, 2, 255], mode: FileMode.read).then((f) {
     Expect.fail("FileSystemException is expected");
   }, onError: (e) {
     Expect.isTrue(e is FileSystemException);
     asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }

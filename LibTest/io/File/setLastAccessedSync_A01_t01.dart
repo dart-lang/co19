@@ -16,16 +16,15 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   DateTime oldDate = file.lastAccessedSync();
   DateTime newDate = oldDate.add(new Duration(days: -1));
 
-  try {
-    file.setLastAccessedSync(newDate);
-    Expect.equals(newDate, file.lastAccessedSync());
-  } finally {
-    sandbox.delete(recursive: true);
-  }
+  file.setLastAccessedSync(newDate);
+  Expect.equals(newDate, file.lastAccessedSync());
 }

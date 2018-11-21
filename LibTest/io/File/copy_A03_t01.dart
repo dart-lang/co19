@@ -19,19 +19,20 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   Directory dir = getTempDirectorySync(parent: sandbox);
   asyncStart();
-  file.copy(dir.path).then((File copied) {
+  await file.copy(dir.path).then((File copied) {
     file.delete();
     dir.delete();
     Expect.fail("Exception expected");
   }, onError: (_) {
     Expect.isTrue(dir.existsSync());
     asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }

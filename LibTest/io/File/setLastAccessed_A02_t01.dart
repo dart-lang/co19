@@ -16,8 +16,11 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   DateTime oldDate = file.lastAccessedSync();
   DateTime newDate = oldDate.add(new Duration(days: -1));
@@ -25,12 +28,10 @@ main() {
   file.deleteSync();
 
   asyncStart();
-  file.setLastAccessed(newDate).then((_) {
+  await file.setLastAccessed(newDate).then((_) {
     Expect.fail("FileSystemException expected");
   }, onError: (e) {
     Expect.isTrue(e is FileSystemException);
     asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }

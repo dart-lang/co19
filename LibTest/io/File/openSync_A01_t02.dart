@@ -20,17 +20,16 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   file.writeAsBytesSync([0, 1, 2, 3, 4]);
   RandomAccessFile raFile = file.openSync(mode: FileMode.read);
-  try {
-    Expect.isNotNull(raFile);
-    raFile.setPositionSync(1);
-    Expect.listEquals([1, 2], raFile.readSync(2));
-  } finally {
-    raFile.closeSync();
-    sandbox.delete(recursive: true);
-  }
+  Expect.isNotNull(raFile);
+  raFile.setPositionSync(1);
+  Expect.listEquals([1, 2], raFile.readSync(2));
+  raFile.closeSync();
 }

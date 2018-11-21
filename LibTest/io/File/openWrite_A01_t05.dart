@@ -26,15 +26,14 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   file.writeAsStringSync("UTF-8: кириллица прекрасна");
-  try {
-    Expect.throws(() {
-      file.openWrite(mode: FileMode.read);
-    });
-  } finally {
-    sandbox.delete(recursive: true);
-  }
+  Expect.throws(() {
+    file.openWrite(mode: FileMode.read);
+  });
 }

@@ -19,8 +19,11 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   File ren = null;
   File target = getTempFileSync(parent: sandbox);
@@ -28,14 +31,12 @@ main() {
   target.writeAsStringSync("Target");
 
   asyncStart();
-  file.rename(target.path).then((renamed) {
+  await file.rename(target.path).then((renamed) {
     ren = renamed;
     Expect.equals(target.path, renamed.path);
     Expect.isTrue(renamed.existsSync());
     Expect.equals("Source", renamed.readAsStringSync());
     Expect.isFalse(file.existsSync());
     asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }

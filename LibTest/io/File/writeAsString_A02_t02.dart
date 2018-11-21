@@ -31,18 +31,19 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   Encoding encoding = Encoding.getByName("iso-8859-1");
   File file = getTempFileSync(parent: sandbox);
   String toWrite = "â\nã";
   asyncStart();
-  file.writeAsString(toWrite, encoding: encoding).then((f) {
+  await file.writeAsString(toWrite, encoding: encoding).then((f) {
     Expect.equals(toWrite, f.readAsStringSync(encoding: encoding));
     Expect.equals(toWrite, file.readAsStringSync(encoding: encoding));
     Expect.listEquals([0xe2, 0xa, 0xe3], file.readAsBytesSync());
     asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }

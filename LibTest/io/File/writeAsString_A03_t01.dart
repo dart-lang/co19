@@ -30,15 +30,16 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   File file = new File(getTempFilePath(parent: sandbox));
   asyncStart();
   String toWrite = "File content";
-  file.writeAsString(toWrite).then((f) {
+  await file.writeAsString(toWrite).then((f) {
     Expect.isTrue(file.existsSync());
     asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }

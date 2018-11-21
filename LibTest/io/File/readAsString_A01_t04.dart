@@ -17,15 +17,16 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   File file = new File(getTempFilePath(parent: sandbox));
   file.writeAsStringSync("Line 1\nLine 2\rLine3");
   asyncStart();
-  file.readAsString().then((data) {
+  await file.readAsString().then((data) {
     Expect.equals("Line 1\nLine 2\rLine3", data);
     asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }
