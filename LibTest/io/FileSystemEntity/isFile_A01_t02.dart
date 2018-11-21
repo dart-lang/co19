@@ -21,11 +21,9 @@ main() async {
 _main(Directory sandbox) async {
   Directory dir = getTempDirectorySync(parent: sandbox);
   asyncStart();
-  await FileSystemEntity.isFile(dir.path).then((result) {
-    Expect.isFalse(result);
-    FileSystemEntity.type(dir.path).then((t) {
-      Expect.equals(t, FileSystemEntityType.directory);
-      asyncEnd();
-    });
-  });
+  bool result = await FileSystemEntity.isFile(dir.path);
+  Expect.isFalse(result);
+  FileSystemEntityType t = await FileSystemEntity.type(dir.path);
+  Expect.equals(FileSystemEntityType.directory, t);
+  asyncEnd();
 }

@@ -18,25 +18,25 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory dir = getTempDirectorySync();
-  try {
-    if (Platform.isWindows) {
-      Expect.equals("/" + dir.path.replaceAll("\\", "/") + "/", dir.uri.path);
-    } else {
-      Expect.equals(dir.path + "/", dir.uri.path);
-    }
-    Expect.equals("file", dir.uri.scheme);
+main() async {
+  await inSandbox(_main);
+}
 
-    String path = dir.path + Platform.pathSeparator + "NotExisting";
-    Directory dir2 = new Directory(path);
-    if (Platform.isWindows) {
-      Expect.equals("/" + path.replaceAll("\\", "/") + "/", dir2.uri.path);
-    } else {
-      Expect.equals(path + "/", dir2.uri.path);
-    }
-    Expect.equals("file", dir2.uri.scheme);
-  } finally {
-    dir.delete(recursive: true);
+_main(Directory sandbox) async {
+  Directory dir = sandbox;
+  if (Platform.isWindows) {
+    Expect.equals("/" + dir.path.replaceAll("\\", "/") + "/", dir.uri.path);
+  } else {
+    Expect.equals(dir.path + "/", dir.uri.path);
   }
+  Expect.equals("file", dir.uri.scheme);
+
+  String path = dir.path + Platform.pathSeparator + "NotExisting";
+  Directory dir2 = new Directory(path);
+  if (Platform.isWindows) {
+    Expect.equals("/" + path.replaceAll("\\", "/") + "/", dir2.uri.path);
+  } else {
+    Expect.equals(path + "/", dir2.uri.path);
+  }
+  Expect.equals("file", dir2.uri.scheme);
 }

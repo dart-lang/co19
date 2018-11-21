@@ -28,10 +28,14 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory dir = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
+  Directory dir = getTempDirectorySync(parent: sandbox);
   asyncStart();
-  dir.delete().then((deleted) {
+  await dir.delete().then((deleted) {
     Expect.isFalse(dir.existsSync());
     Expect.isFalse(deleted.existsSync());
     asyncEnd();

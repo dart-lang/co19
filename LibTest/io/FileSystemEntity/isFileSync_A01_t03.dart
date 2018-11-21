@@ -23,6 +23,6 @@ main() async {
 _main(Directory sandbox) async {
   Link link = getTempLinkSync(parent: sandbox);
   Expect.isFalse(FileSystemEntity.isFileSync(link.path));
-  Expect.equals(
-      FileSystemEntity.typeSync(link.path), FileSystemEntityType.link);
+  Expect.equals(FileSystemEntityType.link,
+      FileSystemEntity.typeSync(link.path));
 }

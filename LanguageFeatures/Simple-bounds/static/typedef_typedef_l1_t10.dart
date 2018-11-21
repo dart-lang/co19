@@ -18,7 +18,6 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
 
 typedef G1<X extends int> = X Function();
 typedef G2<X extends G1> = void Function<Y extends X>(X);
