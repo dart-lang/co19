@@ -28,8 +28,8 @@ _main(Directory sandbox) async {
   Directory targetDir = getTempDirectorySync(parent: sandbox);
   targetDir.createTempSync();
 
-  srcDir.renameSync(targetDir.path);
-  Expect.isTrue(targetDir.existsSync());
-  Expect.isFalse(srcDir.existsSync());
-  Expect.equals(0, targetDir.listSync().length);
+  try {
+    srcDir.renameSync(targetDir.path);
+    Expect.fail("Directory should not be renamed");
+  } catch (_) {}
 }
