@@ -17,7 +17,8 @@
  */
 import "dart:collection";
 
-class C<T> extends LinkedHashSet<T> with SetMixin<T> {
+class C<T> with SetMixin<T> implements LinkedHashSet<T> {
+
 
   factory C({bool equals(T e1, T e2),
     int hashCode(T e),

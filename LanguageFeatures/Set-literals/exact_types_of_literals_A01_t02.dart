@@ -16,7 +16,7 @@
  */
 import "dart:collection";
 
-class C<T> extends Set<T> with SetMixin<T> {
+class C<T> with SetMixin<T> implements Set<T> {
 
   factory C({bool equals(T e1, T e2),
     int hashCode(T e),
