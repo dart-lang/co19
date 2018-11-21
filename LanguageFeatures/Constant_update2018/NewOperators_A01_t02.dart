@@ -10,22 +10,16 @@
  * operator has not been added to the [int] class yet, so unless the left-hand
  * operand's static type is [dynamic], the program will still be rejected. When
  * the operator is added, it should then also work in a constant expression.
- * @description Checks that operator [>>>] is accepted in potentially constant
- * expressions.
+ * @description Checks that operator [>>>] is accepted in constant expressions.
  * @Issue 30886
  * @author iarkh@unipro.ru
  */
 import "../../Utils/expect.dart";
 
-class MyClass {
-  final int a;
-  const MyClass(int i1, int i2) : a = (i1 >>> i2);
-}
-
 main() {
-  const MyClass c1 = MyClass(-2, 1);
-  Expect.equals((-2 >>> 1), c1.a);
+  const int c1 = (-2 >>> 1);
+  Expect.equals((-2 >>> 1), c1);
 
-  const MyClass c2 = MyClass(125, 2);
-  Expect.equals(125 >> 2, c2.a);
+  const int c2 = (125 >>> 3);
+  Expect.equals(125 >>> 3, c2);
 }
