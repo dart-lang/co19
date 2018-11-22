@@ -63,9 +63,9 @@ main() {
 
   F<G<A<dynamic>, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>> target = fsource;
 
-  F<G<A<dynamic>, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>> target1 = fsource; //# 01: compile-time error
-  F<G<A<dynamic>, A<dynamic>, B<dynamic>, A<dynamic>>> target2 = fsource;       //# 02: compile-time error
-  F<G<A<dynamic>, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>> target3 = fsource; //# 03: compile-time error
+  F<G<dynamic, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>> target1 = fsource; //# 01: compile-time error
+  F<G<A<dynamic>, A<dynamic>, B<dynamic>, A<dynamic>>> target2 = fsource;    //# 02: compile-time error
+  F<G<A<dynamic>, A<A<dynamic>>, B<dynamic>, A<dynamic>>> target3 = fsource; //# 03: compile-time error
 
   G(); //# 04: compile-time error
 }
