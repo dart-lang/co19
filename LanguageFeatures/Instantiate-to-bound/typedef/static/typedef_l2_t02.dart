@@ -58,9 +58,9 @@ typedef G<X extends A<X>, Y extends X> = X Function(Y);
 main() {
   G source;
   var fsource = toF(source);
-  F<G<A<dynamic>, A<dynamic>>> target = fsource;
+  F<G<A<dynamic>, Null>> target3 = fsource;
   F<G<A<dynamic>, dynamic>> target2 = fsource;    //# 01: compile-time error
-  F<G<A<dynamic>, Null>> target3 = fsource;       //# 02: compile-time error
+  F<G<A<dynamic>, A<dynamic>>> target = fsource;  //# 02: compile-time error
   F<G<A<Null>, A<Null>>> target4 = fsource;       //# 03: compile-time error
   F<G<dynamic, A<dynamic>>> target5 = fsource;    //# 04: compile-time error
 }
