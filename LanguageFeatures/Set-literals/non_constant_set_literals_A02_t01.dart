@@ -64,4 +64,9 @@ main() {
   o3.add(getDynamic(5));
   Expect.iterableEquals(o3, s3);
 
+  var s4 = {1, 1.0};
+  LinkedHashSet<dynamic> o4 = new LinkedHashSet<dynamic>();
+  o3.add(1);
+  o3.add(1.0);
+  Expect.iterableEquals(o4, s4);
 }

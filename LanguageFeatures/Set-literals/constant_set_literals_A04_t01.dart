@@ -24,11 +24,11 @@ main() {
   Expect.isFalse(identical(const <int>{}, <int>{});
 
   Expect.isTrue(identical(const <int>{1, 2, 3}, const <int>{1, 2, 3});
-  Expect.isTrue(identical(const <int>{1, 2, 3}, const <int>{1, 2, 3,});
-  Expect.isTrue(identical(const <int>{1, 2, 3}, const <int>{1, 2, 3, 3, 2, 1,});
+  Expect.isTrue(identical(const <int>{1, 2, 3}, const <int>{1, 2, 2 + 1,});
+  Expect.isTrue(identical(const <int>{1, 2, 3}, const <int>{1, 2, 3, });
   Expect.isFalse(identical(const <int>{1, 2, 3}, const <int>{2, 3, 1});
 
-  const s1 = {'1', '2' + '1', "3 - 1", null, "1", null, false};
+  const s1 = {'1', '2' + '1', "3 - 1", null, !true};
   var s2 = const {'1', '21', "3 - 1", null, false};
   Expect.isTrue(identical(s1, s2);
 }

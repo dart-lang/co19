@@ -12,8 +12,7 @@
  * mixins:
  *   with typeList
  * ;
- * @description Checks that mixins without superclass are not accepted.
- * @compile-error
+ * @description Checks that mixins without superclass are allowed
  * @author kaigorodov
  */
 
