@@ -19,22 +19,23 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   Link link = getTempLinkSync(parent: sandbox);
   Link ren = null;
   String target = link.targetSync();
   String newName = getTempFilePath(parent: sandbox);
 
   asyncStart();
-  link.rename(newName).then((renamed) {
+  await link.rename(newName).then((renamed) {
     ren = renamed;
     Expect.equals(newName, renamed.path);
     Expect.equals(target, renamed.targetSync());
     Expect.isTrue(renamed.existsSync());
     Expect.isFalse(link.existsSync());
     asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }

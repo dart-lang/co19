@@ -21,8 +21,11 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   Directory parent = getTempDirectorySync(parent: sandbox);
   Directory target = getTempDirectorySync(parent: parent);
   Link link = new Link(
@@ -30,14 +33,12 @@ main() {
   link.createSync("..");
 
   asyncStart();
-  link.target().then((String path) {
+  await link.target().then((String path) {
     if (Platform.isWindows) {
       Expect.equals(parent.path + Platform.pathSeparator, path);
     } else {
       Expect.equals("..", path);
     }
     asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }

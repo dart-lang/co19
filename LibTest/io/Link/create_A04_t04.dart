@@ -35,18 +35,19 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   if (Platform.isWindows) {
-    Directory sandbox = getTempDirectorySync();
     Directory target = new Directory(getTempDirectoryPath(parent: sandbox));
     Link link = new Link(getTempFilePath(parent: sandbox));
     asyncStart();
-    link.create(target.path).then((Link created) {
+    await link.create(target.path).then((Link created) {
       Expect.fail("Link shouldn't be created on Windows");
     }, onError: (_) {
       asyncEnd();
-    }).whenComplete(() {
-      sandbox.delete(recursive: true);
     });
   }
 }

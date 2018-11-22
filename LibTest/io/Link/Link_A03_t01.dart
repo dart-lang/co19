@@ -14,8 +14,11 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   // create Directory
   Directory dir = getTempDirectorySync(parent: sandbox);
   // create file in this directory
@@ -27,9 +30,5 @@ main() {
   // try to access the file
   String path = link.path + Platform.pathSeparator + fileName;
   File f = new File(path);
-  try {
-    Expect.isTrue(f.existsSync());
-  } finally {
-    sandbox.delete(recursive: true);
-  }
+  Expect.isTrue(f.existsSync());
 }

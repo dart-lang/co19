@@ -34,18 +34,19 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   Directory target = getTempDirectorySync(parent: sandbox);
   Link tmp = getTempLinkSync(parent: sandbox);
   Link link = new Link(tmp.path);
   asyncStart();
-  link.create(target.path).then((Link created) {
+  await link.create(target.path).then((Link created) {
     Expect.fail("Link create() should fail");
     asyncEnd();
   }, onError: (_) {
     asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }

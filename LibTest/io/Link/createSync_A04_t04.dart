@@ -33,15 +33,14 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   if (Platform.isWindows) {
-    Directory sandbox = getTempDirectorySync();
     Directory target = new Directory(getTempDirectoryPath(parent: sandbox));
     Link link = new Link(getTempFilePath(parent: sandbox));
-    try {
-      Expect.throws(() {link.createSync(target.path);});
-    } finally {
-      sandbox.delete(recursive: true);
-    }
+    Expect.throws(() {link.createSync(target.path);});
   }
 }

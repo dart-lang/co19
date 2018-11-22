@@ -19,18 +19,19 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   Link link = getTempLinkSync(parent: sandbox);
   Directory dir = getTempDirectorySync(parent: sandbox);
 
   asyncStart();
-  link.rename(dir.path).then((renamed) {
+  await link.rename(dir.path).then((renamed) {
     Expect.fail("FileSystemException expected");
   }, onError: (e) {
     Expect.isTrue(e is FileSystemException);
     asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }

@@ -20,26 +20,29 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   File tmp = getTempFileSync(parent: sandbox);
   Directory tmpDir = getTempDirectorySync(parent: sandbox);
-  try {
-    Uri uri = new Uri.file(tmp.path);
-    Link link = new Link.fromUri(uri);
-    Expect.equals(tmp.path, link.path);
+  Uri uri = new Uri.file(tmp.path);
+  Link link = new Link.fromUri(uri);
+  Expect.equals(tmp.path, link.path);
 
-    String dirName = getTempDirectoryName();
-    uri = new Uri.directory(Directory.current.path +
-        Platform.pathSeparator + dirName);
-    link = new Link.fromUri(uri);
-    Expect.equals(Directory.current.path + Platform.pathSeparator +
-        dirName + Platform.pathSeparator, link.path);
+  String dirName = getTempDirectoryName();
+  uri = new Uri.directory(
+      Directory.current.path + Platform.pathSeparator + dirName);
+  link = new Link.fromUri(uri);
+  Expect.equals(
+      Directory.current.path +
+          Platform.pathSeparator +
+          dirName +
+          Platform.pathSeparator,
+      link.path);
 
-    uri = new Uri.file(tmpDir.path);
-    link = new Link.fromUri(uri);
-    Expect.equals(tmpDir.path, link.path);
-  } finally {
-    sandbox.delete(recursive: true);
-  }
+  uri = new Uri.file(tmpDir.path);
+  link = new Link.fromUri(uri);
+  Expect.equals(tmpDir.path, link.path);
 }

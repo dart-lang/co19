@@ -21,9 +21,9 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
 main() {
-    Uri uri = new Uri(path: "tmp.tmp");
-    Link link = new Link.fromUri(uri);
+  Uri uri = new Uri(path: "tmp.tmp");
+  Link link = new Link.fromUri(uri);
 
-    Expect.equals(Directory.current.path + Platform.pathSeparator + "tmp.tmp",
-        link.absolute.path);
+  Expect.equals(Directory.current.path + Platform.pathSeparator + "tmp.tmp",
+      link.absolute.path);
 }

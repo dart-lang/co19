@@ -18,8 +18,11 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   Directory newTarget = getTempDirectorySync(parent: sandbox);
   Link link = new Link(getTempFilePath(parent: sandbox));
   bool thrown = false;
@@ -29,7 +32,6 @@ main() {
   } on FileSystemException {
     thrown = true;
   } finally {
-    sandbox.delete(recursive: true);
     Expect.isTrue(thrown);
   }
 }

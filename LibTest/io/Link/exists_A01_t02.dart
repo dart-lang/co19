@@ -22,15 +22,16 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   Link link = new Link(getTempFilePath(parent: sandbox));
   asyncStart();
 
-  link.exists().then((result) {
+  await link.exists().then((result) {
     Expect.isFalse(result);
     asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }

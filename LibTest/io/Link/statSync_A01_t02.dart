@@ -20,19 +20,18 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   Link link = getTempLinkSync(parent: sandbox);
-  try {
-    FileStat fs = link.statSync();
-    FileStat fs2 = FileStat.statSync(link.path);
-    Expect.equals(fs2.type, fs.type);
-    Expect.equals(fs2.mode, fs.mode);
-    Expect.equals(fs2.changed, fs.changed);
-    Expect.equals(fs2.modified, fs.modified);
-    Expect.equals(fs2.size, fs.size);
-    Expect.equals(fs2.accessed, fs.accessed);
-  } finally {
-    sandbox.delete(recursive: true);
-  }
+  FileStat fs = link.statSync();
+  FileStat fs2 = FileStat.statSync(link.path);
+  Expect.equals(fs2.type, fs.type);
+  Expect.equals(fs2.mode, fs.mode);
+  Expect.equals(fs2.changed, fs.changed);
+  Expect.equals(fs2.modified, fs.modified);
+  Expect.equals(fs2.size, fs.size);
+  Expect.equals(fs2.accessed, fs.accessed);
 }
