@@ -28,7 +28,7 @@ _main(Directory sandbox) async {
   asyncStart();
   await file.lastModified().then((DateTime date) {
     Expect.isNotNull(date);
-    Expect.isTrue(date.difference(new DateTime.now()).inSeconds <= 1);
+    Expect.isTrue(date.difference(new DateTime.now()).inSeconds <= 10);
     asyncEnd();
   });
 }

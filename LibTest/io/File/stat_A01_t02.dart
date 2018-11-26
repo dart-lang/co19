@@ -26,8 +26,8 @@ main() async {
 _main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   asyncStart();
-  await file.stat().then((FileStat fs) {
-    return FileStat.stat(file.path).then((FileStat fs2) {
+  await file.stat().then((FileStat fs) async {
+    return await FileStat.stat(file.path).then((FileStat fs2) {
       Expect.equals(fs2.type, fs.type);
       Expect.equals(fs2.mode, fs.mode);
       Expect.equals(fs2.changed, fs.changed);

@@ -25,14 +25,12 @@ main() async {
 
 _main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
-  File ren = null;
   File target = getTempFileSync(parent: sandbox);
   file.writeAsStringSync("Source");
   target.writeAsStringSync("Target");
 
   asyncStart();
   await file.rename(target.path).then((renamed) {
-    ren = renamed;
     Expect.equals(target.path, renamed.path);
     Expect.isTrue(renamed.existsSync());
     Expect.equals("Source", renamed.readAsStringSync());

@@ -31,8 +31,8 @@ _main(Directory sandbox) async {
   sink.writeCharCode(0xa);
   sink.writeCharCode(0xe3);
   asyncStart();
-  await sink.close().then((_) {
-    file.readAsString(encoding: encoding).then((data) {
+  await sink.close().then((_) async {
+    await file.readAsString(encoding: encoding).then((data) {
       Expect.equals("â\nã", data);
       asyncEnd();
     });

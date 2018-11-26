@@ -26,8 +26,7 @@ main() async {
 _main(Directory sandbox) async {
   Link link = getTempLinkSync(parent: sandbox);
   String newPath = getTempFilePath(parent: sandbox);
-  Link renamed = null;
-  renamed = link.renameSync(newPath);
+  Link renamed = link.renameSync(newPath);
   Expect.isTrue(renamed.existsSync());
   Expect.isFalse(link.existsSync());
 }

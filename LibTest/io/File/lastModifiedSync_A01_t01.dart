@@ -28,5 +28,5 @@ _main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   DateTime date = file.lastModifiedSync();
   Expect.isNotNull(date);
-  Expect.isTrue(date.difference(new DateTime.now()).inSeconds <= 1);
+  Expect.isTrue(date.difference(new DateTime.now()).inSeconds <= 10);
 }

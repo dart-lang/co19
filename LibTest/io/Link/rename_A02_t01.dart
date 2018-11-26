@@ -26,14 +26,11 @@ main() async {
 
 _main(Directory sandbox) async {
   Link link = getTempLinkSync(parent: sandbox);
-  Link ren = null;
   Link target = getTempLinkSync(parent: sandbox);
   String target1 = link.targetSync();
-  String target2 = target.targetSync();
 
   asyncStart();
   await link.rename(target.path).then((renamed) {
-    ren = renamed;
     Expect.equals(target.path, renamed.path);
     Expect.isTrue(renamed.existsSync());
     Expect.isFalse(link.existsSync());
