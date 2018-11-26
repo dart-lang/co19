@@ -23,19 +23,20 @@ import "dart:io";
 import "../file_utils.dart";
 import "../../../Utils/expect.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   File f = getTempFileSync(parent: sandbox);
-  String path = "/" + f.absolute.path; // wrong file path
+  String path = "!" + f.absolute.path; // wrong file path
   File file = new File(path);
 
-  file.open(mode: FileMode.read).then((RandomAccessFile raf) {
+  asyncStart();
+  await file.open(mode: FileMode.read).then((RandomAccessFile raf) {
     raf.closeSync();
-    f.delete();
     Expect.fail("Error expected");
   }, onError: (_) {
-    f.delete();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
+    asyncEnd();
   });
 }

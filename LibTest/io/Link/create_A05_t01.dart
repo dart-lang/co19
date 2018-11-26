@@ -35,9 +35,12 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   if (Platform.isWindows) {
-    Directory sandbox = getTempDirectorySync();
     Directory dir = getTempDirectorySync(parent: sandbox);
     String dirName = getTempDirectoryName();
     Directory target = new Directory(dir.path +
@@ -46,11 +49,9 @@ main() {
     Link link = new Link(dir.path + Platform.pathSeparator +
         getTempFileName(extension: "lnk"));
     asyncStart();
-    link.create(dirName).then((Link created) {
+    await link.create(dirName).then((Link created) {
       Expect.equals(target.path, created.targetSync());
       asyncEnd();
-    }).whenComplete(() {
-      sandbox.delete(recursive: true);
     });
   }
 }

@@ -26,17 +26,16 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   Directory target = getTempDirectorySync(parent: sandbox);
   Link link1 = getTempLinkSync(target: target.path, parent: sandbox);
   target.deleteSync();
 
-  try {
-    Expect.throws(() {
-      link1.resolveSymbolicLinksSync();
-    }, (e) => e is FileSystemException);
-  } finally {
-    sandbox.delete(recursive: true);
-  }
+  Expect.throws(() {
+    link1.resolveSymbolicLinksSync();
+  }, (e) => e is FileSystemException);
 }

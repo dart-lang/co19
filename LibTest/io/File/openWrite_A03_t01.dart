@@ -25,24 +25,27 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-test(FileMode mode) {
-  Directory sandbox = getTempDirectorySync();
+test(Directory sandbox, FileMode mode) async {
   File file = getTempFileSync(parent: sandbox);
   file.writeAsStringSync("Lily was here");
-  String path = "/" + file.absolute.path;
+  String path = "!" + file.absolute.path;
   File f = new File(path);
   IOSink sink = f.openWrite(mode: mode);
-  sink.close().then((_) {
-    file.delete();
+
+  await sink.close().then((_) {
     Expect.fail("Error expected");
-  }, onError: (_) {
-    sandbox.delete(recursive: true);
+  }, onError: (e) {
+    Expect.isTrue(e is FileSystemException);
   });
 }
 
-main() {
-  test(FileMode.append);
-  test(FileMode.write);
-  test(FileMode.writeOnly);
-  test(FileMode.writeOnlyAppend);
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
+  await test(sandbox, FileMode.append);
+  await test(sandbox, FileMode.write);
+  await test(sandbox, FileMode.writeOnly);
+  await test(sandbox, FileMode.writeOnlyAppend);
 }

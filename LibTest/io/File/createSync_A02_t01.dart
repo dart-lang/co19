@@ -22,16 +22,15 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   String dirPath = getTempDirectoryPath(parent: sandbox);
   String filePath = dirPath + Platform.pathSeparator + getTempFileName();
   File file = new File(filePath);
-  try {
-    Expect.throws(() {
-      file.createSync(recursive: false);
-    }, (e) => e is FileSystemException);
-  } finally {
-    sandbox.delete(recursive: true);
-  }
+  Expect.throws(() {
+    file.createSync(recursive: false);
+  }, (e) => e is FileSystemException);
 }

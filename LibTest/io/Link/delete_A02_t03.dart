@@ -28,18 +28,19 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   Link link = new Link(file.path);
 
   asyncStart();
-  link.delete(recursive: true).then((deleted) {
+  await link.delete(recursive: true).then((deleted) {
     Expect.isFalse(link.existsSync());
     Expect.isFalse(deleted.existsSync());
     Expect.isFalse(file.existsSync());
     asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
 }

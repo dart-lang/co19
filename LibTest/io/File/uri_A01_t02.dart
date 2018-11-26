@@ -18,28 +18,27 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
-  File tmp = getTempFileSync(parent: sandbox);
-  try {
-    String path = tmp.path;
-    File file = new File(path);
-    if (Platform.isWindows) {
-      Expect.equals("/" + path.replaceAll("\\", "/"), file.uri.path);
-    } else {
-      Expect.equals(path, file.uri.path);
-    }
-    Expect.equals("file", file.uri.scheme);
+main() async {
+  await inSandbox(_main);
+}
 
-    path = tmp.path + ".NotExisting";
-    file = new File(path);
-    if (Platform.isWindows) {
-      Expect.equals("/" + path.replaceAll("\\", "/"), file.uri.path);
-    } else {
-      Expect.equals(path, file.uri.path);
-    }
-    Expect.equals("file", file.uri.scheme);
-  } finally {
-    sandbox.delete(recursive: true);
+_main(Directory sandbox) async {
+  File tmp = getTempFileSync(parent: sandbox);
+  String path = tmp.path;
+  File file = new File(path);
+  if (Platform.isWindows) {
+    Expect.equals("/" + path.replaceAll("\\", "/"), file.uri.path);
+  } else {
+    Expect.equals(path, file.uri.path);
   }
+  Expect.equals("file", file.uri.scheme);
+
+  path = tmp.path + ".NotExisting";
+  file = new File(path);
+  if (Platform.isWindows) {
+    Expect.equals("/" + path.replaceAll("\\", "/"), file.uri.path);
+  } else {
+    Expect.equals(path, file.uri.path);
+  }
+  Expect.equals("file", file.uri.scheme);
 }

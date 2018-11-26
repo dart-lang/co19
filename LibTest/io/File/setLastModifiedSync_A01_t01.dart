@@ -4,13 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future setLastAccessed(DateTime time)
- * Modifies the time the file was last accessed.
+ * @assertion void setLastModifiedSync (DateTime time)
+ * Synchronously modifies the time the file was last modified.
  *
- * Throws a FileSystemException if the time cannot be set.
- * @description Checks that this method modifies the time the file was  last
- * modified
- * @author sgrekhov@unipro.ru
+ * If the attributes cannot be set, throws a FileSystemException.
+ * @description Checks that this method modifies the time when file was last
+ * modified.
+ * @author ngl@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -25,9 +25,6 @@ _main(Directory sandbox) async {
   DateTime oldDate = file.lastModifiedSync();
   DateTime newDate = oldDate.add(new Duration(days: -1));
 
-  asyncStart();
-  await file.setLastModified(newDate).then((_) {
-    Expect.equals(newDate, file.lastModifiedSync());
-    asyncEnd();
-  });
+  file.setLastModifiedSync(newDate);
+  Expect.equals(newDate, file.lastModifiedSync());
 }

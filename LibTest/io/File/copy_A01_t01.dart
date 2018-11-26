@@ -13,23 +13,51 @@
  * completes with an exception.
  * @description Checks that this method copies the file
  * @author sgrekhov@unipro.ru
- */
+ *
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
-  File copy = null;
   asyncStart();
   String newPath = getTempFilePath(parent: sandbox);
-  file.copy(newPath).then((File copied) {
-    copy = copied;
+  await file.copy(newPath).then((File copied) {
     Expect.equals(newPath, copied.path);
     Expect.isTrue(copied.existsSync());
     asyncEnd();
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
   });
+}
+*/
+
+class A {
+  String get g => "g";
+}
+
+class C implements A {
+  noSuchMethod(Invocation i) {
+    print("C.noSuchMethod invoked");
+  }
+}
+
+mixin M on A {
+test() {
+  super.g;
+}
+
+noSuchMethod(Invocation i) {
+  print("M.noSuchMethod invoked");
+}
+}
+
+class MA extends C with M {
+}
+
+main() {
+  print(new MA().g);
+  print(new MA().test());
 }

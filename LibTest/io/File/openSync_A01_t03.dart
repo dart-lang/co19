@@ -19,17 +19,16 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   file.writeAsStringSync("Lily was here");
-  String path = "/" + file.absolute.path;
+  String path = "!" + file.absolute.path;
   File f = new File(path);
-  try {
-    Expect.throws(() {
-      f.openSync(mode: FileMode.read);
-    }, (e) => e is FileSystemException);
-  } finally {
-    sandbox.delete(recursive: true);
-  }
+  Expect.throws(() {
+    RandomAccessFile raf = f.openSync(mode: FileMode.read); raf.closeSync();
+  }, (e) => e is FileSystemException);
 }

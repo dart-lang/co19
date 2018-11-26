@@ -18,8 +18,11 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
-main() {
-  Directory sandbox = getTempDirectorySync();
+main() async {
+  await inSandbox(_main);
+}
+
+_main(Directory sandbox) async {
   Encoding encoding = Encoding.getByName("iso-8859-1");
   File file = getTempFileSync(parent: sandbox);
 
@@ -28,12 +31,10 @@ main() {
   sink.writeCharCode(0xa);
   sink.writeCharCode(0xe3);
   asyncStart();
-  sink.close().then((_) {
-    file.readAsLines(encoding: encoding).then((data) {
+  await sink.close().then((_) async {
+    await file.readAsLines(encoding: encoding).then((data) {
       Expect.listEquals(["â", "ã"], data);
       asyncEnd();
-    }).whenComplete(() {
-      sandbox.delete(recursive: true);
     });
   });
 }
