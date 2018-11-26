@@ -13,7 +13,7 @@
  * completes with an exception.
  * @description Checks that this method copies the file
  * @author sgrekhov@unipro.ru
- *
+ */
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
@@ -31,33 +31,4 @@ _main(Directory sandbox) async {
     Expect.isTrue(copied.existsSync());
     asyncEnd();
   });
-}
-*/
-
-class A {
-  String get g => "g";
-}
-
-class C implements A {
-  noSuchMethod(Invocation i) {
-    print("C.noSuchMethod invoked");
-  }
-}
-
-mixin M on A {
-test() {
-  super.g;
-}
-
-noSuchMethod(Invocation i) {
-  print("M.noSuchMethod invoked");
-}
-}
-
-class MA extends C with M {
-}
-
-main() {
-  print(new MA().g);
-  print(new MA().test());
 }
