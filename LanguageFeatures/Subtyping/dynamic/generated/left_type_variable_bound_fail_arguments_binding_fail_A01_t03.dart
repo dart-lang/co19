@@ -266,7 +266,8 @@ main() {
 
   // Test type parameters
 
-    // test generic class members
+  //# <-- NotGenericFunctionType
+  // test generic class members
   Expect.throws(() {
     new ArgumentsBinding2_t03<T1>().superTest(forgetType(t0Instance));
   }, (e) => e is TypeError);
@@ -300,4 +301,5 @@ main() {
   }, (e) => e is TypeError);
 
   new ArgumentsBinding2_t03<T1>().test();
-  }
+  //# -->
+}

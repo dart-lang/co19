@@ -111,7 +111,8 @@ test<T>(T t0Instance) {
 
   // Test type parameters
 
-    // test generic functions
+  //# <-- NotGenericFunctionType
+  // test generic functions
   namedArgumentsFunc2<X0>(t0Instance, t2: t0Instance);
   positionalArgumentsFunc2<X0>(t0Instance, t0Instance);
 
@@ -126,7 +127,8 @@ test<T>(T t0Instance) {
   instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
   instance2.positionalArgumentsMethod(t0Instance, t0Instance);
   instance2.testSetter = t0Instance;
-  
+  //# -->
+
   }
 }
 

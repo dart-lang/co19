@@ -116,7 +116,8 @@ main() {
 
   // Test type parameters
 
-    // test generic functions
+  //# <-- NotGenericFunctionType
+  // test generic functions
   namedArgumentsFunc2<Function>(forgetType(t0Instance), t2: forgetType(t0Instance));
   positionalArgumentsFunc2<Function>(forgetType(t0Instance), forgetType(t0Instance));
 
@@ -138,4 +139,5 @@ main() {
   instance2.positionalArgumentsMethod(forgetType(t0Instance),
       forgetType(t0Instance));
   instance2.testSetter = forgetType(t0Instance);
-  }
+  //# -->
+}
