@@ -10,7 +10,7 @@
  * both are [false] on Windows.
  * read inside the dart process.
  * @author iarkh@unipro.ru
- * @issue 31932
+ * @Issue 31932
  */
 import "../../../Utils/expect.dart";
 import "dart:io";

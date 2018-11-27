@@ -43,7 +43,10 @@ run_main() async {
     await process.stdout.toList().then((out) { res_elementAt = out[0]; });
   });
 
-  Expect.listEquals(res_elementAt, res_first);
+  Expect.isTrue("12345\n\n".startsWith(String.fromCharCodes(res_first).
+      replaceAll("\r\n", "\n")));
+  Expect.isTrue("12345\n\n".startsWith(String.fromCharCodes(res_elementAt).
+      replaceAll("\r\n", "\n")));
 }
 
 main(List<String> args) { args.length > 0 ? run_process(args[0]) : run_main(); }

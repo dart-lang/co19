@@ -6,7 +6,7 @@
 /**
  * @assertion Future<T> length
  * Counts the elements in the stream.
- * @description Checks that [length] returns [1] is som line was entered.
+ * @description Checks that [length] returns [1] if some line was entered.
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
