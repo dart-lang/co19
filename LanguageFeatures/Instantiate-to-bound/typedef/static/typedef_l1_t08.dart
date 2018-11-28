@@ -44,26 +44,12 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for [class A<X
  * extends A<X>>], [typedef G<X extends A<X>> = X Function()] (invariant)
+ * @compile-error
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
-
 class A<X extends A<X>> {}
 typedef G<X extends A<X>> = X Function(X);
 
 main() {
   G source;
-  var fsource = toF(source);
-  F<G<A<dynamic>>> target = fsource;
-
-  F<G<A<Null>>> target1 = fsource; //# 01: compile-time error
-
-  F<G<A<A<dynamic>>>> target2 = fsource;       //# 02: compile-time error
-  F<G<A<A<A<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
-  F<G<A<A<A<A<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
-
-  F<G<A<A<Null>>>> target5 = fsource;       //# 05: compile-time error
-  F<G<A<A<A<Null>>>>> target6 = fsource;    //# 06: compile-time error
-  F<G<A<A<A<A<Null>>>>>> target7 = fsource; //# 07: compile-time error
 }
