@@ -227,7 +227,8 @@ main() {
 
   // Test type parameters
 
-    // Test getters
+  //# <-- NotGenericFunctionType
+  // Test getters
   Expect.throws(() {
     new ClassMemberTestGenericPublic<Future<C1>>.validConstructor().getter;
   }, (e) => e is TypeError);
@@ -271,4 +272,5 @@ main() {
   Expect.throws(() {
     new ClassMemberTestGenericPrivate<Future<C1>>.short(forgetType(t0Instance));
   }, (e) => e is TypeError);
-  }
+  //# -->
+}

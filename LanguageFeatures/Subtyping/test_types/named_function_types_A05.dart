@@ -10,7 +10,7 @@
  *
  * and T1 is U1 Function<Y0 extends B10, ..., Yk extends B1k>(S0 y0, ..., Sn yn,
  * {Sn+1 yn+1, ..., Sq yq})
- * and {yn+1, ... , yq} subsetof {xn+1, ... , xm}
+ * and {yn+1, ... , yq} subset of {xn+1, ... , xm}
  * and Si[Z0/Y0, ..., Zk/Yk] <: Vi[Z0/X0, ..., Zk/Xk] for i in 0...n
  * and Si[Z0/Y0, ..., Zk/Yk] <: Tj[Z0/X0, ..., Zk/Xk] for i in n+1...q, yj = xi
  * and U0[Z0/X0, ..., Zk/Xk] <: U1[Z0/Y0, ..., Zk/Yk]
@@ -40,14 +40,6 @@ class V2<X, Y, Z> {}
 class V3<X, Y, Z> {}
 
 class V4<X, Y, Z> {}
-
-class X0<X, Y, Z> extends B0<X, Y, Z> {}
-
-class X1<X, Y, Z> extends B1<X, Y, Z> {}
-
-class Y0<X, Y, Z> extends B0<X, Y, Z> {}
-
-class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
 typedef T0 = U<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,

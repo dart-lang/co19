@@ -14,6 +14,16 @@
  * creates tests combining test cases defined in ../dynamic/test_cases and
  * ../static/test_cases
  *
+ * Each test case tests that type @T0 is subtype of type @T1. Each test type
+ * defines actual T0 and T1 and instances of these types with names t0Instance
+ * and t1Instance. In the end of the file specifies substitution, for example:
+ *
+ * class T0 {}
+ * T0 t0Instance = new T0();
+ * dynamic t1Instance = 3.14;
+ * //# @T0 = T0
+ * //# @T1 = dynamic
+ *
  * TODO complete the description
  */
 import "dart:io";

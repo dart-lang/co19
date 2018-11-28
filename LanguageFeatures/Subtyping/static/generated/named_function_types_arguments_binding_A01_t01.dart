@@ -10,7 +10,7 @@
  *
  * and T1 is U1 Function<Y0 extends B10, ..., Yk extends B1k>(S0 y0, ..., Sn yn,
  * {Sn+1 yn+1, ..., Sq yq})
- * and {yn+1, ... , yq} subsetof {xn+1, ... , xm}
+ * and {yn+1, ... , yq} subset of {xn+1, ... , xm}
  * and Si[Z0/Y0, ..., Zk/Yk] <: Vi[Z0/X0, ..., Zk/Xk] for i in 0...n
  * and Si[Z0/Y0, ..., Zk/Yk] <: Tj[Z0/X0, ..., Zk/Xk] for i in n+1...q, yj = xi
  * and U0[Z0/X0, ..., Zk/Xk] <: U1[Z0/Y0, ..., Zk/Yk]
@@ -127,7 +127,8 @@ main() {
 
   // Test type parameters
 
-    // test generic functions
+  //# <-- NotGenericFunctionType
+  // test generic functions
   namedArgumentsFunc2<T1>(t0Instance, t2: t0Instance);
   positionalArgumentsFunc2<T1>(t0Instance, t0Instance);
 
@@ -142,4 +143,5 @@ main() {
   instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
   instance2.positionalArgumentsMethod(t0Instance, t0Instance);
   instance2.testSetter = t0Instance;
-  }
+  //# -->
+}

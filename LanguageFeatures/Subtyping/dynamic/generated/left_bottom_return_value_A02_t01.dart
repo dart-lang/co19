@@ -63,6 +63,8 @@ main() {
 
   // Test type parameters
 
-    new ReturnValueGen<dynamic>().testMethod();
+  //# <-- NotGenericFunctionType
+  new ReturnValueGen<dynamic>().testMethod();
   new ReturnValueGen<dynamic>().testGetter;
-  }
+  //# -->
+}

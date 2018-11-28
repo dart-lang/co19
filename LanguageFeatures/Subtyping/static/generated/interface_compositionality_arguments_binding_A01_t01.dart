@@ -113,7 +113,8 @@ main() {
 
   // Test type parameters
 
-    // test generic functions
+  //# <-- NotGenericFunctionType
+  // test generic functions
   namedArgumentsFunc2<C0<U0, U1, U2>>(t0Instance, t2: t0Instance);
   positionalArgumentsFunc2<C0<U0, U1, U2>>(t0Instance, t0Instance);
 
@@ -128,4 +129,5 @@ main() {
   instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
   instance2.positionalArgumentsMethod(t0Instance, t0Instance);
   instance2.testSetter = t0Instance;
-  }
+  //# -->
+}
