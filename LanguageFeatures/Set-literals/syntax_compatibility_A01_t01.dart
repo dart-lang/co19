@@ -20,14 +20,13 @@ main() {
   bool b = true;
   const bool b1 = true;
 
-  var v1 = {1, 2, 3)};
+  var v1 = {!b ? 1 : 11};
   Expect.isTrue(v1 is Set);
 
   var v2 = {b ? 1 : 11, b ? 2 : 12, b ? 3 : 13};
   Expect.isTrue(v2 is Set);
-  Expect.setEquals(v1, v2);
 
-  const v3 = const <int>{{b1 ? 1 : 11, !b ? 2 : 12, 13};
+  const v3 = const <num>{b1 ? 1 : 1.0, !b1 ? 2 : 12, 13};
   Expect.isTrue(v3 is Set);
-  Expect.isTrue(identical(v3, const <int>{1, 12, 13});
+  Expect.isTrue(identical(v3, const <num>{1, 12, 13}));
 }
