@@ -27,10 +27,10 @@ run_main() async {
     await process.stderr.toList().then((errors){
       Expect.isTrue(errors.isEmpty);
     });
-    await process.stdout.transform(systemEncoding.decoder).join().then((out) {
-      Expect.isTrue("Testme".startsWith(out[0].trimRight()));
-      called++;
-    });
+
+    final String stdout = await process.stdout.transform(systemEncoding.decoder).join();
+    Expect.isTrue("Testme\n\n".startsWith(stdout.replaceAll("\r\n", "\n")));
+    called++;
   });
   Expect.equals(1, called);
 }
