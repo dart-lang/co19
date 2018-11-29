@@ -15,6 +15,12 @@
 import "../../../Utils/expect.dart";
 import "dart:io";
 
+Future<String> readOutput(Stream<List<int>> output) async {
+  List<List<int>> result = await output.toList();
+  if (result.isEmpty) return "";
+  return String.fromCharCodes(result.reduce((x, y) => x + y));
+}
+
 run_process() async {
   await stdin.first.then((_) async {
     try { await stdin.first; } catch (e) { exit(0); }
@@ -24,17 +30,23 @@ run_process() async {
 run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
-  int called = 0;
 
-  await Process.start(executable, [eScript, "test"], runInShell: true).then(
-      (Process process) async {
-    process.stdin.writeln("1");
-    await process.exitCode.then((int code) async {
-      Expect.equals(0, code);
-        called++;
-    });
-  });
-  Expect.equals(1, called);
+  Process process = await Process.start(executable, [eScript, "test"], runInShell: true);
+
+  process.stdin.writeln("1");
+  await process.stdin.flush();
+
+  try {
+    await process.stdin.close();
+    int code = await process.exitCode;
+    Expect.equals(0, code);
+  } catch (e) {
+    print("Subprocess failed or exited prematurely!");
+    print("Exit code: ${await process.exitCode}");
+    print("stdout: " + await readOutput(process.stdout));
+    print("stderr: " + await readOutput(process.stderr));
+    rethrow;
+  }
 }
 
 main(List<String> args) { args.length > 0 ? run_process() : run_main(); }
