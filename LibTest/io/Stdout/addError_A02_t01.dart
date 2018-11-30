@@ -16,7 +16,7 @@ import "dart:async";
 import "dart:io";
 
 test(Stdout sink) {
-  Stream<List> aStream = new Stream<List>.fromIterable([[1, 2, 3, 4, 5]]);
+  Stream<List> aStream = new Stream<List<int>>.fromIterable([[1, 2, 3, 4, 5]]);
 
   sink.addStream(aStream).then((x) {
     new Future.delayed(new Duration(seconds: 3));

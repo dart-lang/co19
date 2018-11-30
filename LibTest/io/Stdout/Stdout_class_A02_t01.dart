@@ -17,9 +17,9 @@ import "../../../Utils/expect.dart";
 
 bool called = false;
 
-Stream<List> stream1 = new Stream<List>.fromIterable(
+Stream<List> stream1 = new Stream<List<int>>.fromIterable(
     [[1, 2, 3, 4, 5], [12], [3, 22]]);
-Stream<List> stream2 = new Stream<List>.fromIterable(
+Stream<List> stream2 = new Stream<List<int>>.fromIterable(
     [[1, 2, 3, 4, 5], [12], [3, 22]]);
 
 test(Stdout sink, Stream<List> stream) async {
