@@ -31,7 +31,8 @@ run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
 
-  Process process = await Process.start(executable, [eScript, "test"], runInShell: true);
+  Process process = await
+      Process.start(executable, [eScript, "test"], runInShell: true);
 
   process.stdin.writeln("1");
   await process.stdin.flush();

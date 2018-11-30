@@ -33,7 +33,5 @@ String run(Process process) {
 }
 
 main(List<String> args) {
-  String filename = Directory.systemTemp.path + Platform.pathSeparator +
-      getTempFileName();
-  args.length > 0 ? run_process(args[0]) : run_main(filename, run, str);
+  args.length > 0 ? run_process(args[0]) : run_main(run, str);
 }

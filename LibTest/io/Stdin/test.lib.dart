@@ -7,12 +7,16 @@
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
+import "../file_utils.dart";
 import "dart:io";
 
-run_main(String filename, void run(Process _), String expected) async {
+run_main(void run(Process _), String expected) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
+
+  Directory sandbox = getTempDirectorySync();
+  String filename = getTempFilePath(parent: sandbox);
 
   await Process.start(executable, [eScript, filename], runInShell: true).then(
       (Process process) async {
@@ -25,6 +29,8 @@ run_main(String filename, void run(Process _), String expected) async {
       });
       called++;
     });
+  }).whenComplete(() {
+    sandbox.delete(recursive: true);
   });
   Expect.equals(1, called);
 }
