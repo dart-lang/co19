@@ -8,7 +8,7 @@
  * Check if echo mode is enabled on [stdin].
  * @description Checks that [echoMode] is a valid [boolean] value
  * @author iarkh@unipro.ru
- * @issue 31932
+ * @Issue 31932
  */
 import "../../../Utils/expect.dart";
 import "dart:io";

@@ -16,7 +16,6 @@
 import "dart:convert";
 import "dart:io";
 import "test.lib.dart";
-import "../file_utils.dart";
 
 List<int> expected = utf8.encode("TESTME Тест для проверки 1âã");
 String str = utf8.decode(expected);
@@ -31,7 +30,9 @@ void run_process(String filename, Encoding enc) {
 void run(Process process) { process.stdin.writeln(str); }
 
 main(List<String> args) {
-  String filename = Directory.systemTemp.path + Platform.pathSeparator +
-      getTempFileName();
-  args.length > 0 ? run_process(args[0], utf8) : run_main(filename, run, str);
+  if (args.length > 0) {
+    run_process(args[0], utf8);
+  } else {
+    run_main(run, str);
+  }
 }
