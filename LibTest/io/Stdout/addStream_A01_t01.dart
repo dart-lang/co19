@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-Stream<List> aStream = new Stream<List>.fromIterable([[86, 73, 45]]);
+Stream<List> aStream = new Stream<List<int>>.fromIterable([[86, 73, 45]]);
 
 run_process(IOSink sink) { sink.addStream(aStream); }
 
