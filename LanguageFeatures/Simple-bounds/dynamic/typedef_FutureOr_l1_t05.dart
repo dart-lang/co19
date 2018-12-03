@@ -21,7 +21,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 typedef G<X extends FutureOr> = void Function<Y extends X>();
-typedef G_expected = void Function<Y extends FutureOr>();
+typedef G_expected = void Function<Y extends FutureOr<dynamic>>();
 
 main() {
   Expect.equals(G_expected, G);

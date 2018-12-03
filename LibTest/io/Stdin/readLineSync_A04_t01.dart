@@ -20,11 +20,10 @@ import "../file_utils.dart";
 List<int> expected = [1, 2, 3, 50, 60, 100, 124, 125, 126, 127];
 String str = systemEncoding.decode(expected);
 
-run_process(String filename) {
+run_process(String filename) async {
   String res = stdin.readLineSync();
   File fl = new File(filename);
-  fl.openWrite();
-  fl.writeAsString(res);
+  await fl.writeAsString(res);
 }
 
 String run(Process process) {

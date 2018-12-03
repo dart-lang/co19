@@ -15,6 +15,7 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [typedef] with [X
  * extends FutureOr] parameter (covariant)
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 import "dart:async";
@@ -24,5 +25,6 @@ typedef G<X extends FutureOr> = void Function<Y extends X>();
 
 main() {
   G source;
-  void Function<X extends FutureOr>() target = source;
+  void Function<X extends FutureOr<dynamic>>() target = source;
+  void Function<X extends FutureOr<Null>>() target1 = source; //# 01: compile-time error
 }
