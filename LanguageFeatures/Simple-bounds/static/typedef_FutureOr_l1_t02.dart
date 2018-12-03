@@ -15,6 +15,7 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [typedef] with [X
  * extends FutureOr] parameter (contravariant)
+ * @compile-error
  * @Issue 34689, 35114, 35115
  * @author iarkh@unipro.ru
  */
@@ -27,4 +28,5 @@ main() {
   G source;
   var fsource = toF(source);
   F<G<FutureOr<Null>>> target = fsource;
+  F<G<FutureOr<dynamic>>> target1 = fsource;  //# 01: compile-time error
 }

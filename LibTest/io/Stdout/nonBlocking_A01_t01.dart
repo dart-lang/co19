@@ -14,7 +14,7 @@ import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-Stream<List> aStream = new Stream<List>.fromIterable([[1, 2, 3]]);
+Stream<List<int>> aStream = new Stream<List<int>>.fromIterable([[1, 2, 3]]);
 List<int> expected = [84, 101, 115, 116, 1, 2, 3];
 
 run_process(Stdout sink) {

@@ -43,7 +43,8 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for [class A<X
- * extends A<X>>], [typedef G<X extends A<X>> = X Function()] (covariant)
+ * extends A<X>>], [typedef G<X extends A<X>> = X Function()] (invariant)
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 class A<X extends A<X>> {}
@@ -51,5 +52,4 @@ typedef G<X extends A<X>> = void Function<Y extends X>();
 
 main() {
   G source;
-  void Function<X extends A<dynamic>>() target = source;
 }

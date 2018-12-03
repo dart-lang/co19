@@ -29,8 +29,10 @@ run_main(Encoding enc, void run(), List<int> expected) async {
   String executable = Platform.resolvedExecutable;
   String script = Platform.script.toString();
   int called = 0;
-  String filename = Directory.systemTemp.path + Platform.pathSeparator +
-      getTempFileName();
+
+  Directory sandbox = getTempDirectorySync();
+  String filename = getTempFilePath(parent: sandbox);
+
   await (Platform.isWindows ?
       run_Windows(executable, script, filename, enc) :
       run_Linux(executable, script, filename, enc)).
@@ -41,6 +43,8 @@ run_main(Encoding enc, void run(), List<int> expected) async {
       Expect.listEquals(expected, contents);
     });
     called++;
+  }).whenComplete(() {
+    sandbox.delete(recursive: true);
   });
   Expect.equals(1, called);
 }

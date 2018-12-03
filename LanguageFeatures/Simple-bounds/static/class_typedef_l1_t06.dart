@@ -15,8 +15,6 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for the class with
  * function parameter (contravariant)
- * @Issue 34689, 35114, 35115
- * @compile-error
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";

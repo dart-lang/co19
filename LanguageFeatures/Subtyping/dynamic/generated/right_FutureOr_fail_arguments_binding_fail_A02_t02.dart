@@ -328,7 +328,8 @@ main() {
 
   // Test type parameters
 
-    // test generic class constructors
+  //# <-- NotGenericFunctionType
+  // test generic class constructors
   Expect.throws(() {
     new ArgumentsBinding2_t02<FutureOr<S1>>(forgetType(t0Instance));
   }, (e) => e is TypeError);
@@ -383,4 +384,5 @@ main() {
   }, (e) => e is TypeError);
 
   new ArgumentsBinding2_t02<FutureOr<S1>>.valid().test();
-  }
+  //# -->
+}

@@ -15,6 +15,7 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [typedef] with [X
  * extends A] parameter (contravariant)
+ * @compile-error
  * @Issue 34689, 34699
  * @author iarkh@unipro.ru
  */
@@ -27,5 +28,5 @@ main() {
   G source;
   var fsource = toF(source);
   F<G<A<Null>>> target = fsource;
-  F<G<A<dynamic>>> target1 = fsource;
+  F<G<A<dynamic>>> target1 = fsource;  //# 01: compile-time error
 }

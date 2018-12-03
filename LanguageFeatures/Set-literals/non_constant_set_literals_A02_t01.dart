@@ -66,7 +66,10 @@ main() {
 
   var s4 = {1, 1.0};
   LinkedHashSet<dynamic> o4 = new LinkedHashSet<dynamic>();
-  o3.add(1);
-  o3.add(1.0);
+  o4.add(1);
+  o4.add(1.0);
   Expect.iterableEquals(o4, s4);
+
+  var s5 = {1.0, 1};
+  Expect.iterableEquals([1.0], s5);
 }

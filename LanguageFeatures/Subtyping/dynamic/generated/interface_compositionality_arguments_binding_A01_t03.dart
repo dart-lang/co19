@@ -106,7 +106,8 @@ main() {
 
   // Test type parameters
 
-    ArgumentsBinding2_t03<C0<U0, U1, U2>> c2 = new ArgumentsBinding2_t03<C0<U0, U1, U2>>();
+  //# <-- NotGenericFunctionType
+  ArgumentsBinding2_t03<C0<U0, U1, U2>> c2 = new ArgumentsBinding2_t03<C0<U0, U1, U2>>();
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));
   c2.superTestPositioned(forgetType(t0Instance));
@@ -115,4 +116,5 @@ main() {
   c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));
   c2.superSetter = forgetType(t0Instance);
   c2.superGetter;
-  }
+  //# -->
+}

@@ -15,14 +15,14 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [typedef] with [X
  * extends A] parameter (covariant)
+ * @compile-error
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
-
 class A<X> {}
 typedef G<X extends A> = void Function<Y extends X>();
 
 main() {
   G source;
-  void Function<X extends A>() target = source;
+  void Function<X extends A<dynamic>>() target = source;
+  void Function<X extends A<Null>>() target1 = source;    //# 01: compile-time error
 }

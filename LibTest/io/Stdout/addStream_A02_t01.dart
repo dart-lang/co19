@@ -17,7 +17,7 @@ import "dart:io";
 
 test(Stdout sink) async {
   int called = 0;
-  await sink.addStream(new Stream<List>.fromIterable([[73, 45]])).then((_) {
+  await sink.addStream(new Stream<List<int>>.fromIterable([[73, 45]])).then((_) {
     called++;
   });
   Expect.equals(1, called);

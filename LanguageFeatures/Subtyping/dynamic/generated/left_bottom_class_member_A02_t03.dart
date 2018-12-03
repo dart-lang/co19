@@ -67,8 +67,10 @@ main() {
 
   // Test type parameters
 
-    ClassMember2_t03<dynamic> c2 = new ClassMember2_t03<dynamic>();
+  //# <-- NotGenericFunctionType
+  ClassMember2_t03<dynamic> c2 = new ClassMember2_t03<dynamic>();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);
-  }
+  //# -->
+}

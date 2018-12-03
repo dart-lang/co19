@@ -14,6 +14,46 @@
  * creates tests combining test cases defined in ../dynamic/test_cases and
  * ../static/test_cases
  *
+ * Each test case tests that type @T0 is subtype of type @T1. Each test type
+ * defines actual T0 and T1 and instances of these types with names t0Instance
+ * and t1Instance. In the end of the file specifies substitution, for example:
+ *
+ * class T0 {}
+ * T0 t0Instance = new T0();
+ * dynamic t1Instance = 3.14;
+ * //# @T0 = T0
+ * //# @T1 = dynamic
+ *
+ * - If test case or test type is negative, then its name must contain "_fail_"
+ * - If test type contains generic function types it must contain
+ *   "//# @GenericFunctionType" string at the end. For example
+ *   ...
+ *  typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
+ *  V0<dynamic, void, Object> x0, V1<dynamic, void, Object> x1,
+ *  {V2<dynamic, void, Object> x2, V3<dynamic, void, Object> x3, V4<dynamic, void, Object> x4});
+ *  typedef T1 = U1<dynamic, void, Object> Function<X extends B0, Y extends B1>(
+ *  S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
+ *  {S2<C, List<String>, int> x2, S3<C, List<String>, int> x3});
+ *
+ *  U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
+ *  V0<dynamic, void, Object> x0, V1<dynamic, void, Object> x1,
+ *  {V2<dynamic, void, Object> x2, V3<dynamic, void, Object> x3,
+ *  V4<dynamic, void, Object> x4}) => null;
+ *  U1<dynamic, void, Object> t1Func<X extends B0, Y extends B1>(
+ *  S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
+ *  {S2<C, List<String>, int> x2, S3<C, List<String>, int> x3}) => null;
+ *
+ *  T0 t0Instance = t0Func;
+ *  T1 t1Instance = t1Func;
+ *  //# @T0 = T0
+ *  //# @T1 = T1
+ *  //# @GenericFunctionType
+ *
+ * - If test case has tests for the types wich are not generic function types,
+ * this block must be marked by
+ *   //# <-- NotGenericFunctionType
+ *   ...
+ *   //# -->
  * TODO complete the description
  */
 import "dart:io";

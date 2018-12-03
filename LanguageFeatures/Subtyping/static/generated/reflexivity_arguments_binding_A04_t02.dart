@@ -120,7 +120,8 @@ main() {
 
   // Test type parameters
 
-    ArgumentsBinding2_t02<Null> c2 =
+  //# <-- NotGenericFunctionType
+  ArgumentsBinding2_t02<Null> c2 =
     new ArgumentsBinding2_t02<Null>(t0Instance);
   c2 = new ArgumentsBinding2_t02<Null>.c1(t0Instance);
   c2 = new ArgumentsBinding2_t02<Null>.c2(t1Instance, t0Instance);
@@ -136,4 +137,5 @@ main() {
   c2.superTestNamed(t1Instance, val2: t0Instance);
   c2.superSetter = t0Instance;
   c2.superGetter;
-  }
+  //# -->
+}
