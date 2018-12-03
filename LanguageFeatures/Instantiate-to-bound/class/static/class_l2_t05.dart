@@ -51,7 +51,7 @@
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 
-class B<X> {}
+class B<X extends B<X>> {}
 class A<X1 extends B<X1>, X2 extends X1> {}
 
 main() {

@@ -48,12 +48,13 @@
  */
 import "../../../../Utils/expect.dart";
 
-class B<X> {}
+class B<X extends B<X>> {}
 class A<X1 extends B<X1>, X2 extends X1> {}
 
 main() {
+  print(A);
   Expect.equals(
-    typeOf<A<B<dynamic>, B<dynamic>>>(),
+    typeOf<A<B<dynamic>, dynamic>>(),
     typeOf<A>()
   );
 }
