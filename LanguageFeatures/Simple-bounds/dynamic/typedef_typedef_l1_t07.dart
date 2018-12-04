@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 typedef G1<X> = X Function();
 typedef G<X extends G1> = void Function(X);
-typedef G_expected = void Function(G1<Null>);
+typedef G_expected = void Function(G1<dynamic>);
 
 main() {
   Expect.equals(G_expected, G);

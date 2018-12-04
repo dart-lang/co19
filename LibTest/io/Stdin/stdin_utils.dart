@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * Strdin helper library
+ * Stdin helper library
  * @author sgrekhov@unipro.ru
  */
 library stdin_utils;

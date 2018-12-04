@@ -26,5 +26,6 @@ main() {
   A source;
   var fsource = toF(source);
   F<A<G<dynamic>>> target = fsource;
+  F<A<G<Null>>> target1 = fsource;
   A();
 }

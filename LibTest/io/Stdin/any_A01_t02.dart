@@ -13,7 +13,7 @@
 import "../../../Utils/expect.dart";
 import "dart:io";
 
-bool test(s) { return (new String.fromCharCodes(s)).startsWith("Test"); }
+bool test(s) { return (new String.fromCharCodes(s)).startsWith("Testme"); }
 
 run_process() async {
   await stdin.any(test).then((x) { exit(x ? 0 : 99); });

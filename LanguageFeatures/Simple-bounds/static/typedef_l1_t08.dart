@@ -15,6 +15,7 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [typedef] with [X
  * extends A] parameter (invariant)
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
@@ -26,4 +27,5 @@ main() {
   G source;
   var fsource = toF(source);
   F<G<A<dynamic>>> target = fsource;
+  F<G<A<Null>>> target1 = fsource;   //# 01: compile-time error
 }

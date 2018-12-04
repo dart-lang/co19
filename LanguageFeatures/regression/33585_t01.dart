@@ -9,7 +9,7 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-class O extends Object {}
+/*class O extends Object {}
 class O1 {}
 
 abstract class A<X> extends O {}
@@ -17,4 +17,10 @@ class B<X> implements A<X>{}
 
 main() {
   B a = new B<O1>();
+}
+*/
+class D<T extends Comparable<T>> {}
+class E<T extends D<Comparable>> {}
+main() {
+  print(new E());
 }

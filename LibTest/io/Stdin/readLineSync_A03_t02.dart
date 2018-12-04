@@ -22,11 +22,10 @@ import "../file_utils.dart";
 List<int> expected = [1, 2, 3, 128, 129, 200, 254, 255];
 String str = latin1.decode(expected);
 
-void run_process(String filename, Encoding enc) {
+void run_process(String filename, Encoding enc) async {
   String res = stdin.readLineSync(encoding : enc);
   File fl = new File(filename);
-  fl.openWrite();
-  fl.writeAsBytes(res.codeUnits);
+  await fl.writeAsBytes(res.codeUnits);
 }
 
 void run(Process process) { process.stdin.writeln(str); }

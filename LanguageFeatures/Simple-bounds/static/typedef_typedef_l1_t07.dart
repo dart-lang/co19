@@ -26,6 +26,6 @@ typedef G2<X extends G1> = void Function(X);
 main() {
   G2 source;
   var fsource = toF(source);
-  F<G2<G1<Null>>> target = fsource;
-  F<G2<G1<dynamic>>> target1 = fsource; //# 01: compile-time error
+  F<G2<G1<dynamic>>> target = fsource;
+  F<G2<G1<Null>>> target1 = fsource; //# 01: compile-time error
 }

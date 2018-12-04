@@ -25,5 +25,6 @@ typedef G<X extends A<B>, Y extends B<A>> = void Function<X1 extends X, Y1 exten
 typedef G_expected = void Function<X1 extends A<B>, Y1 extends B<A>>(A<B>);
 
 main() {
+  print(G);
   Expect.equals(G_expected, G);
 }
