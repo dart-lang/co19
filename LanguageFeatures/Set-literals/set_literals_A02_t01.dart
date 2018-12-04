@@ -51,4 +51,7 @@ main() {
 
   var v11  = {1, 2, 3.14};
   Expect.isTrue(v11 is Set<num>);
+
+  var v12  = {1, 1.0};
+  Expect.isTrue(v12 is Set<num>);
 }
