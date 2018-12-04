@@ -16,7 +16,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pred(element) => element > 5.0;
+bool pred(double element) => element > 5.0;
 
 main() {
   var l;

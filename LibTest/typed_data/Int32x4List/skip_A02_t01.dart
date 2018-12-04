@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 
-check(list, n) {
+check(List<Int32x4> list, int n) {
   var l = new Int32x4List.fromList(list);
   var res = l.skip(n);
   Expect.isTrue(res.isEmpty);

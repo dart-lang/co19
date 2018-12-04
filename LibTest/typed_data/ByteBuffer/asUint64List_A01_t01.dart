@@ -46,11 +46,12 @@ void check(ByteBuffer buffer) {
 }
 
 main() {
-  var list0 = new List(0);
+  var list0 = new List<int>(0);
   var list1 = new List.filled(5, 0);
   var list2 = new List.filled(8, 0);
   var list3 = new Int32x4List(1);
   var list4 = new Int32x4List(5);
+  var list5 = new Int32x4List(0);
 
   check((new Int8List.fromList(list0)).buffer);
   check((new Int8List.fromList(list1)).buffer);
@@ -68,7 +69,7 @@ main() {
   check((new Int64List.fromList(list1)).buffer);
   check((new Int64List.fromList(list2)).buffer);
 
-  check((new Int32x4List.fromList(list0)).buffer);
+  check((new Int32x4List.fromList(list5)).buffer);
   check((new Int32x4List.fromList(list3)).buffer);
   check((new Int32x4List.fromList(list4)).buffer);
 }

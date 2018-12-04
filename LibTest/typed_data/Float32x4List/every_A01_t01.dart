@@ -16,7 +16,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pred(element) => element.x > 5.0 && element.w > 5.0;
+bool pred(Float32x4 element) => element.x > 5.0 && element.w > 5.0;
 
 Float32x4 pack(v) => new Float32x4.splat(v);
 

@@ -24,7 +24,7 @@ listEquals(List<Float64x2> expected, Float64x2List actual) {
   }
 }
 
-check(List<Float64x2> list, List expected) {
+check(List<Float64x2> list, List<Float64x2> expected) {
   var l = new Float64x2List.fromList(list);
   int c(var a, var b) {
     return a.x < b.x ? -1 : (a.x == b.x ? 0 : 1);

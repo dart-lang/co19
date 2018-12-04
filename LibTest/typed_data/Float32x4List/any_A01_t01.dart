@@ -16,7 +16,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-pred(element) => element.greaterThan(pack(.0, .0, 5.0, .0)).flagZ;
+bool pred(Float32x4 element) => element.greaterThan(pack(.0, .0, 5.0, .0)).flagZ;
 
 Float32x4 pack(x, y, z, w) => new Float32x4(x, y, z, w);
 

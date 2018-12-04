@@ -18,19 +18,19 @@ import "../../../Utils/expect.dart";
 
 Int32x4 i32x4p(n) => new Int32x4(n, n + 1, n + 2, n + 3);
 
-void checkInt(list, int expected) {
+void checkInt(List<Int32x4> list, int expected) {
   var l = new Int32x4List.fromList(list);
   var res = l.fold(0, (prev, cur) => prev + cur.x);
   Expect.equals(expected, res);
 }
 
-void checkString(list, String expected) {
+void checkString(List<Int32x4> list, String expected) {
   var l = new Int32x4List.fromList(list);
   var res = l.fold("yz", (prev, cur) => "${prev}${cur.y}${cur.z}");
   Expect.equals(expected, res);
 }
 
-void checkConst(list, int expected) {
+void checkConst(List<Int32x4> list, int expected) {
   var l = new Int32x4List.fromList(list);
   var res = l.fold(2, (prev, cur) => 1);
   Expect.equals(expected, res);
