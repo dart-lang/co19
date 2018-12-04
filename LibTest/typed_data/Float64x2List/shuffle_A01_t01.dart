@@ -35,7 +35,8 @@ bool isOrderChanged(List<Float64x2> list, Float64x2List sl) {
 main() {
   List<Float64x2> list = [
     f64x2(1.0, 2.0), f64x2(2.0, 3.0), f64x2(3.0, 4.0), f64x2(4.0, 5.0),
-    f64x2(5.0, 6.0)
+    f64x2(5.0, 6.0), f64x2(6.0, 7.0), f64x2(7.0, 8.0), f64x2(8.0, 9.0),
+    f64x2(9.0, 10.0), f64x2(10.0, 11.0)
   ];
 
   var counter = 0;

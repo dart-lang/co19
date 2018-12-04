@@ -31,7 +31,7 @@ bool isOrderChanged(List<int> list, Int8List sl) {
 }
 
 main() {
-  var list = [1, 2, 3, 4, 5, 6];
+  var list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   var counter = 0;
   for (int i = 0; i < 10; i++) {
     var sl = new Int8List.fromList(list);

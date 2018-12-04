@@ -31,7 +31,7 @@ bool isOrderChanged(List<int> list, Int16List sl) {
 }
 
 main() {
-  List<int> list = [1, 2, 3, 4, 5, 6];
+  List<int> list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   var counter = 0;
   for (int i = 0; i < 10; i++) {
     var sl = new Int16List.fromList(list);
