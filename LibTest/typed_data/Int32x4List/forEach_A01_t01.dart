@@ -22,14 +22,14 @@ equal(o1, o2) {
 
 main() {
   var l = new Int32x4List(0);
-  l.forEach((e) => e + e);
-  Expect.equals(0, l.length);
+  var res = i32x4(0);
+  l.forEach((e) => res += e);
+  Expect.isTrue(equal(i32x4(0), res));
 
   var list = [i32x4(0), i32x4(1), i32x4(2), i32x4(1), i32x4(3), i32x4(4)];
   l = new Int32x4List.fromList(list);
-  l.forEach((e) => e + e);
+
+  l.forEach((e) => res += e);
   Expect.equals(list.length, l.length);
-  for (int i = 0; i < l.length; ++i) {
-    Expect.isTrue(equal(list[i] + list[i], l[i]));
-  }
+  Expect.isTrue(equal(i32x4(11), res));
 }
