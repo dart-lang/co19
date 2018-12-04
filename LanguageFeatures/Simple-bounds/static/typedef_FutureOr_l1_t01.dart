@@ -19,7 +19,10 @@
  * @author iarkh@unipro.ru
  */
 import "dart:async";
-import "../../../Utils/expect.dart";
+
+// Functions for correct type comparison in language feature tests
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
 typedef G<X extends FutureOr> = X Function();
 

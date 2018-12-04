@@ -18,7 +18,10 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
+
+// Functions for correct type comparison in language feature tests
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
 class A<X> {}
 typedef G<X extends A> = X Function();

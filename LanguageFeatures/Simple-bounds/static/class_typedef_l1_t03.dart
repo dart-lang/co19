@@ -19,6 +19,10 @@
  * @author iarkh@unipro.ru
  */
 
+// Functions for correct type comparison in language feature tests
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
+
 typedef G<X> = X Function(X);
 class A<X extends G> {}
 

@@ -25,4 +25,5 @@ typedef G2<X extends G1<num>> = void Function();
 main() {
   G2 source;
   var fsource = toF(source);
-  F<G2<G1<num>>> target = fsource;}
+  F<G2<G1<num>>> target = fsource;
+}

@@ -17,7 +17,6 @@
  * [typedef] parameter (covariant)
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
 
 typedef G1<X> = X Function();
 typedef G2<X extends G1<num>> = void Function<Y extends X>();
