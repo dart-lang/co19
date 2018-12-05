@@ -15,16 +15,18 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
+Float32x4 value = new Float32x4(3.14, .0, .0, .0);
+
 void check(List<double> array) {
   dynamic l = new Float32List.fromList(array);
   l.last = 3.14;
-  Expect.equals(3.14, l.last);
+  Expect.equals(value.x, l.last);
 }
 
 void checkClear(length) {
   dynamic l = new Float32List(length);
   l.last = 3.14;
-  Expect.equals(3.14, l.last);
+  Expect.equals(value.x, l.last);
 }
 
 main() {
