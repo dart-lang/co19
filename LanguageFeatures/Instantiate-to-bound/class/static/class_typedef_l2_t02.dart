@@ -57,7 +57,7 @@ class A<X extends G<A<X, Y>>, Y extends X> {}
 main() {
   A source;
   var fsource = toF(source);
-  F<A<G<A<dynamic, dynamic>>, dynamic>> target = fsource;
+  F<A<G<A<Null, Null>>, dynamic>> target = fsource;
 
   F<A<dynamic, dynamic>> target1 = fsource;                   //# 01: compile-time error
   F<A<G<dynamic>, dynamic>> target2 = fsource;                //# 02: compile-time error

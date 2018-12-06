@@ -55,7 +55,7 @@ typedef G<X extends Y, Y extends A<Y>> = void Function(X, Y);
 
 main() {
   Expect.equals(
-      typeOf<G<A<Null>, A<Null>>>(),
+      typeOf<G<Null, A<Null>>>(),
       typeOf<G>()
   );
 }

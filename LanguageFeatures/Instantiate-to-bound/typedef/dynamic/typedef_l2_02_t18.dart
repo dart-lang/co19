@@ -51,10 +51,8 @@ import "../../../../Utils/expect.dart";
 
 class A<X> {}
 typedef G<X extends A<X>, Y extends X> = void Function();
+typedef G_expected = void Function();
 
 main() {
-  Expect.equals(
-      typeOf<G<A<dynamic>, A<dynamic>>>(),
-      typeOf<G>()
-  );
+  Expect.equals(G_expected, G);
 }

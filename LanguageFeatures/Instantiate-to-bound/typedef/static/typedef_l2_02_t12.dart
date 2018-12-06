@@ -48,13 +48,16 @@
  * @Issue 34689, 34699
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
-
 class A<X> {}
 typedef G<X extends A<X>, Y extends X> = void Function<Y1 extends Y>(X);
 
 main() {
   G source;
-  void Function<X extends A<dynamic>>(A<Null>) target = source;
+  void Function<X extends A<Null>>(A<Null>) target = source;
+
+  void Function<X extends A<dynamic>>(A<Null>) target1 = source;    // # 01: compile-time error
+  void Function<X extends A<Null>>(A<dynamic>) target2 = source;    // # 02: compile-time error
+  void Function<X extends A<dynamic>>(A<dynamic>) target3 = source; // # 03: compile-time error
+  void Function<X extends A<Null>>(dynamic) target4 = source;       // # 04: compile-time error
+  void Function<X extends A<Null>>(Null) target5 = source;          // # 05: compile-time error
 }

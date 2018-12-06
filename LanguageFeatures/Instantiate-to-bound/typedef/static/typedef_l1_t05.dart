@@ -44,14 +44,11 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for [typedef
  *  G<X extends A<X>> = X Function()] (covariant)
- * @compile-error
  * @author iarkh@unipro.ru
  */
 class A<X> {}
 typedef G<X extends A<X>> = void Function<Y extends X>();
 
 main() {
-  G source;
-  void Function<X extends A<dynamic>>() target = source;
-  void Function<X extends A<Null>>() target1 = source; //# 01: compile-time error
+  G source;  // # 01: compile-time-error
 }

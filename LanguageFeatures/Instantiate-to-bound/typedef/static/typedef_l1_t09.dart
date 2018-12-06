@@ -46,24 +46,9 @@
  * extends A<X>>], [typedef G<X extends A<X>> = X Function()] (unused)
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
-
 class A<X extends A<X>> {}
 typedef G<X extends A<X>> = void Function();
 
 main() {
-  G source;
-  var fsource = toF(source);
-  F<G<A<dynamic>>> target = fsource;
-
-  F<G<A<Null>>> target1 = fsource;
-
-  F<G<A<A<dynamic>>>> target2 = fsource;
-  F<G<A<A<A<dynamic>>>>> target3 = fsource;
-  F<G<A<A<A<A<dynamic>>>>>> target4 = fsource;
-
-  F<G<A<A<Null>>>> target5 = fsource;
-  F<G<A<A<A<Null>>>>> target6 = fsource;
-  F<G<A<A<A<A<Null>>>>>> target7 = fsource;
+  G source;   // # 01: compile-time error
 }

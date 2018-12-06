@@ -46,19 +46,11 @@
  * with two related parameters: [typedef G<X extends A<X>, Y extends A<Y>>  = X
  * Function(Y)]
  * @Issue 34689, 34699
- * @compile-error
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
-
 class A<X> {}
 typedef G<X extends A<X>, Y extends A<Y>> = X Function(Y);
 
 main() {
-  G source;
-  var fsource = toF(source);
-  F<G<A<dynamic>, A<Null>>> target = fsource;
-  F<G<A<dynamic>, A<dynamic>>> target1 = fsource; //# 01: compile-time error
-  F<G<A<Null>, A<Null>>> target2 = fsource;       //# 02: compile-time error
+  G source; // #01: compile-time error
 }
