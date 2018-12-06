@@ -31,7 +31,7 @@ bool isOrderChanged(List<int> list, Int64List sl) {
 }
 
 main() {
-  List<int> list = [0, 1, 2, 3, 4, 5];
+  List<int> list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   var counter = 0;
   for (int i = 0; i < 10; i++) {
     var sl = new Int64List.fromList(list);

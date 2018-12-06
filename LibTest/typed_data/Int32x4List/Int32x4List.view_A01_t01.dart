@@ -25,7 +25,7 @@ equal(o1, o2) {
   return o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
 }
 
-void check(list, offset, length) {
+void check(List<Int32x4> list, offset, length) {
   var l = new Int32x4List.fromList(list);
   var buffer = l.buffer;
   var view = new Int32x4List.view(buffer, offset, length);

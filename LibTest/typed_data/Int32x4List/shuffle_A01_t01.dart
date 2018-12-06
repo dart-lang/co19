@@ -38,7 +38,7 @@ bool isOrderChanged(List<Int32x4> list, Int32x4List sl) {
 
 main() {
   List<Int32x4> list = [i32x4p(1), i32x4p(2), i32x4p(3), i32x4p(4), i32x4p(5),
-                        i32x4p(6)];
+                        i32x4p(6), i32x4p(7), i32x4p(8), i32x4p(9), i32x4p(10)];
   var counter = 0;
   for (int i = 0; i < 10; i++) {
     var sl = new Int32x4List.fromList(list);

@@ -22,7 +22,7 @@ equal(o1, o2) {
   return o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
 }
 
-check(list, n) {
+check(List<Int32x4> list, n) {
   var l = new Int32x4List.fromList(list);
   var res = l.take(n);
 

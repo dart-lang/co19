@@ -21,10 +21,8 @@ void check(List<int> array) {
 }
 void checkClear(length) {
   dynamic l = new Uint64List(length);
-  try {
-    l.last = 0;
-    Expect.fail("[last] should be read-only");
-  } on NoSuchMethodError {}
+  l.last = 3;
+  Expect.equals(3, l.last);
 }
 
 main() {
