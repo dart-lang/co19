@@ -7,12 +7,12 @@
  * @assertion ListMixin<E> abstract class 
  * Implements List<E>
  * @description Checks that List-specific methods work as specified.
- * tests which consume much memory 
+ * Test which consume a lot of memory
  * @author kaigorodov
  */
-import "../../core/List/hugeListTests.lib.dart";
+import "../../core/List/sort_A01_t04.test.dart" as sort_A01_t04;
 import "listbase.lib.dart";
 
 main() {
-  test(create);  
+  sort_A01_t04.test(create);
 }
