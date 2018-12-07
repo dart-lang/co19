@@ -44,6 +44,23 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works OK for [typedef G<X> =
  * Function(X)], [class A<X extends G<A<X, Y>>, Y extends X>]
+ *
+ * In the test we have [G] with one type argument which is contravariant, so the
+ * meaning of the raw [A] is [A<G<A<Null, Null>>, dynamic>], obtained as
+ * follows:
+ *
+ * X                  Y
+ * ----------------------------------
+ * G<A<X, Y>>         X             // Initial values.
+ * G<A<Null, Null>>   dynamic       // Break SCC {X, Y}.
+ *
+ * The resulting type is well-bounded, because it is super-bounded, because
+ * [dynamic <: G<...>] fails, but [A<G<A<Object, Object>>, Null>] is
+ * regular-bounded, because [Null <: ...` and `G<A<Object, Object>> <:
+ * G<A<..., ...>>].
+ * This also shows that the instance creation at the end is a compile-time
+ * error.
+ *
  * @compile-error
  * @author iarkh@unipro.ru
  */

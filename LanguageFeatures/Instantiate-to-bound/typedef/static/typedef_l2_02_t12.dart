@@ -45,6 +45,15 @@
  * @description Checks that instantiate-to-bounds works correctly for [typedef]
  * with two related parameters: [typedef G<X extends A<X>, Y extends X> = void
  * Function<Y1 extends Y>(X)]
+ *
+ * Two compile-time errors here.
+ * Let's consider 01: [void Function<X extends A<dynamic>>(A<Null>) target1 =
+ * source]:  The type of [source] is raw [G] which is [G<A<Null>, A<Null>>]
+ * which is unaliased to [void Function<Y1 extends A<Null>>(A<Null>)].  It
+ * explains why [source] can't be assigned to [target1]:  their types are
+ * incomparable because the type parameters of these generic function types are
+ * different ([A<dynamic>] vs [A<Null>]).
+ *
  * @Issue 34689, 34699
  * @author iarkh@unipro.ru
  */
@@ -56,8 +65,8 @@ main() {
   void Function<X extends A<Null>>(A<Null>) target = source;
 
   void Function<X extends A<dynamic>>(A<Null>) target1 = source;    // # 01: compile-time error
-  void Function<X extends A<Null>>(A<dynamic>) target2 = source;    // # 02: compile-time error
-  void Function<X extends A<dynamic>>(A<dynamic>) target3 = source; // # 03: compile-time error
-  void Function<X extends A<Null>>(dynamic) target4 = source;       // # 04: compile-time error
-  void Function<X extends A<Null>>(Null) target5 = source;          // # 05: compile-time error
+  void Function<X extends A<Null>>(A<dynamic>) target2 = source;
+  void Function<X extends A<dynamic>>(A<dynamic>) target3 = source; // # 02: compile-time error
+  void Function<X extends A<Null>>(dynamic) target4 = source;
+  void Function<X extends A<Null>>(Null) target5 = source;
 }

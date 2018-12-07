@@ -45,6 +45,12 @@
  * @description Checks that instantiate-to-bounds works correctly for [typedef]
  * with two related parameters: [typedef G<X extends A<X>, Y extends X> = void
  * Function<Y1 extends Y>(X, Y)]
+ *
+ * There are 4 Compile-time errors here.  In all four cases the assignment isn't
+ * possible because the types of l.h.s. and r.h.s. are generic function types,
+ * and the type parameters have different bounds ([A<dynamic>] vs [A<Null>]) in
+ * all cases.
+ *
  * @Issue 34689, 34699
  * @author iarkh@unipro.ru
  */
@@ -61,7 +67,7 @@ main() {
   void Function<X extends A<dynamic>>(A<dynamic>, A<Null>) target3 = source; // # 03: compile-time error
   void Function<X extends A<dynamic>>(A<Null>, A<dynamic>) target4 = source; // # 04: compile-time error
 
-  void Function<X extends A<Null>>(A<Null>, A<dynamic>) target5 = source;    // # 05: compile-time error
-  void Function<X extends A<Null>>(A<dynamic>, A<Null>) target6 = source;    // # 06: compile-time error
-  void Function<X extends A<Null>>(A<Null>, A<dynamic>) target37 = source;   // # 07: compile-time error
+  void Function<X extends A<Null>>(A<Null>, A<dynamic>) target5 = source;
+  void Function<X extends A<Null>>(A<dynamic>, A<Null>) target6 = source;
+  void Function<X extends A<Null>>(A<Null>, A<dynamic>) target37 = source;
 }
