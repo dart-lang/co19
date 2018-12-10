@@ -45,6 +45,14 @@
  * @description Checks that instantiate-to-bounds works correctly for [typedef]
  * with two related parameters: [typedef G<X extends Y, Y extends A<Y>> = void
  * Function(X)]
+ *
+ * [Y] is unused here, because the concept of being unused is one of the kinds
+ * of variance that each type parameter can have, and their variance is
+ * determined completely by their occurrences on the right hand side of [=] in
+ * the declaration (or the corresponding positions in an old style [typedef T
+ * f(...);]), and [Y] does not occur there. So any occurrence of a raw [G] is a
+ * compile-time error.
+ *
  * @Issue 34689
  * @author iarkh@unipro.ru
  */
