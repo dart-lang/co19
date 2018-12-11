@@ -47,9 +47,6 @@
  * Function<X1 extends X, Y1 extends Y>()]
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
-
 class A<X> {}
 typedef G<X extends Y, Y extends A<Y>> =
     void Function<X1 extends X, Y1 extends Y>();
