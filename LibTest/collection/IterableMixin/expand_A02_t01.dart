@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion   Iterable expand(Iterable f(E element))
+ * @assertion Iterable<T> expand <T>(Iterable<T> f(E element))
  * The resulting [Iterable] runs through the elements returned by [f] for each
  * element of this, in iteration order.
  * The returned [Iterable] is lazy, and calls [f] for each element of this
@@ -30,9 +30,10 @@ main() {
   List res = [];
   List original = [1, 3, 9, 4, 16, -24, 6, 6, 6];
   MyIterable iterable = new MyIterable(original);
-  iterable.expand((var element) {
+  Iterable list = iterable.expand((var element) {
     res.add(element);
     return [element, -element];
   });
-  Expect.equals(original, res);
+  Expect.equals(original.length * 2, list.length);
+  Expect.listEquals(original, res);
 }

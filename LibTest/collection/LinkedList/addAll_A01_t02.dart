@@ -14,10 +14,10 @@ import "dart:collection";
 import "LinkedList.lib.dart";
 
 main() {
-  LinkedList a = toLinkedList(["1", "2", "3"]);
+  LinkedList<MyLinkedListEntry> a = toLinkedList(["1", "2", "3"]);
   contentEquals(["1", "2", "3"], a);
 
-  a.addAll(
-      [null, 0, false, "0"].map((var element) => new MyLinkedListEntry(element)));
+  a.addAll([null, 0, false, "0"]
+      .map((var element) => new MyLinkedListEntry(element)));
   contentEquals(["1", "2", "3", null, 0, false, "0"], a);
 }

@@ -37,7 +37,7 @@ void check(LinkedList a, [String separator = ""]) {
 main() {
   check(new LinkedList<MyLinkedListEntry>());
   check(new LinkedList<MyLinkedListEntry>(), ", ");
-  LinkedList a0 = toLinkedList(["1", "3", 4, null, 6]);
+  LinkedList<MyLinkedListEntry> a0 = toLinkedList(["1", "3", 4, null, 6]);
   check(a0);
   check(a0, ":");
   a0.addAll([1.0, 3.14].map((e) => new MyLinkedListEntry(e)));

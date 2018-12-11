@@ -18,15 +18,21 @@ import "dart:collection";
 import "LinkedListEntry.lib.dart";
 
 main() {
-  LinkedList<MyLinkedListEntry> list1 = new LinkedList<MyLinkedListEntry>();
-  LinkedList<MyLinkedListEntry> list2 = new LinkedList<MyLinkedListEntry>();
+  LinkedList<MyLinkedListEntry> list1 =
+      new LinkedList<MyLinkedListEntry<int>>();
+  LinkedList<MyLinkedListEntry> list2 =
+      new LinkedList<MyLinkedListEntry<int>>();
 
   LinkedListEntry entry = new MyLinkedListEntry(1);
   Expect.isNull(entry.list);
 
   list1.add(entry);
-  Expect.throws(() { list2.add(entry); });
-  Expect.throws(() { list1.add(entry); });
+  Expect.throws(() {
+    list2.add(entry);
+  });
+  Expect.throws(() {
+    list1.add(entry);
+  });
   Expect.equals(list1, entry.list);
   Expect.isTrue(list1.contains(entry));
 
@@ -35,8 +41,12 @@ main() {
   Expect.isFalse(list1.contains(entry));
 
   list2.add(entry);
-  Expect.throws(() { list2.add(entry); });
-  Expect.throws(() { list1.add(entry); });
+  Expect.throws(() {
+    list2.add(entry);
+  });
+  Expect.throws(() {
+    list1.add(entry);
+  });
   Expect.equals(list2, entry.list);
   Expect.isTrue(list2.contains(entry));
   Expect.isFalse(list1.contains(entry));

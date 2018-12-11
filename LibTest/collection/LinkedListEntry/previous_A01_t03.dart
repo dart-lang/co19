@@ -18,7 +18,7 @@ import "dart:collection";
 import "LinkedListEntry.lib.dart";
 
 main() {
-  LinkedList<MyLinkedListEntry> list = new LinkedList<MyLinkedListEntry>();
+  LinkedList<MyLinkedListEntry> list = new LinkedList<MyLinkedListEntry<int>>();
   MyLinkedListEntry<int> entry1 = new MyLinkedListEntry<int>(1);
   list.add(entry1);
   Expect.isNull(entry1.previous);

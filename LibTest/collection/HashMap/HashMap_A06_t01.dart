@@ -29,8 +29,9 @@ int hashCode(dynamic key) {
 }
 
 main() {
-  HashMap map = new HashMap<int, int>(equals : equals, hashCode : hashCode);
-  map.addAll({0 : 0, 1 : 0, 2 : 12, -3 : 0, -4 : 0});
+  HashMap<int, int> map =
+      new HashMap<int, int>(equals: equals, hashCode: hashCode);
+  map.addAll({0: 0, 1: 0, 2: 12, -3: 0, -4: 0});
 
   i = 0;
   bool j = map.containsKey(null);

@@ -23,11 +23,11 @@ test(List create([int length])) {
   }
 
   check(new List(1), -1);
-  check(new List(1), -(1 << 65));
+  check(new List(1), -(1 << 63));
   check([1], -1);
-  check([1], -(1 << 65));
+  check([1], -(1 << 63));
   check(const [1], -1);
-  check(const [1], -(1 << 65));
+  check(const [1], -(1 << 63));
   check(new List(), -1);
-  check(new List(), -(1 << 65));
+  check(new List(), -(1 << 63));
 }

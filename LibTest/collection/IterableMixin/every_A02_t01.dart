@@ -44,5 +44,5 @@ main() {
     res.add(element);
     return element < 10;
   });
-  Expect.equals(res, [1, 2, 7, -5, 9]);
+  Expect.listEquals(res, [1, 2, 7, -5, 9, 16]);
 }

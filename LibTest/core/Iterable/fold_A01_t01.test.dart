@@ -5,7 +5,7 @@
  */
 /**
  * @assertion
- * dynamic fold(initialValue, dynamic combine(previousValue, E element))
+ * T fold <T>(T initialValue, T combine(T previousValue, E element))
  * Reduces a collection to a single value by iteratively combining each element
  * of the collection with an existing value
  * Uses initialValue as the initial value, then iterates through the elements
@@ -31,9 +31,9 @@ check(Iterable a, num init, combine, num expected) {
 }
 
 test(Iterable create([Iterable content])) {
-  check(create([1, 2, -3]), 0, (value, element) => value + element, 0);
-  check(create([1, 2, -3]), 1, (value, element) => value * element, -6);
-  check(create([0, 2, -3]), 1, (value, element) => value * element, 0);
+  check(create([1, 2, -3]), 0, (num value, element) => value + element, 0);
+  check(create([1, 2, -3]), 1, (num value, element) => value * element, -6);
+  check(create([0, 2, -3]), 1, (num value, element) => value * element, 0);
   check(create([1, 2, -5, -6]), -1000,
-      (num value, num element) => max(value,element), 2);
+      (num value, element) => max(value, element as int), 2);
 }

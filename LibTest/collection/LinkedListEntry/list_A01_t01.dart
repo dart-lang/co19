@@ -16,7 +16,7 @@ import "LinkedListEntry.lib.dart";
 
 main() {
   MyLinkedListEntry<int> entry = new MyLinkedListEntry<int>(1);
-  LinkedList<MyLinkedListEntry> list = new LinkedList<MyLinkedListEntry>();
+  LinkedList<MyLinkedListEntry> list = new LinkedList<MyLinkedListEntry<int>>();
   list.add(entry);
 
   Expect.identical(list, entry.list);

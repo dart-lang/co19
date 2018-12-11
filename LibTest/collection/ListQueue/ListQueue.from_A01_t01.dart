@@ -23,7 +23,7 @@ void check(ListQueue l, Iterable c) {
 }
 
 main() {
-  ListQueue<int> list = new ListQueue.from([1, 2, 3, 4, 5]);
+  ListQueue list = new ListQueue.from([1, 2, 3, 4, 5]);
   check(list, [1, 2, 3, 4, 5]);
   
   Set set = new Set.from([1, 2, 3, 4, 5]);
@@ -35,10 +35,10 @@ main() {
   tmp.addLast(2);
   list = new ListQueue.from(tmp);
   check(list, tmp);
-  
+
   list = new ListQueue.from(new ListQueue());
   check(list, []);
-  
+
   list = new ListQueue.from([tmp, tmp, set]);
   check(list, [tmp, tmp, set]);
   

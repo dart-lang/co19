@@ -38,8 +38,8 @@ main() {
   Expect.isTrue(iterable.any((e) => e is int));
 
   iterable = new MyIterable.from([1, 2, 3, 4, 5, "a", "b", "c", "d", "e"]);
-  Expect.isFalse(iterable.any((e) => e is String));
-  Expect.isFalse(iterable.any((e) => e is int));
+  Expect.isTrue(iterable.any((e) => e is String));
+  Expect.isTrue(iterable.any((e) => e is int));
 
   iterable = new MyIterable.from(["a", "b", "c", "d", "e"]);
   Expect.isTrue(iterable.any((e) => e is String));
