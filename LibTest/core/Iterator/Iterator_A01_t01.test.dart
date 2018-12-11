@@ -12,11 +12,10 @@
  * @author vasya
  */
 library iterator_A01_t01;
- 
+
 import "../../../Utils/expect.dart";
 
 test(Iterator create([Iterable content]), {bool isSet: false}) {
-  
   void checkIterator(Iterator it, Iterable a) {
     List l = new List.from(a);
     while (it.moveNext()) {
@@ -25,10 +24,11 @@ test(Iterator create([Iterable content]), {bool isSet: false}) {
     }
     Expect.isTrue(l.isEmpty);
   }
-  
+
   checkIterator(create([]), []);
-  checkIterator(create(const [null, 0, 1, const []]), const [null, 0, 1, const []]);
   if (!isSet) {
+    checkIterator(
+        create(const [null, 0, 1, const []]), const [null, 0, 1, const []]);
     List l = new List.filled(300, 0);
     checkIterator(create(l), l);
     l = new List(300);
