@@ -7,6 +7,7 @@
  * @assertion bool single
  * @description Checks that [single] returns [true] if there is one element in
  * the iterable and [false] otherwise.
+ * Throws a StateError if this is empty or has more than one element.
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
@@ -41,8 +42,17 @@ class MyIterable extends Object with IterableMixin {
 }
 
 main() {
-  Expect.isFalse(new MyIterable(0).single);
-  Expect.isFalse(new MyIterable(10).single);
-  Expect.isFalse(new MyIterable(150).single);
-  Expect.isTrue(new MyIterable(1).single);
+  try {
+    new MyIterable(0).single;
+  } on StateError {
+  }
+  try {
+    new MyIterable(10).single;
+  } on StateError {
+  }
+  try {
+    new MyIterable(150).single;
+  } on StateError {
+  }
+  Expect.equals(1, new MyIterable(1).single);
 }

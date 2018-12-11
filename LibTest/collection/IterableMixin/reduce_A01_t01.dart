@@ -24,7 +24,7 @@ class MyIterable extends Object with IterableMixin {
   }
 }
 
-check(List list, combine, num expected) {
+check(List list, num combine(value, element), num expected) {
   IterableMixin iterable = new MyIterable(list);
   num actual = iterable.reduce(combine);
   Expect.equals(expected, actual);
@@ -35,5 +35,5 @@ main() {
   check([1, 2, -3], (value, element) => value * element, -6);
   check([0, 2, -3], (value, element) => value * element, 0);
   check(const[1, 2, -5, -6],
-      (num value, num element) => max(value, element), 2);
+      (value, element) => max(value, element), 2);
 }

@@ -4,7 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion dynamic fold(initialValue, combine(previousValue, E element))
+ * @assertion T fold <T>(T initialValue, T combine(T previousValue, E element))
+ *
+ * dynamic fold(initialValue, combine(previousValue, E element))
  * Reduces a collection to a single value by iteratively combining each element
  * of the collection with an existing value using the provided function.
  * Uses [initialValue] as the initial value, then iterates through the elements
@@ -24,9 +26,9 @@ check(List list, num init, combine, num expected) {
 }	
 
 main() {
-  check([1, 2, -3], 0, (value, element) => value + element, 0);
-  check([1, 2, -3], 1, (value, element) => value * element, -6);
-  check([0, 2, -3], 1, (value, element) => value * element, 0);
+  check([1, 2, -3], 0, (num value, element) => value + element, 0);
+  check([1, 2, -3], 1, (num value, element) => value * element, -6);
+  check([0, 2, -3], 1, (num value, element) => value * element, 0);
   check(const[1, 2, -5, -6], -1000,
-      (num value, num element) => max(value, element), 2);
+      (num value, element) => max(value, element as int), 2);
 }

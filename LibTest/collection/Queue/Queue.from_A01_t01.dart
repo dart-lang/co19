@@ -23,7 +23,7 @@ void check(Queue l, Iterable c) {
 }
 
 main() {
-  Queue<int> list = new Queue.from([1, 2, 3, 4, 5]);
+  Queue list = new Queue.from([1, 2, 3, 4, 5]);
   check(list, [1, 2, 3, 4, 5]);
   
   Set set = new Set.from([1, 2, 3, 4, 5]);

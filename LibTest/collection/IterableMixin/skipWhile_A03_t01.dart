@@ -26,22 +26,22 @@ class MyIterable<int> extends Object with IterableMixin {
 
 void check(List list, bool test(var element)) {
   IterableMixin iterable = new MyIterable(list);
-  List all;
-  bool test(var element) {
+  List all = [];
+  bool test1(var element) {
     bool res = test(element);
     if (res) {
       all.add(element);
     }
     return res;
   }
-  Iterable res = iterable.skipWhile(test);
-  
+  Iterable res = iterable.skipWhile(test1);
+
   for (int k = 0; k < 5; k++) {
     all = [];
     Iterator it = res.iterator;
     while (it.moveNext()) {
       all.add(it.current);
-    }  
+    }
     Expect.listEquals(list, all);
   }
 }

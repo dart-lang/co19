@@ -21,11 +21,11 @@ check(LinkedList<MyLinkedListEntry> llist,
   llist.remove(entry);
 
   int i = 0;
-  llist.forEach((MyLinkedListEntry entry) {
+  llist.forEach((MyLinkedListEntry elem) {
     if(initial[i] == entry) {
       i++;
     };
-    Expect.equals(initial[i++], entry);
+    Expect.equals(initial[i++], elem);
   });
 }
 

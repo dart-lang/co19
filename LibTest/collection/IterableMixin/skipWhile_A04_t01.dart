@@ -30,12 +30,12 @@ class MyIterable<int> extends Object with IterableMixin {
 void check(List list, bool test(var element)) {
   IterableMixin iterable = new MyIterable(list);
   bool testPassed = null;
-  bool test(var element) {
+  bool test1(var element) {
     Expect.isTrue(testPassed == null || testPassed,
         "testPassed=$testPassed for element=$element");
     return testPassed =! test(element);
   }
-  for (var element in iterable.skipWhile(test)) {
+  for (var element in iterable.skipWhile(test1)) {
     Expect.isTrue(testPassed == null || !testPassed);
   }  
 }

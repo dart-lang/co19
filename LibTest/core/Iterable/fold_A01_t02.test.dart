@@ -5,7 +5,7 @@
  */
 /**
  * @assertion
- * dynamic fold(initialValue, dynamic combine(previousValue, E element))
+ * T fold <T>(T initialValue, T combine(T previousValue, E element))
  * Reduces a collection to a single value by iteratively combining each element
  * of the collection with an existing value
  * Uses initialValue as the initial value, then iterates through the elements
@@ -24,7 +24,7 @@
 library fold_A01_t02;
 import "../../../Utils/expect.dart";
 
-dynamic combine(previousValue, element) => previousValue++;
+num combine(num previousValue, element) => ++previousValue;
 
 check(Iterable a) {
   num actual = a.fold(0, combine);

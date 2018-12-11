@@ -23,7 +23,7 @@ void check(DoubleLinkedQueue l, Iterable c) {
 }
 
 main() {
-  DoubleLinkedQueue<int> list = new DoubleLinkedQueue.from([1, 2, 3, 4, 5]);
+  DoubleLinkedQueue list = new DoubleLinkedQueue.from([1, 2, 3, 4, 5]);
   check(list, [1, 2, 3, 4, 5]);
   
   Set set = new Set.from([1, 2, 3, 4, 5]);
@@ -38,7 +38,7 @@ main() {
   
   list = new DoubleLinkedQueue.from(new DoubleLinkedQueue());
   check(list, []);
-  
+
   list = new DoubleLinkedQueue.from([tmp, tmp, set]);
   check(list, [tmp, tmp, set]);
   

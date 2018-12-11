@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion   Iterable expand(Iterable f(E element))
+ * @assertion Iterable<T> expand <T>(Iterable<T> f(E element))
  * Expands each element of this [Iterable] into zero or more elements.
  * @description Checks that empty [Iterable] cannot be expanded.
  * @author iarkh@unipro.ru

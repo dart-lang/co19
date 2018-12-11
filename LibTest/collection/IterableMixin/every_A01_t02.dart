@@ -8,7 +8,7 @@
  * Checks whether every element of this iterable satisfies test.
  * ... returns [false] if any of them make [test] return [false], otherwise
  * returns [true].
- * @description Checks that [false] is always returned for empty iterable.
+ * @description Checks that [true] is always returned for empty iterable.
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
@@ -25,9 +25,9 @@ class MyIterable extends Object with IterableMixin {
 
 main() {
   MyIterable iterable = new MyIterable([]);
-  Expect.isFalse(iterable.every((var element) { return true; }));
-  Expect.isFalse(iterable.every((var element) { return element > 0; }));
-  Expect.isFalse(iterable.every((var element) { return false; }));
-  Expect.isFalse(iterable.every((var element) { return element < 0; }));
-  Expect.isFalse(iterable.every((var element) { return element > 4; }));
+  Expect.isTrue(iterable.every((var element) { return true; }));
+  Expect.isTrue(iterable.every((var element) { return element > 0; }));
+  Expect.isTrue(iterable.every((var element) { return false; }));
+  Expect.isTrue(iterable.every((var element) { return element < 0; }));
+  Expect.isTrue(iterable.every((var element) { return element > 4; }));
 }

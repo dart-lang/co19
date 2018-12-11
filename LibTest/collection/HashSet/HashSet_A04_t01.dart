@@ -30,7 +30,7 @@ int hashCode(dynamic key) {
 }
 
 main() {
-  HashSet set = new HashSet<int>(equals : equals, hashCode : hashCode);
+  HashSet<int> set = new HashSet<int>(equals : equals, hashCode : hashCode);
   set.addAll([0, 1, 2, -3, -4]);
 
   i = 0;

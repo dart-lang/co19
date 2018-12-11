@@ -21,7 +21,7 @@ import "LinkedList.lib.dart";
 bool check(List elements) {
   LinkedList<MyLinkedListEntry> llist = toLinkedList(elements);
   String rep = llist.toString();
-  if (rep.length >= 80) {
+  if (elements.toString().length + elements.length * 2 >= 80) {
     return false;
   } else {
     for (var element in elements) {

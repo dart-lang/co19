@@ -35,5 +35,5 @@ class MyIterable extends Object with IterableMixin {
 
 main() {
   dynamic iterable = new MyIterable();
-  Expect.equals(0, iterable.first);
+  Expect.equals(1, iterable.first);
 }
