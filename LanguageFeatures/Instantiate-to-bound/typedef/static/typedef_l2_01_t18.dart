@@ -43,24 +43,13 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for [typedef]
- * with two related parameters: [typedef G<X extends A<X>, Y extends X> = Y
- * Function(X)]
- * @Issue 35068
- * @compile-error
+ * with two related parameters: [typedef G<X extends A<X>, Y extends A<Y>> =
+ * void Function()]
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
-
 class A<X> {}
-typedef G<X extends A<X>, Y extends X> = Y Function(X);
+typedef G<X extends A<X>, Y extends A<Y>> = void Function();
 
 main() {
-  G source;
-  var fsource = toF(source);
-  F<G<A<Null>, A<Null>>> target = fsource;
-  F<G<A<dynamic>, dynamic>> target1 = fsource;    //# 01: compile-time error
-  F<G<A<dynamic>, Null>> target2 = fsource;       //# 02: compile-time error
-  F<G<dynamic, A<dynamic>>> target3 = fsource;    //# 03: compile-time error
-  F<G<A<dynamic>, A<dynamic>>> target4 = fsource; //# 04: compile-time error
+  G source;   // # 01: compile-time error
 }
