@@ -21,7 +21,7 @@ main() {
   
   int count = 0;
   try {
-    base.forEach((String key, Object value) {
+    base.forEach((var key, Object value) {
       if (count++ > 0) throw "stop";
     });
     Expect.fail("Exception expected");

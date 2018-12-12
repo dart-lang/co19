@@ -14,7 +14,7 @@ import "dart:collection";
 main() {
   UnmodifiableMapView view = new UnmodifiableMapView({1 : 3, "2" : 5});
 
-  int f(String x, Object y) {
+  int f(var x, Object y) {
     return 1;
   }
   

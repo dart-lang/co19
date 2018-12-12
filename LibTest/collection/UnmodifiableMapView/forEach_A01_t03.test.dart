@@ -20,7 +20,7 @@ main() {
   
   int count = 0;
   try {
-    view.forEach((String key, Object value) {
+    view.forEach((var key, Object value) {
       if (count++ > 0) throw "stop";
     });
     Expect.fail("Exception expected");
