@@ -181,3 +181,14 @@ String getTempDirectoryPath({Directory parent, String name}) {
 
 String getEntityName(FileSystemEntity entity) =>
     entity.path.substring(entity.path.lastIndexOf(Platform.pathSeparator) + 1);
+
+void expectSuccess(ProcessResult result) {
+  if (result.exitCode != 0) {
+    String details = """
+EXIT CODE: ${result.exitCode}
+STDOUT: ${result.stdout}
+STDERR: ${result.stderr}
+""";
+    Expect.equals(result.exitCode, 0, details);
+  }
+}

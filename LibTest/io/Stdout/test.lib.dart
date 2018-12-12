@@ -37,6 +37,7 @@ run_main(Encoding enc, void run(), List<int> expected) async {
       run_Windows(executable, script, filename, enc) :
       run_Linux(executable, script, filename, enc)).
       then((ProcessResult results) async {
+    expectSuccess(results);
     File fl = new File(filename);
     await fl.readAsBytes().then((List<int> contents) {
       fl.delete();
