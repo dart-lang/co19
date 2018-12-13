@@ -42,9 +42,9 @@ test(Iterable create([Iterable content]), {bool isSet:false}) {
   b[999] = 999;
   a.addAll(b);
   check(b);
-  
-  a.length = 236578;
-  a[236577] = 236578;
+
+  a.length = 2001;
+  a[2000] = 2001;
   check(a);
 
   a = new List(10);
