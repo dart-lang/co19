@@ -19,5 +19,5 @@ main() {
   Expect.isFalse((-4294967296).isOdd);
   Expect.isTrue((-4294967297).isOdd);
   Expect.isFalse((-9223372036854775808).isOdd);
-  Expect.isTrue((-9223372036854775808).isOdd);
+  Expect.isTrue((-9223372036854775807).isOdd);
 }
