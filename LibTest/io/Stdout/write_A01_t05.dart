@@ -22,5 +22,5 @@ run_process() { stdout.write(str); }
 
 main(List<String> args) {
   args.length > 0 ? run_process() : run_main(
-      new AsciiCodec(allowInvalid: true), run_process, expected);
+      new AsciiCodec(allowInvalid: true), expected);
 }

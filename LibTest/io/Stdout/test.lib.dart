@@ -25,7 +25,7 @@ Future<ProcessResult> run_Linux(
       runInShell: true, stdoutEncoding: enc);
 }
 
-run_main(Encoding enc, void run(), List<int> expected) async {
+run_main(Encoding enc, List<int> expected) async {
   String executable = Platform.resolvedExecutable;
   String script = Platform.script.toString();
   int called = 0;
@@ -37,14 +37,10 @@ run_main(Encoding enc, void run(), List<int> expected) async {
       run_Windows(executable, script, filename, enc) :
       run_Linux(executable, script, filename, enc)).
       then((ProcessResult results) async {
-        Expect.equals(results.exitCode, 0,
-"""STDOUT: ${results.stdout},
-STDERR: ${results.stderr}""");
-    File fl = new File(filename);
-    await fl.readAsBytes().then((List<int> contents) {
-      fl.delete();
-      Expect.listEquals(expected, contents);
-    });
+    final file = new File(filename);
+    final contents = await file.readAsBytes();
+    await file.delete();
+    Expect.listEquals(expected, contents);
     called++;
   }).whenComplete(() {
     sandbox.delete(recursive: true);

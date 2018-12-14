@@ -27,5 +27,5 @@ run_process() {
 
 main(List<String> args) {
   args.length > 0 ? run_process() : run_main(
-      Encoding.getByName("UTF-16"), run_process, expected);
+      Encoding.getByName("UTF-16"), expected);
 }

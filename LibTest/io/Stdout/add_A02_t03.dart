@@ -24,5 +24,5 @@ List<int> expected = [126, 127, 128, 254, 255, 0, 254, 255, 0, 1, 232, 208, 184,
 run_process() { stdout.add(aList); }
 
 main(List<String> args) {
-  args.length > 0 ? run_process() : run_main(null, run_process, expected);
+  args.length > 0 ? run_process() : run_main(null, expected);
 }

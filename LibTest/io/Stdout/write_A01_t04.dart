@@ -20,9 +20,12 @@ List<int> expected = [208, 162, 208, 181, 209, 129, 209, 130, 32, 208, 180, 208,
     187, 209, 143, 32, 208, 191, 209, 128, 208, 190, 208, 178, 208, 181, 209,
     128, 208, 186, 208, 184];
 
-run_process() { stdout.write(str); }
+run_process() async {
+  stdout.write(str);
+  await stdout.flush();
+}
 
 main(List<String> args) {
   args.length > 0 ? run_process() : run_main(
-      new Utf8Codec(allowMalformed: false), run_process, expected);
+      new Utf8Codec(allowMalformed: false), expected);
 }
