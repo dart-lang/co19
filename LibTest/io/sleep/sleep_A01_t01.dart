@@ -16,7 +16,8 @@ test(int dur) {
   DateTime d1 = new DateTime.now();
   sleep(new Duration(milliseconds: dur));
   DateTime d2 = new DateTime.now();
-  Expect.isTrue(d2.millisecondsSinceEpoch - d1.millisecondsSinceEpoch >= dur);
+  Expect.isTrue(
+      d2.millisecondsSinceEpoch - d1.millisecondsSinceEpoch >= dur - 1);
 }
 
 main(List<String> args) {
