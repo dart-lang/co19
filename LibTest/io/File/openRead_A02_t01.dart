@@ -15,10 +15,11 @@
  *
  * In order to make sure that system resources are freed, the stream must be
  * read to completion or the subscription on the stream must be cancelled.
- * @description Checks that before completion file is locked
+ * @description Checks that returned stream can be listened to
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
+import "dart:async";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 
@@ -28,11 +29,19 @@ main() async {
 
 _main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
-  file.writeAsBytesSync([1, 2, 3]);
+  List<int> content = [3, 1, 4, 1, 5, 9, 2, 6];
+  file.writeAsBytesSync(content);
   asyncStart();
-  await file.openRead().listen((data) {
-    Expect.throws(() {file.deleteSync();});
-  }).onDone(() {
+  final c = new Completer();
+  StreamSubscription<List<int>> s = null;
+  s = await file.openRead().listen((data) async {
+    Expect.isTrue(data.length <= content.length);
+    for (int i = 0; i < data.length; i++) {
+      Expect.equals(content[i], data[i]);
+    }
+    await s.cancel();
+    c.complete();
     asyncEnd();
   });
+  return c.future;
 }
