@@ -7,6 +7,7 @@
  * @assertion T operator [](Object object)
  * Gets the value of this Expando's property on the given object. If the object
  * hasn't been expanded, the method returns null.
+ * The object must not be a number, a string, a boolean or null.
  * @description Checks that this operator returns the value previously set for
  * the same argument.
  * @author rodionov

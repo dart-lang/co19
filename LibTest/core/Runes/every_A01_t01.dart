@@ -13,7 +13,7 @@
  */
 import "../../../Utils/expect.dart";
 
-pred(element) => element > 5;
+bool pred(element) => element > 5;
 
 main() {
   var runes;

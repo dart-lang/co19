@@ -20,7 +20,7 @@ main() {
   Expect.equals("dart ", "dart".padRight(5));
   Expect.equals("dart  ", "dart".padRight(6));
   Expect.equals("dart   ", "dart".padRight(7));
-  Expect.equals("dart-", "dart".padRight(4, "-"));
+  Expect.equals("dart", "dart".padRight(4, "-"));
   Expect.equals("dart-", "dart".padRight(5, "-"));
   Expect.equals("dart--", "dart".padRight(6, "-"));
   Expect.equals("dart___", "dart".padRight(7, "_"));

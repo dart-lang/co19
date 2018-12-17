@@ -24,6 +24,6 @@ class C {
 main() {
   Expect.equals("C23", "123".replaceFirstMapped("1", (m) {
     dynamic c = new C();
-    return c;
+    return c.toString();
   }));
 }
