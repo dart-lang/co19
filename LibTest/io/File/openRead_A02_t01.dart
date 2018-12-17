@@ -29,12 +29,16 @@ main() async {
 
 _main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
-  file.writeAsBytesSync([1, 2, 3]);
+  List<int> content = [3, 1, 4, 1, 5, 9, 2, 6];
+  file.writeAsBytesSync(content);
   asyncStart();
   final c = new Completer();
   StreamSubscription<List<int>> s = null;
   s = await file.openRead().listen((data) async {
-    Expect.listEquals([1, 2, 3], data);
+    Expect.isTrue(data.length <= content.length);
+    for (int i = 0; i < data.length; i++) {
+      Expect.equals(content[i], data[i]);
+    }
     await s.cancel();
     c.complete();
     asyncEnd();
