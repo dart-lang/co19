@@ -15,11 +15,9 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for the class with
  * function parameter (covariant)
- * @compile-error
  * @author iarkh@unipro.ru
  */
 
-// Functions for correct type comparison in language feature tests
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 
