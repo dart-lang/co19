@@ -4,16 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @description Regression test for the issue 33585, 33308 (CFE doesn't check
- * type arguments against the bounds of the corresponding type variables)
+ * @description Regression test for the issue 33184 (No error when run dart
+ * class with incorrect instantiation to bound)
  * @compile-error
  * @author iarkh@unipro.ru
  */
-
-class A {}
-class B{}
-
-class M<X extends A> {}
-class O extends Object with M<B> {}
-
+class D<T extends Comparable<T>> {}
+class E<T extends D> {}
 main() {}

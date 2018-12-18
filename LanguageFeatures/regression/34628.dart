@@ -11,7 +11,7 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-class B<X extends A<X>> {}  //# 01: compile-time error
-class A<X extends B<X>> {}  //# 02: compile-time error
+class B<X extends A<X>> {}
+class A<X extends B<X>> {}
 
 main() {}
