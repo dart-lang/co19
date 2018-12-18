@@ -5,15 +5,18 @@
  */
 /**
  * @assertion If s is an emptySetOrMapLiteral with no typeArguments and static
- * context type C, then if Set<Null> is assignable to C and Map<Null, Null> is
- * not assignable to C, then s is a set literal, otherwise s is a map literal.
+ * context type C, then if LinkedHashSet<Null> is assignable to C and
+ * LinkedHashMap<Null, Null> is not assignable to C, then s is a set literal,
+ * otherwise s is a map literal.
  *
  * @description Checks that if s is an emptySetOrMapLiteral with no
- * typeArguments and static context type C, then if Set<Null> is assignable to C
- * and Map<Null, Null> is not assignable to C, then s is a set literal
+ * typeArguments and static context type C, then if LinkedHashSet<Null> is
+ * assignable to C and LinkedHashMap<Null, Null> is not assignable to C, then s
+ * is a set literal
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=set-literals
+import "dart:collection";
 import "../../Utils/expect.dart";
 
 dynamic forgetType(dynamic x) => x;
@@ -23,5 +26,5 @@ class C<T>  {
 }
 
 main() {
-  Expect.isTrue(new C<Set<Null>>().t is Set);
+  Expect.isTrue(new C<LinkedHashSet<Null>>().t is Set);
 }
