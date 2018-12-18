@@ -4,16 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @description Regression test for the issue 33585, 33308 (CFE doesn't check
- * type arguments against the bounds of the corresponding type variables)
+ * @description Regression test for the issue 33626 (Dart does not throw error
+ * when analyzer fails with "type_argument_not_matching_bounds" error for
+ * functions)
  * @compile-error
  * @author iarkh@unipro.ru
  */
 
 class A {}
-class B{}
+typedef F<X extends A> = X Function();
 
-class M<X extends A> {}
-class O extends Object with M<B> {}
+class B {}
+B tryme() {}
 
-main() {}
+main() {
+  F<B> f = tryme;
+}
