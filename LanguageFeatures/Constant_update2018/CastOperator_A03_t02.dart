@@ -13,6 +13,7 @@
  * and causes compile time error if parameter type is incorrect.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=constant-update-2018
 dynamic anObject = "";
 
 class MyClass {

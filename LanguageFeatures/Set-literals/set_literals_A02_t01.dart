@@ -14,6 +14,7 @@
  * exactly the same way as for list literals
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=set-literals
 import "../../Utils/expect.dart";
 
 main() {

@@ -13,6 +13,7 @@
  * to C or Map<Null, Null> is assignable to C, then s is a map literal
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=set-literals
 import "../../Utils/expect.dart";
 
 Object test() => {};
