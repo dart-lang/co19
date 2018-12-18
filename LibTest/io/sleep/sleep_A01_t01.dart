@@ -8,18 +8,23 @@
  * Sleep for the duration specified in [duration].
  * @description Checks that process sleeps for the [duration] milliseconds.
  * @author iarkh@unipro.ru
+ * @issue 25757
  */
 import "../../../Utils/expect.dart";
 import "dart:io";
 
 test(int dur) {
-  DateTime d1 = new DateTime.now();
+  Stopwatch sw = new Stopwatch();
+  sw.start();
   sleep(new Duration(milliseconds: dur));
-  DateTime d2 = new DateTime.now();
-  Expect.isTrue(d2.millisecondsSinceEpoch - d1.millisecondsSinceEpoch >= dur);
+  sw.stop();
+
+  print("Acually slept for: milliseconds: ${sw.elapsedMilliseconds}, " +
+      "microseconds: ${sw.elapsedMicroseconds}");
+  Expect.isTrue(sw.elapsedMilliseconds >= dur - 1);
 }
 
-main(List<String> args) {
+main() {
   test(5);
   test(100);
   test(100);

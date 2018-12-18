@@ -25,5 +25,5 @@ run_process() { stdout.add(aList); }
 
 main(List<String> args) {
   args.length > 0 ? run_process() : run_main(
-      new Latin1Codec(allowInvalid: true), run_process, expected);
+      new Latin1Codec(allowInvalid: true), expected);
 }

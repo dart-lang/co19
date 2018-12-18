@@ -23,6 +23,6 @@ class C {
 main() {
   Expect.equals("C23C", "1231".replaceAllMapped("1", (m) {
     dynamic c = new C();
-    return c;
+    return c.toString();
   }));
 }

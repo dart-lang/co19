@@ -7,18 +7,21 @@
  * @assertion T operator [](Object object)
  * Gets the value of this Expando's property on the given object. If the object
  * hasn't been expanded, the method returns null.
- * @description Checks that this operator returns null for a freshly expanded
- * object(s).
+ * The object must not be a number, a string, a boolean or null.
+ * @description Checks that the object must not be a number, a string, a boolean
+ * or null.
  * @author rodionov
  */
 import "../../../Utils/expect.dart";
 
 main() {
   Expando exp = new Expando("exp");
-  var o1 = new Object();
+  var o1 = 4;
   var o2 = "";
-  var o3 = 4;
-  Expect.isNull(exp[o1]);
-  Expect.isNull(exp[o2]);
-  Expect.isNull(exp[o3]);
+  var o3 = true;
+  var o4 = null;
+  Expect.throws(() => exp[o1]);
+  Expect.throws(() => exp[o2]);
+  Expect.throws(() => exp[o3]);
+  Expect.throws(() => exp[o4]);
 }

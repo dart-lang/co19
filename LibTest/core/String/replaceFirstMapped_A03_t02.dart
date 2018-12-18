@@ -26,6 +26,6 @@ class C {
 main() {
   Expect.throws(() {"123".replaceFirstMapped("1", (m) {
     dynamic c = new C();
-    return c;
+    return c.toString();
   });});
 }

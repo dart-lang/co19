@@ -26,5 +26,5 @@ run_process() { stdout.add(aList); }
 
 main(List<String> args) {
   args.length > 0 ? run_process() : run_main(
-      new Utf8Codec(allowMalformed: true), run_process, expected);
+      new Utf8Codec(allowMalformed: true), expected);
 }
