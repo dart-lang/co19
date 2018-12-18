@@ -9,25 +9,16 @@
  * LinkedHashMap<Null, Null> is not assignable to C, then s is a set literal,
  * otherwise s is a map literal.
  *
- * @description Checks that if s is an emptySetOrMapLiteral with no
- * typeArguments and static context type C, then if LinkedHashSet<Null> is
- * assignable to C and LinkedHashMap<Null, Null> is not assignable to C, then s
- * is a set literal
+ * @description Checks that if C is some subclass of Set<X> other than
+ * LinkedHashSet, then the literal is a map literal, but it is also a
+ * guaranteed type error even if the literal is a set
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=set-literals
-import "dart:async";
 import "dart:collection";
-import "../../Utils/expect.dart";
-
-Set<Object> test() => {};
-Iterable<int> test2() => {};
-FutureOr<Iterable<int>> test3() => {};
-LinkedHashSet<int> test4() => {};
 
 main() {
-  Expect.isTrue(test() is Set);
-  Expect.isTrue(test2() is Set);
-  Expect.isTrue(test3() is Set);
-  Expect.isTrue(test4() is Set);
+  SplayTreeSet s = {};            //# 01: compile-time error
+  SplayTreeSet<int> s = {};       //# 02: compile-time error
+  SplayTreeSet<int> s = <int>{};  //# 03: compile-time error
 }
