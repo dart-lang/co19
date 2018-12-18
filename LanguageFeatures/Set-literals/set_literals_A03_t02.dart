@@ -12,6 +12,7 @@
  * element expression is not assignable to T
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=set-literals
 class A {
   const A();
 }

@@ -13,6 +13,7 @@
  * and Map<Null, Null> is not assignable to C, then s is a set literal
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=set-literals
 import "dart:async";
 import "../../Utils/expect.dart";
 

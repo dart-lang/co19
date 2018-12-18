@@ -22,6 +22,7 @@
  * performed as expected
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=set-literals
 import "dart:collection";
 import "../../Utils/expect.dart";
 

@@ -12,6 +12,7 @@
  * @description Checks set literal syntax
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=set-literals
 import "../../Utils/expect.dart";
 
 main() {

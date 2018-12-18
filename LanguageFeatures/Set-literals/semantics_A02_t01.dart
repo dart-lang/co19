@@ -11,6 +11,7 @@
  * typeArguments with more than one type argument.
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=set-literals
 var v1 = <int, String> {1};                  //# 01: compile-time error
 var v2 = const <String, int> {1, 2};         //# 02: compile-time error
 var v3 = <String, int> {'1', '2'};           //# 03: compile-time error

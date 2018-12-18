@@ -12,6 +12,7 @@
  * element expression which is not a compile-time constant expression
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=set-literals
 class A {
   const A();
 }

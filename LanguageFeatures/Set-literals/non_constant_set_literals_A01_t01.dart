@@ -21,6 +21,7 @@
  * @description Check that if set literal is not constant then it is mutable
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=set-literals
 import "../../Utils/expect.dart";
 
 main() {
