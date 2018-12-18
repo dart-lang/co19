@@ -13,7 +13,7 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=constant-update-2018
 const dynamic test = 12345;
 
 class A {

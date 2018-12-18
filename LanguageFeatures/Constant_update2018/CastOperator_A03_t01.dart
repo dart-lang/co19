@@ -13,7 +13,7 @@
  * and causes compile time error if [e] is not a compile-time constant.
  * @author iarkh@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=constant-update-2018
 String str = "test";
 dynamic str1;
 

@@ -13,6 +13,7 @@
  * type.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=constant-update-2018
 class MyClass {
   final int a;
   const MyClass(int i1, int i2) : a = (i1 ?? i2);
