@@ -13,7 +13,7 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 
 main() {
-  var c = new StreamController();
+  var c = new StreamController<List<int>>();
   dynamic sink = c.sink;
 
   ByteConversionSink outSink = new ByteConversionSink.from(sink);
