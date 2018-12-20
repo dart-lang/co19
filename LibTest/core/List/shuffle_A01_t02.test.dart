@@ -15,24 +15,36 @@ library shuffle_A01_t02;
 import "dart:math";
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
-  List initial = [0, 1, 2, 3, 4];
-  List lst = create();
-  lst.addAll(initial);
-  lst.shuffle(new Random());
-
-  // check that all elements are present
-  for (int i = 0; i < lst.length; i++) {
-    initial.remove(lst[i]);
+bool isOrderChanged(List list, List sl) {
+  Expect.equals(list.length, sl.length);
+  bool moved = false;
+  for (int i = 0; i < list.length; i++) {
+    bool found = false;
+    for (int j = 0; j < list.length; j++) {
+      if (list[i] == sl[j]) {
+        found = true;
+        if (i != j) moved = true;
+        break;
+      }
+    }
+    Expect.isTrue(found, "Element ${list[i]} not found in shuffled list");
   }
-  Expect.equals(0, initial.length);
+  return moved;
+}
 
-  // check that some of the elements changed their position
-  int count = 0;
-  for (int i = 0; i < lst.length; i++) {
-    if (lst[i] != i) {
-      count++;
+
+test(List create([int length])) {
+  List initial = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  var counter = 0;
+  for (int i = 0; i < 10; i++) {
+    var sl = create();
+    sl.addAll(initial);
+    sl.shuffle(new Random());
+
+    if (!isOrderChanged(initial, sl)) {
+      counter++;
     }
   }
-  Expect.isTrue(count > 0);
+  /* We allow a couple of shuffles return data in the same order */
+  Expect.isTrue(counter < 3);
 }
