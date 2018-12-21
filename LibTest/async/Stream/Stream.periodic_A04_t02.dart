@@ -18,8 +18,8 @@ import "allTests_A02.lib.dart";
 Stream<T> create<T>(Iterable<T> data, {bool isError(T x)}){
   int count = data.length;
   Iterator<T> iterator = data.iterator;
-  return new Stream.periodic(
-      new Duration(milliseconds:10),
+  return new Stream<T>.periodic(
+      new Duration(milliseconds: 10),
       (_) {
         count--;
         if (iterator.moveNext()) {
@@ -31,7 +31,7 @@ Stream<T> create<T>(Iterable<T> data, {bool isError(T x)}){
         }
         return null;
       }
-  ).takeWhile((_) => count>=0);
+  ).takeWhile((_) => count >= 0);
 }
 
 main() {

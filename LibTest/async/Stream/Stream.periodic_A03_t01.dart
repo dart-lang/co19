@@ -15,7 +15,7 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-const int maxCount=5;
+const int maxCount = 5;
 
 void check(int periodMs) {
   String id = "s$periodMs";
@@ -23,7 +23,7 @@ void check(int periodMs) {
   StreamSubscription<int> subs;
   int count = 0;
   asyncStart();
-  Stream s = new Stream.periodic(period, (computationCount) {
+  Stream s = new Stream<int>.periodic(period, (computationCount) {
     Expect.equals(count, computationCount,
         "periodic($id): count=$count, computationCount=$computationCount");
     if (count > maxCount) {

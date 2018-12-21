@@ -27,20 +27,23 @@ main() {
 
   int f(int x, int y) => x + y;
 
-  ZoneBinaryCallback<int,int,int> callback = z.registerBinaryCallback<int,int,int>(f);
+  ZoneBinaryCallback<int, int, int> callback =
+    z.registerBinaryCallback<int, int, int>(f);
 
-  Expect.isTrue(callback is ZoneBinaryCallback<int,int,int>);
-  Expect.equals(3, callback(1,2));
+  Expect.isTrue(callback is ZoneBinaryCallback<int, int, int>);
+  Expect.equals(3, callback(1, 2));
 
   ZoneBinaryCallback<R, T1, T2> registerFunction<R, T1, T2>(
-            Zone self, ZoneDelegate parent, Zone zone,R f(T1 arg1, T2 arg2)) {
-        return (_, __) => 42 as R;
+      Zone self, ZoneDelegate parent, Zone zone,R f(T1 arg1, T2 arg2)) {
+    return (_, __) => 42 as R;
   }
 
-  z.fork(specification: new ZoneSpecification(registerBinaryCallback:registerFunction))
+  z.fork(specification: new ZoneSpecification(
+      registerBinaryCallback: registerFunction))
       .run(() {
-        ZoneBinaryCallback<int,int,int> callback = Zone.current.registerBinaryCallback<int,int,int>(f);
-        Expect.isTrue(callback is ZoneBinaryCallback);
-        Expect.equals(42, callback(1,2));
+        ZoneBinaryCallback<int, int, int> callback =
+          Zone.current.registerBinaryCallback<int, int, int>(f);
+        Expect.isTrue(callback is ZoneBinaryCallback<int, int, int>);
+        Expect.equals(42, callback(1, 2));
       });
 }

@@ -58,6 +58,7 @@ void check<T>(Stream<T> s) {
     return p==n;
   }
 
+  asyncStart();
   Stream<T> d = s.asBroadcastStream().distinct(equals);
   Future.wait([
     subscribe(d),
@@ -65,8 +66,8 @@ void check<T>(Stream<T> s) {
     subscribe(d)
   ]).then(
     (List<List<T>> result) {
-      print(equalsLog);
-      result.forEach(print);
+  //    print(equalsLog);
+  //    result.forEach(print);
       result.forEach((received) => Expect.listEquals(result[0], received));
       equalsLog.values.forEach((v) => Expect.equals(3, v));
       asyncEnd();
