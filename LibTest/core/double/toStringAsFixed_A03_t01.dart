@@ -20,8 +20,14 @@ import "../../../Utils/expect.dart";
 import "dart:math";
 
 main() {
-  int y = pow(10, 18);
-  Expect.equals("1000000000000000000", y.toStringAsFixed(0));
-  Expect.equals("1000000000000000000.0000000000", y.toStringAsFixed(10));
-  Expect.equals("1000000000000000000.00000000000000000000", y.toStringAsFixed(20));
+  double x1 = pow(10.0, 21);
+  Expect.equals("1e+21", x1.toStringAsFixed(0));
+  Expect.equals("1e+21", x1.toStringAsFixed(10));
+  Expect.equals("1e+21", x1.toStringAsFixed(20));
+
+  double y1 = pow(10.0, 20);
+  Expect.equals("100000000000000000000", y1.toStringAsFixed(0));
+  Expect.equals("100000000000000000000.0000000000", y1.toStringAsFixed(10));
+  Expect.equals(
+      "100000000000000000000.00000000000000000000", y1.toStringAsFixed(20));
 }

@@ -22,12 +22,14 @@ library addSlice_A01_t01;
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-test(ChunkedConversionSink create(ChunkedConversionSink outSink)) {
+test(ChunkedConversionSink create(ByteConversionSink outSink)) {
   bool called = false;
+  Utf8Codec codec = new Utf8Codec();
+  var encoded = codec.encode("лц");
   
-  var outSink = new ChunkedConversionSink.withCallback((accumulated) {
+  var outSink = new ByteConversionSink.withCallback((accumulated) {
     called = true;
-    Expect.listEquals(["л", "ц"], accumulated);
+    Expect.listEquals(encoded, accumulated);
   });
 
   ByteConversionSink inSink = create(outSink);
