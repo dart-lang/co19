@@ -20,7 +20,6 @@ import "../../../Utils/expect.dart";
 import "dart:math";
 
 main() {
-
   int y = pow(10, 18);
   Expect.equals("1000000000000000000", y.toStringAsFixed(0));
   Expect.equals("1000000000000000000.0000000000", y.toStringAsFixed(10));

@@ -18,7 +18,11 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 
 main() {
-  String lines = "abc\ndefg\nhijkl";
+  String lines = """
+abc
+defg
+hijkl
+""";
   // start < 0
   try {
     print(LineSplitter.split(lines, -1));

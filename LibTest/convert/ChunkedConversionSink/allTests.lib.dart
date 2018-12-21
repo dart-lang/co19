@@ -19,5 +19,5 @@ import "close_A01_t01.test.dart" as close_A01_t01;
 test(ChunkedConversionSink create(ChunkedConversionSink<List<int>> outSink)) {
   add_A01_t01.test(create);
   add_A01_t02.test(create);
- // close_A01_t01.test(create); //issue 29329
+  close_A01_t01.test(create); //issue 29329
 }

@@ -19,7 +19,11 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 
 main() {
-  String s1 = "abc\ndefg\nhijkl";
+  String s1 = """
+abc
+defg
+hijkl
+""";
   List<String> list = List.from(LineSplitter.split(s1));
   Expect.listEquals(["abc", "defg", "hijkl"], list);
   list = List.from(LineSplitter.split(s1, 3, 7));

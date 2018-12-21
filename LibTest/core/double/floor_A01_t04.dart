@@ -34,12 +34,6 @@ main() {
   check(1234567);
   check(123456789012345);
   check(1234567.0E10.toInt());
-//  check(1234567.0E15.toInt());
-//  check(1234567.0E20.toInt());
-//  check(1234567.0E40.toInt());
-//  check(1234567.0E80.toInt());
   check(Math.pow(2.0, 52).toInt());
   check(Math.pow(2.0, 53).toInt());
-//  check(Math.pow(2.0, 520).toInt());
-//  check(1.0E308.toInt());
 }
