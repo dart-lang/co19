@@ -18,12 +18,14 @@ library addSlice_A01_t02;
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-test(ChunkedConversionSink create(ChunkedConversionSink outSink)) {
+test(ChunkedConversionSink create(ByteConversionSink outSink)) {
   bool called = false;
-  
-  var outSink = new ChunkedConversionSink.withCallback((accumulated) {
+  Utf8Codec codec = new Utf8Codec();
+  var encoded = codec.encode("лццц");
+
+  var outSink = new ByteConversionSink.withCallback((accumulated) {
     called = true;
-    Expect.listEquals(["л", "ц", "цц"], accumulated);
+    Expect.listEquals(encoded, accumulated);
   });
 
   ByteConversionSink inSink = create(outSink);

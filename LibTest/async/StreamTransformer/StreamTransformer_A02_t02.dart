@@ -20,7 +20,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  Stream s = new Stream.fromIterable([1]);
+  Stream<int> s = new Stream.fromIterable([1]);
   StreamTransformer<int, dynamic> tr = new StreamTransformer(
     (_, __) {
       Stream s2 = new Stream.fromIterable([2]);

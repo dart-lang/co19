@@ -16,15 +16,17 @@ library add_A01_t01;
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-test(ChunkedConversionSink create(ChunkedConversionSink outSink)) {
+test(ChunkedConversionSink create(ChunkedConversionSink<List<int>> outSink)) {
   bool called = false;
+  Utf8Codec codec = new Utf8Codec();
+  var encoded = codec.encode("Кириллица");
 
-  var outSink = new ChunkedConversionSink.withCallback((accumulated) {
+  var outSink = new ChunkedConversionSink<List<int>>.withCallback((accumulated) {
     called = true;
-    Expect.listEquals(["Кириллица"], accumulated);
+    Expect.listEquals([encoded], accumulated);
   });
 
-  ChunkedConversionSink inSink = create(outSink);
+  ChunkedConversionSink<List<int>> inSink = create(outSink);
   var list = utf8.encode("Кириллица");
 
   Expect.isFalse(called);

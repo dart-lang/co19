@@ -18,7 +18,7 @@ import "addSlice_A01_t02.test.dart" as addSlice_A01_t02;
 import "addSlice_A01_t03.test.dart" as addSlice_A01_t03;
 import "inherited_tests.lib.dart" as inherited_tests;
 
-test(ChunkedConversionSink create(ChunkedConversionSink outSink)) {
+test(ChunkedConversionSink create(ChunkedConversionSink<List<int>> outSink)) {
   addSlice_A01_t01.test(create);
   addSlice_A01_t02.test(create);
   addSlice_A01_t03.test(create);

@@ -19,7 +19,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  Stream source = new Stream.fromIterable([1]);
+  Stream<int> source = new Stream.fromIterable([1]);
   StreamTransformer<int, dynamic> tr = new StreamTransformer(
     (stream, cancelOnError) {
       Expect.identical(source, stream);

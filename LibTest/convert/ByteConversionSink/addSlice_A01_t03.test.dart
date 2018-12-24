@@ -18,10 +18,10 @@ library addSlice_A01_t03;
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-test(ChunkedConversionSink create(ChunkedConversionSink outSink)) {
+test(ChunkedConversionSink create(ByteConversionSink outSink)) {
   bool called = false;
   
-  var outSink = new ChunkedConversionSink.withCallback((accumulated) {
+  var outSink = new ByteConversionSink.withCallback((accumulated) {
     called = true;
     Expect.listEquals([], accumulated);
   });

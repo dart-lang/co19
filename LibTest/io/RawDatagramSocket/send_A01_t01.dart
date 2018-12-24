@@ -12,66 +12,19 @@
  *
  * @description Checks that method send returns the number of bytes that were
  * sent.
- * @author ngl@unipro.ru
+ * @author sgrekhov@unipro.ru
  */
-import "dart:async";
 import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-int sentLength = 65507;
+var localhost = InternetAddress.loopbackIPv4;
 
-check([bool no_write_events = false]) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      if (no_write_events) {
-        receiver.writeEventsEnabled = false;
-      }
-      Timer timer2;
-      int received = 0;
-      int sent = 0;
-      int count;
-
-      List<int> sList1 = new List<int>(sentLength);
-      for (int i = 0; i < sentLength; i++) {
-        sList1[i] = i & 0xff;
-      }
-
-      List<List<int>> list = [[0], [1, 2, 3], sList1];
-      new Timer.periodic(const Duration(microseconds: 1), (timer) {
-        count = producer.send(list[sent], address, receiver.port);
-        Expect.equals(list[sent].length, count);
-        sent++;
-        if (sent > 2) {
-          timer.cancel();
-          producer.close();
-        }
-      });
-
-      void action() {
-        asyncEnd();
-      }
-
-      List<int> rList;
-      receiver.listen((event) {
-        received++;
-        var datagram = receiver.receive();
-        if (datagram != null) {
-          rList = datagram.data;
-          Expect.equals(list[received - 1].length, rList.length);
-        }
-        if (timer2 != null) timer2.cancel();
-        timer2 = new Timer(const Duration(milliseconds: 200), () {
-          Expect.isNull(receiver.receive());
-          receiver.close();
-        });
-      }).onDone(action);
-    });
-  });
-}
-
-main() {
-  check();
-  check(true);
+main() async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSent = [[1, 1], bigData, [2]];
+  bool sent = await sendDatagram(producer, toSent, localhost, receiver.port);
+  Expect.isTrue(sent);
+  receiver.close();
 }

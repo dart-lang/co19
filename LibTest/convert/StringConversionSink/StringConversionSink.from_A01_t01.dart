@@ -13,7 +13,7 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 
 main() {
-  var c = new StreamController();
+  var c = new StreamController<String>();
   dynamic sink = c.sink;
 
   StringConversionSink outSink = new StringConversionSink.from(sink);

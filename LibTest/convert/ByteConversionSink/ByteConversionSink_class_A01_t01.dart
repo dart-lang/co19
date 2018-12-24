@@ -14,9 +14,9 @@
 import "dart:convert";
 import "allTests.lib.dart" as all_tests;
 
-ByteConversionSink create(ChunkedConversionSink outSink) {
-  Sink<String> sink = outSink as Sink<String>;
-  return utf8.decoder.startChunkedConversion(sink);
+ChunkedConversionSink create(ChunkedConversionSink<List<int>> outSink) {
+  StringConversionSink inSink = utf8.encoder.startChunkedConversion(outSink);
+  return utf8.decoder.startChunkedConversion(inSink);
 }
 
 main() {

@@ -46,7 +46,7 @@ main() {
   Stream s1 = toDataErrorStream(new Stream.fromIterable(iterable));
   Stream s2 = toDataErrorStream(new Stream.fromIterable(iterable));
 
-  listen(c.stream, [1, 2, 3, 1, 2, 3], [-1, -1]);
+  listen(c.stream, [1, 2, 3, 4, 5, 6, 1, 2, 3], [-1, -2, -3, -1]);
 
   asyncStart();
   c.addStream(s1).then((_) {
