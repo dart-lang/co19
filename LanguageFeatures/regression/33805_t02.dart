@@ -7,7 +7,6 @@
  * @description Regression test for the issue 33805 (Analyzer throws error when
  * try to assign a function result to row variable). Checks that error appears
  * if row variable is passed to the function parameter
- * @compile-error
  * @author iarkh@unipro.ru
  */
 class A<X> {}

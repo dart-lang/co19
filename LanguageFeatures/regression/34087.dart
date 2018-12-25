@@ -8,7 +8,6 @@
  * error when [Callable] function result is assigned to incorrect type).
  * Checks that compile error appears if [Callable] function result is assigned
  * to the variable of incorrect type.
- * @compile-error
  * @Issue 34087
  * @author iarkh@unipro.ru
  */
