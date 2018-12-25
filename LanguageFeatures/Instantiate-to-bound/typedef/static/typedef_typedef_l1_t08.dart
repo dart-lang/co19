@@ -44,7 +44,6 @@
  * @description Checks that instantiate-to-bounds works correctly for
  * [typedef A<X> = void Function();
     typedef G<X extends A<X>> = void Function(X)]
- * @compile-error
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();

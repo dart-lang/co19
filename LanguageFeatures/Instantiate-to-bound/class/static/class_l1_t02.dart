@@ -44,7 +44,6 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works OK for [class A<X
  * extends A<A<X>>>]
- * @compile-error
  * @Issue 34950
  * @author iarkh@unipro.ru
  */

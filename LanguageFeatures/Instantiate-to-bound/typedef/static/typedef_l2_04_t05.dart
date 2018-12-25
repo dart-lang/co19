@@ -46,7 +46,6 @@
  * with two related parameters: [typedef G<X extends A<Y>, Y extends X> = void
  * Function(X, Y)]
  * @Issue 34689, 34699, 35068
- * @compile-error
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();

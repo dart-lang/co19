@@ -44,7 +44,6 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for [typedef
  *  G<X extends A<X>> = X Function()] (covariant)
- * @compile-error
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();

@@ -53,5 +53,5 @@ typedef G<X extends Y, Y extends A<Y>> =
     void Function<X1 extends X, Y1 extends Y>(Y);
 
 main() {
-  G source;  // # 01: compile-time error
+  G source;  //# 01: compile-time error
 }

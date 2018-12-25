@@ -61,7 +61,6 @@
  * This also shows that the instance creation at the end is a compile-time
  * error.
  *
- * @compile-error
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();

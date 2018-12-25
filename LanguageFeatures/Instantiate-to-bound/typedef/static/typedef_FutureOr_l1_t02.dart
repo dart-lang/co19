@@ -45,7 +45,6 @@
  * @description Checks that instantiate-to-bounds works correctly for [typedef
  *  G<X extends FutureOr<X>> = Function(X)] (contravariant)
  *  @Issue 34689
- * @compile-error
  * @author iarkh@unipro.ru
  */
 import "dart:async";

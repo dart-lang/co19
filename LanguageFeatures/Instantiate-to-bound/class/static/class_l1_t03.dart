@@ -44,7 +44,6 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works as expected for
  * [class A<X extends A<X>>], [class B<X extends A<X>>]
- * @compile-error
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();
@@ -60,7 +59,7 @@ main() {
   F<B<A<dynamic>>> target = fsource;
 
   F<B<dynamic>> target1 = fsource;             //# 01: compile-time error
-  F<B<A<A<dynamic>>>> target2 = fsource;          //# 02: compile-time error
+  F<B<A<A<dynamic>>>> target2 = fsource;       //# 02: compile-time error
   F<B<A<A<A<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
   F<B<A<A<A<A<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
 

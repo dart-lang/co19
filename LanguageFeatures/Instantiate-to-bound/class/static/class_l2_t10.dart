@@ -44,7 +44,6 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for [class
  * A<X1 extends A<X1, X2>, X2 extends A<X1, X2>>]
- * @compile-error
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();
@@ -58,6 +57,6 @@ main() {
 
   F<A<A<dynamic, dynamic>, A<dynamic, dynamic>>> target = fsource;
 
-  F<A<dynamic, dynamic>> target1 = fsource;       //# 01: compile-time error
+  F<A<dynamic, dynamic>> target1 = fsource; //# 01: compile-time error
   A();  //# 02: compile-time error
 }

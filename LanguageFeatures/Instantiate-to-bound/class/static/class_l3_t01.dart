@@ -46,7 +46,6 @@
  * A<X1 extends X2, X2 extends X3, X3 extends A<X1, X2, X3>>]
  *  extends X2, X2 extends A<X1, X2>>]
  * @Issue 34950
- * @compile-error
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();

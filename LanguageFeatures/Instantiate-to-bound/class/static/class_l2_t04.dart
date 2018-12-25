@@ -44,7 +44,6 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for [class
  * A<String, X extends A<void, A<String,X>>>]
- * @compile-error
  * @Issue 34727, 34948, 34950
  * @author iarkh@unipro.ru
  */

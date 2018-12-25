@@ -64,9 +64,9 @@ main() {
   G source;
   void Function<X extends A<Null>>(A<Null>) target = source;
 
-  void Function<X extends A<dynamic>>(A<Null>) target1 = source;    // # 01: compile-time error
+  void Function<X extends A<dynamic>>(A<Null>) target1 = source;    //# 01: compile-time error
   void Function<X extends A<Null>>(A<dynamic>) target2 = source;
-  void Function<X extends A<dynamic>>(A<dynamic>) target3 = source; // # 02: compile-time error
+  void Function<X extends A<dynamic>>(A<dynamic>) target3 = source; //# 02: compile-time error
   void Function<X extends A<Null>>(dynamic) target4 = source;
   void Function<X extends A<Null>>(Null) target5 = source;
 }

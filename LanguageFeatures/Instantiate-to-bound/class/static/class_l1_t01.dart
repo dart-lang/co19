@@ -44,7 +44,6 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for
  * [class A<X extends A<X>>]
- * @compile-error
  * Issue 34950
  * @author iarkh@unipro.ru
  */

@@ -44,7 +44,6 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works OK for the class with
  * [typedef G<X> = X Function()] parameter (contravariant)
- * @compile-error
  * @Issue 35064
  * @author iarkh@unipro.ru
  */

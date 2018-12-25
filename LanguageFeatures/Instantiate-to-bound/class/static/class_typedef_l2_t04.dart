@@ -45,7 +45,6 @@
  * @description Checks that instantiation to bounds works OK for [typedef G<X> =
  * void Function()], [class A<X extends G<A<X, Y>>, Y extends X>]
  * @Issue 35064
- * @compile-error
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();

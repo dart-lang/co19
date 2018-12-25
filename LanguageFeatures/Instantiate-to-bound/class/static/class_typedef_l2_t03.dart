@@ -44,7 +44,6 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works OK for [typedef G<X> =
  * X Function(X)], [class A<X extends G<A<X, Y>>, Y extends X>]
- * @compile-error
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();
@@ -55,6 +54,6 @@ typedef G<X> = X Function(X);
 class A<X extends G<A<X, Y>>, Y extends X> {}
 
 main() {
-  A source;  // # 01: compile-time error
-  A();       // # 02: compile-time error
+  A source;  //# 01: compile-time error
+  A();       //# 02: compile-time error
 }

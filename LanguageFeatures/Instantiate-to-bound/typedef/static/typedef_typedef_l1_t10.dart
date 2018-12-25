@@ -50,5 +50,5 @@ typedef A<X> = void Function(X);
 typedef G<X extends A<X>> = X Function(X);
 
 main() {
-  G source; // # 01: compile-time error
+  G source; //# 01: compile-time error
 }

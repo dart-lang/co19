@@ -45,7 +45,6 @@
  * @description Checks that instantiate-to-bounds works as expected for:
  * class B<X extends B<X>> {}
  * class A<X1 extends B<X2>, X2 extends B<X2>> {}
- * @compile-error
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();
