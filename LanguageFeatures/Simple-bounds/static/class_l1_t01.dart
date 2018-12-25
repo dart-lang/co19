@@ -12,7 +12,9 @@
  *  [A<X extends num>]
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
+
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
 class A<X extends num> {}
 
@@ -20,5 +22,10 @@ main() {
   A source;
   var fsource = toF(source);
   F<A<num>> target = fsource;
+
+  F<A<int>>     target1 = fsource;  //# 01: compile-time error
+  F<A<dynamic>> target2 = fsource;  //# 02: compile-time error
+  F<A<Null>>    target3 = fsource;  //# 03: compile-time error
+  F<A<Object>>  target4 = fsource;  //# 04: compile-time error
   A();
 }

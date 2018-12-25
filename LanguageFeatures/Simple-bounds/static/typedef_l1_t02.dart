@@ -17,7 +17,8 @@
  * extends num] parameter (contravariant)
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
 typedef G<X extends num> = Function(X);
 
@@ -25,4 +26,8 @@ main() {
   G source;
   var fsource = toF(source);
   F<G<num>> target = fsource;
+
+  F<G<dynamic>> target1 = fsource; //# 01: compile-time error
+  F<G<Null>>    target2 = fsource; //# 02: compile-time error
+  F<G<String>>  target3 = fsource; //# 03: compile-time error
 }

@@ -17,7 +17,8 @@
  * extends num] parameter (not used)
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
 typedef G<X extends num> = void Function();
 
@@ -25,4 +26,6 @@ main() {
   G source;
   var fsource = toF(source);
   F<G<num>> target = fsource;
+  F<G<dynamic>> target1 = fsource;
+  F<G<Null>>    target2 = fsource;
 }

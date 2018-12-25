@@ -17,7 +17,8 @@
  * [typedef] parameter (covariant)
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
 typedef G1<X> = X Function();
 typedef G2<X extends G1<num>> = X Function();
@@ -26,4 +27,6 @@ main() {
   G2 source;
   var fsource = toF(source);
   F<G2<G1<num>>> target = fsource;
+  F<G2<G1<dynamic>>> target1 = fsource; //# 01: compile-time error
+  F<G2<G1<Null>>>    target2 = fsource; //# 02: compile-time error
 }

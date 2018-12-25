@@ -18,10 +18,15 @@
  * @author iarkh@unipro.ru
  */
 import "dart:async";
-import "../../../Utils/expect.dart";
+
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
 main() {
   FutureOr source;
   var fsource = toF(source);
   F<FutureOr<dynamic>> target = fsource;
+
+  F<FutureOr<Null>> target1 = fsource; //# 01: compile-time error
+  F<FutureOr<int>>  target2 = fsource; //# 02: compile-time error
 }

@@ -15,7 +15,6 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [typedef] with
  * [typedef] parameter (invariant)
- * @compile-error
  * @author iarkh@unipro.ru
  */
 // Functions for correct type comparison in language feature tests

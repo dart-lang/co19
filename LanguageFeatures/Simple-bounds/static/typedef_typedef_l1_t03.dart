@@ -24,4 +24,6 @@ typedef G2<X extends G1<num>> = Y Function<Y extends X>();
 main() {
   G2 source;
   G1<num> Function<X extends G1<num>>() target = source;
+  F<G2<G1<dynamic>>> target1 = fsource; //# 01: compile-time error
+  F<G2<G1<Null>>>    target2 = fsource; //# 02: compile-time error
 }

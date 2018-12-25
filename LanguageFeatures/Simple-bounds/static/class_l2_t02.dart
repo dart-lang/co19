@@ -17,7 +17,8 @@
  * G<X extends A<B>, X1 extends B<X>> ]
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
 class A<X> {}
 class B<X> {}
@@ -27,5 +28,13 @@ main() {
   G source;
   var fsource = toF(source);
   F<G<A<B<dynamic>>, B<A<B<dynamic>>>>> target = fsource;
+
+  F<G<A<B<int>>, B<A<B<dynamic>>>>> target1  = fsource; //# 01: compile-time error
+  F<G<A<B<dynamic>>, B<A<B<int>>>>> target2  = fsource; //# 02: compile-time error
+  F<G<A<B<Null>>, B<A<B<dynamic>>>>> target3 = fsource; //# 03: compile-time error
+  F<G<A<B<dynamic>>, B<A<B<Null>>>>> target4 = fsource; //# 04: compile-time error
+  F<G<A<B<int>>, B<A<B<int>>>>> target5      = fsource; //# 05: compile-time error
+  F<G<A<B<Null>>, B<A<B<Null>>>>> target6    = fsource; //# 06: compile-time error
+
   G();
 }

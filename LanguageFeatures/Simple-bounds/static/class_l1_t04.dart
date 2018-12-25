@@ -17,7 +17,8 @@
  * List<List>>], [B<X extends Map<Map, Map>>]
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
 class A<X extends List<List>> {}
 class B<X extends Map<Map, Map>> {}
@@ -26,6 +27,10 @@ testA() {
   A source;
   var fsource = toF(source);
   F<A<List<List<dynamic>>>> target = fsource;
+
+  F<A<List<List<int>>>>  target1 = fsource; //# 01: compile-time error
+  F<A<List<List<Null>>>> target2 = fsource; //# 02: compile-time error
+
   A();
 }
 
