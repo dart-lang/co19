@@ -29,6 +29,8 @@ main() async {
   List<int> bytesWritten = await sendDatagramOnce(producer, toSent, localhost,
       receiver.port);
   if (wasSent(bytesWritten)) {
-    Expect.equals(100000, bytesWritten[0]);
+    Expect.fail("Sent ${bytesWritten[0]} instead of 0");
+  } else {
+    Expect.equals(0, bytesWritten[0]);
   }
 }

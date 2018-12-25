@@ -101,6 +101,7 @@ Future<bool> sendDatagram(RawDatagramSocket producer, List<List<int>> data,
     List<int> bytesWritten = await sendDatagramOnce(producer, data, address, port,
         period: period);
     if (wasSent(bytesWritten)) {
+      compareSentData(data, bytesWritten);
       return true;
     }
   }
@@ -116,6 +117,16 @@ bool wasSent(List<int> bytesWritten) {
   return false;
 }
 
+compareSentData(List<List<int>> data, List<int> sentStatus) {
+  Expect.equals(sentStatus.length, data.length, "Wrong sizes of sent and sentResult");
+  for (int i = 0; i < data.length; i++) {
+    if (sentStatus[i] == 0) {
+      continue;
+    }
+    Expect.equals(data[i].length, sentStatus[i]);
+  }
+}
+
 Future<List<List<int>>> receiveDatagram(RawDatagramSocket receiver,
     {Duration delay = const Duration(seconds: 2), RawSocketEvent event}) {
   List<List<int>> received = [];
@@ -125,7 +136,7 @@ Future<List<List<int>>> receiveDatagram(RawDatagramSocket receiver,
     if (event == null || _event == event) {
       var datagram = receiver.receive();
       if (datagram != null) {
-        print("Received: ${datagram.data}");
+    //    print("Received: ${datagram.data}");
         received.add(datagram.data);
       }
     }
