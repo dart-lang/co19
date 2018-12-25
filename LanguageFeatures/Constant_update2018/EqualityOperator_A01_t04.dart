@@ -29,10 +29,10 @@ class MyClass1 {
   final String option;
   const MyClass1()
       : assert(a != null),
-        this.option = stringOption; // #01: compile-time error
+        this.option = stringOption; //# 01: compile-time error
 }
 
 main() {
-  const MyClass c = MyClass(123);   // #02: compile-time error
-  const bool a1 = (a != null);      // #03: compile-time error
+  const MyClass c = MyClass(123);   //# 02: compile-time error
+  const bool a1 = (a != null);      //# 03: compile-time error
 }

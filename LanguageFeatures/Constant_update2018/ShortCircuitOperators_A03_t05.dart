@@ -20,5 +20,5 @@ class MyClass {
 }
 
 main() {
-  const MyClass c2 = MyClass(null, "222"); // #01: compile-time error
+  const MyClass c2 = MyClass(null, "222"); //# 01: compile-time error
 }

@@ -21,11 +21,11 @@ const int i = 25;
 
 class MyClass {
   final bool b;
-  const MyClass() : b = true && (null as String).length; // #01: compile-time error
+  const MyClass() : b = true && (null as String).length; //# 01: compile-time error
 }
 
 main() {
-  const bool a1 = 128 && (i < 0);        // #02: compile-time error
-  const bool a2 = "test" && false;       // #03: compile-time error
-  const bool a3 = true && "test".length; // #04: compile-time error
+  const bool a1 = 128 && (i < 0);        //# 02: compile-time error
+  const bool a2 = "test" && false;       //# 03: compile-time error
+  const bool a3 = true && "test".length; //# 04: compile-time error
 }

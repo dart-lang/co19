@@ -23,9 +23,9 @@ dynamic test = A();
 
 class MyClass {
   final A a;
-  const MyClass(Object o) : a = o as A; //#02: compile-time error
+  const MyClass(Object o) : a = o as A; //# 02: compile-time error
 }
 
 main() {
-  const A a = test as A; //#01: compile-time error
+  const A a = test as A; //# 01: compile-time error
 }

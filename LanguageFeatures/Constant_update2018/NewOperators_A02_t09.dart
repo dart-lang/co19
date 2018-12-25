@@ -16,6 +16,6 @@ const bool b1 = true;
 const int b2 = 0;
 
 main() {
-  const c1 = b1 ^ b2; // #01: compile-time error
-  const c2 = b2 ^ b1; // #02: compile-time error
+  const c1 = b1 ^ b2; //# 01: compile-time error
+  const c2 = b2 ^ b1; //# 02: compile-time error
 }

@@ -26,5 +26,5 @@ class MyClass {
 }
 
 main() {
-  const MyClass c1 = MyClass("testme"); // #01: compile-time error
+  const MyClass c1 = MyClass("testme"); //# 01: compile-time error
 }

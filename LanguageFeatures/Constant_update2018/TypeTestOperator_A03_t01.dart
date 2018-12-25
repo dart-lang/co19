@@ -18,9 +18,9 @@ Object str = "test";
 
 class MyClass {
   final String obj;
-  const MyClass() : obj = str is String ? "OK" : "incorrect"; //#02: compile-time error
+  const MyClass() : obj = str is String ? "OK" : "incorrect"; //# 02: compile-time error
 }
 
 main() {
-  const bool check = str is String;  //#01: compile-time error
+  const bool check = str is String; //# 01: compile-time error
 }

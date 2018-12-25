@@ -21,5 +21,5 @@ class MyClass {
 }
 
 main() {
-  const MyClass c = MyClass(anObject);         //# 01: compile-time error
+  const MyClass c = MyClass(anObject); //# 01: compile-time error
 }

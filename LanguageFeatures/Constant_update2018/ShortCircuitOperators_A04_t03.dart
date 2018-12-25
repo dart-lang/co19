@@ -19,9 +19,9 @@ bool b;
 
 class MyClass {
   final bool res;
-  const MyClass(bool test) : res = (true ?? test : b); // #01: compile-time error
+  const MyClass(bool test) : res = (true ?? test : b); //# 01: compile-time error
 }
 
 main() {
-  const String str = true ? "OK" : b;                  // #02: compile-time error
+  const String str = true ? "OK" : b;                  //# 02: compile-time error
 }
