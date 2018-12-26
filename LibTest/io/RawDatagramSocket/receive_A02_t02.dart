@@ -36,8 +36,6 @@ main() async {
   producer.close();
 
   List<List<int>> received = await receiveDatagram(receiver);
-  compareReceivedData(toSend, received);
-  Expect.isTrue(received.length > 0);
   Expect.isTrue(received.length > 0);
   if (bytesSent[1] != sentLength) {
     bool found = false;
