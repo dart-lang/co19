@@ -38,13 +38,13 @@ main() {
   Map map = <String, int>{if (!b) for (var v in collectionNum) if (v > 3) "$v": v}; //# 15: compile-time error
   Map map = <String, int>{if (!b) for (var v in collectionInt) if (v > 3) v: v,};   //# 16: compile-time error
 
-  const map = <String, int>[if (1 > 2) "1": 1.0];     //# 17: compile-time error
-  const map = <String, int>[if (2 > 1) "1": 1.0,];    //# 18: compile-time error
-  const map = <String, int>[if (1 > 2) 1: 1];         //# 19: compile-time error
-  const map = <String, int>[if (2 > 1) 1: 1,];        //# 20: compile-time error
+  const map = <String, int>{if (1 > 2) "1": 1.0};     //# 17: compile-time error
+  const map = <String, int>{if (2 > 1) "1": 1.0,};    //# 18: compile-time error
+  const map = <String, int>{if (1 > 2) 1: 1};         //# 19: compile-time error
+  const map = <String, int>{if (2 > 1) 1: 1,};        //# 20: compile-time error
 
-  var map = const <String, int>[if (1 > 2) "1": 1.0]; //# 21: compile-time error
-  var map = const <String, int>[if (2 > 1) "1": 1.0,];//# 22: compile-time error
-  var map = const <String, int>[if (1 > 2) 1: 1];     //# 23: compile-time error
-  var map = const <String, int>[if (2 > 1) 1: 1,];    //# 24: compile-time error
+  var map = const <String, int>{if (1 > 2) "1": 1.0}; //# 21: compile-time error
+  var map = const <String, int>{if (2 > 1) "1": 1.0,};//# 22: compile-time error
+  var map = const <String, int>{if (1 > 2) 1: 1};     //# 23: compile-time error
+  var map = const <String, int>{if (2 > 1) 1: 1,};    //# 24: compile-time error
 }
