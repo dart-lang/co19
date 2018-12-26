@@ -28,9 +28,11 @@ main() async {
   List<List<int>> toSent = [getList(100000)];
   List<int> bytesWritten = await sendDatagramOnce(producer, toSent, localhost,
       receiver.port);
+  producer.close();
   if (wasSent(bytesWritten)) {
     Expect.fail("Sent ${bytesWritten[0]} instead of 0");
   } else {
     Expect.equals(0, bytesWritten[0]);
   }
+  receiver.close();
 }

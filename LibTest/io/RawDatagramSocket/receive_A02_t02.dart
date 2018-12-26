@@ -13,49 +13,40 @@
  * @author ngl@unipro.ru
  * @issue 31733
  */
-import "dart:async";
 import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-int sentLength = 65504;
+var localhost = InternetAddress.loopbackIPv4;
+int sentLength = 65508; // 65504;
 
-main() {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      Timer timer;
-      List<int> sList = new List<int>(sentLength);
-      for (int i = 0; i < sentLength; i++) {
-        sList[i] = i & 0xff;
+main() async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<int> sList = new List<int>(sentLength);
+  for (int i = 0; i < sentLength; i++) {
+    sList[i] = i & 0xff;
+  }
+  List<List<int>> toSend = [[1], sList, [2, 3]];
+  List<int> bytesSent =
+  await sendDatagramOnce(producer, toSend, localhost, receiver.port);
+  if (!wasSent(bytesSent)) {
+    Expect.fail("No one datagram was sent.");
+  }
+  producer.close();
+
+  List<List<int>> received = await receiveDatagram(receiver);
+  compareReceivedData(toSend, received);
+  Expect.isTrue(received.length > 0);
+  Expect.isTrue(received.length > 0);
+  if (bytesSent[1] != sentLength) {
+    bool found = false;
+    for (int i = 0; i < received.length; i++) {
+      if (received[i].length == sentLength) {
+        found = true;
+        break;
       }
-
-      producer.send(sList, address, receiver.port);
-      producer.close();
-
-      List<int> rList;
-      int longDataLength = 0;
-      receiver.listen((event) {
-        if (event == RawSocketEvent.closed) {
-          if (longDataLength == sentLength) {
-            Expect.fail('Long datagram was received: length $longDataLength');
-          }
-        }
-        var datagram = receiver.receive();
-        if (datagram != null) {
-          rList = datagram.data;
-          if (rList.length == sList.length) {
-            longDataLength = rList.length;
-          }
-        }
-        if (timer != null) timer.cancel();
-        timer = new Timer(const Duration(milliseconds: 200), () {
-          Expect.isNull(receiver.receive());
-          receiver.close();
-        });
-      }).onDone(() {
-        asyncEnd();
-      });
-    });
-  });
+    }
+    print(found);
+  }
 }

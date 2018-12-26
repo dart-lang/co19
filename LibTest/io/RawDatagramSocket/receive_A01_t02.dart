@@ -11,50 +11,21 @@
  * and method receive returns null in this case.
  * @author ngl@unipro.ru
  */
-import "dart:async";
 import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check([bool no_write_events = false]) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      if (no_write_events) {
-        receiver.writeEventsEnabled = false;
-      }
-      Timer timer2;
-      int sent = 0;
+var localhost = InternetAddress.loopbackIPv4;
 
-      new Timer.periodic(const Duration(microseconds: 1), (timer) {
-        producer.send([sent], address, receiver.port);
-        sent++;
-        if (sent > 0) {
-          timer.cancel();
-          producer.close();
-        }
-      });
+main() async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [];
+  List<int> bytesSent =
+      await sendDatagramOnce(producer, toSend, localhost, receiver.port);
+  producer.close();
 
-      void action() {
-        asyncEnd();
-      }
-
-      receiver.listen((event) {
-        var datagram = receiver.receive();
-        if (event == RawSocketEvent.closed) {
-          Expect.equals(null, datagram);
-        }
-        if (timer2 != null) timer2.cancel();
-        timer2 = new Timer(const Duration(milliseconds: 200), () {
-          Expect.isNull(receiver.receive());
-          receiver.close();
-        });
-      }).onDone(action);
-    });
-  });
-}
-
-main() {
-  check();
-  check(true);
+  List<List<int>> received =
+      await receiveDatagram(receiver, event: RawSocketEvent.closed);
+  Expect.isTrue(received.length == 0);
 }

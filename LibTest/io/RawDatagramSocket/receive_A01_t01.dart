@@ -7,57 +7,25 @@
  * @assertion Datagram receive()
  * Receive a datagram. If there are no datagrams available null is returned.
  *
- * @description Checks that four datagrams sent with producer socket were
- * received with receiver socket.
+ * @description Checks that method receive receives datagrams.
  * @author ngl@unipro.ru
  */
-import "dart:async";
 import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check([bool no_write_events = false]) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      if (no_write_events) {
-        receiver.writeEventsEnabled = false;
-      }
-      Timer timer2;
-      int received = 0;
-      int sent = 0;
+var localhost = InternetAddress.loopbackIPv4;
 
-      new Timer.periodic(const Duration(microseconds: 1), (timer) {
-        producer.send([sent], address, receiver.port);
-        sent++;
-        if (sent > 3) {
-          timer.cancel();
-          producer.close();
-        }
-      });
+main() async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0], [1], [2], [3]];
 
-      void action() {
-        asyncEnd();
-      }
+  if (!await sendDatagram(producer, toSend, localhost, receiver.port)) {
+    Expect.fail("No one datagram was sent.");
+  }
 
-      receiver.listen((event) {
-        received++;
-        var datagram = receiver.receive();
-        if (datagram != null) {
-          Expect.equals(received - 1, datagram.data[0]);
-        }
-        if (timer2 != null) timer2.cancel();
-        timer2 = new Timer(const Duration(milliseconds: 200), () {
-          Expect.isNull(receiver.receive());
-          Expect.equals(4, sent);
-          receiver.close();
-        });
-      }).onDone(action);
-    });
-  });
-}
-
-main() {
-  check();
-  check(true);
+  List<List<int>> received = await receiveDatagram(receiver);
+  compareReceivedData(toSend, received);
+  Expect.isTrue(received.length > 0);
 }

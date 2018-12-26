@@ -84,7 +84,7 @@ Future<List<int>> sendDatagramOnce(RawDatagramSocket producer,
         sent.add(producer.send(data[i++], address, port));
       } else {
         timer.cancel();
-        producer.close();
+      //  producer.close();
         completer.complete(sent);
       }
     });
@@ -102,9 +102,11 @@ Future<bool> sendDatagram(RawDatagramSocket producer, List<List<int>> data,
         period: period);
     if (wasSent(bytesWritten)) {
       compareSentData(data, bytesWritten);
+      producer.close();
       return true;
     }
   }
+  producer.close();
   return false;
 }
 
@@ -133,12 +135,9 @@ Future<List<List<int>>> receiveDatagram(RawDatagramSocket receiver,
   Completer<List<List<int>>> completer = new Completer<List<List<int>>>();
   Future<List<List<int>>> f = completer.future;
   receiver.listen((_event) {
+    var datagram = receiver.receive();
     if (event == null || _event == event) {
-      var datagram = receiver.receive();
-      if (datagram != null) {
-    //    print("Received: ${datagram.data}");
-        received.add(datagram.data);
-      }
+      received.add(datagram != null ? datagram.data : null);
     }
   });
   new Future.delayed(delay, () {
@@ -162,5 +161,31 @@ compareDatagrams(List<List<int>> sent, List<List<int>> received, List<int> sentS
       Expect.equals(sent[i][j] & 0xff, received[k][j], "Wrong values: i=$i, k=$k, j=$j");
     }
     k++;
+  }
+}
+
+compareReceivedData(List<List<int>> sent, List<List<int>> received) {
+  Expect.isTrue(received.length <= sent.length, "${received.length} <= ${sent.length}");
+  bool found = false;
+
+  for (int i = 0, k = 0; i < received.length; i++) {
+    found = false;
+    for (int j = 0; j < sent.length; j++) {
+      if (found){
+        break;
+      }
+      if (received[i].length == sent[j].length) {
+        for (int k = 0; k < received[i].length; k++) {
+          if (received[i][k] != sent[j][k]) {
+            found = false;
+            break;
+          }
+          found = true;
+        }
+      }
+    }
+    if (!found) {
+      Expect.fail("not found for received[$i] = ${received[i]}");
+    }
   }
 }
