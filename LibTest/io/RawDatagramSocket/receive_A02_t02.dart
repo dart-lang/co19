@@ -40,6 +40,9 @@ main() async {
   if (bytesSent[1] != sentLength) {
     bool found = false;
     for (int i = 0; i < received.length; i++) {
+      if (received[i] == null) {
+        continue;
+      }
       if (received[i].length == sentLength) {
         found = true;
         break;

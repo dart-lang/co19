@@ -139,12 +139,17 @@ Future<List<List<int>>> receiveDatagram(RawDatagramSocket receiver,
     if (event == null || _event == event) {
       received.add(datagram != null ? datagram.data : null);
     }
+    if (_event == RawSocketEvent.closed) {
+      if(!completer.isCompleted) {
+        completer.complete(received);
+      }
+    }
   });
   new Future.delayed(delay, () {
     receiver.close();
-    if(!completer.isCompleted) {
-      completer.complete(received);
-    }
+  //  if(!completer.isCompleted) {
+  //    completer.complete(received);
+  //  }
   });
   return f;
 }
@@ -165,10 +170,13 @@ compareDatagrams(List<List<int>> sent, List<List<int>> received, List<int> sentS
 }
 
 compareReceivedData(List<List<int>> sent, List<List<int>> received) {
-  Expect.isTrue(received.length <= sent.length, "${received.length} <= ${sent.length}");
+  Expect.isTrue(received.length <= sent.length + 1, "${received.length} <= ${sent.length + 1}");
   bool found = false;
 
   for (int i = 0, k = 0; i < received.length; i++) {
+    if (received[i] == null) {
+      continue;
+    }
     found = false;
     for (int j = 0; j < sent.length; j++) {
       if (found){
