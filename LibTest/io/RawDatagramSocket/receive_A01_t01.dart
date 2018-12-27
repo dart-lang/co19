@@ -19,10 +19,10 @@ var localhost = InternetAddress.loopbackIPv4;
 main() async {
   RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
   RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
-  List<List<int>> toSend = [[0], [1], [2], [3]];
+  List<List<int>> toSend = [[0, 1, 2, 3, 4], [5, 6, 7], [8, 9], [10]];
 
   if (!await sendDatagram(producer, toSend, localhost, receiver.port)) {
-    Expect.fail("No one datagram was sent.");
+    Expect.fail("No datagram was sent.");
   }
 
   List<List<int>> received = await receiveDatagram(receiver);

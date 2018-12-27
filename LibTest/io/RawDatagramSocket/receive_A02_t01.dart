@@ -27,24 +27,10 @@ main() async {
   for (int i = 0; i < sentLength; i++) {
     sList[i] = i & 0xff;
   }
-  List<List<int>> toSend = [[1], sList, [2, 3]];
-  List<int> bytesSent =
-      await sendDatagramOnce(producer, toSend, localhost, receiver.port);
-  if (!wasSent(bytesSent)) {
-    Expect.fail("No one datagram was sent.");
-  }
-  producer.close();
+  List<List<int>> toSend = [sList];
+  bool sent = await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(sent);
 
   List<List<int>> received = await receiveDatagram(receiver);
-  Expect.isTrue(received.length > 0);
-  if (bytesSent[1] == sentLength) {
-    bool found = false;
-    for (int i = 0; i < received.length; i++) {
-      if (received[i].length == sentLength) {
-        found = true;
-        break;
-      }
-    }
-    print(found);
-  }
+  Expect.listEquals(toSend, received);
 }

@@ -84,7 +84,6 @@ Future<List<int>> sendDatagramOnce(RawDatagramSocket producer,
         sent.add(producer.send(data[i++], address, port));
       } else {
         timer.cancel();
-      //  producer.close();
         completer.complete(sent);
       }
     });
@@ -110,6 +109,9 @@ Future<bool> sendDatagram(RawDatagramSocket producer, List<List<int>> data,
   return false;
 }
 
+/***
+ * Check that there is any buffer size > 0
+ */
 bool wasSent(List<int> bytesWritten) {
   for (int i = 0; i < bytesWritten.length; i++) {
     if (bytesWritten[i] > 0) {
@@ -137,7 +139,7 @@ Future<List<List<int>>> receiveDatagram(RawDatagramSocket receiver,
   receiver.listen((_event) {
     var datagram = receiver.receive();
     if (event == null || _event == event) {
-      received.add(datagram != null ? datagram.data : null);
+      received.add(datagram?.data);
     }
     if (_event == RawSocketEvent.closed) {
       if(!completer.isCompleted) {
@@ -147,53 +149,41 @@ Future<List<List<int>>> receiveDatagram(RawDatagramSocket receiver,
   });
   new Future.delayed(delay, () {
     receiver.close();
-  //  if(!completer.isCompleted) {
-  //    completer.complete(received);
-  //  }
+    if(!completer.isCompleted) {
+      completer.complete(received);
+    }
   });
   return f;
 }
 
-compareDatagrams(List<List<int>> sent, List<List<int>> received, List<int> sentStatus) {
-  Expect.equals(sentStatus.length, sent.length, "Wrong sizes of sent and sentRezult");
-  for (int i = 0, k = 0; i < sent.length; i++) {
-    if (sentStatus[i] == 0) {
-      continue;
-    }
-    Expect.equals(sent.length, received.length);
-    Expect.equals(sent[i].length, received[k].length, "Wrong sizes of sent and received");
-    for (int j = 0; j < sent[i].length; j++) {
-      Expect.equals(sent[i][j] & 0xff, received[k][j], "Wrong values: i=$i, k=$k, j=$j");
-    }
-    k++;
-  }
-}
-
+/**
+ * If we receive datagram we check if received data can be found among sent ones
+ */
 compareReceivedData(List<List<int>> sent, List<List<int>> received) {
-  Expect.isTrue(received.length <= sent.length + 1, "${received.length} <= ${sent.length + 1}");
-  bool found = false;
-
+  Expect.isTrue(received.length <= sent.length, "${received.length} <= ${sent.length}");
   for (int i = 0, k = 0; i < received.length; i++) {
     if (received[i] == null) {
       continue;
     }
-    found = false;
+    bool found = false;
     for (int j = 0; j < sent.length; j++) {
-      if (found){
+      if (_listEquals(received[i], sent[j])) {
+        found = true;
         break;
       }
-      if (received[i].length == sent[j].length) {
-        for (int k = 0; k < received[i].length; k++) {
-          if (received[i][k] != sent[j][k]) {
-            found = false;
-            break;
-          }
-          found = true;
-        }
+    }
+    Expect.isTrue(found, "${received[i]} not found among $sent");
+  }
+}
+
+bool _listEquals(List<int> list1, List<int> list2) {
+  if (list1.length == list2.length) {
+    for (int i = 0; i < list1.length; i++) {
+      if (list1[i] != list2[i]) {
+        return false;
       }
     }
-    if (!found) {
-      Expect.fail("not found for received[$i] = ${received[i]}");
-    }
+    return true;
   }
+  return false;
 }

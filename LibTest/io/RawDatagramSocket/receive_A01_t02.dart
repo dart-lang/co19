@@ -27,6 +27,8 @@ main() async {
 
   List<List<int>> received =
       await receiveDatagram(receiver, event: RawSocketEvent.closed);
-  Expect.isTrue(received.length == 1);
-  Expect.equals(received[0], null);
+  if (bytesSent.isNotEmpty) {
+    Expect.equals(1, received.length);
+    Expect.equals(received[0], null);
+  }
 }
