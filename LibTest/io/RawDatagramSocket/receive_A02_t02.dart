@@ -18,7 +18,10 @@ import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
 var localhost = InternetAddress.loopbackIPv4;
-int sentLength = 65508; // 65504;
+//int sentLength = 65504; // Bytes cannot be received (from spec)
+//int sentLength = 65508; // Bytes cannot be received in fact (on Linux)
+int sentLength = 65537; // Bytes cannot be received in fact (on Windows)
+
 
 main() async {
   RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
@@ -27,27 +30,23 @@ main() async {
   for (int i = 0; i < sentLength; i++) {
     sList[i] = i & 0xff;
   }
-  List<List<int>> toSend = [[1], sList, [2, 3]];
+  List<List<int>> toSend = [sList];
   List<int> bytesSent =
-  await sendDatagramOnce(producer, toSend, localhost, receiver.port);
-  if (!wasSent(bytesSent)) {
-    Expect.fail("No one datagram was sent.");
+      await sendDatagramOnce(producer, toSend, localhost, receiver.port);
+  if (wasSent(bytesSent)) {
+    Expect.isTrue(bytesSent[0] < sentLength);
   }
   producer.close();
 
   List<List<int>> received = await receiveDatagram(receiver);
-  Expect.isTrue(received.length > 0);
-  if (bytesSent[1] != sentLength) {
-    bool found = false;
+  if (received.length > 0){
     for (int i = 0; i < received.length; i++) {
       if (received[i] == null) {
         continue;
       }
-      if (received[i].length == sentLength) {
-        found = true;
-        break;
+      if (bytesSent[i] == sentLength) {
+        Expect.fail("$sentLength were received");
       }
     }
-    print(found);
   }
 }

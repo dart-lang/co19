@@ -11,11 +11,34 @@
  * and method receive returns null in this case.
  * @author ngl@unipro.ru
  */
+import "dart:async";
 import "dart:io";
 import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
 var localhost = InternetAddress.loopbackIPv4;
+
+Future<List<List<int>>> receiveClosed(RawDatagramSocket receiver,
+    {Duration delay = const Duration(seconds: 2), RawSocketEvent event}) {
+  List<List<int>> received = [];
+  Completer<List<List<int>>> completer = new Completer<List<List<int>>>();
+  Future<List<List<int>>> f = completer.future;
+  receiver.listen((_event) {
+    var datagram = receiver.receive();
+    if (_event == event) {
+      received.add(datagram == null ? null : datagram.data);
+    }
+    if (_event == RawSocketEvent.closed) {
+      if(!completer.isCompleted) {
+        completer.complete(received);
+      }
+    }
+  });
+  new Future.delayed(delay, () {
+    receiver.close();
+  });
+  return f;
+}
 
 main() async {
   RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
@@ -26,7 +49,7 @@ main() async {
   producer.close();
 
   List<List<int>> received =
-      await receiveDatagram(receiver, event: RawSocketEvent.closed);
+      await receiveClosed(receiver, event: RawSocketEvent.closed);
   if (bytesSent.isNotEmpty) {
     Expect.equals(1, received.length);
     Expect.equals(received[0], null);
