@@ -26,7 +26,7 @@ Future<List<List<int>>> receiveAndClose(RawDatagramSocket receiver,
   Future<List<List<int>>> f = completer.future;
   receiver.listen((_event) {
     var datagram = receiver.receive();
-    received.add(datagram != null ? datagram.data : null);
+    received.add(datagram?.data);
     if (received.length == 1) {
       receiver.close();
     }
@@ -48,20 +48,15 @@ Future<List<List<int>>> receiveAndClose(RawDatagramSocket receiver,
 main() async {
   RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
   RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
-  List<List<int>> toSend = [[0], [1], [2], [3]];
+  List<List<int>> toSend = [[0, 1, 2, 3, 4], [5, 6, 7], [8, 9], [10]];
 
-  List<int> bytesSent =
-  await sendDatagramOnce(producer, toSend, localhost, receiver.port);
-  if (!wasSent(bytesSent)) {
-    Expect.fail("No one datagram was sent.");
-  }
+  bool wasSent1 = await sendDatagram(producer, toSend, localhost, receiver.port,
+      closeProducer: false);
+  Expect.isTrue(wasSent1, "No datagram was sent");
 
-  List<int> bytesSent1 =
-  await sendDatagramOnce(producer, [[4], [5]], localhost, receiver.port);
-  if (!wasSent(bytesSent1)) {
-    Expect.fail("No one datagram was sent.");
-  }
-  producer.close();
+  bool wasSent2 =
+    await sendDatagram(producer, [[4], [5]], localhost, receiver.port);
+  Expect.isTrue(wasSent2, "No datagram was sent");
 
   List<List<int>> received = await receiveAndClose(receiver);
   Expect.isTrue(received.length <= 2);

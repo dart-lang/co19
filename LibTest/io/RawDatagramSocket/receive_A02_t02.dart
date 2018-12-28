@@ -18,24 +18,19 @@ import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
 var localhost = InternetAddress.loopbackIPv4;
-//int sentLength = 65504; // Bytes cannot be received (from spec)
-//int sentLength = 65508; // Bytes cannot be received in fact (on Linux)
-int sentLength = 65537; // Bytes cannot be received in fact (on Windows)
-
+int datagramLength = 65504;
 
 main() async {
   RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
   RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
-  List<int> sList = new List<int>(sentLength);
-  for (int i = 0; i < sentLength; i++) {
+  List<int> sList = new List<int>(datagramLength);
+  for (int i = 0; i < datagramLength; i++) {
     sList[i] = i & 0xff;
   }
   List<List<int>> toSend = [sList];
-  List<int> bytesSent =
-      await sendDatagramOnce(producer, toSend, localhost, receiver.port);
-  if (wasSent(bytesSent)) {
-    Expect.isTrue(bytesSent[0] < sentLength);
-  }
+  bool wasSent =
+      await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
   producer.close();
 
   List<List<int>> received = await receiveDatagram(receiver);
@@ -44,9 +39,8 @@ main() async {
       if (received[i] == null) {
         continue;
       }
-      if (bytesSent[i] == sentLength) {
-        Expect.fail("$sentLength were received");
-      }
+      Expect.notEquals(datagramLength,received[i].length,
+          "Wrong length of the datagram received");
     }
   }
 }

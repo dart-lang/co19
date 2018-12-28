@@ -95,13 +95,16 @@ Future<List<int>> sendDatagramOnce(RawDatagramSocket producer,
 
 Future<bool> sendDatagram(RawDatagramSocket producer, List<List<int>> data,
     InternetAddress address, int port,
-    {Duration period = const Duration(milliseconds: 1), int attempts = 5}) async {
+    {Duration period = const Duration(milliseconds: 1), int attempts = 5,
+      bool closeProducer = true}) async {
   for (int attempt = 0; attempt < attempts; attempt++) {
     List<int> bytesWritten = await sendDatagramOnce(producer, data, address, port,
         period: period);
     if (wasSent(bytesWritten)) {
       compareSentData(data, bytesWritten);
-      producer.close();
+      if (closeProducer) {
+        producer.close();
+      }
       return true;
     }
   }
@@ -148,8 +151,8 @@ Future<List<List<int>>> receiveDatagram(RawDatagramSocket receiver,
     }
   });
   new Future.delayed(delay, () {
-    receiver.close();
     if(!completer.isCompleted) {
+      receiver.close();
       completer.complete(received);
     }
   });

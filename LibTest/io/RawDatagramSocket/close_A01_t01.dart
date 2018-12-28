@@ -22,10 +22,10 @@ main() async {
   receiver.close();
 
   try {
-    producer.send(toSend, localhost, receiver.port);
-  } catch (e) {
-    Expect.isTrue(e is SocketException);
-    Expect.isTrue(e.message == "Socket has been closed");
+    Expect.throws(() {
+      producer.send(toSend, localhost, receiver.port);
+    }, (e) => e is SocketException);
+  } finally {
+    producer.close();
   }
-  producer.close();
 }
