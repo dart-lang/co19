@@ -31,7 +31,6 @@ main() async {
   bool wasSent =
       await sendDatagram(producer, toSend, localhost, receiver.port);
   Expect.isTrue(wasSent, "No datagram was sent");
-  producer.close();
 
   List<List<int>> received = await receiveDatagram(receiver);
   if (received.length > 0){
@@ -39,7 +38,7 @@ main() async {
       if (received[i] == null) {
         continue;
       }
-      Expect.notEquals(datagramLength,received[i].length,
+      Expect.notEquals(datagramLength, received[i].length,
           "Wrong length of the datagram received");
     }
   }

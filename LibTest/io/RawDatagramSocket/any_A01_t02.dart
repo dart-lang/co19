@@ -15,59 +15,28 @@
  * first received RawSocketEvent.read event.
  * @author ngl@unipro.ru
  */
-import "dart:async";
+//import "dart:async";
 import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check([bool no_write_events = false]) {
-  var expectedEvent = RawSocketEvent.read;
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      if (no_write_events) {
-        receiver.writeEventsEnabled = false;
-      }
-      int sent = 0;
-      int count = 0;
+var localhost = InternetAddress.loopbackIPv4;
 
-      new Timer.periodic(const Duration(microseconds: 1), (timer) {
-        producer.send([sent], address, receiver.port);
-        sent++;
-        if (sent > 3) {
-          timer.cancel();
-          producer.close();
-        }
-      });
+main() async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3], [3]];
+  RawSocketEvent findEvent = RawSocketEvent.read;
 
-      bool test(x) {
-        count++;
-        return x == expectedEvent;
-      }
+  bool wasSent =
+      await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
 
-      Timer commonTimer;
-      receiver.any((event) => test(event)).then((value) {
-        Expect.equals(true, value);
-        if (no_write_events == false) {
-          Expect.equals(2, count);
-        } else {
-          Expect.equals(1, count);
-        }
-      }).whenComplete(() {
-        commonTimer.cancel();
-        receiver.close();
-        asyncEnd();
-      });
-
-      commonTimer = new Timer(const Duration(seconds: 1), () {
-        receiver.close();
-        Expect.fail('Test failed as it was executed more then 1 second.');
-      });
-    });
-  });
+  List<RawSocketEvent> tested = await anyElement(receiver, findEvent, true);
+  Expect.isTrue(tested.length > 0);
+  Expect.equals(findEvent, tested[tested.length - 1]);
+  if (tested.length > 1) {
+    checkTested<RawSocketEvent>(tested, findEvent);
+  }
 }
 
-main() {
-  check();
-  check(true);
-}

@@ -50,8 +50,7 @@ main() async {
 
   List<List<int>> received =
       await receiveClosed(receiver, event: RawSocketEvent.closed);
-  if (bytesSent.isNotEmpty) {
-    Expect.equals(1, received.length);
+  if (received.isNotEmpty) {
     Expect.equals(received[0], null);
   }
 }

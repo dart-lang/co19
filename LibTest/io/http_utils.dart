@@ -190,3 +190,48 @@ bool _listEquals(List<int> list1, List<int> list2) {
   }
   return false;
 }
+
+Future<List<RawSocketEvent>> anyElement(RawDatagramSocket receiver,
+    RawSocketEvent expectedEvent, bool shouldFind,
+    {Duration delay = const Duration(seconds: 2)}) {
+  List<RawSocketEvent> tested = [];
+  Completer<List<RawSocketEvent>> completer =
+  new Completer<List<RawSocketEvent>>();
+  Future<List<RawSocketEvent>> f = completer.future;
+
+  bool test(x) {
+    tested.add(x);
+    receiver.receive();
+    if (x == RawSocketEvent.closed) {
+      if (!completer.isCompleted) {
+        completer.complete(tested);
+      }
+    }
+    return x == expectedEvent;
+  }
+
+  receiver.any((event) => test(event)).then((value) {
+    if (shouldFind) {
+      Expect.equals(true, value);
+    } else {
+      Expect.equals(false, value);
+    }
+    if (!completer.isCompleted) {
+      receiver.close();
+      completer.complete(tested);
+    }
+  });
+
+  new Future.delayed(delay, () {
+    if (!completer.isCompleted) {
+      receiver.close();
+    }
+  });
+  return f;
+}
+
+checkTested<T>(List<T> tested, T expected) {
+  for (int i = tested.length - 2; i >= 0; i--) {
+    Expect.notEquals(expected, tested[i]);
+  }
+}
