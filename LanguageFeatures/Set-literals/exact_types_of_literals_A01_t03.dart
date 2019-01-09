@@ -17,6 +17,16 @@
 import "../../Utils/expect.dart";
 import "dart:collection";
 
+// Class overriding `==`.
+class C {
+  final int id;
+  final String name;
+  C(this.id, this.name);
+  int get hashCode => id;
+  bool operator==(Object other) => other is C && id == other.id;
+  String toString() => "C($id, $name)";
+}
+
 main() {
   Expect.isTrue({} is LinkedHashMap<dynamic, dynamic>);
   Expect.isTrue(<int, int>{} is LinkedHashMap<int, int>);
@@ -51,18 +61,8 @@ main() {
   var l18 = const {1, 2};
   Expect.isTrue(l18 is Set<int>);
 
-  // Class overriding `==`.
-  class C {
-    final int id;
-    final String name;
-    C(this.id, this.name);
-    int get hashCode => id;
-    bool operator==(Object other) => other is C && id == other.id;
-    String toString() => "C($id, $name)";
-  }
-
-  var v19 = {C(1, "a"), C(2, "a"), C("1", "b")};
-  Expect.isTrue(l19 is LinkedHashSet<C>);
+  var v19 = {C(1, "a"), C(2, "a"), C(1, "b")};
+  Expect.isTrue(v19 is LinkedHashSet<C>);
   Expect.equals({C(1, "a"), C(2, "a")}, v19);
 
   var v23 = {1, 2.5};
@@ -70,5 +70,5 @@ main() {
   var v24 = {1, false};
   Expect.isTrue(v24 is LinkedHashSet<Object>);
   const v26  = {1, false};
-  Expect.isTrue(v26 is const Set<Object>);
+  Expect.isTrue(v26 is Set<Object>);
 }
