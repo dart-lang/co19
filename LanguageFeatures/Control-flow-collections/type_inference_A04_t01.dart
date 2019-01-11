@@ -37,6 +37,5 @@ main() {
     1,
     for (var i in []) 3.14
   ];
-  Expect.isTrue(list3 is List<List<num>>);
+  Expect.isTrue(list3 is List<num>);
 }
-

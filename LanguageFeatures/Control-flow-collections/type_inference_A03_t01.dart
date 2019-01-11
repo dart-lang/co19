@@ -35,9 +35,8 @@ main() {
 
   var list3 = [
     1,
-    if (i > 0) 3.14,
+    if (i > 0) 3 else 3.14,
     if (i < 0) 2
   ];
-  Expect.isTrue(list3 is List<List<num>>);
+  Expect.isTrue(list3 is List<num>);
 }
-

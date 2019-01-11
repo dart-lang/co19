@@ -36,6 +36,5 @@ main() {
     if (i > 0) new B(),
     if (i < 0) new A()
   ];
-  Expect.isTrue(list3 is List<List<A>>);
+  Expect.isTrue(list3 is List<A>);
 }
-
