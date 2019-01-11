@@ -13,22 +13,21 @@
  * stream is.
  * @author ngl@unipro.ru
  */
-import "dart:io";
 import "dart:async";
+import "dart:io";
 import "../../../Utils/expect.dart";
 
-check(Stream convert(event)) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((socket) {
-    Stream stream1 = socket.asyncExpand(convert);
-    Expect.isFalse(stream1.isBroadcast);
-    var stream = socket.asBroadcastStream();
-    Stream stream2 = stream.asyncExpand(convert);
-    Expect.isTrue(stream2.isBroadcast);
-    socket.close();
-    asyncEnd();
-  });
+var localhost = InternetAddress.loopbackIPv4;
+
+check(Stream convert(event)) async {
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+
+  Stream stream1 = receiver.asyncExpand(convert);
+  Expect.isFalse(stream1.isBroadcast);
+  var stream = receiver.asBroadcastStream();
+  Stream stream2 = stream.asyncExpand(convert);
+  Expect.isTrue(stream2.isBroadcast);
+  receiver.close();
 }
 
 main() {

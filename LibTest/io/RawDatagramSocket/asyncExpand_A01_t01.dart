@@ -25,35 +25,65 @@
  * is emitted on the returned stream in the order it is produced.
  * @author ngl@unipro.ru
  */
-import "dart:io";
 import "dart:async";
+import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(convert, n) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      int sent = 0;
-      int count = 0;
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent], address, receiver.port);
-      producer.close();
-      receiver.close();
-      Stream s = receiver.asyncExpand(convert);
-      s.listen((value) {
-        Expect.equals(RawSocketEvent.closed, value);
-        count++;
-      }).onDone(() {
-        Expect.equals(n, count);
-        asyncEnd();
-      });
-    });
+var localhost = InternetAddress.loopbackIPv4;
+
+Future<List<RawSocketEvent>> check(convert) async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3], [3]];
+  List<RawSocketEvent> received = [];
+  Completer<List<RawSocketEvent>> completer =
+      new Completer<List<RawSocketEvent>>();
+  Future<List<RawSocketEvent>> f = completer.future;
+
+  bool wasSent = await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
+
+  receiver.close();
+
+  Stream s = receiver.asyncExpand(convert);
+  s.listen((value) {
+    received.add(value);
+    Expect.equals(RawSocketEvent.closed, value);
+  }).onDone(() {
+    if (!completer.isCompleted) {
+      completer.complete(received);
+    }
+    return f;
   });
+  return f;
 }
 
-main() {
-  check((e) => new Stream.fromIterable([e]), 1);
-  check((e) => new Stream.fromIterable([e, e]), 2);
+main() async {
+  int attempts4asyncExpand = 5;
+
+  toCheck(convert, List expected) async {
+    int expectedLen = expected.length;
+    for (int i = 0; i < attempts4asyncExpand; i++) {
+      List list = await check(convert);
+      int listLen = list.length;
+      if (listLen == 0) {
+        continue;
+      }
+      if (listLen == expectedLen) {
+        Expect.listEquals(expected, list);
+        break;
+      }
+      if (listLen > expectedLen) {
+        Expect.fail("$listLen elements found instead of $expectedLen.");
+      }
+      if (i == attempts4asyncExpand - 1) {
+        print('$listLen elements found. Look like test failed.');
+      }
+    }
+  }
+
+  toCheck((e) => new Stream.fromIterable([e]), [RawSocketEvent.closed]);
+  toCheck((e) => new Stream.fromIterable([e, e]),
+      [RawSocketEvent.closed, RawSocketEvent.closed]);
 }

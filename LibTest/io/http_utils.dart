@@ -196,7 +196,7 @@ Future<List<RawSocketEvent>> anyElement(RawDatagramSocket receiver,
     {Duration delay = const Duration(seconds: 2)}) {
   List<RawSocketEvent> tested = [];
   Completer<List<RawSocketEvent>> completer =
-  new Completer<List<RawSocketEvent>>();
+      new Completer<List<RawSocketEvent>>();
   Future<List<RawSocketEvent>> f = completer.future;
 
   bool test(x) {
