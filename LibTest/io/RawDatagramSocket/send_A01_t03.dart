@@ -25,6 +25,7 @@ main() async {
   List<List<int>> toSent = [[], [], []];
   List<int> bytesWritten = await sendDatagramOnce(producer, toSent, localhost,
       receiver.port);
+  producer.close();
   Expect.isFalse(wasSent(bytesWritten));
   receiver.close();
 }

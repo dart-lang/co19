@@ -16,60 +16,60 @@
  */
 import "dart:async";
 import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(RawSocketEvent expectedEvent, [bool no_write_events = false]) {
-  var expectedEvent = RawSocketEvent.readClosed;
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      if (no_write_events) {
-        receiver.writeEventsEnabled = false;
-      }
-      int sent = 0;
-      int count = 0;
-      int expectedCount = 5;
-      int nullWrileData = 0;
+var localhost = InternetAddress.loopbackIPv4;
 
-      new Timer.periodic(const Duration(microseconds: 1), (timer) {
-        producer.send([sent], address, receiver.port);
-        sent++;
-        if (sent > 3) {
-          timer.cancel();
-          producer.close();
-        }
-      });
+Future<List<RawSocketEvent>> anyElement(RawDatagramSocket receiver,
+    RawSocketEvent expectedEvent,
+    {Duration delay = const Duration(seconds: 2)}) {
+  List<RawSocketEvent> tested = [];
+  Completer<List<RawSocketEvent>> completer =
+  new Completer<List<RawSocketEvent>>();
+  Future<List<RawSocketEvent>> f = completer.future;
+  Stream bcs = receiver.asBroadcastStream();
 
-      Timer timer;
-      bool test(x) {
-        count++;
-        if (timer != null) timer.cancel();
-        timer = new Timer(const Duration(milliseconds: 200), () {
-          Expect.isNull(receiver.receive());
-          receiver.close();
-        });
-        return x == expectedEvent;
-      }
+  bool test(x) {
+    tested.add(x);
+    return x == expectedEvent;
+  }
 
-      Stream bcs = receiver.asBroadcastStream();
-
-      bcs.any((event) => test(event)).then((value) {
-        Expect.equals(false, value);
-        Expect.equals(expectedCount + nullWrileData, count);
-      }).whenComplete(() {
-        asyncEnd();
-      });
-
-      bcs.listen((event) {
-        Datagram d = receiver.receive();
-        print('$event ${d==null?null:d.data}');
-        if (event == RawSocketEvent.write && d == null) {
-          nullWrileData = 1;
-        }
-      });
-    });
+  bcs.any((event) => test(event)).then((value) {
+    Expect.equals(false, value);
   });
+
+  bcs.listen((event) {
+    receiver.receive();
+    if (event == RawSocketEvent.closed) {
+      if (!completer.isCompleted) {
+        completer.complete(tested);
+      }
+    }
+  });
+
+  new Future.delayed(delay, () {
+    if (!completer.isCompleted) {
+      receiver.close();
+    }
+  });
+  return f;
+}
+
+check(RawSocketEvent expectedEvent, [bool no_write_events = false]) async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3], [3]];
+  if (no_write_events) {
+    receiver.writeEventsEnabled = false;
+  }
+
+  bool wasSent =
+      await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
+
+  List<RawSocketEvent> tested = await anyElement(receiver, expectedEvent);
+  Expect.isTrue(tested.length > 0);
 }
 
 main() {

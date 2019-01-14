@@ -16,49 +16,24 @@
  * @issue 31881
  * @author ngl@unipro.ru
  */
-import "dart:async";
+//import "dart:async";
 import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-main() {
-  var expectedEvent = RawSocketEvent.write;
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      receiver.writeEventsEnabled = false;
-      int sent = 0;
-      int count = 0;
-      int expectedCount = 5;
+var localhost = InternetAddress.loopbackIPv4;
 
-      new Timer.periodic(const Duration(microseconds: 1), (timer) {
-        producer.send([sent], address, receiver.port);
-        sent++;
-        if (sent > 3) {
-          timer.cancel();
-          producer.close();
-        }
-      });
+main() async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3], [4]];
+  receiver.writeEventsEnabled = false;
 
-      Timer timer;
-      bool test(x) {
-        count++;
-        receiver.receive();
-        if (timer != null) timer.cancel();
-        timer = new Timer(const Duration(milliseconds: 200), () {
-          Expect.isNull(receiver.receive());
-          receiver.close();
-        });
-        return x == expectedEvent;
-      }
+  bool wasSent =
+      await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
 
-      receiver.any((event) => test(event)).then((value) {
-        Expect.equals(false, value);
-        Expect.equals(expectedCount, count);
-      }).whenComplete(() {
-        timer.cancel();
-        asyncEnd();
-      });
-    });
-  });
+  List<RawSocketEvent> tested =
+      await anyElement(receiver, RawSocketEvent.write, false);
+  Expect.isTrue(tested.length > 0);
 }

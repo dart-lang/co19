@@ -11,57 +11,53 @@
  * it does not receive sent events.
  * @author ngl@unipro.ru
  */
+
 import "dart:async";
 import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check([bool no_write_events = false]) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      if (no_write_events) {
-        receiver.writeEventsEnabled = false;
+var localhost = InternetAddress.loopbackIPv4;
+
+Future<List<List<int>>> receiveAndClose(RawDatagramSocket receiver,
+    {Duration delay = const Duration(seconds: 2)}) {
+  List<List<int>> received = [];
+  Completer<List<List<int>>> completer = new Completer<List<List<int>>>();
+  Future<List<List<int>>> f = completer.future;
+  receiver.listen((_event) {
+    var datagram = receiver.receive();
+    received.add(datagram?.data);
+    if (received.length == 1) {
+      receiver.close();
+    }
+    if (_event == RawSocketEvent.closed) {
+      if(!completer.isCompleted) {
+        completer.complete(received);
       }
-      Timer timer2;
-      int received = 0;
-      int sent = 0;
-
-      new Timer.periodic(const Duration(microseconds: 1), (timer) {
-        producer.send([sent], address, receiver.port);
-        sent++;
-        if (sent == 3) {
-          receiver.close();
-        }
-        if (sent > 4) {
-          Expect.equals(5, sent);
-          timer.cancel();
-          producer.close();
-        }
-      });
-
-      void action() {
-        asyncEnd();
-      }
-
-      receiver.listen((event) {
-        received++;
-        var datagram = receiver.receive();
-        if (datagram != null) {
-          Expect.equals(received - 1, datagram.data[0]);
-        }
-        if (timer2 != null) timer2.cancel();
-        timer2 = new Timer(const Duration(milliseconds: 200), () {
-          Expect.isNull(receiver.receive());
-          Expect.equals(3, received);
-          receiver.close();
-        });
-      }).onDone(action);
-    });
+    }
   });
+  new Future.delayed(delay, () {
+    if (!completer.isCompleted) {
+      receiver.close();
+      completer.complete(received);
+    }
+  });
+  return f;
 }
 
-main() {
-  check();
-  check(true);
+main() async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3, 4], [5, 6, 7], [8, 9], [10]];
+
+  bool wasSent1 = await sendDatagram(producer, toSend, localhost, receiver.port,
+      closeProducer: false);
+  Expect.isTrue(wasSent1, "No datagram was sent");
+
+  bool wasSent2 =
+    await sendDatagram(producer, [[4], [5]], localhost, receiver.port);
+  Expect.isTrue(wasSent2, "No datagram was sent");
+
+  List<List<int>> received = await receiveAndClose(receiver);
+  Expect.isTrue(received.length <= 2);
 }

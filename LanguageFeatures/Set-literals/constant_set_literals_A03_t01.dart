@@ -6,15 +6,12 @@
 /**
  * @assertion Let e1 … en be the constant element expressions of s in source
  * order, and let v1 … vn be their respective constant values. Evaluation of s
- * creates an unmodifiable object implementing Set<T> with v1 … vn as elements,
- * except that if any of v1 … vn are equal, only the first value of such equal
- * values is included. That is, it includes the values {vi | i ∈ 1 … n and
- * ∀ j ∈ 0 … i - 1. vi != vj}. When iterated, the set provides the values in
- * the source order of the original expressions.
+ * creates an unmodifiable object implementing Set<T> with v1 … vn as elements.
+ * When iterated, the set provides the values in the source order of the
+ * original expressions
  *
  * @description Checks that evaluation of s creates an unmodifiable object
- * implementing Set<T> with v1 … vn as elements, except that if any of v1 … vn
- * are equal
+ * implementing Set<T> with v1 … vn as elements
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=set-literals

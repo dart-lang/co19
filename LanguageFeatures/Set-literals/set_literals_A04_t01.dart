@@ -14,12 +14,12 @@ test<T>(Set<T> s) {}
 
 main() {
   test<int>({3, 1, 4, 1, 5, 9, 2, 6});
-  test<int>(const {3, 1, 4, 1, 5, 9, 2, 6,});
+  test<int>(const {3, 1, 4, 5, 9, 2, 6,});
 
   test<Object>({'3', 1, 4, 1, 5, 9, 2, 6, bool});
-  test<Object>(const {'3', 1, 4, 1, 5, 9, 2, 6, bool,});
+  test<Object>(const {'3', 1, 4, 5, 9, 2, 6, bool,});
 
   dynamic d;
   test<dynamic>({'3', 1, 4, 1, 5, 9, 2, 6, d});
-  test<dynamic>(const {'3', 1, 4, 1, 5, 9, 2, 6, d,});
+  test<dynamic>(const {'3', 1, 4, 5, 9, 2, 6, d,});
 }

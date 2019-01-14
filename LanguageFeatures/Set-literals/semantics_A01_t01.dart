@@ -12,8 +12,8 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=set-literals
-var v1 = <int> {};                      //# 01: compile-time error
-var v2 = const <String> {};             //# 02: compile-time error
+Map v1 = <int> {};                      //# 01: compile-time error
+Map v2 = const <String> {};             //# 02: compile-time error
 var v3 = <int> {1: 2};                  //# 03: compile-time error
 var v4 = const <String> {'s': null};    //# 04: compile-time error
 var v5 = const <String, int, int> {'s': null};  //# 05: compile-time error
@@ -22,8 +22,8 @@ var v7 = <String, int, int> {};    //# 07: compile-time error
 var v8 = <String, int, int> {};    //# 08: compile-time error
 
 main() {
-  var x1 = <int> {};                      //# 09: compile-time error
-  var x2 = const <String> {};             //# 10: compile-time error
+  Map x1 = <int> {};                      //# 09: compile-time error
+  Map x2 = const <String> {};             //# 10: compile-time error
   var x3 = <int> {1: 2};                  //# 11: compile-time error
   var x4 = const <String> {'s': null};    //# 12: compile-time error
   var x5 = const <String, int, int> {'s': null};  //# 13: compile-time error

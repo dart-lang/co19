@@ -24,7 +24,6 @@ run_main(void run(Process _), String expected) async {
     await process.exitCode.then((int c) async {
       File fl = new File(filename);
       await fl.readAsString().then((String contents) {
-        fl.delete();
         Expect.listEquals(expected.codeUnits, contents.codeUnits);
       });
       called++;

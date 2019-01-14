@@ -19,26 +19,25 @@ class C {
   static int n2 = 2;
   int x = null;
 }
+
 main() {
   C c = null;
 
   var v1 = {c?.x ?? 3, C?.n2, c?.n1};
   Expect.isTrue(v1 is Set);
-  Expect.iterableEquals({3, 2, 1}, v1));
+  Expect.iterableEquals({3, 2, 1}, v1);
 
   c = new C();
-  print(c.n1 ??= c.x);
-  print(c.x ??= 3);
 
   var v2 = {c?.x ?? 3, C?.n2, c?.n1};
   Expect.isTrue(v2 is Set);
-  Expect.iterableEquals({3, 2, 1}, v2));
+  Expect.iterableEquals({3, 2, 1}, v2);
 
-  const v3 = const <int>{c?.x ?? 3, C?.n2, c?.n1};
+  var v3 = <int>{c?.x ?? 3, C?.n2, c?.n1};
   Expect.isTrue(v3 is Set);
-  Expect.iterableEquals({3, 2, 1}, v3));
+  Expect.iterableEquals({3, 2, 1}, v3);
 
   var v4 = <int>{c.n1 ??= c.x, c.x ??= 4, C?.n2, c?.x ?? 3};
   Expect.isTrue(v4 is Set);
-  Expect.iterableEquals({1, 4, 2, 3}, v4));
+  Expect.iterableEquals({1, 4, 2, 3}, v4);
 }

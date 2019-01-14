@@ -9,6 +9,7 @@
  * int or String, objects implementing Symbol originally created by a symbol
  * literal or a constant invocation of the Symbol constructor, or objects
  * implementing Type originally created by a constant type literal expression.
+ * It is a compile-time error if any two of the values are equal according to ==
  *
  * @description Checks that it is a compile-time error if any of the values of
  * the constant element expressions is double

@@ -18,7 +18,7 @@
  * insertion order, where adding an element equal to one already in the set does
  * not change the set in any way).
  *
- * @description Check that evaluation of constant element expression is
+ * @description Check that evaluation of non-constant element expression is
  * performed as expected
  * @author sgrekhov@unipro.ru
  */
@@ -44,7 +44,7 @@ main() {
   o1.add(4);
   Expect.iterableEquals(o1, s1);
 
-  var s2 = const <Object> {'3', 1, 4, null, 1, null,};
+  var s2 = <Object> {'3', 1, 4, null, 1, null,};
   LinkedHashSet<Object> o2 = new LinkedHashSet<Object>();
   o2.add('3');
   o2.add(1);

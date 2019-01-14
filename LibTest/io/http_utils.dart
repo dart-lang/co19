@@ -84,7 +84,6 @@ Future<List<int>> sendDatagramOnce(RawDatagramSocket producer,
         sent.add(producer.send(data[i++], address, port));
       } else {
         timer.cancel();
-        producer.close();
         completer.complete(sent);
       }
     });
@@ -96,17 +95,26 @@ Future<List<int>> sendDatagramOnce(RawDatagramSocket producer,
 
 Future<bool> sendDatagram(RawDatagramSocket producer, List<List<int>> data,
     InternetAddress address, int port,
-    {Duration period = const Duration(milliseconds: 1), int attempts = 5}) async {
+    {Duration period = const Duration(milliseconds: 1), int attempts = 5,
+      bool closeProducer = true}) async {
   for (int attempt = 0; attempt < attempts; attempt++) {
     List<int> bytesWritten = await sendDatagramOnce(producer, data, address, port,
         period: period);
     if (wasSent(bytesWritten)) {
+      compareSentData(data, bytesWritten);
+      if (closeProducer) {
+        producer.close();
+      }
       return true;
     }
   }
+  producer.close();
   return false;
 }
 
+/***
+ * Check that there is any buffer size > 0
+ */
 bool wasSent(List<int> bytesWritten) {
   for (int i = 0; i < bytesWritten.length; i++) {
     if (bytesWritten[i] > 0) {
@@ -116,40 +124,114 @@ bool wasSent(List<int> bytesWritten) {
   return false;
 }
 
+compareSentData(List<List<int>> data, List<int> sentStatus) {
+  Expect.equals(sentStatus.length, data.length, "Wrong sizes of sent and sentResult");
+  for (int i = 0; i < data.length; i++) {
+    if (sentStatus[i] == 0) {
+      continue;
+    }
+    Expect.equals(data[i].length, sentStatus[i]);
+  }
+}
+
 Future<List<List<int>>> receiveDatagram(RawDatagramSocket receiver,
     {Duration delay = const Duration(seconds: 2), RawSocketEvent event}) {
   List<List<int>> received = [];
   Completer<List<List<int>>> completer = new Completer<List<List<int>>>();
   Future<List<List<int>>> f = completer.future;
   receiver.listen((_event) {
+    var datagram = receiver.receive();
     if (event == null || _event == event) {
-      var datagram = receiver.receive();
-      if (datagram != null) {
-        print("Received: ${datagram.data}");
-        received.add(datagram.data);
+      received.add(datagram?.data);
+    }
+    if (_event == RawSocketEvent.closed) {
+      if(!completer.isCompleted) {
+        completer.complete(received);
       }
     }
   });
   new Future.delayed(delay, () {
-    receiver.close();
     if(!completer.isCompleted) {
+      receiver.close();
       completer.complete(received);
     }
   });
   return f;
 }
 
-compareDatagrams(List<List<int>> sent, List<List<int>> received, List<int> sentStatus) {
-  Expect.equals(sentStatus.length, sent.length, "Wrong sizes of sent and sentRezult");
-  for (int i = 0, k = 0; i < sent.length; i++) {
-    if (sentStatus[i] == 0) {
+/**
+ * If we receive datagram we check if received data can be found among sent ones
+ */
+compareReceivedData(List<List<int>> sent, List<List<int>> received) {
+  Expect.isTrue(received.length <= sent.length, "${received.length} <= ${sent.length}");
+  for (int i = 0, k = 0; i < received.length; i++) {
+    if (received[i] == null) {
       continue;
     }
-    Expect.equals(sent.length, received.length);
-    Expect.equals(sent[i].length, received[k].length, "Wrong sizes of sent and received");
-    for (int j = 0; j < sent[i].length; j++) {
-      Expect.equals(sent[i][j] & 0xff, received[k][j], "Wrong values: i=$i, k=$k, j=$j");
+    bool found = false;
+    for (int j = 0; j < sent.length; j++) {
+      if (_listEquals(received[i], sent[j])) {
+        found = true;
+        break;
+      }
     }
-    k++;
+    Expect.isTrue(found, "${received[i]} not found among $sent");
+  }
+}
+
+bool _listEquals(List<int> list1, List<int> list2) {
+  if (list1.length == list2.length) {
+    for (int i = 0; i < list1.length; i++) {
+      if (list1[i] != list2[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
+  return false;
+}
+
+Future<List<RawSocketEvent>> anyElement(RawDatagramSocket receiver,
+    RawSocketEvent expectedEvent, bool shouldFind,
+    {Duration delay = const Duration(seconds: 2)}) {
+  List<RawSocketEvent> tested = [];
+  Completer<List<RawSocketEvent>> completer =
+      new Completer<List<RawSocketEvent>>();
+  Future<List<RawSocketEvent>> f = completer.future;
+
+  bool test(x) {
+    tested.add(x);
+    receiver.receive();
+    if (x == RawSocketEvent.closed) {
+      if (!completer.isCompleted) {
+        completer.complete(tested);
+      }
+    }
+    return x == expectedEvent;
+  }
+
+  receiver.any((event) => test(event)).then((value) {
+    if (shouldFind) {
+      Expect.equals(true, value);
+    } else {
+      Expect.equals(false, value);
+    }
+    if (!completer.isCompleted) {
+      receiver.close();
+      completer.complete(tested);
+    }
+  });
+
+  new Future.delayed(delay, () {
+    if (!completer.isCompleted) {
+      receiver.close();
+    }
+  });
+  return f;
+}
+
+checkTested<T>(List<T> tested, T expected) {
+  for (int i = tested.length - 2; i >= 0; i--) {
+    Expect.notEquals(expected, tested[i]);
   }
 }

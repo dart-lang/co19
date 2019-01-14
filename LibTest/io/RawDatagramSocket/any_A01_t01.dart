@@ -17,63 +17,74 @@
  */
 import "dart:async";
 import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(int expectedValue, [bool no_write_events = false]) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      if (no_write_events) {
-        receiver.writeEventsEnabled = false;
-      }
-      int sent = 0;
-      int count = 0;
-      int nullWriteData = 0;
+var localhost = InternetAddress.loopbackIPv4;
 
-      new Timer.periodic(const Duration(microseconds: 1), (timer) {
-        producer.send([sent], address, receiver.port);
-        sent++;
-        if (sent > 3) {
-          timer.cancel();
-          producer.close();
-        }
-      });
+Future<List<int>> anyElement(RawDatagramSocket receiver, int expectedValue,
+    bool shouldFind, {Duration delay = const Duration(seconds: 2)}) {
+  List<int> tested = [];
+  Completer<List<int>> completer = new Completer<List<int>>();
+  Future<List<int>> f = completer.future;
 
-      bool test(RawSocketEvent x) {
-        count++;
-        var d = receiver == null ? null : receiver.receive();
-        if (d != null) {
-          return d.data[0] == expectedValue;
-        } else {
-          if (x == RawSocketEvent.write) {
-            nullWriteData = 1;
-          }
-          return false;
-        }
-      }
+  bool test(RawSocketEvent x) {
+    var d = receiver?.receive();
+    if (d != null) {
+      tested.add(d.data[0]);
+      return d.data[0] == expectedValue;
+    } else {
+      return false;
+    }
+  }
 
-      Timer commonTimer;
-      receiver.any((event) => test(event)).then((value) {
-        Expect.equals(true, value);
-        Expect.equals(expectedValue, count - 1 - nullWriteData);
-      }).whenComplete(() {
-        commonTimer.cancel();
-        receiver.close();
-        asyncEnd();
-      });
-
-      commonTimer = new Timer(const Duration(seconds: 1), () {
-        receiver.close();
-        Expect.fail('Test failed as it was executed more then 1 second.');
-      });
-    });
+  receiver.any((event) => test(event)).then((value) {
+    Expect.equals(true, value);
+    if (!completer.isCompleted) {
+      receiver.close();
+      completer.complete(tested);
+    }
   });
+
+  new Future.delayed(delay, () {
+    if (!completer.isCompleted) {
+      receiver.close();
+      completer.complete(tested);
+    }
+  });
+  return f;
+}
+
+check(int expectedValue, {int attempts = 5}) async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0], [1], [2], [3]];
+  List<int> tested = [];
+  if (expectedValue >= toSend.length) {
+    return;
+  }
+
+  List<int> bytesSent;
+  for (int i = 0; i < attempts; i++) {
+    bytesSent =
+        await sendDatagramOnce(producer, toSend, localhost, receiver.port);
+    if (bytesSent[expectedValue] == 1) {
+      producer.close();
+      break;
+    }
+  }
+  Expect.isTrue(bytesSent[expectedValue] == 1, "Required datagram wasn't sent");
+
+  tested = await anyElement(receiver, expectedValue, true);
+  Expect.isTrue(tested.length > 0);
+  Expect.equals(expectedValue, tested[tested.length - 1]);
+  if (tested.length > 1) {
+    checkTested<int>(tested, expectedValue);
+  }
 }
 
 main() {
   for (int i = 0; i < 4; i++) {
     check(i);
-    check(i, true);
   }
 }

@@ -20,16 +20,16 @@
 import "../../Utils/expect.dart";
 
 main() {
-  Expect.isTrue(identical(const <int>{}, const <int>{});
-  Expect.isFalse(identical(<int>{}, <int>{});
-  Expect.isFalse(identical(const <int>{}, <int>{});
+  Expect.isTrue(identical(const <int>{}, const <int>{}));
+  Expect.isFalse(identical(<int>{}, <int>{}));
+  Expect.isFalse(identical(const <int>{}, <int>{}));
 
-  Expect.isTrue(identical(const <int>{1, 2, 3}, const <int>{1, 2, 3});
-  Expect.isTrue(identical(const <int>{1, 2, 3}, const <int>{1, 2, 2 + 1,});
-  Expect.isTrue(identical(const <int>{1, 2, 3}, const <int>{1, 2, 3, });
-  Expect.isFalse(identical(const <int>{1, 2, 3}, const <int>{2, 3, 1});
+  Expect.isTrue(identical(const <int>{1, 2, 3}, const <int>{1, 2, 3}));
+  Expect.isTrue(identical(const <int>{1, 2, 3}, const <int>{1, 2, 2 + 1,}));
+  Expect.isTrue(identical(const <int>{1, 2, 3}, const <int>{1, 2, 3, }));
+  Expect.isFalse(identical(const <int>{1, 2, 3}, const <int>{2, 3, 1}));
 
   const s1 = {'1', '2' + '1', "3 - 1", null, !true};
   var s2 = const {'1', '21', "3 - 1", null, false};
-  Expect.isTrue(identical(s1, s2);
+  Expect.isTrue(identical(s1, s2));
 }
