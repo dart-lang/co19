@@ -44,7 +44,6 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works OK for the class with
  * [typedef G<X> = Function(X)] parameter (contravariant)
- * @Issue 34699
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
@@ -54,7 +53,7 @@ class A<X extends G<A<X>>> {}
 
 main() {
   Expect.equals(
-    typeOf<A<G<A<dynamic>>>>(),
+    typeOf<A<G<A<Null>>>>(),
     typeOf<A>()
   );
 }
