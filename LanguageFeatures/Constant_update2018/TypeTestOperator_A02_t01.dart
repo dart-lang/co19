@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -20,12 +20,12 @@ const i1 = "12345";
 
 class MyClass1 {
   final int res;
-  const MyClass() : res = (i is int && i > 0 ? i : -1);
+  const MyClass1() : res = (i is int && i > 0 ? i : -1);
 }
 
 class MyClass2 {
   final int res;
-  const MyClass() : res = (i1 is int && i1 > 0 ? i1 : -1);
+  const MyClass2() : res = (i1 is int && i > 0 ? i1 : -1);
 }
 
 main() {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -15,19 +15,17 @@
 // SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
-import "../../Utils/expect.dart";
-
 const i = 0;
 const i1 = "12345";
 
 class MyClass1 {
   final int res;
-  const MyClass() : res = (i is! int ? -1 : i);
+  const MyClass1() : res = (i is! int ? -1 : i);
 }
 
 class MyClass2 {
   final int res;
-  const MyClass() : res = (i1 is! int ? -1 : i1);
+  const MyClass2() : res = (i1 is! int ? -1 : i);
 }
 
 main() {
