@@ -20,61 +20,47 @@
  * ends.
  * @author ngl@unipro.ru
  */
+
 import "dart:async";
 import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check([bool no_write_events = false]) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      if (no_write_events) {
-        receiver.writeEventsEnabled = false;
-      }
-      Timer timer2;
-      int received = 0;
-      int sent = 0;
-      int totalSent = 0;
-      int nullWriteData = 0;
-      int closeEvent = 1;
+var localhost = InternetAddress.loopbackIPv4;
 
-      var mss = receiver.asBroadcastStream();
+Future<List<RawSocketEvent>> check() async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3], [3]];
+  List<RawSocketEvent> received = [];
+  Completer<List<RawSocketEvent>> completer =
+      new Completer<List<RawSocketEvent>>();
+  Future<List<RawSocketEvent>> f = completer.future;
+  Duration delay = const Duration(seconds: 2);
 
-      new Timer.periodic(const Duration(microseconds: 1), (timer) {
-        totalSent += producer.send([sent], address, receiver.port);
-        sent++;
-        if (sent > 6) {
-          timer.cancel();
-          if (totalSent != sent) {
-            Expect.fail('$totalSent messages were sent instead of $sent.');
-          }
-          producer.close();
-        }
-      });
+  var mss = receiver.asBroadcastStream();
 
-      mss.listen((event) {
-        received++;
-        var datagram = receiver.receive();
-        if (event == RawSocketEvent.write && datagram == null) {
-          nullWriteData = 1;
-        }
-        if (timer2 != null) {
-          timer2.cancel();
-        }
-        timer2 = new Timer(const Duration(milliseconds: 200), () {
-          Expect.isNull(receiver.receive());
-          receiver.close();
-        });
-      }, onDone: () {
-        Expect.equals(totalSent + closeEvent + nullWriteData, received);
-        asyncEnd();
-      });
-    });
+  bool wasSent =
+  await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
+
+  mss.listen((event) {
+    received.add(event);
+    receiver.receive();
   });
+
+  new Future.delayed(delay, () {
+    if (!completer.isCompleted) {
+      receiver.close();
+      completer.complete(received);
+    }
+  });
+
+  return f;
 }
 
-main() {
-  check();
-  check(true);
+main() async {
+  List expectedValues = [RawSocketEvent.write, RawSocketEvent.read];
+
+  checkReceived(check, expectedValues, 4);
 }

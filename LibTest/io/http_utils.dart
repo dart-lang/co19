@@ -235,3 +235,27 @@ checkTested<T>(List<T> tested, T expected) {
     Expect.notEquals(expected, tested[i]);
   }
 }
+
+checkReceived
+    (check, List expectedValues, int expectedLen, {int attempts = 5}) async {
+  for (int i = 0; i < attempts; i++) {
+    List list = await check();
+    int listLen = list.length;
+    if (listLen == 0) {
+      continue;
+    }
+    if (listLen > 0 && listLen <= expectedLen) {
+      for (int i = 0; i < list.length; i++) {
+        Expect.isTrue(
+            expectedValues.contains(list[i]), "Unexpected value ${list[i]}");
+      }
+      break;
+    }
+    if (listLen > expectedLen) {
+      Expect.fail("$listLen elements found instead of $expectedLen.");
+    }
+    if (i == attempts - 1) {
+      print('$listLen elements found. Look like test failed.');
+    }
+  }
+}
