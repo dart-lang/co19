@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- *@assertion Stream<E> asyncMap<E>(dynamic convert(T event))
+ *@assertion Stream<E> asyncMap<E>(FutureOr convert(T event))
  * Creates a new stream with each data event of this stream asynchronously
  * mapped to a new event.
  * . . .
@@ -14,22 +14,21 @@
  * stream is.
  * @author ngl@unipro.ru
  */
-import "dart:io";
 import "dart:async";
+import "dart:io";
 import "../../../Utils/expect.dart";
 
-check(dynamic convert(event)) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((socket) {
-    Stream stream1 = socket.asyncMap(convert);
-    Expect.isFalse(stream1.isBroadcast);
-    var stream = socket.asBroadcastStream();
-    Stream stream2 = stream.asyncMap(convert);
-    Expect.isTrue(stream2.isBroadcast);
-    socket.close();
-    asyncEnd();
-  });
+var localhost = InternetAddress.loopbackIPv4;
+
+check(FutureOr convert(event)) async {
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+
+  Stream stream1 = receiver.asyncMap(convert);
+  Expect.isFalse(stream1.isBroadcast);
+  var stream = receiver.asBroadcastStream();
+  Stream stream2 = stream.asyncMap(convert);
+  Expect.isTrue(stream2.isBroadcast);
+  receiver.close();
 }
 
 main() {
