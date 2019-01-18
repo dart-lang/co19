@@ -16,39 +16,43 @@
  * binding it to an address and port.
  * @author ngl@unipro.ru
  */
-import "dart:async";
 import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-main() {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      Expect.equals(address, producer.address);
-      Expect.equals(address, receiver.address);
-      Expect.notEquals(0, producer.port);
-      Expect.notEquals(0, receiver.port);
-      int sent = 0;
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.close();
+var localhost = InternetAddress.loopbackIPv4;
 
-      var received = 0;
-      var timer;
-      receiver.listen((event) {
-        if (event != RawSocketEvent.read) return;
-        var datagram = receiver.receive();
-        Expect.listEquals([received++], datagram.data);
-        if (timer != null) timer.cancel();
-        timer = new Timer(const Duration(milliseconds: 200), () {
-          Expect.isNull(receiver.receive());
-          receiver.close();
-          asyncEnd();
-        });
-      });
-    });
-  });
+Future<List<List<int>>> sendAndReceive() async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3, 4], [5, 6, 7], [8, 9], [10]];
+
+  if (!await sendDatagram(producer, toSend, localhost, receiver.port)) {
+    Expect.fail("No datagram was sent.");
+  }
+
+  List<List<int>> received = await receiveDatagram(receiver);
+  return received;
+}
+
+main() async {
+  int attempts = 5;
+  int expectedLen = 4;
+
+  for (int i = 0; i < attempts; i++) {
+    List<List<int>> list = await sendAndReceive();
+    int listLen = list.length;
+    if (listLen == 0) {
+      continue;
+    }
+    if (listLen > 0 && listLen <= expectedLen) {
+      break;
+    }
+    if (listLen > expectedLen) {
+      Expect.fail("$listLen elements found instead of $expectedLen.");
+    }
+    if (i == attempts - 1) {
+      print('$listLen elements found. Look like test failed.');
+    }
+  }
 }

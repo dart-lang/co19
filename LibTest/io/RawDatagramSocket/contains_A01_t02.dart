@@ -15,47 +15,63 @@
  * RawDatagramSocket.
  * @author ngl@unipro.ru
  */
-import "dart:io";
+
 import "dart:async";
+import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(value, expected) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      int sent = 0;
-      int counter = 0;
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent], address, receiver.port);
-      producer.close();
+var localhost = InternetAddress.loopbackIPv4;
 
-      Stream<RawSocketEvent> stream = receiver.asBroadcastStream();
-      Future<bool> b = stream.contains(value);
-      b.then((e) {
-        Expect.equals(expected, e);
-      });
+Future<bool> checkContains(value) async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3], [3]];
+  Completer<bool> completer = new Completer<bool>();
+  Future<bool> f = completer.future;
+  Duration delay = const Duration(seconds: 2);
 
-      new Timer(const Duration(milliseconds: 200), () {
-        Expect.isNull(receiver.receive());
-        receiver.close();
-      });
+  bool wasSent = await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
 
-      stream.listen((event) {
-        counter++;
-        receiver.receive();
-      }).onDone(() {
-        Expect.equals(4, counter);
-        asyncEnd();
-      });
-    });
+
+  Stream<RawSocketEvent> stream = receiver.asBroadcastStream();
+  Future<bool> b = stream.contains(value);
+
+  stream.listen((event) {
+    receiver.receive();
   });
+
+  new Future.delayed(const Duration(seconds: 1), () {
+    receiver.close();
+  });
+
+  new Future.delayed(delay, () {
+    if (!completer.isCompleted) {
+      completer.complete(b);
+    }
+  });
+  return f;
 }
 
-main() {
-  check(RawSocketEvent.write, true);
-  check(RawSocketEvent.read, true);
-  check(RawSocketEvent.closed, true);
-  check(RawSocketEvent.readClosed, false);
+main() async {
+  int attempts = 5;
+
+  toCheck(value, bool expected) async {
+    for (int i = 0; i < attempts; i++) {
+      bool result = await checkContains(value);
+      if (result == expected) {
+        break;
+      }
+      if (i == attempts - 1) {
+        print('$value element was not found. Look like test failed.');
+      }
+    }
+  }
+
+  await toCheck(RawSocketEvent.write, true);
+  await toCheck(RawSocketEvent.read, true);
+  await toCheck(RawSocketEvent.closed, true);
+  await toCheck(RawSocketEvent.readClosed, false);
+
 }
