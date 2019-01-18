@@ -164,7 +164,7 @@ Future<List<List<int>>> receiveDatagram(RawDatagramSocket receiver,
  */
 compareReceivedData(List<List<int>> sent, List<List<int>> received) {
   Expect.isTrue(received.length <= sent.length, "${received.length} <= ${sent.length}");
-  for (int i = 0, k = 0; i < received.length; i++) {
+  for (int i = 0; i < received.length; i++) {
     if (received[i] == null) {
       continue;
     }
@@ -236,8 +236,8 @@ checkTested<T>(List<T> tested, T expected) {
   }
 }
 
-checkReceived
-    (check, List expectedValues, int expectedLen, {int attempts = 5}) async {
+checkReceived(check, List<RawSocketEvent> expectedValues, int expectedLen,
+    {int attempts = 5}) async {
   for (int i = 0; i < attempts; i++) {
     List list = await check();
     int listLen = list.length;

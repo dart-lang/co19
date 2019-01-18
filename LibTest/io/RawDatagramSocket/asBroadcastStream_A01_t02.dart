@@ -60,7 +60,8 @@ Future<List<RawSocketEvent>> check() async {
 }
 
 main() async {
-  List expectedValues = [RawSocketEvent.write, RawSocketEvent.read];
+  List<RawSocketEvent> expectedValues =
+      [RawSocketEvent.write, RawSocketEvent.read];
 
   checkReceived(check, expectedValues, 4);
 }

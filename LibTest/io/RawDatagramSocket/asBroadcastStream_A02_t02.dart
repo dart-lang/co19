@@ -29,7 +29,7 @@ import "../../../Utils/expect.dart";
 
 var localhost = InternetAddress.loopbackIPv4;
 
-Future<List<RawSocketEvent>> check() async {
+Future<List<RawSocketEvent>> checkOnListen() async {
   RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
   RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
   List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3], [3], [4, 5], [6]];
@@ -70,6 +70,7 @@ Future<List<RawSocketEvent>> check() async {
         ss.cancel();
         anySubscribers = false;
         if (!completer.isCompleted) {
+          receiver.close();
           completer.complete(listen);
           return f;
         }
@@ -83,9 +84,14 @@ Future<List<RawSocketEvent>> check() async {
       }
     });
 
-    if (n == 2) {
-      receiver.close();
-    }
+    new Future.delayed(delay, () {
+      if (!completer.isCompleted) {
+        receiver.close();
+        completer.complete(listen);
+        ss.cancel();
+        anySubscribers = false;
+      }
+    });
 
     return f;
   }
@@ -106,5 +112,5 @@ Future<List<RawSocketEvent>> check() async {
 }
 
 main() async {
-  await check();
+  await checkOnListen();
 }
