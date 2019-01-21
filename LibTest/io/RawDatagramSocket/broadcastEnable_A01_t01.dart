@@ -20,15 +20,12 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-check(InternetAddress address) {
-  asyncStart();
-  RawDatagramSocket.bind(address, 0).then((socket) {
-    Expect.equals(false, socket.broadcastEnabled);
-    socket.broadcastEnabled = true;
-    Expect.equals(true, socket.broadcastEnabled);
-    socket.close();
-    asyncEnd();
-  });
+check(InternetAddress localhost) async {
+  RawDatagramSocket socket = await RawDatagramSocket.bind(localhost, 0);
+  Expect.equals(false, socket.broadcastEnabled);
+  socket.broadcastEnabled = true;
+  Expect.equals(true, socket.broadcastEnabled);
+  socket.close();
 }
 
 main() {

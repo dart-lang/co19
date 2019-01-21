@@ -24,84 +24,93 @@
  */
 import "dart:async";
 import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check([bool no_write_events = false]) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      if (no_write_events) {
-        receiver.writeEventsEnabled = false;
-      }
-      Timer timer1;
-      Timer timer2;
-      int received1 = 0;
-      int sent = 0;
-      int listen = 0;
-      bool anySubscribers = true;
-      StreamSubscription ss1;
-      StreamSubscription ss2;
-      int totalSent = 0;
+var localhost = InternetAddress.loopbackIPv4;
 
-      void onListen(StreamSubscription<RawSocketEvent> subs) {
-        listen++;
-        if (listen == 2) {
-          timer1.cancel();
+Future<List<RawSocketEvent>> checkOnListen() async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3], [3], [4, 5], [6]];
+  List<RawSocketEvent> received = [];
+  Completer<List<RawSocketEvent>> completer =
+      new Completer<List<RawSocketEvent>>();
+  Future<List<RawSocketEvent>> f = completer.future;
+  Duration delay = const Duration(seconds: 2);
+  int listen = 0;
+  bool anySubscribers = false;
+
+  void onListen(StreamSubscription<RawSocketEvent> subs) {
+    listen++;
+  }
+
+  var mss = receiver.asBroadcastStream(onListen: onListen);
+  bool wasSent =
+      await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
+
+  Expect.equals(0, listen);
+
+  Future<int> addSubscribers(int n) async {
+    if (anySubscribers) {
+      Expect.fail('anySubscribers showd be false');
+    }
+    Completer<int> completer = new Completer<int>();
+    Future<int> f = completer.future;
+    StreamSubscription ss;
+    anySubscribers = true;
+
+    ss = mss.listen((event) {
+      Expect.equals(n, listen);
+      receiver.receive();
+      received.add(event);
+
+      if (received.length == 1) {
+        ss.cancel();
+        anySubscribers = false;
+        if (!completer.isCompleted) {
+          receiver.close();
+          completer.complete(listen);
+          return f;
         }
       }
 
-      var s = receiver.asBroadcastStream(onListen: onListen);
-
-      new Timer.periodic(const Duration(microseconds: 1), (timer) {
-        totalSent += producer.send([sent], address, receiver.port);
-        sent++;
-        if (sent > 10) {
-          timer.cancel();
-          if (totalSent != sent) {
-            Expect.fail('$totalSent messages were sent instead of $sent.');
-          }
-          producer.close();
-        }
-      });
-
-      Expect.equals(0, listen);
-
-      ss1 = s.listen((event) {
-        Expect.equals(1, listen);
-        received1++;
-        receiver.receive();
-        if (received1 == 3) {
-          ss1.cancel();
-          anySubscribers = false;
-        }
-      });
-
-      addSubscribers(_) {
-        if (!anySubscribers) {
-          anySubscribers = true;
-          ss2 = s.listen((event) {
-            Expect.equals(2, listen);
-            receiver.receive();
-            if (timer2 != null) {
-              timer2.cancel();
-            }
-            timer2 = new Timer(const Duration(milliseconds: 200), () {
-              Expect.isNull(receiver.receive());
-              ss2.cancel();
-              receiver.close();
-              asyncEnd();
-            });
-          });
-        }
+    }, onDone: () {
+      anySubscribers = false;
+      if (!completer.isCompleted) {
+        completer.complete(listen);
+        return f;
       }
-
-      timer1 = new Timer.periodic(durationMs(1), addSubscribers);
     });
+
+    new Future.delayed(delay, () {
+      if (!completer.isCompleted) {
+        receiver.close();
+        completer.complete(listen);
+        ss.cancel();
+        anySubscribers = false;
+      }
+    });
+
+    return f;
+  }
+
+  await addSubscribers(1);
+  Expect.equals(1, listen);
+  await addSubscribers(2);
+  Expect.equals(2, listen);
+
+  new Future.delayed(delay, () {
+    Expect.equals(2, listen);
+    if (!completer.isCompleted) {
+      completer.complete(received);
+    }
   });
+
+  return f;
 }
 
-main() {
-  check();
-  check(true);
+main() async {
+  await checkOnListen();
 }

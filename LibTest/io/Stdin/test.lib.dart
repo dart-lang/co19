@@ -6,31 +6,32 @@
 /**
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
-import "../file_utils.dart";
+import "dart:async";
 import "dart:io";
 
-run_main(void run(Process _), String expected) async {
-  String executable = Platform.resolvedExecutable;
-  String eScript = Platform.script.toString();
+import "../../../Utils/expect.dart";
+import "../file_utils.dart";
+
+run_main(FutureOr<void> run(Process _), String expected) async {
+  final String executable = Platform.resolvedExecutable;
+  final String eScript = Platform.script.toString();
   int called = 0;
 
-  Directory sandbox = getTempDirectorySync();
-  String filename = getTempFilePath(parent: sandbox);
+  final sandbox = getTempDirectorySync();
+  final filename = getTempFilePath(parent: sandbox);
 
-  await Process.start(executable, [eScript, filename], runInShell: true).then(
-      (Process process) async {
-    run(process);
-    await process.exitCode.then((int c) async {
-      File fl = new File(filename);
-      await fl.readAsString().then((String contents) {
-        Expect.listEquals(expected.codeUnits, contents.codeUnits);
-      });
-      called++;
-    });
-  }).whenComplete(() {
-    sandbox.delete(recursive: true);
-  });
+  try {
+    final process = await Process.start(executable, [eScript, filename],
+        runInShell: true);
+    await run(process);
+    await process.exitCode;
+    final fl = new File(filename);
+    final contents = await fl.readAsString();
+    Expect.listEquals(expected.codeUnits, contents.codeUnits);
+    called++;
+  } finally {
+    await sandbox.delete(recursive: true);
+  }
   Expect.equals(1, called);
 }
 

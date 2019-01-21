@@ -15,48 +15,46 @@
  * returned directly.
  * @author ngl@unipro.ru
  */
-import "dart:io";
 import "dart:async";
+import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-main() {
-  List expected = [
-    RawSocketEvent.write,
-    RawSocketEvent.read,
-    RawSocketEvent.read,
-    RawSocketEvent.closed
-  ];
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      int sent = 0;
-      int counter = 0;
-      Timer timer;
-      List list = [];
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.close();
+var localhost = InternetAddress.loopbackIPv4;
 
-      Stream s = receiver.cast<RawSocketEvent>();
+Future<List<RawSocketEvent>> check() async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3], [3]];
+  List<RawSocketEvent> received = [];
+      Completer<List<RawSocketEvent>> completer =
+  new Completer<List<RawSocketEvent>>();
+  Future<List<RawSocketEvent>> f = completer.future;
+  Duration delay = const Duration(seconds: 2);
 
-      s.listen((event) {
-        list.add(event);
-        receiver.receive();
-        counter++;
-        if (timer != null) {
-          timer.cancel();
-        }
-        timer = new Timer(const Duration(milliseconds: 200), () {
-          Expect.isNull(receiver.receive());
-          receiver.close();
-        });
-      }).onDone(() {
-        Expect.equals(4, counter);
-        Expect.listEquals(expected, list);
-        asyncEnd();
-      });
-    });
+  bool wasSent =
+      await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
+
+  Stream s = receiver.cast<RawSocketEvent>();
+  s.listen((event) {
+    received.add(event);
+    receiver.receive();
   });
+
+  new Future.delayed(delay, () {
+    if (!completer.isCompleted) {
+      receiver.close();
+      completer.complete(received);
+    }
+  });
+
+  return f;
+}
+
+main() async {
+  List<RawSocketEvent> expectedValues =
+      [RawSocketEvent.write, RawSocketEvent.read];
+
+  checkReceived(check, expectedValues, 4);
 }

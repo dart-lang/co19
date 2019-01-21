@@ -24,82 +24,67 @@
  */
 import "dart:async";
 import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check([bool no_write_events = false]) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      if (no_write_events) {
-        receiver.writeEventsEnabled = false;
-      }
-      Timer timer2;
-      int received1 = 0;
-      int received2 = 0;
-      int sent = 0;
-      int listen = 0;
-      int totalSent = 0;
-      int nullWriteData = 0;
-      int closeEvent = 1;
+var localhost = InternetAddress.loopbackIPv4;
 
-      void onListen(StreamSubscription<RawSocketEvent> subs) {
-        listen++;
-      }
+Future<List<RawSocketEvent>> check() async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3], [3], [4, 5], [6]];
+  List<RawSocketEvent> received = [];
+  List<RawSocketEvent> received1 = [];
+  Completer<List<RawSocketEvent>> completer =
+      new Completer<List<RawSocketEvent>>();
+  Future<List<RawSocketEvent>> f = completer.future;
+  Duration delay = const Duration(seconds: 2);
+  int listen = 0;
 
-      var s = receiver.asBroadcastStream(onListen: onListen);
+  void onListen(StreamSubscription<RawSocketEvent> subs) {
+    listen++;
+  }
 
-      new Timer.periodic(const Duration(microseconds: 1), (timer) {
-        totalSent += producer.send([sent], address, receiver.port);
-        sent++;
-        if (sent > 6) {
-          timer.cancel();
-          if (totalSent != sent) {
-            Expect.fail('$totalSent messages were sent instead of $sent.');
-          }
-          producer.close();
+  var mss = receiver.asBroadcastStream(onListen: onListen);
+
+  bool wasSent =
+      await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
+
+  Expect.equals(0, listen);
+  StreamSubscription ss1;
+  StreamSubscription ss2;
+  ss1 = mss.listen((event) {
+    Expect.equals(1, listen);
+    received1.add(event);
+    receiver.receive();
+    if (received1.length == 2) {
+      ss1.cancel();
+      ss2 = mss.listen((event) {
+        Expect.equals(2, listen);
+        received.add(event);
+        receiver.receive();
+      }, onDone: () {
+        if (!completer.isCompleted) {
+          completer.complete(received);
         }
+        ss2.cancel();
       });
-
-      Expect.equals(0, listen);
-
-      StreamSubscription ss1;
-      StreamSubscription ss2;
-      ss1 = s.listen((event) {
-        Expect.equals(1, listen);
-        received1++;
-        Datagram d = receiver.receive();
-        if (event == RawSocketEvent.write && d == null) {
-          nullWriteData = 1;
-        }
-        if (received1 == 3) {
-          ss1.cancel();
-
-          ss2 = s.listen((event) {
-            Expect.equals(2, listen);
-            received2++;
-            receiver.receive();
-            if (timer2 != null) {
-              timer2.cancel();
-            }
-            timer2 = new Timer(const Duration(milliseconds: 200), () {
-              Expect.isNull(receiver.receive());
-              receiver.close();
-            });
-          }, onDone: () {
-            Expect.equals(3, received1);
-            var expected = totalSent + closeEvent + nullWriteData - 3;
-            Expect.equals(expected, received2);
-            ss2.cancel();
-            asyncEnd();
-          });
-        }
-      });
-    });
+    }
   });
+
+  new Future.delayed(delay, () {
+    if (!completer.isCompleted) {
+      receiver.close();
+    }
+  });
+
+  return f;
 }
 
-main() {
-  check();
-  check(true);
+main() async {
+  List<RawSocketEvent> expectedValues =
+      [RawSocketEvent.read, RawSocketEvent.closed];
+
+  checkReceived(check, expectedValues, 5);
 }

@@ -15,35 +15,51 @@
  * RawDatagramSocket.
  * @author ngl@unipro.ru
  */
-import "dart:io";
 import "dart:async";
+import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(value, expected) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      int sent = 0;
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent], address, receiver.port);
-      producer.close();
-      receiver.close();
+var localhost = InternetAddress.loopbackIPv4;
 
-      Future<bool> b = receiver.contains(value);
-      b.then((e) {
-        Expect.equals(expected, e);
-        asyncEnd();
-      });
+Future<bool> checkContains(value) async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3], [3]];
+  Completer<bool> completer = new Completer<bool>();
+  Future<bool> f = completer.future;
 
-    });
-  });
+  bool wasSent = await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
+
+  receiver.close();
+
+  Future<bool> b = receiver.contains(value);
+
+  if (!completer.isCompleted) {
+    completer.complete(b);
+  }
+
+  return f;
 }
 
-main() {
-  check(RawSocketEvent.write, false);
-  check(RawSocketEvent.read, false);
-  check(RawSocketEvent.closed, true);
-  check(RawSocketEvent.readClosed, false);
+main() async {
+  int attempts = 5;
+
+  toCheck(value, bool expected) async {
+    for (int i = 0; i < attempts; i++) {
+      bool result = await checkContains(value);
+      if (result == expected) {
+        break;
+      }
+      if (i == attempts - 1) {
+        print('$value element was not found. Look like test failed.');
+      }
+    }
+  }
+
+  toCheck(RawSocketEvent.write, false);
+  toCheck(RawSocketEvent.read, false);
+  toCheck(RawSocketEvent.closed, true);
+  toCheck(RawSocketEvent.readClosed, false);
 }

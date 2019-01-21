@@ -164,7 +164,7 @@ Future<List<List<int>>> receiveDatagram(RawDatagramSocket receiver,
  */
 compareReceivedData(List<List<int>> sent, List<List<int>> received) {
   Expect.isTrue(received.length <= sent.length, "${received.length} <= ${sent.length}");
-  for (int i = 0, k = 0; i < received.length; i++) {
+  for (int i = 0; i < received.length; i++) {
     if (received[i] == null) {
       continue;
     }
@@ -233,5 +233,29 @@ Future<List<RawSocketEvent>> anyElement(RawDatagramSocket receiver,
 checkTested<T>(List<T> tested, T expected) {
   for (int i = tested.length - 2; i >= 0; i--) {
     Expect.notEquals(expected, tested[i]);
+  }
+}
+
+checkReceived(check, List<RawSocketEvent> expectedValues, int expectedLen,
+    {int attempts = 5}) async {
+  for (int i = 0; i < attempts; i++) {
+    List list = await check();
+    int listLen = list.length;
+    if (listLen == 0) {
+      continue;
+    }
+    if (listLen > 0 && listLen <= expectedLen) {
+      for (int i = 0; i < list.length; i++) {
+        Expect.isTrue(
+            expectedValues.contains(list[i]), "Unexpected value ${list[i]}");
+      }
+      break;
+    }
+    if (listLen > expectedLen) {
+      Expect.fail("$listLen elements found instead of $expectedLen.");
+    }
+    if (i == attempts - 1) {
+      print('$listLen elements found. Look like test failed.');
+    }
   }
 }
