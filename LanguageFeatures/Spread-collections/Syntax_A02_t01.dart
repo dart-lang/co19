@@ -33,20 +33,12 @@
  *    mapOrSetLiteral:
  *    'const'?  '{' spread (',' spread)* '}' ;
  *
- * This grammar is ambiguous in cases like [{ ...a }] because [mapLiteral],
- * [setLiteral], and [mapOrSetLiteral] all match. In cases of ambiguity like
- * this, [mapOrSetLiteral] is always chosen. Then the disambiguation happens
- * based on the static types, below.
- *
- * Note that a spread entry for a map is still an expression, not a key/value
- * pair.
  * @description Checks the very simple cases where some values are combined with
  * the existing set or list of integers
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
 
-import "dart:collection";
 import "../../Utils/expect.dart";
 
 main() {
@@ -62,10 +54,10 @@ main() {
   Expect.setEquals([1, 2, 3, 12, 2, 3, 10].toSet(), {...set1, 12, 2, 3, 10});
 
   Expect.setEquals([1, 2, 3, 14, 18, 99, 0, 2, 4, 6, 8].toSet(),
-      {...list1, ...list2, ...list3});
+      {...set1, ...set2, ...list3});
   Expect.setEquals([11, 1, 2, 3, 12, 16, 94, 0, 2, 4, 6, 8].toSet(),
-      {11, ...list1, 12, 16, 94, ...list3});
+      {11, ...set1, 12, 16, 94, ...list3});
 
   Expect.setEquals([1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3].toSet(),
-      [...list1, ...list1, ...list1, ...list1, ...list1, ...list1]);
+      [...set1, ...set1, ...set1, ...set1, ...set1, ...set1]);
 }

@@ -33,8 +33,8 @@
  *    mapOrSetLiteral:
  *    'const'?  '{' spread (',' spread)* '}' ;
  *
- * @description Checks the very simple cases where some values are combined with
- * the existing set or list of different types
+ * @description Checks that spreadable map can not be declared as constant if
+ * spreadable element is not a constant.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
@@ -42,18 +42,20 @@
 import "../../Utils/expect.dart";
 
 main() {
-  Set set1 = ["abc", "int", "hello"];
-  Set set2 = [14, 18, 99];
-  List list3 = [0, 2, 4, 6, 8];
+  Map map1 = {1: 1, 2: 4, 3: 6};
+  Map map2;
+  int i;
 
-  Expect.setEquals(["abc", "int", "hello", 12].toSet(), {...set1, 12});
-  Expect.setEquals([12, "abc", "int", "hello"].toSet(), {12, ...set1});
+  Map a;
+  a = const {...map2};          //# 01: compile-error
+  a = const {...map1, ...map2}; //# 02: compile-error
+  a = const {...map2, ...map1}; //# 03: compile-error
 
-  Expect.setEquals(["abc", "int", "hello", 12, 2, 3, 10].toSet(),
-      {...set1, 12, 2, 3, 10});
+  a = const {...map2, 10: 2};   //# 04: compile-error
+  a = const {10: 2, ...map2};   //# 05: compile-error
 
-  Expect.setEquals(["abc", "int", "hello", 14, 18, 99, 0, 2, 4, 6, 8].toSet(),
-      {...set1, ...set2, ...list3});
-  Expect.setEquals([11, 1, 2, 3, 12, 16, 94, 0, 2, 4, 6, 8].toSet(),
-      {11, ...set1, 12, 16, 94, ...list3});
+  a = const {...map1, i: 10};   //# 06: compile-error
+  a = const {...map1, 10: i};   //# 07: compile-error
+  a = const {i: 10, ...map1};   //# 08: compile-error
+  a = const {10: i, map1};      //# 09: compile-error
 }
