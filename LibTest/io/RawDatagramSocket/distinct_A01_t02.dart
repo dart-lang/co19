@@ -24,63 +24,75 @@
  * is '(previous, next) => false' and this stream contains the equal events.
  * @author ngl@unipro.ru
  */
-import "dart:io";
 import "dart:async";
+import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-main() {
-  List expected = [
-    RawSocketEvent.write,
-    RawSocketEvent.read,
-    RawSocketEvent.read,
-    RawSocketEvent.closed
-  ];
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      int sent = 0;
-      int counter = 0;
-      Timer timer;
-      List list = [];
-      int totalSent = 0;
-      int nullWriteData = 0;
-      int closeEvent = 1;
+var localhost = InternetAddress.loopbackIPv4;
 
-      totalSent += producer.send([sent++], address, receiver.port);
-      totalSent += producer.send([sent++], address, receiver.port);
-      totalSent += producer.send([sent++], address, receiver.port);
-      if (totalSent != sent) {
-        Expect.fail('$totalSent messages were sent instead of $sent.');
+Future<List> checkDistant() async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3], [3], [4, 5], [5]];
+  List<RawSocketEvent> received = [];
+  Completer<List<RawSocketEvent>> completer =
+      new Completer<List<RawSocketEvent>>();
+  Future<List<RawSocketEvent>> f = completer.future;
+  Duration delay = const Duration(seconds: 2);
+
+  bool wasSent = await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
+
+  Stream s = receiver.distinct((previous, next) => false);
+
+  s.listen((event) {
+    received.add(event);
+    receiver.receive();
+    if (event == RawSocketEvent.closed) {
+      if (!completer.isCompleted) {
+        completer.complete(received);
       }
-      producer.close();
-
-      Stream s = receiver.distinct((previous, next) => false);
-      s.listen((event) {
-        list.add(event);
-        Datagram d = receiver.receive();
-        if (event == RawSocketEvent.write && d == null) {
-          nullWriteData = 1;
-        }
-        counter++;
-        if (timer != null) {
-          timer.cancel();
-        }
-        timer = new Timer(const Duration(milliseconds: 200), () {
-          Expect.isNull(receiver.receive());
-          receiver.close();
-        });
-      }).onDone(() {
-        if (timer != null) {
-          timer.cancel();
-        }
-        Expect.equals(totalSent + closeEvent + nullWriteData, counter);
-        if (nullWriteData != 0) {
-          expected.insert(1, RawSocketEvent.read);
-        }
-        Expect.deepEquals(expected, list);
-        asyncEnd();
-      });
-    });
+    }
   });
+
+  new Future.delayed(delay, () {
+    if (!completer.isCompleted) {
+      receiver.close();
+    }
+  });
+  return f;
+}
+
+main() async {
+  int attempts = 5;
+  int expectedLen = 7;
+
+
+  for (int i = 0; i < attempts; i++) {
+    List list = await checkDistant();
+    int listLen = list.length;
+    if (listLen == 0 || listLen == 1) {
+      continue;
+    }
+    if (listLen >= 2 && listLen - 1 <= expectedLen) {
+      bool eq2 = false;
+      for (int j = 0; j < list.length - 1; j++) {
+        if (list[j] == list[j + 1]) {
+          eq2 = true;
+          break;
+        }
+      }
+      if (eq2) {
+        break;
+      }
+      continue;
+    }
+    if (listLen > expectedLen) {
+      Expect.fail("$listLen elements found instead of $expectedLen.");
+    }
+    if (i == attempts - 1) {
+      print('Equal elements not found. Look like test failed.');
+    }
+  }
 }
