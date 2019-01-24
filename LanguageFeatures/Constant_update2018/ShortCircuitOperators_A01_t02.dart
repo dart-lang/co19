@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -12,20 +12,18 @@
  * potentially constant expressions outside of [const] constructor initializer
  * lists.
  * @description Checks that [&&] throws error if the first operand of [&&]
- * operation is not [bool] or it is [false] and the second one is incorrect in
- * constant expression.
+ * operation is [true] and the second one is not valid in the constant
+ * expression.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 const int i = 25;
 
-class MyClass {
+class MyClass1 {
   final bool b;
-  const MyClass() : b = true && (null as String).length; //# 01: compile-time error
+  const MyClass() : b = true && (null as String).length < 25; //# 01: compile-time error
 }
 
 main() {
-  const bool a1 = 128 && (i < 0);        //# 02: compile-time error
-  const bool a2 = "test" && false;       //# 03: compile-time error
-  const bool a3 = true && "test".length; //# 04: compile-time error
+  const bool a = true && (null as int) * 11 < 25;            //# 02: compile-time error
 }

@@ -1,16 +1,16 @@
 /*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
  * @assertion Finally, the conditional [?]/[:] operator only evaluates one of
  * its branches, depending on whether the condition expression evaluates to
- * [true] or [false]. The other branch must also be a potenatially constant
+ * [true] or [false]. The other branch must also be a potentially constant
  * expression.
- * @description Checks that conditional operator [?]/[:] does not calculate the
- * first branch if condition is potentially constant and [false].
- * operand if the first one is [false].
+ * @description Checks that compile error is thrown if condition of conditional
+ * operator [?]/[:] is [true] and the second one is not a correct constant
+ * expression.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
@@ -18,13 +18,11 @@ import "../../Utils/expect.dart";
 
 class MyClass {
   final bool res;
-  const MyClass(bool test) : res = (test ? (null as String).length : true);
+  const MyClass() : res = (true ? true : (null as String).length); //# 01: compile-time error
 }
 
 main() {
-  const MyClass c1 = MyClass(false);
-  Expect.isTrue(c1.res);
-
-  const String str = false ? (null as String).length : "OK";
-  Expect.equals("OK", str);
+  String i;
+  const String str1 = true ? "OK" : (null as String).length;        //# 02: compile-time error
+  const String str2 = true ? "OK" : i;                              //# 03: compile-time error
 }

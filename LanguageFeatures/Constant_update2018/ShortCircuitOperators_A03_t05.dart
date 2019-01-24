@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -9,16 +9,19 @@
  * expression.
  * @description Checks that operator [??] operators does not reject the second
  * operand if the first one is [null] in potentially constant expression.
- * Exception is thrown if constant constructor passes argument os incorrect
- * type.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
+import "../../Utils/expect.dart";
+
 class MyClass {
   final int a;
-  const MyClass(int i1, int i2) : a = (i1 ?? i2);
+  const MyClass(int i1, Object i2) : a = (i1 ?? (i2 as int));
 }
 
 main() {
-  const MyClass c2 = MyClass(null, "222"); //# 01: compile-time error
+  const MyClass c1 = MyClass(null, 123);
+  Expect.equals(123, c1.a);
+
+  const MyClass c2 = MyClass(null, "incorrect"); //# 01: compile-time error
 }

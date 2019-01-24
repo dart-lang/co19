@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -8,18 +8,15 @@
  * evaluates to [null], and the second operand must be a potentially constant
  * expression.
  * @description Checks that operator [??] operators does not reject the second
- * operand if the first one is [null] in potentially constant expression.
+ * operand if the first one is [null] in constant expression.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
-class MyClass {
-  final int a;
-  const MyClass(int i1, int i2) : a = (i1 ?? i2);
-}
-
 main() {
-  const MyClass c1 = MyClass(null, 123);
-  Expect.equals(123, c1.a);
+  const String s1 = null ?? "testme";
+  Expect.equals("testme", s1);
+
+  const int a1 = null ?? (null as String).length; //# 01: compile-time error
 }

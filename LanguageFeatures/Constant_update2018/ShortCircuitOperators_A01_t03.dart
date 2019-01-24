@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -11,22 +11,19 @@
  * still needs to be a potentially constant expression, which is a new use of
  * potentially constant expressions outside of [const] constructor initializer
  * lists.
- * @description Checks that [&&] does not attempt to calculate the second
- * operand of [&&] operation if the first one is [false] in the potentially
- * constant expression.
+ * @description Checks that compile error is thrown if the first [&&] operand is
+ * [false] and the second one is not [bool] in the constant expression.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
-import "../../Utils/expect.dart";
-
 const int i = 25;
 
 class MyClass {
   final bool b;
-  const MyClass(Object b) : b = false && ((b as int) > 25);
+  const MyClass() : b = false && (null as String).length; //# 01: compile-error
 }
 
 main() {
-  const MyClass c1 = MyClass("testme");
-  Expect.isFalse(c1.b);
+  const bool a1 = (i < 0) && (null as String).length;     //# 02: compile-error
+  const bool a2 = false && (null as String).length;       //# 03: compile-error
 }

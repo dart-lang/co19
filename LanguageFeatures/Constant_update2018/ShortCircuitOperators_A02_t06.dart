@@ -7,20 +7,18 @@
  * @assertion Likewise the [||] operator only evaluates its second operand if
  * the first evaluates to [false], and the second operand must be a potentially
  * constant expression.
- * @description Checks that [||] does not attempt to calculate the second
- * operand of [||] operation if the first one is [true] in the potentially
+ * @description Checks that [||] throws error if the first operand of [||]
+ * operation is [true] and the second one is not [bool] in the potentially
  * constant expression.
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
-import "../../Utils/expect.dart";
+const int i = 25;
 
 class MyClass {
   final bool b;
-  const MyClass(Object o) : b = true || ((o as int) > 25);
+  const MyClass(Object o) : b = true || (o as int);
 }
 
-main() {
-  const MyClass c1 = MyClass("testme");
-  Expect.isFalse(c1.b);
-}
+main() {}
