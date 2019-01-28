@@ -33,27 +33,36 @@
  *    mapOrSetLiteral:
  *    'const'?  '{' spread (',' spread)* '}' ;
  *
- * @description Checks that spreadable map can not be declared as constant if
- * spreadable element is not a constant.
+ * @description Checks that spreadable element can be null-aware in spreadable
+ * set
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
 
+import "../../Utils/expect.dart";
+
 main() {
-  Map map1 = {1: 1, 2: 4, 3: 6};
-  Map map2;
-  int i;
+  List list1 = null;
+  List set = null;
 
-  Map a;
-  a = const {...map2};          //# 01: compile-error
-  a = const {...map1, ...map2}; //# 02: compile-error
-  a = const {...map2, ...map1}; //# 03: compile-error
+  Set a;
 
-  a = const {...map2, 10: 2};   //# 04: compile-error
-  a = const {10: 2, ...map2};   //# 05: compile-error
+  Expect.setEquals([].toSet(), {...?list1});
+  Expect.throws(() => a = {...list1});
 
-  a = const {...map1, i: 10};   //# 06: compile-error
-  a = const {...map1, 10: i};   //# 07: compile-error
-  a = const {i: 10, ...map1};   //# 08: compile-error
-  a = const {10: i, map1};      //# 09: compile-error
-}
+  Expect.setEquals([12].toSet(), {[12].toSet(), ...?list1});
+  Expect.throws(() => a = {[12, ...list1});
+
+  Expect.setEquals([12], {...?list1, [12].toSet);
+  Expect.throws(() => a = {...list1, 12});
+
+  Expect.setEquals([], {...?set});
+  Expect.throws(() => a = {...set});
+
+  Expect.setEquals([12].toSet(), {[12].toSet(), ...?set});
+  Expect.throws(() => a = {[12, ...set});
+
+  Expect.setEquals([12], {...?set, [12].toSet);
+  Expect.throws(() => a = {...set, 12});
+
+  }

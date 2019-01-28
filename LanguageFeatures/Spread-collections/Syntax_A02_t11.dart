@@ -33,27 +33,24 @@
  *    mapOrSetLiteral:
  *    'const'?  '{' spread (',' spread)* '}' ;
  *
- * @description Checks that spreadable map can not be declared as constant if
- * spreadable element is not a constant.
+ * @description Checks that spreadable element can be null-aware in spreadable
+ * map
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
 
+import "../../Utils/expect.dart";
+
 main() {
-  Map map1 = {1: 1, 2: 4, 3: 6};
-  Map map2;
-  int i;
+  Map nullMap = null;
+  Map a = {};
 
-  Map a;
-  a = const {...map2};          //# 01: compile-error
-  a = const {...map1, ...map2}; //# 02: compile-error
-  a = const {...map2, ...map1}; //# 03: compile-error
+  Expect.mapEquals({}, {...?nullMap});
+  Expect.throws(() => a = {...nullMap});
 
-  a = const {...map2, 10: 2};   //# 04: compile-error
-  a = const {10: 2, ...map2};   //# 05: compile-error
+  Expect.mapEquals({1: 1}, {1: 1, ...?nullMap});
+  Expect.throws(() => a = {[1: 1, ...nullMap});
 
-  a = const {...map1, i: 10};   //# 06: compile-error
-  a = const {...map1, 10: i};   //# 07: compile-error
-  a = const {i: 10, ...map1};   //# 08: compile-error
-  a = const {10: i, map1};      //# 09: compile-error
+  Expect.mapEquals({1: 1}, {...?nullMap, 1: 1});
+  Expect.throws(() => a = {...nullMap, 1: 1});
 }

@@ -33,27 +33,27 @@
  *    mapOrSetLiteral:
  *    'const'?  '{' spread (',' spread)* '}' ;
  *
- * @description Checks that spreadable map can not be declared as constant if
- * spreadable element is not a constant.
+ * @description Checks that exception is thrown if spreadable element is not
+ * set for spreadable set.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
 
 main() {
-  Map map1 = {1: 1, 2: 4, 3: 6};
-  Map map2;
+  Set set;
+  List list;
+  List list1 =[1, 2, 3];
   int i;
 
-  Map a;
-  a = const {...map2};          //# 01: compile-error
-  a = const {...map1, ...map2}; //# 02: compile-error
-  a = const {...map2, ...map1}; //# 03: compile-error
+  List a;
+  a = {...set};              //# 01: compile-error
+  a = {"testme", ...set};    //# 02: compile-error
+  a = {...set, "testme"};    //# 03: compile-error
 
-  a = const {...map2, 10: 2};   //# 04: compile-error
-  a = const {10: 2, ...map2};   //# 05: compile-error
+  a = {...list};             //# 04: compile-error
+  a = {"testme", ...list};   //# 05: compile-error
+  a = {...list, "testme"};   //# 06: compile-error
 
-  a = const {...map1, i: 10};   //# 06: compile-error
-  a = const {...map1, 10: i};   //# 07: compile-error
-  a = const {i: 10, ...map1};   //# 08: compile-error
-  a = const {10: i, map1};      //# 09: compile-error
+  a = {"abc", ...list1,  i}; //# 07: compile-error
 }
+

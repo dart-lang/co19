@@ -39,10 +39,6 @@
  */
 // SharedOptions=--enable-experiment=spread-collections
 
-import "../../Utils/expect.dart";
-
-
-
 main() {
   Set set1 = ["abc", "int", "hello"].toSet();
   List list;
