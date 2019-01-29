@@ -17,10 +17,10 @@
  */
 // SharedOptions=--enable-experiment=spread-collections
 
-import "../../Utils/expect.dart";
-
 main() {
   var a;
-  Expect.isTrue(<int>{} is Set);
-  Expect.isTrue(<int, int>{} is Map);
+
+  a = <int, int, int>{};           //# 01: compile-time error
+  a = <int, int, int, int>{};      //# 02: compile-time error
+  a = <int, int, int, int, int>{}; //# 03: compile-time error
 }

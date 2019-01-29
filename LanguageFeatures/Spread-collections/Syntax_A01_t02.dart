@@ -44,7 +44,8 @@ main() {
   Expect.listEquals(["abc", "int", "hello", 12], [...list1, 12]);
   Expect.listEquals([12, "abc", "int", "hello"], [12, ...list1]);
 
-  Expect.listEquals(["abc", "int", "hello", 12, 2, 3, 10], [...list1, 12, 2, 3, 10]);
+  Expect.listEquals(["abc", "int", "hello", 12, 2, 3, 10],
+      [...list1, 12, 2, 3, 10]);
 
   Expect.listEquals(["abc", "int", "hello", 14, 18, 99, 0, 2, 4, 6, 8],
       [...list1, ...list2, ...list3]);
