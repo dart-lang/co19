@@ -17,23 +17,20 @@
  *   Otherwise, it is a map literal.
  *
  *   In other words, if it can only be a set, it is. Otherwise, it's a map.
- * @description Checks that if [a] and [b] are map literals (probably,
- * null-aware), their spread is map.
+ * @description Checks that if [a] is a map literal and [b] is set literals,
+ * it's acceptable in some null-aware expressions.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
 
 main() {
-  var map1 = {1: 1, "test": 1, 14: null};
-  var map2 = null;
-  var map3 = <String, bool>{};
-  var map4 = <bool, String>{true: "true", false: "false"};
+  List list1 =  [1, 12, 24];
+  List list2 = null;
+  Map map1 = {1: 1, "test": 1, 14: null};
+  Map map2 = null;
 
-  Map res1 = {...map1, ...?map2};
-  Map res2 = {...?map2, ...map3};
-  Map res3 = {...?map2, ...map4};
-  Map res4 = {...?map1, ...?map2};
-  Map res5 = {...?map2, ...?map3};
-  Map res6 = {...?map2, ...?map4};
-  Map res7 = {...?map1, ...?map2, ...?map3, ...?map4};
+  Set res1 = {...1ist1, ...?map2};
+  Set res2 = {...?map2, ...list1};
+  Map res3 = {...?list2, ...map1};
+  Map res4 = {...map1, ...?list2};
 }
