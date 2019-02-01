@@ -25,20 +25,23 @@
  * only difference is how a base expression element or entry element is handled.
  * The control flow parts are the same so are unified here.
  *
- *   1. If [element] is an [if] element:
+ * 2. Else, if [element] is a synchronous [for-in] element:
  *
- *         i. Evaluate the condition expression to a value [condition].
- *
- *        ii. Subject [condition] to boolean conversion to a value [result].
- *
- *       iii. If [result] is [true]:
- *              a. Evaluate the "then" element using this procedure.
- *
- *        iv. Else, if there is an "else" element of the [if]:
- *              a. Evaluate the "else" element using this procedure.
+ *      i. Evaluate the iterator expression to a value [sequence].
+ *     ii. Evaluate [sequence.iterator] to a value [iterator].
+ *    iii. Loop:
+ *           a. If the boolean conversion of [iterator.moveNext()] does not
+ *              return [true], exit the loop.
+ *           b. If the [for-in] element declares a variable, create a fresh
+ *              [variable] for it. Otherwise, use the existing [variable] it
+ *              refers to.
+ *           c. Evaluate [iterator.current] and bind it to [variable].
+ *           d. Evaluate the body element using this procedure in the scope of
+ *              [variable].
+ *     iv. If the [for-in] element declares a variable, discard it.
  * . . .
- * @description Checks that if [element] of map literal is [if] element, this
- * element is evaluated using the specified procedure.
+ * @description Checks that if [element] of map literal is a synchronous
+ * [for-in] element, this element is evaluated using the specified procedure.
  * @author ngl@unipro.ru
  */
 // SharedOptions=--enable-experiment=control-flow-collections

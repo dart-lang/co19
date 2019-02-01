@@ -39,7 +39,7 @@
  *     iv. If the [for-in] element declares a variable, discard it.
  * . . .
  * @description Checks that if [element] of set literal is a synchronous
- * [for-in], this element is evaluated using the specified procedure.
+ * [for-in] element, this element is evaluated using the specified procedure.
  * @author ngl@unipro.ru
  */
 // SharedOptions=--enable-experiment=control-flow-collections
