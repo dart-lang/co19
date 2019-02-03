@@ -33,7 +33,7 @@ main() {
   Expect.isTrue(map2 is Map<String, Object>);
 
   var map3 = {
-    new C(): new C()
+    new C(): new C(),
     if (i > 0) new B(): new B(),
     if (i < 0) new B(): new A()
   };
