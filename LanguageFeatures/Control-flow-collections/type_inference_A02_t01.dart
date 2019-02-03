@@ -32,7 +32,7 @@ main() {
   Expect.isTrue(list2 is List<Object>);
 
   var list3 = [
-    new C()
+    new C(),
     if (i > 0) new B(),
     if (i < 0) new A()
   ];
