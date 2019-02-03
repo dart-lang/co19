@@ -51,7 +51,7 @@ main() {
     "3": 3,
   };
   Expect.isTrue(map4 is Map<String, num>);
-  Expect.isFalse(list4 is List<int>);
+  Expect.isFalse(map4 is List<int>);
 
   var map5 = const {
     if (2 > 1) 1.0: "1",
