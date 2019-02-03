@@ -18,7 +18,7 @@ main() {
   const list1 = [2, 7, 9];
   const list2 = ["checkme"];
   const list3 = [];
-  const list4 = null;
+  const List list4 = null;
 
   const res1 = {...list1};
   Expect.setEquals(list1.toSet(), res1);
