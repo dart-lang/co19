@@ -67,6 +67,6 @@ main() {
   Expect.throws(() => List list13 = <B>[...a_list]);
   Expect.throws(() => List list14 = <A>[b, ...?a_list, c]);
 
-  Expect.throws(() => List list15 = <C>[...B_list]);
-  Expect.throws(() => List list16 = <A>[...A_list, ...?b_list]);
+  Expect.throws(() => List list15 = <C>[...b_list]);
+  Expect.throws(() => List list16 = <A>[...a_list, ...?b_list]);
 }

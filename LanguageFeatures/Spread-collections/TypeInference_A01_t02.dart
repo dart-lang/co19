@@ -67,6 +67,6 @@ main() {
   Expect.throws(() => Set set13 = <B>{...a_list});
   Expect.throws(() => Set set14 = <A>{b, ...?a_list, c});
 
-  Expect.throws(() => Set set15 = <C>{...B_list});
-  Expect.throws(() => Set set16 = <A>{...A_list, ...?b_list});
+  Expect.throws(() => Set set15 = <C>{...b_list});
+  Expect.throws(() => Set set16 = <A>{...a_list, ...?b_list});
 }
