@@ -42,7 +42,7 @@ main() {
   Expect.isTrue({a, b, c, ...a_list, ...b_list, ...?c_list} is Set<A>);
   Expect.isTrue({a, ...a_list, ...b_list, b} is Set<A>);
 
-  Expect.isFalse({...a_list] is Set<B>);
+  Expect.isFalse({...a_list} is Set<B>);
   Expect.isFalse({b, ...?a_list} is Set<B>);
   Expect.isTrue({...b_list} is Set<B>);
   Expect.isTrue({b, ...?b_list} is Set<B>);

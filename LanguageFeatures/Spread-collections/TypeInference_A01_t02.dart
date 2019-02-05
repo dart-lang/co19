@@ -19,11 +19,7 @@ class A {}
 class B extends A {}
 class C extends B {}
 
-List getAList<T>(var a) {
-  List ret = new List<T>();
-  ret.add(a);
-  return ret;
-}
+List getAList<T>(var a) { return <T>[a]; }
 
 main() {
   List a_list = getAList<A>(new A());
@@ -65,8 +61,8 @@ main() {
   Expect.throws(() => Set set12 = <A>{...?str_list});
 
   Expect.throws(() => Set set13 = <B>{...a_list});
-  Expect.throws(() => Set set14 = <A>{b, ...?a_list, c});
+  Expect.throws(() => Set set14 = <B>{b, ...?a_list, c});
 
   Expect.throws(() => Set set15 = <C>{...b_list});
-  Expect.throws(() => Set set16 = <A>{...a_list, ...?b_list});
+  Expect.throws(() => Set set16 = <C>{...a_list, ...?b_list});
 }
