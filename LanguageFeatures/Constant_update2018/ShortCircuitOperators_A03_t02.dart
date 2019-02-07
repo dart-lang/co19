@@ -17,6 +17,4 @@ import "../../Utils/expect.dart";
 main() {
   const String s1 = null ?? "testme";
   Expect.equals("testme", s1);
-
-  const int a1 = null ?? (null as String).length; //# 01: compile-time error
 }
