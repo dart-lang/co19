@@ -16,10 +16,6 @@
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
-import "../../Utils/expect.dart";
-
-String str;
-
 class MyClass {
   final int res;
   const MyClass(String test) : res = (false ? test + 11 : 6); //# 01: compile-time error

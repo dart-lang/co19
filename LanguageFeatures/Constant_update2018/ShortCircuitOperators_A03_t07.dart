@@ -12,7 +12,6 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
-import "../../Utils/expect.dart";
 
 class MyClass {
   final int a;
@@ -20,6 +19,5 @@ class MyClass {
 }
 
 main() {
-  const MyClass c1 = MyClass(null, 123);
-  Expect.equals(123, c1.a);
+  const MyClass c2 = MyClass(null, "incorrect"); //# 01: compile-time error
 }
