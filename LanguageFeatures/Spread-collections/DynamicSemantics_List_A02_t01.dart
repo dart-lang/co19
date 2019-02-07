@@ -32,10 +32,10 @@ main() {
   List list3 = null;
   List list4 = [1 ,2, 3, "checkme"];
 
-  Expect.listEquals([], ...?list3);
+  Expect.listEquals([], [...?list3]);
   Expect.listEquals([1, 2, 4], [1, 2, ...?list3, 4]);
   Expect.listEquals([1, 1, 2, 3, "checkme", 1, 2, 3, 4, 5],
       [1, ...?list4, ...?list3, ...list1]);
-  Expect.listEquals([], ...?list3, ...?list3, ...?list3);
-  Expect.listEquals([], ...list2, ...?list3);
+  Expect.listEquals([], [...?list3, ...?list3, ...?list3]);
+  Expect.listEquals([], [...list2, ...?list3]);
 }
