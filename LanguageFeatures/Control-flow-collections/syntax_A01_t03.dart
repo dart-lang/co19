@@ -27,9 +27,9 @@ main() async {
 
   List<int> listInt = [
     3, 1, 4,
-    if (b) await for (var v in future) i + 1,
+    if (b) await for (var v in future) v + 1,
     if (!b) 1,
-    await for (var v in future) if (!i.isEven) i
+    await for (var i in future) if (!i.isEven) i
   ];
   Expect.listEquals([3, 1, 4, 2, 3, 4, 1, 3], listInt);
 }
