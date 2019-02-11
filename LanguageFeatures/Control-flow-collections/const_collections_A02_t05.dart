@@ -16,6 +16,7 @@
  * of a constant map literal include a type parameter.
  *
  * The expansion is the entry formed by the key and value expression values.
+ *
  * @description Checks that it is a compile-time error if the type arguments
  * of a constant map literal include a type parameter.
  * @author sgrekhov@unipro.ru
