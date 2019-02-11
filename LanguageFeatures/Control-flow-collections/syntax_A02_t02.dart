@@ -24,7 +24,7 @@ main() {
 
   Map<String, int> map = {
     "-0": -3, "-1": -1, "-2": -4,
-    if (b) for (var v in collection) "$i": i + 1,
+    if (b) for (var v in collection) "$v": v + 1,
     if (!b) "x": 1,
     for (int i = 15; i < 20; i++) if (i.isEven) "$i": i
   };
