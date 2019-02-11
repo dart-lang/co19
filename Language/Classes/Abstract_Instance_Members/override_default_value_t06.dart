@@ -10,24 +10,20 @@
  * m2, the signature of m2 explicitly specifies a default value for a formal
  * parameter p and the signature of m1 specifies a different default value for
  * p.
- * @description Checks that it is a compile error if an abstract method
+ * @description Checks that it is a static warning if an abstract method
  * overrides an abstract method and does not explicitly specify a default value
  * for its optional parameter while the overridden method does.
- * @compile-error
+ * @static-warning
  * @author msyabro
- * @reviewer rodionov
- * @reviewer kaigorodov
  */
-import "../../../Utils/expect.dart";
 
 abstract class A {
   foo([x = 1]);
 }
 
-class C extends A {
+abstract class C extends A {
   foo([x]);
 }
 
 main() {
-  Expect.throws(() => new C().foo(1));
 }
