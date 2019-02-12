@@ -44,7 +44,7 @@ main() {
   Expect.isTrue(v9 is LinkedHashSet<num>);
   Iterable<num> v10 = <int>{};
   Expect.isTrue(v10 is LinkedHashSet<int>);
-  LinkedHashSet<int> v11 = {};
+  Set<int> v11 = {};
   Expect.isTrue(v11 is LinkedHashSet<int>);
 
   const v12 = {};

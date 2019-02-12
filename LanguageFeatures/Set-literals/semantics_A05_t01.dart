@@ -23,7 +23,7 @@ import "../../Utils/expect.dart";
 Set<Object> test() => {};
 Iterable<int> test2() => {};
 FutureOr<Iterable<int>> test3() => {};
-LinkedHashSet<int> test4() => {};
+Set<int> test4() => {};
 
 main() {
   Expect.isTrue(test() is Set);
