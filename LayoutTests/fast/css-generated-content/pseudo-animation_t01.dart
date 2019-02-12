@@ -108,8 +108,13 @@ main() {
   }
 
   asyncMultiStart(2);
-  window.onLoad.listen((_) {
+  doTest(_) {
     testAnimation('before');
     testAnimation('after');
-  });
+  }
+  if (document.readyState == "complete") {
+    doTest(null);
+  } else {
+    window.addEventListener('load', doTest, false);
+  }  
 }
