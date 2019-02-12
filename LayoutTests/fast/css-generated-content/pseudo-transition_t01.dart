@@ -62,7 +62,6 @@ main() {
   {
     var div = document.getElementById(id);
     div.className = 'transition';
-    shouldBe(div.offsetWidth, 52);
     // This will be flaky, but it's a reasonable approximation for testing
     // in a browser instead of DRT.
     setTimeout(() {
@@ -71,15 +70,18 @@ main() {
       shouldBeCloseTo(computedTop, 170, 1);
     }, 1000);
     setTimeout(() {
-      shouldBeCloseTo(div.offsetWidth, 12, 1);
-      var computedTop = getPseudoComputedTop(id);
-      shouldBeCloseTo(computedTop, 200, 1);
-      asyncEnd();
+      try {
+        shouldBeCloseTo(div.offsetWidth, 12, 1);
+        var computedTop = getPseudoComputedTop(id);
+        shouldBeCloseTo(computedTop, 200, 1);
+      } finally {
+        asyncEnd();
+      }
     }, 2000);
+    shouldBe(div.offsetWidth, 52);
   }
 
   asyncMultiStart(2);
-
   testTransition('before');
   testTransition('after');
 }
