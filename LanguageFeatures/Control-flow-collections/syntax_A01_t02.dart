@@ -24,7 +24,7 @@ main() async {
 
   List<int> listInt = [
     3, 1, 4,
-    if (b) for (var v in collection) i + 1,
+    if (b) for (var v in collection) v + 1,
     if (!b) 1,
     for (int i = 5; i < 10; i++) if (i.isEven) i
   ];

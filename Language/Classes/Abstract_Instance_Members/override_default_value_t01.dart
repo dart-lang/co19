@@ -9,11 +9,14 @@
  * It is a static warning if an instance method m1 overrides an instance member
  * m2, the signature of m2 explicitly specifies a default value for a formal
  * parameter p and the signature of m1 specifies a different default value for p
- * @description Checks that it is a compile error if an abstract method
+ * @description Checks that it is a static warning if an abstract method
  * overrides an instance method and has a different default value for its
  * optional parameter.
+ *
+ * See https://github.com/dart-lang/sdk/issues/34437#issuecomment-432093691
+ *
  * @issue 27476
- * @compile-error
+ * @static-warning
  * @author msyabro
  */
 
@@ -22,7 +25,7 @@ class A {
 }
 
 class C extends A {
-  foo([x = '']);
+  foo([x = '']); /// static type warning
 }
 
 main() {

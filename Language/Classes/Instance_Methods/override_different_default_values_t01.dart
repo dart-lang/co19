@@ -8,10 +8,10 @@
  * instance member m2, the signature of m2 explicitly specifies a default 
  * value for a formal parameter p and the signature of m1 specifies a different 
  * default value for p.
- * @description Checks that it is a compile error if overridden and overriding
+ * @description Checks that it is a static warning if overridden and overriding
  * methods have different default values for their optional parameter.
  * @issue 27476
- * @compile-error
+ * @static-warning
  * @author msyabro
  */
 
@@ -20,7 +20,7 @@ class A {
 }
 
 class C extends A {
-  foo([x = 1]) {
+  foo([x = 1]) { /// static type warning
   }
 }
 
