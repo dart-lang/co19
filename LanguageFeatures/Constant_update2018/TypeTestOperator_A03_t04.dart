@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -10,16 +10,17 @@
  * constant type.
  * @description Checks that an expression of the form [e is! T] is accepted if
  * [e] is not a constant
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
-String anObject = "";
+
+Object str = "test";
 
 class MyClass {
   final String obj;
-  const MyClass(Object o) : obj = o is! String ? "OK" : "incorrect";
+  const MyClass() : obj = str is! String ? "OK" : "incorrect";
 }
 
 main() {
-  const MyClass c = MyClass(anObject);         //# 01: compile-time error
 }

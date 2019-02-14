@@ -15,22 +15,14 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
+
 class A {}
-A a;
+A a = new A();
 
-class MyClass {
+class B {
   final String option;
-  const MyClass(String stringOption)
-      : assert(stringOption == null),
-        this.option = stringOption;
-}
-
-class MyClass1 {
-  final String option;
-  const MyClass1() : assert(a == null), this.option = stringOption; //# 01: compile-time error
+  const B(String str) : assert(a == null), option = str ?? "undefined";
 }
 
 main() {
-  const MyClass c = MyClass(123);   //# 02: compile-time error
-  const bool a1 = (a == null);      //# 03: compile-time error
 }

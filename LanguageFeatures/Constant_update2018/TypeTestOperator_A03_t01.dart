@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -14,13 +14,9 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
+
 Object str = "test";
 
-class MyClass {
-  final String obj;
-  const MyClass() : obj = str is String ? "OK" : "incorrect"; //# 02: compile-time error
-}
-
 main() {
-  const bool check = str is String; //# 01: compile-time error
+  const bool check = str is String;
 }

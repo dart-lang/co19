@@ -14,14 +14,11 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
-const int i = 25;
 
 class MyClass {
   final bool b;
-  const MyClass() : b = false || ((null as String).length > 14); //# 01: compile-error
+  const MyClass() : b = false || ((null as String).length > 14);
 }
 
 main() {
-  const bool a1 = (i < 0) || ((null as String).length > 14);     //# 02: compile-error
-  const bool a2 = false || ((null as String).length > 14);       //# 03: compile-error
 }

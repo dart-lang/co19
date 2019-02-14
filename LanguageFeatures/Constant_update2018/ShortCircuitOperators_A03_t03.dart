@@ -16,6 +16,5 @@
 // SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
-  const String s1 = null ?? (null as String).length; //# 01: compile-time error
-  const String s2 = null ?? 124;                     //# 02: compile-time error
+  const String s1 = null ?? (null as String).length;
 }

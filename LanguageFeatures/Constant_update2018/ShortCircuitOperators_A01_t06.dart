@@ -12,17 +12,12 @@
  * potentially constant expressions outside of [const] constructor initializer
  * lists.
  * @description Checks that compile error is thrown if the first [&&] operand is
- * [false] and the second one is not [bool] in the potentially constant
- * expression.
+ * [false] and the second one is not [bool] in the constant expression.
  * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
-class MyClass {
-  final bool b;
-  const MyClass(Object o) : b = false && ((o as int)); //# 01: compile-time error
-}
-
 main() {
+  const bool a2 = false && (null as String).length;
 }

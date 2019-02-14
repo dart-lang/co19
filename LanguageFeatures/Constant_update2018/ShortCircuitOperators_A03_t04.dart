@@ -7,22 +7,14 @@
  * @assertion The [??] operator only evaluates its second operand if the first
  * evaluates to [null], and the second operand must be a potentially constant
  * expression.
- * @description Checks that operator [??] operators rejects the second operand
- * if the first one is not [null] in potentially constant expression.
+ * @description Checks that compile-time exception is thrown if the first
+ * operand of [??] operator is [null] and the second one is incorrect in the
+ * constant expression.
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
-import "../../Utils/expect.dart";
-
-class MyClass {
-  final String a;
-  const MyClass(Object i1, Object i2) : a = (i1 ?? (i2 as String));
-}
 
 main() {
-  const MyClass c1 = MyClass("testme", 123);
-  Expect.equals("testme", c1.a);
-
-  const MyClass c2 = MyClass("111", "222");
-  Expect.equals("111", c2.a);
+  const String s2 = null ?? 124;
 }

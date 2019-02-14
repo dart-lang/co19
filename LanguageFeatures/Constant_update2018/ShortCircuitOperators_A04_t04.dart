@@ -9,19 +9,14 @@
  * [true] or [false]. The other branch must also be a potentially constant
  * expression.
  * @description Checks that compile error is thrown if condition of conditional
- * operator [?]/[:] is [false] and the first operand is not a correct constant
+ * operator [?]/[:] is [true] and the second one is not a correct constant
  * expression.
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
-class MyClass {
-  final bool res;
-  const MyClass() : res = (false ? (null as String).length : true); //# 01: compile-time error
-}
-
 main() {
   String i;
-  const String str1 = false ? (null as String).length : "OK";        //# 02: compile-time error
-  const String str2 = false ? i : "OK";                              //# 03: compile-time error
+  const String str = true ? "OK" : i;
 }

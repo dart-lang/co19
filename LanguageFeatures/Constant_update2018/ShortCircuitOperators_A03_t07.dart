@@ -7,17 +7,18 @@
  * @assertion The [??] operator only evaluates its second operand if the first
  * evaluates to [null], and the second operand must be a potentially constant
  * expression.
- * @description Checks that operator [??] operators does not reject the second
- * operand if the first one is [null] in potentially constant expression.
+ * @description Checks that operator exception is thrown if the first [??] is
+ * not [null] and the second one is incorrect in potentially constant
+ * expression.
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
-
 class MyClass {
   final int a;
-  const MyClass(int i1, Object i2) : a = (i1 ?? (i2 as int));
+  const MyClass(int i1, String i2) : a = (i1 ?? i2.length);
 }
 
 main() {
-  const MyClass c2 = MyClass(null, "incorrect"); //# 01: compile-time error
+  const MyClass c2 = MyClass(222, null);
 }

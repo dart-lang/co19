@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -8,21 +8,25 @@
  * its branches, depending on whether the condition expression evaluates to
  * [true] or [false]. The other branch must also be a potentially constant
  * expression.
- * @description Checks that conditional operator [?]/[:] rejects the second
- * operand if condition is [true] for potentionally constant expressions.
- * @compile-error
+ * @description Checks that conditional operator [?]/[:] rejects the first
+ * operand if condition is [false] for constant expressions.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
-
 import "../../Utils/expect.dart";
 
 class MyClass {
   final int res;
-  const MyClass(String test) : res = (true ? 11 : test.length);
+  const MyClass() : res = (false ? (null as String).length > 0 : 125);
 }
 
 main() {
-  MyClass c = new MyClass(null);
-  Expect.equals(11, c.res);
+  const MyClass c1 = MyClass();
+  Expect.equals(125, c1.res);
+
+  const String str = false ? (null as String).length < 14 : "OK";
+  Expect.equals("OK", str);
+
+  const String str = false ? "wrong" : "OK";
+  Expect.equals("OK", str);
 }

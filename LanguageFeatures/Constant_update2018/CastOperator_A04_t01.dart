@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -15,17 +15,10 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
-class A {
-  A();
-}
 
+class A {}
 dynamic test = A();
 
-class MyClass {
-  final A a;
-  const MyClass(Object o) : a = o as A; //# 02: compile-time error
-}
-
 main() {
-  const A a = test as A; //# 01: compile-time error
+  const A a = test as A;
 }

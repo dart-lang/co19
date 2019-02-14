@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -21,9 +21,7 @@ const str2 = null;
 
 class MyClass {
   final String option;
-  const MyClass(String stringOption)
-      : assert(stringOption == null),
-        this.option = "OK";
+  const MyClass(String str) : assert(str == null), this.option = "OK";
 }
 
 main() {
@@ -35,4 +33,6 @@ main() {
 
   const MyClass c = MyClass(null);
   Expect.equals("OK", c.option);
+
+  const MyClass c1 = MyClass("123"); //# 01: compile-time error
 }

@@ -11,21 +11,19 @@
  * still needs to be a potentially constant expression, which is a new use of
  * potentially constant expressions outside of [const] constructor initializer
  * lists.
- * @description Checks that [&&] does not attempt to calculate the second
- * operand of [&&] operation if the first one is [false] in the potentially
- * constant expression.
+ * @description Checks that compile error is thrown if the first [&&] operand is
+ * [false] and the second one is not [bool] in the constant expression.
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
-import "../../Utils/expect.dart";
+const int i = 25;
 
 class MyClass {
   final bool b;
-  const MyClass(Object o) : b = false && ((o as int) > 25);
+  const MyClass() : b = false && (null as String).length;
 }
 
 main() {
-  const MyClass c1 = MyClass("testme");
-  Expect.isFalse(c1.b);
 }
