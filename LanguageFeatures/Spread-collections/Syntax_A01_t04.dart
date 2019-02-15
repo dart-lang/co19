@@ -39,8 +39,7 @@ main() {
   List list2;
   int i;
 
-  List a;
-  a = const [...list2];                                            //# 01: compile-error
+  List a = const [...list2];                                       //# 01: compile-error
   a = const ["testme", ...list2];                                  //# 02: compile-error
   a = const [...list2, "testme"];                                  //# 03: compile-error
   a = const ["abc", ...list1, "int", "hello", 1, ...list2, 2, 12]; //# 04: compile-error

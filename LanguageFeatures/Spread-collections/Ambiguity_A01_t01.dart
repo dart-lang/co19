@@ -56,9 +56,9 @@ class MyIterator extends Iterator<int> {
 }
 
 main() {
-  var set1 = [1, 2, 3].toSet();
-  var set2 = <int>[14, 18, 99].toSet();
-  var list1 = [0, 2, 4, 6, 8];
+  var set1 = {1, 2, 3};
+  var set2 = <int>{14, 18, 99};
+  var list1 = [10, 12, 15, 16, 20];
   var list2 = <String>["test"];
   var b = <bool>[];
   Iterable i = new MyIterable();
@@ -68,5 +68,5 @@ main() {
   Set res3 = {...set1, ...list2};
   Set res4 = {...list1, ...i};
   Set res5 = {...i, ...b}
-  Set res6 = {...set1, ...set2. ...list1, ...list2, ...b, ...i};
+  Set res6 = {...set2. ...list1, ...list2, ...b, ...i};
 }

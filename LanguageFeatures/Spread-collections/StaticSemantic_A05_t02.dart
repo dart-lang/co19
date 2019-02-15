@@ -28,7 +28,7 @@ class MyIterable<T> extends IterableBase<T> {
 }
 
 class MyIterator<T> extends Iterator<T> {
-   @override
+  @override
   bool moveNext() {
     return false;
   }
@@ -41,35 +41,33 @@ class MyIterator<T> extends Iterator<T> {
 
 main() {
 
-  List l1  = <Object> [1, 2, 3];
-  List l2  = <int>[1, 2, 3];
-  List l3  = <Object>[true, false, true, true];
-  List l4  = <bool>[true, false, true, true];
-  List l5  = <Object>[];
-  List l6  = <int>[];
-  List l7  = <bool>[];
-  List l8  = <String>[];
-  List l9  = <String>["1", "2"];
-  List l10 = <Object>["1", "2"];
+  List l1  = <Object> [];
+  List<int> l2  = <int>[1, 2, 3];
+  List l3  = <bool>[true, false, true, true];
+  List<bool> l4  = <bool>[true, false, true, true];
+  List<int> l5  = <int>[];
+  List l6  = <bool>[];
+  List<String> l7  = <String>[];
+  List<String> l8  = <String>["1", "2"];
+  List l9 = <Object>["1", "2"];
 
-  Iterable i1 = new MyIterable<int>();
-  Iterable i2 = new MyIterable<String>();
-  Iterable i3 = new MyIterable<bool>();
+  Iterable<int> i1 = new MyIterable<int>();
+  Iterable<String> i2 = new MyIterable<String>();
+  Iterable<bool> i3 = new MyIterable<bool>();
   Iterable i4 = new MyIterable<Object>();
 
-  Set set1  = <String>{...l1}; //# 01: compile-time error
-  Set set2  = <String>{...l2}; //# 02: compile-time error
-  Set set3  = <String>{...l3}; //# 03: compile-time error
-  Set set4  = <String>{...l4}; //# 04; compile-time error
-  Set set5  = <String>{...l5};
-  Set set6  = <String>[...l6}; //# 05: compile-time error
-  Set set7  = <String>{...l7}; //# 06: compile-time error
-  Set set8  = <String>{...l8}; //# 07: compile-time error
-  Set set9  = <String>{...l9};
-  Set set10 = <String>{...l10};
+  Set list1 = <String>{...l1};
+  Set list2 = <String>{...l2}; //# 01: compile-time error
+  Set list3 = <Object>{...l3};
+  Set list4 = <String>{...l4}; //# 02; compile-time error
+  Set list5 = <String>{...l5}; //# 03: compile-time error
+  Set list6 = <String>{...l6}; //# 04: compile-time error
+  Set list7 = <String>{...l7}; //# 05: compile-time error
+  Set list8 = <String>{...l8};
+  Set list9 = <String>{...l9};
 
-  Set set11 = <String>{...i1}; //# 08: compile-time error
-  Set set12 = <String>{...i2};
-  Set set13 = <String>{...i3}; //# 09: compile-time error
-  Set set14 = <String>{...i4};
+  Set list11 = <String>{...i1}; //# 06: compile-time error
+  Set list12 = <String>{...i2};
+  Set list13 = <String>{...i3}; //# 07: compile-time error
+  Set list14 = <String>{...i4};
 }

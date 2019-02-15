@@ -39,8 +39,8 @@ main() {
   Expect.setEquals([].toSet(), res7);
 
   const res8 = {1, 10, ...list1, 6};
-  Expect.setEquals([1, 10, 2, 7, 9, 6].toSet(), res8);
+  Expect.setEquals({1, 10, 2, 7, 9, 6}, res8);
 
   const res9 = {1, ...list1, ...list2, ...list3, ...?list4, 18};
-  Expect.setEquals([1, 2, 7, 9, "checkme", 18].toSet(), res9);
+  Expect.setEquals({1, 2, 7, 9, "checkme", 18}, res9);
 }

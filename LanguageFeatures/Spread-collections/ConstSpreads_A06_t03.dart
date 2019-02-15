@@ -22,5 +22,5 @@ main() {
   Expect.mapEquals({}, res2);
 
   const res3 = {1: 1, ...{2: 2}, 3: {3: 3}};
-  Expect.mapEquals({1: 1, 2: 2, 3: {2: 3}}, res2);
+  Expect.mapEquals({1: 1, 2: 2, 3: {3: 3}}, res3);
 }

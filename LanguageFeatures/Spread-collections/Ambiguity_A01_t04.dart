@@ -18,7 +18,7 @@
  *
  *   In other words, if it can only be a set, it is. Otherwise, it's a map.
  * @description Checks that if [a] and [b] are map literals (probably,
- * null-aware), their spread is map.
+ * null-aware), their spread is a map.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections

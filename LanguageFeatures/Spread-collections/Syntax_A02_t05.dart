@@ -40,7 +40,7 @@
 // SharedOptions=--enable-experiment=spread-collections
 
 main() {
-  Set set1 = ["abc", "int", "hello"].toSet();
+  Set set1 = {"abc", "int", "hello"};
   List list;
   Set set2;
   int i;

@@ -16,7 +16,7 @@
  * spread object is "spreadable" — it implements [Iterable] — there is no
  * static error.
  * @description Checks that static error is thrown if spread element and
- * list type arguments are incompatible.
+ * set type arguments are incompatible.
  * @compile-error
  * @author iarkh@unipro.ru
  */
@@ -24,5 +24,5 @@
 
 main() {
   List<num> numbers = <num>[1, 2, 3];
-  List<String> list = <String>[...numbers];
+  Set<String> set = <String>{...numbers};
  }

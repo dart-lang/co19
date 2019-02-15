@@ -36,10 +36,7 @@ import "../../Utils/expect.dart";
 
 main() {
   List<int> list1 = [1, 2, 3];
-  List<String> list2 = ["a"];
-  List<int> list3 = [0, 2, 4, 6, 8];
 
-  List a;
   Expect.listEquals([1, 2, 3], <int>[...list1]);
   Expect.listEquals([1, 2, 3, 12], <int>[...list1, 12]);
   Expect.listEquals([12, 1, 2, 3], <int>[12, ...list1]);

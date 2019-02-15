@@ -6,7 +6,8 @@
 /**
  * @assertion Note that you can spread any [Iterable] into a set literal, not
  * just other sets
- * @description Checks the any [Iterable] can spread into a set literal.
+ * @description Checks that list and custom [Iterable] cannot be assigned to
+ * set, but can be spreaded into a set literal.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
@@ -46,12 +47,17 @@ class MyIterator extends Iterator<int> {
 }
 
 main() {
-  Set set = [1, 2, 3].toSet();
+  Set set = {1, 2, 3};
   List list = [null, 14, "testme"];
   Iterable i = new MyIterable();
 
+  Set set1 = set;
+  Set set2 = {...set};
 
-  Expect.setEquals(set, {...set});
-  Expect.setEquals(list.toSet(), {...list});
-  Expect.setEquals(i.toSet(), {...i});
+  Set set3 = list;    //# 01: compile-time error
+  Set set4 = {...list};
+
+  Set set5 = i;       //# 02: compile-time error
+  Set set6 = {...i};
+
 }

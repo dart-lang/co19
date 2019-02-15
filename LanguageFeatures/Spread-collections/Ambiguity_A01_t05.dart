@@ -17,8 +17,9 @@
  *   Otherwise, it is a map literal.
  *
  *   In other words, if it can only be a set, it is. Otherwise, it's a map.
- * @description Checks that if [a] is a map literal and [b] is set literals,
+ * @description Checks that if [a] is a map literal and [b] is a set literal,
  * it's a compile error.
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
@@ -27,6 +28,5 @@ main() {
   List list =  [1, 12, 24];
   Map map = {1: 1, "test": 1, 14: null};
 
-  var res1 = {...map, ...list}; //# 01: compile-time error
-  var res2 = {...list, ...map}; //# 02: compile-time error
+  var res = {...map, ...list};
 }

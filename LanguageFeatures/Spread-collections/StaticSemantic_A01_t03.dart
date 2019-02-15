@@ -15,8 +15,9 @@
  * right type even though the list that contains them does not. As long as the
  * spread object is "spreadable" — it implements [Iterable] — there is no
  * static error.
- * @description Checks that it's possible to have the spread expression which is
- * not assignable to the collection type for the map.
+ * @description Checks that for sets it's possible to have the spread
+ * expression which is not assignable to the result collection type, no static
+ * error in this case.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
@@ -24,15 +25,18 @@
 import "../../Utils/expect.dart";
 
 main() {
-  var numbers = <num, num>{1: 1, 2: 2, 3: 3};
-  Expect.mapEquals({1: 1, 2: 2, 3: 3}, <int, int>{...numbers});
+  var numbers = <num>[1, 2, 3];
+  Expect.setEquals(<int>{1, 2, 3}, <int>{...numbers});
 
-  var objects = <Object, Object>{2: 22, 7: 77, 9: 99};
-  Expect.mapEquals({2: 22, 7: 77, 9: 99}, <int, int>{...numbers});
-
-  var a;
-  Expect.throws(() => a = <String, int>{...objects});
+  var objects = <Object>[2, 7, 9];
+  Expect.setEquals(<int>{2, 7, 9}, <int>{...objects});
 
   var strings = <String>[];
-  Expect.mapEquals({11: 12}, <int, int>{11: 12, ...Strings});
+  Expect.setEquals(<int>{11}, <int>{11, ...strings});
+
+  var a;
+  Expect.throws(() => a = <String>{...objects});
+
+  var numbers1 = <num>[1.1, 2, 3];
+  Expect.throws(() => a = <int>{...numbers1});
 }

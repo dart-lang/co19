@@ -15,8 +15,9 @@
  * right type even though the list that contains them does not. As long as the
  * spread object is "spreadable" — it implements [Iterable] — there is no
  * static error.
- * @description Checks that it's possible to have the spread expression which is
- * not assignable to the collection type for the list.
+ * @description Checks that for lists it's possible to have the spread
+ * expression which is not assignable to the result collection type, no static
+ * error in this case.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
@@ -28,11 +29,14 @@ main() {
   Expect.listEquals([1, 2, 3], <int>[...numbers]);
 
   var objects = <Object>[2, 7, 9];
-  Expect.listEquals([2, 7, 9], <int>[...numbers]);
+  Expect.listEquals([2, 7, 9], <int>[...objects]);
+
+  var strings = <String>[];
+  Expect.listEquals([11], <int>[11, ...Strings]);
 
   var a;
   Expect.throws(() => a = <String>[...objects]);
 
-  var strings = <String>[];
-  Expect.listEquals([11], <int>[11, ...Strings]);
+  var numbers1 = <num>[1.1, 2, 3];
+  Expect.throws(() => a = <int>[...numbers1]);
 }

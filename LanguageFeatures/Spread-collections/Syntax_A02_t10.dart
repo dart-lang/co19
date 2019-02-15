@@ -50,19 +50,18 @@ main() {
   Expect.setEquals([].toSet(), {...?list1});
   Expect.throws(() => a = {...list1});
 
-  Expect.setEquals([12].toSet(), {[12].toSet(), ...?list1});
-  Expect.throws(() => a = {[12, ...list1});
+  Expect.setEquals({12}, {12, ...?list1});
+  Expect.throws(() => a = {{12, ...list1});
 
-  Expect.setEquals([12], {...?list1, [12].toSet);
+  Expect.setEquals({...?list1, 12}, {12});
   Expect.throws(() => a = {...list1, 12});
 
-  Expect.setEquals([], {...?set});
+  Expect.setEquals([].toSet(), {...?set});
   Expect.throws(() => a = {...set});
 
-  Expect.setEquals([12].toSet(), {[12].toSet(), ...?set});
-  Expect.throws(() => a = {[12, ...set});
+  Expect.setEquals({12}, {12, ...?set});
+  Expect.throws(() => a = {12, ...set});
 
-  Expect.setEquals([12], {...?set, [12].toSet);
+  Expect.setEquals({12}, {...?set, 12});
   Expect.throws(() => a = {...set, 12});
-
-  }
+}

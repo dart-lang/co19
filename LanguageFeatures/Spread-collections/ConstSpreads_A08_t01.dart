@@ -8,11 +8,11 @@
  * from spreading into itself:
  *   const list = [...list]; // Error.
  * @description: Checks that constant list cannot spread itself
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
 
 main() {
-  const list1 = [...list1];  //# 01: compile-time error
-  const list2 = [...?list2]; //# 02: compile-time error
+  const list = [...list];
 }

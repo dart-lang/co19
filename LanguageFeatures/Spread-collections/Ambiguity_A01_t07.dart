@@ -17,9 +17,8 @@
  *   Otherwise, it is a map literal.
  *
  *   In other words, if it can only be a set, it is. Otherwise, it's a map.
- * @description Checks that if [a] is a set literal and [b] is a map literal,
- * it's a compile error.
- * @compile-error
+ * @description Checks that given expression works if some ot the spread
+ * elements is [null].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
@@ -28,5 +27,9 @@ main() {
   List list =  [1, 12, 24];
   Map map = {1: 1, "test": 1, 14: null};
 
-  var res = {...list, ...map};
+  List res1 = {...1ist, ...?null};
+
+  List res2 = {...?null, ...list};
+  Map res3 = {...?null, ...map};
+  Map res4 = {...map, ...?null};
 }

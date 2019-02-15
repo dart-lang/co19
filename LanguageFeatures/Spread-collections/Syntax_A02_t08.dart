@@ -34,7 +34,7 @@
  *    'const'?  '{' spread (',' spread)* '}' ;
  *
  * @description Checks that exception is thrown if spreadable element is not
- * set for spreadable set.
+ * Iterable for spreadable set.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
@@ -46,14 +46,12 @@ main() {
   int i;
 
   List a;
-  a = {...set};              //# 01: compile-error
-  a = {"testme", ...set};    //# 02: compile-error
-  a = {...set, "testme"};    //# 03: compile-error
+  Expect.throws(() => a = {...set});
+  Expect.throws(() => a = {"testme", ...set};);
+  Expect.throws(() => a = {...set, "testme"});
 
-  a = {...list};             //# 04: compile-error
-  a = {"testme", ...list};   //# 05: compile-error
-  a = {...list, "testme"};   //# 06: compile-error
-
-  a = {"abc", ...list1,  i}; //# 07: compile-error
+  Expect.throws(() => a = {...list});
+  Expect.throws(() => a = {"testme", ...list});
+  Expect.throws(() => a = {"abc", ...list1,  i});
 }
 

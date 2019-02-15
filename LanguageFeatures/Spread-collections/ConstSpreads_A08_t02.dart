@@ -7,12 +7,12 @@
  * @assertion The existing rules against self-reference prohibit a collection
  * from spreading into itself:
  *   const list = [...list]; // Error.
- * @description: Checks that constant set cannot spread itself
+ * @description: Checks that constant list cannot spread itself
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
 
 main() {
-  const Set set1 = {...set1};  //# 01: compile-time error
-  const Set set2 = {...?set2}; //# 02: compile-time error
+  const list = [...?list];
 }

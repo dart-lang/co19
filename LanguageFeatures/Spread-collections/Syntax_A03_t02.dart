@@ -18,9 +18,7 @@
 // SharedOptions=--enable-experiment=spread-collections
 
 main() {
-  var a;
-
-  a = <int, int, int>{};           //# 01: compile-time error
+  var a = <int, int, int>{};       //# 01: compile-time error
   a = <int, int, int, int>{};      //# 02: compile-time error
   a = <int, int, int, int, int>{}; //# 03: compile-time error
 }

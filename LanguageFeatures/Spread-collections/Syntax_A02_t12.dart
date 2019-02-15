@@ -42,7 +42,7 @@ import "../../Utils/expect.dart";
 
 main() {
   List list1 = [1, 2, 3];
-  Expect.setEquals([1, 2, 3].toSet(), <int>{...list1});
-  Expect.setEquals([1, 2, 3, 12].toSet(), <int>{...list1, 12});
-  Expect.setEquals([12, 1, 2, 3].toSet(), <int>{12, ...list1});
+  Expect.setEquals({1, 2, 3}, <int>{...list1});
+  Expect.setEquals({1, 2, 3, 12}, <int>{...list1, 12});
+  Expect.setEquals({12, 1, 2, 3}, <int>{12, ...list1});
 }

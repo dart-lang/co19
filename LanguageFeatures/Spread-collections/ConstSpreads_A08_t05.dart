@@ -14,5 +14,5 @@
 // SharedOptions=--enable-experiment=spread-collections
 
 main() {
-  const Set set = {...set};
+  const Map map = {...map};
 }

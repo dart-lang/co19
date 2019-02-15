@@ -15,14 +15,24 @@
  * right type even though the list that contains them does not. As long as the
  * spread object is "spreadable" — it implements [Iterable] — there is no
  * static error.
- * @description Checks that static error is thrown if spread element and
- * list type arguments are incompatible.
- * @compile-error
+ * @description Checks that it's possible to have the spread expression which is
+ * not assignable to the collection type for the map.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
 
+import "../../Utils/expect.dart";
+
 main() {
-  List<num> numbers = <num>[1, 2, 3];
-  List<String> list = <String>[...numbers];
- }
+  var numbers = <num, num>{1: 1, 2: 2, 3: 3};
+  Expect.mapEquals({1: 1, 2: 2, 3: 3}, <int, int>{...numbers});
+
+  var objects = <Object, Object>{2: 22, 7: 77, 9: 99};
+  Expect.mapEquals({2: 22, 7: 77, 9: 99}, <int, int>{...numbers});
+
+  var a;
+  Expect.throws(() => a = <String, int>{...objects});
+
+  var strings = <String>[];
+  Expect.mapEquals({11: 12}, <int, int>{11: 12, ...Strings});
+}

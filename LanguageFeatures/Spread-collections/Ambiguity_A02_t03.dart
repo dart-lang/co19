@@ -13,18 +13,9 @@
  */
 // SharedOptions=--enable-experiment=spread-collections
 
+import "../../Utils/expect.dart";
+
 main() {
-  List list1 = [1, 2, 3];
-  List list2 = null;
-  Map map1 = {1: 1};
-  Map map2 = null;
-
-  Set res1 = {...list1, ...?map2};
-  Map res2 = {...?map2, ...list1};
-
-  Set res3 = {...?list2, ...map1};
-  Map res4 = {...map1, ...list2};
-
-  Map res5 = {...?map2, ...?list2};
-  Map res6 = {...?list2, ...?map2};
+  Expect.isTrue({} is Map);
+  Expect.isTrue({...?null} is Map);
 }

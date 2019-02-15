@@ -16,13 +16,13 @@
  * spread object is "spreadable" — it implements [Iterable] — there is no
  * static error.
  * @description Checks that static error is thrown if spread element and
- * list type arguments are incompatible.
+ * map type arguments are incompatible.
  * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
 
 main() {
-  List<num> numbers = <num>[1, 2, 3];
-  List<String> list = <String>[...numbers];
+  Map<num, num> numbers = <num, num>{};
+  Map<String, num> map = <String, num>{...numbers};
  }

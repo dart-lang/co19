@@ -34,7 +34,7 @@
  *    'const'?  '{' spread (',' spread)* '}' ;
  *
  * @description Checks the very simple cases where some values are combined with
- * the existing set or list of different types
+ * the existing set or list
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
@@ -42,18 +42,18 @@
 import "../../Utils/expect.dart";
 
 main() {
-  Set set1 = ["abc", "int", "hello"];
-  Set set2 = [14, 18, 99];
+  Set set1 = {"abc", "int", "hello"};
+  Set set2 = {14, 18, 99};
   List list3 = [0, 2, 4, 6, 8];
 
-  Expect.setEquals(["abc", "int", "hello", 12].toSet(), {...set1, 12});
-  Expect.setEquals([12, "abc", "int", "hello"].toSet(), {12, ...set1});
+  Expect.setEquals({"abc", "int", "hello", 12}, {...set1, 12});
+  Expect.setEquals({12, "abc", "int", "hello"}, {12, ...set1});
 
-  Expect.setEquals(["abc", "int", "hello", 12, 2, 3, 10].toSet(),
+  Expect.setEquals({"abc", "int", "hello", 12, 2, 3, 10},
       {...set1, 12, 2, 3, 10});
 
-  Expect.setEquals(["abc", "int", "hello", 14, 18, 99, 0, 2, 4, 6, 8].toSet(),
+  Expect.setEquals({"abc", "int", "hello", 14, 18, 99, 0, 2, 4, 6, 8},
       {...set1, ...set2, ...list3});
-  Expect.setEquals([11, 1, 2, 3, 12, 16, 94, 0, 2, 4, 6, 8].toSet(),
+  Expect.setEquals({11, 1, 2, 3, 12, 16, 94, 0, 2, 4, 6, 8},
       {11, ...set1, 12, 16, 94, ...list3});
 }

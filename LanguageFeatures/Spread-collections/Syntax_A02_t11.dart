@@ -49,7 +49,7 @@ main() {
   Expect.throws(() => a = {...nullMap});
 
   Expect.mapEquals({1: 1}, {1: 1, ...?nullMap});
-  Expect.throws(() => a = {[1: 1, ...nullMap});
+  Expect.throws(() => a = {1: 1, ...nullMap});
 
   Expect.mapEquals({1: 1}, {...?nullMap, 1: 1});
   Expect.throws(() => a = {...nullMap, 1: 1});
