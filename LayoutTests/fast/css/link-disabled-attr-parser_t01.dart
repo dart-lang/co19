@@ -25,7 +25,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     var testDiv = document.querySelector('div#test');
     shouldBeEqualToString(getComputedStyle(testDiv).backgroundColor, 'rgb(255, 0, 0)');
     dynamic disabledLink = document.querySelector('link[disabled]');

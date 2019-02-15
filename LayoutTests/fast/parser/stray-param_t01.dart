@@ -8,6 +8,7 @@
  * @description Stray param elements are not dropped when parsing
  */
 import "dart:html";
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 import "../../../Utils/expect.dart";
 
@@ -18,9 +19,9 @@ const String htmlEL2 = r'''
 
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    window.onLoad.listen((e) {
+    tc.addOnLoadListener((_) {
         var len = document.getElementsByTagName("param").length;
         Expect.equals(1, len);
         document.getElementById("result").innerHtml = "PASS";
-    });    
+    });
 }

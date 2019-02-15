@@ -8,6 +8,7 @@
  * @description 
  */
 import "dart:html";
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 
 bool canFind(String target, String specimen) {
@@ -43,5 +44,7 @@ void runTests(e)  {
 }
 
 void main() {
-    window.onLoad.listen(runTests);
+    tc.addOnLoadListener((_) {
+      runTests(_);
+    });
 }

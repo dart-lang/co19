@@ -7,6 +7,7 @@
  * @assertion 
  * @description 
  */
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 
 void crash(e) {
@@ -32,5 +33,7 @@ void crash(e) {
 }
 
 void main() {
-    window.onLoad.listen(crash);
+    tc.addOnLoadListener((_) {
+      crash(_);
+    });
 }

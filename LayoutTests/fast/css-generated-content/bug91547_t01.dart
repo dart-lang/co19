@@ -28,7 +28,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     if (window.location.hash != "#1") {
       window.location.hash = '#1';
       setTimeout(() { window.location.reload(); }, 0);

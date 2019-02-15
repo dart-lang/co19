@@ -7,6 +7,7 @@
  * @assertion
  * @description Ligature Linebreaking
  */
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 
 const String htmlEL1 = '''
@@ -55,5 +56,7 @@ void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 //    setup({ explicit_done: true });
-    window.onLoad.listen(testLetterSpaceAndLigature);
+    tc.addOnLoadListener((_) {
+      testLetterSpaceAndLigature(_);
+    });
 }

@@ -271,3 +271,11 @@ bool get isFirefox => userAgent.contains("Firefox", 0);
  * Determines if the current device is running WebKit.
  */
 bool get isWebKit => !isOpera && userAgent.contains("WebKit", 0);
+
+addOnLoadListener(doTest(_)) {
+  if (document.readyState == "complete") {
+    doTest(null);
+  } else {
+    window.addEventListener('load', doTest, false);
+  }
+}

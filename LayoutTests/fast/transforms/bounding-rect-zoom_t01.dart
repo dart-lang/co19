@@ -9,6 +9,7 @@
  * There should be no red visible.
  */
 import "dart:html";
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 import "../../../Utils/expect.dart";
 
@@ -78,5 +79,7 @@ void runTest(e) {
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     document.body.style.zoom = "0.9";
-    window.onLoad.listen(runTest);
+    tc.addOnLoadListener((_) {
+      runTest(_);
+    });
 }

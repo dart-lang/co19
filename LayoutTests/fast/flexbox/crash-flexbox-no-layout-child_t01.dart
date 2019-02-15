@@ -30,5 +30,8 @@ main() {
   }
 
   asyncStart();
-  window.onLoad.listen(boom);
+//  window. onLoad.listen(boom);
+  addOnLoadListener((_) {
+    boom(_);
+  });
 }

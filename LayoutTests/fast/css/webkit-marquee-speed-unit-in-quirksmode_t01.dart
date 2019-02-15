@@ -22,7 +22,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     var mar = document.getElementById("mar");
     var p = document.getElementById("p");
     if (mar.style.getPropertyValue("-webkit-marquee-speed") == "10s")
@@ -31,5 +31,4 @@ main() {
       p.innerHtml = '<b style="color:green">PASS</b>';
     asyncEnd();
   });
-
 }

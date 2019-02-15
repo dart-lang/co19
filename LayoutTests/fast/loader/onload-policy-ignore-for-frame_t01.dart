@@ -10,6 +10,7 @@
  * null from resource load delegate's willSendRequest.
  */
 import "dart:html";
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 
 const String htmlEL2 = r'''
@@ -23,10 +24,9 @@ delegate's willSendRequest</a>. If the test passes, you should see the word "PAS
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     asyncStart();
-    window.onLoad.listen((e) {
-        asyncEnd();
-        var result = document.getElementById("result");
-        result.text = "PASSED";
+    tc.addOnLoadListener((_) {
+      asyncEnd();
+      var result = document.getElementById("result");
+      result.text = "PASSED";
     });
-
 }

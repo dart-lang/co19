@@ -79,5 +79,7 @@ main() {
   }
 
   asyncStart();
-  window.onLoad.listen(go);
+  addOnLoadListener((_) {
+    go(_);
+  });
 }

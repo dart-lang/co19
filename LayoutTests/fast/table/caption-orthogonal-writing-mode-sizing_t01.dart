@@ -8,6 +8,7 @@
  * @description 
  */
 import "dart:html";
+//import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 import "../../resources/check-layout.dart";
 
@@ -49,4 +50,8 @@ void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     runTest(null);
 //    window.onLoad.listen(runTest);
+    /*
+    tc.addOnLoadListener((_) {
+      runTest(_);
+    });*/
 }

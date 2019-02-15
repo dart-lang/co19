@@ -9,6 +9,7 @@
  * This test verifies that the hittest result on the right edge of a table cell returns the proper underlying element.
  */
 import "dart:html";
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 
 const String htmlEL1 = r'''
@@ -148,5 +149,7 @@ void main() {
      This test verifies that the hittest result on the right edge of a table cell returns the proper underlying element.""");
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    window.onLoad.listen(runTest);
+    tc.addOnLoadListener((_) {
+      runTest(_);
+    });
 }

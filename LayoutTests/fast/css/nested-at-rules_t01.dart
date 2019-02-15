@@ -51,7 +51,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     CssStyleSheet ss = document.styleSheets[index];
     dynamic rules = ss.cssRules;
     shouldEvaluateTo(rules.length, 2);
@@ -79,6 +79,6 @@ main() {
     shouldBeLikeString(getComputedStyle(document.getElementById('t0')).content, "APPLIED");
     shouldBeLikeString(getComputedStyle(document.getElementById('t1')).content, "UNTOUCHED");
 
-    asyncEnd();  
+    asyncEnd();
   });
 }

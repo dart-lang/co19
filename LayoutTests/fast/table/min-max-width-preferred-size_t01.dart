@@ -9,6 +9,7 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 import "../../resources/check-layout.dart";
 
@@ -50,5 +51,7 @@ const String htmlEL2 = r'''
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    window.onLoad.listen((e){checkLayout('.container');});
+    tc.addOnLoadListener((_) {
+      checkLayout('.container');
+    });
 }

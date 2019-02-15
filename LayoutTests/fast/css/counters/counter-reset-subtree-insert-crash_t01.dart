@@ -69,7 +69,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     var rules = [
       "#el2::after { counter-increment: c; } ",
       "xyz { } "

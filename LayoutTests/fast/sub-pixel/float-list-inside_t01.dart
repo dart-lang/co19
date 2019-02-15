@@ -8,6 +8,7 @@
  * @description
  */
 import "dart:html";
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 
 const String htmlEL1 = r'''
@@ -58,7 +59,7 @@ void main() {
     shouldBe(firstLinkTop, lastLinkTop, 'Links should be on the same line.');
 
     asyncStart();
-    window.onLoad.listen((e) {
+    tc.addOnLoadListener((_) {
         list.style.marginRight = '-10px';
         list.offsetTop;
         list.style.marginRight = 'auto';

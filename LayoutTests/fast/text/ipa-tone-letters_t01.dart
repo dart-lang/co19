@@ -7,6 +7,7 @@
  * @assertion
  * @description
  */
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 
 const String htmlEL2 = r'''
@@ -45,5 +46,7 @@ void doTest(e) {
 
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    window.onLoad.listen(doTest);
+    tc.addOnLoadListener((_) {
+      doTest(_);
+    });
 }

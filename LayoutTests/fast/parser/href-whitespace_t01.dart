@@ -8,6 +8,7 @@
  * @description 
  */
 import "dart:html";
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 import "../../../Utils/expect.dart";
 
@@ -25,5 +26,7 @@ void doTest(e) {
 
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    window.onLoad.listen(doTest);
+    tc.addOnLoadListener((_) {
+      doTest(_);
+    });
 }

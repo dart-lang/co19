@@ -27,5 +27,7 @@ main() {
   }
 
   asyncStart();
-  window.onLoad.listen(test);
+  addOnLoadListener((_) {
+    test(_);
+  });
 }
