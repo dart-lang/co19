@@ -42,7 +42,7 @@ main() {
   Expect.isTrue(i1_str);
 
   const MyClass1 c1 = MyClass1();
-  Expect.equals(0, c1.res);
+  Expect.equals(-1, c1.res);
 
   const MyClass2 c2 = MyClass2();
   Expect.equals(-1, c2.res);

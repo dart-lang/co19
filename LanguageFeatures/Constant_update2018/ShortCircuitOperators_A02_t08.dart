@@ -22,5 +22,5 @@ class MyClass {
 
 main() {
   const MyClass c1 = MyClass("testme");
-  Expect.isFalse(c1.b);
+  Expect.isTrue(c1.b);
 }

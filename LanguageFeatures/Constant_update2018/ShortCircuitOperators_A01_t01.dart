@@ -37,7 +37,7 @@ main() {
   Expect.isFalse(a3);
 
   const bool a4 = false && i > 12;
-  Expect.isTrue(a4);
+  Expect.isFalse(a4);
 
   const MyClass1 c1 = MyClass1();
   Expect.isFalse(c1.b);

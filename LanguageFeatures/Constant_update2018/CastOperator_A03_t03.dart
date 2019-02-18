@@ -10,18 +10,18 @@
  * A compile-time constant type means any type that doesn't contain free type
  * variables, so the type expression always resolves to the exact same type.
  * @description Checks that an expression of the form [e as T] is not accepted
- * and causes compile time error in the constant constructor if [e] is not a
- * compile-time constant.
+ * and causes compile time error if parameter type is incorrect.
  * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
-String str = "test";
+dynamic anObject = "";
 
 class MyClass {
   final String obj;
-  const MyClass() : obj = str as String;
+  const MyClass(Object o) : obj = o as String;
 }
 
 main() {
+  const MyClass c = MyClass(anObject);
 }
