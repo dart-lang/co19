@@ -23,7 +23,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     document.body.innerHtml = "PASS: Clearing ruby text with counters does not crash.";
     asyncEnd();
   });

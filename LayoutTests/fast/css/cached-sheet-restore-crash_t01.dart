@@ -17,7 +17,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     document.body.innerHtml = "This test passes if it doesn't crash.";
     asyncEnd();
   });

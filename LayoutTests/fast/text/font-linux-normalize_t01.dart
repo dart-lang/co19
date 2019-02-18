@@ -7,6 +7,7 @@
  * @assertion
  * @description
  */
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 
 const String htmlEL2 = r'''
@@ -15,7 +16,7 @@ const String htmlEL2 = r'''
 
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    window.onLoad.listen((e) {
+    tc.addOnLoadListener((e) {
         DivElement div = document.getElementById("div");
         String string = div.innerHtml;
         //should be rendered as "\u0958\u0909 \u00e4" in html.

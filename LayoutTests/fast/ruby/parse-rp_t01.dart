@@ -9,6 +9,7 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 
 const String htmlEL2 = r'''
@@ -26,5 +27,7 @@ void test(e) {
 
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    window.onLoad.listen(test);
+    tc.addOnLoadListener((_) {
+      test(_);
+    });
 }

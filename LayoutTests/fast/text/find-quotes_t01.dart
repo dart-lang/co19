@@ -8,6 +8,7 @@
  * @description 
  */
 import "dart:html";
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 
 var apostrophe = "'";
@@ -64,5 +65,7 @@ void runTests(e) {
 }
 
 void main() {
-    window.onLoad.listen(runTests);
+    tc.addOnLoadListener((_) {
+      runTests(_);
+    });
 }

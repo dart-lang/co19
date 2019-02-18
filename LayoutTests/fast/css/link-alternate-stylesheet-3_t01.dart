@@ -33,7 +33,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     var element = document.getElementById("firstH1");
     shouldBe(getComputedStyle(element).getPropertyValue('text-decoration'), 'underline solid rgb(51, 51, 51)');
 

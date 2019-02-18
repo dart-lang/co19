@@ -8,6 +8,7 @@
  * @description 
  */
 import "dart:html";
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 
 const String htmlEL2 = r'''
@@ -47,6 +48,8 @@ ${window.scrollY == 0 ? '' : 'not '} at top.""";
 
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    window.onLoad.listen(startTest);
+    tc.addOnLoadListener((_) {
+      startTest(_);
+    });
     asyncStart();
 }

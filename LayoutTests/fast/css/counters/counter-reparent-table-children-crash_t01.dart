@@ -37,5 +37,7 @@ main() {
   }
 
   asyncStart();
-  window.onLoad.listen(crash);
+  addOnLoadListener((_) {
+    crash(_);
+  });
 }

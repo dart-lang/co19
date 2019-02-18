@@ -8,6 +8,7 @@
  * @description 
  */
 import "dart:html";
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 import "../../resources/check-layout.dart";
 
@@ -47,5 +48,7 @@ const String htmlEL2 = r'''
 
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    window.onLoad.listen((e){checkLayout('.quirky-box');});
+    tc.addOnLoadListener((_) {
+      checkLayout('.quirky-box');
+    });
 }

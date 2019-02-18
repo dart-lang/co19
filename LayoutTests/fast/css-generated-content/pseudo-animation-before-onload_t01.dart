@@ -76,5 +76,7 @@ main() {
   }
 
   asyncStart();
-  window.onLoad.listen(testAnimations);
+  addOnLoadListener((_) {
+    testAnimations(_);
+  });
 }

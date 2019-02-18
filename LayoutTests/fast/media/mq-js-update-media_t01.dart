@@ -8,6 +8,7 @@
  * @description
  */
 import "dart:html";
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 
 const String htmlEL1 = r'''
@@ -50,7 +51,9 @@ void updateMediaQuery2(e) {
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    window.onLoad.listen(updateMediaQuery2);
+    tc.addOnLoadListener((_) {
+      updateMediaQuery2(_);
+    });
       // update media query while document is parsing
     updateMediaQuery();
 }

@@ -31,9 +31,9 @@ main() {
 
   asyncStart();
 
-  window.onLoad.listen((_) {
-    var elmt = document.getElementById("probe");  
-    var color = getComputedStyle(elmt).getPropertyValue("background-color");  
+  addOnLoadListener((_) {
+    var elmt = document.getElementById("probe");
+    var color = getComputedStyle(elmt).getPropertyValue("background-color");
     shouldBe(color, 'rgb(0, 128, 0)');
     asyncEnd();
   });

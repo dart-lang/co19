@@ -9,6 +9,7 @@
  * @needsreview dart issue #21370
  */
 import "dart:html";
+import "../../../testcommon.dart" as tc;
 import "../../../../Utils/expect.dart";
 
 void onload (e) {
@@ -18,5 +19,7 @@ void onload (e) {
 }
 
 void main() {
-    window.onLoad.listen(onload);
+  tc.addOnLoadListener((_) {
+    onload(_);
+  });
 }

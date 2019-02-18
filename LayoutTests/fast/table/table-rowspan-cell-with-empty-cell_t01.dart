@@ -48,5 +48,7 @@ const String htmlEL2 = r'''
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    window.onLoad.listen((e){checkLayout('#a');});
+    addOnLoadListener((_) {
+        checkLayout('#a');
+    });
 }

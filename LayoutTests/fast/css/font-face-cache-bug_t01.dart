@@ -47,7 +47,7 @@ main() {
     asyncEnd();
   }
 
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     asyncStart();
     setTimeout(runTest, 500);
   });

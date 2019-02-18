@@ -31,5 +31,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) => asyncEnd());
+  addOnLoadListener((_) {
+    asyncEnd();
+  });
 }
