@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -25,8 +25,8 @@ main() {
   Expect.equals("12345", c1.str);
 
   const MyClass c2 = MyClass(12);
-  Expect.equals("undefined", c1.str);
+  Expect.equals("undefined", c2.str);
 
   const MyClass c3 = MyClass(null);
-  Expect.equals("undefined", c1.str);
+  Expect.equals("undefined", c3.str);
 }

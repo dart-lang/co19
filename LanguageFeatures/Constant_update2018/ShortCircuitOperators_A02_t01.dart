@@ -24,11 +24,11 @@ class MyClass {
 
 main() {
   const bool a1 = (i > 0) || ((null as String).length > 14);
-  Expect.isFalse(a1);
+  Expect.isTrue(a1);
 
   const bool a2 = true || ((null as String).length > 14);
-  Expect.isFalse(a2);
+  Expect.isTrue(a2);
 
   const MyClass c1 = MyClass();
-  Expect.isFalse(c1.b);
+  Expect.isTrue(c1.b);
 }
