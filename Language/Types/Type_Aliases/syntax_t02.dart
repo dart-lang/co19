@@ -22,6 +22,8 @@ class C<T> {
 
 typedef CAlias1 = C;
 typedef CAlias2<T> = C<T>;
+typedef CAlias3 = C<String>;
+typedef CAlias4<T> = C<int>;
 
 main() {
   CAlias1 ca1 = new CAlias1();
@@ -35,4 +37,16 @@ main() {
   Expect.isTrue(ca2.t is int);
   ca2.t = -1;
   Expect.equals(-1, ca2.t);
+
+  CAlias3 ca3 = new CAlias3();
+  Expect.isTrue(ca3 is C<String>);
+  Expect.isTrue(ca3.t is String);
+  ca3.t = "Lily was here";
+  Expect.equals("Lily was here", ca3.t);
+
+  CAlias4<String> ca4 = new CAlias4<String>();
+  Expect.isTrue(ca4 is C<int>);
+  Expect.isTrue(ca4.t is int);
+  ca4.t = 42;
+  Expect.equals(42, ca4.t);
 }

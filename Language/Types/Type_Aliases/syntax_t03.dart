@@ -16,23 +16,40 @@
  */
 import "../../../Utils/expect.dart";
 
-class C<T extends num> {
-  T t;
+class C<T1 extends num, T2> {
+  T1 t1;
+  T2 t2;
 }
 
 typedef CAlias1 = C;
-typedef CAlias2<T extends num> = C<T>;
+typedef CAlias2<T extends num> = C<T, String>;
+typedef CAlias3 = C<int, String>;
 
 main() {
   CAlias1 ca1 = new CAlias1();
-  Expect.isTrue(ca1 is C<dynamic>);
-  Expect.isTrue(ca1.t is dynamic);
-  ca1.t = "Lily was here";
-  Expect.equals("Lily was here", ca1.t);
+  Expect.isTrue(ca1 is C<num, dynamic>);
+  Expect.isTrue(ca1.t1 is num);
+  Expect.isTrue(ca1.t2 is dynamic);
+  ca1.t1 = 42;
+  Expect.equals(42, ca1.t1);
 
   CAlias2<int> ca2 = new CAlias2<int>();
+  Expect.isTrue(ca2 is C<int, String>);
   Expect.isTrue(ca2 is C<int>);
-  Expect.isTrue(ca2.t is int);
-  ca2.t = -1;
-  Expect.equals(-1, ca2.t);
+  Expect.isTrue(ca2.t1 is int);
+  Expect.isTrue(ca2.t2 is String);
+  ca2.t1 = -1;
+  Expect.equals(-1, ca2.t1);
+  ca2.t2 = "Lily was here";
+  Expect.equals("Lily was here", ca2.t2);
+
+  CAlias2 ca3 = new CAlias3();
+  Expect.isTrue(ca3 is C<int, String>);
+  Expect.isTrue(ca3 is C<int>);
+  Expect.isTrue(ca3.t1 is int);
+  Expect.isTrue(ca3.t2 is String);
+  ca3.t1 = -1;
+  Expect.equals(-1, ca3.t1);
+  ca3.t2 = "Lily was here";
+  Expect.equals("Lily was here", ca3.t2);
 }
