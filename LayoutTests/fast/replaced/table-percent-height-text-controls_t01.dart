@@ -8,6 +8,7 @@
  * @description Test for Buzilla Bug 15359: JPEG image not shown when height is specified as percentage inside a table
  */
 import "dart:html";
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 
 const String htmlEL2 = r'''
@@ -88,5 +89,7 @@ void main() {
         "Text controls are in a different test than other replaced elements because their metrics are platform-specific.");
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     asyncStart();
-    window.onLoad.listen(doTest);
+    tc.addOnLoadListener((_) {
+        doTest(_);
+    });
 }

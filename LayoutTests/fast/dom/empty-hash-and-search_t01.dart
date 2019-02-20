@@ -28,7 +28,7 @@ main() {
 
   lastChar (s) => s.substring(s.length-1);
 
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
 
     if (lastChar(window.location.toString()) != "#") {
       if (location.hash != ""

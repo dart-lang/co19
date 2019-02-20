@@ -20,7 +20,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     var url = window.location.href;
     if (url.indexOf('formSubmitted') != -1) {
       asyncEnd();

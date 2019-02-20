@@ -67,5 +67,7 @@ main() {
   }
 
   asyncStart();
-  window.onLoad.listen(onLoadHandler);
+  addOnLoadListener((_) {
+    onLoadHandler(_);
+  });
 }

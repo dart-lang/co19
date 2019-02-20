@@ -8,6 +8,7 @@
  * @description Percentage margins on absolutely positioned elements are relative to the container\'s logical width 
  */
 import "dart:html";
+import "../../testcommon.dart" as tc;
 import "../../../Utils/expect.dart";
 
 var WritingModes = {
@@ -62,5 +63,7 @@ void doTest(e) {
 }
 
 void main() {
-    window.onLoad.listen(doTest);
+    tc.addOnLoadListener((_) {
+        doTest(_);
+    });
 }

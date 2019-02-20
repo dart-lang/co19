@@ -16,7 +16,7 @@ main() {
 
   asyncStart();
 
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     var selection = window.getSelection();
     var range =  document.createRange();
     range.selectNode(document.getElementById("selectMe"));

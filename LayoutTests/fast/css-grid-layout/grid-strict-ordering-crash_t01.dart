@@ -22,7 +22,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     asyncEnd();
   });
 }

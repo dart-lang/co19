@@ -36,7 +36,9 @@ main() {
   }
 
   asyncStart();
-  window.onLoad.listen(crash);
+  addOnLoadListener((_) {
+    crash(_);
+  });
 
   document.body.setInnerHtml('''
       <style>

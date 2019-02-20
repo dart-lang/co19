@@ -22,7 +22,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     dynamic canvas = document.getElementById("mycanvas");
     canvas.getContext("2d").fillRect(0, 0, canvas.width, canvas.height);
     var imgData1 = canvas.getContext("2d").getImageData(0, 0, 1, 1);

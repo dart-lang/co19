@@ -16,7 +16,7 @@ main() {
 
   asyncStart();
 
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     Element element = document.body.append(document.createElement("a"));
 
     element.setAttributeNS("namespace", "id", "foo");

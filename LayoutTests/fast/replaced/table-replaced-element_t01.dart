@@ -8,6 +8,7 @@
  * @description Layout test for WebKit bug 85581
  */
 import "dart:html";
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 
 const String squareBlue = "$testSuiteRoot/fast/replaced/resources/square-blue-100x100.png";
@@ -54,5 +55,7 @@ void runTest(e) {
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     asyncStart();
-    window.onLoad.listen(runTest);
+    tc.addOnLoadListener((_) {
+        runTest(_);
+    });
 }

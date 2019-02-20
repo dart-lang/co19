@@ -44,7 +44,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     debug("Test getting auto-flow set through CSS");
     var gridAutoFlowNone = document.getElementById("gridAutoFlowNone");
     shouldBe(getComputedStyle(gridAutoFlowNone, '').getPropertyValue('grid-auto-flow'), 'none');

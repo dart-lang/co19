@@ -30,7 +30,7 @@ main() {
 
   asyncStart();
 
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     generateTest(wgl.WebGL.RGB, wgl.WebGL.UNSIGNED_SHORT_5_6_5, testPrologue)();
     asyncEnd();
   });

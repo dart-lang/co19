@@ -27,7 +27,7 @@ main() {
   link.remove();
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     shouldBeNull(link.sheet);
 
     debug('After adding to document');

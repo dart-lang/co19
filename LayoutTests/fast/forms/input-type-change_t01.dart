@@ -44,5 +44,7 @@ main() {
   }
 
   asyncStart();
-  window.onLoad.listen(change);
+  addOnLoadListener((_) {
+    change(_);
+  });
 }

@@ -473,7 +473,7 @@ main() {
   }
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     draw();
   });
 }

@@ -16,7 +16,7 @@ main() {
 
   asyncStart();
 
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     (document.getElementById('crash') as ObjectElement).type = null;
     asyncEnd();
   });

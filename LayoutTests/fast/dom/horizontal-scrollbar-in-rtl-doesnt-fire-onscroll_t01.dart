@@ -13,7 +13,7 @@ import "../../testcommon.dart";
 main() {
   document.documentElement.style.direction = 'rtl';
 
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     asyncEnd();
   });
   

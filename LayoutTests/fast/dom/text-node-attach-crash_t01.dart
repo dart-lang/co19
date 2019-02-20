@@ -13,7 +13,7 @@ main() {
   var docElement = document.documentElement;
   docElement.remove(); 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     document.append(docElement);
     asyncEnd();
   });

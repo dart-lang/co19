@@ -32,7 +32,7 @@ main() {
   shouldBe(document.activeElement, button);
   debug('Clicking a button makes the button disabled.');
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     button.addEventListener('blur', (_) {
       testPassed('blur event was disaptched.');
       button.remove();

@@ -23,7 +23,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     dynamic grid = document.getElementsByClassName("grid")[0];
     grid.offsetTop;
     while (grid.firstChild != null)

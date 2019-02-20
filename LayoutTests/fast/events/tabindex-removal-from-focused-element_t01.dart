@@ -19,7 +19,7 @@ main() {
   target.focus();
   shouldBe(document.activeElement, target);
   debug('Remove tabindex.');
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     target.addEventListener('blur', (_) {
       testPassed('blur event was disaptched.');
       target.remove();

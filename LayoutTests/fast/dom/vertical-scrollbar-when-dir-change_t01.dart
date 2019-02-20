@@ -26,7 +26,7 @@ main() {
     shouldBe(actual, expected);
   }
 
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     assertEqual("original scroll y for RTL page ", window.scrollY, 0);
     window.scrollTo(0, -100);
     assertEqual("vertical scroll y for RTL page ", window.scrollY, -100);

@@ -36,5 +36,7 @@ main() {
   }
 
   asyncStart();
-  window.onLoad.listen(checkForVerticalScrollbar);
+  addOnLoadListener((_) {
+    checkForVerticalScrollbar(_);
+  });
 }

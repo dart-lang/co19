@@ -8,6 +8,7 @@
  * @description 
  */
 import "dart:html";
+import "../../testcommon.dart" as tc;
 import "../../../Utils/expect.dart";
 
 const String htmlEL = r'''
@@ -30,5 +31,7 @@ void crash(e)  {
 
 void main() {
     document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
-    window.onLoad.listen(crash);
+    tc.addOnLoadListener((_) {
+        crash(_);
+    });
 }

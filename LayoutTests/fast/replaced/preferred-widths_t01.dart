@@ -8,6 +8,7 @@
  * @description
  */
 import "dart:html";
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 import "../../resources/check-layout.dart";
 
@@ -80,7 +81,7 @@ void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     // Need to do this onload to make sure all the images have loaded.
-    window.onLoad.listen((e) {
+    tc.addOnLoadListener((e) {
         checkLayout(".container");
     });
 }

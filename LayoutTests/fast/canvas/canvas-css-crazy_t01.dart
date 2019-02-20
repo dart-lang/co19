@@ -28,7 +28,7 @@ main() {
   }
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     draw(300, 300);
     asyncEnd();
   });

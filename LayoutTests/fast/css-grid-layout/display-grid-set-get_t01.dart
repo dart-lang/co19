@@ -24,7 +24,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     debug("Test getting |display| set through CSS");
     var gridElement = document.getElementById("gridElement");
     var inlineGridElement = document.getElementById("inlineGridElement");
