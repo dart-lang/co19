@@ -12,9 +12,8 @@
  * of t1 should be dynamic.
  * @static-clean
  * @author iefremov, sgrekhov@unipro.ru
- * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
+import '../../../Utils/expect.dart';
 
 typedef F1([x]);
 typedef F2({x});
@@ -23,13 +22,17 @@ typedef Func();
 typedef int Func2(int x);
 
 main() {
-  Expect.isTrue(([int x]) {} is F1);
+  Expect.isTrue(([x]) {} is F1);
+  Expect.isTrue(([dynamic x]) {} is F1);
+  Expect.isFalse(([int x]) {} is F1);
   Expect.isTrue(([Object x]) {} is F1);
-  Expect.isTrue(([Func x]) {} is F1);
-  Expect.isTrue(([Func2 x]) {} is F1);
+  Expect.isFalse(([Func x]) {} is F1);
+  Expect.isFalse(([Func2 x]) {} is F1);
 
-  Expect.isTrue(({int x}) {} is F2);
+  Expect.isTrue(({x}) {} is F2);
+  Expect.isTrue(({dynamic x}) {} is F2);
+  Expect.isFalse(({int x}) {} is F2);
   Expect.isTrue(({Object x}) {} is F2);
-  Expect.isTrue(({Func x}) {} is F2);
-  Expect.isTrue(({Func2 x}) {} is F2);
+  Expect.isFalse(({Func x}) {} is F2);
+  Expect.isFalse(({Func2 x}) {} is F2);
 }

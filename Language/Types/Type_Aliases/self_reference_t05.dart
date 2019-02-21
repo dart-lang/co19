@@ -8,12 +8,11 @@
  * via another typedef, is a compile time error.
  * @description Checks that generic type in a typedef declaration can
  * be used inside that declaration as the name of a type or as a name
- * of a positional optional parameter without errors or warnings.
+ * of a formal parameter without errors or warnings.
  * @author iefremov
- * @reviewer rodionov
  */
 
-typedef F<F>([F f]);
+typedef F<F>(F f);
 
 main() {
   null is F;

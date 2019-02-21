@@ -5,30 +5,18 @@
  */
 /**
  * @assertion A type alias declares a name for a type expression.
- * typeAlias:
- *   metadata typedef typeAliasBody
- * ;
- * typeAliasBody:
- *   functionTypeAlias
- * ;
- * functionTypeAlias:
- *   functionPrefix typeParameters? formalParameterList ’;’
- * ;
- * functionPrefix:
- *   returnType? identifier
- * ;
+ * <typeAlias> ::=<metadata> typedef <typeIdentifier> <typeParameters>?‘=’<type>
+ * ‘;’
+ * | <metadata> typedef <functionTypeAlias>
+ *  <functionTypeAlias> ::= <functionPrefix> <formalParameterPart> ‘;’
+ *  <functionPrefix> ::= <type>? <identifier>
  * @description Checks that it is a compile-time error if the terminating
  * from a type alias declaration from a type alias declaration.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
 
 typedef void F<T>()
 
 main() {
-  try {
-    Expect.isFalse(null is F);
-  } catch (x) {}
 }

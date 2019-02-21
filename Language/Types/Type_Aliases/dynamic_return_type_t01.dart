@@ -13,7 +13,7 @@
  * @author iefremov, sgrekhov@unipro.ru
  * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
+import '../../../Utils/expect.dart';
 
 typedef F1();
 

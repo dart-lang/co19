@@ -5,31 +5,19 @@
  */
 /**
  * @assertion A type alias declares a name for a type expression.
- * typeAlias:
- *   metadata typedef typeAliasBody
- * ;
- * typeAliasBody:
- *   functionTypeAlias
- * ;
- * functionTypeAlias:
- *   functionPrefix typeParameters? formalParameterList ’;’
- * ;
- * functionPrefix:
- *   returnType? identifier
- * ;
+ * <typeAlias> ::=<metadata> typedef <typeIdentifier> <typeParameters>?‘=’<type>
+ * ‘;’
+ * | <metadata> typedef <functionTypeAlias>
+ *  <functionTypeAlias> ::= <functionPrefix> <formalParameterPart> ‘;’
+ *  <functionPrefix> ::= <type>? <identifier>
  * @description Checks that it is impossible to introduce alias for an abstract
  * class type.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
 
 abstract class A {}
 typedef A B;
 
 main() {
-  try {
-    Expect.isFalse(null is B);
-  } catch (x) {}
 }

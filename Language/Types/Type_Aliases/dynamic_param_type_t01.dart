@@ -11,9 +11,8 @@
  * types, therefore the type of formal parameter of t1 should be dynamic.
  * @static-clean
  * @author iefremov, sgrekhov@unipro.ru
- * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
+import '../../../Utils/expect.dart';
 
 typedef F1(x);
 

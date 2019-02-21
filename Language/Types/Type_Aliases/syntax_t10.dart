@@ -5,22 +5,14 @@
  */
 /**
  * @assertion A type alias declares a name for a type expression.
- * typeAlias:
- *   metadata typedef typeAliasBody
- * ;
- * typeAliasBody:
- *   functionTypeAlias
- * ;
- * functionTypeAlias:
- *   functionPrefix typeParameters? formalParameterList ’;’
- * ;
- * functionPrefix:
- *   returnType? identifier
- * ;
+ * <typeAlias> ::=<metadata> typedef <typeIdentifier> <typeParameters>?‘=’<type>
+ * ‘;’
+ * | <metadata> typedef <functionTypeAlias>
+ *  <functionTypeAlias> ::= <functionPrefix> <formalParameterPart> ‘;’
+ *  <functionPrefix> ::= <type>? <identifier>
  * @description Checks that different variants of this statement work and do
  * not cause any errors.
  * @author rodionov
- * @reviewer iefremov
  */
 
 const int meta = 1;
@@ -34,4 +26,3 @@ main() {
   _Bar<int, bool> bar = (int a, [bool b]) {return 0;};
   _Bar<int, bool> akbar = (int a, [bool b]) => 0;
 }
-

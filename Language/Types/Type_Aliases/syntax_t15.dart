@@ -5,30 +5,18 @@
  */
 /**
  * @assertion A type alias declares a name for a type expression.
- * typeAlias:
- *   metadata typedef typeAliasBody
- * ;
- * typeAliasBody:
- *   functionTypeAlias
- * ;
- * functionTypeAlias:
- *   functionPrefix typeParameters? formalParameterList ’;’
- * ;
- * functionPrefix:
- *   returnType? identifier
- * ;
+ * <typeAlias> ::=<metadata> typedef <typeIdentifier> <typeParameters>?‘=’<type>
+ * ‘;’
+ * | <metadata> typedef <functionTypeAlias>
+ *  <functionTypeAlias> ::= <functionPrefix> <formalParameterPart> ‘;’
+ *  <functionPrefix> ::= <type>? <identifier>
  * @description Checks that formalParameterList in the typedef declaration
  * cannot include a semicolon.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
-import '../../../../Utils/expect.dart';
 
 typedef F<T1; T2>();
 
 main() {
-  try {
-    Expect.isTrue(null is F);
-  } catch (x) {}
 }

@@ -5,30 +5,18 @@
  */
 /**
  * @assertion A type alias declares a name for a type expression.
- * typeAlias:
- *   metadata typedef typeAliasBody
- * ;
- * typeAliasBody:
- *   functionTypeAlias
- * ;
- * functionTypeAlias:
- *   functionPrefix typeParameters? formalParameterList ’;’
- * ;
- * functionPrefix:
- *   returnType? identifier
- * ;
+ * <typeAlias> ::=<metadata> typedef <typeIdentifier> <typeParameters>?‘=’<type>
+ * ‘;’
+ * | <metadata> typedef <functionTypeAlias>
+ *  <functionTypeAlias> ::= <functionPrefix> <formalParameterPart> ‘;’
+ *  <functionPrefix> ::= <type>? <identifier>
  * @description Checks that it is impossible to introduce alias for a built-in
  * type (int).
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
-import '../../../../Utils/expect.dart';
 
 typedef int integer;
 
 main() {
-  try {
-    Expect.isFalse(null is integer);
-  } catch (x) {}
 }

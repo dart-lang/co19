@@ -6,14 +6,13 @@
 /**
  * @assertion Any self reference in a typedef, either directly, or recursively
  * via another typedef, is a compile time error.
- * @description Checks that self-referencing typedef is not allowed (positional
+ * @description Checks that self-referencing typedef is not allowed (named
  * optional parameter type annotation has the same name as the type alias).
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
-typedef F([F x]);
+typedef F({F x});
 
 main() {
   try {
