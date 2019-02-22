@@ -67,7 +67,7 @@ main() {
 
   asyncStart();
 
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     runTest(setupTest,drawImage);
     asyncEnd();
   });

@@ -1,20 +1,21 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Any self reference in a type alias, either directly or recursively
- * via another type declaration, is a compile-time error
- * @description Checks that any self reference in a type alias is a compile-time
- * error. Test recursive reference
+ * @assertion Any self reference in a typedef, either directly, or recursively
+ * via another typedef, is a compile time error.
+ * @description Checks that self-referencing typedef is not allowed (positional
+ * formal parameter type annotation has the same name as the type alias).
  * @compile-error
- * @author sgrekhov@unipro.ru
+ * @author iefremov
  */
-class C<T> {}
 
-typedef CAlias1<T extends CAlias2> = C<T>;
-typedef CAlias2<T extends CAlias1> = C<T>;
+typedef F(F x);
 
 main() {
+  try {
+    null is F;
+  } catch (x) {}
 }

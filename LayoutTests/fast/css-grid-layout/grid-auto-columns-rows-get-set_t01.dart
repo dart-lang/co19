@@ -40,7 +40,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     debug("Test getting grid-auto-columns and grid-auto-rows set through CSS");
     var gridAutoFixedFixed = document.getElementById("gridAutoFixedFixed");
     shouldBe(getComputedStyle(gridAutoFixedFixed, '').getPropertyValue('grid-auto-rows'), '30px');

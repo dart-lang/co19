@@ -15,7 +15,7 @@ main() {
   var expectedScrollX = -1000;
   var expectedScrollY = 500;
 
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     // Test horizontal scroll bar presents and was initially at the right for RTL page.
     debug("original scroll x for RTL page ");
     shouldBe(window.scrollX, 0);

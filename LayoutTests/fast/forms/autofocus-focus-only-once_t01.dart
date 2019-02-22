@@ -37,7 +37,7 @@ main() {
   
   asyncMultiStart(2);
 
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     document.getElementById("input2").focus();
     shouldBe(document.activeElement, document.getElementById("input2"));
   });

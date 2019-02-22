@@ -34,6 +34,8 @@ main() {
   document.head.append(style1);
   document.head.append(style2);
 
-  window.onLoad.listen(checkIfDone('body'));
+  addOnLoadListener((_) {
+    checkIfDone('body');
+  });
   asyncStart();
 }

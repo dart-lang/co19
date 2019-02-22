@@ -16,7 +16,7 @@ main() {
   document.head.append(link);
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     LinkElement target = document.getElementById('target');
     var oldSheet = target.sheet;
     target.setAttribute("href", "new_IntentionallyMissingFile.css");

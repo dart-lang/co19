@@ -16,10 +16,12 @@
  */
 import "../../../Utils/expect.dart";
 
+const int meta = 1;
+
 class C {
 }
 
-typedef CAlias = C;
+@meta typedef CAlias = C;
 
 main() {
   CAlias ca = new CAlias();

@@ -8,6 +8,7 @@
  * @description Entities in attributes
  */
 import "dart:html";
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 
 List<String> entities = [
@@ -787,5 +788,7 @@ void runTest(e) {
 }
 
 void main() {
-    window.onLoad.listen(runTest);
+    tc.addOnLoadListener((_) {
+      runTest(_);
+    });
 }

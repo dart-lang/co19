@@ -32,7 +32,9 @@ main() {
     asyncEnd();
   }
 
-  window.onLoad.listen(start);
+  addOnLoadListener((_) {
+    start(_);
+  });
 
   asyncStart();
 

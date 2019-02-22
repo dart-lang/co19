@@ -21,7 +21,7 @@ main() {
     <img id=nick src="$root/resources/nick.jpg">
     ''', treeSanitizer: new NullTreeSanitizer());
 
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     ImageElement nick = document.getElementById('nick');
     shouldBe(nick.naturalWidth, 320);
     shouldBe(nick.naturalHeight, 240);

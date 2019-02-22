@@ -17,7 +17,7 @@ main() {
 
   asyncStart();
 
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     shouldBe(document.getElementById("x").text, '');
     asyncEnd();
   });

@@ -63,7 +63,7 @@ main() {
     --recursionDepth;
   }
 
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     // Force a layout with offsetHeight, and then start toggling overflow.
     target.offsetHeight;
     toggleOverflow(null);

@@ -26,5 +26,7 @@ main() {
       <ul id="console"></ul>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  window.onLoad.listen((_) => asyncEnd());
+  addOnLoadListener((_) {
+    asyncEnd();
+  });
 }

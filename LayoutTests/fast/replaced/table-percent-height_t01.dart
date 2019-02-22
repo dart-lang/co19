@@ -9,6 +9,7 @@
  * specified as percentage inside a table
  */
 import "dart:html";
+import "../../testcommon.dart" as tc;
 import "../../testharness.dart";
 
 const String htmlEL2 = r'''
@@ -170,5 +171,7 @@ void main() {
     description("This test checks that replaced elements with percentage heights within table cells have the correct height.<br>Note, some of the button height tests fail on the Windows ports. See bug #34071.");
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     asyncStart();
-    window.onLoad.listen(doTest);
+    tc.addOnLoadListener((_) {
+        doTest(_);
+    });
 }

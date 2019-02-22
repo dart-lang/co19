@@ -69,7 +69,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     debug("Test getting grid-template-areas set through CSS.");
     var gridWithDefaultTemplate = document.getElementById("gridWithDefaultTemplate");
     shouldBeEqualToString(getComputedStyle(gridWithDefaultTemplate).getPropertyValue('grid-template-areas'), "none");

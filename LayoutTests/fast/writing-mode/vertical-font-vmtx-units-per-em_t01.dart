@@ -49,7 +49,7 @@ void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 
-    window.onLoad.listen((e) {
+    addOnLoadListener((e) {
         document.body.offsetTop;
         runLater(doTest, 100);
     });

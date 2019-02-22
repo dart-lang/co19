@@ -64,7 +64,7 @@ main() {
       ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     valueOrDefaultGridPosition(gridPosition) {
       return gridPosition == null ? "auto" : gridPosition;
     }

@@ -30,7 +30,7 @@ main() {
   document.getElementById("field1").onFocus.listen(runTest);
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     document.getElementById('field1').focus();
   });
 }

@@ -27,7 +27,7 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
 
   asyncStart();
-  window.onLoad.listen((_) {
+  addOnLoadListener((_) {
     (document.styleSheets[0] as CssStyleSheet).insertRule(
         '@import url("$root/resources/css-insert-import-rule.css");', 0);
 

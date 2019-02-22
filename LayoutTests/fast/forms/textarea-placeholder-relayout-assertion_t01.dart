@@ -23,5 +23,7 @@ main() {
   }
 
   asyncStart();
-  window.onLoad.listen(removeTextArea);
+  addOnLoadListener((_) {
+    removeTextArea(_);
+  });
 }

@@ -14,6 +14,7 @@
  * placed
  * @author sgrekhov@unipro.ru
  */
+const int meta = 1;
 
 class A {}
 
@@ -28,9 +29,9 @@ class C {
 }
 
 test() {
-  typedef Alias3 = A;                       //# 03: compile-time error
+  @meta typedef Alias3 = A;                 //# 03: compile-time error
 }
 
 main() {
-  typedef Alias4 = A;                       //# 04: compile-time error
+  @meta typedef Alias4 = A;                 //# 04: compile-time error
 }
