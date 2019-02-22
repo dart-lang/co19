@@ -16,12 +16,14 @@
  */
 import "../../../Utils/expect.dart";
 
+const int meta = 1;
+
 class C<T> {
   T t;
 }
 
-typedef CAlias1 = C;
-typedef CAlias2<T> = C<T>;
+@meta typedef CAlias1 = C;
+@meta typedef CAlias2<T> = C<T>;
 typedef CAlias3 = C<String>;
 typedef CAlias4<T> = C<int>;
 
