@@ -45,15 +45,15 @@ main() {
   int i;
 
   Map a;
-  a = const {...map2};          //# 01: compile-error
-  a = const {...map1, ...map2}; //# 02: compile-error
-  a = const {...map2, ...map1}; //# 03: compile-error
+  a = const {...map2};          //# 01: compile-time error
+  a = const {...map1, ...map2}; //# 02: compile-time error
+  a = const {...map2, ...map1}; //# 03: compile-time error
 
-  a = const {...map2, 10: 2};   //# 04: compile-error
-  a = const {10: 2, ...map2};   //# 05: compile-error
+  a = const {...map2, 10: 2};   //# 04: compile-time error
+  a = const {10: 2, ...map2};   //# 05: compile-time error
 
-  a = const {...map1, i: 10};   //# 06: compile-error
-  a = const {...map1, 10: i};   //# 07: compile-error
-  a = const {i: 10, ...map1};   //# 08: compile-error
-  a = const {10: i, map1};      //# 09: compile-error
+  a = const {...map1, i: 10};   //# 06: compile-time error
+  a = const {...map1, 10: i};   //# 07: compile-time error
+  a = const {i: 10, ...map1};   //# 08: compile-time error
+  a = const {10: i, map1};      //# 09: compile-time error
 }

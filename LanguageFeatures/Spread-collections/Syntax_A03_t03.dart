@@ -19,5 +19,5 @@
 // SharedOptions=--enable-experiment=spread-collections
 
 main() {
-  var a = <int, int, int>{};
+  var a = <int, int, int, int>{};
 }

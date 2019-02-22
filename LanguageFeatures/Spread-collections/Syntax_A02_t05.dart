@@ -46,18 +46,18 @@ main() {
   int i;
 
   List a;
-  a = const {...set2};                                            //# 01: compile-error
-  a = const {"testme", ...set2};                                  //# 02: compile-error
-  a = const {...set2, "testme"};                                  //# 03: compile-error
+  a = const {...set2};                                            //# 01: compile-time error
+  a = const {"testme", ...set2};                                  //# 02: compile-time error
+  a = const {...set2, "testme"};                                  //# 03: compile-time error
 
-  a = const {...list};                                            //# 04: compile-error
-  a = const {"testme", ...list};                                  //# 05: compile-error
-  a = const {...list, "testme"};                                  //# 06: compile-error
+  a = const {...list};                                            //# 04: compile-time error
+  a = const {"testme", ...list};                                  //# 05: compile-time error
+  a = const {...list, "testme"};                                  //# 06: compile-time error
 
-  a = const {"abc", ...set1, "int", "hello", 1, ...list, 2, 12}; //# 07: compile-error
-  a = const {"abc", ...set1, "int", "hello", 1, ...set2, 2, 12}; //# 08: compile-error
+  a = const {"abc", ...set1, "int", "hello", 1, ...list, 2, 12}; //# 07: compile-time error
+  a = const {"abc", ...set1, "int", "hello", 1, ...set2, 2, 12}; //# 08: compile-time error
 
-  a = const {...set1, i};                                         //# 09: compile-error
-  a = const {...list, i};                                         //# 10: compile-error
+  a = const {...set1, i};                                         //# 09: compile-time error
+  a = const {...list, i};                                         //# 10: compile-time error
 }
 
