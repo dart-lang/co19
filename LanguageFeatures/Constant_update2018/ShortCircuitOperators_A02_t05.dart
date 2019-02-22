@@ -9,7 +9,7 @@
  * constant expression.
  * @description Checks that compile error is thrown if the first [||] operand is
  * [true] and the second one is not [bool] in the constant expression.
- * compile-error
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018

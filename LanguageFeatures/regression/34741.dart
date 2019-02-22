@@ -15,6 +15,6 @@ typedef G = Function<X extends num>();
 typedef G1<X> = Function();
 
 main() {
-  typeOf<G>();  //# 01: compile-error
+  typeOf<G>();  //# 01: compile-time error
   typeOf<G1>();
 }
