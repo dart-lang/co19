@@ -1,29 +1,28 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A class declaration, or type alias G may be generic, this is,
- * G may have formal type parameters declared.
+ * @assertion A class declaration, type alias, or function [G] may be generic,
+ * that is, [G] may have formal type parameters declared.
  * . . .
  * typeParameter:
- *   metadata identifier (extends type)?
+ *   metadata identifier (extends typeNotVoid)?
  * ;
  * typeParameters:
  *   '<' typeParameter (',' typeParameter)* '>'
  * ;
  * @description Checks various correct generic typedefs declarations.
  * @author iefremov
- * @reviewer kaigorodov
- */
+*/
 
 abstract class I{}
 
 typedef f1<T>();
 typedef f2<$, $$, $$$>();
 typedef f3<T extends f1<T>, S extends I, V extends Function>();
-typedef f4<T extends f3<U, S, V>, U extends T, V extends U, S>();
+typedef f4<T extends f3<U, S, V>, U extends f1, V extends Function, S extends I>();
 typedef f5<T extends f1<List<List<List<List>>>>>();
 
 main() {

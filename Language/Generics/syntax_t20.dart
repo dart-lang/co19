@@ -13,18 +13,15 @@
  * typeParameters:
  *   '<' typeParameter (',' typeParameter)* '>'
  * ;
- * @description Checks that metadata can be attached to type parameter.
- * @author ilya
+ * @description Checks that at least one typeParameter is a must in the generic
+ * function.
+ * @compile-error
+ * @author iarkh@unipro.ru
  */
 
-const constant = 0;
-
-class Foo {
-  const Foo.bar(x);
+class Test {
+  void function<>() {}
 }
 
-class C <@Foo.bar(0) @constant T, @Foo.bar(1) TT extends List<T>> {}
-
 main() {
-  new C();
 }

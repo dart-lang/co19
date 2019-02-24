@@ -1,29 +1,25 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A class declaration, or type alias G may be generic, this is,
- * G may have formal type parametera declared.
+ * @assertion A class declaration, type alias, or function [G] may be generic,
+ * that is, [G] may have formal type parameters declared.
  * . . .
  * typeParameter:
- *   metadata identifier (extends type)?
+ *   metadata identifier (extends typeNotVoid)?
  * ;
  * typeParameters:
  *   '<' typeParameter (',' typeParameter)* '>'
  * ;
  * @description Checks that a compile-time error is produced when trying
- * to specify a parameterized type parameter.
+ * to specify a parameterized type parameter for the generic class.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 class C<T<T>>{}
 
 main() {
-  try {
-    new C();
-  } catch (x) {}
 }

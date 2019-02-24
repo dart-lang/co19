@@ -1,14 +1,14 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A class declaration, or type alias G may be generic, this is,
- * G may have formal type parametera declared.
+ * @assertion A class declaration, type alias, or function [G] may be generic,
+ * that is, [G] may have formal type parameters declared.
  * . . .
  * typeParameter:
- *   metadata identifier (extends type)?
+ *   metadata identifier (extends typeNotVoid)?
  * ;
  * typeParameters:
  *   '<' typeParameter (',' typeParameter)* '>'
@@ -25,18 +25,19 @@ class C3<T extends C1, S extends I, V extends Function> {}
 class C4<T extends C3<U, S, V>, U extends C1<U>, V extends Function,
          S extends I> {}
 class C5<T extends C1<List<List<List<List>>>>> {}
-class C6<T extends C1<C6>> {}
+class C6<T extends C1<C6<T>>> {}
 class C7<T extends C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7
-   <C7>>>>>>>>>>>>>>>>>>>>> {}
+   <C7<T>>>>>>>>>>>>>>>>>>>>>> {}
 
 main() {
   new C1<int>();
   new C2<int, int, int>();
   new C3<C1<int>, I, Function>();
-  new C4();
+  new C4<Null, Null, Null, Null>();
   new C5();
-  new C6();
-  new C7();
+  new C6<C1<C6<Null>>>();
+  new C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7
+  <C7<Null>>>>>>>>>>>>>>>>>>>>>>();
   new ManyParameters();
 }
 
