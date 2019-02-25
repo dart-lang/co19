@@ -39,8 +39,7 @@ Future<dynamic> checkDrain(var value) async {
 
   Stream bcs = receiver.asBroadcastStream();
   Future v = bcs.drain(value);
-  v.then((drainValue) {    print('   received length ${received.length}  $drainValue');
-    Expect.equals(value, drainValue);
+  v.then((drainValue) {
     if (!completer.isCompleted) {
       completer.complete(drainValue);
     }
@@ -65,7 +64,7 @@ main() async {
 
   toCheck(var value) async {
     for (int i = 0; i < attempts; i++) {
-      var received_value = await checkDrain(value);  print('rec $received_value value $value att $i');
+      var received_value = await checkDrain(value);
       if (received_value == value) {
         break;
       }

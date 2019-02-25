@@ -37,18 +37,12 @@ Future<dynamic> checkDrain([value]) async {
   Expect.isTrue(wasSent, "No datagram was sent");
   receiver.close();
 
-  Stream bcs = receiver.asBroadcastStream();
-  Future v = bcs.drain(value);
+  Future v = receiver.drain(value);
   v.then((drainValue) {
     if (!completer.isCompleted) {
       completer.complete(drainValue);
     }
     return f;
-  });
-
-  bcs.listen((event) {
-    received.add(event);
-    receiver.receive();
   });
 
   return f;

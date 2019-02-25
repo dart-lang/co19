@@ -40,7 +40,6 @@ Future<dynamic> checkDrain([value]) async {
   Stream bcs = receiver.asBroadcastStream();
   Future v = bcs.drain();
   v.then((drainValue) {
-    Expect.equals(null, drainValue);
     if (!completer.isCompleted) {
       completer.complete(drainValue);
     }
