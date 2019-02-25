@@ -10,11 +10,12 @@
  * changed so that the [==] expression is always allowed as long as one of the
  * operands is [null].
  * @description Checks that [==] operator is allowed if one of the operands is
- * [null] in potentially constant or compile-time constant.
+ * [null] in potentially constant or compile-time constant, and compile time
+ * error is thrown if assertion fails.
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
-import "../../Utils/expect.dart";
 
 const str1 = "test";
 const str2 = null;
@@ -25,12 +26,5 @@ class MyClass {
 }
 
 main() {
-  const bool res1 = (str1 == null);
-  Expect.isFalse(res1);
-
-  const bool res2 = (str2 == null);
-  Expect.isTrue(res2);
-
-  const MyClass c = MyClass(null);
-  Expect.equals("OK", c.option);
+  const MyClass c1 = MyClass("123");
 }

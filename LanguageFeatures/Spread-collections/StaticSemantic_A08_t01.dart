@@ -13,7 +13,6 @@
 // SharedOptions=--enable-experiment=spread-collections
 
 import "dart:collection";
-import "../../Utils/expect.dart";
 
 class MyIterable extends IterableBase {
   MyIterator iterator;

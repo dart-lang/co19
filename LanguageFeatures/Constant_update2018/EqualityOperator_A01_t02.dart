@@ -33,6 +33,4 @@ main() {
 
   const MyClass c = MyClass("test");
   Expect.equals("test", c.option);
-
-  const MyClass c1 = MyClass(null); //# 01: compile-time error
 }

@@ -9,8 +9,9 @@
  * types. Users had to rewrite their code to [!identical(e1, null)]. This was
  * changed so that the [==] expression is always allowed as long as one of the
  * operands is [null].
- * @description Checks that [==] operator is allowed if one of the operands is
- * [null] in potentially constant or compile-time constant.
+ * @description Checks that [!=] operator is allowed if one of the operands is
+ * [null].
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
@@ -21,16 +22,9 @@ const str2 = null;
 
 class MyClass {
   final String option;
-  const MyClass(String str) : assert(str == null), this.option = "OK";
+  const MyClass(String str) : assert(str != null), option = str;
 }
 
 main() {
-  const bool res1 = (str1 == null);
-  Expect.isFalse(res1);
-
-  const bool res2 = (str2 == null);
-  Expect.isTrue(res2);
-
-  const MyClass c = MyClass(null);
-  Expect.equals("OK", c.option);
+  const MyClass c1 = MyClass(null);
 }
