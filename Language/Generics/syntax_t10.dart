@@ -6,20 +6,14 @@
 /**
  * @assertion A class declaration, type alias, or function [G] may be generic,
  * that is, [G] may have formal type parameters declared.
- * . . .
- * typeParameter:
- *   metadata identifier (extends typeNotVoid)?
- * ;
- * typeParameters:
- *   '<' typeParameter (',' typeParameter)* '>'
- * ;
-* @description Checks that a compile-time error is produced when trying
+*  @description Checks that a compile-time error is produced when trying
  * to use a type parameter with type arguments.
  * @compile-error
  * @author iefremov
  */
 
-class C<T, U<T>>{}
+class A<T> {}
+class C<T, A<T>>{}
 
 main() {
 }

@@ -6,13 +6,6 @@
 /**
  * @assertion A class declaration, type alias, or function [G] may be generic,
  * that is, [G] may have formal type parameters declared.
- * . . .
- * typeParameter:
- *   metadata identifier (extends typeNotVoid)?
- * ;
- * typeParameters:
- *   '<' typeParameter (',' typeParameter)* '>'
- * ;
  * @description Checks that at least one typeParameter is a must in the generic
  * class declaration.
  * @compile-error

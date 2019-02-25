@@ -15,7 +15,6 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
-import "../../Utils/expect.dart";
 
 const str1 = "test";
 const str2 = null;
