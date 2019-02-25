@@ -24,6 +24,7 @@ typedef Alias3<T> = C<T>;                       //# 03: compile-time error
 typedef Alias4<T1, T2, T3> = C<T1, T2, T3>;     //# 04: compile-time error
 typedef Alias5<T1, T2, T3> = C<int, String>;    //# 05: compile-time error
 typedef Alias6<T1, T2> = C<T1, T2, String>;     //# 06: compile-time error
+typedef Alias7<T1, T2> = C<T2 extends T1>;      //# 07: compile-time error
 
 main() {
 }
