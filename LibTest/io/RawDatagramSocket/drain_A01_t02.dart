@@ -18,55 +18,68 @@
  * [drain] discards all this events from the stream and returns given value.
  * @author ngl@unipro.ru
  */
-import "dart:io";
 import "dart:async";
+import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(checkValue) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      int sent = 0;
-      int counter = 0;
-      Timer timer;
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.close();
+var localhost = InternetAddress.loopbackIPv4;
 
-      Stream bcs = receiver.asBroadcastStream();
-      Future v = bcs.drain(checkValue);
-      v.then((v) {
-        Expect.equals(checkValue, v);
-        AsyncExpect.value(0, bcs.length);
-      });
+Future<dynamic> checkDrain(var value) async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3], [3], [4, 5], [5]];
+  List<RawSocketEvent> received = [];
+  Completer<dynamic> completer = new Completer<dynamic>();
+  Future<dynamic> f = completer.future;
+  Duration delay = const Duration(seconds: 2);
 
-      bcs.listen((event) {
-        receiver.receive();
-        counter++;
-        if (timer != null) {
-          timer.cancel();
-        }
-        timer = new Timer(const Duration(milliseconds: 200), () {
-          Expect.isNull(receiver.receive());
-          receiver.close();
-          if (counter == 5) {
-            asyncEnd();
-          }
-        });
-      }).onDone(() {
-        Expect.equals(5, counter);
-      });
-    });
+  bool wasSent = await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
+
+  Stream bcs = receiver.asBroadcastStream();
+  Future v = bcs.drain(value);
+  v.then((drainValue) {    print('   received length ${received.length}  $drainValue');
+    Expect.equals(value, drainValue);
+    if (!completer.isCompleted) {
+      completer.complete(drainValue);
+    }
+    return f;
   });
+
+  bcs.listen((event) {
+    received.add(event);
+    receiver.receive();
+  });
+
+  new Future.delayed(delay, () {
+    if (!completer.isCompleted) {
+      receiver.close();
+    }
+  });
+  return f;
 }
 
-main() {
-  check(null);
-  check(-10);
-  check(0);
-  check(18);
-  check('abc');
+main() async {
+  int attempts = 5;
+
+  toCheck(var value) async {
+    for (int i = 0; i < attempts; i++) {
+      var received_value = await checkDrain(value);  print('rec $received_value value $value att $i');
+      if (received_value == value) {
+        break;
+      }
+      if (i == attempts - 1) {
+        print('$received_value of drain not found. Look like test failed.');
+      }
+    }
+  }
+
+  await toCheck(null);
+  await toCheck(18);
+  await toCheck('abc');
+  await toCheck(RawSocketEvent.write);
+  await toCheck(RawSocketEvent.read);
+  await toCheck(RawSocketEvent.closed);
+  await toCheck(RawSocketEvent.readClosed);
 }

@@ -18,43 +18,58 @@
  * not specified.
  * @author ngl@unipro.ru
  */
-import "dart:io";
 import "dart:async";
+import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-main() {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      int sent = 0;
-      int counter = 0;
-      Timer timer;
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.close();
+var localhost = InternetAddress.loopbackIPv4;
 
-      Stream bcs = receiver.asBroadcastStream();
-      Future v = bcs.drain();
-      v.then((v) {
-        Expect.equals(null, v);
-        AsyncExpect.value(0, bcs.length);
-      });
+Future<dynamic> checkDrain([value]) async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3], [3], [4, 5], [5]];
+  List<RawSocketEvent> received = [];
+  Completer<dynamic> completer = new Completer<dynamic>();
+  Future<dynamic> f = completer.future;
+  Duration delay = const Duration(seconds: 2);
 
-      bcs.listen((event) {
-        receiver.receive();
-        counter++;
-        if (timer != null) {
-          timer.cancel();
-        }
-        timer = new Timer(const Duration(milliseconds: 200), () {
-          Expect.isNull(receiver.receive());
-          receiver.close();
-          if (counter == 3) {
-            asyncEnd();
-          }
-        });
-      });
-    });
+  bool wasSent = await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
+
+  Stream bcs = receiver.asBroadcastStream();
+  Future v = bcs.drain();
+  v.then((drainValue) {
+    Expect.equals(null, drainValue);
+    if (!completer.isCompleted) {
+      completer.complete(drainValue);
+    }
+    return f;
   });
+
+  bcs.listen((event) {
+    received.add(event);
+    receiver.receive();
+  });
+
+  new Future.delayed(delay, () {
+    if (!completer.isCompleted) {
+      receiver.close();
+    }
+  });
+  return f;
+}
+
+main() async {
+  int attempts = 5;
+
+  for (int i = 0; i < attempts; i++) {
+    var received_value = await checkDrain();
+    if (received_value == null) {
+      break;
+    }
+    if (i == attempts - 1) {
+      print('$received_value of drain not found. Look like test failed.');
+    }
+  }
 }
