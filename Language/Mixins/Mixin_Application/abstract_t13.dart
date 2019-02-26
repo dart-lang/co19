@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -9,19 +9,25 @@
  * the scope of L, bound to the class defined by the mixin application M.
  * The name of the class is also set to C. Iff the class is prefixed by the
  * built-in identifier abstract, the class being defined is an abstract class.
- * @description Checks that class C is not abstract (can be instantiated by
- * new) if mixin application is not abstract and there are no abstract
- * identifier
+ * @description Checks that compile error is issued, if class C declared without
+ * 'abstract' identifier does not implement all abstract methods. Test type
+ * aliases
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 
-class S {
+abstract class M {
+  int n();
 }
 
-class M {
+abstract class S {
+  int m();
 }
 
-class C = S with M;
+typedef SAlias = S;
+typedef MAlias = M;
+
+class C = SAlias with MAlias;
 
 main() {
   new C();

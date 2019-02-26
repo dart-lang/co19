@@ -12,7 +12,7 @@ int get someGetter => 2;
 
 void set someSetter(int val) {}
 
-int someFunc() => 0;
+int someFunc() => 1;
 
 class SomeClass {
 }

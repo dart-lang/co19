@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -20,14 +20,15 @@ class A {
   A(bool this.v1, num this.v2);
 }
 
+typedef AAlias = A;
+
 class M1 {
-  num v2 = -1;
 }
 
-class C = A with M1;
+class C = AAlias with M1;
 
 main() {
   C c = new C(true, 2);
   Expect.equals(true, c.v1);
-  Expect.equals(-1, c.v2);
+  Expect.equals(2, c.v2);
 }
