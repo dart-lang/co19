@@ -68,7 +68,6 @@ main() async {
   int attempts = 5;
   int expectedLen = 7;
 
-
   for (int i = 0; i < attempts; i++) {
     List list = await checkDistant();
     int listLen = list.length;
