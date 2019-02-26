@@ -36,20 +36,20 @@ main() {
   C2<int, Function, int, Null> c11;
   C2<Null, Null, Null, Null>   c12;
 
-  C2<int> c9;                                                   //# 04: compile-time error
-  C2<int, Function> c10;                                        //# 05: compile-time error
-  C2<int, Function, num> c11;                                   //# 06: compile-time error
-  C2<int, Function, num, List, Null> c12;                       //# 07: compile-time error
-  C2<int, Function, num, List, Object> c13;                     //# 08: compile-time error
-  C2<int, Function, num, List, int> c14;                        //# 09: compile-time error
-  C2<Null, Null, Null, Null, Null> c15;                         //# 10: compile-time error
-  C2<Null, Null, Null, Null, Null, Null, Null, Null, Null> c16; //# 11: compile-time error
+  C2<int> c13;                                                   //# 04: compile-time error
+  C2<int, Function> c14;                                        //# 05: compile-time error
+  C2<int, Function, num> c15;                                   //# 06: compile-time error
+  C2<int, Function, num, List, Null> c16;                       //# 07: compile-time error
+  C2<int, Function, num, List, Object> c17;                     //# 08: compile-time error
+  C2<int, Function, num, List, int> c18;                        //# 09: compile-time error
+  C2<Null, Null, Null, Null, Null> c19;                         //# 10: compile-time error
+  C2<Null, Null, Null, Null, Null, Null, Null, Null, Null> c20; //# 11: compile-time error
 
-  C3 c17;
-  C3<int, int, int> c18;
-  C3<dynamic, dynamic, dynamic> c19;
-  C3<dynamic, dynamic> c20;                   //# 12: compile-time error
-  C3<dynamic, dynamic, dynamic, dynamic> c21; //# 13: compile-time error
-  C3<dynamic, dynamic, dynamic, dynamic, dynamic, dynamic, dynamic, dynamic> c22; //# 14: compile-time error
+  C3 c21;
+  C3<int, int, int> c22;
+  C3<dynamic, dynamic, dynamic> c23;
+  C3<dynamic, dynamic> c24;                   //# 12: compile-time error
+  C3<dynamic, dynamic, dynamic, dynamic> c25; //# 13: compile-time error
+  C3<dynamic, dynamic, dynamic, dynamic, dynamic, dynamic, dynamic, dynamic> c26; //# 14: compile-time error
 }
 

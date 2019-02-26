@@ -10,26 +10,28 @@
  * declaration [G] named [C] with formal type parameter declarations [X1 extends
  * B1,..., Xm extends Bm], and a parameterized type [T] of the form
  * [C<T1,..., Tl>].
- * It is a compile-time error if [m != l].
+ * ...
+ * It is a compile-time error if T is not well-bounded.
  * @description Checks that compile error is thrown for the case with one type
  * argument
  * @author iarkh@unipro.ru
  */
 
-class C<T> {}
+class A<T> {}
+class C<T extends C<T>> {}
 
 main() {
-  C c1;
+  A<int> a1;
+  A<C> a2;
+  A<C<Null>> a3;
+  A<C<dynamic>> a4;
 
-  C<int>       c2;
-  C<List<num>> c3;
-  C<void>      c4;
-  C<Null>      c5;
-  C<C>         c6;
+  A<C<int>> a5;                //# 01: compile-time error
+  A<C<C<int>>> a6;             //# 02: compile-time error
+  A<C<C<C<C<C<C<int>>>>>>> a7; //# 03: compile-time error
 
-  C<int, int>                 c7;  //# 01: compile-time error
-  C<dynamic, dynamic>         c8;  //# 02: compile-time error
-  C<int, String, long>        c9;  //# 03: compile-time error
-  C<int, int, int, int, int> c10;  //# 04: compile-time error
+  C<C<int>> c1;                //# 04: compile-time error
+  C<C<C<int>>> c2;             //# 05: compile-time error
+  C<C<C<C<C<C<C<int>>>>>>> c3; //# 06: compile-time error
 }
 

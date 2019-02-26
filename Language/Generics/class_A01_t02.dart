@@ -16,8 +16,6 @@
  * @author iarkh@unipro.ru
  */
 
-abstract class I{}
-
 class C1<T extends int> {}
 
 main() {
