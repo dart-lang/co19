@@ -20,55 +20,75 @@
  * method 'elementAt' returns correct value of 0, 1, 2, and 3 indexes.
  * @author ngl@unipro.ru
  */
-import "dart:io";
 import "dart:async";
+import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(int n) {
-  List expected = [
-    RawSocketEvent.write,
-    RawSocketEvent.read,
-    RawSocketEvent.read,
-    RawSocketEvent.closed
-  ];
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      int sent = 0;
-      Timer timer;
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.close();
+var localhost = InternetAddress.loopbackIPv4;
 
-      Stream bcs = receiver.asBroadcastStream();
-      Future fValue = bcs.elementAt(n);
-      fValue.then((value) {
-        Expect.equals(expected[n], value);
-      }).catchError((e) {
-        Expect.fail('No error should be.');
-      }).whenComplete(() {
-        asyncEnd();
-      });
+Future<dynamic> checkElementAt(int index) async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3]];
+  List<dynamic> received = [];
+  Completer<dynamic> completer = new Completer<dynamic>();
+  Future<dynamic> f = completer.future;
+  Duration delay = const Duration(seconds: 2);
 
-      bcs.listen((event) {
-        receiver.receive();
-        if (timer != null) {
-          timer.cancel();
-        }
-        timer = new Timer(const Duration(milliseconds: 200), () {
-          Expect.isNull(receiver.receive());
-          receiver.close();
-        });
-      });
-    });
+  bool wasSent = await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
+
+  Stream bcs = receiver.asBroadcastStream();
+  Future fValue = bcs.elementAt(index);
+
+  fValue.then((value) {
+    if (!completer.isCompleted) {
+      completer.complete(value);
+      receiver.close();
+    }
+    return f;
+  }).catchError((e) {
+    if (!completer.isCompleted) {
+      completer.complete(e);
+    }
   });
+
+  bcs.listen((event) {
+    received.add(event);
+    receiver.receive();
+  });
+
+  new Future.delayed(delay, () {
+    if (!completer.isCompleted) {
+      receiver.close();
+    }
+  });
+
+  return f;
 }
 
-main() {
-  check(0);
-  check(1);
-  check(2);
-  check(3);
+main() async {
+  int attempts = 5;
+
+  check(int index) async {
+    for (int i = 0; i < attempts; i++) {
+      dynamic value = await checkElementAt(index);
+      if (value is RawSocketEvent) {
+        break;
+      }
+      if (value is RangeError && (i < attempts - 1)) {
+        continue;
+      }
+      if (i == attempts - 1) {
+        print('Index $index element not found.');
+      }
+
+    }
+  }
+
+  await check(0);
+  await check(1);
+  await check(2);
+  await check(3);
 }
