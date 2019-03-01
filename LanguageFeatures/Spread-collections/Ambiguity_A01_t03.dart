@@ -5,18 +5,17 @@
  */
 /**
  * @assertion An expression like:
+ *   { ...a, ...b }
+ * Is syntactically parsed as [mapOrSetLiteral]. To determine whether it
+ * actually is a map or set, the surrounding context is used. Given an
+ * [mapOrSetLiteral] with context type [C]:
  *
- *    { ...a, ...b }
- *    Is syntactically parsed as [mapOrSetLiteral]. To determine whether it
- *    actually is a map or set, the surrounding context is used. Given an
- *    [mapOrSetLiteral] with context type [C]:
+ * If [Set<Null>] is assignable to [C], and [Map<Null, Null>] is not
+ * assignable to [C], then the collection is a set literal.
  *
- *   If [Set<Null>] is assignable to [C], and [Map<Null, Null>] is not
- *   assignable to [C], then the collection is a set literal.
+ * Otherwise, it is a map literal.
  *
- *   Otherwise, it is a map literal.
- *
- *   In other words, if it can only be a set, it is. Otherwise, it's a map.
+ * In other words, if it can only be a set, it is. Otherwise, it's a map.
  * @description Checks that if [a] and [b] are set literals (probably,
  * null-aware), their spread is a set.
  * @author iarkh@unipro.ru
@@ -59,11 +58,12 @@ class MyIterator extends Iterator<int> {
 main() {
   var set1 = {1, 2, 3};
   var list1 = [0, 2, 4, 6, 8];
+  var map = null;
   List list2 = null;
   Iterable i = new MyIterable();
 
-  Set res1 = {...set1, ...? list2};
-  Set res2 = {...? list2, ...list1};
+  Set res1 = {...set1, ...?list2};
+  Set res2 = {...?list2, ...list1};
   Set res3 = {...?map, ...list1};
   Set res4 = {...list2, ...?i};
   Set res5 = {...i, ...?map}
