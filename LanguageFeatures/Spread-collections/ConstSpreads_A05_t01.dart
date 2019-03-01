@@ -26,6 +26,5 @@ main() {
   const Map res6 = {...?map3};                          //# 06: compile-time error
   const Map res7 = {...?map4};                          //# 07: compile-time error
   const Map res8 = {100: null, 10: 14, ...map1, 6: 16}; //# 08: compile-time error
-  const Map res9 =
-    {15: 15, ...map1, "stop": null, ...map2, ...map3, "a": "a", "b": "b", "c": "c", ...?map4, 208: 18};  //# 09: compile-time error
+  const Map res9 = {15: 15, ...map1, "stop": null, ...map2, ...map3, "a": "a", "b": "b", "c": "c", ...?map4, 208: 18};  //# 09: compile-time error
 }
