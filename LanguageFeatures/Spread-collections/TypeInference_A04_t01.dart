@@ -8,8 +8,7 @@
  * for some [K] and [V], then the upwards inference key type is [K] and the
  * value type is [V].
  * @description Checks that spread element upwards inference key type is [K] and
- * the value type is [K].
- * in the set literal
+ * the value type is [V] in the map literal
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
@@ -23,6 +22,8 @@ class C1 extends B1 {}
 class A2 {}
 class B2 extends A2 {}
 class C2 extends B2 {}
+
+Map getAMap<K, V>(var a, var b) { return <K, V>{a: b}; }
 
 main() {
   Map int_map = getAMap<int, int>(1, 2);
@@ -40,7 +41,7 @@ main() {
   C2 c2 = new C2();
 
   Expect.isTrue({...int_map} is Map<int, int>);
-  Expect.isTrue({1: "test", 2: "a", ...?string_list, 3: "oo"} is Map<int, int>);
+  Expect.isTrue({1: "test", 2: "a", ...?str_map, 3: "oo"} is Map<int, int>);
 
   Expect.isTrue({...a_map} is Map<A1, A2>);
   Expect.isTrue({a1: a2, ...?a_map} is Map<A1, A2>);
@@ -62,15 +63,4 @@ main() {
   Expect.isFalse({c1: c2, ...a_map, ...b_map, b1: b2} is Map<B1, B2>);
   Expect.isFalse({b1: b2, c1: c2, ...a_map, ...b_map, ...?c_map} is Map<B1, B2>);
   Expect.isTrue({a1: a2, ...c_map, ...b_map, b1: b2} is Map<B1, B2>);
-
-  Expect.isFalse({...a_list} is Set<C>);
-  Expect.isFalse({c, ...?a_list} is Set<C>);
-  Expect.isFalse({...b_list} is Set<C>);
-  Expect.isFalse({c, ...?b_list} is Set<C>);
-  Expect.isTrue({...c_list} is Set<C>);
-  Expect.isTrue({...?c_list} is Set<C>);
-  Expect.isTrue({c, ...?c_list} is Set<C>);
-  Expect.isFalse({c, ...a_list, ...b_list, c} is Set<C>);
-  Expect.isFalse({c, ...a_list, ...b_list, ...?c_list} is Set<C>);
-  Expect.isFalse({a, ...c_list, ...b_list, b} is Set<C>);
 }
