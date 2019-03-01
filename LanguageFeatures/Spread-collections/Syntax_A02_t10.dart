@@ -51,7 +51,7 @@ main() {
   Expect.throws(() => a = {...list1});
 
   Expect.setEquals({12}, {12, ...?list1});
-  Expect.throws(() => a = {{12, ...list1});
+  Expect.throws(() => a = {12, ...list1});
 
   Expect.setEquals({...?list1, 12}, {12});
   Expect.throws(() => a = {...list1, 12});
