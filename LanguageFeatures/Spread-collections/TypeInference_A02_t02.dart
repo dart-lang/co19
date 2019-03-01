@@ -30,7 +30,7 @@ main() {
   C c = new C();
 
   Expect.isTrue({...int_list} is Set<int>);
-  Expect.isTrue({"test", "a", ...?string_list, "ooooo"} is Set<String>);
+  Expect.isTrue({"test", "a", ...?str_list, "ooooo"} is Set<String>);
 
   Expect.isTrue({...a_list} is Set<A>);
   Expect.isTrue({a, ...?a_list} is Set<A>);
