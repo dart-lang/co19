@@ -67,6 +67,6 @@ main() {
   Set res2 = {...set2, ...list1};
   Set res3 = {...set1, ...list2};
   Set res4 = {...list1, ...i};
-  Set res5 = {...i, ...b}
+  Set res5 = {...i, ...b};
   Set res6 = {...set2. ...list1, ...list2, ...b, ...i};
 }
