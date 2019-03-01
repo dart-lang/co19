@@ -80,12 +80,12 @@ main() {
   var v17 = const { if (t) bool: bool };
   Expect.mapEquals({bool: bool}, v17);
 
-  var 18 = const { if (1 > 0) bool: null };
+  var v18 = const { if (1 > 0) bool: null };
   Expect.mapEquals({bool: null}, v18);
 
   var v19 = const {if (1 < 0) bool: false};
   Expect.mapEquals({}, v19);
 
-  const 20 = {if (t) bool: const Duration(days: 1) };
+  const v20 = {if (t) bool: const Duration(days: 1) };
   Expect.mapEquals({bool: const Duration(days: 1)}, v20);
 }
