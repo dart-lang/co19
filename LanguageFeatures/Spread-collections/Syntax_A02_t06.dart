@@ -55,7 +55,7 @@ main() {
 
   Expect.mapEquals(
       {1: 1, 2: 4, 3: 6, 11: 28, 4: 7, 31: 12, 0: 0, 7: 2, 5: 4, 6: 6, 8: 8},
-      const {...map1, ...mapt2, ...map3});
+      const {...map1, ...map2, ...map3});
 
   Expect.mapEquals({18: 2, 1: 1, 2: 4, 3: 6, 0: 14, 11: 23},
       const {18: 2, ...map1, 0: 14, 11: 23});
