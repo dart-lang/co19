@@ -21,22 +21,17 @@ import "../../Utils/expect.dart";
 main() {
   bool b = true;
   Map<int, String> map1 = {
-  0: "0",
-  if (b) 1
-  :
-  "1",
-  if (!b) 2
-      : "2",
-  for (int i =
-  5; i < 9; i++) i
-      : "$i"
+    0: "0",
+    if (b) 1: "1",
+    if (!b) 2 : "2",
+    for (int i = 5; i < 9; i++) i: "$i"
   };
   Expect.mapEquals({0: "0", 1: "1", 5: "5", 6: "6", 7: "7", 8: "8"}, map1);
 
-  Expect.mapEquals({}, [
+  Expect.mapEquals({}, {
     if (false) 0: "x",
     for (int i = 0; i < -1; i++) 1: "y"
-  ]);
+  });
 
   Map<String, String> collection = {"x": "not", "y": "to", "z": "be"};
   Map map2 = <String, String>{
