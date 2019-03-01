@@ -14,50 +14,76 @@
  * error.
  * @author ngl@unipro.ru
  */
-import "dart:io";
 import "dart:async";
+import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-main() {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      int sent = 0;
-      int counter = 0;
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent], address, receiver.port);
-      producer.close();
+var localhost = InternetAddress.loopbackIPv4;
 
-      bool test(e) {
-        if (e == RawSocketEvent.write || e == RawSocketEvent.read) {
-          return true;
-        } else {
-          throw 2;
-        }
-      }
-      Stream<RawSocketEvent> stream = receiver.asBroadcastStream();
-      Future<bool> b = stream.every(test);
-      b.then((value) {
-        Expect.fail('Should not be here.');
-      }).catchError((e) {
-        Expect.equals(2, e);
-      }).whenComplete(() {
-        asyncEnd();
-      });
+Future<dynamic> checkEvery(test) async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3]];
+  List<RawSocketEvent> received = [];
+  Completer<dynamic> completer = new Completer<dynamic>();
+  Future<dynamic> f = completer.future;
+  Duration delay = const Duration(seconds: 2);
 
-      new Timer(const Duration(milliseconds: 200), () {
-        Expect.isNull(receiver.receive());
-        receiver.close();
-      });
+  bool wasSent = await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
 
-      stream.listen((event) {
-        counter++;
-        receiver.receive();
-      }).onDone(() {
-        Expect.equals(4, counter);
-      });
-    });
+  Stream bcs = receiver.asBroadcastStream();
+  Future eValue = bcs.every(test);
+
+  eValue.then((value) {
+    if (!completer.isCompleted) {
+      completer.complete(value);
+      receiver.close();
+    }
+    return f;
+  }).catchError((e) {
+    if (!completer.isCompleted) {
+      completer.complete(e);
+      receiver.close();
+    }
   });
+
+  bcs.listen((event) {
+    received.add(event);
+    receiver.receive();
+  });
+
+  new Future.delayed(delay, () {
+    if (!completer.isCompleted) {
+      receiver.close();
+    }
+  });
+
+  return f;
+}
+
+main() async {
+  int attempts = 5;
+
+  bool test(e) {
+    if (e == RawSocketEvent.write || e == RawSocketEvent.read) {
+      return true;
+    } else {
+      throw 22;
+    }
+  }
+
+  for (int i = 0; i < attempts; i++) {
+    dynamic value = await checkEvery(test);
+    if (value == 22) {
+      break;
+    }
+    if (i < attempts - 1) {
+      continue;
+    }
+    if (i == attempts - 1) {
+      print('$value element not found. Look like test failed.');
+    }
+  }
 }
