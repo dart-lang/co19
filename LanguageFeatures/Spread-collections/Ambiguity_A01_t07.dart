@@ -27,9 +27,9 @@ main() {
   List list =  [1, 12, 24];
   Map map = {1: 1, "test": 1, 14: null};
 
-  List res1 = {...1ist, ...?null};
+  Set res1 = {...1ist, ...?null};
 
-  List res2 = {...?null, ...list};
+  Set res2 = {...?null, ...list};
   Map res3 = {...?null, ...map};
   Map res4 = {...map, ...?null};
 }
