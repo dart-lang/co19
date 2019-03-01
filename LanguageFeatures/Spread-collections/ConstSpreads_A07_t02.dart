@@ -24,7 +24,7 @@ main() {
   Expect.setEquals({1, 2, 3, 4}, res1);
   const res2 = {1, ...?list, 4};
   Expect.setEquals({1, 2, 3, 4}, res2);
-  const res3 = {1, ...list1, 4};
+  const res3 = {1, ...?list1, 4};
   Expect.setEquals({1, 4}, res3);
 
   const set = {2, 3};

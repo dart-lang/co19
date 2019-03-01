@@ -18,6 +18,7 @@ main() {
   Set list2 = {"checkme"};
   List list3 = [];
   List list4 = null;
+  int i = 7;
 
   const res1 = {...list1};                                       //# 01: compile-time error
   const res2 = {...?list1};                                      //# 02: compile-time error
@@ -31,7 +32,7 @@ main() {
 
   const res10 = {...list1, ...[2]};                              //# 10: compile-time error
   const res11 = {1, ...list1, ...[1, 4]};                        //# 11: compile-time error
-  const res12 = {...[2, 3, 2]};                                  //# 12: compile-time error
+  const res12 = {...[2, 3, 2], i};                               //# 12: compile-time error
   const res13 = {1, ...list1, 1};                                //# 13: compile-time error
 
 }

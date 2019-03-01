@@ -6,7 +6,6 @@
 /**
  * @assertion It also enables const expressions that refer to constant
  * collections defined elsewhere, which is useful:
- *
  *   const list = [2, 3];
  *   const another = [1, ...list, 4]; // [1, 2, 3, 4].
  * @description: Checks that spread element in the list can refer to constant
