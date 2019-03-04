@@ -6,13 +6,14 @@
 /**
  * @assertion A class declaration, type alias, or function [G] may be generic,
  * that is, [G] may have formal type parameters declared.
- * @description Checks that at least one typeParameter is a must in the generic
- * typedef.
+*  @description Checks that a compile-time error is produced when trying
+ * to use a type parameter with type arguments.
  * @compile-error
- * @author iarkh@unipro.ru
+ * @author iefremov
  */
 
-typedef f1<>();
+class A<T> {}
+class C<T, A<T>>{}
 
 main() {
 }

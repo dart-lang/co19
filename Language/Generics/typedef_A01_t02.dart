@@ -10,14 +10,12 @@
  * ...
  * where [m] is derived from metadata, [T] is a type, and [S?] is a type or the
  * empty string.
- * @description Checks that constant generic class constructor can be used as
- * metadata, but generic metadata type argument cannot be used in metadata.
+ * @description Checks that exception is thrown if generic metadata is incorrect
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 
-class C<T> { const C(); }
-
-@C() typedef G = void Function();
-@C<int>() typedef K = void Function();  //# 01: compile-time error
-
+int i = 1;
+class C<T> {}
+@i  typedef CAlias<T> = C<T>;
 main() {}

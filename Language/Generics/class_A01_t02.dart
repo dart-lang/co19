@@ -16,20 +16,21 @@
  * @author iarkh@unipro.ru
  */
 
-class C1<T extends int> {}
+class C1<T extends num> {}
 
 main() {
   C1 c1;
 
-  C1<int>       c2;
-  C1<List<num>> c3;
-  C1<void>      c4;
-  C1<Null>      c5;
-  C1<C1>        c6;
+  C1<int>  c2;
+  C1<void> c3;
+  C1<Null> c4;
+  C1<int>  c5;
 
-  C1<int, int>                c7; //# 01: compile-time error
-  C1<int, int, int>           c8; //# 02: compile-time error
-  C1<int, int, int, int, int> c9; //# 03: compile-time error
-  C1<int, int, int, int, int, int, int, int, int, int, int, int> c10; //# 04: compile-time error
+  C1<int, int>                                                   c6; //# 01: compile-time error
+  C1<int, int, int>                                              c7; //# 02: compile-time error
+  C1<int, int, int, int, int>                                    c8; //# 03: compile-time error
+  C1<int, int, int, int, int, int, int, int, int, int, int, int> c9; //# 04: compile-time error
+  C1<List<num>>                                                 c10; //# 05: compile-time error
+  C1<C1>                                                        c11; //# 06: compile-time error
 }
 
