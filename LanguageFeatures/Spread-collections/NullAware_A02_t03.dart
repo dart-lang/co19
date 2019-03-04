@@ -33,6 +33,6 @@ main() {
   Map more = {4: 4,  ...things, 5: 10};
   Expect.mapEquals({4: 4, 1: 2, 2: null,  3: 3, 5: 10}, more);
 
-  Map more = {4: 4,  ...?things, 5: 10};
-  Expect.mapEquals({4: 4, 1: 2, 2: null,  3: 3, 5: 10}, more);
+  Map more1 = {4: 4,  ...?things, 5: 10};
+  Expect.mapEquals({4: 4, 1: 2, 2: null,  3: 3, 5: 10}, more1);
 }

@@ -39,6 +39,8 @@
  */
 // SharedOptions=--enable-experiment=spread-collections
 
+import "../../Utils/expect.dart";
+
 main() {
   Set set;
   List list;

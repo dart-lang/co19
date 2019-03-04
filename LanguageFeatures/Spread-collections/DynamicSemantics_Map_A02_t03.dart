@@ -50,6 +50,6 @@ List myMaps = <Map>[{1: 1, 2: 2, 3: 3, 4: 4, 5: 5},
 main() {
   myMaps.forEach((var m) {
     Map map = new MapBaseImpl.from(m);
-    Expect.mapEquals(m, [...?map]);
+    Expect.mapEquals(m, {...?map});
   });
 }

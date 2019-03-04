@@ -30,7 +30,7 @@ main() {
   C c = new C();
 
   Expect.isTrue([...int_list] is List<int>);
-  Expect.isTrue(["test", "a", ...?string_list, "ooooo"] is List<String>);
+  Expect.isTrue(["test", "a", ...?str_list, "ooooo"] is List<String>);
 
   Expect.isTrue([...a_list] is List<A>);
   Expect.isTrue([a, ...?a_list] is List<A>);
