@@ -11,18 +11,27 @@
  * @issue 26409
  * @author sgrekhov@unipro.ru
  */
+import "../../../Utils/expect.dart";
 
 class Sstatic {
+  int get g1 => 1;
 }
 
 class M extends Sstatic {
+  int get g2 => 2;
+  int get g4 => super.g1;
 }
 
 class SuperA extends Sstatic {
+  int get g3 => 3;
 }
 
 class A = SuperA with M;
 
 main() {
-  new A();
+  A a = new A();
+  Expect.equals(1, a.g1);
+  Expect.equals(2, a.g2);
+  Expect.equals(3, a.g3);
+  Expect.equals(1, a.g4);
 }

@@ -7,7 +7,7 @@
  * @assertion It is no error to derive a mixin from a class which has a
  * superclass other than Object.
  * @description Checks that it is no error to derive a mixin from a class
- * which has a superclass other than Object. Test type aliases
+ * which has a superclass other than Object.
  * @issue 26409
  * @author sgrekhov@unipro.ru
  */
@@ -22,8 +22,7 @@ class M extends Sstatic {
   int get g4 => super.g1;
 }
 
-class SuperA {
-  int get g1 => -1;
+class SuperA extends Sstatic {
   int get g3 => 3;
 }
 
@@ -34,8 +33,8 @@ class A = AliasA with AliasM;
 
 main() {
   A a = new A();
-  Expect.equals(-1, a.g1);
+  Expect.equals(1, a.g1);
   Expect.equals(2, a.g2);
   Expect.equals(3, a.g3);
-  Expect.equals(-1, a.g4);
+  Expect.equals(1, a.g4);
 }
