@@ -18,34 +18,52 @@
  * completed with false, otherwise the returned future is completed with true.
  * @author ngl@unipro.ru
  */
-import "dart:io";
 import "dart:async";
+import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(test, expected) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      int sent = 0;
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent], address, receiver.port);
-      producer.close();
-      receiver.close();
+var localhost = InternetAddress.loopbackIPv4;
 
-      Future<bool> b = receiver.every(test);
-      b.then((value) {
-        Expect.equals(expected, value);
-        asyncEnd();
-      });
-    });
+Future<bool> checkEvery(test) async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3], [3]];
+  Completer<bool> completer = new Completer<bool>();
+  Future<bool> f = completer.future;
+
+  bool wasSent = await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
+  receiver.close();
+
+  Future fValue = receiver.every(test);
+  fValue.then((value) {
+    if (!completer.isCompleted) {
+      completer.complete(value);
+    }
+    return f;
   });
+
+  return f;
 }
 
-main() {
-  check((e) => e == RawSocketEvent.write, false);
-  check((e) => e == RawSocketEvent.read, false);
-  check((e) => e == RawSocketEvent.closed, true);
-  check((e) => e == RawSocketEvent.readClosed, false);
+main() async {
+  int attempts = 5;
+
+  check(test, expected) async{
+    for (int i = 0; i < attempts; i++) {
+      bool value = await checkEvery(test);
+      if (value == expected) {
+        break;
+      }
+      if (i == attempts - 1) {
+        print('$value element not found. Look like test failed.');
+      }
+    }
+  }
+
+  await check((e) => e == RawSocketEvent.write, false);
+  await check((e) => e == RawSocketEvent.read, false);
+  await check((e) => e == RawSocketEvent.closed, true);
+  await check((e) => e == RawSocketEvent.readClosed, false);
 }

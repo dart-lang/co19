@@ -19,61 +19,80 @@
  * an element that test rejects, the returned future is completed with true.
  * @author ngl@unipro.ru
  */
-import "dart:io";
 import "dart:async";
+import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(nCall) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      int sent = 0;
-      int counter = 0;
-      int nTestCall = 0;
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent], address, receiver.port);
-      producer.close();
+var localhost = InternetAddress.loopbackIPv4;
 
-      bool test(e) {
-        nTestCall++;
-        if (nTestCall < nCall) {
-          return true;
-        } else {
-          return false;
-        }
-      }
+Future<bool> checkEvery(int nCall) async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3]];
+  List<RawSocketEvent> received = [];
+  Completer<bool> completer = new Completer<bool>();
+  Future<bool> f = completer.future;
+  Duration delay = const Duration(seconds: 2);
+  int nTestCall = 0;
 
-      Stream<RawSocketEvent> stream = receiver.asBroadcastStream();
-      Future<bool> b = stream.every(test);
-      bool expected = nCall < 5 ? false : true;
-      b.then((value) {
-        Expect.equals(expected, value);
-        if (!expected) {
-          Expect.equals(nCall, nTestCall);
-        }
-      }).whenComplete(() {
-        asyncEnd();
-      });
+  bool wasSent = await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
 
-      new Timer(const Duration(milliseconds: 200), () {
-        Expect.isNull(receiver.receive());
-        receiver.close();
-      });
+  bool test(e) {
+    nTestCall++;
+    if (nTestCall < nCall) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
-      stream.listen((event) {
-        counter++;
-        receiver.receive();
-      }).onDone(() {
-        Expect.equals(4, counter);
-      });
-    });
+  Stream bcs = receiver.asBroadcastStream();
+  Future eValue = bcs.every(test);
+
+  eValue.then((value) {
+    if (!completer.isCompleted) {
+      completer.complete(value);
+      receiver.close();
+    }
+    return f;
   });
+
+  bcs.listen((event) {
+    received.add(event);
+    receiver.receive();
+  });
+
+  new Future.delayed(delay, () {
+    if (!completer.isCompleted) {
+      receiver.close();
+    }
+  });
+
+  return f;
 }
 
-main() {
+main() async {
+  int attempts = 5;
+
+  check(int nCall) async {
+    for (int i = 0; i < attempts; i++) {
+      bool value = await checkEvery(nCall);
+      Expect.isTrue(value is bool);
+      if (value == true && nCall == 5) {
+        break;
+      }
+      if (value is bool) {
+        break;
+      }
+      if (i == attempts - 1) {
+        print('$value element not found. Look like test failed.');
+      }
+    }
+  }
+
   for (int i = 1; i <= 5; i++) {
-    check(i);
+    await check(i);
   }
 }
