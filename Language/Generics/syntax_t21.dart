@@ -6,33 +6,14 @@
 /**
  * @assertion A class declaration, type alias, or function [G] may be generic,
  * that is, [G] may have formal type parameters declared.
- * @description @description Checks various correct type alias declarations.
+ * @description Checks that at least one typeParameter is a must in the generic
+ * type alias.
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 
-import "../../Utils/expect.dart";
-
-class A<T> {
-  A(this.val);
-  T val;
-}
-
-typedef AAlias<T> = A<T>;
+class Test<T> {}
+typedef TAlias1<> = Test<X>;
 
 main() {
-  AAlias a1 = new A(12345);
-  Expect.isTrue(a1 is A);
-  Expect.isTrue(a1 is AAlias1);
-  Expect.equals(12345, a1.val);
-
-  AAlias<int> a2 = new A<int>(14);
-  Expect.isTrue(a2 is A<int>);
-  Expect.isTrue(a2 is AAlias1<int>);
-  Expect.equals(14, a2.val);
-
-  AAlias<List<num>> a3 = new A<List<num>>([]);
-  Expect.isTrue(a3 is A<List<num>>);
-  Expect.isTrue(a3 is AAlias<List<num>>);
-  Expect.listEquals([], a3.val);
-
 }

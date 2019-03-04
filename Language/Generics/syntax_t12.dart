@@ -6,13 +6,14 @@
 /**
  * @assertion A class declaration, type alias, or function [G] may be generic,
  * that is, [G] may have formal type parameters declared.
- * @description Checks that a compile-time error is produced when "extends"
- * is not followed with "type" for the generic class.
+ * @description Checks that a compile-time error is produced when typeParameter
+ * declaration is not complete.
  * @compile-error
  * @author kaigorodov
  */
 
-class C<T extends >{}
+class A<T
+class C<T extends Function>{}
 
 main() {
 }

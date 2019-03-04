@@ -18,19 +18,23 @@ class B<T1, T2> {
   T2 y;
 }
 
-typedef BAlias<T1 extends num, T2 extends String> = B<T1, T2>;
+typedef BAlias<T1, T2 extends T1> = B<T1, T2>;
 
 main() {
   BAlias b1 = new B(1, 2);
-  Expect.isTrue(b1 is B);
+  Expect.isTrue(b1 is B<dynamic, dynamic>);
   Expect.isTrue(b1 is BAlias);
-  Expect.isTrue(b1 is BAlias<num, String>);
-  Expect.equals(1, b1.x);
-  Expect.equals(2, b1.y);
+  Expect.isTrue(b1 is BAlias<dynamic, dynamic>);
 
-  BAlias<int, String> b2 = new B<int, String>(0, "testme");
-  Expect.isTrue(b2 is B<int, String>);
-  Expect.isTrue(b2 is BAlias<int, String>);
+  BAlias<num, int> b2 = new B<num, int>(0, 149);
+  Expect.isTrue(b2 is B<num, int>);
+  Expect.isTrue(b2 is BAlias<num, int>);
   Expect.equals(0, b2.x);
-  Expect.equals("testme", b2.y);
+  Expect.equals(149, b2.y);
+
+  BAlias<num, int> b3 = new B<int, int>(0, 149);
+  Expect.isTrue(b3 is B<int, int>);
+  Expect.isTrue(b3 is BAlias<int, int>);
+  Expect.equals(0, b3.x);
+  Expect.equals(149, b3.y);
 }

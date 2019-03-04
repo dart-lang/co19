@@ -15,9 +15,12 @@
  * @author iarkh@unipro.ru
  */
 
+class A<X> { const A(); }
 class C<T> { const C(); }
 
-@C() typedef G = void Function();
-@C<int>() typedef K = void Function();  //# 01: compile-time error
+typedef CAlias<X> = C<X>;
+
+@CAlias() typedef G = void Function();
+@CAlias<int>() typedef K = void Function();  //# 01: compile-time error
 
 main() {}

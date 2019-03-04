@@ -6,34 +6,18 @@
 /**
  * @assertion A class declaration, type alias, or function [G] may be generic,
  * that is, [G] may have formal type parameters declared.
- * @description Checks that a generic syntax is not confused with relational
- * expressions.
- * @author msyabro
+ * @description Checks that metadata can be attached to type parameter.
+ * @author ilya
  */
-import "../../Utils/expect.dart";
 
-class A<B, C, D, E> {
-  foo(p1, p2, p3, p4) {
-    Expect.equals(true, p1);
-    Expect.equals(3, p2);
-    Expect.equals(4, p3);
-    Expect.equals(false, p4);
-  }
-  bar(p) {
-    Expect.equals(null, p());
-  }
+const constant = 0;
 
-  test() {
-    var a = 1;
-    var b = 2;
-    var c = 3;
-    var d = 4;
-    var e = 5;
-    var f = 6;
-    foo(a < b, c, d, e > f);
-  }
+class Foo {
+  const Foo.bar(x);
 }
 
+class C <@Foo.bar(0) @constant T, @Foo.bar(1) TT extends List<T>> {}
+
 main() {
-  new A().test();
+  new C();
 }

@@ -27,6 +27,6 @@ main() {
   const res2 = {1: 10, ...?map, 4: 40};
   Expect.mapEquals({1: 10, 2: 20, 3: 30, 4: 40}, res2);
 
-  const res1 = {1: 10, ...?map1, 4: 40};
-  Expect.mapEquals({1: 10, 4: 40}, res1);
+  const res3 = {1: 10, ...?map1, 4: 40};
+  Expect.mapEquals({1: 10, 4: 40}, res3);
 }

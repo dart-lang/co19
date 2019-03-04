@@ -6,14 +6,13 @@
 /**
  * @assertion A class declaration, type alias, or function [G] may be generic,
  * that is, [G] may have formal type parameters declared.
-*  @description Checks that a compile-time error is produced when trying
- * to use a type parameter with type arguments.
+ * @description Checks that a compile-time error is produced when trying
+ * to specify a parameterized type parameter for the generic class.
  * @compile-error
  * @author iefremov
  */
 
-class A<T> {}
-class C<T, A<T>>{}
+class C<T<T>>{}
 
 main() {
 }
