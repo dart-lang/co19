@@ -10,7 +10,7 @@
  * It is a compile-time error to apply  M to S if S does not implement, directly
  * or indirectly, all of T1, . . . , Tn.
  * @description Checks that it is no error if C does implement directly all the
- * direct superinterfaces of M
+ * direct superinterfaces of M. Test type aliases
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
@@ -29,7 +29,9 @@ abstract class M implements B {
 class S {
 }
 
-class C extends S with M {
+typedef MAlias = M;
+
+class C extends S with MAlias {
   int get a => 0;
   int get b => 0;
 }
