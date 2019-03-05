@@ -4,13 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Let C be a class declaration that includes MA in a with clause.
- * It is a static warning if C does not implement, directly or indirectly, all
- * the direct superinterfaces of M
- * @description Checks that it is a compile error to derive a mixin from a
- * class which has a superclass other than Object, even if C does implement them
+ * @assertion Let S be a class, M be a mixin with required superinterfaces
+ * T1, . . . , Tn, combined superinterface MS, implemented interfaces
+ * I1, . . . , Ik and members as mixin member declarations, and let N be a name. 
+ * It is a compile-time error to apply  M to S if S does not implement, directly
+ * or indirectly, all of T1, . . . , Tn.
+ * @description Checks that it is no compile error to derive a mixin from a
+ * class which has a superclass other than Object
  * @issue 26409
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";

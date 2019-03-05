@@ -9,29 +9,31 @@
  * I1, . . . , Ik and members as mixin member declarations, and let N be a name. 
  * It is a compile-time error to apply  M to S if S does not implement, directly
  * or indirectly, all of T1, . . . , Tn.
- * @description Checks that it is no error if C does implement directly all the
- * direct superinterfaces of M
+ * @description Checks that it is no error if M directly implements all
+ * its superinterfaces
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
 
-abstract class A {
-  int get a;
+class A {
+  int get a => 0;
 }
 
 abstract class B implements A {
   int get b;
 }
 
-abstract class M implements B {
+typedef BAlias = B;
+
+class M implements BAlias {
+  int get a => -1;
+  int get b => 1;
 }
 
 class S {
 }
 
 class C extends S with M {
-  int get a => 0;
-  int get b => 0;
 }
 
 main() {

@@ -9,30 +9,29 @@
  * I1, . . . , Ik and members as mixin member declarations, and let N be a name. 
  * It is a compile-time error to apply  M to S if S does not implement, directly
  * or indirectly, all of T1, . . . , Tn.
- * @description Checks that it is no error if C does implement directly all the
- * direct superinterfaces of M
- * @static-clean
+ * @description Checks that it is no compile error if M has a superinterfaces
+ * and C does implement them. Test class C = S with M; syntax. Test type alias
  * @author sgrekhov@unipro.ru
  */
-
 abstract class A {
   int get a;
 }
 
-abstract class B implements A {
+abstract class B {
   int get b;
 }
 
-abstract class M implements B {
+abstract class M implements A, B {
 }
+
+typedef MAlias = M;
 
 class S {
+  int get a => 0;
+  int get b => 1;
 }
 
-class C extends S with M {
-  int get a => 0;
-  int get b => 0;
-}
+class C = S with MAlias;
 
 main() {
   new C();

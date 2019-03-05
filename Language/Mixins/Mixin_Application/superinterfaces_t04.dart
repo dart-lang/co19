@@ -4,10 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Let C be a class declaration that includes MA in a with clause.
- * It is a static warning if C does not implement, directly or indirectly, all
- * the direct superinterfaces of M
- * @description Checks that it is no static warning if C does implement
+ * @assertion Let S be a class, M be a mixin with required superinterfaces
+ * T1, . . . , Tn, combined superinterface MS, implemented interfaces
+ * I1, . . . , Ik and members as mixin member declarations, and let N be a name. 
+ * It is a compile-time error to apply  M to S if S does not implement, directly
+ * or indirectly, all of T1, . . . , Tn.
+ * @description Checks that it is no error if C does implement
  * indirectly all the direct superinterfaces of M
  * @static-clean
  * @author sgrekhov@unipro.ru
@@ -28,7 +30,7 @@ class S {
   int get a => 0;
 }
 
-class C extends S with M { /// static type warning
+class C extends S with M {
   int get b => 0;
 }
 
