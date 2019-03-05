@@ -10,13 +10,27 @@
  * ...
  * where [m] is derived from metadata, [T] is a type, and [S?] is a type or the
  * empty string.
- * @description Checks that T can be another type alias.
+ * @description Checks that exception is thrown if generic metadata is incorrect
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 
-class A<X> {
- static void callme<T>() { return null; }
-}
+int i = 1;
+class C<T> {}
 
-typedef X1<T> = A<T>;
-typedef X2<T> = X1<T>;
+@i typedef CAlias<T> = Function();                                  //# 01: compile-time error
+
+@i typedef Alias1<T> = Function<T>();                               //# 02: compile-time error
+@i typedef Alias2<T> = void Function<T>(T);                         //# 03: compile-time error
+@i typedef Alias3<T> = T Function<T>(T);                            //# 04: compile-time error
+@i typedef Alias4<T> = String Function<T>(T);                       //# 05: compile-time error
+@i typedef Alias5<T> = Function<T>(int, int, T);                    //# 06: compile-time error
+@i typedef Alias6<T> = Function<T>(int, int, T, [T]);               //# 07: compile-time error
+@i typedef Alias7<T> = Function<T>(int, [T, T, T]);                 //# 08: compile-time error
+
+@A() typedef Alias9<T1, T2> = T1 Function<T1, T2>();                //# 09: compile-time error
+@A() typedef Alias10<T1, T2> = T1 Function<T1, T2>(T2, {int a});    //# 10: compile-time error
+@A() typedef Alias11<T1, T2> = T1 Function<T1, T2>([T1 a1, T2 a2]); //# 11: compile-time error
+
+main() {
+}

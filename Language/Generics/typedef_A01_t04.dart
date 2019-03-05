@@ -10,34 +10,25 @@
  * ...
  * where [m] is derived from metadata, [T] is a type, and [S?] is a type or the
  * empty string.
- * @description Checks that [T] should be a type.
+ * @description Checks that generic type alias declaration can contain metadata.
  * @author iarkh@unipro.ru
  */
+import "../../Utils/expect.dart";
 
-class A {
- static void callme<T>() { return null; }
+const i = 1;
+class A { const A(); }
+
+@i typedef Alias1<T> = Function<T>();
+@i typedef Alias2<T> = void Function<T>(T);
+@i typedef Alias3<T> = T Function<T>(T);
+@i typedef Alias4<T> = String Function<T>(T);
+@i typedef Alias5<T> = Function<T>(int, int, T);
+@i typedef Alias6<T> = Function<T>(int, int, T, [T]);
+@i typedef Alias7<T> = Function<T>(int, [T, T, T]);
+
+@A() typedef Alias9<T1, T2> = T1 Function<T1, T2>();
+@A() typedef Alias10<T1, T2> = T1 Function<T1, T2>(T2, {int a});
+@A() typedef Alias11<T1, T2> = T1 Function<T1, T2>([T1 a1, T2 a2]);
+
+main() {
 }
-class B<T> {}
-class C<T1, T2> {}
-
-int i = 5;
-
-typedef X1<T> = A;
-typedef X2<T> = B<T>;
-typedef X3<T> = B;
-typedef X4<T1, T2> = C<T1, T2>;
-typedef X5<T> = List<T>;
-typedef X6<T1, T2> = Map<T1, T2>;
-typedef X7<T> = Object;
-
-typedef S1<T> = dynamic;
-typedef S2<T> = Null;
-typedef S3<T> = void;
-typedef S4<T> = FutureOr;
-typedef S5<T> = FutureOr<T>;
-
-typedef W1<T> = i;             //# 01: compile-time error
-typedef W2<T> = 5;             //# 02: compile-time error
-typedef W2<T> = A.callme<T>(); //# 03: compile-time error
-
-main() {}
