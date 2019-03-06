@@ -47,8 +47,8 @@ main() {
     asyncEnd();
   }
 
+  asyncStart();
   addOnLoadListener((_) {
-    asyncStart();
     setTimeout(runTest, 500);
   });
 }

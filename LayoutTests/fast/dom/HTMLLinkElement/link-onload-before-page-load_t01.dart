@@ -23,7 +23,7 @@ main() {
     }
   };
 
-  window.onLoad.listen(didReceiveLoadEvent('body'));
+  addOnLoadListener(didReceiveLoadEvent('body'));
 
   document.head.append(new Element.html(
     '<link id="lnk" rel="stylesheet" href="$root/resources/stylesheet.css">',

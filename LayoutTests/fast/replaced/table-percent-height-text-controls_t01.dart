@@ -89,7 +89,5 @@ void main() {
         "Text controls are in a different test than other replaced elements because their metrics are platform-specific.");
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     asyncStart();
-    tc.addOnLoadListener((_) {
-        doTest(_);
-    });
+    tc.addOnLoadListener(doTest);
 }

@@ -31,7 +31,5 @@ main() {
 
   asyncStart();
 //  window. onLoad.listen(boom);
-  addOnLoadListener((_) {
-    boom(_);
-  });
+  addOnLoadListener(boom);
 }

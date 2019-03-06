@@ -93,7 +93,5 @@ void main() {
     description("This test checks that a replaced element with percentage width (and no height specified) within a table cell is squeezed to the dimensions of the table cell.<br>See bug #29447.");
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     asyncStart();
-    tc.addOnLoadListener((_) {
-        doTest(_);
-    });
+    tc.addOnLoadListener(doTest);
 }

@@ -76,7 +76,5 @@ main() {
   }
 
   asyncStart();
-  addOnLoadListener((_) {
-    testAnimations(_);
-  });
+  addOnLoadListener(testAnimations);
 }

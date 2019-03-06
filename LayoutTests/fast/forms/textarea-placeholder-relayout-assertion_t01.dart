@@ -23,7 +23,5 @@ main() {
   }
 
   asyncStart();
-  addOnLoadListener((_) {
-    removeTextArea(_);
-  });
+  addOnLoadListener(removeTextArea);
 }

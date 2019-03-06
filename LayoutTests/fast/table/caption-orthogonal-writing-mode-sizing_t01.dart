@@ -50,8 +50,5 @@ void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     runTest(null);
 //    window.onLoad.listen(runTest);
-    /*
-    tc.addOnLoadListener((_) {
-      runTest(_);
-    });*/
+//    tc.addOnLoadListener(runTest);
 }
