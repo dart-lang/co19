@@ -33,7 +33,5 @@ void crash(e) {
 }
 
 void main() {
-    tc.addOnLoadListener((_) {
-      crash(_);
-    });
+    tc.addOnLoadListener(crash);
 }

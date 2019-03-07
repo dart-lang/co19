@@ -47,8 +47,5 @@ void onhashchange(event) {
 void main() {
     asyncStart();
     window.onHashChange.listen(onhashchange);
-    addOnLoadListener((_) {
-      onload(_);
-    });
-
+    addOnLoadListener(onload);
 }

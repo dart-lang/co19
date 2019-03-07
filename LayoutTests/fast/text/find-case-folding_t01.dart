@@ -44,7 +44,5 @@ void runTests(e)  {
 }
 
 void main() {
-    tc.addOnLoadListener((_) {
-      runTests(_);
-    });
+    tc.addOnLoadListener(runTests);
 }

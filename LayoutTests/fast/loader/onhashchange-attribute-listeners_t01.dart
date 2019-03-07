@@ -45,7 +45,5 @@ void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     asyncStart();
     window.onHashChange.listen(bodyInlineAttribute);
-    tc.addOnLoadListener((_) {
-      startTest(_);
-    });
+    tc.addOnLoadListener(startTest);
 }

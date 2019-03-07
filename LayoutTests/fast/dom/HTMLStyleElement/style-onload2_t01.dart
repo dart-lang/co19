@@ -34,8 +34,6 @@ main() {
   document.head.append(style1);
   document.head.append(style2);
 
-  addOnLoadListener((_) {
-    checkIfDone('body');
-  });
+  addOnLoadListener(checkIfDone('body'));
   asyncStart();
 }

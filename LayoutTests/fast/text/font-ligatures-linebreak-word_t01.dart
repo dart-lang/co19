@@ -57,7 +57,5 @@ void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
 //    setup({ explicit_done: true });
-    tc.addOnLoadListener((_) {
-      testLetterSpaceAndLigature(_);
-    });
+    tc.addOnLoadListener(testLetterSpaceAndLigature);
 }

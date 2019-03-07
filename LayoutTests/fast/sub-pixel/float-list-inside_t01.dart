@@ -59,7 +59,7 @@ void main() {
     shouldBe(firstLinkTop, lastLinkTop, 'Links should be on the same line.');
 
     asyncStart();
-    tc.addOnLoadListener((_) {
+    tc.addOnLoadListener((e) {
         list.style.marginRight = '-10px';
         list.offsetTop;
         list.style.marginRight = 'auto';

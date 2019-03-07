@@ -68,7 +68,5 @@ void runTest(e) {
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    TestCommon.addOnLoadListener((_) {
-        runTest(_);
-    });
+    TestCommon.addOnLoadListener(runTest);
 }

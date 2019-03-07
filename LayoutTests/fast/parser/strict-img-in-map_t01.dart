@@ -29,7 +29,5 @@ void runTest(e) {
 
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    tc.addOnLoadListener((_) {
-      runTest(_);
-    });
+    tc.addOnLoadListener(runTest);
 }

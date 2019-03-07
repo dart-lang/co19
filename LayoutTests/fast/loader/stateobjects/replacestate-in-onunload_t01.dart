@@ -32,7 +32,5 @@ void onload (e) {
 
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    tc.addOnLoadListener((_) {
-      onload(_);
-    });
+    tc.addOnLoadListener(onload);
 }

@@ -31,7 +31,5 @@ void crash(e)  {
 
 void main() {
     document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
-    tc.addOnLoadListener((_) {
-        crash(_);
-    });
+    tc.addOnLoadListener(crash);
 }

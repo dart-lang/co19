@@ -63,7 +63,5 @@ void doTest(e) {
 }
 
 void main() {
-    tc.addOnLoadListener((_) {
-        doTest(_);
-    });
+    tc.addOnLoadListener(doTest);
 }

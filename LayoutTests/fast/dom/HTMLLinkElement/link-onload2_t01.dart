@@ -42,7 +42,5 @@ main() {
 
   lnk1.onLoad.listen(checkIfDone('link1'));
   lnk2.onLoad.listen(checkIfDone('link2'));
-  addOnLoadListener((_) {
-    checkIfDone('body');
-  });
+  addOnLoadListener(checkIfDone('body'));
 }
