@@ -11,58 +11,44 @@
  * The mixin application of M to S with name N introduces a new class, C,
  * with name N, superclass S, implemented interface I1, . . . , Ik and members
  * as instance members.
- * @description Checks that instance class has the same instance methods as
- * its mixins
+ * @description Checks that instance class has the same instance getters as
+ * its mixins. Test type aliases
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
 class A {
-  int x;
-  void ma(int val) {x = val;}
-  int get ga => x;
+  int get ga => 0;
 }
 
 class M1 {
-  int x;
-  void m1(int val) {x = val;}
-  int get g1 => x;
+  int get gm1 => 1;
 }
 
 class M2 {
-  int x;
-  void m2(int val) {x = val;}
-  int get g2 => x;
+  int get gm2 => 2;
 }
 
-class B1 = A with M1;
-class B2 = A with M1, M2;
-class B3 = B1 with M2;
+typedef MAlias1 = M1;
+typedef MAlias2 = M2;
+
+class B1 = A with MAlias1;
+class B2 = A with MAlias1, MAlias2;
+class B3 = B1 with MAlias2;
 
 main() {
   B1 b1 = new B1();
   B2 b2 = new B2();
   B3 b3 = new B3();
 
-  b1.ma(1);
-  b2.ma(2);
-  b3.ma(3);
+  Expect.equals(0, b1.ga);
+  Expect.equals(0, b2.ga);
+  Expect.equals(0, b3.ga);
 
-  Expect.equals(1, b1.ga);
-  Expect.equals(2, b2.ga);
-  Expect.equals(3, b3.ga);
+  Expect.equals(1, b1.gm1);
+  Expect.equals(1, b2.gm1);
+  Expect.equals(1, b3.gm1);
 
-  b1.m1(11);
-  b2.m1(12);
-  b3.m1(13);
-
-  Expect.equals(11, b1.g1);
-  Expect.equals(12, b2.g1);
-  Expect.equals(13, b3.g1);
-
-  b2.m2(22);
-  b3.m2(23);
-
-  Expect.equals(22, b2.g2);
-  Expect.equals(23, b3.g2);
+  Expect.equals(2, b2.gm2);
+  Expect.equals(2, b3.gm2);
 }
