@@ -18,7 +18,5 @@ void onload (e) {
 }
 
 void main() {
-  tc.addOnLoadListener((_) {
-    onload(_);
-  });
+  tc.addOnLoadListener(onload);
 }

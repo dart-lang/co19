@@ -19,7 +19,7 @@ const String htmlEL2 = r'''
 
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    tc.addOnLoadListener((_) {
+    tc.addOnLoadListener((e) {
         var len = document.getElementsByTagName("param").length;
         Expect.equals(1, len);
         document.getElementById("result").innerHtml = "PASS";

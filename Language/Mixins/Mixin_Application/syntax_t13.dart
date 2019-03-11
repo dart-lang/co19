@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A class may be defned as a mixin application.
+ * @assertion A class may be defined as a mixin application.
  *
  * classDefinition:
  *   metadata abstract? class mixinApplicationClass

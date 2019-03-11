@@ -41,7 +41,5 @@ void doTest(e) {
 
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    tc.addOnLoadListener((_) {
-      doTest(_);
-    });
+    tc.addOnLoadListener(doTest);
 }

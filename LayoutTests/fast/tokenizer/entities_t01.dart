@@ -788,7 +788,5 @@ void runTest(e) {
 }
 
 void main() {
-    tc.addOnLoadListener((_) {
-      runTest(_);
-    });
+    tc.addOnLoadListener(runTest);
 }

@@ -79,7 +79,5 @@ void runTest(e) {
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     document.body.style.zoom = "0.9";
-    tc.addOnLoadListener((_) {
-      runTest(_);
-    });
+    tc.addOnLoadListener(runTest);
 }

@@ -69,7 +69,5 @@ main() {
   }
 
   asyncStart();
-  addOnLoadListener((_) {
-    run(_);
-  });
+  addOnLoadListener(run);
 }

@@ -42,7 +42,5 @@ main() {
   }
 
   asyncStart();
-  addOnLoadListener((_) {
-    runTest(_);
-  });
+  addOnLoadListener(runTest);
 }

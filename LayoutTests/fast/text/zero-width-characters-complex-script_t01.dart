@@ -77,7 +77,5 @@ void runTests(e) {
 
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    tc.addOnLoadListener((_) {
-      runTests(_);
-    });
+    tc.addOnLoadListener(runTests);
 }

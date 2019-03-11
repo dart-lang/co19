@@ -149,7 +149,5 @@ void main() {
      This test verifies that the hittest result on the right edge of a table cell returns the proper underlying element.""");
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    tc.addOnLoadListener((_) {
-      runTest(_);
-    });
+    tc.addOnLoadListener(runTest);
 }

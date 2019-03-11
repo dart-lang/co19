@@ -51,9 +51,7 @@ void updateMediaQuery2(e) {
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    tc.addOnLoadListener((_) {
-      updateMediaQuery2(_);
-    });
+    tc.addOnLoadListener(updateMediaQuery2);
       // update media query while document is parsing
     updateMediaQuery();
 }

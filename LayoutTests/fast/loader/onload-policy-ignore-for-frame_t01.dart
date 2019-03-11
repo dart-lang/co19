@@ -24,7 +24,7 @@ delegate's willSendRequest</a>. If the test passes, you should see the word "PAS
 void main() {
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
     asyncStart();
-    tc.addOnLoadListener((_) {
+    tc.addOnLoadListener((e) {
       asyncEnd();
       var result = document.getElementById("result");
       result.text = "PASSED";

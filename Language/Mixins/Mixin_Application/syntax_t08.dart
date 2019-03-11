@@ -4,23 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion
- * classDefinition:
- *   metadata abstract? class mixinApplicationClass
- * ;
- * mixinClassApplication:
- *   identifer typeParameters? `=' mixinApplication `;'
- *
- * mixinApplication:
- *   type mixins interfaces?
- * ;
- *
- * A mixin application of the form S with M; defines a class C with superclass
- * S.
- * A mixin application of the form S with M1,...,Mk; defines a class C whose
- * superclass is the application of the mixin composition Mk−1∗...∗M1 to S.
- * In both cases above, C declares the same instance members as M (respec-
- * tively, Mk).
+ * @assertion Let S be a class, M be a mixin with required superinterfaces
+ * T1, . . . , Tn, combined superinterface MS, implemented interfaces
+ * I1, . . . , Ik and members as mixin member declarations, and let N be a name.
+ * ...
+ * The mixin application of M to S with name N introduces a new class, C,
+ * with name N, superclass S, implemented interface I1, . . . , Ik and members
+ * as instance members.
  * @description Checks that mixin application of the form S with M1,...,Mk;
  * defines a class C with superclass S with M1,...Mk-1. So if Mi have methods
  * with the same names then Mk method overrides the ones from Mi

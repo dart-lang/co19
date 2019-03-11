@@ -31,8 +31,6 @@ void testForm(e) {
 void main() {
     document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
     document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-    tc.addOnLoadListener((_) {
-      testForm(_);
-    });
+    tc.addOnLoadListener(testForm);
 }
 

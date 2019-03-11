@@ -44,7 +44,5 @@ main() {
   }
 
   asyncStart();
-  addOnLoadListener((_) {
-    change(_);
-  });
+  addOnLoadListener(change);
 }

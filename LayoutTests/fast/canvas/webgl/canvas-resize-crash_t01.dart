@@ -32,9 +32,7 @@ main() {
     asyncEnd();
   }
 
-  addOnLoadListener((_) {
-    start(_);
-  });
+  addOnLoadListener(start);
 
   asyncStart();
 

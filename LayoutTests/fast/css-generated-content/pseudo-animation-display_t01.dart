@@ -79,7 +79,5 @@ main() {
   }
 
   asyncStart();
-  addOnLoadListener((_) {
-    go(_);
-  });
+  addOnLoadListener(go);
 }

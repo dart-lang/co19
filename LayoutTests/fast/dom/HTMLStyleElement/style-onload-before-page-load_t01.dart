@@ -25,7 +25,7 @@ main() {
   style.onLoad.listen(didReceiveLoadEvent('style'));
   document.head.append(style);
 
-  window.onLoad.listen(didReceiveLoadEvent('body'));
+  addOnLoadListener(didReceiveLoadEvent('body'));
 
   asyncStart();
 }
