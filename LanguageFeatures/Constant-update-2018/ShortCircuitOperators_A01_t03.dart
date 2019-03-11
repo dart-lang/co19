@@ -20,10 +20,11 @@
 // SharedOptions=--enable-experiment=constant-update-2018
 const int i = 25;
 
-class MyClass1 {
+class MyClass {
   final bool b;
   const MyClass() : b = true && (null as String).length < 25;
 }
 
 main() {
+  const inst = MyClass();
 }

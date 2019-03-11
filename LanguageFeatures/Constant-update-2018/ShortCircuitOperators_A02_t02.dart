@@ -7,7 +7,7 @@
  * @assertion Likewise the [||] operator only evaluates its second operand if
  * the first evaluates to [false], and the second operand must be a potentially
  * constant expression.
- * @description Checks that [||] throws error if the first operand of [&&]
+ * @description Checks that [||] throws error if the first operand of [||]
  * operation is [false] and the second one is not valid in the constant
  * expression.
  * @compile-error
@@ -21,4 +21,5 @@ class MyClass {
 }
 
 main() {
+  const inst = MyClass();
 }
