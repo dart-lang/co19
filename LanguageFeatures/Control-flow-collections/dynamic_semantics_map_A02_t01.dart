@@ -48,16 +48,16 @@
 import "../../Utils/expect.dart";
 
 main() {
-  var l1 = [1, 2];
-  var l2 = [3, 4, 5];
+  var list1 = [1, 2];
+  var list2 = [3, 4, 5];
 
   var map1exp = <int, int>{};
-  var n0 = l2.iterator;
+  var n0 = list2.iterator;
   while (n0.moveNext()) {
     var id = n0.current;
     map1exp[id] = id + 10;
   }
-  n0 = l1.iterator;
+  n0 = list1.iterator;
   while (n0.moveNext()) {
     var id = n0.current;
     map1exp[id] = id + 20;
@@ -65,8 +65,8 @@ main() {
   Expect.isTrue(map1exp is Map<int, int>);
 
   var map1 = <int, int>{
-    for (var v in 12) v: v + 10,
-    for (var v in 11) v: v + 20
+    for (var v in list2) v: v + 10,
+    for (var v in list1) v: v + 20
   };
   // map1exp {3: 13, 4: 14, 5: 15, 1: 21, 2: 22}
   Expect.isTrue(map1 is Map<int, int>);
