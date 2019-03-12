@@ -18,6 +18,7 @@
 
 class A {
   A();
+  bool testme() { return(true); }
 }
 
 class MyClass {
@@ -26,5 +27,4 @@ class MyClass {
 }
 
 main() {
-  const MyClass c1 = MyClass(new A());
 }
