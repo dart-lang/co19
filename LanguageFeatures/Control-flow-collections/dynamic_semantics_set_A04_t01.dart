@@ -62,7 +62,7 @@ main() {
 
   var set2 = <double>{for (var i = 1.1; i < 10; i += 5) i + 2};
   // set2exp {3.1, 8.1}
-  Expect.isTrue(set2 is List<double>);
+  Expect.isTrue(set2 is Set<double>);
   Expect.setEquals(set2exp, set2);
 
   var set3exp = new Set<num>();
