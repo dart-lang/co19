@@ -36,9 +36,9 @@
 import "../../Utils/expect.dart";
 
 main() {
-  List list1 = ["abc", "int", "hello"];
-  List list3 = [1, 2, 12];
-  List list4 = ["test"];
+  const List list1 = ["abc", "int", "hello"];
+  const List list2 = [1, 2, 12];
+  const List list3 = ["test"];
 
   List a = const [...list1];
   Expect.listEquals(["abc", "int", "hello"], a);
@@ -49,6 +49,6 @@ main() {
   a = const [...list1, "testme"];
   Expect.listEquals(["abc", "int", "hello", "testme"], a);
 
-  a = const [...list1, ...list3, ...list4];
+  a = const [...list1, ...list2, ...list3];
   Expect.listEquals(["abc", "int", "hello", 1, 2, 12, ""], a);
 }
