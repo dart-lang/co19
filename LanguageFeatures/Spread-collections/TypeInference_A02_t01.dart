@@ -19,10 +19,10 @@ class B extends A {}
 class C extends B {}
 
 main() {
-  List<A> a_list = <A>[new A()];
-  List<B> b_list = <B>[new B()];
-  List<C> c_list = <C>[new C()];
-  List<int> int_list= <int>[1, 2, 3];
+  List<A> a_list        = <A>[new A()];
+  List<B> b_list        = <B>[new B()];
+  List<C> c_list        = <C>[new C()];
+  List<int> int_list    = <int>[1, 2, 3];
   List<String> str_list = <String>["string"];
 
   A a = new A();

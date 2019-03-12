@@ -22,10 +22,10 @@ class C extends B {}
 List getAList<T>(var a) { return <T>[a]; }
 
 main() {
-  List a_list = getAList<A>(new A());
-  List b_list = getAList<B>(new B());
-  List c_list = getAList<C>(new C());
-  List int_list= getAList<int>(12);
+  List a_list   = getAList<A>(new A());
+  List b_list   = getAList<B>(new B());
+  List c_list   = getAList<C>(new C());
+  List int_list = getAList<int>(12);
   List str_list = ["string"];
   A a = new A();
   B b = new B();
@@ -53,16 +53,18 @@ main() {
       ...str_list, ...int_list, null, 1499, []];
   Expect.isTrue(list7 is List<Object>);
 
-  Expect.throws(() => List list8 = <int>[...str_list]);
-  Expect.throws(() => List list9 = <int>[1, 2, ...a_list, 14]);
-  Expect.throws(() => List list10 = <int>[1, 14, 0, ...c_list]);
+  List list8;
 
-  Expect.throws(() => List list11 = <A>[...int_list]);
-  Expect.throws(() => List list12 = <A>[...?str_list]);
+  Expect.throws(() => list8 = <int>[...str_list]);
+  Expect.throws(() => list8 = <int>[1, 2, ...a_list, 14]);
+  Expect.throws(() => list8 = <int>[1, 14, 0, ...c_list]);
 
-  Expect.throws(() => List list13 = <B>[...a_list]);
-  Expect.throws(() => List list14 = <B>[b, ...?a_list, c]);
+  Expect.throws(() => list8 = <A>[...int_list]);
+  Expect.throws(() => list8 = <A>[...?str_list]);
 
-  Expect.throws(() => List list15 = <C>[...b_list]);
-  Expect.throws(() => List list16 = <C>[...a_list, ...?b_list]);
+  Expect.throws(() => list8 = <B>[...a_list]);
+  Expect.throws(() => list8 = <B>[b, ...?a_list, c]);
+
+  Expect.throws(() => list8 = <C>[...b_list]);
+  Expect.throws(() => list8 = <C>[...a_list, ...?b_list]);
 }

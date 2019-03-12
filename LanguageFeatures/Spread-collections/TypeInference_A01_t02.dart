@@ -22,10 +22,10 @@ class C extends B {}
 List getAList<T>(var a) { return <T>[a]; }
 
 main() {
-  List a_list = getAList<A>(new A());
-  List b_list = getAList<B>(new B());
-  List c_list = getAList<C>(new C());
-  List int_list= getAList<int>(12);
+  List a_list   = getAList<A>(new A());
+  List b_list   = getAList<B>(new B());
+  List c_list   = getAList<C>(new C());
+  List int_list = getAList<int>(12);
   List str_list = ["string"];
   A a = new A();
   B b = new B();
@@ -53,16 +53,17 @@ main() {
       ...str_list, ...int_list, null, 1499, []};
   Expect.isTrue(set7 is Set<Object>);
 
-  Expect.throws(() => Set set8 = <int>{...str_list});
-  Expect.throws(() => Set set9 = <int>{1, 2, ...a_list, 14});
-  Expect.throws(() => Set set10 = <int>{1, 14, 0, ...c_list});
+  Set set8;
+  Expect.throws(() => set8 = <int>{...str_list});
+  Expect.throws(() => set8 = <int>{1, 2, ...a_list, 14});
+  Expect.throws(() => set8 = <int>{1, 14, 0, ...c_list});
 
-  Expect.throws(() => Set set11 = <A>{...int_list});
-  Expect.throws(() => Set set12 = <A>{...?str_list});
+  Expect.throws(() => set8 = <A>{...int_list});
+  Expect.throws(() => set8 = <A>{...?str_list});
 
-  Expect.throws(() => Set set13 = <B>{...a_list});
-  Expect.throws(() => Set set14 = <B>{b, ...?a_list, c});
+  Expect.throws(() => set8 = <B>{...a_list});
+  Expect.throws(() => set8 = <B>{b, ...?a_list, c});
 
-  Expect.throws(() => Set set15 = <C>{...b_list});
-  Expect.throws(() => Set set16 = <C>{...a_list, ...?b_list});
+  Expect.throws(() => set8 = <C>{...b_list});
+  Expect.throws(() => set8 = <C>{...a_list, ...?b_list});
 }

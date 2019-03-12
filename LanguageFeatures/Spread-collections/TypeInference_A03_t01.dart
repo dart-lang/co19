@@ -58,18 +58,19 @@ main() {
       ...?b_map, 148: new C1(), ...?c_map, ...int_map, 1499: null, -7: []};
   Expect.isTrue(map7 is Map<Object, Object>);
 
-  Expect.throws(() => Map map8 = <int, int>{...str_map});
-  Expect.throws(() => Map map9 = <int, String>{
+  Map map8;
+  Expect.throws(() => map8 = <int, int>{...str_map});
+  Expect.throws(() => map8 = <int, String>{
       1: "1", 2: "2", ...int_map, 14: "14"});
-  Expect.throws(() => Map map10 = <int, C2>{1 : new C2(), ...c_map});
+  Expect.throws(() => map8 = <int, C2>{1 : new C2(), ...c_map});
 
-  Expect.throws(() => Map map11 = <int, A2>{...int_map});
-  Expect.throws(() => Map map12 = <A1, String>{...?str_map});
+  Expect.throws(() => map8 = <int, A2>{...int_map});
+  Expect.throws(() => map8 = <A1, String>{...?str_map});
 
-  Expect.throws(() => Map map13 = <B1, B2>{...a_map});
-  Expect.throws(() => Map map14 = <B1, B2>{
-      newB1(): new C2(), ...?a_map, new C1(): new C2()});
+  Expect.throws(() => map8 = <B1, B2>{...a_map});
+  Expect.throws(() => map8 = <B1, B2>{
+      new B1(): new C2(), ...?a_map, new C1(): new C2()});
 
-  Expect.throws(() => Map map15 = <C1, C2>{...b_map});
-  Expect.throws(() => Map map16 = <C1, C2>{...a_map, ...?b_map});
+  Expect.throws(() => map8 = <C1, C2>{...b_map});
+  Expect.throws(() => map8 = <C1, C2>{...a_map, ...?b_map});
 }

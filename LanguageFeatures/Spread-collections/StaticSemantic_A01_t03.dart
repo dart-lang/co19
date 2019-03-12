@@ -34,7 +34,7 @@ main() {
   var strings = <String>[];
   Expect.setEquals(<int>{11}, <int>{11, ...strings});
 
-  var a;
+    var a;
   Expect.throws(() => a = <String>{...objects});
 
   var numbers1 = <num>[1.1, 2, 3];
