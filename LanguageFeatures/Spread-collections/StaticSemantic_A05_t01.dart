@@ -59,7 +59,7 @@ main() {
   List list1 = <String>[...l1];
   List list2 = <String>[...l2]; //# 01: compile-time error
   List list3 = <Object>[...l3];
-  List list4 = <String>[...l4]; //# 02; compile-time error
+  List list4 = <String>[...l4]; //# 02: compile-time error
   List list5 = <String>[...l5]; //# 03: compile-time error
   List list6 = <String>[...l6]; //# 04: compile-time error
   List list7 = <String>[...l7]; //# 05: compile-time error
