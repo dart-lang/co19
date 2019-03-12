@@ -81,7 +81,7 @@ main() {
   Expect.isTrue(set2exp is Set<int>);
 
   var set2 = <int>{
-    if (t) x else (if (!t) x else x + 10),
+    if (t) x else if (!t) x else x + 10,
     if (!t) x + 1 else x + 11, -1
   };
   // set2exp {1, 2, -1}
@@ -108,7 +108,7 @@ main() {
 
   var set3 = {
     if (t) x else x + 10,
-    if (!t) (if (t) x + 1 else x + 11) else x + 12, -1
+    if (!t) if (t) x + 1 else x + 11 else x + 12, -1
   };
   // set3exp {11, 12, -1}
   Expect.setEquals(set3exp, set3);

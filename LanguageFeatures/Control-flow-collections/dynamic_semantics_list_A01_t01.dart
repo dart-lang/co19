@@ -87,7 +87,7 @@ main() {
   Expect.isTrue(list2exp is List<int>);
 
   var list2 = <int>[
-    if (t) x else (if (!t) x else x + 10),
+    if (t) x else if (!t) x else x + 10,
     if (!t) x else x + 10, 2
   ];
   // list2exp [1, 1, 2]
@@ -114,7 +114,7 @@ main() {
 
   var list3 = [
     if (t) x else x + 10,
-    if (!t) (if (t) x else x + 10) else x + 10, 2
+    if (!t) if (t) x else x + 10 else x + 10, 2
   ];
   // list3exp [11, 11, 2]
   Expect.listEquals(list3exp, list3);
