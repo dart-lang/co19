@@ -19,8 +19,8 @@
 import "dart:async";
 import "../../Utils/expect.dart";
 
-Future<List<int>> future = new Future.delayed(new Duration(milliseconds: 100),
-        () => [1, 2, 3]);
+Future<Stream<int>> future = new Future.delayed(new Duration(milliseconds: 100),
+        () => Stream<int>.fromIterable([1, 2, 3]));
 
 main() async {
   bool b = true;

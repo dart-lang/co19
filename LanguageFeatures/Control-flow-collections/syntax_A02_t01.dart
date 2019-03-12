@@ -33,21 +33,21 @@ main() {
     for (int i = 0; i < -1; i++) 1: "y"
   });
 
-  Map<String, String> collection = {"x": "not", "y": "to", "z": "be"};
+  Iterable<String> collection = ["not", "to", "be"];
   Map map2 = <String, String>{
     "0": "To",
     "1": "be",
     if (b) "2": "or",
     if (!b) "3": "and",
-    for (var v in collection) v
+    for (var v in collection) v.substring(0, 1): v
   };
   Expect.mapEquals({
     "0": "To",
     "1": "be",
     "2": "or",
-    "x": "not",
-    "y": "to",
-    "z": "be"
+    "n": "not",
+    "t": "to",
+    "b": "be"
   }, map2);
 
   const constMap = const <int, String>{
