@@ -38,6 +38,7 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
+import "../../Utils/expect.dart";
 
 main() {
   Map map1 = {1: 1, 2: 4, 3: 6};
