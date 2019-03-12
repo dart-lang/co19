@@ -34,5 +34,5 @@ main() {
   Expect.throws(() => a = <String, int>{...objects});
 
   var strings = <String>[];
-  Expect.mapEquals({11: 12}, <int, int>{11: 12, ...Strings});
+  Expect.mapEquals({11: 12}, <int, int>{11: 12, ...strings});
 }

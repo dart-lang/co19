@@ -36,6 +36,6 @@ main() {
   var also = {1, ...?things, 4};
   Expect.setEquals({1, 2, null, 3, 4}, more);
 
-  more = [1, ...things.where((thing) => thing != null), 4];
+  more = {1, ...things.where((thing) => thing != null), 4};
   Expect.setEquals({1, 2, 3, 4}, more);
 }
