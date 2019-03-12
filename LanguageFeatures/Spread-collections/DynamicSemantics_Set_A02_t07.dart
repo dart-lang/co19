@@ -28,5 +28,5 @@ main() {
   Expect.setEquals(set1, {...set1, ...set1});
   Expect.setEquals(set2, {...set2, ...set2});
   Expect.setEquals(set3, {...set3, ...set3});
-  Expect.setEquals(longsetset, {...longset, ...longset});
+  Expect.setEquals(longset, {...longset, ...longset});
 }
