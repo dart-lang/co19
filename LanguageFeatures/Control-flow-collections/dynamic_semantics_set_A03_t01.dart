@@ -70,7 +70,7 @@ main() async {
   }
   Expect.isTrue(set1exp is Set<dynamic>);
 
-  var set1 = {await for (var v in s1) v, await for (var v in s2) v)};
+  var set1 = {await for (var v in s1) v, await for (var v in s2) v};
   // set1exp {1, 2, 3.1, false, null}
   Expect.setEquals(set1exp, set1);
   Expect.isTrue(set1 is Set<dynamic>);
