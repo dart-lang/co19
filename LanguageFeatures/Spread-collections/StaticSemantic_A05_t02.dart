@@ -59,7 +59,7 @@ main() {
   Set list1 = <String>{...l1};
   Set list2 = <String>{...l2}; //# 01: compile-time error
   Set list3 = <Object>{...l3};
-  Set list4 = <String>{...l4}; //# 02; compile-time error
+  Set list4 = <String>{...l4}; //# 02: compile-time error
   Set list5 = <String>{...l5}; //# 03: compile-time error
   Set list6 = <String>{...l6}; //# 04: compile-time error
   Set list7 = <String>{...l7}; //# 05: compile-time error
