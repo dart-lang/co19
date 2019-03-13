@@ -41,7 +41,7 @@ main() {
   var set4 = const <int>{if (t) x + 1 else y + 13, -1};
   Expect.setEquals({2, -1}, set4);
   const set5 = {if (t) x, -1};
-  Expect.setEquals({1, -1} else y + 14, set5);
+  Expect.setEquals({1, -1}, set5);
 
   Map<int, String> map1 = const {if (t) x - 1: "0" else y: "y1"};
   Expect.mapEquals({0: "0"}, map1);

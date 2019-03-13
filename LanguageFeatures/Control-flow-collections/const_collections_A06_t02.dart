@@ -37,7 +37,7 @@ main() {
   Expect.setEquals({2, -2}, set2);
   var set3 = const {if (t) x else 3, -3};
   Expect.setEquals({3, -3}, set3);
-  var set4 = const <int>{if (t x else 4, -4};
+  var set4 = const <int>{if (t) x else 4, -4};
   Expect.setEquals({4, -4}, set4);
   const set5 = {if (t) x else 5, -5};
   Expect.setEquals({5, -5}, set5);
