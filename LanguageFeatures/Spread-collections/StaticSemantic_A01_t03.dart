@@ -31,10 +31,7 @@ main() {
   var objects = <Object>[2, 7, 9];
   Expect.setEquals(<int>{2, 7, 9}, <int>{...objects});
 
-  var strings = <String>[];
-  Expect.setEquals(<int>{11}, <int>{11, ...strings});
-
-    var a;
+  var a;
   Expect.throws(() => a = <String>{...objects});
 
   var numbers1 = <num>[1.1, 2, 3];
