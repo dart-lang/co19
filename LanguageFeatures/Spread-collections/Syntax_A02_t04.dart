@@ -41,9 +41,9 @@
 import "../../Utils/expect.dart";
 
 main() {
-  Set set1 = {1, 2, 3};
-  Set set2 = {14, 18, 99};
-  var list3 = [0, 20, 40, 60, 80];
+  const Set set1 = {1, 2, 3};
+  const  set2 = {14, 18, 99};
+  const list3 = [0, 20, 40, 60, 80];
 
   Expect.setEquals(set1, const {...set1});
   Expect.setEquals(set2, const {...set2});
