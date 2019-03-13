@@ -41,9 +41,9 @@
 import "../../Utils/expect.dart";
 
 main() {
-  Map map1 = {1: 1, 2: 4, 3: 6};
-  Map map2 = {11: 28, 4: 7, 31: 12};
-  Map map3 = {0: 0, 7: 2, 5: 4, 6: 6, 8: 8};
+  const Map map1 = {1: 1, 2: 4, 3: 6};
+  const Map map2 = {11: 28, 4: 7, 31: 12};
+  const Map map3 = {0: 0, 7: 2, 5: 4, 6: 6, 8: 8};
 
   Expect.mapEquals(map1, const {...map1});
   Expect.mapEquals(map2, const {...map2});
