@@ -20,7 +20,7 @@ import "../../Utils/expect.dart";
 main() {
   int x = 1;
   const t = true;
-  List<int> list1 = const [if (t) 2 else (null as String).length) ];
+  List<int> list1 = const [if (t) 2 else (null as String).length ];
   Expect.listEquals([2], list1);
 
   const List<int> list2 = [if (!t) x else 2 ];
