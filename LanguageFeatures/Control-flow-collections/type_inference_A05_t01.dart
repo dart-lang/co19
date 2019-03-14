@@ -16,25 +16,22 @@
 // SharedOptions=--enable-experiment=control-flow-collections
 import "../../Utils/expect.dart";
 
-class A {}
-class C {}
-
 main() {
   Map<List<String>, List<int>> map1 = {
     if (true) []: [],
-    if (false) []: [] else []: [],
-    for (var i = 0; i < 1; i++) []: []
+    if (false) []: [] else ["2"]: [2],
+    for (var i = 0; i < 1; i++) ["$i"]: [i]
   };
   Expect.isTrue(map1 is Map<List<String>, List<int>>);
-  Expect.mapEquals({[]: [], []: [], []: []}, map1);
+  Expect.mapEquals({[]: [], ["2"]: [2], ["1"]: [1]}, map1);
 
   var map2 = <List<String>, List<int>> {
     if (true) []: [],
-    if (false) []: [] else []: [],
-    for (var i = 0; i < 1; i++) []: []
+    if (false) []: [] else ["2"]: [2],
+    for (var i = 0; i < 1; i++) ["$i"]: [i]
   };
   Expect.isTrue(map2 is Map<List<String>, List<int>>);
-  Expect.mapEquals({[]: [], []: [], []: []}, map2);
+  Expect.mapEquals({[]: [], ["2"]: [2], ["1"]: [1]}, map2);
 
   var map3 = const <List<String>, List<int>> {
     if (true) []: [],
