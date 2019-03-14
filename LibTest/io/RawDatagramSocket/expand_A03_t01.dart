@@ -18,14 +18,14 @@ import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-main() {
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((socket) {
-    Stream bcs = socket.asBroadcastStream();
-    Stream stream1 = socket.expand((e) => [1, 2, 3]);
-    Expect.isFalse(stream1.isBroadcast);
-    Stream stream2 = bcs.expand((e) => [1, 2]);
-    Expect.isTrue(stream2.isBroadcast);
-    socket.close();
-  });
+var localhost = InternetAddress.loopbackIPv4;
+
+main() async {
+  RawDatagramSocket socket = await RawDatagramSocket.bind(localhost, 0);
+  Stream bcs = socket.asBroadcastStream();
+  Stream stream1 = socket.expand((e) => [1, 2, 3]);
+  Expect.isFalse(stream1.isBroadcast);
+  Stream stream2 = bcs.expand((e) => [1, 2]);
+  Expect.isTrue(stream2.isBroadcast);
+  socket.close();
 }
