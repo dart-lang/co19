@@ -26,5 +26,5 @@ class MyClass {
 }
 
 main() {
-  const MyClass c1 = MyClass(new A());
+  const MyClass c1 = MyClass(A());
 }

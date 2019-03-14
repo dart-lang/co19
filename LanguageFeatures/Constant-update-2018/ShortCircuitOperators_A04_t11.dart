@@ -22,6 +22,6 @@ class MyClass {
 }
 
 main() {
-  const MyClass c = new MyClass(null);
+  const MyClass c = MyClass(null);
   Expect.equals(5, c.res);
 }
