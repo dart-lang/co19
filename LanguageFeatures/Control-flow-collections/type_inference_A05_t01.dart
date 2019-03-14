@@ -38,15 +38,15 @@ main() {
 
   var map3 = const <List<String>, List<int>> {
     if (true) []: [],
-    if (false) []: [] else []: [],
+    if (false) []: [] else [1]: [2],
   };
   Expect.isTrue(map3 is Map<List<String>, List<int>>);
-  Expect.mapEquals({[]: [], []: [], []: []}, map3);
+  Expect.mapEquals({[]: [], ["1"]: [2]}, map3);
 
   const map4 = <List<String>, List<int>> {
     if (true) []: [],
-    if (false) []: [] else []: [],
+    if (false) []: [] else ["1"]: [2],
   };
   Expect.isTrue(map4 is Map<List<String>, List<int>>);
-  Expect.mapEquals({[]: [], []: [], []: []}, map4);
+  Expect.mapEquals({[]: [], ["1"]: [2]}, map4);
 }
