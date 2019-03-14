@@ -4,9 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If s is an emptySetOrMapLiteral, then if s has a typeArguments
- * with one type argument, s is a set literal, and if s has a typeArguments with
- * two type arguments, s is a map literal.
+ * @assertion Let e be a setOrMapLiteral
+ * ...
+ * If e has typeArguments then:
+ *   - If there is exactly one type argument T, then e is a set literal with
+ *     static type Set<T>.
+ *   - If there are exactly two type arguments K and V, then e is a map literal
+ *     with static type Map<K, V>.
+ *   - Otherwise (three or more type arguments), report a compile-time error.
  *
  * @description Checks that if s is an emptySetOrMapLiteral and s has a
  * typeArguments with one type argument, then s is a set literal

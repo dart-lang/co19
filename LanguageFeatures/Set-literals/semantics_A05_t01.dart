@@ -4,15 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If s is an emptySetOrMapLiteral with no typeArguments and static
- * context type C, then if LinkedHashSet<Null> is assignable to C and
- * LinkedHashMap<Null, Null> is not assignable to C, then s is a set literal,
- * otherwise s is a map literal.
+ * @assertion Let e be a setOrMapLiteral.
+ * If e has a context C, and the base type of C is Cbase (that is, Cbase is C
+ * with all wrapping FutureOrs removed), and Cbase is not ?, then let S be the
+ * greatest closure.
+ * ...
+ * if S is defined and is a subtype of Iterable<Object> and S is not a subtype
+ * of Map<Object, Object>, then e is a set literal.
  *
  * @description Checks that if s is an emptySetOrMapLiteral with no
- * typeArguments and static context type C, then if LinkedHashSet<Null> is
- * assignable to C and LinkedHashMap<Null, Null> is not assignable to C, then s
- * is a set literal
+ * typeArguments and static context type C, then if S is a subtype of
+ * Iterable<Object> and S is not a subtype of Map<Object, Object>, then e is a
+ * set literal
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=set-literals
