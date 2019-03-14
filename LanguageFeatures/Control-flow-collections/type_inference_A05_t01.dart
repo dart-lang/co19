@@ -35,7 +35,7 @@ main() {
 
   var map3 = const <List<String>, List<int>> {
     if (true) []: [],
-    if (false) []: [] else [1]: [2],
+    if (false) []: [] else ["1"]: [2],
   };
   Expect.isTrue(map3 is Map<List<String>, List<int>>);
   Expect.mapEquals({[]: [], ["1"]: [2]}, map3);
