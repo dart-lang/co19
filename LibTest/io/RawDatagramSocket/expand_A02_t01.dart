@@ -14,61 +14,89 @@
  * the returned stream and iteration ends for that element of this stream.
  * @author ngl@unipro.ru
  */
-import "dart:io";
 import "dart:async";
+import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check(convert, expected) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      int sent = 0;
-      int counter = 0;
-      List list = [];
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent++], address, receiver.port);
-      producer.send([sent], address, receiver.port);
-      producer.close();
+var localhost = InternetAddress.loopbackIPv4;
 
-      Stream<RawSocketEvent> bcs = receiver.asBroadcastStream();
-      Stream stream = bcs.expand(convert);
-      stream.listen((event) {
-        list.add(event);
-      }, onError: (error) {
-        list.add(error);
-      }, onDone: () {
-        Expect.listEquals(expected, list);
-        asyncEnd();
-      });
+Future<List<dynamic>> checkExpend(convert) async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3]];
+  Completer<List<dynamic>> completer = new Completer<List<dynamic>>();
+  Future<List<dynamic>> f = completer.future;
+  Duration delay = const Duration(seconds: 2);
+  List<dynamic> received = [];
+  List<RawSocketEvent> receivedEvents = [];
 
-      new Timer(const Duration(milliseconds: 200), () {
-        Expect.isNull(receiver.receive());
-        receiver.close();
-      });
+  bool wasSent = await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
 
-      bcs.listen((event) {
-        counter++;
-        receiver.receive();
-      }).onDone(() {
-        Expect.equals(4, counter);
-      });
-    });
+  Stream<RawSocketEvent> bcs = receiver.asBroadcastStream();
+  Stream<dynamic> s = bcs.expand(convert);
+
+  s.listen((event) {
+    received.add(event);
+  }, onError: (error) {
+    received.add(error);
+  }, onDone: () {
+    if (!completer.isCompleted) {
+      completer.complete(received);
+    }
+    return f;
   });
+
+  bcs.listen((event) {
+    receivedEvents.add(event);
+    receiver.receive();
+  }).onDone(() {
+    if (!completer.isCompleted) {
+      completer.complete(received);
+    }
+  });
+
+  new Future.delayed(delay, () {
+    if (!completer.isCompleted) {
+      receiver.close();
+    }
+  });
+
+  return f;
 }
 
-main() {
-  check((e) => e == RawSocketEvent.write ? throw 11 : [e],
-      [11, RawSocketEvent.read, RawSocketEvent.read, RawSocketEvent.closed]);
-  check((e) => e == RawSocketEvent.read ? throw 12 : [e],
-      [RawSocketEvent.write, 12, 12, RawSocketEvent.closed]);
-  check((e) => e == RawSocketEvent.closed ? throw 13 : [e],
-      [RawSocketEvent.write, RawSocketEvent.read, RawSocketEvent.read, 13]);
+main() async {
+  int attempts = 5;
+  bool errorFound = false;
 
-  check((e) => e == RawSocketEvent.write ? throw 11 : [1, 2, 3],
-      [11, 1, 2, 3, 1, 2, 3, 1, 2, 3]);
-  check((e) => e == RawSocketEvent.read ? throw 12 : [1, 2, 3],
-      [1, 2, 3, 12, 12, 1, 2, 3]);
-  check((e) => e == RawSocketEvent.closed ? throw 13 : [1, 2, 3],
-      [1, 2, 3, 1, 2, 3, 1, 2, 3, 13]);
+  toCheck(convert, int newError) async {
+    for (int i = 0; i < attempts; i++) {
+      List<dynamic> list = await checkExpend(convert);
+      int receivedLength = list.length;
+
+      errorFound = true;
+      for (int i = 0; i < receivedLength; i++) {
+        if (list[i] == newError) {
+          errorFound = false;
+          break;
+        }
+      }
+      if (!errorFound) {
+        break;
+      }
+
+      if (i == attempts - 1) {
+        print('Error $newError not found. Look like test failed.');
+      }
+    }
+  }
+
+  await toCheck((e) => e == RawSocketEvent.write ? throw 11 : [e], 11);
+  await toCheck((e) => e == RawSocketEvent.read ? throw 12 : [e], 12);
+  await toCheck((e) => e == RawSocketEvent.closed ? throw 13 : [e], 13);
+
+  await toCheck((e) => e == RawSocketEvent.write ? throw 11 : [1, 2, 3], 11);
+  await toCheck((e) => e == RawSocketEvent.read ? throw 12 : [1, 2, 3], 12);
+  await toCheck((e) => e == RawSocketEvent.closed ? throw 13 : [1, 2, 3], 13);
 }
