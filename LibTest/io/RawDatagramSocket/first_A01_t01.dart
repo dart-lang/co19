@@ -20,53 +20,64 @@
  */
 import "dart:async";
 import "dart:io";
+import "../http_utils.dart";
 import "../../../Utils/expect.dart";
 
-check([bool no_write_events = false]) {
-  asyncStart();
-  var address = InternetAddress.loopbackIPv4;
-  RawDatagramSocket.bind(address, 0).then((producer) {
-    RawDatagramSocket.bind(address, 0).then((receiver) {
-      if (no_write_events) {
-        receiver.writeEventsEnabled = false;
-      }
-      Timer timer2;
-      int sent = 0;
-      bool completed = false;
-      int received = 0;
-      new Timer.periodic(const Duration(microseconds: 1), (timer) {
-        if (sent == 10 || completed) {
-          timer.cancel();
-          producer.close();
-        } else {
-          producer.send([sent++], address, receiver.port);
-        }
-      });
+var localhost = InternetAddress.loopbackIPv4;
 
-      void action() {
-        completed = true;
-        receiver.close();
-        asyncEnd();
-      }
+Future<List> checkFind(bool removeReceiver) async {
+  RawDatagramSocket producer = await RawDatagramSocket.bind(localhost, 0);
+  RawDatagramSocket receiver = await RawDatagramSocket.bind(localhost, 0);
+  List<List<int>> toSend = [[0, 1, 2, 3], [1, 2, 3], [2, 3]];
+  Completer<List> completer = new Completer<List>();
+  Future<List> f = completer.future;
+  Duration delay = const Duration(seconds: 2);
+  List received = [];
 
-      receiver.first.then((event) {
-        received++;
-        Expect.equals(
-            no_write_events ? RawSocketEvent.read : RawSocketEvent.write,
-            event);
-        if (timer2 != null) timer2.cancel();
-        timer2 = new Timer(const Duration(milliseconds: 200), () {
-          Expect.isNull(receiver.receive());
-          if (received != 1) {
-            Expect.fail('Number of receiver messages should be equal to 1');
-          }
-        });
-      }).whenComplete(action);
-    });
+  bool wasSent = await sendDatagram(producer, toSend, localhost, receiver.port);
+  Expect.isTrue(wasSent, "No datagram was sent");
+  if (removeReceiver) {
+    receiver.close();
+  }
+
+  Future<RawSocketEvent> firstValue = receiver.first;
+
+  firstValue.then((event) {
+    received.add(event);
+  }).whenComplete(() {
+    receiver.close();
+    if (!completer.isCompleted) {
+      completer.complete(received);
+    }
+    return f;
   });
+
+  new Future.delayed(delay, () {
+    if (!completer.isCompleted) {
+      receiver.close();
+    }
+  });
+
+  return f;
 }
 
-main() {
-  check();
-  check(true);
+main() async {
+  int attempts = 5;
+
+  toCheck(bool removeReceiver) async {
+    for (int i = 0; i < attempts; i++) {
+      List list = await checkFind(removeReceiver);
+      int recLength = list.length;
+      if (recLength == 1) {
+        break;
+      }
+
+      if (i == attempts - 1) {
+        print('first element not found. Look like test failed.');
+      }
+    }
+  }
+
+  await toCheck(false);
+  await toCheck(true);
 }
