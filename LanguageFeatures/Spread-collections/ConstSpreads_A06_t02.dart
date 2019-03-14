@@ -25,8 +25,8 @@ main() {
   const res4 = {...?{"not"}};
   Expect.setEquals({"not"}, res4);
 
-  const res5 = {1, 2, ...[1, 2, 3], 4, 15, 1, ...[null], ...{12345}, [1, 2, 3]};
-  Expect.setEquals({1, 2, 1, 2, 3, 4, 15, 1, null, 12345, [1, 2, 3]}, res5);
+  const res5 = {2, ...[1, 2, 3], 4, 15, 1, ...[null], ...{12345}, [1, 2, 3]};
+  Expect.setEquals({2, 1, 3, 4, 15, null, 12345, [1, 2, 3]}, res5);
   const res6 = {1, 2, 3, ...[4, 5, 6], ...?[7, 8, 9], [1, 2, 3]};
   Expect.setEquals({1, 2, 3, 4, 5, 6, 7, 8, 9, [1, 2, 3]}, res6);
 

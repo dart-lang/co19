@@ -49,7 +49,7 @@ main() {
 
   List a;
   Expect.throws(() => a = {...set});
-  Expect.throws(() => a = {"testme", ...set};);
+  Expect.throws(() => a = {"testme", ...set});
   Expect.throws(() => a = {...set, "testme"});
 
   Expect.throws(() => a = {...list});
