@@ -25,8 +25,8 @@ main() {
     null, [], {}, "1", 101, "10", 110, "a", "b", "c", "d", "e", "f", "g", "h",
     1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009];
 
-  Expect.setEquals({1, 2, 3, 4, 5, "checkme"}, {{...list1, ...list2}});
-  Expect.setEquals({3, 2, "checkme", 1, 5}, {{...list2, ...list1}});
+  Expect.setEquals({1, 2, 3, 4, 5, "checkme"}, {...list1, ...list2});
+  Expect.setEquals({3, 2, "checkme", 1, 5}, {...list2, ...list1});
   Expect.setEquals(
      {10000, 1, 2, 3, 4, 5, 11000, 6, 7, 144, 148, -1, 14, 143, 55, 11,
       "string", null, [], {}, "1", 101, "10", 110, "a", "b", "c", "d", "e", "f",

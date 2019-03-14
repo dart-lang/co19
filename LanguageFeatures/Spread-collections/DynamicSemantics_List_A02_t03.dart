@@ -29,28 +29,23 @@ import "../../Utils/expect.dart";
 
 class MyIterable extends IterableBase {
   MyIterator iterator;
+
   MyIterable(List list) { iterator = new MyIterator(list); }
+
   Iterator getIterator() { return iterator; }
 }
 
 class MyIterator extends Iterator {
-  int i = 0;
+  int i = -1;
   List list;
 
   MyIterator(List aList) { list = aList; }
 
   @override
-  bool moveNext() {
-    if (i < list.length) {
-      i++;
-      return true;
-    } else {
-      return false;
-    }
-  }
+  bool moveNext() { return ++i < list.length; }
 
   @override
-  int get current { return list[i]; }
+  dynamic get current { return list[i]; }
 }
 
 List myLists = [[1, 2, 3, 4, 5],

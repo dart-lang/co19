@@ -18,36 +18,26 @@ import "../../Utils/expect.dart";
 class MyIterable extends IterableBase {
   MyIterator iterator;
 
-  MyIterable() {
-    iterator = new MyIterator();
-  }
+  MyIterable() { iterator = new MyIterator(); }
 
-  Iterator getIterator() {
-    return iterator;
-  }
+  Iterator getIterator() { return iterator; }
 }
 
-class MyIterator extends Iterator<int> {
-  int i = 0;
+class MyIterator extends Iterator {
+  int i = -1;
+
+  MyIterator() {}
 
   @override
-  bool moveNext() {
-    if (i < 5) {
-      i++;
-      return true;
-    } else {
-      return false;
-    }
-  }
+  bool moveNext() { return ++i < 10; }
 
   @override
-  int get current {
-    return i;
-  }
+  dynamic get current { return i; }
 }
 
 main() {
   LinkedHashMap aMap = Map.fromIterables(new MyIterable(), new MyIterable());
   Map map = {...aMap};
-  Expect.mapEquals({1: 1, 2: 2, 3: 3, 4: 4, 5: 5}, map);
+  Expect.mapEquals(
+      {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9}, map);
 }

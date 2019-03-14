@@ -18,25 +18,17 @@ import "dart:collection";
 class MyIterable<T> extends IterableBase<T> {
   MyIterator<T> iterator;
 
-  MyIterable() {
-    iterator = new MyIterator();
-  }
+  MyIterable() { iterator = new MyIterator(); }
 
-  Iterator getIterator<T>() {
-    return iterator;
-  }
+  Iterator getIterator<T>() { return iterator; }
 }
 
 class MyIterator<T> extends Iterator<T> {
   @override
-  bool moveNext() {
-    return false;
-  }
+  bool moveNext() { return false; }
 
   @override
-  T get current {
-    return null;
-  }
+  T get current { return null; }
 }
 
 main() {

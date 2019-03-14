@@ -36,5 +36,5 @@ main() {
   Expect.isTrue(<int, String>{...map2} is HashMap<int, String>);
   Expect.isTrue(<int, String>{...?map3, 1: "123"} is HashMap<int, String>);
   Expect.isTrue(<int, String>{...?map3} is HashMap<int, String>);
-  Expect.isTrue([...map4] is HashMap<Object, Object>);
+  Expect.isTrue({...map4} is HashMap<Object, Object>);
 }

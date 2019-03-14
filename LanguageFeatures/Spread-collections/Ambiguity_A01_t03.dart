@@ -27,32 +27,21 @@ import "dart:collection";
 class MyIterable extends IterableBase {
   MyIterator iterator;
 
-  MyIterable() {
-    iterator = new MyIterator();
-  }
+  MyIterable() { iterator = new MyIterator(); }
 
-  Iterator getIterator() {
-    return iterator;
-  }
+  Iterator getIterator() { return iterator; }
 }
 
-class MyIterator extends Iterator<int> {
-  int i = 0;
+class MyIterator extends Iterator {
+  int i = -1;
+
+  MyIterator() {}
 
   @override
-  bool moveNext() {
-    if (i < 10) {
-      i++;
-      return true;
-    } else {
-      return false;
-    }
-  }
+  bool moveNext() { return ++i < 10; }
 
   @override
-  int get current {
-    return i;
-  }
+  dynamic get current { return i; }
 }
 
 main() {
