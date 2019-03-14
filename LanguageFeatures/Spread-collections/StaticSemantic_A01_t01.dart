@@ -31,9 +31,6 @@ main() {
   var objects = <Object>[2, 7, 9];
   Expect.listEquals([2, 7, 9], <int>[...objects]);
 
-  var strings = <String>[];
-  Expect.listEquals([11], <int>[11, ...strings]);
-
   var a;
   Expect.throws(() => a = <String>[...objects]);
 
