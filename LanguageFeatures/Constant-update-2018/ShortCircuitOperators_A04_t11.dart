@@ -10,7 +10,6 @@
  * expression.
  * @description Checks that conditional operator [?]/[:] rejects the first
  * operand if condition is [false] for potentially constant expressions.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
@@ -23,6 +22,6 @@ class MyClass {
 }
 
 main() {
-  MyClass c = new MyClass(null);
+  const MyClass c = new MyClass(null);
   Expect.equals(5, c.res);
 }

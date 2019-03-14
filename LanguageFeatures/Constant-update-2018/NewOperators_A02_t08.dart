@@ -16,5 +16,5 @@ const bool b1 = true;
 const int b2 = 0;
 
 main() {
-const c1 = b2 | b1;
+  const c1 = b2 | b1;
 }

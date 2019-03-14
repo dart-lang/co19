@@ -16,9 +16,8 @@
 // SharedOptions=--enable-experiment=constant-update-2018
 class MyClass {
   final int a;
-  const MyClass(int i1, String i2) : a = (i1 ?? i2.length);
+  const MyClass(int i1, String i2) : a = (i1 ?? i2.length + "abc");
 }
 
 main() {
-  const MyClass c2 = MyClass(222, null);
 }

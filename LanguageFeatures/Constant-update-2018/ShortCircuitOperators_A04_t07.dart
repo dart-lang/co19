@@ -8,14 +8,14 @@
  * its branches, depending on whether the condition expression evaluates to
  * [true] or [false]. The other branch must also be a potentially constant
  * expression.
- * @description Checks that compile error is thrown if condition of conditional
- * operator [?]/[:] is [false] and the first operand is not a correct constant
- * expression.
- * @compile-error
+ * @description Checks that conditional operator [?]/[:] rejects the first
+ * operand if condition is [false] for constant expressions.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
+import "../../Utils/expect.dart";
 
 main() {
   const String str = false ? (null as String).length : "OK";
+  Expect.equals("OK", str);
 }

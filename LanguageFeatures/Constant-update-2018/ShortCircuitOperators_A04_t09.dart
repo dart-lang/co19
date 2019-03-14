@@ -9,8 +9,7 @@
  * [true] or [false]. The other branch must also be a potentially constant
  * expression.
  * @description Checks that conditional operator [?]/[:] rejects the second
- * operand if condition is [true] for potentionally constant expressions.
- * @compile-error
+ * operand if condition is [true] for potentially constant expressions.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
@@ -23,6 +22,6 @@ class MyClass {
 }
 
 main() {
-  MyClass c = new MyClass(null);
+  const MyClass c = new MyClass(null);
   Expect.equals(11, c.res);
 }
