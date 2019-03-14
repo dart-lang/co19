@@ -109,7 +109,7 @@ main() {
   Expect.isTrue(map3exp is Map<int, String>);
 
   var map3 = <int, String>{
-    if (t) x - 1: "0" else if (!t) x + 1: "2" else x + 10: "11": "11",
+    if (t) x - 1: "0" else if (!t) x + 1: "2" else x + 10: "11",
     if (!t) x - 1: "0" else x + 10: "11"
   };
   // map3exp {2: 2, 0: 0}
