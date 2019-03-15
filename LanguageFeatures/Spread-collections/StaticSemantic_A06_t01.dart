@@ -37,9 +37,9 @@ main() {
   List list = [1, 2, 3, 4, 5];
   Iterator itr = new MyIterator();
 
-  Map m1 = {...number};  //# 01: compile-time error
-  Map m2 = {...str};     //# 02: compile-time error
-  Map m3 = {...map};     //# 03: compile-time error
-  Map m4 = {...list[0]}; //# 04: compile-time error
-  Map m5 = {...itr[0]};  //# 05: compile-time error
+  var m1 = <dynamic, dynamic>{...number};  //# 01: compile-time error
+  var m2 = <dynamic, dynamic>{...str};     //# 02: compile-time error
+  var m3 = <dynamic, dynamic>{...map};     //# 03: compile-time error
+  var m4 = <dynamic, dynamic>{...list[0]}; //# 04: compile-time error
+  var m5 = <dynamic, dynamic>{...itr[0]};  //# 05: compile-time error
 }

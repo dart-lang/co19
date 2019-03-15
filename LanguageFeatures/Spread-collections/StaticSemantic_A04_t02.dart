@@ -19,8 +19,8 @@ main() {
   Map map = {1: 1, 2: 2};
   List list = [1, 2, 3, 4, 5];
 
-  Set l1 = {...number};  //# 01: compile-time error
-  Set l2 = {...str};     //# 02: compile-time error
-  Set l3 = {...map};     //# 03: compile-time error
-  Set l4 = {...list[0]}; //# 04: compile-time error
+  Set l1 = <dynamic>{...number};  //# 01: compile-time error
+  Set l2 = <dynamic>{...str};     //# 02: compile-time error
+  Set l3 = <dynamic>{...map};     //# 03: compile-time error
+  Set l4 = <dynamic>{...list[0]}; //# 04: compile-time error
 }

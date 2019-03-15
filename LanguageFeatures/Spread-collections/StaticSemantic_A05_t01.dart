@@ -33,12 +33,12 @@ class MyIterator<T> extends Iterator<T> {
 
 main() {
 
-  List l1  = <Object> [];
+  List<Object> l1  = <Object> [];
   List<int> l2  = <int>[1, 2, 3];
-  List l3  = <bool>[true, false, true, true];
+  List<bool> l3  = <bool>[true, false, true, true];
   List<bool> l4  = <bool>[true, false, true, true];
   List<int> l5  = <int>[];
-  List l6  = <bool>[];
+  List<bool> l6  = <bool>[];
   List<String> l7  = <String>[];
   List<String> l8  = <String>["1", "2"];
   List l9 = <Object>["1", "2"];
@@ -54,12 +54,12 @@ main() {
   List list4 = <String>[...l4]; //# 02: compile-time error
   List list5 = <String>[...l5]; //# 03: compile-time error
   List list6 = <String>[...l6]; //# 04: compile-time error
-  List list7 = <String>[...l7]; //# 05: compile-time error
+  List list7 = <String>[...l7];
   List list8 = <String>[...l8];
   List list9 = <String>[...l9];
 
-  List list11 = <String>[...i1]; //# 06: compile-time error
+  List list11 = <String>[...i1]; //# 05: compile-time error
   List list12 = <String>[...i2];
-  List list13 = <String>[...i3]; //# 07: compile-time error
+  List list13 = <String>[...i3]; //# 06: compile-time error
   List list14 = <String>[...i4];
 }
