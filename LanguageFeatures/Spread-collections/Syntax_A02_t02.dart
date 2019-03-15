@@ -54,6 +54,6 @@ main() {
 
   Expect.setEquals({"abc", "int", "hello", 14, 18, 99, 0, 2, 4, 6, 8},
       {...set1, ...set2, ...list3});
-  Expect.setEquals({11, 1, 2, 3, 12, 16, 94, 0, 2, 4, 6, 8},
+  Expect.setEquals({11, "abc", "int", "hello", 12, 16, 94, 0, 2, 4, 6, 8},
       {11, ...set1, 12, 16, 94, ...list3});
 }

@@ -43,13 +43,12 @@ import "../../Utils/expect.dart";
 main() {
   Map map1 = {1: 1, 2: 4, 3: 6};
   Map map2;
-  int i;
   Map a;
 
   Expect.throws(() => a = {...map2});
   Expect.throws(() => a = {...map1, ...map2});
   Expect.throws(() => a = {...map2, ...map1});
   Expect.throws(() => a = {...map2, 10: 2});
-  Expect.throws(() => a = {...map1, i: 10});
-  Expect.throws(() => a = {...map1, 10: i});
+  Expect.throws(() => a = {...map2, 11: 10});
+  Expect.throws(() => a = {10: 128, ...map2});
 }
