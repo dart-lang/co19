@@ -50,7 +50,7 @@ main() {
   Expect.isTrue([b, ...?c_list] is List<B>);
   Expect.isFalse([c, ...a_list, ...b_list, b] is List<B>);
   Expect.isFalse([b, c, ...a_list, ...b_list, ...?c_list] is List<B>);
-  Expect.isTrue([a, ...c_list, ...b_list, b] is List<B>);
+  Expect.isTrue([b, ...c_list, ...b_list, b] is List<B>);
 
   Expect.isFalse([...a_list] is List<C>);
   Expect.isFalse([c, ...?a_list] is List<C>);

@@ -63,5 +63,5 @@ main() {
   Expect.isFalse({c1: c2, ...a_map, ...b_map, b1: b2} is Map<B1, B2>);
   Expect.isFalse(
       {b1: b2, c1: c2, ...a_map, ...b_map, ...?c_map} is Map<B1, B2>);
-  Expect.isTrue({a1: a2, ...c_map, ...b_map, b1: b2} is Map<B1, B2>);
+  Expect.isFalse({a1: a2, ...c_map, ...b_map, b1: b2} is Map<B1, B2>);
 }
