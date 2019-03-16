@@ -14,10 +14,10 @@
 // SharedOptions=--enable-experiment=spread-collections
 
 main() {
-  int number = 1;
-  String str = "checkme";
-  Map map = {1: 1, 2: 2};
-  List list = [1, 2, 3, 4, 5];
+  var number = 1;
+  var str = "checkme";
+  var map = {1: 1, 2: 2};
+  var list = [1, 2, 3, 4, 5];
 
   List l1 = [...number];  //# 01: compile-time error
   List l2 = [...str];     //# 02: compile-time error

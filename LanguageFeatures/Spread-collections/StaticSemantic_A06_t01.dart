@@ -32,10 +32,10 @@ class MyIterator<T> extends Iterator<T> {
 }
 
 main() {
-  int number = 1;
-  String str = "checkme";
-  List list = [1, 2, 3, 4, 5];
-  Iterator itr = new MyIterator();
+  var number = 1;
+  var str = "checkme";
+  var list = [1, 2, 3, 4, 5];
+  var itr = new MyIterator();
 
   var m1 = <dynamic, dynamic>{...number};  //# 01: compile-time error
   var m2 = <dynamic, dynamic>{...str};     //# 02: compile-time error
