@@ -25,14 +25,16 @@
 import "../../Utils/expect.dart";
 
 List getAList(
-    String engineDartPath, String extraFrontEndOptions, String mainPath) {
-  return([engineDartPath, '--target=flutter', ...? extraFrontEndOptions,
-      mainPath]);
+    String engineDartPath, List extraFrontEndOptions, String mainPath) {
+  return(
+      [engineDartPath, "--target=flutter", ...?extraFrontEndOptions, mainPath]);
 }
 
 main() {
-  Expect.listEquals(["enginePath", "--target=flutter", "--option1", "mainPath"],
-      getAList("enginePath", "--option1", "mainPath"));
+  Expect.listEquals(["enginePath", "--target=flutter",
+      "--option1", "--option2", "--option3", "mainPath"],
+      getAList(
+          "enginePath", ["--option1", "--option2", "--option3"], "mainPath"));
   Expect.listEquals(["enginePath", "--target=flutter", "mainPath"],
       getAList("enginePath", null, "mainPath"));
 }

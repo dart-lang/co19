@@ -25,17 +25,16 @@
 import "../../Utils/expect.dart";
 
 Map getAMap(
-    String engineDartPath, String extraFrontEndOptions, String mainPath) {
-  return({1: engineDartPath, 2: '--target=flutter', ... extraFrontEndOptions,
+    String engineDartPath, Map extraFrontEndOptions, String mainPath) {
+  return({1: engineDartPath, 2: '--target=flutter', ...extraFrontEndOptions,
       3: mainPath});
 }
 
 main() {
   Map a;
-
   Expect.mapEquals(
       {1: "enginePath", 2: "--target=flutter", 0: "--option1", 3: "mainPath"},
-      getAMap("enginePath", "--option1", "mainPath"));
+      getAMap("enginePath", {0: "--option1"}, "mainPath"));
 
   Expect.throws(() => a = getAMap("enginePath", null, "mainPath"));
 }

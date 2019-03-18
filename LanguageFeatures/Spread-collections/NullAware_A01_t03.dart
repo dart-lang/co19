@@ -25,14 +25,15 @@
 import "../../Utils/expect.dart";
 
 Set getASet(
-    String engineDartPath, String extraFrontEndOptions, String mainPath) {
-  return({engineDartPath, '--target=flutter', ...? extraFrontEndOptions,
-      mainPath});
+    String engineDartPath, List extraFrontEndOptions, String mainPath) {
+  return(
+      {engineDartPath, '--target=flutter', ...?extraFrontEndOptions, mainPath});
 }
 
 main() {
-  Expect.setEquals(["enginePath", "--target=flutter", "--option1", "mainPath"],
-      getASet("enginePath", "--option1", "mainPath"));
+  Expect.setEquals(
+      {"enginePath", "--target=flutter", "--option1", "--option1", "mainPath"},
+      getASet("enginePath", ["--option1", "--option2"], "mainPath"));
   Expect.setEquals({"enginePath", "--target=flutter", "mainPath"},
       getASet("enginePath", null, "mainPath"));
 }
