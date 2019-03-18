@@ -11,7 +11,7 @@
  *
  * @description Checks that it is not a compile-time error if the condition
  * evaluates to true and the then expression is a constant expression while
- * the else expression is not a constant expression.
+ * the else expression a potentially constant expression.
  * @author ngl@unipro.ru
  */
 // SharedOptions=--enable-experiment=control-flow-collections
@@ -20,37 +20,36 @@ import "../../Utils/expect.dart";
 main() {
   const t = true;
   const int x = 1;
-  int y = 2;
-  List<int> list1 = const [if (t) x else y, 2];
+  List<int> list1 = const [if (t) x else (null as String).length, 2];
   Expect.listEquals([1, 2], list1);
-  const List<int> list2 = [if (t) x + 1 else y, x];
+  const List<int> list2 = [if (t) x + 1 else (null as String).length, x];
   Expect.listEquals([2, 1], list2);
-  var list3 = const [if (t) x else y, 1];
+  var list3 = const [if (t) x else (null as String).length, 1];
   Expect.listEquals([1, 1], list3);
-  var list4 = const <int>[if (t) x else y, 3];
+  var list4 = const <int>[if (t) x else (null as String).length, 3];
   Expect.listEquals([1, 3], list4);
-  const list5 = [if (t) x else y, 2];
+  const list5 = [if (t) x else (null as String).length, 2];
   Expect.listEquals([1, 2], list5);
 
-  Set<int> set1 = const {if (t) x else y, -1};
+  Set<int> set1 = const {if (t) x else (null as String).length, -1};
   Expect.setEquals({1, -1}, set1);
-  const Set<int> set2 = {if (t) x - 1 else y + 10, -1};
+  const Set<int> set2 = {if (t) x - 1 else (null as String).length + 10, -1};
   Expect.setEquals({0, -1}, set2);
-  var set3 = const {if (t) x else y + 12, -1};
+  var set3 = const {if (t) x else (null as String).length + 12, -1};
   Expect.setEquals({1, -1}, set3);
-  var set4 = const <int>{if (t) x + 1 else y + 13, -1};
+  var set4 = const <int>{if (t) x + 1 else (null as String).length + 13, -1};
   Expect.setEquals({2, -1}, set4);
   const set5 = {if (t) x, -1};
   Expect.setEquals({1, -1}, set5);
 
-  Map<int, String> map1 = const {if (t) x - 1: "0" else y: "y1"};
+  Map<int, String> map1 = const {if (t) x - 1: "0" else (null as String).length: "y1"};
   Expect.mapEquals({0: "0"}, map1);
-  const Map<int, String> map2 = {if (t) x: "1" else y: "y2"};
+  const Map<int, String> map2 = {if (t) x: "1" else (null as String).length: "y2"};
   Expect.mapEquals({1: "1"}, map2);
-  var map3 = const {if (t) x + 1: "2" else y: "y3"};
+  var map3 = const {if (t) x + 1: "2" else (null as String).length: "y3"};
   Expect.mapEquals({2: "2"}, map3);
-  var map4 = const <int, String>{if (t) x: "x" else y: "y4"};
+  var map4 = const <int, String>{if (t) x: "x" else (null as String).length: "y4"};
   Expect.mapEquals({1: "x"}, map4);
-  const map5 = {if (t) x + 2: "3" else y: "y5"};
+  const map5 = {if (t) x + 2: "3" else (null as String).length: "y5"};
   Expect.mapEquals({3: "3"}, map5);
 }
