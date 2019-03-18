@@ -12,25 +12,16 @@
  * if S is defined and is a subtype of Iterable<Object> and S is not a subtype
  * of Map<Object, Object>, then e is a set literal.
  *
- * @description Checks that if s is an emptySetOrMapLiteral with no
- * typeArguments and static context type C, then if S is a subtype of
- * Iterable<Object> and S is not a subtype of Map<Object, Object>, then e is a
- * set literal
+ * @description Checks that if C is some subclass of Set<X>, then the literal is
+ * a set literal, but it is also a guaranteed type error even if the literal is
+ * a set but a wrong type
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=set-literals
-import "dart:async";
 import "dart:collection";
-import "../../Utils/expect.dart";
-
-Set<Object> test() => {};
-Iterable<int> test2() => {};
-FutureOr<Iterable<int>> test3() => {};
-Set<int> test4() => {};
 
 main() {
-  Expect.isTrue(test() is Set);
-  Expect.isTrue(test2() is Set);
-  Expect.isTrue(test3() is Set);
-  Expect.isTrue(test4() is Set);
+  SplayTreeSet s1 = {};            //# 01: compile-time error
+  SplayTreeSet<int> s2 = {};       //# 02: compile-time error
+  SplayTreeSet<int> s3 = <int>{};  //# 03: compile-time error
 }
