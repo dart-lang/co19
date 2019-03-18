@@ -18,7 +18,6 @@
  * created by a constant type literal expression
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=set-literals
 import "../../Utils/expect.dart";
 
 class C {}

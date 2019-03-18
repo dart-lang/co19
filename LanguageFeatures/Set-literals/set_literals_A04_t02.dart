@@ -9,7 +9,6 @@
  * @description Checks that the static type of s is Set<T>.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=set-literals
 import "dart:collection";
 
 class C {}

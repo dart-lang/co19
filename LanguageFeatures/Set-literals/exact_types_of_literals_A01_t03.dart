@@ -13,7 +13,6 @@
  * @description Check runtime type of set literals expressions
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=set-literals
 import "../../Utils/expect.dart";
 import "dart:collection";
 

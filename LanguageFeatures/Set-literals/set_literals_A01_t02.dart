@@ -11,7 +11,6 @@
  * @description Checks set literal syntax
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=set-literals
 main() {
   var v1  = const <int> {,};  //# 01: compile-time error
   var v2  = const {,};        //# 02: compile-time error

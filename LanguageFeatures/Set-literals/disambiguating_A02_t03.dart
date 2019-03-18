@@ -18,7 +18,7 @@
  * set literal
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=set-literals
+// SharedOptions=--enable-experiment=spread-collections
 import "dart:async";
 import "../../Utils/expect.dart";
 

@@ -17,7 +17,6 @@
  * indicates otherwise
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=set-literals
 import "../../Utils/expect.dart";
 
 main() {

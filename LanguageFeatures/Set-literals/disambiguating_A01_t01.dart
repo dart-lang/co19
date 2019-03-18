@@ -17,7 +17,7 @@
  * typeArguments with a number of type arguments other than two.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=set-literals
+// SharedOptions=--enable-experiment=spread-collections
 Map map1 = {"1" :1, "2": 2};
 Map map2 = {};
 

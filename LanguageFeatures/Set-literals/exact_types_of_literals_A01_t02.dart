@@ -14,7 +14,6 @@
  * constant set literal to a type that is not a super-type of Set<T>
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=set-literals
 import "dart:collection";
 
 class C<T> with SetMixin<T> implements Set<T> {

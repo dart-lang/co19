@@ -15,7 +15,6 @@
  * LinkedHashSet<T>
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=set-literals
 import "dart:collection";
 
 class C<T> with SetMixin<T> implements LinkedHashSet<T> {

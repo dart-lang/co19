@@ -16,7 +16,6 @@
  * least one mapEntry and at least one expressionElement
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=set-literals
 
 main() {
   int x = 1;

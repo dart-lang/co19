@@ -17,7 +17,7 @@
  * typeArguments with more than one type argument.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=set-literals
+// SharedOptions=--enable-experiment=spread-collections
 Set set1 = {1, 2};
 Set set2 = {};
 
