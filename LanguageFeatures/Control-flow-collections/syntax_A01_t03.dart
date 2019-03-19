@@ -19,17 +19,17 @@
 import "dart:async";
 import "../../Utils/expect.dart";
 
-Future<Stream<int>> future = new Future.delayed(new Duration(milliseconds: 100),
-        () => Stream<int>.fromIterable([1, 2, 3]));
+Stream<int> stream =  Stream<int>.fromIterable([1, 2, 3]);
+Stream<int> stream2 =  Stream<int>.fromIterable([4, 5, 6]);
 
 main() async {
   bool b = true;
 
   List<int> listInt = [
     3, 1, 4,
-    if (b) await for (var v in future) v + 1,
+    if (b) await for (var v in stream) v + 1,
     if (!b) 1,
-    await for (var i in future) if (!i.isEven) i
+    await for (var i in stream2) if (!i.isEven) i
   ];
-  Expect.listEquals([3, 1, 4, 2, 3, 4, 1, 3], listInt);
+  Expect.listEquals([3, 1, 4, 2, 3, 4, 5], listInt);
 }
