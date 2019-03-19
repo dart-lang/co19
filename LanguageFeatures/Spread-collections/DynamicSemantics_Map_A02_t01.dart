@@ -37,7 +37,7 @@ main() {
   Expect.mapEquals({}, {...?map3});
   Expect.mapEquals({1: 1, 2: 2, 4: 4}, {1: 1, 2: 2, ...?map3, 4: 4});
 
-  Expect.mapEquals({}, {...?null});
+  Expect.mapEquals({}, <dynamic, dynamic>{...?null});
   Expect.mapEquals({4: 1, 3: 2, 2: 4}, {4: 1, 3: 2, ...?null, 2: 4});
 
   Expect.mapEquals({100: 14, 1: 1, 2: 2, 3: 3, 4: "checkme", 99: 99},
