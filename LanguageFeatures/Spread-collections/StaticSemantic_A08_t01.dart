@@ -39,13 +39,7 @@ main() {
   List list = [null, 14, "testme"];
   Iterable i = new MyIterable();
 
-  Set set1 = set;
-  Set set2 = {...set};
-
-  Set set3 = list;    //# 01: compile-time error
-  Set set4 = {...list};
-
-  Set set5 = i;       //# 02: compile-time error
-  Set set6 = {...i};
-
+  Set set1 = {...set};
+  Set set2 = {...list};
+  Set set3 = {...i};
 }
