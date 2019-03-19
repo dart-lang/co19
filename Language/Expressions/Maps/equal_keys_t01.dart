@@ -4,18 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Iff all the keys in a map literal are compile-time constants, it
- * is a static warning if the values of any two keys in a map literal are equal.
- * @description Checks that it is a compile error if the values of any two
- * keys in a map literal are equal.
- * @compile-error
+ * @assertion It is a compile-time error if two keys of a constant map literal
+ * are equal according to their ‘==’ operator
+ * @description Check that it is a compile-time error if two keys of a constant
+ * map literal are equal according to their ‘==’ operator
+ * @issue #32983
  * @author msyabro
- * @reviewer rodionov
+ * @author sgrekhov@unipro.ru
  */
 
 main() {
-  <String, int>{
-    "key1": 1,
-    "key1": 2
-  };
+  const m1 = <int, String>{1: "val1", 1: "val2"};     //# 01: compile-time error
+  var m2 = const <String, int>{"key1": 1, "key1": 2}; //# 02: compile-time error
 }
