@@ -17,8 +17,8 @@
 
 main() {
   bool b = true;
-  List collectionNum = [3, 1.0, 4, 1, 5];
-  List collectionInt = [3, 1, 4, 1, 5];
+  var collectionNum = [3, 1.0, 4, 1, 5];
+  var collectionInt = [3, 1, 4, 1, 5];
 
   Map<String, int> map = {if (b) "1", 1.0};           //# 01: compile-time error
   Map<String, int> map = {if (b) 1, 1};               //# 02: compile-time error

@@ -13,34 +13,36 @@
  * then e is a set literal with unknown static type
  *
  * @description Checks that if leaf elements has at least one expressionElement
- * and no mapEntry elements, then e is a set literal
+ * and no mapEntry elements, then e is a set literal. Test spread elements
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=control-flow-collections
+// SharedOptions=--enable-experiment=spread-collections, control-flow-collections
 import "../../Utils/expect.dart";
 
 main() {
-  int x = 1;
-  var c1 = {if (2 > 1) x + 1};
+  var x = {1, 2, 3};
+  var y = {"Let", "it", "be"};
+
+  var c1 = {if (2 > 1) ...x};
   Expect.isTrue(c1 is Set);
 
-  var c2 = {if (2 > 1) "s" else "$x"};
+  var c2 = {if (2 > 1) ...x else ...y};
   Expect.isTrue(c2 is Set);
 
-  var c3 = {if (2 > 1) "s" else "$x", if (2 > 1) x};
+  var c3 = {if (2 > 1) ...y else ...x, if (2 > 1) ...x};
   Expect.isTrue(c3 is Set);
 
-  var c4 = {for (var i = 0; i < 3; i++) if (2 > 1) "s" else if (2 > 1) x};
+  var c4 = {for (var i = 0; i < 3; i++) if (2 > 1) ...y else if (2 > 1) ...x};
   Expect.isTrue(c4 is Set);
 
-  var c5 = {for (var i in [1, 2, 3]) if (1 > 2) x else if (2 > 1) i};
+  var c5 = {for (var i in [1, 2, 3]) if (1 > 2) ...x else if (2 > 1) i};
   Expect.isTrue(c5 is Set);
 
-  var c6 = {if (1 > 2) for (var i in [1, 2, 3]) i
-            else if (2 > 1) for (var i = 0; i < 3; i++) i};
+  var c6 = {if (1 > 2) for (var i in [1, 2, 3]) ...x
+            else if (2 > 1) for (var i = 0; i < 3; i++) ...y};
   Expect.isTrue(c6 is Set);
 
-  var c7 = {if (2 > 1) for (var i in [1, 2, 3]) i
-            else if (2 > 1) for (var i = 0; i < 3; i++) i};
+  var c7 = {if (2 > 1) for (var i in [1, 2, 3]) ...x
+            else if (2 > 1) for (var i = 0; i < 3; i++) ...y};
   Expect.isTrue(c7 is Set);
 }

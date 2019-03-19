@@ -17,7 +17,7 @@
 
 main() {
   bool b = true;
-  List collection = [3, 1.0, 4, 1, 5];
+  var collection = [3, 1.0, 4, 1, 5];
 
   List<int> list = [if (b) 1.0];                      //# 01: compile-time error
   List<int> list = [if (!b) 1.0,];                    //# 02: compile-time error
