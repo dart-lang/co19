@@ -14,6 +14,6 @@
 // SharedOptions=--enable-experiment=spread-collections
 
 main() {
-  Set res1 = {}; //# 01: compile-time error
+  Set res1 = {};
   Map res2 = {};
 }
