@@ -8,7 +8,8 @@
  * disambiguate, we could make it an error instead of defaulting to map.
  * However, that would be inconsistent with how empty collections are handled.
  * Those have to default to map for backwards compatibility.
- * @description Checks that empty collection is a map.
+ * @description Checks that actual type of {} is correct according on the
+ * set/map inference rules.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
@@ -16,4 +17,5 @@
 main() {
   Set res1 = {};
   Map res2 = {};
+  List res3 = {};  //# 01: compile-time error
 }

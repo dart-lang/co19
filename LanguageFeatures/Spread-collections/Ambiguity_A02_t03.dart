@@ -17,4 +17,7 @@ import "../../Utils/expect.dart";
 
 main() {
   Expect.isTrue({} is Map);
+
+  dynamic map = {};
+  Expect.isTrue(map is Map);
 }
