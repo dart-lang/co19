@@ -17,8 +17,8 @@
  */
 
 main() {
-  Map<double, double> x1 = {1 + 1, 1.0};  //# 01: compile-time error
-  Map<double, double> x2 = {1.0, 1 + 1};  //# 02: compile-time error
+  Map<double, double> x1 = {1 + 1: 1.0};  //# 01: compile-time error
+  Map<double, double> x2 = {1.0: 1 + 1};  //# 02: compile-time error
   num n = 1;
   Map<double, double> y1 = {n: 1.0};      //# 03: compile-time error
   Map<double, double> y2 = {1.0: n};      //# 04: compile-time error
