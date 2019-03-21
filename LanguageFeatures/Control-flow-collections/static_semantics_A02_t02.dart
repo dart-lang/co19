@@ -17,26 +17,25 @@
 
 main() {
   bool b = true;
-  var collectionNum = [3, 1.0, 4, 1, 5];
-  var collectionInt = [3, 1, 4, 1, 5];
+  var collection = [3, 1, 4, 1, 5];
 
-  Map<String, int> map = {if (b) "1", 1.0};           //# 01: compile-time error
-  Map<String, int> map = {if (b) 1, 1};               //# 02: compile-time error
-  Map<String, int> map = {if (!b) "1", 1.0,};         //# 03: compile-time error
-  Map<String, int> map = {if (!b) 1, 1};              //# 04: compile-time error
-  Map<String, int> map = {if (b) for (var v in collectionNum) if (v > 3) "$v": v,}; //# 05: compile-time error
-  Map<String, int> map = {if (b) for (var v in collectionInt) if (v > 3) v: v,};    //# 06: compile-time error
-  Map<String, int> map = {if (!b) for (var v in collectionNum) if (v > 3) "$v": v}; //# 07: compile-time error
-  Map<String, int> map = {if (!b) for (var v in collectionInt) if (v > 3) v: v,};   //# 08: compile-time error
+  Map<String, int> map = {if (b) "1": 1.0};           //# 01: compile-time error
+  Map<String, int> map = {if (b) 1: 1};               //# 02: compile-time error
+  Map<String, int> map = {if (!b) "1": 1.0,};         //# 03: compile-time error
+  Map<String, int> map = {if (!b) 1: 1};              //# 04: compile-time error
+  Map<String, int> map = {if (b) for (var v in collection) if (v > 3) "$v": "$v",}; //# 05: compile-time error
+  Map<String, int> map = {if (b) for (var v in collection) if (v > 3) v: v,};       //# 06: compile-time error
+  Map<String, int> map = {if (!b) for (var v in collection) if (v > 3) "$v": "$v"}; //# 07: compile-time error
+  Map<String, int> map = {if (!b) for (var v in collection) if (v > 3) v: v,};      //# 08: compile-time error
 
-  Map map = <String, int>{if (b) "1", 1.0};           //# 09: compile-time error
-  Map map = <String, int>{if (b) 1, 1};               //# 10: compile-time error
-  Map map = <String, int>{if (!b) "1", 1.0,};         //# 11: compile-time error
-  Map map = <String, int>{if (!b) 1, 1};              //# 12: compile-time error
-  Map map = <String, int>{if (b) for (var v in collectionNum) if (v > 3) "$v": v,}; //# 13: compile-time error
-  Map map = <String, int>{if (b) for (var v in collectionInt) if (v > 3) v: v,};    //# 14: compile-time error
-  Map map = <String, int>{if (!b) for (var v in collectionNum) if (v > 3) "$v": v}; //# 15: compile-time error
-  Map map = <String, int>{if (!b) for (var v in collectionInt) if (v > 3) v: v,};   //# 16: compile-time error
+  Map map = <String, int>{if (b) "1": 1.0};           //# 09: compile-time error
+  Map map = <String, int>{if (b) 1: 1};               //# 10: compile-time error
+  Map map = <String, int>{if (!b) "1": 1.0,};         //# 11: compile-time error
+  Map map = <String, int>{if (!b) 1: 1};              //# 12: compile-time error
+  Map map = <String, int>{if (b) for (var v in collection) if (v > 3) "$v": "$v",}; //# 13: compile-time error
+  Map map = <String, int>{if (b) for (var v in collection) if (v > 3) v: v,};    //# 14: compile-time error
+  Map map = <String, int>{if (!b) for (var v in collection) if (v > 3) "$v": "$v"}; //# 15: compile-time error
+  Map map = <String, int>{if (!b) for (var v in collection) if (v > 3) v: v,};   //# 16: compile-time error
 
   const map = <String, int>{if (1 > 2) "1": 1.0};     //# 17: compile-time error
   const map = <String, int>{if (2 > 1) "1": 1.0,};    //# 18: compile-time error
