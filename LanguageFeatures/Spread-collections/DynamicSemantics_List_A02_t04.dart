@@ -48,9 +48,12 @@ class MyIterator extends Iterator {
   dynamic get current { return list[i]; }
 }
 
+List aList = [11, 28];
+Set aSet = {};
+
 Iterable it1 = new MyIterable([1, 2, 3, 4, 5]);
-Iterable it2 = new MyIterable(["a", "14", "1", "2", null, 143, [11]]);
-Iterable it3 = [100, 200, {}, [123,4], 300];
+Iterable it2 = new MyIterable(["a", "14", "1", "2", null, 143, aList]);
+Iterable it3 = [100, 200, aSet, aList, 300];
 Iterable it4 = [];
 Iterable it5 = null;
 
@@ -61,6 +64,6 @@ main() {
       [-1, -2, -3, 1, 2, 3, 4, 5, 6, 7], [-1, -2, -3, ...?it1, 6, 7]);
   Expect.listEquals([1, 2, 3], [1, ...it4, 2, ...?it4, 3, ...?it5]);
   Expect.listEquals([-9, -8, 1, 2, 3, 4, 5, -7, "a", "14", "1", "2", null, 143,
-          [11], -6, 100, 200, {}, [123,4], 300, -5, -4, -3, -2],
+          aList, -6, 100, 200, aSet, aList, 300, -5, -4, -3, -2],
       [-9, -8, ...it1, -7, ...?it2, -6, ...it3, -5, -4, ...it4, -3, -2]);
 }

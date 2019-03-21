@@ -24,11 +24,13 @@ main() {
   const res4 = [...?{"not"}];
   Expect.listEquals(["not"], res4);
 
-  const res5 = [1, 2, ...[1, 2, 3], 4, 15, 1, ...[null], ...{12345}, [1, 2, 3]];
-  Expect.listEquals([1, 2, 1, 2, 3, 4, 15, 1, null, 12345, [1, 2, 3]], res5);
-  const res6 = [1, 2, 3, ...[4, 5, 6], ...?[7, 8, 9], [1, 2, 3]];
-  Expect.listEquals([1, 2, 3, 4, 5, 6, 7, 8, 9, [1, 2, 3]], res6);
+  const List aList = const [1, 2, 3];
+  const res5 = [1, 2, ...[1, 2, 3], 4, 15, 1, ...[null], ...{12345}, aList];
+  Expect.listEquals([1, 2, 1, 2, 3, 4, 15, 1, null, 12345, aList], res5);
+  const res6 = [1, 2, 3, ...[4, 5, 6], ...?[7, 8, 9], aList];
+  Expect.listEquals([1, 2, 3, 4, 5, 6, 7, 8, 9, aList], res6);
 
-  const res7 = [[1, 2, 3, ...[4, 5, 6], ...?{7, 8, 9}, {1, 2, 3}]];
-  Expect.listEquals([1, 2, 3, 4, 5, 6, 7, 8, 9, {1, 2, 3}], res7);
+  const Set aSet = {1, 2, 3};
+  const res7 = [1, 2, 3, ...[4, 5, 6], ...?{7, 8, 9}, aSet];
+  Expect.listEquals([1, 2, 3, 4, 5, 6, 7, 8, 9, aSet], res7);
 }
