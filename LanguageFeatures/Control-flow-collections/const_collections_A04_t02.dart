@@ -49,18 +49,18 @@ main() {
   const set5 = {if (t) 2 else (null as String).length, -1 };
   Expect.setEquals({2, -1}, set5);
 
-  Map<int, String> map1 = const {if (t) 2: "1" else (null as String).length: "1"};
+  Map<int, String> map1 = const {if (t) 2: "1" else (null as String).length: "x"};
   Expect.mapEquals({2: "1"}, map1);
 
-  const Map<int, String> map2 = {if (!t) (null as String).length: "x" else 2: "x"};
+  const Map<int, String> map2 = {if (!t) (null as String).length: "x" else 2: "1"};
   Expect.mapEquals({2: "1"}, map2);
 
-  var map3 = const {if (t) 2: "x" else (null as String).length: "x"};
-  Expect.mapEquals({2: "1"}, map3);
+  var map3 = const {if (t) 2: "x" else (null as String).length: "1"};
+  Expect.mapEquals({2: "x"}, map3);
 
-  var map4 = const <int, String>{if (t) 2: "x" else (null as String).length: "x"};
-  Expect.mapEquals({2: "1"}, map4);
+  var map4 = const <int, String>{if (t) 2: "x" else (null as String).length: "1"};
+  Expect.mapEquals({2: "x"}, map4);
 
-  const map5 = {if (t) 2: "x" else (null as String).length: "x"};
-  Expect.mapEquals({2: "1"}, map5);
+  const map5 = {if (t) 2: "x" else (null as String).length: "1"};
+  Expect.mapEquals({2: "x"}, map5);
 }
