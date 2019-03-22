@@ -50,7 +50,6 @@ main() {
   Expect.isTrue(set1exp is Set<int>);
 
   var set1 = <int>{for (var i = 1; i < 10; i += 3) i};
-  // set1exp {1, 4, 7}
   Expect.isTrue(set1 is Set<int>);
   Expect.setEquals(set1exp, set1);
 
@@ -61,7 +60,6 @@ main() {
   Expect.isTrue(set2exp is Set<double>);
 
   var set2 = <double>{for (var i = 1.1; i < 10; i += 5) i + 2};
-  // set2exp {3.1, 8.1}
   Expect.isTrue(set2 is Set<double>);
   Expect.setEquals(set2exp, set2);
 
@@ -74,9 +72,8 @@ main() {
   }
   Expect.isTrue(set3exp is Set<num>);
 
-  var set3 = <num>{for (var i = 1.1; i < 10; i += 5) i,
+  var set3 = <num>{for (var i = 1.1; i < 10; i += 5) i + 2,
       for (var i = 2; i < 6; i++) i + 3};
-  // set2exp {3.1, 8.1, 5, 6, 7, 8}
   Expect.isTrue(set3 is Set<num>);
   Expect.setEquals(set3exp, set3);
 
@@ -84,19 +81,8 @@ main() {
   for (var i = 1; i < 4; i++) {
     set4exp.add(() => i);
   }
-  Expect.isTrue(set4exp is Set<Function>);
-
-  var set4expRes = <int>[];
-  for (var v in set4exp.toList()) {
-    set4expRes.add(v());
-  }
 
   var set4 = <Function>{for (var i = 1; i < 4; i++) () => i};
-  // set4exp {Closure: () => int, Closure: () => int, Closure: () => int}
   Expect.isTrue(set4 is Set<Function>);
-  var set4res = <int>[];
-  for (var v in set4.toList()) {
-    set4res.add(v());
-  }
-  Expect.listEquals(set4expRes, set4res);
+  Expect.setEquals(set4exp, set4);
 }
