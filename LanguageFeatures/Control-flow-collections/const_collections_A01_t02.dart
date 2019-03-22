@@ -21,7 +21,7 @@ main() {
   List<int> list1 = const [if (1 > 0) 1, 1 ];
   Expect.listEquals([1, 1], list1);
   List<int> list2 = const [if (1 > 0) x, 2 ];
-  Expect.listEquals([1, 2], list2);
+  Expect.listEquals([x, 2], list2);
   const List<int> list3 = [if (-1 > 0) 1, 1 ];
   Expect.listEquals([1], list3);
   const List<int> list4 = [if (1 > 0) 1, if (false) -1 ];
@@ -46,7 +46,7 @@ main() {
   const Set<int> set3 = {if (x > 0) 1, -1 };
   Expect.setEquals({1, -1}, set3);
   const Set<int> set4 = {if (-1 > 0) x, -1 };
-  Expect.setEquals({0}, set4);
+  Expect.setEquals({-1}, set4);
   var set5 = const {if (x > 0) 1, -1, };
   Expect.setEquals({1, -1}, set5);
   var set6 = const {if (1 > 0) x, -1, };
