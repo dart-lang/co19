@@ -52,7 +52,6 @@ main() {
   Expect.isTrue(map1exp is Map<int, int>);
 
   var map1 = <int, int>{for (var i = 1; i < 10; i += 3) i: i + 1};
-  // map1exp {1: 2, 4: 5, 7: 8}
   Expect.isTrue(map1 is Map<int, int>);
   Expect.mapEquals(map1exp, map1);
 
@@ -63,9 +62,8 @@ main() {
   Expect.isTrue(map2exp is Map<int, double>);
 
   var map2 = <int, double>{for (var i = 1; i < 10; i += 5) i: i + .5};
-  // map2exp {1: 1.5, 6: 6.5}
   Expect.isTrue(map2 is Map<int, double>);
-  Expect.listEquals(map2exp, map2);
+  Expect.mapEquals(map2exp, map2);
 
   var map3exp = <double, int>{};
   for (var i = 1; i < 10; i += 5) {
@@ -74,9 +72,8 @@ main() {
   Expect.isTrue(map3exp is Map<double, int>);
 
   var map3 = <double,int>{for (var i = 1; i < 10; i += 5) i + 1.5: i};
-  // map3exp {2.5: 1, 7.5: 6}
   Expect.isTrue(map3 is Map<double, int>);
-  Expect.listEquals(map3exp, map3);
+  Expect.mapEquals(map3exp, map3);
 
   var map4exp = <num, num>{};
   for (var i = 1.1; i < 10; i += 5) {
@@ -89,36 +86,14 @@ main() {
 
   var map4 = <num, num>{for (var i = 1.1; i < 10; i += 5) i: i + 2,
       for (var i = 2; i < 6; i++) i: i + 3};
-  // map4exp {1.1: 3.1, 6.1: 8.1, 2: 5, 3: 6, 4: 7, 5: 8}
   Expect.isTrue(map4 is Map<num, num>);
-  Expect.listEquals(map4exp, map4);
+  Expect.mapEquals(map4exp, map4);
 
   var map5exp = <int, Function>{};
   for (var i = 1; i < 4; i++) {
     map5exp[i] = () => i + 10;
   }
-  Expect.isTrue(map5exp is Map<int, Function>);
-  var map5expResK = <int>[];
-  for (var v in map5exp.keys) {
-    map5expResK.add(v);
-  }
-  var map5expRes = <int>[];
-  for (var v in map5exp.values) {
-    map5expRes.add(v());
-  }
-
   var map5 = <int, Function>{for (var i = 1; i < 4; i++) i: () => i + 10};
-  // map5exp
-  //   {1: Closure: () => int, 2: Closure: () => int, 3: Closure: () => int}
   Expect.isTrue(map5 is Map<int, Function>);
-  var map5resK = <int>[];
-  for (var v in map5.keys) {
-    map5resK.add(v);
-  }
-  var map5res = <int>[];
-  for (var v in map5.values) {
-    map5res.add(v());
-  }
-  Expect.listEquals(map5expResK, map5resK);
-  Expect.listEquals(map5expRes, map5res);
+  Expect.mapEquals(map5exp, map5);
 }
