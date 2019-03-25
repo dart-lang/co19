@@ -33,6 +33,6 @@ main() {
   var a;
   Expect.throws(() => a = <String, int>{...objects});
 
-  var strings = <String>[];
+  dynamic strings = <String>[];
   Expect.throws(() => a = <int, int>{11: 12, ...strings});
 }
