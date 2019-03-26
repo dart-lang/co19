@@ -12,33 +12,23 @@
  * the operator is added, it should then also work in a constant expression.
  * @description Checks that operator [>>>] is accepted in potentially constant
  * expressions.
- * @Issue 30886
+ * @description Checks that arguments of [>>>] operator should be int.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
-import "../../Utils/expect.dart";
 
 class MyClass {
   final int a;
-  const MyClass(int i1, int i2) : a = (i1 >>> i2);
+  const MyClass(i1, i2) : a = (i1 >>> i2);
 }
 
 main() {
-  const MyClass c1 = MyClass(-2, 1);
-  Expect.equals(-2 >>> 1, c1.a);
+  const MyClass c1 = MyClass(123, 456);
+  const MyClass c2 = MyClass(1, -14);
+  const MyClass c3 = MyClass(-128, -0);
 
-  const MyClass c2 = MyClass(125, 2);
-  Expect.equals(125 >>> 2, c2.a);
-
-  const MyClass c3 = MyClass(c2.a, 1000);
-  Expect.equals(c2.a >>> 1000, c3.a);
-
-  const MyClass c4 = MyClass(4, 1);
-  Expect.equals(4 >>> 1, c4.a);
-
-  const MyClass c5 = MyClass(0, c3.a);
-  Expect.equals(0 >>> c3.a, c5.a);
-
-  const MyClass c6 = MyClass(1, 0);
-  Expect.equals(1 >>> 0, c6.a);
+  const MyClass c4 = MyClass(1.0, 1);       //# 01: compile-time error
+  const MyClass c5 = MyClass(125.12, 2);    //# 02: compile-time error
+  const MyClass c6 = MyClass("abcd", 2);    //# 03: compile-time error
+  const MyClass c7 = MyClass(12, "testme"); //# 04: compile-time error
 }

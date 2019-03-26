@@ -10,35 +10,17 @@
  * operator has not been added to the [int] class yet, so unless the left-hand
  * operand's static type is [dynamic], the program will still be rejected. When
  * the operator is added, it should then also work in a constant expression.
- * @description Checks that operator [>>>] is accepted in potentially constant
- * expressions.
+ * @description Checks that arguments of [>>>] operator should be int.
  * @Issue 30886
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
-import "../../Utils/expect.dart";
-
-class MyClass {
-  final int a;
-  const MyClass(int i1, int i2) : a = (i1 >>> i2);
-}
 
 main() {
-  const MyClass c1 = MyClass(-2, 1);
-  Expect.equals(-2 >>> 1, c1.a);
-
-  const MyClass c2 = MyClass(125, 2);
-  Expect.equals(125 >>> 2, c2.a);
-
-  const MyClass c3 = MyClass(c2.a, 1000);
-  Expect.equals(c2.a >>> 1000, c3.a);
-
-  const MyClass c4 = MyClass(4, 1);
-  Expect.equals(4 >>> 1, c4.a);
-
-  const MyClass c5 = MyClass(0, c3.a);
-  Expect.equals(0 >>> c3.a, c5.a);
-
-  const MyClass c6 = MyClass(1, 0);
-  Expect.equals(1 >>> 0, c6.a);
+  const c1 = -2 >>> 1.79;   //# 01: compile-time error
+  const c2 = 188.0 >>> 2;   //# 02: compile-time error
+  const c3 = "abcd" >>> 11; //# 03: compile-time error
+  const c4 = 1 >>> "abcd";  //# 04: compile-time error
+  const c5 = 1880000000000000000000000000000000000000000 >>> 2; //# 05: compile-time error
+  const c6 = 24 >>> 1000000000000000000000000000000000;         //# 06: compile-time error
 }
