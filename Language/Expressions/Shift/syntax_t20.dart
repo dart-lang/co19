@@ -16,14 +16,23 @@
  * ;
  * A shift expression is either an additive expression, or an invocation
  * of a shift operator on either super or an expression e1, with argument e2.
- * @description Checks that a reference to a type alias declaration cannot be
- * used as the second operand of a shift expression without a compile error.
+ * @description Checks that [super] can be used only as the first operand in
+ * a shift expression.
  * @compile-error
- * @author kaigorodov
+ * @author iarkh@unipro.ru
  */
 
-typedef void proc();
+class S {}
+
+class A extends S {
+  test() {
+    try {
+      1 >> super;
+    } catch (e) {}
+  }
+}
 
 main() {
-  2 >> proc;
+  A a = new A();
+  a.test();
 }

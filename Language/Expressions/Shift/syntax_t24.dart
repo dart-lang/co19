@@ -17,13 +17,13 @@
  * A shift expression is either an additive expression, or an invocation
  * of a shift operator on either super or an expression e1, with argument e2.
  * @description Checks that a reference to a type alias declaration cannot be
- * used as the second operand of a shift expression without a compile error.
+ * used as the first operand of a shift expression without a compile error
  * @compile-error
- * @author kaigorodov
+ * @author iarkh@unipro.ru
  */
 
 typedef void proc();
 
 main() {
-  2 >> proc;
+  proc >>> 1;
 }

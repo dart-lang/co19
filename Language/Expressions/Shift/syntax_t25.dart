@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -19,11 +19,11 @@
  * @description Checks that a reference to a type alias declaration cannot be
  * used as the second operand of a shift expression without a compile error.
  * @compile-error
- * @author kaigorodov
+ * @author iarkh@unipro.ru
  */
 
 typedef void proc();
 
 main() {
-  2 >> proc;
+  2 >>> proc;
 }
