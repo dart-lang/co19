@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -14,12 +14,11 @@
  * @description Checks that various expressions of the specified forms can be
  * used within the initializer list of a constant constructor and are,
  * therefore, constant expressions.
- * @author iefremov
- * @reviewer rodionov
+ * @author iefremov, iarkh@unipro.ru
  */
 
 class C {
-  final a, b, c, d, e, f, g;
+  final a, b, c, d, e, f, g, h;
 
   const C() :
     a = ~1,
@@ -28,7 +27,8 @@ class C {
     d = 0xDEAD | 0xBEEF,
     e = 1 >> 100,
     f = 100 << 1,
-    g = ~(((1 + 2) ~/ 2) & (100500 >> 2))  | (~1 ^ (1 << 2));
+    g = ~(((1 + 2) ~/ 2) & (100500 >> 2))  | (~1 ^ (1 << 2)),
+    h = 12345 >>> 123;
 }
 
 main() {
