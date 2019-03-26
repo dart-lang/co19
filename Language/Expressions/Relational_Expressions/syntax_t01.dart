@@ -20,6 +20,7 @@
  * a relational operator on either super or an expression e1, with argument e2.
  * @description Checks that various expressions fitted into this grammar
  * don't cause compile-time errors.
+ * @Issue #36343
  * @author msyabro, iarkh@unipro.ru
  */
 import '../../../Utils/expect.dart';
