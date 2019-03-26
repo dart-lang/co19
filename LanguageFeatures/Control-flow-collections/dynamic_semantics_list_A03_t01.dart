@@ -60,24 +60,12 @@ import "../../Utils/expect.dart";
 main() async {
   var l1 = [1, 2];
   var l2 = [null, 4.1, false];
-  var list1exp = [];
+  var list1exp = [1, 2, null, 4.1, false];
 
   var s1 = new Stream.fromIterable(l1);
-  StreamIterator n0 = new StreamIterator(s1);
-  while (await n0.moveNext()) {
-    var id = n0.current;
-    list1exp.add(id);
-  }
   var s2 = new Stream.fromIterable(l2);
-  n0 = StreamIterator(s2);
-  while (await n0.moveNext()) {
-    var id = n0.current;
-    list1exp.add(id);
-  }
-  Expect.isTrue(list1exp is List<dynamic>);
 
   var list1 = [await for (var v in s1) v, await for (var v in s2) v];
-  // list1exp [1, 2, null, 4.1, false]
-  Expect.isTrue(list1 is List<dynamic>);
+  Expect.isTrue(list1 is List<Object>);
   Expect.listEquals(list1exp, list1);
 }

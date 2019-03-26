@@ -54,24 +54,12 @@ import "../../Utils/expect.dart";
 main() async {
   var l1 = [1, 2];
   var l2 = [3.1, false, null];
-  var set1exp = new Set();
+  var set1exp = {1, 2, 3.1, false, null};
 
   var s1 = new Stream.fromIterable(l1);
-  StreamIterator n0 = new StreamIterator(s1);
-  while (await n0.moveNext()) {
-    var id = n0.current;
-    set1exp.add(id);
-  }
   var s2 = new Stream.fromIterable(l2);
-  n0 = new StreamIterator(s2);
-  while (await n0.moveNext()) {
-    var id = n0.current;
-    set1exp.add(id);
-  }
-  Expect.isTrue(set1exp is Set<dynamic>);
 
   var set1 = {await for (var v in s1) v, await for (var v in s2) v};
-  // set1exp {1, 2, 3.1, false, null}
+  Expect.isTrue(set1 is Set<Object>);
   Expect.setEquals(set1exp, set1);
-  Expect.isTrue(set1 is Set<dynamic>);
 }

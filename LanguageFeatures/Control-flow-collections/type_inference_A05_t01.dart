@@ -17,33 +17,37 @@
 import "../../Utils/expect.dart";
 
 main() {
-  Map<List<String>, List<int>> map1 = {
-    if (true) []: [],
-    if (false) []: [] else ["2"]: [2],
-    for (var i = 0; i < 1; i++) ["$i"]: [i]
+  Map<num, List<int>> map1 = {
+    if (true) 11: [],
+    if (false) 1: [] else 22: [],
+    for (var i = 0; i < 1; i++) $i: []
   };
-  Expect.isTrue(map1 is Map<List<String>, List<int>>);
-  Expect.mapEquals({[]: [], ["2"]: [2], ["1"]: [1]}, map1);
+  Expect.isTrue(map1 is Map<num, List<int>>);
+  Expect.isFalse(map1 is Map<int, List<int>>);
+  Expect.mapEquals({11: [], 22: [], 0: []}, map1);
 
-  var map2 = <List<String>, List<int>> {
-    if (true) []: [],
-    if (false) []: [] else ["2"]: [2],
-    for (var i = 0; i < 1; i++) ["$i"]: [i]
+  var map2 = <num, List<int>> {
+    if (true) 11: [],
+    if (false) 1: [] else 22: [],
+    for (var i = 0; i < 1; i++) $i: []
   };
-  Expect.isTrue(map2 is Map<List<String>, List<int>>);
-  Expect.mapEquals({[]: [], ["2"]: [2], ["1"]: [1]}, map2);
+  Expect.isTrue(map2 is Map<num, List<int>>);
+  Expect.isFalse(map2 is Map<int, List<int>>);
+  Expect.mapEquals({11: [], 22: [], 0: []}, map2);
 
-  var map3 = const <List<String>, List<int>> {
-    if (true) []: [],
-    if (false) []: [] else ["1"]: [2],
+  var map3 = const <num, List<int>> {
+    if (true) 1: [],
+    if (false) 2: [] else 3: [],
   };
-  Expect.isTrue(map3 is Map<List<String>, List<int>>);
-  Expect.mapEquals({[]: [], ["1"]: [2]}, map3);
+  Expect.isTrue(map3 is Map<num, List<int>>);
+  Expect.isFalse(map2 is Map<int, List<int>>);
+  Expect.mapEquals({1: [], 3: []}, map3);
 
-  const map4 = <List<String>, List<int>> {
-    if (true) []: [],
-    if (false) []: [] else ["1"]: [2],
+  const map4 = <num, List<int>> {
+    if (true) 1: [],
+    if (false) 2: [] else 3: [],
   };
-  Expect.isTrue(map4 is Map<List<String>, List<int>>);
-  Expect.mapEquals({[]: [], ["1"]: [2]}, map4);
+  Expect.isTrue(map4 is Map<num, List<int>>);
+  Expect.isFalse(map4 is Map<int, List<int>>);
+  Expect.mapEquals({1: [], 3: []}, map4);
 }
