@@ -26,7 +26,7 @@ main() {
   Expect.isTrue(list1 is List<List<String>>);
   Expect.listEquals([[], [], []], list1);
 
-  var list2 = <List<List<int>>> [
+  var list2 = <List<int>> [
     if (true) [],
     if (false) [] else [],
     for (var i = 0; i < 1; i++) []
@@ -34,14 +34,14 @@ main() {
   Expect.isTrue(list2 is List<List<int>>);
   Expect.listEquals([[], [], []], list2);
 
-  var list3 = const <List<List<String>>> [
+  var list3 = const <List<String>> [
     if (true) [],
     if (false) [] else [],
   ];
   Expect.isTrue(list3 is List<List<String>>);
   Expect.listEquals([[], [], []], list3);
 
-  const list4 = <List<List<C>>> [
+  const list4 = <List<C>> [
     if (true) [],
     if (false) [] else []
   ];
