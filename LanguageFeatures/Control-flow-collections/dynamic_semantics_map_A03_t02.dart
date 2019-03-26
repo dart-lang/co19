@@ -54,39 +54,18 @@
 import "dart:async";
 import "../../Utils/expect.dart";
 
-Future<Stream> readStream(stream, map) async {
-  Completer<Stream> completer = new Completer<Stream>();
-  Future<Stream> f = completer.future;
-  bool firstRead = map.isEmpty;
-  stream.listen((event) {
-    if (firstRead) {
-      map[event.key] = event.value;
-    } else {
-      map[event.key] = event.value + 'n';
-    }
-  }).onDone(() {
-    completer.complete(stream);
-    return f;
-  });
-  return f;
-}
-
 main() async {
   var m1 = [MapEntry(1, 'a'), MapEntry(2, 'b'), MapEntry(3, 'c'),
       MapEntry(4, 'd'), MapEntry(5, 'e')
   ];
   var m2 = [MapEntry(11, 'abc'), MapEntry(12, 'def')];
-  var map1exp = <int, String>{};
+  var map1exp = <int, String>{1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e', 11: 'abcn', 12: 'defn'};
 
   var s1 = new Stream.fromIterable(m1);
-  await readStream(s1, map1exp);
   var s2 = new Stream.fromIterable(m2);
-  await readStream(s2, map1exp);
-  Expect.isTrue(map1exp is Map<int, String>);
 
   var map1 = <int, String>{await for (var v in s1) v.key: v.value,
       await for (var v in s2) v.key: v.value + 'n'};
-  // map1exp {1: a, 2: b, 3: c, 4: d, 5: e, 11: abcn, 12: defn}
-  Expect.mapEquals(map1exp, map1);
   Expect.isTrue(map1 is Map<int, String>);
+  Expect.mapEquals(map1exp, map1);
 }

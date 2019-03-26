@@ -58,25 +58,13 @@ main() async {
   var m1 = [MapEntry(1, 'a'), MapEntry(2, 'b'), MapEntry(3, 'c'),
       MapEntry(4, 'd')];
   var m2 = [MapEntry(true, 3.5), MapEntry(null, 3), MapEntry(4.1, false)];
-  var map1exp = {};
+  var map1exp = {1: 'a', 2: 'b', 3: 'c', 4: 'd', true: 3.5, null: 3, 4.1: false};
 
   var s1 = new Stream.fromIterable(m1);
-  StreamIterator n0 = new StreamIterator(s1);
-  while (await n0.moveNext()) {
-    var id = n0.current;
-    map1exp[id.key] = id.value;
-  }
   var s2 = new Stream.fromIterable(m2);
-  n0 = new StreamIterator(s2);
-  while (await n0.moveNext()) {
-    var id = n0.current;
-    map1exp[id.key] = id.value ;
-  }
-  Expect.isTrue(map1exp is Map<dynamic, dynamic>);
 
   var map1 = {await for (var v in s1) v.key: v.value,
       await for (var v in s2) v.key: v.value};
-  // map1exp {1: a, 2: b, 3: c, 4: d, true: 3.5, null: 3, 4.1: false}
+  Expect.isTrue(map1 is Map<Object, Object>);
   Expect.mapEquals(map1exp, map1);
-  Expect.isTrue(map1 is Map<int, String>);
 }

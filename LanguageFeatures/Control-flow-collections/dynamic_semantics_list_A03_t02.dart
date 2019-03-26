@@ -57,36 +57,15 @@
 import "dart:async";
 import "../../Utils/expect.dart";
 
-Future<Stream> readStream(stream, list) async {
-  Completer<Stream> completer = new Completer<Stream>();
-  Future<Stream> f = completer.future;
-  bool firstRead = list.isEmpty;
-  stream.listen((event) {
-    if (firstRead) {
-      list.add(event);
-    } else {
-      list.add(event + 1);
-    }
-  }).onDone(() {
-    completer.complete(stream);
-    return f;
-  });
-  return f;
-}
-
 main() async {
   var l1 = [1, 2];
   var l2 = [3, 4, 5];
-  var list1exp = <int>[];
+  var list1exp = <int>[1, 2, 4, 5, 6];
 
   var s1 = new Stream.fromIterable(l1);
-  await readStream(s1, list1exp);
   var s2 = new Stream.fromIterable(l2);
-  await readStream(s2, list1exp);
-  Expect.isTrue(list1exp is List<int>);
 
   var list1 = <int>[await for (var v in s1) v, await for (var v in s2) v + 1];
-  // list1exp [1, 2, 4, 5, 6]
   Expect.isTrue(list1 is List<int>);
   Expect.listEquals(list1exp, list1);
 }
