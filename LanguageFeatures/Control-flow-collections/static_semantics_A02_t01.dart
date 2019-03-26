@@ -18,7 +18,7 @@ import "../../Utils/expect.dart";
 
 main() {
   bool b = true;
-  List collection = [3, 1, 4, 1, 5];
+  var collection = [3, 1, 4, 1, 5];
 
   Map<String, int> map1 = {
     if (b) "1": 1,
@@ -51,7 +51,7 @@ main() {
     "3": 3,
   };
   Expect.isTrue(map4 is Map<String, num>);
-  Expect.isFalse(map4 is List<int>);
+  Expect.isFalse(map4 is Map<String, int>);
 
   var map5 = const {
     if (2 > 1) 1: "1",
