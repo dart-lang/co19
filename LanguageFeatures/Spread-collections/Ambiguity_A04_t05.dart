@@ -30,6 +30,6 @@ main() {
   Expect.isTrue(res1 is Map);
 
   var res2;
-  Expect.throws(() => res2 = <int>{...aList});
-  Expect.throws(() => res2 = <int>{...aSet});
+  Expect.throws(() => res2 = <int, int>{...aList});
+  Expect.throws(() => res2 = <int, int>{...aSet});
 }

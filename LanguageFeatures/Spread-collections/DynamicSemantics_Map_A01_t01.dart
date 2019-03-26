@@ -11,8 +11,8 @@
  *     [LinkedHashMap<K, V>].
  *     ...
  *   3. The result of the map literal expression is [map].
- * @description Checks that instance of [HashMap<K, V>] is created for a map
- * literal
+ * @description Checks that instance of [LinkedHashMap<K, V>] is created for a
+ * map literal
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
@@ -26,15 +26,18 @@ main() {
   Map map3 = null;
   Map map4 = {1: "a", 2: "2", 3: "three", 4: "checkme"};
 
-  Expect.isTrue(<int, int>{...map1} is HashMap<int, int>);
-  Expect.isTrue(<int, Object>{...map1} is HashMap<int, Object>);
-  Expect.isTrue(<Object, Object>{...map1} is HashMap<Object, Object>);
-  Expect.isTrue(<int, Object>{1: "a", 2: "b", ...map1} is HashMap<int, Object>);
-  Expect.isTrue(<int, num>{1: 0, ...?map1, 14: 6, 9: 9} is HashMap<int, num>);
-  Expect.isTrue(<int, String>{...map2, 1: "123"} is HashMap<int, String>);
-  Expect.isTrue(<int, String>{...?map2} is HashMap<int, String>);
-  Expect.isTrue(<int, String>{...map2} is HashMap<int, String>);
-  Expect.isTrue(<int, String>{...?map3, 1: "123"} is HashMap<int, String>);
-  Expect.isTrue(<int, String>{...?map3} is HashMap<int, String>);
-  Expect.isTrue({...map4} is HashMap<Object, Object>);
+  Expect.isTrue(<int, int>{...map1} is LinkedHashMap<int, int>);
+  Expect.isTrue(<int, Object>{...map1} is LinkedHashMap<int, Object>);
+  Expect.isTrue(<Object, Object>{...map1} is LinkedHashMap<Object, Object>);
+  Expect.isTrue(
+      <int, Object>{1: "a", 2: "b", ...map1} is LinkedHashMap<int, Object>);
+  Expect.isTrue(
+      <int, num>{1: 0, ...?map1, 14: 6, 9: 9} is LinkedHashMap<int, num>);
+  Expect.isTrue(<int, String>{...map2, 1: "123"} is LinkedHashMap<int, String>);
+  Expect.isTrue(<int, String>{...?map2} is LinkedHashMap<int, String>);
+  Expect.isTrue(<int, String>{...map2} is LinkedHashMap<int, String>);
+  Expect.isTrue(
+      <int, String>{...?map3, 1: "123"} is LinkedHashMap<int, String>);
+  Expect.isTrue(<int, String>{...?map3} is LinkedHashMap<int, String>);
+  Expect.isTrue({...map4} is LinkedHashMap<Object, Object>);
 }

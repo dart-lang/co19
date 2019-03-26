@@ -45,7 +45,6 @@ main() {
   Set set;
   List list;
   List list1 =[1, 2, 3];
-  int i;
 
   Set a;
   Expect.throws(() => a = {...set});
@@ -54,6 +53,5 @@ main() {
 
   Expect.throws(() => a = {...list});
   Expect.throws(() => a = {"testme", ...list});
-  Expect.throws(() => a = {"abc", ...list1,  i});
 }
 

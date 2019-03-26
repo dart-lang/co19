@@ -32,7 +32,7 @@ Set getASet(
 
 main() {
   Expect.setEquals(
-      {"enginePath", "--target=flutter", "--option1", "--option1", "mainPath"},
+      {"enginePath", "--target=flutter", "--option1", "--option2", "mainPath"},
       getASet("enginePath", ["--option1", "--option2"], "mainPath"));
   Expect.setEquals({"enginePath", "--target=flutter", "mainPath"},
       getASet("enginePath", null, "mainPath"));

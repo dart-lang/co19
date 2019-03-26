@@ -54,7 +54,7 @@ main() {
   Set res1 = {...set1, ...?list2};
   Set res2 = {...?list2, ...list1};
   Set res3 = {...?map, ...list1};
-  Set res4 = {...list2, ...?i};
+  Set res4 = {...?list2, ...?i};
   Set res5 = {...i, ...?map};
   Set res6 = {...set1, ...list1, ...?list2, ...?map, ...i};
   Set res7 = {...?set1, ...?list1, ...?list2, ...?map, ...?i};
