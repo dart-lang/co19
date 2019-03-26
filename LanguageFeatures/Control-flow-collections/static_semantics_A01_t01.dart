@@ -18,7 +18,7 @@ import "../../Utils/expect.dart";
 
 main() {
   bool b = true;
-  List collection = [3, 1, 4, 1, 5];
+  var collection = [3, 1, 4, 1, 5];
 
   List<int> list1 = [
     if (b) 1,
