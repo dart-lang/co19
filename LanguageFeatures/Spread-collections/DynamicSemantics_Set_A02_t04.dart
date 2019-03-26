@@ -26,11 +26,11 @@ import "dart:collection";
 import "../../Utils/expect.dart";
 
 class MyIterable extends IterableBase {
-  MyIterator iterator;
+  List list;
 
-  MyIterable(List list) { iterator = new MyIterator(list); }
+  MyIterable(this.list);
 
-  Iterator getIterator() { return iterator; }
+  Iterator get iterator => MyIterator(list);
 }
 
 class MyIterator extends Iterator {

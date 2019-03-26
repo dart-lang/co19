@@ -15,11 +15,10 @@
 import "dart:collection";
 
 class MyIterable extends IterableBase {
-  MyIterator iterator;
 
-  MyIterable() { iterator = new MyIterator(); }
+  MyIterable();
 
-  Iterator getIterator() { return iterator; }
+  Iterator get iterator => MyIterator();
 }
 
 class MyIterator extends Iterator {
