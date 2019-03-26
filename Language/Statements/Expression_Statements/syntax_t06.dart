@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -15,8 +15,7 @@
  * type arguments appears in a place where a statement is expected.
  * @description Checks that any expression except a map literal can form a
  * statement.
- * @author iefremov
- * @reviewer rodionov
+ * @author iefremov, iarkh@unipro.ru
  */
 
 var v;
@@ -106,6 +105,9 @@ main() {
   i << 1;
   i >> 0;
 
+  //triple shift
+  i >>> 0;
+
   //relational
   i < 0;
   i > 1;
@@ -144,6 +146,7 @@ main() {
   int j = 2;
   j <<= 1;
   j >>= 2;
+  j >>>= 1;
   j &=  42;
   j ^=  2;
   j |=  17;

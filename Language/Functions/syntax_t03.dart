@@ -128,6 +128,9 @@ main() {
   f_shift() => x << 1;
   g_shift() => y >> 2;
 
+  //Triple shift
+  triple_shift() => y >>> 2;
+
   //Additive expressions
   f_additive() => x + y;
   g_additive() => x - y;
@@ -233,6 +236,9 @@ main() {
   //Shift
   f_shift();
   g_shift();
+
+  //Triple shift
+  triple_shift();
 
   //Additive expressions
   f_additive();

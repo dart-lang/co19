@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -17,8 +17,7 @@
  * an equality operator on either super or an expression e1, with argument e2.
  * @description Checks that various equality expression which are valid
  * according to this grammar don't cause compile-time errors.
- * @author msyabro
- * @reviewer rodionov
+ * @author msyabro, iarkh@unipro.ru
  */
 
 topLevelFunction() {}
@@ -57,6 +56,9 @@ class A extends S {
     //shift expressions
     try {1 >> -1 != () {};} catch (e) {}
     try {1 << 2 != null >> null;} catch (e) {}
+
+    //triple shift expressions
+    try {1 >>> -1 != () {};} catch (e) {}
 
     //additive expressions
     try { 1 + 2 == 2;} catch (e) {}

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -20,8 +20,7 @@
  * a relational operator on either super or an expression e1, with argument e2.
  * @description Checks that various expressions fitted into this grammar
  * don't cause compile-time errors.
- * @author msyabro
- * @reviewer rodionov
+ * @author msyabro, iarkh@unipro.ru
  */
 import '../../../Utils/expect.dart';
 
@@ -53,6 +52,10 @@ class A extends S {
     // additive and multiplicative expressions are allowed arguments
     // for a shift expression
     try {super >= 1 + 1 >> 2 * 2;} catch (e) {}
+
+    // additive and multiplicative expressions are allowed arguments
+    // for a triple shift expression
+    try {super >= 1 + 1 >>> 2 * 2;} catch (e) {}
 
     //literal is primary is postfix expr. is shift expr.
     try {this <= 0.25;} catch (e) {}

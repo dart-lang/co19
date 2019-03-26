@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -16,8 +16,7 @@
  * value. Each key and each value is denoted by an expression.
  * @description Checks that various map keys don't produce a compile-time
  * errors.
- * @author msyabro
- * @reviewer kaigorodov
+ * @author msyabro, iarkh@unipro.ru
  */
 
 topFunc() {}
@@ -31,7 +30,7 @@ class Test  {
   var id;
 
   expressions() {
-    var x;
+    Map x;
     x = {};
 
     x = {"1": 1, "2": true, "3": null, "4": ""};
@@ -62,6 +61,8 @@ class Test  {
     x = {"class": const S(), "map": const {}, "list": const [1]};
 
     x = {"<<": 1 << 1, ">>": 10 >> 2};
+
+    x = {">>>": 1 >>> 1, 1222 >>> 10: 14};
 
     x = {"-": -1, "!": !true, "~": ~id};
 
