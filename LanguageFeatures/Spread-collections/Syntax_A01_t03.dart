@@ -50,5 +50,5 @@ main() {
   Expect.listEquals(["abc", "int", "hello", "testme"], a);
 
   a = const [...list1, ...list2, ...list3];
-  Expect.listEquals(["abc", "int", "hello", 1, 2, 12, ""], a);
+  Expect.listEquals(["abc", "int", "hello", 1, 2, 12, "test"], a);
 }
