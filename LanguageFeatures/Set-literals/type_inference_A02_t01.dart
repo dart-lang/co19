@@ -17,15 +17,13 @@
  * be ? if the downwards context does not constrain one or both.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections, control-flow-collections
 import "../../Utils/expect.dart";
 
-main() {
-  var x = <int, String>{};
-  var y = <num, int>{};
+class C {}
 
-  Expect.isTrue({...x, ...y} is Map<num, Object>);
-  Expect.isTrue({if (1 > 2) ...x, for (var i in []) ...y} is Map<num, Object>);
-  Expect.isTrue({if (1 > 2) ...x else ...y} is Map<num, Object>);
-  Expect.isTrue({if (1 > 2) ...x else for (var i in []) ...y} is Map<num, Object>);
+main() {
+  Expect.isTrue({1: 1, 2: 2, 3: 3.14} is Map<int, num>);
+  Expect.isTrue({new C(): new C()} is Map<C, C>);
+  Expect.isTrue({1: 1, 2: 2, 3.14: "3.14"} is Map<num, Object>);
+  Expect.isTrue({1: 1, 2: 2, "3.14": 3.14} is Map<Object, num>);
 }

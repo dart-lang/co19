@@ -16,15 +16,13 @@
  * is Set<Pe> where Pe is determined by downwards inference
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections, control-flow-collections
 import "../../Utils/expect.dart";
 
-main() {
-  var x = <int>{};
-  var y = <num>{};
+class C {}
 
-  Expect.isTrue({...x, ...y} is Set<num>);
-  Expect.isTrue({if (1 > 2) ...x, for (var i in []) ...y} is Set<num>);
-  Expect.isTrue({if (1 > 2) ...x else ...y} is Set<num>);
-  Expect.isTrue({if (1 > 2) ...x else for (var i in []) ...y} is Set<num>);
+main() {
+  Expect.isTrue({1, 2, 3} is Set<int>);
+  Expect.isTrue({new C()} is Set<C>);
+  Expect.isTrue({1, 2, 3.14} is Set<num>);
+  Expect.isTrue({1, 2, "3.14"} is Set<Object>);
 }
