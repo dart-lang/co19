@@ -13,18 +13,29 @@
  * not constrain it.
  *
  * @description Checks that if collection is unambiguously a set literal, then P
- * is Set<Pe> where Pe is determined by downwards inference
+ * is Set<Pe> where Pe is determined by downwards inference and may be ?
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections, control-flow-collections,constant-update-2018
 import "../../Utils/expect.dart";
 
-main() {
-  var x = <int>{};
-  dynamic y = <num>{};
+void test1<X>(X x, X y) {
+  var s = {x, y};
+  Expect.isTrue(s is Set<int>);
+}
 
-  Expect.isTrue({...x, ...y} is Set<int>);
-  Expect.isTrue({if (1 > 2) ...x, for (var i in []) ...y} is Set<int>);
-  Expect.isTrue({if (1 > 2) ...x else ...y} is Set<int>);
-  Expect.isTrue({if (1 > 2) ...x else for (var i in []) ...y} is Set<int>);
+void test2<X>(X x, X y) {
+  var s = {x, y};
+  Expect.isTrue(s is Set<double>);
+}
+
+void test3<X>(X x, X y) {
+  var s = {x, y};
+  Expect.isTrue(s is Set<num>);
+}
+
+main() {
+  test1(3, 1);
+  test2(3.14, 2.718);
+  test3(3, 2.718);
 }

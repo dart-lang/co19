@@ -19,13 +19,29 @@
 // SharedOptions=--enable-experiment=spread-collections, control-flow-collections,constant-update-2018
 import "../../Utils/expect.dart";
 
-void foo<X>(Set<X> s) {
-  Expect.isTrue(s is Set<num>);
+void test1<X extends num>(X x, X y) {
+  var s1 = {x, y};
+  var s2 = <X> {};
+  Expect.isTrue(s1 is Set<int>);
+  Expect.isTrue(s2 is Set<num>);
+}
+
+void test2<X extends num>(X x, X y) {
+  var s1 = {x, y};
+  var s2 = <X> {};
+  Expect.isTrue(s1 is Set<double>);
+  Expect.isTrue(s2 is Set<num>);
+}
+
+void test3<X extends num>(X x, X y) {
+  var s1 = {x, y};
+  var s2 = <X> {};
+  Expect.isTrue(s1 is Set<num>);
+  Expect.isTrue(s2 is Set<num>);
 }
 
 main() {
-  foo({3, 1.0, 4});
-  foo({...{3, 1.0, 4}});
-  foo({if (2 > 1) ...{3, 1.0, 4}});
-  foo({if (2 < 1) ...{3, 1.0, 4}});
+  test1(3, 1);
+  test2(3.14, 2.718);
+  test3(3, 2.718);
 }
