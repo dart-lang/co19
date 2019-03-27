@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -16,7 +16,7 @@
  * value. Each key and each value is denoted by an expression.
  * @description Checks that various map keys don't produce a compile-time
  * errors.
- * @author msyabro, iarkh@unipro.ru
+ * @author msyabro
  */
 
 topFunc() {}

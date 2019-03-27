@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -14,7 +14,7 @@
  * ;
  * @description Checks that interpolated strings that are valid according to
  * the specification don't produce compile-time errors.
- * @author msyabro, iarkh@unipro.ru
+ * @author msyabro
  */
 
 import 'String_Interpolation_lib.dart';

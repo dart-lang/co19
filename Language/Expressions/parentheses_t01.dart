@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -7,7 +7,7 @@
  * @assertion An expression e may always be enclosed in parentheses, but this
  * never has any semantic effect on e.
  * @description Checks that any expression can be enclosed in parentheses.
- * @author msyabro, iarkh@unipro.ru
+ * @author msyabro
  */
 
 class C {

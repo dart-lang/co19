@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -19,7 +19,7 @@
  * @description Checks that a shift expression of the form e1 op e2
  * can't terminate with the shift operator <<.
  * @compile-error
- * @author msyabro, iarkh@unipro.ru
+ * @author msyabro
  */
 
 main() {

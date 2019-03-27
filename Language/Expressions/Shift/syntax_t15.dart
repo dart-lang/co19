@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -18,7 +18,7 @@
  * of a shift operator on either super or an expression e1, with argument e2.
  * @description Checks that it is permitted to chain as many shift expressions
  * as one likes.
- * @author rodionov, iarkh@unipro.ru
+ * @author rodionov
  */
 
 class A {
