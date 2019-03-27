@@ -17,6 +17,8 @@
  * emptySetOrMapLiteral has a typeArguments with more than two type arguments.
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=constant-update-2018
+
 var v1 = <int, String, Object> {};        //# 01: compile-time error
 var v2 = const <int, String, Object> {};  //# 02: compile-time error
 

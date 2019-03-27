@@ -17,7 +17,7 @@
  * be ? if the downwards context does not constrain one or both.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections, control-flow-collections
+// SharedOptions=--enable-experiment=spread-collections, control-flow-collections,constant-update-2018
 import "../../Utils/expect.dart";
 
 void foo<K, V>(Map<K, V> m) {

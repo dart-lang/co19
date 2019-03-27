@@ -15,7 +15,7 @@
  * of element is the inferred type of the expression e1 in context Ps.
  * @author sgrekhov@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=constant-update-2018
 main() {
   Map<double, double> x1 = {1 + 1: 1.0};  //# 01: compile-time error
   Map<double, double> x2 = {1.0: 1 + 1};  //# 02: compile-time error
