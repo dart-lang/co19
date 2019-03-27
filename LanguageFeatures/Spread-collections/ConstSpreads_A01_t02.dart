@@ -33,7 +33,7 @@ main() {
   const res5 = {...list3};
   Expect.setEquals(list3.toSet(), res5);
   const res6 = {...?list3};
-  Expect.listEquals(list3.toSet(), res6);
+  Expect.setEquals(list3.toSet(), res6);
 
   const res7 = {...?list4};
   Expect.setEquals([].toSet(), res7);
