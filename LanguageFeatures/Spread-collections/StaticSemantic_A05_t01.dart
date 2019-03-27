@@ -11,7 +11,7 @@
  * list literal is not assignable to the type of the list.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections
+// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 import "dart:collection";
 

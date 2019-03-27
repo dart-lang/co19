@@ -20,7 +20,7 @@
  * elements is [null].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections
+// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 main() {
   List list =  [1, 12, 24];

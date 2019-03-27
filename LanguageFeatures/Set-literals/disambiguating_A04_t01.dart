@@ -16,7 +16,7 @@
  * and no mapEntry elements, then e is a set literal
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=control-flow-collections
+// SharedOptions=--enable-experiment=control-flow-collections,constant-update-2018
 import "../../Utils/expect.dart";
 
 main() {

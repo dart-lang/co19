@@ -16,7 +16,7 @@
  * is Set<Pe> where Pe is determined by downwards inference
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections, control-flow-collections
+// SharedOptions=--enable-experiment=spread-collections, control-flow-collections,constant-update-2018
 import "../../Utils/expect.dart";
 
 main() {

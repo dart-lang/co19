@@ -18,7 +18,7 @@
  * @description Checks that for dynamic x {...?x} is a static error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections
+// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 main() {
   dynamic x1 = <int, int>{};

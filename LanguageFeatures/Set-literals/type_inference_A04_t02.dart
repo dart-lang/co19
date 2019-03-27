@@ -15,7 +15,7 @@
  * of element is the inferred type of the expression e1 in context Ps.
  * @author sgrekhov@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=constant-update-2018
 main() {
   Set<double> x = {1 + 1};  //# 01: compile-time error
   num n = 1;

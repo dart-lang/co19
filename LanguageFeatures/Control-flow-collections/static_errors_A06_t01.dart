@@ -12,7 +12,7 @@
  * variable's type.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=control-flow-collections
+// SharedOptions=--enable-experiment=control-flow-collections,constant-update-2018
 
 main() {
   [for (int i in ["not", "int"]) i];               //# 01: compile-time error

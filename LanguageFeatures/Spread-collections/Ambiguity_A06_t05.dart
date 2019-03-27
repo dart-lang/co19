@@ -13,7 +13,7 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections
+// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 import "../../Utils/expect.dart";
 

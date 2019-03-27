@@ -37,7 +37,7 @@
  * spreadable element is not a constant.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections
+// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 main() {
   Map map1 = {1: 1, 2: 4, 3: 6};

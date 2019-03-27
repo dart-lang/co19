@@ -15,6 +15,7 @@
  * element is the inferred type of the expression e1 in context ?
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 void foo<X extends num>(Set<X> s) {
