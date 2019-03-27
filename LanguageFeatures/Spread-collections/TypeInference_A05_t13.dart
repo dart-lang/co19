@@ -15,8 +15,7 @@
  *    {...x, ...l} // Statically a set, runtime error when spreading x.
  *    {...x, ...m} // Statically a map, no runtime error.
  *    {...l, ...m} // Static error, because it must be both a set and a map.
- * @description Checks that if one of the spreadable element is [Map], result
- * is statically [Map]
+ * @description Checks that spread element must be [Iterable] or [Map]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
@@ -24,24 +23,12 @@
 import "../../Utils/expect.dart";
 
 main() {
-  dynamic map = <int, int>{};
-  dynamic set = <int>{};
-  Map m = {};
+  dynamic x1 = 14;
+  dynamic x2 = "String";
 
-  Map res;
-  Expect.throws(() =>  res = {...?m, ...set});
-  Expect.throws(() =>  res = {...set, ...?m});
-
-  Expect.throws(() =>  res = {...m, ...?set});
-  Expect.throws(() =>  res = {...?set, ...m});
-
-  Expect.throws(() =>  res = {...?set, ...?m});
-
-  Expect.isTrue({...?map, ...m} is Map);
-  Expect.isTrue({...m, ...?map} is Map);
-
-  Expect.isTrue({...map, ...?m} is Map);
-  Expect.isTrue({...?m, ...map} is Map);
-
-  Expect.isTrue({...?map, ...?m} is Map);
+  var res;
+  Expect.throws(() =>  res = {...x1});
+  Expect.throws(() =>  res = {...x2});
+  Expect.throws(() =>  res = {...?x1});
+  Expect.throws(() =>  res = {...?x2});
 }

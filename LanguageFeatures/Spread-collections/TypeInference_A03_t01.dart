@@ -23,15 +23,15 @@ class A2 {}
 class B2 extends A2 {}
 class C2 extends B2 {}
 
-Map getAMap<K, V>(var a, var b) { return <K, V>{a: b}; }
+Map<K, V> getAMap<K, V>(var a, var b) { return <K, V>{a: b}; }
 
 main() {
-  Map int_map = getAMap<int, int>(1, 2);
-  Map str_map = getAMap<int, String>(1, "test");
+  var int_map = getAMap<int, int>(1, 2);
+  var str_map = getAMap<int, String>(1, "test");
 
-  Map a_map = getAMap<A1, A2>(new A1(), new A2());
-  Map b_map = getAMap<B1, B2>(new B1(), new B2());
-  Map c_map = getAMap<C1, C2>(new C1(), new C2());
+  var a_map = getAMap<A1, A2>(new A1(), new A2());
+  var b_map = getAMap<B1, B2>(new B1(), new B2());
+  var c_map = getAMap<C1, C2>(new C1(), new C2());
 
   Map map1 = <int, int>{2: 4, 7: 16, ...int_map, 4: 40};
   Expect.isTrue(map1 is Map<int, int>);

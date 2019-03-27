@@ -15,8 +15,8 @@
  *    {...x, ...l} // Statically a set, runtime error when spreading x.
  *    {...x, ...m} // Statically a map, no runtime error.
  *    {...l, ...m} // Static error, because it must be both a set and a map.
- * @description Checks that if one of the spreadable element is [Set], result
- * is statically [Set]
+ * @description Checks that if one of the spreadable element is [Map], result
+ * is statically [Map]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections
@@ -25,7 +25,7 @@ import "../../Utils/expect.dart";
 
 main() {
   dynamic map = <int, int>{};
-  dynamic set = {};
+  dynamic set = <int>{};
   Map m = {};
 
   Map res;

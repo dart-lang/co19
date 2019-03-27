@@ -24,7 +24,7 @@ main() {
   dynamic x1 = <int, int>{};
   dynamic x2 = <int>{};
   dynamic x3 = [1, 2, 3];
-  dynamic x = 14;
+  dynamic x4 = 14;
 
   var y1 = {...x1};   //# 01: compile-time error
   var y2 = {...x2};   //# 02: compile-time error
@@ -34,7 +34,4 @@ main() {
   Map y5 = {...x1};
   Set y6 = {...x2};
   Set y7 = {...x3};
-
-  Map y8 = {...x4};   //# 05: compile-time error
-  Set y9 = {...x4};   //# 06: compile-time error
 }

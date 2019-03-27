@@ -23,15 +23,15 @@ class A2 {}
 class B2 extends A2 {}
 class C2 extends B2 {}
 
-Map getAMap<K, V>(var a, var b) { return <K, V>{a: b}; }
+Map<K, V> getAMap<K, V>(var a, var b) { return <K, V>{a: b}; }
 
 main() {
-  Map int_map = getAMap<int, int>(1, 2);
-  Map str_map = getAMap<int, String>(100, "test");
+  var int_map = getAMap<int, int>(1, 2);
+  var str_map = getAMap<int, String>(100, "test");
 
-  Map a_map = getAMap<A1, A2>(new A1(), new A2());
-  Map b_map = getAMap<B1, B2>(new B1(), new B2());
-  Map c_map = getAMap<C1, C2>(new C1(), new C2());
+  var a_map = getAMap<A1, A2>(new A1(), new A2());
+  var b_map = getAMap<B1, B2>(new B1(), new B2());
+  var c_map = getAMap<C1, C2>(new C1(), new C2());
 
   A1 a1 = new A1();
   B1 b1 = new B1();
@@ -41,12 +41,12 @@ main() {
   C2 c2 = new C2();
 
   Expect.isTrue({...int_map} is Map<int, int>);
-  Expect.isTrue({1: "test", 2: "a", ...?str_map, 3: "oo"} is Map<int, int>);
+  Expect.isTrue({1: "test", 2: "a", ...?str_map, 3: "oo"} is Map<int, String>);
 
   Expect.isTrue({...a_map} is Map<A1, A2>);
   Expect.isTrue({a1: a2, ...?a_map} is Map<A1, A2>);
   Expect.isTrue({...b_map} is Map<A1, A2>);
-  Expect.isTrue({a1: a2, ...?b_map} is Map<B1, B2>);
+  Expect.isTrue({a1: a2, ...?b_map} is Map<A1, A2>);
   Expect.isTrue({...c_map} is Map<A1, A2>);
   Expect.isTrue({a1: a2, ...?c_map} is Map<A1, A2>);
   Expect.isTrue({a1: a2, ...a_map, ...b_map, b1: b2} is Map<A1, A2>);
