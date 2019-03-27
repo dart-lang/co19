@@ -11,7 +11,7 @@
  * is the key type of the body element, likewise for the value type.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=control-flow-collections
+// SharedOptions=--enable-experiment=control-flow-collections,constant-update-2018
 import "../../Utils/expect.dart";
 
 class A {}

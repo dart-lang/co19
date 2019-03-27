@@ -12,7 +12,7 @@
  * expression is not constant
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=control-flow-collections
+// SharedOptions=--enable-experiment=control-flow-collections,constant-update-2018
 main() {
   var x = 1;
   List<int> list1 = const [if (x > 0) 1, 1 ];         //# 01: compile-time error

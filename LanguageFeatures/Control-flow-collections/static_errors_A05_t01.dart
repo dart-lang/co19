@@ -12,7 +12,7 @@
  * Iterable<T> for some type T.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=control-flow-collections
+// SharedOptions=--enable-experiment=control-flow-collections,constant-update-2018
 
 main() {
   [for (var i in "not iterable") i];                //# 01: compile-time error

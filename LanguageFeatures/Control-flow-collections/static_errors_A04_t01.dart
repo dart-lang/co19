@@ -11,7 +11,7 @@
  * expression in an if element may not be assigned to bool
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=control-flow-collections
+// SharedOptions=--enable-experiment=control-flow-collections,constant-update-2018
 
 main() {
   [if ("not bool") 1];                  //# 01: compile-time error
