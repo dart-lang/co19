@@ -10,7 +10,7 @@
  * series of elements contained in the spread object list.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections
+// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 import "../../Utils/expect.dart";
 
@@ -33,7 +33,7 @@ main() {
   const res5 = {...list3};
   Expect.setEquals(list3.toSet(), res5);
   const res6 = {...?list3};
-  Expect.listEquals(list3.toSet(), res6);
+  Expect.setEquals(list3.toSet(), res6);
 
   const res7 = {...?list4};
   Expect.setEquals([].toSet(), res7);

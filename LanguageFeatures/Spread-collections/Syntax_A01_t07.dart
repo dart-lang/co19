@@ -30,7 +30,7 @@
  * element.
  * @description Checks that spreadable element can have type argument
  */
-// SharedOptions=--enable-experiment=spread-collections
+// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 import "../../Utils/expect.dart";
 

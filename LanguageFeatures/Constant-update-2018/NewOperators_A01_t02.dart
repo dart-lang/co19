@@ -19,8 +19,18 @@ import "../../Utils/expect.dart";
 
 main() {
   const int c1 = (-2 >>> 1);
-  Expect.equals((-2 >>> 1), c1);
+  Expect.equals(-2 >>> 1, c1);
 
-  const int c2 = (125 >>> 3);
-  Expect.equals(125 >>> 3, c2);
+  const int c2 = (125 >>> c1);
+  Expect.equals(125 >>> c1, c2);
+
+  const int c3 = (c2 >>> 0);
+  Expect.equals(c2 >>> 0, c3);
+
+  const int c4 = (0 >>> 1);
+  Expect.equals(0 >>> 1, c4);
+
+  const int c5 = (100000 >>> 100);
+  Expect.equals(100000 >>> 100, c5);
+
 }

@@ -19,13 +19,13 @@
  * is statically [Map]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections
+// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 import "../../Utils/expect.dart";
 
 main() {
   dynamic map = <int, int>{};
-  dynamic set = {};
+  dynamic set = <int>{};
   Map m = {};
 
   Map res;

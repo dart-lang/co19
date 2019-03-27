@@ -11,7 +11,7 @@
  * constant list or set literal in the constant set
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections
+// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 main() {
   List list1 = [2, 7, 9];

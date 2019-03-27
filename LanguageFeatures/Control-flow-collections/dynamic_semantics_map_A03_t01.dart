@@ -50,7 +50,7 @@
  * procedure.
  * @author ngl@unipro.ru
  */
-// SharedOptions=--enable-experiment=control-flow-collections
+// SharedOptions=--enable-experiment=control-flow-collections,constant-update-2018
 import "dart:async";
 import "../../Utils/expect.dart";
 

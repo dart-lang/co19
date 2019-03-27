@@ -45,7 +45,7 @@
  * the initializer clause of the element does not exist.
  * @author ngl@unipro.ru
  */
-// SharedOptions=--enable-experiment=control-flow-collections
+// SharedOptions=--enable-experiment=control-flow-collections,constant-update-2018
 import "../../Utils/expect.dart";
 
 main() {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -26,8 +26,7 @@
  * bitwise operator on either super or an expression e1, with argument e2.
  * @description Checks that various bitwise expression which are valid
  * according to this grammar don't cause compile-time errors.
- * @author msyabro
- * @reviewer rodionov
+ * @author msyabro, iarkh@unipro.ru
  */
 
 topLevelFunction() {}
@@ -60,8 +59,11 @@ class A extends S {
     //shift
     try {1 + 3 & 0;} catch (e) {}
 
-    //shift expressions
+    // shift expressions
     try {1 << 2 ^ null >> null;} catch (e) {}
+
+    // bitwise shift expressions
+    try {144 >>> 2 ^ null >> null;} catch (e) {}
 
     // bitwise expressions
     1 | -1 | 1 | -1 | 1;

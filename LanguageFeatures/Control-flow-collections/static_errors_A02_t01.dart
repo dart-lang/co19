@@ -12,7 +12,7 @@
  * key type.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=control-flow-collections
+// SharedOptions=--enable-experiment=control-flow-collections,constant-update-2018
 
 main() {
   <int, int>{if (true) "not int": 1};                 //# 01: compile-time error

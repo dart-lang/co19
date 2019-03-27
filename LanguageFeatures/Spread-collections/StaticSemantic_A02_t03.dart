@@ -10,7 +10,7 @@
  * not extends [Iterable].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections
+// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 main() {
   int i = 1;

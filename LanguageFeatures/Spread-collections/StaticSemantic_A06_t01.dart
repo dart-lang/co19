@@ -11,7 +11,7 @@
  * literal is not assignable to [Map<Object, Object>]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections
+// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 import "dart:collection";
 

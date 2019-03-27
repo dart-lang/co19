@@ -16,6 +16,7 @@
  * is Set<Pe> where Pe is determined by downwards inference and may be ?
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=spread-collections, control-flow-collections,constant-update-2018
 import "../../Utils/expect.dart";
 
 void test1<X>(X x, X y) {

@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
  * @assertion N/A
  * @description Checks that right shift works with integers as expected
- * @author sgrekhov@unipro.ru
+ * @author sgrekhov@unipro.ru, iarkh@unipro.ru
  */
 import '../../../Utils/expect.dart';
 
@@ -25,6 +25,6 @@ main() {
   Expect.equals(1, j >> 62);
   Expect.equals(0, j >> 63);
   Expect.equals(0, j >> 64);
-  Expect.equals(0, j << 65);
+  Expect.equals(0, j >> 65);
   Expect.equals(0, j >> 100);
 }

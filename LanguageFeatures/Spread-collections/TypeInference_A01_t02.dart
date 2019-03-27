@@ -11,7 +11,7 @@
  * the set literal
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections
+// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 import "../../Utils/expect.dart";
 
@@ -19,14 +19,14 @@ class A {}
 class B extends A {}
 class C extends B {}
 
-List getAList<T>(var a) { return <T>[a]; }
+List<T> getAList<T>(var a) { return <T>[a]; }
 
 main() {
-  List a_list   = getAList<A>(new A());
-  List b_list   = getAList<B>(new B());
-  List c_list   = getAList<C>(new C());
-  List int_list = getAList<int>(12);
-  List str_list = ["string"];
+  var a_list   = getAList<A>(new A());
+  var b_list   = getAList<B>(new B());
+  var c_list   = getAList<C>(new C());
+  var int_list = getAList<int>(12);
+  var str_list = ["string"];
   A a = new A();
   B b = new B();
   C c = new C();

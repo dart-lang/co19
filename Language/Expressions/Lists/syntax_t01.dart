@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -11,8 +11,7 @@
  * ;
  * @description Checks that various list literals don't produce a compile-time
  * errors.
- * @author msyabro
- * @reviewer kaigorodov
+ * @author msyabro, iarkh@unipro.ru
  */
 
 topFunc() {}
@@ -56,6 +55,8 @@ class Test  {
     [const S(), const {}, const [1]];
 
     [1 << 1, 10 >> 2];
+
+    [1 >>> 1, 10 >>> 2, 367 >>> 14];
 
     [ -1, !true, ~id];
 

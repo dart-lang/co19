@@ -21,7 +21,7 @@
  * superinterface of S
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections
+// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 import "../../Utils/expect.dart";
 
 void test1<T extends Map<num, String>>(T t) {

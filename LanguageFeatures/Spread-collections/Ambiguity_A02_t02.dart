@@ -9,7 +9,7 @@
  * @description Checks that {...?null} collection type is detected correctly
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections
+// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 main() {
   Set res1 = {...?null};

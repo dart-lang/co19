@@ -31,7 +31,7 @@
  * @description Checks that [spreadableList] can be constant
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections
+// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 import "../../Utils/expect.dart";
 
@@ -50,5 +50,5 @@ main() {
   Expect.listEquals(["abc", "int", "hello", "testme"], a);
 
   a = const [...list1, ...list2, ...list3];
-  Expect.listEquals(["abc", "int", "hello", 1, 2, 12, ""], a);
+  Expect.listEquals(["abc", "int", "hello", 1, 2, 12, "test"], a);
 }

@@ -8,7 +8,7 @@
  * entries contained in the spread object map.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections
+// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 import "../../Utils/expect.dart";
 
@@ -21,7 +21,7 @@ main() {
   const Map res1 = {...map1};
   Expect.mapEquals(map1, res1);
   const Map res2 = <int, int>{...?map1};
-  Expect.mapEquals(map2, res2);
+  Expect.mapEquals(map1, res2);
 
   const Map res3 = <int, String>{...map2};
   Expect.mapEquals(map2, res3);
