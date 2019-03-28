@@ -10,6 +10,7 @@
  * are allowed in triple shift expressions.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=tripple-shift
 
 main() {
   2 >>> 2;

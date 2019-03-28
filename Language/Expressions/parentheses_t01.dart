@@ -9,6 +9,7 @@
  * @description Checks that any expression can be enclosed in parentheses.
  * @author msyabro
  */
+// SharedOptions=--enable-experiment=tripple-shift
 
 class C {
   method() {}

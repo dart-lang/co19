@@ -17,6 +17,7 @@
  * statement.
  * @author iefremov
  */
+// SharedOptions=--enable-experiment=tripple-shift
 
 var v;
 get g {}

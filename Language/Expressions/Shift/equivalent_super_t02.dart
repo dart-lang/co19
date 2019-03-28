@@ -10,6 +10,8 @@
  * is equivalent to the method invocation super.operator<<(e2).
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=tripple-shift
+
 import '../../../Utils/expect.dart';
 
 var logStr = "";

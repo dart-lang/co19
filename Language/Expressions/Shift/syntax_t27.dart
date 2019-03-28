@@ -21,6 +21,7 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=tripple-shift
 
 class A<T> {
   test() {

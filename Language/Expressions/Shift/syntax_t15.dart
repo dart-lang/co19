@@ -20,6 +20,7 @@
  * as one likes.
  * @author rodionov
  */
+// SharedOptions=--enable-experiment=tripple-shift
 
 class A {
   operator <<(other) => other;

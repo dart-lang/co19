@@ -26,6 +26,7 @@
  * @reviewer kaigorodov
  * @reviewer iefremov
  */
+// SharedOptions=--enable-experiment=tripple-shift
 
 import "syntax_t03_lib.dart" as prfx;
 

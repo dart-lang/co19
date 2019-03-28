@@ -10,6 +10,8 @@
  * user class.
  * @author vasya
  */
+// SharedOptions=--enable-experiment=tripple-shift
+
 import "../../../../Utils/expect.dart";
 
 class C {

@@ -12,6 +12,7 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=tripple-shift
 
 class C {
   operator >>>(var val, var val2) {}

@@ -9,6 +9,8 @@
  * holds true (additive > shift > bitwise AND > XOR > OR). 
  * @author vasya
  */
+// SharedOptions=--enable-experiment=tripple-shift
+
 import "../../../Utils/expect.dart";
 
 main() {

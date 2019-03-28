@@ -23,6 +23,8 @@
  * @Issue #36343
  * @author msyabro
  */
+// SharedOptions=--enable-experiment=tripple-shift
+
 import '../../../Utils/expect.dart';
 
 topLevelFunction() {}

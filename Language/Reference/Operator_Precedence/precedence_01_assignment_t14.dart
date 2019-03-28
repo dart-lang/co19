@@ -12,6 +12,8 @@
  * (precedence 3) operators
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=tripple-shift
+
 import "../../../Utils/expect.dart";
 
 String log = "";

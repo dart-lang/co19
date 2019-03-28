@@ -19,6 +19,8 @@
  * and it is equivalent to corresponding const Symbol object.
  * @author ilya
  */
+// SharedOptions=--enable-experiment=tripple-shift
+
 import '../../../Utils/expect.dart';
 
 main() {
