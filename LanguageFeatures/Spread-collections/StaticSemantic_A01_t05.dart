@@ -28,7 +28,7 @@ main() {
   Expect.mapEquals({1: 1, 2: 2, 3: 3}, <int, int>{...numbers});
 
   var objects = <Object, Object>{2: 22, 7: 77, 9: 99};
-  Expect.mapEquals({2: 22, 7: 77, 9: 99}, <int, int>{...numbers});
+  Expect.mapEquals({2: 22, 7: 77, 9: 99}, <int, int>{...objects});
 
   var a;
   Expect.throws(() => a = <String, int>{...objects});
