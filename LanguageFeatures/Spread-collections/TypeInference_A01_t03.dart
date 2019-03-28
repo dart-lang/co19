@@ -7,13 +7,11 @@
  * @assertion If a list or set literal has a downwards inference type of
  * [Iterable<T>] for some [T], then the downwards inference context type of a
  * spread element in that list is [Iterable<T>].
- * @description Checks that a spread element inference context type is [T] in
- * the list literal
+ * @description Checks statically that a spread element inference context type
+ * is [T] in the list literal
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
-
-import "../../Utils/expect.dart";
 
 class A {}
 class B extends A {}
@@ -22,49 +20,34 @@ class C extends B {}
 List<T> getAList<T>(var a) { return <T>[a]; }
 
 main() {
-  dynamic a_list   = getAList<A>(new A());
-  dynamic b_list   = getAList<B>(new B());
-  dynamic c_list   = getAList<C>(new C());
-  dynamic int_list = getAList<int>(12);
-  dynamic str_list = ["string"];
+  var a_list   = getAList<A>(new A());
+  var b_list   = getAList<B>(new B());
+  var c_list   = getAList<C>(new C());
+  var int_list = getAList<int>(12);
+  var str_list = ["string"];
   A a = new A();
   B b = new B();
   C c = new C();
 
   List list1 = <int>[2, 7, ...int_list, 4];
-  Expect.isTrue(list1 is List<int>);
-
   List list2 = <A>[a, ...a_list];
-  Expect.isTrue(list2 is List<A>);
-
   List list3 = <A>[a, ...b_list];
-  Expect.isTrue(list3 is List<A>);
-
   List list4 = <A>[a, c, ...c_list, b];
-  Expect.isTrue(list4 is List<A>);
-
   List list5 = <A>[a, b, c, ...c_list, new B(), ...a_list, ...b_list, new A()];
-  Expect.isTrue(list5 is List<A>);
-
   List list6 = <B>[b, ...b_list, c, ...c_list];
-  Expect.isTrue(list6 is List<B>);
-
   List list7 = [123, "123", null, a, ...a_list, ...?b_list, c, b, ...?c_list,
       ...str_list, ...int_list, null, 1499, []];
-  Expect.isTrue(list7 is List<Object>);
 
-  List list8;
+  List list8  = <int>[...str_list];         //# 01: compile-time error
+  List list9  = <int>[1, 2, ...a_list, 14]; //# 02: compile-time error
+  List list10 = <int>[1, 14, 0, ...c_list]; //# 03: compile-time error
 
-  Expect.throws(() => list8 = <int>[...str_list]);
-  Expect.throws(() => list8 = <int>[1, 2, ...a_list, 14]);
-  Expect.throws(() => list8 = <int>[1, 14, 0, ...c_list]);
+  List list11 = <A>[...int_list];           //# 04: compile-time error
+  List list12 = <A>[...?str_list];          //# 05: compile-time error
 
-  Expect.throws(() => list8 = <A>[...int_list]);
-  Expect.throws(() => list8 = <A>[...?str_list]);
+  List list13 = <B>[...a_list];             //# 06: compile-time error
+  List list14 = <B>[b, ...?a_list, c];      //# 07: compile-time error
 
-  Expect.throws(() => list8 = <B>[...a_list]);
-  Expect.throws(() => list8 = <B>[b, ...?a_list, c]);
-
-  Expect.throws(() => list8 = <C>[...b_list]);
-  Expect.throws(() => list8 = <C>[...a_list, ...?b_list]);
+  List list15 = <C>[...b_list];             //# 08: compile-time error
+  List list16 = <C>[...a_list, ...?b_list]; //# 09: compile-time error
 }
