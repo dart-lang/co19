@@ -53,7 +53,6 @@ main() {
       set1exp.add(i);
     }
   }
-  set1exp.add(i);
   Expect.isTrue(set1exp is Set<num>);
 
   i = 0;
