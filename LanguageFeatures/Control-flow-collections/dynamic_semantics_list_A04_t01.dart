@@ -65,7 +65,7 @@ main() {
   }
   Expect.isTrue(list2exp is List<double>);
 
-  var list2 = <double>[for (var i = 1.1; i < 10; i += 5) i];
+  var list2 = <double>[for (var i = 1.1; i < 10; i += 5) i + 2];
   // list2exp [3.1, 8.1]
   Expect.isTrue(list2 is List<double>);
   Expect.listEquals(list2exp, list2);
@@ -79,7 +79,7 @@ main() {
   }
   Expect.isTrue(list3exp is List<num>);
 
-  var list3 = <num>[for (var i = 1.1; i < 10; i += 5) i,
+  var list3 = <num>[for (var i = 1.1; i < 10; i += 5) i + 2,
       for (var i = 2; i < 6; i++) i + 3];
   // list2exp [3.1, 8.1, 5, 6, 7, 8]
   Expect.isTrue(list3 is List<num>);
