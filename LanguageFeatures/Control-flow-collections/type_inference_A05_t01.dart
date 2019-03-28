@@ -20,7 +20,7 @@ main() {
   Map<num, List<int>> map1 = {
     if (true) 11: [],
     if (false) 1: [] else 22: [],
-    for (var i = 0; i < 1; i++) $i: []
+    for (var i = 0; i < 1; i++) i: []
   };
   Expect.isTrue(map1 is Map<num, List<int>>);
   Expect.isFalse(map1 is Map<int, List<int>>);
@@ -29,7 +29,7 @@ main() {
   var map2 = <num, List<int>> {
     if (true) 11: [],
     if (false) 1: [] else 22: [],
-    for (var i = 0; i < 1; i++) $i: []
+    for (var i = 0; i < 1; i++) i: []
   };
   Expect.isTrue(map2 is Map<num, List<int>>);
   Expect.isFalse(map2 is Map<int, List<int>>);

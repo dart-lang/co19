@@ -28,7 +28,7 @@ main() {
   ];
   Expect.isTrue(list1 is List<int>);
 
-  List list2 = <int>[
+  var list2 = <int>[
     if (b) 1,
     if (!b) 2,
     if (b) for (var v in collection) if (v.isOdd) v,
@@ -36,7 +36,7 @@ main() {
   ];
   Expect.isTrue(list2 is List<int>);
 
-  List list3 = [
+  var list3 = [
     if (b) 1.0,
     if (!b) 2,
     if (b) for (var v in collection) if (v.isOdd) v,
