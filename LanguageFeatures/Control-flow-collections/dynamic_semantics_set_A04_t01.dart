@@ -78,11 +78,13 @@ main() {
   Expect.setEquals(set3exp, set3);
 
   var set4exp = new Set<Function>();
+  var fs = <Function>[];
   for (var i = 1; i < 4; i++) {
-    set4exp.add(() => i);
+    fs.add(() => i);
+    set4exp.add(fs[i - 1]);
   }
 
-  var set4 = <Function>{for (var i = 1; i < 4; i++) () => i};
+  var set4 = <Function>{for (var i = 1; i < 4; i++) fs[i - 1]};
   Expect.isTrue(set4 is Set<Function>);
   Expect.setEquals(set4exp, set4);
 }

@@ -90,10 +90,12 @@ main() {
   Expect.mapEquals(map4exp, map4);
 
   var map5exp = <int, Function>{};
+  var fs = <Function>[];
   for (var i = 1; i < 4; i++) {
-    map5exp[i] = () => i + 10;
+    fs.add(() => i + 10)
+    map5exp[i] = fs[i - 1];
   }
-  var map5 = <int, Function>{for (var i = 1; i < 4; i++) i: () => i + 10};
+  var map5 = <int, Function>{for (var i = 1; i < 4; i++) i: fs[i - 1]};
   Expect.isTrue(map5 is Map<int, Function>);
   Expect.mapEquals(map5exp, map5);
 }
