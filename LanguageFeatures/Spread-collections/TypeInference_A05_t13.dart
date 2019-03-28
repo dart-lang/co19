@@ -26,9 +26,15 @@ main() {
   dynamic x1 = 14;
   dynamic x2 = "String";
 
-  var res;
+  Set res;
   Expect.throws(() =>  res = {...x1});
   Expect.throws(() =>  res = {...x2});
   Expect.throws(() =>  res = {...?x1});
   Expect.throws(() =>  res = {...?x2});
+
+  Map res1;
+  Expect.throws(() =>  res1 = {...x1});
+  Expect.throws(() =>  res1 = {...x2});
+  Expect.throws(() =>  res1 = {...?x1});
+  Expect.throws(() =>  res1 = {...?x2});
 }
