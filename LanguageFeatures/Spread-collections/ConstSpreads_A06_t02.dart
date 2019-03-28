@@ -34,6 +34,6 @@ main() {
   Expect.setEquals({1, 2, 3, 4, 5, 6, 7, 8, 9, aList}, res6);
 
   const aSet = {1, 2, 3};
-  const res7 = {[1, 2, 3, ...[4, 5, 6], ...?{7, 8, 9}, aSet]};
-  Expect.listEquals({1, 2, 3, 4, 5, 6, 7, 8, 9, aSet}, res7);
+  const res7 = {1, 2, 3, ...[4, 5, 6], ...?{7, 8, 9}, aSet};
+  Expect.setEquals({1, 2, 3, 4, 5, 6, 7, 8, 9, aSet}, res7);
 }
