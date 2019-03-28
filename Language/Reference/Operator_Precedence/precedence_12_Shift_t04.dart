@@ -12,7 +12,7 @@
  * priority higher than '&'
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=tripple-shift
+// SharedOptions=--enable-experiment=constant-update-2018
 
 import "../../../Utils/expect.dart";
 
