@@ -28,7 +28,7 @@ main() {
   };
   Expect.isTrue(map1 is Map<String, int>);
 
-  Map map2 = <String, int>{
+  var map2 = <String, int>{
     if (b) "1": 1,
     if (!b) "2": 2,
     if (b) for (var v in collection) if (v.isOdd) "$v": v,
@@ -36,7 +36,7 @@ main() {
   };
   Expect.isTrue(map2 is Map<String, int>);
 
-  Map map3 = {
+  var map3 = {
     if (b) "1": 1.0,
     if (!b) "": 2,
     if (b) for (var v in collection) if (v.isOdd) "$v": v,
