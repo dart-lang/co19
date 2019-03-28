@@ -39,12 +39,12 @@ main() {
     if (false) [] else [],
   ];
   Expect.isTrue(list3 is List<List<String>>);
-  Expect.listEquals([[], [], []], list3);
+  Expect.listEquals([[], []], list3);
 
   const list4 = <List<C>> [
     if (true) [],
     if (false) [] else []
   ];
   Expect.isTrue(list4 is List<List<C>>);
-  Expect.listEquals([[], [], []], list4);
+  Expect.listEquals([[], []], list4);
 }
