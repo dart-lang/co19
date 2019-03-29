@@ -92,7 +92,7 @@ main() {
   var map5exp = <int, Function>{};
   var fs = <Function>[];
   for (var i = 1; i < 4; i++) {
-    fs.add(() => i + 10)
+    fs.add(() => i + 10);
     map5exp[i] = fs[i - 1];
   }
   var map5 = <int, Function>{for (var i = 1; i < 4; i++) i: fs[i - 1]};
