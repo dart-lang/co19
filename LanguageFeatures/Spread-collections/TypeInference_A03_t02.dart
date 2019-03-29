@@ -43,16 +43,10 @@ main() {
   Map map7 = {123: 14, "123": "1", new A1(): null, new A2(): new C1(), ...a_map,
       ...?b_map, 148: new C1(), ...?c_map, ...int_map, 1499: null, -7: []};
 
-  Map map8  = <int, int>{...str_map};                                      //# 01: compile-time error
-  Map map9  = <int, String>{1: "1", 2: "2", ...int_map, 14: "14"};         //# 02: compile-time error
-  Map map10 = <int, C2>{1 : new C2(), ...c_map};                           //# 03: compile-time error
+  Map map8  = <int, int>{...str_map};                              //# 01: compile-time error
+  Map map9  = <int, String>{1: "1", 2: "2", ...int_map, 14: "14"}; //# 02: compile-time error
+  Map map10 = <int, C2>{1 : new C2(), ...c_map};                   //# 03: compile-time error
 
-  Map map11 = <int, A2>{...int_map};                                       //# 04: compile-time error
-  Map map12 = <A1, String>{...?str_map};                                   //# 05: compile-time error
-
-  Map map13 = <B1, B2>{...a_map};                                          //# 06: compile-time error
-  Map map14 = <B1, B2>{new B1(): new C2(), ...?a_map, new C1(): new C2()}; //# 07: compile-time error
-
-  Map map15 = <C1, C2>{...b_map};                                          //# 08: compile-time error
-  Map map16 = <C1, C2>{...a_map, ...?b_map};                               //# 09: compile-time error
+  Map map11 = <int, A2>{...int_map};                               //# 04: compile-time error
+  Map map12 = <A1, String>{...?str_map};                           //# 05: compile-time error
 }
