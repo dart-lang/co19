@@ -13,7 +13,7 @@
  * errors.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=tripple-shift
+// SharedOptions=--enable-experiment=constant-update-2018
 
 topFunc() {}
 

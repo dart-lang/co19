@@ -8,7 +8,7 @@
  * @description Checks that triple right shift works with integers as expected
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=tripple-shift
+// SharedOptions=--enable-experiment=constant-update-2018
 
 import '../../../Utils/expect.dart';
 

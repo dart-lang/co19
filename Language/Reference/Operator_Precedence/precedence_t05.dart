@@ -9,7 +9,7 @@
  * holds true (additive > shift > bitwise AND > XOR > OR). 
  * @author vasya
  */
-// SharedOptions=--enable-experiment=tripple-shift
+// SharedOptions=--enable-experiment=constant-update-2018
 
 import "../../../Utils/expect.dart";
 

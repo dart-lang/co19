@@ -28,7 +28,7 @@
  * according to this grammar don't cause compile-time errors.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=tripple-shift
+// SharedOptions=--enable-experiment=constant-update-2018
 
 topLevelFunction() {}
 
