@@ -15,9 +15,13 @@ import "../../Utils/expect.dart";
 
 main() {
   var closures = [
-    for (var i = 1; i < 4; i++) () => i
+    for (var i = 1; i < 4; i++) () => i++
   ];
   int count = 1;
+  for (var closure in closures) {
+    Expect.equals(count++, closure());
+  }
+  count = 2;
   for (var closure in closures) {
     Expect.equals(count++, closure());
   }
