@@ -36,4 +36,11 @@ main() {
       for (var j = i; j < 4; j++) i + j,
   ];
   Expect.listEquals([2, 3, 4, 4, 5], list3);
+  
+  var x = "a";
+  List<String> list4 = [
+    for (var x in ["b", "c"]) x,
+    x
+  ];
+  Expect.listEquals(["b", "c", "a"]);  
 }
