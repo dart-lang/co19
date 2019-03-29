@@ -10,7 +10,7 @@
  * @compile-error
  * @author iefremov
  */
-// SharedOptions=--enable-experiment=constant-update-2018
+// SharedOptions=--enable-experiment=triple-shift
 
 class C {
   operator <<<(x) {}

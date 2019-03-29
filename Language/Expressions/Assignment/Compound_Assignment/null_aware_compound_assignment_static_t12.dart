@@ -10,7 +10,7 @@
  * equivalent to the expression C.v >>>= e2.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
+// SharedOptions=--enable-experiment=triple-shift
 
 import '../../../../Utils/expect.dart';
 

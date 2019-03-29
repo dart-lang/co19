@@ -19,7 +19,7 @@
  * and it is equivalent to corresponding const Symbol object.
  * @author ilya
  */
-// SharedOptions=--enable-experiment=constant-update-2018
+// SharedOptions=--enable-experiment=triple-shift
 
 import '../../../Utils/expect.dart';
 

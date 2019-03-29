@@ -9,7 +9,7 @@
  * @description Checks that any expression can be enclosed in parentheses.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=constant-update-2018
+// SharedOptions=--enable-experiment=triple-shift
 
 class C {
   method() {}

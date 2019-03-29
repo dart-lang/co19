@@ -16,7 +16,7 @@
  * the specification don't produce compile-time errors.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=constant-update-2018
+// SharedOptions=--enable-experiment=triple-shift
 
 import 'String_Interpolation_lib.dart';
 
