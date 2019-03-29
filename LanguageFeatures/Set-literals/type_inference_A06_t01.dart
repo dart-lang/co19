@@ -12,8 +12,9 @@
  * type of ek in context Pk and the inferred value type of element is the
  * inferred type of ev in context Pv.
  *
- * @description Checks that if P is Set<Ps> then the inferred set element type
- * of element is the inferred type of the expression e1 in context Ps.
+ * @description Checks that if P is Map<Pk, Pv> then the inferred key type of
+ * element is the inferred type of ek in context Pk and the inferred value type
+ * of element is the inferred type of ev in context Pv.
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018

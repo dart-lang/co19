@@ -5,12 +5,16 @@
  */
 /**
  * @assertion To infer the type of element:
- *
- * If element is an expressionElement with expression e1:
  * ...
- * If P is Set<Ps> then the inferred set element type of element is the inferred
- * type of the expression e1 in context Ps.
+ * If element is a mapEntry ek: ev:
+ * ...
+ * If P is Map<Pk, Pv> then the inferred key type of element is the inferred
+ * type of ek in context Pk and the inferred value type of element is the
+ * inferred type of ev in context Pv.
  *
+ * @description Checks that if P is Map<Pk, Pv> then the inferred key type of
+ * element is the inferred type of ek in context Pk and the inferred value type
+ * of element is the inferred type of ev in context Pv.
  * @description Checks that if P is Set<Ps> then the inferred set element type
  * of element is the inferred type of the expression e1 in context Ps.
  * @author sgrekhov@unipro.ru

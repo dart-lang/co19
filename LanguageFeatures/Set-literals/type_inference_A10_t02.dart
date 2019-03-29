@@ -21,11 +21,11 @@
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 import "../../Utils/expect.dart";
 
-Set<X> foo<X>(Set<X> s) => s;
+Map<X, Y> foo<X, Y>(Map<X, Y> m) => m;
 
 void test<T>(T t) {
-  var s = foo({...?t});
-  Expect.isTrue(s is Set<Null>);
+  Map m = foo({...?t});
+  Expect.isTrue(m is Map<Null, Null>);
 }
 
 main() {

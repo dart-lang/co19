@@ -23,23 +23,37 @@
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 import "../../Utils/expect.dart";
 
-void test1<T>(T t) {
-  Set s1 = {...t};
-  Set s2 = {...?t};
-  Expect.isTrue(s1 is Set<dynamic>);
-  Expect.isTrue(s2 is Set<dynamic>);
+void listTest1<T>(T t) {
+  var s1 = {...t};
+  var s2 = {...?t};
+  Expect.isFalse(s1 is Set<Object>);
+  Expect.isFalse(s2 is Set<Object>);
 }
 
-void test2<T>(T t) {
+void listTest2<T>(T t) {
+  var s1 = {...t};
+  var s2 = {...?t};
+  Expect.isTrue(s1 is Set<int>);
+  Expect.isTrue(s2 is Set<int>);
+}
+
+void mapTest1<T>(T t) {
   Map m1 = {...t};
   Map m2 = {...?t};
-  Expect.isTrue(m1 is Map<dynamic, dynamic>);
-  Expect.isTrue(m2 is Map<dynamic, dynamic>);
+  Expect.isFalse(m1 is Map<Object, Object>);
+  Expect.isFalse(m2 is Map<Object, Object>);
+}
+
+void mapTest2<T>(T t) {
+  Map m1 = {...t};
+  Map m2 = {...?t};
+  Expect.isTrue(m1 is Map<int, int>);
+  Expect.isTrue(m2 is Map<int, int>);
 }
 
 main() {
-  test1([]);
-  test1([1, 2, 3]);
-  test2({});
-  test2({1: 1, 2: 2, 3: 3 });
+  listTest1([]);
+  listTest2([1, 2, 3]);
+  mapTest1({});
+  mapTest2({1: 1, 2: 2, 3: 3 });
 }

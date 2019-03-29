@@ -7,15 +7,14 @@
  * @assertion To infer the type of element:
  * ...
  * If element is a spreadElement with expression e1:
- *
- * If P is ? then let S be the inferred type of e1 in context ?:
  * ...
- * If S is Null and the spread operator is ...? then the element has set element
- * type Null, map key type Null and map value type Null.
+ * If P is Set<Ps> then let S be the inferred type of e1 in context Iterable<Ps>:
+ * ...
+ * If S is Null and the spread operator is ...?, then the set element type is
+ * Null.
  *
- * @description Checks that if S is Null and the spread operator is ...? then
- * the element has set element type Null, map key type Null and map value type
- * Null. Test Set
+ * @description Checks that if S is dynamic, then the inferred set element type
+ * of element is dynamic.
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
@@ -23,11 +22,8 @@ import "../../Utils/expect.dart";
 
 Set<X> foo<X>(Set<X> s) => s;
 
-void test<T>(T t) {
-  var s = foo({...?t});
-  Expect.isTrue(s is Set<Null>);
-}
-
 main() {
-  test(null);
+  Null x = null;
+  var s = foo({...?x});
+  Expect.isTrue(s is Set<Null>);
 }
