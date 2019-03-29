@@ -44,10 +44,4 @@ main() {
 
   Set set11 = <A>{...int_list};           //# 04: compile-time error
   Set set12 = <A>{...?str_list};          //# 05: compile-time error
-
-  Set set13 = <B>{...a_list};             //# 06: compile-time error
-  Set set14 = <B>{b, ...?a_list, c};      //# 07: compile-time error
-
-  Set set15 = <C>{...b_list};             //# 08: compile-time error
-  Set set16 = <C>{...a_list, ...?b_list}; //# 09: compile-time error
 }

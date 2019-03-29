@@ -73,4 +73,11 @@ main() {
 
   Expect.throws(() => map8 = <C1, C2>{...b_map});
   Expect.throws(() => map8 = <C1, C2>{...a_map, ...?b_map});
+
+  Expect.throws(() => map8 = <B1, B2>{...a_map});
+  Expect.throws(() =>
+      map8 = <B1, B2>{new B1(): new C2(), ...?a_map, new C1(): new C2()});
+
+  Expect.throws(() => map8 = <C1, C2>{...b_map});
+  Expect.throws(() => map8 = <C1, C2>{...a_map, ...?b_map});
 }

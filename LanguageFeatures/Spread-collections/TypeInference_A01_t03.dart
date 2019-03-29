@@ -44,10 +44,4 @@ main() {
 
   List list11 = <A>[...int_list];           //# 04: compile-time error
   List list12 = <A>[...?str_list];          //# 05: compile-time error
-
-  List list13 = <B>[...a_list];             //# 06: compile-time error
-  List list14 = <B>[b, ...?a_list, c];      //# 07: compile-time error
-
-  List list15 = <C>[...b_list];             //# 08: compile-time error
-  List list16 = <C>[...a_list, ...?b_list]; //# 09: compile-time error
 }
