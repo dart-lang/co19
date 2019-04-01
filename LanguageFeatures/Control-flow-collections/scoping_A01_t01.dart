@@ -42,5 +42,5 @@ main() {
     for (var x in ["b", "c"]) x,
     x
   ];
-  Expect.listEquals(["b", "c", "a"]);  
+  Expect.listEquals(["b", "c", "a"], list4);
 }
