@@ -8,22 +8,22 @@
  * ...
  * If element is a spreadElement with expression e1:
  * ...
- * If P is Set<Ps> then let S be the inferred type of e1 in context Iterable<Ps>:
+ * If P is Map<Pk, Pv> then let S be the inferred type of e1 in context P:
  * ...
- * If S is Null and the spread operator is ...?, then the set element type is
- * Null.
+ * If S is Null and the spread operator is ...?, then the key and value element
+ * types are Null.
  *
  * @description Checks that if S is Null and the spread operator is ...?, then
- * the set element type is Null.
+ * the key and value element types are Null
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 import "../../Utils/expect.dart";
 
-Set<X> foo<X>(Set<X> s) => s;
+Map<K, V> foo<K, V>(Map<K, V> s) => s;
 
 main() {
   Null x = null;
-  var s = foo({...?x});
-  Expect.isTrue(s is Set<Null>);
+  var m = foo({...?x});
+  Expect.isTrue(m is Map<Null, Null>);
 }

@@ -12,8 +12,7 @@
  * ...
  * Otherwise it is an error
  *
- * @description Checks that if S is dynamic, then the inferred set element type
- * of element is dynamic.
+ * @description Checks that otherwise it is an error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018

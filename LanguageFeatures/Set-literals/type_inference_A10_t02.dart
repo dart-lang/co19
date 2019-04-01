@@ -24,7 +24,7 @@ import "../../Utils/expect.dart";
 Map<X, Y> foo<X, Y>(Map<X, Y> m) => m;
 
 void test<T>(T t) {
-  Map m = foo({...?t});
+  var m = foo({...?t});
   Expect.isTrue(m is Map<Null, Null>);
 }
 

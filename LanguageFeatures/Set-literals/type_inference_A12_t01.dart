@@ -15,7 +15,7 @@
  * superinterface of S (the result of constraint matching for X using the
  * constraint S <: Iterable<X>).
  *
- * @description Checks that If S is a non-Null subtype of Iterable<Object>, then
+ * @description Checks that if S is a non-Null subtype of Iterable<Object>, then
  * the inferred set element type of element is T where T is the type such that
  * Iterable<T> is a superinterface of S
  * @author sgrekhov@unipro.ru

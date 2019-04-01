@@ -10,20 +10,16 @@
  * ...
  * If P is Set<Ps> then let S be the inferred type of e1 in context Iterable<Ps>:
  * ...
- * If S is Null and the spread operator is ...?, then the set element type is
- * Null.
+ * Otherwise it is an error
  *
- * @description Checks that if S is Null and the spread operator is ...?, then
- * the set element type is Null.
+ * @description Checks that otherwise it is an error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
-import "../../Utils/expect.dart";
-
-Set<X> foo<X>(Set<X> s) => s;
 
 main() {
-  Null x = null;
-  var s = foo({...?x});
-  Expect.isTrue(s is Set<Null>);
+  var s = [1, 2, 3];
+  var m = {1:1, 2: 2};
+  var x1 = <int>{...s, ...m};       //# 01: compile-time error
+  var x2 = <int>{...?s, ...?m};     //# 02: compile-time error
 }

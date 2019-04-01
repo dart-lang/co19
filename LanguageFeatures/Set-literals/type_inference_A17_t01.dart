@@ -8,22 +8,23 @@
  * ...
  * If element is a spreadElement with expression e1:
  * ...
- * If P is Set<Ps> then let S be the inferred type of e1 in context Iterable<Ps>:
+ * If P is Map<Pk, Pv> then let S be the inferred type of e1 in context P:
  * ...
- * If S is Null and the spread operator is ...?, then the set element type is
- * Null.
- *
- * @description Checks that if S is Null and the spread operator is ...?, then
- * the set element type is Null.
+ * If S is dynamic, then the inferred key type of element is dynamic, and the
+ * inferred value type of element is dynamic.
+ * @description Checks that if S is dynamic, then the inferred set element type
+ * of element is dynamic.
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 import "../../Utils/expect.dart";
 
-Set<X> foo<X>(Set<X> s) => s;
+test(x) {
+  Map<int, String> m = {...x};
+  Expect.isTrue(m is Map<int, String>);
+}
 
 main() {
-  Null x = null;
-  var s = foo({...?x});
-  Expect.isTrue(s is Set<Null>);
+  dynamic d = {1: "1", 2: "2", 3: "3", 4: "4"};
+  test(d);
 }
