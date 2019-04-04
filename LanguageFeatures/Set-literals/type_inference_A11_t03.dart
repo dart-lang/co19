@@ -10,24 +10,22 @@
  *
  * If P is ? then let S be the inferred type of e1 in context ?:
  * ...
- * If S is Null and the spread operator is ...? then the element has set element
- * type Null, map key type Null and map value type Null.
+ * If none of these cases match, it is an error.
  *
- * @description Checks that if S is Null and the spread operator is ...? then
- * the element has set element type Null, map key type Null and map value type
- * Null. Test Set
+ * @description Checks that if it is a compile error if non of the cases
+ * (`Iterable<Object>` nor of `Map<Object, Object>`, and it's also not `dynamic`
+ * nor `Null`) match
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
-import "../../Utils/expect.dart";
 
 Map<X, Y> foo<X, Y>(Map<X, Y> m) => m;
 
 void test<T>(T t) {
   var m = foo({...?t});
-  Expect.isTrue(m is Map<Null, Null>);
 }
 
 main() {
-  test(null);
+  test<Null>(null);
 }
