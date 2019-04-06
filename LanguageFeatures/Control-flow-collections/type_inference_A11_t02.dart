@@ -35,7 +35,7 @@ main() {
   Expect.isFalse(map1 is Map<num, int>);
   Expect.isFalse(map1 is Map<num, double>);
 
-  var set2 = {
+  var map2 = {
     "": 1,
     if (i < 0) ...?x else ...?y,
   };

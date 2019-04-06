@@ -22,8 +22,8 @@ import "../../Utils/expect.dart";
 
 main() {
   var collection = [1, 2, 3, 4, 5];
-  var c1 = [1: 1, 2: 2, 3: 3];
-  var c2 = [1.1: 1.1, 2.2: 2.2, 3.3: 3.3];
+  var c1 = {1: 1, 2: 2, 3: 3};
+  var c2 = {1.1: 1.1, 2.2: 2.2, 3.3: 3.3};
 
   var map1 = {
   for (var i in collection)
@@ -52,9 +52,9 @@ main() {
     for (var i in collection)
       if (i.isEven) ...?c1 else ...?c2
   };
-  Expect.isTrue(map1 is Map<num, num>);
-  Expect.isFalse(map1 is Map<int, num>);
-  Expect.isFalse(map1 is Map<double, num>);
-  Expect.isFalse(map1 is Map<num, int>);
-  Expect.isFalse(map1 is Map<num, double>);
+  Expect.isTrue(map3 is Map<num, num>);
+  Expect.isFalse(map3 is Map<int, num>);
+  Expect.isFalse(map3 is Map<double, num>);
+  Expect.isFalse(map3 is Map<num, int>);
+  Expect.isFalse(map3 is Map<num, double>);
 }

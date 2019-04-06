@@ -33,7 +33,7 @@ main() {
   Expect.isFalse(x2 is Map<int, String>);
   Expect.isFalse(x2 is Map<double, String>);
 
-  var m3 = [1.0: 1.0, 2: 2, "3": "3", 4: 4];
+  var m3 = {1.0: 1.0, 2: 2, "3": "3", 4: 4};
   var x3 = {...m3};
   Expect.isTrue(x3 is Map<Object, Object>);
   Expect.isFalse(x3 is Map<num, Object>);
