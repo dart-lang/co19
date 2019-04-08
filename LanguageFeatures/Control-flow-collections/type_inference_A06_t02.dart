@@ -27,7 +27,7 @@ main() {
     "": "",
     if (i < 0) ...?x,
   };
-  Expect.isTrue(map2 is Map<String, Object>);
+  Expect.isTrue(map2 is Map<Object, String>);
   Expect.isFalse(map2 is Map<String, String>);
-  Expect.isFalse(map2 is Map<String, num>);
+  Expect.isFalse(map2 is Map<num, String>);
 }
