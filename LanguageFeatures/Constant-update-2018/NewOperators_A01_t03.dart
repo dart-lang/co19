@@ -14,7 +14,7 @@
  * @Issue 30886
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018,triple-shift
 
 main() {
   const c1 = -2 >>> 1.79;   //# 01: compile-time error

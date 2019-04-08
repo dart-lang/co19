@@ -15,18 +15,11 @@
 // SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
-class MyClass {
+class MyClass extends LinkedHashSet {
   final String str;
-  const MyClass(Object o) : str = o is String ? o : "undefined";
+  const MyClass() : str = "undefined";
 }
 
 main() {
-  const MyClass c1 = MyClass("12345");
-  Expect.equals("12345", c1.str);
-
-  const MyClass c2 = MyClass(12);
-  Expect.equals("undefined", c2.str);
-
-  const MyClass c3 = MyClass(null);
-  Expect.equals("undefined", c3.str);
+ const ttt = MyClass() is String ? 1 : 2;
 }

@@ -15,7 +15,7 @@
  * @Issue 30886
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018,triple-shift
 import "../../Utils/expect.dart";
 
 class MyClass {
@@ -24,20 +24,22 @@ class MyClass {
 }
 
 main() {
+  const x = 12345;
+
   const MyClass c1 = MyClass(-2, 1);
   Expect.equals(-2 >>> 1, c1.a);
 
   const MyClass c2 = MyClass(125, 2);
   Expect.equals(125 >>> 2, c2.a);
 
-  const MyClass c3 = MyClass(c2.a, 1000);
-  Expect.equals(c2.a >>> 1000, c3.a);
+  const MyClass c3 = MyClass(x, 1000);
+  Expect.equals(x >>> 1000, c3.a);
 
   const MyClass c4 = MyClass(4, 1);
   Expect.equals(4 >>> 1, c4.a);
 
-  const MyClass c5 = MyClass(0, c3.a);
-  Expect.equals(0 >>> c3.a, c5.a);
+  const MyClass c5 = MyClass(0, x);
+  Expect.equals(0 >>> x, c5.a);
 
   const MyClass c6 = MyClass(1, 0);
   Expect.equals(1 >>> 0, c6.a);

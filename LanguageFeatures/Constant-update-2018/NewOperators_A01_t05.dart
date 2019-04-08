@@ -14,7 +14,7 @@
  * @Issue 30886
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018,triple-shift
 
 main() {
   const d1 = 14;
