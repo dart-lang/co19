@@ -16,7 +16,7 @@
  * element is the least upper bound of S1 and S2.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=control-flow-collections, constant-update-2018
+// SharedOptions=--enable-experiment=control-flow-collections,constant-update-2018
 import "../../Utils/expect.dart";
 
 class A {}

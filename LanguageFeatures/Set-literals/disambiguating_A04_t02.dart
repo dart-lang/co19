@@ -16,7 +16,7 @@
  * and no mapEntry elements, then e is a set literal. Test spread elements
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections, control-flow-collections,constant-update-2018
+// SharedOptions=--enable-experiment=spread-collections,control-flow-collections,constant-update-2018
 import "../../Utils/expect.dart";
 
 main() {
