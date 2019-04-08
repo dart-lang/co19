@@ -17,7 +17,7 @@
  * of element is S.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=control-flow-collections, constant-update-2018, spread-collections
+// SharedOptions=--enable-experiment=control-flow-collections,constant-update-2018,spread-collections
 import "../../Utils/expect.dart";
 
 main() {
