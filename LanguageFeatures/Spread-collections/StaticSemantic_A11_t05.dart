@@ -5,10 +5,10 @@
  */
 /**
  * @assertion It is a compile-time error if:
- * A spread element in a list or set literal has a static type that is not
- * dynamic and not a subtype of Iterable<Object>.
+ * A spread element in a map literal has a static type that is not [dynamic] and
+ * not a subtype of [Map<Object, Object>].
  * @description Checks that compile error is thrown if spread element in the
- * constant list is not assignable to [Iterable]
+ * constant map is not assignable to [Map]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
@@ -21,10 +21,10 @@ main() {
   const x5 = "check";
   const x6 = null;
 
-  const List l1 = [...x1];
-  const List l2 = [...x2];
-  const List l3 = [...x3]; //# 01: compile-time error
-  const List l4 = [...x4]; //# 02: compile-time error
-  const List l5 = [...x5]; //# 03: compile-time error
-  const List l6 = [...x6]; //# 04: compile-time error
+  const Map m1 = {...x1}; //# 01: compile-time error
+  const Map m2 = {...x2}; //# 02: compile-time error
+  const Map m3 = {...x3};
+  const Map m4 = {...x4}; //# 03: compile-time error
+  const Map m5 = {...x5}; //# 04: compile-time error
+  const Map m6 = {...x6}; //# 05: compile-time error
 }

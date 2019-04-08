@@ -15,27 +15,23 @@
 import "dart:async";
 
 main() {
-  dynamic x1;
-  Object x2;
-  List x3;
-  Set x4;
-  Map x5;
-  int x6;
-  Iterable x7;
-  Null x8;
-  void x9;
-  Future x10;
-  FutureOr x11;
+  Object x1;
+  List x2;
+  Set x3;
+  int x4;
+  Iterable x5;
+  Null x6;
+  void x7;
+  Future x8;
+  FutureOr x9;
 
-  Map m1  = {...x1};
-  Map m2  = {...x2};  //# 01: compile-time error
-  Map m3  = {...x3};  //# 02: compile-time error
-  Map m4  = {...x4};  //# 03: compile-time error
-  Map m5  = {...x5};
-  Map m6  = {...x6};  //# 04: compile-time error
-  Map m7  = {...x7};  //# 05: compile-time error
-  Map m8  = {...x8};  //# 06: compile-time error
-  Map m9  = {...x9};  //# 07: compile-time error
-  Map m10 = {...x10}; //# 08: compile-time error
-  Map m11 = {...x11}; //# 09: compile-time error
+  Map m1 = {...x1}; //# 01: compile-time error
+  Map m2 = {...x2}; //# 02: compile-time error
+  Map m3 = {...x3}; //# 03: compile-time error
+  Map m4 = {...x4}; //# 04: compile-time error
+  Map m5 = {...x5}; //# 05: compile-time error
+  Map m6 = {...x6}; //# 06: compile-time error
+  Map m7 = {...x7}; //# 07: compile-time error
+  Map m8 = {...x8}; //# 08: compile-time error
+  Map m9 = {...x9}; //# 09: compile-time error
 }

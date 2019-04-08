@@ -7,36 +7,24 @@
  * @assertion It is a compile-time error if:
  * A spread element in a list or set literal has a static type that is not
  * dynamic and not a subtype of Iterable<Object>.
- * @description Checks that compile error is thrown if null-aware spread element
- * in the list is not dynamic and is not assignable to [Iterable] or [Null]
+ * @description Checks that compile error is thrown if spread element in the
+ * list is not dynamic and is not assignable to [Iterable]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
-import "dart:async";
+import "../../Utils/expect.dart";
 
 main() {
   dynamic x1;
-  Object x2;
-  List x3;
-  Set x4;
-  Map x5;
-  int x6;
-  Iterable x7;
-  Null x8;
-  void x9;
-  Future x10;
-  FutureOr x11;
+  List x2;
+  Set x3;
+  Iterable x4;
 
-  List l1  = [...?x1];
-  List l2  = [...?x2];  //# 01: compile-time error
-  List l3  = [...?x3];
-  List l4  = [...?x4];
-  List l5  = [...?x5];  //# 02: compile-time error
-  List l6  = [...?x6];  //# 03: compile-time error
-  List l7  = [...?x7];
-  List l8  = [...?x8];
-  List l9  = [...?x9];  //# 04: compile-time error
-  List l10 = [...?x10]; //# 05: compile-time error
-  List l11 = [...?x11]; //# 06: compile-time error
+  List res;
+
+  Expect.throws(() => res = [...x1]);
+  Expect.throws(() => res = [...x2]);
+  Expect.throws(() => res = [...x3]);
+  Expect.throws(() => res = [...x4]);
 }

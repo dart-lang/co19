@@ -8,10 +8,12 @@
  * A spread element in a list or set literal has a static type that is not
  * dynamic and not a subtype of Iterable<Object>.
  * @description Checks that compile error is thrown if null-aware spread element
- * in the list is not dynamic and is not assignable to [Iterable] or [Null]
+ * in the sett is not dynamic and is not assignable to [Iterable] or [Null]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+
+import "dart:async";
 
 main() {
   dynamic x1;
@@ -20,11 +22,9 @@ main() {
   Iterable x4;
   Null x5;
 
-  List res;
-
-  res = [...?x1];
-  res = [...?x2];
-  res = [...?x3];
-  res = [...?x4];
-  res = [...?x5];
+  Set s1  = {...?x1};
+  Set s2  = {...?x2};
+  Set s3  = {...?x3};
+  Set s4  = {...?x4};
+  Set s5  = {...?x5};
 }

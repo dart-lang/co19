@@ -16,27 +16,21 @@
 import "dart:async";
 
 main() {
-  dynamic x1;
-  Object x2;
-  List x3;
-  Set x4;
-  Map x5;
-  int x6;
-  Iterable x7;
-  Null x8;
-  void x9;
-  Future x10;
-  FutureOr x11;
+  Object x1;
+  Map x2;
+  int x3;
+  Null x4;
+  void x5;
+  Future x6;
+  FutureOr x7;
 
-  List l1  = [...x1];
-  List l2  = [...x2];  //# 01: compile-time error
-  List l3  = [...x3];
-  List l4  = [...x4];
-  List l5  = [...x5];  //# 02: compile-time error
-  List l6  = [...x6];  //# 03: compile-time error
-  List l7  = [...x7];
-  List l8  = [...x8];  //# 04: compile-time error
-  List l9  = [...x9];  //# 05: compile-time error
-  List l10 = [...x10]; //# 06: compile-time error
-  List l11 = [...x11]; //# 07: compile-time error
+  List res;
+
+  List l1 = [...x1]; //# 01: compile-time error
+  List l2 = [...x2]; //# 02: compile-time error
+  List l3 = [...x3]; //# 03: compile-time error
+  List l4 = [...x4]; //# 04: compile-time error
+  List l5 = [...x5]; //# 05: compile-time error
+  List l6 = [...x6]; //# 06: compile-time error
+  List l7 = [...x7]; //# 07: compile-time error
 }

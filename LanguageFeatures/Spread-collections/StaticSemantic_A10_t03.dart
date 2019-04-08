@@ -7,24 +7,26 @@
  * @assertion It is a compile-time error if:
  * A spread element in a list or set literal has a static type that is not
  * dynamic and not a subtype of Iterable<Object>.
- * @description Checks that compile error is thrown if spread element in the
- * constant list is not assignable to [Iterable]
+ * @description Checks that compile error is thrown if null-aware spread element
+ * in the list is not dynamic and is not assignable to [Iterable] or [Null]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
-main() {
-  const x1 = [];
-  const Set x2 = {1};
-  const Map x3 = {1: 1};
-  const x4 = 100;
-  const x5 = "check";
-  const x6 = null;
+import "dart:async";
 
-  const List l1 = [...x1];
-  const List l2 = [...x2];
-  const List l3 = [...x3]; //# 01: compile-time error
-  const List l4 = [...x4]; //# 02: compile-time error
-  const List l5 = [...x5]; //# 03: compile-time error
-  const List l6 = [...x6]; //# 04: compile-time error
+main() {
+  Object x1;
+  Map x2;
+  int x3;
+  void x4;
+  Future x5;
+  FutureOr x6;
+
+  List l1 = [...?x1]; //# 01: compile-time error
+  List l2 = [...?x2]; //# 02: compile-time error
+  List l3 = [...?x3]; //# 03: compile-time error
+  List l4 = [...?x4]; //# 04: compile-time error
+  List l5 = [...?x5]; //# 05: compile-time error
+  List l6 = [...?x6]; //# 06: compile-time error
 }
