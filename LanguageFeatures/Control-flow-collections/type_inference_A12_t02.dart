@@ -49,10 +49,4 @@ main() {
   };
   Expect.isTrue(set3 is Set<B>);
   Expect.isFalse(set3 is Set<C>);
-
-  var set4 = {
-    for (var i in collection)  i < 2 ? new B() : new A()
-  };
-  Expect.isTrue(set4 is Set<A>);
-  Expect.isFalse(set4 is Set<B>);
 }

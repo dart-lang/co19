@@ -54,13 +54,4 @@ main() {
   Expect.isTrue(map3 is Map<A, B>);
   Expect.isFalse(map3 is Map<B, B>);
   Expect.isFalse(map3 is Map<A, C>);
-
-  var map4 = {
-    if (i < 0) i > 0 ? 1: 3.14 else 3.14: 1
-  };
-  Expect.isTrue(map4 is Map<num, num>);
-  Expect.isFalse(map4 is Map<int, num>);
-  Expect.isFalse(map4 is Map<double, num>);
-  Expect.isFalse(map4 is Map<num, int>);
-  Expect.isFalse(map4 is Map<num, double>);
 }
