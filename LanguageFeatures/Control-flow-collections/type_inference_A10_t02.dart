@@ -46,11 +46,4 @@ main() {
   };
   Expect.isTrue(set3 is Set<A>);
   Expect.isFalse(set3 is Set<B>);
-
-  var set4 = {
-    if (i < 0) i > 0 ? 1: 3.14 else 1
-  };
-  Expect.isTrue(set4 is Set<num>);
-  Expect.isFalse(set4 is Set<int>);
-  Expect.isFalse(set4 is Set<double>);
 }

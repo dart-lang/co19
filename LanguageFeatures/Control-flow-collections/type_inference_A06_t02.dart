@@ -21,7 +21,7 @@ main() {
   var map1 = {
     if (i > 0) ...x,
   };
-  Expect.isTrue(map1 is Map<String, int>);
+  Expect.isTrue(map1 is Map<int, String>);
 
   var map2 = {
     "": "",
