@@ -10,25 +10,30 @@
  * operator has not been added to the [int] class yet, so unless the left-hand
  * operand's static type is [dynamic], the program will still be rejected. When
  * the operator is added, it should then also work in a constant expression.
- * @description Checks that operator [>>>] is accepted in potentially constant
- * expressions.
  * @description Checks that arguments of [>>>] operator should be int.
+ * @Issue 30886
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018,triple-shift
 
-class MyClass {
-  final int a;
-  const MyClass(i1, i2) : a = (i1 >>> i2);
-}
-
 main() {
-  const MyClass c1 = MyClass(123, 456);
-  const MyClass c2 = MyClass(-10000, 14);
-  const MyClass c3 = MyClass(-128, 10);
+  const d1 = 14;
+  const d2 = 1000;
+  const d3 = 0;
 
-  const MyClass c4 = MyClass(1.0, 1);       //# 01: compile-time error
-  const MyClass c5 = MyClass(125.12, 2);    //# 02: compile-time error
-  const MyClass c6 = MyClass("abcd", 2);    //# 03: compile-time error
-  const MyClass c7 = MyClass(12, "testme"); //# 04: compile-time error
+  const d4 = -1;
+  const d5 = -99999;
+
+  const c1 = d1 >>> d3;
+  const c2 = 12345 >>> 0;
+  const c3 = -111 >>> d3;
+  const c4 = 0 >>> 0;
+
+  const c5 = d1 >>> d4;    //# 01: compile-time error
+  const c6 = d2 >>> d5;    //# 02: compile-time error
+
+  const c7  = d3 >>> -11;  //# 03: compile-time error
+  const c8  = 1 >>> -9999; //# 04: compile-time error
+  const c9  = d4 >>> -2;   //# 05: compile-time error
+  const c10 = -24 >>> d5;   //# 06: compile-time error
 }

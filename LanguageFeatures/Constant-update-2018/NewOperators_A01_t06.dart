@@ -30,7 +30,7 @@ class MyClass {
 
 main() {
   const MyClass c1 = MyClass(d0, d1);
-  const MyClass c2 = MyClass(d1, -14);
+  const MyClass c2 = MyClass(d1, 145);
   const MyClass c3 = MyClass(129, d0);
 
   const MyClass c4 = MyClass(d2, d1); //# 01: compile-time error
