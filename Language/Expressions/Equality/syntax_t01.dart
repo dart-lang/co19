@@ -59,7 +59,7 @@ class A extends S {
     try {1 << 2 != null >> null;} catch (e) {}
 
     //triple shift expressions
-    try {1 >>> -1 != () {};} catch (e) {}
+    try {1 >>> 2 != () {};} catch (e) {}
 
     //additive expressions
     try { 1 + 2 == 2;} catch (e) {}

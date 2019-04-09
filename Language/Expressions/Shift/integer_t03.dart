@@ -28,5 +28,5 @@ main() {
   Expect.equals(4, k >>> 261);
 
   int l = 1295555555;
-  Expect.equals(1, l >>> -2);
+  Expect.equals(l, l >>> 0);
 }
