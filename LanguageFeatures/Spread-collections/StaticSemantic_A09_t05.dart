@@ -8,18 +8,18 @@
  * A non-null-aware spread element has static type Null.
  * @description Checks that compile error is thrown if spread element is
  * statically [Null].
- * @description Check that trying to use [null] element as a non-null-aware
- * spread element in constant causes compile error
+ * @description Check that trying to use [null] element as a null-aware spread
+ * element does not cause compile error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 main() {
-  const res1 = [...null];           //# 01: compile-time error
-  const Map res2 = {...null};       //# 02: compile-time error
-  const Set res3 = {...null};       //# 03: compile-time error
+  var res1 = [...?null];
+  Map res2 = {...?null};
+  Set res3 = {...?null};
 
-  const res4 = <int>[...null];      //# 04: compile-time error
-  const res5 = <int>{...null};      //# 05: compile-time error
-  const res6 = <int, int>{...null}; //# 06: compile-time error
+  var res4 = <int>[...?null];
+  var res5 = <int>{...?null};
+  var res6 = <int, int>{...?null};
 }

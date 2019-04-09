@@ -22,12 +22,4 @@ main() {
   var res4 = <int>[...null];      //# 04: compile-time error
   var res5 = <int>{...null};      //# 05: compile-time error
   var res6 = <int, int>{...null}; //# 06: compile-time error
-
-  var res7 = [...?null];
-  Map res8 = {...?null};
-  Set res9 = {...?null};
-
-  var res10 = <int>[...?null];
-  var res11 = <int>{...?null};
-  var res12 = <int, int>{...?null};
 }

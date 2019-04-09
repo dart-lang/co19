@@ -24,12 +24,4 @@ main() {
   const res4 = <int>[...n];      //# 04: compile-time error
   const res5 = <int>{...n};      //# 05: compile-time error
   const res6 = <int, int>{...n}; //# 06: compile-time error
-
-  const res7 = [...?n];
-  const Map res8 = {...?n};
-  const Set res9 = {...?n};
-
-  const res10 = <int>[...?n];
-  const res11 = <int>{...?n};
-  const res12 = <int, int>{...?n};
 }

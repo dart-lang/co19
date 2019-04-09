@@ -24,12 +24,4 @@ main() {
   var res4 = <int>[...n];      //# 04: compile-time error
   var res5 = <int>{...n};      //# 05: compile-time error
   var res6 = <int, int>{...n}; //# 06: compile-time error
-
-  var res7 = [...?n];
-  Map res8 = {...?n};
-  Set res9 = {...?n};
-
-  var res10 = <int>[...?n];
-  var res11 = <int>{...?n};
-  var res12 = <int, int>{...?n};
 }
