@@ -9,8 +9,7 @@
  * is constant and it evaluates to a constant List, Set or Map instance
  * originally created by a list, set or map literal. It is a potentially
  * constant element if the expression is a potentially constant expression.
- * @description: Checks that constant set spread element can be constant list or
- * set.
+ * @description: Checks some disambiguilty cases for sets and maps.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
@@ -18,24 +17,29 @@
 import "../../Utils/expect.dart";
 
 const l1 = [];
-const l2 = [1, 2, 3];
+const s1 = {11};
+const m1 = {1: 1};
+const int i1 = 25;
+const n = null;
 
-const Set s1 = {};
-const s2 = {4, 5, 6};
+Set emptyset = {};
 
 main() {
-  const Set res1 = const {...l1};
-  Expect.setEquals(s1, res1);
+  const res1 = {...l1};
+  Expect.setEquals(emptyset, res1);
 
-  const Set res2 = const {...l2};
-  Expect.setEquals({1, 2, 3}, res2);
+  const res2 = {1, ...l1, 2};
+  Expect.setEquals({1, 2}, res2);
 
-  const Set res3 = const {...s1};
-  Expect.setEquals(s1, res3);
+  const res3 = {...s1};
+  Expect.setEquals({11}, res3);
 
-  const Set res4 = const {...s2};
-  Expect.setEquals(s2, res4);
+  const res4 = {1, ...s1, 2};
+  Expect.setEquals({1, 11, 2}, res4);
 
-  const Set res5 = const {...l1, ...l2, ...s1, ...s2};
-  Expect.setEquals({1, 2, 3, 4, 5, 6}, res5);
+  const res5 = {...m1};
+  Expect.mapEquals(m1, res5);
+
+  const res6 = {7: 1, ...m1, 3: 14};
+  Expect.mapEquals({7: 1, 1: 1, 3: 14}, res6);
 }

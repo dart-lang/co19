@@ -13,5 +13,5 @@
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 main() {
-  var res = {...?null};
+  dynamic res = {...?null};
 }

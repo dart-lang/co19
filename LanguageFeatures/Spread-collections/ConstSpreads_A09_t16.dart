@@ -9,17 +9,19 @@
  * is constant and it evaluates to a constant List, Set or Map instance
  * originally created by a list, set or map literal. It is a potentially
  * constant element if the expression is a potentially constant expression.
- * @description: Checks that constant set spread element cannot be non-constant,
- * cannot be [null] and cannot be of the type which is not [List] or [Set]
+ * @description: Checks that constant map spread element cannot be non-constant,
+ * cannot be [null] and cannot be [List], [Set] or [int].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
-List l = [];
-Set s = {11};
+const l1 = [];
+List l2 = [];
 
-const m1 = {1: 1};
-Map m2 = {2: 2};
+const s1 = {11};
+Set s2 = {};
+
+Map m = {2: 2};
 
 const int i1 = 25;
 int i2 = 25;
@@ -27,11 +29,12 @@ int i2 = 25;
 const n = null;
 
 main() {
-  const Set res1 = const {...l};  //# 01: compile-time error
-  const Set res2 = const {...s};  //# 02: compile-time error
-  const Set res3 = const {...m1}; //# 03: compile-time error
-  const Set res4 = const {...m2}; //# 04: compile-time error
-  const Set res5 = const {...i1}; //# 05: compile-time error
-  const Set res6 = const {...i2}; //# 06: compile-time error
-  const Set res7 = const {...n};  //# 07: compile-time error
+  const Map res1 = const {...l1}; //# 01: compile-time error
+  const Map res2 = const {...l2}; //# 02: compile-time error
+  const Map res3 = const {...s1}; //# 03: compile-time error
+  const Map res4 = const {...s2}; //# 04: compile-time error
+  const Map res5 = const {...m};  //# 05: compile-time error
+  const Map res6 = const {...i1}; //# 06: compile-time error
+  const Map res7 = const {...i2}; //# 07: compile-time error
+  const Map res8 = const {...n};  //# 08: compile-time error
 }

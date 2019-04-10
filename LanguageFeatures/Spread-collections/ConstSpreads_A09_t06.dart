@@ -9,18 +9,18 @@
  * is constant and it evaluates to a constant List, Set or Map instance
  * originally created by a list, set or map literal. It is a potentially
  * constant element if the expression is a potentially constant expression.
- * @description: Checks that constant set spread element can be constant list
+ * @description: Checks that constant list spread element can be constant list
  * or set.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
-main() {
-  const Set res1 = const {...[1, 2, 3], 4};
-  const Set res2 = const {5, ...{2, 11}};
+import "../../Utils/expect.dart";
 
-  const Set res3 = const {...{1: 2, 3: 4}}; //# 01: compile-time error
-  const Set res4 = const {...44};           //# 02: compile-time error
-  const Set res5 = const {...{}};
-  const Set res6 = const {...null};         //# 03: compile-time error
+main() {
+  const List res1 = const [...[1, 2, 3], 4];
+  Expect.listEquals([1, 2, 3, 4], res1);
+
+  const List res2 = const [5, ...{2, 11}];
+  Expect.listEquals([5, 2, 11], res2);
 }

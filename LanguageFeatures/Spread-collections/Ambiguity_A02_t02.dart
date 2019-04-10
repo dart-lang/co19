@@ -11,10 +11,15 @@
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
+import "../../Utils/expect.dart";
+
+Set emptyset = {};
+Map emptymap = {};
+
 main() {
   Set res1 = {...?null};
-  Map res2 = {...?null};
+  Expect.setEquals(emptyset, res1);
 
-  var res3 = {...?null};     //# 01: compile-time error
-  dynamic res4 = {...?null}; //# 02: compile-time error
+  Map res2 = {...?null};
+  Expect.mapEquals(emptymap, res2);
 }

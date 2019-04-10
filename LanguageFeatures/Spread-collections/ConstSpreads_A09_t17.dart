@@ -9,33 +9,34 @@
  * is constant and it evaluates to a constant List, Set or Map instance
  * originally created by a list, set or map literal. It is a potentially
  * constant element if the expression is a potentially constant expression.
- * @description: Checks that constant set spread element can be constant list or
- * set.
+ * @description: Checks that constant map spread element can be potentially
+ * constant map.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 import "../../Utils/expect.dart";
 
-const l1 = [];
-const l2 = [1, 2, 3];
+class A {
+  const A();
+}
 
-const Set s1 = {};
-const s2 = {4, 5, 6};
+class B extends A {
+  const B();
+}
+
+class MyClass {
+  final String a;
+  const MyClass(Object o) : a = o as String;
+}
 
 main() {
-  const Set res1 = const {...l1};
-  Expect.setEquals(s1, res1);
+  const Map m1 = {...(A() is B ? {1: 12345} : <Object, Object>{})};
+  Expect.mapEquals(<Object, Object>{}, m1);
 
-  const Set res2 = const {...l2};
-  Expect.setEquals({1, 2, 3}, res2);
+  const Map m2 = {...(A() is A ? {12345: 4} : {0: 1})};
+  Expect.mapEquals({12345: 4}, m2);
 
-  const Set res3 = const {...s1};
-  Expect.setEquals(s1, res3);
-
-  const Set res4 = const {...s2};
-  Expect.setEquals(s2, res4);
-
-  const Set res5 = const {...l1, ...l2, ...s1, ...s2};
-  Expect.setEquals({1, 2, 3, 4, 5, 6}, res5);
+  const Map m3 = {...(MyClass("test") is MyClass ? {"a": "b"} : <int, int>{})};
+  Expect.mapEquals({"a": "b"}, m3);
 }

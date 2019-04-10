@@ -9,17 +9,44 @@
  * is constant and it evaluates to a constant List, Set or Map instance
  * originally created by a list, set or map literal. It is a potentially
  * constant element if the expression is a potentially constant expression.
- * @description: Checks that constant list spread element can be constant list
- * or set.
+ * @description: Checks that constant list spread element can be potentially
+ * constant list or set.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
-main() {
-  const List res1 = const [...[1, 2, 3], 4];
-  const List res2 = const [5, ...{2, 11}];
+import "../../Utils/expect.dart";
 
-  const List res3 = const [...{1: 2, 3: 4}]; //# 01: compile-time error
-  const List res4 = const [...44];           //# 02: compile-time error
-  const List res5 = const [...null];         //# 03: compile-time error
+class A {
+  const A();
+}
+
+class B extends A {
+  const B();
+}
+
+class MyClass {
+  final String a;
+  const MyClass(Object o) : a = o as String;
+}
+
+
+main() {
+  const List l1 = [...(A() is B ? [12345] : [])];
+  Expect.listEquals([], l1);
+
+  const List l2 = [...(A() is A ? [12345] : [0])];
+  Expect.listEquals([12345], l2);
+
+  const List l3 = [...(MyClass("test") is MyClass ? [12345] : [])];
+  Expect.listEquals([12345], l3);
+
+  const List l4 = [...(A() is B ? {12345} : {1})];
+  Expect.listEquals([1], l4);
+
+  const List l5 = [...(A() is A ? {12345} : {0})];
+  Expect.listEquals([12345], l5);
+
+  const List l6 = [...(MyClass("test") is MyClass ? {12345} : {1})];
+  Expect.listEquals([12345], l6);
 }
