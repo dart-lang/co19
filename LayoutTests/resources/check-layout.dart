@@ -17,7 +17,7 @@ insertAfter(nodeToAdd, referenceNode)
     return;
   }
 
-  if (referenceNode.nextNode)
+  if (referenceNode.nextNode != null)
     referenceNode.parentNode.insertBefore(nodeToAdd, referenceNode.nextNode);
   else
     referenceNode.parentNode.append(nodeToAdd);
