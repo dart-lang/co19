@@ -38,4 +38,20 @@ main() {
 
   const Set res5 = const {...l1, ...l2, ...s1, ...s2};
   Expect.setEquals({1, 2, 3, 4, 5, 6}, res5);
+
+
+  const Set res6 = const {...?l1};
+  Expect.setEquals(s1, res6);
+
+  const Set res7 = const {...?l2};
+  Expect.setEquals({1, 2, 3}, res7);
+
+  const Set res8 = const {...?s1};
+  Expect.setEquals(s1, res8);
+
+  const Set res9 = const {...?s2};
+  Expect.setEquals(s2, res9);
+
+  const Set res10 = const {...?l1, ...?l2, ...?s1, ...?s2};
+  Expect.setEquals({1, 2, 3, 4, 5, 6}, res10);
 }

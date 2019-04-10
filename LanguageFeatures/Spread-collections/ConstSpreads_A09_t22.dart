@@ -42,4 +42,23 @@ main() {
 
   const res6 = {7: 1, ...m1, 3: 14};
   Expect.mapEquals({7: 1, 1: 1, 3: 14}, res6);
+
+
+  const res7 = {...?l1};
+  Expect.setEquals(emptyset, res7);
+
+  const res8 = {1, ...?l1, 2};
+  Expect.setEquals({1, 2}, res8);
+
+  const res9 = {...?s1};
+  Expect.setEquals({11}, res9);
+
+  const res10 = {1, ...?s1, 2};
+  Expect.setEquals({1, 11, 2}, res10);
+
+  const res11 = {...?m1};
+  Expect.mapEquals(m1, res11);
+
+  const res12 = {7: 1, ...?m1, 3: 14};
+  Expect.mapEquals({7: 1, 1: 1, 3: 14}, res12);
 }

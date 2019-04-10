@@ -16,9 +16,14 @@
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 main() {
-  const Map res1 = const {...{1, 3}};  //# 01: compile-time error
-  const Map res2 = const {...[]};      //# 02: compile-time error
-  const Map res3 = const {...44};      //# 03: compile-time error
-  const Map res4 = const {...<int>{}}; //# 04: compile-time error
-  const Map res5 = const {...null};    //# 05: compile-time error
+  const Map res1 = const {...{1, 3}};   //# 01: compile-time error
+  const Map res2 = const {...[]};       //# 02: compile-time error
+  const Map res3 = const {...44};       //# 03: compile-time error
+  const Map res4 = const {...<int>{}};  //# 04: compile-time error
+  const Map res5 = const {...null};     //# 05: compile-time error
+
+  const Map res6 = const {...?{1, 3}};  //# 01: compile-time error
+  const Map res7 = const {...?[]};      //# 02: compile-time error
+  const Map res8 = const {...?44};      //# 03: compile-time error
+  const Map res9 = const {...?<int>{}}; //# 04: compile-time error
 }

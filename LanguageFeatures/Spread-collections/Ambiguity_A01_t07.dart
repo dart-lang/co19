@@ -22,13 +22,21 @@
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
+import "../../Utils/expect.dart";
+
 main() {
   List list =  [1, 12, 24];
   Map map = {1: 1, "test": 1, 14: null};
 
   Set res1 = {...list, ...?null};
+  Expect.setEquals({1, 12, 24}, res1);
 
   Set res2 = {...?null, ...list};
+  Expect.setEquals({1, 12, 24}, res2);
+
   Map res3 = {...?null, ...map};
+  Expect.mapEquals(map, res3);
+
   Map res4 = {...map, ...?null};
+  Expect.mapEquals(map, res4);
 }

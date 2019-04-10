@@ -20,19 +20,18 @@ main() {
   List list4 = null;
   int i = 7;
 
-  const res1 = {...list1};                                       //# 01: compile-time error
-  const res2 = {...?list1};                                      //# 02: compile-time error
-  const res3 = {...list2};                                       //# 03: compile-time error
-  const res4 = {...?list2};                                      //# 04: compile-time error
-  const res5 = {...list3};                                       //# 05: compile-time error
-  const res6 = {...?list3};                                      //# 06: compile-time error
-  const res7 = {...?list4};                                      //# 07: compile-time error
-  const res8 = {1, 2, ...list1, 6};                              //# 08: compile-time error
-  const res9 = {1, ...list1, ...list2, ...list3, ...?list4, 18}; //# 09: compile-time error
-
-  const res10 = {...list1, ...[2]};                              //# 10: compile-time error
-  const res11 = {1, ...list1, ...[1, 4]};                        //# 11: compile-time error
-  const res12 = {...[2, 3, 2], i};                               //# 12: compile-time error
-  const res13 = {1, ...list1, 1};                                //# 13: compile-time error
+  const res1 =  {...list1};                                       //# 01: compile-time error
+  const res2 =  {...?list1};                                      //# 02: compile-time error
+  const res3 =  {...list2};                                       //# 03: compile-time error
+  const res4 =  {...?list2};                                      //# 04: compile-time error
+  const res5 =  {...list3};                                       //# 05: compile-time error
+  const res6 =  {...?list3};                                      //# 06: compile-time error
+  const res7 =  {...?list4};                                      //# 07: compile-time error
+  const res8 =  {1, 2, ...list1, 6};                              //# 08: compile-time error
+  const res9 =  {1, ...list1, ...list2, ...list3, ...?list4, 18}; //# 09: compile-time error
+  const res10 = {...list1, ...[2]};                               //# 10: compile-time error
+  const res11 = {1, ...list1, ...[1, 4]};                         //# 11: compile-time error
+  const res12 = {...[2, 3, 2], i};                                //# 12: compile-time error
+  const res13 = {1, ...list1, 1};                                 //# 13: compile-time error
 
 }

@@ -6,18 +6,12 @@
 /**
  * @assertion In cases where the context type is not specific enough to
  * disambiguate, we could make it an error instead of defaulting to map.
- * However, that would be inconsistent with how empty collections are handled.
- * Those have to default to map for backwards compatibility.
- * @description Checks that empty collection is a map.
+ * @description Checks that {...?null} collection type is detected correctly
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
-import "../../Utils/expect.dart";
-
 main() {
-  Expect.isTrue({} is Map);
-
-  dynamic map = {};
-  Expect.isTrue(map is Map);
+  dynamic res = {...?null};
 }

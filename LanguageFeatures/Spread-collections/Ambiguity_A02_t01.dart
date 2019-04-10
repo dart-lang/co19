@@ -17,5 +17,4 @@
 main() {
   Set res1 = {};
   Map res2 = {};
-  List res3 = {};  //# 01: compile-time error
 }

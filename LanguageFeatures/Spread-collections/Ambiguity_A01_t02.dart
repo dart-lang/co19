@@ -23,6 +23,8 @@
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
+import "../../Utils/expect.dart";
+
 main() {
   var map1 = {1: 1, "test": 1, 14: null};
   var map2 = <int, int>{10: 24};
@@ -30,7 +32,15 @@ main() {
   var map4 = <bool, String>{true: "true", false: "false"};
 
   Map res1 = {...map1, ...map2};
+  Expect.mapEquals({1: 1, "test": 1, 14: null, 10: 24}, res1);
+
   Map res2 = {...map2, ...map3};
+  Expect.mapEquals({10: 24}, res2);
+
   Map res3 = {...map3, ...map4};
+  Expect.mapEquals({true: "true", false: "false"}, res3);
+
   Map res4 = {...map1, ...map2, ...map3, ...map4};
+  Expect.mapEquals(
+      {1: 1, "test": 1, 14: null, 10: 24, true: "true", false: "false"}, res4);
 }

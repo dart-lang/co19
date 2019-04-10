@@ -19,4 +19,7 @@ main() {
   const List res1 = const [...{1: 2, 3: 4}]; //# 01: compile-time error
   const List res2 = const [...44];           //# 02: compile-time error
   const List res3 = const [...null];         //# 03: compile-time error
+
+  const List res4 = const [...?{1: 12}];     //# 04: compile-time error
+  const List res5 = const [...?44];          //# 05: compile-time error
 }

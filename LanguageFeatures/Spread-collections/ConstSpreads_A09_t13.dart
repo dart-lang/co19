@@ -28,4 +28,14 @@ main() {
 
   const Set res3 = const {...{}};
   Expect.setEquals(emptyset, res3);
+
+
+  const Set res4 = const {...?[1, 2, 3], 4};
+  Expect.setEquals({1, 2, 3, 4}, res4);
+
+  const Set res5 = const {5, ...?{2, 11}};
+  Expect.setEquals({5, 2, 11}, res5);
+
+  const Set res6 = const {...?{}};
+  Expect.setEquals(emptyset, res6);
 }

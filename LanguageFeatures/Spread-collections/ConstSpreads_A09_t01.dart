@@ -37,4 +37,20 @@ main() {
 
   const List res5 = [...l1, ...l2, ...s1, ...s2];
   Expect.listEquals([1, 2, 3, 11], res5);
+
+  const List res6 = const [...?l1];
+  Expect.listEquals(l1, res6);
+
+  const List res7 = const [...?l2];
+  Expect.listEquals(l2, res7);
+
+  const List res8 = const [...?s1];
+  Expect.listEquals([], res8);
+
+  const List res9 = const [...?l2];
+  Expect.listEquals(l2, res9);
+
+  const List res10 = [...?l1, ...?l2, ...?s1, ...?s2];
+  Expect.listEquals([1, 2, 3, 11], res10);
+
 }

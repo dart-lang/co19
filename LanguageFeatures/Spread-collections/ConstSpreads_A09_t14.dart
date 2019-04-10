@@ -16,7 +16,10 @@
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 main() {
-  const Set res1 = const {...{1: 2, 3: 4}}; //# 01: compile-time error
-  const Set res2 = const {...44};           //# 02: compile-time error
-  const Set res3 = const {...null};         //# 03: compile-time error
+  const Set res1 = const {...{1: 2, 3: 4}};  //# 01: compile-time error
+  const Set res2 = const {...44};            //# 02: compile-time error
+  const Set res3 = const {...null};          //# 03: compile-time error
+
+  const Set res4 = const {...?{1: 2, 3: 4}}; //# 04: compile-time error
+  const Set res5 = const {...?44};           //# 05: compile-time error
 }

@@ -21,5 +21,5 @@ class A {
 }
 
 main() {
-  const Set aSet = {...(A() is A ? 123 : [])};
+  const Set aSet = {...?(A() is A ? 123 : [])};
 }

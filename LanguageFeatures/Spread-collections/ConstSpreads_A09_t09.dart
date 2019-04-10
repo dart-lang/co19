@@ -27,11 +27,19 @@ int i2 = 25;
 const n = null;
 
 main() {
-  const Set res1 = const {...l};  //# 01: compile-time error
-  const Set res2 = const {...s};  //# 02: compile-time error
-  const Set res3 = const {...m1}; //# 03: compile-time error
-  const Set res4 = const {...m2}; //# 04: compile-time error
-  const Set res5 = const {...i1}; //# 05: compile-time error
-  const Set res6 = const {...i2}; //# 06: compile-time error
-  const Set res7 = const {...n};  //# 07: compile-time error
+  const Set res1  = const {...l};  //# 01: compile-time error
+  const Set res2  = const {...s};  //# 02: compile-time error
+  const Set res3  = const {...m1}; //# 03: compile-time error
+  const Set res4  = const {...m2}; //# 04: compile-time error
+  const Set res5  = const {...i1}; //# 05: compile-time error
+  const Set res6  = const {...i2}; //# 06: compile-time error
+  const Set res7  = const {...n};  //# 07: compile-time error
+
+  const Set res8  = const {...?l};  //# 08: compile-time error
+  const Set res9  = const {...?s};  //# 09: compile-time error
+  const Set res10 = const {...?m1}; //# 10: compile-time error
+  const Set res11 = const {...?m2}; //# 11: compile-time error
+  const Set res12 = const {...?i1}; //# 12: compile-time error
+  const Set res13 = const {...?i2}; //# 13: compile-time error
+
 }

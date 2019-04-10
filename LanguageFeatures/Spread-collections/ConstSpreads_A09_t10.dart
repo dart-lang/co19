@@ -51,4 +51,24 @@ main() {
 
   const Set s6 = {...(MyClass("test") is MyClass ? {12345} : {14})};
   Expect.setEquals({12345}, s6);
+
+
+  const Set s7 = {...?(A() is B ? [12345] : [])};
+  Expect.setEquals(emptyset, s7);
+
+  const Set s8 = {...?(A() is A ? [12345] : [0])};
+  Expect.setEquals({12345}, s8);
+
+  const Set s9 = {...?(MyClass("test") is MyClass ? [12345] : [])};
+  Expect.setEquals({12345}, s9);
+
+  const Set s10 = {...?(A() is B ? [12345] : {12, 34})};
+  Expect.setEquals({12, 34}, s10);
+
+  const Set s11 = {...?(A() is A ? [12345] : {0})};
+  Expect.setEquals({12345}, s11);
+
+  const Set s12 = {...?(MyClass("test") is MyClass ? {12345} : {14})};
+  Expect.setEquals({12345}, s12);
+
 }

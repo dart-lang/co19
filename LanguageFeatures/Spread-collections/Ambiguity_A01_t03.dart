@@ -22,23 +22,19 @@
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
+import "../../Utils/expect.dart";
 import "dart:collection";
 
 class MyIterable extends IterableBase {
-
   MyIterable();
-
   Iterator get iterator => MyIterator();
 }
 
 class MyIterator extends Iterator {
   int i = -1;
-
   MyIterator() {}
-
   @override
   bool moveNext() { return ++i < 10; }
-
   @override
   dynamic get current { return i; }
 }
@@ -51,10 +47,23 @@ main() {
   Iterable i = new MyIterable();
 
   Set res1 = {...set1, ...?list2};
+  Expect.setEquals(set1, res1);
+
   Set res2 = {...?list2, ...list1};
+  Expect.setEquals(list1.toSet(), res2);
+
   Set res3 = {...?map, ...list1};
+  Expect.setEquals(list1.toSet(), res3);
+
   Set res4 = {...?list2, ...?i};
+  Expect.setEquals(i.toSet(), res4);
+
   Set res5 = {...i, ...?map};
+  Expect.setEquals(i.toSet(), res5);
+
   Set res6 = {...set1, ...list1, ...?list2, ...?map, ...i};
+  Expect.setEquals({1, 2, 3, 0, 4, 6, 8, 5, 7, 9}, res6);
+
   Set res7 = {...?set1, ...?list1, ...?list2, ...?map, ...?i};
+  Expect.setEquals({1, 2, 3, 0, 4, 6, 8, 5, 7, 9}, res7);
 }

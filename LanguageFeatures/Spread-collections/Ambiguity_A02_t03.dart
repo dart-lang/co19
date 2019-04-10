@@ -7,11 +7,19 @@
  * @assertion In cases where the context type is not specific enough to
  * disambiguate, we could make it an error instead of defaulting to map.
  * @description Checks that {...?null} collection type is detected correctly
- * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
+import "../../Utils/expect.dart";
+
+Set emptyset = {};
+Map emptymap = {};
+
 main() {
-  var res = {...?null};
+  Set res1 = {...?null};
+  Expect.setEquals(emptyset, res1);
+
+  Map res2 = {...?null};
+  Expect.mapEquals(emptymap, res2);
 }
