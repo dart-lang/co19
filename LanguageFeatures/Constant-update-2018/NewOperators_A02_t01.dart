@@ -11,6 +11,7 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
+
 import "../../Utils/expect.dart";
 
 class MyClass {

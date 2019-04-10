@@ -12,10 +12,18 @@
  * the operator is added, it should then also work in a constant expression.
  * @description Checks that operator [>>>] is accepted in potentially constant
  * expressions.
- * @description Checks that arguments of [>>>] operator should be int.
+ * @description Checks that arguments of [>>>] operator should be non-negative
+ * (see co19 Issue #355 for more details).
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018,triple-shift
+
+const d1 = 2;
+const d2 = 14;
+const d3 = 0;
+
+const d4 = -1000;
+const d5 = -9;
 
 class MyClass {
   final int a;
@@ -23,7 +31,8 @@ class MyClass {
 }
 
 main() {
-  const MyClass c1 = MyClass(123, 456);
-  const MyClass c2 = MyClass(-10000, 14);
-  const MyClass c3 = MyClass(-128, 10);
+  const MyClass c1 = MyClass(d1, d3);
+  const MyClass c2 = MyClass(d2, d3);
+  const MyClass c3 = MyClass(4, 0);
+  const MyClass c4 = MyClass(-12500, 0);
 }
