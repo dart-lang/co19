@@ -30,11 +30,11 @@ main() {
   Map res4   = {...?l, ...m}; //# 04: compile-time error
 
   var res5   = {...l, ...?m}; //# 05: compile-time error
-  var res6   = {...?m, ...l}; //# 6: compile-time error
-  List res7  = {...l, ...?m}; //# 7: compile-time error
-  Map res8   = {...l, ...?m}; //# 8: compile-time error
+  var res6   = {...?m, ...l}; //# 06: compile-time error
+  List res7  = {...l, ...?m}; //# 07: compile-time error
+  Map res8   = {...l, ...?m}; //# 08: compile-time error
 
-  var res9   = {...?l, ...?m}; //# 9: compile-time error
+  var res9   = {...?l, ...?m}; //# 09: compile-time error
   var res10  = {...?m, ...?l}; //# 10: compile-time error
   List res11 = {...?l, ...?m}; //# 11: compile-time error
   Map res12  = {...?l, ...?m}; //# 12: compile-time error

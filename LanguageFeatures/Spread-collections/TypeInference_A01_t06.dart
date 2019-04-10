@@ -8,7 +8,7 @@
  * [Iterable<T>] for some [T], then the downwards inference context type of a
  * spread element in that list is [Iterable<T>].
  * @description Checks statically that a spread element inference context type
- * is [T] in the list literal
+ * is [T] in the set literal
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
@@ -29,10 +29,9 @@ main() {
   B b = new B();
   C c = new C();
 
-  List list1 = <int>[...str_list];         //# 01: compile-time error
-  List list2 = <int>[1, 2, ...a_list, 14]; //# 02: compile-time error
-  List list3 = <int>[1, 14, 0, ...c_list]; //# 03: compile-time error
-
-  List list4 = <A>[...int_list];           //# 04: compile-time error
-  List list5 = <A>[...?str_list];          //# 05: compile-time error
+  Set set1  = <int>{...str_list};         //# 01: compile-time error
+  Set set2  = <int>{1, 2, ...a_list, 14}; //# 02: compile-time error
+  Set set3 = <int>{1, 14, 0, ...c_list}; //# 03: compile-time error
+  Set set4 = <A>{...int_list};           //# 04: compile-time error
+  Set set5 = <A>{...?str_list};          //# 05: compile-time error
 }
