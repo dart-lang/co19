@@ -19,8 +19,9 @@
  * don't cause compile-time errors.
  * @author msyabro
  * @author kaigorodov
- * @reviewer rodionov
  */
+
+import "../../../Utils/expect.dart";
 
 class A {
   int method() {return 3;}
@@ -28,7 +29,8 @@ class A {
 
   test() {
     //literals
-    false || null;
+    false || true;
+    Expect.throws(() => false || null);
 
     //equality
     id == id || true == false;
