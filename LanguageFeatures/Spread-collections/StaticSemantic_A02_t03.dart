@@ -15,7 +15,11 @@
 main() {
   int i = 1;
   String str = "abs";
-  List l1 = [...{1: 11}];     //# 01: compile-time error
-  List l2 = [1, 2, ...i];     //# 02: compile-time error
-  List l3 = [14, ...str, 28]; //# 03: compile-time error
+  List l1 = [...{1: 11}];      //# 01: compile-time error
+  List l2 = [1, 2, ...i];      //# 02: compile-time error
+  List l3 = [14, ...str, 28];  //# 03: compile-time error
+
+  List l4 = [...?{1: 11}];     //# 04: compile-time error
+  List l5 = [1, 2, ...?i];     //# 05: compile-time error
+  List l6 = [14, ...?str, 28]; //# 06: compile-time error
 }

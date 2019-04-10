@@ -19,8 +19,13 @@ main() {
   var map = {1: 1, 2: 2};
   var list = [1, 2, 3, 4, 5];
 
-  Set l1 = <dynamic>{...number};  //# 01: compile-time error
-  Set l2 = <dynamic>{...str};     //# 02: compile-time error
-  Set l3 = <dynamic>{...map};     //# 03: compile-time error
-  Set l4 = <dynamic>{...list[0]}; //# 04: compile-time error
+  Set l1 = <dynamic>{...number};   //# 01: compile-time error
+  Set l2 = <dynamic>{...str};      //# 02: compile-time error
+  Set l3 = <dynamic>{...map};      //# 03: compile-time error
+  Set l4 = <dynamic>{...list[0]};  //# 04: compile-time error
+
+  Set l5 = <dynamic>{...?number};  //# 05: compile-time error
+  Set l6 = <dynamic>{...?str};     //# 06: compile-time error
+  Set l7 = <dynamic>{...?map};     //# 07: compile-time error
+  Set l8 = <dynamic>{...?list[0]}; //# 08: compile-time error
 }

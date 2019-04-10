@@ -15,38 +15,14 @@
  * right type even though the list that contains them does not. As long as the
  * spread object is "spreadable" — it implements [Iterable] — there is no
  * static error.
- * @description Checks that for lists it's possible to have the spread
- * expression which is not assignable to the result collection type, no static
- * error in this case.
+ * @description Checks that static error is thrown if null-aware spread element
+ * and set type arguments are incompatible.
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
-import "../../Utils/expect.dart";
-
 main() {
-  var numbers = <num>[1, 2, 3];
-  Expect.listEquals([1, 2, 3], <int>[...numbers]);
-
-  var objects = <Object>[2, 7, 9];
-  Expect.listEquals([2, 7, 9], <int>[...objects]);
-
-  var a;
-  Expect.throws(() => a = <String>[...objects]);
-
-  var numbers1 = <num>[1.1, 2, 3];
-  Expect.throws(() => a = <int>[...numbers1]);
-
-
-  numbers = <num>[1, 2, 3];
-  Expect.listEquals([1, 2, 3], <int>[...?numbers]);
-
-  objects = <Object>[2, 7, 9];
-  Expect.listEquals([2, 7, 9], <int>[...?objects]);
-
-  Expect.throws(() => a = <String>[...?objects]);
-
-  numbers1 = <num>[1.1, 2, 3];
-  Expect.throws(() => a = <int>[...?numbers1]);
-
-}
+  List<num> numbers = <num>[1, 2, 3];
+  Set<String> set = <String>{...?numbers};
+ }

@@ -38,4 +38,7 @@ main() {
 
   more = {1, ...things.where((thing) => thing != null), 4};
   Expect.setEquals({1, 2, 3, 4}, more);
+
+  more = {1, ...?things.where((thing) => thing != null), 4};
+  Expect.setEquals({1, 2, 3, 4}, more);
 }

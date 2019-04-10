@@ -16,32 +16,18 @@
 
 main() {
 
-  Map m1  = <Object, Object> {};
-  Map<int, String> m2  = <int, String>{};
-  Map<String, int> m3 = <String, int>{};
-  Map<int, int> m4  = <int, int>{};
-  Map<String, String> m5  = <String, String>{};
-  Map<bool, bool> m6  = <bool, bool>{};
-  Map m7  = <Object, Object> {1: "1", 2: "2"};
-  Map<bool, bool> m8 = <bool, bool>{true: false, false: true};
-
-  Map<int, String> m9 = <int, String>{1: "11"};
-  Map<String, int> m10 = <String, int>{"1": 11};
-  Map<int, int> m11 = <int, int>{1: 22, 2: 13, 3: 4};
-  Map<String, String> m12 = <String, String>{"1": "22", "2": "13", "3": "4"};
-
+  Map m1 = <Object, Object> {};
+  Map<int, String> m2 = <int, String>{};
+  Map m3 = <Object, Object> {1: "1", 2: "2"};
+  Map<int, String> m4 = <int, String>{1: "11"};
 
   Map map1 = <int, String>{...m1};
   Map map2 = <int, String>{...m2};
-  Map map3 = <int, String>{...m3}; //# 01: compile-time error
-  Map map4 = <int, String>{...m4}; //# 02: compile-time error
-  Map map5 = <int, String>{...m5}; //# 03: compile-time error
-  Map map6 = <int, String>{...m6}; //# 04: compile-time error
-  Map map7 = <int, String>{...m7};
-  Map map8 = <int, String>{...m8}; //# 05: compile-time error
+  Map map3 = <int, String>{...m3};
+  Map map4 = <int, String>{...m4};
 
-  Map map9  = <int, String>{...m9};
-  Map map10 = <int, String>{...m10}; //# 06: compile-time error
-  Map map11 = <int, String>{...m11}; //# 07: compile-time error
-  Map map12 = <int, String>{...m12}; //# 08: compile-time error
+  Map map5 = <int, String>{...?m1};
+  Map map6 = <int, String>{...?m2};
+  Map map7 = <int, String>{...?m3};
+  Map map8 = <int, String>{...?m4};
 }

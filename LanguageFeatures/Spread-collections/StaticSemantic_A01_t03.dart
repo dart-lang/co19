@@ -36,4 +36,16 @@ main() {
 
   var numbers1 = <num>[1.1, 2, 3];
   Expect.throws(() => a = <int>{...numbers1});
+
+
+  numbers = <num>[1, 2, 3];
+  Expect.setEquals(<int>{1, 2, 3}, <int>{...?numbers});
+
+  objects = <Object>[2, 7, 9];
+  Expect.setEquals(<int>{2, 7, 9}, <int>{...?objects});
+
+  Expect.throws(() => a = <String>{...?objects});
+
+  numbers1 = <num>[1.1, 2, 3];
+  Expect.throws(() => a = <int>{...?numbers1});
 }

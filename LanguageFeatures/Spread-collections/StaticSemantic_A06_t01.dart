@@ -37,9 +37,15 @@ main() {
   var list = [1, 2, 3, 4, 5];
   var itr = new MyIterator();
 
-  var m1 = <dynamic, dynamic>{...number};  //# 01: compile-time error
-  var m2 = <dynamic, dynamic>{...str};     //# 02: compile-time error
-  var m3 = <dynamic, dynamic>{...map};     //# 03: compile-time error
-  var m4 = <dynamic, dynamic>{...list[0]}; //# 04: compile-time error
-  var m5 = <dynamic, dynamic>{...itr[0]};  //# 05: compile-time error
+  var m1  = <dynamic, dynamic>{...number};   //# 01: compile-time error
+  var m2  = <dynamic, dynamic>{...str};      //# 02: compile-time error
+  var m3  = <dynamic, dynamic>{...map};      //# 03: compile-time error
+  var m4  = <dynamic, dynamic>{...list[0]};  //# 04: compile-time error
+  var m5  = <dynamic, dynamic>{...itr[0]};   //# 05: compile-time error
+
+  var m6  = <dynamic, dynamic>{...?number};  //# 06: compile-time error
+  var m7  = <dynamic, dynamic>{...?str};     //# 07: compile-time error
+  var m8  = <dynamic, dynamic>{...?map};     //# 08: compile-time error
+  var m9  = <dynamic, dynamic>{...?list[0]}; //# 09: compile-time error
+  var m10 = <dynamic, dynamic>{...?itr[0]};  //# 10: compile-time error
 }

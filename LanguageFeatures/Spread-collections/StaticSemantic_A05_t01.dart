@@ -7,8 +7,8 @@
  * @assertion It is a static error if:
  *    If a list or set spread element's static type implements [Iterable<T>] for
  *    some [T] and [T] is not assignable to the element type of the list.
- * @description Checks that compile error is thrown if spread element type in
- * list literal is not assignable to the type of the list.
+ * @description Checks that compile error is not thrown if spread element type
+ * in the list literal is assignable to the type of the list.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
@@ -34,32 +34,30 @@ class MyIterator<T> extends Iterator<T> {
 main() {
 
   List<Object> l1  = <Object> [];
-  List<int> l2  = <int>[1, 2, 3];
-  List<bool> l3  = <bool>[true, false, true, true];
-  List<bool> l4  = <bool>[true, false, true, true];
-  List<int> l5  = <int>[];
-  List<bool> l6  = <bool>[];
-  List<String> l7  = <String>[];
-  List<String> l8  = <String>["1", "2"];
-  List l9 = <Object>["1", "2"];
+  List<bool> l2  = <bool>[true, false, true, true];
+  List<String> l3  = <String>[];
+  List<String> l4  = <String>["1", "2"];
+  List l5 = <Object>["1", "2"];
 
-  Iterable<int> i1 = new MyIterable<int>();
-  Iterable<String> i2 = new MyIterable<String>();
-  Iterable<bool> i3 = new MyIterable<bool>();
-  Iterable i4 = new MyIterable<Object>();
+  Iterable<String> i1 = new MyIterable<String>();
+  Iterable i2 = new MyIterable<Object>();
 
   List list1 = <String>[...l1];
-  List list2 = <String>[...l2]; //# 01: compile-time error
-  List list3 = <Object>[...l3];
-  List list4 = <String>[...l4]; //# 02: compile-time error
-  List list5 = <String>[...l5]; //# 03: compile-time error
-  List list6 = <String>[...l6]; //# 04: compile-time error
-  List list7 = <String>[...l7];
-  List list8 = <String>[...l8];
-  List list9 = <String>[...l9];
+  List list2 = <Object>[...l2];
+  List list3 = <String>[...l3];
+  List list4 = <String>[...l4];
+  List list5 = <String>[...l5];
 
-  List list11 = <String>[...i1]; //# 05: compile-time error
-  List list12 = <String>[...i2];
-  List list13 = <String>[...i3]; //# 06: compile-time error
-  List list14 = <String>[...i4];
+  List list16 = <String>[...i1];
+  List list17 = <String>[...i2];
+
+  List list8 = <String>[...?l1];
+  List list9 = <Object>[...?l2];
+  List list10 = <String>[...?l3];
+  List list11 = <String>[...?l4];
+  List list12 = <String>[...?l5];
+
+  List list13 = <String>[...?i1];
+  List list14 = <String>[...?i2];
+
 }

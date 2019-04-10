@@ -19,8 +19,13 @@ main() {
   var map = {1: 1, 2: 2};
   var list = [1, 2, 3, 4, 5];
 
-  List l1 = [...number];  //# 01: compile-time error
-  List l2 = [...str];     //# 02: compile-time error
-  List l3 = [...map];     //# 03: compile-time error
-  List l4 = [...list[0]]; //# 04: compile-time error
+  List l1 = [...number];   //# 01: compile-time error
+  List l2 = [...str];      //# 02: compile-time error
+  List l3 = [...map];      //# 03: compile-time error
+  List l4 = [...list[0]];  //# 04: compile-time error
+
+  List l5 = [...?number];  //# 05: compile-time error
+  List l6 = [...?str];     //# 06: compile-time error
+  List l7 = [...?map];     //# 07: compile-time error
+  List l8 = [...?list[0]]; //# 08: compile-time error
 }

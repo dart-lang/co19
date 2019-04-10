@@ -24,8 +24,6 @@ main() {
   Future x6;
   FutureOr x7;
 
-  List res;
-
   List l1 = [...x1]; //# 01: compile-time error
   List l2 = [...x2]; //# 02: compile-time error
   List l3 = [...x3]; //# 03: compile-time error
