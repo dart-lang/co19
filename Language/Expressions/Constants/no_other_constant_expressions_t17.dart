@@ -4,18 +4,22 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion There are no other constant expressions.
- * @description Checks that a type test expression cannot be used to
- * initialize a constant variable.
- * @compile-error
+ * @assertion An expression of the form [e is T] is potentially constant if [e]
+ * is a potentially constant expression and [T] is a constant type expression,
+ * and it is further constant if [e] is constant.
+ * @description Checks that a type test expression can be used to initialize a
+ * constant variable.
  * @author iefremov
- * @reviewer rodionov
  */
 
-const m = null is Object;
+import "../../../Utils/expect.dart";
+
+const m1 = null is Object;
+const m2 = "testme" is String;
+const m3 = "testme" is int;
 
 main() {
-  try {
-    print(m);
-  } catch (x) {}
+  Expect.isTrue(m1);
+  Expect.isTrue(m2);
+  Expect.isFalse(m3);
 }

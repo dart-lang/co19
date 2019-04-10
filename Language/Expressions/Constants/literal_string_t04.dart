@@ -11,17 +11,17 @@
  * • A literal string where any interpolated expression is a compile-time
  *   constant that evaluates to a numeric, string or boolean value or to null.
  * @description Checks that a string literal that involves string interpolation,
- * that evaluates to a bool value, but not a constant expression,
- * cannot be assigned to a constant variable.
- * @compile-error
+ * that evaluates to a bool value and is a constant expression can be assigned
+ * to a constant variable.
  * @author msyabro
- * @reviewer iefremov
  */
 
+import "../../../Utils/expect.dart";
+
 const i1 = "${1 is int}";
+const i2 = "${1 is String}";
 
 main() {
-  try {
-    print(i1);
-  } catch (x) {}
+  Expect.equals("true", i1);
+  Expect.equals("false", i2);
 }
