@@ -39,4 +39,5 @@ class MyIterator extends Iterator {
 main() {
   Iterable iterable = new MyIterable();
   Expect.setEquals(iterable.toList().toSet(), {...iterable});
+  Expect.setEquals(iterable.toList().toSet(), {...?iterable});
 }

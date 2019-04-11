@@ -12,18 +12,16 @@
  * the operator is added, it should then also work in a constant expression.
  * @description Checks that operator [>>>] is accepted in potentially constant
  * expressions.
- * @description Checks that arguments of [>>>] operator should be non-negative
- * (see co19 Issue #355 for more details).
+ * @description Checks that arguments of [>>>] operator should be int.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018,triple-shift
 
-const d1 = 2;
-const d2 = 14;
-const d3 = 0;
-
-const d4 = -1000;
-const d5 = -9;
+const d0 = 2;
+const d1 = 14;
+const d2 = 11.43;
+const d3 = "testme";
+const d4 = null;
 
 class MyClass {
   final int a;
@@ -31,15 +29,9 @@ class MyClass {
 }
 
 main() {
-  const MyClass c1 = MyClass(d1, d3);
-  const MyClass c2 = MyClass(d2, d3);
-  const MyClass c3 = MyClass(4, 0);
-  const MyClass c4 = MyClass(-12500, 0);
-
-  const MyClass c5 = MyClass(d1, d4);        //# 01: compile-time error
-  const MyClass c6 = MyClass(d2, d5);        //# 02: compile-time error
-
-  const MyClass c7 = MyClass(11, -133);      //# 03: compile-time error
-  const MyClass c8 = MyClass(-2525, -19999); //# 04: compile-time error
-  const MyClass c9 = MyClass(0, -4);         //# 05: compile-time error
+  const MyClass c1 = MyClass(d2, d1); //# 01: compile-time error
+  const MyClass c2 = MyClass(d2, 2);  //# 02: compile-time error
+  const MyClass c3 = MyClass(d3, d0); //# 03: compile-time error
+  const MyClass c4 = MyClass(12, d4); //# 04: compile-time error
+  const MyClass c5 = MyClass(d4, d3); //# 05: compile-time error
 }

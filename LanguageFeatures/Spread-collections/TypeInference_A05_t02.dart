@@ -30,8 +30,4 @@ main() {
   var y2 = {...?x2};   //# 02: compile-time error
   var y3 = {...?x3};   //# 03: compile-time error
   var y4 = {...?x4};   //# 04: compile-time error
-
-  Map y5 = {...?x1};
-  Set y6 = {...?x2};
-  Set y7 = {...?x3};
 }

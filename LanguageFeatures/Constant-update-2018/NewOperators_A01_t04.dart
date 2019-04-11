@@ -26,9 +26,4 @@ main() {
   const MyClass c1 = MyClass(123, 456);
   const MyClass c2 = MyClass(-10000, 14);
   const MyClass c3 = MyClass(-128, 10);
-
-  const MyClass c4 = MyClass(1.0, 1);       //# 01: compile-time error
-  const MyClass c5 = MyClass(125.12, 2);    //# 02: compile-time error
-  const MyClass c6 = MyClass("abcd", 2);    //# 03: compile-time error
-  const MyClass c7 = MyClass(12, "testme"); //# 04: compile-time error
 }

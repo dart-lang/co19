@@ -8,7 +8,7 @@
  * [Iterable<T>] for some [T], then the downwards inference context type of a
  * spread element in that list is [Iterable<T>].
  * @description Checks statically that a spread element inference context type
- * is [T] in the set literal
+ * is [T] in the list literal
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
@@ -29,19 +29,10 @@ main() {
   B b = new B();
   C c = new C();
 
-  Set set1 = <int>{2, 7, ...int_list, 4};
-  Set set2 = <A>{a, ...a_list};
-  Set set3 = <A>{a, ...b_list};
-  Set set4 = <A>{a, c, ...c_list, b};
-  Set set5 = <A>{a, b, c, ...c_list, new B(), ...a_list, ...b_list, new A()};
-  Set set6 = <B>{b, ...b_list, c, ...c_list};
-  Set set7 = {123, "123", null, a, ...a_list, ...?b_list, c, b, ...?c_list,
-      ...str_list, ...int_list, null, 1499, []};
+  List list1 = <int>[...str_list];         //# 01: compile-time error
+  List list2 = <int>[1, 2, ...a_list, 14]; //# 02: compile-time error
+  List list3 = <int>[1, 14, 0, ...c_list]; //# 03: compile-time error
 
-  Set set8  = <int>{...str_list};         //# 01: compile-time error
-  Set set9  = <int>{1, 2, ...a_list, 14}; //# 02: compile-time error
-  Set set10 = <int>{1, 14, 0, ...c_list}; //# 03: compile-time error
-
-  Set set11 = <A>{...int_list};           //# 04: compile-time error
-  Set set12 = <A>{...?str_list};          //# 05: compile-time error
+  List list4 = <A>[...int_list];           //# 04: compile-time error
+  List list5 = <A>[...?str_list];          //# 05: compile-time error
 }

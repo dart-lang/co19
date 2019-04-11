@@ -35,4 +35,17 @@ main() {
 
   dynamic strings = <String>[];
   Expect.throws(() => a = <int, int>{11: 12, ...strings});
+
+
+  numbers = <num, num>{1: 1, 2: 2, 3: 3};
+  Expect.mapEquals({1: 1, 2: 2, 3: 3}, <int, int>{...?numbers});
+
+  objects = <Object, Object>{2: 22, 7: 77, 9: 99};
+  Expect.mapEquals({2: 22, 7: 77, 9: 99}, <int, int>{...?objects});
+
+  Expect.throws(() => a = <String, int>{...?objects});
+
+  strings = <String>[];
+  Expect.throws(() => a = <int, int>{11: 12, ...?strings});
+
 }

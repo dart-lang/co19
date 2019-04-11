@@ -41,4 +41,8 @@ main() {
   Set set1 = {...set};
   Set set2 = {...list};
   Set set3 = {...i};
+
+  Set set4 = {...?set};
+  Set set5 = {...?list};
+  Set set6 = {...?i};
 }

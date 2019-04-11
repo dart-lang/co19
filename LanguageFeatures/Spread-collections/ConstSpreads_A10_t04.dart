@@ -10,38 +10,32 @@
  * or [Map] instance originally created by a list, set or map literal. It is a
  * potentially constant element if the expression is potentially constant
  * expression.
- * @description: Checks that constant set spread [...?] element can be constant
- * list or set or [null].
+ * @description: Checks that constant list [...?] spread element can only be
+ * potentially constant list or set or [null].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
-const l1 = [];
-List l2 = [];
+class A {
+  const A();
+}
 
-const s1 = {11};
-Set s2 = {};
+class B extends A {
+  const B();
+}
 
-const m1 = {1: 1};
-Map m2 = {2: 2};
+class MyClass {
+  final String a;
+  const MyClass(Object o) : a = o as String;
+}
 
-const int i1 = 25;
-int i2 = 25;
-
-const n = null;
 
 main() {
-  const Set res1 = const {...?l1};
-  const Set res2 = const {...?l2}; //# 01: compile-time error
-
-  const Set res3 = const {...?s1};
-  const Set res4 = const {...?s2}; //# 02: compile-time error
-
-  const Set res5 = const {...?m1}; //# 03: compile-time error
-  const Set res6 = const {...?m2}; //# 04: compile-time error
-
-  const Set res7 = const {...?i1}; //# 05: compile-time error
-  const Set res8 = const {...?i2}; //# 06: compile-time error
-
-  const Set res9 = const {...?n};
+  const List l1 = [...?(A() is B ? [12345] : [])];
+  const List l2 = [...?(A() is A ? [12345] : [0])];
+  const List l3 = [...?(MyClass("test") is MyClass ? [12345] : [])];
+  const List l4 = [...?(A() is B ? {12345} : {1})];
+  const List l5 = [...?(A() is A ? {12345} : {0})];
+  const List l6 = [...?(MyClass("test") is MyClass ? {12345} : {1})];
+  const List l7  = [...?(A() is B ? [12345] : null)];
 }

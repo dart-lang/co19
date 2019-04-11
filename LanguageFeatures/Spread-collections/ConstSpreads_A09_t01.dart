@@ -15,32 +15,26 @@
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
+import "../../Utils/expect.dart";
+
 const l1 = [];
-List l2 = [];
-
-const s1 = {11};
-Set s2 = {};
-
-const m1 = {1: 1};
-Map m2 = {2: 2};
-
-const int i1 = 25;
-int i2 = 25;
-
-const n = null;
+const l2 = [1, 2, 3];
+const Set s1 = {};
+const s2 = {11};
 
 main() {
   const List res1 = const [...l1];
-  const List res2 = const [...l2]; //# 01: compile-time error
+  Expect.listEquals(l1, res1);
+
+  const List res2 = const [...l2];
+  Expect.listEquals(l2, res2);
 
   const List res3 = const [...s1];
-  const List res4 = const [...s2]; //# 02: compile-time error
+  Expect.listEquals([], res3);
 
-  const List res5 = const [...m1]; //# 03: compile-time error
-  const List res6 = const [...m2]; //# 04: compile-time error
+  const List res4 = const [...l2];
+  Expect.listEquals(l2, res4);
 
-  const List res7 = const [...i1]; //# 05: compile-time error
-  const List res8 = const [...i2]; //# 06: compile-time error
-
-  const List res9 = const [...n];  //# 07: compile-time error
+  const List res5 = [...l1, ...l2, ...s1, ...s2];
+  Expect.listEquals([1, 2, 3, 11], res5);
 }

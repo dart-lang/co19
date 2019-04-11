@@ -15,16 +15,12 @@
 
 main() {
   const x1 = [];
-  const Set x2 = {1};
-  const Map x3 = {1: 1};
-  const x4 = 100;
-  const x5 = "check";
-  const x6 = null;
+  const x2 = {1};
+  const x3 = 100;
+  const x4 = "check";
 
   const Map m1 = {...?x1}; //# 01: compile-time error
   const Map m2 = {...?x2}; //# 02: compile-time error
-  const Map m3 = {...?x3};
-  const Map m4 = {...?x4}; //# 03: compile-time error
-  const Map m5 = {...?x5}; //# 04: compile-time error
-  const Map m6 = {...?x6};
+  const Map m3 = {...?x3}; //# 03: compile-time error
+  const Map m4 = {...?x4}; //# 04: compile-time error
 }

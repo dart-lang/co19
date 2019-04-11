@@ -17,10 +17,10 @@
 // SharedOptions=--enable-experiment=constant-update-2018,triple-shift
 
 main() {
-  const c1 = -2 >>> 1.79;   //# 01: compile-time error
-  const c2 = 188.0 >>> 2;   //# 02: compile-time error
-  const c3 = "abcd" >>> 11; //# 03: compile-time error
-  const c4 = 1 >>> "abcd";  //# 04: compile-time error
+  const c1 = -2 >>> 1.79;                                       //# 01: compile-time error
+  const c2 = 188.0 >>> 2;                                       //# 02: compile-time error
+  const c3 = "abcd" >>> 11;                                     //# 03: compile-time error
+  const c4 = 1 >>> "abcd";                                      //# 04: compile-time error
   const c5 = 1880000000000000000000000000000000000000000 >>> 2; //# 05: compile-time error
   const c6 = 24 >>> 1000000000000000000000000000000000;         //# 06: compile-time error
 }

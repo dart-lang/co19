@@ -10,44 +10,32 @@
  * or [Map] instance originally created by a list, set or map literal. It is a
  * potentially constant element if the expression is potentially constant
  * expression.
- * @description: Checks some disambiguilty cases for sets and maps.
+ * @description: Checks that constant set spread [...?] element can be
+ * potentially constant list or set.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
-const l1 = [];
-List l2 = [];
+class A {
+  const A();
+}
 
-const s1 = {11};
-Set s2 = {};
+class B extends A {
+  const B();
+}
 
-const m1 = {1: 1};
-Map m2 = {2: 2};
+class MyClass {
+  final String a;
+  const MyClass(Object o) : a = o as String;
+}
 
-const int i1 = 25;
-int i2 = 25;
-
-const n = null;
 
 main() {
-  const res1 = {...?l1};
-  const res2 = {1, ...?l1, 2};
-  const res3 = {...?l2};               //# 01: compile-time error
-
-  const res4 = {...?s1};
-  const res5 = {1, ...?s1, 2};
-  const res6 = {...?s2};               //# 02: compile-time error
-
-  const res7 = {...?l1, 123: 2};       //# 03: compile-time error
-  const res8 = {14: 3, ...?s1};        //# 04: compile-time error
-
-  const res9  = {...?m1};
-  const res10 = {2: 1, ...?m1, 3: 14};
-  const res11 = {...?m1, 13};          //# 05: compile-time error
-  const res12 = {...?m2};              //# 06: compile-time error
-
-  const res13 = {...?i1};              //# 07: compile-time error
-  const res14 = {...?i2};              //# 08: compile-time error
-  const res15 = {...?n};               //# 09: compile-time error
-  const res16 = {...?null};            //# 10: compile-time error
+  const Set l1 = {...?(A() is B ? [12345] : [])};
+  const Set l2 = {...?(A() is A ? [12345] : [0])};
+  const Set l3 = {...?(MyClass("test") is MyClass ? [12345] : [])};
+  const Set l4 = {...?(A() is B ? [12345] : {12, 34})};
+  const Set l5 = {...?(A() is A ? [12345] : {0})};
+  const Set l6 = {...?(MyClass("test") is MyClass ? {12345} : {14})};
+  const Set s7 = {...?(A() is B ? [12345] : null)};
 }

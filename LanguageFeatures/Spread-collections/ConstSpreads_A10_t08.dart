@@ -10,35 +10,18 @@
  * or [Map] instance originally created by a list, set or map literal. It is a
  * potentially constant element if the expression is potentially constant
  * expression.
- * @description: Checks that constant map spread [...?] element can be
- * potentially constant map.
+ * @description: Checks that constant set spread [...?] element can be constant
+ * list or set or [null].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
-class A {
-  const A();
-}
-
-class B extends A {
-  const B();
-}
-
-class MyClass {
-  final String a;
-  const MyClass(Object o) : a = o as String;
-}
-
+const l = [];
+const s = {11};
+const n = null;
 
 main() {
-  const Map l1 = {...?(A() is B ? {1: 12345} : <Object, Object>{})};
-  const Map l2 = {...?(A() is A ? {12345: 4} : {0: 1})};
-  const Map l3 = {...?(MyClass("test") is MyClass ? {"a": "b"} : <int, int>{})};
-  const Map l4 = {...?(MyClass(12345) is MyClass ? {1: 1} : {2: 2})};            //# 01: compile-time error
-
-  const Map m5 = {...?(A() is B ? {6: 7} : null)};
-
-  const Map m6 = {...?(MyClass(12345) is MyClass ? {11: 124} : null)};           //# 02: compile-time error
-  const Map m7 = {...?(MyClass(12345) is MyClass ? {null} : {9: -13})};          //# 03: compile-time error
-
+  const Set res1 = const {...?l};
+  const Set res2 = const {...?s};
+  const Set res3 = const {...?n};
 }

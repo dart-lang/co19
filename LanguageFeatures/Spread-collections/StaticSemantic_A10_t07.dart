@@ -24,11 +24,11 @@ main() {
   Future x6;
   FutureOr x7;
 
-  Set s2  = {...x1}; //# 01: compile-time error
-  Set s5  = {...x2}; //# 02: compile-time error
-  Set s6  = {...x3}; //# 03: compile-time error
-  Set s8  = {...x4}; //# 04: compile-time error
-  Set s9  = {...x5}; //# 05: compile-time error
-  Set s10 = {...x6}; //# 06: compile-time error
-  Set s11 = {...x7}; //# 07: compile-time error
+  Set s1 = {...x1}; //# 01: compile-time error
+  Set s2 = {...x2}; //# 02: compile-time error
+  Set s3 = {...x3}; //# 03: compile-time error
+  Set s4 = {...x4}; //# 04: compile-time error
+  Set s5 = {...x5}; //# 05: compile-time error
+  Set s6 = {...x6}; //# 06: compile-time error
+  Set s7 = {...x7}; //# 07: compile-time error
 }

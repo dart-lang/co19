@@ -9,44 +9,46 @@
  * is constant and it evaluates to a constant List, Set or Map instance
  * originally created by a list, set or map literal. It is a potentially
  * constant element if the expression is a potentially constant expression.
- * @description: Checks some disambiguilty cases for sets and maps.
+ * @description: Checks that constant set spread element can be potentially
+ * constant list or set.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
-const l1 = [];
-List l2 = [];
+import "../../Utils/expect.dart";
 
-const s1 = {11};
-Set s2 = {};
+Set emptyset = {};
 
-const m1 = {1: 1};
-Map m2 = {2: 2};
+class A {
+  const A();
+}
 
-const int i1 = 25;
-int i2 = 25;
+class B extends A {
+  const B();
+}
 
-const n = null;
+class MyClass {
+  final String a;
+  const MyClass(Object o) : a = o as String;
+}
+
 
 main() {
-  const res1 = {...l1};
-  const res2 = {1, ...l1, 2};
-  const res3 = {...l2};               //# 01: compile-time error
+  const Set s1 = {...(A() is B ? [12345] : [])};
+  Expect.setEquals(emptyset, s1);
 
-  const res4 = {...s1};
-  const res5 = {1, ...s1, 2};
-  const res6 = {...s2};               //# 02: compile-time error
+  const Set s2 = {...(A() is A ? [12345] : [0])};
+  Expect.setEquals({12345}, s2);
 
-  const res7 = {...l1, 123: 2};       //# 03: compile-time error
-  const res8 = {14: 3, ...s1};        //# 04: compile-time error
+  const Set s3 = {...(MyClass("test") is MyClass ? [12345] : [])};
+  Expect.setEquals({12345}, s3);
 
-  const res9  = {...m1};
-  const res10 = {7: 1, ...m1, 3: 14};
-  const res11 = {...m1, 13};          //# 05: compile-time error
-  const res12 = {...m2};              //# 06: compile-time error
+  const Set s4 = {...(A() is B ? [12345] : {12, 34})};
+  Expect.setEquals({12, 34}, s4);
 
-  const res13 = {...i1};              //# 07: compile-time error
-  const res14 = {...i2};              //# 08: compile-time error
-  const res15 = {...n};               //# 09: compile-time error
-  const res16 = {...null};            //# 10: compile-time error
+  const Set s5 = {...(A() is A ? [12345] : {0})};
+  Expect.setEquals({12345}, s5);
+
+  const Set s6 = {...(MyClass("test") is MyClass ? {12345} : {14})};
+  Expect.setEquals({12345}, s6);
 }

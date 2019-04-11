@@ -14,17 +14,13 @@
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 main() {
-  const x1 = [];
-  const Set x2 = {1};
-  const Map x3 = {1: 1};
-  const x4 = 100;
-  const x5 = "check";
-  const x6 = null;
+  const x1 = {1: 1};
+  const x2 = 100;
+  const x3 = "check";
+  const x4 = null;
 
-  const List l1 = [...x1];
-  const List l2 = [...x2];
-  const List l3 = [...x3]; //# 01: compile-time error
-  const List l4 = [...x4]; //# 02: compile-time error
-  const List l5 = [...x5]; //# 03: compile-time error
-  const List l6 = [...x6]; //# 04: compile-time error
+  const List l1 = [...x1]; //# 01: compile-time error
+  const List l2 = [...x2]; //# 02: compile-time error
+  const List l3 = [...x3]; //# 03: compile-time error
+  const List l4 = [...x4]; //# 04: compile-time error
 }

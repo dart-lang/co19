@@ -22,6 +22,8 @@
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
+import "../../Utils/expect.dart";
+
 import "dart:collection";
 
 class MyIterable extends IterableBase {
@@ -52,9 +54,22 @@ main() {
   Iterable i = new MyIterable();
 
   Set res1 = {...set1, ...set2};
+  Expect.setEquals({1, 2, 3, 14, 18, 99}, res1);
+
   Set res2 = {...set2, ...list1};
+  Expect.setEquals({14, 18, 99, 10, 12, 15, 16, 20}, res2);
+
   Set res3 = {...set1, ...list2};
+  Expect.setEquals({1, 2, 3, "test"}, res3);
+
   Set res4 = {...list1, ...i};
+  Expect.setEquals({10, 12, 15, 16, 20, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, res4);
+
   Set res5 = {...i, ...b};
+  Expect.setEquals({0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, res5);
+
   Set res6 = {...set2, ...list1, ...list2, ...b, ...i};
+  Expect.setEquals(
+      {14, 18, 99, 10, 12, 15, 16, 20, "test", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
+      res6);
 }

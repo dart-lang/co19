@@ -16,32 +16,12 @@
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
-const l1 = [];
-List l2 = [];
-
-const s1 = {11};
-Set s2 = {};
-
-const m1 = {1: 1};
-Map m2 = {2: 2};
-
-const int i1 = 25;
-int i2 = 25;
-
+const l = [];
+const s = {11};
 const n = null;
 
 main() {
-  const List res1 = const [...?l1];
-  const List res2 = const [...?l2]; //# 01: compile-time error
-
-  const List res3 = const [...?s1];
-  const List res4 = const [...?s2]; //# 02: compile-time error
-
-  const List res5 = const [...?m1]; //# 03: compile-time error
-  const List res6 = const [...?m2]; //# 04: compile-time error
-
-  const List res7 = const [...?i1]; //# 05: compile-time error
-  const List res8 = const [...?i2]; //# 06: compile-time error
-
-  const List res9 = const [...?n];
+  const List res1 = const [...?l];
+  const List res2 = const [...?s];
+  const List res3 = const [...?n];
 }
