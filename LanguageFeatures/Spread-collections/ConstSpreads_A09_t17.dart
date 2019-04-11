@@ -39,14 +39,4 @@ main() {
 
   const Map m3 = {...(MyClass("test") is MyClass ? {"a": "b"} : <int, int>{})};
   Expect.mapEquals({"a": "b"}, m3);
-
-
-  const Map m4 = {...?(A() is B ? {1: 12345} : <Object, Object>{})};
-  Expect.mapEquals(<Object, Object>{}, m4);
-
-  const Map m5 = {...?(A() is A ? {12345: 4} : {0: 1})};
-  Expect.mapEquals({12345: 4}, m5);
-
-  const Map m6 = {...?(MyClass("test") is MyClass ? {"a": "b"} : <int, int>{})};
-  Expect.mapEquals({"a": "b"}, m6);
 }

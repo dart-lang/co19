@@ -21,5 +21,5 @@ class A {
 }
 
 main() {
-  const List aList = [...?(A() is A ? 123 : [])];
+  const List aList = [...(A() is A ? 123 : [])];
 }

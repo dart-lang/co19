@@ -37,12 +37,4 @@ main() {
   const Map res6  = const {...i1};  //# 06: compile-time error
   const Map res7  = const {...i2};  //# 07: compile-time error
   const Map res8  = const {...n};   //# 08: compile-time error
-
-  const Map res9  = const {...?l1}; //# 01: compile-time error
-  const Map res10 = const {...?l2}; //# 02: compile-time error
-  const Map res11 = const {...?s1}; //# 03: compile-time error
-  const Map res12 = const {...?s2}; //# 04: compile-time error
-  const Map res13 = const {...?m};  //# 05: compile-time error
-  const Map res14 = const {...?i1}; //# 06: compile-time error
-  const Map res15 = const {...?i2}; //# 07: compile-time error
 }

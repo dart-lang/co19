@@ -25,14 +25,4 @@ main() {
 
   const Map res3 = const {...{}};
   Expect.mapEquals({}, res3);
-
-
-  const Map res4 = const {...?{1: 1, 2: 2}, 4: 3};
-  Expect.mapEquals({1:1, 2: 2, 4: 3}, res4);
-
-  const Map res5 = const {...?<Object, Object>{}};
-  Expect.mapEquals(<Object, Object>{}, res5);
-
-  const Map res6 = const {...?{}};
-  Expect.mapEquals({}, res6);
 }

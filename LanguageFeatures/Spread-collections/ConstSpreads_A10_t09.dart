@@ -10,20 +10,26 @@
  * or [Map] instance originally created by a list, set or map literal. It is a
  * potentially constant element if the expression is potentially constant
  * expression.
- * @description: Checks that constant map spread [...?] element can be a
- * constant map.
+ * @description: Checks that constant set spread [...?] element can be constant
+ * list or set or [null].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
-main() {
-  const Map res1 = const {...?{1: 1, 2: 2}, 4: 3};
-  const Map res2 = const {...?<Object, Object>{}};
+List l = [];
+Set s = {};
 
-  const Map res3 = const {...?{1, 3}};  //# 01: compile-time error
-  const Map res4 = const {...?[]};      //# 02: compile-time error
-  const Map res5 = const {...?44};      //# 03: compile-time error
-  const Map res6 = const {...?{}};
-  const Map res7 = const {...?<int>{}}; //# 04: compile-time error
-  const Map res8 = const {...?null};
+const m1 = {1: 1};
+Map m2 = {2: 2};
+
+const int i1 = 25;
+int i2 = 25;
+
+main() {
+  const Set res1 = const {...?l};  //# 01: compile-time error
+  const Set res2 = const {...?s};  //# 02: compile-time error
+  const Set res3 = const {...?m1}; //# 03: compile-time error
+  const Set res4 = const {...?m2}; //# 04: compile-time error
+  const Set res5 = const {...?i1}; //# 05: compile-time error
+  const Set res6 = const {...?i2}; //# 06: compile-time error
 }

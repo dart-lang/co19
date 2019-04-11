@@ -24,9 +24,6 @@ main() {
   const List res2 = const [5, ...{2, 11}];
   Expect.listEquals([5, 2, 11], res2);
 
-  const List res3 = const [...?[1, 2, 3], 4];
-  Expect.listEquals([1, 2, 3, 4], res3);
-
-  const List res4 = const [5, ...?{2, 11}];
-  Expect.listEquals([5, 2, 11], res4);
+  const List res3 = const [...[]];
+  Expect.listEquals([], res3);
 }

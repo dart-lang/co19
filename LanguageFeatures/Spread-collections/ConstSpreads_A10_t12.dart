@@ -10,32 +10,15 @@
  * or [Map] instance originally created by a list, set or map literal. It is a
  * potentially constant element if the expression is potentially constant
  * expression.
- * @description: Checks that constant list [...?] spread element can only be
- * potentially constant list or set or [null].
+ * @description: Checks that constant set spread [...?] element can be constant
+ * list or set or [null].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
-class A {
-  const A();
-}
-
-class B extends A {
-  const B();
-}
-
-class MyClass {
-  final String a;
-  const MyClass(Object o) : a = o as String;
-}
-
-
 main() {
-  const List l1 = [...?(A() is B ? [12345] : [])];
-  const List l2 = [...?(A() is A ? [12345] : [0])];
-  const List l3 = [...?(MyClass("test") is MyClass ? [12345] : [])];
-  const List l4 = [...?(A() is B ? {12345} : {1})];
-  const List l5 = [...?(A() is A ? {12345} : {0})];
-  const List l6 = [...?(MyClass("test") is MyClass ? {12345} : {1})];
-  const List l7  = [...?(A() is B ? [12345] : null)];
+  const Set res1 = const {...?[1, 2, 3], 4};
+  const Set res2 = const {5, ...?{2, 11}};
+  const Set res3 = const {...?{}};
+  const Set res4 = const {...?null};
 }

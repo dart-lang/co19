@@ -10,18 +10,13 @@
  * or [Map] instance originally created by a list, set or map literal. It is a
  * potentially constant element if the expression is potentially constant
  * expression.
- * @description: Checks that constant set spread [...?] element can be constant
- * list or set.
+ * @description: Checks that constant list [...?] spread element can be constant
+ * list or set or [null].
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
 main() {
-  const Set res1 = const {...?[1, 2, 3], 4};
-  const Set res2 = const {5, ...?{2, 11}};
-
-  const Set res3 = const {...?{1: 2, 3: 4}}; //# 01: compile-time error
-  const Set res4 = const {...?44};           //# 02: compile-time error
-  const Set res5 = const {...?{}};
-  const Set res6 = const {...?null};
+  const List res = const [...?{1: 2, 3: 4}];
 }

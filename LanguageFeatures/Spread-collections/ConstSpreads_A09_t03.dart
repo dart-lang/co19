@@ -49,24 +49,4 @@ main() {
 
   const List l6 = [...(MyClass("test") is MyClass ? {12345} : {1})];
   Expect.listEquals([12345], l6);
-
-
-  const List l7 = [...?(A() is B ? [12345] : [])];
-  Expect.listEquals([], l7);
-
-  const List l8 = [...?(A() is A ? [12345] : [0])];
-  Expect.listEquals([12345], l8);
-
-  const List l9 = [...?(MyClass("test") is MyClass ? [12345] : [])];
-  Expect.listEquals([12345], l9);
-
-  const List l10 = [...?(A() is B ? {12345} : {1})];
-  Expect.listEquals([1], l10);
-
-  const List l11 = [...?(A() is A ? {12345} : {0})];
-  Expect.listEquals([12345], l11);
-
-  const List l12 = [...?(MyClass("test") is MyClass ? {12345} : {1})];
-  Expect.listEquals([12345], l12);
-
 }

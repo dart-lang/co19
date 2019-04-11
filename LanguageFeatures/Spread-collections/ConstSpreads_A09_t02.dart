@@ -35,11 +35,4 @@ main() {
   const List res5  = const [...i1];  //# 05: compile-time error
   const List res6  = const [...i2];  //# 06: compile-time error
   const List res7  = const [...n];   //# 07: compile-time error
-
-  const List res8  = const [...?l];  //# 08: compile-time error
-  const List res9  = const [...?s];  //# 09: compile-time error
-  const List res10 = const [...?m1]; //# 10: compile-time error
-  const List res11 = const [...?m2]; //# 11: compile-time error
-  const List res12 = const [...?i1]; //# 12: compile-time error
-  const List res13 = const [...?i2]; //# 13: compile-time error
 }

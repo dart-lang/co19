@@ -10,32 +10,29 @@
  * or [Map] instance originally created by a list, set or map literal. It is a
  * potentially constant element if the expression is potentially constant
  * expression.
- * @description: Checks that constant list [...?] spread element can only be
- * potentially constant list or set or [null].
+ * @description: Checks that constant map spread [...?] element can only be
+ * constant map or null
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=spread-collections,constant-update-2018
 
-class A {
-  const A();
-}
+const l1 = [];
+List l2 = [];
 
-class B extends A {
-  const B();
-}
+const s1 = {11};
+Set s2 = {};
 
-class MyClass {
-  final String a;
-  const MyClass(Object o) : a = o as String;
-}
+Map m = {2: 2};
 
+const int i1 = 25;
+int i2 = 25;
 
 main() {
-  const List l1 = [...?(A() is B ? [12345] : [])];
-  const List l2 = [...?(A() is A ? [12345] : [0])];
-  const List l3 = [...?(MyClass("test") is MyClass ? [12345] : [])];
-  const List l4 = [...?(A() is B ? {12345} : {1})];
-  const List l5 = [...?(A() is A ? {12345} : {0})];
-  const List l6 = [...?(MyClass("test") is MyClass ? {12345} : {1})];
-  const List l7  = [...?(A() is B ? [12345] : null)];
+  const Map res1= const {...?l1};  //# 01: compile-time error
+  const Map res2 = const {...?l2}; //# 02: compile-time error
+  const Map res3 = const {...?s1}; //# 03: compile-time error
+  const Map res4 = const {...?s2}; //# 04: compile-time error
+  const Map res5 = const {...?m};  //# 05: compile-time error
+  const Map res6 = const {...?i1}; //# 06: compile-time error
+  const Map res7 = const {...?i2}; //# 07: compile-time error
 }

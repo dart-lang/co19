@@ -33,17 +33,4 @@ main() {
 
   const Map res4 = const {...m1, ...m2, ...m3};
   Expect.mapEquals({1: 1, 2: 14, 3: 29}, res4);
-
-
-  const Map res5 = const {...?m1};
-  Expect.mapEquals(m1, res5);
-
-  const Map res6 = const {...?m2};
-  Expect.mapEquals(m2, res6);
-
-  const Map res7 = const {...?m3};
-  Expect.mapEquals(m3, res7);
-
-  const Map res8 = const {...?m1, ...?m2, ...?m3};
-  Expect.mapEquals({1: 1, 2: 14, 3: 29}, res8);
 }

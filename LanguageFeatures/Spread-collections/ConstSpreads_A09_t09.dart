@@ -34,12 +34,4 @@ main() {
   const Set res5  = const {...i1}; //# 05: compile-time error
   const Set res6  = const {...i2}; //# 06: compile-time error
   const Set res7  = const {...n};  //# 07: compile-time error
-
-  const Set res8  = const {...?l};  //# 08: compile-time error
-  const Set res9  = const {...?s};  //# 09: compile-time error
-  const Set res10 = const {...?m1}; //# 10: compile-time error
-  const Set res11 = const {...?m2}; //# 11: compile-time error
-  const Set res12 = const {...?i1}; //# 12: compile-time error
-  const Set res13 = const {...?i2}; //# 13: compile-time error
-
 }

@@ -21,5 +21,5 @@ class MyClass {
 }
 
 main() {
-  const Map m = {...?(MyClass() is MyClass ? 12345 : {2: 2})};
+  const Map m = {...(MyClass() is MyClass ? 12345 : {2: 2})};
 }
