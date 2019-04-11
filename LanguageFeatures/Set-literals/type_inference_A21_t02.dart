@@ -19,7 +19,6 @@
 import "../../Utils/expect.dart";
 
 main() {
-  Set v = {1, 2, 3};
-  Expect.isTrue(v is Set<dynamic>);
-  Expect.isFalse(v is Set<int>);
+  var v = {1, 2, 3};
+  Expect.isTrue(v is Set<int>);
 }

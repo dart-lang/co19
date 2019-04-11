@@ -6,20 +6,21 @@
 /**
  * @assertion Finally, we define inference on a setOrMapLiteral collection as
  * follows:
- *
- * If collection is unambiguously a set literal:
  * ...
- * Otherwise, the static type of collection is P.
+ * Else, if collection is unambiguously a map literal where P is Map<Pk, Pv>:
+ * ...
+ * Otherwise the static key type of collection is K where K is determined by
+ * downwards inference.
  *
- * @description Checks that if collection is unambiguously a set literal and P
- * is not ? then the static type of collection is P
+ * @description Checks that if collection is unambiguously a map literal and Pk
+ * is not ? then the static type of collection is K where K is determined by
+ * downwards inference.
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 main() {
-  Set v = {1, 2, 3};
-  Expect.isTrue(v is Set<dynamic>);
-  Expect.isFalse(v is Set<int>);
+  var m = {1: 1, 2: 2, 3: 3};
+  Expect.isTrue(m is Map<int, int>);
 }
