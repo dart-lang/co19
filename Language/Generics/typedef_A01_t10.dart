@@ -9,7 +9,10 @@
  *    m typedef id<X1extendsB1, ..., Xs extendsBs> = T;
  * ...
  * where [m] is derived from metadata, [T] is a type, and [S?] is a type or the
- * empty string.
+ * empty string. Let [S0] be [S?] if it is a type, otherwise let [S0] be
+ * [dynamic]. The associated type of [D], call it [F], is, respectively:
+ *   T
+ * ...
  * @description Checks that [T] can be another function type alias.
  * @author iarkh@unipro.ru
  */

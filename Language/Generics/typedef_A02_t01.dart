@@ -6,14 +6,18 @@
 /**
  * @assertion A generic type alias is a declaration [D] of one of the following
  * forms:
- *    m typedef id<X1extendsB1, ..., Xs extendsBs> = T;
+ * ...
+ * m typedef S? id<X1 extends B1, . . . , Xs extends Bs>(
+ *   T1 p1, . . . , Tn pn, [Tn+1 pn+1, . . . , Tn+k pn+k]);
  * ...
  * where [m] is derived from metadata, [T] is a type, and [S?] is a type or the
  * empty string. Let [S0] be [S?] if it is a type, otherwise let [S0] be
  * [dynamic]. The associated type of [D], call it [F], is, respectively:
- *   T
  * ...
- * @description Checks that generic type alias declaration can contain metadata.
+ *   S0 Function(T1, . . . , Tn, [Tn+1, . . . , Tn+k])
+ * ...
+ * @description Checks that function generic type alias declaration can contain
+ * metadata.
  * @author iarkh@unipro.ru
  */
 import "../../Utils/expect.dart";
@@ -21,17 +25,22 @@ import "../../Utils/expect.dart";
 const i = 1;
 class A { const A(); }
 
-@i typedef Alias1<T> = Function<T>();
-@i typedef Alias2<T> = void Function<T>(T);
-@i typedef Alias3<T> = T Function<T>(T);
-@i typedef Alias4<T> = String Function<T>(T);
-@i typedef Alias5<T> = Function<T>(int, int, T);
-@i typedef Alias6<T> = Function<T>(int, int, T, [T]);
-@i typedef Alias7<T> = Function<T>(int, [T, T, T]);
+@i   typedef int test1<T extends num>();
+@A() typedef T test2<T>(T x, int y);
 
-@A() typedef Alias9<T1, T2> = T1 Function<T1, T2>();
-@A() typedef Alias10<T1, T2> = T1 Function<T1, T2>(T2, {int a});
-@A() typedef Alias11<T1, T2> = T1 Function<T1, T2>([T1 a1, T2 a2]);
+int t1<T extends int>() {
+  Expect.equals(int, T);
+}
+
+T t2<T>(T x, int y) {
+  Expect.equals(dynamic, T);
+  return 14 as T;
+}
 
 main() {
+  test1 res1 = t1;
+  res1();
+
+  test2 res2 = t2;
+  var x = res2("123", 14);
 }
