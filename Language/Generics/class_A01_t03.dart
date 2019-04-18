@@ -36,7 +36,7 @@ main() {
   C2<int, Function, int, Null> c11;
   C2<Null, Null, Null, Null>   c12;
 
-  C2<int> c13;                                                   //# 04: compile-time error
+  C2<int> c13;                                                  //# 04: compile-time error
   C2<int, Function> c14;                                        //# 05: compile-time error
   C2<int, Function, num> c15;                                   //# 06: compile-time error
   C2<int, Function, num, List, Null> c16;                       //# 07: compile-time error
