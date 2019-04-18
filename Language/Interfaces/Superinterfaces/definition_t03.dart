@@ -12,8 +12,6 @@
  * superinterfaces forms a circular dependency.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer kaigorodov
  */
 
 abstract class C implements A {}

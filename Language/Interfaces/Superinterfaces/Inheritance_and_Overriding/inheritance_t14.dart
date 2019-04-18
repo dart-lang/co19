@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -25,28 +25,32 @@
  * Then I has a method named n, with r required parameters of type dynamic,
  * h positional parameters of type dynamic, named parameters s of type dynamic
  * and return type dynamic.
- * @description Checks that there's no static warning if non-abstract class
- * implements two interfaces with same named methods that have different named
- * formal parameters and defines method from its implicit interface. In this
- * case the implicit interface of non-abstract class has method with one
- * required parameter of type dynamic and a set of all named optional
- * parameters.
+ * @description Checks that there's no static warning if class implements two
+ * interfaces with same named methods and different number of required formal
+ * parameters and defines method with minimum number of required parameters
+ * and maximum number of positional parameters. Test type aliases
  * @static-clean
- * @author ngl@unipro.ru
+ * @author sgrekhov@unipro.ru
  */
 
 abstract class SI1 {
-  void foo(var v, {int foo, int bar});
+  void foo(var v);
 }
 
 abstract class SI2 {
-  void foo(var v, {int foo, int b4r});
+  void foo(var v, var vv);
 }
 
-class I implements SI1, SI2 {
-  void foo(dynamic v, {dynamic foo, dynamic b4r, dynamic bar}) {}
+typedef SIAlias1 = SI1;
+typedef SIAlias2 = SI2;
+
+class I implements SIAlias1, SIAlias2 {
+  // It is expected that I inherits void foo(dynamic v1, [dynamic a])
+  void foo(dynamic v, [dynamic a]) {}
 }
 
 main() {
-  I i = null;
+  I i = new I();
+  i.foo(1);
+  i.foo(1,2);
 }

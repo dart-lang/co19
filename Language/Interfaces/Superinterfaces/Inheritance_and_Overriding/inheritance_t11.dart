@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -25,27 +25,35 @@
  * Then I has a method named n, with r required parameters of type dynamic,
  * h positional parameters of type dynamic, named parameters s of type dynamic
  * and return type dynamic.
- * @description Checks that there's no static warning if non-abstract class
- * implements two interfaces with same named methods that have different named
- * formal parameters and defines method from its implicit interface. In this
- * case the implicit interface of non-abstract class has method with one
- * required parameter of type dynamic and a set of all named optional
- * parameters.
- * @static-clean
- * @author ngl@unipro.ru
+ * @description Checks that if several methods with the same name but with the
+ * different number of required parameters this causes compile error. Test type
+ * aliases
+ * @compile-error
+ * @author sgrekhov@unipro.ru
  */
 
+class A {}
+class B extends A {}
+class C {}
+class D extends C {}
+
 abstract class SI1 {
-  void foo(var v, {int foo, int bar});
+  void foo(A v1, D v2, [int v3]);
 }
 
 abstract class SI2 {
-  void foo(var v, {int foo, int b4r});
+  int foo(B v1, [C v2]);
 }
 
-class I implements SI1, SI2 {
-  void foo(dynamic v, {dynamic foo, dynamic b4r, dynamic bar}) {}
+abstract class SI3 {
+  int foo(B v1, int v2, bool v3, [C v4]);
 }
+
+typedef SIAlias1 = SI1;
+typedef SIAlias2 = SI2;
+typedef SIAlias3 = SI3;
+
+abstract class I implements SI1, SI2, SI3 {}
 
 main() {
   I i = null;

@@ -12,7 +12,6 @@
  * superinterfaces forms a circular dependency.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 abstract class A implements B {}

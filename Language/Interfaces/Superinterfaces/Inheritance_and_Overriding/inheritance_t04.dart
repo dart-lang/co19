@@ -29,7 +29,6 @@
  * name but differing sets of named parameters are inherited.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 abstract class SI1 {

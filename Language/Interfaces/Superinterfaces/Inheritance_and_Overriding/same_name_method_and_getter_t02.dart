@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if m is a method and m' is a getter, or
+ * @assertion It is a compile error if m is a method and m' is a getter, or
  * if m is a getter and m' is a method.
  * @description Checks that there is a compile error if class has a getter
  * and its superinterface has a method with the same name

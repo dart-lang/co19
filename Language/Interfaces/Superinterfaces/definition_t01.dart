@@ -11,7 +11,6 @@
  * @description Checks that an interface can declare generic and non-generic
  * direct superinterfaces or not declare any.
  * @author vasya
- * @reviewer rodionov
  */
 
 abstract class J {}
@@ -39,4 +38,3 @@ main() {
   C<List, String, num> c = null;
   D<String> d = null;
 }
-

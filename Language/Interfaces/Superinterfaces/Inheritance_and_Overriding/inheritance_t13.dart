@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -25,28 +25,47 @@
  * Then I has a method named n, with r required parameters of type dynamic,
  * h positional parameters of type dynamic, named parameters s of type dynamic
  * and return type dynamic.
- * @description Checks that there's no static warning if non-abstract class
- * implements two interfaces with same named methods that have different named
- * formal parameters and defines method from its implicit interface. In this
- * case the implicit interface of non-abstract class has method with one
- * required parameter of type dynamic and a set of all named optional
- * parameters.
+ * @description Checks that there's no static warning produced when the
+ * subinterface member being accessed is actually inherited. Members tested
+ * include variables, methods, getters, setters and operators. There's no way
+ * to check whether the resulting inherited method signature is actually as
+ * described above, but we can check that it's inherited at all. Test type
+ * aliases
  * @static-clean
- * @author ngl@unipro.ru
+ * @author sgrekhov@unipro.ru
  */
+import '../../../../Utils/expect.dart';
+
+class C {}
+class D extends C {}
 
 abstract class SI1 {
-  void foo(var v, {int foo, int bar});
+  int method(num v, String p, {int o1, Pattern o2});
+  int method2(C v, [D o]);
+  int get gett0r;
+  void set sett0r(int v);
+  C operator +(C v);
 }
 
 abstract class SI2 {
-  void foo(var v, {int foo, int b4r});
+  void method(num v, String p, {int o1, Pattern o2});
+  num method2(C v, [D o]);
+  num get gett0r;
+  void set sett0r(num v);
+  C operator +(C v);
 }
 
-class I implements SI1, SI2 {
-  void foo(dynamic v, {dynamic foo, dynamic b4r, dynamic bar}) {}
-}
+typedef SIAlias1 = SI1;
+typedef SIAlias2 = SI2;
+
+abstract class I implements SIAlias1, SIAlias2 {}
 
 main() {
   I i = null;
+
+  Expect.throws(() {i.method(null, null, o1:null, o2:null);}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {var v = i.method2(null, null);}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {num n = i.gett0r;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {i.sett0r = null;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {var v = i + null;}, (e) => e is NoSuchMethodError);
 }

@@ -12,7 +12,6 @@
  * of an interface is empty.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 abstract class I implements {

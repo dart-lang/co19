@@ -10,7 +10,6 @@
  * interface is a superinterface of itself.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 abstract class I implements I {}
