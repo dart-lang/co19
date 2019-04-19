@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -10,16 +10,18 @@
  * member m of type F and C does not declare or inherit a corresponding
  * non-abstract instance member m of type F' such that F' <: F.
  * @description Checks that it is a compile error if a class does not declare
- * nor inherit an instance method declared in class' interface.
+ * nor inherit an instance method declared in class' interface. Test type alias
  * @compile-error
- * @author msyabro
+ * @author sgrekhov@unipro.ru
  */
 
 abstract class I {
   foo();
 }
 
-class C implements I {
+typedef IAlias = I;
+
+class C implements IAlias {
 }
 
 main () {

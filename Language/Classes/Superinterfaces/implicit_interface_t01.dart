@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if the implicit interface of a class
+ * @assertion It is a compile error if the implicit interface of a class
  * C includes an instance member m of type F and C declares or inherits a
  * corresponding instance member m of type F' if F' is not a subtype of F.
  * @description Checks that it is a compile error if the type F'

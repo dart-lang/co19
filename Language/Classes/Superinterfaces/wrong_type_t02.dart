@@ -18,7 +18,5 @@ typedef void foo();
 class A implements foo {}
 
 main() {
-  try {
-    new A();
-  } catch (e) {}
+  new A();
 }

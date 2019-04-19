@@ -10,7 +10,6 @@
  * in a class's implements clause denotes a type variable.
  * @compile-error
  * @author rodionov
- * @note renamed from 10_Superinterfaces_A02_t04.dart
  */
 
 class A<T> implements T {}
