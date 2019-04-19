@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -11,9 +11,10 @@
  * A class may override instance members that would otherwise have been
  * inherited from its superclass.
  * @description Checks that it is no compile error if you have a static member
- * named m in superclass and an instance member of the same name.
+ * named m in superclass and an instance member of the same name. Test type
+ * aliases
  * @issue 27476
- * @author msyabro
+ * @author sgrekhov@unipro.ru
  */
 
 class S {
@@ -23,7 +24,9 @@ class S {
   static int iMethod() {}
 }
 
-class C extends S {
+typedef SAlias = S;
+
+class C extends SAlias {
   v() {}
   i() {}
   method() {}

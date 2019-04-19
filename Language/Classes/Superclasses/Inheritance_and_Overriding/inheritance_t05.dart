@@ -14,7 +14,6 @@
  * @compile-error
  * @author msyabro
  */
-import "../../../../Utils/expect.dart";
 
 class S {
   static var v;

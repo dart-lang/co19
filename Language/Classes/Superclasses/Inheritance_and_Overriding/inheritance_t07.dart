@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -10,30 +10,30 @@
  * declaration in C or in at least one of S1...Sk.
  * A class may override instance members that would otherwise have been
  * inherited from its superclass.
- * @description Checks that it is no compile error if you have a static member
- * named m in superclass and an instance member of the same name.
- * @issue 27476
- * @author msyabro
+ * @description Checks that a subclass inherits the instance members of its
+ * superclass(es). Test type aliases
+ * @author sgrekhov@unipro.ru
  */
+import "../../../../Utils/expect.dart";
 
-class S {
-  static var v;
-  static int i;
-  static method() {}
-  static int iMethod() {}
+class A {
+  int val;
 }
 
-class C extends S {
-  v() {}
-  i() {}
-  method() {}
-  iMethod() {}
+typedef AAlias = A;
+
+class B extends AAlias {
+  foo() {
+    ++val;
+  }
 }
+
+class C extends B {}
 
 main() {
-  var c = new C();
-  c.v();
-  c.i();
-  c.method();
-  c.iMethod();
+  C c = new C();
+  c.val = 5;
+  Expect.equals(5, c.val);
+  c.foo();
+  Expect.equals(6, c.val);
 }
