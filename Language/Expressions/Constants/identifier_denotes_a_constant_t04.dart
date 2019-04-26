@@ -15,6 +15,8 @@
  * can be assigned to a constant variable.
  * @author ilya
  */
+// SharedOptions=--enable-experiment=constant-update-2018
+
 import '../../../Utils/expect.dart';
 
 typedef int F(int);

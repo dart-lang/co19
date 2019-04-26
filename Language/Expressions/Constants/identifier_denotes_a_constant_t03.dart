@@ -17,6 +17,7 @@
  * @issue 27477
  * @author rodionov
  */
+// SharedOptions=--enable-experiment=constant-update-2018
 
 class C<T> {
   static const List lst = const [T];

@@ -18,6 +18,7 @@
  * created by a constant type literal expression
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 class C {}

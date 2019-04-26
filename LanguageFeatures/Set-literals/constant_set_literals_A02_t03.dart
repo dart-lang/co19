@@ -15,6 +15,7 @@
  * the constant element expressions is double
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=constant-update-2018
 main() {
   var v1 = const {1, 2, 3.14};    //# 01: compile-time error
   const v2 = const {1, 2, 3.14};  //# 02: compile-time error

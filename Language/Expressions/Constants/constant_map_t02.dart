@@ -15,7 +15,7 @@
  * @compile-error
  * @reviewer rodionov
  */
-
+// SharedOptions=--enable-experiment=constant-update-2018
 const a = {"a" : "b"};
 
 main() {

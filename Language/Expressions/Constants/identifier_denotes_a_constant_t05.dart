@@ -15,6 +15,7 @@
  * type alias is a constant expression.
  * @author ilya
  */
+// SharedOptions=--enable-experiment=constant-update-2018
 
 import '../lib.dart' as prefix;
 

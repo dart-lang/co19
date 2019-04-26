@@ -11,7 +11,7 @@
  * @compile-error
  * @author kaigorodov
  */
-
+// SharedOptions=--enable-experiment=constant-update-2018
 class C {
   final m;
 

@@ -15,6 +15,7 @@
  * @compile-error
  * @author ilya
  */
+// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   f() {

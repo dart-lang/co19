@@ -14,6 +14,7 @@
  * a prefix is a constant expression.
  * @author ngl@unipro.ru
  */
+// SharedOptions=--enable-experiment=constant-update-2018
 import '../../../Utils/expect.dart';
 import 'constants_lib.dart' as clib;
 
