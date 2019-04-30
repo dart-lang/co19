@@ -12,8 +12,8 @@
  * @author sgrekhov@unipro.ru
  */
 class C {
-  set int s(int v) {}
-  set int _s(int v) {}
+  set s(int v) {}
+  set _s(int v) {}
 
   static set s(var value) {}    //# 01: compile-time error
   static void s() {}            //# 02: compile-time error
