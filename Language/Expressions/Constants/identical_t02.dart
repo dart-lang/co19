@@ -17,6 +17,8 @@
  * @author kaigorodov
  * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=constant-update-2018
+
 import '../../../Utils/expect.dart';
 
 bool identical(var a, var b) {

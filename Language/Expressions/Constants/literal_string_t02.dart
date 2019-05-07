@@ -17,6 +17,7 @@
  * @compile-error
  * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=constant-update-2018
 
 const l = "${const {'k1': 1, 'k2': 2}}";
 

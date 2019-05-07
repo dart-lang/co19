@@ -16,6 +16,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=constant-update-2018
 
 class C {
   final a, b, c, d, e;

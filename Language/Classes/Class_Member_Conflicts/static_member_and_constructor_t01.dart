@@ -12,6 +12,7 @@
  */
 class C {
   C.s() {}
+
   static set s(var value) {}  //# 01: compile-time error
   static void s() {}          //# 02: compile-time error
   static int s() => 1;        //# 03: compile-time error

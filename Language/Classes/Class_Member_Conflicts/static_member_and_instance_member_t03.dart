@@ -12,8 +12,8 @@
  * @author sgrekhov@unipro.ru
  */
 class C {
-  get int s() => 1;
-  get int _s() => 2;
+  int get s => 1;
+  int get _s => 2;
 
   static set s(var value) {}    //# 01: compile-time error
   static void s() {}            //# 02: compile-time error

@@ -15,6 +15,8 @@
  * string.
  * @author ngl@unipro.ru
  */
+// SharedOptions=--enable-experiment=constant-update-2018
+
 import '../../../Utils/expect.dart';
 
 const String m = "ab" + "c";

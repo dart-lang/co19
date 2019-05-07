@@ -14,6 +14,7 @@
  * implementing Set<T> with v1 … vn as elements
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 test(expected, actual) {

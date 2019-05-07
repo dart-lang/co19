@@ -16,6 +16,7 @@
  * @compile-error
  * @author ilya
  */
+// SharedOptions=--enable-experiment=constant-update-2018
 
 var x;
 const y = identical(x, x);

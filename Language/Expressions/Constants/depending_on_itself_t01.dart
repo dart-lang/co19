@@ -12,7 +12,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
-
+// SharedOptions=--enable-experiment=constant-update-2018
 const m = m;
 
 main() {

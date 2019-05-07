@@ -11,7 +11,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
-
+// SharedOptions=--enable-experiment=constant-update-2018
 const m = 1 << 999999999999999999; /// 01: runtime error
 
 main() {

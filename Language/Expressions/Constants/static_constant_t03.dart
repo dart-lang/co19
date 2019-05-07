@@ -16,6 +16,7 @@
  * @author msyabro
  * @reviewer iefremov
  */
+// SharedOptions=--enable-experiment=constant-update-2018
 
 class A {
   static final x = 1;

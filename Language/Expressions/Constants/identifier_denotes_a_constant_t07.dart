@@ -16,6 +16,7 @@
  * @compile-error
  * @author ngl@unipo.ru
  */
+// SharedOptions=--enable-experiment=constant-update-2018
 
 import '../lib.dart' deferred as prefix;
 
