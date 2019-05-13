@@ -15,6 +15,7 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A<X> {}
 class test<X> = A<X>;

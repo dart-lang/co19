@@ -18,6 +18,7 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 int i = 1;
 class C<T> {}

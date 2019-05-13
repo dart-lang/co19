@@ -16,6 +16,7 @@
  * @description Checks that [T] can be [dynamic], [void], [Null], [FutureOr].
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 typedef S1<T> = dynamic;
 typedef S2<T> = Null;
