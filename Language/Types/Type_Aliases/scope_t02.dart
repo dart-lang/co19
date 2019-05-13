@@ -10,6 +10,7 @@
  * @description Checks that it is a compile error if id is not unique
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A {}
 class C<T> {}

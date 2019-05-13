@@ -11,6 +11,7 @@
  * and initialize corresponding fields of the class C.
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 import "../../../Utils/expect.dart";
 
 class A {

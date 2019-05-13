@@ -11,6 +11,7 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 class C<T1, T2> {}
 
 typedef CAlias1<T1, T2> = C<T1, T2>;

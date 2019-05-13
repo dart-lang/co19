@@ -14,6 +14,7 @@
  * of type parameters with type parameters
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A {}
 class C<T1, T2> {}

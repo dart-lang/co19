@@ -30,6 +30,7 @@
  * @compile-error
  * @author rodionov
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 abstract class SI1 {
   void foo(var v);

@@ -11,6 +11,7 @@
  * @author sgrekhov@unipro.ru
  * @compile-error
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 typedef d = dynamic;
 

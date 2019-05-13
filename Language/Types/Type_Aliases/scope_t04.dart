@@ -10,7 +10,7 @@
  * @description Checks that it is a compile error if id is not unique
  * @author sgrekhov@unipro.ru
  */
-import "scope.lib.dart";
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 typedef AAlias = A;             //# 01: compile-time error
 typedef AAlias = C<String>;     //# 02: compile-time error

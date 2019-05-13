@@ -13,7 +13,7 @@
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 abstract class I {
   num get g1;
   String get g2;

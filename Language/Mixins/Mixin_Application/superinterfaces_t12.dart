@@ -14,7 +14,7 @@
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 class A {
   int get a => 0;
 }

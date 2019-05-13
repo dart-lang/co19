@@ -15,7 +15,7 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 abstract class M {
   int n();
 }

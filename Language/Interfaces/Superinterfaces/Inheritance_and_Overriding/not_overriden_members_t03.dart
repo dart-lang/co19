@@ -14,6 +14,7 @@
  * @static-clean
  * @author sgrekhov@unopro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 import '../../../../Utils/expect.dart';
 
 abstract class I {

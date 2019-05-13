@@ -11,7 +11,7 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 enum E {a, b, c}
 
 typedef EAlias = E;

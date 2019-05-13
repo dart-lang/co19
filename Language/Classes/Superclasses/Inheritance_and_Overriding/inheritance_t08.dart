@@ -16,7 +16,7 @@
  * @issue 27476
  * @author sgrekhov@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 class S {
   static var v;
   static int i;

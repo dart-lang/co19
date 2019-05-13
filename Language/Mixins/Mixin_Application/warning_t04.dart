@@ -14,7 +14,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 23878
  */
-
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 class S {
 }
 

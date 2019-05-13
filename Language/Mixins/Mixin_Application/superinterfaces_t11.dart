@@ -14,7 +14,7 @@
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 abstract class A {
   int get a;
 }

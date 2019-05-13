@@ -14,6 +14,7 @@
  * non-function type alias with no type parameters
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 import "../../../Utils/expect.dart";
 
 const int meta = 1;

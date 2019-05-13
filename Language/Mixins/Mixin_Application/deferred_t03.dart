@@ -11,6 +11,7 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 import 'deferred_lib.dart' deferred as d;
 

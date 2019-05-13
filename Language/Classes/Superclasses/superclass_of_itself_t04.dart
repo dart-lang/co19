@@ -10,6 +10,7 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A extends DAlias {}
 class B extends A {}

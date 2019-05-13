@@ -13,6 +13,7 @@
  * and C does implement them. Test class C = S with M; syntax. Test type alias
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 abstract class A {
   int get a;
 }

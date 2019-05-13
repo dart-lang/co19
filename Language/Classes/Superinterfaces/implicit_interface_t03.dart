@@ -12,7 +12,7 @@
  * @compile-error
  * @author ilya
  */
-
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 abstract class I {
   foo(var x);
 }

@@ -14,9 +14,9 @@
  * type aliases
  * @author sgrekhov@unipro.ru
  */
-import "../../../../Utils/expect.dart";
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
-import "overriding_t04_lib.dart";
+import "../../../../Utils/expect.dart";
 
 typedef SAlias = S;
 

@@ -12,6 +12,7 @@
  * errors. Test type aliases
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 abstract class A<U, V> {
   void set s2(var x) {}
