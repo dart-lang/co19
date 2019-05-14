@@ -10,7 +10,6 @@
  * supertype of its upper bound.
  * @compile-error
  * @author pagolubev
- * @reviewer kaigorodov
  */
 
 class A {}
