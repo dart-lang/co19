@@ -15,7 +15,7 @@
  * 'if' element or 'for' element. Test combination of 'if' and 'for'
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=control-flow-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 main() {
