@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -15,17 +15,17 @@
  *
  * @description Checks that it is no compile-time error when a class declares
  * an instance method with the same name as a static variable in its superclass.
- * @issue 27476
- * @author vasya
+ * Test type aliases
+ * @author sgrekhov@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 class A {
   static var f;
 }
+typedef AAlias = A;
 
-class C extends A {
-  f() {
-  }
+class C extends AAlias {
+  f() {}
 }
 
 main() {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -8,16 +8,18 @@
  * instance member m2 and m1 does not declare all the named parameters declared 
  * by m2.
  * @description Checks that there is no static warnings if m1 has the same set
- * of named parameters as m2 but in a different order.
+ * of named parameters as m2 but in a different order. Test type aliases
  * @static-clean
- * @author iefremov
+ * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A {
   f({var x, var y}) { return x+y; }
 }
+typedef AAlias = A;
 
-class C extends A {
+class C extends AAlias {
   f({var y, var x}) { return x+y; }
 }
 

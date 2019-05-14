@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -10,18 +10,21 @@
  * overriding method is not a subtype of the method being overridden even if 
  * the class declaring m1 is not a direct subtype of the class declaring m2.
  * @compile-error
- * @author iefremov
+ * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A {
   foo(double name) {}
 }
-
+typedef AAlias = A;
 class A1 extends A{}
+typedef A1Alias = A1;
 class A2 extends A1{}
+typedef A2Alias = A2;
 class A3 extends A2{}
-
-class C extends A3 {
+typedef A3Alias = A3;
+class C extends A3Alias {
   foo(int name) {}
 }
 

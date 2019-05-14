@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -8,10 +8,11 @@
  * instance member m2 and the type of m1 is not a subtype of the type of m2.
  * @description Checks that there are no warnings when type of m1 is in fact
  * a subtype of type of m2. Checks instance methods with no optional
- * parameters.
+ * parameters. Test type aliases
  * @static-clean
- * @author ilya
+ * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class Super {}
 class Sub extends Super {}
@@ -27,8 +28,9 @@ class A {
   Super   f7(Sub x) {}
   Sub     f8(Super x) {}
 }
+typedef AAlias = A;
 
-class C extends A {
+class C extends AAlias {
   int f1() {}
   Super   f2() {}
   Sub     f3() {}

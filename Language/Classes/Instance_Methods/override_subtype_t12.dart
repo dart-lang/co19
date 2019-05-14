@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -9,8 +9,9 @@
  * @description Checks that there are no warnings when type of m1 is in fact
  * a subtype of type of m2. Checks instance methods with optional parameters.
  * @static-clean
- * @author ilya
+ * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class Whatever {}
 class Super {}
@@ -21,8 +22,9 @@ class A {
   int f2(Super x, Sub y, [Sub a]) {}
   dynamic f3(Super x, {Sub a}) {}
 }
+typedef AAlias = A;
 
-class C extends A {
+class C extends AAlias {
   int f1(Super x, [Super a, Super b]) {}
   int f2(Super x, [Sub a, Super b, Whatever c]) {}
   int f3(Super x, {Super a, Super b}) {}
