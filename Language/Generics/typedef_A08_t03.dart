@@ -25,7 +25,6 @@
  * @Issue 36959
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A<X extends A<X>> {}
 
