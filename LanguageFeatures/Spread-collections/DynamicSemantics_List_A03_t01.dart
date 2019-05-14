@@ -10,7 +10,7 @@
  * @description Checks that constant list is cannonicalized and immutable.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 import "../../Utils/expect.dart";
 

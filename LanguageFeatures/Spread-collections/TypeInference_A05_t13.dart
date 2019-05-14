@@ -18,7 +18,6 @@
  * @description Checks that spread element must be [Iterable] or [Map]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections
 
 import "../../Utils/expect.dart";
 

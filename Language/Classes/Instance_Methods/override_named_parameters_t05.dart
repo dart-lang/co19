@@ -12,7 +12,6 @@
  * name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class A {

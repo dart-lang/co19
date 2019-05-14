@@ -13,7 +13,7 @@
  * evaluates to true and the then expression is not a constant expression.
  * @author ngl@unipro.ru
  */
-// SharedOptions=--enable-experiment=control-flow-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 main() {
   const t = true;
   var x = 1;

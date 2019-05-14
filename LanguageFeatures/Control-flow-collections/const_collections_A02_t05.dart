@@ -21,7 +21,7 @@
  * of a constant map literal include a type parameter.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=control-flow-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 test<T> (T t) {
   var v1 = const <T, String>{ if (1 > 0) t: "1" };  //# 01: compile-time error
   var v2 = const <String, T>{ if (1 > 0) "2": t };  //# 02: compile-time error

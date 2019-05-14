@@ -15,7 +15,7 @@
  * 'for' elements is an expression
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=control-flow-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   bool b = true;

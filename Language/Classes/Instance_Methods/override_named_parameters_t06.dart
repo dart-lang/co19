@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if an instance method m1 overrides an 
+ * @assertion It is no static warning if an instance method m1 overrides an
  * instance member m2 and m1 does not declare all the named parameters declared 
  * by m2.
  * @description Checks that there are no static warnings if m1 has the same set 

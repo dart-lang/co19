@@ -11,7 +11,7 @@
  * set literal is not assignable to the type of the set.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 import "dart:collection";
 

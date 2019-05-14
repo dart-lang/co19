@@ -8,7 +8,7 @@
  * @description: Checks that map with spread element cannot reference itself
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   Map m1 = {...m1};       //# 01: compile-time error

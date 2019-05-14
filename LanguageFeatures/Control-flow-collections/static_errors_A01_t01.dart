@@ -12,7 +12,7 @@
  * element type
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=control-flow-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   <int>[if (true) "not int"];                   //# 01: compile-time error

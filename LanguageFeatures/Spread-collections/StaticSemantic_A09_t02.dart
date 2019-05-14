@@ -12,7 +12,7 @@
  * spread element in constant causes compile error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   const res1 = [...null];           //# 01: compile-time error

@@ -10,13 +10,10 @@
  * by C and the instance methods inherited by C from its superclass.
  * . . .
  * A method declaration may conflict with other declarations (10.11).
- * Let C be a class. It is a compile-time error if C declares a
- * • constructor named C.n and a static member with basename n.
- * • getter or a setter with basename n, and has a method named n.
- * • method named n, and has a getter or a setter with basename n.
+ * Let C be a class. It is no compile-time error if C declares a
  * • static member with basename n, and has an instance member with basename n.
  *
- * @description Checks that it is not a compile-error when a class declares
+ * @description Checks that it is no compile-time error when a class declares
  * an instance method with the same name as a static method in its superclass
  * even if it's not a direct one.
  * @issue 27476
