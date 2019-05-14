@@ -20,7 +20,7 @@
  * to the result set in correct order if this spread element is not [null].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 import "dart:collection";
 import "../../Utils/expect.dart";

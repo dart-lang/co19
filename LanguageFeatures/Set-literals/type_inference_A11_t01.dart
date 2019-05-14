@@ -17,7 +17,7 @@
  * nor `Null`) match
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 void test<T>(T t) {
   var s1 = {...t};      //# 01: compile-time error

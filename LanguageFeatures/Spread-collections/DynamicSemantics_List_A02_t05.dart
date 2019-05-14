@@ -21,7 +21,7 @@
  * @description Checks that result list can contain duplicated elements.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 import "../../Utils/expect.dart";
 

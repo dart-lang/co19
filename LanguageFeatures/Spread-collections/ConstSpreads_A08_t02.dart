@@ -11,7 +11,7 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   const list = [...?list];

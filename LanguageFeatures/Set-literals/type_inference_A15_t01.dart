@@ -15,7 +15,7 @@
  * @description Checks that otherwise it is an error
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   var s = "Let it be";

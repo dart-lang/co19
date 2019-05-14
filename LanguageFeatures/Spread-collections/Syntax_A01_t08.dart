@@ -30,7 +30,7 @@
  * element.
  * @description Checks that spreadable element can have type argument
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   List<int> list1 = [1, 2, 3];

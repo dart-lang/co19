@@ -12,7 +12,7 @@
  * @description: Checks that constant map spread element can be constant map.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 import "../../Utils/expect.dart";
 

@@ -11,7 +11,7 @@
  * in the list literal is assignable to the type of the list.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 import "dart:collection";
 

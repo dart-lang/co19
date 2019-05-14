@@ -20,7 +20,7 @@
  * null-aware), their spread is a set.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 import "../../Utils/expect.dart";
 import "dart:collection";

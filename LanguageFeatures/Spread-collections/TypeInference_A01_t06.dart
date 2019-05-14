@@ -11,7 +11,7 @@
  * is [T] in the set literal
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 class A {}
 class B extends A {}

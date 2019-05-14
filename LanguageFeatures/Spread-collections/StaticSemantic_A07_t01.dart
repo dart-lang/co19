@@ -12,7 +12,7 @@
  * map literal is not assignable to the type of the map.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
 

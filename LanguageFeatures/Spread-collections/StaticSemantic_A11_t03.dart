@@ -11,7 +11,7 @@
  * in the map is not dynamic, is not assignable to [Map] and is not [null]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 import "dart:async";
 

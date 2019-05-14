@@ -14,7 +14,7 @@
  * map
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 const m1 = {1: 1};
 const m2 = {};

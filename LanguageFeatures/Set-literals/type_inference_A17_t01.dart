@@ -16,7 +16,7 @@
  * of element is dynamic.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 test(x) {

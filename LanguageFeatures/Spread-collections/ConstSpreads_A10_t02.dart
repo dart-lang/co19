@@ -14,7 +14,7 @@
  * non-constant, non-null and not list or set.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 List l = [];
 Set s = {};

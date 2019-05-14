@@ -9,7 +9,7 @@
  * @description Checks that non-constant set is not cannonicalized and mutable.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=spread-collections,constant-update-2018
+// SharedOptions=--enable-experiment=constant-update-2018
 
 import "../../Utils/expect.dart";
 
