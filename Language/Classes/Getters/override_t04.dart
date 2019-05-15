@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if a getter m1 overrides a getter m2 and 
+ * @assertion It is a compile error if a getter m1 overrides a getter m2 and
  * the type of m1 is not a subtype of the type of m2.
- * @description Checks that there are no warnings when type of m1 is in fact
- * a subtype of type of m2
+ * @description Checks that there are no compile error or warnings when type of
+ * m1 is in fact a subtype of type of m2
  * @static-clean
  * @author ilya
  */

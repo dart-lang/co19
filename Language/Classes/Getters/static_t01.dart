@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -22,9 +22,9 @@ class C2 extends C1 {
 }
 
 main() {
-  C1.g1; /// line1: compile-time error
-  C1.g2; /// line2: compile-time error
-  C2.g1; /// line3: compile-time error
-  C2.g2; /// line4: compile-time error
-  C2.g3; /// line5: compile-time error
+  C1.g1; //# 01: compile-time error
+  C1.g2; //# 02: compile-time error
+  C2.g1; //# 03: compile-time error
+  C2.g2; //# 04: compile-time error
+  C2.g3; //# 05: compile-time error
 }

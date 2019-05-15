@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if a getter m1 overrides a getter m2 and 
+ * @assertion It is a compile error if a getter m1 overrides a getter m2 and
  * the type of m1 is not a subtype of the type of m2.
  * @description Checks that a compile error is produced if the overriding
  * getter is implicit as the return types of both getters are not mutually 
@@ -22,5 +22,5 @@ class C extends A {
 }
 
 main() {
-  var n = new C().n;
+  new C().n;
 }

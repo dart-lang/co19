@@ -10,10 +10,8 @@
  * static getters declared by C.
  * A getter declaration may conflict with other declarations (10.11).
  * Let C be a class. It is a compile-time error if C declares a
- * • constructor named C.n and a static member with basename n.
  * • getter or a setter with basename n, and has a method named n.
  * • method named n, and has a getter or a setter with basename n.
- * • static member with basename n, and has an instance member with basename n.
  *
  * @description Checks that a compile error is arisen if a class has a declared
  * static setter and an inherited implicitly declared instance setter with the
