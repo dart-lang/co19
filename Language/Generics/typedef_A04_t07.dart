@@ -22,7 +22,7 @@ T checkme1<T>(T t) {}
 X checkme2<T extends X>(X x) {}
 Y checkme3<T extends Y>(Y y) {}
 
-typedef Func1<T> = T Function<T>(T t);
+typedef Func1<T> = T1 Function<T1 extends T>(T1 t);
 typedef Func2<T extends X> = T Function<T1 extends T>(T t);
 typedef Func3<T extends Y> = T Function<T1 extends T>(T t);
 

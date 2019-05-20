@@ -28,7 +28,7 @@
 
 class A<X extends A<X>> {}
 
-typedef AAlias<T extends A<T>> = T Function<T1 extends T>();
+typedef AAlias<T extends A<T>>(T);
 
 main() {
   AAlias             a1;

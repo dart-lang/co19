@@ -11,12 +11,13 @@
  * Under the assumption that X1, . . . , Xs are types such that Xj <: Bj, for
  * all j ∈ 1..s, it is a compile-time error if [T] is not regular-bounded, and
  * it is a compile-time error if any type occurring in [T] is not well-bounded.
- * @description Checks that there is no compile time error if [Function] has two
- * type parameters and one depends on the other.
- * @Issue 36874
+ * @description Checks that it is a compile time error if [T] is not
+ * well-bounded
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
-typedef AAlias<X> = void Function<X1 extends X, Y extends X1> ();
+class A<X extends A<X>> {}
+typedef AAlias<X> = A<A<int>>;
 main() {}

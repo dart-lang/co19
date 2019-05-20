@@ -22,17 +22,19 @@ import "../../Utils/expect.dart";
 const i = 1;
 class A { const A(); }
 
-@i typedef Alias1<T> = Function<T>();
-@i typedef Alias2<T> = void Function<T>(T);
-@i typedef Alias3<T> = T Function<T>(T);
-@i typedef Alias4<T> = String Function<T>(T);
-@i typedef Alias5<T> = Function<T>(int, int, T);
-@i typedef Alias6<T> = Function<T>(int, int, T, [T]);
-@i typedef Alias7<T> = Function<T>(int, [T, T, T]);
+@i typedef Alias1<T> = Function<T1 extends T>();
+@i typedef Alias2<T> = void Function<T1 extends T>(T);
+@i typedef Alias3<T> = T Function<T1 extends T>(T);
+@i typedef Alias4<T> = String Function<T1 extends T>(T);
+@i typedef Alias5<T> = Function<T1 extends T>(int, int, T);
+@i typedef Alias6<T> = Function<T1 extends T>(int, int, T, [T]);
+@i typedef Alias7<T> = Function<T1 extends T>(int, [T, T, T]);
 
-@A() typedef Alias9<T1, T2> = T1 Function<T1, T2>();
-@A() typedef Alias10<T1, T2> = T1 Function<T1, T2>(T2, {int a});
-@A() typedef Alias11<T1, T2> = T1 Function<T1, T2>([T1 a1, T2 a2]);
+@A() typedef Alias9<T1, T2> = T1 Function<TT1 extends T1, TT2 extends T2>();
+@A() typedef Alias10<T1, T2> =
+    T1 Function<TT1 extends T1, TT2 extends T2>(T2, {int a});
+@A() typedef Alias11<T1, T2> =
+    T1 Function<TT1 extends T1, TT2 extends T2>([T1 a1, T2 a2]);
 
 main() {
 }
