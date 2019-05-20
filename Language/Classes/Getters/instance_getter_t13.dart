@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -13,21 +13,27 @@
  * • getter or a setter with basename n, and has a method named n.
  * • method named n, and has a getter or a setter with basename n.
  *
- * @description Checks that a compile error is arisen if a class has a declared
- * static variable and an inherited implicitly declared instance getter with the
- * same name.
- * @compile-error
- * @author ngl@unipro.ru
+ * @description Checks that it is no compile-time error if a class has an
+ * explicitly declared instance getter and an explicitly declared static setter
+ * with the same name in its superclass. Test type aliases
+ * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A {
-  int v = 5;
+  static int n;
+  static set v(int v1) {
+    n = v1;
+  }
 }
+typedef AAlias = A;
 
-class C extends A {
-  static int v;
+class C extends AAlias {
+  get v {
+    return 5;
+  }
 }
 
 main() {
-  new C();
+  new C().v;
 }

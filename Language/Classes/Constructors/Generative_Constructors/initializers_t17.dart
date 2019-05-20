@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -14,9 +14,11 @@
  * fieldInitializer:
  *   (this '.')? identifier '=' conditionalExpression cascadeSection*
  * ;
- * @description Checks various valid variations of an initializer list.
- * @author iefremov
+ * @description Checks various valid variations of an initializer list. Test
+ * type aliases
+ * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 typedef void FType();
 
@@ -26,8 +28,9 @@ class S {
   S() {}
   S.named(var x, var y, {var z, var $, var o});
 }
+typedef SAlias = S;
 
-class C extends S {
+class C extends SAlias {
   C() : Cc = null, $ = const[], x = "", super();
 
   C.noSuper() : Cc = null, $ = const[], x = "", func = foo;

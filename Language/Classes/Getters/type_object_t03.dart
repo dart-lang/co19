@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -9,10 +9,12 @@
  * class C that forwards to the static getter.
  * @description Check that the instance getter, added to the Type object by 
  * static getter declaration, is not added to the Type object of the current
- * class and not added to the Type object of the ancestor
+ * class and not added to the Type object of the ancestor. Test type alias
  * @author sgrekhov@unipro.ru
  * @issue 23721
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
+
 import "dart:core";
 import "../../../Utils/expect.dart";
 
@@ -24,7 +26,9 @@ abstract class A<V> {
   V get g5 => null;
 }
 
-class C<V> extends A<V> {
+typedef AAlias<V> = A<V>;
+
+class C<V> extends AAlias<V> {
   static int get g6 => 6;
 }
 
