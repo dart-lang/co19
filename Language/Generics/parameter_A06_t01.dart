@@ -6,17 +6,18 @@
 /**
  * @assertion A type parameter is considered to be a malformed type when
  * referenced by a static member.
- * @description Checks that if a type parameter is used as type annotation
- * in a static context, it is a compile error to assign to such member
+ * @description Checks that compile error occurs if type parameter is used
+ * in a type test in static context.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 class C<T> {
-  static T t;
+  static bool f() {
+    return null is T;
+  }
 }
 
 main() {
-  C.t = new Object();
+  C.f();
 }
