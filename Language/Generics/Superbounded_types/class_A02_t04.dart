@@ -8,9 +8,9 @@
  * super-bounded when it is used in any of the following ways:
  *   [T] is an immediate subterm of a new expression (16.15.1) or a constant
  *   object expression
- * @description Checks that compile error is thrown when parametrized type is
- * used in the constant object expression with [as] constructions.
- * @Issue 37033
+ * @description Checks that compile error is not thrown when parametrized type
+ * is used in the constant object expression with [as] constructions (see Issue
+ * 37033 for more details)
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
@@ -21,16 +21,16 @@ class A<T extends A<T>> {
 
 const b1 = null as A;
 
-const b2 = null as A<dynamic>;    //# 01: compile-time error
-const b3 = null as A<Object>;     //# 02: compile-time error
+const b2 = null as A<dynamic>;
+const b3 = null as A<Object>;
 const b4 = null as A<Null>;
-const b5 = null as A<void>;       //# 03: compile-time error
+const b5 = null as A<void>;
 
 const b6 = null as A<A>;
-const b7 = null as A<A<dynamic>>; //# 04: compile-time error
-const b8 = null as A<A<Object>>;  //# 05: compile-time error
+const b7 = null as A<A<dynamic>>;
+const b8 = null as A<A<Object>>;
 const b9 = null as A<A<Null>>;
-const b10 = null as A<A<void>>;   //# 06: compile-time error
+const b10 = null as A<A<void>>;
 
 main() {
 }
