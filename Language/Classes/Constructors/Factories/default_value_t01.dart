@@ -6,7 +6,7 @@
 /**
  * @assertion It is a compile-time error if k explicitly specifies a default
  * value for an optional parameter.
- * @description Checks that it is a compile-error if refirecting factory
+ * @description Checks that it is a compile-error if redirecting factory
  * constructor specifies a default value for its optional positional parameter.
  * @compile-error
  * @author ilya

@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if the function type of k' is not a
+ * @assertion It is a compile error if the function type of k' is not a
  * subtype of the type of k.
  * @description Checks that a compile error is produced if factory constructor
  * redirects to a constructor whose type is not a subtype of factory
@@ -16,7 +16,7 @@
 import "../../../../Utils/dynamic_check.dart";
 
 class F {
-  factory F(x) = C; /// static type warning
+  factory F(x) = C;
 }
 
 class C { // does not implement F, not assignable to F
