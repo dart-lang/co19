@@ -31,9 +31,10 @@ String str = "test";
 typedef Alias1<T> = void Function(T);
 
 typedef Alias2<T> = T Function(T);
-typedef Alias3<T1, T2, T3> = T1 Function<T2>(T3);
+typedef Alias3<T1, T2, T3> = T1 Function<T extends T2>(T3);
 typedef Alias4<T> = Alias1 Function(T, int, [int]);
 typedef Alias5<T> = void Function(T, int, {int i, T t, num n});
+
 
 typedef WAlias1<T> = A() Function(T);                 //# 01: compile-time error
 typedef WAlias2<T, T2, T3> = A.callme() Function(T);  //# 02: compile-time error

@@ -12,7 +12,6 @@
  * lacks extends clause.
  * @static-clean
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 class G<T> {}

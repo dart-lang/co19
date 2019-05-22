@@ -22,7 +22,7 @@ void checkme1<T>() {}
 void checkme2<T extends X>() {}
 void checkme3<T extends Y>() {}
 
-typedef Func1<T> = void Function<T>();
+typedef Func1<T> = void Function<T1 extends T>();
 typedef Func2<T extends X> = void Function<T1 extends T>();
 typedef Func3<T extends Y> = void Function<T1 extends T>();
 

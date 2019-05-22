@@ -26,9 +26,9 @@
  * @author iarkh@unipro.ru
  */
 
-typedef AAlias<T> = T Function<T>();
+typedef AAlias<T> = T Function<T1 extends T>();
 typedef BAlias<T1, T2> = void Function(T1, T2);
-typedef CAlias<T1, T2, T3> = T1 Function<T2>(T3);
+typedef CAlias<T1, T2, T3> = T1 Function<TT2 extends T2>(T3);
 
 main() {
   AAlias                                a1;

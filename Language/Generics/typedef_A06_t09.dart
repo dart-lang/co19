@@ -14,10 +14,14 @@
  * @description Checks that it is a compile time error if [T] is not
  * well-bounded
  * @compile-error
+ * @Issue 33960
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
-class A<X extends A<X>> {}
-typedef AAlias<X> = A<A<int>>;
+class A<X> {}
+class B<X extends A<int>> {}
+
+typedef AAlias2<X extends A<X>> = Function<Y extends B<X>> ();
+
 main() {}
