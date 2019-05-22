@@ -15,12 +15,9 @@
 class Z {}
 
 class C {
-  C() {}
   factory Z() {}
 }
 
 main() {
-  try {
-    new C();
-  } catch (anything) {}
+  new C()
 }

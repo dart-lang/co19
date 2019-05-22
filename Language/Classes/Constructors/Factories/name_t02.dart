@@ -13,13 +13,9 @@
  */
 
 class C {
-  C();
   factory WrongClass.id() {}
 }
 
 main() {
-  try {
-    new C();
-  } catch (anything) {
-  }
+  new C();
 }

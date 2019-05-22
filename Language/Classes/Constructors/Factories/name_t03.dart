@@ -15,7 +15,6 @@
 class S {}
 
 class C extends S {
-  C() {}
   factory S() {}
 }
 

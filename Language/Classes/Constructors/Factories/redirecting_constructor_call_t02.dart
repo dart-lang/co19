@@ -20,10 +20,10 @@ function() {}
 var variable;
 
 class F {
-  factory F() = C;            // refers to undefined id
-  factory F.foo() = function; // refers to library function
-  factory F.bar() = variable; // refers to library variable
-  factory F.baz() = D.baz;    // refers to non constructor
+  factory F() = C;            //# 01: compile-time error
+  factory F.foo() = function; //# 02: compile-time error
+  factory F.bar() = variable; //# 03: compile-time error
+  factory F.baz() = D.baz;    //# 04: compile-time error
 }
 
 class D {
@@ -31,8 +31,4 @@ class D {
 }
 
 main() {
-  Expect.throws(() => new F());
-  Expect.throws(() => new F.foo());
-  Expect.throws(() => new F.bar());
-  Expect.throws(() => new F.baz());
 }

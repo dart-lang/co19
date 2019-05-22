@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static type warning if any of the type arguments to k'
+ * @assertion It is a compile error warning if any of the type arguments to k'
  * are not subtypes of the bounds of the corresponding formal type parameters
  * of type.
  * @description Checks that a compile error is produced if factory constructor

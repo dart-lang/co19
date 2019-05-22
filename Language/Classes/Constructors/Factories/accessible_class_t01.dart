@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if type does not denote a class
+ * @assertion It is a compile error if type does not denote a class
  * accessible in the current scope; if type does denote such a class C it is
  * a static warning if the referenced constructor (be it type or type.id) is
  * not a constructor of C.

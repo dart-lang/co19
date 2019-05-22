@@ -15,12 +15,9 @@
 typedef foo();
 
 class C {
-  C() {}
   factory foo() {}
 }
 
 main() {
-  try{
-    new C();
-  } catch (x) {}
+  new C();
 }
