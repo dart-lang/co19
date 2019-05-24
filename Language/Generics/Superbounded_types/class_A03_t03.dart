@@ -14,7 +14,7 @@
  * @author iarkh@unipro.ru
  */
 
-class A<X extends A<X>> {
+class A<X> {
   A() {}
   factory A.foo1() = C<Null>;
   factory A.foo2() = C<A<Null>>;

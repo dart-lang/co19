@@ -14,15 +14,15 @@
 
 class A<T extends A<T>> {}
 
-typedef B1<X extends A<dynamic>> = void Function();
-typedef B2<X extends A<Null>>    = void Function();
-typedef B3<X extends A<Object>>  = void Function();
-typedef B4<X extends A<void>>    = void Function();
+typedef void B1<X extends A<dynamic>>();
+typedef void B2<X extends A<Null>>();
+typedef void B3<X extends A<Object>>();
+typedef void B4<X extends A<void>>();
 
-typedef B5<X extends A<A<dynamic>>> = void Function();
-typedef B6<X extends A<A<Null>>>    = void Function();
-typedef B7<X extends A<A<Object>>>  = void Function();
-typedef B8<X extends A<A<void>>>    = void Function();
+typedef void B5<X extends A<A<dynamic>>>();
+typedef void B6<X extends A<A<Null>>>();
+typedef void B7<X extends A<A<Object>>>();
+typedef void B8<X extends A<A<void>>>();
 
 main() {
 }

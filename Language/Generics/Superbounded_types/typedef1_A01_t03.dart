@@ -6,18 +6,28 @@
 /**
  * @assertion Any use of a type [T] which is not well-bounded is a
  * compile-time error.
- * @description Checks that compile error is not thrown when class with type
- * parameter which extends super bounded type is declared
- * @Issue 37028
+ * @description Checks that compile error is not thrown when function alias with
+ * well bounded type parameter is declared
  * @author iarkh@unipro.ru
  */
 
 class A<T extends A<T>> {}
 
-class B1<X extends A<Object>> {}
-class B2<X extends A<dynamic>> {}
-class B3<X extends A<void>> {}
-class B4<X extends A<Null>> {}
+typedef B<X extends A<X>> = void Function();
 
 main() {
+  B b1;
+
+  B<dynamic> b2;
+  B<Object> b3;
+  B<void> b4;
+  B<Null> b5;
+
+  B<A<dynamic>> b6;
+  B<A<Object>> b7;
+  B<A<void>> b8;
+  B<A<Null>> b9;
+
+  B<A> b10;
+  B<A<A>> b11;
 }

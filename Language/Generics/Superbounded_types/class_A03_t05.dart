@@ -14,7 +14,7 @@
  * @author iarkh@unipro.ru
  */
 
-class A<X> {
+class A<X extends A<X>> {
   A() {}
   factory A.foo1() = C;          //# 01: compile-time error
   factory A.foo2() = C<A>;       //# 02: compile-time error
@@ -22,7 +22,7 @@ class A<X> {
   factory A.foo4() = C<A<A<A>>>; //# 04: compile-time error
 }
 
-class C<X> extends A<X> {
+class C<X extends A<X>> extends A<X> {
   C() {}
 }
 

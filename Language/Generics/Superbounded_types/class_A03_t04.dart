@@ -13,7 +13,7 @@
  * @author iarkh@unipro.ru
  */
 
-class A<X> {
+class A<X extends A<X>> {
   A() {}
   factory A.foo1() = C<dynamic>;       //# 01: compile-time error
   factory A.foo2() = C<Object>;        //# 02: compile-time error

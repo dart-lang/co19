@@ -8,21 +8,22 @@
  * super-bounded when it is used in any of the following ways:
  *   ...
  *   [T] is an immediate subterm of a redirecting factory constructor signature
- * @description Checks that compile error is thrown when raw type [T] is used in
- * the redirecting factory constructor signature
- * @Issue 37037
+ * @description Checks that compile error is not thrown when non-super-bounded
+ * type [T] is used in the redirecting factory constructor signature
+ * @Issue 37048
  * @author iarkh@unipro.ru
  */
 
-class A<X> {
+class A<X extends A<X>> {
   A() {}
-  factory A.foo1() = C;          //# 01: compile-time error
-  factory A.foo2() = C<A>;       //# 02: compile-time error
-  factory A.foo3() = C<A<A>>;    //# 03: compile-time error
-  factory A.foo4() = C<A<A<A>>>; //# 04: compile-time error
+  factory A.foo1() = C<Null>;
+  factory A.foo2() = C<A<Null>>;
+  factory A.foo3() = C<A<A<Null>>>;
+  factory A.foo4() = C<A<A<A<Null>>>>;
+
 }
 
-class C<X> extends A<X> {
+class C<X extends A<X>> extends A<X> {
   C() {}
 }
 
