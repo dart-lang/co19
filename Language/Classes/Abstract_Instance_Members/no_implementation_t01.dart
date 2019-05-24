@@ -14,11 +14,11 @@
  */
 
 class C {
-  void m();
-  int get g;
-  set g(int v);
+  void m();       //# 01: compile-time error
+  int get g;      //# 02: compile-time error
+  set g(int v);   //# 03: compile-time error
 }
 
 main() {
-  C c = new C();
+  new C();
 }

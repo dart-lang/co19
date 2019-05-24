@@ -11,30 +11,15 @@
  * @description Checks that invoking an abstract method, getter or setter
  * results in a compile error.
  * @compile-error
- * @author kaigorodov
+ * @author kaigorodov, sgrekhov@unipro.ru
  */
-import "../../../Utils/expect.dart";
 
 class C {
-  void m();
-  int get g;
-  set g(int v);
+  void m();       //# 01: compile-time error
+  int get g;      //# 02: compile-time error
+  set g(int v);   //# 03: compile-time error
 }
 
 main() {
-  C c=new C();
-  try {
-    c.m();
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-  	var v = c.g; /// static type warning not assignable
-  	Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-  	c.g = 1; /// static type warning cannot assign to 'METHOD'
-  	Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {}
+  new C();
 }

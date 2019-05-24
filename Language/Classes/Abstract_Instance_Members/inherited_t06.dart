@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  It is a static warning if an abstract member m is declared or
+ * @assertion  It is a compile error if an abstract member m is declared or
  * inherited in a concrete class C unless:
  *  - m overrides a concrete member, or
  *  - C has a noSuchMethod() method distinct from the one declared in class
@@ -19,7 +19,7 @@ abstract class A {
   set foo(int v);
 }
 
-class C extends A { /// static type warning
+class C extends A {
 }
 
 main() {

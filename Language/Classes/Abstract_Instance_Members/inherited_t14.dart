@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -9,19 +9,18 @@
  *  - m overrides a concrete member, or
  *  - C has a noSuchMethod() method distinct from the one declared in class
  *    Object.
- * @description Checks that there is no compile errorif an abstract getter
- * is declared in a concrete class overrides a concrete getter declared in a
- * superclass.
- * @static-clean
- * @author ngl@unipro.ru
+ * @description Checks that it is a compile error if an abstract method is
+ * inherited in a concrete class. Test type aliases
+ * @compile-error
+ * @author sgrekhov@unipro.ru
  */
-
-class A {
-  int get foo => 22;
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
+abstract class A {
+  foo([x]);
 }
+typedef AAlias = A;
 
-class C extends A {
-  int get foo;
+class C extends AAlias {
 }
 
 main() {
