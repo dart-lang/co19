@@ -44,7 +44,7 @@ test() async {
   HttpClient client = new HttpClient();
   client
       .getUrl(Uri.parse(
-          "http://${InternetAddress.loopbackIPv6.address}:${server.port}"))
+          "http://[${InternetAddress.loopbackIPv6.address}]:${server.port}"))
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
