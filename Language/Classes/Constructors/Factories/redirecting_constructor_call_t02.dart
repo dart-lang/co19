@@ -14,7 +14,6 @@
  * @compile-error
  * @author ilya
  */
-import "../../../../Utils/expect.dart";
 
 function() {}
 var variable;
