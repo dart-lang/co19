@@ -37,10 +37,10 @@ test() async {
   } finally {
     server1.close();
     server2.close();
+    asyncEnd();
   }
 }
 
 main() {
-  asyncStart();
   test();
 }
