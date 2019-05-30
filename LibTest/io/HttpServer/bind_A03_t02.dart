@@ -24,30 +24,29 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 test() async {
-  String helloWorld = 'Hello, test world!';
   HttpServer server =
       await HttpServer.bind(InternetAddress.loopbackIPv6, 0, v6Only: true);
 
-  asyncStart();
   server.listen((HttpRequest request) {
-    request.response.write(helloWorld);
-    request.response.close();
     server.close();
-    asyncEnd();
+    Expect.fail("Request shouldn't be processed");
   });
 
-  asyncStart();
   HttpClient client = new HttpClient();
-  client
-      .getUrl(Uri.parse(
-          "http://${InternetAddress.loopbackIPv4.address}:${server.port}"))
+  client.getUrl(
+      Uri.parse("http://${InternetAddress.loopbackIPv4.address}:${server.port}"))
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
-    Expect.equals(HttpStatus.httpVersionNotSupported, response.statusCode);
-    asyncEnd();
+    Expect.fail("No response expected");
+  }).catchError((e) {
+    try {
+      Expect.isTrue(e is SocketException);
+    } finally {
+      server.close();
+      asyncEnd();
+    }
   });
-  asyncEnd();
 }
 
 main() {
