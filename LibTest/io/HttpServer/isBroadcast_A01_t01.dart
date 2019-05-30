@@ -20,7 +20,7 @@ test() async {
     server.close();
   }
 
-  server = await HttpServer.bind(InternetAddress.loopbackIPv4, 1, shared: true);
+  server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0, shared: true);
   try {
     Expect.isFalse(server.isBroadcast);
   } finally {
