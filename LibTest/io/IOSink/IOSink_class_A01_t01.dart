@@ -47,7 +47,7 @@ List expected = [
 
 int called = 0;
 
-class MyStreamConsumer<List> extends StreamConsumer<List> {
+class MyStreamConsumer extends StreamConsumer<List<int>> {
   Future<dynamic> addStream(Stream<List> stream) {
     stream.toList().then((x) {
       Expect.equals(12, x.length);

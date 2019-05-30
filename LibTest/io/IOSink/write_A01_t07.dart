@@ -28,9 +28,9 @@ class ObjectToPass {
   }
 }
 
-class MyStreamConsumer<List> extends StreamConsumer<List> {
+class MyStreamConsumer extends StreamConsumer<List<int>> {
   Future close() { return new Future(() {}); }
-  Future addStream(Stream<List> stream) {
+  Future addStream(Stream<List<int>> stream) {
     stream.toList().then((x) {
       printed++;
       Expect.listEquals(res, x.first);
@@ -46,6 +46,10 @@ test() async {
   await sink.flush();
   Expect.equals(1, called);
   Expect.equals(1, printed);
+  asyncEnd();
 }
 
-main() { test(); }
+main() {
+  asyncStart();
+  test();
+}

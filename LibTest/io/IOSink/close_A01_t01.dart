@@ -15,14 +15,15 @@ import "dart:io";
 
 int closed = 0;
 
-class MyStreamConsumer<List> extends StreamConsumer<List> {
-  Future addStream(Stream<List> stream) { return new Future(() {}); }
+class MyStreamConsumer extends StreamConsumer<List<int>> {
+  Future addStream(Stream<List<int>> stream) { return new Future(() {}); }
   Future close() { return new Future(() {}).then((x) { closed++; });
   }
 }
 
 main() async {
-  Stream<List> stream = new Stream<List>.fromIterable([[1, 2], [12], [3, 22]]);
+  Stream<List<int>> stream =
+  new Stream<List<int>>.fromIterable([[1, 2], [12], [3, 22]]);
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   await sink.addStream(stream);

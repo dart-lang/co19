@@ -15,8 +15,8 @@ import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-class MyStreamConsumer<List> extends StreamConsumer<List> {
-  Future<dynamic> addStream(Stream<List> stream) {
+class MyStreamConsumer extends StreamConsumer<List<int>> {
+  Future<dynamic> addStream(Stream<List<int>> stream) {
     stream.toList().then((x) {
     }, onError: (error, StackTrace st) {
       Expect.equals("ERROR", error.toString());
@@ -27,12 +27,14 @@ class MyStreamConsumer<List> extends StreamConsumer<List> {
 }
 
 main() {
+  asyncStart();
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
-  Stream<List> aStream = new Stream<List>.fromIterable([[1, 2, 3, 4, 5]]);
+  Stream<List<int>> aStream = new Stream<List<int>>.fromIterable([[1, 2, 3, 4, 5]]);
   sink.addStream(aStream).then((x) {
     new Future.delayed(new Duration(seconds: 3)).then((_) {
       sink.close();
+      asyncEnd();
     });
   });
   Expect.throws(() { sink.addError("ERROR"); }, (e) => e is StateError);

@@ -19,9 +19,9 @@ import "dart:io";
 
 int callCounter = 0;
 
-class MyStreamConsumer<List> extends StreamConsumer<List> {
+class MyStreamConsumer extends StreamConsumer<List<int>> {
 
-  Future addStream(Stream<List> stream) {
+  Future addStream(Stream<List<int>> stream) {
     stream.toList().then((x) {
       callCounter++;
       Expect.listEquals([[0, 1, 4, 1, 5, 9]], x);

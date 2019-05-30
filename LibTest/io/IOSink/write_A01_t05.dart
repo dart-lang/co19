@@ -21,8 +21,8 @@ int called = 0;
 String str = "âã";
 List expected = [0xe2, 0xe3];
 
-class MyStreamConsumer<List> extends StreamConsumer<List> {
-  Future addStream(Stream<List> stream) {
+class MyStreamConsumer extends StreamConsumer<List<int>> {
+  Future addStream(Stream<List<int>> stream) {
     stream.toList().then((x) {
       Expect.listEquals(expected, x[0]);
       called++;
@@ -40,6 +40,10 @@ test() async {
   sink.write(str);
   await sink.close();
   Expect.equals(1, called);
+  asyncEnd();
 }
 
-main() { test(); }
+main() {
+  asyncStart();
+  test();
+}

@@ -14,14 +14,14 @@ import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-class MyStreamConsumer<List> extends StreamConsumer<List> {
+class MyStreamConsumer extends StreamConsumer<List<int>> {
   MyStreamConsumer() {}
   Future addStream(Stream<List> stream) { return new Future(() {}); }
   Future close() { return new Future(() => {}); }
 }
 
 main() {
-  Stream<List> stream = new Stream<List>.fromIterable([[1, 2]]);
+  Stream<List<int>> stream = new Stream<List<int>>.fromIterable([[1, 2]]);
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   sink.addStream(stream).then((x) {

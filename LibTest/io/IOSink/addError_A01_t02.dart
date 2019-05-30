@@ -16,7 +16,7 @@ import "dart:io";
 
 int called = 0;
 
-class MyStreamConsumer<List> extends StreamConsumer<List> {
+class MyStreamConsumer extends StreamConsumer<List<int>> {
   Future<dynamic> addStream(Stream<List> stream) {
     stream.toList().then((x) {}, onError: (error, StackTrace st) {
       called++;
@@ -35,6 +35,10 @@ test() async {
   sink.addError("ERROR");
   await sink.close();
   Expect.equals(1, called);
+  asyncEnd();
 }
 
-main() { test(); }
+main() {
+  asyncStart();
+  test();
+}

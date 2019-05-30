@@ -17,8 +17,8 @@ import "dart:io";
 
 int closed = 0;
 
-class MyStreamConsumer<List> extends StreamConsumer<List> {
-  Future addStream(Stream<List> stream) { return new Future(() {}); }
+class MyStreamConsumer extends StreamConsumer<List<int>> {
+  Future addStream(Stream<List<int>> stream) { return new Future(() {}); }
   Future close() { return new Future(() {}); }
 }
 
@@ -27,6 +27,10 @@ test() async {
   IOSink sink = new IOSink(consumer);
   await sink.close();
   Expect.throws(() { sink.writeln(); }, (e) => e is Error);
+  asyncEnd();
 }
 
-main() { test(); }
+main() {
+  asyncStart();
+  test();
+}

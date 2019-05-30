@@ -17,8 +17,8 @@ import "dart:io";
 
 int called = 0;
 
-class MyStreamConsumer<List> extends StreamConsumer<List> {
-  Future<dynamic> addStream(Stream<List> stream) {
+class MyStreamConsumer extends StreamConsumer<List<int>> {
+  Future<dynamic> addStream(Stream<List<int>> stream) {
     stream.toList().then((x) {
       called++;
     }, onError: (error, StackTrace st) {
@@ -32,11 +32,15 @@ class MyStreamConsumer<List> extends StreamConsumer<List> {
 test() async {
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
-  Stream<List> aStream = new Stream<List>.fromIterable([[1, 2, 3, 4, 5]]);
+  Stream<List<int>> aStream = new Stream<List<int>>.fromIterable([[1, 2, 3, 4, 5]]);
   await sink.addStream(aStream);
   sink.addError("ERROR");
   await sink.close();
   Expect.equals(1, called);
+  asyncEnd();
 }
 
-main() { test(); }
+main() {
+  asyncStart();
+  test();
+}

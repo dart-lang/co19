@@ -21,7 +21,7 @@ import "dart:io";
 
 int callCounter = 0;
 
-class MyStreamConsumer<List> extends StreamConsumer<List> {
+class MyStreamConsumer extends StreamConsumer<List<int>> {
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
       if(callCounter++ == 0)
@@ -36,7 +36,7 @@ class MyStreamConsumer<List> extends StreamConsumer<List> {
 }
 
 test() async {
-  Stream<List> aStream = new Stream<List>.fromIterable([[1, 2, 3, 4, 5]]);
+  Stream<List<int>> aStream = new Stream<List<int>>.fromIterable([[1, 2, 3, 4, 5]]);
   List<int> list2 = [10, 20, 30, 40, 50];
   StreamConsumer consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);

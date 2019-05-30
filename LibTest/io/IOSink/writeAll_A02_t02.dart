@@ -35,8 +35,8 @@ List expected = [
   [108, 111, 110, 103, 115, 116, 114, 105, 110, 103],
   [110, 117, 108, 108]];
 
-class MyStreamConsumer<List> extends StreamConsumer<List> {
-  Future addStream(Stream<List> stream) {
+class MyStreamConsumer extends StreamConsumer<List<int>> {
+  Future addStream(Stream<List<int>> stream) {
     stream.toList().then((x) {
       Expect.equals(expected.length, x.length);
       for (int i = 0; i < expected.length; i++) {
@@ -56,6 +56,10 @@ test() async {
   sink.writeAll(objects, "longstring");
   await sink.close();
   Expect.equals(1, called);
+  asyncEnd();
 }
 
-main() { test(); }
+main() {
+  asyncStart();
+  test();
+}

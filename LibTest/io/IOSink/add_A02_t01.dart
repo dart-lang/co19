@@ -19,7 +19,7 @@ import "dart:io";
 List<int> aList = [310, 320, 330, 340, 350];
 int called = 0;
 
-class MyStreamConsumer<List> extends StreamConsumer<List> {
+class MyStreamConsumer extends StreamConsumer<List<int>> {
   Future addStream(Stream<List> stream) {
     stream.toList().then((x) {
       Expect.equals(1, x.length);

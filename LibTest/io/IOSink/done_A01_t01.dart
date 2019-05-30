@@ -28,4 +28,6 @@ test() async {
   Expect.equals(1, isDone);
 }
 
-main() { test(); }
+main() {
+  test();
+}

@@ -17,8 +17,8 @@ import "dart:io";
 
 int called = 0;
 
-class MyStreamConsumer<List> extends StreamConsumer<List> {
-  Future addStream(Stream<List> stream) {
+class MyStreamConsumer extends StreamConsumer<List<int>> {
+  Future addStream(Stream<List<int>> stream) {
     stream.toList().then((x) {
       Expect.listEquals(x[0], x[1]);
       called++;
@@ -36,6 +36,10 @@ test() async {
   sink.write(new String.fromCharCode(1114111));
   await sink.close();
   Expect.equals(1, called);
+  asyncEnd();
 }
 
-main() { test(); }
+main() {
+  asyncStart();
+  test();
+}

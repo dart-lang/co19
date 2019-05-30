@@ -16,8 +16,8 @@ import "dart:io";
 int called = 0;
 StackTrace trace = new StackTrace.fromString("This is a stack trace");
 
-class MyStreamConsumer<List> extends StreamConsumer<List> {
-  Future<dynamic> addStream(Stream<List> stream) {
+class MyStreamConsumer extends StreamConsumer<List<int>> {
+  Future<dynamic> addStream(Stream<List<int>> stream) {
     stream.toList().then((x) {
       Expect.fail("Should not be here!");
     }, onError: (error, StackTrace st) {
@@ -36,6 +36,10 @@ test() async {
   sink.addError("ERROR", trace);
   await sink.close();
   Expect.equals(1, called);
+  asyncEnd();
 }
 
-main() { test(); }
+main() {
+  asyncStart();
+  test();
+}

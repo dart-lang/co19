@@ -18,8 +18,8 @@ int called = 0;
 String str = "I am here";
 List<int> res = [73, 32, 97, 109, 32, 104, 101, 114, 101];
 
-class MyStreamConsumer<List> extends StreamConsumer<List> {
-  Future addStream(Stream<List> stream) {
+class MyStreamConsumer extends StreamConsumer<List<int>> {
+  Future addStream(Stream<List<int>> stream) {
     stream.toList().then((x) {
       called++;
       Expect.listEquals(res, x.first);
@@ -36,6 +36,10 @@ test () async {
   sink.write(str);
   await sink.close();
   Expect.equals(1, called);
+  asyncEnd();
 }
 
-main() { test(); }
+main() {
+  asyncStart();
+  test();
+}

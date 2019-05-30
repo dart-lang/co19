@@ -14,12 +14,12 @@ import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";
 
-Stream<List> stream1 = new Stream<List>.fromIterable([[1, 2], [12], [3, 22]]);
-Stream<List> stream2 = new Stream<List>.fromIterable([[0]]);
+Stream<List<int>> stream1 = new Stream<List<int>>.fromIterable([[1, 2], [12], [3, 22]]);
+Stream<List<int>> stream2 = new Stream<List<int>>.fromIterable([[0]]);
 int called = 0;
 
-class MyStreamConsumer<List> extends StreamConsumer<List> {
-  Future addStream(Stream<List> stream) {
+class MyStreamConsumer extends StreamConsumer<List<int>> {
+  Future addStream(Stream<List<int>> stream) {
     called++;
     return new Future(() {});
   }
@@ -33,6 +33,10 @@ test() async {
   await sink.addStream(stream2);
   await sink.close();
   Expect.equals(2, called);
+  asyncEnd();
 }
 
-main() { test(); }
+main() {
+  asyncStart();
+  test();
+}
