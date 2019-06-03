@@ -11,6 +11,7 @@
  * @description Checks that compile error is not thrown when well-bounded
  * parametrized type is used in the constant object expression with [as]
  * constructions.
+ * @Issue 37028
  * @author iarkh@unipro.ru
  */
 class A<T extends A<T>> {}

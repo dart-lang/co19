@@ -7,15 +7,19 @@
  * @assertion Any use of a type [T] which is not well-bounded is a
  * compile-time error.
  * @description Checks that compile error is not thrown when non-function type
- * alias with well bounded type parameter is declared
+ * alias variable with well bounded type parameter is declared
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A<T> {}
 
-typedef B1<X extends Object> = A<X>;
-typedef B2<X extends dynamic> = A<X>;
+typedef B<X> = A<X>;
 
 main() {
+  B b1;
+  B<dynamic> b2;
+  B<Object> b3;
+  B<Null> b4;
+  B<void> b5;
 }

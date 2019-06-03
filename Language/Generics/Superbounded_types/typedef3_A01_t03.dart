@@ -12,10 +12,12 @@
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
-class A<T> {}
+class A<T extends A<T>> {}
 
-typedef B1<X extends Object> = A<X>;
-typedef B2<X extends dynamic> = A<X>;
+typedef B1<X> = A<X>;
+typedef B2<X extends A<dynamic>> = A<X>;
+typedef B3<X extends A<Null>> = A<X>;
+typedef B4<X extends A<void>> = A<X>;
 
 main() {
 }
