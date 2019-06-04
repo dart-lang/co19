@@ -38,10 +38,10 @@ main() {
       NetworkInterface nwInterface = fValue[i];
       for (int j = 0; j < nwInterface.addresses.length; j++) {
         addressCount++;
-        if (nwInterface.addresses[j].type.name == "IP_V4") {
+        if (nwInterface.addresses[j].type.name == "IPv4") {
           ipv4Count++;
         }
-        if (nwInterface.addresses[j].type.name == "IP_V6") {
+        if (nwInterface.addresses[j].type.name == "IPv6") {
           ipv6Count++;
         }
       }
