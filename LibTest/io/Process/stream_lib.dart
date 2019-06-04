@@ -19,8 +19,6 @@ main(List<String> arguments) {
   }
   if (arguments.length > 2) {
     stdin.listen((List<int> event){
-      //print("in");
-      //print(event);
       Utf8Decoder decoder = new Utf8Decoder();
       String decoded = decoder.convert(event);
       stdout.write(decoded);

@@ -33,20 +33,17 @@ import "../../../Utils/expect.dart";
 
 main() {
   String executable = Platform.resolvedExecutable;
-  String file = Platform.script.toFilePath(windows: Platform.isWindows);
-  int index = file.indexOf("start_A01_t02.dart");
-  String ePath = file.substring(0, index);
-  String eFile = ePath + "start_A01_t02_lib.dart";
+  File file = new File.fromUri(Platform.script.resolve("start_A01_t02_lib.dart"));
 
   asyncStart();
-  Process.start(executable, [eFile]).then((process) {
+  Process.start(executable, [file.path]).then((process) {
     process.stdout.toList().then((List outList) {
       Expect.equals(0, outList.length);
     }).then((_) {
       process.stderr.toList().then((List errList) {
         Utf8Decoder decoder = new Utf8Decoder();
         String decoded = decoder.convert(errList[0]);
-        Expect.isTrue(decoded.contains("Unable to find 'main'"));
+        Expect.isTrue(decoded.contains("'main'")); // Unable to find 'main' or The binary program does not contain 'main'
         asyncEnd();
       });
     });

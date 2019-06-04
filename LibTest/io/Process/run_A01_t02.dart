@@ -34,8 +34,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   String executable = Platform.resolvedExecutable;
-  String fileName = "start_A01_t01_lib.dart";
-  File file = new File(fileName);
+  File file = new File.fromUri(Platform.script.resolve("start_A01_t01_lib.dart"));
   asyncStart();
   Process.run(executable, [file.absolute.path]).then((ProcessResult results) {
     Expect.equals(0, results.exitCode);

@@ -33,13 +33,9 @@ import "../../../Utils/expect.dart";
 
 main() {
   String executable = Platform.resolvedExecutable;
-  String file = Platform.script.toFilePath(windows: Platform.isWindows);
-  int index = file.indexOf("start_A01_t01.dart");
-  String ePath = file.substring(0, index);
-  String eFile = ePath + "start_A01_t01_lib.dart";
-
+  File file = new File.fromUri(Platform.script.resolve("start_A01_t01_lib.dart"));
   asyncStart();
-  Process.start(executable, [eFile]).then((Process process) {
+  Process.start(executable, [file.path]).then((Process process) {
     process.stdout.toList().then((List outList) {
       Utf8Decoder decoder = new Utf8Decoder();
       String decoded = decoder.convert(outList[0]);

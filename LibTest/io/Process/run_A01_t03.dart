@@ -25,7 +25,7 @@
  * @description Checks that static method [run] starts a process and runs it
  * non-interactively to completion. Returns a Future<ProcessResult> that
  * completes with the result of running the process, i.e., exit code, standard
- * out and standard in. Test that there should be an error code 255 if invalid
+ * out and standard in. Test that there should be an error code 254 if invalid
  * file path is used on Windows
  * (see https://github.com/dart-lang/sdk/issues/31611)
  * @author sgrekhov@unipro.ru
@@ -37,12 +37,10 @@ import "../../../Utils/expect.dart";
 main() {
   if (Platform.isWindows) {
     String executable = Platform.resolvedExecutable;
-    String fileName = "start_A01_t01_lib.dart";
-    File file = new File(fileName);
-    String invalidFilePath = "/" + file.absolute.path;
+    File file = new File.fromUri(Platform.script.resolve("not_existing.dart"));
     asyncStart();
-    Process.run(executable, [invalidFilePath]).then((ProcessResult results) {
-      Expect.equals(255, results.exitCode);
+    Process.run(executable, [file.path]).then((ProcessResult results) {
+      Expect.equals(254, results.exitCode);
       Expect.notEquals("", results.stderr);
       asyncEnd();
     });

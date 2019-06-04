@@ -33,13 +33,10 @@ main() {
 
   String envString = Platform.environment.toString();
   String executable = Platform.resolvedExecutable;
-  String file = Platform.script.toFilePath(windows: Platform.isWindows);
-  int index = file.indexOf("start_A03_t02.dart");
-  String ePath = file.substring(0, index);
-  String eFile = ePath + "checkEnvironment_lib.dart";
+  File file = new File.fromUri(Platform.script.resolve("checkEnvironment_lib.dart"));
 
   asyncStart();
-  Process.start(executable, [eFile],
+  Process.start(executable, [file.path],
       environment: m, includeParentEnvironment: false).then((Process process) {
     process.stdout.toList().then((List outList) {
       Utf8Decoder decode = new Utf8Decoder();
