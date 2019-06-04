@@ -42,21 +42,29 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks instantiation to bounds for [typedef A<X extends
- * FutureOr<A<X>>]
+ * @description Checks that instantiation to bounds works OK for [typedef G<X> =
+ * void Function()], [typedef A<X extends G<A<Y, X>>, Y extends G<A<X, Y>>>]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
-import "dart:async";
-import "../../../../Utils/expect.dart";
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
-class C<X> {}
-typedef A<X extends FutureOr<A<X>>> = C<X>;
+class C<X, Y> {}
+typedef G<X> = void Function();
+typedef A<X extends G<C<Y, X>>, Y extends G<C<X, Y>>> = C<X, Y>;
 
 main() {
-  Expect.equals(
-    typeOf<A<FutureOr<A<dynamic>>>>(),
-    typeOf<A>()
-  );
+  A source;
+  var fsource = toF(source);
+  F<A<G<A<dynamic, dynamic>>, G<A<dynamic, dynamic>>>> target = fsource;
+
+  F<A<dynamic, G<A<dynamic, dynamic>>>> target1 = fsource;                   //# 01: compile-time error
+  F<A<G<dynamic>, G<A<dynamic, dynamic>>>> target2 = fsource;
+  F<A<G<A<G<dynamic>, dynamic>>, G<A<dynamic, dynamic>>>> target3 = fsource;
+  F<A<G<A<dynamic, dynamic>>, dynamic>> target4 = fsource;                   //# 02: compile-time error
+  F<A<G<A<dynamic, dynamic>>, G<dynamic>>> target5 = fsource;
+
+  A();
 }

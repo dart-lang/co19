@@ -44,7 +44,6 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works as expected for
  * [class A<X extends A<X>>], [class B<X extends A<A<X>>>]
- * @compile-error
  * @Issue 34726, 34948
  * @author iarkh@unipro.ru
  */

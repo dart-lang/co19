@@ -51,8 +51,7 @@
 import "../../../../Utils/expect.dart";
 
 class A<X, Y, Z> {}
-typedef G<X1 extends X2, X2 extends X3, X3 extends G<X1, X2, X3>> =
-    A<X1, X2, X3>;
+typedef G<X1 extends X2, X2 extends X3, X3 extends G<X1, X2, X3>> = A<X1, X2, X3>;
 
 main() {
   Expect.equals(

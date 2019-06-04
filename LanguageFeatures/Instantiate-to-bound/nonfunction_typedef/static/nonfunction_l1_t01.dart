@@ -42,21 +42,27 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks instantiation to bounds for [typedef A<X extends
- * FutureOr<A<X>>]
+ * @description Checks that instantiate-to-bounds works as expected for
+ * [typedef A<X extends A<X>>]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
-import "dart:async";
-import "../../../../Utils/expect.dart";
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
 class C<X> {}
-typedef A<X extends FutureOr<A<X>>> = C<X>;
+typedef A<X extends A<X>> = C<X>;
 
 main() {
-  Expect.equals(
-    typeOf<A<FutureOr<A<dynamic>>>>(),
-    typeOf<A>()
-  );
+  A source;
+  var fsource = toF(source);
+  F<A<A<dynamic>>> target = fsource;
+
+  F<A<dynamic>> target1 = fsource;             //# 01: compile-time error
+  F<A<A<A<dynamic>>>> target2 = fsource;       //# 02: compile-time error
+  F<A<A<A<A<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
+  F<A<A<A<A<A<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
+
+  A();  //# 05: compile-time error
 }
