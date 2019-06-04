@@ -22,7 +22,7 @@ check(InternetAddress address) {
     Expect.equals(address.address, host.address);
     Expect.equals(address.type, host.type);
     Expect.equals(Platform.localHostname, host.host);
-  }, onError: (e) { Expect.fail("Unexpected error appeared: " + e); });
+  }, onError: (e) { Expect.fail("Unexpected error appeared: $e"); });
 }
 
 main() {
@@ -31,5 +31,5 @@ main() {
     addresses.forEach((InternetAddress addr) {
       check(addr);
     });
-  }, onError: (e) { Expect.fail("Unexpected error appeared: " + e); });
+  }, onError: (e) { Expect.fail("Unexpected error appeared: $e"); });
 }

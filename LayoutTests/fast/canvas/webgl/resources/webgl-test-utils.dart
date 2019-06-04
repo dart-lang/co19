@@ -696,7 +696,7 @@ linkProgram(gl, program, [opt_errorCallback]) {
     // something went wrong with the link
     var error = gl.getProgramInfoLog (program);
 
-    testFailed("Error in program linking:" + error);
+    testFailed("Error in program linking: $error");
 
     gl.deleteProgram(program);
   }

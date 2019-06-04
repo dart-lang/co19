@@ -25,7 +25,7 @@ check(int start, int length) {
     Expect.equals(length, e.end);
     Expect.equals(start, e.invalidValue);
   } catch (e) {
-    Expect.fail("Wrong exception type " + e);
+    Expect.fail("Wrong exception type $e");
   }
 }
 

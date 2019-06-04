@@ -18,7 +18,7 @@ test(Stdout sink) async {
 
   sink.done.then((addresses) {
      isDone++;
-  }, onError: (e) { Expect.fail("Unexpected error appeared: " + e); });
+  }, onError: (e) { Expect.fail("Unexpected error appeared: $e"); });
 
   Expect.equals(0, isDone);
   await sink.close();

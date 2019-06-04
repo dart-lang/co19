@@ -33,7 +33,7 @@ check(int index, indexable, String name, int length) {
       Expect.equals(length - 1, e.end);
     }
   } catch (e) {
-    Expect.fail("Wrong exception type " + e);
+    Expect.fail("Wrong exception type $e");
   }
 }
 

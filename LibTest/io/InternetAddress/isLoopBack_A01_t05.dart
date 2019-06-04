@@ -22,5 +22,5 @@ main() {
     addresses.forEach((InternetAddress addr) {
       Expect.isTrue(addr.isLoopback);
     });
-  }, onError: (e) { Expect.fail("Unexpected error appeared: " + e); });
+  }, onError: (e) { Expect.fail("Unexpected error appeared: $e"); });
 }

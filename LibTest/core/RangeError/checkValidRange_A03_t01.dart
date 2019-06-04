@@ -39,7 +39,7 @@ check(int start, int end, int length, String startName, String endName,
       Expect.equals("Invalid value", e.message);
     }
   } catch (e) {
-    Expect.fail("Wrong exception type " + e);
+    Expect.fail("Wrong exception type $e");
   }
 }
 

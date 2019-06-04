@@ -27,7 +27,7 @@ check(int value, int min, int max, String name, String message) {
     Expect.equals(name, e.name);
     Expect.equals(message == null ? "Invalid value" : message, e.message);
   } catch (e) {
-    Expect.fail("Wrong exception type " + e);
+    Expect.fail("Wrong exception type $e");
   }
 }
 

@@ -24,7 +24,7 @@ main() {
     Expect.equals(0, e.start);
     Expect.equals(null, e.end);
   } catch (e) {
-    Expect.fail("Wrong exception type " + e);
+    Expect.fail("Wrong exception type: $e");
   }
 
 
@@ -38,7 +38,7 @@ main() {
     Expect.equals(0, e.start);
     Expect.equals(null, e.end);
   } catch (e) {
-    Expect.fail("Wrong exception type " + e);
+    Expect.fail("Wrong exception type $e");
   }
 
 
@@ -51,7 +51,7 @@ main() {
     Expect.equals(0, e.start);
     Expect.equals(null, e.end);
   } catch (e) {
-    Expect.fail("Wrong exception type " + e);
+    Expect.fail("Wrong exception type $e");
   }
 
 }

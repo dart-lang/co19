@@ -25,5 +25,5 @@ main() {
     addresses.forEach((InternetAddress addr) {
       Expect.equals(InternetAddressType.IPv6, addr.type);
     });
-  }, onError: (e) { Expect.fail("Unexpected error appeared: " + e); });
+  }, onError: (e) { Expect.fail("Unexpected error appeared: $e"); });
 }

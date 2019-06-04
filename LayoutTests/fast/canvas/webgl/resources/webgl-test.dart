@@ -184,7 +184,7 @@ createProgram(gl, vshaders, fshaders, [attribs])
   if (!linked) {
     // something went wrong with the link
     var error = gl.getProgramInfoLog(prog);
-    webglTestLog("Error in program linking:" + error);
+    webglTestLog("Error in program linking: $error");
 
     gl.deleteProgram(prog);
     for (i = 0; i < shaders.length; ++i)

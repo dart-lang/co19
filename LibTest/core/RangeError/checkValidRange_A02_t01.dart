@@ -26,7 +26,7 @@ check(int start, int end, int length) {
       Expect.equals("end", e.name);
     }
   } catch (e) {
-    Expect.fail("Wrong exception type " + e);
+    Expect.fail("Wrong exception type $e");
   }
 }
 

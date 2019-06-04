@@ -22,7 +22,7 @@ test() async {
   sink.done.then((addresses) {
     Expect.isTrue(controller.isClosed);
     isDone++;
-  }, onError: (e) { Expect.fail("Unexpected error appeared: " + e); });
+  }, onError: (e) { Expect.fail("Unexpected error appeared: $e"); });
 
   await controller.close();
   Expect.equals(1, isDone);

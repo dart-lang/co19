@@ -28,7 +28,7 @@ check(String name) {
       Expect.isTrue(ipv4.hasMatch(addr.address),
           "Address string does not correspond its type");
     });
-  }, onError: (e) { Expect.fail("Unexpected error appeared: " + e); });
+  }, onError: (e) { Expect.fail("Unexpected error appeared: $e"); });
 }
 
 main() {

@@ -21,5 +21,5 @@ main() {
     addresses.forEach((InternetAddress addr) {
       Expect.equals("localhost", addr.host);
     });
-  }, onError: (e) { Expect.fail("Unexpected error appeared: " + e); });
+  }, onError: (e) { Expect.fail("Unexpected error appeared: $e"); });
 }
