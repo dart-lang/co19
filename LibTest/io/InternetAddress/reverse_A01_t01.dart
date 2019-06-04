@@ -21,7 +21,9 @@ check(InternetAddress address) {
   hosts.then((host) {
     Expect.equals(address.address, host.address);
     Expect.equals(address.type, host.type);
-    Expect.equals(Platform.localHostname, host.host);
+    if(host.host != "localhost") {
+      Expect.equals(Platform.localHostname, host.host);
+    }
   }, onError: (e) { Expect.fail("Unexpected error appeared: $e"); });
 }
 

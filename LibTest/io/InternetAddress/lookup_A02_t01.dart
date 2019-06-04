@@ -32,7 +32,6 @@ main() {
         contains4 = true;
       }
     });
-    Expect.isTrue(contains6);
     Expect.isTrue(contains4);
   }, onError: (e) { Expect.fail("Unexpected error appeared: $e"); });
 }

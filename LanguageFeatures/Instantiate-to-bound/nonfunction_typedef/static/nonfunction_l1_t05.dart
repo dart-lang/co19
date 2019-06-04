@@ -42,21 +42,34 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks instantiation to bounds for [typedef A<X extends
- * FutureOr<A<X>>]
+ * @description Checks that instantiate-to-bounds works as expected for the
+ * class [O<X extends M<O<X>>>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
-import "dart:async";
-import "../../../../Utils/expect.dart";
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
 
-class C<X> {}
-typedef A<X extends FutureOr<A<X>>> = C<X>;
+class M<X> {}
+typedef O<X extends M<O<X>>> = M<O<X>>;
 
 main() {
-  Expect.equals(
-    typeOf<A<FutureOr<A<dynamic>>>>(),
-    typeOf<A>()
-  );
+  O source;
+  var fsource = toF(source);
+
+  F<O<M<O<dynamic>>>> target = fsource;
+
+  F<O<dynamic>> target1 = fsource;             //# 01: compile-time error
+  F<O<M<dynamic>>> target2 = fsource;          //# 02: compile-time error
+  F<O<M<O<M<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
+  F<O<M<O<M<O<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
+
+  F<O<Null>> target5 = fsource;             //# 05: compile-time error
+  F<O<M<Null>>> target6 = fsource;          //# 06: compile-time error
+  F<O<M<O<Null>>>> target7 = fsource;       //# 07: compile-time error
+  F<O<M<O<M<Null>>>>> target8 = fsource;    //# 08: compile-time error
+  F<O<M<O<M<O<Null>>>>>> target9 = fsource; //# 09: compile-time error
+
+  O(); //# 10: compile-time error
 }
