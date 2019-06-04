@@ -37,7 +37,6 @@ _main(Directory sandbox) async {
       new Directory(sandbox.path + Platform.pathSeparator + dirName);
   dir.createSync();
 
-  asyncStart();
   bool result = await FileSystemEntity.identical(
       getEntityName(sandbox) + Platform.pathSeparator + dirName,
       getEntityName(sandbox) + Platform.pathSeparator + dirName);
