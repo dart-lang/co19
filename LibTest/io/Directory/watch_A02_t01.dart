@@ -44,5 +44,6 @@ _main(Directory sandbox) async {
   await eventCompleter.future
       .timeout(Duration(seconds: eventsTimeout), onTimeout: () async {
     await subscription.cancel();
+    Expect.fail("Watch timed out");
   });
 }
