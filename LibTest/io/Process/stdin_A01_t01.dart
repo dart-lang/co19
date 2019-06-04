@@ -21,7 +21,7 @@ String command;
 List<String> args;
 
 void setCommand() {
-  command = 'dart';
+  command = Platform.resolvedExecutable;
   args = ['stream_lib.dart', '1', '2', 'true'];
 }
 

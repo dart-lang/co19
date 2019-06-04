@@ -19,7 +19,7 @@ String command;
 List<String> args;
 
 void setCommand() {
-  command = 'dart';
+  command = Platform.resolvedExecutable;
   args = ['--version'];
 }
 

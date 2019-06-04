@@ -39,7 +39,7 @@ void setCommand() {
     args = ['abc'];
   }
   if (Platform.isWindows) {
-    command = 'dart';
+    command = Platform.resolvedExecutable;
     args = ['--version'];
   }
 }
