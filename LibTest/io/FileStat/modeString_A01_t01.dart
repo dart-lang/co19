@@ -28,6 +28,6 @@ _main(Directory sandbox) async {
   if (Platform.isWindows) {
     Expect.equals("rw-rw-rw-", fs.modeString());
   } else {
-    Expect.equals("rw-rw-rw-", fs.modeString());
+    Expect.isTrue(fs.modeString().startsWith("rw-"));
   }
 }

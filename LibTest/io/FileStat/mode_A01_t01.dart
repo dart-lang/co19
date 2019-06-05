@@ -27,6 +27,17 @@ _main(Directory sandbox) async {
   if (Platform.isWindows) {
     Expect.equals(33206, fs.mode);
   } else {
-    Expect.equals(33206, fs.mode);
+    List<int> okValues = [
+      33152, 33154, 33156, 33158, 33168, 33170, 33172, 33174, 33184, 33186,
+      33188, 33190, 33200, 33202, 33204, 33206
+    ];
+    var modeFound = false;
+    for (var v in okValues) {
+      if (fs.mode == v) {
+        modeFound = true;
+        break;
+      }
+    }
+    Expect.isTrue(modeFound, "Wrong mode: ${fs.mode}");
   }
 }
