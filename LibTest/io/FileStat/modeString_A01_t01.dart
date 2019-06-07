@@ -28,6 +28,6 @@ _main(Directory sandbox) async {
   if (Platform.isWindows) {
     Expect.equals("rw-rw-rw-", fs.modeString());
   } else {
-    Expect.isTrue(fs.modeString().startsWith("rw-"));
+    Expect.isTrue(new RegExp("rw-[r-][w-]-[r-][w-]").hasMatch(fs.modeString()));
   }
 }
