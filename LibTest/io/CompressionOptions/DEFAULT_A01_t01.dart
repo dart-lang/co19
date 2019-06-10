@@ -6,8 +6,9 @@
 /**
  * @assertion CompressionOptions.compressionDefault = const CompressionOptions()
  * Default WebSocket Compression options. Compression will be enabled with the
- * following options: clientNoContextTakeover: false serverNoContextTakeover:
- * false clientMaxWindowBits: 15 serverMaxWindowBits: 15
+ * following options: clientNoContextTakeover: false, serverNoContextTakeover:
+ * false, clientMaxWindowBits: null (default maximal window size of 15 bits),
+ * serverMaxWindowBits: null (default maximal window size of 15 bits)
  * @description Checks that this constant returns CompressionOptions with the
  * default values
  * @issue 29436
@@ -21,6 +22,6 @@ main() {
 
   Expect.isFalse(CompressionOptions.compressionDefault.clientNoContextTakeover);
   Expect.isFalse(CompressionOptions.compressionDefault.serverNoContextTakeover);
-  Expect.equals(15, CompressionOptions.compressionDefault.clientMaxWindowBits);
-  Expect.equals(15, CompressionOptions.compressionDefault.serverMaxWindowBits);
+  Expect.isNull(CompressionOptions.compressionDefault.clientMaxWindowBits);
+  Expect.isNull(CompressionOptions.compressionDefault.serverMaxWindowBits);
 }
