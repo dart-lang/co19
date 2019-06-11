@@ -62,7 +62,7 @@ test() async {
   }).then((HttpClientResponse response) {
     // Server sends uncompressed data. autoUncompress sets to true but
     // uncompression should not be performed
-    response.transform(utf8.decoder).listen((content) {
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {
       Expect.equals(helloWorld, content);
       asyncEnd();
     });

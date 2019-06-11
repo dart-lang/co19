@@ -48,7 +48,7 @@ test(String method, int statusCode) async {
   }).then((HttpClientResponse response) {
     Expect.equals(1, response.redirects.length);
     Expect.equals("/yyy", response.redirects[0].location.path);
-    response.transform(utf8.decoder).listen((content) {});
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
   });
 }
 

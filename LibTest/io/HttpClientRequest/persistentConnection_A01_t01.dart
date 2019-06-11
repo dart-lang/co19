@@ -34,7 +34,7 @@ test(String method) async {
         Expect.isTrue(request.persistentConnection);
         return request.close();
   }).then((HttpClientResponse response) {
-    response.transform(utf8.decoder).listen((content) {});
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
     asyncEnd();
   });
 }

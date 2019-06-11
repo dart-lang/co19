@@ -36,7 +36,7 @@ test(String method) async {
     Expect.isNotNull(response.connectionInfo);
     Expect.equals(localhost, response.connectionInfo.remoteAddress.address);
     Expect.equals(port, response.connectionInfo.remotePort);
-    response.transform(utf8.decoder).listen((content) {});
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
     asyncEnd();
   });
 }

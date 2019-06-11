@@ -36,7 +36,7 @@ test() async {
   var response = await request.close();
   Expect.equals(HttpStatus.ok, response.statusCode);
 
-  response.transform(utf8.decoder).listen((content) {
+  response.cast<List<int>>().transform(utf8.decoder).listen((content) {
     Expect.equals(helloWorld, content);
     serverSocket.close();
   });

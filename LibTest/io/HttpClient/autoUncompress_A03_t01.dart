@@ -62,7 +62,7 @@ test() async {
     Expect.listEquals([helloWorld.length.toString()],
         response.headers[HttpHeaders.contentLengthHeader]);
     Expect.listEquals(["utf-8"], response.headers[HttpHeaders.contentEncodingHeader]);
-    response.transform(utf8.decoder).listen((content) {
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {
       Expect.equals(helloWorld, content);
       asyncEnd();
     });

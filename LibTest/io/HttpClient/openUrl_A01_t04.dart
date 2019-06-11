@@ -51,7 +51,7 @@ test() async {
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
-    response.transform(utf8.decoder).listen((content) {
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {
       Expect.equals(helloWorld, content);
     });
   });

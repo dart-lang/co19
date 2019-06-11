@@ -47,7 +47,7 @@ test(String method) async {
       request.flush();
       return request.close();
     }).then((var response) {
-      response.transform(utf8.decoder).listen((content) {});
+      response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
       asyncEnd();
     });
   });
