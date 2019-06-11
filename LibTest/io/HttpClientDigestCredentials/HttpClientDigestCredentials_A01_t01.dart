@@ -60,7 +60,7 @@ test() async {
       .getUrl(Uri.parse("http://${localhost}:${server.port}/xxx"))
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-    response.transform(utf8.decoder).listen((content) {});
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
   });
 }
 

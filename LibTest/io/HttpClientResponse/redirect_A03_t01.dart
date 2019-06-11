@@ -61,7 +61,7 @@ test(String method) async {
     request.headers.set(HttpHeaders.fromHeader, "From Dart with Love");
     return request.close();
   }).then((HttpClientResponse response) {
-    response.transform(utf8.decoder).listen((content) {
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {
       Expect.equals("xxx", content);
     });
     response

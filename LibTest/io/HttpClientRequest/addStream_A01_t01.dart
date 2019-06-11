@@ -43,7 +43,7 @@ test(String method) async {
     request.addStream(stream).then((var request) {
       return request.close();
     }).then((var response) {
-      response.transform(utf8.decoder).listen((content) {});
+      response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
       asyncEnd();
     });
   });

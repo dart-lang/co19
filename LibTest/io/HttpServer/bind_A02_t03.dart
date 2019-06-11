@@ -49,7 +49,7 @@ test() async {
     return request.close();
   }).then((HttpClientResponse response) {
     Expect.equals(HttpStatus.ok, response.statusCode);
-    response.transform(utf8.decoder).listen((content) {
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {
       Expect.equals(helloWorld, content);
       asyncEnd();
     });

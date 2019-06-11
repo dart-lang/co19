@@ -35,7 +35,7 @@ test(String method) async {
     return request.close();
   }).then((HttpClientResponse response) {
     Expect.equals(HttpStatus.accepted, response.statusCode);
-    response.transform(utf8.decoder).listen((content) {});
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
     asyncEnd();
   });
 }

@@ -31,7 +31,7 @@ test(String method) async {
         Expect.equals(method.toUpperCase(), request.method);
         return request.close();
   }).then((HttpClientResponse response) {
-    response.transform(utf8.decoder).listen((content) {});
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
     asyncEnd();
   });
 }

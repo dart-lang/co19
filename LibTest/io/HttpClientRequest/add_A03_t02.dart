@@ -52,7 +52,7 @@ test(String method) async {
       request.add([2, 6]);
       return request.close();
     }).then((var response) {
-      response.transform(utf8.decoder).listen((content) {});
+      response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
       asyncEnd();
     });
   });

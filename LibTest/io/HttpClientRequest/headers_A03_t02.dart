@@ -37,7 +37,7 @@ test(String method) async {
         Expect.throws(() {request.headers.set(HttpHeaders.ageHeader, 21);});
         return result;
   }).then((HttpClientResponse response) {
-    response.transform(utf8.decoder).listen((content) {});
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
     asyncEnd();
   });
 }

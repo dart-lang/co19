@@ -50,7 +50,7 @@ test() async {
   client.open("GET", localhost, server.port, "y/xxx?q=12&i=j#fragment")
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-        response.transform(utf8.decoder).listen((content) {
+        response.cast<List<int>>().transform(utf8.decoder).listen((content) {
           Expect.equals(helloWorld, content);
     });
   });

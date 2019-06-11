@@ -57,7 +57,7 @@ test(String method, int statusCode) async {
         Expect.isTrue(request.followRedirects);
         return request.close();
   }).then((HttpClientResponse response) {
-    response.transform(utf8.decoder).listen((content) {});
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
   });
 }
 

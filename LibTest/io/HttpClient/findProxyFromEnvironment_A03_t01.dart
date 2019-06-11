@@ -80,7 +80,7 @@ test() async {
   client.get(localhost, server.port, "")
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-    response.transform(utf8.decoder).listen((content) {
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {
       Expect.equals(hello, content);
     });
   });

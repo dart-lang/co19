@@ -40,7 +40,7 @@ test(String method) async {
     return request.close();
   }).then((HttpClientResponse response) {
     Expect.isFalse(response.persistentConnection);
-    response.transform(utf8.decoder).listen((content) {});
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
     asyncEnd();
   });
 }

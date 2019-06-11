@@ -49,7 +49,7 @@ test() async {
     return request.close();
   }).then((HttpClientResponse response) {
     Expect.equals(HttpStatus.ok, response.statusCode);
-    response.transform(gzip.decoder).transform(utf8.decoder).listen((content) {
+    response.cast<List<int>>().transform(gzip.decoder).transform(utf8.decoder).listen((content) {
       Expect.isTrue(
           response.headers.value(HttpHeaders.contentEncodingHeader) == "gzip");
       Expect.equals(helloWorld, content);

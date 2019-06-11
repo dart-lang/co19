@@ -49,7 +49,7 @@ test(String method, int maxRedirects, int status) async {
       Expect.equals("/${count++}", redirectInfo.location.path);
       Expect.equals(method.toUpperCase(), redirectInfo.method);
     }
-    response.transform(utf8.decoder).listen((content) {});
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {});
     asyncEnd();
   });
 }

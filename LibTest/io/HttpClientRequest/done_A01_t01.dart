@@ -34,7 +34,7 @@ test(String method) async {
       .then((HttpClientRequest request) {
         request.done.then((HttpClientResponse response) {
           asyncEnd();
-          response.transform(utf8.decoder).listen((content) {
+          response.cast<List<int>>().transform(utf8.decoder).listen((content) {
           });
         });
         return request.close();

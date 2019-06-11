@@ -63,7 +63,7 @@ test() async {
     // Server sends uncompressed data but on client autoUncompress sets to true
     // and Content-Encoding header value is gzip so we are trying to uncompress
     // not compressed data
-    response.transform(utf8.decoder).listen((content) {
+    response.cast<List<int>>().transform(utf8.decoder).listen((content) {
     }, onError: (_) {
       asyncEnd();
     });
