@@ -9,11 +9,12 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
+import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
   InternetAddress address = new InternetAddress("127.0.0.1");
-  Datagram datagram = new Datagram([1, 2, 3], address, 80);
+  Datagram datagram = new Datagram(Uint8List.fromList([1, 2, 3]), address, 80);
   Expect.listEquals([1, 2, 3], datagram.data);
   Expect.equals(address, datagram.address);
   Expect.equals(80, datagram.port);
