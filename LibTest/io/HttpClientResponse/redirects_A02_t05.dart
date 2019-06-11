@@ -51,7 +51,7 @@ test(String method) async {
       Expect.equals("patch", resp.redirects[0].method);
       Expect.equals("yyy", resp.redirects[0].location.path);
       Expect.equals(200, resp.redirects[0].statusCode);
-      resp.transform(utf8.decoder).listen((content2) {
+      resp.cast<List<int>>().transform(utf8.decoder).listen((content2) {
         asyncEnd();
       });
     });
