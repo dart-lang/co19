@@ -65,7 +65,7 @@ test(String method) async {
     response
         .redirect("GET", new Uri(path: "xxx"))
         .then((HttpClientResponse resp) {
-      resp.transform(utf8.decoder).listen((content2) {});
+      resp.cast<List<int>>().transform(utf8.decoder).listen((content2) {});
       resp.redirect("GET", new Uri(path: "xxx"), false).then(
           (HttpClientResponse resp2) {
         Expect.fail("Redirect should not be performed");

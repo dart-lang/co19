@@ -65,7 +65,7 @@ test(String method) async {
       Expect.equals(1, resp.redirects.length);
       Expect.equals(method.toUpperCase(), resp.redirects[0].method);
       Expect.equals("yyy", resp.redirects[0].location.path);
-      resp.transform(utf8.decoder).listen((content2) {
+      resp.cast<List<int>>().transform(utf8.decoder).listen((content2) {
       });
       asyncEnd();
     });
