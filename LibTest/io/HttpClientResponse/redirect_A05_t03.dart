@@ -68,7 +68,7 @@ test(String method) async {
       });
       resp.redirect("GET", new Uri(path: "xxx"), true).then(
           (HttpClientResponse resp2) {
-            resp2.transform(utf8.decoder).listen((content3) {
+            resp2.cast<List<int>>().transform(utf8.decoder).listen((content3) {
               Expect.equals("xxx2", content3);
               asyncEnd();
             });

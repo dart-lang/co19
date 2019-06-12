@@ -17,9 +17,9 @@ main() {
   Datagram datagram = new Datagram(new Uint8List(0), address, 80);
   Expect.listEquals([], datagram.data);
 
-  datagram.data = [1, 2, 3];
+  datagram.data = Uint8List.fromList([1, 2, 3]);
   Expect.listEquals([1, 2, 3], datagram.data);
 
-  datagram.data = [1000000, 220000, -13];
-  Expect.listEquals([1000000, 220000, -13], datagram.data);
+  datagram.data = Uint8List.fromList([255, 127, 33]);
+  Expect.listEquals([255, 127, 33], datagram.data);
 }
