@@ -48,7 +48,7 @@ test(String method) async {
     });
     response.redirect("get", new Uri(path: "yyy")).then((
         HttpClientResponse resp2) {
-      resp2.transform(utf8.decoder).listen((content2) {
+      resp2.cast<List<int>>().transform(utf8.decoder).listen((content2) {
         Expect.equals("yyy", content2);
       });
       resp2.redirect("post", new Uri(path: "zzz")).then((
@@ -63,7 +63,7 @@ test(String method) async {
         Expect.equals("zzz", resp3.redirects[1].location.path);
         Expect.equals(200, resp3.redirects[1].statusCode);
 
-        resp3.transform(utf8.decoder).listen((content3) {
+        resp3.cast<List<int>>().transform(utf8.decoder).listen((content3) {
           Expect.equals("zzz", content3);
           asyncEnd();
         });
