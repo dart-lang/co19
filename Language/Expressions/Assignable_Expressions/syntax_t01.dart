@@ -29,50 +29,33 @@
  * @author msyabro
  */
 
-topLevelFunction() {}
+topLevelFunction() => ["x"];
 
 class S {
   const S();
 }
 
 class A {
-  method() {}
+  method() => ["y"];
   test() {
-
-    //nullLiteral
-    null["key"] = null;
-    null.x = null;
+    var ident = [""];
 
     //listLiteral
     [0, 1, 2, 3][1] = null;
 
     //identifier
-    id["id"] = 0;
-    id.id = null;
+    ident[0] = "Lily was here";
 
     //constantObjectExpression
-    const [1, 2, 3][0] = 1;
+    const c = 1;
 
     //(functionInvocation)
     (topLevelFunction())[0] = null;
-    (topLevelFunction()).x = null;
 
     //(methodInvocation)
-    (this.method())[1] = null;
-    (this.method()).x = null;
-
-    //(assignmentExpression)
-    (id += 1).x = null;
-
-    //(bitwiseExpression)
-    (id & 1)[0] = 1;
-    (id ^ 1).x = 1;
-
-    //(unaryExpression)
-    (id++)[0] = 1;
-    (id--).x = 1;
+    (this.method())[0] = null;
+    (this.method()).length = 2;
   }
-  var id;
 }
 
 main() {

@@ -32,8 +32,6 @@
  * @description Checks that unary expressions of the form
  * [incrementOperator assignableExpression] don't cause compile-time errors.
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 class S {
@@ -61,10 +59,6 @@ class A  extends S{
     //thisExpression
     try { --this[0]; } catch (e) {}
     try { ++this.x;  } catch (e) {}
-
-    //nullLiteral
-    try { --null["key"]; } catch (e) {}
-    try { ++null.x; } catch (e) {}
 
     //mapLiteral
     try { ++{"1" : 1, "2" : 2}["1"]; } catch (e) {}

@@ -16,19 +16,20 @@
  * ;
  * @description Checks that cascaded invocations are allowed in field
  * initializers.
- * @author rodionov
+ * @author rodionov,
+ * @author sgrekhov@unipro.ru
  */
 import "../../../../Utils/expect.dart";
 
 class C {
-  C() : this.foo =
-      null..[1](1)[2](2).foo(3, bar: 4)[0] = 5..bar(6)["one ugly cascade"] {}
   var foo;
+  static var _x = new List<int>();
+
+  C() : this.foo = _x
+    ..add(1)
+    ..add(2);
 }
 
 main() {
-  try {
-    new C();
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
+  Expect.listEquals([1, 2], new C().foo);
 }

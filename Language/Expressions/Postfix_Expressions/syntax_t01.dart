@@ -26,9 +26,7 @@
  * postfixOperator.
  * See tests 10_27_Assignable_Expressions_A01_t0[1-3].dart
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
- * @needsreview issue 2709
+ * @issue 2709
  */
 
 class S {
@@ -64,12 +62,6 @@ class A  extends S {
     try { this.x;} catch (e) {}
     try { this[0]--;} catch (e) {}
     try { this.x++;} catch (e) {}
-
-    //nullLiteral
-    try { null["key"]; } catch (e) {}
-    try { null.x; } catch (e) {}
-    try { null["key"]--; } catch (e) {}
-    try { null.x++; } catch (e) {}
 
     //mapLiteral
     try { true ? {"1" : 1, "2" : 2}["1"]++ : null; } catch (e) {}

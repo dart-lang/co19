@@ -22,8 +22,6 @@
  * @description  Checks that various expressions that fit into this grammar
  * don't cause compile-time errors.
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 topLevelFunction() {}
@@ -50,9 +48,6 @@ class A extends S {
 
     // chaining
     try {super * 1 / 2 % 3 ~/ 4 % 5 / 6 * 7;} catch (ok) {}
-
-    //literals with selectors
-    try {null * "string"; } catch (e) {}
 
     //invocations
     try {method() * topLevelFunction();} catch (e) {}

@@ -32,8 +32,6 @@
  * @description Checks that expressions with a prefix operator which fit into
  * this production don't cause compile-time errors.
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 class S {
@@ -63,10 +61,6 @@ class A extends S {
     //prefix operators with literals
     try {-1;} catch (e) {}
     try {~2;} catch (e) {}
-
-    try {-null;} catch (e) {}
-    try {~null;} catch (e) {}
-    try {!null;} catch (e) {}
 
     try {-this;} catch (e) {}
 
