@@ -15,7 +15,6 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for the class with
  * function parameter (contravariant)
- * @compile-error
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();

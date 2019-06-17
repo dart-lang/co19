@@ -15,7 +15,6 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [typedef] with
  * [typedef] parameter (contravariant)
- * @compile-error
  * @Issue 34689, 34699
  * @author iarkh@unipro.ru
  */

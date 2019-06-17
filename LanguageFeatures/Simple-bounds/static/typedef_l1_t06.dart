@@ -15,7 +15,6 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [typedef] with [X
  * extends A] parameter (covariant)
- * @compile-error
  * @author iarkh@unipro.ru
  */
 

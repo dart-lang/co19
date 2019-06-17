@@ -13,21 +13,39 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that simple bounds are correct for [typedef] with [X
- * extends A] parameter (contravariant)
- * @Issue 34689, 34699
+ * @description Checks that simple bounds are correct for non-function type
+ * aliases [A<X extends List<List>>], [B<X extends Map<Map, Map>>]
  * @author iarkh@unipro.ru
  */
-// Functions for correct type comparison in language feature tests
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
+
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 
-class A<X> {}
-typedef G<X extends A> = Function(X);
+class C<X> {}
+
+typedef A<X extends List<List>> = C<X>;
+typedef B<X extends Map<Map, Map>> = C<X>;
+
+testA() {
+  A source;
+  var fsource = toF(source);
+  F<A<List<List<dynamic>>>> target = fsource;
+
+  F<A<List<List<int>>>>  target1 = fsource; //# 01: compile-time error
+  F<A<List<List<Null>>>> target2 = fsource; //# 02: compile-time error
+
+  A();
+}
+
+testB() {
+  B source;
+  var fsource = toF(source);
+  F<B<Map<Map<dynamic, dynamic>, Map<dynamic, dynamic>>>> target = fsource;
+  B();
+}
 
 main() {
-  G source;
-  var fsource = toF(source);
-  F<G<A<Null>>> target = fsource;
-  F<G<A<dynamic>>> target1 = fsource;  //# 01: compile-time error
+  testA();
+  testB();
 }

@@ -13,21 +13,23 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that simple bounds are correct for [typedef] with [X
- * extends A] parameter (contravariant)
- * @Issue 34689, 34699
+ * @description Checks that simple bounds are correct for non-function type
+ * alias with function parameter (not used)
  * @author iarkh@unipro.ru
  */
-// Functions for correct type comparison in language feature tests
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
-class A<X> {}
-typedef G<X extends A> = Function(X);
+import "../../../Utils/expect.dart";
+
+typedef G<X> = void Function();
+
+class C<X> {}
+typedef A<X extends G> = C<X>;
 
 main() {
-  G source;
+  A source;
   var fsource = toF(source);
-  F<G<A<Null>>> target = fsource;
-  F<G<A<dynamic>>> target1 = fsource;  //# 01: compile-time error
+  F<A<G<dynamic>>> target = fsource;
+  F<A<G<Null>>> target1 = fsource;
+  A();
 }

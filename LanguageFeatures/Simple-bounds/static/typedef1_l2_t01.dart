@@ -13,21 +13,31 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that simple bounds are correct for [typedef] with [X
- * extends A] parameter (contravariant)
- * @Issue 34689, 34699
+ * @description Checks that instantiate-to-bounds work as expected for
+ * non-function type alias with two depending type parameters.
  * @author iarkh@unipro.ru
  */
-// Functions for correct type comparison in language feature tests
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
+
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 
+class C<X, Y> {}
+
 class A<X> {}
-typedef G<X extends A> = Function(X);
+typedef B<X extends A, Y extends X> = C<X, Y>;
 
 main() {
-  G source;
+  B source;
   var fsource = toF(source);
-  F<G<A<Null>>> target = fsource;
-  F<G<A<dynamic>>> target1 = fsource;  //# 01: compile-time error
+  F<B<A<dynamic>, A<dynamic>>> target = fsource;
+
+  F<B<A<int>, A<dynamic>>> target1  = fsource; //# 01: compile-time error
+  F<B<A<dynamic>, A<int>>> target2  = fsource; //# 02: compile-time error
+  F<B<A<Null>, A<dynamic>>> target3 = fsource; //# 03: compile-time error
+  F<B<A<dynamic>, A<Null>>> target4 = fsource; //# 04: compile-time error
+  F<B<A<int>, A<int>>> target5      = fsource; //# 05: compile-time error
+  F<B<A<Null>, A<Null>>> target6    = fsource; //# 06: compile-time error
+
+  B();
 }
