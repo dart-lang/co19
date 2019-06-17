@@ -13,14 +13,18 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that simple bounds are correct for the class with
- * function parameter (contravariant)
+ * @description Checks that simple bounds are correct for non-function type
+ * alias with function parameter (not used)
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
+
 import "../../../Utils/expect.dart";
 
-typedef G<X> = void Function(X);
-class A<X extends G> {}
+class C<X> {}
+
+typedef G<X> = void Function();
+typedef A<X extends G> = C<X>;
 
 main() {
   Expect.equals(
