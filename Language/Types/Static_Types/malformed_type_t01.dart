@@ -24,22 +24,17 @@ class Bounded<T extends num> {}
 class BoundedInt<T extends int> {}
 
 main() {
-  null is UnknownType; /// 01: compile-time error
+  null is UnknownType;                            //# 01: compile-time error
 
   // C<int, double, UnknownType> is not malformed, see
   // (Types/Parameterized Types)
   // UnknownType is treated as dynamic and parameterized type is
   // C<int,double,dynamic>
 
-  C<int, double, UnknownType> x = new C(); /// 02: compile-time error
-  null is C<int, double, UnknownType>; /// 03: compile-time error
-
-  Bounded<String> x2 = new Bounded(); /// 04: compile-time error
-
-
-  BoundedInt<num> x3 = new BoundedInt(); /// 05: compile-time error
-
-  C<Bounded<String>, C, C> x4 = new C(); /// 06: compile-time error
-
-  C<C<UnknownType, int, int>, C, C> x5 = new C(); /// 07: compile-time error
+  C<int, double, UnknownType> x = new C();        //# 02: compile-time error
+  null is C<int, double, UnknownType>;            //# 03: compile-time error
+  Bounded<String> x2 = new Bounded();             //# 04: compile-time error
+  BoundedInt<num> x3 = new BoundedInt();          //# 05: compile-time error
+  C<Bounded<String>, C, C> x4 = new C();          //# 06: compile-time error
+  C<C<UnknownType, int, int>, C, C> x5 = new C(); //# 07: compile-time error
 }
