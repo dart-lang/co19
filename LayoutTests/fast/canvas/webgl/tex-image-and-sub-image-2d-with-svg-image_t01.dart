@@ -9,7 +9,6 @@
  */
 import "dart:html";
 import "dart:web_gl" as wgl;
-import 'dart:typed_data';
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
@@ -27,5 +26,5 @@ main() {
     return true;
   }
 
-  //generateTest(wgl.RGBA, wgl.UNSIGNED_BYTE, root, testPrologue)();
+  generateTest(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, root, testPrologue)();
 }
