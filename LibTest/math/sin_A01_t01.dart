@@ -8,9 +8,6 @@
  * Converts [radians] to a double and returns the sine of the value.
  * @description Checks values from [0, 2pi].
  * @author msyabro
- * @reviewer pagolubev
- * @3rdparty sputnik-v1: S15.8.2.16_A7.js
- * @needsreview Returned value precision is not specified.
  */
 
 import "dart:math" as Math;
@@ -152,6 +149,6 @@ main() {
   y[63] = -0.0000000000000002449293598294706400;
 
   for (int i = 0; i < vnum; i++) {
-    Expect.approxEquals(y[i], Math.sin(x[i]), (y[i]/1e4).abs());
+    Expect.approxEquals(y[i], Math.sin(x[i]), 0.000000000000001);
   }
 }

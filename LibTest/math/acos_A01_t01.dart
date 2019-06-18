@@ -11,10 +11,6 @@
  *
  * @issue 26261
  * @author msyabro
- * @reviewer pagolubev
- * @3rdparty sputnik-v1:S15.8.2.2_A5.js
- * @needsreview Returned value precision is not specified.
- * Checks exact match with values calculated with LibC.
  */
 
 import "dart:math" as Math;
@@ -155,6 +151,6 @@ main() {
   y[63] = 0.00000000000000000000;
 
   for (int i = 0; i < vnum; i++) {
-    Expect.equals(y[i], Math.acos(x[i]));
+    Expect.approxEquals(y[i], Math.acos(x[i]), 0.000000000000001);
   }
 }

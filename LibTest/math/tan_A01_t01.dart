@@ -11,9 +11,6 @@
  *
  * @issue 26261
  * @author msyabro
- * @reviewer pagolubev
- * @3rdparty sputnik-v1: S15.8.2.18_A7.js
- * @needsreview Returned value precision is not specified.
  */
 
 import "dart:math" as Math;
@@ -156,6 +153,6 @@ main() {
   
 
   for (int i = 0; i < vnum; i++) {
-    Expect.approxEquals(y[i], Math.tan(x[i]), (y[i]/1e7).abs());
+    Expect.approxEquals(y[i], Math.tan(x[i]), 0.000000000000001);
   }
 }

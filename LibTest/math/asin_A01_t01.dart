@@ -156,6 +156,6 @@ main() {
   y[63] = 1.57079632679489660000;
 
   for (int i = 0; i < vnum; i++) {
-    Expect.equals(y[i], Math.asin(x[i]));
+    Expect.approxEquals(y[i], Math.asin(x[i]), 0.000000000000001);
   }
 }
