@@ -30,5 +30,4 @@ test(x) {
 
 main() {
   test(new C());
-  test(new C());
 }

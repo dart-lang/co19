@@ -19,10 +19,10 @@ class C {
 }
 
 test(C? c) {
-Expect.isNotNull(c.hashCode);
-Expect.isNotNull(c.toString());
-Expect.isNotNull(c.runtimeType);
-Expect.isFalse(c == new C());
+  Expect.isNotNull(c.hashCode);
+  Expect.isNotNull(c.toString());
+  Expect.isNotNull(c.runtimeType);
+  Expect.isFalse(c == new C());
 }
 
 main() {

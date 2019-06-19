@@ -22,11 +22,11 @@ class C {
 }
 
 test(C? c) {
-c.m;             //# 01: compile-time error
-c.foo();         //# 02: compile-time error
-c.g;             //# 03: compile-time error
-c.s = 2;         //# 04: compile-time error
-c == new C();    //# 05: compile-time error
+  c.m;             //# 01: compile-time error
+  c.foo();         //# 02: compile-time error
+  c.g;             //# 03: compile-time error
+  c.s = 2;         //# 04: compile-time error
+  c == new C();    //# 05: compile-time error
 }
 
 main() {
