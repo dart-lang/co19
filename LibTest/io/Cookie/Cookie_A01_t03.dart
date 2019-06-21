@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Cookie([String name, String value])
- * Creates a new cookie optionally setting the name and value.
+ * @assertion Cookie(String name, String value)
+ * Creates a new cookie setting the name and value.
  * By default the value of httpOnly will be set to true.
  * @description Checks that this constructor creates a new Cookie object. Test
  * name and value parameters
