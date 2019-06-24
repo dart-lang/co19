@@ -17,7 +17,7 @@
  * default (NNBD), this ? syntax is removed and subsumed by nullable types like
  * int? being allowed in the <type> position.
  *
- * @description Check that The type can be any valid Dart type, including a
+ * @description Check that the type can be any valid Dart type, including a
  * single type variable
  * @author sgrekhov@unipro.ru
  */

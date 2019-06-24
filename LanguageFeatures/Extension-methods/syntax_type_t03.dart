@@ -18,17 +18,30 @@
  * int? being allowed in the <type> position.
  *
  * @description Check that the type can be any valid Dart type, including a
- * single type variable. Test nullable types
+ * single type variable. Test built-in types
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods,non-nullable
-class C<T> {}
+// SharedOptions=--enable-experiment=extension-methods
 
-extension MyC<T> on C<T>? {}
+extension MyInt on int {}
 
-extension MyT<T extends C> on T? {}
+extension MyNum on num {}
 
-extension MyT<X extends C, Y> on C<Y>? {}
+extension MyDouble on double {}
+
+extension MyNull on Null {}
+
+extension MyString on String {}
+
+extension MyString on Void {}
+
+extension MyDynamic on dynamic {}
+
+extension MyBool on bool {}
+
+extension MyObject on Object {}
+
+extension MyFunction on Function {}
 
 main() {
 }
