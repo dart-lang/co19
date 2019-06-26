@@ -11,6 +11,7 @@
  * directory. Test create link synchronously
  * @issue 30359
  * @issue 35102
+ * @issue 37342
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
