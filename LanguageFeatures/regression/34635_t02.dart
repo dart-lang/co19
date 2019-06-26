@@ -8,7 +8,7 @@
  * [C<X extends C>]" class declaration in a very strange way): check that
  * declaring [class A<X extends A> {}] after [class A<X extends C>] causes
  * compile error.
- * @compile error
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 class A<X extends C> {}
