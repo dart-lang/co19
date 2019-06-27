@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 // SharedOptions=--enable-experiment=extension-methods
-library my_fancy_list_lib;
+library my_fancy_list_lib2;
 
 extension MyFancyList<T> on List<T> {
   int get doubleLength => this.length * 2;
