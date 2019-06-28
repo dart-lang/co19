@@ -17,3 +17,8 @@ extension _MyPrivateList<T> on List<T> {
   int get pDoubleLength => this.length * 2;
   static String get pClassName => "_MyPrivateList";
 }
+
+extension on List<T> {
+  int get nnDoubleLength => this.length * 2;
+  static String get nnClassName => "NoName";
+}
