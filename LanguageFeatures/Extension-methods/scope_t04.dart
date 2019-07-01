@@ -7,19 +7,19 @@
  * @assertion An extension is in scope if the name is shadowed by another
  * declaration
  *
- * @description Check that an extension is in scope if the name is shadowed by
- * class declaration
+ * @description Check that name conflict can be solved by import a library with
+ * the prefix
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
 import "../../Utils/expect.dart";
 import "scope_all_lib.dart";
-
-class Foo {}
+import "scope_bar_lib.dart" as b;
 
 main() {
   List<String> list = ["Lily", "was", "here"];
-  Foo();
-  Expect.equals("foo", list.foo());
-  Expect.equals("staticFoo", Foo.staticFoo);
+  Expect.equals("bar", Bar(list).bar());
+  Expect.equals("staticBar", Bar.staticBar);
+  Expect.equals("bar-bar", b.Bar(list).bar());
+  Expect.equals("staticBar-Bar", b.Bar.staticBar);
 }
