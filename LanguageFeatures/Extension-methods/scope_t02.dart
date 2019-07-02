@@ -19,5 +19,5 @@ import "scope_bar_lib.dart";
 main() {
   List<String> list = ["Lily", "was", "here"];
   Bar(list).bar();      //# 01: compile-time error
-  Bar.staticBar;      //# 01: compile-time error
+  Bar.staticBar;        //# 02: compile-time error
 }
