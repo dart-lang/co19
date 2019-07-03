@@ -40,7 +40,7 @@ extension on C {
   String get getter => "Extension getter";
   String get m => "m getter";
   void set setter(String v) {}
-  void set (String v) {}
+  void set m(String v) {}
   String method(int i) => "Extension: $i";
   String operator+(C other) => "Extension +";
   void operator[]=(int index, String value) {}
