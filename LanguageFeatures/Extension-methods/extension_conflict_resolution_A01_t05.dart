@@ -22,23 +22,22 @@
  *   4. not vice versa, or
  *   5. the instantiate-to-bounds type of [T1] is a subtype of the
  *      instantiate-to-bounds type of [T2] and not vice versa.
- * @description Check that compile time error is thrown if two extension members
- * are equitable
- * @compile-error
+ * @description Check that extension from the library is less specific than one
+ * which is not.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
 
-extension TypedEquals1<T> {
-  bool equals(T value) => this == value;
+import "../../Utils/expect.dart";
+import "extension_conflict_resolution_lib.dart";
+
+extension MyIntFancyList<T extends String> on List<T> {
+  bool get isIntLibraryVersion => false;
 }
 
-extension TypedEquals2<T> {
-  bool equals(T value) => true;
-}
-
-String str1, str2;
+dynamic aList = <int>[1, 2, 3];
 
 main() {
-  str1.equals(str2);
+  Expect.throws(() { aList.isIntLibraryVersion; });
 }
+

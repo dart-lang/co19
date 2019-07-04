@@ -9,3 +9,11 @@ library extension_conflict_resolution_lib;
 extension MyFancyList<T> on List<T> {
   bool get isLibraryVersion => true;
 }
+
+extension MyNumList<T extends num> on List<T> {
+bool get isNumLibraryVersion => true;
+}
+
+extension MyIntList<T extends int> on List<T> {
+  bool get isIntLibraryVersion => true;
+}
