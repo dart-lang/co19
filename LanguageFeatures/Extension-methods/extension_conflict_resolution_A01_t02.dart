@@ -31,7 +31,7 @@
 import "extension_conflict_resolution_lib.dart";
 import "../../Utils/expect.dart";
 
-extension MyFancyList<T> on List<T> {
+extension MyFancyList1 on List {
   bool get isLibraryVersion => false;
 }
 

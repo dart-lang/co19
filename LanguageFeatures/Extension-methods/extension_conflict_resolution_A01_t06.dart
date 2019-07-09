@@ -22,21 +22,21 @@
  *   4. not vice versa, or
  *   5. the instantiate-to-bounds type of [T1] is a subtype of the
  *      instantiate-to-bounds type of [T2] and not vice versa.
- * @description Check that extension from the library is less specific than one
- * which is not.
+ * @description Check that compile time error is thrown if two extension members
+ * with [on] type clause are equitable
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
 
-import "extension_conflict_resolution_lib.dart";
-import "../../Utils/expect.dart";
+extension MyFancyList1<T> on List<T> {
+  bool get isIntLibraryVersion => false;
+}
 
-extension MyIntList1<T extends int> on List<T> {
+extension MyIntFancyList2<T> on List<T> {
   bool get isIntLibraryVersion => false;
 }
 
 main() {
-  List<int> aList = [0];
-  Expect.isFalse(aList.isIntLibraryVersion);
-  Expect.isTrue(aList.isNumLibraryVersion);
 }
+

@@ -6,7 +6,7 @@
 // SharedOptions=--enable-experiment=extension-methods
 library extension_conflict_resolution_lib;
 
-extension MyFancyList<T> on List<T> {
+extension MyFancyList on List {
   bool get isLibraryVersion => true;
 }
 

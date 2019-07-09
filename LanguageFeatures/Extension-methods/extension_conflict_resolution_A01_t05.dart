@@ -22,8 +22,7 @@
  *   4. not vice versa, or
  *   5. the instantiate-to-bounds type of [T1] is a subtype of the
  *      instantiate-to-bounds type of [T2] and not vice versa.
- * @description Check that extension from the library is less specific than one
- * which is not.
+ * @description Check that correct extension is choosen for the generic type
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
@@ -31,7 +30,7 @@
 import "../../Utils/expect.dart";
 import "extension_conflict_resolution_lib.dart";
 
-extension MyIntFancyList<T extends String> on List<T> {
+extension MyStringFancyList<T extends String> on List<T> {
   bool get isIntLibraryVersion => false;
 }
 

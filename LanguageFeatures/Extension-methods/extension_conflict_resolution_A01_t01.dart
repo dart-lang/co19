@@ -29,16 +29,12 @@
  */
 // SharedOptions=--enable-experiment=extension-methods
 
-extension TypedEquals1<T> {
+extension TypedEquals1 {
   bool equals(T value) => this == value;
 }
 
-extension TypedEquals2<T> {
+extension TypedEquals2 {
   bool equals(T value) => true;
 }
 
-String str1, str2;
-
-main() {
-  str1.equals(str2);
-}
+main() {}
