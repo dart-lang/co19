@@ -24,32 +24,25 @@
  *      instantiate-to-bounds type of [T2] and not vice versa.
  * @description Check that An extension with [on] type clause [T1] is more
  * specific than another extension with [on] type clause [T2] if instantiated
- * type of [T1] is a subtype if instantiated type of [T2]
- * @compile-error
+ * type of [T1] is a subtype if instantiated type of [T2] and i-2-b type of [T1]
+ * is a subtype of the instantiate type of [T2]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
 import "../../Utils/expect.dart";
 
-class A {}
-class B extends A {}
-class C extends B {}
+class A<X extends A<X>> {}
 
-extension A_extension on A {
-  int get getType => 1;
+extension ext1<X extends A<X>> on A<X> {
+  bool checkme => false;
 }
 
-extension B_extension on B {
-  int get getType => 2;
-}
-
-extension C_extension on C {
-  int get getType => 3;
+extension ext2<X extends A<Null>> on A<X> {
+  int get getType => true;
 }
 
 main() {
-  Expect.equals(1, A().getType);
-  Expect.equals(1, B().getType);
-  Expect.equals(1, C().getType);
+  A a = new A<Null>();
+  Expect.isTrue(a.checkme());
 }
 
