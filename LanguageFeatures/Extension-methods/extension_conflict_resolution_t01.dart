@@ -37,4 +37,6 @@ extension TypedEquals2 {
   bool equals(T value) => true;
 }
 
-main() {}
+main() {
+  "123".equals(123);
+}
