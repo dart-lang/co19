@@ -31,6 +31,7 @@ extension ExtendedList<T> on List<T> {
   static void set staticSetter(String v) {staticVar = v;};
   static String staticMethod(String s) => s;
   static String staticVar = "Run, Forrest, run";
+  static const staticConst = "Nothing is constant, everything is changing";
 }
 
 main() {
@@ -47,4 +48,5 @@ main() {
   Expect.equals("Run, Forrest, run", List.staticVar);
   List.staticSetter = "Lily was here";
   Expect.equals("Lily was here", List.staticVar);
+  Expect.equals("Nothing is constant, everything is changing", List.staticConst);
 }

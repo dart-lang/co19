@@ -21,7 +21,7 @@
  * single type variable. Test nullable built-in types
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+// SharedOptions=--enable-experiment=extension-methods,non-nullable
 
 extension MyInt on int? {}
 
