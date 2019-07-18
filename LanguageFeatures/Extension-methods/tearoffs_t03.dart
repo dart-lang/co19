@@ -15,7 +15,13 @@ import "../../Utils/expect.dart";
 import "tearoffs2.lib.dart";
 
 main() {
-  Expect.equals(3, func([1]));
-  Expect.equals(3, func("[1]"));
-  Expect.equals(13, func("Lily was here"));
+  Expect.equals(3, funcFoo([1]));
+  Expect.equals(3, funcFoo("[1]"));
+  Expect.equals(13, funcFoo("Lily was here"));
+
+  Expect.equals(":Lily was here", funcBar(""));
+  Expect.equals("XXX:Lily was here", funcBar("XXX"));
+
+  Expect.equals(":Run, Forrest, run", funcBar2(""));
+  Expect.equals("XXX:Run, Forrest, run", funcBar2("XXX"));
 }
