@@ -29,5 +29,5 @@ main() {
   Expect.equals(6, list.doubleLength);
   Expect.listEquals([["Lily"], ["was", "here"]], list.split(1));
   Expect.listEquals(["here", "was", "Lily"], -list.split);
-  Expect.listEquals(["List"], List.className);
+  Expect.listEquals(["List"], MyFancyList.className);
 }

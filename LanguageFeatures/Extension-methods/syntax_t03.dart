@@ -24,6 +24,7 @@ extension on List<T> {
   int get doubleLength => this.length * 2;
   List<T> operator-() => this.reversed.toList();
   List<List<T>> split(int at) => <List<T>>[this.sublist(0, at), this.sublist(at)];
+  String someMethod() => className;
   static String get className => "List";
 }
 
@@ -32,5 +33,5 @@ main() {
   Expect.equals(6, list.doubleLength);
   Expect.listEquals([["Lily"], ["was", "here"]], list.split(1));
   Expect.listEquals(["here", "was", "Lily"], -list.split);
-  Expect.listEquals(["List"], List.className);
+  Expect.listEquals(["List"], List.someMethod());
 }

@@ -43,10 +43,10 @@ main() {
   list.setter = 13;
   Expect.equals(13, list.length);
 
-  Expect.listEquals(["List"], List.staticGetter);
-  Expect.listEquals(["Lily was here"], List.staticMethod("Lily was here"));
-  Expect.equals("Run, Forrest, run", List.staticVar);
-  List.staticSetter = "Lily was here";
-  Expect.equals("Lily was here", List.staticVar);
-  Expect.equals("Nothing is constant, everything is changing", List.staticConst);
+  Expect.listEquals(["List"], ExtendedList.staticGetter);
+  Expect.listEquals(["Lily was here"], ExtendedList.staticMethod("Lily was here"));
+  Expect.equals("Run, Forrest, run", ExtendedList.staticVar);
+  ExtendedList.staticSetter = "Lily was here";
+  Expect.equals("Lily was here", ExtendedList.staticVar);
+  Expect.equals("Nothing is constant, everything is changing", ExtendedList.staticConst);
 }
