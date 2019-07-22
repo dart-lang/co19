@@ -14,7 +14,7 @@ extension ExtendedList on List {
 }
 
 extension ExtendedString on String {
-  String bar(Srting s) => s + ":" + this;
+  String bar(String s) => s + ":" + this;
 }
 
 int Function(int) funcFoo = [1, 2, 3].foo;
