@@ -27,23 +27,21 @@
  * will invoke the exact same method in the same way.
  *
  * @description Check that if several extensions can be applied to the same
- * member access, it's possible to force an extension member invocation
+ * member access, it's possible to force an extension member invocation if a
+ * member of the receiver type tis imported with a prefix.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
 
 import "../../Utils/expect.dart";
+import "extension_conflict_resolution_lib.dart" as testlib;
 
-extension Ext1 on String {
-  bool get isExt1 => true;
-}
-
-extension Ext2 on String {
-  bool get isExt1 => false;
+extension MySimpleExt on String {
+  bool get isLibraryVersion => false;
 }
 
 main() {
-  String test = "";
-  Expect.isTrue(Ext1(test).isExt1);
-  Expect.isFalse(Ext2(test).isExt1);
+  Object aString = "testme";
+  Expect.isTrue(testlib.MySimpleExt(aString).isLibraryVersion);
+  Expect.isFalse(MySimpleExt(aString).isLibraryVersion);
 }

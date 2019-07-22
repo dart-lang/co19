@@ -17,3 +17,9 @@ bool get isNumLibraryVersion => true;
 extension MyIntList<T extends int> on List<T> {
   bool get isIntLibraryVersion => true;
 }
+
+extension MySimpleExt on String {
+  bool get isLibraryVersion => true;
+  int getANum() => 12345;
+  void test() {}
+}

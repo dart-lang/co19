@@ -11,6 +11,21 @@
  *
  *   MyList(object).quickSort();
  *
+ * or if you don't want the type argument to the extension to be inferred:
+ *
+ *   MyList<String>(object).quickSort();
+ *
+ * or if you imported the extension with a prefix to avoid name collision:
+ *
+ * prefix.MyList<String>(object).quickSort();
+ *
+ * The syntax looks like a constructor invocation, but it does not create a new
+ * object.
+ *
+ * If [object.quickSort()] would invoke an extension method of [MyList] if
+ * [MyList] was the only extension in scope, then [MyList(object).quickSort()]
+ * will invoke the exact same method in the same way.
+ *
  * @description Check that if several extensions can be applied to the same
  * member access, it's possible to force an extension member invocation if a
  * member of the receiver type takes precedence over an extension method
