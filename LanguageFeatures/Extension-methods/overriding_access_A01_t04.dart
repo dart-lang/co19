@@ -28,7 +28,7 @@ class Y extends X {}
 class Z extends Y {}
 
 extension Ext<T> on C<T> {
-  dynamic getType isX => T;
+  dynamic get getType => T;
 }
 
 
