@@ -48,7 +48,7 @@ extension C_extension on C {
 
 main() {
   Expect.equals(1, A().getType);
-  Expect.equals(1, B().getType);
-  Expect.equals(1, C().getType);
+  Expect.equals(2, B().getType);
+  Expect.equals(3, C().getType);
 }
 
