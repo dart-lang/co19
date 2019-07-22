@@ -34,7 +34,7 @@ import "../../Utils/expect.dart";
 Object getObject() => new Object();
 String getString() => "OK";
 
-extension TypedEquals<T> {
+extension TypedEquals<T> on T {
   bool equals(T value) => this == value;
 }
 

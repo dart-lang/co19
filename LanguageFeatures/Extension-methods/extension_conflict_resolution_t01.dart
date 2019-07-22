@@ -29,11 +29,11 @@
  */
 // SharedOptions=--enable-experiment=extension-methods
 
-extension TypedEquals1 {
+extension TypedEquals1 on Object {
   bool equals(T value) => this == value;
 }
 
-extension TypedEquals2 {
+extension TypedEquals2 on Object {
   bool equals(T value) => true;
 }
 
