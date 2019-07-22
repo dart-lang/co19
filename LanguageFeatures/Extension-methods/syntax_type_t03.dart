@@ -33,7 +33,7 @@ extension MyNull on Null {}
 
 extension MyString on String {}
 
-extension MyString on Void {}
+extension MyString on void {}
 
 extension MyDynamic on dynamic {}
 
