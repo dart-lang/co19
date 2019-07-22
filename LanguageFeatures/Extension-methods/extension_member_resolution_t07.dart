@@ -34,7 +34,7 @@ class C extends A {
   }
 }
 
-extension E<T extands A> on T {
+extension E<T extends A> on T {
   String method(int i, String s) {
     this.log = "Extension: $i $s";
   }
