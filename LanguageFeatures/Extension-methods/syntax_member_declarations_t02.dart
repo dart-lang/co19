@@ -23,8 +23,8 @@
 extension ExtendedList<T> on List<T> {
   int instanceVar;                  //# 01: compile-time error
   String _privateInstanceVar;       //# 02: compile-time error
-  ExtendedList<T>() {}              //# 03: compile-time error
-  ExtendedList<T>.named(int i) {}   //# 04: compile-time error
+  ExtendedList() {}                 //# 03: compile-time error
+  ExtendedList.named(int i) {}      //# 04: compile-time error
   void abstractMethod(String v);    //# 05: compile-time error
 }
 
