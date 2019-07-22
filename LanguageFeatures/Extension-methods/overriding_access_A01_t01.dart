@@ -13,7 +13,6 @@
  *
  * @description Check that if several extensions can be applied to the same
  * member access, it's possible to force an extension member invocation
- * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
