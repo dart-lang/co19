@@ -31,10 +31,10 @@ extension Ext2<T extends num> on List<T> {
 main() {
   List<int> list = <int>[1, 2, 3];
 
-  Expect.isTrue(Ext1(list).isExt1());
-  Expect.isTrue(Ext1<int>(list).isExt1());
+  Expect.isTrue(Ext1(list).isExt1);
+  Expect.isTrue(Ext1<int>(list).isExt1);
 
-  Expect.isFalse(Ext2(list).isExt1());
-  Expect.isFalse(Ext2<num>(list).isExt1());
-  Expect.isFalse(Ext2<int>(list).isExt1());
+  Expect.isFalse(Ext2(list).isExt1);
+  Expect.isFalse(Ext2<num>(list).isExt1);
+  Expect.isFalse(Ext2<int>(list).isExt1);
 }

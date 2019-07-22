@@ -34,15 +34,15 @@ import "../../Utils/expect.dart";
 class A<X extends A<X>> {}
 
 extension ext1<X extends A<X>> on A<X> {
-  bool checkme => false;
+  bool get checkme => false;
 }
 
 extension ext2<X extends A<Null>> on A<X> {
-  int get getType => true;
+  bool get checkme => true;
 }
 
 main() {
   A a = new A<Null>();
-  Expect.isTrue(a.checkme());
+  Expect.isTrue(a.checkme);
 }
 
