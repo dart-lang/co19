@@ -18,18 +18,22 @@
 import "../../Utils/expect.dart";
 
 class A<T> {}
+class B {}
+class C extends B {}
 
 extension<T> ExtendedA on A<T> {
-  dynamic checkme() => T;
-  dynamic get checkGetter => T;
   void test(dynamic expected) {
     Expect.equals(expected, T);
   }
 }
 
 main() {
-  A a = A();
-  Expect.equals(A, a.checkme());
-  Expect.equals(A, a.checkGetter);
-  a.test(A);
+  A<B> a1 = A<B>();
+  a1.test(B);
+
+  A<C> a2 = A<C>();
+  a2.test(C);
+
+  A<B> a3 = A<C>();
+  a3.test(C);
 }

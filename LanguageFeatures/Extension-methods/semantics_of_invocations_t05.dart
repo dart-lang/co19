@@ -16,6 +16,7 @@
 // SharedOptions=--enable-experiment=extension-methods
 
 import "../../Utils/expect.dart";
+
 class A<T1, T2, T3> {}
 
 extension<T, T1, T2, T3> ExtendedA on T<T1, T2, T3> {
