@@ -30,11 +30,11 @@
 // SharedOptions=--enable-experiment=extension-methods
 
 extension TypedEquals1 on Object {
-  bool equals(T value) => this == value;
+  bool equals(Object value) => this == value;
 }
 
 extension TypedEquals2 on Object {
-  bool equals(T value) => true;
+  bool equals(Object value) => true;
 }
 
 main() {
