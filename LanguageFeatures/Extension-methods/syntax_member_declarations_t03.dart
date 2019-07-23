@@ -16,18 +16,19 @@
  * have the same name as a member declared by Object (==, hashCode , toString,
  * runtimeType or noSuchMethod)
  *
- * @description Check that it is a compile error if extension declares an
- * instance variable, constructor or abstract method
+ * @description Check that it is a compile error if extension declares members
+ * with the same name as a member declared by  Object (==, hashCode , toString,
+ * runtimeType or noSuchMethod)
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
 
 extension ExtendedList<T> on List<T> {
-  int instanceVar;                  //# 01: compile-time error
-  String _privateInstanceVar;       //# 02: compile-time error
-  ExtendedList() {}                 //# 03: compile-time error
-  ExtendedList.named(int i) {}      //# 04: compile-time error
-  void abstractMethod(String v);    //# 05: compile-time error
+  dynamic noSuchMethod (Invocation invocation) => null; //# 01: compile-time error
+  bool operator == (dynamic other) => true;             //# 02: compile-time error
+  int get hashCode => 42;                               //# 03: compile-time error
+  Type get runtimeType => this.runtimeType;             //# 04: compile-time error
+  String toString() => "Run, Forrest, run";             //# 05: compile-time error
 }
 
 main() {
