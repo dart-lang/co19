@@ -39,6 +39,7 @@ main() {
   1("10");        //# 02: compile-time error
   1.0(10);        //# 03: compile-time error
   1.0("10");      //# 04: compile-time error
-  A(2);           //# 05: compile-time error
-  A(2, "3");      //# 06: compile-time error
+  A a = new A();
+  a(2);           //# 05: compile-time error
+  a(2, "3");      //# 06: compile-time error
 }
