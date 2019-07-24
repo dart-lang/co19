@@ -20,7 +20,7 @@
 
 import "../../Utils/expect.dart";
 
-extension on List<T> {
+extension<T> on List<T> {
   int get doubleLength => this.length * 2;
   List<T> operator-() => this.reversed.toList();
   List<List<T>> split(int at) => <List<T>>[this.sublist(0, at), this.sublist(at)];
