@@ -20,7 +20,7 @@ extension MySmart on Object {
 }
 
 main() {
-  constant String str = "12345";
+  const String str = "12345";
   Expect.equals(str, MySmart.smart());
   Expect.equals(str, str.smartHelper(str));
   Expect.equals(str, str.smartHelper(str));
