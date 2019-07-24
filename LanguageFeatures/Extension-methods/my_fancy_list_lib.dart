@@ -18,7 +18,7 @@ extension _MyPrivateList<T> on List<T> {
   static String get pClassName => "_MyPrivateList";
 }
 
-extension on List<T> {
+extension<T> on List<T> {
   int get nnDoubleLength => this.length * 2;
   static String get nnClassName => "NoName";
 }

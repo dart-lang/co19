@@ -14,9 +14,10 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
+
 import "my_fancy_list_lib.dart";
 
-extension on List<T> {
+extension<T> on List<T> {
   String method(int i, String s) {}
 }
 
