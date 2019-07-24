@@ -19,7 +19,7 @@ import "../../Utils/expect.dart";
 
 class A<T> {}
 
-extension<T> ExtendedA on A<T> {
+extension ExtendedA<T> on A<T> {
   dynamic checkme() => T;
   dynamic get checkGetter => T;
   void test(dynamic expected) {

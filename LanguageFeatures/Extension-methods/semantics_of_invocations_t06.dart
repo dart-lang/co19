@@ -21,7 +21,7 @@ class A<T> {}
 class B {}
 class C extends B {}
 
-extension<T> ExtendedA on A<T> {
+extension ExtendedA<T> on A<T> {
   void test(dynamic expected) {
     Expect.equals(expected, T);
   }
