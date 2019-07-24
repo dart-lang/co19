@@ -17,14 +17,14 @@
 import "../../Utils/expect.dart";
 
 extension ExtendedList<T> on List<T> {
-  static boolean called = false;
+  static bool called = false;
   void add(T val) {
     called = true;
   }
 }
 
 extension ExtendedList2<T> on List<T> {
-  static boolean called = false;
+  static bool called = false;
   void add(T val, {int count = 1}) {
     called = true;
   }
