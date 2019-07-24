@@ -34,11 +34,11 @@
 
 import "../../Utils/expect.dart";
 
-extension Ext1 {
+extension Ext1 on Object {
   bool get isExt1 => true;
 }
 
-extension Ext2 {
+extension Ext2 on Object {
   bool get isExt1 => false;
 }
 
