@@ -22,33 +22,24 @@
  *   4. not vice versa, or
  *   5. the instantiate-to-bounds type of [T1] is a subtype of the
  *      instantiate-to-bounds type of [T2] and not vice versa.
- * @description Check that An extension with [on] type clause [T1] is more
- * specific than another extension with [on] type clause [T2] if instantiated
- * type of [T1] is a subtype if instantiated type of [T2]
+ * @description Check that compile time error is not thrown if two extension
+ * members with [on] type clause are equitable, but not referenced.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
+
 import "../../Utils/expect.dart";
 
-class A {}
-class B extends A {}
-class C extends B {}
-
-extension A_extension on A {
-  int get getType => 1;
+extension MyFancyExt1 on Object {
+  bool get isExt1 => true;
 }
 
-extension B_extension on B {
-  int get getType => 2;
-}
-
-extension C_extension on C {
-  int get getType => 3;
+extension MyIntFancyExt2 on Object {
+  bool get isExt1 => false;
 }
 
 main() {
-  Expect.equals(1, A().getType);
-  Expect.equals(2, B().getType);
-  Expect.equals(3, C().getType);
+  Expect.isTrue(MyFancyExt1("").isExt1);
+  Expect.isFalse(MyFancyExt2("").isExt1);
 }
 

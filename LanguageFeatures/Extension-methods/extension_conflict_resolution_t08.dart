@@ -22,26 +22,33 @@
  *   4. not vice versa, or
  *   5. the instantiate-to-bounds type of [T1] is a subtype of the
  *      instantiate-to-bounds type of [T2] and not vice versa.
- * @description Check that [SmartIterable<T> on Iterable<T>] is less specific
- * than [SmartIterable<T> on List<T>]
+ * @description Check that An extension with [on] type clause [T1] is more
+ * specific than another extension with [on] type clause [T2] if instantiated
+ * type of [T1] is a subtype if instantiated type of [T2]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
 import "../../Utils/expect.dart";
 
-extension SmartIterable<T> on Iterable<T> {
-  int checkme() {
-    return(length);
-  }
+class A {}
+class B extends A {}
+class C extends B {}
+
+extension A_extension on A {
+  int get getType => 1;
 }
 
-extension SmartList<T> on List<T> {
-  int checkme() {
-    return(0);
-  }
+extension B_extension on B {
+  int get getType => 2;
+}
+
+extension C_extension on C {
+  int get getType => 3;
 }
 
 main() {
-  List<int> x = [1, 2, 3];
-  Expect.equals(0, x.checkme());
+  Expect.equals(1, A().getType);
+  Expect.equals(2, B().getType);
+  Expect.equals(3, C().getType);
 }
+

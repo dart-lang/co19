@@ -22,27 +22,38 @@
  *   4. not vice versa, or
  *   5. the instantiate-to-bounds type of [T1] is a subtype of the
  *      instantiate-to-bounds type of [T2] and not vice versa.
- * @description Check that An extension with [on] type clause [T1] is more
- * specific than another extension with [on] type clause [T2] if instantiated
- * type of [T1] is a subtype if instantiated type of [T2] and i-2-b type of [T1]
- * is a subtype of the instantiate type of [T2]
+ * @description Check that:
+ * For [x.best()], the most specific one is [BestList]. Because [List<int>] is a
+ * proper subtype of both [iterable<int>] and [<List<num>], we expect BestList
+ * to be the best implementation. The return type causes [v] to have type [int].
+ * If we had chosen [BestSpec] instead, the return type could only be [num],
+ * which is one of the reasons why we choose the most specific instantiated type
+ * as the winner.
+ * For [y.best()], the most specific extension is [BestSpec]. The instantiated
+ * on types that are compared are [Iterable<num>] for [BestCom] and [List<num>]
+ * for the two other. Using the instantiate-to-bounds types as tie-breaker, we
+ * find that [List<Object>] is less precise than [List<num>], so the code of
+ * [BestSpec] has more precise information available for its method
+ * implementation. The type of [w] becomes [num].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
 import "../../Utils/expect.dart";
 
-class A<X extends A<X>> {}
-
-extension ext1<X extends A<X>> on A<X> {
-  bool get checkme => false;
+extension BestCom<T extends num> on Iterable<T> {
+  T best() { throw null; }
+}
+extension BestList<T> on List<T> {
+  T best() { return(null); }
 }
 
-extension ext2<X extends A<Null>> on A<X> {
-  bool get checkme => true;
+extension BestSpec on List<num> {
+  num best() { return(0); }
 }
 
 main() {
-  A a = new A<Null>();
-  Expect.isTrue(a.checkme);
+  List<int> x = [1, 2, 3];
+  Expect.isNull(x.best());
+  List<num> y = [1, 2, 3];
+  Expect.equals(0, y.best());
 }
-

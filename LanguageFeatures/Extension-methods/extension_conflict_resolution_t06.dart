@@ -23,7 +23,8 @@
  *   5. the instantiate-to-bounds type of [T1] is a subtype of the
  *      instantiate-to-bounds type of [T2] and not vice versa.
  * @description Check that compile time error is thrown if two extension members
- * with [on] type clause are equitable
+ * with [on] type clause are equitable and a member from the conflicting
+ * extensions is referenced.
  * @compile-error
  * @author iarkh@unipro.ru
  */
