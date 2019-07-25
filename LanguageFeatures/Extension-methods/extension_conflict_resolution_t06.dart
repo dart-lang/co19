@@ -30,13 +30,15 @@
 // SharedOptions=--enable-experiment=extension-methods
 
 extension MyFancyList1<T> on List<T> {
-  bool get isIntLibraryVersion => false;
+  bool get isTested => false;
 }
 
 extension MyIntFancyList2<T> on List<T> {
-  bool get isIntLibraryVersion => false;
+  bool get isTested => false;
 }
 
 main() {
+  List aList = [1, 2, 3];
+  bool res = aList.isTested;
 }
 
