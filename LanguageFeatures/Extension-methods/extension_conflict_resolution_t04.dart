@@ -36,5 +36,5 @@ extension MyStringFancyList<T extends String> on List<T> {
 
 main() {
   List<int> aList = <int>[1, 2, 3];
-  Expect.isFalse(aList.isIntLibraryVersion);
+  Expect.isTrue(aList.isIntLibraryVersion);
 }
