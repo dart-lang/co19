@@ -22,7 +22,8 @@
  *   4. not vice versa, or
  *   5. the instantiate-to-bounds type of [T1] is a subtype of the
  *      instantiate-to-bounds type of [T2] and not vice versa.
- * @description Check that correct extension is choosen for the generic type
+ * @description Check that there cannot be extension method invocation for the
+ * receiver of type [dynamic], no matter which extensions are in scope.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
