@@ -29,6 +29,8 @@
  */
 // SharedOptions=--enable-experiment=extension-methods
 
+import "extension_conflict_resolution_lib.dart";
+
 extension MyIntList1<T extends int> on List<T> {
   bool get isIntLibraryVersion => false;
 }
