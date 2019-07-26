@@ -23,18 +23,25 @@
  * don't. We infer [T] only based on the receiver type, and therefore [T] is
  * [String], and [o] is not a valid argument (at least not when we remove
  * implicit downcasts).
- * @description Check that compile time error is thrown when method type
- * parameter is incorrect.
+ * @description Check that runtime error is thrown when method type parameter is
+ * Object and there is implicit downcast.
  * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
+
+import "../../Utils/expect.dart";
+
+Object getObject() => new Object();
+String getString() => "OK";
 
 extension TypedEquals<T> on T {
   bool equals(T value) => this == value;
 }
 
 main() {
-  String s = "12345";
-  bool b = s.equals(12);
+  String s = getString();
+  Object o = getObject();
+
+  Expect.throws(() { s.equals(o); });
 }
