@@ -35,5 +35,5 @@ main() {
   a2.test(C);
 
   A<B> a3 = A<C>();
-  a3.test(C);
+  a3.test(B);
 }
