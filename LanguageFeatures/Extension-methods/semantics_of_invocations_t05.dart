@@ -19,7 +19,7 @@ import "../../Utils/expect.dart";
 
 class A<T1, T2, T3> {}
 
-extension ExtendedA<T, T1, T2, T3> on T<T1, T2, T3> {
+extension ExtendedA<T1, T2, T3> on A<T1, T2, T3> {
   void test(dynamic expected, expected1, expected2, expected3) {
     Expect.equals(expected, T);
     Expect.equals(expected1, T1);
@@ -29,6 +29,6 @@ extension ExtendedA<T, T1, T2, T3> on T<T1, T2, T3> {
 }
 
 main() {
-  A a = A<int, String, num>();
-  a.test(A, int, String, num);
+  var a = A<int, String, num>();
+  a.test(int, String, num);
 }
