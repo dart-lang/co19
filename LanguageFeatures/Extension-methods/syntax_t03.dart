@@ -32,6 +32,6 @@ main() {
   List<String> list = ["Lily", "was", "here"];
   Expect.equals(6, list.doubleLength);
   Expect.listEquals([["Lily"], ["was", "here"]], list.split(1));
-  Expect.listEquals(["here", "was", "Lily"], -list.split);
-  Expect.listEquals(["List"], List.someMethod());
+  Expect.listEquals([["here"], ["was", "Lily"]], -list.split(1));
+  Expect.equals("List", list.someMethod());
 }
