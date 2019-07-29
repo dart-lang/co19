@@ -16,13 +16,12 @@ import "../../Utils/expect.dart";
 
 extension MySmart on Object {
   static Object smartHelper(Object o) { return o; }
-  smart() => smartHelper(this);
+  Object smart() => smartHelper(this);
 }
 
 main() {
   const String str = "12345";
-  Expect.equals(str, MySmart.smart());
-  Expect.equals(str, str.smartHelper(str));
-  Expect.equals(str, str.smartHelper(str));
+  Expect.equals(str, str.smart());
+  Expect.equals(str, MySmart.smartHelper(str));
   Expect.equals(str, MySmart(str).smartHelper(str));
 }
