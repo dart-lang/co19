@@ -15,7 +15,7 @@
 import "../../Utils/expect.dart";
 
 extension ExtendedList<T> on List<T> {
-  String foo(String x) => x + ":" + this;
+  String foo(String x) => "${x}:${this.toString()}";
 }
 
 main() {
