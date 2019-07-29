@@ -12,10 +12,7 @@
  *   `}'
  * ...
  * The type can be any valid Dart type, including a single type variable. It can
- * refer to the type parameters of the extension. It can be followed by ? which
- * means that it allows null values. When Dart gets non-nullable types by
- * default (NNBD), this ? syntax is removed and subsumed by nullable types like
- * int? being allowed in the <type> position.
+ * refer to the type parameters of the extension.
  *
  * @description Check that the type can be any valid Dart type, including a
  * single type variable. Test nullable built-in types
