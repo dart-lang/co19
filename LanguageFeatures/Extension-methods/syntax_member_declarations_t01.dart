@@ -41,12 +41,12 @@ main() {
 
   Expect.equals(6, list.getter);
   Expect.listEquals([["Lily"], ["was", "here"]], list.split(1));
-  Expect.listEquals(["here", "was", "Lily"], -list.split);
+  Expect.listEquals([["here"], ["was", "Lily"]], -list.split());
   list.setter = 13;
   Expect.equals(13, list.length);
 
-  Expect.listEquals(["List"], ExtendedList.staticGetter);
-  Expect.listEquals(["Lily was here"], ExtendedList.staticMethod("Lily was here"));
+  Expect.equals("List", ExtendedList.staticGetter);
+  Expect.equals("Lily was here", ExtendedList.staticMethod("Lily was here"));
   Expect.equals("Run, Forrest, run", ExtendedList.staticVar);
   ExtendedList.staticSetter = "Lily was here";
   Expect.equals("Lily was here", ExtendedList.staticVar);
