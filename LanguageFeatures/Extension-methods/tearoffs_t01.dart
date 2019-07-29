@@ -13,14 +13,21 @@
 // SharedOptions=--enable-experiment=extension-methods
 import "../../Utils/expect.dart";
 
+class C {
+  Object val;
+  C(this.val);
+
+  String toString() => val.toString();
+}
+
 extension ExtendedList on List {
-  int foo<T>(T x) => x.toString().length;
+  int foo<T extends C>(T x) => x.toString().length;
 }
 
 main() {
   List list = [1, 2, 3];
-  int Function(int) func = list.foo;
-  Expect.equals(3, func([1]));
-  Expect.equals(3, func("[1]"));
-  Expect.equals(13, func("Lily was here"));
+  int Function(C) func = list.foo;
+  Expect.equals(3, func(C([1])));
+  Expect.equals(3, func(C("[1]")));
+  Expect.equals(13, func(C("Lily was here")));
 }
