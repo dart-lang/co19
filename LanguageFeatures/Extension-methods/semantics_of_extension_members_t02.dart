@@ -17,22 +17,24 @@
 import "../../Utils/expect.dart";
 
 class A {
-  String get a => "a";
+  String a;
+  A(this.a);
 }
 
 class C extends A {
-  String get c => "c";
+  String c;
+  C(this.c, String a): super(a);
 }
 
 extension ExtendedC on C {
-  void test() {
-    Expect.isTrue(this is C);
+  void test(C c) {
     Expect.equals("c", this.c);
     Expect.equals("a", this.a);
+    Expect.isTrue(this == c);
   }
 }
 
 main() {
-  C c = new C();
-  c.test();
+  C c = new C("c", "a");
+  c.test(c);
 }
