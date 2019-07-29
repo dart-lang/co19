@@ -29,6 +29,7 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
+
 import "../../Utils/expect.dart";
 
 class A<X extends A<X>> {}
@@ -42,7 +43,7 @@ extension ext2<X extends A<Null>> on A<X> {
 }
 
 main() {
-  A a = new A<Null>();
+  var a = new A<Null>();
   Expect.isTrue(a.checkme);
 }
 
