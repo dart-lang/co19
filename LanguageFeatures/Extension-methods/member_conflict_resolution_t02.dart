@@ -8,22 +8,20 @@
  * member of the type it is declared on. This does not cause a compile-time
  * conflict, even if the member does not have a compatible signature.
  *
- * @description Check that it is a compile error if an extension declares a
+ * @description Check that it is no compile error if an extension declares a
  * member with the same (base-)name as a member of the type it is declared on
- * but with the different arguments
- * @compile-error
+ * but with the different arguments (but it is a compile error if we try to call
+ * it)
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
 
 extension ExtendedList<T> on List<T> {
-  static bool called = false;
   void add(T val, {int count = 1}) {
-    called = true;
   }
 }
 
 main() {
   List<String> list = ["Lily", "was"];
-  list.add("here", count: 2);
+  list.add("here", count: 2);           //# 01: compile-time error
 }
