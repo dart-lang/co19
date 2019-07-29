@@ -15,7 +15,7 @@
 import "../../Utils/expect.dart";
 
 extension ExtendedList on List {
-  int foo<T>(T x) => x.toString().length;
+  int foo(Object x) => x.toString().length;
 }
 
 main() {
