@@ -25,8 +25,12 @@ extension on int {
   String call(num v) => "My name is int($v)";
 }
 
-extension on num {
-  String call(int v) => "My name is num($v)";
+extension on String {
+  String call(num v) => "My name is String($v)";
+}
+
+extension on bool {
+  String call(num v) => "My name is bool($v)";
 }
 
 main() {
