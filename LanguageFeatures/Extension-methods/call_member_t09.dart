@@ -14,25 +14,22 @@
  * extension method, then the expression is equivalent to e1.call(args) or
  * e1.call<typeS>(args). Otherwise it is still a compile-time error.
  *
- * @description Check that a member access not matching an instance method is a
- * compile-time error if there is no applicable extension
+ * @description Check that it is a compile error if there is no most specific
+ * extension with the call method
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
 
-extension on int {
-  String call(num v) => "My name is int($v)";
+extension SmartIterable on Iterable<int> {
+  void checkme() {}
 }
 
-extension on String {
-  String call(num v) => "My name is String($v)";
-}
-
-extension on bool {
-  String call(num v) => "My name is bool($v)";
+extension SmartList on List<num> {
+  int checkme() => 0;
 }
 
 main() {
-  1.0(10.0);
+  List<int> x = [3, 1, 4];
+  x.checkme();
 }
