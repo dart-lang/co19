@@ -33,7 +33,7 @@ extension IntExtWithCall<T extends num> on C<T> {
 main() {
   C<int> c = new C<int>();
   c.value = 1;
-  Expect.listEquals([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], c(10));
+  Expect.iterableEquals([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], c(10));
   c.value = 2;
-  Expect.listEquals([2, 3, 4, 5], c(5));
+  Expect.iterableEquals([2, 3, 4, 5], c(5));
 }
