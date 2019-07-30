@@ -40,5 +40,11 @@ extension MyObject on Object {}
 
 extension MyFunction on Function {}
 
+extension MyFuture<T> on Future<T> {}
+
+extension MyFutureOr<T> on FutureOr<T> {}
+
+extension MyIterable<T> on Iterable<T> {}
+
 main() {
 }
