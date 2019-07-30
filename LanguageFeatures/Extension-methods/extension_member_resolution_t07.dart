@@ -16,10 +16,8 @@
  * correct, based on number or type of the arguments, it only checks whether
  * there is a member at all.
  *
- * @description Check that an instance member takes a precedence over an
- * extension member and it's never mind if the invocation is otherwise correct,
- * based on number or type of the arguments, it only checks whether there is a
- * member at all.
+ * @description Check that dynamic invocation doesn't invoke any extension
+ * method
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
