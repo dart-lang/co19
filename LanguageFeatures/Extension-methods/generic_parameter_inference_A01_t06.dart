@@ -8,40 +8,21 @@
  * must infer the extension type parameters first, to figure out whether the
  * extension applies, and only then start inferring method type parameters. As
  * mentioned above, the inference is similar to other cases of chained inference.
- * @description Check inference infers the extension type first and then infers
- * method type parameter.
+ * @description Check that if inference is performed in a single step then it
+ * can yield SuperList<Object>(list).checkme<int>(42) without an error.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
 
 import "../../Utils/expect.dart";
 
-class A {}
-class B extends A {}
-class C extends B {}
-
 extension SuperList<T> on List<T> {
-
-  void checkme<R extends T>(expected1, expected2) {
-    Expect.equals(expected1, T);
-    Expect.equals(expected2, R);
-  }
-
-  void checkme1<R>(expected1, expected2) {
-    Expect.equals(expected1, T);
-    Expect.equals(expected2, R);
+  void checkme<R extends T>(R i) {
+    Expect.equals(42, i);
   }
 }
 
 main() {
-  List<String> list1 = [];
-  List<A> list2 = [A()];
-
-  list1.checkme(String, String);
-
-  list2.checkme(A, A);
-  list2.checkme<A>(A, A);
-  list2.checkme<B>(A, B);
-  list2.checkme<C>(A, C);
+  List<String> list = [];
+  SuperList<Object>(list).check<int>(42);
 }
-
