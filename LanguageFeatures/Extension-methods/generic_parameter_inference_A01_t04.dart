@@ -16,7 +16,7 @@
 // SharedOptions=--enable-experiment=extension-methods
 
 extension IncorrectExtension<T1, T2> on T1<T2> {
-  void testme() {};
+  void testme() {}
 }
 
 main() {
