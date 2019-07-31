@@ -19,6 +19,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
+import "dart:async";
 
 extension MyInt on int {}
 
@@ -30,7 +31,7 @@ extension MyNull on Null {}
 
 extension MyString on String {}
 
-extension MyString on void {}
+extension MyVoid on void {}
 
 extension MyDynamic on dynamic {}
 
