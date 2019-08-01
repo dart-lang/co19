@@ -28,7 +28,7 @@ extension on C {
   addChild2(A c, [covariant A child]) {}      //# 02: compile-time error
   addChild3(A c, {covariant A child}) {}      //# 03: compile-time error
   void set setter (covariant A value) {}      //# 04: compile-time error
-  C operator+(A other) => this;               //# 05: compile-time error
+  C operator+(covariant A other) => this;     //# 05: compile-time error
 }
 
 main() {
