@@ -30,7 +30,7 @@ extension ExtendedList<T> on List<T> {
   void set setter(int v) {this.length = v;}
 
   static String get staticGetter => "List";
-  static void set staticSetter(String v) {staticVar = v;};
+  static void set staticSetter(String v) {staticVar = v;}
   static String staticMethod(String s) => s;
   static String staticVar = "Run, Forrest, run";
   static const staticConst = "Nothing is constant, everything is changing";
@@ -41,7 +41,7 @@ main() {
 
   Expect.equals(6, list.getter);
   Expect.listEquals([["Lily"], ["was", "here"]], list.split(1));
-  Expect.listEquals([["here"], ["was", "Lily"]], -list.split());
+  Expect.listEquals([["here"], ["was", "Lily"]], -list.split(1));
   list.setter = 13;
   Expect.equals(13, list.length);
 
