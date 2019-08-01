@@ -28,13 +28,13 @@ extension ExtendedA<T1, T2, T3> on A<T1, T2, T3> {
 }
 
 main() {
-  A a = A();
-  Expect.equals(a, a.checkme());
-  Expect.equals(a, a.checkGetter);
-  a.test(a);
+  A a1 = A();
+  Expect.equals(a1, a1.checkme());
+  Expect.equals(a1, a1.checkGetter);
+  a1.test(a1);
 
-  A<int, num, String> a = A<int, num, String>();
-  Expect.equals(a, a.checkme());
-  Expect.equals(a, a.checkGetter);
-  a.test(a);
+  A<int, num, String> a2 = A<int, num, String>();
+  Expect.equals(a2, a2.checkme());
+  Expect.equals(a2, a2.checkGetter);
+  a2.test(a2);
 }
