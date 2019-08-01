@@ -15,18 +15,16 @@
 import "../../Utils/expect.dart";
 
 class A {}
-class B {}
 class C extends A {}
 
-extension ExtA<T extends A> on List<T> {
-  String method() => "ExtA method";
-}
-
-extension ExtC<T extends C> on List<T> {
-  String method() => "ExtC method";
+extension Ext<T extends A> on List<T> {
+  Type method() => T;
 }
 
 main() {
-  List<C> list = [new C(), new C()];
-  Expect.equals("ExtC method", list.method());
+  var list1 = [new C(), new C()];
+  Expect.isTrue(list1.method() is C);
+
+  var list2 = [new A(), new C()];
+  Expect.isTrue(list2.method() is A);
 }
