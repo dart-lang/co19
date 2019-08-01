@@ -33,7 +33,13 @@ class C {
 
 extension on C {
   String method(int i, String s) {
-    this.log = "Extension: $i $s";
+    this.log = "Extension on C: $i $s";
+  }
+}
+
+extension on dynamic {
+  String method(int i, String s) {
+    this.log = "Extension on dynamic: $i $s";
   }
 }
 
