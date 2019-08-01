@@ -9,15 +9,22 @@
 // SharedOptions=--enable-experiment=extension-methods
 library tearoff1_lib;
 
+class X {
+  Object val;
+  C(this.val);
+
+  String toString() => val.toString();
+}
+
 extension ExtendedList on List {
-  int foo<T>(T x) => x.toString().length;
+  int foo<T extends X>(T x) => x.toString().length;
 }
 
 extension ExtendedString on String {
   String bar(String s) => s + ":" + this;
 }
 
-int Function(int) funcFoo = [1, 2, 3].foo;
+int Function(X) funcFoo = [1, 2, 3].foo;
 
 String Function(String) funcBar = "Lily was here".bar;
 
