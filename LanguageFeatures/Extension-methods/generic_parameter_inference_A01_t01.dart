@@ -27,10 +27,6 @@ extension SuperList<T> on List<T> {
     Expect.equals(expected2, R);
   }
 
-  void checkme1<R>(expected1, expected2) {
-    Expect.equals(expected1, T);
-    Expect.equals(expected2, R);
-  }
 }
 
 main() {

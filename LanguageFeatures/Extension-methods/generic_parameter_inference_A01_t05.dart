@@ -10,16 +10,19 @@
  * mentioned above, the inference is similar to other cases of chained inference.
  * @description Check that two-step type inference forces correct type parameter
  * choice and error is thrown if method parameter is of incorrect type.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
 
 extension SuperList<T> on List<T> {
-  void checkme<R extends T>(R i) {}
+  void checkme1<R>(R i) {}
+  void checkme2<R extends T>(R i) {}
 }
 
 main() {
   List<String> list = [];
-  list.checkme(42);
+  list.checkme1(42);
+  list.checkme1<int>(42);
+  list.checkme2(42);       //# 01: compile-time error
+  list.checkme2<int>(42);  //# 02: compile-time error
 }
