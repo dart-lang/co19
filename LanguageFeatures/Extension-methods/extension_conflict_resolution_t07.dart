@@ -34,7 +34,7 @@ extension MyFancyExt1 on Object {
   bool get isExt1 => true;
 }
 
-extension MyIntFancyExt2 on Object {
+extension MyFancyExt2 on Object {
   bool get isExt1 => false;
 }
 
