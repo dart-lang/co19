@@ -22,9 +22,9 @@ extension Ext<T extends A> on List<T> {
 }
 
 main() {
-  var list1 = [new C(), new C()];
+  List<C> list1 = [];
   Expect.isTrue(list1.method() is C);
 
-  var list2 = [new A(), new C()];
+  List<A> list2 = [];
   Expect.isTrue(list2.method() is A);
 }
