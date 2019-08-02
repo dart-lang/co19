@@ -7,20 +7,18 @@
  * @assertion Static member declarations in the extension declaration can be
  * accessed the same way as static members of a class or mixin declaration: By
  * prefixing with the extension's name.
- * @description Check that static member can be accessed by usual way
+ * @description Check that static member of an extension cannot be accessed
+ * through an extension override
+ * (see https://github.com/dart-lang/language/issues/481 for more details)
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
 
-import "../../Utils/expect.dart";
-
 extension MySmart on Object {
-  static Object smartHelper(Object o) { return o; }
-  Object smart() => smartHelper(this);
+  static void smartHelper() {}
 }
 
 main() {
-  String str = "12345";
-  Expect.equals(str, str.smart());
-  Expect.equals(str, MySmart.smartHelper(str));
+  MySmart("12345").smartHelper();
 }
