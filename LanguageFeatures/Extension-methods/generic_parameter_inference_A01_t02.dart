@@ -17,6 +17,7 @@
 import "../../Utils/expect.dart";
 
 int count(String string, int length) => length + string.length;
+dynamic foo = count;
 
 extension SuperList<T> on List<T> {
   R foldRight<R>(R base, R combine(T element, R accumulator)) {
@@ -37,6 +38,6 @@ List<List> toTest = [
 
 main() {
   toTest.forEach((List strings) {
-    Expect.throws(() { strings.foldRight(0, count); });
+    Expect.throws(() { strings.foldRight(0, foo); });
   });
 }
