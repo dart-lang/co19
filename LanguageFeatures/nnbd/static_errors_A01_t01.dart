@@ -13,17 +13,29 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-class C {
+class A {
   String m = "";
   void foo() {}
   int get g => 1;
   void set s(int i) {}
+  A operator+(A other) => other;
+}
+
+class C<X extends A?> {
+  X x;
+  C(this.x);
+
+  test() {
+    x.m;              //# 01: compile-time error
+    x.foo();          //# 02: compile-time error
+    x.g;              //# 03: compile-time error
+    x.s = 2;          //# 04: compile-time error
+    x + x;            //# 05: compile-time error
+  }
 }
 
 main() {
-  C? c = new C();
-  c.m;             //# 01: compile-time error
-  c.foo();         //# 02: compile-time error
-  c.g;             //# 03: compile-time error
-  c.s = 2;         //# 04: compile-time error
+  A? a = new A();
+  C<A?> c = new C<A?>(a);
+  c.test();
 }

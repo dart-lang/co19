@@ -14,13 +14,23 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-main() {
-  String? s = "Lily was";
-  int? i = 1;
-  double? d = 3.14;
+class A {
+  final String s = "Lily was here";
+  void foo() {}
+}
 
-  (s + " here").substring(0); //# 01: compile-time error
-  (s + " here").length;       //# 02: compile-time error
-  (i + i).isEven;             //# 03: compile-time error
-  (d + i).abs();              //# 04: compile-time error
+class C<X extends A?> {
+  X x;
+  C(this.x);
+
+  test() {
+    x.s;          //# 01: compile-time error
+    x.foo;        //# 02: compile-time error
+  }
+}
+
+main() {
+  A? a = new A();
+  C<A?> c = new C<A?>(a);
+  c.test();
 }

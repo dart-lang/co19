@@ -8,21 +8,22 @@
  * expression whose type is potentially nullable and not dynamic, except for the
  * methods and fields on Object.
  * @description Check that it is no compile-time error to read a field or tear
- * off a method from an expression whose type is potentially nullable but they
- * are methods and fields on Object
+ * off a method from an expression whose type is dynamic
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-main() {
-  String? s = "Lily was";
-  int? i = 1;
-  double? d = 3.14;
+class A {
+  final String s = "Lily was here";
+  void foo() {}
+}
 
-  (s + " here").hashCode;
-  (s + " here").runtimeType;
-  (s + " here").toString();
-  (i + i).hashCode;
-  (i + i).runtimeType;
-  (d + i).toString();
+test(dynamic x) {
+  x.s;
+  x.foo;
+}
+
+main() {
+  A? a = new A();
+  test(a);
 }

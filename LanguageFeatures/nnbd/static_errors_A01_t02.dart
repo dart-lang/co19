@@ -7,28 +7,31 @@
  * @assertion It is an error to call a method, setter, getter or operator on
  * an expression whose type is potentially nullable and not dynamic, except for
  * the methods, setters, getters, and operators on Object.
- * @description Check that it is a compile-time error to call a method, setter,
- * getter or operator on an expression whose type is potentially nullable
+ * @description Check that it is no compile-time error to call a method, setter,
+ * getter or operator on an expression whose type is potentially nullable if
+ * they are  methods, setters, getters, and operators on Object
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+import "../../Utils/expect.dart";
 
-class C {
-  String m = "";
-  void foo() {}
-  int get g => 1;
-  void set s(int i) {}
-  bool operator ==(other) => true;
+class A {
 }
 
-test(C? c) {
-  c.m;             //# 01: compile-time error
-  c.foo();         //# 02: compile-time error
-  c.g;             //# 03: compile-time error
-  c.s = 2;         //# 04: compile-time error
-  c == new C();    //# 05: compile-time error
+class C<X extends A?> {
+  X x;
+  C(this.x);
+
+  test() {
+    Expect.isNotNull(x.hashCode);
+    Expect.isNotNull(x.toString());
+    Expect.isNotNull(x.runtimeType);
+    Expect.isFalse(x == new A());
+  }
 }
 
 main() {
-  test(new C());
+  A? a = new A();
+  C<A?> c = new C<A?>(a);
+  c.test();
 }

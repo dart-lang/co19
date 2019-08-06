@@ -13,23 +13,22 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+import "../../Utils/expect.dart";
 
-testString(dynamic x) {
-  x.substring(0);
-  x.length;
+class A {
 }
 
-testInt(dynamic x) {
-  x.abs();
+class C<X extends A?> {
+  X x;
+  C(this.x);
+
+  test() {
+    Expect.isNotNull(x.toString);
+  }
 }
 
 main() {
-  String? s = "Lily was";
-  int? i = 1;
-  double? d = 3.14;
-
-  testString(s + " here");
-  testString(s + " here");
-  testInt(i + i);
-  testInt(d + i);
+  A? a = new A();
+  C<A?> c = new C<A?>(a);
+  c.test();
 }

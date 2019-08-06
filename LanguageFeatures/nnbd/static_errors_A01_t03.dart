@@ -8,29 +8,28 @@
  * an expression whose type is potentially nullable and not dynamic, except for
  * the methods, setters, getters, and operators on Object.
  * @description Check that it is no compile-time error to call a method, setter,
- * getter or operator on an expression whose type is potentially nullable if
- * they are  methods, setters, getters, and operators on Object
+ * getter or operator on an expression whose type is dynamic
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-import "../../Utils/expect.dart";
 
-class C {
+class A {
+  String m = "";
+  void foo() {}
+  int get g => 1;
+  void set s(int i) {}
+  A operator+(A other) => other;
 }
 
-test(C? c) {
-  Expect.isNotNull(c.hashCode);
-  Expect.isNotNull(c.toString());
-  Expect.isNotNull(c.runtimeType);
-  Expect.isFalse(c == new C());
+test(dynamic x) {
+  x.m;
+  x.foo();
+  x.g;
+  x.s = 2;
+  x + x;
 }
 
 main() {
-  C? c = new C();
-  Expect.isNotNull(c.hashCode);
-  Expect.isNotNull(c.toString());
-  Expect.isNotNull(c.runtimeType);
-  Expect.isFalse(c == new C());
-
-  test(null);
+  A? a = new A();
+  test(a);
 }
