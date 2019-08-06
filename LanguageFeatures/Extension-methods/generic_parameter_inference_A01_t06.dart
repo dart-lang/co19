@@ -24,5 +24,5 @@ extension SuperList<T> on List<T> {
 
 main() {
   List<String> list = [];
-  SuperList<Object>(list).check<int>(42);
+  SuperList<Object>(list).checkme<int>(42);
 }
