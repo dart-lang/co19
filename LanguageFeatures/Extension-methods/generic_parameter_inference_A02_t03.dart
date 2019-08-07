@@ -25,7 +25,6 @@
  * implicit downcasts).
  * @description Check that runtime error is thrown when method type parameter is
  * Object and there is implicit downcast.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
