@@ -10,5 +10,5 @@
 
 library tearoff2_lib;
 import "tearoffs1.lib.dart";
-export "tearoffs1.lib.dart" show funcFoo, funcBar, funcBar2;
+export "tearoffs1.lib.dart" show funcFoo, funcBar, funcBar2, X;
 

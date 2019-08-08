@@ -11,7 +11,7 @@ library tearoff1_lib;
 
 class X {
   Object val;
-  C(this.val);
+  X(this.val);
 
   String toString() => val.toString();
 }
