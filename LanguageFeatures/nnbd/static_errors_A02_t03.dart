@@ -7,6 +7,7 @@
  * @assertion It is an error to read a field or tear off a method from an
  * expression whose type is potentially nullable and not dynamic, except for the
  * methods and fields on Object.
+ *
  * @description Check that it is no compile-time error to read a field or tear
  * off a method from an expression whose type is dynamic
  * @author sgrekhov@unipro.ru

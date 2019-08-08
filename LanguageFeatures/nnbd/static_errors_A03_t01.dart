@@ -6,6 +6,7 @@
 /**
  * @assertion It is an error to call an expression whose type is potentially
  * nullable and not dynamic.
+ *
  * @description Check that it is a compile-time error to call an expression
  * whose type is potentially nullable and not dynamic.
  * @author sgrekhov@unipro.ru

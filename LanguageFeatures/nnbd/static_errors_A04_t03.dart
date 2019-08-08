@@ -9,6 +9,7 @@
  * expression and is not initialized in a constructor via an initializing formal
  * or an initializer list entry, unless the variable or field is marked with the
  * 'late' modifier.
+ *
  * @description Check that it is a compile-time error if an instance field
  * with potentially non-nullable type has no initializer expression
  * @compile-error

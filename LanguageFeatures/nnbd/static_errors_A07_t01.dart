@@ -6,6 +6,7 @@
 /**
  * @assertion It is an error if an optional parameter (named or otherwise) with
  * no default value has a potentially non-nullable type.
+ *
  * @description Check that it is a compile-time error if an optional parameter
  * (named or otherwise) with no default value has a potentially non-nullable
  * type.

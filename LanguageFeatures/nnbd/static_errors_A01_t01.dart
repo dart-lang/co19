@@ -7,6 +7,7 @@
  * @assertion It is an error to call a method, setter, getter or operator on
  * an expression whose type is potentially nullable and not dynamic, except for
  * the methods, setters, getters, and operators on Object.
+ *
  * @description Check that it is a compile-time error to call a method, setter,
  * getter or operator on an expression whose type is potentially nullable.
  * @author sgrekhov@unipro.ru
