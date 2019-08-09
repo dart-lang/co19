@@ -12,14 +12,13 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-import "package:meta/meta.dart";
 
 class C {
-  static void test1({@required int x, String y}) {}
-  void test2({@required int x = 0, String y}) {}
+  static void test1({required int x, String y}) {}
+  void test2({required int x = 0, String y}) {}
 }
 
-void test3({@required int x = 0, String y}) {}
+void test3({required int x = 0, String y}) {}
 
 main() {
   C.test1(y: "");      //# 01: compile-time error

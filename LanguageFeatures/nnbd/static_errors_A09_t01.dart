@@ -12,17 +12,22 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-import "package:meta/meta.dart";
 
 class C {
-  static void test1({@required int x}) {}
-  void test2({@required int x = 0}) {}
+  static void test1({required int x}) {}
+  static void test2({required int x = 0}) {}
+  void test3({required int x}) {}
+  void test4({required int x = 0}) {}
 }
 
-void test3({@required int x = 0}) {}
+void test5({required int x}) {}
+void test6({required int x = 0}) {}
 
 main() {
   C.test1();      //# 01: compile-time error
-  C().test2();    //# 02: compile-time error
-  test3();        //# 03: compile-time error
+  C.test2();      //# 02: compile-time error
+  C().test3();    //# 03: compile-time error
+  C().test4();    //# 04: compile-time error
+  test5();        //# 05: compile-time error
+  test6();        //# 06: compile-time error
 }
