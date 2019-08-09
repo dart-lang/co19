@@ -23,9 +23,11 @@
 // SharedOptions=--enable-experiment=extension-methods
 import "../../Utils/expect.dart";
 
-class A {}
-class C extends A {
+class A {
   String log;
+}
+
+class C extends A {
   String method(int i) => "$i";
   noSuchMethod(Invocation i) {
     log = "C NSM invoked. Number of arguments ${i.positionalArguments.length}";
