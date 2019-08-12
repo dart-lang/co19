@@ -16,9 +16,12 @@
 // SharedOptions=--enable-experiment=non-nullable
 class A {
   void test() {}
+  int operator[](int index) => 0;
 }
 
 main() {
   A? a = null;
   a?.test();
+  a ?.. test();
+  a?.[0];
 }
