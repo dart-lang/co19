@@ -19,8 +19,9 @@ class C<X extends A?> {
   C(this.x);
 
   test() {
-    List l1 = new List<X>(1);   //# 01: compile-time error
-    List l2 = new List<X>(0);   //# 02: compile-time error
+    List l1 = new List<X>(1); //# 01: compile-time error
+    List l2 = new List<X>(0); //# 02: compile-time error
+  }
 }
 
 main() {

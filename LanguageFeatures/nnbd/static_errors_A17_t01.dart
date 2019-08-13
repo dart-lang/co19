@@ -24,11 +24,14 @@ class C {
   void m1(late int x) {}                          //# 07: compile-time error
   void m2(int x, [late String y]) {}              //# 08: compile-time error
   void m3(int x, {late String y}) {}              //# 09: compile-time error
+
+  void set(late int x) {}                         //# 10: compile-time error
+  C operator +(late C other) => other;            //# 11: compile-time error
 }
 
-void f1(late int x) {}                            //# 10: compile-time error
-void f2(int x, [late String y]) {}                //# 11: compile-time error
-void f3(int x, {late String y}) {}                //# 12: compile-time error
+void f1(late int x) {}                            //# 12: compile-time error
+void f2(int x, [late String y]) {}                //# 13: compile-time error
+void f3(int x, {late String y}) {}                //# 14: compile-time error
 
 main() {
 }

@@ -22,6 +22,7 @@ class C<X extends A?> {
   test() {
     List l1 = new List<X>();
     List l2 = new List<A?>(3);
+  }
 }
 
 main() {
