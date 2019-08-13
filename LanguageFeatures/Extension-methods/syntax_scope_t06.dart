@@ -19,22 +19,16 @@
  * platform libraries). Extension members with private names are simply
  * inaccessible in other libraries.
  *
- * @description Check that it is not a compile-time error to export two
- * declarations, including extensions, with the same name, if one of them
- * (library one) is hidden by other (declared in the current scope)
+ * @description Check that if there are two libraries with the same name, the
+ * one declared in this scope shadows an imported one
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
-import "my_fancy_list_lib.dart";
-export "my_fancy_list_lib.dart";
-
-extension MyFancyList<T> on List<T> {
-  int get doubleLength => this.length * 2;
-  List<T> operator-() => this.reversed.toList();
-  List<List<T>> split(int at) => <List<T>>[this.sublist(0, at), this.sublist(at)];
-  static String get className => "List";
-}
+import "../../Utils/expect.dart";
+import "syntax_scope_t05_lib.dart";
 
 main() {
   List<String> list = ["Lily", "was", "here"];
+  list.split(1);              //# 01: compile-time error
+  MyFancyList.className;      //# 02: compile-time error
 }

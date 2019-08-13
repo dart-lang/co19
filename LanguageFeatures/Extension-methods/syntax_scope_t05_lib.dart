@@ -25,16 +25,12 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
+library syntax_scope_lib;
 import "my_fancy_list_lib.dart";
 export "my_fancy_list_lib.dart";
 
 extension MyFancyList<T> on List<T> {
-  int get doubleLength => this.length * 2;
-  List<T> operator-() => this.reversed.toList();
-  List<List<T>> split(int at) => <List<T>>[this.sublist(0, at), this.sublist(at)];
-  static String get className => "List";
+  int get doubleLength => this.length * 4;
+  String get whoAmI => "I'm an extension that hides another one";
 }
 
-main() {
-  List<String> list = ["Lily", "was", "here"];
-}
