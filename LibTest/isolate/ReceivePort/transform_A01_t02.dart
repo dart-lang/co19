@@ -15,19 +15,18 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-var input=[1,2,3,4,5];
-var expected=[1,2,3,6,5,10];
+var input = [1, 2, 3, 4, 5];
+var expected = [1, 2, 3, 6, 5, 10];
 
 // transform: skip evens, produce number and its double
-StreamTransformer<int, int> createMyTransformer() {
-  return new StreamTransformer.fromHandlers (
-    handleData: (int event, EventSink<int> sink) {
-      if (event.isOdd) {
-        sink.add(event);
-        sink.add(event*2);
-      }
+StreamTransformer createMyTransformer() {
+  return new StreamTransformer.fromHandlers(
+      handleData: (event, EventSink sink) {
+    if (event.isOdd) {
+      sink.add(event);
+      sink.add(event * 2);
     }
-  );
+  });
 }
 
 main() {
@@ -38,7 +37,7 @@ main() {
 
   s.listen((x) {
     actual.add(x);
-  }, onDone:() {
+  }, onDone: () {
     Expect.listEquals(expected, actual);
     asyncEnd();
   });

@@ -7,16 +7,17 @@
  * @assertion Stream transform(StreamTransformer<T, dynamic> streamTransformer)
  * Chains this stream as the input of the provided StreamTransformer.
  * Returns the result of streamTransformer.bind itself.
- * @description Checks that the new stream sends the same error and done events as this stream.
+ * @description Checks that the new stream sends the same error and done events
+ * as this stream.
  * @author kaigorodov
  */
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-StreamTransformer<int, int> createMyTransformer()  {
+StreamTransformer createMyTransformer()  {
   return new StreamTransformer.fromHandlers (
-    handleData: (int event, EventSink<int> sink) {
+    handleData: (event, EventSink sink) {
       sink.add(event);
     }
   );
@@ -24,10 +25,10 @@ StreamTransformer<int, int> createMyTransformer()  {
 
 void check(Iterable data) {
   Stream s = IsolateStream.fromIterable(data)
-    .map( (x) => x % 2 == 0 ? x : throw new ArgumentError(x) ).asBroadcastStream();
+    .map( (x) => x % 2 == 0 ? x : throw new ArgumentError(x)).asBroadcastStream();
   Stream s2 = s.transform(createMyTransformer());
   
-  Sync2 sync=new Sync2((err1, err2) {
+  Sync2 sync = new Sync2((err1, err2) {
     Expect.listEquals(err1, err2);
   });
 

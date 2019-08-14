@@ -43,8 +43,8 @@ import "IsolateStream.dart" as IsolateStream;
 check(Iterable data, bool test(var element), int expected) {
   Stream s = IsolateStream.fromIterable(data);
   asyncStart();
-  Future<int> f = s.firstWhere(test, orElse: () => expected);
-  f.then((int actual) {
+  Future f = s.firstWhere(test, orElse: () => expected);
+  f.then((actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });

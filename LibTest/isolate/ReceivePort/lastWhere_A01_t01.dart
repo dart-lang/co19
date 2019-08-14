@@ -24,40 +24,40 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check1(Iterable data, bool test(int element), var expected) {
-  Stream<int> s = new Stream.fromIterable(data);
+void check1(Iterable data, bool test(element), var expected) {
+  Stream s = new Stream.fromIterable(data);
   asyncStart();
-  Future<int> f = s.lastWhere(test);
-  f.then((int actual) {
+  Future f = s.lastWhere(test);
+  f.then((actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });
 }
 
-void check2(Iterable data, bool test(int element), var expected) {
-  Stream<int> s = new Stream.fromIterable(data);
+void check2(Iterable data, bool test(element), var expected) {
+  Stream s = new Stream.fromIterable(data);
   asyncStart();
-  Future<int> f = s.lastWhere(test, orElse: () {
+  Future f = s.lastWhere(test, orElse: () {
     Expect.fail("should not be called");
   });
-  f.then((int actual) {
+  f.then((actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });
 }
 
-void check(Iterable data, bool test(int element), var expected) {
+void check(Iterable data, bool test(element), var expected) {
   check1(data, test, expected);
   check2(data, test, expected);
 }
 
 main() {
-  check([1, 2, 3], (int element) => true, 3);
-  check([1, 2, 3], (int element) => element != null, 3);
-  check([1, 2, 3, null], (int element) => element == null, null);
-  check([1, 2, 3], (int element) => element > 0, 3);
+  check([1, 2, 3], (element) => true, 3);
+  check([1, 2, 3], (element) => element != null, 3);
+  check([1, 2, 3, null], (element) => element == null, null);
+  check([1, 2, 3], (element) => element > 0, 3);
   check(new Iterable.generate(10, (int index) => index * 5),
-      (int element) => element != 30, 45);
+      (element) => element != 30, 45);
   check(new Iterable.generate(10, (int index) => index * 5),
-      (int element) => element == 30, 30);
+      (element) => element == 30, 30);
 }
