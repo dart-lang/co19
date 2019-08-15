@@ -16,8 +16,7 @@
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
 
-class A {
-}
+class A {}
 
 class C<X extends A?> {
   X x;
