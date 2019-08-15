@@ -16,9 +16,7 @@ class A {
   test() {}
 }
 
-class C extends A {
-
-}
+class C extends A {}
 
 main() {
   A a = A();
