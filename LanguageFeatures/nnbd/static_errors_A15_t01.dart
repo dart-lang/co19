@@ -9,7 +9,6 @@
  *
  * @description Check that it is an error if the static type of e in the
  * expression throw e is not assignable to Object
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -19,6 +18,9 @@ class A {
 void test(var x) {
   if (!(x is Object)) {
     throw x;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
