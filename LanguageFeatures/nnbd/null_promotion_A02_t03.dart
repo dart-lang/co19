@@ -9,47 +9,35 @@
  * continuation, and to [Null] in the [false] continuation.
  *
  * @description Check that type of [e] is promoted to [Null] in the [false]
- * condition.
- * @author iarkh@unipro.ru
+ * condition. Test [e != null] expression. Test type aliases
+ * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 
-import "../../Utils/expect.dart";
-
-class A {}
-class B<T> {}
-
-typedef AA = A;
-typedef AAA = A?;
-
-void checkme(var x, var expectedType) {
-  Expect.isFalse(x != null);
-  Expect.isFalse(x is expectedType);
+class A {
+  foo() {}
 }
 
+typedef AAlias1 = A?
+typedef AAlias2 = AAlias1?
+
 main() {
-  Expect.isFalse(null != null);
+  AAlias1 a1 = new A();
+  if (a1 != null) {
+  } else {
+    a1.foo();
+//     ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 
-  A ? a = null;
-  checkme(a, A);
+  AAlias2? a2 = init();
 
-  B? b1 = null;
-  checkme(b1, B);
-
-  B<int> ? b2 = null;
-  checkme(b2, B);
-
-  dynamic ? d = null;
-  checkme(d, dynamic);
-
-  Object ? o = null;
-  checkme(o, Object);
-
-  AA ? aa = null;
-  checkme(aa, AA);
-  checkme(aa, A);
-
-  AAA aaa = null;
-  checkme(aaa, AAA);
-  checkme(aaa, A);
+  if (a2 != null) {
+  } else {
+    a2.foo();
+//     ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }

@@ -9,42 +9,38 @@
  * continuation, and to [Null] in the [false] continuation.
  *
  * @description Check that type of [e] is promoted to [T] in the [true]
- * condition.
+ * condition. Test [e is T] expression
  * @author iarkh@unipro.ru
+ * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 
-import "../../Utils/expect.dart";
+class A {
+  foo() {}
+}
 
-class A {}
-class B<T> {}
-
-typedef AA = A;
-typedef AAA = A?;
-
-void checkme(var x, var expectedType) {
-  Expect.isTrue(x != null);
-  Expect.isTrue(x is expectedType);
+class B<T> {
+  bar() {}
 }
 
 main() {
-  A ? a = A();
-  checkme(a, A);
+  A? a = new A();
+  if (a is A) {
+    a.foo();
+  }
 
-  B ? b1 = B();
-  checkme(b1, B);
+  B? b1 = new B();
+  if (b1 is B) {
+    b1.bar();
+  }
 
-  B<int> ? b2 = B<int>();
-  checkme(b2, B);
+  B<int>? b2 = new B<int>();
+  if (b2 is B<int>()) {
+    b2.bar();
+  }
 
-  Object ? o = 12345;
-  checkme(o, Object);
-
-  AA ? aa = A();
-  checkme(aa, AA);
-  checkme(aa, A);
-
-  AAA aaa = A();
-  checkme(aaa, AAA);
-  checkme(aaa, A);
+  int? i = 42;
+  if (i is int) {
+    i.isOdd;
+  }
 }

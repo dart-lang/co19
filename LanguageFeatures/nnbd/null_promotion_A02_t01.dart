@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A check of the form [e == null] or of the form [e is Null] where
- * [e] has static type [T] promotes the type of [e] to [Null] in the [true]
- * continuation, and to [NonNull(T)] in the [false] continuation.
+ * @assertion A check of the form [e != null] or of the form [e is T] where [e]
+ * has static type [T?] promotes the type of [e] to [T] in the [true]
+ * continuation, and to [Null] in the [false] continuation.
  *
- * @description Check that [e] is promoted to [NonNull(T)] in the [false]
- * condition.
+ * @description Check that type of [e] is promoted to [Null] in the [false]
+ * condition. Test [e != null] expression
  * @author iarkh@unipro.ru
  * @author sgrekhov@unipro.ru
  */
@@ -25,37 +25,37 @@ class B<T> {
 
 main() {
   A? a = new A();
-  if (a == null) {
+  if (a != null) {
   } else {
-    a = null;
-//      ^^^^
+    a.foo();
+//    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
   B? b1 = new B();
-  if (b1 == null) {
+  if (b1 != null) {
   } else {
-    b1 = null;
-//       ^^^^
+    b1.bar();
+//     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
   B<int>? b2 = new B<int>();
-  if (b2 == null) {
+  if (b2 != null) {
   } else {
-    b2 = null;
-//       ^^^^
+    b2.bar();
+//     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
   int? i = 42;
-  if (i == null) {
+  if (i != null) {
   } else {
-    i = null;
-//      ^^^^
+    i.isOdd;
+//    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
