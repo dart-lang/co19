@@ -11,6 +11,7 @@
 library legacy_library_aliases_lib;
 
 class A {
+  void bar() {}
 }
 
 typedef AAlias = A;

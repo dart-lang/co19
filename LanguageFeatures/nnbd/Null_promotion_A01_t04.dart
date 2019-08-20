@@ -9,23 +9,16 @@
  * continuation, and to [NonNull(T)] in the [false] continuation.
  *
  * @description Check that [e] is promoted to [Null] in the [true] condition.
- * Test [e is Null] expression
+ * Test pre-NNBD legacy types
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-
-class A {
-  foo() {}
-}
-
-class B<T> {
-  bar() {}
-}
+import "legacy_library_lib.dart";
 
 dynamic init() => null;
 
 main() {
-  A? a = init();
+  A a = init();
   if (a is Null) {
     a.foo();
 //    ^^^
@@ -33,26 +26,9 @@ main() {
 // [cfe] unspecified
   }
 
-  B? b1 = init();
-  if (b1 is null) {
-    b1.bar();
-//     ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-
-  B<int>? b2 = init();
-  if (b2 is Null) {
-    b2.bar();
-//     ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-
-  int? i = init();
-  if (i is Null) {
-    i.isOdd;
-//    ^^^^^
+  if (a == null) {
+    a.foo();
+//    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }

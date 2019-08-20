@@ -9,51 +9,52 @@
  * continuation, and to [NonNull(T)] in the [false] continuation.
  *
  * @description Check that [e] is promoted to [Null] in the [true] condition.
+ * Test [e == null] expression
  * @author iarkh@unipro.ru
+ * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 
-import "../../Utils/expect.dart";
-
-class A {}
-class B<T> {}
-
-typedef AA = A;
-typedef AAA = A?;
-
-void checkme(var x, var expectedType) {
-  Expect.equals(Null, x.runtimeType);
-  Expect.isTrue(x == null);
-  Expect.isTrue(x is Null);
-  Expect.isFalse(x is NonNull(expectedType));
+class A {
+  foo() {}
 }
 
+class B<T> {
+  bar() {}
+}
+
+dynamic init() => null;
+
 main() {
-  checkme(null, Null);
+  A? a = init();
+  if (a == null) {
+    a.foo();
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 
-  A ? a = null;
-  checkme(a, A);
+  B? b1 = init();
+  if (b1 == null) {
+    b1.bar();
+//     ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 
-  B? b1 = null;
-  checkme(b1, B);
+  B<int>? b2 = init();
+  if (b2 == null) {
+    b2.bar();
+//     ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 
-  B<int> ? b2 = null;
-  checkme(b2, B);
-
-  dynamic ? d = null;
-  checkme(d, dynamic);
-
-  Object ? o = null;
-  checkme(o, Object);
-
-  Null n = null;
-  checkme(n, Null);
-
-  AA ? aa = null;
-  checkme(aa, AA);
-  checkme(aa, A);
-
-  AAA aaa = null;
-  checkme(aaa, AAA);
-  checkme(aaa, A);
+  int? i = init();
+  if (i == null) {
+    i.isOdd;
+//    ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }

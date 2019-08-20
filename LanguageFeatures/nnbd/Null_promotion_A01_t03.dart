@@ -9,50 +9,47 @@
  * continuation, and to [NonNull(T)] in the [false] continuation.
  *
  * @description Check that [e] is promoted to [Null] in the [true] condition.
- * Test [e is Null] expression
+ * Test type aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 
 class A {
   foo() {}
 }
 
-class B<T> {
-  bar() {}
-}
+typedef AAlias1 = A?
+typedef AAlias2 = AAlias1?
 
 dynamic init() => null;
 
 main() {
-  A? a = init();
-  if (a is Null) {
-    a.foo();
+  AAlias1 a1 = init();
+  if (a1 is Null) {
+    a1.foo();
+//     ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  if (a1 == null) {
+    a1.foo();
+//     ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  AAlias2? a2 = init();
+  if (a2 is Null) {
+    a2.foo();
 //    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  B? b1 = init();
-  if (b1 is null) {
-    b1.bar();
+  if (a2 == null) {
+    a2.foo();
 //     ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-
-  B<int>? b2 = init();
-  if (b2 is Null) {
-    b2.bar();
-//     ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-
-  int? i = init();
-  if (i is Null) {
-    i.isOdd;
-//    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }

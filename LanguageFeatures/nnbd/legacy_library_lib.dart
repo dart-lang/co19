@@ -11,6 +11,7 @@
 library legacy_library_lib;
 
 class A {
+  void foo() {}
 }
 
 class C<X extends A> {

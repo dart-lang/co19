@@ -9,50 +9,44 @@
  * continuation, and to [NonNull(T)] in the [false] continuation.
  *
  * @description Check that [e] is promoted to [Null] in the [true] condition.
- * Test [e is Null] expression
+ * Test pre-NNBD legacy types and type aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
-
-class A {
-  foo() {}
-}
-
-class B<T> {
-  bar() {}
-}
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+import "legacy_library_lib.dart";
+import "legacy_library_aliases_lib.dart" as legacy;
 
 dynamic init() => null;
 
+typedef AAlias = A;
+
 main() {
-  A? a = init();
-  if (a is Null) {
-    a.foo();
-//    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-
-  B? b1 = init();
-  if (b1 is null) {
-    b1.bar();
+  AAlias a1 = init();
+  if (a1 is Null) {
+    a1.foo();
 //     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  B<int>? b2 = init();
-  if (b2 is Null) {
-    b2.bar();
+  if (a1 == null) {
+    a1.foo();
 //     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  int? i = init();
-  if (i is Null) {
-    i.isOdd;
-//    ^^^^^
+  legacy.AAlias a2 = init();
+  if (a2 is Null) {
+    a2.bar();
+//     ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+
+  if (a2 == null) {
+    a2.bar();
+//     ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
