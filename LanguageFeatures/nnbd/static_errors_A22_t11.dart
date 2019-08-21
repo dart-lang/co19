@@ -15,22 +15,23 @@
  *  X & S where S is non-nullable
  *
  * @description Check that null cannot be assigned to non-nullable type. Test
- * X & S where S is non-nullable
+ * X & S where S is non-nullable. Test type aliases
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 
-class X {}
-
 class S {}
 
-typedef XAlias = X?;
+typedef SAlias = S;
 
-class C = XAlias with S;
+dynamic getDynamic(dynamic v) => v;
 
 main() {
-  C c = null;
+  var v = getDynamic(new S());
+  if (v is SAlias) {
+    v = null;
 //      ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 }

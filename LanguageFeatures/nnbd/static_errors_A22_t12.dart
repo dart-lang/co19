@@ -21,13 +21,14 @@
 // SharedOptions=--enable-experiment=non-nullable
 import "legacy_library_lib.dart";
 
-class S {}
-
-class C = A with S;
+class S extends A {}
 
 main() {
-  C c = null;
+  A a = new S();
+  if (a is S) {
+    a = null;
 //      ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 }

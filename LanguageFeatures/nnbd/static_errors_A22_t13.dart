@@ -19,17 +19,18 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
-import "legacy_library_lib.dart";
+import "legacy_library_aliases_lib.dart";
 
-typedef AAlias = A;
+class S extends AAlias {}
 
-class S {}
-
-class C = AAlias with S;
+typedef SAlias = S;
 
 main() {
-  C c = null;
+  AAlias a = new S();
+  if (a is SAlias) {
+    a = null;
 //      ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 }

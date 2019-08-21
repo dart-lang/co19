@@ -20,15 +20,16 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-class X {}
-
 class S {}
 
-class C = X? with S;
+dynamic getDynamic(dynamic v) => v;
 
 main() {
-  C c = null;
+  var v = getDynamic(new S());
+  if (v is S) {
+    v = null;
 //      ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 }
