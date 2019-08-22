@@ -12,9 +12,15 @@ library legacy_library_lib;
 
 class A {
   void foo() {}
+  int operator[](int index) => index;
 }
 
 class C<X extends A> {
   X x;
   C(this.x);
 }
+
+class M {
+}
+
+abstract class I {}

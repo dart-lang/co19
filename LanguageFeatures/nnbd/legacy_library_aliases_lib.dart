@@ -12,6 +12,7 @@ library legacy_library_aliases_lib;
 
 class A {
   void bar() {}
+  int operator[](int index) => index;
 }
 
 typedef AAlias = A;
