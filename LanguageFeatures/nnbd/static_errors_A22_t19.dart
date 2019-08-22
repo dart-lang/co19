@@ -15,15 +15,22 @@
  *  X & S where S is non-nullable
  *
  * @description Check that null cannot be assigned to non-nullable type. Test
- * S* for some S where S is non-nullable. Test legacy pre-NNBD types
+ * X & S where S is non-nullable
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
-import "legacy_library_lib.dart";
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+import "legacy_library_aliases_lib.dart";
+
+class S extends AAlias {}
+
+typedef SAlias = S?;
 
 main() {
-  A a = null;
+  AAlias a = new S();
+  if (a is SAlias) {
+    a = null;
 //      ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 }

@@ -21,13 +21,13 @@
 import "legacy_library_aliases_lib.dart";
 
 main() {
-  AAlias a = new A();
+  AAlias? a = new A();
   a = null;
 
-  IntAlias i  = null;
+  IntAlias? i  = null;
   i = 42;
   i = null;
 
-  StringAlias sa = "";
+  StringAlias? sa = "";
   sa = null;
 }

@@ -15,19 +15,18 @@
  *  X & S where S is non-nullable
  *
  * @description Check that null cannot be assigned to non-nullable type. Test
- * FutureOr<S> where S is non-nullable
+ * S* for some S where S is non-nullable. Test type alias
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
-import "dart:async";
-
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 class C {
 }
 
+typedef CAlias = C;
+
 main() {
-  FutureOr<C> fo = null;
-//                 ^^^^
+  CAlias c = null;
+//           ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
 }

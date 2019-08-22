@@ -15,17 +15,30 @@
  *  X & S where S is non-nullable
  *
  * @description Check that null cannot be assigned to non-nullable type. Test
- * S* for some S where S is non-nullable
+ * interface type. Test type aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 
-class C {
+abstract class A {
+  void foo(int i);
 }
 
+class C {
+  int bar(int i) => i;
+}
+
+typedef AAlias = A;
+typedef CAlias = C;
+
 main() {
-  C v = null;
-//      ^^^^
+  AAlias a = null;
+//           ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  CAlias v = null;
+//           ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

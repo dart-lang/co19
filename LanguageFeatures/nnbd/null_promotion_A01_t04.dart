@@ -18,7 +18,7 @@ import "legacy_library_lib.dart";
 dynamic init() => null;
 
 main() {
-  A a = init();
+  A? a = init();
   if (a is Null) {
     a.foo();
 //    ^^^

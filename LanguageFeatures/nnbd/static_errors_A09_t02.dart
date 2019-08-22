@@ -15,13 +15,20 @@
 
 class C {
   static void test1({required int x, String y}) {}
-  void test2({required int x = 0, String y}) {}
+  void test2({required int x, String y}) {}
 }
 
-void test3({required int x = 0, String y}) {}
+void test3({required int x, String y}) {}
+
+Function test4 = ({required int x, String y}) {};
+
+typedef void Foo({required int x, String y});
 
 main() {
-  C.test1(y: "");      //# 01: compile-time error
-  C().test2(y: "");    //# 02: compile-time error
-  test3(y: "");        //# 03: compile-time error
+  C.test1(y: "");                             //# 01: compile-time error
+  C().test2(y: "");                           //# 02: compile-time error
+  test3(y: "");                               //# 03: compile-time error
+  test4(y: "");                               //# 04: compile-time error
+  Foo foo = ({required int x, String y}) {};
+  foo(y: "");                                 //# 05: compile-time error
 }

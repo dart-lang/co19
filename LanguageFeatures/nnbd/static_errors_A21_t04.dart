@@ -21,10 +21,10 @@
 import "legacy_library_lib.dart";
 
 main() {
-  A a = new A();
+  A? a = new A();
   a = null;
 
-  C c = null;
+  C? c = null;
   c = new C<A>(a);
   c = null;
 }

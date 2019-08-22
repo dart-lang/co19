@@ -22,6 +22,7 @@ import "dart:async";
 import "legacy_library_lib.dart";
 
 main() {
-  FutureOr<A> fo1 = null;
-  FutureOr<C<A>> fo2 = null;
+  FutureOr<A?> fo1 = null;
+  FutureOr<C<A>?> fo2 = null;
+  FutureOr<C<A?>?> fo3 = null;
 }

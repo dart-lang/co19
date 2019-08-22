@@ -15,18 +15,17 @@
  *  X & S where S is non-nullable
  *
  * @description Check that null cannot be assigned to non-nullable type. Test
- * FutureOr<S> where S is non-nullable
+ * S* for some S where S is non-nullable
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
+
 class C {
 }
 
-typedef CAlias = C;
-
 main() {
-  CAlias c = null;
-//           ^^^^
+  C v = null;
+//      ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

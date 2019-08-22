@@ -17,7 +17,7 @@
 import "legacy_library_lib.dart";
 import "legacy_library_aliases_lib.dart" as aliases;
 
-typedef AAlias = A;
+typedef AAlias = A?;
 
 main() {
   AAlias a = new A();
@@ -30,7 +30,7 @@ main() {
 // [cfe] unspecified
   }
 
-  aliases.AAlias a2 = aliases.A();
+  aliases.AAlias? a2 = aliases.A();
   if (a2 != null) {
   } else {
     a2.bar();
