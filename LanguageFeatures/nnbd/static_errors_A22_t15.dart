@@ -15,7 +15,7 @@
  *  X & S where S is non-nullable
  *
  * @description Check that null cannot be assigned to non-nullable type. Test
- * X extends S where S is non-nullable. Test legacy pre-NNDB types
+ * X extends S where S is non-nullable. Test legacy pre-NNBD types
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
