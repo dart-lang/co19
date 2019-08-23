@@ -14,15 +14,15 @@
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
 
-final late g;
+late final g;
 
 class C {
-  static final late s;
-  final late v;
+  static late final s;
+  late final v;
 }
 
 main() {
-  final late l;
+  late final l;
 
   g = "Lily";
   C.s = "was";

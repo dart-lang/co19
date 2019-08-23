@@ -24,10 +24,10 @@ late String s;
 late int i;
 late bool b;
 
-final late A aa;
-final late String ss;
-final late int ii;
-final late bool bb;
+late final A aa;
+late final String ss;
+late final int ii;
+late final bool bb;
 
 main() {
 }
