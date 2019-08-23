@@ -15,14 +15,30 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-class C {
-}
-
+void init() {}
 main() {
-  C? c = C();
-  List<C?> list = [C(), null, C()];
-  for (var o in new Object()) {}                //# 01: compile-time error
-  for (C? cc in list) {}                        //# 02: compile-time error
-  for (var o in [Object(), Object(), null]) {}  //# 03: compile-time error
-  for (var o in [Object(), C(), c]) {}          //# 04: compile-time error
+  Object v1 = new Object();
+  Object? v2 = new Object();
+  void v3 = init();
+  Null v4 = null;
+
+  for (var o in v1) {}
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  for (var o in v2) {}
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  for (var o in v3) {}
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  for (var o in v4) {}
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

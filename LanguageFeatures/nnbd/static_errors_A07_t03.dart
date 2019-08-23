@@ -9,51 +9,38 @@
  *
  * @description Check that it is a compile-time error if an optional parameter
  * (named or otherwise) with no default value has a potentially non-nullable
- * type. Test type aliases
+ * type. Test legacy pre-NNBD types
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
+import "legacy_library_lib.dart";
 
-class A {
-  static void test1(var x, [A a]) {}
-//                             ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  static void test2(var x, {A a}) {}
-//                             ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-typedef AAlias = A?;
-
-class C<X extends AAlias> {
+class C<X extends A?> {
   X x;
   C(this.x);
 
-  void test1<X extends AAlias>(var x, [X x]) {}
-//                                        ^
+  void test1<X extends A?>(var x, [X x]) {}
+//                                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test2<X extends AAlias>(var x, {X x}) {}
-//                                        ^
+  void test2<X extends A?>(var x, {X x}) {}
+//                                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test1<X extends AAlias>(var x, [X x]) {}
+void test1<X extends A?>(var x, [X x]) {}
 //                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void test2<X extends AAlias>(var x, {X x}) {}
-//                                      ^
+void test2<X extends A?>(var x, {X x}) {}
+//                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  AAlias a = new A();
-  C<AAlias> c = new C<AAlias>(a);
+  A? a = new A();
+  C<A?> c = new C<A?>(a);
 }

@@ -24,3 +24,7 @@ class M {
 }
 
 abstract class I {}
+
+class Const {
+  const Const();
+}

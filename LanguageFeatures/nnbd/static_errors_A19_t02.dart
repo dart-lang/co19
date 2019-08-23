@@ -21,8 +21,12 @@ class C {
 main() {
   C c = C();
   dynamic d = [c, Object()];
-  List<C> list = [C(), C(), C()];
-  for (C cc in list) {}
+  List<C> list1 = [C(), C(), C()];
+  List<C?> list2 = [C(), null, C()];
+
+  for (var o in d) {}
+  for (C c in list1) {}
+  for (C? c in list2) {}
   for (var o in [Object(), Object()]) {}
-  for (var o in [Object(), C(), c]) {}
+  for (var o in [Object(), null, c]) {}
 }

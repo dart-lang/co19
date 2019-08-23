@@ -9,22 +9,11 @@
  *
  * @description Check that it is a compile-time error if an optional parameter
  * (named or otherwise) with no default value has a potentially non-nullable
- * type. Test type aliases
+ * type. Test legacy pre-NNBD types and type aliases
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
-
-class A {
-  static void test1(var x, [A a]) {}
-//                             ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  static void test2(var x, {A a}) {}
-//                             ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
+import "legacy_library_lib.dart";
 
 typedef AAlias = A?;
 
@@ -44,7 +33,7 @@ class C<X extends AAlias> {
 }
 
 void test1<X extends AAlias>(var x, [X x]) {}
-//                                  ^
+//                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

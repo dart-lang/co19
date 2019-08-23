@@ -13,13 +13,22 @@
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
 
+class A {
+  String s;
+  A(this.s);
+}
+
 class C {
-  num pi = 3.14;
-  late num p1 = this.pi;
-  late final p2 = this.pi;
+  A a = new A("Lily was here");
+  covariant late A a1 = this.a;
+  late covariant A a2 = this.a;
+  late covariant final A a3 = this.a;
+  covariant late final A a4 = this.a;
 }
 
 main() {
-  Expect.equals(3.14, new C().p1);
-  Expect.equals(3.14, new C().p2);
+  Expect.equals("Lily was here", new C().a1);
+  Expect.equals("Lily was here", new C().a2);
+  Expect.equals("Lily was here", new C().a3);
+  Expect.equals("Lily was here", new C().a4);
 }

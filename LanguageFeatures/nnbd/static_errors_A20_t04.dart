@@ -8,39 +8,32 @@
  * or ...?) on a non-nullable receiver.
  *
  * @description Check it is a warning to use a null aware operator (?., ?.., ??,
- * ??=, or ...?) on a non-nullable receiver. Test type aliases
+ * ??=, or ...?) on a non-nullable receiver. Test legacy pre-NNBD types
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
-class A {
-  test() {}
-}
-
-class C extends A {}
-
-typedef CAlias = C;
+// SharedOptions=--enable-experiment=non-nullable
+import "legacy_library_lib.dart";
 
 main() {
   A a = A();
-  CAlias c = C();
-  c?.test();
+  a?.foo();
 // ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  c?..test();
+  a?..foo();
 // ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  c ?? a;
+  a ?? new Object();
 //  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  a ??= c;
+  a ??= new Object();
 //  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  List<CAlias?> clist = [C(), C(), null];
-  List<A> alist = [A(), C(), ...? clist];
+  List<A?> list = [A(), null];
+  List<A> alist = [A(), A(), ...? list];
 //                           ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
