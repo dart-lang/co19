@@ -31,9 +31,6 @@ class C {
 
   covariant late C instanceVar4 = A.instance;
   covariant late var instanceVar5 = A.instance;
-
-  late covariant C instanceVar6 = A.instance;
-  late covariant var instanceVar7 = A.instance;
 }
 
 late String globalVar1 = "globalVar1";
@@ -42,7 +39,7 @@ late var globalVar3 = "globalVar3";
 
 main() {
   late String localVar1 = "localVar1";
-  late final localVar12 = "localVar2";
+  late final localVar2 = "localVar2";
   late var localVar3 = "localVar3";
 
   Expect.equals("staticVar1", C.staticVar1);
@@ -53,8 +50,6 @@ main() {
   Expect.equals("instanceVar3", A.instance.instanceVar3);
   Expect.equals(A.instance, A.instance.instanceVar4);
   Expect.equals(A.instance, A.instance.instanceVar5);
-  Expect.equals(A.instance, A.instance.instanceVar6);
-  Expect.equals(A.instance, A.instance.instanceVar7);
   Expect.equals("localVar1", localVar1);
   Expect.equals("localVar2", localVar2);
   Expect.equals("localVar3", localVar3);

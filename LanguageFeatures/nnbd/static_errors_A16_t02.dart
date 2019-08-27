@@ -21,14 +21,10 @@ class A {
 class C {
   A a = new A("Lily was here");
   covariant late A a1 = this.a;
-  late covariant A a2 = this.a;
-  late covariant final A a3 = this.a;
-  covariant late final A a4 = this.a;
+  covariant late final A a2 = this.a;
 }
 
 main() {
   Expect.equals("Lily was here", new C().a1);
   Expect.equals("Lily was here", new C().a2);
-  Expect.equals("Lily was here", new C().a3);
-  Expect.equals("Lily was here", new C().a4);
 }
