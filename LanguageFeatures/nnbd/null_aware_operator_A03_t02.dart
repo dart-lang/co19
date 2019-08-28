@@ -9,23 +9,22 @@
  *
  * @description Check that a property access e?.f translates to:
  *  SHORT[EXP(e), fn[x] => x.f]
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
 
 class A {
-  String test = "Lily was here";
+  String test() => "Lily was here";
 }
 
 main() {
-  A? a = null;
-  Expect.isNull(a?.test);
+  A a = Never;
+  Expect.isNotNull(a?.toString());    /// static type warning
   a = new A();
-  Expect.equals("Lily was here", a?.test);
+  Expect.equals("Lily was here", a?.test());    /// static type warning
 
-  String? s = null;
-  Expect.isNull(s?.hashCode );
-  s = "Let it be";
-  Expect.isNotNull(s?.hashCode );
+  String s = "Let it be";
+  Expect.equals("Let it be", s?.toString());    /// static type warning
 }

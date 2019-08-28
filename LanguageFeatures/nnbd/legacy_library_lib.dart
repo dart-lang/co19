@@ -6,13 +6,16 @@
 /**
  * @author sgrekhov@unipro.ru
  */
-// @dart=2.5
+// @dart=2.4
 // SharedOptions=--enable-experiment=non-nullable
 library legacy_library_lib;
 
 class A {
   void foo() {}
+  String test() => "Lily was here";
+  String text = "Let it be";
   int operator[](int index) => index;
+  void operator[]=(int index, var value) => value;
 }
 
 class C<X extends A> {

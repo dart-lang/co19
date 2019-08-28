@@ -6,7 +6,7 @@
 /**
  * @author sgrekhov@unipro.ru
  */
-// @dart=2.5
+// @dart=2.4
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 library legacy_library_aliases_lib;
 

@@ -15,17 +15,17 @@
 import "../../Utils/expect.dart";
 
 class A {
-  String test = "Lily was here";
+  String test() => "Lily was here";
 }
 
 main() {
   A? a = null;
-  Expect.isNull(a?.test);
+  Expect.isNull(a?.test());
   a = new A();
-  Expect.equals("Lily was here", a?.test);
+  Expect.equals("Lily was here", a?.test());
 
   String? s = null;
-  Expect.isNull(s?.hashCode );
+  Expect.isNull(s?.toString());
   s = "Let it be";
-  Expect.isNotNull(s?.hashCode );
+  Expect.equals("Let it be", s?.toString());
 }

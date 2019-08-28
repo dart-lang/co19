@@ -4,28 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A property access e?.f translates to:
- *  SHORT[EXP(e), fn[x] => x.f]
+ * @assertion The assignment e1?.f = e2 translates to:
+ *  SHORT[EXP(e1), fn[x] => x.f = EXP(e2)]
  *
  * @description Check that a property access e?.f translates to:
  *  SHORT[EXP(e), fn[x] => x.f]
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
 
 class A {
-  String test = "Lily was here";
+  String test = "No woman";
 }
 
 main() {
-  A? a = null;
-  Expect.isNull(a?.test);
-  a = new A();
-  Expect.equals("Lily was here", a?.test);
-
-  String? s = null;
-  Expect.isNull(s?.hashCode );
-  s = "Let it be";
-  Expect.isNotNull(s?.hashCode );
+  A a = new A();
+  Expect.equals("no cry", a?.test = "no cry");    /// static type warning
+  Expect.equals("no cry", a.test);
 }

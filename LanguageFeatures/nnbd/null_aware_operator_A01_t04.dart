@@ -8,24 +8,22 @@
  *  SHORT[EXP(e), fn[x] => x.f]
  *
  * @description Check that a property access e?.f translates to:
- *  SHORT[EXP(e), fn[x] => x.f]
+ *  SHORT[EXP(e), fn[x] => x.f]. Test legacy pre-NNBD types
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
-
-class A {
-  String test = "Lily was here";
-}
+import "legacy_library_lib.dart";
 
 main() {
-  A? a = null;
-  Expect.isNull(a?.test);
-  a = new A();
-  Expect.equals("Lily was here", a?.test);
+  A? a1 = null;
+  Expect.isNull(a1?.text);
+  a1 = new A();
+  Expect.equals("Let it be", a1?.text);
 
-  String? s = null;
-  Expect.isNull(s?.hashCode );
-  s = "Let it be";
-  Expect.isNotNull(s?.hashCode );
+  A a2 = Never;
+  Expect.isNotNull(a2?.hashCode);    /// static type warning
+  a2 = new A();
+  Expect.equals("Let it be", a2?.text);    /// static type warning
 }
