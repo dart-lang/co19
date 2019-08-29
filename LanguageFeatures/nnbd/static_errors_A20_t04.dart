@@ -16,25 +16,10 @@ import "legacy_library_lib.dart";
 
 main() {
   A a = A();
-  a?.foo();
-// ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  a?..foo();
-// ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  a ?? new Object();
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  a ??= new Object();
-//  ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  a?.foo();                                 //# 01: static-type warning
+  a?..foo();                                //# 02: static-type warning
+  a ?? new Object();                        //# 03: static-type warning
+  a ??= new Object();                       //# 04: static-type warning
   List<A?> list = [A(), null];
-  List<A> alist = [A(), A(), ...? list];
-//                           ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  List<A> alist = [A(), A(), ...? list];    //# 05: static-type warning
 }
