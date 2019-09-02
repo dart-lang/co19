@@ -99,5 +99,4 @@ main() {
 
   Expect.equals("no cry", l2);
   Expect.equals("counter: 1", _log);
-  clear();
 }

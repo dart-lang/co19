@@ -101,5 +101,4 @@ main() {
   Expect.throws(() {l2;});
   Expect.equals("let it be", l2);
   Expect.equals("init('let it be'), counter: 2", _log);
-  clear();
 }
