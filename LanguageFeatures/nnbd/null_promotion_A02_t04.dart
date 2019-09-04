@@ -32,20 +32,24 @@ main() {
   AAlias a = new A();
   if (a is A) {
     a.foo();
+    A a1 = a;
   }
 
   BAlias1 b1 = new B();
   if (b1 is B) {
     b1.bar();
+    B b11 = b1;
   }
 
   BAlias2 b2 = new B<int>();
   if (b2 is B<int>()) {
     b2.bar();
+    B b22 = b2;
   }
 
   IntAlias i = 42;
   if (i is int) {
     i.isOdd;
+    int j = i + 10;
   }
 }

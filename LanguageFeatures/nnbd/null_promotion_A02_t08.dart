@@ -8,43 +8,28 @@
  * has static type [T?] promotes the type of [e] to [T] in the [true]
  * continuation, and to [Null] in the [false] continuation.
  *
- * @description Check that type of [e] is promoted to [T] in the [true]
- * condition. Test [e is T] expression
+ * @description Check that type of [e] is promoted to [T] in the [false]
+ * condition. Test [e != null] expression. Test pre-NNBD legacy types and type
+ * aliases
  * @author iarkh@unipro.ru
- * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+import "legacy_library_lib.dart";
+import "legacy_library_aliases_lib.dart" as aliases;
 
-class A {
-  foo() {}
-}
-
-class B<T> {
-  bar() {}
-}
+typedef AAlias = A?;
 
 main() {
-  A? a = new A();
-  if (a is A) {
+  AAlias a = new A();
+
+  if (a != null) {
     a.foo();
-    A a1 = a;
+    AAlias a1 = a;
   }
 
-  B? b1 = new B();
-  if (b1 is B) {
-    b1.bar();
-    B bb = b1;
-  }
-
-  B<int>? b2 = new B<int>();
-  if (b2 is B<int>()) {
-    b2.bar();
-    B b22 = b2;
-  }
-
-  int? i = 42;
-  if (i is int) {
-    i.isOdd;
-    int i1 = i + 12;
+  aliases.AAlias? a2 = aliases.A();
+  if (a2 != null) {
+    a2.bar();
+    aliases.AAlias a22 = a2;
   }
 }

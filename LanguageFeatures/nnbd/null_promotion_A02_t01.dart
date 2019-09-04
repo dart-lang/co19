@@ -10,7 +10,6 @@
  *
  * @description Check that type of [e] is promoted to [Null] in the [false]
  * condition. Test [e != null] expression
- * @author iarkh@unipro.ru
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

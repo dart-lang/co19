@@ -8,9 +8,9 @@
  * [e] has static type [T] promotes the type of [e] to [Null] in the [true]
  * continuation, and to [NonNull(T)] in the [false] continuation.
  *
- * @description Check that [e] is promoted to [Null] in the [true] condition.
- * Test [e is Null] expression
- * @author sgrekhov@unipro.ru
+ * @description Check that [e] is promoted to [NonNull(T)] in the [false]
+ * condition. Test [e is Null] expression.
+ * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
@@ -22,38 +22,34 @@ class B<T> {
   bar() {}
 }
 
-dynamic init() => null;
+dynamic init(x) => x;
 
 main() {
-  A? a = init();
+  A? a = init(A());
   if (a is Null) {
+  } else {
     a.foo();
-//    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    A a1 = a;
   }
 
-  B? b1 = init();
+  B? b1 = init(B());
   if (b1 is Null) {
+  } else {
     b1.bar();
-//     ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    B b11 = b1;
   }
 
-  B<int>? b2 = init();
+  B<int>? b2 = init(B<int>());
   if (b2 is Null) {
+  } else {
     b2.bar();
-//     ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    B b22 = b2;
   }
 
-  int? i = init();
+  int? i = init(0);
   if (i is Null) {
+  } else {
     i.isOdd;
-//    ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    int i1 = i + 2;
   }
 }
