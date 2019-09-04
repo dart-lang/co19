@@ -6,16 +6,13 @@
 /**
  * @author sgrekhov@unipro.ru
  */
-// @dart=2.4
 // SharedOptions=--enable-experiment=non-nullable
-library legacy_library_lib;
+library opted_in_lib;
 
 class A {
   void foo() {}
-  String test() => "Lily was here";
-  String text = "Let it be";
-  int operator[](int index) => index;
-  void operator[]=(int index, var value) => value;
+  void test({required String named}) {}
+  static void bar({required String named}) {}
 }
 
 class C<X extends A> {
@@ -23,11 +20,14 @@ class C<X extends A> {
   C(this.x);
 }
 
-class M {
-}
+void test({required String named}) {}
 
-abstract class I {}
+A? aVar1 = null;
+C<A>? cVar1 = null;
+String? sVar1 = null;
+int? iVar1 = null;
 
-class Const {
-  const Const();
-}
+A aVar2 = new A();
+C<A> cVar2 = new C<A>(aVar2);
+String sVar2 = "Show must go on";
+int iVar2 = 42;

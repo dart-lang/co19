@@ -6,15 +6,16 @@
 /**
  * @author sgrekhov@unipro.ru
  */
-// @dart=2.4
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
-library legacy_library_aliases_lib;
+library opted_in_aliases_lib;
 
 class A {
-  void bar() {}
-  int operator[](int index) => index;
 }
 
-typedef AAlias = A;
-typedef IntAlias = int;
-typedef StringAlias = String;
+typedef AAliasNonNullable = A;
+typedef AAliasNullable = A?;
+typedef StringAliasNonNullable = String;
+typedef StringAliasNullable = String?;
+typedef IntAliasNonNullable = int;
+typedef IntAliasNullable = int?;
+typedef NeverAlias = Never;
