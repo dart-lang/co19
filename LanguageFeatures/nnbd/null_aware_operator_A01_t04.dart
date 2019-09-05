@@ -22,8 +22,6 @@ main() {
   a1 = new A();
   Expect.equals("Let it be", a1?.text);
 
-  A a2 = Never;
-  Expect.isNotNull(a2?.hashCode);    /// static type warning
-  a2 = new A();
+  A a2 = new A();
   Expect.equals("Let it be", a2?.text);    /// static type warning
 }

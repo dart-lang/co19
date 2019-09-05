@@ -11,18 +11,12 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-import "../../Utils/expect.dart";
-
-class C {}
-
-dynamic test() => Never;
+Never fail() {
+  throw new Exception();
+}
 
 main() {
-  C c1 = Never;
-  c1 = test();
-  Expect.isTrue(c1 is Never);
-
-  C? c2 = Never;
-  c2 = test();
-  Expect.isTrue(c2 is Never);
+  try {
+    fail();
+  } on Exception catch(_) {}
 }

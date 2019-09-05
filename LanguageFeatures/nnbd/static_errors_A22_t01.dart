@@ -20,7 +20,7 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-test() => Never;
+dynamic test() => new Object();
 
 main() {
   var v = test();

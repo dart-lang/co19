@@ -22,8 +22,6 @@ main() {
   a1 = new A();
   Expect.equals("Lily was here", a1?.test());
 
-  A a2 = Never;
-  Expect.isNotNull(a2?.toString());    /// static type warning
-  a2 = new A();
+  A a2 = new A();
   Expect.equals("Lily was here", a2?.test());    /// static type warning
 }

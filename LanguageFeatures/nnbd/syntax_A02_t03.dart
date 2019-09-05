@@ -4,30 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The grammar of expressions is extended to allow any expression to
- * be suffixed with a !.
+ * @assertion A new primitive type Never. This type is denoted by the built-in
+ * type declaration Never declared in dart:core.
  *
- * @description Check that any expression can be suffixed with a !
+ * @description Check new primitive type Never
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
 
-class C {}
-
-test1(C c) {}
-
-test2(Object o) {}
-
 main() {
-  C? c = new C();
-  test1(c!);
-
-  Object? o = new Object();
-  test2(o!);
-
-  int? i = 42;
-  test2(i);
-
-  Expect.throws(() {null!;});
+  Object? o;
+  Expect.isFalse(o is Never);
 }

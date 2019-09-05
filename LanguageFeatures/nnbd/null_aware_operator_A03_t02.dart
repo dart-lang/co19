@@ -20,9 +20,7 @@ class A {
 }
 
 main() {
-  A a = Never;
-  Expect.isNotNull(a?.toString());    /// static type warning
-  a = new A();
+  A a = new A();
   Expect.equals("Lily was here", a?.test());    /// static type warning
 
   String s = "Let it be";

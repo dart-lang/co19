@@ -7,19 +7,15 @@
  * @assertion A new primitive type Never. This type is denoted by the built-in
  * type declaration Never declared in dart:core.
  *
- * @description Check new primitive type Never. Test type alias
+ * @description Check new primitive type Never
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+import "../../Utils/expect.dart";
 
 typedef Neverland = Never;
 
-Neverland fail() {
-  throw new Exception();
-}
-
 main() {
-  try {
-    fail();
-  } on Exception catch(_) {}
+  Object? o;
+  Expect.isFalse(o is Neverland);
 }

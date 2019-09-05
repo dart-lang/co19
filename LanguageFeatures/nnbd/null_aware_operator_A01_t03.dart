@@ -34,9 +34,7 @@ main() {
   s = "Let it be";
   Expect.isNotNull(s?.hashCode);
 
-  AAlias2 a2 = Never;
-  Expect.isNotNull(a2?.hashCode);    /// static type warning
-  a2 = new A();
+  AAlias2 a2 = new A();
   Expect.equals("Lily was here", a2?.test);    /// static type warning
 
   StringAlias2 s2 = "Let it be";
