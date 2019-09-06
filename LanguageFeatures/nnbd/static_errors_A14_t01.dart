@@ -25,5 +25,5 @@ void test(var x) {
 
 main() {
   A? a = null;
-  test(a!);
+  test(a);
 }
