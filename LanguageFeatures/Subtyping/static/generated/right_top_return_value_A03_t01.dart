@@ -24,25 +24,25 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 dynamic t0Instance = "";
-Object t1Instance = new Object();
+Object? t1Instance = new Object();
 
 
 
 
-Object returnValueFunc() => t0Instance;
+Object? returnValueFunc() => t0Instance;
 
 class ReturnValueTest {
-  static Object staticTestMethod() => t0Instance;
+  static Object? staticTestMethod() => t0Instance;
 
-  Object testMethod() => t0Instance;
+  Object? testMethod() => t0Instance;
 
-  Object get testGetter => t0Instance;
+  Object? get testGetter => t0Instance;
 }
 
 main() {
-  Object returnValueLocalFunc() => t0Instance;
+  Object? returnValueLocalFunc() => t0Instance;
 
   returnValueFunc();
   returnValueLocalFunc();

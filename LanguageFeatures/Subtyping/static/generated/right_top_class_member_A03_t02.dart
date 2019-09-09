@@ -24,15 +24,15 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 dynamic t0Instance = "";
-Object t1Instance = new Object();
+Object? t1Instance = new Object();
 
 
 
 
 class ClassMemberSuper1_t02 {
-  Object m;
+  Object? m;
 
   ClassMemberSuper1_t02(dynamic value) {
     m = value;
@@ -44,7 +44,7 @@ class ClassMemberSuper1_t02 {
 
   ClassMemberSuper1_t02.short(this.m);
 
-  void set superSetter(Object val) {}
+  void set superSetter(Object? val) {}
 }
 
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {

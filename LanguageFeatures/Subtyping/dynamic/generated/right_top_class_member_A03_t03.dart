@@ -25,15 +25,15 @@
 
 
 import '../../utils/common.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 dynamic t0Instance = "";
-Object t1Instance = new Object();
+Object? t1Instance = new Object();
 
 
 
 
 class ClassMemberMixin1_t03 {
-  Object m;
+  Object? m;
 
   void set superSetter(dynamic val) {}
 }
@@ -66,7 +66,7 @@ main() {
   // Test type parameters
 
   //# <-- NotGenericFunctionType
-  ClassMember2_t03<Object> c2 = new ClassMember2_t03<Object>();
+  ClassMember2_t03<Object?> c2 = new ClassMember2_t03<Object?>();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

@@ -24,26 +24,26 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 dynamic t0Instance = "";
-Object t1Instance = new Object();
+Object? t1Instance = new Object();
 
 
 
 
 class ArgumentsBindingSuper1_t02 {
-  Object m;
+  Object? m;
 
-  ArgumentsBindingSuper1_t02(Object value) {}
-  ArgumentsBindingSuper1_t02.named(Object value, {Object val2}) {}
-  ArgumentsBindingSuper1_t02.positional(Object value, [Object val2]) {}
+  ArgumentsBindingSuper1_t02(Object? value) {}
+  ArgumentsBindingSuper1_t02.named(Object? value, {Object? val2}) {}
+  ArgumentsBindingSuper1_t02.positional(Object? value, [Object? val2]) {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
-  void superTest(Object val) {}
-  void superTestPositioned(Object val, [Object val2]) {}
-  void superTestNamed(Object val, {Object val2}) {}
-  Object get superGetter => m;
-  void set superSetter(Object val) {}
+  void superTest(Object? val) {}
+  void superTestPositioned(Object? val, [Object? val2]) {}
+  void superTestNamed(Object? val, {Object? val2}) {}
+  Object? get superGetter => m;
+  void set superSetter(Object? val) {}
 }
 
 class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
@@ -121,13 +121,13 @@ main() {
   // Test type parameters
 
   //# <-- NotGenericFunctionType
-  ArgumentsBinding2_t02<Object> c2 =
-    new ArgumentsBinding2_t02<Object>(t0Instance);
-  c2 = new ArgumentsBinding2_t02<Object>.c1(t0Instance);
-  c2 = new ArgumentsBinding2_t02<Object>.c2(t1Instance, t0Instance);
-  c2 = new ArgumentsBinding2_t02<Object>.c3(t0Instance);
-  c2 = new ArgumentsBinding2_t02<Object>.c4(t1Instance, t0Instance);
-  c2 = new ArgumentsBinding2_t02<Object>.c5(t0Instance);
+  ArgumentsBinding2_t02<Object?> c2 =
+    new ArgumentsBinding2_t02<Object?>(t0Instance);
+  c2 = new ArgumentsBinding2_t02<Object?>.c1(t0Instance);
+  c2 = new ArgumentsBinding2_t02<Object?>.c2(t1Instance, t0Instance);
+  c2 = new ArgumentsBinding2_t02<Object?>.c3(t0Instance);
+  c2 = new ArgumentsBinding2_t02<Object?>.c4(t1Instance, t0Instance);
+  c2 = new ArgumentsBinding2_t02<Object?>.c5(t0Instance);
 
   c2.test(t0Instance, t1Instance);
   c2.superTest(t0Instance);

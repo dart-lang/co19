@@ -24,21 +24,21 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 dynamic t0Instance = "";
-Object t1Instance = new Object();
+Object? t1Instance = new Object();
 
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  Object m;
+  Object? m;
 
-  void superTest(Object val) {}
-  void superTestPositioned(Object val, [Object val2]) {}
-  void superTestNamed(Object val, {Object val2}) {}
-  Object get superGetter => m;
-  void set superSetter(Object val) {}
+  void superTest(Object? val) {}
+  void superTestPositioned(Object? val, [Object? val2]) {}
+  void superTestNamed(Object? val, {Object? val2}) {}
+  Object? get superGetter => m;
+  void set superSetter(Object? val) {}
 }
 
 class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
@@ -94,7 +94,7 @@ main() {
   // Test type parameters
 
   //# <-- NotGenericFunctionType
-  ArgumentsBinding2_t03<Object> c2 = new ArgumentsBinding2_t03<Object>();
+  ArgumentsBinding2_t03<Object?> c2 = new ArgumentsBinding2_t03<Object?>();
   c2.test(t0Instance, t1Instance);
   c2.superTest(t0Instance);
   c2.superTestPositioned(t0Instance);

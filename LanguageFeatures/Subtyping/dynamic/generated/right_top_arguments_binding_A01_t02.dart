@@ -6,7 +6,7 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Right Top: T1 is a top type (i.e. Object, dynamic, or void)
+ * Right Top: T1 is a top type (i.e. Object?, dynamic, or void)
  * @description Check that if type T1 is an Object then T0 is a subtype of a
  * type T1
  * @author sgrekhov@unipro.ru
@@ -25,28 +25,28 @@
 
 
 import '../../utils/common.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 class T0 {}
 
 T0 t0Instance = new T0();
-Object t1Instance = new Object();
+Object? t1Instance = new Object();
 
 
 
 
 class ArgumentsBindingSuper1_t02 {
-  Object m;
+  Object? m;
 
-  ArgumentsBindingSuper1_t02(Object value) {}
-  ArgumentsBindingSuper1_t02.named(Object value, {Object val2}) {}
-  ArgumentsBindingSuper1_t02.positional(Object value, [Object val2]) {}
+  ArgumentsBindingSuper1_t02(Object? value) {}
+  ArgumentsBindingSuper1_t02.named(Object? value, {Object? val2}) {}
+  ArgumentsBindingSuper1_t02.positional(Object? value, [Object? val2]) {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
-  void superTest(Object val) {}
-  void superTestPositioned(Object val, [Object val2]) {}
-  void superTestNamed(Object val, {Object val2}) {}
-  Object get superGetter => m;
-  void set superSetter(Object val) {}
+  void superTest(Object? val) {}
+  void superTestPositioned(Object? val, [Object? val2]) {}
+  void superTestNamed(Object? val, {Object? val2}) {}
+  Object? get superGetter => m;
+  void set superSetter(Object? val) {}
 }
 
 class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
@@ -124,13 +124,13 @@ main() {
   // Test type parameters
 
   //# <-- NotGenericFunctionType
-  ArgumentsBinding2_t02<Object> c2 =
-    new ArgumentsBinding2_t02<Object>(forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<Object>.c1(forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<Object>.c2(t1Instance, forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<Object>.c3(forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<Object>.c4(t1Instance, forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<Object>.c5(forgetType(t0Instance));
+  ArgumentsBinding2_t02<Object?> c2 =
+    new ArgumentsBinding2_t02<Object?>(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<Object?>.c1(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<Object?>.c2(t1Instance, forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<Object?>.c3(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<Object?>.c4(t1Instance, forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<Object?>.c5(forgetType(t0Instance));
 
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));

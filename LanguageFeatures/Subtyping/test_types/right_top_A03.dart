@@ -11,9 +11,9 @@
  * T0 is a subtype of a type T1.
  * @author sgrekhov@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=non-nullable
 dynamic t0Instance = "";
-Object t1Instance = new Object();
+Object? t1Instance = new Object();
 
 //# @T0 = dynamic
-//# @T1 = Object
+//# @T1 = Object?

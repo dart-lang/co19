@@ -25,21 +25,21 @@
 
 
 import '../../utils/common.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 dynamic t0Instance = "";
-Object t1Instance = new Object();
+Object? t1Instance = new Object();
 
 
 
 
-Object returnValueFunc() => forgetType(t0Instance);
+Object? returnValueFunc() => forgetType(t0Instance);
 
 class ReturnValueTest {
-  static Object staticTestMethod() => forgetType(t0Instance);
+  static Object? staticTestMethod() => forgetType(t0Instance);
 
-  Object testMethod() => forgetType(t0Instance);
+  Object? testMethod() => forgetType(t0Instance);
 
-  Object get testGetter => forgetType(t0Instance);
+  Object? get testGetter => forgetType(t0Instance);
 }
 
 class ReturnValueGen<X> {
@@ -49,7 +49,7 @@ class ReturnValueGen<X> {
 
 
 main() {
-  Object returnValueLocalFunc() => forgetType(t0Instance);
+  Object? returnValueLocalFunc() => forgetType(t0Instance);
 
   returnValueFunc();
   returnValueLocalFunc();
@@ -62,7 +62,7 @@ main() {
   // Test type parameters
 
   //# <-- NotGenericFunctionType
-  new ReturnValueGen<Object>().testMethod();
-  new ReturnValueGen<Object>().testGetter;
+  new ReturnValueGen<Object?>().testMethod();
+  new ReturnValueGen<Object?>().testGetter;
   //# -->
 }

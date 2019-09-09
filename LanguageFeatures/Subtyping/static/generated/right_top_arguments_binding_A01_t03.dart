@@ -6,7 +6,7 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Right Top: T1 is a top type (i.e. Object, dynamic, or void)
+ * Right Top: T1 is a top type (i.e. Object?, dynamic, or void)
  * @description Check that if type T1 is an Object then T0 is a subtype of a
  * type T1
  * @author sgrekhov@unipro.ru
@@ -24,23 +24,23 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 class T0 {}
 
 T0 t0Instance = new T0();
-Object t1Instance = new Object();
+Object? t1Instance = new Object();
 
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  Object m;
+  Object? m;
 
-  void superTest(Object val) {}
-  void superTestPositioned(Object val, [Object val2]) {}
-  void superTestNamed(Object val, {Object val2}) {}
-  Object get superGetter => m;
-  void set superSetter(Object val) {}
+  void superTest(Object? val) {}
+  void superTestPositioned(Object? val, [Object? val2]) {}
+  void superTestNamed(Object? val, {Object? val2}) {}
+  Object? get superGetter => m;
+  void set superSetter(Object? val) {}
 }
 
 class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
@@ -96,7 +96,7 @@ main() {
   // Test type parameters
 
   //# <-- NotGenericFunctionType
-  ArgumentsBinding2_t03<Object> c2 = new ArgumentsBinding2_t03<Object>();
+  ArgumentsBinding2_t03<Object?> c2 = new ArgumentsBinding2_t03<Object?>();
   c2.test(t0Instance, t1Instance);
   c2.superTest(t0Instance);
   c2.superTestPositioned(t0Instance);

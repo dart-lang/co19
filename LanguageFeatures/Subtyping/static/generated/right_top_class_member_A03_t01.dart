@@ -24,17 +24,17 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 dynamic t0Instance = "";
-Object t1Instance = new Object();
+Object? t1Instance = new Object();
 
 
 
 
 class ClassMember1_t01 {
-  static Object s = t0Instance;
-  Object m = t0Instance;
-  Object _p = t0Instance;
+  static Object? s = t0Instance;
+  Object? m = t0Instance;
+  Object? _p = t0Instance;
 
   ClassMember1_t01() {
     s = t0Instance;
@@ -42,7 +42,7 @@ class ClassMember1_t01 {
     _p = t0Instance;
   }
 
-  ClassMember1_t01.named(Object value) {
+  ClassMember1_t01.named(Object? value) {
     s = value;
     m = value;
     _p = value;
@@ -56,21 +56,21 @@ class ClassMember1_t01 {
     _p = t0Instance;
   }
 
-  set setter(Object val) {
+  set setter(Object? val) {
     _p = val;
   }
 
-  Object get getter => _p;
+  Object? get getter => _p;
 
   static staticTest() {
     s = t0Instance;
   }
 
-  static set staticSetter(Object val) {
+  static set staticSetter(Object? val) {
     s = val;
   }
 
-  static Object get staticGetter => t0Instance;
+  static Object? get staticGetter => t0Instance;
 }
 
 main() {

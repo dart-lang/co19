@@ -24,39 +24,39 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 dynamic t0Instance = "";
-Object t1Instance = new Object();
+Object? t1Instance = new Object();
 
 
 
 
-namedArgumentsFunc1(Object t1, {Object t2}) {}
-positionalArgumentsFunc1(Object t1, [Object t2]) {}
+namedArgumentsFunc1(Object? t1, {Object? t2}) {}
+positionalArgumentsFunc1(Object? t1, [Object? t2]) {}
 
 namedArgumentsFunc2<X>(X t1, {X t2}) {}
 positionalArgumentsFunc2<X>(X t1, [X t2]) {}
 
 class ArgumentsBindingClass {
-  ArgumentsBindingClass(Object t1) {}
+  ArgumentsBindingClass(Object? t1) {}
 
-  ArgumentsBindingClass.named(Object t1, {Object t2}) {}
-  ArgumentsBindingClass.positional(Object t1, [Object t2]) {}
+  ArgumentsBindingClass.named(Object? t1, {Object? t2}) {}
+  ArgumentsBindingClass.positional(Object? t1, [Object? t2]) {}
 
-  factory ArgumentsBindingClass.fNamed(Object t1, {Object t2}) {
+  factory ArgumentsBindingClass.fNamed(Object? t1, {Object? t2}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(Object t1, [Object t2]) {
+  factory ArgumentsBindingClass.fPositional(Object? t1, [Object? t2]) {
     return new ArgumentsBindingClass.positional(t1, t2);
   }
 
-  static namedArgumentsStaticMethod(Object t1, {Object t2}) {}
-  static positionalArgumentsStaticMethod(Object t1, [Object t2]) {}
+  static namedArgumentsStaticMethod(Object? t1, {Object? t2}) {}
+  static positionalArgumentsStaticMethod(Object? t1, [Object? t2]) {}
 
-  namedArgumentsMethod(Object t1, {Object t2}) {}
-  positionalArgumentsMethod(Object t1, [Object t2]) {}
+  namedArgumentsMethod(Object? t1, {Object? t2}) {}
+  positionalArgumentsMethod(Object? t1, [Object? t2]) {}
 
-  set testSetter(Object val) {}
+  set testSetter(Object? val) {}
 }
 
 class ArgumentsBindingGen<X>  {
@@ -103,15 +103,15 @@ main() {
 
   //# <-- NotGenericFunctionType
   // test generic functions
-  namedArgumentsFunc2<Object>(t0Instance, t2: t0Instance);
-  positionalArgumentsFunc2<Object>(t0Instance, t0Instance);
+  namedArgumentsFunc2<Object?>(t0Instance, t2: t0Instance);
+  positionalArgumentsFunc2<Object?>(t0Instance, t0Instance);
 
   // test generic class constructors
-  ArgumentsBindingGen<Object> instance2 = new ArgumentsBindingGen<Object>(t0Instance);
-  instance2 = new ArgumentsBindingGen<Object>.fNamed(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<Object>.fPositional(t0Instance, t0Instance);
-  instance2 = new ArgumentsBindingGen<Object>.named(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<Object>.positional(t0Instance, t0Instance);
+  ArgumentsBindingGen<Object?> instance2 = new ArgumentsBindingGen<Object?>(t0Instance);
+  instance2 = new ArgumentsBindingGen<Object?>.fNamed(t0Instance, t2: t0Instance);
+  instance2 = new ArgumentsBindingGen<Object?>.fPositional(t0Instance, t0Instance);
+  instance2 = new ArgumentsBindingGen<Object?>.named(t0Instance, t2: t0Instance);
+  instance2 = new ArgumentsBindingGen<Object?>.positional(t0Instance, t0Instance);
 
   // test generic class methods and setters
   instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);

@@ -6,7 +6,7 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Right Top: T1 is a top type (i.e. Object, dynamic, or void)
+ * Right Top: T1 is a top type (i.e. Object?, dynamic, or void)
  * @description Check that if type T1 is an Object then T0 is a subtype of a
  * type T1
  * @author sgrekhov@unipro.ru
@@ -24,27 +24,27 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 class T0 {}
 
 T0 t0Instance = new T0();
-Object t1Instance = new Object();
+Object? t1Instance = new Object();
 
 
 
 
-Object returnValueFunc() => t0Instance;
+Object? returnValueFunc() => t0Instance;
 
 class ReturnValueTest {
-  static Object staticTestMethod() => t0Instance;
+  static Object? staticTestMethod() => t0Instance;
 
-  Object testMethod() => t0Instance;
+  Object? testMethod() => t0Instance;
 
-  Object get testGetter => t0Instance;
+  Object? get testGetter => t0Instance;
 }
 
 main() {
-  Object returnValueLocalFunc() => t0Instance;
+  Object? returnValueLocalFunc() => t0Instance;
 
   returnValueFunc();
   returnValueLocalFunc();

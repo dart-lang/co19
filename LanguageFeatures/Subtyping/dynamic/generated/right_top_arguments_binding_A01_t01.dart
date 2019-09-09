@@ -6,7 +6,7 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Right Top: T1 is a top type (i.e. Object, dynamic, or void)
+ * Right Top: T1 is a top type (i.e. Object?, dynamic, or void)
  * @description Check that if type T1 is an Object then T0 is a subtype of a
  * type T1
  * @author sgrekhov@unipro.ru
@@ -25,41 +25,41 @@
 
 
 import '../../utils/common.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 class T0 {}
 
 T0 t0Instance = new T0();
-Object t1Instance = new Object();
+Object? t1Instance = new Object();
 
 
 
 
-namedArgumentsFunc1(Object t1, {Object t2}) {}
-positionalArgumentsFunc1(Object t1, [Object t2]) {}
+namedArgumentsFunc1(Object? t1, {Object? t2}) {}
+positionalArgumentsFunc1(Object? t1, [Object? t2]) {}
 
 namedArgumentsFunc2<X>(X t1, {X t2}) {}
 positionalArgumentsFunc2<X>(X t1, [X t2]) {}
 
 class ArgumentsBindingClass {
-  ArgumentsBindingClass(Object t1) {}
+  ArgumentsBindingClass(Object? t1) {}
 
-  ArgumentsBindingClass.named(Object t1, {Object t2}) {}
-  ArgumentsBindingClass.positional(Object t1, [Object t2]) {}
+  ArgumentsBindingClass.named(Object? t1, {Object? t2}) {}
+  ArgumentsBindingClass.positional(Object? t1, [Object? t2]) {}
 
-  factory ArgumentsBindingClass.fNamed(Object t1, {Object t2}) {
+  factory ArgumentsBindingClass.fNamed(Object? t1, {Object? t2}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(Object t1, [Object t2]) {
+  factory ArgumentsBindingClass.fPositional(Object? t1, [Object? t2]) {
     return new ArgumentsBindingClass.positional(t1, t2);
   }
 
-  static namedArgumentsStaticMethod(Object t1, {Object t2}) {}
-  static positionalArgumentsStaticMethod(Object t1, [Object t2]) {}
+  static namedArgumentsStaticMethod(Object? t1, {Object? t2}) {}
+  static positionalArgumentsStaticMethod(Object? t1, [Object? t2]) {}
 
-  namedArgumentsMethod(Object t1, {Object t2}) {}
-  positionalArgumentsMethod(Object t1, [Object t2]) {}
+  namedArgumentsMethod(Object? t1, {Object? t2}) {}
+  positionalArgumentsMethod(Object? t1, [Object? t2]) {}
 
-  set testSetter(Object val) {}
+  set testSetter(Object? val) {}
 }
 
 class ArgumentsBindingGen<X>  {
@@ -115,19 +115,19 @@ main() {
 
   //# <-- NotGenericFunctionType
   // test generic functions
-  namedArgumentsFunc2<Object>(forgetType(t0Instance), t2: forgetType(t0Instance));
-  positionalArgumentsFunc2<Object>(forgetType(t0Instance), forgetType(t0Instance));
+  namedArgumentsFunc2<Object?>(forgetType(t0Instance), t2: forgetType(t0Instance));
+  positionalArgumentsFunc2<Object?>(forgetType(t0Instance), forgetType(t0Instance));
 
   // test generic class constructors
-  ArgumentsBindingGen<Object> instance2 =
-      new ArgumentsBindingGen<Object>(forgetType(t0Instance));
-  instance2 = new ArgumentsBindingGen<Object>.fNamed(forgetType(t0Instance),
+  ArgumentsBindingGen<Object?> instance2 =
+      new ArgumentsBindingGen<Object?>(forgetType(t0Instance));
+  instance2 = new ArgumentsBindingGen<Object?>.fNamed(forgetType(t0Instance),
       t2: forgetType(t0Instance));
-  instance2 = new ArgumentsBindingGen<Object>.fPositional(forgetType(t0Instance),
+  instance2 = new ArgumentsBindingGen<Object?>.fPositional(forgetType(t0Instance),
       forgetType(t0Instance));
-  instance2 = new ArgumentsBindingGen<Object>.named(forgetType(t0Instance),
+  instance2 = new ArgumentsBindingGen<Object?>.named(forgetType(t0Instance),
       t2: forgetType(t0Instance));
-  instance2 = new ArgumentsBindingGen<Object>.positional(forgetType(t0Instance),
+  instance2 = new ArgumentsBindingGen<Object?>.positional(forgetType(t0Instance),
       forgetType(t0Instance));
 
   // test generic class methods and setters

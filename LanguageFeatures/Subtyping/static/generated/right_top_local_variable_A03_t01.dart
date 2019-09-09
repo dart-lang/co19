@@ -24,9 +24,9 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 dynamic t0Instance = "";
-Object t1Instance = new Object();
+Object? t1Instance = new Object();
 
 
 
@@ -34,28 +34,28 @@ Object t1Instance = new Object();
 class LocalVariableTest {
 
   LocalVariableTest() {
-    Object t1 = t0Instance;
+    Object? t1 = t0Instance;
     t1 = t0Instance;
   }
 
   static staticTest() {
-    Object t1 = t0Instance;
+    Object? t1 = t0Instance;
     t1 = t0Instance;
   }
 
   test() {
-    Object t1 = t0Instance;
+    Object? t1 = t0Instance;
     t1 = t0Instance;
   }
 }
 
 main() {
   foo() {
-    Object t1 = t0Instance;
+    Object? t1 = t0Instance;
     t1 = t0Instance;
   }
 
-  Object t1 = t0Instance;
+  Object? t1 = t0Instance;
   t1 = t0Instance;
   foo();
   LocalVariableTest x = new LocalVariableTest();
