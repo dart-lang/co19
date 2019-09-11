@@ -10,7 +10,7 @@
 // SharedOptions=--enable-experiment=non-nullable
 library legacy_library_lib;
 
-class A {
+class A implements AMx {
   void foo() {}
   String test() => "Lily was here";
   String text = "Let it be";
@@ -26,8 +26,24 @@ class C<X extends A> {
 class M {
 }
 
+class Mx {
+  int iMx = 42;
+}
+
+class AMx {
+  String text = "No woman, no cry";
+}
+
+mixin Mxn on AMx {
+  String sMxn = "Show must go on";
+}
+
 abstract class I {}
 
 class Const {
   const Const();
 }
+
+int iLegacy = 42;
+String sLegacy = "Yesterday, All my troubles seemed so far away";
+A aLegacy = new A();
