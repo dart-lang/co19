@@ -7,7 +7,7 @@
  * @assertion The default bound of generic type parameters is treated as
  * [Object?].
  * @description Check that default function type parameter is treated as
- * [Object?] dynamically.
+ * [Object?].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
