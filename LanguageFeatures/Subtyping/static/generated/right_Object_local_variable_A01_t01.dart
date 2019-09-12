@@ -25,7 +25,7 @@
  * @author sgrekhov@unipro.ru
  */
 /*
- * This test is generated from right_Object_A01.dart and 
+ * This test is generated from right_object_A01.dart and 
  * local_variable_x01.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.

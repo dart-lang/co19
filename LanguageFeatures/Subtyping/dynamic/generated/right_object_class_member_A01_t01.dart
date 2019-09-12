@@ -32,6 +32,7 @@
  */
 
 
+import '../../utils/common.dart';
 // SharedOptions=--enable-experiment=non-nullable
 class B {}
 class T0 extends B {}
@@ -44,14 +45,14 @@ Object t1Instance = new Object();
 
 
 class ClassMember1_t01 {
-  static Object s = t0Instance;
-  Object m = t0Instance;
-  Object _p = t0Instance;
+  static Object s = forgetType(t0Instance);
+  Object m = forgetType(t0Instance);
+  Object _p = forgetType(t0Instance);
 
   ClassMember1_t01() {
-    s = t0Instance;
-    m = t0Instance;
-    _p = t0Instance;
+    s = forgetType(t0Instance);
+    m = forgetType(t0Instance);
+    _p = forgetType(t0Instance);
   }
 
   ClassMember1_t01.named(Object value) {
@@ -63,26 +64,54 @@ class ClassMember1_t01 {
   ClassMember1_t01.short(this.m, this._p);
 
   test() {
-    s = t0Instance;
-    m = t0Instance;
-    _p = t0Instance;
+    s = forgetType(t0Instance);
+    m = forgetType(t0Instance);
+    _p = forgetType(t0Instance);
   }
 
   set setter(Object val) {
     _p = val;
   }
 
-  Object get getter => _p;
+  Object get getter => forgetType(_p);
 
   static staticTest() {
-    s = t0Instance;
+    s = forgetType(t0Instance);
   }
 
   static set staticSetter(Object val) {
     s = val;
   }
 
-  static Object get staticGetter => t0Instance;
+  static Object get staticGetter => forgetType(t0Instance);
+}
+
+class ClassMember2_t01<X> {
+  X m;
+  X _p;
+
+  ClassMember2_t01() {
+    m = forgetType(t0Instance);
+    _p = forgetType(t0Instance);
+  }
+
+  ClassMember2_t01.named(X value) {
+    m = value;
+    _p = value;
+  }
+
+  ClassMember2_t01.short(this.m, this._p);
+
+  test(X v) {
+    m = v;
+    _p = v;
+  }
+
+  set setter(X val) {
+    _p = val;
+  }
+
+  Object get getter => forgetType(_p);
 }
 
 
@@ -90,18 +119,30 @@ class ClassMember1_t01 {
 test<T extends B>(T t0Instance) {
     
   ClassMember1_t01 c1 = new ClassMember1_t01();
-  c1 = new ClassMember1_t01.short(t0Instance,
-      t0Instance);
-  c1 = new ClassMember1_t01.named(t0Instance);
-  c1.m = t0Instance;
+  c1 = new ClassMember1_t01.short(forgetType(t0Instance),
+      forgetType(t0Instance));
+  c1 = new ClassMember1_t01.named(forgetType(t0Instance));
+  c1.m = forgetType(t0Instance);
   c1.test();
-  c1.setter = t0Instance;
+  c1.setter = forgetType(t0Instance);
   c1.getter;
 
-  ClassMember1_t01.s = t0Instance;
+  ClassMember1_t01.s = forgetType(t0Instance);
   ClassMember1_t01.staticTest();
-  ClassMember1_t01.staticSetter = t0Instance;
+  ClassMember1_t01.staticSetter = forgetType(t0Instance);
   ClassMember1_t01.staticGetter;
+
+  // Test type parameters
+
+  //# <-- NotGenericFunctionType
+  ClassMember2_t01<Object> c2 = new ClassMember2_t01<Object>();
+  c2 = new ClassMember2_t01<Object>.short(forgetType(t0Instance),
+  forgetType(t0Instance));
+  c2 = new ClassMember2_t01<Object>.named(forgetType(t0Instance));
+  c2.m = forgetType(t0Instance);
+  c2.test(forgetType(t0Instance));
+  c2.getter;
+  //# -->
 
 }
 

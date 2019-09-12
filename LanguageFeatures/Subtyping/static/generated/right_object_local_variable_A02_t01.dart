@@ -15,61 +15,72 @@
  *  - if T0 is Null, dynamic, void, or S? for any S, then the subtyping does not
  *      hold (per above, the result of the subtyping query is false).
  *  - Otherwise T0 <: T1 is true.
- * @description Check that if T0 is an unpromoted type variable with bound B
- * and B <: Object then T0 is subtype of T1
+ * @description Check that if T0 is a promoted type variable X & S and
+ * S <: Object then T0 is subtype of Object
  * @author sgrekhov@unipro.ru
  */
 /**
  * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be used as a return value of type T1
+ * of T0 can be be assigned to the to local variable of type T1
  * @author sgrekhov@unipro.ru
  */
 /*
- * This test is generated from right_object_A01.dart and 
- * return_value_x01.dart.
+ * This test is generated from right_object_A02.dart and 
+ * local_variable_x01.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
  */
 
 
 // SharedOptions=--enable-experiment=non-nullable
-class B {}
-class T0 extends B {}
+class X {}
+class S extends X {}
 
-T0 t0Instance = new T0();
+S t0Instance = new S();
 Object t1Instance = new Object();
 
 
 
 
 
-Object returnValueFunc() => t0Instance;
+class LocalVariableTest {
 
-class ReturnValueTest {
-  static Object staticTestMethod() => t0Instance;
+  LocalVariableTest() {
+    Object t1 = t0Instance;
+    t1 = t0Instance;
+  }
 
-  Object testMethod() => t0Instance;
+  static staticTest() {
+    Object t1 = t0Instance;
+    t1 = t0Instance;
+  }
 
-  Object get testGetter => t0Instance;
+  test() {
+    Object t1 = t0Instance;
+    t1 = t0Instance;
+  }
 }
 
 
 
-test<T extends B>(T t0Instance) {
+test<T>(T t0Instance) {
+  if (T is S) {
     
-  Object returnValueLocalFunc() => t0Instance;
+  foo() {
+    Object t1 = t0Instance;
+    t1 = t0Instance;
+  }
 
-  returnValueFunc();
-  returnValueLocalFunc();
+  Object t1 = t0Instance;
+  t1 = t0Instance;
+  foo();
+  LocalVariableTest x = new LocalVariableTest();
+  x.test();
+  LocalVariableTest.staticTest();
 
-  ReturnValueTest.staticTestMethod();
-
-  new ReturnValueTest().testMethod();
-  new ReturnValueTest().testGetter;
-
-
+  }
 }
 
 main() {
-  test<T0>(t0Instance);
+  test<X>(t0Instance);
 }

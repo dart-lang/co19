@@ -6,10 +6,17 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Left Promoted Variable: T0 is a promoted type variable X0 & S0
- * and S0 <: T1
- * @description Check that if type T0 is a promoted type variable X0 & S0 and S0
- * is subtype of T1 then T0 is a subtype of T1.
+ * Right Object: if T1 is Object then:
+ *  - if T0 is an unpromoted type variable with bound B then T0 <: T1 iff
+ *      B <: Object
+ *  - if T0 is a promoted type variable X & S then T0 <: T1 iff S <: Object
+ *  - if T0 is FutureOr<S> for some S, then T0 <: T1 iff S <: Object.
+ *  - if T0 is S* for any S, then T0 <: T1 iff S <: T1
+ *  - if T0 is Null, dynamic, void, or S? for any S, then the subtyping does not
+ *      hold (per above, the result of the subtyping query is false).
+ *  - Otherwise T0 <: T1 is true.
+ * @description Check that if T0 is a promoted type variable X & S and
+ * S <: Object then T0 is subtype of Object
  * @author sgrekhov@unipro.ru
  */
 /**
@@ -18,26 +25,26 @@
  * @author sgrekhov@unipro.ru
  */
 /*
- * This test is generated from left_promoted_variable_A03.dart and 
+ * This test is generated from right_object_A02.dart and 
  * class_member_x02.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
  */
 
 
-class T1 {}
-class X0 {}
-class S0 extends X0 with T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class X {}
+class S extends X {}
 
+S t0Instance = new S();
+Object t1Instance = new Object();
 
-S0 t0Instance = new S0();
-T1 t1Instance = new T1();
 
 
 
 
 class ClassMemberSuper1_t02 {
-  T1 m;
+  Object m;
 
   ClassMemberSuper1_t02(dynamic value) {
     m = value;
@@ -49,7 +56,7 @@ class ClassMemberSuper1_t02 {
 
   ClassMemberSuper1_t02.short(this.m);
 
-  void set superSetter(T1 val) {}
+  void set superSetter(Object val) {}
 }
 
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {
@@ -68,10 +75,8 @@ class ClassMember1_t02 extends ClassMemberSuper1_t02 {
 
 
 
-main() {
-  X0 t0Instance = new S0();
-
-  if (t0Instance is S0) {
+test<T>(T t0Instance) {
+  if (T is S) {
     
   ClassMember1_t02 c1 = new ClassMember1_t02();
   c1 = new ClassMember1_t02.short();
@@ -81,4 +86,8 @@ main() {
   c1.superSetter = t0Instance;
 
   }
+}
+
+main() {
+  test<X>(t0Instance);
 }

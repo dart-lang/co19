@@ -15,8 +15,8 @@
  *  - if T0 is Null, dynamic, void, or S? for any S, then the subtyping does not
  *      hold (per above, the result of the subtyping query is false).
  *  - Otherwise T0 <: T1 is true.
- * @description Check that if T0 is an unpromoted type variable with bound B
- * and B <: Object then T0 is subtype of T1
+ * @description Check that if T0 is a promoted type variable X & S and
+ * S <: Object then T0 is subtype of Object
  * @author sgrekhov@unipro.ru
  */
 /**
@@ -25,7 +25,7 @@
  * @author sgrekhov@unipro.ru
  */
 /*
- * This test is generated from right_object_A01.dart and 
+ * This test is generated from right_object_A02.dart and 
  * class_member_x01.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
@@ -33,10 +33,10 @@
 
 
 // SharedOptions=--enable-experiment=non-nullable
-class B {}
-class T0 extends B {}
+class X {}
+class S extends X {}
 
-T0 t0Instance = new T0();
+S t0Instance = new S();
 Object t1Instance = new Object();
 
 
@@ -87,7 +87,8 @@ class ClassMember1_t01 {
 
 
 
-test<T extends B>(T t0Instance) {
+test<T>(T t0Instance) {
+  if (T is S) {
     
   ClassMember1_t01 c1 = new ClassMember1_t01();
   c1 = new ClassMember1_t01.short(t0Instance,
@@ -103,8 +104,9 @@ test<T extends B>(T t0Instance) {
   ClassMember1_t01.staticSetter = t0Instance;
   ClassMember1_t01.staticGetter;
 
+  }
 }
 
 main() {
-  test<T0>(t0Instance);
+  test<X>(t0Instance);
 }

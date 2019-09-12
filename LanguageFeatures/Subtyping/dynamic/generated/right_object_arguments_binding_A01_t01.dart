@@ -32,6 +32,7 @@
  */
 
 
+import '../../utils/common.dart';
 // SharedOptions=--enable-experiment=non-nullable
 class B {}
 class T0 extends B {}
@@ -95,43 +96,59 @@ class ArgumentsBindingGen<X>  {
 test<T extends B>(T t0Instance) {
     
   // test functions
-  namedArgumentsFunc1(t0Instance, t2: t0Instance);
-  positionalArgumentsFunc1(t0Instance, t0Instance);
+  namedArgumentsFunc1(forgetType(t0Instance), t2: forgetType(t0Instance));
+  positionalArgumentsFunc1(forgetType(t0Instance), forgetType(t0Instance));
 
   // test class constructors
-  ArgumentsBindingClass instance1 = new ArgumentsBindingClass(t0Instance);
-  instance1 = new ArgumentsBindingClass.fNamed(t0Instance, t2: t0Instance);
-  instance1 = new ArgumentsBindingClass.fPositional(t0Instance, t0Instance);
-  instance1 = new ArgumentsBindingClass.named(t0Instance, t2: t0Instance);
-  instance1 = new ArgumentsBindingClass.positional(t0Instance, t0Instance);
+  ArgumentsBindingClass instance1 =
+      new ArgumentsBindingClass(forgetType(t0Instance));
+  instance1 = new ArgumentsBindingClass.fNamed(forgetType(t0Instance),
+      t2: forgetType(t0Instance));
+  instance1 = new ArgumentsBindingClass.fPositional(forgetType(t0Instance),
+      forgetType(t0Instance));
+  instance1 = new ArgumentsBindingClass.named(forgetType(t0Instance),
+      t2: forgetType(t0Instance));
+  instance1 = new ArgumentsBindingClass.positional(forgetType(t0Instance),
+      forgetType(t0Instance));
 
   // tests methods and setters
-  instance1.namedArgumentsMethod(t0Instance, t2: t0Instance);
-  instance1.positionalArgumentsMethod(t0Instance, t0Instance);
-  instance1.testSetter = t0Instance;
+  instance1.namedArgumentsMethod(forgetType(t0Instance),
+      t2: forgetType(t0Instance));
+  instance1.positionalArgumentsMethod(forgetType(t0Instance),
+      forgetType(t0Instance));
+  instance1.testSetter = forgetType(t0Instance);
 
   // test static methods
-  ArgumentsBindingClass.namedArgumentsStaticMethod(t0Instance, t2: t0Instance);
-  ArgumentsBindingClass.positionalArgumentsStaticMethod(t0Instance, t0Instance);
+  ArgumentsBindingClass.namedArgumentsStaticMethod(forgetType(t0Instance),
+      t2: forgetType(t0Instance));
+  ArgumentsBindingClass.positionalArgumentsStaticMethod(
+      forgetType(t0Instance), forgetType(t0Instance));
 
   // Test type parameters
 
   //# <-- NotGenericFunctionType
   // test generic functions
-  namedArgumentsFunc2<Object>(t0Instance, t2: t0Instance);
-  positionalArgumentsFunc2<Object>(t0Instance, t0Instance);
+  namedArgumentsFunc2<Object>(forgetType(t0Instance), t2: forgetType(t0Instance));
+  positionalArgumentsFunc2<Object>(forgetType(t0Instance), forgetType(t0Instance));
 
   // test generic class constructors
-  ArgumentsBindingGen<Object> instance2 = new ArgumentsBindingGen<Object>(t0Instance);
-  instance2 = new ArgumentsBindingGen<Object>.fNamed(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<Object>.fPositional(t0Instance, t0Instance);
-  instance2 = new ArgumentsBindingGen<Object>.named(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<Object>.positional(t0Instance, t0Instance);
+  ArgumentsBindingGen<Object> instance2 =
+      new ArgumentsBindingGen<Object>(forgetType(t0Instance));
+  instance2 = new ArgumentsBindingGen<Object>.fNamed(forgetType(t0Instance),
+      t2: forgetType(t0Instance));
+  instance2 = new ArgumentsBindingGen<Object>.fPositional(forgetType(t0Instance),
+      forgetType(t0Instance));
+  instance2 = new ArgumentsBindingGen<Object>.named(forgetType(t0Instance),
+      t2: forgetType(t0Instance));
+  instance2 = new ArgumentsBindingGen<Object>.positional(forgetType(t0Instance),
+      forgetType(t0Instance));
 
   // test generic class methods and setters
-  instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
-  instance2.positionalArgumentsMethod(t0Instance, t0Instance);
-  instance2.testSetter = t0Instance;
+  instance2.namedArgumentsMethod(forgetType(t0Instance),
+      t2: forgetType(t0Instance));
+  instance2.positionalArgumentsMethod(forgetType(t0Instance),
+      forgetType(t0Instance));
+  instance2.testSetter = forgetType(t0Instance);
   //# -->
 
 }

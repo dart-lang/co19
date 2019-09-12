@@ -6,10 +6,17 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Left Promoted Variable: T0 is a promoted type variable X0 & S0
- * and S0 <: T1
- * @description Check that if type T0 is a promoted type variable X0 & S0 and S0
- * is subtype of T1 then T0 is a subtype of T1.
+ * Right Object: if T1 is Object then:
+ *  - if T0 is an unpromoted type variable with bound B then T0 <: T1 iff
+ *      B <: Object
+ *  - if T0 is a promoted type variable X & S then T0 <: T1 iff S <: Object
+ *  - if T0 is FutureOr<S> for some S, then T0 <: T1 iff S <: Object.
+ *  - if T0 is S* for any S, then T0 <: T1 iff S <: T1
+ *  - if T0 is Null, dynamic, void, or S? for any S, then the subtyping does not
+ *      hold (per above, the result of the subtyping query is false).
+ *  - Otherwise T0 <: T1 is true.
+ * @description Check that if T0 is a promoted type variable X & S and
+ * S <: Object then T0 is subtype of Object even is X is not subtype of Object
  * @author sgrekhov@unipro.ru
  */
 /**
@@ -18,50 +25,50 @@
  * @author sgrekhov@unipro.ru
  */
 /*
- * This test is generated from left_promoted_variable_A03.dart and 
+ * This test is generated from right_object_A03.dart and 
  * arguments_binding_x01.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
  */
 
 
-class T1 {}
-class X0 {}
-class S0 extends X0 with T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+import "../../utils/legacy_lib.dart";
+class S extends X {}
+
+S t0Instance = new S();
+Object t1Instance = new Object();
 
 
-S0 t0Instance = new S0();
-T1 t1Instance = new T1();
 
 
 
-
-namedArgumentsFunc1(T1 t1, {T1 t2}) {}
-positionalArgumentsFunc1(T1 t1, [T1 t2]) {}
+namedArgumentsFunc1(Object t1, {Object t2}) {}
+positionalArgumentsFunc1(Object t1, [Object t2]) {}
 
 namedArgumentsFunc2<X>(X t1, {X t2}) {}
 positionalArgumentsFunc2<X>(X t1, [X t2]) {}
 
 class ArgumentsBindingClass {
-  ArgumentsBindingClass(T1 t1) {}
+  ArgumentsBindingClass(Object t1) {}
 
-  ArgumentsBindingClass.named(T1 t1, {T1 t2}) {}
-  ArgumentsBindingClass.positional(T1 t1, [T1 t2]) {}
+  ArgumentsBindingClass.named(Object t1, {Object t2}) {}
+  ArgumentsBindingClass.positional(Object t1, [Object t2]) {}
 
-  factory ArgumentsBindingClass.fNamed(T1 t1, {T1 t2}) {
+  factory ArgumentsBindingClass.fNamed(Object t1, {Object t2}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(T1 t1, [T1 t2]) {
+  factory ArgumentsBindingClass.fPositional(Object t1, [Object t2]) {
     return new ArgumentsBindingClass.positional(t1, t2);
   }
 
-  static namedArgumentsStaticMethod(T1 t1, {T1 t2}) {}
-  static positionalArgumentsStaticMethod(T1 t1, [T1 t2]) {}
+  static namedArgumentsStaticMethod(Object t1, {Object t2}) {}
+  static positionalArgumentsStaticMethod(Object t1, [Object t2]) {}
 
-  namedArgumentsMethod(T1 t1, {T1 t2}) {}
-  positionalArgumentsMethod(T1 t1, [T1 t2]) {}
+  namedArgumentsMethod(Object t1, {Object t2}) {}
+  positionalArgumentsMethod(Object t1, [Object t2]) {}
 
-  set testSetter(T1 val) {}
+  set testSetter(Object val) {}
 }
 
 class ArgumentsBindingGen<X>  {
@@ -85,10 +92,8 @@ class ArgumentsBindingGen<X>  {
 
 
 
-main() {
-  X0 t0Instance = new S0();
-
-  if (t0Instance is S0) {
+test<T>(T t0Instance) {
+  if (T is S) {
     
   // test functions
   namedArgumentsFunc1(t0Instance, t2: t0Instance);
@@ -114,15 +119,15 @@ main() {
 
   //# <-- NotGenericFunctionType
   // test generic functions
-  namedArgumentsFunc2<T1>(t0Instance, t2: t0Instance);
-  positionalArgumentsFunc2<T1>(t0Instance, t0Instance);
+  namedArgumentsFunc2<Object>(t0Instance, t2: t0Instance);
+  positionalArgumentsFunc2<Object>(t0Instance, t0Instance);
 
   // test generic class constructors
-  ArgumentsBindingGen<T1> instance2 = new ArgumentsBindingGen<T1>(t0Instance);
-  instance2 = new ArgumentsBindingGen<T1>.fNamed(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<T1>.fPositional(t0Instance, t0Instance);
-  instance2 = new ArgumentsBindingGen<T1>.named(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<T1>.positional(t0Instance, t0Instance);
+  ArgumentsBindingGen<Object> instance2 = new ArgumentsBindingGen<Object>(t0Instance);
+  instance2 = new ArgumentsBindingGen<Object>.fNamed(t0Instance, t2: t0Instance);
+  instance2 = new ArgumentsBindingGen<Object>.fPositional(t0Instance, t0Instance);
+  instance2 = new ArgumentsBindingGen<Object>.named(t0Instance, t2: t0Instance);
+  instance2 = new ArgumentsBindingGen<Object>.positional(t0Instance, t0Instance);
 
   // test generic class methods and setters
   instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
@@ -131,4 +136,8 @@ main() {
   //# -->
 
   }
+}
+
+main() {
+  test<X>(t0Instance);
 }

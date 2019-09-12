@@ -21,17 +21,18 @@
  */
 /**
  * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be used as a return value of type T1
+ * of T0 can be be assigned to the to global variable of type T1
  * @author sgrekhov@unipro.ru
  */
 /*
  * This test is generated from right_object_A01.dart and 
- * return_value_x01.dart.
+ * global_variable_x01.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
  */
 
 
+import '../../utils/common.dart';
 // SharedOptions=--enable-experiment=non-nullable
 class B {}
 class T0 extends B {}
@@ -43,30 +44,33 @@ Object t1Instance = new Object();
 
 
 
-Object returnValueFunc() => t0Instance;
+class GlobalVariableTest {
+  GlobalVariableTest() {
+    t1Instance = forgetType(t0Instance);
+  }
 
-class ReturnValueTest {
-  static Object staticTestMethod() => t0Instance;
+  foo() {
+    t1Instance = forgetType(t0Instance);
+  }
 
-  Object testMethod() => t0Instance;
-
-  Object get testGetter => t0Instance;
+  static test() {
+    t1Instance = forgetType(t0Instance);
+  }
 }
 
 
 
 test<T extends B>(T t0Instance) {
     
-  Object returnValueLocalFunc() => t0Instance;
+  bar () {
+    t1Instance = forgetType(t0Instance);
+  }
 
-  returnValueFunc();
-  returnValueLocalFunc();
-
-  ReturnValueTest.staticTestMethod();
-
-  new ReturnValueTest().testMethod();
-  new ReturnValueTest().testGetter;
-
+  t1Instance = forgetType(t0Instance);
+  bar();
+  GlobalVariableTest t = new GlobalVariableTest();
+  t.foo();
+  GlobalVariableTest.test();
 
 }
 

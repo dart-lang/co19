@@ -32,6 +32,7 @@
  */
 
 
+import '../../utils/common.dart';
 // SharedOptions=--enable-experiment=non-nullable
 class B {}
 class T0 extends B {}
@@ -61,15 +62,45 @@ class ClassMemberSuper1_t02 {
 
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {
 
-  ClassMember1_t02() : super(t0Instance) {}
+  ClassMember1_t02() : super(forgetType(t0Instance)) {}
 
-  ClassMember1_t02.named() : super.named(t0Instance) {}
+  ClassMember1_t02.named() : super.named(forgetType(t0Instance)) {}
 
-  ClassMember1_t02.short() : super.short(t0Instance);
+  ClassMember1_t02.short() : super.short(forgetType(t0Instance));
 
   test() {
-    m = t0Instance;
-    superSetter = t0Instance;
+    m = forgetType(t0Instance);
+    superSetter = forgetType(t0Instance);
+  }
+}
+
+class ClassMemberSuper2_t02<X> {
+  X m;
+
+  ClassMemberSuper2_t02(dynamic value) {
+    m = value;
+  }
+
+  ClassMemberSuper2_t02.named(dynamic value) {
+    m = value;
+  }
+
+  ClassMemberSuper2_t02.short(this.m);
+
+  void set superSetter(X val) {}
+}
+
+class ClassMember2_t02<X> extends ClassMemberSuper2_t02<X> {
+
+  ClassMember2_t02() : super(forgetType(t0Instance)) {}
+
+  ClassMember2_t02.named() : super.named(forgetType(t0Instance)) {}
+
+  ClassMember2_t02.short() : super.short(forgetType(t0Instance));
+
+  test() {
+    m = forgetType(t0Instance);
+    superSetter = forgetType(t0Instance);
   }
 }
 
@@ -80,9 +111,20 @@ test<T extends B>(T t0Instance) {
   ClassMember1_t02 c1 = new ClassMember1_t02();
   c1 = new ClassMember1_t02.short();
   c1 = new ClassMember1_t02.named();
-  c1.m = t0Instance;
+  c1.m = forgetType(t0Instance);
   c1.test();
-  c1.superSetter = t0Instance;
+  c1.superSetter = forgetType(t0Instance);
+
+  // Test type parameters
+
+  //# <-- NotGenericFunctionType
+  ClassMember2_t02<Object> c2 = new ClassMember2_t02<Object>();
+  c2 = new ClassMember2_t02<Object>.short();
+  c2 = new ClassMember2_t02<Object>.named();
+  c2.m = forgetType(t0Instance);
+  c2.test();
+  c2.superSetter = forgetType(t0Instance);
+  //# -->
 
 }
 

@@ -30,7 +30,6 @@ class X0 {}
 class S0 extends X0 with T1 {}
 
 
-
 S0 t0Instance = new S0();
 T1 t1Instance = new T1();
 

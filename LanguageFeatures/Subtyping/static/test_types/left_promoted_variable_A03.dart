@@ -16,7 +16,6 @@ class T1 {}
 class X0 {}
 class S0 extends X0 with T1 {}
 
-
 //# @T0 = X0
 //# @T1 = T1
 

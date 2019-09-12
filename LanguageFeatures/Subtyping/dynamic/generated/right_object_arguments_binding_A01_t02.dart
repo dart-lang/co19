@@ -32,6 +32,7 @@
  */
 
 
+import '../../utils/common.dart';
 // SharedOptions=--enable-experiment=non-nullable
 class B {}
 class T0 extends B {}
@@ -117,40 +118,40 @@ class ArgumentsBinding2_t02<X> extends ArgumentsBindingSuper2_t02<X> {
 
 test<T extends B>(T t0Instance) {
     
-  ArgumentsBinding1_t02 c1 = new ArgumentsBinding1_t02(t0Instance);
-  c1 = new ArgumentsBinding1_t02.c1(t0Instance);
-  c1 = new ArgumentsBinding1_t02.c2(t1Instance, t0Instance);
-  c1 = new ArgumentsBinding1_t02.c3(t0Instance);
-  c1 = new ArgumentsBinding1_t02.c4(t1Instance, t0Instance);
-  c1 = new ArgumentsBinding1_t02.c5(t0Instance);
+  ArgumentsBinding1_t02 c1 = new ArgumentsBinding1_t02(forgetType(t0Instance));
+  c1 = new ArgumentsBinding1_t02.c1(forgetType(t0Instance));
+  c1 = new ArgumentsBinding1_t02.c2(t1Instance, forgetType(t0Instance));
+  c1 = new ArgumentsBinding1_t02.c3(forgetType(t0Instance));
+  c1 = new ArgumentsBinding1_t02.c4(t1Instance, forgetType(t0Instance));
+  c1 = new ArgumentsBinding1_t02.c5(forgetType(t0Instance));
 
-  c1.test(t0Instance, t1Instance);
-  c1.superTest(t0Instance);
-  c1.superTestPositioned(t0Instance);
-  c1.superTestPositioned(t1Instance, t0Instance);
-  c1.superTestNamed(t0Instance);
-  c1.superTestNamed(t1Instance, val2: t0Instance);
-  c1.superSetter = t0Instance;
+  c1.test(forgetType(t0Instance), t1Instance);
+  c1.superTest(forgetType(t0Instance));
+  c1.superTestPositioned(forgetType(t0Instance));
+  c1.superTestPositioned(t1Instance, forgetType(t0Instance));
+  c1.superTestNamed(forgetType(t0Instance));
+  c1.superTestNamed(t1Instance, val2: forgetType(t0Instance));
+  c1.superSetter = forgetType(t0Instance);
   c1.superGetter;
 
   // Test type parameters
 
   //# <-- NotGenericFunctionType
   ArgumentsBinding2_t02<Object> c2 =
-    new ArgumentsBinding2_t02<Object>(t0Instance);
-  c2 = new ArgumentsBinding2_t02<Object>.c1(t0Instance);
-  c2 = new ArgumentsBinding2_t02<Object>.c2(t1Instance, t0Instance);
-  c2 = new ArgumentsBinding2_t02<Object>.c3(t0Instance);
-  c2 = new ArgumentsBinding2_t02<Object>.c4(t1Instance, t0Instance);
-  c2 = new ArgumentsBinding2_t02<Object>.c5(t0Instance);
+    new ArgumentsBinding2_t02<Object>(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<Object>.c1(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<Object>.c2(t1Instance, forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<Object>.c3(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<Object>.c4(t1Instance, forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<Object>.c5(forgetType(t0Instance));
 
-  c2.test(t0Instance, t1Instance);
-  c2.superTest(t0Instance);
-  c2.superTestPositioned(t0Instance);
-  c2.superTestPositioned(t1Instance, t0Instance);
-  c2.superTestNamed(t0Instance);
-  c2.superTestNamed(t1Instance, val2: t0Instance);
-  c2.superSetter = t0Instance;
+  c2.test(forgetType(t0Instance), t1Instance);
+  c2.superTest(forgetType(t0Instance));
+  c2.superTestPositioned(forgetType(t0Instance));
+  c2.superTestPositioned(t1Instance, forgetType(t0Instance));
+  c2.superTestNamed(forgetType(t0Instance));
+  c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));
+  c2.superSetter = forgetType(t0Instance);
   c2.superGetter;
   //# -->
 

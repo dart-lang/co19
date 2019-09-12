@@ -21,17 +21,18 @@
  */
 /**
  * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be used as a return value of type T1
+ * of T0 can be be assigned to the mixin member of type T1
  * @author sgrekhov@unipro.ru
  */
 /*
  * This test is generated from right_object_A01.dart and 
- * return_value_x01.dart.
+ * class_member_x03.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
  */
 
 
+import '../../utils/common.dart';
 // SharedOptions=--enable-experiment=non-nullable
 class B {}
 class T0 extends B {}
@@ -43,30 +44,48 @@ Object t1Instance = new Object();
 
 
 
-Object returnValueFunc() => t0Instance;
+class ClassMemberMixin1_t03 {
+  Object m;
 
-class ReturnValueTest {
-  static Object staticTestMethod() => t0Instance;
+  void set superSetter(dynamic val) {}
+}
 
-  Object testMethod() => t0Instance;
+class ClassMember1_t03 extends Object with ClassMemberMixin1_t03 {
+  test() {
+    m = forgetType(t0Instance);
+    superSetter = forgetType(t0Instance);
+  }
+}
 
-  Object get testGetter => t0Instance;
+class ClassMemberMixin2_t03<X> {
+  X m;
+  void set superSetter(dynamic val) {}
+}
+
+class ClassMember2_t03<X> extends Object with ClassMemberMixin2_t03<X> {
+  test() {
+    m = forgetType(t0Instance);
+    superSetter = forgetType(t0Instance);
+  }
 }
 
 
 
 test<T extends B>(T t0Instance) {
     
-  Object returnValueLocalFunc() => t0Instance;
+  ClassMember1_t03 c1 = new ClassMember1_t03();
+  c1.m = forgetType(t0Instance);
+  c1.test();
+  c1.superSetter = forgetType(t0Instance);
 
-  returnValueFunc();
-  returnValueLocalFunc();
+  // Test type parameters
 
-  ReturnValueTest.staticTestMethod();
-
-  new ReturnValueTest().testMethod();
-  new ReturnValueTest().testGetter;
-
+  //# <-- NotGenericFunctionType
+  ClassMember2_t03<Object> c2 = new ClassMember2_t03<Object>();
+  c2.m = forgetType(t0Instance);
+  c2.test();
+  c2.superSetter = forgetType(t0Instance);
+  //# -->
 
 }
 

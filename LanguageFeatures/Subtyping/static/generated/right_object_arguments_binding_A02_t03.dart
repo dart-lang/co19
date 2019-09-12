@@ -15,41 +15,36 @@
  *  - if T0 is Null, dynamic, void, or S? for any S, then the subtyping does not
  *      hold (per above, the result of the subtyping query is false).
  *  - Otherwise T0 <: T1 is true.
- * @description Check that if T0 is an unpromoted type variable with bound B
- * and B <: Object then T0 is subtype of T1
+ * @description Check that if T0 is a promoted type variable X & S and
+ * S <: Object then T0 is subtype of Object
  * @author sgrekhov@unipro.ru
  */
 /**
  * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be used as an argument of type T1. Test superclass members
+ * of T0 can be be used as an argument of type T1. Test mixin members
  * @author sgrekhov@unipro.ru
  */
 /*
- * This test is generated from right_object_A01.dart and 
- * arguments_binding_x02.dart.
+ * This test is generated from right_object_A02.dart and 
+ * arguments_binding_x03.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
  */
 
 
 // SharedOptions=--enable-experiment=non-nullable
-class B {}
-class T0 extends B {}
+class X {}
+class S extends X {}
 
-T0 t0Instance = new T0();
+S t0Instance = new S();
 Object t1Instance = new Object();
 
 
 
 
 
-class ArgumentsBindingSuper1_t02 {
+class ArgumentsBindingMixin1_t03 {
   Object m;
-
-  ArgumentsBindingSuper1_t02(Object value) {}
-  ArgumentsBindingSuper1_t02.named(Object value, {Object val2}) {}
-  ArgumentsBindingSuper1_t02.positional(Object value, [Object val2]) {}
-  ArgumentsBindingSuper1_t02.short(this.m);
 
   void superTest(Object val) {}
   void superTestPositioned(Object val, [Object val2]) {}
@@ -58,13 +53,7 @@ class ArgumentsBindingSuper1_t02 {
   void set superSetter(Object val) {}
 }
 
-class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
-  ArgumentsBinding1_t02(dynamic t1) : super(t1) {}
-  ArgumentsBinding1_t02.c1(dynamic t1) : super.named(t1) {}
-  ArgumentsBinding1_t02.c2(dynamic t1, dynamic t2) : super.named(t1, val2: t2) {}
-  ArgumentsBinding1_t02.c3(dynamic t1) : super.positional(t1) {}
-  ArgumentsBinding1_t02.c4(dynamic t1, dynamic t2) : super.positional(t1, t2) {}
-  ArgumentsBinding1_t02.c5(dynamic t1) : super.short(t1) {}
+class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
 
   test(dynamic t1, dynamic t2) {
     superTest(t1);
@@ -78,13 +67,8 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
   }
 }
 
-class ArgumentsBindingSuper2_t02<X> {
+class ArgumentsBindingMixin2_t03<X> {
   X m;
-
-  ArgumentsBindingSuper2_t02(X value) {}
-  ArgumentsBindingSuper2_t02.named(X value, {X val2}) {}
-  ArgumentsBindingSuper2_t02.positional(X value, [X val2]) {}
-  ArgumentsBindingSuper2_t02.short(this.m);
 
   void superTest(X val) {}
   void superTestPositioned(X val, [X val2]) {}
@@ -93,15 +77,9 @@ class ArgumentsBindingSuper2_t02<X> {
   void set superSetter(X val) {}
 }
 
-class ArgumentsBinding2_t02<X> extends ArgumentsBindingSuper2_t02<X> {
-  ArgumentsBinding2_t02(X t1) : super(t1) {}
-  ArgumentsBinding2_t02.c1(dynamic t1) : super.named(t1) {}
-  ArgumentsBinding2_t02.c2(dynamic t1, dynamic t2) : super.named(t1, val2: t2) {}
-  ArgumentsBinding2_t02.c3(dynamic t1) : super.positional(t1) {}
-  ArgumentsBinding2_t02.c4(dynamic t1, dynamic t2) : super.positional(t1, t2) {}
-  ArgumentsBinding2_t02.c5(dynamic t1) : super.short(t1) {}
+class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingMixin2_t03<X> {
 
-  test(X t1, X t2) {
+  test(dynamic t1, dynamic t2) {
     superTest(t1);
     superTestPositioned(t1);
     superTestPositioned(t2, t1);
@@ -115,14 +93,10 @@ class ArgumentsBinding2_t02<X> extends ArgumentsBindingSuper2_t02<X> {
 
 
 
-test<T extends B>(T t0Instance) {
+test<T>(T t0Instance) {
+  if (T is S) {
     
-  ArgumentsBinding1_t02 c1 = new ArgumentsBinding1_t02(t0Instance);
-  c1 = new ArgumentsBinding1_t02.c1(t0Instance);
-  c1 = new ArgumentsBinding1_t02.c2(t1Instance, t0Instance);
-  c1 = new ArgumentsBinding1_t02.c3(t0Instance);
-  c1 = new ArgumentsBinding1_t02.c4(t1Instance, t0Instance);
-  c1 = new ArgumentsBinding1_t02.c5(t0Instance);
+  ArgumentsBinding1_t03 c1 = new ArgumentsBinding1_t03();
 
   c1.test(t0Instance, t1Instance);
   c1.superTest(t0Instance);
@@ -136,14 +110,7 @@ test<T extends B>(T t0Instance) {
   // Test type parameters
 
   //# <-- NotGenericFunctionType
-  ArgumentsBinding2_t02<Object> c2 =
-    new ArgumentsBinding2_t02<Object>(t0Instance);
-  c2 = new ArgumentsBinding2_t02<Object>.c1(t0Instance);
-  c2 = new ArgumentsBinding2_t02<Object>.c2(t1Instance, t0Instance);
-  c2 = new ArgumentsBinding2_t02<Object>.c3(t0Instance);
-  c2 = new ArgumentsBinding2_t02<Object>.c4(t1Instance, t0Instance);
-  c2 = new ArgumentsBinding2_t02<Object>.c5(t0Instance);
-
+  ArgumentsBinding2_t03<Object> c2 = new ArgumentsBinding2_t03<Object>();
   c2.test(t0Instance, t1Instance);
   c2.superTest(t0Instance);
   c2.superTestPositioned(t0Instance);
@@ -154,8 +121,9 @@ test<T extends B>(T t0Instance) {
   c2.superGetter;
   //# -->
 
+  }
 }
 
 main() {
-  test<T0>(t0Instance);
+  test<X>(t0Instance);
 }
