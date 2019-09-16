@@ -11,17 +11,19 @@
  * still needs to be a potentially constant expression, which is a new use of
  * potentially constant expressions outside of [const] constructor initializer
  * lists.
- * @description Checks that [&&] throws error if the first operand of [&&]
- * operation is [true] and the second one is not valid in the constant
- * expression.
+ * @description Checks that compile error is thrown if the first [&&] operand is
+ * [false] and the second one is not [bool] in the constant expression.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
-main() {
-  const bool a = true && (null as int) * 11 < 25;
-//               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+const nil = Null;
 
+class MyClass {
+  final bool b;
+  const MyClass() : b = false && nil;
+}
+
+main() {
+  const res = MyClass();
 }

@@ -12,16 +12,37 @@
  * potentially constant expressions outside of [const] constructor initializer
  * lists.
  * @description Checks that [&&] throws error if the first operand of [&&]
- * operation is [true] and the second one is not valid in the constant
- * expression.
+ * operation is [true] and the second one is not valid or is not constant in the
+ * constant expression.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
+const dynamic i = 10;
+
+bool b = true;
+
+bool c;
+
+dynamic d;
 
 main() {
-  const bool a = true && (null as int) * 11 < 25;
-//               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  const bool a1 = true && i;
+//                ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  const bool a2 = true && b;
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const bool a3 = true && c;
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const bool a4 = true && d;
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -14,17 +14,31 @@
  * @description Checks that [&&] throws error if the first operand of [&&]
  * operation is [true] and the second one is not valid in the constant
  * expression.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
-const int i = 25;
 
-class MyClass {
+const dynamic d = 0;
+
+class MyClass1 {
   final bool b;
-  const MyClass() : b = true && (null as String).length < 25;
+  const MyClass1() : b = true && (null as String).length < 25;
+}
+
+class MyClass2 {
+  final bool b;
+  const MyClass2() : b = true && d;
 }
 
 main() {
-  const inst = MyClass();
+  const inst1 = MyClass1();
+//              ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const inst2 = MyClass2();
+//              ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

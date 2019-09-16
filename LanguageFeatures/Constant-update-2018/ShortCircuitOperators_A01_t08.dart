@@ -14,7 +14,6 @@
  * @description Checks that [&&] throws error if the first operand of [&&]
  * operation is [true] and the second one is not valid in the potentially
  * constant expression.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
@@ -26,4 +25,8 @@ class MyClass {
 
 main() {
   const MyClass c1 = MyClass("testme");
+//                   ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

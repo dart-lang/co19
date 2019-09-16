@@ -20,10 +20,16 @@
 import "../../Utils/expect.dart";
 
 const int i = 25;
+const dynamic nil = null;
 
 class MyClass1 {
   final bool b;
   const MyClass1() : b = false && (null as String).length < 12;
+}
+
+class MyClass2 {
+  final bool b;
+  const MyClass2() : b = false && nil;
 }
 
 main() {
@@ -39,6 +45,12 @@ main() {
   const bool a4 = false && i > 12;
   Expect.isFalse(a4);
 
+  const bool a5 = false && (nil + 1) > 10;
+  Expect.isFalse(a5);
+
   const MyClass1 c1 = MyClass1();
   Expect.isFalse(c1.b);
+
+  const MyClass2 c2 = MyClass2();
+  Expect.isFalse(c2.b);
 }

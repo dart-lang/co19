@@ -13,11 +13,15 @@
  * lists.
  * @description Checks that compile error is thrown if the first [&&] operand is
  * [false] and the second one is not [bool] in the constant expression.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
+const String nil = null;
+
 main() {
-  const bool a2 = false && (null as String).length;
+  const bool a = false && nil;
+//                        ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

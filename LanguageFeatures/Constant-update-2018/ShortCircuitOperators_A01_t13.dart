@@ -11,16 +11,36 @@
  * still needs to be a potentially constant expression, which is a new use of
  * potentially constant expressions outside of [const] constructor initializer
  * lists.
- * @description Checks that [&&] throws error if the first operand of [&&]
- * operation is [true] and the second one is not valid in the constant
- * expression.
+ * @description Checks that compile error is thrown if constant constructor
+ * argument is not a constant itself.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
+import "../../Utils/expect.dart";
+
+dynamic nonConst1 = 11;
+int nonConst2 = 0;
+dynamic nonConst3;
+
+class MyClass {
+  final bool b;
+  const MyClass(Object o) : b = false && ((o as int) > 25);
+}
+
 main() {
-  const bool a = true && (null as int) * 11 < 25;
-//               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  const MyClass c1 = MyClass(nonConst1);
+//                           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const MyClass c2 = MyClass(nonConst2);
+//                           ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const MyClass c3 = MyClass(nonConst3);
+//                           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

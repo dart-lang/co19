@@ -20,6 +20,8 @@
 
 import "../../Utils/expect.dart";
 
+const int checkme = null;
+
 class MyClass {
   final bool b;
   const MyClass(Object o) : b = false && ((o as int) > 25);
@@ -28,4 +30,7 @@ class MyClass {
 main() {
   const MyClass c1 = MyClass("testme");
   Expect.isFalse(c1.b);
+
+  const MyClass c2 = MyClass(checkme);
+  Expect.isFalse(c2.b);
 }
