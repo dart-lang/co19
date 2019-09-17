@@ -7,36 +7,45 @@
  * @assertion The [??] operator only evaluates its second operand if the first
  * evaluates to [null], and the second operand must be a potentially constant
  * expression.
- * @description Checks that compile-time exception is thrown if the first
- * operand of [??] operator is [null] and the second one has incorrect type in
- * the constant expression.
+ * @description Checks that operator [??] in constant expression throws a
+ * compile error if the first operand is not constant.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
-const dynamic d1 = 11;
-const String d2 = "check me here";
+int nonConst_i = 1;
+Null nonConst_null = null;
+dynamic nonConst_null_1 = null;
+dynamic nonConst;
+String nonConst_str = "";
 
-const nil = null;
+const dynamic d1 = "12345";
+const dynamic d2 = 11;
+const int i = 14;
 
 main() {
-  const String s1 = null ?? 124;
-//             ^^^^^^^^^^^^^^^
+  const int a1 = nonConst_i ?? 1;
+//               ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const int i1 = nil ?? "";
-//          ^^^^^^^^^^^^^^
+  const a2 = nonConst_null ?? "incorrect";
+//           ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const String s2 = null ?? d1;
-//             ^^^^^^^^^^^^^^^
+  const a3 = nonConst_null_1 ?? "incorrect";
+//           ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const int i2 = nil ?? d2;
-//          ^^^^^^^^^^^^^^
+  const a4 = nonConst ?? 9;
+//           ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const a5 = nonConst_str ?? "145";
+//           ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

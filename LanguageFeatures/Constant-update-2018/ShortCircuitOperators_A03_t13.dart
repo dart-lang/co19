@@ -8,15 +8,35 @@
  * evaluates to [null], and the second operand must be a potentially constant
  * expression.
  * @description Checks that compile-time exception is thrown if the first
- * operand of [??] operator is [null] and the second one is incorrect in the
- * constant expression.
+ * operand of [??] operator is of incorrect type.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
+const int i = 1;
+
+const String nil = null;
+const String str = "check me here";
+
 main() {
-  const String s1 = null ?? (null as String).length;
-//                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  const String s1 = 14 ?? "12345";
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  const String s2 = i ?? "12345";
+//             ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const int i1 = "12345" ?? 12345;
+//          ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const int res = str ?? 12345;
+//          ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

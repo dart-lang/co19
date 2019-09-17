@@ -7,37 +7,37 @@
  * @assertion The [??] operator only evaluates its second operand if the first
  * evaluates to [null], and the second operand must be a potentially constant
  * expression.
- * @description Checks that compile-time exception is thrown if the first
- * operand of [??] operator is [null] and the second one has incorrect type in
- * the constant expression.
+ * @description Checks that operator [??] throws a error if the first operand is
+ * [null] and the second one is not a potentially constant.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
-const dynamic d1 = 11;
-const String d2 = "check me here";
+dynamic d1 = "12345";
+dynamic d2 = 11;
+int i = 14;
+dynamic d;
 
 const nil = null;
 
 main() {
-  const String s1 = null ?? 124;
-//             ^^^^^^^^^^^^^^^
+  const a1 = null ?? d1;
+//                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const int i1 = nil ?? "";
-//          ^^^^^^^^^^^^^^
+  const a2 = nil ?? d2;
+//                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const String s2 = null ?? d1;
-//             ^^^^^^^^^^^^^^^
+  const a3 = nil ?? i;
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const int i2 = nil ?? d2;
-//          ^^^^^^^^^^^^^^
+  const a4 = nil ?? d;
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-
 }

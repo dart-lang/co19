@@ -9,7 +9,6 @@
  * expression.
  * @description Checks that operator [??] operators does not reject the second
  * operand if the first one is [null] in potentially constant expression.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
@@ -21,4 +20,8 @@ class MyClass {
 
 main() {
   const MyClass c2 = MyClass(null, "incorrect");
+//                                 ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }
