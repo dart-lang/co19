@@ -10,13 +10,15 @@
  * @description Checks that operator exception is thrown if the first [??] is
  * not [null] and the second one is incorrect in potentially constant
  * expression.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 class MyClass {
   final int a;
   const MyClass(int i1, String i2) : a = (i1 ?? i2.length + "abc");
+//                                                          ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
