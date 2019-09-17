@@ -19,7 +19,7 @@
 
 dynamic nonConst;
 const int i = 5;
-bool b = true;
+bool bb = true;
 
 class MyClass1 {
   final bool b;
@@ -35,7 +35,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const bool a2 = false && b;
+  const bool a2 = false && bb;
 //                         ^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -9,11 +9,22 @@
  * constant expression.
  * @description Checks that compile error is thrown if the first [||] operand is
  * [true] and the second one is not [bool] in the constant expression.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
+const int i = 0;
+const String d = "";
+
 main() {
-  const bool a2 = true || (null as String).length;
+  const bool a1 = true || (null as String).length;
+//                        ^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const bool a2 = (i == 0) || d;
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }
