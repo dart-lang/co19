@@ -10,7 +10,6 @@
  * @description Checks that [||] throws error if the first operand of [||]
  * operation is [false] and the second one is not valid in the constant
  * expression.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
@@ -22,4 +21,7 @@ class MyClass {
 
 main() {
   const inst = MyClass();
+//             ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

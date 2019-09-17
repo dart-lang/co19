@@ -7,18 +7,36 @@
  * @assertion Likewise the [||] operator only evaluates its second operand if
  * the first evaluates to [false], and the second operand must be a potentially
  * constant expression.
- * @description Checks that [||] throws error if the first operand of [||]
- * operation is [false] and the second one is not valid in the constant
- * expression.
+ * @description Checks that compile error is thrown if constant constructor
+ * argument is not a constant itself.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
-const dynamic nil = null;
+int i = 0;
+
+dynamic str;
+
+dynamic a = 1;
+
+class MyClass {
+  final bool b;
+  const MyClass(Object o) : b = true || ((o as int) > 25);
+}
 
 main() {
-  const bool a = false || nil;
-//               ^^^^^^^^^^^^
+  const MyClass c1 = MyClass(i);
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const MyClass c2 = MyClass(str);
+//                           ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const MyClass c3 = MyClass(a);
+//                           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

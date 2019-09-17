@@ -8,17 +8,34 @@
  * the first evaluates to [false], and the second operand must be a potentially
  * constant expression.
  * @description Checks that [||] throws error if the first operand of [||]
- * operation is [false] and the second one is not valid in the constant
- * expression.
+ * operation is [false] and the second one is not a constant expression.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
-const dynamic nil = null;
+const int i = 25;
+bool b = false;
+dynamic d;
+int j = 4;
 
 main() {
-  const bool a = false || nil;
-//               ^^^^^^^^^^^^
+  const bool a1 = false || b;
+//                ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const bool a2 = (i < 0) || b;
+//                ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const bool a3 = false || d < 11;
+//                ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const bool a4 = (i == 2) || (j == 4);
+//                ^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

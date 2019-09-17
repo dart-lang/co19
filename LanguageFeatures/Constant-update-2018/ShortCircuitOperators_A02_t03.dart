@@ -7,10 +7,9 @@
  * @assertion Likewise the [||] operator only evaluates its second operand if
  * the first evaluates to [false], and the second operand must be a potentially
  * constant expression.
- * @description Checks that [||] throws error if the first operand of [&&]
+ * @description Checks that [||] throws error if the first operand of [||]
  * operation is [false] and the second one is not valid in the constant
  * expression.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
@@ -19,4 +18,8 @@ const int i = 25;
 
 main() {
   const bool a1 = (i < 0) || ((null as String).length > 14);
+//                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }
