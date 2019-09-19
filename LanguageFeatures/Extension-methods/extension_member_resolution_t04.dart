@@ -23,8 +23,8 @@ extension Ext<T extends A> on List<T> {
 
 main() {
   List<C> list1 = [];
-  Expect.isTrue(list1.method() is C);
+  Expect.isTrue(list1.method() == C);
 
   List<A> list2 = [];
-  Expect.isTrue(list2.method() is A);
+  Expect.isTrue(list2.method() == A);
 }
