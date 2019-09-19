@@ -20,16 +20,15 @@
  * @author sgrekhov@unipro.ru
  */
 /**
- * @description Check that if type T0 is not a subtype of a type T1, then
- * instance of T0 cannot be be assigned to the mixin member of type T1.
- * Assignment to instance variable of super class is tested.
+ * @description Check that if type T0 not a subtype of a type T1, then instance
+ * of T0 cannot be be used as a return value of type T1. Return value is tested.
  * @compile-error
  * @author sgrekhov@unipro.ru
  * @author ngl@unipro.ru
  */
 /*
- * This test is generated from right_object_fail_A02_t01.dart and 
- * class_member_mixin_fail_x01.dart.
+ * This test is generated from right_object_fail_A02.dart and 
+ * return_value_fail_x01.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
  */
@@ -46,18 +45,12 @@ Object t1Instance = new Object();
 
 
 
-class ClassMemberSuper1_t03 {
-  Object m;
-  void set superSetter(Object val) {} //# 02: compile-time error
-}
+Object returnValueFunc() => t0Instance; //# 01: compile-time error
 
-class ClassMember1_t03 extends Object with ClassMemberSuper1_t03 {
-  test1() {
-    m = t0Instance; //# 03: compile-time error
-  }
-  test2() {
-    superSetter = t0Instance; //# 04: compile-time error
-  }
+class ReturnValueTest {
+  static Object staticTestMethod() => t0Instance; //# 03: compile-time error
+  Object testMethod() => t0Instance; //# 04: compile-time error
+  Object get testGetter => t0Instance; //# 05: compile-time error
 }
 
 
@@ -65,10 +58,14 @@ class ClassMember1_t03 extends Object with ClassMemberSuper1_t03 {
 test<T>(T t0Instance) {
   if (t0Instance is S?) {
     
-  new ClassMember1_t03().m = t0Instance; //# 01: compile-time error
-  new ClassMember1_t03().superSetter = t0Instance;  //# 02: compile-time error
-  new ClassMember1_t03().test1();  //# 03: compile-time error
-  new ClassMember1_t03().test2();  //# 04: compile-time error
+  returnValueFunc(); //# 01: compile-time error
+
+  Object returnValueLocalFunc() => t0Instance; //# 02: compile-time error
+  returnValueLocalFunc(); //# 02: compile-time error
+
+  ReturnValueTest.staticTestMethod(); //# 03: compile-time error
+  new ReturnValueTest().testMethod(); //# 04: compile-time error
+  new ReturnValueTest().testGetter; //# 05: compile-time error
 
   }
 }

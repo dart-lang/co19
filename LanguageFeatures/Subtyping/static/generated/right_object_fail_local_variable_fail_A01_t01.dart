@@ -15,70 +15,75 @@
  *  - if T0 is Null, dynamic, void, or S? for any S, then the subtyping does not
  *      hold (per above, the result of the subtyping query is false).
  *  - Otherwise T0 <: T1 is true.
- * @description Check that if T0 is a promoted type variable X & S and
- * S is not subtype of Object then T0 is not subtype of Object
+ * @description Check that if T0 is an unpromoted type variable with bound B
+ * but B is not subtype of Object then T0 is not subtype of T1
  * @author sgrekhov@unipro.ru
  */
 /**
  * @description Check that if type T0 is not a subtype of a type T1, then
- * instance of T0 cannot be be assigned to the to global variable of type T1.
- * Assignment to global variable is tested.
+ * instance of T0 cannot be be assigned to the to local variable of type T1.
+ * Assignment to local variable is tested.
  * @compile-error
  * @author sgrekhov@unipro.ru
  * @author ngl@unipro.ru
  */
 /*
- * This test is generated from right_object_fail_A02_t01.dart and 
- * global_variable_fail_x01.dart.
+ * This test is generated from right_object_fail_A01.dart and 
+ * local_variable_fail_x01.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
  */
 
 
 // SharedOptions=--enable-experiment=non-nullable
-class X {}
-class S extends X {}
+class B {}
+class T0 extends B {}
 
-S t0Instance = new S();
+T0 t0Instance = new T0();
 Object t1Instance = new Object();
 
 
 
 
 
-class GlobalVariableTest {
-  GlobalVariableTest() {
-    t1Instance = t0Instance; //# 03: compile-time error
+class LocalVariableTest {
+  LocalVariableTest() {
+    Object t1 = null;
+    t1 = t0Instance; //# 03: compile-time error
   }
-  GlobalVariableTest.valid() {}
 
-  foo() {
-    t1Instance = t0Instance; //# 04: compile-time error
+  LocalVariableTest.valid() {}
+
+  test() {
+    Object t1 = null;
+    t1 = t0Instance; //# 04: compile-time error
   }
-  static test() {
-    t1Instance = t0Instance; //# 05: compile-time error
+
+  static staticTest() {
+    Object t1 = null;
+    t1 = t0Instance; //# 05: compile-time error
   }
 }
 
 
 
-test<T>(T t0Instance) {
-  if (t0Instance is S?) {
-    
-  t1Instance = t0Instance; //# 01: compile-time error
+test<T extends B?>(T t0Instance) {
+  
+  Object t1 = null;
+  t1 = t0Instance; //# 01: compile-time error
 
   bar () {
-    t1Instance = t0Instance; //# 02: compile-time error
+    Object t1 = null;
+    t1 = t0Instance; //# 02: compile-time error
   }
   bar(); //# 02: compile-time error
 
-  new GlobalVariableTest(); //# 03: compile-time error
-  new GlobalVariableTest.valid().foo(); //# 04: compile-time error
-  GlobalVariableTest.test(); //# 05: compile-time error
+  new LocalVariableTest(); //# 03: compile-time error
+  new LocalVariableTest.valid().test(); //# 04: compile-time error
+  LocalVariableTest.staticTest(); //# 05: compile-time error
 
-  }
 }
 
 main() {
-  test<X>(t0Instance);
+  test<T0>(t0Instance);
 }

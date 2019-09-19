@@ -44,30 +44,28 @@ Object t1Instance = new Object();
 
 
 
-namedArgumentsFunc1(Object t1, {Object t2}) {}
-positionalArgumentsFunc1(Object t1, [Object t2]) {}
+namedArgumentsFunc1(Object t1, {Object t2 = t1Default}) {}
+positionalArgumentsFunc1(Object t1, [Object t2 = t1Default]) {}
 
-namedArgumentsFunc2<X>(X t1, {X t2}) {}
-positionalArgumentsFunc2<X>(X t1, [X t2]) {}
+namedArgumentsFunc2<X>(X t1, {required X t2}) {}
 
 class ArgumentsBindingClass {
   ArgumentsBindingClass(Object t1) {}
 
-  ArgumentsBindingClass.named(Object t1, {Object t2}) {}
-  ArgumentsBindingClass.positional(Object t1, [Object t2]) {}
+  ArgumentsBindingClass.named(Object t1, {Object t2 = t1Default}) {}
 
-  factory ArgumentsBindingClass.fNamed(Object t1, {Object t2}) {
+  factory ArgumentsBindingClass.fNamed(Object t1, {Object t2 = t1Default}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(Object t1, [Object t2]) {
-    return new ArgumentsBindingClass.positional(t1, t2);
+  factory ArgumentsBindingClass.fPositional(Object t1, [Object t2 = t1Default]) {
+    return new ArgumentsBindingClass.named(t1, t2: t2);
   }
 
-  static namedArgumentsStaticMethod(Object t1, {Object t2}) {}
-  static positionalArgumentsStaticMethod(Object t1, [Object t2]) {}
+  static namedArgumentsStaticMethod(Object t1, {Object t2 = t1Default}) {}
+  static positionalArgumentsStaticMethod(Object t1, [Object t2 = t1Default]) {}
 
-  namedArgumentsMethod(Object t1, {Object t2}) {}
-  positionalArgumentsMethod(Object t1, [Object t2]) {}
+  namedArgumentsMethod(Object t1, {Object t2 = t1Default}) {}
+  positionalArgumentsMethod(Object t1, [Object t2 = t1Default]) {}
 
   set testSetter(Object val) {}
 }
@@ -75,18 +73,13 @@ class ArgumentsBindingClass {
 class ArgumentsBindingClassGen<X> {
   ArgumentsBindingClassGen(X t1) {}
 
-  ArgumentsBindingClassGen.named(X t1, {X t2}) {}
-  ArgumentsBindingClassGen.positional(X t1, [X t2]) {}
+  ArgumentsBindingClassGen.named(X t1, {required X t2}) {}
 
-  factory ArgumentsBindingClassGen.fNamed(X t1, {X t2}) {
+  factory ArgumentsBindingClassGen.fNamed(X t1, {required X t2}) {
     return new ArgumentsBindingClassGen.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClassGen.fPositional(X t1, [X t2]) {
-    return new ArgumentsBindingClassGen.positional(t1, t2);
-  }
 
-  namedArgumentsMethod(X t1, {X t2}) {}
-  positionalArgumentsMethod(X t1, [X t2]){}
+  namedArgumentsMethod(X t1, {required X t2}) {}
 
   set testSetter(X val) {}
 }
@@ -128,14 +121,6 @@ main() {
 
   Expect.throws(() {
     new ArgumentsBindingClass.named(t1Instance, t2: forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBindingClass.positional(forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBindingClass.positional(t1Instance, forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
@@ -204,19 +189,7 @@ main() {
   //# <-- NotGenericFunctionType
   // Test generic functions
   Expect.throws(() {
-    namedArgumentsFunc2<Object>(forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
     namedArgumentsFunc2<Object>(t1Instance, t2: forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    positionalArgumentsFunc2<Object>(forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    positionalArgumentsFunc2<Object>(t1Instance, forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   // Test constructors
@@ -225,58 +198,19 @@ main() {
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBindingClassGen<Object>.named(forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
     new ArgumentsBindingClassGen<Object>.named(t1Instance, t2: forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<Object>.positional(forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<Object>.positional(t1Instance, forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<Object>.fNamed(forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
     new ArgumentsBindingClassGen<Object>.fNamed(t1Instance, t2: forgetType(t0Instance));
   }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<Object>.fPositional(forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<Object>.fPositional(t1Instance, forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
 
   // Test instance methods and setters
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<Object>(t1Instance).namedArgumentsMethod(
-    forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
   Expect.throws(() {
     new ArgumentsBindingClassGen<Object>(t1Instance).namedArgumentsMethod(t1Instance,
     t2: forgetType(t0Instance));
     }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<Object>(t1Instance).positionalArgumentsMethod(
-    forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<Object>(t1Instance).positionalArgumentsMethod(t1Instance,
-    forgetType(t0Instance));
-  }, (e) => e is TypeError);
 
   Expect.throws(() {
     new ArgumentsBindingClassGen<Object>(t1Instance).testSetter = forgetType(t0Instance);

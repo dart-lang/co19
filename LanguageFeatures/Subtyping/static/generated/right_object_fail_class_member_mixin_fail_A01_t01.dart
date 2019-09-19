@@ -21,15 +21,15 @@
  */
 /**
  * @description Check that if type T0 is not a subtype of a type T1, then
- * instance of T0 cannot be be assigned to the to local variable of type T1.
- * Assignment to local variable is tested.
+ * instance of T0 cannot be be assigned to the mixin member of type T1.
+ * Assignment to instance variable of super class is tested.
  * @compile-error
  * @author sgrekhov@unipro.ru
  * @author ngl@unipro.ru
  */
 /*
- * This test is generated from right_object_fail_A01_t01.dart and 
- * local_variable_fail_x01.dart.
+ * This test is generated from right_object_fail_A01.dart and 
+ * class_member_mixin_fail_x01.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
  */
@@ -46,22 +46,17 @@ Object t1Instance = new Object();
 
 
 
-class LocalVariableTest {
-  LocalVariableTest() {
-    Object t1 = null;
-    t1 = t0Instance; //# 03: compile-time error
+class ClassMemberSuper1_t03 {
+  Object m;
+  void set superSetter(Object val) {} //# 02: compile-time error
+}
+
+class ClassMember1_t03 extends Object with ClassMemberSuper1_t03 {
+  test1() {
+    m = t0Instance; //# 03: compile-time error
   }
-
-  LocalVariableTest.valid() {}
-
-  test() {
-    Object t1 = null;
-    t1 = t0Instance; //# 04: compile-time error
-  }
-
-  static staticTest() {
-    Object t1 = null;
-    t1 = t0Instance; //# 05: compile-time error
+  test2() {
+    superSetter = t0Instance; //# 04: compile-time error
   }
 }
 
@@ -69,18 +64,10 @@ class LocalVariableTest {
 
 test<T extends B?>(T t0Instance) {
   
-  Object t1 = null;
-  t1 = t0Instance; //# 01: compile-time error
-
-  bar () {
-    Object t1 = null;
-    t1 = t0Instance; //# 02: compile-time error
-  }
-  bar(); //# 02: compile-time error
-
-  new LocalVariableTest(); //# 03: compile-time error
-  new LocalVariableTest.valid().test(); //# 04: compile-time error
-  LocalVariableTest.staticTest(); //# 05: compile-time error
+  new ClassMember1_t03().m = t0Instance; //# 01: compile-time error
+  new ClassMember1_t03().superSetter = t0Instance;  //# 02: compile-time error
+  new ClassMember1_t03().test1();  //# 03: compile-time error
+  new ClassMember1_t03().test2();  //# 04: compile-time error
 
 }
 

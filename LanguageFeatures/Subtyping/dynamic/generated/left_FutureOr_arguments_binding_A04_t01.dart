@@ -42,31 +42,29 @@ FutureOr<C<A>> t1Instance = new Future<C<A>>.value(new C<A>());
 
 
 
+namedArgumentsFunc1(FutureOr<C<A>> t1, {FutureOr<C<A>> t2 = t1Default}) {}
+positionalArgumentsFunc1(FutureOr<C<A>> t1, [FutureOr<C<A>> t2 = t1Default]) {}
 
-namedArgumentsFunc1(FutureOr<C<A>> t1, {FutureOr<C<A>> t2}) {}
-positionalArgumentsFunc1(FutureOr<C<A>> t1, [FutureOr<C<A>> t2]) {}
-
-namedArgumentsFunc2<X>(X t1, {X t2}) {}
-positionalArgumentsFunc2<X>(X t1, [X t2]) {}
+namedArgumentsFunc2<X>(X t1, {required X t2}) {}
 
 class ArgumentsBindingClass {
   ArgumentsBindingClass(FutureOr<C<A>> t1) {}
 
-  ArgumentsBindingClass.named(FutureOr<C<A>> t1, {FutureOr<C<A>> t2}) {}
-  ArgumentsBindingClass.positional(FutureOr<C<A>> t1, [FutureOr<C<A>> t2]) {}
+  ArgumentsBindingClass.named(FutureOr<C<A>> t1, {FutureOr<C<A>> t2 = t1Default}) {}
+  ArgumentsBindingClass.positional(FutureOr<C<A>> t1, [FutureOr<C<A>> t2 = t1Default]) {}
 
-  factory ArgumentsBindingClass.fNamed(FutureOr<C<A>> t1, {FutureOr<C<A>> t2}) {
+  factory ArgumentsBindingClass.fNamed(FutureOr<C<A>> t1, {FutureOr<C<A>> t2  = t1Default}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(FutureOr<C<A>> t1, [FutureOr<C<A>> t2]) {
+  factory ArgumentsBindingClass.fPositional(FutureOr<C<A>> t1, [FutureOr<C<A>> t2 = t1Default]) {
     return new ArgumentsBindingClass.positional(t1, t2);
   }
 
-  static namedArgumentsStaticMethod(FutureOr<C<A>> t1, {FutureOr<C<A>> t2}) {}
-  static positionalArgumentsStaticMethod(FutureOr<C<A>> t1, [FutureOr<C<A>> t2]) {}
+  static namedArgumentsStaticMethod(FutureOr<C<A>> t1, {FutureOr<C<A>> t2 = t1Default}) {}
+  static positionalArgumentsStaticMethod(FutureOr<C<A>> t1, [FutureOr<C<A>> t2 = t1Default]) {}
 
-  namedArgumentsMethod(FutureOr<C<A>> t1, {FutureOr<C<A>> t2}) {}
-  positionalArgumentsMethod(FutureOr<C<A>> t1, [FutureOr<C<A>> t2]) {}
+  namedArgumentsMethod(FutureOr<C<A>> t1, {FutureOr<C<A>> t2 = t1Default}) {}
+  positionalArgumentsMethod(FutureOr<C<A>> t1, [FutureOr<C<A>> t2 = t1Default]) {}
 
   set testSetter(FutureOr<C<A>> val) {}
 }
@@ -74,18 +72,13 @@ class ArgumentsBindingClass {
 class ArgumentsBindingGen<X>  {
   ArgumentsBindingGen(X t1) {}
 
-  ArgumentsBindingGen.named(X t1, {X t2}) {}
-  ArgumentsBindingGen.positional(X t1, [X t2]) {}
+  ArgumentsBindingGen.named(X t1, {required X t2}) {}
 
-  factory ArgumentsBindingGen.fNamed(X t1, {X t2}) {
+  factory ArgumentsBindingGen.fNamed(X t1, {required X t2}) {
     return new ArgumentsBindingGen.named(t1, t2: t2);
   }
-  factory ArgumentsBindingGen.fPositional(X t1, [X t2]) {
-    return new ArgumentsBindingGen.positional(t1, t2);
-  }
 
-  namedArgumentsMethod(X t1, {X t2}) {}
-  positionalArgumentsMethod(X t1, [X t2]){}
+  namedArgumentsMethod(X t1, {required X t2}) {}
 
   set testSetter(X val) {}
 }
@@ -100,8 +93,6 @@ main() {
       new ArgumentsBindingClass(forgetType(t0Instance));
   instance1 = new ArgumentsBindingClass.fNamed(forgetType(t0Instance),
       t2: forgetType(t0Instance));
-  instance1 = new ArgumentsBindingClass.fPositional(forgetType(t0Instance),
-      forgetType(t0Instance));
   instance1 = new ArgumentsBindingClass.named(forgetType(t0Instance),
       t2: forgetType(t0Instance));
   instance1 = new ArgumentsBindingClass.positional(forgetType(t0Instance),
@@ -125,25 +116,18 @@ main() {
   //# <-- NotGenericFunctionType
   // test generic functions
   namedArgumentsFunc2<FutureOr<C<A>>>(forgetType(t0Instance), t2: forgetType(t0Instance));
-  positionalArgumentsFunc2<FutureOr<C<A>>>(forgetType(t0Instance), forgetType(t0Instance));
 
   // test generic class constructors
   ArgumentsBindingGen<FutureOr<C<A>>> instance2 =
       new ArgumentsBindingGen<FutureOr<C<A>>>(forgetType(t0Instance));
   instance2 = new ArgumentsBindingGen<FutureOr<C<A>>>.fNamed(forgetType(t0Instance),
       t2: forgetType(t0Instance));
-  instance2 = new ArgumentsBindingGen<FutureOr<C<A>>>.fPositional(forgetType(t0Instance),
-      forgetType(t0Instance));
   instance2 = new ArgumentsBindingGen<FutureOr<C<A>>>.named(forgetType(t0Instance),
       t2: forgetType(t0Instance));
-  instance2 = new ArgumentsBindingGen<FutureOr<C<A>>>.positional(forgetType(t0Instance),
-      forgetType(t0Instance));
 
   // test generic class methods and setters
   instance2.namedArgumentsMethod(forgetType(t0Instance),
       t2: forgetType(t0Instance));
-  instance2.positionalArgumentsMethod(forgetType(t0Instance),
-      forgetType(t0Instance));
   instance2.testSetter = forgetType(t0Instance);
   //# -->
 }

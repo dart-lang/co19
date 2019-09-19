@@ -15,8 +15,8 @@
  *  - if T0 is Null, dynamic, void, or S? for any S, then the subtyping does not
  *      hold (per above, the result of the subtyping query is false).
  *  - Otherwise T0 <: T1 is true.
- * @description Check that if T0 is an unpromoted type variable with bound B
- * but B is not subtype of Object then T0 is not subtype of T1
+ * @description Check that if T0 is a promoted type variable X & S and
+ * S is not subtype of Object then T0 is not subtype of Object
  * @author sgrekhov@unipro.ru
  */
 /**
@@ -27,7 +27,7 @@
  * @author sgrekhov@unipro.ru
  */
 /*
- * This test is generated from right_object_fail_A01_t01.dart and 
+ * This test is generated from right_object_fail_A02.dart and 
  * arguments_binding_fail_x01.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
@@ -35,10 +35,10 @@
 
 
 // SharedOptions=--enable-experiment=non-nullable
-class B {}
-class T0 extends B {}
+class X {}
+class S extends X {}
 
-T0 t0Instance = new T0();
+S t0Instance = new S();
 Object t1Instance = new Object();
 
 
@@ -75,13 +75,14 @@ class ArgumentsBindingClassSuper {          //# 23: compile-time error
 }                                           //# 23: compile-time error
 
 class ArgumentsBindingDesc extends ArgumentsBindingClassSuper { //# 23: compile-time error
-  ArgumentsBindingDesc(T0 t0) : super (t0) {}                  //# 23: compile-time error
+  ArgumentsBindingDesc(S t0) : super (t0) {}                  //# 23: compile-time error
 }                                                               //# 23: compile-time error
 
 
 
-test<T extends B?>(T t0Instance) {
-  
+test<T>(T t0Instance) {
+  if (t0Instance is S?) {
+    
   namedArgumentsFunc1(t0Instance); //# 01: compile-time error
   namedArgumentsFunc1(t1Instance, t2: t0Instance); //# 02: compile-time error
   positionalArgumentsFunc1(t0Instance); //# 03: compile-time error
@@ -106,8 +107,9 @@ test<T extends B?>(T t0Instance) {
   new ArgumentsBindingClass.fPositional(t1Instance, t0Instance); //# 22: compile-time error
   new ArgumentsBindingDesc(t0Instance); //# 23: compile-time error
 
+  }
 }
 
 main() {
-  test<T0>(t0Instance);
+  test<X>(t0Instance);
 }

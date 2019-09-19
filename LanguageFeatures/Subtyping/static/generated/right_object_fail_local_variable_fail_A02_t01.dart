@@ -28,7 +28,7 @@
  * @author ngl@unipro.ru
  */
 /*
- * This test is generated from right_object_fail_A02_t01.dart and 
+ * This test is generated from right_object_fail_A02.dart and 
  * local_variable_fail_x01.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.

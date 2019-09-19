@@ -21,15 +21,15 @@
  */
 /**
  * @description Check that if type T0 is not a subtype of a type T1, then
- * instance of T0 cannot be be assigned to the mixin member of type T1.
- * Assignment to instance variable of super class is tested.
+ * instance of T0 cannot be be assigned to the to global variable of type T1.
+ * Assignment to global variable is tested.
  * @compile-error
  * @author sgrekhov@unipro.ru
  * @author ngl@unipro.ru
  */
 /*
- * This test is generated from right_object_fail_A01_t01.dart and 
- * class_member_mixin_fail_x01.dart.
+ * This test is generated from right_object_fail_A01.dart and 
+ * global_variable_fail_x01.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
  */
@@ -46,17 +46,17 @@ Object t1Instance = new Object();
 
 
 
-class ClassMemberSuper1_t03 {
-  Object m;
-  void set superSetter(Object val) {} //# 02: compile-time error
-}
-
-class ClassMember1_t03 extends Object with ClassMemberSuper1_t03 {
-  test1() {
-    m = t0Instance; //# 03: compile-time error
+class GlobalVariableTest {
+  GlobalVariableTest() {
+    t1Instance = t0Instance; //# 03: compile-time error
   }
-  test2() {
-    superSetter = t0Instance; //# 04: compile-time error
+  GlobalVariableTest.valid() {}
+
+  foo() {
+    t1Instance = t0Instance; //# 04: compile-time error
+  }
+  static test() {
+    t1Instance = t0Instance; //# 05: compile-time error
   }
 }
 
@@ -64,10 +64,16 @@ class ClassMember1_t03 extends Object with ClassMemberSuper1_t03 {
 
 test<T extends B?>(T t0Instance) {
   
-  new ClassMember1_t03().m = t0Instance; //# 01: compile-time error
-  new ClassMember1_t03().superSetter = t0Instance;  //# 02: compile-time error
-  new ClassMember1_t03().test1();  //# 03: compile-time error
-  new ClassMember1_t03().test2();  //# 04: compile-time error
+  t1Instance = t0Instance; //# 01: compile-time error
+
+  bar () {
+    t1Instance = t0Instance; //# 02: compile-time error
+  }
+  bar(); //# 02: compile-time error
+
+  new GlobalVariableTest(); //# 03: compile-time error
+  new GlobalVariableTest.valid().foo(); //# 04: compile-time error
+  GlobalVariableTest.test(); //# 05: compile-time error
 
 }
 

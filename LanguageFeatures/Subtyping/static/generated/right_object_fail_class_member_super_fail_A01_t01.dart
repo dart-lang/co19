@@ -28,7 +28,7 @@
  * @author ngl@unipro.ru
  */
 /*
- * This test is generated from right_object_fail_A01_t01.dart and 
+ * This test is generated from right_object_fail_A01.dart and 
  * class_member_super_fail_x01.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.

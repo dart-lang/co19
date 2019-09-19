@@ -15,8 +15,8 @@
  *  - if T0 is Null, dynamic, void, or S? for any S, then the subtyping does not
  *      hold (per above, the result of the subtyping query is false).
  *  - Otherwise T0 <: T1 is true.
- * @description Check that if T0 is an unpromoted type variable with bound B
- * but B is not subtype of Object then T0 is not subtype of T1
+ * @description Check that if T0 is a promoted type variable X & S and
+ * S is not subtype of Object then T0 is not subtype of Object
  * @author sgrekhov@unipro.ru
  */
 /**
@@ -28,7 +28,7 @@
  * @author ngl@unipro.ru
  */
 /*
- * This test is generated from right_object_fail_A01_t01.dart and 
+ * This test is generated from right_object_fail_A02.dart and 
  * class_member_fail_x01.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
@@ -36,10 +36,10 @@
 
 
 // SharedOptions=--enable-experiment=non-nullable
-class B {}
-class T0 extends B {}
+class X {}
+class S extends X {}
 
-T0 t0Instance = new T0();
+S t0Instance = new S();
 Object t1Instance = new Object();
 
 
@@ -49,7 +49,7 @@ Object t1Instance = new Object();
 class ClassMemberTestStatic {
   static Object s;
 
-  ClassMemberTestStatic(T0 val) {
+  ClassMemberTestStatic(S val) {
     s = val; //# 01: compile-time error
   }
 
@@ -57,7 +57,7 @@ class ClassMemberTestStatic {
     s = t0Instance; //# 04: compile-time error
   }
 
-  static set staticSetter(T0 val) {
+  static set staticSetter(S val) {
     s = val; //# 02: compile-time error
   }
 
@@ -67,7 +67,7 @@ class ClassMemberTestStatic {
 class ClassMemberTestPublic {
   Object m;
 
-  ClassMemberTestPublic(T0 val) {
+  ClassMemberTestPublic(S val) {
     m = val; //# 05: compile-time error
   }
 
@@ -75,11 +75,11 @@ class ClassMemberTestPublic {
 
   ClassMemberTestPublic.validConstructor() {}
 
-  test(T0 val) {
+  test(S val) {
     m = val; //# 08: compile-time error
   }
 
-  set setter(T0 val) {
+  set setter(S val) {
     m = val; //# 07: compile-time error
   }
 
@@ -89,7 +89,7 @@ class ClassMemberTestPublic {
 class ClassMemberTestPrivate {
   Object _m;
 
-  ClassMemberTestPrivate(T0 val) {
+  ClassMemberTestPrivate(S val) {
     _m = val; //# 10: compile-time error
   }
 
@@ -97,11 +97,11 @@ class ClassMemberTestPrivate {
 
   ClassMemberTestPrivate.validConstructor() {}
 
-  test(T0 val) {
+  test(S val) {
     _m = val; //# 12: compile-time error
   }
 
-  set setter(T0 val) {
+  set setter(S val) {
     _m = val; //# 11: compile-time error
   }
 }
@@ -114,8 +114,9 @@ class ClassMemberTestInitFail {
 
 
 
-test<T extends B?>(T t0Instance) {
-  
+test<T>(T t0Instance) {
+  if (t0Instance is S?) {
+    
   new ClassMemberTestStatic(t0Instance); //# 01: compile-time error
   ClassMemberTestStatic.staticSetter = t0Instance; //# 02: compile-time error
   ClassMemberTestStatic.staticGetter; //# 03: compile-time error
@@ -131,8 +132,9 @@ test<T extends B?>(T t0Instance) {
   ClassMemberTestInitFail.s; //# 13: compile-time error
   new ClassMemberTestInitFail(); //# 14: compile-time error
 
+  }
 }
 
 main() {
-  test<T0>(t0Instance);
+  test<X>(t0Instance);
 }
