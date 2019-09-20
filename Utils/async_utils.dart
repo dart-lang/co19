@@ -66,38 +66,15 @@ void  asyncEnd() {
 
 /*----------------------------*/
 
-abstract class StreamListener<T> {
-  void onData(T event);
-
-  void onError(error){}
-
-  void onDone(){}
-
-  bool cancelOnError=false;
-
-  StreamSubscription<T> subscription;
-
-  StreamSubscription<T> listenTo(Stream<T> stream) {
-    if (subscription!=null) {
-       subscription.cancel();
-    }
-    subscription=stream.listen(onData, onError:onError, onDone:onDone,
-      cancelOnError:cancelOnError);
-    return subscription;
-  }
-}
-
-/*----------------------------*/
-
 class Sync2<T> {
   Function fire;
   bool firstPut = false, secondPut = false;
-  T val1, val2;
+  T? val1, val2;
 
   Sync2(this.fire);
 
   void put1(T val) {
-    val1=val;
+    val1 = val;
     firstPut = true;
     if (secondPut) {
       fire(val1, val2);
@@ -111,7 +88,6 @@ class Sync2<T> {
       fire(val1, val2);
     }
   }
-
 }
 /*----------------------------*/
 /**
@@ -127,9 +103,10 @@ class Sync2<T> {
  * is completed. [cleanup] is always called, regardless of test's status.
  *
  */
-void asyncTest<T>(Future test(T value), {Future<T> setup(), void cleanup(T value)}) {
+void asyncTest<T>(Future test(T value), {required Future<T> setup(),
+    required void cleanup(T value)}) {
   asyncStart();
-  Future<T> setupFuture = (setup != null) ? setup() : new Future.value(null);
+  Future<T?> setupFuture = (setup != null) ? setup() : new Future.value(null);
   setupFuture.then((T setupValue) {
     test(setupValue)
       .then((_) => asyncEnd())
@@ -155,8 +132,8 @@ class AsyncExpect {
    * the same way as supplied one. Otherwise, the returned future completes
    * with error.
    */
-  static Future<T> value<T>(T expected, Future<T> future, [String reason = null]) {
-    if (reason==null){
+  static Future<T> value<T>(T expected, Future<T> future, [String? reason = null]) {
+    if (reason == null){
       reason = StackTrace.current.toString();
     }
     asyncStart();
@@ -164,7 +141,7 @@ class AsyncExpect {
       if (expected is List) {
         Expect.listEquals(expected, value, reason);
       } else if (expected is Set) {
-        Expect.setEquals(expected, value as Iterable, reason);
+        Expect.setEquals(expected as Iterable<Object>, value as Iterable<Object>, reason);
       } else {
         Expect.equals(expected, value, reason);
       }
@@ -180,14 +157,14 @@ class AsyncExpect {
    * the same way as supplied one. Otherwise, the returned future completes
    * with error.
    */
-  static Future<T> error<T>(Object error, Future<T> future, [String reason = null]) {
-    if (reason==null){
+  static Future<T> error<T>(Object error, Future<T> future, [String? reason = null]) {
+    if (reason == null){
       reason = StackTrace.current.toString();
     }
     asyncStart();
     return future.then(
       (_) {
-        Expect.fail("The future is expected to complete with error " + reason);
+        Expect.fail("The future is expected to complete with error $reason");
       },
       onError: (e){
         if (error is Function){
@@ -196,7 +173,6 @@ class AsyncExpect {
           Expect.equals(error, e, reason);
         }
         asyncEnd();
-//        throw e;
       }
     );
   }
@@ -205,8 +181,8 @@ class AsyncExpect {
    * Checks whether the given stream contains expected data events.
    * Any error in the stream is unexpected and wil fail the test.
    */
-  static Future<bool> data<T>(List<T> data, Stream<T> stream, [String reason = null]) {
-    if (reason==null){
+  static Future<bool> data<T>(List<T> data, Stream<T> stream, [String? reason = null]) {
+    if (reason == null){
       reason = StackTrace.current.toString();
     }
     Completer<bool> completer = new Completer<bool>();
@@ -228,8 +204,8 @@ class AsyncExpect {
   /**
    * Checks whether the given stream contains expected data and error events.
    */
-  static Future<bool> events<T>(List<T> data, List errors, Stream<T> stream, [String reason = null]) {
-    if (reason==null){
+  static Future<bool> events<T>(List<T> data, List errors, Stream<T> stream, [String? reason = null]) {
+    if (reason == null){
       reason = StackTrace.current.toString();
     }
     Completer<bool> completer = new Completer<bool>();

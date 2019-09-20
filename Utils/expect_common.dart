@@ -18,7 +18,7 @@ class Expect {
   /**
    * Checks whether the expected and actual values are equal (using `==`).
    */
-  static void equals(var expected, var actual, [String reason = null]) {
+  static void equals(var expected, var actual, [String? reason = null]) {
     if (expected == actual) return;
     if ((expected is double) &&
         (actual is double) &&
@@ -33,7 +33,7 @@ class Expect {
   /**
    * Checks whether the actual value is a bool and its value is true.
    */
-  static void isTrue(var actual, [String reason = null]) {
+  static void isTrue(var actual, [String? reason = null]) {
     if (_identical(actual, true)) return;
     String msg = _getMessage(reason);
     _fail("Expect.isTrue($actual$msg) fails.");
@@ -42,7 +42,7 @@ class Expect {
   /**
    * Checks whether the actual value is a bool and its value is false.
    */
-  static void isFalse(var actual, [String reason = null]) {
+  static void isFalse(var actual, [String? reason = null]) {
     if (_identical(actual, false)) return;
     String msg = _getMessage(reason);
     _fail("Expect.isFalse($actual$msg) fails.");
@@ -51,7 +51,7 @@ class Expect {
   /**
    * Checks whether [actual] is null.
    */
-  static void isNull(actual, [String reason = null]) {
+  static void isNull(actual, [String? reason = null]) {
     if (null == actual) return;
     String msg = _getMessage(reason);
     _fail("Expect.isNull(actual: <$actual>$msg) fails.");
@@ -60,7 +60,7 @@ class Expect {
   /**
    * Checks whether [actual] is not null.
    */
-  static void isNotNull(actual, [String reason = null]) {
+  static void isNotNull(actual, [String? reason = null]) {
     if (null != actual) return;
     String msg = _getMessage(reason);
     _fail("Expect.isNotNull(actual: <$actual>$msg) fails.");
@@ -70,7 +70,7 @@ class Expect {
    * Checks whether the expected and actual values are identical
    * (using `identical`).
    */
-  static void identical(var expected, var actual, [String reason = null]) {
+  static void identical(var expected, var actual, [String? reason = null]) {
     if (_identical(expected, actual)) return;
     String msg = _getMessage(reason);
     _fail("Expect.identical(expected: <$expected>, actual: <$actual>$msg) "
@@ -88,19 +88,19 @@ class Expect {
    * value 4 significant digits smaller than the value given for expected.
    */
   static void approxEquals(num expected, num actual,
-      [num tolerance = null, String reason = null]) {
+      [num? tolerance = null, String? reason = null]) {
     if (tolerance == null) {
       tolerance = (expected / 1e4).abs();
     }
     // Note: use !( <= ) rather than > so we fail on NaNs
-    if ((expected - actual).abs() <= tolerance) return;
+    if ((expected - actual).abs() <= (tolerance as num)) return;
 
     String msg = _getMessage(reason);
     _fail('Expect.approxEquals(expected:<$expected>, actual:<$actual>, '
         'tolerance:<$tolerance>$msg) fails');
   }
 
-  static void notEquals(unexpected, actual, [String reason = null]) {
+  static void notEquals(unexpected, actual, [String? reason = null]) {
     if (unexpected != actual) return;
     String msg = _getMessage(reason);
     _fail("Expect.notEquals(unexpected: <$unexpected>, actual:<$actual>$msg) "
@@ -108,61 +108,11 @@ class Expect {
   }
 
   /**
-   * Checks that all elements in [expected] and [actual] are equal `==`.
-   * This is different than the typical check for identity equality `identical`
-   * used by the standard list implementation.  It should also produce nicer
-   * error messages than just calling `Expect.equals(expected, actual)`.
-  static void listEquals(List expected, List actual, [String reason = null]) {
-    String msg = _getMessage(reason);
-    int n = (expected.length < actual.length) ? expected.length : actual.length;
-    for (int i = 0; i < n; i++) {
-      if (expected[i] != actual[i]) {
-        _fail('Expect.listEquals(at index $i, '
-              'expected: <${expected[i]}>, actual: <${actual[i]}>$msg) fails');
-      }
-    }
-    // We check on length at the end in order to provide better error
-    // messages when an unexpected item is inserted in a list.
-    if (expected.length != actual.length) {
-      _fail('Expect.listEquals(list length, '
-        'expected: <${expected.length}>, actual: <${actual.length}>$msg) '
-        'fails: Next element <'
-        '${expected.length > n ? expected[n] : actual[n]}>');
-    }
-  }
-   */
-
-  /**
-   * Checks that all [expected] and [actual] have the same set of keys (using
-   * the semantics of [Map.containsKey] to determine what "same" means. For
-   * each key, checks that the values in both maps are equal using `==`.
-  static void mapEquals(Map expected, Map actual, [String reason = null]) {
-    String msg = _getMessage(reason);
-
-    // Make sure all of the values are present in both and match.
-    for (final key in expected.keys) {
-      if (!actual.containsKey(key)) {
-        _fail('Expect.mapEquals(missing expected key: <$key>$msg) fails');
-      }
-
-      Expect.equals(expected[key], actual[key]);
-    }
-
-    // Make sure the actual map doesn't have any extra keys.
-    for (final key in actual.keys) {
-      if (!expected.containsKey(key)) {
-        _fail('Expect.mapEquals(unexpected key: <$key>$msg) fails');
-      }
-    }
-  }
-   */
-
-  /**
    * Specialized equality test for strings. When the strings don't match,
    * this method shows where the mismatch starts and ends.
    */
   static void stringEquals(String expected, String actual,
-      [String reason = null]) {
+      [String? reason = null]) {
     String msg = _getMessage(reason);
     String defaultMessage =
         'Expect.stringEquals(expected: <$expected>", <$actual>$msg) fails';
@@ -228,8 +178,8 @@ class Expect {
    * Checks that every element of [expected] is also in [actual], and that
    * every element of [actual] is also in [expected].
    */
-  static void setEquals(Iterable expected, Iterable actual,
-      [String reason = null]) {
+  static void setEquals(Iterable<Object> expected, Iterable<Object> actual,
+      [String? reason = null]) {
     final missingSet = new Set.from(expected);
     missingSet.removeAll(actual);
     final extraSet = new Set.from(actual);
@@ -268,7 +218,7 @@ class Expect {
    *     Expect.throws(myThrowingFunction, (e) => e is MyException);
    */
   static void throws(void f(),
-      [_CheckExceptionFn check = null, String reason = null]) {
+      [_CheckExceptionFn check = null, String? reason = null]) {
     if (!(f is Function)) {
       String msg = reason == null ? "" : reason;
       _fail(
@@ -289,11 +239,10 @@ class Expect {
     _fail('Expect.throws($msg) fails');
   }
 
-  static String _getMessage(String reason) =>
+  static String _getMessage(String? reason) =>
       (reason == null) ? "" : ", '$reason'";
 
-//  static void deepListEquals(var expected, var actual, [String reason = null]) {
-  static void listEquals(var expected, var actual, [String reason = null]) {
+  static void listEquals(var expected, var actual, [String? reason = null]) {
     if (expected is! List) {
       Expect.fail("expected is not a List:$expected");
     }
@@ -303,7 +252,7 @@ class Expect {
     deepEquals(expected, actual, reason);
   }
 
-  static void mapEquals(var expected, var actual, [String reason = null]) {
+  static void mapEquals(var expected, var actual, [String? reason = null]) {
     if ((expected is! Map) || (actual is! Map)) {
       Expect.fail("not a Map");
     }
@@ -313,7 +262,7 @@ class Expect {
   /** checks that both collections have identical topology and equal primitive elements.
    *  useful to check cyclic collections passed through ports and streams.
    */
-  static void deepEquals(var expected, var actual, [String reason = null]) {
+  static void deepEquals(var expected, var actual, [String? reason = null]) {
     Map planned = new Map();
     Map processed = new Map();
 
@@ -392,7 +341,7 @@ bool _identical(a, b) => identical(a, b);
 typedef bool _CheckExceptionFn(exception);
 
 class ExpectException implements Exception {
-  String message;
+  String? message;
   ExpectException([this.message]);
-  String toString() => message;
+  String toString() => message ?? "";
 }
