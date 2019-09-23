@@ -8,35 +8,38 @@
  * its branches, depending on whether the condition expression evaluates to
  * [true] or [false]. The other branch must also be a potentially constant
  * expression.
- * @description Checks that compile error is thrown if condition of conditional
- * operator [?]/[:] is [false] and the first operand is not a constant
- * expression.
+ * @description Checks that conditional operator [?]/[:] in constant expression
+ * throws a compile error if condition is [true] and the first operand is not a
+ * correct constant expression.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
+class MyClass1 {
+  final String res;
+  const MyClass1() : res = (true ? (null as String).length : "false");
+}
+
+class MyClass2 {
+  final String res;
+  const MyClass2(String str) : res = (true ? str : "false");
+}
+
+
 main() {
-  String s1;
-  const String str1 = false ? s1 : "OK";
-//                            ^^
+  const res1 = true ? (null as String).length : "String here";
+//                    ^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  String s2 = "test";
-  const String str2 = false ? s2 : "OK";
-//                            ^^
+  const MyClass1  res2 = MyClass1();
+//                      ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  dynamic d = "12345";
-  const String str3 = false ? d : "OK";
-//                            ^
+  const MyClass2 res3 = MyClass2((null as String).length);
+//                               ^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  int i = 12345;
-  const String str4 = false ? i : "OK";
-//                            ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

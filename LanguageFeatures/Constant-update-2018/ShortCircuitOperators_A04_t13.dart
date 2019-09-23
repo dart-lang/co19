@@ -11,7 +11,6 @@
  * @description Checks that compile error is thrown if condition of conditional
  * operator [?]/[:] is [true] and the second one is not a correct constant
  * expression.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
@@ -19,6 +18,10 @@
 class MyClass {
   final bool res;
   const MyClass() : res = (true ? true : (null as String).length + "abc");
+//                                                                 ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }
 
 main() {

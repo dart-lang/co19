@@ -8,35 +8,47 @@
  * its branches, depending on whether the condition expression evaluates to
  * [true] or [false]. The other branch must also be a potentially constant
  * expression.
- * @description Checks that compile error is thrown if condition of conditional
- * operator [?]/[:] is [true] and the second one is not a constant expression.
+ * @description Checks that conditional operator [?]/[:] throws a error if
+ * operand is not constant in the constant constructor
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
+int i = 0;
+
+dynamic d;
+
+class MyClass1 {
+  final int res;
+  const MyClass1() : res = (true ? true : i);
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class MyClass2 {
+  final int res;
+  const MyClass2() : res = (true ? i : false);
+//                                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class MyClass3 {
+  final int res;
+  const MyClass3() : res = (false ? true : d);
+//                                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class MyClass4 {
+  final int res;
+  const MyClass4() : res = (true ? d : false);
+//                                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
-  String s1;
-  const String str1 = true ? "OK" : s1;
-//                                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  String s2 = "testme";
-  const String str2 = true ? "OK" : s2;
-//                                  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var i = 9;
-  const String str3 = true ? "OK" : i;
-//                                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  dynamic j = 9;
-  const String str4 = true ? "OK" : j;
-//                                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 }

@@ -11,11 +11,13 @@
  * @description Checks that compile error is thrown if condition of conditional
  * operator [?]/[:] is [false] and the first one is not a correct constant
  * expression.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   const String str = false ? (null as String).length + "abc" : "OK";
+//                                                     ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
