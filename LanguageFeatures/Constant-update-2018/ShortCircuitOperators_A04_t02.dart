@@ -15,12 +15,31 @@
 // SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
-class MyClass {
+class MyClass1 {
   final bool res;
-  const MyClass() : res = (true ? true : (null as String).length);
+  const MyClass1() : res = (true ? true : (null as String).length);
+}
+
+class MyClass2 {
+  final int res;
+  const MyClass2() : res = (true ? 125 : (null as String).length > 0);
+}
+
+class MyClass3 {
+  final int res;
+  const MyClass3(val) : res = (true ? 125 : (val as int));
 }
 
 main() {
-  const MyClass c = MyClass();
-  Expect.isTrue(c.res);
+  const MyClass1 c1 = MyClass1();
+  Expect.isTrue(c1.res);
+
+  const MyClass2 c2 = MyClass2();
+  Expect.equals(125, c2.res);
+
+  const MyClass3 c3 = MyClass3(123);
+  Expect.equals(125, c2.res);
+
+  const MyClass3 c4 = MyClass3("12345");
+  Expect.equals(125, c2.res);
 }

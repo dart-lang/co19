@@ -8,34 +8,32 @@
  * its branches, depending on whether the condition expression evaluates to
  * [true] or [false]. The other branch must also be a potentially constant
  * expression.
- * @description Checks that compile error is thrown if condition of conditional
- * operator [?]/[:] is [true] and the second one is not a constant expression.
+ * @description Checks that conditional operator [?]/[:] in constant expression
+ * throws a compile error if some operand is not a constant expression.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
+String s = "not a constant";
+
 main() {
-  String s1;
-  const String str1 = true ? "OK" : s1;
-//                                  ^
+  const String str1 = true ? s : "constant";
+//                           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  String s2 = "testme";
-  const String str2 = true ? "OK" : s2;
-//                                  ^^
+  const String str2 = true ? "constant" : s;
+//                                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var i = 9;
-  const String str3 = true ? "OK" : i;
-//                                  ^
+  const String str3 = false ? s : "constant";
+//                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  dynamic j = 9;
-  const String str4 = true ? "OK" : j;
-//                                  ^
+  const String str4 = false ? "constant" : s;
+//                                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

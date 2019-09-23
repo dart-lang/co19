@@ -8,18 +8,31 @@
  * its branches, depending on whether the condition expression evaluates to
  * [true] or [false]. The other branch must also be a potentially constant
  * expression.
- * @description Checks that conditional operator [?]/[:] rejects the second
- * operand if condition is [true] for constant expressions.
+ * @description Checks that conditional operator [?]/[:] works correctly if all
+ * the operands are correct constant expressions.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
-main() {
-  const String str = true ? "OK" : (null as String).length < 14;
-  Expect.equals("OK", str);
+const ok_str = "OK";
+const wrong_str = "wrong";
 
-  const String str1 = true ? "OK" : "wrong";
-  Expect.equals("OK", str1);
+class MyClass1 {
+  final String res;
+  const MyClass1() : res = (true ? "true" : "false");
+}
+
+class MyClass2 {
+  final String res;
+  const MyClass2() : res = (false ? wrong_str : ok_str);
+}
+
+main() {
+  const MyClass1 c1 = MyClass1();
+  Expect.equals("true", c1.res);
+
+  const MyClass2 c2 = MyClass2();
+  Expect.equals("OK", c2.res);
 
 }
