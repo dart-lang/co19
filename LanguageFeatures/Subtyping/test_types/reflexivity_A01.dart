@@ -11,11 +11,15 @@
  * subtype of a type T1
  * @author sgrekhov@unipro.ru
  */
-
-class T {}
+// SharedOptions=--enable-experiment=non-nullable
+class T {
+  const T();
+}
 
 T t0Instance = new T();
 T t1Instance = new T();
+
+const t1Default = const T();
 
 //# @T0 = T
 //# @T1 = T

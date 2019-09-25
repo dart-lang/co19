@@ -32,10 +32,12 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class S1 {}
+class S1 {
+  const S1();
+}
 class S0 {}
 class X0 extends S0 {
 }
@@ -43,13 +45,15 @@ class X0 extends S0 {
 X0 t0Instance = new X0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
+const t1Default = const S1();
+
 
 
 
 class ArgumentsBindingSuper1_t03 {
   void superTest(FutureOr<S1> val) {}
-  void superTestPositioned(FutureOr<S1> val, [FutureOr<S1> val2]) {}
-  void superTestNamed(FutureOr<S1> val, {FutureOr<S1> val2}) {}
+  void superTestPositioned(FutureOr<S1> val, [FutureOr<S1> val2 = t1Default]) {}
+  void superTestNamed(FutureOr<S1> val, {FutureOr<S1> val2 = t1Default}) {}
   FutureOr<S1> get superGetter => t0Instance; //# 07: compile-time error
   void set superSetter(FutureOr<S1> val) {}
 }

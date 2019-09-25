@@ -32,10 +32,12 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class S1 {}
+class S1 {
+  const S1();
+}
 class S0 {}
 class X0 extends S0 {
 }
@@ -43,35 +45,32 @@ class X0 extends S0 {
 X0 t0Instance = new X0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
+const t1Default = const S1();
+
 
 
 
 class LocalVariableTest {
   LocalVariableTest() {
-    FutureOr<S1> t1 = null;
-    t1 = t0Instance; //# 03: compile-time error
+    FutureOr<S1> t1 = t0Instance; //# 03: compile-time error
   }
 
   LocalVariableTest.valid() {}
 
   test() {
-    FutureOr<S1> t1 = null;
-    t1 = t0Instance; //# 04: compile-time error
+    FutureOr<S1> t1 = t0Instance; //# 04: compile-time error
   }
 
   static staticTest() {
-    FutureOr<S1> t1 = null;
-    t1 = t0Instance; //# 05: compile-time error
+    FutureOr<S1> t1 = t0Instance; //# 05: compile-time error
   }
 }
 
 main() {
-  FutureOr<S1> t1 = null;
-  t1 = t0Instance; //# 01: compile-time error
+  FutureOr<S1> t1 = t0Instance; //# 01: compile-time error
 
   bar () {
-    FutureOr<S1> t1 = null;
-    t1 = t0Instance; //# 02: compile-time error
+    FutureOr<S1> t1 = t0Instance; //# 02: compile-time error
   }
   bar(); //# 02: compile-time error
 

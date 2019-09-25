@@ -25,20 +25,23 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 class C {}
 
 typedef C T0<X extends C>();
 C t0Func<X extends C>() => new C();
 
 T0<C> t0Instance = t0Func;
-Function t1Instance = null;
+Function t1Instance = () {};
+
+void foo() {}
+const t1Default = foo;
 
 
 
 
 class ClassMemberSuper1_t02 {
-  Function m;
+  Function m = t1Default;
 
   ClassMemberSuper1_t02(dynamic value) {
     m = value;

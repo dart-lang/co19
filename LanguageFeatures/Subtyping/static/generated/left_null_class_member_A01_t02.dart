@@ -33,7 +33,7 @@ T1 t1Instance = new T1();
 
 
 class ClassMemberSuper1_t02 {
-  T1 m;
+  T1 m = t1Default;
 
   ClassMemberSuper1_t02(dynamic value) {
     m = value;

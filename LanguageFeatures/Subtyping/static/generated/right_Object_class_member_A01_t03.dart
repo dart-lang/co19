@@ -46,7 +46,7 @@ const t1Default = const Object();
 
 
 class ClassMemberMixin1_t03 {
-  Object m;
+  Object m = t1Default;
 
   void set superSetter(dynamic val) {}
 }

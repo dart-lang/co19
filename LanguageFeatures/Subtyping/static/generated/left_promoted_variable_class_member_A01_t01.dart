@@ -25,13 +25,17 @@
  */
 
 
-class T1 {}
+class T1 {
+  const T1();
+}
 class X0 {}
 class S0 extends X0 implements T1 {}
 
 
 S0 t0Instance = new S0();
 T1 t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 

@@ -24,39 +24,42 @@
  */
 
 
-
-class T {}
+// SharedOptions=--enable-experiment=non-nullable
+class T {
+  const T();
+}
 
 T t0Instance = new T();
 T t1Instance = new T();
 
+const t1Default = const T();
 
 
 
-namedArgumentsFunc1(T t1, {T t2}) {}
-positionalArgumentsFunc1(T t1, [T t2]) {}
 
-namedArgumentsFunc2<X>(X t1, {X t2}) {}
-positionalArgumentsFunc2<X>(X t1, [X t2]) {}
+namedArgumentsFunc1(T t1, {T t2 = t1Default}) {}
+positionalArgumentsFunc1(T t1, [T t2 = t1Default]) {}
+
+namedArgumentsFunc2<X>(X t1, {required X t2}) {}
 
 class ArgumentsBindingClass {
   ArgumentsBindingClass(T t1) {}
 
-  ArgumentsBindingClass.named(T t1, {T t2}) {}
-  ArgumentsBindingClass.positional(T t1, [T t2]) {}
+  ArgumentsBindingClass.named(T t1, {T t2 = t1Default}) {}
+  ArgumentsBindingClass.positional(T t1, [T t2 = t1Default]) {}
 
-  factory ArgumentsBindingClass.fNamed(T t1, {T t2}) {
+  factory ArgumentsBindingClass.fNamed(T t1, {T t2 = t1Default}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(T t1, [T t2]) {
+  factory ArgumentsBindingClass.fPositional(T t1, [T t2 = t1Default]) {
     return new ArgumentsBindingClass.positional(t1, t2);
   }
 
-  static namedArgumentsStaticMethod(T t1, {T t2}) {}
-  static positionalArgumentsStaticMethod(T t1, [T t2]) {}
+  static namedArgumentsStaticMethod(T t1, {T t2 = t1Default}) {}
+  static positionalArgumentsStaticMethod(T t1, [T t2 = t1Default]) {}
 
-  namedArgumentsMethod(T t1, {T t2}) {}
-  positionalArgumentsMethod(T t1, [T t2]) {}
+  namedArgumentsMethod(T t1, {T t2 = t1Default}) {}
+  positionalArgumentsMethod(T t1, [T t2 = t1Default]) {}
 
   set testSetter(T val) {}
 }
@@ -64,18 +67,13 @@ class ArgumentsBindingClass {
 class ArgumentsBindingGen<X>  {
   ArgumentsBindingGen(X t1) {}
 
-  ArgumentsBindingGen.named(X t1, {X t2}) {}
-  ArgumentsBindingGen.positional(X t1, [X t2]) {}
+  ArgumentsBindingGen.named(X t1, {required X t2}) {}
 
-  factory ArgumentsBindingGen.fNamed(X t1, {X t2}) {
+  factory ArgumentsBindingGen.fNamed(X t1, {required X t2}) {
     return new ArgumentsBindingGen.named(t1, t2: t2);
   }
-  factory ArgumentsBindingGen.fPositional(X t1, [X t2]) {
-    return new ArgumentsBindingGen.positional(t1, t2);
-  }
 
-  namedArgumentsMethod(X t1, {X t2}) {}
-  positionalArgumentsMethod(X t1, [X t2]){}
+  namedArgumentsMethod(X t1, {required X t2}) {}
 
   set testSetter(X val) {}
 }
@@ -106,18 +104,14 @@ main() {
   //# <-- NotGenericFunctionType
   // test generic functions
   namedArgumentsFunc2<T>(t0Instance, t2: t0Instance);
-  positionalArgumentsFunc2<T>(t0Instance, t0Instance);
 
   // test generic class constructors
   ArgumentsBindingGen<T> instance2 = new ArgumentsBindingGen<T>(t0Instance);
   instance2 = new ArgumentsBindingGen<T>.fNamed(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<T>.fPositional(t0Instance, t0Instance);
   instance2 = new ArgumentsBindingGen<T>.named(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<T>.positional(t0Instance, t0Instance);
 
   // test generic class methods and setters
   instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
-  instance2.positionalArgumentsMethod(t0Instance, t0Instance);
   instance2.testSetter = t0Instance;
   //# -->
 }

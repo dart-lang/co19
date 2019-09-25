@@ -33,7 +33,7 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 class A {}
 
 class C extends A {}
@@ -74,31 +74,32 @@ class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
 typedef T0 = U0<Null, Null, Null> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
-    [V2<A, List, num> x2, V3<A, List, num> x3]);
+    [V2<A, List, num>? x2, V3<A, List, num>? x3]);
 typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B1>(
     S0<Null, Null, Null> y0, S1<Null, Null, Null> y1,
-    [S2<Null, Null, Null> x2, S3<Null, Null, Null> x3]);
+    [S2<Null, Null, Null>? x2, S3<Null, Null, Null>? x3]);
 
 U0<Null, Null, Null> t0Func<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
-    [V2<A, List, num> x2, V3<A, List, num> x3]) =>
+    [V2<A, List, num>? x2, V3<A, List, num>? x3]) =>
     null;
 U1<A, List, num> t1Func<X extends B0, Y extends B1>(
     S0<Null, Null, Null> y0, S1<Null, Null, Null> y1,
-    [S2<Null, Null, Null> x2, S3<Null, Null, Null> x3]) =>
+    [S2<Null, Null, Null>? x2, S3<Null, Null, Null>? x3]) =>
     null;
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
+const t1Default = t1Func;
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  T1 m;
+  T1 m = t1Default;
 
   void superTest(T1 val) {}
-  void superTestPositioned(T1 val, [T1 val2]) {}
-  void superTestNamed(T1 val, {T1 val2}) {}
+  void superTestPositioned(T1 val, [T1 val2 = t1Default]) {}
+  void superTestNamed(T1 val, {T1 val2 = t1Default}) {}
   T1 get superGetter => m;
   void set superSetter(T1 val) {}
 }
@@ -118,12 +119,8 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
 }
 
 class ArgumentsBindingMixin2_t03<X> {
-  X m;
-
   void superTest(X val) {}
-  void superTestPositioned(X val, [X val2]) {}
-  void superTestNamed(X val, {X val2}) {}
-  X get superGetter => m;
+  void superTestNamed(X val, {required X val2}) {}
   void set superSetter(X val) {}
 }
 
@@ -131,13 +128,8 @@ class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingMixin2_t03<X>
 
   test(dynamic t1, dynamic t2) {
     superTest(t1);
-    superTestPositioned(t1);
-    superTestPositioned(t2, t1);
-    superTestNamed(t1);
     superTestNamed(t2, val2: t1);
     superSetter = t1;
-    m = t1;
-    superGetter;
   }
 }
 

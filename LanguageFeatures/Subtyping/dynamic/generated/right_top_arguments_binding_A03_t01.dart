@@ -29,6 +29,8 @@ import '../../utils/common.dart';
 dynamic t0Instance = "";
 Object? t1Instance = new Object();
 
+const t1Default = null;
+
 
 
 namedArgumentsFunc1(Object? t1, {Object? t2 = t1Default}) {}

@@ -29,10 +29,12 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class C1 {}
+class C1 {
+  const C1();
+}
 class S0 implements Future<C1> {
   asStream() => null;
   catchError(Function onError, {bool test(Object error)}) => null;
@@ -45,11 +47,13 @@ class S0 implements Future<C1> {
 FutureOr<S0> t0Instance = new Future<S0>.value(new S0());
 Future<C1> t1Instance = new Future.value(new C1());
 
+const t1Default = const C1();
+
 
 
 
 class ClassMemberTestStatic {
-  static Future<C1> s;
+  static Future<C1> s = t1Default;
 
   ClassMemberTestStatic(dynamic val) {
     s = val;
@@ -67,7 +71,7 @@ class ClassMemberTestStatic {
 }
 
 class ClassMemberTestPublic {
-  Future<C1> m;
+  Future<C1> m = t1Default;
 
   ClassMemberTestPublic(dynamic val) {
     m = val;
@@ -89,7 +93,7 @@ class ClassMemberTestPublic {
 }
 
 class ClassMemberTestPrivate {
-  Future<C1> _m;
+  Future<C1> _m = t1Default;
 
   ClassMemberTestPrivate(dynamic val) {
     _m = val;
@@ -116,13 +120,10 @@ class ClassMemberTestInitFail {
 class ClassMemberTestGenericPublic<X> {
   X m;
 
-  ClassMemberTestGenericPublic(dynamic val) {
-    m = val;
+  ClassMemberTestGenericPublic(dynamic val): m = val {
   }
 
   ClassMemberTestGenericPublic.short(this.m);
-
-  ClassMemberTestGenericPublic.validConstructor() {}
 
   test(dynamic val) {
     m = val;
@@ -138,13 +139,10 @@ class ClassMemberTestGenericPublic<X> {
 class ClassMemberTestGenericPrivate<X> {
   X _m;
 
-  ClassMemberTestGenericPrivate(dynamic val) {
-    _m = val;
+  ClassMemberTestGenericPrivate(dynamic val): _m = val {
   }
 
   ClassMemberTestGenericPrivate.short(this._m);
-
-  ClassMemberTestGenericPrivate.validConstructor() {}
 
   test(dynamic val) {
     _m = val;
@@ -181,30 +179,30 @@ main() {
 
   // Test class variables
   Expect.throws(() {
-    new ClassMemberTestPublic.validConstructor().m = forgetType(t0Instance);
+    new ClassMemberTestPublic(t1Instance).m = forgetType(t0Instance);
   }, (e) => e is TypeError);
 
   // Test setters
   Expect.throws(() {
-    new ClassMemberTestPublic.validConstructor().setter = t0Instance;
+    new ClassMemberTestPublic(t1Instance).setter = t0Instance;
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ClassMemberTestPrivate.validConstructor().setter = t0Instance;
+    new ClassMemberTestPrivate(t1Instance).setter = t0Instance;
   }, (e) => e is TypeError);
 
   // Test methods
   Expect.throws(() {
-    new ClassMemberTestPublic.validConstructor().test(t0Instance);
+    new ClassMemberTestPublic(t1Instance).test(t0Instance);
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ClassMemberTestPrivate.validConstructor().test(t0Instance);
+    new ClassMemberTestPrivate(t1Instance).test(t0Instance);
   }, (e) => e is TypeError);
 
   // Test getters
   Expect.throws(() {
-    new ClassMemberTestPublic.validConstructor().getter;
+    new ClassMemberTestPublic(t1Instance).getter;
   }, (e) => e is TypeError);
 
 
@@ -230,30 +228,30 @@ main() {
   //# <-- NotGenericFunctionType
   // Test getters
   Expect.throws(() {
-    new ClassMemberTestGenericPublic<Future<C1>>.validConstructor().getter;
+    new ClassMemberTestGenericPublic<Future<C1>>(t1Instance).getter;
   }, (e) => e is TypeError);
 
   // Test methods
   Expect.throws(() {
-    new ClassMemberTestGenericPublic<Future<C1>>.validConstructor().test(t0Instance);
+    new ClassMemberTestGenericPublic<Future<C1>>(t1Instance).test(t0Instance);
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ClassMemberTestGenericPrivate<Future<C1>>.validConstructor().test(t0Instance);
+    new ClassMemberTestGenericPrivate<Future<C1>>(t1Instance).test(t0Instance);
   }, (e) => e is TypeError);
 
   // Test setters
   Expect.throws(() {
-    new ClassMemberTestGenericPublic<Future<C1>>.validConstructor().setter = t0Instance;
+    new ClassMemberTestGenericPublic<Future<C1>>(t1Instance).setter = t0Instance;
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ClassMemberTestGenericPrivate<Future<C1>>.validConstructor().setter = t0Instance;
+    new ClassMemberTestGenericPrivate<Future<C1>>(t1Instance).setter = t0Instance;
   }, (e) => e is TypeError);
 
   // Test class variables
   Expect.throws(() {
-    new ClassMemberTestGenericPublic<Future<C1>>.validConstructor().m = forgetType(t0Instance);
+    new ClassMemberTestGenericPublic<Future<C1>>(t1Instance).m = forgetType(t0Instance);
   }, (e) => e is TypeError);
 
   // Test constructors

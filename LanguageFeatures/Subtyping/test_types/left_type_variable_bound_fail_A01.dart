@@ -12,13 +12,17 @@
  * B0 is not a subtype of T1 then T0 is not a subtype of a type T1.
  * @author ngl@unipro.ru
  */
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 class B0 {}
 class X0 extends B0 {}
 
 X0 t0Instance = new X0();
 T1 t1Instance = new T1();
+
+const t1Default = const T1();
 
 //# @T0 = X0
 //# @T1 = T1

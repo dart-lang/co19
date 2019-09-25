@@ -28,19 +28,23 @@
  */
 
 
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 class B0 {}
 class X0 extends B0 {}
 
 X0 t0Instance = new X0();
 T1 t1Instance = new T1();
 
+const t1Default = const T1();
+
 
 
 
 class ClassMemberTestStatic {
-  static T1 s;
+  static T1 s = t1Default;
 
   ClassMemberTestStatic(X0 val) {
     s = val; //# 01: compile-time error
@@ -58,7 +62,7 @@ class ClassMemberTestStatic {
 }
 
 class ClassMemberTestPublic {
-  T1 m;
+  T1 m = t1Default;
 
   ClassMemberTestPublic(X0 val) {
     m = val; //# 05: compile-time error
@@ -80,7 +84,7 @@ class ClassMemberTestPublic {
 }
 
 class ClassMemberTestPrivate {
-  T1 _m;
+  T1 _m = t1Default;
 
   ClassMemberTestPrivate(X0 val) {
     _m = val; //# 10: compile-time error
@@ -121,4 +125,3 @@ main() {
   ClassMemberTestInitFail.s; //# 13: compile-time error
   new ClassMemberTestInitFail(); //# 14: compile-time error
 }
-

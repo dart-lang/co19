@@ -27,13 +27,17 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 class B0 {}
 class X0 extends B0 {}
 
 X0 t0Instance = new X0();
 T1 t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
@@ -41,32 +45,27 @@ T1 t1Instance = new T1();
 class LocalVariableTest {
 
   LocalVariableTest() {
-    T1 t1 = null;
-    t1 = forgetType(t0Instance);
+    T1 t1 = forgetType(t0Instance);
   }
 
   LocalVariableTest.valid() {}
 
   static staticTest() {
-    T1 t1 = null;
-    t1 = forgetType(t0Instance);
+    T1 t1 = forgetType(t0Instance);
   }
 
   test() {
-    T1 t1 = null;
-    t1 = forgetType(t0Instance);
+    T1 t1 = forgetType(t0Instance);
   }
 }
 
 main() {
   bar () {
-    T1 t1 = null;
-    t1 = forgetType(t0Instance);
+    T1 t1 = forgetType(t0Instance);
   }
 
   Expect.throws(() {
-    T1 t1 = null;
-    t1 = forgetType(t0Instance);
+    T1 t1 = forgetType(t0Instance);
   }, (e) => e is TypeError);
 
   Expect.throws(() {

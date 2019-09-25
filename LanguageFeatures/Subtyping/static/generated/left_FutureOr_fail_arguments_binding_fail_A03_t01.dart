@@ -29,10 +29,12 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class C1 {}
+class C1 {
+  const C1();
+}
 class S0 implements Future<C1> {
   asStream() => null;
   catchError(Function onError, {bool test(Object error)}) => null;
@@ -45,30 +47,32 @@ class S0 implements Future<C1> {
 FutureOr<S0> t0Instance = new Future<S0>.value(new S0());
 Future<C1> t1Instance = new Future.value(new C1());
 
+const t1Default = const C1();
 
 
 
-namedArgumentsFunc1(Future<C1> t1, {Future<C1> t2}) {}
-positionalArgumentsFunc1(Future<C1> t1, [Future<C1> t2]) {}
+
+namedArgumentsFunc1(Future<C1> t1, {Future<C1> t2 = t1Default}) {}
+positionalArgumentsFunc1(Future<C1> t1, [Future<C1> t2 = t1Default]) {}
 
 class ArgumentsBindingClass {
     ArgumentsBindingClass(Future<C1> t1) {}
 
-    ArgumentsBindingClass.named(Future<C1> t1, {Future<C1> t2}) {}
-    ArgumentsBindingClass.positional(Future<C1> t1, [Future<C1> t2]) {}
+    ArgumentsBindingClass.named(Future<C1> t1, {Future<C1> t2 = t1Default}) {}
+    ArgumentsBindingClass.positional(Future<C1> t1, [Future<C1> t2 = t1Default]) {}
 
-    factory ArgumentsBindingClass.fNamed(Future<C1> t1, {Future<C1> t2}) {
+    factory ArgumentsBindingClass.fNamed(Future<C1> t1, {Future<C1> t2 = t1Default}) {
         return new ArgumentsBindingClass.named(t1, t2: t2);
     }
-    factory ArgumentsBindingClass.fPositional(Future<C1> t1, [Future<C1> t2]) {
+    factory ArgumentsBindingClass.fPositional(Future<C1> t1, [Future<C1> t2 = t1Default]) {
         return new ArgumentsBindingClass.positional(t1, t2);
     }
 
-    static namedArgumentsStaticMethod(Future<C1> t1, {Future<C1> t2}) {}
-    static positionalArgumentsStaticMethod(Future<C1> t1, [Future<C1> t2]) {}
+    static namedArgumentsStaticMethod(Future<C1> t1, {Future<C1> t2 = t1Default}) {}
+    static positionalArgumentsStaticMethod(Future<C1> t1, [Future<C1> t2 = t1Default]) {}
 
-    namedArgumentsMethod(Future<C1> t1, {Future<C1> t2}) {}
-    positionalArgumentsMethod(Future<C1> t1, [Future<C1> t2]) {}
+    namedArgumentsMethod(Future<C1> t1, {Future<C1> t2 = t1Default}) {}
+    positionalArgumentsMethod(Future<C1> t1, [Future<C1> t2 = t1Default]) {}
 
     set testSetter(Future<C1> val) {}
 }

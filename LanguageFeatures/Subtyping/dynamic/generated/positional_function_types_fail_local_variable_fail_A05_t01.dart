@@ -37,7 +37,7 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 class A {}
 
 class C extends A {}
@@ -68,55 +68,50 @@ class S3<X, Y, Z> extends V3<X, Y, Z> {}
 
 typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
-    [V2<A, List, num> x2, V3<A, List, num> x3]);
+    [V2<A, List, num>? x2, V3<A, List, num>? x3]);
 typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B1>(
-    S0<C, List<String>, int> y0, [S1<C, List<String>, int> y1,
-    S2<C, List<String>, int> y2]);
+    S0<C, List<String>, int> y0, [S1<C, List<String>, int>? y1,
+    S2<C, List<String>, int>? y2]);
 
 U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
-        [V2<A, List, num> x2, V3<A, List, num> x3]) =>
+        [V2<A, List, num>? x2, V3<A, List, num>? x3]) =>
     null;
 U1<A, List, num> t1Func<X extends B0, Y extends B1>(
-        S0<C, List<String>, int> y0, [S1<C, List<String>, int> y1,
-        S2<C, List<String>, int> y2]) =>
-    null;
+        S0<C, List<String>, int> y0, [S1<C, List<String>, int>? y1,
+        S2<C, List<String>, int>? y2]) =>
+    new U1<A, List, num>();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
-bool isGenericFunctionType = true;
+const t1Default = t1Func;
 
 
 
 class LocalVariableTest {
 
   LocalVariableTest() {
-    T1 t1 = null;
-    t1 = forgetType(t0Instance);
+    T1 t1 = forgetType(t0Instance);
   }
 
   LocalVariableTest.valid() {}
 
   static staticTest() {
-    T1 t1 = null;
-    t1 = forgetType(t0Instance);
+    T1 t1 = forgetType(t0Instance);
   }
 
   test() {
-    T1 t1 = null;
-    t1 = forgetType(t0Instance);
+    T1 t1 = forgetType(t0Instance);
   }
 }
 
 main() {
   bar () {
-    T1 t1 = null;
-    t1 = forgetType(t0Instance);
+    T1 t1 = forgetType(t0Instance);
   }
 
   Expect.throws(() {
-    T1 t1 = null;
-    t1 = forgetType(t0Instance);
+    T1 t1 = forgetType(t0Instance);
   }, (e) => e is TypeError);
 
   Expect.throws(() {

@@ -39,8 +39,10 @@
 class B {}
 class T0 extends B {}
 
-T0 t0Instance = new T0();
+T0? t0Instance = new T0();
 Object t1Instance = new Object();
+
+const t1Default = const Object();
 
 
 
@@ -78,5 +80,5 @@ test<T extends B?>(T t0Instance) {
 }
 
 main() {
-  test<T0>(t0Instance);
+  test<T0?>(t0Instance);
 }

@@ -24,13 +24,16 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 class C {}
 
 typedef void T0(C c, {dynamic d});
 
 void t0Instance(C c, {dynamic d}) {}
-Function t1Instance = null;
+Function t1Instance = () {};
+
+void foo() {}
+const t1Default = foo;
 
 
 

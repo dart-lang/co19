@@ -26,7 +26,7 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 abstract class U0 {}
 abstract class U1 {}
 abstract class U2 {}
@@ -35,38 +35,41 @@ abstract class S0 extends U0 {}
 abstract class S1 extends Object with U1 {}
 class S2 = Object with U2;
 
-class C0<X, Y, Z> {}
+class C0<X, Y, Z> {
+  const C0();
+}
 
 C0<S0, S1, S2> t0Instance = new C0<S0, S1, S2>();
 C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
 
+const t1Default = const C0<U0, U1, U2>();
 
 
 
-namedArgumentsFunc1(C0<U0, U1, U2> t1, {C0<U0, U1, U2> t2}) {}
-positionalArgumentsFunc1(C0<U0, U1, U2> t1, [C0<U0, U1, U2> t2]) {}
 
-namedArgumentsFunc2<X>(X t1, {X t2}) {}
-positionalArgumentsFunc2<X>(X t1, [X t2]) {}
+namedArgumentsFunc1(C0<U0, U1, U2> t1, {C0<U0, U1, U2> t2 = t1Default}) {}
+positionalArgumentsFunc1(C0<U0, U1, U2> t1, [C0<U0, U1, U2> t2 = t1Default]) {}
+
+namedArgumentsFunc2<X>(X t1, {required X t2}) {}
 
 class ArgumentsBindingClass {
   ArgumentsBindingClass(C0<U0, U1, U2> t1) {}
 
-  ArgumentsBindingClass.named(C0<U0, U1, U2> t1, {C0<U0, U1, U2> t2}) {}
-  ArgumentsBindingClass.positional(C0<U0, U1, U2> t1, [C0<U0, U1, U2> t2]) {}
+  ArgumentsBindingClass.named(C0<U0, U1, U2> t1, {C0<U0, U1, U2> t2 = t1Default}) {}
+  ArgumentsBindingClass.positional(C0<U0, U1, U2> t1, [C0<U0, U1, U2> t2 = t1Default]) {}
 
-  factory ArgumentsBindingClass.fNamed(C0<U0, U1, U2> t1, {C0<U0, U1, U2> t2}) {
+  factory ArgumentsBindingClass.fNamed(C0<U0, U1, U2> t1, {C0<U0, U1, U2> t2 = t1Default}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(C0<U0, U1, U2> t1, [C0<U0, U1, U2> t2]) {
+  factory ArgumentsBindingClass.fPositional(C0<U0, U1, U2> t1, [C0<U0, U1, U2> t2 = t1Default]) {
     return new ArgumentsBindingClass.positional(t1, t2);
   }
 
-  static namedArgumentsStaticMethod(C0<U0, U1, U2> t1, {C0<U0, U1, U2> t2}) {}
-  static positionalArgumentsStaticMethod(C0<U0, U1, U2> t1, [C0<U0, U1, U2> t2]) {}
+  static namedArgumentsStaticMethod(C0<U0, U1, U2> t1, {C0<U0, U1, U2> t2 = t1Default}) {}
+  static positionalArgumentsStaticMethod(C0<U0, U1, U2> t1, [C0<U0, U1, U2> t2 = t1Default]) {}
 
-  namedArgumentsMethod(C0<U0, U1, U2> t1, {C0<U0, U1, U2> t2}) {}
-  positionalArgumentsMethod(C0<U0, U1, U2> t1, [C0<U0, U1, U2> t2]) {}
+  namedArgumentsMethod(C0<U0, U1, U2> t1, {C0<U0, U1, U2> t2 = t1Default}) {}
+  positionalArgumentsMethod(C0<U0, U1, U2> t1, [C0<U0, U1, U2> t2 = t1Default]) {}
 
   set testSetter(C0<U0, U1, U2> val) {}
 }
@@ -74,18 +77,13 @@ class ArgumentsBindingClass {
 class ArgumentsBindingGen<X>  {
   ArgumentsBindingGen(X t1) {}
 
-  ArgumentsBindingGen.named(X t1, {X t2}) {}
-  ArgumentsBindingGen.positional(X t1, [X t2]) {}
+  ArgumentsBindingGen.named(X t1, {required X t2}) {}
 
-  factory ArgumentsBindingGen.fNamed(X t1, {X t2}) {
+  factory ArgumentsBindingGen.fNamed(X t1, {required X t2}) {
     return new ArgumentsBindingGen.named(t1, t2: t2);
   }
-  factory ArgumentsBindingGen.fPositional(X t1, [X t2]) {
-    return new ArgumentsBindingGen.positional(t1, t2);
-  }
 
-  namedArgumentsMethod(X t1, {X t2}) {}
-  positionalArgumentsMethod(X t1, [X t2]){}
+  namedArgumentsMethod(X t1, {required X t2}) {}
 
   set testSetter(X val) {}
 }
@@ -116,18 +114,14 @@ main() {
   //# <-- NotGenericFunctionType
   // test generic functions
   namedArgumentsFunc2<C0<U0, U1, U2>>(t0Instance, t2: t0Instance);
-  positionalArgumentsFunc2<C0<U0, U1, U2>>(t0Instance, t0Instance);
 
   // test generic class constructors
   ArgumentsBindingGen<C0<U0, U1, U2>> instance2 = new ArgumentsBindingGen<C0<U0, U1, U2>>(t0Instance);
   instance2 = new ArgumentsBindingGen<C0<U0, U1, U2>>.fNamed(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<C0<U0, U1, U2>>.fPositional(t0Instance, t0Instance);
   instance2 = new ArgumentsBindingGen<C0<U0, U1, U2>>.named(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<C0<U0, U1, U2>>.positional(t0Instance, t0Instance);
 
   // test generic class methods and setters
   instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
-  instance2.positionalArgumentsMethod(t0Instance, t0Instance);
   instance2.testSetter = t0Instance;
   //# -->
 }

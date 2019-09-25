@@ -31,10 +31,12 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class S1 {}
+class S1 {
+  const S1();
+}
 class S0 {}
 class X0 extends S0 {
 }
@@ -42,11 +44,13 @@ class X0 extends S0 {
 X0 t0Instance = new X0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
+const t1Default = const S1();
+
 
 
 
 class ClassMemberSuper1_t03 {
-  FutureOr<S1> m;
+  FutureOr<S1> m = t1Default;
 
   void set superSetter(FutureOr<S1> val) {}
 }
@@ -65,10 +69,14 @@ class ClassMember1_t03 extends Object with ClassMemberSuper1_t03 {
 class ClassMemberSuper2_t03<X> {
   X m;
 
+  ClassMemberSuper2_t03(X x) : m = x {}
+
   void set superSetter(X val) {}
 }
 
 class ClassMember2_t03<X> extends ClassMemberSuper2_t03<X> {
+
+  ClassMember2_t03(X x): super(x) {}
 
   test1() {
     m = forgetType(t0Instance);
@@ -97,16 +105,16 @@ main() {
 
   //# <-- NotGenericFunctionType
   Expect.throws(() {
-    new ClassMember2_t03<FutureOr<S1>>().m = forgetType(t0Instance);
+    new ClassMember2_t03<FutureOr<S1>>(t1Instance).m = forgetType(t0Instance);
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember2_t03<FutureOr<S1>>().superSetter = forgetType(t0Instance);
+    new ClassMember2_t03<FutureOr<S1>>(t1Instance).superSetter = forgetType(t0Instance);
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember2_t03<FutureOr<S1>>().test1();
+    new ClassMember2_t03<FutureOr<S1>>(t1Instance).test1();
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember2_t03<FutureOr<S1>>().test2();
+    new ClassMember2_t03<FutureOr<S1>>(t1Instance).test2();
   }, (e) => e is TypeError);
   //# -->
 }

@@ -37,40 +37,37 @@
 
 // SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
-import "../utils/legacy_lib.dart";
+import "../../utils/legacy_lib.dart";
 
 FutureOr<X> t0Instance = new Future.value(new X());
 Object t1Instance = new Object();
+
+const t1Default = const Object();
 
 
 
 
 class LocalVariableTest {
   LocalVariableTest() {
-    Object t1 = null;
-    t1 = t0Instance; //# 03: compile-time error
+    Object t1 = t0Instance; //# 03: compile-time error
   }
 
   LocalVariableTest.valid() {}
 
   test() {
-    Object t1 = null;
-    t1 = t0Instance; //# 04: compile-time error
+    Object t1 = t0Instance; //# 04: compile-time error
   }
 
   static staticTest() {
-    Object t1 = null;
-    t1 = t0Instance; //# 05: compile-time error
+    Object t1 = t0Instance; //# 05: compile-time error
   }
 }
 
 main() {
-  Object t1 = null;
-  t1 = t0Instance; //# 01: compile-time error
+  Object t1 = t0Instance; //# 01: compile-time error
 
   bar () {
-    Object t1 = null;
-    t1 = t0Instance; //# 02: compile-time error
+    Object t1 = t0Instance; //# 02: compile-time error
   }
   bar(); //# 02: compile-time error
 

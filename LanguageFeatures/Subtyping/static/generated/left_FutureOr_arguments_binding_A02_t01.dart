@@ -27,42 +27,45 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class C {}
+class C {
+  const C();
+}
 class S0 extends C {}
 
 FutureOr<S0> t0Instance = new Future<S0>.value(new S0());
 FutureOr<C> t1Instance = new Future<C>.value(new C());
 
+const t1Default = const C();
 
 
 
-namedArgumentsFunc1(FutureOr<C> t1, {FutureOr<C> t2}) {}
-positionalArgumentsFunc1(FutureOr<C> t1, [FutureOr<C> t2]) {}
 
-namedArgumentsFunc2<X>(X t1, {X t2}) {}
-positionalArgumentsFunc2<X>(X t1, [X t2]) {}
+namedArgumentsFunc1(FutureOr<C> t1, {FutureOr<C> t2 = t1Default}) {}
+positionalArgumentsFunc1(FutureOr<C> t1, [FutureOr<C> t2 = t1Default]) {}
+
+namedArgumentsFunc2<X>(X t1, {required X t2}) {}
 
 class ArgumentsBindingClass {
   ArgumentsBindingClass(FutureOr<C> t1) {}
 
-  ArgumentsBindingClass.named(FutureOr<C> t1, {FutureOr<C> t2}) {}
-  ArgumentsBindingClass.positional(FutureOr<C> t1, [FutureOr<C> t2]) {}
+  ArgumentsBindingClass.named(FutureOr<C> t1, {FutureOr<C> t2 = t1Default}) {}
+  ArgumentsBindingClass.positional(FutureOr<C> t1, [FutureOr<C> t2 = t1Default]) {}
 
-  factory ArgumentsBindingClass.fNamed(FutureOr<C> t1, {FutureOr<C> t2}) {
+  factory ArgumentsBindingClass.fNamed(FutureOr<C> t1, {FutureOr<C> t2 = t1Default}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(FutureOr<C> t1, [FutureOr<C> t2]) {
+  factory ArgumentsBindingClass.fPositional(FutureOr<C> t1, [FutureOr<C> t2 = t1Default]) {
     return new ArgumentsBindingClass.positional(t1, t2);
   }
 
-  static namedArgumentsStaticMethod(FutureOr<C> t1, {FutureOr<C> t2}) {}
-  static positionalArgumentsStaticMethod(FutureOr<C> t1, [FutureOr<C> t2]) {}
+  static namedArgumentsStaticMethod(FutureOr<C> t1, {FutureOr<C> t2 = t1Default}) {}
+  static positionalArgumentsStaticMethod(FutureOr<C> t1, [FutureOr<C> t2 = t1Default]) {}
 
-  namedArgumentsMethod(FutureOr<C> t1, {FutureOr<C> t2}) {}
-  positionalArgumentsMethod(FutureOr<C> t1, [FutureOr<C> t2]) {}
+  namedArgumentsMethod(FutureOr<C> t1, {FutureOr<C> t2 = t1Default}) {}
+  positionalArgumentsMethod(FutureOr<C> t1, [FutureOr<C> t2 = t1Default]) {}
 
   set testSetter(FutureOr<C> val) {}
 }
@@ -70,18 +73,13 @@ class ArgumentsBindingClass {
 class ArgumentsBindingGen<X>  {
   ArgumentsBindingGen(X t1) {}
 
-  ArgumentsBindingGen.named(X t1, {X t2}) {}
-  ArgumentsBindingGen.positional(X t1, [X t2]) {}
+  ArgumentsBindingGen.named(X t1, {required X t2}) {}
 
-  factory ArgumentsBindingGen.fNamed(X t1, {X t2}) {
+  factory ArgumentsBindingGen.fNamed(X t1, {required X t2}) {
     return new ArgumentsBindingGen.named(t1, t2: t2);
   }
-  factory ArgumentsBindingGen.fPositional(X t1, [X t2]) {
-    return new ArgumentsBindingGen.positional(t1, t2);
-  }
 
-  namedArgumentsMethod(X t1, {X t2}) {}
-  positionalArgumentsMethod(X t1, [X t2]){}
+  namedArgumentsMethod(X t1, {required X t2}) {}
 
   set testSetter(X val) {}
 }
@@ -112,18 +110,14 @@ main() {
   //# <-- NotGenericFunctionType
   // test generic functions
   namedArgumentsFunc2<FutureOr<C>>(t0Instance, t2: t0Instance);
-  positionalArgumentsFunc2<FutureOr<C>>(t0Instance, t0Instance);
 
   // test generic class constructors
   ArgumentsBindingGen<FutureOr<C>> instance2 = new ArgumentsBindingGen<FutureOr<C>>(t0Instance);
   instance2 = new ArgumentsBindingGen<FutureOr<C>>.fNamed(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<FutureOr<C>>.fPositional(t0Instance, t0Instance);
   instance2 = new ArgumentsBindingGen<FutureOr<C>>.named(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<FutureOr<C>>.positional(t0Instance, t0Instance);
 
   // test generic class methods and setters
   instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
-  instance2.positionalArgumentsMethod(t0Instance, t0Instance);
   instance2.testSetter = t0Instance;
   //# -->
 }

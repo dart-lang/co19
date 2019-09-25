@@ -29,10 +29,12 @@
 
 
 import '../../utils/common.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class S1 {}
+class S1 {
+  const S1();
+}
 class S0 implements Future<S1> {
   asStream() => null;
   catchError(Function onError, {bool test(Object error)}) => null;
@@ -45,6 +47,8 @@ class X0 extends S0 {
 
 X0 t0Instance = new X0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
+
+const t1Default = const S1();
 
 
 
@@ -95,14 +99,10 @@ class ClassMember2_t01<X> {
   X m;
   X _p;
 
-  ClassMember2_t01() {
-    m = forgetType(t0Instance);
-    _p = forgetType(t0Instance);
+  ClassMember2_t01():  m = forgetType(t0Instance), _p = forgetType(t0Instance) {
   }
 
-  ClassMember2_t01.named(X value) {
-    m = value;
-    _p = value;
+  ClassMember2_t01.named(X value): m = value, _p = value {
   }
 
   ClassMember2_t01.short(this.m, this._p);

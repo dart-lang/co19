@@ -28,8 +28,10 @@
  */
 
 
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 
 // Missing subtype relation to T1
 abstract class S0 {}
@@ -43,20 +45,22 @@ class T implements T0 {}
 T0 t0Instance = new T();
 T1 t1Instance = new T1();
 
+const t1Default = const T1();
+
 
 
 
 class ArgumentsBindingSuper1_t02 {
   T1 m;
 
-  ArgumentsBindingSuper1_t02(T1 value) {}
-  ArgumentsBindingSuper1_t02.named(T1 value, {T1 val2}) {}
-  ArgumentsBindingSuper1_t02.positional(T1 value, [T1 val2]) {}
+  ArgumentsBindingSuper1_t02(T1 value): m = value {}
+  ArgumentsBindingSuper1_t02.named(T1 value, {T1 val2 = t1Default}): m = value {}
+  ArgumentsBindingSuper1_t02.positional(T1 value, [T1 val2 = t1Default]): m = value {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
   void superTest(T1 val) {}
-  void superTestPositioned(T1 val, [T1 val2]) {}
-  void superTestNamed(T1 val, {T1 val2}) {}
+  void superTestPositioned(T1 val, [T1 val2 = t1Default]) {}
+  void superTestNamed(T1 val, {T1 val2 = t1Default}) {}
   T1 get superGetter => t0Instance; //# 35: compile-time error
   void set superSetter(T1 val) {}
 }
@@ -69,7 +73,7 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
   ArgumentsBinding1_t02.c4(T1 t1, T0 t2) : super.positional(t1, t2) {} //# 05: compile-time error
   ArgumentsBinding1_t02.c5(T1 t1) : super.short(t1) {} //# 06: compile-time error
 
-  ArgumentsBinding1_t02.valid() : super(null) {}
+  ArgumentsBinding1_t02.valid() : super(t1Default) {}
 
   test() {
     superTest(t0Instance); //# 14: compile-time error

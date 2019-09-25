@@ -11,14 +11,17 @@
  * T0 is a subtype of T1. Test void generic function with required arguments
  * @author sgrekhov@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=non-nullable
 class C {}
 
 typedef void T0<X>(C c);
 void t0Func<X>(C c) {}
 
 T0<C> t0Instance = t0Func;
-Function t1Instance = null;
+Function t1Instance = () {};
+
+void foo() {}
+const t1Default = foo;
 
 //# @T0 = T0<C>
 //# @T1 = Function

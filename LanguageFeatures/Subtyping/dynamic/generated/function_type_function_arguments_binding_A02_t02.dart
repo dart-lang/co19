@@ -26,13 +26,16 @@
 
 
 import '../../utils/common.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 class C {}
 
 typedef void T0();
 
 void t0Instance() => new C();
-Function t1Instance = null;
+Function t1Instance = () {};
+
+void foo() {}
+const t1Default = foo;
 
 
 

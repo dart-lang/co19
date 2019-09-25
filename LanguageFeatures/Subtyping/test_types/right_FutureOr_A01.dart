@@ -15,10 +15,12 @@
  * subtype of a type Future<S1>, then a type T0 is a subtype of a type T1.
  * @author ngl@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class S1 {}
+class S1 {
+  const S1();
+}
 class T0 implements Future<S1> {
   asStream() => null;
   catchError(Function onError, {bool test(Object error)}) => null;
@@ -29,6 +31,8 @@ class T0 implements Future<S1> {
 
 T0 t0Instance = new T0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
+
+const t1Default = const S1();
 
 //# @T0 = T0
 //# @T1 = FutureOr<S1>

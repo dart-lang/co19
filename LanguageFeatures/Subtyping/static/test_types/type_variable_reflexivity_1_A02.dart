@@ -12,7 +12,9 @@
  * is X0 then T0 is a subtype of T1.
  * @author sgrekhov@unipro.ru
  */
-class X0 {}
+class X0 {
+  const X0();
+}
 class S0 extends X0 {
 }
 
@@ -21,6 +23,8 @@ class S0 extends X0 {
 
 X0 t0Instance = new S0();
 X0 t1Instance = new X0();
+
+const t1Default = const X0();
 
 //# <!-- Global variables & classes definition -->
 

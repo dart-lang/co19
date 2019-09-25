@@ -21,10 +21,12 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
-import "../utils/legacy_lib.dart";
+import "../../utils/legacy_lib.dart";
 
 FutureOr<X> t0Instance = new Future.value(new X());
 Object t1Instance = new Object();
+
+const t1Default = const Object();
 
 //# @T0 = FutureOr<X>
 //# @T1 = Object

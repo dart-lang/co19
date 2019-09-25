@@ -37,16 +37,18 @@
 
 // SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
-import "../utils/legacy_lib.dart";
+import "../../utils/legacy_lib.dart";
 
 FutureOr<X> t0Instance = new X();
 Object t1Instance = new Object();
+
+const t1Default = const Object();
 
 
 
 
 class ClassMemberSuper1_t02 {
-  Object m;
+  Object m = t1Default;
 
   ClassMemberSuper1_t02(FutureOr<X> value) {
     m = value; //# 01: compile-time error

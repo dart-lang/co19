@@ -29,7 +29,7 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 abstract class U0 {}
 abstract class U1 {}
 abstract class U2 {}
@@ -39,40 +39,39 @@ abstract class S1 extends U1 {}
 // no subtype relation between S2 and U2
 abstract class S2 {}
 
-class C0<X, Y, Z> {}
+class C0<X, Y, Z> {
+  const C0();
+}
 
 C0<S0, S1, S2> t0Instance = new C0<S0, S1, S2>();
 C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
+
+const t1Default = const C0<U0, U1, U2>();
 
 
 
 
 class LocalVariableTest {
   LocalVariableTest() {
-    C0<U0, U1, U2> t1 = null;
-    t1 = t0Instance; //# 03: compile-time error
+    C0<U0, U1, U2> t1 = t0Instance; //# 03: compile-time error
   }
 
   LocalVariableTest.valid() {}
 
   test() {
-    C0<U0, U1, U2> t1 = null;
-    t1 = t0Instance; //# 04: compile-time error
+    C0<U0, U1, U2> t1 = t0Instance; //# 04: compile-time error
   }
 
   static staticTest() {
-    C0<U0, U1, U2> t1 = null;
-    t1 = t0Instance; //# 05: compile-time error
+    C0<U0, U1, U2> t1 = t0Instance; //# 05: compile-time error
   }
 }
 
 main() {
-  C0<U0, U1, U2> t1 = null;
-  t1 = t0Instance; //# 01: compile-time error
+  C0<U0, U1, U2> t1 = t0Instance; //# 01: compile-time error
 
   bar () {
-    C0<U0, U1, U2> t1 = null;
-    t1 = t0Instance; //# 02: compile-time error
+    C0<U0, U1, U2> t1 = t0Instance; //# 02: compile-time error
   }
   bar(); //# 02: compile-time error
 

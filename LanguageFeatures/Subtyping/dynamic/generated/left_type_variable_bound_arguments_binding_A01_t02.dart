@@ -26,13 +26,17 @@
 
 
 import '../../utils/common.dart';
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 class B0 extends T1 {}
 class X0 extends B0 {}
 
 X0 t0Instance = new X0();
 T1 t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 

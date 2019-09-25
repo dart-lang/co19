@@ -43,13 +43,15 @@ class S {}
 FutureOr<S?> t0Instance = new S();
 Object t1Instance = new Object();
 
+const t1Default = const Object();
+
 
 
 
 class ArgumentsBindingSuper1_t03 {
   void superTest(Object val) {}
-  void superTestPositioned(Object val, [Object val2]) {}
-  void superTestNamed(Object val, {Object val2}) {}
+  void superTestPositioned(Object val, [Object val2 = t1Default]) {}
+  void superTestNamed(Object val, {Object val2 = t1Default}) {}
   Object get superGetter => t0Instance; //# 07: compile-time error
   void set superSetter(Object val) {}
 }

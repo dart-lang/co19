@@ -25,15 +25,17 @@
 
 
 import '../../utils/common.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 dynamic t0Instance = 3.14;
 dynamic t1Instance = "";
+
+const t1Default = "";
 
 
 
 
 class ClassMemberMixin1_t03 {
-  dynamic m;
+  dynamic m = t1Default;
 
   void set superSetter(dynamic val) {}
 }
@@ -47,6 +49,9 @@ class ClassMember1_t03 extends Object with ClassMemberMixin1_t03 {
 
 class ClassMemberMixin2_t03<X> {
   X m;
+
+  ClassMemberMixin2_t03(X x): m = x {
+  }
   void set superSetter(dynamic val) {}
 }
 
@@ -66,7 +71,7 @@ main() {
   // Test type parameters
 
   //# <-- NotGenericFunctionType
-  ClassMember2_t03<dynamic> c2 = new ClassMember2_t03<dynamic>();
+  ClassMember2_t03<dynamic> c2 = new ClassMember2_t03<dynamic>(t1Instance);
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

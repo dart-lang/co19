@@ -43,11 +43,13 @@ class S {}
 FutureOr<S?> t0Instance = new S();
 Object t1Instance = new Object();
 
+const t1Default = const Object();
+
 
 
 
 class ClassMemberTestStatic {
-  static Object s;
+  static Object s = t1Default;
 
   ClassMemberTestStatic(FutureOr<S?> val) {
     s = val; //# 01: compile-time error
@@ -65,7 +67,7 @@ class ClassMemberTestStatic {
 }
 
 class ClassMemberTestPublic {
-  Object m;
+  Object m = t1Default;
 
   ClassMemberTestPublic(FutureOr<S?> val) {
     m = val; //# 05: compile-time error
@@ -87,7 +89,7 @@ class ClassMemberTestPublic {
 }
 
 class ClassMemberTestPrivate {
-  Object _m;
+  Object _m = t1Default;
 
   ClassMemberTestPrivate(FutureOr<S?> val) {
     _m = val; //# 10: compile-time error
@@ -128,4 +130,3 @@ main() {
   ClassMemberTestInitFail.s; //# 13: compile-time error
   new ClassMemberTestInitFail(); //# 14: compile-time error
 }
-

@@ -51,14 +51,14 @@ const t1Default = const Object();
 class ArgumentsBindingSuper1_t02 {
   Object m;
 
-  ArgumentsBindingSuper1_t02(Object value) {}
-  ArgumentsBindingSuper1_t02.named(Object value, {Object val2}) {}
-  ArgumentsBindingSuper1_t02.positional(Object value, [Object val2]) {}
+  ArgumentsBindingSuper1_t02(Object value): m = value {}
+  ArgumentsBindingSuper1_t02.named(Object value, {Object val2 = t1Default}): m = value {}
+  ArgumentsBindingSuper1_t02.positional(Object value, [Object val2 = t1Default]): m = value {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
   void superTest(Object val) {}
-  void superTestPositioned(Object val, [Object val2]) {}
-  void superTestNamed(Object val, {Object val2}) {}
+  void superTestPositioned(Object val, [Object val2 = t1Default]) {}
+  void superTestNamed(Object val, {Object val2 = t1Default}) {}
   Object get superGetter => t0Instance; //# 35: compile-time error
   void set superSetter(Object val) {}
 }
@@ -71,7 +71,7 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
   ArgumentsBinding1_t02.c4(Object t1, FutureOr<S?> t2) : super.positional(t1, t2) {} //# 05: compile-time error
   ArgumentsBinding1_t02.c5(Object t1) : super.short(t1) {} //# 06: compile-time error
 
-  ArgumentsBinding1_t02.valid() : super(null) {}
+  ArgumentsBinding1_t02.valid() : super(t1Default) {}
 
   test() {
     superTest(t0Instance); //# 14: compile-time error

@@ -27,8 +27,10 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 
 // Missing subtype relation to T1
 abstract class S0 {}
@@ -42,13 +44,15 @@ class T implements T0 {}
 T0 t0Instance = new T();
 T1 t1Instance = new T1();
 
+const t1Default = const T1();
+
 
 
 
 class ArgumentsBindingSuper1_t03 {
   void superTest(T1 val) {}
-  void superTestPositioned(T1 val, [T1 val2]) {}
-  void superTestNamed(T1 val, {T1 val2}) {}
+  void superTestPositioned(T1 val, [T1 val2 = t1Default]) {}
+  void superTestNamed(T1 val, {T1 val2 = t1Default}) {}
   T1 get superGetter => forgetType(t0Instance);
   void set superSetter(T1 val) {}
 }
@@ -144,8 +148,7 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingSuper1_t03 {
 
 class ArgumentsBindingSuper2_t03<X> {
   void superTest(X val) {}
-  void superTestPositioned(X val, [X val2]) {}
-  void superTestNamed(X val, {X val2}) {}
+  void superTestNamed(X val, {required X val2}) {}
   X get superGetter => forgetType(t0Instance);
   void set superSetter(X val) {}
 }

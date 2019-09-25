@@ -12,8 +12,10 @@
  * subtype of T1
  * @author sgrekhov@unipro.ru
  */
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 
 // Missing subtype relation to T1
 abstract class S0 {}
@@ -26,6 +28,8 @@ class T implements T0 {}
 
 T0 t0Instance = new T();
 T1 t1Instance = new T1();
+
+const t1Default = const T1();
 
 //# @T0 = T0
 //# @T1 = T1

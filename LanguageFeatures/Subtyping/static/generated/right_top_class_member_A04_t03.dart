@@ -24,15 +24,17 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 Object t0Instance = new Object();
 dynamic t1Instance = 2018;
+
+const t1Default = null;
 
 
 
 
 class ClassMemberMixin1_t03 {
-  dynamic m;
+  dynamic m = t1Default;
 
   void set superSetter(dynamic val) {}
 }

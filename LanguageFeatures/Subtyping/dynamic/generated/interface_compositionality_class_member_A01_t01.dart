@@ -27,7 +27,7 @@
 
 
 import '../../utils/common.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 abstract class U0 {}
 abstract class U1 {}
 abstract class U2 {}
@@ -36,10 +36,14 @@ abstract class S0 extends U0 {}
 abstract class S1 extends U1 {}
 abstract class S2 extends U2 {}
 
-class C0<X, Y, Z> {}
+class C0<X, Y, Z> {
+  const C0();
+}
 
 C0<S0, S1, S2> t0Instance = new C0<S0, S1, S2>();
 C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
+
+const t1Default = const C0<U0, U1, U2>();
 
 
 
@@ -90,14 +94,10 @@ class ClassMember2_t01<X> {
   X m;
   X _p;
 
-  ClassMember2_t01() {
-    m = forgetType(t0Instance);
-    _p = forgetType(t0Instance);
+  ClassMember2_t01():  m = forgetType(t0Instance), _p = forgetType(t0Instance) {
   }
 
-  ClassMember2_t01.named(X value) {
-    m = value;
-    _p = value;
+  ClassMember2_t01.named(X value): m = value, _p = value {
   }
 
   ClassMember2_t01.short(this.m, this._p);

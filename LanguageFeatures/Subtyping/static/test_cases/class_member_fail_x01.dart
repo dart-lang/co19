@@ -13,7 +13,7 @@
  */
 
 class ClassMemberTestStatic {
-  static @T1 s;
+  static @T1 s = t1Default;
 
   ClassMemberTestStatic(@T0 val) {
     s = val; //# 01: compile-time error
@@ -31,7 +31,7 @@ class ClassMemberTestStatic {
 }
 
 class ClassMemberTestPublic {
-  @T1 m;
+  @T1 m = t1Default;
 
   ClassMemberTestPublic(@T0 val) {
     m = val; //# 05: compile-time error
@@ -53,7 +53,7 @@ class ClassMemberTestPublic {
 }
 
 class ClassMemberTestPrivate {
-  @T1 _m;
+  @T1 _m = t1Default;
 
   ClassMemberTestPrivate(@T0 val) {
     _m = val; //# 10: compile-time error
@@ -94,4 +94,3 @@ main() {
   ClassMemberTestInitFail.s; //# 13: compile-time error
   new ClassMemberTestInitFail(); //# 14: compile-time error
 }
-

@@ -55,14 +55,10 @@ class ClassMember2_t01<X> {
   X m;
   X _p;
 
-  ClassMember2_t01() {
-    m = forgetType(t0Instance);
-    _p = forgetType(t0Instance);
+  ClassMember2_t01():  m = forgetType(t0Instance), _p = forgetType(t0Instance) {
   }
 
-  ClassMember2_t01.named(X value) {
-    m = value;
-    _p = value;
+  ClassMember2_t01.named(X value): m = value, _p = value {
   }
 
   ClassMember2_t01.short(this.m, this._p);

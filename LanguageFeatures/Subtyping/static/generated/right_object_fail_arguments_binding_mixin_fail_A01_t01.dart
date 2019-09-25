@@ -39,8 +39,10 @@
 class B {}
 class T0 extends B {}
 
-T0 t0Instance = new T0();
+T0? t0Instance = new T0();
 Object t1Instance = new Object();
+
+const t1Default = const Object();
 
 
 
@@ -48,8 +50,8 @@ Object t1Instance = new Object();
 
 class ArgumentsBindingSuper1_t03 {
   void superTest(Object val) {}
-  void superTestPositioned(Object val, [Object val2]) {}
-  void superTestNamed(Object val, {Object val2}) {}
+  void superTestPositioned(Object val, [Object val2 = t1Default]) {}
+  void superTestNamed(Object val, {Object val2 = t1Default}) {}
   Object get superGetter => t0Instance; //# 07: compile-time error
   void set superSetter(Object val) {}
 }
@@ -117,5 +119,5 @@ test<T extends B?>(T t0Instance) {
 }
 
 main() {
-  test<T0>(t0Instance);
+  test<T0?>(t0Instance);
 }

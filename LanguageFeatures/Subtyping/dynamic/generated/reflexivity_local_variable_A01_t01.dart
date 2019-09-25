@@ -25,11 +25,15 @@
 
 
 import '../../utils/common.dart';
-
-class T {}
+// SharedOptions=--enable-experiment=non-nullable
+class T {
+  const T();
+}
 
 T t0Instance = new T();
 T t1Instance = new T();
+
+const t1Default = const T();
 
 
 

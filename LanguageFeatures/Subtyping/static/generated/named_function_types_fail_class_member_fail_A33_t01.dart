@@ -37,7 +37,7 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 class A {}
 
 class C extends A {}
@@ -60,27 +60,30 @@ class V4<X, Y, Z> {}
 
 typedef T0 = U<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
-    {V2<A, List, double> x2, V3<A, List, num> x3, V4<A, List, num> x4}); // V2<C, List<String>, int> is not a subtype of V2<A, List, double>
+    {V2<A, List, double>? x2, V3<A, List, num>? x3, V4<A, List, num>? x4}); // V2<C, List<String>, int> is not a subtype of V2<A, List, double>
 typedef T1 = U<A, List, num> Function<X extends B0, Y extends B1>(
     V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
-    {V2<C, List<String>, int> x2, V3<C, List<String>, int> x3});
+    {V2<C, List<String>, int>? x2, V3<C, List<String>, int>? x3});
 
 U<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
-        {V2<A, List, double> x2, V3<A, List, num> x3, V4<A, List, num> x4}) =>
-    null;
+        {V2<A, List, double>? x2, V3<A, List, num>? x3, V4<A, List, num>? x4}) =>
+    new U<C, List<String>, int>();
 U<A, List, num> t1Func<X extends B0, Y extends B1>(
         V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
-        {V2<C, List<String>, int> x2, V3<C, List<String>, int> x3}) =>
-    null;
+        {V2<C, List<String>, int>? x2, V3<C, List<String>, int>? x3}) =>
+    new U<A, List, num>();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
+const t1Default = t1Func;
+
+
 
 
 class ClassMemberTestStatic {
-  static T1 s;
+  static T1 s = t1Default;
 
   ClassMemberTestStatic(T0 val) {
     s = val; //# 01: compile-time error
@@ -98,7 +101,7 @@ class ClassMemberTestStatic {
 }
 
 class ClassMemberTestPublic {
-  T1 m;
+  T1 m = t1Default;
 
   ClassMemberTestPublic(T0 val) {
     m = val; //# 05: compile-time error
@@ -120,7 +123,7 @@ class ClassMemberTestPublic {
 }
 
 class ClassMemberTestPrivate {
-  T1 _m;
+  T1 _m = t1Default;
 
   ClassMemberTestPrivate(T0 val) {
     _m = val; //# 10: compile-time error
@@ -161,5 +164,4 @@ main() {
   ClassMemberTestInitFail.s; //# 13: compile-time error
   new ClassMemberTestInitFail(); //# 14: compile-time error
 }
-
 

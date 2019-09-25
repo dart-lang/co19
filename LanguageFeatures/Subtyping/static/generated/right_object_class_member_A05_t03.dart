@@ -40,11 +40,13 @@ class S {}
 FutureOr<S> t0Instance = new S();
 Object t1Instance = new Object();
 
+const t1Default = const Object();
+
 
 
 
 class ClassMemberMixin1_t03 {
-  Object m;
+  Object m = t1Default;
 
   void set superSetter(dynamic val) {}
 }

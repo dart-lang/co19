@@ -29,7 +29,7 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 abstract class U0 {}
 abstract class U1 {}
 abstract class U2 {}
@@ -39,16 +39,20 @@ abstract class S1 extends U1 {}
 // no subtype relation between S2 and U2
 abstract class S2 {}
 
-class C0<X, Y, Z> {}
+class C0<X, Y, Z> {
+  const C0();
+}
 
 C0<S0, S1, S2> t0Instance = new C0<S0, S1, S2>();
 C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
+
+const t1Default = const C0<U0, U1, U2>();
 
 
 
 
 class ClassMemberTestStatic {
-  static C0<U0, U1, U2> s;
+  static C0<U0, U1, U2> s = t1Default;
 
   ClassMemberTestStatic(C0<S0, S1, S2> val) {
     s = val; //# 01: compile-time error
@@ -66,7 +70,7 @@ class ClassMemberTestStatic {
 }
 
 class ClassMemberTestPublic {
-  C0<U0, U1, U2> m;
+  C0<U0, U1, U2> m = t1Default;
 
   ClassMemberTestPublic(C0<S0, S1, S2> val) {
     m = val; //# 05: compile-time error
@@ -88,7 +92,7 @@ class ClassMemberTestPublic {
 }
 
 class ClassMemberTestPrivate {
-  C0<U0, U1, U2> _m;
+  C0<U0, U1, U2> _m = t1Default;
 
   ClassMemberTestPrivate(C0<S0, S1, S2> val) {
     _m = val; //# 10: compile-time error
@@ -129,4 +133,3 @@ main() {
   ClassMemberTestInitFail.s; //# 13: compile-time error
   new ClassMemberTestInitFail(); //# 14: compile-time error
 }
-

@@ -36,7 +36,7 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 class U0 extends U1 {}
 class U1 {}
 class B0 {}
@@ -56,19 +56,22 @@ class X1 extends B1 {}
 
 class Y0 extends B0 {}
 
-typedef T0 = U0 Function<X extends B0, Y extends B1>(V0 x0, V1 x1, {V2 x2, V3 x3, V4 x4});
-typedef T1 = U1 Function<X extends B0, Y extends B0>(S0 y0, S1 y1, {S2 x2, S3 x3}); //  Y extends B0, not B1
+typedef T0 = U0 Function<X extends B0, Y extends B1>(V0 x0, V1 x1, {V2? x2, V3? x3, V4? x4});
+typedef T1 = U1 Function<X extends B0, Y extends B0>(S0 y0, S1 y1, {S2? x2, S3? x3}); //  Y extends B0, not B1
 
-U0 t0Func<X extends B0, Y extends B1>(V0 x0, V1 x1, {V2 x2, V3 x3, V4 x4}) => null;
-U1 t1Func<X extends B0, Y extends B0>(S0 y0, S1 y1, {S2 x2, S3 x3}) => null;
+U0 t0Func<X extends B0, Y extends B1>(V0 x0, V1 x1, {V2? x2, V3? x3, V4? x4}) => new U0();
+U1 t1Func<X extends B0, Y extends B0>(S0 y0, S1 y1, {S2? x2, S3? x3}) => new U1();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
+const t1Default = t1Func;
+
+
 
 
 class ClassMemberTestStatic {
-  static T1 s;
+  static T1 s = t1Default;
 
   ClassMemberTestStatic(T0 val) {
     s = val; //# 01: compile-time error
@@ -86,7 +89,7 @@ class ClassMemberTestStatic {
 }
 
 class ClassMemberTestPublic {
-  T1 m;
+  T1 m = t1Default;
 
   ClassMemberTestPublic(T0 val) {
     m = val; //# 05: compile-time error
@@ -108,7 +111,7 @@ class ClassMemberTestPublic {
 }
 
 class ClassMemberTestPrivate {
-  T1 _m;
+  T1 _m = t1Default;
 
   ClassMemberTestPrivate(T0 val) {
     _m = val; //# 10: compile-time error
@@ -149,5 +152,4 @@ main() {
   ClassMemberTestInitFail.s; //# 13: compile-time error
   new ClassMemberTestInitFail(); //# 14: compile-time error
 }
-
 

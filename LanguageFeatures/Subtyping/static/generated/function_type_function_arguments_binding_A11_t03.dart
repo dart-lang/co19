@@ -25,24 +25,27 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 class C {}
 
 typedef void T0<X>();
 void t0Func<X>() => new C();
 
 T0<C> t0Instance = t0Func;
-Function t1Instance = null;
+Function t1Instance = () {};
+
+void foo() {}
+const t1Default = foo;
 
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  Function m;
+  Function m = t1Default;
 
   void superTest(Function val) {}
-  void superTestPositioned(Function val, [Function val2]) {}
-  void superTestNamed(Function val, {Function val2}) {}
+  void superTestPositioned(Function val, [Function val2 = t1Default]) {}
+  void superTestNamed(Function val, {Function val2 = t1Default}) {}
   Function get superGetter => m;
   void set superSetter(Function val) {}
 }
@@ -62,12 +65,8 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
 }
 
 class ArgumentsBindingMixin2_t03<X> {
-  X m;
-
   void superTest(X val) {}
-  void superTestPositioned(X val, [X val2]) {}
-  void superTestNamed(X val, {X val2}) {}
-  X get superGetter => m;
+  void superTestNamed(X val, {required X val2}) {}
   void set superSetter(X val) {}
 }
 
@@ -75,13 +74,8 @@ class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingMixin2_t03<X>
 
   test(dynamic t1, dynamic t2) {
     superTest(t1);
-    superTestPositioned(t1);
-    superTestPositioned(t2, t1);
-    superTestNamed(t1);
     superTestNamed(t2, val2: t1);
     superSetter = t1;
-    m = t1;
-    superGetter;
   }
 }
 
@@ -103,11 +97,7 @@ main() {
   ArgumentsBinding2_t03<Function> c2 = new ArgumentsBinding2_t03<Function>();
   c2.test(t0Instance, t1Instance);
   c2.superTest(t0Instance);
-  c2.superTestPositioned(t0Instance);
-  c2.superTestPositioned(t1Instance, t0Instance);
-  c2.superTestNamed(t0Instance);
   c2.superTestNamed(t1Instance, val2: t0Instance);
   c2.superSetter = t0Instance;
-  c2.superGetter;
   //# -->
 }

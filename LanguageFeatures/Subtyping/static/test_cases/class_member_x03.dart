@@ -10,7 +10,7 @@
  */
 
 class ClassMemberMixin1_t03 {
-  @T1 m;
+  @T1 m = t1Default;
 
   void set superSetter(dynamic val) {}
 }

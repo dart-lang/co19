@@ -41,11 +41,13 @@ class S {}
 FutureOr<S> t0Instance = new S();
 Object t1Instance = new Object();
 
+const t1Default = const Object();
+
 
 
 
 class ClassMemberMixin1_t03 {
-  Object m;
+  Object m = t1Default;
 
   void set superSetter(dynamic val) {}
 }
@@ -59,6 +61,9 @@ class ClassMember1_t03 extends Object with ClassMemberMixin1_t03 {
 
 class ClassMemberMixin2_t03<X> {
   X m;
+
+  ClassMemberMixin2_t03(X x): m = x {
+  }
   void set superSetter(dynamic val) {}
 }
 
@@ -78,7 +83,7 @@ main() {
   // Test type parameters
 
   //# <-- NotGenericFunctionType
-  ClassMember2_t03<Object> c2 = new ClassMember2_t03<Object>();
+  ClassMember2_t03<Object> c2 = new ClassMember2_t03<Object>(t1Instance);
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

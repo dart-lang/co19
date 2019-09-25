@@ -27,38 +27,42 @@
  */
 
 
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 class B0 {}
 class X0 extends B0 {}
 
 X0 t0Instance = new X0();
 T1 t1Instance = new T1();
 
+const t1Default = const T1();
 
 
 
-namedArgumentsFunc1(T1 t1, {T1 t2}) {}
-positionalArgumentsFunc1(T1 t1, [T1 t2]) {}
+
+namedArgumentsFunc1(T1 t1, {T1 t2 = t1Default}) {}
+positionalArgumentsFunc1(T1 t1, [T1 t2 = t1Default]) {}
 
 class ArgumentsBindingClass {
     ArgumentsBindingClass(T1 t1) {}
 
-    ArgumentsBindingClass.named(T1 t1, {T1 t2}) {}
-    ArgumentsBindingClass.positional(T1 t1, [T1 t2]) {}
+    ArgumentsBindingClass.named(T1 t1, {T1 t2 = t1Default}) {}
+    ArgumentsBindingClass.positional(T1 t1, [T1 t2 = t1Default]) {}
 
-    factory ArgumentsBindingClass.fNamed(T1 t1, {T1 t2}) {
+    factory ArgumentsBindingClass.fNamed(T1 t1, {T1 t2 = t1Default}) {
         return new ArgumentsBindingClass.named(t1, t2: t2);
     }
-    factory ArgumentsBindingClass.fPositional(T1 t1, [T1 t2]) {
+    factory ArgumentsBindingClass.fPositional(T1 t1, [T1 t2 = t1Default]) {
         return new ArgumentsBindingClass.positional(t1, t2);
     }
 
-    static namedArgumentsStaticMethod(T1 t1, {T1 t2}) {}
-    static positionalArgumentsStaticMethod(T1 t1, [T1 t2]) {}
+    static namedArgumentsStaticMethod(T1 t1, {T1 t2 = t1Default}) {}
+    static positionalArgumentsStaticMethod(T1 t1, [T1 t2 = t1Default]) {}
 
-    namedArgumentsMethod(T1 t1, {T1 t2}) {}
-    positionalArgumentsMethod(T1 t1, [T1 t2]) {}
+    namedArgumentsMethod(T1 t1, {T1 t2 = t1Default}) {}
+    positionalArgumentsMethod(T1 t1, [T1 t2 = t1Default]) {}
 
     set testSetter(T1 val) {}
 }

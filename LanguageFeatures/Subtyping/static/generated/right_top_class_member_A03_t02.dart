@@ -28,11 +28,13 @@
 dynamic t0Instance = "";
 Object? t1Instance = new Object();
 
+const t1Default = null;
+
 
 
 
 class ClassMemberSuper1_t02 {
-  Object? m;
+  Object? m = t1Default;
 
   ClassMemberSuper1_t02(dynamic value) {
     m = value;

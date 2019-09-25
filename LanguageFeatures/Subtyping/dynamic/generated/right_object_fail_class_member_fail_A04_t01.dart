@@ -42,11 +42,13 @@ class S {}
 FutureOr<S?> t0Instance = new S();
 Object t1Instance = new Object();
 
+const t1Default = const Object();
+
 
 
 
 class ClassMemberTestStatic {
-  static Object s;
+  static Object s = t1Default;
 
   ClassMemberTestStatic(dynamic val) {
     s = val;
@@ -64,7 +66,7 @@ class ClassMemberTestStatic {
 }
 
 class ClassMemberTestPublic {
-  Object m;
+  Object m = t1Default;
 
   ClassMemberTestPublic(dynamic val) {
     m = val;
@@ -86,7 +88,7 @@ class ClassMemberTestPublic {
 }
 
 class ClassMemberTestPrivate {
-  Object _m;
+  Object _m = t1Default;
 
   ClassMemberTestPrivate(dynamic val) {
     _m = val;
@@ -113,13 +115,10 @@ class ClassMemberTestInitFail {
 class ClassMemberTestGenericPublic<X> {
   X m;
 
-  ClassMemberTestGenericPublic(dynamic val) {
-    m = val;
+  ClassMemberTestGenericPublic(dynamic val): m = val {
   }
 
   ClassMemberTestGenericPublic.short(this.m);
-
-  ClassMemberTestGenericPublic.validConstructor() {}
 
   test(dynamic val) {
     m = val;
@@ -135,13 +134,10 @@ class ClassMemberTestGenericPublic<X> {
 class ClassMemberTestGenericPrivate<X> {
   X _m;
 
-  ClassMemberTestGenericPrivate(dynamic val) {
-    _m = val;
+  ClassMemberTestGenericPrivate(dynamic val): _m = val {
   }
 
   ClassMemberTestGenericPrivate.short(this._m);
-
-  ClassMemberTestGenericPrivate.validConstructor() {}
 
   test(dynamic val) {
     _m = val;
@@ -178,30 +174,30 @@ main() {
 
   // Test class variables
   Expect.throws(() {
-    new ClassMemberTestPublic.validConstructor().m = forgetType(t0Instance);
+    new ClassMemberTestPublic(t1Instance).m = forgetType(t0Instance);
   }, (e) => e is TypeError);
 
   // Test setters
   Expect.throws(() {
-    new ClassMemberTestPublic.validConstructor().setter = t0Instance;
+    new ClassMemberTestPublic(t1Instance).setter = t0Instance;
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ClassMemberTestPrivate.validConstructor().setter = t0Instance;
+    new ClassMemberTestPrivate(t1Instance).setter = t0Instance;
   }, (e) => e is TypeError);
 
   // Test methods
   Expect.throws(() {
-    new ClassMemberTestPublic.validConstructor().test(t0Instance);
+    new ClassMemberTestPublic(t1Instance).test(t0Instance);
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ClassMemberTestPrivate.validConstructor().test(t0Instance);
+    new ClassMemberTestPrivate(t1Instance).test(t0Instance);
   }, (e) => e is TypeError);
 
   // Test getters
   Expect.throws(() {
-    new ClassMemberTestPublic.validConstructor().getter;
+    new ClassMemberTestPublic(t1Instance).getter;
   }, (e) => e is TypeError);
 
 
@@ -227,30 +223,30 @@ main() {
   //# <-- NotGenericFunctionType
   // Test getters
   Expect.throws(() {
-    new ClassMemberTestGenericPublic<Object>.validConstructor().getter;
+    new ClassMemberTestGenericPublic<Object>(t1Instance).getter;
   }, (e) => e is TypeError);
 
   // Test methods
   Expect.throws(() {
-    new ClassMemberTestGenericPublic<Object>.validConstructor().test(t0Instance);
+    new ClassMemberTestGenericPublic<Object>(t1Instance).test(t0Instance);
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ClassMemberTestGenericPrivate<Object>.validConstructor().test(t0Instance);
+    new ClassMemberTestGenericPrivate<Object>(t1Instance).test(t0Instance);
   }, (e) => e is TypeError);
 
   // Test setters
   Expect.throws(() {
-    new ClassMemberTestGenericPublic<Object>.validConstructor().setter = t0Instance;
+    new ClassMemberTestGenericPublic<Object>(t1Instance).setter = t0Instance;
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ClassMemberTestGenericPrivate<Object>.validConstructor().setter = t0Instance;
+    new ClassMemberTestGenericPrivate<Object>(t1Instance).setter = t0Instance;
   }, (e) => e is TypeError);
 
   // Test class variables
   Expect.throws(() {
-    new ClassMemberTestGenericPublic<Object>.validConstructor().m = forgetType(t0Instance);
+    new ClassMemberTestGenericPublic<Object>(t1Instance).m = forgetType(t0Instance);
   }, (e) => e is TypeError);
 
   // Test constructors

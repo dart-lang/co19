@@ -28,7 +28,7 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 abstract class U0 {}
 abstract class U1 {}
 abstract class U2 {}
@@ -38,10 +38,14 @@ abstract class S1 extends U1 {}
 // no subtype relation between S2 and U2
 abstract class S2 {}
 
-class C0<X, Y, Z> {}
+class C0<X, Y, Z> {
+  const C0();
+}
 
 C0<S0, S1, S2> t0Instance = new C0<S0, S1, S2>();
 C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
+
+const t1Default = const C0<U0, U1, U2>();
 
 
 
@@ -49,32 +53,27 @@ C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
 class LocalVariableTest {
 
   LocalVariableTest() {
-    C0<U0, U1, U2> t1 = null;
-    t1 = forgetType(t0Instance);
+    C0<U0, U1, U2> t1 = forgetType(t0Instance);
   }
 
   LocalVariableTest.valid() {}
 
   static staticTest() {
-    C0<U0, U1, U2> t1 = null;
-    t1 = forgetType(t0Instance);
+    C0<U0, U1, U2> t1 = forgetType(t0Instance);
   }
 
   test() {
-    C0<U0, U1, U2> t1 = null;
-    t1 = forgetType(t0Instance);
+    C0<U0, U1, U2> t1 = forgetType(t0Instance);
   }
 }
 
 main() {
   bar () {
-    C0<U0, U1, U2> t1 = null;
-    t1 = forgetType(t0Instance);
+    C0<U0, U1, U2> t1 = forgetType(t0Instance);
   }
 
   Expect.throws(() {
-    C0<U0, U1, U2> t1 = null;
-    t1 = forgetType(t0Instance);
+    C0<U0, U1, U2> t1 = forgetType(t0Instance);
   }, (e) => e is TypeError);
 
   Expect.throws(() {

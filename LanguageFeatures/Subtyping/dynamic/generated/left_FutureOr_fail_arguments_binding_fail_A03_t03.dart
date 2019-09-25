@@ -29,10 +29,12 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class C1 {}
+class C1 {
+  const C1();
+}
 class S0 implements Future<C1> {
   asStream() => null;
   catchError(Function onError, {bool test(Object error)}) => null;
@@ -45,13 +47,15 @@ class S0 implements Future<C1> {
 FutureOr<S0> t0Instance = new Future<S0>.value(new S0());
 Future<C1> t1Instance = new Future.value(new C1());
 
+const t1Default = const C1();
+
 
 
 
 class ArgumentsBindingSuper1_t03 {
   void superTest(Future<C1> val) {}
-  void superTestPositioned(Future<C1> val, [Future<C1> val2]) {}
-  void superTestNamed(Future<C1> val, {Future<C1> val2}) {}
+  void superTestPositioned(Future<C1> val, [Future<C1> val2 = t1Default]) {}
+  void superTestNamed(Future<C1> val, {Future<C1> val2 = t1Default}) {}
   Future<C1> get superGetter => forgetType(t0Instance);
   void set superSetter(Future<C1> val) {}
 }
@@ -147,8 +151,7 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingSuper1_t03 {
 
 class ArgumentsBindingSuper2_t03<X> {
   void superTest(X val) {}
-  void superTestPositioned(X val, [X val2]) {}
-  void superTestNamed(X val, {X val2}) {}
+  void superTestNamed(X val, {required X val2}) {}
   X get superGetter => forgetType(t0Instance);
   void set superSetter(X val) {}
 }

@@ -23,10 +23,12 @@
 class B {}
 class T0 extends B {}
 
-T0 t0Instance = new T0();
+T0? t0Instance = new T0();
 Object t1Instance = new Object();
 
-//# @T0 = T0
+const t1Default = const Object();
+
+//# @T0 = T0?
 //# @T1 = Object
 
 //# <!-- Global variables & classes definition -->
@@ -36,5 +38,5 @@ test<T extends B?>(T t0Instance) {
 }
 
 main() {
-  test<T0>(t0Instance);
+  test<T0?>(t0Instance);
 }

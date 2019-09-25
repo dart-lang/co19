@@ -26,16 +26,20 @@
 
 // SharedOptions=--enable-experiment=non-nullable
 
-class T1 {}
+class T1 {
+  const T1();
+}
 
 dynamic t0Instance = "Show must go on";
 T1? t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
 
 class ClassMemberMixin1_t03 {
-  Object? m;
+  Object? m = t1Default;
 
   void set superSetter(dynamic val) {}
 }

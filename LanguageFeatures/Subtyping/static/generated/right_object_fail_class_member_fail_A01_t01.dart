@@ -39,17 +39,19 @@
 class B {}
 class T0 extends B {}
 
-T0 t0Instance = new T0();
+T0? t0Instance = new T0();
 Object t1Instance = new Object();
+
+const t1Default = const Object();
 
 
 
 
 
 class ClassMemberTestStatic {
-  static Object s;
+  static Object s = t1Default;
 
-  ClassMemberTestStatic(T0 val) {
+  ClassMemberTestStatic(T0? val) {
     s = val; //# 01: compile-time error
   }
 
@@ -57,7 +59,7 @@ class ClassMemberTestStatic {
     s = t0Instance; //# 04: compile-time error
   }
 
-  static set staticSetter(T0 val) {
+  static set staticSetter(T0? val) {
     s = val; //# 02: compile-time error
   }
 
@@ -65,9 +67,9 @@ class ClassMemberTestStatic {
 }
 
 class ClassMemberTestPublic {
-  Object m;
+  Object m = t1Default;
 
-  ClassMemberTestPublic(T0 val) {
+  ClassMemberTestPublic(T0? val) {
     m = val; //# 05: compile-time error
   }
 
@@ -75,11 +77,11 @@ class ClassMemberTestPublic {
 
   ClassMemberTestPublic.validConstructor() {}
 
-  test(T0 val) {
+  test(T0? val) {
     m = val; //# 08: compile-time error
   }
 
-  set setter(T0 val) {
+  set setter(T0? val) {
     m = val; //# 07: compile-time error
   }
 
@@ -87,9 +89,9 @@ class ClassMemberTestPublic {
 }
 
 class ClassMemberTestPrivate {
-  Object _m;
+  Object _m = t1Default;
 
-  ClassMemberTestPrivate(T0 val) {
+  ClassMemberTestPrivate(T0? val) {
     _m = val; //# 10: compile-time error
   }
 
@@ -97,11 +99,11 @@ class ClassMemberTestPrivate {
 
   ClassMemberTestPrivate.validConstructor() {}
 
-  test(T0 val) {
+  test(T0? val) {
     _m = val; //# 12: compile-time error
   }
 
-  set setter(T0 val) {
+  set setter(T0? val) {
     _m = val; //# 11: compile-time error
   }
 }
@@ -134,5 +136,5 @@ test<T extends B?>(T t0Instance) {
 }
 
 main() {
-  test<T0>(t0Instance);
+  test<T0?>(t0Instance);
 }

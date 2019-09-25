@@ -42,38 +42,35 @@ class S {}
 FutureOr<S?> t0Instance = new S();
 Object t1Instance = new Object();
 
+const t1Default = const Object();
+
 
 
 
 class LocalVariableTest {
 
   LocalVariableTest() {
-    Object t1 = null;
-    t1 = forgetType(t0Instance);
+    Object t1 = forgetType(t0Instance);
   }
 
   LocalVariableTest.valid() {}
 
   static staticTest() {
-    Object t1 = null;
-    t1 = forgetType(t0Instance);
+    Object t1 = forgetType(t0Instance);
   }
 
   test() {
-    Object t1 = null;
-    t1 = forgetType(t0Instance);
+    Object t1 = forgetType(t0Instance);
   }
 }
 
 main() {
   bar () {
-    Object t1 = null;
-    t1 = forgetType(t0Instance);
+    Object t1 = forgetType(t0Instance);
   }
 
   Expect.throws(() {
-    Object t1 = null;
-    t1 = forgetType(t0Instance);
+    Object t1 = forgetType(t0Instance);
   }, (e) => e is TypeError);
 
   Expect.throws(() {

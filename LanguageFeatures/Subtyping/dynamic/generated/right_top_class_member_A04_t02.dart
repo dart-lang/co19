@@ -25,9 +25,11 @@
 
 
 import '../../utils/common.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 Object t0Instance = new Object();
 dynamic t1Instance = 2018;
+
+const t1Default = null;
 
 
 
@@ -35,12 +37,10 @@ dynamic t1Instance = 2018;
 class ClassMemberSuper1_t02 {
   dynamic m;
 
-  ClassMemberSuper1_t02(dynamic value) {
-    m = value;
+  ClassMemberSuper1_t02(dynamic value): m = value {
   }
 
-  ClassMemberSuper1_t02.named(dynamic value) {
-    m = value;
+  ClassMemberSuper1_t02.named(dynamic value): m = value {
   }
 
   ClassMemberSuper1_t02.short(this.m);
@@ -65,12 +65,10 @@ class ClassMember1_t02 extends ClassMemberSuper1_t02 {
 class ClassMemberSuper2_t02<X> {
   X m;
 
-  ClassMemberSuper2_t02(dynamic value) {
-    m = value;
+  ClassMemberSuper2_t02(dynamic value): m = value {
   }
 
-  ClassMemberSuper2_t02.named(dynamic value) {
-    m = value;
+  ClassMemberSuper2_t02.named(dynamic value): m = value {
   }
 
   ClassMemberSuper2_t02.short(this.m);

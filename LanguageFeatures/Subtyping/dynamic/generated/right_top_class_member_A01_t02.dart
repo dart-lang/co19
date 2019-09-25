@@ -31,18 +31,18 @@ class T0 {}
 T0 t0Instance = new T0();
 Object? t1Instance = new Object();
 
+const t1Default = null;
+
 
 
 
 class ClassMemberSuper1_t02 {
   Object? m;
 
-  ClassMemberSuper1_t02(dynamic value) {
-    m = value;
+  ClassMemberSuper1_t02(dynamic value): m = value {
   }
 
-  ClassMemberSuper1_t02.named(dynamic value) {
-    m = value;
+  ClassMemberSuper1_t02.named(dynamic value): m = value {
   }
 
   ClassMemberSuper1_t02.short(this.m);
@@ -67,12 +67,10 @@ class ClassMember1_t02 extends ClassMemberSuper1_t02 {
 class ClassMemberSuper2_t02<X> {
   X m;
 
-  ClassMemberSuper2_t02(dynamic value) {
-    m = value;
+  ClassMemberSuper2_t02(dynamic value): m = value {
   }
 
-  ClassMemberSuper2_t02.named(dynamic value) {
-    m = value;
+  ClassMemberSuper2_t02.named(dynamic value): m = value {
   }
 
   ClassMemberSuper2_t02.short(this.m);

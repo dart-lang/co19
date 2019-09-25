@@ -13,10 +13,14 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-class T1 {}
+class T1 {
+  const T1();
+}
 
 dynamic t0Instance = "Show must go on";
 T1? t1Instance = new T1();
+
+const t1Default = const T1();
 
 //# @T0 = dynamic
 //# @T1 = Object?

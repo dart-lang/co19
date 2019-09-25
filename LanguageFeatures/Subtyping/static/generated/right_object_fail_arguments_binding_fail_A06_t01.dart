@@ -36,35 +36,37 @@
 
 // SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
-import "../utils/legacy_lib.dart";
+import "../../utils/legacy_lib.dart";
 
 FutureOr<X> t0Instance = new Future.value(new X());
 Object t1Instance = new Object();
 
+const t1Default = const Object();
 
 
 
-namedArgumentsFunc1(Object t1, {Object t2}) {}
-positionalArgumentsFunc1(Object t1, [Object t2]) {}
+
+namedArgumentsFunc1(Object t1, {Object t2 = t1Default}) {}
+positionalArgumentsFunc1(Object t1, [Object t2 = t1Default]) {}
 
 class ArgumentsBindingClass {
     ArgumentsBindingClass(Object t1) {}
 
-    ArgumentsBindingClass.named(Object t1, {Object t2}) {}
-    ArgumentsBindingClass.positional(Object t1, [Object t2]) {}
+    ArgumentsBindingClass.named(Object t1, {Object t2 = t1Default}) {}
+    ArgumentsBindingClass.positional(Object t1, [Object t2 = t1Default]) {}
 
-    factory ArgumentsBindingClass.fNamed(Object t1, {Object t2}) {
+    factory ArgumentsBindingClass.fNamed(Object t1, {Object t2 = t1Default}) {
         return new ArgumentsBindingClass.named(t1, t2: t2);
     }
-    factory ArgumentsBindingClass.fPositional(Object t1, [Object t2]) {
+    factory ArgumentsBindingClass.fPositional(Object t1, [Object t2 = t1Default]) {
         return new ArgumentsBindingClass.positional(t1, t2);
     }
 
-    static namedArgumentsStaticMethod(Object t1, {Object t2}) {}
-    static positionalArgumentsStaticMethod(Object t1, [Object t2]) {}
+    static namedArgumentsStaticMethod(Object t1, {Object t2 = t1Default}) {}
+    static positionalArgumentsStaticMethod(Object t1, [Object t2 = t1Default]) {}
 
-    namedArgumentsMethod(Object t1, {Object t2}) {}
-    positionalArgumentsMethod(Object t1, [Object t2]) {}
+    namedArgumentsMethod(Object t1, {Object t2 = t1Default}) {}
+    positionalArgumentsMethod(Object t1, [Object t2 = t1Default]) {}
 
     set testSetter(Object val) {}
 }

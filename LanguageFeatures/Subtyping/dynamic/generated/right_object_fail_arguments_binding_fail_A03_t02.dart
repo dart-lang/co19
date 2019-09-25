@@ -29,7 +29,7 @@
  * arguments_binding_fail_x02.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
- *
+ */
 
 
 import '../../utils/common.dart';
@@ -223,7 +223,6 @@ class ArgumentsBinding2_t02<X> extends ArgumentsBindingSuper2_t02<X> {
 }
 
 main() {
-  print(t0Instance.runtimeType);
   // test constructors
   Expect.throws(() {
     new ArgumentsBinding1_t02(forgetType(t0Instance));
@@ -315,14 +314,4 @@ main() {
 
   new ArgumentsBinding2_t02<Object>(t1Instance).test();
   //# -->
-}
-*/
-
-dynamic forgetType(dynamic v) => v;
-
-Object? o = new Object();
-foo(Object val) {}
-
-main() {
-  foo(forgetType(o)); // Runtime error?
 }

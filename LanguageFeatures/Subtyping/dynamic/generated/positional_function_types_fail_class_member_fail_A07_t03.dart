@@ -37,7 +37,7 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 class A {}
 
 class C extends A {}
@@ -68,28 +68,28 @@ class S3<X, Y, Z> extends V3<X, Y, Z> {}
 
 typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
-    [V2<A, List, num> x2]);
+    [V2<A, List, num>? x2]);
 typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B1>(
     S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
-    [S2<C, List<String>, int> y2, S3<C, List<String>, int> y3]);
+    [S2<C, List<String>, int>? y2, S3<C, List<String>, int>? y3]);
 
 U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
-        [V2<A, List, num> x2]) =>
-    null;
+        [V2<A, List, num>? x2]) =>
+    new U0<C, List<String>, int>();
 U1<A, List, num> t1Func<X extends B0, Y extends B1>(
         S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
-        [S2<C, List<String>, int> y2, S3<C, List<String>, int> y3]) =>
-    null;
+        [S2<C, List<String>, int>? y2, S3<C, List<String>, int>? y3]) =>
+    new U1<A, List, num>();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
-bool isGenericFunctionType = true;
+const t1Default = t1Func;
 
 
 
 class ClassMemberSuper1_t03 {
-  T1 m;
+  T1 m = t1Default;
 
   void set superSetter(T1 val) {}
 }
@@ -108,10 +108,14 @@ class ClassMember1_t03 extends Object with ClassMemberSuper1_t03 {
 class ClassMemberSuper2_t03<X> {
   X m;
 
+  ClassMemberSuper2_t03(X x) : m = x {}
+
   void set superSetter(X val) {}
 }
 
 class ClassMember2_t03<X> extends ClassMemberSuper2_t03<X> {
+
+  ClassMember2_t03(X x): super(x) {}
 
   test1() {
     m = forgetType(t0Instance);

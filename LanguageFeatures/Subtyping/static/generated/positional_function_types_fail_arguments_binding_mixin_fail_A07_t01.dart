@@ -38,7 +38,7 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 class A {}
 
 class C extends A {}
@@ -69,30 +69,30 @@ class S3<X, Y, Z> extends V3<X, Y, Z> {}
 
 typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
-    [V2<A, List, num> x2]);
+    [V2<A, List, num>? x2]);
 typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B1>(
     S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
-    [S2<C, List<String>, int> y2, S3<C, List<String>, int> y3]);
+    [S2<C, List<String>, int>? y2, S3<C, List<String>, int>? y3]);
 
 U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
-        [V2<A, List, num> x2]) =>
-    null;
+        [V2<A, List, num>? x2]) =>
+    new U0<C, List<String>, int>();
 U1<A, List, num> t1Func<X extends B0, Y extends B1>(
         S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
-        [S2<C, List<String>, int> y2, S3<C, List<String>, int> y3]) =>
-    null;
+        [S2<C, List<String>, int>? y2, S3<C, List<String>, int>? y3]) =>
+    new U1<A, List, num>();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
-bool isGenericFunctionType = true;
+const t1Default = t1Func;
 
 
 
 class ArgumentsBindingSuper1_t03 {
   void superTest(T1 val) {}
-  void superTestPositioned(T1 val, [T1 val2]) {}
-  void superTestNamed(T1 val, {T1 val2}) {}
+  void superTestPositioned(T1 val, [T1 val2 = t1Default]) {}
+  void superTestNamed(T1 val, {T1 val2 = t1Default}) {}
   T1 get superGetter => t0Instance; //# 07: compile-time error
   void set superSetter(T1 val) {}
 }

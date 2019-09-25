@@ -28,14 +28,18 @@
 
 
 import '../../utils/common.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class C {}
+class C {
+  const C();
+}
 class S0 extends C {}
 
 FutureOr<S0> t0Instance = new Future<S0>.value(new S0());
 FutureOr<C> t1Instance = new Future<C>.value(new C());
+
+const t1Default = const C();
 
 
 
@@ -86,14 +90,10 @@ class ClassMember2_t01<X> {
   X m;
   X _p;
 
-  ClassMember2_t01() {
-    m = forgetType(t0Instance);
-    _p = forgetType(t0Instance);
+  ClassMember2_t01():  m = forgetType(t0Instance), _p = forgetType(t0Instance) {
   }
 
-  ClassMember2_t01.named(X value) {
-    m = value;
-    _p = value;
+  ClassMember2_t01.named(X value): m = value, _p = value {
   }
 
   ClassMember2_t01.short(this.m, this._p);

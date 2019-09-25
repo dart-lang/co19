@@ -25,18 +25,22 @@
  */
 
 
-class X0 {}
+class X0 {
+  const X0();
+}
 class S0 extends X0 {
 }
 
 X0 t0Instance = new S0();
 X0 t1Instance = new X0();
 
+const t1Default = const X0();
+
 
 
 
 class ClassMemberMixin1_t03 {
-  X0 m;
+  X0 m = t1Default;
 
   void set superSetter(dynamic val) {}
 }

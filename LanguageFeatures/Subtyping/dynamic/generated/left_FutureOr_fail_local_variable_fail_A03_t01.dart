@@ -29,10 +29,12 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class C1 {}
+class C1 {
+  const C1();
+}
 class S0 implements Future<C1> {
   asStream() => null;
   catchError(Function onError, {bool test(Object error)}) => null;
@@ -45,38 +47,35 @@ class S0 implements Future<C1> {
 FutureOr<S0> t0Instance = new Future<S0>.value(new S0());
 Future<C1> t1Instance = new Future.value(new C1());
 
+const t1Default = const C1();
+
 
 
 
 class LocalVariableTest {
 
   LocalVariableTest() {
-    Future<C1> t1 = null;
-    t1 = forgetType(t0Instance);
+    Future<C1> t1 = forgetType(t0Instance);
   }
 
   LocalVariableTest.valid() {}
 
   static staticTest() {
-    Future<C1> t1 = null;
-    t1 = forgetType(t0Instance);
+    Future<C1> t1 = forgetType(t0Instance);
   }
 
   test() {
-    Future<C1> t1 = null;
-    t1 = forgetType(t0Instance);
+    Future<C1> t1 = forgetType(t0Instance);
   }
 }
 
 main() {
   bar () {
-    Future<C1> t1 = null;
-    t1 = forgetType(t0Instance);
+    Future<C1> t1 = forgetType(t0Instance);
   }
 
   Expect.throws(() {
-    Future<C1> t1 = null;
-    t1 = forgetType(t0Instance);
+    Future<C1> t1 = forgetType(t0Instance);
   }, (e) => e is TypeError);
 
   Expect.throws(() {

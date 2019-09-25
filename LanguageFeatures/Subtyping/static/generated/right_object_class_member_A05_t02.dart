@@ -40,11 +40,13 @@ class S {}
 FutureOr<S> t0Instance = new S();
 Object t1Instance = new Object();
 
+const t1Default = const Object();
+
 
 
 
 class ClassMemberSuper1_t02 {
-  Object m;
+  Object m = t1Default;
 
   ClassMemberSuper1_t02(dynamic value) {
     m = value;

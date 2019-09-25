@@ -43,11 +43,13 @@ class S {}
 FutureOr<S?> t0Instance = new S();
 Object t1Instance = new Object();
 
+const t1Default = const Object();
+
 
 
 
 class ClassMemberSuper1_t03 {
-  Object m;
+  Object m = t1Default;
   void set superSetter(Object val) {} //# 02: compile-time error
 }
 

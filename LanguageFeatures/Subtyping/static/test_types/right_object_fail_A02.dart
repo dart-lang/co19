@@ -26,7 +26,9 @@ class S extends X {}
 S t0Instance = new S();
 Object t1Instance = new Object();
 
-//# @T0 = S
+const t1Default = const Object();
+
+//# @T0 = S?
 //# @T1 = Object
 
 //# <!-- Global variables & classes definition -->

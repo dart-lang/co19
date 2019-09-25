@@ -38,7 +38,7 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 class A {}
 
 class C extends A {}
@@ -69,37 +69,37 @@ class S3<X, Y, Z> extends V3<X, Y, Z> {}
 
 typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
-    [V2<A, List, num> x2, V3<A, List, num> x3]);
+    [V2<A, List, num>? x2, V3<A, List, num>? x3]);
 typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B1>(
     S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
-    [S2<C, List<String>, int> y2, S3<C, List<String>, int> y3]);
+    [S2<C, List<String>, int>? y2, S3<C, List<String>, int>? y3]);
 
 U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
-    [V2<A, List, num> x2, V3<A, List, num> x3]) =>
-    null;
+    [V2<A, List, num>? x2, V3<A, List, num>? x3]) =>
+    new U0<C, List<String>, int>();
 U1<A, List, num> t1Func<X extends B0, Y extends B1>(
     S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
-    [S2<C, List<String>, int> y2, S3<C, List<String>, int> y3]) =>
-    null;
+    [S2<C, List<String>, int>? y2, S3<C, List<String>, int>? y3]) =>
+    new U1<A, List, num>();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
-bool isGenericFunctionType = true;
+const t1Default = t1Func;
 
 
 
 class ArgumentsBindingSuper1_t02 {
   T1 m;
 
-  ArgumentsBindingSuper1_t02(T1 value) {}
-  ArgumentsBindingSuper1_t02.named(T1 value, {T1 val2}) {}
-  ArgumentsBindingSuper1_t02.positional(T1 value, [T1 val2]) {}
+  ArgumentsBindingSuper1_t02(T1 value): m = value {}
+  ArgumentsBindingSuper1_t02.named(T1 value, {T1 val2 = t1Default}): m = value {}
+  ArgumentsBindingSuper1_t02.positional(T1 value, [T1 val2 = t1Default]): m = value {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
   void superTest(T1 val) {}
-  void superTestPositioned(T1 val, [T1 val2]) {}
-  void superTestNamed(T1 val, {T1 val2}) {}
+  void superTestPositioned(T1 val, [T1 val2 = t1Default]) {}
+  void superTestNamed(T1 val, {T1 val2 = t1Default}) {}
   T1 get superGetter => t0Instance; //# 35: compile-time error
   void set superSetter(T1 val) {}
 }
@@ -112,7 +112,7 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
   ArgumentsBinding1_t02.c4(T1 t1, T0 t2) : super.positional(t1, t2) {} //# 05: compile-time error
   ArgumentsBinding1_t02.c5(T1 t1) : super.short(t1) {} //# 06: compile-time error
 
-  ArgumentsBinding1_t02.valid() : super(null) {}
+  ArgumentsBinding1_t02.valid() : super(t1Default) {}
 
   test() {
     superTest(t0Instance); //# 14: compile-time error

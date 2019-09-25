@@ -27,8 +27,10 @@
 
 
 import '../../utils/common.dart';
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 
 abstract class S0 {}
 abstract class S1 {}
@@ -43,18 +45,18 @@ class T implements T0 {}
 T0 t0Instance = new T();
 T1 t1Instance = new T1();
 
+const t1Default = const T1();
+
 
 
 
 class ClassMemberSuper1_t02 {
   T1 m;
 
-  ClassMemberSuper1_t02(dynamic value) {
-    m = value;
+  ClassMemberSuper1_t02(dynamic value): m = value {
   }
 
-  ClassMemberSuper1_t02.named(dynamic value) {
-    m = value;
+  ClassMemberSuper1_t02.named(dynamic value): m = value {
   }
 
   ClassMemberSuper1_t02.short(this.m);
@@ -79,12 +81,10 @@ class ClassMember1_t02 extends ClassMemberSuper1_t02 {
 class ClassMemberSuper2_t02<X> {
   X m;
 
-  ClassMemberSuper2_t02(dynamic value) {
-    m = value;
+  ClassMemberSuper2_t02(dynamic value): m = value {
   }
 
-  ClassMemberSuper2_t02.named(dynamic value) {
-    m = value;
+  ClassMemberSuper2_t02.named(dynamic value): m = value {
   }
 
   ClassMemberSuper2_t02.short(this.m);

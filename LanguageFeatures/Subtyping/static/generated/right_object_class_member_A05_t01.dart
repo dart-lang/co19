@@ -40,6 +40,8 @@ class S {}
 FutureOr<S> t0Instance = new S();
 Object t1Instance = new Object();
 
+const t1Default = const Object();
+
 
 
 

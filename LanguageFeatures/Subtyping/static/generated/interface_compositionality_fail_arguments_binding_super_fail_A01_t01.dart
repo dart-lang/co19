@@ -29,7 +29,7 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 abstract class U0 {}
 abstract class U1 {}
 abstract class U2 {}
@@ -39,10 +39,14 @@ abstract class S1 extends U1 {}
 // no subtype relation between S2 and U2
 abstract class S2 {}
 
-class C0<X, Y, Z> {}
+class C0<X, Y, Z> {
+  const C0();
+}
 
 C0<S0, S1, S2> t0Instance = new C0<S0, S1, S2>();
 C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
+
+const t1Default = const C0<U0, U1, U2>();
 
 
 
@@ -50,14 +54,14 @@ C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
 class ArgumentsBindingSuper1_t02 {
   C0<U0, U1, U2> m;
 
-  ArgumentsBindingSuper1_t02(C0<U0, U1, U2> value) {}
-  ArgumentsBindingSuper1_t02.named(C0<U0, U1, U2> value, {C0<U0, U1, U2> val2}) {}
-  ArgumentsBindingSuper1_t02.positional(C0<U0, U1, U2> value, [C0<U0, U1, U2> val2]) {}
+  ArgumentsBindingSuper1_t02(C0<U0, U1, U2> value): m = value {}
+  ArgumentsBindingSuper1_t02.named(C0<U0, U1, U2> value, {C0<U0, U1, U2> val2 = t1Default}): m = value {}
+  ArgumentsBindingSuper1_t02.positional(C0<U0, U1, U2> value, [C0<U0, U1, U2> val2 = t1Default]): m = value {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
   void superTest(C0<U0, U1, U2> val) {}
-  void superTestPositioned(C0<U0, U1, U2> val, [C0<U0, U1, U2> val2]) {}
-  void superTestNamed(C0<U0, U1, U2> val, {C0<U0, U1, U2> val2}) {}
+  void superTestPositioned(C0<U0, U1, U2> val, [C0<U0, U1, U2> val2 = t1Default]) {}
+  void superTestNamed(C0<U0, U1, U2> val, {C0<U0, U1, U2> val2 = t1Default}) {}
   C0<U0, U1, U2> get superGetter => t0Instance; //# 35: compile-time error
   void set superSetter(C0<U0, U1, U2> val) {}
 }
@@ -70,7 +74,7 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
   ArgumentsBinding1_t02.c4(C0<U0, U1, U2> t1, C0<S0, S1, S2> t2) : super.positional(t1, t2) {} //# 05: compile-time error
   ArgumentsBinding1_t02.c5(C0<U0, U1, U2> t1) : super.short(t1) {} //# 06: compile-time error
 
-  ArgumentsBinding1_t02.valid() : super(null) {}
+  ArgumentsBinding1_t02.valid() : super(t1Default) {}
 
   test() {
     superTest(t0Instance); //# 14: compile-time error

@@ -37,7 +37,7 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 class A {}
 
 class C extends A {}
@@ -67,27 +67,27 @@ class S2<X, Y, Z> extends V2<X, Y, Z> {}
 class S3<X, Y, Z> extends V3<X, Y, Z> {}
 
 typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
-    V0<A, List, num> x0, [V1<A, List, num> x1]);
+    V0<A, List, num> x0, [V1<A, List, num>? x1]);
 typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B1>(
     S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
-    [S2<C, List<String>, int> y2, S3<C, List<String>, int> y3]);
+    [S2<C, List<String>, int>? y2, S3<C, List<String>, int>? y3]);
 
 U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
-        V0<A, List, num> x0,[ V1<A, List, num> x1]) =>
-    null;
+        V0<A, List, num> x0,[V1<A, List, num>? x1]) =>
+    new U0<C, List<String>, int>();
 U1<A, List, num> t1Func<X extends B0, Y extends B1>(
         S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
-        [S2<C, List<String>, int> y2, S3<C, List<String>, int> y3]) =>
-    null;
+        [S2<C, List<String>, int>? y2, S3<C, List<String>, int>? y3]) =>
+    new U1<A, List, num>();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
-bool isGenericFunctionType = true;
+const t1Default = t1Func;
 
 
 
 class ClassMemberTestStatic {
-  static T1 s;
+  static T1 s = t1Default;
 
   ClassMemberTestStatic(dynamic val) {
     s = val;
@@ -105,7 +105,7 @@ class ClassMemberTestStatic {
 }
 
 class ClassMemberTestPublic {
-  T1 m;
+  T1 m = t1Default;
 
   ClassMemberTestPublic(dynamic val) {
     m = val;
@@ -127,7 +127,7 @@ class ClassMemberTestPublic {
 }
 
 class ClassMemberTestPrivate {
-  T1 _m;
+  T1 _m = t1Default;
 
   ClassMemberTestPrivate(dynamic val) {
     _m = val;
@@ -154,13 +154,10 @@ class ClassMemberTestInitFail {
 class ClassMemberTestGenericPublic<X> {
   X m;
 
-  ClassMemberTestGenericPublic(dynamic val) {
-    m = val;
+  ClassMemberTestGenericPublic(dynamic val): m = val {
   }
 
   ClassMemberTestGenericPublic.short(this.m);
-
-  ClassMemberTestGenericPublic.validConstructor() {}
 
   test(dynamic val) {
     m = val;
@@ -176,13 +173,10 @@ class ClassMemberTestGenericPublic<X> {
 class ClassMemberTestGenericPrivate<X> {
   X _m;
 
-  ClassMemberTestGenericPrivate(dynamic val) {
-    _m = val;
+  ClassMemberTestGenericPrivate(dynamic val): _m = val {
   }
 
   ClassMemberTestGenericPrivate.short(this._m);
-
-  ClassMemberTestGenericPrivate.validConstructor() {}
 
   test(dynamic val) {
     _m = val;
@@ -219,30 +213,30 @@ main() {
 
   // Test class variables
   Expect.throws(() {
-    new ClassMemberTestPublic.validConstructor().m = forgetType(t0Instance);
+    new ClassMemberTestPublic(t1Instance).m = forgetType(t0Instance);
   }, (e) => e is TypeError);
 
   // Test setters
   Expect.throws(() {
-    new ClassMemberTestPublic.validConstructor().setter = t0Instance;
+    new ClassMemberTestPublic(t1Instance).setter = t0Instance;
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ClassMemberTestPrivate.validConstructor().setter = t0Instance;
+    new ClassMemberTestPrivate(t1Instance).setter = t0Instance;
   }, (e) => e is TypeError);
 
   // Test methods
   Expect.throws(() {
-    new ClassMemberTestPublic.validConstructor().test(t0Instance);
+    new ClassMemberTestPublic(t1Instance).test(t0Instance);
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ClassMemberTestPrivate.validConstructor().test(t0Instance);
+    new ClassMemberTestPrivate(t1Instance).test(t0Instance);
   }, (e) => e is TypeError);
 
   // Test getters
   Expect.throws(() {
-    new ClassMemberTestPublic.validConstructor().getter;
+    new ClassMemberTestPublic(t1Instance).getter;
   }, (e) => e is TypeError);
 
 

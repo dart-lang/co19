@@ -41,6 +41,8 @@ class S {}
 FutureOr<S> t0Instance = new Future.value(new S());
 Object t1Instance = new Object();
 
+const t1Default = const Object();
+
 
 
 
@@ -90,14 +92,10 @@ class ClassMember2_t01<X> {
   X m;
   X _p;
 
-  ClassMember2_t01() {
-    m = forgetType(t0Instance);
-    _p = forgetType(t0Instance);
+  ClassMember2_t01():  m = forgetType(t0Instance), _p = forgetType(t0Instance) {
   }
 
-  ClassMember2_t01.named(X value) {
-    m = value;
-    _p = value;
+  ClassMember2_t01.named(X value): m = value, _p = value {
   }
 
   ClassMember2_t01.short(this.m, this._p);

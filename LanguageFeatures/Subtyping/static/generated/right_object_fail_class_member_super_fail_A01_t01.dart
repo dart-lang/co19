@@ -39,20 +39,22 @@
 class B {}
 class T0 extends B {}
 
-T0 t0Instance = new T0();
+T0? t0Instance = new T0();
 Object t1Instance = new Object();
+
+const t1Default = const Object();
 
 
 
 
 
 class ClassMemberSuper1_t02 {
-  Object m;
+  Object m = t1Default;
 
-  ClassMemberSuper1_t02(T0 value) {
+  ClassMemberSuper1_t02(T0? value) {
     m = value; //# 01: compile-time error
   }
-  ClassMemberSuper1_t02.named(T0 value) {
+  ClassMemberSuper1_t02.named(T0? value) {
     m = value; //# 02: compile-time error
   }
   void set superSetter(Object val) {}
@@ -84,5 +86,5 @@ test<T extends B?>(T t0Instance) {
 }
 
 main() {
-  test<T0>(t0Instance);
+  test<T0?>(t0Instance);
 }
