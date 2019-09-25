@@ -35,7 +35,7 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 class A {}
 
 class C extends A {}
@@ -58,49 +58,50 @@ class V4<X, Y, Z> {}
 
 typedef T0 = U<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
-    {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4});
+    {V2<A, List, num>? x2, V3<A, List, num>? x3, V4<A, List, num>? x4});
 typedef T1 = U<A, List, num> Function<X extends B0, Y extends B0>( // Y extends B0, not B1
     V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
-    {V2<C, List<String>, int> x2, V3<C, List<String>, int> x3});
+    {V2<C, List<String>, int>? x2, V3<C, List<String>, int>? x3});
 
 U<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
-        {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4}) =>
-    null;
+        {V2<A, List, num>? x2, V3<A, List, num>? x3, V4<A, List, num>? x4}) =>
+    new U<C, List<String>, int>();
 U<A, List, num> t1Func<X extends B0, Y extends B0>(
         V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
-        {V2<C, List<String>, int> x2, V3<C, List<String>, int> x3}) =>
-    null;
+        {V2<C, List<String>, int>? x2, V3<C, List<String>, int>? x3}) =>
+    new U<A, List, num>();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
+const t1Default = t1Func;
 
 
-namedArgumentsFunc1(T1 t1, {T1 t2}) {}
-positionalArgumentsFunc1(T1 t1, [T1 t2]) {}
 
-namedArgumentsFunc2<X>(X t1, {X t2}) {}
-positionalArgumentsFunc2<X>(X t1, [X t2]) {}
+
+namedArgumentsFunc1(T1 t1, {T1 t2 = t1Default}) {}
+positionalArgumentsFunc1(T1 t1, [T1 t2 = t1Default]) {}
+
+namedArgumentsFunc2<X>(X t1, {required X t2}) {}
 
 class ArgumentsBindingClass {
   ArgumentsBindingClass(T1 t1) {}
 
-  ArgumentsBindingClass.named(T1 t1, {T1 t2}) {}
-  ArgumentsBindingClass.positional(T1 t1, [T1 t2]) {}
+  ArgumentsBindingClass.named(T1 t1, {T1 t2 = t1Default}) {}
 
-  factory ArgumentsBindingClass.fNamed(T1 t1, {T1 t2}) {
+  factory ArgumentsBindingClass.fNamed(T1 t1, {T1 t2 = t1Default}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(T1 t1, [T1 t2]) {
-    return new ArgumentsBindingClass.positional(t1, t2);
+  factory ArgumentsBindingClass.fPositional(T1 t1, [T1 t2 = t1Default]) {
+    return new ArgumentsBindingClass.named(t1, t2: t2);
   }
 
-  static namedArgumentsStaticMethod(T1 t1, {T1 t2}) {}
-  static positionalArgumentsStaticMethod(T1 t1, [T1 t2]) {}
+  static namedArgumentsStaticMethod(T1 t1, {T1 t2 = t1Default}) {}
+  static positionalArgumentsStaticMethod(T1 t1, [T1 t2 = t1Default]) {}
 
-  namedArgumentsMethod(T1 t1, {T1 t2}) {}
-  positionalArgumentsMethod(T1 t1, [T1 t2]) {}
+  namedArgumentsMethod(T1 t1, {T1 t2 = t1Default}) {}
+  positionalArgumentsMethod(T1 t1, [T1 t2 = t1Default]) {}
 
   set testSetter(T1 val) {}
 }
@@ -108,18 +109,13 @@ class ArgumentsBindingClass {
 class ArgumentsBindingClassGen<X> {
   ArgumentsBindingClassGen(X t1) {}
 
-  ArgumentsBindingClassGen.named(X t1, {X t2}) {}
-  ArgumentsBindingClassGen.positional(X t1, [X t2]) {}
+  ArgumentsBindingClassGen.named(X t1, {required X t2}) {}
 
-  factory ArgumentsBindingClassGen.fNamed(X t1, {X t2}) {
+  factory ArgumentsBindingClassGen.fNamed(X t1, {required X t2}) {
     return new ArgumentsBindingClassGen.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClassGen.fPositional(X t1, [X t2]) {
-    return new ArgumentsBindingClassGen.positional(t1, t2);
-  }
 
-  namedArgumentsMethod(X t1, {X t2}) {}
-  positionalArgumentsMethod(X t1, [X t2]){}
+  namedArgumentsMethod(X t1, {required X t2}) {}
 
   set testSetter(X val) {}
 }
@@ -161,14 +157,6 @@ main() {
 
   Expect.throws(() {
     new ArgumentsBindingClass.named(t1Instance, t2: forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBindingClass.positional(forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBindingClass.positional(t1Instance, forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {

@@ -25,8 +25,10 @@
  */
 
 
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 
 abstract class S0 extends T1 {}
 abstract class S1 {}
@@ -39,11 +41,13 @@ class T implements T0 {}
 T0 t0Instance = new T();
 T1 t1Instance = new T1();
 
+const t1Default = const T1();
+
 
 
 
 class ClassMemberSuper1_t02 {
-  T1 m;
+  T1 m = t1Default;
 
   ClassMemberSuper1_t02(dynamic value) {
     m = value;

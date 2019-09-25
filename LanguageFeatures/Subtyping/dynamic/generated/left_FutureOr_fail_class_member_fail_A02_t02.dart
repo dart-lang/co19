@@ -29,20 +29,24 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class T1 {}
+class T1 {
+  const T1();
+}
 class S0 extends T1 {}
 
 FutureOr<S0> t0Instance = Future<S0>.value(new S0()); // Future<S0> is not a subtype of T1
 T1 t1Instance = new T1();
 
+const t1Default = const T1();
+
 
 
 
 class ClassMemberSuper1_t02 {
-  T1 m;
+  T1 m = t1Default;
 
   ClassMemberSuper1_t02(dynamic value) {
     m = value;
@@ -79,12 +83,10 @@ class ClassMember1_t02 extends ClassMemberSuper1_t02 {
 class ClassMemberSuper2_t02<X> {
   X m;
 
-  ClassMemberSuper2_t02(X value) {
-    m = value;
+  ClassMemberSuper2_t02(X value): m = value {
   }
 
-  ClassMemberSuper2_t02.named(X value) {
-    m = value;
+  ClassMemberSuper2_t02.named(X value): m = value {
   }
 
   ClassMemberSuper2_t02.short(this.m);
@@ -100,8 +102,6 @@ class ClassMember2_t02<X> extends ClassMemberSuper2_t02<X> {
 
   ClassMember2_t02.short() : super.short(forgetType(t0Instance));
 
-  ClassMember2_t02.valid() : super(null);
-
   test1() {
     m = forgetType(t0Instance);
   }
@@ -116,16 +116,16 @@ main() {
   Expect.throws(() {new ClassMember1_t02.short();}, (e) => e is TypeError);
   Expect.throws(() {new ClassMember1_t02.named();}, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember1_t02.valid().m = forgetType(t0Instance);
+    new ClassMember1_t02().m = forgetType(t0Instance);
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember1_t02.valid().superSetter = forgetType(t0Instance);
+    new ClassMember1_t02().superSetter = forgetType(t0Instance);
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember1_t02.valid().test1();
+    new ClassMember1_t02().test1();
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember1_t02.valid().test2();
+    new ClassMember1_t02().test2();
   }, (e) => e is TypeError);
 
   // Test type parameters
@@ -135,16 +135,16 @@ main() {
   Expect.throws(() {new ClassMember2_t02<T1>.short();}, (e) => e is TypeError);
   Expect.throws(() {new ClassMember2_t02<T1>.named();}, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember2_t02<T1>.valid().m = forgetType(t0Instance);
+    new ClassMember2_t02<T1>().m = forgetType(t0Instance);
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember2_t02<T1>.valid().superSetter = forgetType(t0Instance);
+    new ClassMember2_t02<T1>().superSetter = forgetType(t0Instance);
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember2_t02<T1>.valid().test1();
+    new ClassMember2_t02<T1>().test1();
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember2_t02<T1>.valid().test2();
+    new ClassMember2_t02<T1>().test2();
   }, (e) => e is TypeError);
   //# -->
 }

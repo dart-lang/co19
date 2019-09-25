@@ -34,6 +34,7 @@
 
 
 import '../../utils/common.dart';
+// SharedOptions=--enable-experiment=non-nullable
 
 class U0 extends U1 {}
 class U1 {}
@@ -47,19 +48,22 @@ class S1 extends V1 {}
 class S2 extends V2 {}
 class S3 extends V3 {}
 
-typedef T0 = U0 Function(V0 x0, V1 x1, {V2 x2, V3 x3, V4 x4});
-typedef T1 = U1 Function(S0 y0, S1 y1, {S2 x2, S3 x3});
+typedef T0 = U0 Function(V0 x0, V1 x1, {V2? x2, V3? x3, V4? x4});
+typedef T1 = U1 Function(S0 y0, S1 y1, {S2? x2, S3? x3});
 
-U0 t0Func(V0 x0, V1 x1, {V2 x2, V3 x3, V4 x4}) => null;
-U1 t1Func(S0 y0, S1 y1, {S2 x2, S3 x3}) => null;
+U0 t0Func(V0 x0, V1 x1, {V2? x2, V3? x3, V4? x4}) => new U0();
+U1 t1Func(S0 y0, S1 y1, {S2? x2, S3? x3}) => new U1();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
+const t1Default = t1Func;
+
+
 
 
 class ClassMemberMixin1_t03 {
-  T1 m;
+  T1 m = t1Default;
 
   void set superSetter(dynamic val) {}
 }
@@ -73,6 +77,9 @@ class ClassMember1_t03 extends Object with ClassMemberMixin1_t03 {
 
 class ClassMemberMixin2_t03<X> {
   X m;
+
+  ClassMemberMixin2_t03(X x): m = x {
+  }
   void set superSetter(dynamic val) {}
 }
 
@@ -92,7 +99,7 @@ main() {
   // Test type parameters
 
   //# <-- NotGenericFunctionType
-  ClassMember2_t03<T1> c2 = new ClassMember2_t03<T1>();
+  ClassMember2_t03<T1> c2 = new ClassMember2_t03<T1>(t1Instance);
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

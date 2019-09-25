@@ -24,9 +24,11 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 Object t0Instance = new Object();
 Object t1Instance = new Object();
+
+const t1Default = const Object();
 
 
 

@@ -29,26 +29,30 @@
 
 
 import '../../utils/common.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
 class A {}
 class B extends A {}
-class C<X> {}
+class C<X> {
+  const C();
+}
 class S0<X> extends C<X> {}
 
 FutureOr<S0<B>> t0Instance = new Future<S0<B>>.value(new S0<B>());
 FutureOr<C<A>> t1Instance = new Future<C<A>>.value(new C<A>());
 
+const t1Default = const C<A>();
+
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  FutureOr<C<A>> m;
+  FutureOr<C<A>> m = t1Default;
 
   void superTest(FutureOr<C<A>> val) {}
-  void superTestPositioned(FutureOr<C<A>> val, [FutureOr<C<A>> val2]) {}
-  void superTestNamed(FutureOr<C<A>> val, {FutureOr<C<A>> val2}) {}
+  void superTestPositioned(FutureOr<C<A>> val, [FutureOr<C<A>> val2 = t1Default]) {}
+  void superTestNamed(FutureOr<C<A>> val, {FutureOr<C<A>> val2 = t1Default}) {}
   FutureOr<C<A>> get superGetter => m;
   void set superSetter(FutureOr<C<A>> val) {}
 }
@@ -68,12 +72,8 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
 }
 
 class ArgumentsBindingMixin2_t03<X> {
-  X m;
-
   void superTest(X val) {}
-  void superTestPositioned(X val, [X val2]) {}
-  void superTestNamed(X val, {X val2}) {}
-  X get superGetter => m;
+  void superTestNamed(X val, {required X val2}) {}
   void set superSetter(X val) {}
 }
 
@@ -81,13 +81,8 @@ class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingMixin2_t03<X>
 
   test(dynamic t1, dynamic t2) {
     superTest(t1);
-    superTestPositioned(t1);
-    superTestPositioned(t2, t1);
-    superTestNamed(t1);
     superTestNamed(t2, val2: t1);
     superSetter = t1;
-    m = t1;
-    superGetter;
   }
 }
 
@@ -109,11 +104,7 @@ main() {
   ArgumentsBinding2_t03<FutureOr<C<A>>> c2 = new ArgumentsBinding2_t03<FutureOr<C<A>>>();
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));
-  c2.superTestPositioned(forgetType(t0Instance));
-  c2.superTestPositioned(t1Instance, forgetType(t0Instance));
-  c2.superTestNamed(forgetType(t0Instance));
   c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));
   c2.superSetter = forgetType(t0Instance);
-  c2.superGetter;
   //# -->
 }

@@ -11,13 +11,16 @@
  * T0 is a subtype of T1. Test void function with required arguments
  * @author sgrekhov@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=non-nullable
 class C {}
 
 typedef void T0(C c);
 
 void t0Instance(C c) {}
-Function t1Instance = null;
+Function t1Instance = () {};
+
+void foo() {}
+const t1Default = foo;
 
 //# @T0 = T0
 //# @T1 = Function

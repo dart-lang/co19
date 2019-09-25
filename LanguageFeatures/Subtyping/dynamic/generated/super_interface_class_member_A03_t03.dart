@@ -27,8 +27,10 @@
 
 
 import '../../utils/common.dart';
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 
 abstract class S0 {}
 abstract class S1 {}
@@ -43,11 +45,13 @@ class T implements T0 {}
 T0 t0Instance = new T();
 T1 t1Instance = new T1();
 
+const t1Default = const T1();
+
 
 
 
 class ClassMemberMixin1_t03 {
-  T1 m;
+  T1 m = t1Default;
 
   void set superSetter(dynamic val) {}
 }
@@ -61,6 +65,9 @@ class ClassMember1_t03 extends Object with ClassMemberMixin1_t03 {
 
 class ClassMemberMixin2_t03<X> {
   X m;
+
+  ClassMemberMixin2_t03(X x): m = x {
+  }
   void set superSetter(dynamic val) {}
 }
 
@@ -80,7 +87,7 @@ main() {
   // Test type parameters
 
   //# <-- NotGenericFunctionType
-  ClassMember2_t03<T1> c2 = new ClassMember2_t03<T1>();
+  ClassMember2_t03<T1> c2 = new ClassMember2_t03<T1>(t1Instance);
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

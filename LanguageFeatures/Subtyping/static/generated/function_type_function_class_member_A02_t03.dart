@@ -25,19 +25,22 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 class C {}
 
 typedef void T0();
 
 void t0Instance() => new C();
-Function t1Instance = null;
+Function t1Instance = () {};
+
+void foo() {}
+const t1Default = foo;
 
 
 
 
 class ClassMemberMixin1_t03 {
-  Function m;
+  Function m = t1Default;
 
   void set superSetter(dynamic val) {}
 }

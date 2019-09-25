@@ -14,10 +14,12 @@
  * a type T1. Case when an instance of T0 is an instance of Future<S0> type.
  * @author ngl@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class C1 {}
+class C1 {
+  const C1();
+}
 class S0 implements Future<C1> {
   asStream() => null;
   catchError(Function onError, {bool test(Object error)}) => null;
@@ -29,6 +31,8 @@ class S0 implements Future<C1> {
 // Future<S0> is not a subtype of T1 (Future<C1>)
 FutureOr<S0> t0Instance = new Future<S0>.value(new S0());
 Future<C1> t1Instance = new Future.value(new C1());
+
+const t1Default = const C1();
 
 //# @T0 = FutureOr<S0>
 //# @T1 = Future<C1>

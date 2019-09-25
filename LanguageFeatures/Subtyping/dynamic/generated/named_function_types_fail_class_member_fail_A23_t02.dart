@@ -36,7 +36,7 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 class A {}
 
 class C extends A {}
@@ -59,26 +59,29 @@ class V4<X, Y, Z> {}
 
 typedef T0 = U<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, double> x0, V1<A, List, num> x1,     // V0<C, List<String>, int> is not subtype of V0<A, List, double>
-    {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4});
+    {V2<A, List, num>? x2, V3<A, List, num>? x3, V4<A, List, num>? x4});
 typedef T1 = U<A, List, num> Function<X extends B0, Y extends B1>(
     V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
-    {V2<C, List<String>, int> x2, V3<C, List<String>, int> x3});
+    {V2<C, List<String>, int>? x2, V3<C, List<String>, int>? x3});
 
 U<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<A, List, double> x0, V1<A, List, num> x1,
-        {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4}) =>
-    null;
+        {V2<A, List, num>? x2, V3<A, List, num>? x3, V4<A, List, num>? x4}) =>
+    new U<C, List<String>, int>();
 U<A, List, num> t1Func<X extends B0, Y extends B1>(
         V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
-        {V2<C, List<String>, int> x2, V3<C, List<String>, int> x3}) =>
-    null;
+        {V2<C, List<String>, int>? x2, V3<C, List<String>, int>? x3}) =>
+    new U<A, List, num>();
 
 T0 t0Instance = t0Func;
-T1 t1Instance = t1Func;
+T1 t1Instance = t1Func;
+
+const t1Default = t1Func;
+
 
 
 class ClassMemberSuper1_t02 {
-  T1 m;
+  T1 m = t1Default;
 
   ClassMemberSuper1_t02(dynamic value) {
     m = value;
@@ -115,12 +118,10 @@ class ClassMember1_t02 extends ClassMemberSuper1_t02 {
 class ClassMemberSuper2_t02<X> {
   X m;
 
-  ClassMemberSuper2_t02(X value) {
-    m = value;
+  ClassMemberSuper2_t02(X value): m = value {
   }
 
-  ClassMemberSuper2_t02.named(X value) {
-    m = value;
+  ClassMemberSuper2_t02.named(X value): m = value {
   }
 
   ClassMemberSuper2_t02.short(this.m);
@@ -136,8 +137,6 @@ class ClassMember2_t02<X> extends ClassMemberSuper2_t02<X> {
 
   ClassMember2_t02.short() : super.short(forgetType(t0Instance));
 
-  ClassMember2_t02.valid() : super(null);
-
   test1() {
     m = forgetType(t0Instance);
   }
@@ -152,16 +151,16 @@ main() {
   Expect.throws(() {new ClassMember1_t02.short();}, (e) => e is TypeError);
   Expect.throws(() {new ClassMember1_t02.named();}, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember1_t02.valid().m = forgetType(t0Instance);
+    new ClassMember1_t02().m = forgetType(t0Instance);
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember1_t02.valid().superSetter = forgetType(t0Instance);
+    new ClassMember1_t02().superSetter = forgetType(t0Instance);
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember1_t02.valid().test1();
+    new ClassMember1_t02().test1();
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember1_t02.valid().test2();
+    new ClassMember1_t02().test2();
   }, (e) => e is TypeError);
 
   // Test type parameters

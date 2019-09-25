@@ -13,7 +13,7 @@
  */
 
 class ClassMemberSuper1_t03 {
-  @T1 m;
+  @T1 m = t1Default;
   void set superSetter(@T1 val) {} //# 02: compile-time error
 }
 

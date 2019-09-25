@@ -34,7 +34,7 @@
 
 
 import '../../utils/common.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 class U0 extends U1 {}
 class U1 {}
 class V0 {}
@@ -47,23 +47,26 @@ class S1 extends V1 {}
 class S2 extends V2 {}
 class S3 extends V3 {}
 
-typedef T0 = U0 Function(V0 x0, V1 x1, [V2 x2, V3 x3, V4 x4]);
-typedef T1 = U1 Function(S0 y0, S1 y1, S2 y2, [S3 y3]);
+typedef T0 = U0 Function(V0 x0, V1 x1, [V2? x2, V3? x3, V4? x4]);
+typedef T1 = U1 Function(S0 y0, S1 y1, S2 y2, [S3? y3]);
 
-U0 t0Func(V0 x0, V1 x1, [V2 x2, V3 x3, V4 x4]) => null;
-U1 t1Func(S0 y0, S1 y1, S2 y2, [S3 y3]) => null;
+U0 t0Func(V0 x0, V1 x1, [V2? x2, V3? x3, V4? x4]) => new U0();
+U1 t1Func(S0 y0, S1 y1, S2 y2, [S3? y3]) => new U1();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
+const t1Default = t1Func;
+
+
 
 
 class ArgumentsBindingMixin1_t03 {
-  T1 m;
+  T1 m = t1Default;
 
   void superTest(T1 val) {}
-  void superTestPositioned(T1 val, [T1 val2]) {}
-  void superTestNamed(T1 val, {T1 val2}) {}
+  void superTestPositioned(T1 val, [T1 val2 = t1Default]) {}
+  void superTestNamed(T1 val, {T1 val2 = t1Default}) {}
   T1 get superGetter => m;
   void set superSetter(T1 val) {}
 }
@@ -83,12 +86,8 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
 }
 
 class ArgumentsBindingMixin2_t03<X> {
-  X m;
-
   void superTest(X val) {}
-  void superTestPositioned(X val, [X val2]) {}
-  void superTestNamed(X val, {X val2}) {}
-  X get superGetter => m;
+  void superTestNamed(X val, {required X val2}) {}
   void set superSetter(X val) {}
 }
 
@@ -96,13 +95,8 @@ class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingMixin2_t03<X>
 
   test(dynamic t1, dynamic t2) {
     superTest(t1);
-    superTestPositioned(t1);
-    superTestPositioned(t2, t1);
-    superTestNamed(t1);
     superTestNamed(t2, val2: t1);
     superSetter = t1;
-    m = t1;
-    superGetter;
   }
 }
 
@@ -124,11 +118,7 @@ main() {
   ArgumentsBinding2_t03<T1> c2 = new ArgumentsBinding2_t03<T1>();
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));
-  c2.superTestPositioned(forgetType(t0Instance));
-  c2.superTestPositioned(t1Instance, forgetType(t0Instance));
-  c2.superTestNamed(forgetType(t0Instance));
   c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));
   c2.superSetter = forgetType(t0Instance);
-  c2.superGetter;
   //# -->
 }

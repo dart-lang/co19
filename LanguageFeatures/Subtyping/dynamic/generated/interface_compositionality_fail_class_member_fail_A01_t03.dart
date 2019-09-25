@@ -28,7 +28,7 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 abstract class U0 {}
 abstract class U1 {}
 abstract class U2 {}
@@ -38,16 +38,20 @@ abstract class S1 extends U1 {}
 // no subtype relation between S2 and U2
 abstract class S2 {}
 
-class C0<X, Y, Z> {}
+class C0<X, Y, Z> {
+  const C0();
+}
 
 C0<S0, S1, S2> t0Instance = new C0<S0, S1, S2>();
 C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
+
+const t1Default = const C0<U0, U1, U2>();
 
 
 
 
 class ClassMemberSuper1_t03 {
-  C0<U0, U1, U2> m;
+  C0<U0, U1, U2> m = t1Default;
 
   void set superSetter(C0<U0, U1, U2> val) {}
 }
@@ -66,10 +70,14 @@ class ClassMember1_t03 extends Object with ClassMemberSuper1_t03 {
 class ClassMemberSuper2_t03<X> {
   X m;
 
+  ClassMemberSuper2_t03(X x) : m = x {}
+
   void set superSetter(X val) {}
 }
 
 class ClassMember2_t03<X> extends ClassMemberSuper2_t03<X> {
+
+  ClassMember2_t03(X x): super(x) {}
 
   test1() {
     m = forgetType(t0Instance);
@@ -98,16 +106,16 @@ main() {
 
   //# <-- NotGenericFunctionType
   Expect.throws(() {
-    new ClassMember2_t03<C0<U0, U1, U2>>().m = forgetType(t0Instance);
+    new ClassMember2_t03<C0<U0, U1, U2>>(t1Instance).m = forgetType(t0Instance);
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember2_t03<C0<U0, U1, U2>>().superSetter = forgetType(t0Instance);
+    new ClassMember2_t03<C0<U0, U1, U2>>(t1Instance).superSetter = forgetType(t0Instance);
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember2_t03<C0<U0, U1, U2>>().test1();
+    new ClassMember2_t03<C0<U0, U1, U2>>(t1Instance).test1();
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember2_t03<C0<U0, U1, U2>>().test2();
+    new ClassMember2_t03<C0<U0, U1, U2>>(t1Instance).test2();
   }, (e) => e is TypeError);
   //# -->
 }

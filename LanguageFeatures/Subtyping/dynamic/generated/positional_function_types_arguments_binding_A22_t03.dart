@@ -35,7 +35,7 @@
 
 
 import '../../utils/common.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 class A {}
 
 class C extends A {}
@@ -78,32 +78,35 @@ class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
 typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<dynamic, void, Object> x0, V1<void, Object, dynamic> x1,
-    [V2<Object, dynamic, void> x2, V3<dynamic, Object, void> x3, V4<dynamic,
-    void, Object> x4]);
+    [V2<Object, dynamic, void>? x2, V3<dynamic, Object, void> ?x3, V4<dynamic,
+    void, Object>? x4]);
 
 typedef T1 = U1<dynamic, void, Object> Function<X extends B0, Y extends B1>(
     S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
-    S2<C, List<String>, int> x2, [S3<C, List<String>, int> x3]);
+    S2<C, List<String>, int> x2, [S3<C, List<String>, int>? x3]);
 
 U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
     V0<dynamic, void, Object> x0, V1<void, Object, dynamic> x1,
-    [V2<Object,dynamic, void> x2, V3<dynamic, Object, void> x3, V4<dynamic,
-    void, Object> x4]) => null;
+    [V2<Object,dynamic, void>? x2, V3<dynamic, Object, void>? x3, V4<dynamic,
+    void, Object>? x4]) => new U0<C, List<String>, int>();
 
 U1<dynamic, void, Object> t1Func<X extends B0, Y extends B1>(
     S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
-    S2<C, List<String>, int> x2, [S3<C, List<String>, int> x3]) => null;
+    S2<C, List<String>, int> x2, [S3<C, List<String>, int> x3]) =>
+    new U1<dynamic, void, Object>();
+
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
+const t1Default = t1Func;
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  T1 m;
+  T1 m = t1Default;
 
   void superTest(T1 val) {}
-  void superTestPositioned(T1 val, [T1 val2]) {}
-  void superTestNamed(T1 val, {T1 val2}) {}
+  void superTestPositioned(T1 val, [T1 val2 = t1Default]) {}
+  void superTestNamed(T1 val, {T1 val2 = t1Default}) {}
   T1 get superGetter => m;
   void set superSetter(T1 val) {}
 }
@@ -123,12 +126,8 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
 }
 
 class ArgumentsBindingMixin2_t03<X> {
-  X m;
-
   void superTest(X val) {}
-  void superTestPositioned(X val, [X val2]) {}
-  void superTestNamed(X val, {X val2}) {}
-  X get superGetter => m;
+  void superTestNamed(X val, {required X val2}) {}
   void set superSetter(X val) {}
 }
 
@@ -136,13 +135,8 @@ class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingMixin2_t03<X>
 
   test(dynamic t1, dynamic t2) {
     superTest(t1);
-    superTestPositioned(t1);
-    superTestPositioned(t2, t1);
-    superTestNamed(t1);
     superTestNamed(t2, val2: t1);
     superSetter = t1;
-    m = t1;
-    superGetter;
   }
 }
 

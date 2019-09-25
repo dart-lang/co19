@@ -31,10 +31,12 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class S1 {}
+class S1 {
+  const S1();
+}
 class S0 {}
 class X0 extends S0 {
 }
@@ -42,38 +44,35 @@ class X0 extends S0 {
 X0 t0Instance = new X0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
+const t1Default = const S1();
+
 
 
 
 class LocalVariableTest {
 
   LocalVariableTest() {
-    FutureOr<S1> t1 = null;
-    t1 = forgetType(t0Instance);
+    FutureOr<S1> t1 = forgetType(t0Instance);
   }
 
   LocalVariableTest.valid() {}
 
   static staticTest() {
-    FutureOr<S1> t1 = null;
-    t1 = forgetType(t0Instance);
+    FutureOr<S1> t1 = forgetType(t0Instance);
   }
 
   test() {
-    FutureOr<S1> t1 = null;
-    t1 = forgetType(t0Instance);
+    FutureOr<S1> t1 = forgetType(t0Instance);
   }
 }
 
 main() {
   bar () {
-    FutureOr<S1> t1 = null;
-    t1 = forgetType(t0Instance);
+    FutureOr<S1> t1 = forgetType(t0Instance);
   }
 
   Expect.throws(() {
-    FutureOr<S1> t1 = null;
-    t1 = forgetType(t0Instance);
+    FutureOr<S1> t1 = forgetType(t0Instance);
   }, (e) => e is TypeError);
 
   Expect.throws(() {

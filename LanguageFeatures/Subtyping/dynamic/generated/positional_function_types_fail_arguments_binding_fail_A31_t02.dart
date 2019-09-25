@@ -37,7 +37,7 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 class U0 extends U1 {}
 
 class U1 {}
@@ -65,30 +65,31 @@ class S2 extends V2 {}
 class S3 extends V3 {}
 
 typedef T0 = U0 Function<X extends B0, Y extends B1>(V0 x0, V1 x1,
-    [V2 x2, V3 x3, V4 x4]);
+    [V2? x2, V3? x3, V4? x4]);
 typedef T1 = U1 Function<X extends B0, Y extends B0>(S0 y0, S1 y1,
-    [S2 x2, S3 x3]); //  Y extends B0, not B1
+    [S2? x2, S3? x3]); //  Y extends B0, not B1
 
-U0 t0Func<X extends B0, Y extends B1>(V0 x0, V1 x1, [V2 x2, V3 x3, V4 x4]) =>
-    null;
-U1 t1Func<X extends B0, Y extends B0>(S0 y0, S1 y1, [S2 x2, S3 x3]) => null;
+U0 t0Func<X extends B0, Y extends B1>(V0 x0, V1 x1, [V2? x2, V3? x3, V4? x4]) =>
+    new U0();
+U1 t1Func<X extends B0, Y extends B0>(S0 y0, S1 y1, [S2? x2, S3? x3]) => new U1();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
+const t1Default = t1Func;
 
 
 
 class ArgumentsBindingSuper1_t02 {
   T1 m;
 
-  ArgumentsBindingSuper1_t02(T1 value) {}
-  ArgumentsBindingSuper1_t02.named(T1 value, {T1 val2}) {}
-  ArgumentsBindingSuper1_t02.positional(T1 value, [T1 val2]) {}
+  ArgumentsBindingSuper1_t02(T1 value): m = value {}
+  ArgumentsBindingSuper1_t02.named(T1 value, {T1 val2 = t1Default}): m = value {}
+  ArgumentsBindingSuper1_t02.positional(T1 value, [T1 val2 = t1Default]): m = value {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
   void superTest(T1 val) {}
-  void superTestPositioned(T1 val, [T1 val2]) {}
-  void superTestNamed(T1 val, {T1 val2}) {}
+  void superTestPositioned(T1 val, [T1 val2 = t1Default]) {}
+  void superTestNamed(T1 val, {T1 val2 = t1Default}) {}
   T1 get superGetter => forgetType(t0Instance);
   void set superSetter(T1 val) {}
 }
@@ -100,8 +101,6 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
   ArgumentsBinding1_t02.c3(dynamic t1) : super.positional(t1) {}
   ArgumentsBinding1_t02.c4(dynamic t1, dynamic t2) : super.positional(t1, t2) {}
   ArgumentsBinding1_t02.c5(dynamic t1) : super.short(t1) {}
-
-  ArgumentsBinding1_t02.valid() : super(null) {}
 
   test() {
     Expect.throws(() {
@@ -193,27 +192,20 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
 class ArgumentsBindingSuper2_t02<X> {
   X m;
 
-  ArgumentsBindingSuper2_t02(X value) {}
-  ArgumentsBindingSuper2_t02.named(X value, {X val2}) {}
-  ArgumentsBindingSuper2_t02.positional(X value, [X val2]) {}
+  ArgumentsBindingSuper2_t02(X value): m = value {}
+  ArgumentsBindingSuper2_t02.named(X value, {required X val2}): m = value {}
   ArgumentsBindingSuper2_t02.short(this.m);
 
   void superTest(X val) {}
-  void superTestPositioned(X val, [X val2]) {}
-  void superTestNamed(X val, {X val2}) {}
+  void superTestNamed(X val, {required X val2}) {}
   X get superGetter => forgetType(t0Instance);
   void set superSetter(X val) {}
 }
 
 class ArgumentsBinding2_t02<X> extends ArgumentsBindingSuper2_t02<X> {
   ArgumentsBinding2_t02(dynamic t1) : super(t1) {}
-  ArgumentsBinding2_t02.c1(dynamic t1) : super.named(t1) {}
   ArgumentsBinding2_t02.c2(dynamic t1, dynamic t2) : super.named(t1, val2: t2) {}
-  ArgumentsBinding2_t02.c3(dynamic t1) : super.positional(t1) {}
-  ArgumentsBinding2_t02.c4(dynamic t1, dynamic t2) : super.positional(t1, t2) {}
   ArgumentsBinding2_t02.c5(dynamic t1) : super.short(t1) {}
-
-  ArgumentsBinding2_t02.valid() : super(null) {}
 
   test() {
     Expect.throws(() {
@@ -229,51 +221,11 @@ class ArgumentsBinding2_t02<X> extends ArgumentsBindingSuper2_t02<X> {
     }, (e) => e is TypeError);
 
     Expect.throws(() {
-      superTestPositioned(forgetType(t0Instance));
-    }, (e) => e is TypeError);
-
-    Expect.throws(() {
-      this.superTestPositioned(forgetType(t0Instance));
-    }, (e) => e is TypeError);
-
-    Expect.throws(() {
-      super.superTestPositioned(forgetType(t0Instance));
-    }, (e) => e is TypeError);
-
-    Expect.throws(() {
-      superTestPositioned(forgetType(t1Instance), forgetType(t0Instance));
-    }, (e) => e is TypeError);
-
-    Expect.throws(() {
-      this.superTestPositioned(forgetType(t1Instance), forgetType(t0Instance));
-    }, (e) => e is TypeError);
-
-    Expect.throws(() {
-      super.superTestPositioned(forgetType(t1Instance), forgetType(t0Instance));
-    }, (e) => e is TypeError);
-
-    Expect.throws(() {
-      superTestNamed(forgetType(t0Instance));
-    }, (e) => e is TypeError);
-
-    Expect.throws(() {
-      this.superTestNamed(forgetType(t0Instance));
-    }, (e) => e is TypeError);
-
-    Expect.throws(() {
-      super.superTestNamed(forgetType(t0Instance));
-    }, (e) => e is TypeError);
-
-    Expect.throws(() {
       superTestNamed(forgetType(t1Instance), val2: forgetType(t0Instance));
     }, (e) => e is TypeError);
 
     Expect.throws(() {
       this.superTestNamed(forgetType(t1Instance), val2: forgetType(t0Instance));
-    }, (e) => e is TypeError);
-
-    Expect.throws(() {
-      super.superTestNamed(forgetType(t1Instance), val2: forgetType(t0Instance));
     }, (e) => e is TypeError);
 
     Expect.throws(() {
@@ -330,34 +282,34 @@ main() {
 
   // test class members
   Expect.throws(() {
-    new ArgumentsBinding1_t02.valid().superTest(forgetType(t0Instance));
+    new ArgumentsBinding1_t02(t1Instance).superTest(forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding1_t02.valid().superTestPositioned(forgetType(t0Instance));
+    new ArgumentsBinding1_t02(t1Instance).superTestPositioned(forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding1_t02.valid().superTestPositioned(t1Instance, forgetType(t0Instance));
+    new ArgumentsBinding1_t02(t1Instance).superTestPositioned(t1Instance, forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding1_t02.valid().superTestNamed(forgetType(t0Instance));
+    new ArgumentsBinding1_t02(t1Instance).superTestNamed(forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding1_t02.valid().superTestNamed(t1Instance, val2: forgetType(t0Instance));
+    new ArgumentsBinding1_t02(t1Instance).superTestNamed(t1Instance, val2: forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding1_t02.valid().superSetter = forgetType(t0Instance);
+    new ArgumentsBinding1_t02(t1Instance).superSetter = forgetType(t0Instance);
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding1_t02.valid().superGetter;
+    new ArgumentsBinding1_t02(t1Instance).superGetter;
   }, (e) => e is TypeError);
 
-  new ArgumentsBinding1_t02.valid().test();
+  new ArgumentsBinding1_t02(t1Instance).test();
 
   // Test type parameters
 

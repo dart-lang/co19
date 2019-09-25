@@ -30,22 +30,26 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class T1 {}
+class T1 {
+  const T1();
+}
 class S0 extends T1 {}
 
 FutureOr<S0> t0Instance = Future<S0>.value(new S0()); // Future<S0> is not a subtype of T1
 T1 t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
 
 class ArgumentsBindingSuper1_t03 {
   void superTest(T1 val) {}
-  void superTestPositioned(T1 val, [T1 val2]) {}
-  void superTestNamed(T1 val, {T1 val2}) {}
+  void superTestPositioned(T1 val, [T1 val2 = t1Default]) {}
+  void superTestNamed(T1 val, {T1 val2 = t1Default}) {}
   T1 get superGetter => t0Instance; //# 07: compile-time error
   void set superSetter(T1 val) {}
 }

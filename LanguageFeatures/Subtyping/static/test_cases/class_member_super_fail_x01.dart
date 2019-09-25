@@ -13,7 +13,7 @@
  */
 
 class ClassMemberSuper1_t02 {
-  @T1 m;
+  @T1 m = t1Default;
 
   ClassMemberSuper1_t02(@T0 value) {
     m = value; //# 01: compile-time error

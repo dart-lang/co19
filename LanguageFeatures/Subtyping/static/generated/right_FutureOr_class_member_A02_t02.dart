@@ -28,20 +28,24 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class S1 {}
+class S1 {
+  const S1();
+}
 class T0 extends S1 {}
 
 T0 t0Instance = new T0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
+const t1Default = const S1();
+
 
 
 
 class ClassMemberSuper1_t02 {
-  FutureOr<S1> m;
+  FutureOr<S1> m = t1Default;
 
   ClassMemberSuper1_t02(dynamic value) {
     m = value;

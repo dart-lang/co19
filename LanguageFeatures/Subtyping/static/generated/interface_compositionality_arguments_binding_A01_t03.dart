@@ -26,7 +26,7 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 abstract class U0 {}
 abstract class U1 {}
 abstract class U2 {}
@@ -35,20 +35,24 @@ abstract class S0 extends U0 {}
 abstract class S1 extends U1 {}
 abstract class S2 extends U2 {}
 
-class C0<X, Y, Z> {}
+class C0<X, Y, Z> {
+  const C0();
+}
 
 C0<S0, S1, S2> t0Instance = new C0<S0, S1, S2>();
 C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
+
+const t1Default = const C0<U0, U1, U2>();
 
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  C0<U0, U1, U2> m;
+  C0<U0, U1, U2> m = t1Default;
 
   void superTest(C0<U0, U1, U2> val) {}
-  void superTestPositioned(C0<U0, U1, U2> val, [C0<U0, U1, U2> val2]) {}
-  void superTestNamed(C0<U0, U1, U2> val, {C0<U0, U1, U2> val2}) {}
+  void superTestPositioned(C0<U0, U1, U2> val, [C0<U0, U1, U2> val2 = t1Default]) {}
+  void superTestNamed(C0<U0, U1, U2> val, {C0<U0, U1, U2> val2 = t1Default}) {}
   C0<U0, U1, U2> get superGetter => m;
   void set superSetter(C0<U0, U1, U2> val) {}
 }
@@ -68,12 +72,8 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
 }
 
 class ArgumentsBindingMixin2_t03<X> {
-  X m;
-
   void superTest(X val) {}
-  void superTestPositioned(X val, [X val2]) {}
-  void superTestNamed(X val, {X val2}) {}
-  X get superGetter => m;
+  void superTestNamed(X val, {required X val2}) {}
   void set superSetter(X val) {}
 }
 
@@ -81,13 +81,8 @@ class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingMixin2_t03<X>
 
   test(dynamic t1, dynamic t2) {
     superTest(t1);
-    superTestPositioned(t1);
-    superTestPositioned(t2, t1);
-    superTestNamed(t1);
     superTestNamed(t2, val2: t1);
     superSetter = t1;
-    m = t1;
-    superGetter;
   }
 }
 
@@ -109,11 +104,7 @@ main() {
   ArgumentsBinding2_t03<C0<U0, U1, U2>> c2 = new ArgumentsBinding2_t03<C0<U0, U1, U2>>();
   c2.test(t0Instance, t1Instance);
   c2.superTest(t0Instance);
-  c2.superTestPositioned(t0Instance);
-  c2.superTestPositioned(t1Instance, t0Instance);
-  c2.superTestNamed(t0Instance);
   c2.superTestNamed(t1Instance, val2: t0Instance);
   c2.superSetter = t0Instance;
-  c2.superGetter;
   //# -->
 }

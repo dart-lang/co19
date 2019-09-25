@@ -28,10 +28,12 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class S1 {}
+class S1 {
+  const S1();
+}
 class T0 implements Future<S1> {
   asStream() => null;
   catchError(Function onError, {bool test(Object error)}) => null;
@@ -43,15 +45,17 @@ class T0 implements Future<S1> {
 T0 t0Instance = new T0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
+const t1Default = const S1();
+
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  FutureOr<S1> m;
+  FutureOr<S1> m = t1Default;
 
   void superTest(FutureOr<S1> val) {}
-  void superTestPositioned(FutureOr<S1> val, [FutureOr<S1> val2]) {}
-  void superTestNamed(FutureOr<S1> val, {FutureOr<S1> val2}) {}
+  void superTestPositioned(FutureOr<S1> val, [FutureOr<S1> val2 = t1Default]) {}
+  void superTestNamed(FutureOr<S1> val, {FutureOr<S1> val2 = t1Default}) {}
   FutureOr<S1> get superGetter => m;
   void set superSetter(FutureOr<S1> val) {}
 }
@@ -71,12 +75,8 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
 }
 
 class ArgumentsBindingMixin2_t03<X> {
-  X m;
-
   void superTest(X val) {}
-  void superTestPositioned(X val, [X val2]) {}
-  void superTestNamed(X val, {X val2}) {}
-  X get superGetter => m;
+  void superTestNamed(X val, {required X val2}) {}
   void set superSetter(X val) {}
 }
 
@@ -84,13 +84,8 @@ class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingMixin2_t03<X>
 
   test(dynamic t1, dynamic t2) {
     superTest(t1);
-    superTestPositioned(t1);
-    superTestPositioned(t2, t1);
-    superTestNamed(t1);
     superTestNamed(t2, val2: t1);
     superSetter = t1;
-    m = t1;
-    superGetter;
   }
 }
 
@@ -112,11 +107,7 @@ main() {
   ArgumentsBinding2_t03<FutureOr<S1>> c2 = new ArgumentsBinding2_t03<FutureOr<S1>>();
   c2.test(t0Instance, t1Instance);
   c2.superTest(t0Instance);
-  c2.superTestPositioned(t0Instance);
-  c2.superTestPositioned(t1Instance, t0Instance);
-  c2.superTestNamed(t0Instance);
   c2.superTestNamed(t1Instance, val2: t0Instance);
   c2.superSetter = t0Instance;
-  c2.superGetter;
   //# -->
 }

@@ -28,14 +28,18 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class S1 {}
+class S1 {
+  const S1();
+}
 class T0 extends S1 {}
 
 T0 t0Instance = new T0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
+
+const t1Default = const S1();
 
 
 
@@ -43,14 +47,14 @@ FutureOr<S1> t1Instance = new Future.value(new S1());
 class ArgumentsBindingSuper1_t02 {
   FutureOr<S1> m;
 
-  ArgumentsBindingSuper1_t02(FutureOr<S1> value) {}
-  ArgumentsBindingSuper1_t02.named(FutureOr<S1> value, {FutureOr<S1> val2}) {}
-  ArgumentsBindingSuper1_t02.positional(FutureOr<S1> value, [FutureOr<S1> val2]) {}
+  ArgumentsBindingSuper1_t02(FutureOr<S1> value): m = value {}
+  ArgumentsBindingSuper1_t02.named(FutureOr<S1> value, {FutureOr<S1> val2 = t1Default}): m = value {}
+  ArgumentsBindingSuper1_t02.positional(FutureOr<S1> value, [FutureOr<S1> val2 = t1Default]): m = value {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
   void superTest(FutureOr<S1> val) {}
-  void superTestPositioned(FutureOr<S1> val, [FutureOr<S1> val2]) {}
-  void superTestNamed(FutureOr<S1> val, {FutureOr<S1> val2}) {}
+  void superTestPositioned(FutureOr<S1> val, [FutureOr<S1> val2 = t1Default]) {}
+  void superTestNamed(FutureOr<S1> val, {FutureOr<S1> val2 = t1Default}) {}
   FutureOr<S1> get superGetter => m;
   void set superSetter(FutureOr<S1> val) {}
 }
@@ -78,31 +82,23 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
 class ArgumentsBindingSuper2_t02<X> {
   X m;
 
-  ArgumentsBindingSuper2_t02(X value) {}
-  ArgumentsBindingSuper2_t02.named(X value, {X val2}) {}
-  ArgumentsBindingSuper2_t02.positional(X value, [X val2]) {}
+  ArgumentsBindingSuper2_t02(X value): m = value {}
+  ArgumentsBindingSuper2_t02.named(X value, {required X val2}): m = value {}
   ArgumentsBindingSuper2_t02.short(this.m);
 
   void superTest(X val) {}
-  void superTestPositioned(X val, [X val2]) {}
-  void superTestNamed(X val, {X val2}) {}
+  void superTestNamed(X val, {required X val2}) {}
   X get superGetter => m;
   void set superSetter(X val) {}
 }
 
 class ArgumentsBinding2_t02<X> extends ArgumentsBindingSuper2_t02<X> {
   ArgumentsBinding2_t02(X t1) : super(t1) {}
-  ArgumentsBinding2_t02.c1(dynamic t1) : super.named(t1) {}
   ArgumentsBinding2_t02.c2(dynamic t1, dynamic t2) : super.named(t1, val2: t2) {}
-  ArgumentsBinding2_t02.c3(dynamic t1) : super.positional(t1) {}
-  ArgumentsBinding2_t02.c4(dynamic t1, dynamic t2) : super.positional(t1, t2) {}
   ArgumentsBinding2_t02.c5(dynamic t1) : super.short(t1) {}
 
   test(X t1, X t2) {
     superTest(t1);
-    superTestPositioned(t1);
-    superTestPositioned(t2, t1);
-    superTestNamed(t1);
     superTestNamed(t2, val2: t1);
     superSetter = t1;
     m = t1;
@@ -132,17 +128,11 @@ main() {
   //# <-- NotGenericFunctionType
   ArgumentsBinding2_t02<FutureOr<S1>> c2 =
     new ArgumentsBinding2_t02<FutureOr<S1>>(t0Instance);
-  c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c1(t0Instance);
   c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c2(t1Instance, t0Instance);
-  c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c3(t0Instance);
-  c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c4(t1Instance, t0Instance);
   c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c5(t0Instance);
 
   c2.test(t0Instance, t1Instance);
   c2.superTest(t0Instance);
-  c2.superTestPositioned(t0Instance);
-  c2.superTestPositioned(t1Instance, t0Instance);
-  c2.superTestNamed(t0Instance);
   c2.superTestNamed(t1Instance, val2: t0Instance);
   c2.superSetter = t0Instance;
   c2.superGetter;

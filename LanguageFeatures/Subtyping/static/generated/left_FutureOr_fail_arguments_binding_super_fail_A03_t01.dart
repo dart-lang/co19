@@ -30,10 +30,12 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class C1 {}
+class C1 {
+  const C1();
+}
 class S0 implements Future<C1> {
   asStream() => null;
   catchError(Function onError, {bool test(Object error)}) => null;
@@ -46,20 +48,22 @@ class S0 implements Future<C1> {
 FutureOr<S0> t0Instance = new Future<S0>.value(new S0());
 Future<C1> t1Instance = new Future.value(new C1());
 
+const t1Default = const C1();
+
 
 
 
 class ArgumentsBindingSuper1_t02 {
   Future<C1> m;
 
-  ArgumentsBindingSuper1_t02(Future<C1> value) {}
-  ArgumentsBindingSuper1_t02.named(Future<C1> value, {Future<C1> val2}) {}
-  ArgumentsBindingSuper1_t02.positional(Future<C1> value, [Future<C1> val2]) {}
+  ArgumentsBindingSuper1_t02(Future<C1> value): m = value {}
+  ArgumentsBindingSuper1_t02.named(Future<C1> value, {Future<C1> val2 = t1Default}): m = value {}
+  ArgumentsBindingSuper1_t02.positional(Future<C1> value, [Future<C1> val2 = t1Default]): m = value {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
   void superTest(Future<C1> val) {}
-  void superTestPositioned(Future<C1> val, [Future<C1> val2]) {}
-  void superTestNamed(Future<C1> val, {Future<C1> val2}) {}
+  void superTestPositioned(Future<C1> val, [Future<C1> val2 = t1Default]) {}
+  void superTestNamed(Future<C1> val, {Future<C1> val2 = t1Default}) {}
   Future<C1> get superGetter => t0Instance; //# 35: compile-time error
   void set superSetter(Future<C1> val) {}
 }
@@ -72,7 +76,7 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
   ArgumentsBinding1_t02.c4(Future<C1> t1, FutureOr<S0> t2) : super.positional(t1, t2) {} //# 05: compile-time error
   ArgumentsBinding1_t02.c5(Future<C1> t1) : super.short(t1) {} //# 06: compile-time error
 
-  ArgumentsBinding1_t02.valid() : super(null) {}
+  ArgumentsBinding1_t02.valid() : super(t1Default) {}
 
   test() {
     superTest(t0Instance); //# 14: compile-time error

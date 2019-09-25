@@ -11,13 +11,16 @@
  * T0 is a subtype of T1. Test non-void function with positional arguments
  * @author sgrekhov@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=non-nullable
 class C {}
 
 typedef C T0(C c, [dynamic d]);
 
 C t0Instance(C c, [dynamic d]) => c;
-Function t1Instance = null;
+Function t1Instance = () {};
+
+void foo() {}
+const t1Default = foo;
 
 //# @T0 = T0
 //# @T1 = Function

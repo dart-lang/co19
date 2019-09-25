@@ -28,20 +28,24 @@
 
 
 import '../../utils/common.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class C {}
+class C {
+  const C();
+}
 class S0 extends C {}
 
 FutureOr<S0> t0Instance = new Future<S0>.value(new S0());
 FutureOr<C> t1Instance = new Future<C>.value(new C());
 
+const t1Default = const C();
+
 
 
 
 class ClassMemberMixin1_t03 {
-  FutureOr<C> m;
+  FutureOr<C> m = t1Default;
 
   void set superSetter(dynamic val) {}
 }
@@ -55,6 +59,9 @@ class ClassMember1_t03 extends Object with ClassMemberMixin1_t03 {
 
 class ClassMemberMixin2_t03<X> {
   X m;
+
+  ClassMemberMixin2_t03(X x): m = x {
+  }
   void set superSetter(dynamic val) {}
 }
 
@@ -74,7 +81,7 @@ main() {
   // Test type parameters
 
   //# <-- NotGenericFunctionType
-  ClassMember2_t03<FutureOr<C>> c2 = new ClassMember2_t03<FutureOr<C>>();
+  ClassMember2_t03<FutureOr<C>> c2 = new ClassMember2_t03<FutureOr<C>>(t1Instance);
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

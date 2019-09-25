@@ -28,43 +28,42 @@
  */
 
 
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 class B0 {}
 class X0 extends B0 {}
 
 X0 t0Instance = new X0();
 T1 t1Instance = new T1();
 
+const t1Default = const T1();
+
 
 
 
 class LocalVariableTest {
   LocalVariableTest() {
-    T1 t1 = null;
-    t1 = t0Instance; //# 03: compile-time error
+    T1 t1 = t0Instance; //# 03: compile-time error
   }
 
   LocalVariableTest.valid() {}
 
   test() {
-    T1 t1 = null;
-    t1 = t0Instance; //# 04: compile-time error
+    T1 t1 = t0Instance; //# 04: compile-time error
   }
 
   static staticTest() {
-    T1 t1 = null;
-    t1 = t0Instance; //# 05: compile-time error
+    T1 t1 = t0Instance; //# 05: compile-time error
   }
 }
 
 main() {
-  T1 t1 = null;
-  t1 = t0Instance; //# 01: compile-time error
+  T1 t1 = t0Instance; //# 01: compile-time error
 
   bar () {
-    T1 t1 = null;
-    t1 = t0Instance; //# 02: compile-time error
+    T1 t1 = t0Instance; //# 02: compile-time error
   }
   bar(); //# 02: compile-time error
 

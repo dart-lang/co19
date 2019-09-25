@@ -34,7 +34,7 @@
 
 
 import '../../utils/common.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 class A {}
 
 class C extends A {}
@@ -75,49 +75,48 @@ class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
 typedef T0 = U0<Null, Null, Null> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
-    [V2<A, List, num> x2, V3<A, List, num> x3]);
+    [V2<A, List, num>? x2, V3<A, List, num>? x3]);
 typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B1>(
     S0<Null, Null, Null> y0, S1<Null, Null, Null> y1,
-    S2<Null, Null, Null> x2, [S3<Null, Null, Null> x3]);
+    S2<Null, Null, Null> x2, [S3<Null, Null, Null>? x3]);
 
 U0<Null, Null, Null> t0Func<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
-    [V2<A, List, num> x2, V3<A, List, num> x3]) =>
-    null;
+    [V2<A, List, num>? x2, V3<A, List, num>? x3]) =>
+    new U0<Null, Null, Null>();
 U1<A, List, num> t1Func<X extends B0, Y extends B1>(
     S0<Null, Null, Null> y0, S1<Null, Null, Null> y1,
-    S2<Null, Null, Null> x2, [S3<Null, Null, Null> x3]) =>
-    null;
+    S2<Null, Null, Null> x2, [S3<Null, Null, Null>? x3]) =>
+    new U1<A, List, num>();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
+const t1Default = t1Func;
 
 
+namedArgumentsFunc1(T1 t1, {T1 t2 = t1Default}) {}
+positionalArgumentsFunc1(T1 t1, [T1 t2 = t1Default]) {}
 
-namedArgumentsFunc1(T1 t1, {T1 t2}) {}
-positionalArgumentsFunc1(T1 t1, [T1 t2]) {}
-
-namedArgumentsFunc2<X>(X t1, {X t2}) {}
-positionalArgumentsFunc2<X>(X t1, [X t2]) {}
+namedArgumentsFunc2<X>(X t1, {required X t2}) {}
 
 class ArgumentsBindingClass {
   ArgumentsBindingClass(T1 t1) {}
 
-  ArgumentsBindingClass.named(T1 t1, {T1 t2}) {}
-  ArgumentsBindingClass.positional(T1 t1, [T1 t2]) {}
+  ArgumentsBindingClass.named(T1 t1, {T1 t2 = t1Default}) {}
+  ArgumentsBindingClass.positional(T1 t1, [T1 t2 = t1Default]) {}
 
-  factory ArgumentsBindingClass.fNamed(T1 t1, {T1 t2}) {
+  factory ArgumentsBindingClass.fNamed(T1 t1, {T1 t2  = t1Default}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(T1 t1, [T1 t2]) {
+  factory ArgumentsBindingClass.fPositional(T1 t1, [T1 t2 = t1Default]) {
     return new ArgumentsBindingClass.positional(t1, t2);
   }
 
-  static namedArgumentsStaticMethod(T1 t1, {T1 t2}) {}
-  static positionalArgumentsStaticMethod(T1 t1, [T1 t2]) {}
+  static namedArgumentsStaticMethod(T1 t1, {T1 t2 = t1Default}) {}
+  static positionalArgumentsStaticMethod(T1 t1, [T1 t2 = t1Default]) {}
 
-  namedArgumentsMethod(T1 t1, {T1 t2}) {}
-  positionalArgumentsMethod(T1 t1, [T1 t2]) {}
+  namedArgumentsMethod(T1 t1, {T1 t2 = t1Default}) {}
+  positionalArgumentsMethod(T1 t1, [T1 t2 = t1Default]) {}
 
   set testSetter(T1 val) {}
 }
@@ -125,18 +124,13 @@ class ArgumentsBindingClass {
 class ArgumentsBindingGen<X>  {
   ArgumentsBindingGen(X t1) {}
 
-  ArgumentsBindingGen.named(X t1, {X t2}) {}
-  ArgumentsBindingGen.positional(X t1, [X t2]) {}
+  ArgumentsBindingGen.named(X t1, {required X t2}) {}
 
-  factory ArgumentsBindingGen.fNamed(X t1, {X t2}) {
+  factory ArgumentsBindingGen.fNamed(X t1, {required X t2}) {
     return new ArgumentsBindingGen.named(t1, t2: t2);
   }
-  factory ArgumentsBindingGen.fPositional(X t1, [X t2]) {
-    return new ArgumentsBindingGen.positional(t1, t2);
-  }
 
-  namedArgumentsMethod(X t1, {X t2}) {}
-  positionalArgumentsMethod(X t1, [X t2]){}
+  namedArgumentsMethod(X t1, {required X t2}) {}
 
   set testSetter(X val) {}
 }
@@ -151,8 +145,6 @@ main() {
       new ArgumentsBindingClass(forgetType(t0Instance));
   instance1 = new ArgumentsBindingClass.fNamed(forgetType(t0Instance),
       t2: forgetType(t0Instance));
-  instance1 = new ArgumentsBindingClass.fPositional(forgetType(t0Instance),
-      forgetType(t0Instance));
   instance1 = new ArgumentsBindingClass.named(forgetType(t0Instance),
       t2: forgetType(t0Instance));
   instance1 = new ArgumentsBindingClass.positional(forgetType(t0Instance),

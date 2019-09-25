@@ -30,44 +30,43 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class T1 {}
+class T1 {
+  const T1();
+}
 class S0 extends T1 {}
 
 FutureOr<S0> t0Instance = Future<S0>.value(new S0()); // Future<S0> is not a subtype of T1
 T1 t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
 
 class LocalVariableTest {
   LocalVariableTest() {
-    T1 t1 = null;
-    t1 = t0Instance; //# 03: compile-time error
+    T1 t1 = t0Instance; //# 03: compile-time error
   }
 
   LocalVariableTest.valid() {}
 
   test() {
-    T1 t1 = null;
-    t1 = t0Instance; //# 04: compile-time error
+    T1 t1 = t0Instance; //# 04: compile-time error
   }
 
   static staticTest() {
-    T1 t1 = null;
-    t1 = t0Instance; //# 05: compile-time error
+    T1 t1 = t0Instance; //# 05: compile-time error
   }
 }
 
 main() {
-  T1 t1 = null;
-  t1 = t0Instance; //# 01: compile-time error
+  T1 t1 = t0Instance; //# 01: compile-time error
 
   bar () {
-    T1 t1 = null;
-    t1 = t0Instance; //# 02: compile-time error
+    T1 t1 = t0Instance; //# 02: compile-time error
   }
   bar(); //# 02: compile-time error
 

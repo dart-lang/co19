@@ -33,7 +33,7 @@ T1 t1Instance = new T1();
 
 
 class ClassMemberMixin1_t03 {
-  T1 m;
+  T1 m = t1Default;
 
   void set superSetter(dynamic val) {}
 }

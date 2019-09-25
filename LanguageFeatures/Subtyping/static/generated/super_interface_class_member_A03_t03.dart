@@ -26,8 +26,10 @@
  */
 
 
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 
 abstract class S0 {}
 abstract class S1 {}
@@ -42,11 +44,13 @@ class T implements T0 {}
 T0 t0Instance = new T();
 T1 t1Instance = new T1();
 
+const t1Default = const T1();
+
 
 
 
 class ClassMemberMixin1_t03 {
-  T1 m;
+  T1 m = t1Default;
 
   void set superSetter(dynamic val) {}
 }

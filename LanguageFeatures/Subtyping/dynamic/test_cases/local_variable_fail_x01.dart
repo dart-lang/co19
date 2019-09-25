@@ -12,32 +12,27 @@
 class LocalVariableTest {
 
   LocalVariableTest() {
-    @T1 t1 = null;
-    t1 = forgetType(t0Instance);
+    @T1 t1 = forgetType(t0Instance);
   }
 
   LocalVariableTest.valid() {}
 
   static staticTest() {
-    @T1 t1 = null;
-    t1 = forgetType(t0Instance);
+    @T1 t1 = forgetType(t0Instance);
   }
 
   test() {
-    @T1 t1 = null;
-    t1 = forgetType(t0Instance);
+    @T1 t1 = forgetType(t0Instance);
   }
 }
 
 main() {
   bar () {
-    @T1 t1 = null;
-    t1 = forgetType(t0Instance);
+    @T1 t1 = forgetType(t0Instance);
   }
 
   Expect.throws(() {
-    @T1 t1 = null;
-    t1 = forgetType(t0Instance);
+    @T1 t1 = forgetType(t0Instance);
   }, (e) => e is TypeError);
 
   Expect.throws(() {

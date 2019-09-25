@@ -31,10 +31,12 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class S1 {}
+class S1 {
+  const S1();
+}
 class S0 {}
 class X0 extends S0 {
 }
@@ -42,30 +44,32 @@ class X0 extends S0 {
 X0 t0Instance = new X0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
+const t1Default = const S1();
 
 
 
-namedArgumentsFunc1(FutureOr<S1> t1, {FutureOr<S1> t2}) {}
-positionalArgumentsFunc1(FutureOr<S1> t1, [FutureOr<S1> t2]) {}
+
+namedArgumentsFunc1(FutureOr<S1> t1, {FutureOr<S1> t2 = t1Default}) {}
+positionalArgumentsFunc1(FutureOr<S1> t1, [FutureOr<S1> t2 = t1Default]) {}
 
 class ArgumentsBindingClass {
     ArgumentsBindingClass(FutureOr<S1> t1) {}
 
-    ArgumentsBindingClass.named(FutureOr<S1> t1, {FutureOr<S1> t2}) {}
-    ArgumentsBindingClass.positional(FutureOr<S1> t1, [FutureOr<S1> t2]) {}
+    ArgumentsBindingClass.named(FutureOr<S1> t1, {FutureOr<S1> t2 = t1Default}) {}
+    ArgumentsBindingClass.positional(FutureOr<S1> t1, [FutureOr<S1> t2 = t1Default]) {}
 
-    factory ArgumentsBindingClass.fNamed(FutureOr<S1> t1, {FutureOr<S1> t2}) {
+    factory ArgumentsBindingClass.fNamed(FutureOr<S1> t1, {FutureOr<S1> t2 = t1Default}) {
         return new ArgumentsBindingClass.named(t1, t2: t2);
     }
-    factory ArgumentsBindingClass.fPositional(FutureOr<S1> t1, [FutureOr<S1> t2]) {
+    factory ArgumentsBindingClass.fPositional(FutureOr<S1> t1, [FutureOr<S1> t2 = t1Default]) {
         return new ArgumentsBindingClass.positional(t1, t2);
     }
 
-    static namedArgumentsStaticMethod(FutureOr<S1> t1, {FutureOr<S1> t2}) {}
-    static positionalArgumentsStaticMethod(FutureOr<S1> t1, [FutureOr<S1> t2]) {}
+    static namedArgumentsStaticMethod(FutureOr<S1> t1, {FutureOr<S1> t2 = t1Default}) {}
+    static positionalArgumentsStaticMethod(FutureOr<S1> t1, [FutureOr<S1> t2 = t1Default]) {}
 
-    namedArgumentsMethod(FutureOr<S1> t1, {FutureOr<S1> t2}) {}
-    positionalArgumentsMethod(FutureOr<S1> t1, [FutureOr<S1> t2]) {}
+    namedArgumentsMethod(FutureOr<S1> t1, {FutureOr<S1> t2 = t1Default}) {}
+    positionalArgumentsMethod(FutureOr<S1> t1, [FutureOr<S1> t2 = t1Default]) {}
 
     set testSetter(FutureOr<S1> val) {}
 }

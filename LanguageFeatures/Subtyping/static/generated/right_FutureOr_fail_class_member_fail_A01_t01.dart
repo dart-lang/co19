@@ -32,20 +32,24 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
-class S1 {}
+class S1 {
+  const S1();
+}
 class T0 {}
 
 T0 t0Instance = new T0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
+const t1Default = const S1();
+
 
 
 
 class ClassMemberTestStatic {
-  static FutureOr<S1> s;
+  static FutureOr<S1> s = t1Default;
 
   ClassMemberTestStatic(T0 val) {
     s = val; //# 01: compile-time error
@@ -63,7 +67,7 @@ class ClassMemberTestStatic {
 }
 
 class ClassMemberTestPublic {
-  FutureOr<S1> m;
+  FutureOr<S1> m = t1Default;
 
   ClassMemberTestPublic(T0 val) {
     m = val; //# 05: compile-time error
@@ -85,7 +89,7 @@ class ClassMemberTestPublic {
 }
 
 class ClassMemberTestPrivate {
-  FutureOr<S1> _m;
+  FutureOr<S1> _m = t1Default;
 
   ClassMemberTestPrivate(T0 val) {
     _m = val; //# 10: compile-time error
@@ -126,4 +130,3 @@ main() {
   ClassMemberTestInitFail.s; //# 13: compile-time error
   new ClassMemberTestInitFail(); //# 14: compile-time error
 }
-

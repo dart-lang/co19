@@ -24,11 +24,14 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 typedef void T0();
 
 void t0Instance() {}
-Function t1Instance = null;
+Function t1Instance = () {};
+
+void foo() {}
+const t1Default = foo;
 
 
 

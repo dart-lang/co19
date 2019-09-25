@@ -36,7 +36,7 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 class U0 extends U1 {}
 class U1 {}
 class V0 {}
@@ -49,43 +49,41 @@ class S1 extends V1 {}
 class S2 extends V2 {}
 class S3 extends V3 {}
 
-typedef T0 = U0 Function(V0 x0, V1 x1, {V2 x2, V3 x3, V4 x4});
-typedef T1 = U1 Function(S0 y0, S1 y1, {S2 x2, S3 y3}); // y3 is not x3
+typedef T0 = U0 Function(V0 x0, V1 x1, {V2? x2, V3? x3, V4? x4});
+typedef T1 = U1 Function(S0 y0, S1 y1, {S2? x2, S3? y3}); // y3 is not x3
 
-U0 t0Func(V0 x0, V1 x1, {V2 x2, V3 x3, V4 x4}) => null;
-U1 t1Func(S0 y0, S1 y1, {S2 x2, S3 y3}) => null;
+U0 t0Func(V0 x0, V1 x1, {V2? x2, V3? x3, V4? x4}) => new U0();
+U1 t1Func(S0 y0, S1 y1, {S2? x2, S3? y3}) => new U1();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
+
+const t1Default = t1Func;
+
 
 
 
 class LocalVariableTest {
   LocalVariableTest() {
-    T1 t1 = null;
-    t1 = t0Instance; //# 03: compile-time error
+    T1 t1 = t0Instance; //# 03: compile-time error
   }
 
   LocalVariableTest.valid() {}
 
   test() {
-    T1 t1 = null;
-    t1 = t0Instance; //# 04: compile-time error
+    T1 t1 = t0Instance; //# 04: compile-time error
   }
 
   static staticTest() {
-    T1 t1 = null;
-    t1 = t0Instance; //# 05: compile-time error
+    T1 t1 = t0Instance; //# 05: compile-time error
   }
 }
 
 main() {
-  T1 t1 = null;
-  t1 = t0Instance; //# 01: compile-time error
+  T1 t1 = t0Instance; //# 01: compile-time error
 
   bar () {
-    T1 t1 = null;
-    t1 = t0Instance; //# 02: compile-time error
+    T1 t1 = t0Instance; //# 02: compile-time error
   }
   bar(); //# 02: compile-time error
 

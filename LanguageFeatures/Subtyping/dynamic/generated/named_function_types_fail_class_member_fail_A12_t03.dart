@@ -35,7 +35,7 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 class U0 extends U1 {}
 class U1 {}
 class B0 {}
@@ -57,19 +57,22 @@ class X1 extends B1 {}
 class Y0 extends B0 {}
 class Y1 extends B1 {}
 
-typedef T0 = U0 Function<X extends B0, Y extends B1>(V0 x0, V1 x1, {V2 x2, V3 x3, V4 x4});
-typedef T1 = U1 Function<X extends B0, Y extends B1>(S0 y0, S1 y1, {S2 x2, S3 x3, S4 x4, V4 x5}); // x2...x5 is not subset of x2...x4
+typedef T0 = U0 Function<X extends B0, Y extends B1>(V0 x0, V1 x1, {V2? x2, V3? x3, V4? x4});
+typedef T1 = U1 Function<X extends B0, Y extends B1>(S0 y0, S1 y1, {S2? x2, S3? x3, S4? x4, V4? x5}); // x2...x5 is not subset of x2...x4
 
-U0 t0Func<X extends B0, Y extends B1>(V0 x0, V1 x1, {V2 x2, V3 x3, V4 x4}) => null;
-U1 t1Func<X extends B0, Y extends B1>(S0 y0, S1 y1, {S2 x2, S3 x3, S4 x4, V4 x5}) => null;
+U0 t0Func<X extends B0, Y extends B1>(V0 x0, V1 x1, {V2? x2, V3? x3, V4? x4}) => new U0();
+U1 t1Func<X extends B0, Y extends B1>(S0 y0, S1 y1, {S2? x2, S3? x3, S4? x4, V4? x5}) => new U1();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
+const t1Default = t1Func;
+
+
 
 
 class ClassMemberSuper1_t03 {
-  T1 m;
+  T1 m = t1Default;
 
   void set superSetter(T1 val) {}
 }
@@ -88,10 +91,14 @@ class ClassMember1_t03 extends Object with ClassMemberSuper1_t03 {
 class ClassMemberSuper2_t03<X> {
   X m;
 
+  ClassMemberSuper2_t03(X x) : m = x {}
+
   void set superSetter(X val) {}
 }
 
 class ClassMember2_t03<X> extends ClassMemberSuper2_t03<X> {
+
+  ClassMember2_t03(X x): super(x) {}
 
   test1() {
     m = forgetType(t0Instance);

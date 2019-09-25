@@ -24,19 +24,21 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 Null t0Instance = null;
 Null t1Instance = null;
+
+const t1Default = null;
 
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  Null m;
+  Null m = t1Default;
 
   void superTest(Null val) {}
-  void superTestPositioned(Null val, [Null val2]) {}
-  void superTestNamed(Null val, {Null val2}) {}
+  void superTestPositioned(Null val, [Null val2 = t1Default]) {}
+  void superTestNamed(Null val, {Null val2 = t1Default}) {}
   Null get superGetter => m;
   void set superSetter(Null val) {}
 }
@@ -56,12 +58,8 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
 }
 
 class ArgumentsBindingMixin2_t03<X> {
-  X m;
-
   void superTest(X val) {}
-  void superTestPositioned(X val, [X val2]) {}
-  void superTestNamed(X val, {X val2}) {}
-  X get superGetter => m;
+  void superTestNamed(X val, {required X val2}) {}
   void set superSetter(X val) {}
 }
 
@@ -69,13 +67,8 @@ class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingMixin2_t03<X>
 
   test(dynamic t1, dynamic t2) {
     superTest(t1);
-    superTestPositioned(t1);
-    superTestPositioned(t2, t1);
-    superTestNamed(t1);
     superTestNamed(t2, val2: t1);
     superSetter = t1;
-    m = t1;
-    superGetter;
   }
 }
 
@@ -97,11 +90,7 @@ main() {
   ArgumentsBinding2_t03<Null> c2 = new ArgumentsBinding2_t03<Null>();
   c2.test(t0Instance, t1Instance);
   c2.superTest(t0Instance);
-  c2.superTestPositioned(t0Instance);
-  c2.superTestPositioned(t1Instance, t0Instance);
-  c2.superTestNamed(t0Instance);
   c2.superTestNamed(t1Instance, val2: t0Instance);
   c2.superSetter = t0Instance;
-  c2.superGetter;
   //# -->
 }

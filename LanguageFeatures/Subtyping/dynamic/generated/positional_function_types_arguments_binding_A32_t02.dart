@@ -34,7 +34,7 @@
 
 
 import '../../utils/common.dart';
-
+// SharedOptions=--enable-experiment=non-nullable
 class A {}
 
 class C extends A {}
@@ -74,44 +74,44 @@ class Y0<X, Y, Z> extends B0<X, Y, Z> {}
 class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
 typedef T0 = U0<Null, Null, Null> Function<X extends B0, Y extends B1>(
-    V0<A, List, num> x0, V1<A, List, num> x1,
-    [V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4]);
-typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B1>(
+    V0<A?, List?, num?> x0, V1<A?, List?, num?> x1,
+    [V2<A?, List?, num?>? x2, V3<A?, List?, num?>? x3, V4<A?, List?, num?>? x4]);
+typedef T1 = U1<A?, List?, num?> Function<X extends B0, Y extends B1>(
     S0<Null, Null, Null> y0, S1<Null, Null, Null> y1,
-    S2<Null, Null, Null> x2, [S3<Null, Null, Null> x3]);
+    S2<Null, Null, Null> x2, [S3<Null, Null, Null>? x3]);
 
 U0<Null, Null, Null> t0Func<X extends B0, Y extends B1>(
-    V0<A, List, num> x0, V1<A, List, num> x1,
-    [V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4]) =>
-    null;
-U1<A, List, num> t1Func<X extends B0, Y extends B1>(
+    V0<A?, List?, num?> x0, V1<A?, List?, num?> x1,
+    [V2<A?, List?, num?>? x2, V3<A?, List?, num?>? x3, V4<A?, List?, num?>? x4]) =>
+    new U0<Null, Null, Null>();
+U1<A?, List?, num?> t1Func<X extends B0, Y extends B1>(
     S0<Null, Null, Null> y0, S1<Null, Null, Null> y1,
-    S2<Null, Null, Null> x2, [S3<Null, Null, Null> x3]) =>
-    null;
+    S2<Null, Null, Null> x2, [S3<Null, Null, Null>? x3]) =>
+    new U1<A?, List?, num?>();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
+const t1Default = t1Func;
 
 
 
 class ArgumentsBindingSuper1_t02 {
   T1 m;
 
-  ArgumentsBindingSuper1_t02(T1 value) {}
-  ArgumentsBindingSuper1_t02.named(T1 value, {T1 val2}) {}
-  ArgumentsBindingSuper1_t02.positional(T1 value, [T1 val2]) {}
+  ArgumentsBindingSuper1_t02(T1 value): m = value {}
+  ArgumentsBindingSuper1_t02.named(T1 value, {T1 val2 = t1Default}): m = value {}
+  ArgumentsBindingSuper1_t02.positional(T1 value, [T1 val2 = t1Default]): m = value {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
   void superTest(T1 val) {}
-  void superTestPositioned(T1 val, [T1 val2]) {}
-  void superTestNamed(T1 val, {T1 val2}) {}
+  void superTestPositioned(T1 val, [T1 val2 = t1Default]) {}
+  void superTestNamed(T1 val, {T1 val2 = t1Default}) {}
   T1 get superGetter => m;
   void set superSetter(T1 val) {}
 }
 
 class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
   ArgumentsBinding1_t02(dynamic t1) : super(t1) {}
-  ArgumentsBinding1_t02.c1(dynamic t1) : super.named(t1) {}
   ArgumentsBinding1_t02.c2(dynamic t1, dynamic t2) : super.named(t1, val2: t2) {}
   ArgumentsBinding1_t02.c3(dynamic t1) : super.positional(t1) {}
   ArgumentsBinding1_t02.c4(dynamic t1, dynamic t2) : super.positional(t1, t2) {}
@@ -132,31 +132,23 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
 class ArgumentsBindingSuper2_t02<X> {
   X m;
 
-  ArgumentsBindingSuper2_t02(X value) {}
-  ArgumentsBindingSuper2_t02.named(X value, {X val2}) {}
-  ArgumentsBindingSuper2_t02.positional(X value, [X val2]) {}
+  ArgumentsBindingSuper2_t02(X value): m = value {}
+  ArgumentsBindingSuper2_t02.named(X value, {required X val2}):m = value {}
   ArgumentsBindingSuper2_t02.short(this.m);
 
   void superTest(X val) {}
-  void superTestPositioned(X val, [X val2]) {}
-  void superTestNamed(X val, {X val2}) {}
+  void superTestNamed(X val, {required X val2}) {}
   X get superGetter => m;
   void set superSetter(X val) {}
 }
 
 class ArgumentsBinding2_t02<X> extends ArgumentsBindingSuper2_t02<X> {
   ArgumentsBinding2_t02(X t1) : super(t1) {}
-  ArgumentsBinding2_t02.c1(dynamic t1) : super.named(t1) {}
   ArgumentsBinding2_t02.c2(dynamic t1, dynamic t2) : super.named(t1, val2: t2) {}
-  ArgumentsBinding2_t02.c3(dynamic t1) : super.positional(t1) {}
-  ArgumentsBinding2_t02.c4(dynamic t1, dynamic t2) : super.positional(t1, t2) {}
   ArgumentsBinding2_t02.c5(dynamic t1) : super.short(t1) {}
 
   test(X t1, X t2) {
     superTest(t1);
-    superTestPositioned(t1);
-    superTestPositioned(t2, t1);
-    superTestNamed(t1);
     superTestNamed(t2, val2: t1);
     superSetter = t1;
     m = t1;
@@ -166,7 +158,6 @@ class ArgumentsBinding2_t02<X> extends ArgumentsBindingSuper2_t02<X> {
 
 main() {
   ArgumentsBinding1_t02 c1 = new ArgumentsBinding1_t02(forgetType(t0Instance));
-  c1 = new ArgumentsBinding1_t02.c1(forgetType(t0Instance));
   c1 = new ArgumentsBinding1_t02.c2(t1Instance, forgetType(t0Instance));
   c1 = new ArgumentsBinding1_t02.c3(forgetType(t0Instance));
   c1 = new ArgumentsBinding1_t02.c4(t1Instance, forgetType(t0Instance));

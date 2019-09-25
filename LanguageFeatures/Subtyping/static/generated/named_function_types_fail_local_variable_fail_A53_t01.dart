@@ -36,7 +36,7 @@
  */
 
 
-
+// SharedOptions=--enable-experiment=non-nullable
 class A {}
 
 class C extends A {}
@@ -59,51 +59,49 @@ class V4<X, Y, Z> {}
 
 typedef T0 = U<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
-    {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4});
+    {V2<A, List, num>? x2, V3<A, List, num>? x3, V4<A, List, num>? x4});
 typedef T1 = U<A, List, num> Function<X extends B0, Y extends B0>( // Y extends B0, not B1
     V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
-    {V2<C, List<String>, int> x2, V3<C, List<String>, int> x3});
+    {V2<C, List<String>, int>? x2, V3<C, List<String>, int>? x3});
 
 U<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
-        {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4}) =>
-    null;
+        {V2<A, List, num>? x2, V3<A, List, num>? x3, V4<A, List, num>? x4}) =>
+    new U<C, List<String>, int>();
 U<A, List, num> t1Func<X extends B0, Y extends B0>(
         V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
-        {V2<C, List<String>, int> x2, V3<C, List<String>, int> x3}) =>
-    null;
+        {V2<C, List<String>, int>? x2, V3<C, List<String>, int>? x3}) =>
+    new U<A, List, num>();
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
+
+const t1Default = t1Func;
+
 
 
 
 class LocalVariableTest {
   LocalVariableTest() {
-    T1 t1 = null;
-    t1 = t0Instance; //# 03: compile-time error
+    T1 t1 = t0Instance; //# 03: compile-time error
   }
 
   LocalVariableTest.valid() {}
 
   test() {
-    T1 t1 = null;
-    t1 = t0Instance; //# 04: compile-time error
+    T1 t1 = t0Instance; //# 04: compile-time error
   }
 
   static staticTest() {
-    T1 t1 = null;
-    t1 = t0Instance; //# 05: compile-time error
+    T1 t1 = t0Instance; //# 05: compile-time error
   }
 }
 
 main() {
-  T1 t1 = null;
-  t1 = t0Instance; //# 01: compile-time error
+  T1 t1 = t0Instance; //# 01: compile-time error
 
   bar () {
-    T1 t1 = null;
-    t1 = t0Instance; //# 02: compile-time error
+    T1 t1 = t0Instance; //# 02: compile-time error
   }
   bar(); //# 02: compile-time error
 
