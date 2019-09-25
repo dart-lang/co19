@@ -18,13 +18,12 @@
 import "../../Utils/expect.dart";
 
 class A {}
-class B extends A {}
 
 typedef Test<X1 extends A, X2 extends X1> = X1 Function(X2);
-typedef Expected1 = A Function(A);
-typedef Expected2 = A Function(B);
-typedef Expected3 = B Function(B);
+typedef Expected1 = A Function(Null);
+typedef Expected2 = A Function(A);
 
 main() {
   Expect.equals(Expected1, Test);
+  Expect.notEquals(Expected2, Test);
 }
