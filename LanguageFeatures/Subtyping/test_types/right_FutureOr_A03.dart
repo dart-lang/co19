@@ -21,13 +21,23 @@ import "dart:async";
 class S1 {
   const S1();
 }
+bool testDef(Object error) => true;
+void onErrorDef() {}
+FutureOr<S1> onTimeoutDef() => new S1();
+
 class S0 implements Future<S1> {
-  asStream() => null;
-  catchError(Function onError, {bool test(Object error)}) => null;
-  then<T0>(FutureOr<T0> onValue(S1 value), {Function onError}) => null;
-  timeout(Duration timeLimit, {FutureOr<S1> onTimeout()}) => null;
-  whenComplete(FutureOr action()) => null;
+  asStream() => getStream<S1>();
+  catchError(Function onError, {bool test(Object error) = testDef}) => new Future.value();
+  then<T0>(FutureOr<T0> onValue(S1 value), {Function onError = onErrorDef}) => new Future<T0>.value();
+  timeout(Duration timeLimit, {FutureOr<S1> onTimeout() = onTimeoutDef}) => new Future.value();
+  whenComplete(FutureOr action()) => new Future.value();
 }
+
+Stream<T> getStream<T>() {
+  dynamic d = "";
+  return d as Stream<T>;
+}
+
 class X0 extends S0 {
 }
 

@@ -202,40 +202,8 @@ class ClassMemberTestInitFail {
 }
 
 main() {
-  new ClassMemberTestStatic(t0Instance);
-//                          ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  ClassMemberTestStatic.staticSetter = t0Instance;
-//                                     ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  new ClassMemberTestPublic(t0Instance);
-//                          ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   new ClassMemberTestPublic.validConstructor().m = t0Instance;
 //                                                 ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  new ClassMemberTestPublic.validConstructor().setter = t0Instance;
-//                                                      ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  new ClassMemberTestPublic.validConstructor().test(t0Instance);
-//                                                  ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  new ClassMemberTestPrivate(t0Instance);
-//                           ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  new ClassMemberTestPrivate.validConstructor().setter = t0Instance;
-//                                                       ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  new ClassMemberTestPrivate.validConstructor().test(t0Instance);
-//                                                   ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
