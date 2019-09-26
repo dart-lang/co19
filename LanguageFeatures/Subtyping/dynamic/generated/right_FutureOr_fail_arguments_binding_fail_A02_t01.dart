@@ -191,8 +191,7 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  // Test generic functions
+    // Test generic functions
   Expect.throws(() {
     namedArgumentsFunc2<FutureOr<S1>>(t1Instance, t2: forgetType(t0Instance));
   }, (e) => e is TypeError);
@@ -220,8 +219,7 @@ main() {
   Expect.throws(() {
     new ArgumentsBindingClassGen<FutureOr<S1>>(t1Instance).testSetter = forgetType(t0Instance);
   }, (e) => e is TypeError);
-  //# -->
-
+  
   // Test superclass constructor call
   Expect.throws(() {
     new ArgumentsBindingDesc(t0Instance);

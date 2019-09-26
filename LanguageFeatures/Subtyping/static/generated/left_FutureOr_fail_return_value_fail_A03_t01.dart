@@ -52,21 +52,30 @@ const t1Default = const C1();
 
 
 
-Future<C1> returnValueFunc() => t0Instance; //# 01: compile-time error
+Future<C1> returnValueFunc() => t0Instance;
+//                       ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class ReturnValueTest {
-  static Future<C1> staticTestMethod() => t0Instance; //# 03: compile-time error
-  Future<C1> testMethod() => t0Instance; //# 04: compile-time error
-  Future<C1> get testGetter => t0Instance; //# 05: compile-time error
+  static Future<C1> staticTestMethod() => t0Instance;
+//                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Future<C1> testMethod() => t0Instance;
+//                    ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Future<C1> get testGetter => t0Instance;
+//                      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  returnValueFunc(); //# 01: compile-time error
-
-  Future<C1> returnValueLocalFunc() => t0Instance; //# 02: compile-time error
-  returnValueLocalFunc(); //# 02: compile-time error
-
-  ReturnValueTest.staticTestMethod(); //# 03: compile-time error
-  new ReturnValueTest().testMethod(); //# 04: compile-time error
-  new ReturnValueTest().testGetter; //# 05: compile-time error
+  Future<C1> returnValueLocalFunc() => t0Instance;
+//                              ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

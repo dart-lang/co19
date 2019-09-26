@@ -215,8 +215,7 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  // Test getters
+    // Test getters
   Expect.throws(() {
     new ClassMemberTestGenericPublic<T1>(t1Instance).getter;
   }, (e) => e is TypeError);
@@ -260,5 +259,4 @@ main() {
   Expect.throws(() {
     new ClassMemberTestGenericPrivate<T1>.short(forgetType(t0Instance));
   }, (e) => e is TypeError);
-  //# -->
-}
+  }

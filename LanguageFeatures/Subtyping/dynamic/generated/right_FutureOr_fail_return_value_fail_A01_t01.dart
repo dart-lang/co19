@@ -74,8 +74,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  Expect.throws(() {new ReturnValueGen<FutureOr<S1>>().testMethod();}, (e) => e is TypeError);
+    Expect.throws(() {new ReturnValueGen<FutureOr<S1>>().testMethod();}, (e) => e is TypeError);
   Expect.throws(() {new ReturnValueGen<FutureOr<S1>>().testGetter;}, (e) => e is TypeError);
-  //# -->
-}
+  }

@@ -69,22 +69,31 @@ const t1Default = t1Func;
 
 
 
-T1 returnValueFunc() => t0Instance; //# 01: compile-time error
+T1 returnValueFunc() => t0Instance;
+//                       ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class ReturnValueTest {
-  static T1 staticTestMethod() => t0Instance; //# 03: compile-time error
-  T1 testMethod() => t0Instance; //# 04: compile-time error
-  T1 get testGetter => t0Instance; //# 05: compile-time error
+  static T1 staticTestMethod() => t0Instance;
+//                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  T1 testMethod() => t0Instance;
+//                    ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  T1 get testGetter => t0Instance;
+//                      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  returnValueFunc(); //# 01: compile-time error
-
-  T1 returnValueLocalFunc() => t0Instance; //# 02: compile-time error
-  returnValueLocalFunc(); //# 02: compile-time error
-
-  ReturnValueTest.staticTestMethod(); //# 03: compile-time error
-  new ReturnValueTest().testMethod(); //# 04: compile-time error
-  new ReturnValueTest().testGetter; //# 05: compile-time error
+  T1 returnValueLocalFunc() => t0Instance;
+//                              ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

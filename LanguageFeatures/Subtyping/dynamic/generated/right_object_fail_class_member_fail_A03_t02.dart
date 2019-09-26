@@ -132,8 +132,7 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  Expect.throws(() {new ClassMember2_t02<Object>();}, (e) => e is TypeError);
+    Expect.throws(() {new ClassMember2_t02<Object>();}, (e) => e is TypeError);
   Expect.throws(() {new ClassMember2_t02<Object>.short();}, (e) => e is TypeError);
   Expect.throws(() {new ClassMember2_t02<Object>.named();}, (e) => e is TypeError);
   Expect.throws(() {
@@ -148,5 +147,4 @@ main() {
   Expect.throws(() {
     new ClassMember2_t02<Object>().test2();
   }, (e) => e is TypeError);
-  //# -->
-}
+  }

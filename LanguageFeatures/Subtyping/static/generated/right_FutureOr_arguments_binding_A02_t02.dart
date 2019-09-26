@@ -125,8 +125,7 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  ArgumentsBinding2_t02<FutureOr<S1>> c2 =
+    ArgumentsBinding2_t02<FutureOr<S1>> c2 =
     new ArgumentsBinding2_t02<FutureOr<S1>>(t0Instance);
   c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c2(t1Instance, t0Instance);
   c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c5(t0Instance);
@@ -136,5 +135,4 @@ main() {
   c2.superTestNamed(t1Instance, val2: t0Instance);
   c2.superSetter = t0Instance;
   c2.superGetter;
-  //# -->
-}
+  }

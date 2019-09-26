@@ -78,11 +78,9 @@ test<T extends B>(T t0Instance) {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  new ReturnValueGen<Object>().testMethod();
+    new ReturnValueGen<Object>().testMethod();
   new ReturnValueGen<Object>().testGetter;
-  //# -->
-
+  
 }
 
 main() {

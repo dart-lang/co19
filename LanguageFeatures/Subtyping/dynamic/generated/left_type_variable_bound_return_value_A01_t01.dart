@@ -70,8 +70,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  new ReturnValueGen<T1>().testMethod();
+    new ReturnValueGen<T1>().testMethod();
   new ReturnValueGen<T1>().testGetter;
-  //# -->
-}
+  }

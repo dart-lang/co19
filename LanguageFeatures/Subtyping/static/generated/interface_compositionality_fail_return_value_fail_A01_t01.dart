@@ -50,21 +50,30 @@ const t1Default = const C0<U0, U1, U2>();
 
 
 
-C0<U0, U1, U2> returnValueFunc() => t0Instance; //# 01: compile-time error
+C0<U0, U1, U2> returnValueFunc() => t0Instance;
+//                       ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class ReturnValueTest {
-  static C0<U0, U1, U2> staticTestMethod() => t0Instance; //# 03: compile-time error
-  C0<U0, U1, U2> testMethod() => t0Instance; //# 04: compile-time error
-  C0<U0, U1, U2> get testGetter => t0Instance; //# 05: compile-time error
+  static C0<U0, U1, U2> staticTestMethod() => t0Instance;
+//                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C0<U0, U1, U2> testMethod() => t0Instance;
+//                    ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C0<U0, U1, U2> get testGetter => t0Instance;
+//                      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  returnValueFunc(); //# 01: compile-time error
-
-  C0<U0, U1, U2> returnValueLocalFunc() => t0Instance; //# 02: compile-time error
-  returnValueLocalFunc(); //# 02: compile-time error
-
-  ReturnValueTest.staticTestMethod(); //# 03: compile-time error
-  new ReturnValueTest().testMethod(); //# 04: compile-time error
-  new ReturnValueTest().testGetter; //# 05: compile-time error
+  C0<U0, U1, U2> returnValueLocalFunc() => t0Instance;
+//                              ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
