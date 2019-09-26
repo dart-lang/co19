@@ -50,15 +50,23 @@ const t1Default = const Object();
 
 class GlobalVariableTest {
   GlobalVariableTest() {
-    t1Instance = t0Instance; //# 03: compile-time error
+    t1Instance = t0Instance;
+//               ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
-  GlobalVariableTest.valid() {}
 
   foo() {
-    t1Instance = t0Instance; //# 04: compile-time error
+    t1Instance = t0Instance;
+//               ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   static test() {
-    t1Instance = t0Instance; //# 05: compile-time error
+    t1Instance = t0Instance;
+//               ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
@@ -67,16 +75,17 @@ class GlobalVariableTest {
 test<T>(T t0Instance) {
   if (t0Instance is S?) {
     
-  t1Instance = t0Instance; //# 01: compile-time error
+  t1Instance = t0Instance;
+//             ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   bar () {
-    t1Instance = t0Instance; //# 02: compile-time error
+    t1Instance = t0Instance;
+//               ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
-  bar(); //# 02: compile-time error
-
-  new GlobalVariableTest(); //# 03: compile-time error
-  new GlobalVariableTest.valid().foo(); //# 04: compile-time error
-  GlobalVariableTest.test(); //# 05: compile-time error
 
   }
 }

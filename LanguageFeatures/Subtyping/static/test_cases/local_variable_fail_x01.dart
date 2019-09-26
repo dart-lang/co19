@@ -14,29 +14,37 @@
 
 class LocalVariableTest {
   LocalVariableTest() {
-    @T1 t1 = t0Instance; //# 03: compile-time error
+    @T1 t1 = t0Instance;
+//           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
-  LocalVariableTest.valid() {}
-
   test() {
-    @T1 t1 = t0Instance; //# 04: compile-time error
+    @T1 t1 = t0Instance;
+//           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   static staticTest() {
-    @T1 t1 = t0Instance; //# 05: compile-time error
+    @T1 t1 = t0Instance;
+//           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 main() {
-  @T1 t1 = t0Instance; //# 01: compile-time error
+  @T1 t1 = t0Instance;
+//         ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   bar () {
-    @T1 t1 = t0Instance; //# 02: compile-time error
+    @T1 t1 = t0Instance;
+//           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
-  bar(); //# 02: compile-time error
-
-  new LocalVariableTest(); //# 03: compile-time error
-  new LocalVariableTest.valid().test(); //# 04: compile-time error
-  LocalVariableTest.staticTest(); //# 05: compile-time error
 }

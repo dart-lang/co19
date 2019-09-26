@@ -49,29 +49,37 @@ const t1Default = const Object();
 
 class LocalVariableTest {
   LocalVariableTest() {
-    Object t1 = t0Instance; //# 03: compile-time error
+    Object t1 = t0Instance;
+//           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
-  LocalVariableTest.valid() {}
-
   test() {
-    Object t1 = t0Instance; //# 04: compile-time error
+    Object t1 = t0Instance;
+//           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   static staticTest() {
-    Object t1 = t0Instance; //# 05: compile-time error
+    Object t1 = t0Instance;
+//           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 main() {
-  Object t1 = t0Instance; //# 01: compile-time error
+  Object t1 = t0Instance;
+//         ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   bar () {
-    Object t1 = t0Instance; //# 02: compile-time error
+    Object t1 = t0Instance;
+//           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
-  bar(); //# 02: compile-time error
-
-  new LocalVariableTest(); //# 03: compile-time error
-  new LocalVariableTest.valid().test(); //# 04: compile-time error
-  LocalVariableTest.staticTest(); //# 05: compile-time error
 }

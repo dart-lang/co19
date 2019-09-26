@@ -50,15 +50,21 @@ const t1Default = const Object();
 
 class ClassMemberSuper1_t03 {
   Object m = t1Default;
-  void set superSetter(Object val) {} //# 02: compile-time error
+  void set superSetter(Object val) {}
 }
 
 class ClassMember1_t03 extends Object with ClassMemberSuper1_t03 {
   test1() {
-    m = t0Instance; //# 03: compile-time error
+    m = t0Instance;
+//      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   test2() {
-    superSetter = t0Instance; //# 04: compile-time error
+    superSetter = t0Instance;
+//                ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
@@ -67,10 +73,14 @@ class ClassMember1_t03 extends Object with ClassMemberSuper1_t03 {
 test<T>(T t0Instance) {
   if (t0Instance is S?) {
     
-  new ClassMember1_t03().m = t0Instance; //# 01: compile-time error
-  new ClassMember1_t03().superSetter = t0Instance;  //# 02: compile-time error
-  new ClassMember1_t03().test1();  //# 03: compile-time error
-  new ClassMember1_t03().test2();  //# 04: compile-time error
+  new ClassMember1_t03().m = t0Instance;
+//                           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  new ClassMember1_t03().superSetter = t0Instance;
+//                                     ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   }
 }

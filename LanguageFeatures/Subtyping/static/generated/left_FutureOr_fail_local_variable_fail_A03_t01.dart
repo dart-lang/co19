@@ -55,29 +55,37 @@ const t1Default = const C1();
 
 class LocalVariableTest {
   LocalVariableTest() {
-    Future<C1> t1 = t0Instance; //# 03: compile-time error
+    Future<C1> t1 = t0Instance;
+//           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
-  LocalVariableTest.valid() {}
-
   test() {
-    Future<C1> t1 = t0Instance; //# 04: compile-time error
+    Future<C1> t1 = t0Instance;
+//           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   static staticTest() {
-    Future<C1> t1 = t0Instance; //# 05: compile-time error
+    Future<C1> t1 = t0Instance;
+//           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 main() {
-  Future<C1> t1 = t0Instance; //# 01: compile-time error
+  Future<C1> t1 = t0Instance;
+//         ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   bar () {
-    Future<C1> t1 = t0Instance; //# 02: compile-time error
+    Future<C1> t1 = t0Instance;
+//           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
-  bar(); //# 02: compile-time error
-
-  new LocalVariableTest(); //# 03: compile-time error
-  new LocalVariableTest.valid().test(); //# 04: compile-time error
-  LocalVariableTest.staticTest(); //# 05: compile-time error
 }

@@ -16,31 +16,48 @@ class ClassMemberSuper1_t02 {
   @T1 m = t1Default;
 
   ClassMemberSuper1_t02(@T0 value) {
-    m = value; //# 01: compile-time error
+    m = value;
+//      ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   ClassMemberSuper1_t02.named(@T0 value) {
-    m = value; //# 02: compile-time error
+    m = value;
+//      ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+  ClassMemberSuper1_t02.valid(@T1 value) {
+    m = value;
   }
   void set superSetter(@T1 val) {}
 }
 
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {
-  ClassMember1_t02() : super(t0Instance) {} //# 01: compile-time error
-  ClassMember1_t02.named() : super.named(t0Instance) {} //# 02: compile-time error
-  ClassMember1_t02.valid() : super(null);
+  ClassMember1_t02() : super(t0Instance) {}
+  ClassMember1_t02.named() : super.named(t0Instance) {}
+  ClassMember1_t02.valid() : super.valid(t1Defaulf);
   test1() {
-    m = t0Instance; //# 05: compile-time error
+    m = t0Instance;
+//      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   test2() {
-    superSetter = t0Instance; //# 06: compile-time error
+    superSetter = t0Instance;
+//                ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 main() {
-  new ClassMember1_t02(); //# 01: compile-time error
-  new ClassMember1_t02.named(); //# 02: compile-time error
-  new ClassMember1_t02.valid().m = t0Instance; //# 03: compile-time error
-  new ClassMember1_t02.valid().superSetter = t0Instance; //# 04: compile-time error
-  new ClassMember1_t02.valid().test1(); //# 05: compile-time error
-  new ClassMember1_t02.valid().test2(); //# 06: compile-time error
+  new ClassMember1_t02.valid().m = t0Instance;
+//                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  new ClassMember1_t02.valid().superSetter = t0Instance;
+//                                           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
