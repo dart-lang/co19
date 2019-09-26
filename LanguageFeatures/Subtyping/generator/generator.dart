@@ -119,8 +119,10 @@ void generateTests(Directory testCasesDir, Directory testTypesDir,
 
   // Generate tests
   List<FileSystemEntity> testCases = testCasesDir.listSync();
-  List<FileSystemEntity> testTypes = testTypesDir.listSync();
-
+  List<FileSystemEntity> testTypes = [];
+  if (testTypesDir.existsSync()) {
+    testTypes = testTypesDir.listSync();
+  }
   int generatedCount = 0;
   for (int i = 0; i < testTypes.length; i++) {
     File testType = testTypes[i];
