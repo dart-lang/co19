@@ -24,19 +24,19 @@
  */
 
 
-
-class T1 {}
-
+// SharedOptions=--enable-experiment=non-nullable
 Null t0Instance = null;
-dynamic t1Instance = new T1();
+Null t1Instance = null;
+
+const t1Default = null;
 
 
 
 
 class ClassMember1_t01 {
-  static dynamic s = t0Instance;
-  dynamic m = t0Instance;
-  dynamic _p = t0Instance;
+  static Null s = t0Instance;
+  Null m = t0Instance;
+  Null _p = t0Instance;
 
   ClassMember1_t01() {
     s = t0Instance;
@@ -44,7 +44,7 @@ class ClassMember1_t01 {
     _p = t0Instance;
   }
 
-  ClassMember1_t01.named(dynamic value) {
+  ClassMember1_t01.named(Null value) {
     s = value;
     m = value;
     _p = value;
@@ -58,21 +58,21 @@ class ClassMember1_t01 {
     _p = t0Instance;
   }
 
-  set setter(dynamic val) {
+  set setter(Null val) {
     _p = val;
   }
 
-  dynamic get getter => _p;
+  Null get getter => _p;
 
   static staticTest() {
     s = t0Instance;
   }
 
-  static set staticSetter(dynamic val) {
+  static set staticSetter(Null val) {
     s = val;
   }
 
-  static dynamic get staticGetter => t0Instance;
+  static Null get staticGetter => t0Instance;
 }
 
 main() {

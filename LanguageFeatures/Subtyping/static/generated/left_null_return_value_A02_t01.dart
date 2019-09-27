@@ -24,27 +24,27 @@
  */
 
 
-
-class T1 {}
-
+// SharedOptions=--enable-experiment=non-nullable
 Null t0Instance = null;
-dynamic t1Instance = new T1();
+Null t1Instance = null;
+
+const t1Default = null;
 
 
 
 
-dynamic returnValueFunc() => t0Instance;
+Null returnValueFunc() => t0Instance;
 
 class ReturnValueTest {
-  static dynamic staticTestMethod() => t0Instance;
+  static Null staticTestMethod() => t0Instance;
 
-  dynamic testMethod() => t0Instance;
+  Null testMethod() => t0Instance;
 
-  dynamic get testGetter => t0Instance;
+  Null get testGetter => t0Instance;
 }
 
 main() {
-  dynamic returnValueLocalFunc() => t0Instance;
+  Null returnValueLocalFunc() => t0Instance;
 
   returnValueFunc();
   returnValueLocalFunc();

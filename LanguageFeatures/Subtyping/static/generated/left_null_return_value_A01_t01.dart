@@ -23,27 +23,31 @@
  */
 
 
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 
 Null t0Instance = null;
-T1 t1Instance = new T1();
+T1? t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
 
-T1 returnValueFunc() => t0Instance;
+T1? returnValueFunc() => t0Instance;
 
 class ReturnValueTest {
-  static T1 staticTestMethod() => t0Instance;
+  static T1? staticTestMethod() => t0Instance;
 
-  T1 testMethod() => t0Instance;
+  T1? testMethod() => t0Instance;
 
-  T1 get testGetter => t0Instance;
+  T1? get testGetter => t0Instance;
 }
 
 main() {
-  T1 returnValueLocalFunc() => t0Instance;
+  T1? returnValueLocalFunc() => t0Instance;
 
   returnValueFunc();
   returnValueLocalFunc();

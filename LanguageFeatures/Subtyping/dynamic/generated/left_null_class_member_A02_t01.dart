@@ -25,19 +25,19 @@
 
 
 import '../../utils/common.dart';
-
-class T1 {}
-
+// SharedOptions=--enable-experiment=non-nullable
 Null t0Instance = null;
-dynamic t1Instance = new T1();
+Null t1Instance = null;
+
+const t1Default = null;
 
 
 
 
 class ClassMember1_t01 {
-  static dynamic s = forgetType(t0Instance);
-  dynamic m = forgetType(t0Instance);
-  dynamic _p = forgetType(t0Instance);
+  static Null s = forgetType(t0Instance);
+  Null m = forgetType(t0Instance);
+  Null _p = forgetType(t0Instance);
 
   ClassMember1_t01() {
     s = forgetType(t0Instance);
@@ -45,7 +45,7 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  ClassMember1_t01.named(dynamic value) {
+  ClassMember1_t01.named(Null value) {
     s = value;
     m = value;
     _p = value;
@@ -59,21 +59,21 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  set setter(dynamic val) {
+  set setter(Null val) {
     _p = val;
   }
 
-  dynamic get getter => forgetType(_p);
+  Null get getter => forgetType(_p);
 
   static staticTest() {
     s = forgetType(t0Instance);
   }
 
-  static set staticSetter(dynamic val) {
+  static set staticSetter(Null val) {
     s = val;
   }
 
-  static dynamic get staticGetter => forgetType(t0Instance);
+  static Null get staticGetter => forgetType(t0Instance);
 }
 
 class ClassMember2_t01<X> {
@@ -97,7 +97,7 @@ class ClassMember2_t01<X> {
     _p = val;
   }
 
-  dynamic get getter => forgetType(_p);
+  Null get getter => forgetType(_p);
 }
 
 main() {
@@ -117,10 +117,10 @@ main() {
 
   // Test type parameters
 
-    ClassMember2_t01<dynamic> c2 = new ClassMember2_t01<dynamic>();
-  c2 = new ClassMember2_t01<dynamic>.short(forgetType(t0Instance),
+    ClassMember2_t01<Null> c2 = new ClassMember2_t01<Null>();
+  c2 = new ClassMember2_t01<Null>.short(forgetType(t0Instance),
   forgetType(t0Instance));
-  c2 = new ClassMember2_t01<dynamic>.named(forgetType(t0Instance));
+  c2 = new ClassMember2_t01<Null>.named(forgetType(t0Instance));
   c2.m = forgetType(t0Instance);
   c2.test(forgetType(t0Instance));
   c2.getter;

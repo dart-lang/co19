@@ -12,6 +12,7 @@
  * is X0 then T0 is a subtype of T1.
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 class X0 {
   const X0();
 }

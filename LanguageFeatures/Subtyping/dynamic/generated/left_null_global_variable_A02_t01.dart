@@ -25,11 +25,11 @@
 
 
 import '../../utils/common.dart';
-
-class T1 {}
-
+// SharedOptions=--enable-experiment=non-nullable
 Null t0Instance = null;
-dynamic t1Instance = new T1();
+Null t1Instance = null;
+
+const t1Default = null;
 
 
 

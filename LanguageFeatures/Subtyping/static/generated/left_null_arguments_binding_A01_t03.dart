@@ -23,23 +23,27 @@
  */
 
 
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 
 Null t0Instance = null;
-T1 t1Instance = new T1();
+T1? t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  T1 m = t1Default;
+  T1? m = t1Default;
 
-  void superTest(T1 val) {}
-  void superTestPositioned(T1 val, [T1 val2 = t1Default]) {}
-  void superTestNamed(T1 val, {T1 val2 = t1Default}) {}
-  T1 get superGetter => m;
-  void set superSetter(T1 val) {}
+  void superTest(T1? val) {}
+  void superTestPositioned(T1? val, [T1? val2 = t1Default]) {}
+  void superTestNamed(T1? val, {T1? val2 = t1Default}) {}
+  T1? get superGetter => m;
+  void set superSetter(T1? val) {}
 }
 
 class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
@@ -85,7 +89,7 @@ main() {
 
   // Test type parameters
 
-    ArgumentsBinding2_t03<T1> c2 = new ArgumentsBinding2_t03<T1>();
+    ArgumentsBinding2_t03<T1?> c2 = new ArgumentsBinding2_t03<T1?>();
   c2.test(t0Instance, t1Instance);
   c2.superTest(t0Instance);
   c2.superTestNamed(t1Instance, val2: t0Instance);

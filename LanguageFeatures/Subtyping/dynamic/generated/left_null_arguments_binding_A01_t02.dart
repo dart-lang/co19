@@ -24,28 +24,32 @@
 
 
 import '../../utils/common.dart';
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 
 Null t0Instance = null;
-T1 t1Instance = new T1();
+T1? t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
 
 class ArgumentsBindingSuper1_t02 {
-  T1 m;
+  T1? m;
 
-  ArgumentsBindingSuper1_t02(T1 value): m = value {}
-  ArgumentsBindingSuper1_t02.named(T1 value, {T1 val2 = t1Default}): m = value {}
-  ArgumentsBindingSuper1_t02.positional(T1 value, [T1 val2 = t1Default]): m = value {}
+  ArgumentsBindingSuper1_t02(T1? value): m = value {}
+  ArgumentsBindingSuper1_t02.named(T1? value, {T1? val2 = t1Default}): m = value {}
+  ArgumentsBindingSuper1_t02.positional(T1? value, [T1? val2 = t1Default]): m = value {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
-  void superTest(T1 val) {}
-  void superTestPositioned(T1 val, [T1 val2 = t1Default]) {}
-  void superTestNamed(T1 val, {T1 val2 = t1Default}) {}
-  T1 get superGetter => m;
-  void set superSetter(T1 val) {}
+  void superTest(T1? val) {}
+  void superTestPositioned(T1? val, [T1? val2 = t1Default]) {}
+  void superTestNamed(T1? val, {T1? val2 = t1Default}) {}
+  T1? get superGetter => m;
+  void set superSetter(T1? val) {}
 }
 
 class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
@@ -112,10 +116,10 @@ main() {
 
   // Test type parameters
 
-    ArgumentsBinding2_t02<T1> c2 =
-    new ArgumentsBinding2_t02<T1>(forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<T1>.c2(t1Instance, forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<T1>.c5(forgetType(t0Instance));
+    ArgumentsBinding2_t02<T1?> c2 =
+    new ArgumentsBinding2_t02<T1?>(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<T1?>.c2(t1Instance, forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<T1?>.c5(forgetType(t0Instance));
 
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));

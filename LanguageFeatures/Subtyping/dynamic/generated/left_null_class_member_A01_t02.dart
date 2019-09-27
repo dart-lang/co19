@@ -24,17 +24,21 @@
 
 
 import '../../utils/common.dart';
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 
 Null t0Instance = null;
-T1 t1Instance = new T1();
+T1? t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
 
 class ClassMemberSuper1_t02 {
-  T1 m;
+  T1? m;
 
   ClassMemberSuper1_t02(dynamic value): m = value {
   }
@@ -44,7 +48,7 @@ class ClassMemberSuper1_t02 {
 
   ClassMemberSuper1_t02.short(this.m);
 
-  void set superSetter(T1 val) {}
+  void set superSetter(T1? val) {}
 }
 
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {
@@ -99,9 +103,9 @@ main() {
 
   // Test type parameters
 
-    ClassMember2_t02<T1> c2 = new ClassMember2_t02<T1>();
-  c2 = new ClassMember2_t02<T1>.short();
-  c2 = new ClassMember2_t02<T1>.named();
+    ClassMember2_t02<T1?> c2 = new ClassMember2_t02<T1?>();
+  c2 = new ClassMember2_t02<T1?>.short();
+  c2 = new ClassMember2_t02<T1?>.named();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

@@ -23,19 +23,23 @@
  */
 
 
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 
 Null t0Instance = null;
-T1 t1Instance = new T1();
+T1? t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
 
 class ClassMember1_t01 {
-  static T1 s = t0Instance;
-  T1 m = t0Instance;
-  T1 _p = t0Instance;
+  static T1? s = t0Instance;
+  T1? m = t0Instance;
+  T1? _p = t0Instance;
 
   ClassMember1_t01() {
     s = t0Instance;
@@ -43,7 +47,7 @@ class ClassMember1_t01 {
     _p = t0Instance;
   }
 
-  ClassMember1_t01.named(T1 value) {
+  ClassMember1_t01.named(T1? value) {
     s = value;
     m = value;
     _p = value;
@@ -57,21 +61,21 @@ class ClassMember1_t01 {
     _p = t0Instance;
   }
 
-  set setter(T1 val) {
+  set setter(T1? val) {
     _p = val;
   }
 
-  T1 get getter => _p;
+  T1? get getter => _p;
 
   static staticTest() {
     s = t0Instance;
   }
 
-  static set staticSetter(T1 val) {
+  static set staticSetter(T1? val) {
     s = val;
   }
 
-  static T1 get staticGetter => t0Instance;
+  static T1? get staticGetter => t0Instance;
 }
 
 main() {

@@ -24,23 +24,23 @@
  */
 
 
-
-class T1 {}
-
+// SharedOptions=--enable-experiment=non-nullable
 Null t0Instance = null;
-dynamic t1Instance = new T1();
+Null t1Instance = null;
+
+const t1Default = null;
 
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  dynamic m = t1Default;
+  Null m = t1Default;
 
-  void superTest(dynamic val) {}
-  void superTestPositioned(dynamic val, [dynamic val2 = t1Default]) {}
-  void superTestNamed(dynamic val, {dynamic val2 = t1Default}) {}
-  dynamic get superGetter => m;
-  void set superSetter(dynamic val) {}
+  void superTest(Null val) {}
+  void superTestPositioned(Null val, [Null val2 = t1Default]) {}
+  void superTestNamed(Null val, {Null val2 = t1Default}) {}
+  Null get superGetter => m;
+  void set superSetter(Null val) {}
 }
 
 class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
@@ -86,7 +86,7 @@ main() {
 
   // Test type parameters
 
-    ArgumentsBinding2_t03<dynamic> c2 = new ArgumentsBinding2_t03<dynamic>();
+    ArgumentsBinding2_t03<Null> c2 = new ArgumentsBinding2_t03<Null>();
   c2.test(t0Instance, t1Instance);
   c2.superTest(t0Instance);
   c2.superTestNamed(t1Instance, val2: t0Instance);

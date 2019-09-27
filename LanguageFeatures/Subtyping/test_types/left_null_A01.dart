@@ -10,11 +10,15 @@
  * @description Check that if type T0 is Null then T0 is a subtype of a type T1.
  * @author sgrekhov@unipro.ru
  */
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 
 Null t0Instance = null;
-T1 t1Instance = new T1();
+T1? t1Instance = new T1();
+
+const t1Default = const T1();
 
 //# @T0 = Null
-//# @T1 = T1
+//# @T1 = T1?

@@ -25,23 +25,23 @@
 
 
 import '../../utils/common.dart';
-
-class T1 {}
-
+// SharedOptions=--enable-experiment=non-nullable
 Null t0Instance = null;
-dynamic t1Instance = new T1();
+Null t1Instance = null;
+
+const t1Default = null;
 
 
 
 
-dynamic returnValueFunc() => forgetType(t0Instance);
+Null returnValueFunc() => forgetType(t0Instance);
 
 class ReturnValueTest {
-  static dynamic staticTestMethod() => forgetType(t0Instance);
+  static Null staticTestMethod() => forgetType(t0Instance);
 
-  dynamic testMethod() => forgetType(t0Instance);
+  Null testMethod() => forgetType(t0Instance);
 
-  dynamic get testGetter => forgetType(t0Instance);
+  Null get testGetter => forgetType(t0Instance);
 }
 
 class ReturnValueGen<X> {
@@ -51,7 +51,7 @@ class ReturnValueGen<X> {
 
 
 main() {
-  dynamic returnValueLocalFunc() => forgetType(t0Instance);
+  Null returnValueLocalFunc() => forgetType(t0Instance);
 
   returnValueFunc();
   returnValueLocalFunc();
@@ -63,6 +63,6 @@ main() {
 
   // Test type parameters
 
-    new ReturnValueGen<dynamic>().testMethod();
-  new ReturnValueGen<dynamic>().testGetter;
+    new ReturnValueGen<Null>().testMethod();
+  new ReturnValueGen<Null>().testGetter;
   }

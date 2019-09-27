@@ -39,7 +39,7 @@
 import "dart:async";
 import "../../utils/legacy_lib.dart";
 
-FutureOr<X> t0Instance = new X();
+FutureOr<X?> t0Instance = new X();
 Object t1Instance = new Object();
 
 const t1Default = const Object();
@@ -50,13 +50,13 @@ const t1Default = const Object();
 class ClassMemberSuper1_t02 {
   Object m = t1Default;
 
-  ClassMemberSuper1_t02(FutureOr<X> value) {
+  ClassMemberSuper1_t02(FutureOr<X?> value) {
     m = value;
 //      ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
-  ClassMemberSuper1_t02.named(FutureOr<X> value) {
+  ClassMemberSuper1_t02.named(FutureOr<X?> value) {
     m = value;
 //      ^^^^^
 // [analyzer] unspecified

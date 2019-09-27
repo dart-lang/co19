@@ -39,7 +39,7 @@
 import "dart:async";
 import "../../utils/legacy_lib.dart";
 
-FutureOr<X> t0Instance = new Future.value(new X());
+FutureOr<X?> t0Instance = new Future.value(new X());
 Object t1Instance = new Object();
 
 const t1Default = const Object();
@@ -50,7 +50,7 @@ const t1Default = const Object();
 class ClassMemberTestStatic {
   static Object s = t1Default;
 
-  ClassMemberTestStatic(FutureOr<X> val) {
+  ClassMemberTestStatic(FutureOr<X?> val) {
     s = val;
 //      ^^^
 // [analyzer] unspecified
@@ -64,7 +64,7 @@ class ClassMemberTestStatic {
 // [cfe] unspecified
   }
 
-  static set staticSetter(FutureOr<X> val) {
+  static set staticSetter(FutureOr<X?> val) {
     s = val;
 //      ^^^
 // [analyzer] unspecified
@@ -80,7 +80,7 @@ class ClassMemberTestStatic {
 class ClassMemberTestPublic {
   Object m = t1Default;
 
-  ClassMemberTestPublic(FutureOr<X> val) {
+  ClassMemberTestPublic(FutureOr<X?> val) {
     m = val;
 //      ^^^
 // [analyzer] unspecified
@@ -91,14 +91,14 @@ class ClassMemberTestPublic {
 
   ClassMemberTestPublic.validConstructor() {}
 
-  test(FutureOr<X> val) {
+  test(FutureOr<X?> val) {
     m = val;
 //      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  set setter(FutureOr<X> val) {
+  set setter(FutureOr<X?> val) {
     m = val;
 //      ^^^
 // [analyzer] unspecified
@@ -114,7 +114,7 @@ class ClassMemberTestPublic {
 class ClassMemberTestPrivate {
   Object _m = t1Default;
 
-  ClassMemberTestPrivate(FutureOr<X> val) {
+  ClassMemberTestPrivate(FutureOr<X?> val) {
     _m = val;
 //       ^^^
 // [analyzer] unspecified
@@ -125,14 +125,14 @@ class ClassMemberTestPrivate {
 
   ClassMemberTestPrivate.validConstructor() {}
 
-  test(FutureOr<X> val) {
+  test(FutureOr<X?> val) {
     _m = val;
 //       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
-  set setter(FutureOr<X> val) {
+  set setter(FutureOr<X?> val) {
     _m = val;
 //       ^^^
 // [analyzer] unspecified

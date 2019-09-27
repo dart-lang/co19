@@ -11,11 +11,11 @@
  * subtype of a type T1.
  * @author sgrekhov@unipro.ru
  */
-
-class T1 {}
-
+// SharedOptions=--enable-experiment=non-nullable
 Null t0Instance = null;
-dynamic t1Instance = new T1();
+Null t1Instance = null;
+
+const t1Default = null;
 
 //# @T0 = Null
-//# @T1 = dynamic
+//# @T1 = Null

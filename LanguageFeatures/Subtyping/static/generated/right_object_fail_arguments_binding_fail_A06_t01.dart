@@ -38,7 +38,7 @@
 import "dart:async";
 import "../../utils/legacy_lib.dart";
 
-FutureOr<X> t0Instance = new Future.value(new X());
+FutureOr<X?> t0Instance = new Future.value(new X());
 Object t1Instance = new Object();
 
 const t1Default = const Object();
@@ -76,7 +76,7 @@ class ArgumentsBindingClassSuper {
 }
 
 class ArgumentsBindingDesc extends ArgumentsBindingClassSuper {
-  ArgumentsBindingDesc(FutureOr<X> t0) : super (t0) {}
+  ArgumentsBindingDesc(FutureOr<X?> t0) : super (t0) {}
 //                                      ^^
 // [analyzer] unspecified
 // [cfe] unspecified

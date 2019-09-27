@@ -23,17 +23,21 @@
  */
 
 
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 
 Null t0Instance = null;
-T1 t1Instance = new T1();
+T1? t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
 
 class ClassMemberSuper1_t02 {
-  T1 m = t1Default;
+  T1? m = t1Default;
 
   ClassMemberSuper1_t02(dynamic value) {
     m = value;
@@ -45,7 +49,7 @@ class ClassMemberSuper1_t02 {
 
   ClassMemberSuper1_t02.short(this.m);
 
-  void set superSetter(T1 val) {}
+  void set superSetter(T1? val) {}
 }
 
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {

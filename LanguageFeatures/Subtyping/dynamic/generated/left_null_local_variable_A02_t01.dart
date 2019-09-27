@@ -25,11 +25,11 @@
 
 
 import '../../utils/common.dart';
-
-class T1 {}
-
+// SharedOptions=--enable-experiment=non-nullable
 Null t0Instance = null;
-dynamic t1Instance = new T1();
+Null t1Instance = null;
+
+const t1Default = null;
 
 
 
@@ -37,28 +37,28 @@ dynamic t1Instance = new T1();
 class LocalVariableTest {
 
   LocalVariableTest() {
-    dynamic t1 = forgetType(t0Instance);
+    Null t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
   static staticTest() {
-    dynamic t1 = forgetType(t0Instance);
+    Null t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
   test() {
-    dynamic t1 = forgetType(t0Instance);
+    Null t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 }
 
 main() {
   foo() {
-    dynamic t1 = forgetType(t0Instance);
+    Null t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
-  dynamic t1 = forgetType(t0Instance);
+  Null t1 = forgetType(t0Instance);
   t1 = forgetType(t0Instance);
   foo();
   LocalVariableTest x = new LocalVariableTest();

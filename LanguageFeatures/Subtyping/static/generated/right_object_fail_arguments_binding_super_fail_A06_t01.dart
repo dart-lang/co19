@@ -39,7 +39,7 @@
 import "dart:async";
 import "../../utils/legacy_lib.dart";
 
-FutureOr<X> t0Instance = new Future.value(new X());
+FutureOr<X?> t0Instance = new Future.value(new X());
 Object t1Instance = new Object();
 
 const t1Default = const Object();
@@ -66,23 +66,23 @@ class ArgumentsBindingSuper1_t02 {
 }
 
 class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
-  ArgumentsBinding1_t02(FutureOr<X> t0) : super(t0) {}
+  ArgumentsBinding1_t02(FutureOr<X?> t0) : super(t0) {}
 //                                      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ArgumentsBinding1_t02.c1(FutureOr<X> t0) : super.named(t0) {}
+  ArgumentsBinding1_t02.c1(FutureOr<X?> t0) : super.named(t0) {}
 //                                               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ArgumentsBinding1_t02.c2(Object t1, FutureOr<X> t2) : super.named(t1, val2: t2) {}
+  ArgumentsBinding1_t02.c2(Object t1, FutureOr<X?> t2) : super.named(t1, val2: t2) {}
 //                                                       ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ArgumentsBinding1_t02.c3(FutureOr<X> t0) : super.positional(t0) {}
+  ArgumentsBinding1_t02.c3(FutureOr<X?> t0) : super.positional(t0) {}
 //                                                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ArgumentsBinding1_t02.c4(Object t1, FutureOr<X> t2) : super.positional(t1, t2) {}
+  ArgumentsBinding1_t02.c4(Object t1, FutureOr<X?> t2) : super.positional(t1, t2) {}
 //                                                                ^^
 // [analyzer] unspecified
 // [cfe] unspecified

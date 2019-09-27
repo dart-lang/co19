@@ -24,28 +24,28 @@
  */
 
 
-
-class T1 {}
-
+// SharedOptions=--enable-experiment=non-nullable
 Null t0Instance = null;
-dynamic t1Instance = new T1();
+Null t1Instance = null;
+
+const t1Default = null;
 
 
 
 
 class ArgumentsBindingSuper1_t02 {
-  dynamic m;
+  Null m;
 
-  ArgumentsBindingSuper1_t02(dynamic value): m = value {}
-  ArgumentsBindingSuper1_t02.named(dynamic value, {dynamic val2 = t1Default}): m = value {}
-  ArgumentsBindingSuper1_t02.positional(dynamic value, [dynamic val2 = t1Default]): m = value {}
+  ArgumentsBindingSuper1_t02(Null value): m = value {}
+  ArgumentsBindingSuper1_t02.named(Null value, {Null val2 = t1Default}): m = value {}
+  ArgumentsBindingSuper1_t02.positional(Null value, [Null val2 = t1Default]): m = value {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
-  void superTest(dynamic val) {}
-  void superTestPositioned(dynamic val, [dynamic val2 = t1Default]) {}
-  void superTestNamed(dynamic val, {dynamic val2 = t1Default}) {}
-  dynamic get superGetter => m;
-  void set superSetter(dynamic val) {}
+  void superTest(Null val) {}
+  void superTestPositioned(Null val, [Null val2 = t1Default]) {}
+  void superTestNamed(Null val, {Null val2 = t1Default}) {}
+  Null get superGetter => m;
+  void set superSetter(Null val) {}
 }
 
 class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
@@ -114,10 +114,10 @@ main() {
 
   // Test type parameters
 
-    ArgumentsBinding2_t02<dynamic> c2 =
-    new ArgumentsBinding2_t02<dynamic>(t0Instance);
-  c2 = new ArgumentsBinding2_t02<dynamic>.c2(t1Instance, t0Instance);
-  c2 = new ArgumentsBinding2_t02<dynamic>.c5(t0Instance);
+    ArgumentsBinding2_t02<Null> c2 =
+    new ArgumentsBinding2_t02<Null>(t0Instance);
+  c2 = new ArgumentsBinding2_t02<Null>.c2(t1Instance, t0Instance);
+  c2 = new ArgumentsBinding2_t02<Null>.c5(t0Instance);
 
   c2.test(t0Instance, t1Instance);
   c2.superTest(t0Instance);

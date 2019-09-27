@@ -23,11 +23,15 @@
  */
 
 
-
-class T1 {}
+// SharedOptions=--enable-experiment=non-nullable
+class T1 {
+  const T1();
+}
 
 Null t0Instance = null;
-T1 t1Instance = new T1();
+T1? t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
@@ -35,28 +39,28 @@ T1 t1Instance = new T1();
 class LocalVariableTest {
 
   LocalVariableTest() {
-    T1 t1 = t0Instance;
+    T1? t1 = t0Instance;
     t1 = t0Instance;
   }
 
   static staticTest() {
-    T1 t1 = t0Instance;
+    T1? t1 = t0Instance;
     t1 = t0Instance;
   }
 
   test() {
-    T1 t1 = t0Instance;
+    T1? t1 = t0Instance;
     t1 = t0Instance;
   }
 }
 
 main() {
   foo() {
-    T1 t1 = t0Instance;
+    T1? t1 = t0Instance;
     t1 = t0Instance;
   }
 
-  T1 t1 = t0Instance;
+  T1? t1 = t0Instance;
   t1 = t0Instance;
   foo();
   LocalVariableTest x = new LocalVariableTest();
