@@ -34,7 +34,7 @@ const t1Default = const Object();
 //# <!-- Global variables & classes definition -->
 
 test<T>(T t0Instance) {
-  if (T is S) {
+  if (t0Instance is S) {
     //# <!-- Test body -->
   }
 }

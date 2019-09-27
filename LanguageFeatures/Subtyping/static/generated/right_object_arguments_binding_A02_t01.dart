@@ -89,7 +89,7 @@ class ArgumentsBindingGen<X>  {
 
 
 test<T>(T t0Instance) {
-  if (T is S) {
+  if (t0Instance is S) {
     
   // test functions
   namedArgumentsFunc1(t0Instance, t2: t0Instance);

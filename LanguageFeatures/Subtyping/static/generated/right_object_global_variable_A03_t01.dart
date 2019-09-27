@@ -62,7 +62,7 @@ class GlobalVariableTest {
 
 
 test<T>(T t0Instance) {
-  if (T is S) {
+  if (t0Instance is S) {
     
   bar () {
     t1Instance = t0Instance;

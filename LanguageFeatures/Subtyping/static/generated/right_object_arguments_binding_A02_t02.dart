@@ -110,7 +110,7 @@ class ArgumentsBinding2_t02<X> extends ArgumentsBindingSuper2_t02<X> {
 
 
 test<T>(T t0Instance) {
-  if (T is S) {
+  if (t0Instance is S) {
     
   ArgumentsBinding1_t02 c1 = new ArgumentsBinding1_t02(t0Instance);
   c1 = new ArgumentsBinding1_t02.c1(t0Instance);

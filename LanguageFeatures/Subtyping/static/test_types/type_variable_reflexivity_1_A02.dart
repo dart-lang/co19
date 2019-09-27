@@ -19,7 +19,7 @@ class X0 {
 class S0 extends X0 {
 }
 
-///# @T0 = S0
+//# @T0 = S0
 //# @T1 = X0
 
 X0 t0Instance = new S0();

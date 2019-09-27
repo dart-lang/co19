@@ -58,7 +58,7 @@ class ReturnValueTest {
 
 
 test<T>(T t0Instance) {
-  if (T is S) {
+  if (t0Instance is S) {
     
   Object returnValueLocalFunc() => t0Instance;
 

@@ -90,7 +90,7 @@ class ClassMember1_t01 {
 
 
 test<T>(T t0Instance) {
-  if (T is S) {
+  if (t0Instance is S) {
     
   ClassMember1_t01 c1 = new ClassMember1_t01();
   c1 = new ClassMember1_t01.short(t0Instance,

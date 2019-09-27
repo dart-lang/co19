@@ -78,7 +78,7 @@ class ClassMember1_t02 extends ClassMemberSuper1_t02 {
 
 
 test<T>(T t0Instance) {
-  if (T is S) {
+  if (t0Instance is S) {
     
   ClassMember1_t02 c1 = new ClassMember1_t02();
   c1 = new ClassMember1_t02.short();

@@ -87,7 +87,7 @@ class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingMixin2_t03<X>
 
 
 test<T>(T t0Instance) {
-  if (T is S) {
+  if (t0Instance is S) {
     
   ArgumentsBinding1_t03 c1 = new ArgumentsBinding1_t03();
 

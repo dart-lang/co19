@@ -61,7 +61,7 @@ class ClassMember1_t03 extends Object with ClassMemberMixin1_t03 {
 
 
 test<T>(T t0Instance) {
-  if (T is S) {
+  if (t0Instance is S) {
     
   ClassMember1_t03 c1 = new ClassMember1_t03();
   c1.m = t0Instance;

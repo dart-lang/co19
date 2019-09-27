@@ -66,7 +66,7 @@ class LocalVariableTest {
 
 
 test<T>(T t0Instance) {
-  if (T is S) {
+  if (t0Instance is S) {
     
   foo() {
     Object t1 = t0Instance;

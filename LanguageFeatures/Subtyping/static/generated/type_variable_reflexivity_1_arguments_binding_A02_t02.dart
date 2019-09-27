@@ -32,7 +32,6 @@ class X0 {
 class S0 extends X0 {
 }
 
-///# @T0 = S0
 
 X0 t0Instance = new S0();
 X0 t1Instance = new X0();
