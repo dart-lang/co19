@@ -19,4 +19,15 @@ main() {
 //                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  const int s2 = null ?? (null as String).length;
+//                       ^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const s3 = null ?? (null as String).length;
+//                   ^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

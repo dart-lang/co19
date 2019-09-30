@@ -14,37 +14,25 @@
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
-const String s = "constant string";
-const dynamic d = "another string";
+class MyClass1 {
+  final int res;
+  const MyClass1(dynamic checkme, dynamic x, dynamic y) :
+        res = (checkme ? x : y);
+}
 
 main() {
+  const c1 = MyClass1(true, 1, "");
 
-  const int i1 = true ? s : 1;
-//          ^^
+  const c2 = MyClass1(true, "", 2);
+//           ^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const int i2 = true ? d : 1;
-//          ^^
+  const c3 = MyClass1(false, 2, "test is here");
+//           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const int i3 = true ? 0 : s;
-
-  const int i4 = true ? 10 : d;
-
-  const int i5 = false ? s : 1;
-
-  const int i6 = false ? d : 1;
-
-  const int i7 = false ? 0 : s;
-//          ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  const int i8 = false ? 10 : d;
-//          ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  const c4 = MyClass1(false, "It's correct", 12345);
 
 }

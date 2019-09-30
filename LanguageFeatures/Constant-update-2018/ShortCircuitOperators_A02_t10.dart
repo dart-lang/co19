@@ -10,7 +10,6 @@
  * @description Checks that [||] throws error if the first operand of [||]
  * operation is [true] and the second one is not [bool] in the potentially
  * constant expression.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
@@ -19,6 +18,10 @@ const int i = 25;
 class MyClass {
   final bool b;
   const MyClass(Object o) : b = true || (o as int);
+//                                      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }
 
 main() {}
