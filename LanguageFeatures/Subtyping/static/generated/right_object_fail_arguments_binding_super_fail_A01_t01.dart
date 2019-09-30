@@ -87,7 +87,7 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
 //                                                                ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ArgumentsBinding1_t02.c5(Object t1) : super.short(t1) {}
+  ArgumentsBinding1_t02.c5(T0? t1) : super.short(t1) {}
 //                                               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -191,30 +191,6 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
 
 test<T extends B?>(T t0Instance) {
   
-  new ArgumentsBinding1_t02(t0Instance);
-//                          ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  new ArgumentsBinding1_t02.c1(t0Instance);
-//                             ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  new ArgumentsBinding1_t02.c2(t1Instance, t0Instance);
-//                                         ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  new ArgumentsBinding1_t02.c3(t0Instance);
-//                             ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  new ArgumentsBinding1_t02.c4(t1Instance, t0Instance);
-//                                         ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  new ArgumentsBinding1_t02.c5(t0Instance);
-//                             ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   new ArgumentsBinding1_t02.valid().superTest(t0Instance);
 //                                            ^^^^^^^^^^
 // [analyzer] unspecified

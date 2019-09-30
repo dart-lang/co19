@@ -104,7 +104,7 @@ class ClassMemberSuper1_t02 {
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {
   ClassMember1_t02() : super(t0Instance) {}
   ClassMember1_t02.named() : super.named(t0Instance) {}
-  ClassMember1_t02.valid() : super.valid(t1Defaulf);
+  ClassMember1_t02.valid() : super.valid(t1Default);
   test1() {
     m = t0Instance;
 //      ^^^^^^^^^^

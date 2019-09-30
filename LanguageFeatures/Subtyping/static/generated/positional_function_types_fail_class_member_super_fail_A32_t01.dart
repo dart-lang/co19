@@ -72,7 +72,7 @@ typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
     [V2<A, List, num>? x2, V3<A, List, num>? x3]);
 typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B0>(
-    S0<C, List<String>, int>? y0, S1<C, List<String>, int>? y1,
+    S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
     [S2<C, List<String>, int>? y2, S3<C, List<String>, int>? y3]);
 
 U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
@@ -114,7 +114,7 @@ class ClassMemberSuper1_t02 {
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {
   ClassMember1_t02() : super(t0Instance) {}
   ClassMember1_t02.named() : super.named(t0Instance) {}
-  ClassMember1_t02.valid() : super.valid(t1Defaulf);
+  ClassMember1_t02.valid() : super.valid(t1Default);
   test1() {
     m = t0Instance;
 //      ^^^^^^^^^^

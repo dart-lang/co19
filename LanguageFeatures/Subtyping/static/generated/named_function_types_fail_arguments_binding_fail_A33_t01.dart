@@ -206,9 +206,5 @@ main() {
 //                                                  ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  new ArgumentsBindingDesc(t0Instance);
-//                         ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 

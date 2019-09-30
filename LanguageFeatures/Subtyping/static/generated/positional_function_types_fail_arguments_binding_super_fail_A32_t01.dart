@@ -72,7 +72,7 @@ typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
     [V2<A, List, num>? x2, V3<A, List, num>? x3]);
 typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B0>(
-    S0<C, List<String>, int>? y0, S1<C, List<String>, int>? y1,
+    S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
     [S2<C, List<String>, int>? y2, S3<C, List<String>, int>? y3]);
 
 U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
@@ -129,7 +129,7 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
 //                                                                ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  ArgumentsBinding1_t02.c5(T1 t1) : super.short(t1) {}
+  ArgumentsBinding1_t02.c5(T0 t1) : super.short(t1) {}
 //                                               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -230,30 +230,6 @@ class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
 }
 
 main() {
-  new ArgumentsBinding1_t02(t0Instance);
-//                          ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  new ArgumentsBinding1_t02.c1(t0Instance);
-//                             ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  new ArgumentsBinding1_t02.c2(t1Instance, t0Instance);
-//                                         ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  new ArgumentsBinding1_t02.c3(t0Instance);
-//                             ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  new ArgumentsBinding1_t02.c4(t1Instance, t0Instance);
-//                                         ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  new ArgumentsBinding1_t02.c5(t0Instance);
-//                             ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   new ArgumentsBinding1_t02.valid().superTest(t0Instance);
 //                                            ^^^^^^^^^^
 // [analyzer] unspecified
