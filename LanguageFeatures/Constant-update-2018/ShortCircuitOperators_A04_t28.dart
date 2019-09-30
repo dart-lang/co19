@@ -9,41 +9,34 @@
  * [true] or [false]. The other branch must also be a potentially constant
  * expression.
  * @description Checks that conditional operator [?]/[:] in constant expression
- * throws a compile error if some operand is of incorrect type.
+ * throws a compile error if condition is not a constant expression.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=constant-update-2018
 
-const String s = "constant string";
-const dynamic d = "another string";
+bool test = true;
+
+class MyClass1 {
+  final int res;
+  const MyClass1() : res = test ? 0 : 5;
+//                         ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class MyClass2 {
+  final int res;
+  const MyClass2(cond) : res = (cond as bool) ? 0 : 5;
+}
 
 main() {
-
-  const int i1 = true ? s : 1;
-//          ^^
+  const res = test ? 1 : 2;
+//            ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const int i2 = true ? d : 1;
-//          ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  const int i3 = true ? 0 : s;
-
-  const int i4 = true ? 10 : d;
-
-  const int i5 = false ? s : 1;
-
-  const int i6 = false ? d : 1;
-
-  const int i7 = false ? 0 : s;
-//          ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  const int i8 = false ? 10 : d;
-//          ^^
+  const res2 = MyClass2(test);
+//             ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

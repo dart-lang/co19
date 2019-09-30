@@ -16,28 +16,28 @@
 // SharedOptions=--enable-experiment=constant-update-2018
 
 class MyClass1 {
-  final String res;
-  const MyClass1() : res = (true ? (null as String).length : "false");
+  final int res;
+  const MyClass1() : res = (true ? (null as String).length : 15);
 }
 
 class MyClass2 {
-  final String res;
-  const MyClass2(String str) : res = (true ? str : "false");
+  final int res;
+  const MyClass2(x) : res = (true ? x : 0);
 }
 
 
 main() {
-  const res1 = true ? (null as String).length : "String here";
-//                    ^^^^^^^^^^^^^^^^^^^^^^^
+  const res = true ? (null as String).length > 0 : "String here";
+//                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const MyClass1  res2 = MyClass1();
+  const MyClass1 res1 = MyClass1();
 //                      ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const MyClass2 res3 = MyClass2((null as String).length);
+  const MyClass2 res2 = MyClass2((null as String).length);
 //                               ^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
