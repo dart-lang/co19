@@ -36,7 +36,7 @@ abstract class S0 {}
 abstract class S1 {}
 abstract class S2 extends SS2 {}
 
-class SS2 extends Object with T1 {}
+class SS2 extends Object implements T1 {}
 
 abstract class T0 implements S0, S1, S2  {}
 

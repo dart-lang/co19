@@ -76,7 +76,7 @@ typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B1>(
 U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
         [V2<A, List, num>? x2, V3<A, List, num>? x3]) =>
-    null;
+    new U0<C, List<String>, int>();
 U1<A, List, num> t1Func<X extends B0, Y extends B1>(
         S0<C, List<String>, int> y0, [S1<C, List<String>, int>? y1,
         S2<C, List<String>, int>? y2]) =>
@@ -205,30 +205,6 @@ class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingSuper2_t03<X>
 
     Expect.throws(() {
       super.superTest(forgetType(t0Instance));
-    }, (e) => e is TypeError);
-
-    Expect.throws(() {
-      superTestPositioned(forgetType(t0Instance));
-    }, (e) => e is TypeError);
-
-    Expect.throws(() {
-      this.superTestPositioned(forgetType(t0Instance));
-    }, (e) => e is TypeError);
-
-    Expect.throws(() {
-      super.superTestPositioned(forgetType(t0Instance));
-    }, (e) => e is TypeError);
-
-    Expect.throws(() {
-      superTestPositioned(forgetType(t1Instance), forgetType(t0Instance));
-    }, (e) => e is TypeError);
-
-    Expect.throws(() {
-      this.superTestPositioned(forgetType(t1Instance), forgetType(t0Instance));
-    }, (e) => e is TypeError);
-
-    Expect.throws(() {
-      super.superTestPositioned(forgetType(t1Instance), forgetType(t0Instance));
     }, (e) => e is TypeError);
 
     Expect.throws(() {

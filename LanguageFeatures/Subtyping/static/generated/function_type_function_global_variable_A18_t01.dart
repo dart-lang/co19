@@ -27,8 +27,8 @@
 // SharedOptions=--enable-experiment=non-nullable
 class C {}
 
-typedef C T0<X>(C c, {X x});
-C t0Func<X>(C c, {X x}) => c;
+typedef C T0<X>(C c, {required X x});
+C t0Func<X>(C c, {required X x}) => c;
 
 T0<C> t0Instance = t0Func;
 Function t1Instance = () {};
