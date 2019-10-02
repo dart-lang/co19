@@ -62,14 +62,12 @@ class ClassMember1_t03 extends Object with ClassMemberMixin1_t03 {
 }
 
 class ClassMemberMixin2_t03<X> {
-  X m;
-
-  ClassMemberMixin2_t03(X x): m = x {
-  }
   void set superSetter(dynamic val) {}
 }
 
 class ClassMember2_t03<X> extends Object with ClassMemberMixin2_t03<X> {
+  X m;
+  ClassMember2_t03(X x): m = x {  }
   test() {
     m = forgetType(t0Instance);
     superSetter = forgetType(t0Instance);

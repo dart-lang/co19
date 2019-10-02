@@ -165,15 +165,15 @@ class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingSuper2_t03<X>
     }, (e) => e is TypeError);
 
     Expect.throws(() {
-      superTestNamed(forgetType(t0Instance));
+      superTestNamed(forgetType(t0Instance), val2: forgetType(t1Instance));
     }, (e) => e is TypeError);
 
     Expect.throws(() {
-      this.superTestNamed(forgetType(t0Instance));
+      this.superTestNamed(forgetType(t0Instance), val2: forgetType(t1Instance));
     }, (e) => e is TypeError);
 
     Expect.throws(() {
-      super.superTestNamed(forgetType(t0Instance));
+      super.superTestNamed(forgetType(t0Instance), val2: forgetType(t1Instance));
     }, (e) => e is TypeError);
 
     Expect.throws(() {

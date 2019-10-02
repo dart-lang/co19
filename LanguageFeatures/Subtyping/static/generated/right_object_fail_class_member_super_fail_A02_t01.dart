@@ -39,7 +39,7 @@
 class X {}
 class S extends X {}
 
-S t0Instance = new S();
+S? t0Instance = new S();
 Object t1Instance = new Object();
 
 const t1Default = const Object();
@@ -89,7 +89,7 @@ class ClassMember1_t02 extends ClassMemberSuper1_t02 {
 
 
 
-test<T>(T t0Instance) {
+test<T>(T? t0Instance) {
   if (t0Instance is S?) {
     
   new ClassMember1_t02.valid().m = t0Instance;
