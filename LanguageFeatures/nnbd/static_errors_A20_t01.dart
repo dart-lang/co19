@@ -21,10 +21,10 @@ class C extends A {}
 main() {
   A a = A();
   C c = C();
-  c?.test();                              //# 01: static-type warning
-  c?..test();                             //# 02: static-type warning
-  c ?? a;                                 //# 03: static-type warning
-  a ??= c;                                //# 04: static-type warning
+  c?.test();                              //# 01: static type warning
+  c?..test();                             //# 02: static type warning
+  c ?? a;                                 //# 03: static type warning
+  a ??= c;                                //# 04: static type warning
   List<C> clist = [C(), C()];
-  List<A> alist = [A(), C(), ...? clist]; //# 05: static-type warning
+  List<A> alist = [A(), C(), ...? clist]; //# 05: static type warning
 }
