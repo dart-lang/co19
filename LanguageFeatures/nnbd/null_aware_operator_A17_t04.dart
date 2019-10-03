@@ -29,6 +29,6 @@ main() {
   Expect.equals("Lily was here", a1 ?.. test);
 
   A a2 = new A();
-  Expect.equals("Lily was here", a 2?.. test = "Lily was here"); /// static type warning
-  Expect.equals("Lily was here", a 2.. test);
+  Expect.equals("Lily was here", a2?.. test = "Lily was here"); /// static type warning
+  Expect.equals("Lily was here", a2.. test);
 }

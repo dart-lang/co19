@@ -20,6 +20,6 @@ main() {
   A? a = null;
   Expect.throws(() {a!;});
   Expect.throws(() {null!;});
-  String s? = null;
+  String? s = null;
   Expect.throws(() {s!;});
 }

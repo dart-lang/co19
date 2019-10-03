@@ -43,7 +43,7 @@ main() {
   if (b2 is Null) {
   } else {
     b2.bar();
-    B b22 = b2;
+    B<int> b22 = b2;
   }
 
   int? i = init(0);
