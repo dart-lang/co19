@@ -165,6 +165,7 @@ class AsyncExpect {
     return future.then(
       (_) {
         Expect.fail("The future is expected to complete with error $reason");
+        return future; // return something to make analizer happy (a hint 'no return' otherwise)
       },
       onError: (e){
         if (error is Function){
