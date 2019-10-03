@@ -260,15 +260,7 @@ main() {
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding2_t03<Object>().superTestPositioned(forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBinding2_t03<Object>().superTestPositioned(forgetType(t1Instance), forgetType(t0Instance));
-    }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBinding2_t03<Object>().superTestNamed(forgetType(t0Instance));
+    new ArgumentsBinding2_t03<Object>().superTestNamed(forgetType(t0Instance), val2: forgetType(t1Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {

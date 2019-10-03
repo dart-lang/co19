@@ -18,5 +18,5 @@ main() {
   C<Never> c = C <Never>();
 //  ^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
 }
