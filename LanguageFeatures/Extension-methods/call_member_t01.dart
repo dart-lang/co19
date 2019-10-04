@@ -22,8 +22,8 @@
 import "../../Utils/expect.dart";
 
 extension Tricky on int {
-  Iterable<int> call(int to) =>
-    Iterable<int>.generate(to - this + 1, (i) => i + this);
+  List<int> call(int to) =>
+    List<int>.generate(to - this + 1, (i) => i + this);
 }
 
 main() {
