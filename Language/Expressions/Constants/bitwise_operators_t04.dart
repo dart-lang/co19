@@ -16,9 +16,8 @@
  * initialize a constant variable.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
-// SharedOptions=--enable-experiment=constant-update-2018
+
 final constList = const [
   ~"oneoneeleven"
 ];

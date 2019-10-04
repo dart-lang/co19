@@ -12,9 +12,7 @@
  * @description Checks that null can be an element of a constant list literal
  * and is, therefore, a constant expression.
  * @author iefremov
- * @reviewer rodionov
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 import '../../../Utils/expect.dart';
 

@@ -13,7 +13,6 @@
  * variable.
  * @author ilya
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 const i1 = #foo;
 

@@ -15,7 +15,6 @@
  * @author rodionov
  * @reviewer kaigorodov
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 foo() {}
 

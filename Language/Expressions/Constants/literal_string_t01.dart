@@ -13,9 +13,7 @@
  * @description Checks that various literal strings can be elements of a
  * constant list literal and are, therefore, constant expressions.
  * @author iefremov
- * @reviewer rodionov
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 import '../../../Utils/expect.dart';
 

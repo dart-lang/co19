@@ -11,7 +11,6 @@
  * @author iefremov
  * @compile-error
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 const m = 1 ~/ 0;
 

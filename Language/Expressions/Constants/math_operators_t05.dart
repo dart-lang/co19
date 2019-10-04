@@ -17,10 +17,7 @@
  * the form e1 + e2 where e1 or e2 does not evaluate to a numeric value, is
  * used to initialize a constant variable.
  * @compile-error
- * @author kaigorodov
- * @reviewer rodionov
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 final constList = const [
   true + 1,

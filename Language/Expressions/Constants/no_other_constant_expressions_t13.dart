@@ -9,9 +9,7 @@
  * initialize a constant variable.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 var a;
 const m = (a = 1);

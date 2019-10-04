@@ -17,9 +17,7 @@
  * to initialize a constant variable if e1 is a string.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 const m = "1" <= 1;
 

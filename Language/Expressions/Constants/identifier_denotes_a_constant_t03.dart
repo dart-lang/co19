@@ -14,10 +14,9 @@
  * @description Checks that an identifier expression that denotes a type
  * parameter cannot be used as const initializer.
  * @compile-error
- * @issue 27477
+ * @Issue 27477
  * @author rodionov
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 class C<T> {
   static const List lst = const [T];

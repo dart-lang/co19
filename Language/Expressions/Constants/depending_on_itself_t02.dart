@@ -10,9 +10,8 @@
  * reference in a constant variable's initialization.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
-// SharedOptions=--enable-experiment=constant-update-2018
+
 const a1 = a10;
 const a2 = a1;
 const a3 = a2;

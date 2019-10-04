@@ -9,7 +9,6 @@
  * @description Checks valid compile-time integer constants
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 import '../../../Utils/expect.dart';
 

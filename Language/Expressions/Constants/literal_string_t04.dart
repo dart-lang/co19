@@ -15,7 +15,6 @@
  * to a constant variable.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 import "../../../Utils/expect.dart";
 

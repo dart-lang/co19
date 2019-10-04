@@ -15,7 +15,6 @@
  * @compile-error
  * @author ilya
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 const x = true;
 const y = null ? true : 1;

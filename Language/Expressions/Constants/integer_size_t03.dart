@@ -10,7 +10,6 @@
  * numeric value -2^63 <= i < 2^63
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 import "dart:math";
 import '../../../Utils/expect.dart';

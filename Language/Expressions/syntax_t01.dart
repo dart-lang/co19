@@ -34,13 +34,14 @@
  *    constObjectExpression |
  *    `(' expression `)'
  *  ;
- * An expression e may always be enclosed in parentheses, but this never has any semantic effect on e.
- * @description Checks that a valid expression enclosed in parentheses is also a valid expression and evaluates
- * the same way.
+ * An expression [e] may always be enclosed in parentheses, but this never has
+ * any semantic effect on [e].
+ * @description Checks that a valid expression enclosed in parentheses is also a
+ * valid expression and evaluates the same way.
  * @author hlodvig
- * @reviewer iefremov
  * @needsreview TODO: extend to cover all expressions.
  */
+
 import "../../Utils/expect.dart";
 
 class S {

@@ -14,9 +14,7 @@
  * used within the initializer list of a constant constructor and are,
  * therefore, constant expressions.
  * @author iefremov
- * @reviewer rodionov
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 class C {
   final a, b, c, d, e;

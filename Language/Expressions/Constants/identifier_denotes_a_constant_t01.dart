@@ -14,9 +14,7 @@
  * @description Checks that an identifier expression that denotes a constant
  * variable can be assigned to a constant variable.
  * @author kaigorodov
- * @reviewer rodionov
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 import '../../../Utils/expect.dart';
 
