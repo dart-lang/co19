@@ -41,7 +41,8 @@ main() {
 
   Expect.equals(6, list.getter);
   Expect.listEquals([["Lily"], ["was", "here"]], list.split(1));
-  Expect.listEquals([["here"], ["was", "Lily"]], -list.split(1));
+  Expect.listEquals(["here", "was", "Lily"], -list);
+  Expect.listEquals([["was", "here"], ["Lily"]], -list.split(1));
   list.setter = 13;
   Expect.equals(13, list.length);
 
