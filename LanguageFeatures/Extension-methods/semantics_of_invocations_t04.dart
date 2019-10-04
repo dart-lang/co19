@@ -28,8 +28,8 @@ extension ExtendedA<T> on A<T> {
 }
 
 main() {
-  A a = A();
-  Expect.equals(A, a.checkme());
-  Expect.equals(A, a.checkGetter);
-  a.test(A);
+  A<int> a = A<int>();
+  Expect.equals(int, a.checkme());
+  Expect.equals(int, a.checkGetter);
+  a.test(int);
 }
