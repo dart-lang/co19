@@ -31,7 +31,7 @@ extension on num {
 
 main() {
   Expect.equals("My name is int(10)", 1(10));
-  Expect.equals("My name is int(10.0)", 1(10.0));
+  Expect.equals("My name is int(3.14)", 1(3.14));
   Expect.equals("My name is num(10)", 1.0(10));
-  Expect.equals("My name is num(10.0)", 1.0(10.0));
+  Expect.equals("My name is num(3.14)", 1.0(3.14));
 }
