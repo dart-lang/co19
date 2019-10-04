@@ -13,10 +13,9 @@
  * @description Checks that an expression of the form e.length cannot be used
  * to initialize a constant variable if e isn't constant expression.
  * @compile-error
- * @issue #24940
+ * @Issue #24940
  * @author ngl@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 import '../../../Utils/expect.dart';
 

@@ -21,7 +21,7 @@
  * $Issue #36343
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=triple-shift,constant-update-2018
+// SharedOptions=--enable-experiment=triple-shift
 
 topLevelFunction() {}
 

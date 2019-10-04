@@ -12,9 +12,7 @@
  * constant list literal and are, therefore, constant expressions. Minus sign
  * is not a part of a number literal so those are not included in this test.
  * @author iefremov
- * @reviewer rodionov
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 import '../../../Utils/expect.dart';
 

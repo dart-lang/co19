@@ -14,9 +14,7 @@
  * elementof a constant list literal and is, therefore, a constant expression.
  * @author iefremov
  * @reviewer rodionov
- * @reviewer msyabro
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 import '../../../Utils/expect.dart';
 

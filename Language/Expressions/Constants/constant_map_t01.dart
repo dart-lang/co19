@@ -14,7 +14,7 @@
  * @author iefremov
  * @reviewer rodionov
  */
-// SharedOptions=--enable-experiment=constant-update-2018
+
 import '../../../Utils/expect.dart';
 
 final constMap = const {"a" : 1, "b" : 2};

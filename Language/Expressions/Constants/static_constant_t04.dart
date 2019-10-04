@@ -14,9 +14,7 @@
  * cannot be used to initialize a constant variable.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 var a = 1;
 const m = a;

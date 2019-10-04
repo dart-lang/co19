@@ -14,9 +14,7 @@
  * a constant expression.
  * @compile-error
  * @author kaigorodov
- * @reviewer msyabro
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 class Bad {
   void m() {}
@@ -25,7 +23,6 @@ class Bad {
    var list = const [m]; //a constant list can contain only constant expressions
  }
 }
-
 
 main() {
   try {
