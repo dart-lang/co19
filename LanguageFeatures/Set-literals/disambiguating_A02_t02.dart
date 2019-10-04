@@ -19,7 +19,6 @@
  * @issue 36209
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 class C<T extends Iterable<Object>>  {

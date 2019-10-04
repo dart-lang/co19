@@ -12,7 +12,6 @@
  * throws a compile error if condition is of incorrect type.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 const s = "wrong condition";
 const dynamic b = true;

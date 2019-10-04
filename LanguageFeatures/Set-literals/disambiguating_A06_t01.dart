@@ -16,7 +16,6 @@
  * least one mapEntry and at least one expressionElement
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 main() {
   int x = 1;
   var c1 = {if (2 > 1) x: x + 1, if (1 < 2) x};   //# 01: compile-time error

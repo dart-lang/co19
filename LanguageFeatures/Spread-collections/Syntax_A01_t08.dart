@@ -29,8 +29,8 @@
  * element. If the spread element starts with [...?], it's a null-aware spread
  * element.
  * @description Checks that spreadable element can have type argument
+ * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   List<int> list1 = [1, 2, 3];

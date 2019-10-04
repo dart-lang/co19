@@ -8,7 +8,6 @@
  * @description: Checks that list with spread element cannot reference itself
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   List l1  = [...l1];         //# 01: compile-time error

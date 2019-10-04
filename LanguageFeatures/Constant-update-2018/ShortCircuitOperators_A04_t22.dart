@@ -12,7 +12,6 @@
  * throws a compile error if some operand is not a constant expression.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 String s = "not a constant";
 

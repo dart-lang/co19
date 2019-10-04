@@ -17,7 +17,6 @@
  * typeArguments with one type argument, then s is a set literal
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 main() {

@@ -12,7 +12,6 @@
  * element expression which is not a compile-time constant expression
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 class A {
   const A();
 }

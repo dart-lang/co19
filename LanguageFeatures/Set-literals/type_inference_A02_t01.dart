@@ -17,7 +17,6 @@
  * be ? if the downwards context does not constrain one or both.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 class C {}

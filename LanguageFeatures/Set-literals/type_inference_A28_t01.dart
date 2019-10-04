@@ -17,7 +17,6 @@
  * compile-time error
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 class C<T> {
   test(T t) {

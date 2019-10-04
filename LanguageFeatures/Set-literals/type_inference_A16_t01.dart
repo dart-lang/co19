@@ -20,8 +20,8 @@
  * superinterface of S
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
+
 main() {
   var m1 = {};
   var x1 = {...m1};

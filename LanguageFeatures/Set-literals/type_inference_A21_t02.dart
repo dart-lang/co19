@@ -15,7 +15,6 @@
  * is not ? then the static type of collection is P
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 main() {

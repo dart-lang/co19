@@ -13,7 +13,6 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   [for (; "not bool";) 1];

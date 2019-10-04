@@ -10,14 +10,11 @@
  * set, but can be spreaded into a set literal.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 import "dart:collection";
 
 class MyIterable extends IterableBase {
-
   MyIterable();
-
   Iterator get iterator => MyIterator();
 }
 

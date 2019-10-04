@@ -12,7 +12,6 @@
  * expression.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 class MyClass {
   final bool b;

@@ -17,7 +17,6 @@
  * bound of the inferred set element types of the elements
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 class C<X extends num> {

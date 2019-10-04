@@ -12,7 +12,6 @@
  * collections
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   List<int> list1 = const [for (var i = 1; i < 4; i++) i]; //# 01: compile-time error

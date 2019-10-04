@@ -17,7 +17,6 @@
  * upper bound of the inferred value types of the elements
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 class C<K, V extends num> {

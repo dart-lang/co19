@@ -13,7 +13,6 @@
  * @description: Checks some disambiguilty cases for sets and maps.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 const l = [];
 const s = {11};

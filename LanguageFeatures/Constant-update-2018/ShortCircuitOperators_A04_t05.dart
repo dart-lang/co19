@@ -12,7 +12,6 @@
  * operand if condition is [false] for constant expressions.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 class MyClass {

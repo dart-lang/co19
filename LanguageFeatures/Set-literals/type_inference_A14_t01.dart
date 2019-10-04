@@ -17,7 +17,6 @@
  * the set element type is Null.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 Set<X> foo<X>(Set<X> s) => s;

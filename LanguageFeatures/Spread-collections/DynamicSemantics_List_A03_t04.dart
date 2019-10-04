@@ -10,7 +10,6 @@
  * @description Checks that non-constant list is not cannonicalized and mutable.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 import "../../Utils/expect.dart";
 

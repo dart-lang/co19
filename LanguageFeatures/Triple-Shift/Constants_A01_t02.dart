@@ -16,7 +16,7 @@
  * @Issue 30886
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018,triple-shift
+// SharedOptions=--enable-experiment=triple-shift
 import "../../Utils/expect.dart";
 
 main() {

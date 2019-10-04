@@ -13,9 +13,6 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
-
-import "../../Utils/expect.dart";
 
 main() {
   List aList = [8, 9, 10];

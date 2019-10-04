@@ -12,7 +12,6 @@
  * map's value type
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   <int, int>{if (true) 1: "not int"};                 //# 01: compile-time error

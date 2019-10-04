@@ -11,7 +11,6 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 const bool b1 = true;
 const int b2 = 0;

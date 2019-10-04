@@ -13,7 +13,6 @@
  * evaluates to false and the else expression is not a constant expression.
  * @author ngl@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 main() {
   const t = false;
   var x = 1;

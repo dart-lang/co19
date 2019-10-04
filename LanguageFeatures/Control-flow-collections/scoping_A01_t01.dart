@@ -13,7 +13,6 @@
  * variable goes out of scope at the end of the for element's body.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 main() {

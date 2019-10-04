@@ -16,7 +16,6 @@
  * literal expression instead evaluates to the previously created constant set
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 main() {

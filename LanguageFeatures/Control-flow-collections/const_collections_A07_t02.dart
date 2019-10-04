@@ -15,7 +15,6 @@
  * expression evaluates to false and there is the else element.
  * @author ngl@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 main() {

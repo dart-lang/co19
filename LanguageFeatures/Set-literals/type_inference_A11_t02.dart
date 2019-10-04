@@ -18,7 +18,6 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 Set<X> foo<X>(Set<X> s) => s;
 

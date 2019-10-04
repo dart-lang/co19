@@ -17,7 +17,6 @@
  * a set but a wrong type
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "dart:collection";
 
 main() {

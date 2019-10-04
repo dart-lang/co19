@@ -17,7 +17,6 @@
  * of element is the inferred type of ev in context Pv.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 main() {

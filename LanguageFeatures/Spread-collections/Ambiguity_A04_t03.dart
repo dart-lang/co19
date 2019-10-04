@@ -18,7 +18,6 @@
  * @description Checks that [setOrMapLiteral] has two type argument, it's a map.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 main() {

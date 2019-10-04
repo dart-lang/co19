@@ -13,7 +13,6 @@
  * expression.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   const String str = true ? "OK" : (null as String).length + "string";

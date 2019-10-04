@@ -11,15 +11,12 @@
  * the list literal is not assignable to the type of the list.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 import "dart:collection";
 
 class MyIterable<T> extends IterableBase<T> {
   MyIterator<T> iterator;
-
   MyIterable() { iterator = new MyIterator(); }
-
   Iterator getIterator<T>() { return iterator; }
 }
 

@@ -32,7 +32,6 @@
  * spreadable element is not a constant.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   List list1 = ["abc", "int", "hello"];

@@ -11,7 +11,6 @@
  * operation is [false] and the second one is not a constant expression.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 const int i = 25;
 bool b = false;

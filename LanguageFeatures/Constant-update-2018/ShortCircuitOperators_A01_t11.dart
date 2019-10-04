@@ -16,13 +16,10 @@
  * constant expression.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
+
 const dynamic i = 10;
-
 bool b = true;
-
 bool c;
-
 dynamic d;
 
 main() {

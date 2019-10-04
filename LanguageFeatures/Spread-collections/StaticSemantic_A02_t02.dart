@@ -10,15 +10,12 @@
  * set.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 import "dart:collection";
 import "../../Utils/expect.dart";
 
 class MyIterable extends IterableBase {
-
   MyIterable();
-
   Iterator get iterator => MyIterator();
 }
 

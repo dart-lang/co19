@@ -14,7 +14,6 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() async {
   [await for (var i in "not stream") i];

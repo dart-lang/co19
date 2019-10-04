@@ -11,7 +11,6 @@
  * not [null] and the second one is not a potentially constant.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 dynamic d1 = "12345";
 dynamic d2 = 11;

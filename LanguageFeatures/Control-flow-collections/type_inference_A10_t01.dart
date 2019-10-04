@@ -12,7 +12,6 @@
  * must be a map or vice versa.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   var i = 1;

@@ -15,7 +15,6 @@
  * 'if' element or 'await for' element
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "dart:async";
 import "../../Utils/expect.dart";
 

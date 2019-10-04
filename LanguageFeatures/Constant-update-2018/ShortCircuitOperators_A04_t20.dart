@@ -12,7 +12,6 @@
  * the operands are correct potentially constant expressions.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 const ok_str = "OK";

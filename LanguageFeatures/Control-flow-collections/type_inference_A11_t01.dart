@@ -19,7 +19,6 @@
  * bound of V1 and V2.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 class A {}

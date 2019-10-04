@@ -13,7 +13,6 @@
  * of the type argument used to create the list
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   bool b = true;

@@ -12,7 +12,6 @@
  * throws a compile error if condition is incorrect.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 class MyClass1 {
   final int res;
@@ -26,7 +25,7 @@ class MyClass2 {
 
 main() {
   const res = ((null as String).length > 0) ? 1 : 2;
-//             ^^^^^^^^^^^^^^^^^^^^^^^^^
+//             ^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

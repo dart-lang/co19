@@ -15,7 +15,6 @@
  * the constant element expressions override Object.operator==
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 class C {
   final int id;
   final String name;

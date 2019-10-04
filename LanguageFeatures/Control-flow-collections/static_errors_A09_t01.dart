@@ -12,7 +12,6 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   [await for (String i in Stream.fromIterable(["not", "int"])) i];

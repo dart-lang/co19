@@ -13,7 +13,6 @@
  * [int] or [null].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   const Map res1 = const {...{1, 3}};   //# 01: compile-time error

@@ -11,7 +11,6 @@
  * in the list is not dynamic and is not assignable to [Iterable] or [Null]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   dynamic x1;

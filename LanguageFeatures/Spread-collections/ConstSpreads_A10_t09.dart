@@ -14,7 +14,6 @@
  * list or set or [null].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 List l = [];
 Set s = {};
