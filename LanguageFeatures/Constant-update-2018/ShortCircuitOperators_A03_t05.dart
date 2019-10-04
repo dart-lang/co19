@@ -11,7 +11,6 @@
  * if the first one is not [null] in potentially constant expression.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 class MyClass {

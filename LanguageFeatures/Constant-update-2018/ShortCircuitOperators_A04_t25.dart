@@ -12,7 +12,7 @@
  * throws a compile error if some operand is of incorrect type.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
+
 const String s = "constant string";
 const dynamic d = "another string";
 

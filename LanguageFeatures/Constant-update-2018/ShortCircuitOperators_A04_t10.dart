@@ -13,7 +13,6 @@
  * expression in potentially constant expression.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 class MyClass {
   final int res;

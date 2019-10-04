@@ -15,7 +15,6 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   const List res = const [...?{1: 2, 3: 4}];

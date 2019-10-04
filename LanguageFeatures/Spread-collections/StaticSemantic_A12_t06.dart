@@ -10,7 +10,6 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   Map m1 = {...m2};

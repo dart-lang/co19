@@ -15,7 +15,7 @@
  * (see co19 Issue #355 for more details).
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018,triple-shift
+// SharedOptions=--enable-experiment=triple-shift
 
 const d1 = 2;
 const d2 = 14;

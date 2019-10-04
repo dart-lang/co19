@@ -11,7 +11,6 @@
  * are equal according to ==.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 main() {
   var v1 = const {1, 2 + 1, 3 - 1, 1};              //# 01: compile-time error
   const v2 = {1, 2 + 1, 3 - 1, 1, };                //# 02: compile-time error

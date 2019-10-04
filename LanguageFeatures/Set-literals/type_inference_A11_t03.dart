@@ -18,7 +18,6 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 Map<X, Y> foo<X, Y>(Map<X, Y> m) => m;
 

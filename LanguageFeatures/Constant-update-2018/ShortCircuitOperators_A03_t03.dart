@@ -12,7 +12,6 @@
  * constant expression.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   const String s1 = null ?? (null as String).length;

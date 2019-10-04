@@ -12,10 +12,8 @@
  * operand is not constant in the constant constructor
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 int i = 0;
-
 dynamic d;
 
 class MyClass1 {

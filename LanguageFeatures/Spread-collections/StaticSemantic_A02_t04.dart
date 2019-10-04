@@ -10,7 +10,6 @@
  * extends [Iterable].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   int i = 1;

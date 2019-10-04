@@ -13,7 +13,6 @@
  * correct constant expression.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 class MyClass1 {
   final int res;
@@ -28,7 +27,7 @@ class MyClass2 {
 
 main() {
   const res = true ? (null as String).length > 0 : "String here";
-//                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+//                   ^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

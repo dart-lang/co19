@@ -11,7 +11,6 @@
  * constant list or set literal in the constant list
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   List list1 = [2, 7, 9];

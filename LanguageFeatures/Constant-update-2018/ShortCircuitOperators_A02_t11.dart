@@ -11,7 +11,6 @@
  * the constant expression [||] is [true] and the second one is not a constant.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 dynamic nonConst;
 const int i = 5;

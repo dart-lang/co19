@@ -8,7 +8,6 @@
  * @description: Checks that set with spread element cannot reference itself
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   Set s1  = {...s1};         //# 01: compile-time error

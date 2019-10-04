@@ -13,7 +13,6 @@
  * and causes compile time error if argument is a constant of incorrect type.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 class A {
   const A();
 }

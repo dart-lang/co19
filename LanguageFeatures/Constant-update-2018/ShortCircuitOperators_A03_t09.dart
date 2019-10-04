@@ -11,7 +11,6 @@
  * compile error if the first operand is not constant.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 int nonConst_i = 1;
 Null nonConst_null = null;

@@ -13,7 +13,6 @@
  * cannot be [null] and cannot be of the type which is not [List] or [Set]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 List l = [];
 Set s = {11};

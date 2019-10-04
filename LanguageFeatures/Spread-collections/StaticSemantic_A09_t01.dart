@@ -12,7 +12,6 @@
  * spread element causes compile error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   var res1 = [...null];           //# 01: compile-time error

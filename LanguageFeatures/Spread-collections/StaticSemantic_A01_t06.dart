@@ -20,7 +20,6 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   Map<num, num> numbers = <num, num>{};

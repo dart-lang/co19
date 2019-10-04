@@ -16,7 +16,6 @@
  * expressionElement elements, then e is a map literal. Test spread collections
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 main() {

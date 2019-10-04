@@ -10,7 +10,6 @@
  * @description Checks that [Map] object can be spread into the spreadable map.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 import "dart:collection";
 import "../../Utils/expect.dart";

@@ -15,7 +15,6 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 const str1 = "test";
 const str2 = null;

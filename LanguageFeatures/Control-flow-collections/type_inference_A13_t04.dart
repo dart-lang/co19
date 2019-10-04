@@ -17,7 +17,6 @@
  * the inferred key and value types of element are K and V
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 main() {

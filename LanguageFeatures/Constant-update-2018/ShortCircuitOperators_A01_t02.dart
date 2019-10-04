@@ -16,7 +16,6 @@
  * expression.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   const bool a = true && (null as int) * 11 < 25;

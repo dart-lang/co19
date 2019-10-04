@@ -38,7 +38,6 @@
  * element is evaluated using the specified procedure.
  * @author ngl@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 main() {

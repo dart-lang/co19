@@ -17,7 +17,6 @@
  * typeArguments with more than one type argument.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 Set set1 = {1, 2};
 Set set2 = {};
 

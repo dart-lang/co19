@@ -13,7 +13,6 @@
  * or [null].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   const List res1 = const [...{1: 2, 3: 4}]; //# 01: compile-time error

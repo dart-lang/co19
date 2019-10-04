@@ -21,7 +21,6 @@
  * expressions are not constant expressions.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   var x = 1;

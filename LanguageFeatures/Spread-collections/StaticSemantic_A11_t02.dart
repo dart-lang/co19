@@ -11,7 +11,6 @@
  * map is not dynamic and is not assignable to [Map]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 import "../../Utils/expect.dart";
 

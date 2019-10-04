@@ -15,10 +15,9 @@
  *    {...x, ...l} // Statically a set, runtime error when spreading x.
  *    {...x, ...m} // Statically a map, no runtime error.
  *    {...l, ...m} // Static error, because it must be both a set and a map.
- * @description Checks that for dynamic x {...x} is a static error
+ * @description Checks that for [dynamic x] [{...x}] is a static error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   dynamic x1 = <int, int>{};

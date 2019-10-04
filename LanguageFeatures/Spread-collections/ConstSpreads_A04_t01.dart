@@ -14,7 +14,6 @@
  * @description Checks that elements cannot be duplicated in the constant set.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   const list1 = [2, 7, 9];

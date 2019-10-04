@@ -14,7 +14,6 @@
  * potentially constant map or null.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 class MyClass {
   final String a;

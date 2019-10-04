@@ -11,7 +11,6 @@
  * literal is not assignable to [Iterate<Object>]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   var number = 1;

@@ -11,7 +11,6 @@
  * operand if the first one is [null] in potentially constant expression.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 class MyClass {
   final int a;
@@ -20,7 +19,7 @@ class MyClass {
 
 main() {
   const MyClass c2 = MyClass(null, "incorrect");
-//                                 ^^^^^^^^^^^
+//                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

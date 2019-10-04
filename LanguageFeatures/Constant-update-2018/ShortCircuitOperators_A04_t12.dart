@@ -13,8 +13,6 @@
  * expression in potentially constant expression.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
-
 class MyClass {
   final int res;
   const MyClass(String test) : res = (false ? test + 11 : 6);

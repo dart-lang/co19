@@ -11,7 +11,6 @@
  * constant set is not dynamic and is not assignable to [Iterable]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   const Map x1 = {1: 1};

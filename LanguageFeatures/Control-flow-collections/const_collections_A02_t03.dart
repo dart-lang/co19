@@ -21,7 +21,6 @@
  * instance of a class that implements the operator ==
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 class C {

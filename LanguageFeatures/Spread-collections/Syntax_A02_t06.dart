@@ -36,7 +36,6 @@
  * @description Checks that spreadable map can be declared as constant.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 import "../../Utils/expect.dart";
 

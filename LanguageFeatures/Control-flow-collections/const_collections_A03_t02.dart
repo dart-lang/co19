@@ -12,7 +12,6 @@
  * expression does not evaluate to true or false
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 main() {
   var x = 1;
   List<int> list1 = const [if (1) 1, 1 ];         //# 01: compile-time error

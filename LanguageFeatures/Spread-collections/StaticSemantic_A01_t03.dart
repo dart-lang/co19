@@ -20,7 +20,6 @@
  * error in this case.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 import "../../Utils/expect.dart";
 

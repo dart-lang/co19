@@ -16,7 +16,6 @@
  * least one mapEntry and at least one expressionElement
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 main() {
   var map = {1: "Let", 2: "it", 3: "be"};
   var set = {"Let", "it", "be"};

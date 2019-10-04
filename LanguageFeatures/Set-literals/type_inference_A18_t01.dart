@@ -17,7 +17,6 @@
  * the key and value element types are Null
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
 
 Map<K, V> foo<K, V>(Map<K, V> s) => s;

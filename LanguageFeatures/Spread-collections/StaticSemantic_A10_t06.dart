@@ -11,7 +11,6 @@
  * in the constant list is not assignable to [Iterable] and is not [Null]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   const Map x1 = {1: 1};

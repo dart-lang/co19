@@ -20,8 +20,8 @@
  * Iterable<T> is a superinterface of S
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 import "../../Utils/expect.dart";
+
 main() {
   var s1 = [1, 2, 3, 4];
   var x1 = {...s1};

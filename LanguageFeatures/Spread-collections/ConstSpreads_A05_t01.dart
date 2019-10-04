@@ -10,7 +10,6 @@
  * the constant spread map
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 main() {
   Map map1 = {2: 2, 7: 18, 9: 3};

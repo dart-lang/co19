@@ -11,12 +11,9 @@
  * argument is not a constant itself.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 int i = 0;
-
 dynamic str;
-
 dynamic a = 1;
 
 class MyClass {

@@ -12,10 +12,8 @@
  * in the constant expression.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=constant-update-2018
 
 const int i = 1;
-
 const dynamic d1 = 11;
 const String d2 = "check me here";
 
