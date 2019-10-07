@@ -11,6 +11,7 @@
  * NonNull(T).
  *
  * @description Check that it is no error if receiver has nullable type
+ * @issue 38715
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

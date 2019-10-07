@@ -18,6 +18,7 @@
  * @description Check that if evaluating of the initializer expression throws an
  * exception then the value of the variable is the last written value
  * @author sgrekhov@unipro.ru
+ * @issue 38734
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
@@ -38,7 +39,6 @@ class C {
     throw new Exception();
   }
 }
-
 
 main() {
   C c = new C();

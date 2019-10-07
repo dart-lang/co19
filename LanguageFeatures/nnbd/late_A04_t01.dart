@@ -18,6 +18,7 @@
  * @description Check that if evaluating of the initializer expression throws an
  * exception then the value of the variable is the last written value
  * @author sgrekhov@unipro.ru
+ * @issue 38734
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
@@ -28,6 +29,19 @@ class C {
     throw new Exception();
   }
   static late String s = initS("No woman", "no cry");
+
+  covariant late String v1 = initV1("No woman", "no cry");
+  late String v2 = initV2("No woman", "no cry");
+
+  initV1(String val1, String val2) {
+    v1 = val1;
+    throw new Exception();
+  }
+
+  initV2(String val1, String val2) {
+    v2 = val1;
+    throw new Exception();
+  }
 }
 
 late String g = initG("No woman", "no cry");
@@ -38,8 +52,21 @@ initG(String val1, String val2) {
 }
 
 main() {
+  late String l = initL("No woman", "no cry");
+
+  initL(String val1, String val2) {
+    l = val1;
+    throw new Exception();
+  }
   Expect.throws(() {C.s;});
   Expect.equals("No woman", C.s);
   Expect.throws(() {g;});
   Expect.equals("No woman", g);
+  Expect.throws(() {l;});
+  Expect.equals("No woman", l);
+  C c = new C();
+  Expect.throws(() {c.v1;});
+  Expect.equals("No woman", c.v1);
+  Expect.throws(() {c.v2;});
+  Expect.equals("No woman", c.v2);
 }
