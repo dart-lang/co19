@@ -52,18 +52,10 @@ initG(String val1, String val2) {
 }
 
 main() {
-  late String? l = initL("No woman", "no cry");
-
-  initL(String val1, String val2) {
-    l = val1;
-    throw new Exception();
-  }
   Expect.throws(() {C.s;});
   Expect.equals("No woman", C.s);
   Expect.throws(() {g;});
   Expect.equals("No woman", g);
-  Expect.throws(() {l;});
-  Expect.equals("No woman", l);
   C c = new C();
   Expect.throws(() {c.v1;});
   Expect.equals("No woman", c.v1);
