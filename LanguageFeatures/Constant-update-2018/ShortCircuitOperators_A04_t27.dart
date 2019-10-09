@@ -34,8 +34,8 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const res2 = MyClass2((null as String).length > 0));
-//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  const res2 = MyClass2((null as String).length > 0);
+//             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
