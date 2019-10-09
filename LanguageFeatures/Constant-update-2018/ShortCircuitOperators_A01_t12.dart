@@ -16,7 +16,7 @@
  * @author iarkh@unipro.ru
  */
 
-const nil = Null;
+const nil = null;
 
 class MyClass {
   final bool b;
