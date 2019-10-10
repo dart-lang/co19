@@ -9,7 +9,7 @@
 // SharedOptions=--enable-experiment=non-nullable
 // @dart=2.4
 
-library type_relification_legacy_lib;
+library type_reification_legacy_lib;
 
 class A {}
 class A1 extends A {}

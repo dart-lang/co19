@@ -12,29 +12,14 @@
 // SharedOptions=--enable-experiment=non-nullable
 
 import "../../Utils/expect.dart";
-import "type_relification_legacy_lib.dart";
+import "type_reification_legacy_lib.dart";
 
 main() {
-  var a = A();
-  Expect.equals(A, a.runtimeType);
+  var a = AliasA();
+  Expect.isTrue(a is AliasA);
+  Expect.isTrue(a is AliasA?);
   Expect.isTrue(a is A);
   Expect.isTrue(a is A?);
   Expect.isFalse(a is A1);
   Expect.isFalse(a is A1?);
-
-  var b1 = B();
-  Expect.equals(typeOf<B<dynamic>>(), b1.runtimeType);
-  Expect.isTrue(b1 is B);
-  Expect.isTrue(b1 is B?);
-  Expect.isTrue(b1 is B<Object?>);
-  Expect.isFalse(b1 is B<A>);
-
-  var b2 = B<A>();
-  Expect.equals(typeOf<B<A>>(), b2.runtimeType);
-  Expect.isTrue(b2 is B<A>);
-  Expect.isTrue(b2 is B<A>?);
-  Expect.isTrue(b2 is B);
-  Expect.isTrue(b2 is B?);
-  Expect.isTrue(b2 is B<A?>);
-  Expect.isFalse(b2 is B<A1>);
 }

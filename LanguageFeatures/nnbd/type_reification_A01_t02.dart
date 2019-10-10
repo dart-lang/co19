@@ -12,7 +12,7 @@
 // SharedOptions=--enable-experiment=non-nullable
 
 import "../../Utils/expect.dart";
-import "type_relification_legacy_lib.dart";
+import "type_reification_legacy_lib.dart";
 
 main() {
   Object? a1 = A1() as Object;
