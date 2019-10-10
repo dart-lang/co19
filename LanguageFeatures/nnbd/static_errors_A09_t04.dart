@@ -26,9 +26,6 @@ class C {
 void test3({required A x, String y, required A z}) {}
 void test33({required A? x, String y, required A? z}) {}
 
-Function test4 = ({required A x, String y, required A z}) {};
-Function test44 = ({required A? x, String y, required A? z}) {};
-
 typedef void Foo({required A x, String y, required A z});
 typedef void Foo2({required A? x, String y, required A? z});
 
@@ -63,16 +60,6 @@ main() {
 // [cfe] unspecified
 
   test33(x: a, y: "");
-//                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  test4(x: a, y: "");
-//                 ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  test44(x: a, y: "");
 //                  ^
 // [analyzer] unspecified
 // [cfe] unspecified

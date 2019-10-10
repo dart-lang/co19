@@ -29,4 +29,13 @@ main() {
   dynamic a2 = false;
   var v2 = { a2 as bool ? - 3 : 3 };
   Expect.setEquals({3}, v2);
+
+  var a3 = 42;
+  var v3 = { a3 is int ? - 3 : 3 };
+  Expect.setEquals({-3}, v3);
+
+  dynamic a4 = 3.14;
+  var v4 = { a4 is int ? - 3 : 3 };
+  Expect.setEquals({3}, v4);
+
 }

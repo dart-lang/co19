@@ -19,7 +19,7 @@ main() {
   a?.foo();                                 //# 01: static type warning
   a?..foo();                                //# 02: static type warning
   a ?? new Object();                        //# 03: static type warning
-  a ??= new Object();                       //# 04: static type warning
+  a ??= new A();                            //# 04: static type warning
   List<A> list = [A()];
   List<A> alist = [A(), A(), ...? list];    //# 05: static type warning
 }

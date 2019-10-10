@@ -10,8 +10,8 @@
  * or an initializer list entry, unless the variable or field is marked with the
  * 'late' modifier.
  *
- * @description Check that it is a compile-time error if a static variable
- * with potentially non-nullable type has no initializer expression and not
+ * @description Check that it is no compile-time error if a static variable
+ * with potentially non-nullable type has no initializer expression but
  * marked with the 'late' modifier
  * @author sgrekhov@unipro.ru
  */
@@ -20,8 +20,8 @@
 class A {}
 
 class C {
-  static A a;         //# 01: compile-time error
-  static String s;    //# 02: compile-time error
+  static late A a;
+  static late String s;
 }
 
 main() {

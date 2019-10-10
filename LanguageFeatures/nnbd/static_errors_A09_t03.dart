@@ -20,22 +20,47 @@ class C {
 
 void test3({required int x, String y, required String z}) {}
 
-Function test4 = ({required int x, String y, required String z}) {};
-
 typedef void Foo({required int x, String y, required String z});
 
 main() {
   Foo foo = ({required int x, String y, required String z}) {};
 
-  C.test1(x: 3, y: "");           //# 01: compile-time error
-  C().test2(x: 1, y: "");         //# 02: compile-time error
-  test3(x: 4, y: "");             //# 03: compile-time error
-  test4(x: 1, y: "");             //# 04: compile-time error
-  foo(x: 5, y: "");               //# 05: compile-time error
+  C.test1(x: 3, y: "");
+//  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  C.test1(z: "No", y: "woman");   //# 06: compile-time error
-  C().test2(z: "no", y: "cry");   //# 07: compile-time error
-  test3(z: "No", y: "woman");     //# 08: compile-time error
-  test4(z: "no", y: "cry");       //# 09: compile-time error
-  foo(z: "No", y: "woman");       //# 10: compile-time error
+  C().test2(x: 1, y: "");
+//    ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+    test3(x: 4, y: "");
+//  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+    foo(x: 5, y: "");
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C.test1(z: "No", y: "woman");
+//  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C().test2(z: "no", y: "cry");
+//    ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+    test3(z: "No", y: "woman");
+//  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+    foo(z: "No", y: "woman");
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -21,23 +21,23 @@ class C<X extends AAlias> {
   X x;
   C(this.x);
 
-  void test1<X extends AAlias>(var x, [X x]) {}
+  void test1<X extends AAlias>(var v, [X x]) {}
 //                                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test2<X extends AAlias>(var x, {X x}) {}
+  void test2<X extends AAlias>(var v, {X x}) {}
 //                                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test1<X extends AAlias>(var x, [X x]) {}
+void test1<X extends AAlias>(var v, [X x]) {}
 //                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void test2<X extends AAlias>(var x, {X x}) {}
+void test2<X extends AAlias>(var v, {X x}) {}
 //                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified

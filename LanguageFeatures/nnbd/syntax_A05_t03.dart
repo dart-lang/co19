@@ -10,7 +10,8 @@
  * {int? y, required int z}).
  *
  * @description Check that any named parameter declaration can be prefixed by
- * the 'required' modifier. Test more than one named parameter
+ * the 'required' modifier. Test when required named parameter is not the first
+ * one
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -19,18 +20,19 @@ import "../../Utils/expect.dart";
 class A {}
 
 class C {
-  static String test1(int x, {required String y, String z}) => y;
-  String test2(int x, {required String y, String z}) => y;
-  A test4(int x, {required covariant A y, String z}) => y;
+  static String test1(int x, {String z, required String y}) => y;
+  String test2(int x, {String z, required String y}) => y;
+
+  A test4(int x, {String z, required covariant A y}) => y;
 }
 
-String test5(int x, {required String y, String z}) => y;
+String test5(int x, {String z, required String y}) => y;
 
-typedef String Foo(int x, {required String y, String z});
+typedef String Foo(int x, {String z, required String y});
 
-Foo test6 = (int x, {required String y, String z}) => y;
+Foo test6 = (int x, {String z, required String y}) => y;
 
-Function test7 = (int x, {required String y, String z}) => y;
+Function test7 = (int x, {String z, required String y}) => y;
 
 main() {
   A a = new A();

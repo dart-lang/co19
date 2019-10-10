@@ -13,8 +13,8 @@
  *  dynamic
  *  void
  *
- * @description Check that null can be assigned to nullable type. Test S* for
- * some S where S is nullable. Test type aliases
+ * @description Check that null can be assigned to nullable type. Test S? for
+ * some S. Test type aliases
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases

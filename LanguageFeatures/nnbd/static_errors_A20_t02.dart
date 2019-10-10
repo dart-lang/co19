@@ -19,19 +19,19 @@ class A {
 class C extends A {}
 
 main() {
-  A a = A();
-  C? c = C();
-  c?.test();
-  c?..test();
-  c ?? a;
+  A? a = A();
+  C c = C();
+  a?.test();
+  a?..test();
+  a ?? c;
   a ??= c;
   List<C>? clist = [C(), C()];
   List<A> alist = [A(), C(), ...? clist];
 
-  c = null;
-  c?.test();
-  c?..test();
-  c ?? a;
+  a = null;
+  a?.test();
+  a?..test();
+  a ?? c;
   a ??= c;
   clist = null;
   alist = [A(), C(), ...? clist];

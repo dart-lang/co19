@@ -10,7 +10,7 @@
  * {int? y, required int z}).
  *
  * @description Check that any named parameter declaration can be prefixed by
- * the 'required' modifier
+ * the 'required' modifier. Test one named required parameter
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -21,7 +21,6 @@ class A {}
 class C {
   static String test1({required String x}) => x;
   String test2({required String x}) => x;
-  A test3({covariant required A x}) => x;
   A test4({required covariant A x}) => x;
 }
 
@@ -37,7 +36,6 @@ main() {
   A a = new A();
   Expect.equals("Love me tender", C.test1(x: "Love me tender"));
   Expect.equals("love me sweet", C().test2(x: "love me sweet"));
-  Expect.equals(a, C().test3(x: a));
   Expect.equals(a, C().test4(x: a));
   Expect.equals("never let me go", test5(x: "never let me go"));
   Expect.equals("You have made my life complete",

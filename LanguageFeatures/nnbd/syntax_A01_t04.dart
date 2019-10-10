@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A new primitive type Never. This type is denoted by the built-in
- * type declaration Never declared in dart:core.
+ * @assertion The grammar of types is extended to allow any type to be suffixed
+ * with a ? (e.g. int?) indicating the nullable version of that type.
  *
  * @description Check that any type can be suffixed with a ? indicating the
  * nullable version of that type. Test type aliases

@@ -19,6 +19,6 @@
 // SharedOptions=--enable-experiment=non-nullable
 
 main() {
-  var v = null;
+  Null v = null;
   v = null;
 }

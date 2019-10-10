@@ -15,16 +15,32 @@
 class A {
 }
 
-void test(var x) {
-  if (!(x is Object)) {
-    throw x;
-//        ^
+void test1(dynamic x) {
+  throw x;
+//      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-  }
+}
+void test2(Null x) {
+  throw x;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+void test3(A? x) {
+  throw x;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+void test4<T extends Null>(T x) {
+  throw x;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  A? a = null;
-  test(a);
 }

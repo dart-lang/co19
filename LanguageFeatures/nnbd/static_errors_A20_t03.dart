@@ -18,14 +18,15 @@ class A {
 
 class C extends A {}
 
+typedef AAlias = A;
 typedef CAlias = C;
 
 main() {
-  A a = A();
+  AAlias a = A();
   CAlias c = C();
-  c?.test();                                //# 01: static type warning
-  c?..test();                               //# 02: static type warning
-  c ?? a;                                   //# 03: static type warning
+  a?.test();                                //# 01: static type warning
+  a?..test();                               //# 02: static type warning
+  a ?? c;                                   //# 03: static type warning
   a ??= c;                                  //# 04: static type warning
   List<CAlias?> clist = [C(), C(), null];   //# 05: static type warning
   List<A> alist = [A(), C(), ...? clist];   //# 06: static type warning

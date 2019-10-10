@@ -15,23 +15,23 @@
 // SharedOptions=--enable-experiment=non-nullable
 
 class A {
-  static void test1(var x, [A a]) {}          //# 01: compile-time error
+  static void test1(var v, [A a]) {}          //# 01: compile-time error
 
-  static void test2(var x, {A a}) {}          //# 02: compile-time error
+  static void test2(var v, {A a}) {}          //# 02: compile-time error
 }
 
 class C<X extends A?> {
   X x;
   C(this.x);
 
-  void test1<X extends A?>(var x, [X x]) {}   //# 03: compile-time error
+  void test1<X extends A?>(var v, [X x]) {}   //# 03: compile-time error
 
-  void test2<X extends A?>(var x, {X x}) {}   //# 04: compile-time error
+  void test2<X extends A?>(var v, {X x}) {}   //# 04: compile-time error
 }
 
-void test1<X extends A?>(var x, [X x]) {}     //# 05: compile-time error
+void test1<X extends A?>(var v, [X x]) {}     //# 05: compile-time error
 
-void test2<X extends A?>(var x, {X x}) {}     //# 06: compile-time error
+void test2<X extends A?>(var v, {X x}) {}     //# 06: compile-time error
 
 main() {
   A? a = new A();

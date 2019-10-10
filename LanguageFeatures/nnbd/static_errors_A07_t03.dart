@@ -19,23 +19,23 @@ class C<X extends A?> {
   X x;
   C(this.x);
 
-  void test1<X extends A?>(var x, [X x]) {}
+  void test1<X extends A?>(var v, [X x]) {}
 //                                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test2<X extends A?>(var x, {X x}) {}
+  void test2<X extends A?>(var v, {X x}) {}
 //                                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test1<X extends A?>(var x, [X x]) {}
+void test1<X extends A?>(var v, [X x]) {}
 //                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void test2<X extends A?>(var x, {X x}) {}
+void test2<X extends A?>(var v, {X x}) {}
 //                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified

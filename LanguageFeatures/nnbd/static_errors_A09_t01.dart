@@ -20,15 +20,27 @@ class C {
 
 void test3({required int x}) {}
 
-Function test4 = ({required int x}) {};
-
 typedef void Foo({required int x});
 
 main() {
-  C.test1();                        //# 01: compile-time error
-  C().test2();                      //# 02: compile-time error
-  test3();                          //# 03: compile-time error
-  test4();                          //# 04: compile-time error
+  C.test1();
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C().test2();
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+    test3();
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   Foo foo = ({required int x}) {};
-  foo();                            //# 05: compile-time error
+    foo();
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
