@@ -7,9 +7,9 @@
  * @assertion The [??] operator only evaluates its second operand if the first
  * evaluates to [null], and the second operand must be a potentially constant
  * expression.
- * @description Checks that compile-time exception is thrown if the first
- * operand of [??] operator is not [null] and the second one has incorrect type
- * in the constant expression.
+ * @description Checks that compile-time exception is not thrown if the first
+ * operand of [??] operator is not [null] regardless of the type of the second
+ * operand.
  * @author iarkh@unipro.ru
  */
 
@@ -19,23 +19,7 @@ const String d2 = "check me here";
 
 main() {
   const String s1 = "" ?? 124;
-//                        ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   const int i1 = i ?? "";
-//                    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   const String s2 = d2 ?? d1;
-//                        ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   const int i2 = d1 ?? d2;
-//                     ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 }
