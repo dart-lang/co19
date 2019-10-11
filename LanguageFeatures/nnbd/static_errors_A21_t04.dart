@@ -21,10 +21,12 @@
 import "legacy_library_lib.dart";
 
 main() {
-  A? a = new A();
-  a = null;
+  var a1 = getLegscyDynamic(null);
+  a1 = null;
 
-  C? c = null;
-  c = new C<A>(a);
-  c = null;
+  var a2 = getLegscyDynamic("Show must go on");
+  a2 = null;
+
+  var a3 = getLegscyNull();
+  a3 = null;
 }

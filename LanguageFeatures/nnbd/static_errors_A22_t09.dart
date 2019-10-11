@@ -14,8 +14,8 @@
  *  X extends S where S is non-nullable
  *  X & S where S is non-nullable
  *
- * @description Check that null cannot be assigned to non-nullable type. Test
- * FutureOr<S> where S is non-nullable
+ * @description Check that type which is not subtype of Object cannot be
+ * assigned to non-nullable type. Test FutureOr<S> where S is non-nullable
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -25,9 +25,14 @@ class C {
 }
 
 main() {
-  FutureOr<C> fo = null;
-//                 ^^^^
+  FutureOr<C> fo1 = null;
+//                  ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  FutureOr<C>? fo = null;
+  FutureOr<C> fo2 = fo;
+//                  ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

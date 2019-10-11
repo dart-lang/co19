@@ -14,19 +14,36 @@
  *  X extends S where S is non-nullable
  *  X & S where S is non-nullable
  *
- * @description Check that null cannot be assigned to non-nullable type. Test
- * Never
+ * @description Check that type which is not subtype of Object cannot be
+ * assigned to non-nullable type. Test Never
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
 dynamic test() => new Object();
 
+void f(Never v) {
+  v = null;
+//    ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Object? o = new Object();
+  v = o;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   var v = test();
   if (v is Never) {
     v = null;
 //      ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    Object? o = new Object();
+    v = o;
+//      ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }

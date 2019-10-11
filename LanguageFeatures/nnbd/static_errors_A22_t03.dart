@@ -14,8 +14,8 @@
  *  X extends S where S is non-nullable
  *  X & S where S is non-nullable
  *
- * @description Check that null cannot be assigned to non-nullable type. Test
- * interface type
+ * @description Check that type which is not subtype of Object cannot be
+ * assigned to non-nullable type. Test interface type
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -29,13 +29,25 @@ class C {
 }
 
 main() {
-  A a = null;
+  A a1 = null;
+//       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C c1 = null;
 //      ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  C v = null;
-//      ^^^^
+  A? a = null;
+  A a2 = a;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C? c = new C();
+  C c2 = c;
+//       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

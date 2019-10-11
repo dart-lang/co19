@@ -14,8 +14,9 @@
  *  X extends S where S is non-nullable
  *  X & S where S is non-nullable
  *
- * @description Check that null cannot be assigned to non-nullable type. Test
- * FutureOr<S> where S is non-nullable. Test type aliases
+ * @description Check that type which is not subtype of Object cannot be
+ * assigned to non-nullable type. Test FutureOr<S> where S is non-nullable. Test
+ * type aliases
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
@@ -25,11 +26,28 @@ class C {
 }
 
 typedef CAlias = C;
+typedef FOAlias = FutureOr<C>;
 
 main() {
-  FutureOr<CAlias> fo = null;
-//                      ^^^^
+  FutureOr<CAlias> fo1 = null;
+//                       ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  FutureOr<CAlias>? fo = null;
+  FutureOr<CAlias> fo2 = fo;
+//                       ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  FOAlias fo3 = null;
+//              ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  FOAlias? foa = null;
+  FOAlias fo4 = foa;
+//              ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

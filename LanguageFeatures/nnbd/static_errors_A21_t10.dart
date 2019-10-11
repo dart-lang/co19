@@ -23,4 +23,6 @@ void test() {}
 main() {
   var v = test();
   v = null;
+
+  void x = null;
 }

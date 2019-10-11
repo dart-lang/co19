@@ -14,15 +14,16 @@
  *  X extends S where S is non-nullable
  *  X & S where S is non-nullable
  *
- * @description Check that null cannot be assigned to non-nullable type. Test
- * X extends S where S is non-nullable. Test legacy pre-NNBD types
+ * @description Check that type which is not subtype of Object cannot be
+ * assigned to non-nullable type. Test X extends S where S is non-nullable. Test
+ * legacy pre-NNBD types
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "legacy_library_lib.dart";
 
 class C<X extends A> {
-  test(T t) {
+  test(X t) {
     t = null;
 //      ^^^^
 // [analyzer] unspecified

@@ -14,8 +14,8 @@
  *  X extends S where S is non-nullable
  *  X & S where S is non-nullable
  *
- * @description Check that null cannot be assigned to non-nullable type. Test
- * interface type. Test type aliases
+ * @description Check that type which is not subtype of Object cannot be
+ * assigned to non-nullable type. Test interface type. Test type aliases
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
@@ -32,13 +32,25 @@ typedef AAlias = A;
 typedef CAlias = C;
 
 main() {
-  AAlias a = null;
-//           ^^^^
+  AAlias a1 = null;
+//            ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  CAlias v = null;
-//           ^^^^
+  CAlias c1 = null;
+//            ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  AAlias? a = null;
+  AAlias a2 = a;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  CAlias? c = new C();
+  CAlias c2 = c;
+//            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

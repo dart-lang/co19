@@ -14,8 +14,8 @@
  *  X extends S where S is non-nullable
  *  X & S where S is non-nullable
  *
- * @description Check that null cannot be assigned to non-nullable type. Test
- * function type
+ * @description Check that type which is not subtype of Object cannot be
+ * assigned to non-nullable type. Test function type
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -31,7 +31,7 @@ main() {
 // [cfe] unspecified
 
   bar f2 = null;
-//        ^^^^
+//         ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

@@ -14,18 +14,24 @@
  *  X extends S where S is non-nullable
  *  X & S where S is non-nullable
  *
- * @description Check that null cannot be assigned to non-nullable type. Test
- * S* for some S where S is non-nullable
+ * @description Check that type which is not subtype of Object cannot be
+ * assigned to non-nullable type. Test S* for some S where S is non-nullable
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-
-class C {
-}
+import "legacy_library_lib.dart";
 
 main() {
-  C v = null;
-//      ^^^^
+  var v1 = getLegacyS();
+  v1 = null;
+//     ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var v2 = getLegacyS();
+  S? s = new S();
+  v2 = s;
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

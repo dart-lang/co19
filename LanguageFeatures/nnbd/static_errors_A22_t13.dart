@@ -14,22 +14,23 @@
  *  X extends S where S is non-nullable
  *  X & S where S is non-nullable
  *
- * @description Check that null cannot be assigned to non-nullable type. Test
- * X extends S where S is non-nullable
+ * @description Check that type which is not subtype of Object cannot be
+ * assigned to non-nullable type. Test X extends S where S is non-nullable
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
 class S {}
 
-class C<X extends S> {
-  test(T t) {
+class C<T extends S> {
+  test(X t) {
     t = null;
 //      ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 }
+
 main() {
   C<S>().test(new S());
 }

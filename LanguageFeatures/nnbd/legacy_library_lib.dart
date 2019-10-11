@@ -47,3 +47,11 @@ class Const {
 int iLegacy = 42;
 String sLegacy = "Yesterday, All my troubles seemed so far away";
 A aLegacy = new A();
+
+class S {}
+
+S getLegacyS() => null;
+
+dynamic getLegscyDynamic(x) => x;
+
+Null getLegscyNull() => null;
