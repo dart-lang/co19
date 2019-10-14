@@ -16,6 +16,8 @@ class A implements AMx {
   String text = "Let it be";
   int operator[](int index) => index;
   void operator[]=(int index, var value) => value;
+
+  AMx c = new AMx();
 }
 
 class C<X extends A> {

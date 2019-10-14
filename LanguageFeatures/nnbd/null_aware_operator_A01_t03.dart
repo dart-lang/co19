@@ -10,6 +10,7 @@
  * @description Check that a property access e?.f translates to:
  *  SHORT[EXP(e), fn[x] => x.f]. Test type aliases
  * @author sgrekhov@unipro.ru
+ * @static-warning
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 import "../../Utils/expect.dart";
