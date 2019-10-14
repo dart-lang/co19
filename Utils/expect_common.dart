@@ -218,7 +218,7 @@ class Expect {
    *     Expect.throws(myThrowingFunction, (e) => e is MyException);
    */
   static void throws(void f(),
-      [_CheckExceptionFn check = null, String? reason = null]) {
+      [_CheckExceptionFn? check = null, String? reason = null]) {
     if (!(f is Function)) {
       String msg = reason == null ? "" : reason;
       _fail(
