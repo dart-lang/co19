@@ -20,6 +20,8 @@ class C<X extends A> {
   C(this.x);
 }
 
+Never testNever(Never x) => x;
+
 void test({required String named}) {}
 
 A? aVar1 = null;

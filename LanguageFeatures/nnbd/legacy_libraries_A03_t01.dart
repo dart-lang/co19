@@ -20,5 +20,5 @@ import "../../Utils/expect.dart";
 import "opted_in_lib.dart";
 
 main() {
-  Expect.isNull(Never is Null);
+  Expect.isTrue(testNever(null) is Null);
 }
