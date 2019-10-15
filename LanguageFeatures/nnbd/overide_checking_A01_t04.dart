@@ -39,5 +39,4 @@ main() {
   Expect.equals(4, A1().test_required(i: null));
   Expect.equals(5, B1().test_required(i: null));
   Expect.equals(6, C1().test_required(i: null));
-
 }

@@ -9,10 +9,9 @@
  * incompatible methods. When choosing the most specific signature during
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
- * @description Check that when choosing the most specific signature during
- * interface computation, all requiredness annotations are ignored in unmigrated
- * library if method argument is not [null] ([extends] clause).
- * @author iarkh@unipro.ru
+ * @description Check that when choosing the most specific method signature
+ * during interface computation, all nullability annotations are ignored in
+ * unmigrated library for the class type parameter ([with] clause).
  */
 // SharedOptions=--enable-experiment=non-nullable
 // @dart=2.4
@@ -20,24 +19,13 @@
 import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
-class A1 extends A {
-  int test_required({int i = 1}) => 4;
-}
-
-class B1 extends B {
-  int test_required({int i = 1}) => 5;
-}
-
-class C1 extends C {
-  int test_required({int i = 1}) => 6;
-}
+class D1<X extends A> with D<X> {}
+class E1<X extends A> with E<X> {}
 
 main() {
-  Expect.equals(1, A().test_required(i: 1));
-  Expect.equals(2, B().test_required(i: 1));
-  Expect.equals(3, C().test_required(i: 1));
+  D1<Null> d1 = D1<Null>();
+  Expect.isTrue(d1 is D1<Null>);
 
-  Expect.equals(4, A1().test_required(i: 1));
-  Expect.equals(5, B1().test_required(i: 1));
-  Expect.equals(6, C1().test_required(i: 1));
+  E1<Null> e1 = E1<Null>();
+  Expect.isTrue(e1 is E1<Null>);
 }

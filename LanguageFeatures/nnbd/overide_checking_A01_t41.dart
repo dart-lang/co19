@@ -9,9 +9,9 @@
  * incompatible methods. When choosing the most specific signature during
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
- * @description Check that when choosing the most specific signature during
- * interface computation, all requiredness annotations are ignored in unmigrated
- * library if method argument is not [null] ([extends] clause).
+ * @description Check that when choosing the most specific class field
+ * during interface computation, all nullability annotations are ignored in
+ * unmigrated library for setters which set non-null value ([with] clause).
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -20,24 +20,24 @@
 import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
-class A1 extends A {
-  int test_required({int i = 1}) => 4;
-}
+class A1 with A {
+  void set set1_field1(String str) { field1 = null; }
+  void set set1_field2(String str) { field2 = null; }
 
-class B1 extends B {
-  int test_required({int i = 1}) => 5;
-}
-
-class C1 extends C {
-  int test_required({int i = 1}) => 6;
+  void set set_field1(String str) { field1 = str; }
+  void set set_field2(String str) { field2 = str; }
 }
 
 main() {
-  Expect.equals(1, A().test_required(i: 1));
-  Expect.equals(2, B().test_required(i: 1));
-  Expect.equals(3, C().test_required(i: 1));
+  A1 a1 = A1();
+  a1.set_field1 = null;
+  Expect.isNull(a1.get_field1);
+  a1.set_field2 = null;
+  Expect.isNull(a1.get_field1);
 
-  Expect.equals(4, A1().test_required(i: 1));
-  Expect.equals(5, B1().test_required(i: 1));
-  Expect.equals(6, C1().test_required(i: 1));
+  A1 a11 = A1();
+  a11.set1_field1 = null;
+  Expect.isNull(a11.get_field1);
+  a11.set1_field2 = null;
+  Expect.isNull(a11.get_field1);
 }

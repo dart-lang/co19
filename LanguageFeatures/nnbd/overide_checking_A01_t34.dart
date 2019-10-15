@@ -10,8 +10,8 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  * @description Check that when choosing the most specific signature during
- * interface computation, all requiredness annotations are ignored in unmigrated
- * library if method argument is not [null] ([extends] clause).
+ * interface computation, requiredness and nullable annotations are ignored in
+ * unmigrated library if method argument is [null] ([with] clause).
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -20,24 +20,15 @@
 import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
-class A1 extends A {
+class A1 with A {
   int test_required({int i = 1}) => 4;
 }
 
-class B1 extends B {
+class B1 with B {
   int test_required({int i = 1}) => 5;
 }
 
-class C1 extends C {
-  int test_required({int i = 1}) => 6;
-}
-
 main() {
-  Expect.equals(1, A().test_required(i: 1));
-  Expect.equals(2, B().test_required(i: 1));
-  Expect.equals(3, C().test_required(i: 1));
-
-  Expect.equals(4, A1().test_required(i: 1));
-  Expect.equals(5, B1().test_required(i: 1));
-  Expect.equals(6, C1().test_required(i: 1));
+  Expect.equals(4, A1().test_required(i: null));
+  Expect.equals(5, B1().test_required(i: null));
 }
