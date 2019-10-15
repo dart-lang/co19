@@ -11,7 +11,8 @@
  * ignored, and the [Never] type is treated as [Null].
  * @description Check that when choosing the most specific class field
  * during interface computation, all nullability annotations are ignored in
- * unmigrated library for setters which set non-null value ([extends] clause).
+ * unmigrated library and are not ignored in migrated library ([implements]
+ * clause).
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -20,36 +21,44 @@
 import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
-class A1 extends A {
-  void set set1_field1(String str) { field1 = null; }
-  void set set1_field2(String str) { field2 = null; }
+class A1 implements A {
+  String field1 = "c";
+  String field2 = "d";
 
+  int test_null(int i) => 4;
+  int test_required({int i = 1}) => 1;
+  int test_never(Null i) => 1;
+  int test_return_null() => 1;
+  Null test_return_never() => null;
+  String get get_field1 => field1;
+  String get get_field2 => field1;
+  void set set_field1(String str) { field1 = str; }
+  void set set_field2(String str) { field2 = str; }
+}
+
+class A2 implements A {
+  String field1 = null;
+  String field2 = null;
+
+  int test_null(int i) => 4;
+  int test_required({int i = 1}) => 1;
+  int test_never(Null i) => 1;
+  int test_return_null() => 1;
+  Null test_return_never() => null;
+  String get get_field1 => field1;
+  String get get_field2 => field1;
   void set set_field1(String str) { field1 = str; }
   void set set_field2(String str) { field2 = str; }
 }
 
 main() {
-  A a = A();
-  a.set_field1 = null;
-  Expect.isNull(a.get_field1);
-  a.set_field2 = null;
-  Expect.isNull(a.get_field2);
-
   A1 a1 = A1();
-  a1.set_field1 = null;
-  Expect.isNull(a1.get_field1);
-  a1.set_field2 = null;
-  Expect.isNull(a1.get_field1);
+  a1.field1 = null;
+  Expect.isNull(a1.field1);
+  a1.field2 = null;
+  Expect.isNull(a1.field2);
 
-  A1 a11 = A1();
-  a11.set1_field1 = null;
-  Expect.isNull(a11.get_field1);
-  a11.set1_field2 = null;
-  Expect.isNull(a11.get_field1);
-
-  C c = C();
-  c.set_field1 = null;
-  Expect.isNull(c.get_field1);
-  c.set_field2 = null;
-  Expect.isNull(c.get_field1);
+  A2 a2 = A2();
+  Expect.isNull(a2.field1);
+  Expect.isNull(a2.field2);
 }

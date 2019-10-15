@@ -11,7 +11,7 @@
  * ignored, and the [Never] type is treated as [Null].
  * @description Check that when choosing the most specific class field
  * during interface computation, all nullability annotations are ignored in
- * unmigrated library for the class fields ([extends] clause).
+ * unmigrated library and are not ignored in migrated library ([extends] clause).
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -25,16 +25,31 @@ class A1 extends A {
   String field2 = "d";
 }
 
+class A2 extends A {
+  String field1 = null;
+  String field2 = null;
+}
+
 main() {
   A a = A();
-  Expect.equals("a", a.field1);
-  Expect.equals("b", a.field2);
+  a.field1 = null;
+  Expect.isNull(a.field1);
+  a.field2 = null;
+  Expect.isNull(a.field2);
 
   A1 a1 = A1();
-  Expect.equals("c", a1.field1);
-  Expect.equals("d", a1.field2);
+  a1.field1 = null;
+  Expect.isNull(a1.field1);
+  a1.field2 = null;
+  Expect.isNull(a1.field2);
+
+  A2 a2 = A2();
+  Expect.isNull(a2.field1);
+  Expect.isNull(a2.field2);
 
   C c = C();
-  Expect.equals("a", c.field1);
-  Expect.equals("b", c.field2);
+  c.field1 = null;
+  Expect.isNull(c.field1);
+  c.field2 = null;
+  Expect.isNull(c.field2);
 }

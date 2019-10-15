@@ -22,7 +22,7 @@ class A {
   String? field2 = "b";
 
   String get get_field1 => field1;
-  String? get get_field2 => field1;
+  String? get get_field2 => field2;
 
   void set set_field1(String str) { field1 = str; }
   void set set_field2(String? str) { field2 = str; }

@@ -11,7 +11,7 @@
  * ignored, and the [Never] type is treated as [Null].
  * @description Check that when choosing the most specific class field
  * during interface computation, all nullability annotations are ignored in
- * unmigrated library for getters which return non-null value.
+ * unmigrated library for getters which return non-null value ([extends] clause).
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -22,7 +22,7 @@ import "override_checking_opted_in_lib.dart";
 
 class A1 extends A {
   String get get_field1 => field1 + "_legacy";
-  String get get_field2 => field1 + "_legacy";
+  String get get_field2 => field2 + "_legacy";
 }
 
 main() {

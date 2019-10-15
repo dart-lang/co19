@@ -11,7 +11,7 @@
  * ignored, and the [Never] type is treated as [Null].
  * @description Check that when choosing the most specific class field
  * during interface computation, all nullability annotations are ignored in
- * unmigrated library for the class fields ([extends] clause).
+ * unmigrated library for the class fields ([implements] clause).
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -20,21 +20,23 @@
 import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
-class A1 extends A {
+class A1 implements A {
   String field1 = "c";
   String field2 = "d";
+
+  int test_null(int i) => 4;
+  int test_required({int i = 1}) => 1;
+  int test_never(Null i) => 1;
+  int test_return_null() => 1;
+  Null test_return_never() => null;
+  String get get_field1 => field1;
+  String get get_field2 => field1;
+  void set set_field1(String str) { field1 = str; }
+  void set set_field2(String str) { field2 = str; }
 }
 
 main() {
-  A a = A();
-  Expect.equals("a", a.field1);
-  Expect.equals("b", a.field2);
-
   A1 a1 = A1();
   Expect.equals("c", a1.field1);
   Expect.equals("d", a1.field2);
-
-  C c = C();
-  Expect.equals("a", c.field1);
-  Expect.equals("b", c.field2);
 }

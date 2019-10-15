@@ -11,7 +11,7 @@
  * ignored, and the [Never] type is treated as [Null].
  * @description Check that when choosing the most specific class field
  * during interface computation, all nullability annotations are ignored in
- * unmigrated library for setters which set non-null value.
+ * unmigrated library for setters which set non-null value ([extends] clause).
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

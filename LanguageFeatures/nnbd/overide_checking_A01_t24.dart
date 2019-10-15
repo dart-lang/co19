@@ -11,7 +11,7 @@
  * ignored, and the [Never] type is treated as [Null].
  * @description Check that when choosing the most specific class field
  * during interface computation, all nullability annotations are ignored in
- * unmigrated library and are not ignored in migrated library.
+ * unmigrated library for getters which return null value ([implements] clause).
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -20,36 +20,23 @@
 import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
-class A1 extends A {
-  String field1 = "c";
-  String field2 = "d";
-}
+class A1 implements A {
+  String field1 = "a";
+  String field2 = "b";
+  String get get_field1 => null;
+  String get get_field2 => null;
 
-class A2 extends A {
-  String field1 = null;
-  String field2 = null;
+  int test_null(int i) => 4;
+  int test_required({int i = 1}) => 1;
+  int test_never(Null i) => 1;
+  int test_return_null() => 1;
+  Null test_return_never() => null;
+  void set set_field1(String str) { field1 = str; }
+  void set set_field2(String str) { field2 = str; }
 }
 
 main() {
-  A a = A();
-  a.field1 = null;
-  Expect.isNull(a.field1);
-  a.field2 = null;
-  Expect.isNull(a.field2);
-
   A1 a1 = A1();
-  a1.field1 = null;
-  Expect.isNull(a1.field1);
-  a1.field2 = null;
-  Expect.isNull(a1.field2);
-
-  A2 a2 = A2();
-  Expect.isNull(a2.field1);
-  Expect.isNull(a2.field2);
-
-  C c = C();
-  c.field1 = null;
-  Expect.isNull(c.field1);
-  c.field2 = null;
-  Expect.isNull(c.field2);
+  Expect.isNull(a1.get_field1);
+  Expect.isNull(a1.get_field2);
 }
