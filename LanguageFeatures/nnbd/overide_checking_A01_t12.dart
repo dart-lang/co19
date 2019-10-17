@@ -21,23 +21,23 @@ import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
 class A1 extends A {
-  int test_return_null() => 4;
+  int test_return_nullable() => 4;
 }
 
 class B1 extends B {
-  int test_return_null() => 5;
+  int test_return_nullable() => 5;
 }
 
 class C1 extends C {
-  int test_return_null() => 6;
+  int test_return_nullable() => 6;
 }
 
 main() {
-  Expect.equals(1, A().test_return_null());
-  Expect.equals(2, B().test_return_null());
-  Expect.equals(3, C().test_return_null());
+  Expect.equals(1, A().test_return_nullable());
+  Expect.equals(2, B().test_return_nullable());
+  Expect.equals(3, C().test_return_nullable());
 
-  Expect.equals(4, A1().test_return_null());
-  Expect.equals(5, B1().test_return_null());
-  Expect.equals(6, C1().test_return_null());
+  Expect.equals(4, A1().test_return_nullable());
+  Expect.equals(5, B1().test_return_nullable());
+  Expect.equals(6, C1().test_return_nullable());
 }

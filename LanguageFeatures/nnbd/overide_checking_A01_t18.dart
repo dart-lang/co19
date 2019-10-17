@@ -23,9 +23,9 @@ import "override_checking_opted_in_lib.dart";
 class A1 implements A {
   int test_required({int i = 1}) => 4;
 
-  int test_null(int i) => 4;
+  int test_nullable(int i) => 4;
   int test_never(Null i) => 1;
-  int test_return_null() => 1;
+  int test_return_nullable() => 1;
   Null test_return_never() => null;
   String field1 = "a";
   String field2 = "b";
@@ -38,17 +38,17 @@ class A1 implements A {
 class B1 implements B {
   int test_required({int i = 1}) => 5;
 
-  int test_null(int i) => 5;
+  int test_nullable(int i) => 5;
   int test_never(Null i) => 2;
-  int test_return_null() => 2;
+  int test_return_nullable() => 2;
 }
 
 class C1 implements C {
   int test_required({int i = 1}) => 6;
 
-  int test_null(int i) => 6;
+  int test_nullable(int i) => 6;
   int test_never(Null i) => 1;
-  int test_return_null() => 1;
+  int test_return_nullable() => 1;
   Null test_return_never() => null;
   String field1 = "a";
   String field2 = "b";

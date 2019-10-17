@@ -21,18 +21,19 @@ import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
 class A1 with A {
-  int test_return_null() => null;
+  int test_return_nullable() => null;
 }
 
 class B1 with B {
-  int test_return_null() => null;
+  int test_return_nullable() => null;
 }
 
 class C1 extends C {
-  int test_return_null() => null;
+  int test_return_nullable() => null;
 }
 
 main() {
-  Expect.isNull(A1().test_return_null());
-  Expect.isNull(B1().test_return_null());
+  Expect.isNull(A1().test_return_nullable());
+  Expect.isNull(B1().test_return_nullable());
+  Expect.isNull(C1().test_return_nullable());
 }

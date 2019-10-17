@@ -25,10 +25,10 @@ class A1 implements A {
   String field1 = "c";
   String field2 = "d";
 
-  int test_null(int i) => 4;
+  int test_nullable(int i) => 4;
   int test_required({int i = 1}) => 1;
   int test_never(Null i) => 1;
-  int test_return_null() => 1;
+  int test_return_nullable() => 1;
   Null test_return_never() => null;
   String get get_field1 => field1;
   String get get_field2 => field1;
@@ -40,10 +40,10 @@ class A2 implements A {
   String field1 = null;
   String field2 = null;
 
-  int test_null(int i) => 4;
+  int test_nullable(int i) => 4;
   int test_required({int i = 1}) => 1;
   int test_never(Null i) => 1;
-  int test_return_null() => 1;
+  int test_return_nullable() => 1;
   Null test_return_never() => null;
   String get get_field1 => field1;
   String get get_field2 => field1;

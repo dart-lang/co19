@@ -7,16 +7,25 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+/*
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @author iarkh@unipro.ru
+ */
+// SharedOptions=--enable-experiment=non-nullable
 
 library override_opted_in_lib;
 
 class A {
-  int test_null(int i) => 1;
+  int test_nullable(int i) => 1;
   int test_required({int i = 1}) => 1;
   int test_never(Never i) => 1;
 
-  int? test_return_null() => 1;
-  Null test_return_never() => null;
+  int? test_return_nullable() => 1;
+  Null test_return_never() => throw "Nevermind";
 
   String field1 = "a";
   String? field2 = "b";
@@ -29,20 +38,29 @@ class A {
 }
 
 class B {
-  int test_null(int? i) => 2;
+  int test_nullable(int? i) => 2;
   int test_required({required int i}) => 2;
   int test_never(Null i) => 2;
 
-  int test_return_null() => 2;
+  int test_return_nullable() => 2;
 }
 
 class C extends A {
-  int test_null(int? i) => 3;
+  int test_nullable(int? i) => 3;
   int test_required({required int i}) => 3;
   int test_never(Null i) => 3;
 
-  int test_return_null() => 3;
+  int test_return_nullable() => 3;
 }
 
-class D<X extends A> {}
-class E<X extends A?> {}
+class D<X extends A> {
+  dynamic getParamType() {
+    return X;
+  }
+}
+
+class E<X extends A?> {
+  dynamic getParamType() {
+    return X;
+  }
+}

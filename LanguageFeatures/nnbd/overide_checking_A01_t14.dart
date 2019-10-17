@@ -24,14 +24,14 @@ class E1<X extends A> extends E<X> {}
 
 main() {
   D<A> d = D<A>();
-  Expect.isTrue(d is D<A>);
+  Expect.equals(A, d.getParamType());
 
   E<A> e = E<A>();
-  Expect.isTrue(e is E<A>);
+  Expect.equals(A, e.getParamType());
 
   D1<A> d1 = D1<A>();
-  Expect.isTrue(d1 is D1<A>);
+  Expect.equals(A, d1.getParamType());
 
   E1<A> e1 = E1<A>();
-  Expect.isTrue(e1 is E1<A>);
+  Expect.equals(A, e1.getParamType());
 }

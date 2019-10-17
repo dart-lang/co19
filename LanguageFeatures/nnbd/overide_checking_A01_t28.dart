@@ -21,9 +21,9 @@ import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
 class A1 implements A {
-  int test_return_null() => null;
+  int test_return_nullable() => null;
 
-  int test_null(int i) => 4;
+  int test_nullable(int i) => 4;
   int test_required({int i = 1}) => 1;
   int test_never(Null i) => 1;
   Null test_return_never() => null;
@@ -36,17 +36,17 @@ class A1 implements A {
 }
 
 class B1 implements B {
-  int test_return_null() => null;
+  int test_return_nullable() => null;
 
-  int test_null(int i) => 5;
+  int test_nullable(int i) => 5;
   int test_required({int i}) => 2;
   int test_never(Null i) => 2;
 }
 
 class C1 implements C {
-  int test_return_null() => null;
+  int test_return_nullable() => null;
 
-  int test_null(int i) => 6;
+  int test_nullable(int i) => 6;
   int test_required({int i = 1}) => 1;
   int test_never(Null i) => 1;
   Null test_return_never() => null;
@@ -59,7 +59,7 @@ class C1 implements C {
 }
 
 main() {
-  Expect.isNull(A1().test_return_null());
-  Expect.isNull(B1().test_return_null());
-  Expect.isNull(C1().test_return_null());
+  Expect.isNull(A1().test_return_nullable());
+  Expect.isNull(B1().test_return_nullable());
+  Expect.isNull(C1().test_return_nullable());
 }
