@@ -14,19 +14,16 @@
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
 
-class A {
-  C c = new C();
-}
-
 class C {
   String test = "Lily was here";
 }
 
 main() {
-  C c = new C();
-  Expect.equals("Lily was here", c.test);
-  A? a = null;
-  Expect.throws(() {a?.c.test;}, (e) => e is NoSuchMethodError);
-  a = new A();
-  Expect.equals("Lily was here", a?.c.test);
+  C c1 = new C();
+  Expect.equals("Lily was here", c1.test);
+
+  C? c2 = new C();
+  if (c2 != null) {
+    Expect.equals("Lily was here", c2.test);
+  }
 }

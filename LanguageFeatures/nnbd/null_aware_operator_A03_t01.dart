@@ -4,28 +4,38 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A property access e?.f translates to:
- *  SHORT[EXP(e), fn[x] => x.f]
+ * @assertion A null aware method call e?.m(args) translates to:
+ *  SHORT[EXP(e), fn[x] => x.m(ARGS(args))]
  *
- * @description Check that a property access e?.f translates to:
- *  SHORT[EXP(e), fn[x] => x.f]
+ * @description Check that a null aware method call e?.m(args) translates to:
+ *  SHORT[EXP(e), fn[x] => x.m(ARGS(args))]
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
 
-class A {
-  String test() => "Lily was here";
+class C {
+  String test1() => "Lily was here";
+  String test2(String arg) => arg;
 }
 
-main() {
-  A? a = null;
-  Expect.isNull(a?.test());
-  a = new A();
-  Expect.equals("Lily was here", a?.test());
+void testShort(C? x) {
+  var actual1 = x?.test1();
+  var n1 = x;
+  var expected1 = n1 == null ? null : n1.test1();
+  Expect.equals(expected1, actual1);
 
-  String? s = null;
-  Expect.isNull(s?.toString());
-  s = "Let it be";
-  Expect.equals("Let it be", s?.toString());
+  var actual2 = x?.test2("Show must go on");
+  var n2 = x;
+  var expected2 = n2 == null ? null : n2.test2("Show must go on");
+  Expect.equals(expected2, actual2);
+}
+main() {
+  C? c1 = null;
+  testShort(c1);
+  c1 = new C();
+  testShort(c1);
+
+  C c2 = new C();
+  testShort(c2);
 }

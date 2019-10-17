@@ -8,24 +8,29 @@
  *  PASSTHRU[F, fn[x] => x.f]
  *
  * @description Check that if e translates to F then e.f translates to:
- *  PASSTHRU[F, fn[x] => x.f]
- * @static-warning
+ *  PASSTHRU[F, fn[x] => x.f]. Test type aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 import "../../Utils/expect.dart";
-
-class A {
-  C? c = new C();
-}
 
 class C {
   String test = "Lily was here";
 }
 
+typedef CAlias1 = C;
+typedef CAlias2 = C?;
+
 main() {
-  A a = new A();
-  Expect.equals("Lily was here", a?.c.test);  /// static type warning
-  a.c = null;
-  Expect.throws(() {a.c.test;}, (e) => e is NoSuchMethodError);
+  CAlias1 c1 = new C();
+  Expect.equals("Lily was here", c1.test);
+
+  CAlias1? c2 = new C();
+  Expect.equals("Lily was here", c2.test);
+
+  CAlias2 c3 = new C();
+  Expect.equals("Lily was here", c3.test);
+
+  CAlias2? c4 = new C();
+  Expect.equals("Lily was here", c4.test);
 }

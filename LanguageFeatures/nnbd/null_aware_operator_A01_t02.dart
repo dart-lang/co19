@@ -8,21 +8,42 @@
  *  SHORT[EXP(e), fn[x] => x.f]
  *
  * @description Check that a property access e?.f translates to:
- *  SHORT[EXP(e), fn[x] => x.f]
- * @static-warning
+ *  SHORT[EXP(e), fn[x] => x.f]. Test type aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 import "../../Utils/expect.dart";
 
-class A {
+class C {
   String test = "Lily was here";
 }
 
-main() {
-  A a = new A();
-  Expect.equals("Lily was here", a?.test);    /// static type warning
+void testShort(C? x) {
+  var actual = x?.test;
+  var n0 = x;
+  var expected = n0 == null ? null : n0.test;
+  Expect.equals(expected, actual);
+}
 
-  String s = "Let it be";
-  Expect.isNotNull(s?.hashCode);    /// static type warning
+typedef CAlias1 = C?;
+typedef CAlias2 = C;
+
+main() {
+  CAlias1 c1 = null;
+  testShort(c1);
+  c1 = new C();
+  testShort(c1);
+
+  CAlias1? c2 = null;
+  testShort(c2);
+  c2 = new C();
+  testShort(c2);
+
+  CAlias2 c3 = null;
+  testShort(c3);
+  c3 = new C();
+  testShort(c3);
+
+  CAlias2 c4 = new C();
+  testShort(c4);
 }
