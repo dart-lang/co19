@@ -10,56 +10,26 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  * @description Check that when choosing the most specific method signature
- * during interface computation, all nullability annotations are ignored in
- * unmigrated library if method argument is [null] ([implements] clause).
- * @author iarkh@unipro.ru
+ * during interface computation, [Never] method return value is treated as
+ * [Null] in unmigrated library .
  */
 // SharedOptions=--enable-experiment=non-nullable
 // @dart=2.4
 
-import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
-class A1 implements A {
-  int test_nullable(int i) => 4;
-
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
-  int test_return_nullable() => 1;
-  Null test_return_never() => null;
-  String field1 = "a";
-  String field2 = "b";
-  String get get_field1 => field1;
-  String get get_field2 => field1;
-  void set set_field1(String str) { field1 = str; }
-  void set set_field2(String str) { field2 = str; }
+class A1 extends A {
+  int test_return_never() => null;
+//    ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-class B1 implements B {
-  int test_nullable(int i) => 5;
-
-  int test_required({int i}) => 2;
-  int test_never(Null i) => 2;
-  int test_return_nullable() => 2;
+class A2 extends A {
+  int test_return_never() => 1;
+//    ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-class C1 implements C {
-  int test_nullable(int i) => 6;
-
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
-  int test_return_nullable() => 1;
-  Null test_return_never() => null;
-  String field1 = "a";
-  String field2 = "b";
-  String get get_field1 => field1;
-  String get get_field2 => field1;
-  void set set_field1(String str) { field1 = str; }
-  void set set_field2(String str) { field2 = str; }
-}
-
-main() {
-  Expect.equals(4, A1().test_nullable(null));
-  Expect.equals(5, B1().test_nullable(null));
-  Expect.equals(6, C1().test_nullable(null));
-}
+main() {}

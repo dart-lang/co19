@@ -9,9 +9,9 @@
  * incompatible methods. When choosing the most specific signature during
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
- * @description Check that when choosing the most specific class field
- * during interface computation, all nullability annotations are ignored in
- * unmigrated library for the class fields ([implements] clause).
+ * @description Check that when choosing the most specific signature during
+ * interface computation, requiredness and nullable annotations are ignored in
+ * unmigrated library if method argument is [null] ([implements] clause).
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -21,14 +21,36 @@ import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
 class A1 implements A {
-  String field1 = "c";
-  String field2 = "d";
+  int test_required({int i = 1}) => 4;
 
   int test_nullable(int i) => 4;
-  int test_required({int i = 1}) => 1;
   int test_never(Null i) => 1;
   int test_return_nullable() => 1;
   Null test_return_never() => null;
+  String field1 = "a";
+  String field2 = "b";
+  String get get_field1 => field1;
+  String get get_field2 => field1;
+  void set set_field1(String str) { field1 = str; }
+  void set set_field2(String str) { field2 = str; }
+}
+
+class B1 implements B {
+  int test_required({int i = 1}) => 5;
+
+  int test_nullable(int i) => 5;
+  int test_return_nullable() => 2;
+}
+
+class C1 implements C {
+  int test_required({int i = 1}) => 6;
+
+  int test_nullable(int i) => 6;
+  int test_never(Null i) => 1;
+  int test_return_nullable() => 1;
+  Null test_return_never() => null;
+  String field1 = "a";
+  String field2 = "b";
   String get get_field1 => field1;
   String get get_field2 => field1;
   void set set_field1(String str) { field1 = str; }
@@ -36,7 +58,7 @@ class A1 implements A {
 }
 
 main() {
-  A1 a1 = A1();
-  Expect.equals("c", a1.field1);
-  Expect.equals("d", a1.field2);
+  Expect.equals(4, A1().test_required(i: null));
+  Expect.equals(5, B1().test_required(i: null));
+  Expect.equals(6, C1().test_required(i: null));
 }

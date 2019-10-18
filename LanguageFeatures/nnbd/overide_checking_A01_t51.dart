@@ -9,21 +9,28 @@
  * incompatible methods. When choosing the most specific signature during
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
- * @description Check that when choosing the most specific signature during
- * interface computation, the [Never] type is treated as [Null] for the method
- * argument in the unmigrated library ([with] clause).
- * @author iarkh@unipro.ru
+ * @description Check that when choosing the most specific method signature
+ * during interface computation, [Never] method return value is treated as
+ * [Null] in legacy library.
  */
 // SharedOptions=--enable-experiment=non-nullable
 // @dart=2.4
 
-import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
 class A1 with A {
-  int test_never(Null i) => 4;
+  int test_return_never() => null;
+//    ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class A2 with A {
+  int test_return_never() => 0;
+//    ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  Expect.equals(4, A1().test_never(null));
 }

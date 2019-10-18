@@ -24,19 +24,13 @@ class A1 extends A {
   int test_never(Null i) => 4;
 }
 
-class B1 extends B {
-  int test_never(Null i) => 5;
-}
-
 class C1 extends C {
   int test_never(Null i) => 6;
 }
 
 main() {
   Expect.equals(1, A().test_never(null));
-  Expect.equals(2, B().test_never(null));
   Expect.equals(3, C().test_never(null));
   Expect.equals(4, A1().test_never(null));
-  Expect.equals(5, B1().test_never(null));
   Expect.equals(6, C1().test_never(null));
 }

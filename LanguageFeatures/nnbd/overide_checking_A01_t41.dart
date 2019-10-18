@@ -11,7 +11,7 @@
  * ignored, and the [Never] type is treated as [Null].
  * @description Check that when choosing the most specific class field
  * during interface computation, all nullability annotations are ignored in
- * unmigrated library for setters which set non-null value ([with] clause).
+ * unmigrated library and are not ignored in migrated library ([with] clause).
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -21,23 +21,23 @@ import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
 class A1 with A {
-  void set set1_field1(String str) { field1 = null; }
-  void set set1_field2(String str) { field2 = null; }
+  String field1 = "c";
+  String field2 = "d";
+}
 
-  void set set_field1(String str) { field1 = str; }
-  void set set_field2(String str) { field2 = str; }
+class A2 with A {
+  String field1 = null;
+  String field2 = null;
 }
 
 main() {
   A1 a1 = A1();
-  a1.set_field1 = null;
-  Expect.isNull(a1.get_field1);
-  a1.set_field2 = null;
-  Expect.isNull(a1.get_field1);
+  a1.field1 = null;
+  Expect.isNull(a1.field1);
+  a1.field2 = null;
+  Expect.isNull(a1.field2);
 
-  A1 a11 = A1();
-  a11.set1_field1 = null;
-  Expect.isNull(a11.get_field1);
-  a11.set1_field2 = null;
-  Expect.isNull(a11.get_field1);
+  A2 a2 = A2();
+  Expect.isNull(a2.field1);
+  Expect.isNull(a2.field2);
 }

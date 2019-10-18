@@ -9,9 +9,9 @@
  * incompatible methods. When choosing the most specific signature during
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
- * @description Check that when choosing the most specific class field
- * during interface computation, all nullability annotations are ignored in
- * unmigrated library and are not ignored in migrated library ([with] clause).
+ * @description Check that when choosing the most specific signature during
+ * interface computation, all requiredness annotations are ignored in unmigrated
+ * library if method argument is not [null] ([with] clause).
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -21,23 +21,14 @@ import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
 class A1 with A {
-  String field1 = "c";
-  String field2 = "d";
+  int test_required({int i = 1}) => 4;
 }
 
-class A2 with A {
-  String field1 = null;
-  String field2 = null;
+class B1 with B {
+  int test_required({int i = 1}) => 5;
 }
 
 main() {
-  A1 a1 = A1();
-  a1.field1 = null;
-  Expect.isNull(a1.field1);
-  a1.field2 = null;
-  Expect.isNull(a1.field2);
-
-  A2 a2 = A2();
-  Expect.isNull(a2.field1);
-  Expect.isNull(a2.field2);
+  Expect.equals(4, A1().test_required(i: 1));
+  Expect.equals(5, B1().test_required(i: 1));
 }

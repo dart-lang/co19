@@ -11,7 +11,8 @@
  * ignored, and the [Never] type is treated as [Null].
  * @description Check that when choosing the most specific method signature
  * during interface computation, all nullability annotations are ignored in
- * unmigrated library for the class type parameter ([implements] clause).
+ * unmigrated library for the class method return value if it is [null]
+ * ([implements] clause).
  */
 // SharedOptions=--enable-experiment=non-nullable
 // @dart=2.4
@@ -19,28 +20,45 @@
 import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
-class D1<X extends A> implements D<X> {
-  dynamic getParamType() {
-    return X;
-  }
+class A1 implements A {
+  int test_return_nullable() => null;
+
+  int test_nullable(int i) => 4;
+  int test_required({int i = 1}) => 1;
+  int test_never(Null i) => 1;
+  Null test_return_never() => null;
+  String field1 = "a";
+  String field2 = "b";
+  String get get_field1 => field1;
+  String get get_field2 => field1;
+  void set set_field1(String str) { field1 = str; }
+  void set set_field2(String str) { field2 = str; }
 }
 
-class E1<X extends A> implements E<X> {
-  dynamic getParamType() {
-    return X;
-  }
+class B1 implements B {
+  int test_return_nullable() => null;
+
+  int test_nullable(int i) => 5;
+  int test_required({int i}) => 2;
+}
+
+class C1 implements C {
+  int test_return_nullable() => null;
+
+  int test_nullable(int i) => 6;
+  int test_required({int i = 1}) => 1;
+  int test_never(Null i) => 1;
+  Null test_return_never() => null;
+  String field1 = "a";
+  String field2 = "b";
+  String get get_field1 => field1;
+  String get get_field2 => field1;
+  void set set_field1(String str) { field1 = str; }
+  void set set_field2(String str) { field2 = str; }
 }
 
 main() {
-  D<Null> d = D<Null>();
-  Expect.equals(Null, d.getParamType());
-
-  E<Null> e = E<Null>();
-  Expect.equals(Null, e.getParamType());
-
-  D1<Null> d1 = D1<Null>();
-  Expect.equals(Null, d1.getParamType());
-
-  E1<Null> e1 = E1<Null>();
-  Expect.equals(Null, e1.getParamType());
+  Expect.isNull(A1().test_return_nullable());
+  Expect.isNull(B1().test_return_nullable());
+  Expect.isNull(C1().test_return_nullable());
 }

@@ -11,8 +11,7 @@
  * ignored, and the [Never] type is treated as [Null].
  * @description Check that when choosing the most specific method signature
  * during interface computation, all nullability annotations are ignored in
- * unmigrated library if method argument is [null] ([with] clause).
- * @author iarkh@unipro.ru
+ * unmigrated library for the class type parameter ([implements] clause).
  */
 // SharedOptions=--enable-experiment=non-nullable
 // @dart=2.4
@@ -20,15 +19,28 @@
 import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
-class A1 with A {
-  int test_nullable(int i) => 4;
+class D1<X extends A> implements D<X> {
+  dynamic getParamType() {
+    return X;
+  }
 }
 
-class B1 with B {
-  int test_nullable(int i) => 5;
+class E1<X extends A> implements E<X> {
+  dynamic getParamType() {
+    return X;
+  }
 }
 
 main() {
-  Expect.equals(4, A1().test_nullable(null));
-  Expect.equals(5, B1().test_nullable(null));
+  D<Null> d = D<Null>();
+  Expect.equals(Null, d.getParamType());
+
+  E<Null> e = E<Null>();
+  Expect.equals(Null, e.getParamType());
+
+  D1<Null> d1 = D1<Null>();
+  Expect.equals(Null, d1.getParamType());
+
+  E1<Null> e1 = E1<Null>();
+  Expect.equals(Null, e1.getParamType());
 }

@@ -10,8 +10,8 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  * @description Check that when choosing the most specific signature during
- * interface computation, the [Never] type is treated as [Null] for the method
- * argument in the unmigrated library ([implements] clause).
+ * interface computation, all requiredness annotations are ignored in unmigrated
+ * library if method argument is not [null] ([implements] clause).
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -21,10 +21,10 @@ import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
 class A1 implements A {
-  int test_never(Null i) => 4;
+  int test_required({int i = 1}) => 4;
 
   int test_nullable(int i) => 4;
-  int test_required({int i = 1}) => 4;
+  int test_never(Null i) => 1;
   int test_return_nullable() => 1;
   Null test_return_never() => null;
   String field1 = "a";
@@ -36,18 +36,17 @@ class A1 implements A {
 }
 
 class B1 implements B {
-  int test_never(Null i) => 5;
+  int test_required({int i = 1}) => 5;
 
   int test_nullable(int i) => 5;
-  int test_required({int i = 1}) => 5;
   int test_return_nullable() => 2;
 }
 
 class C1 implements C {
-  int test_never(Null i) => 6;
+  int test_required({int i = 1}) => 6;
 
   int test_nullable(int i) => 6;
-  int test_required({int i = 1}) => 6;
+  int test_never(Null i) => 1;
   int test_return_nullable() => 1;
   Null test_return_never() => null;
   String field1 = "a";
@@ -59,7 +58,7 @@ class C1 implements C {
 }
 
 main() {
-  Expect.equals(4, A1().test_never(null));
-  Expect.equals(5, B1().test_never(null));
-  Expect.equals(6, C1().test_never(null));
+  Expect.equals(4, A1().test_required(i: 1));
+  Expect.equals(5, B1().test_required(i: 1));
+  Expect.equals(6, C1().test_required(i: 1));
 }

@@ -25,7 +25,7 @@ class A {
   int test_never(Never i) => 1;
 
   int? test_return_nullable() => 1;
-  Null test_return_never() => throw "Nevermind";
+  Never test_return_never() => throw "Nevermind";
 
   String field1 = "a";
   String? field2 = "b";
@@ -40,8 +40,6 @@ class A {
 class B {
   int test_nullable(int? i) => 2;
   int test_required({required int i}) => 2;
-  int test_never(Null i) => 2;
-
   int test_return_nullable() => 2;
 }
 

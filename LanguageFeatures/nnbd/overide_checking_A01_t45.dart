@@ -9,9 +9,10 @@
  * incompatible methods. When choosing the most specific signature during
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
- * @description Check that when choosing the most specific method signature
+ * @description Check that when choosing the most specific class field
  * during interface computation, all nullability annotations are ignored in
- * unmigrated library for the class type parameter ([with] clause).
+ * unmigrated library for setters which set non-null value ([with] clause).
+ * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // @dart=2.4
@@ -19,13 +20,24 @@
 import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
-class D1<X extends A> with D<X> {}
-class E1<X extends A> with E<X> {}
+class A1 with A {
+  void set set1_field1(String str) { field1 = null; }
+  void set set1_field2(String str) { field2 = null; }
+
+  void set set_field1(String str) { field1 = str; }
+  void set set_field2(String str) { field2 = str; }
+}
 
 main() {
-  D1<Null> d1 = D1<Null>();
-  Expect.equals(Null, d1.getParamType());
+  A1 a1 = A1();
+  a1.set_field1 = null;
+  Expect.isNull(a1.get_field1);
+  a1.set_field2 = null;
+  Expect.isNull(a1.get_field1);
 
-  E1<Null> e1 = E1<Null>();
-  Expect.equals(Null, e1.getParamType());
+  A1 a11 = A1();
+  a11.set1_field1 = null;
+  Expect.isNull(a11.get_field1);
+  a11.set1_field2 = null;
+  Expect.isNull(a11.get_field1);
 }
