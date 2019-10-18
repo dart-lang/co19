@@ -11,28 +11,36 @@
  * ignored, and the [Never] type is treated as [Null].
  * @description Check that when choosing the most specific method signature
  * during interface computation, [Never] method return value is treated as
- * [Null] in legacy library ([with] clause).
+ * [Null] in legacy library (check the case when class implements two classes
+ * with the same method names).
  */
 // SharedOptions=--enable-experiment=non-nullable
 // @dart=2.4
 
-import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
-class A1 with A {
+abstract class AA {
+  int test_return_never();
 }
 
-class A2 with A {
-  Null test_return_never() => null;
+class A1 implements A, AA {
+
+  int test_return_never() => null;
+//    ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  int test_nullable(int i) => 4;
+  int test_return_nullable() => 4;
+  int test_required({int i = 1}) => 1;
+  int test_never(Null i) => 1;
+  String field1 = "a";
+  String field2 = "b";
+  String get get_field1 => field1;
+  String get get_field2 => field1;
+  void set set_field1(String str) { field1 = str; }
+  void set set_field2(String str) { field2 = str; }
 }
 
 main() {
-  A a = A();
-  Expect.throws(() { a.test_return_never(); });
-
-  A1 a1 = A1();
-  Expect.throws(() { a1.test_return_never(); });
-
-  A2 a2 = A2();
-  Expect.isNull(a2.test_return_never());
 }

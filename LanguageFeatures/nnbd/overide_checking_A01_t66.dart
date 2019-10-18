@@ -10,8 +10,9 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  * @description Check that when choosing the most specific method signature
- * during interface computation, [Never] method return value is treated as
- * [Null] in legacy library ([with] clause).
+ * during interface computation, all nullability annotations are ignored in
+ * unmigrated library for the class type parameter (check the case when class
+ * implements two classes with the type parameter).
  */
 // SharedOptions=--enable-experiment=non-nullable
 // @dart=2.4
@@ -19,20 +20,29 @@
 import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
-class A1 with A {
+abstract class F<X extends A> {
+  dynamic getParamType();
 }
 
-class A2 with A {
-  Null test_return_never() => null;
+class DE<X extends A> implements D<X>, E<X> {
+  dynamic getParamType() => X;
+}
+
+class DF<X extends A> implements D<X>, F<X> {
+  dynamic getParamType() => X;
+}
+
+class EF<X extends A> implements D<X>, F<X> {
+  dynamic getParamType() => X;
 }
 
 main() {
-  A a = A();
-  Expect.throws(() { a.test_return_never(); });
+  DE<Null> de = DE<Null>();
+  Expect.equals(Null, de.getParamType());
 
-  A1 a1 = A1();
-  Expect.throws(() { a1.test_return_never(); });
+  DF<Null> df = DF<Null>();
+  Expect.equals(Null, df.getParamType());
 
-  A2 a2 = A2();
-  Expect.isNull(a2.test_return_never());
+  EF<Null> ef = EF<Null>();
+  Expect.equals(Null, ef.getParamType());
 }

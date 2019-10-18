@@ -20,15 +20,11 @@ import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
 class D1<X extends A> implements D<X> {
-  dynamic getParamType() {
-    return X;
-  }
+  dynamic getParamType() => X;
 }
 
 class E1<X extends A> implements E<X> {
-  dynamic getParamType() {
-    return X;
-  }
+  dynamic getParamType() => X;
 }
 
 main() {

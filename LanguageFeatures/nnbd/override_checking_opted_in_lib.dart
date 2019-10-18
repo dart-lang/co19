@@ -52,13 +52,9 @@ class C extends A {
 }
 
 class D<X extends A> {
-  dynamic getParamType() {
-    return X;
-  }
+  dynamic getParamType() => X;
 }
 
 class E<X extends A?> {
-  dynamic getParamType() {
-    return X;
-  }
+  dynamic getParamType() => X;
 }
