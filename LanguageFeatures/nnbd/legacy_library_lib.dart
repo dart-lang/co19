@@ -14,6 +14,10 @@ class A implements AMx {
   void foo() {}
   String test() => "Lily was here";
   String text = "Let it be";
+  String get text2 => text;
+  void set text3(String val) {
+    this.text = val;
+  }
   int operator[](int index) => index;
   void operator[]=(int index, var value) => value;
 

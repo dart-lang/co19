@@ -14,18 +14,23 @@
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
 
-class A {
+class C {
   int operator[](int index) => index;
 }
 
-main() {
-  A? a = null;
-  Expect.isNull(a?.[42]);
-  a = new A();
-  Expect.equals(42, a?.[42]);
+void testShort(C? x) {
+  var actual1 = x?.[42];
+  var n0 = x;
+  var expected1 = n0 == null ? null : n0[42];
+  Expect.equals(expected1, actual1);
+}
 
-  List<String>? list = null;
-  Expect.isNull(list?.[42]);
-  list = ["Lily", "was", "here"];
-  Expect.equals("Lily", list?.[0]);
+main() {
+  C? c1 = null;
+  testShort(c1);
+  c1 = new C();
+  testShort(c1);
+
+  C c2 = new C();
+  testShort(c2);
 }

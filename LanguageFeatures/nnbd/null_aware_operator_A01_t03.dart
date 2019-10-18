@@ -20,6 +20,10 @@ void testShort(A? x) {
   var n0 = x;
   var expected = n0 == null ? null : n0.text;
   Expect.equals(expected, actual);
+
+  var actual2 = x?.text2;
+  var expected2 = n0 == null ? null : n0.text2;
+  Expect.equals(expected2, actual2);
 }
 
 main() {

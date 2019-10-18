@@ -8,36 +8,26 @@
  *  SHORT[EXP(e1), fn[x] => x[EXP(e2)]]
  *
  * @description Check that if e1 translates to F then e1?.[e2] translates to:
- *  SHORT[EXP(e1), fn[x] => x[EXP(e2)]]. Test type aliases
- * @static-warning
+ *  SHORT[EXP(e1), fn[x] => x[EXP(e2)]]. Test legacy pre-NNBD types
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
+import "legacy_library_lib.dart";
 
-class A {
-  int operator[](int index) => index;
+void testShort(A? x) {
+  var actual = x?.test;
+  var n0 = x;
+  var expected = n0 == null ? null : n0.test();
+  Expect.equals(expected, actual);
 }
 
-typedef AAlias1 = A?;
-typedef AAlias2 = A;
-typedef ListAlias1 = List<String>?;
-typedef ListAlias2 = List<String>;
-
 main() {
-  AAlias1 a1 = null;
-  Expect.isNull(a1?.[42]);
+  A? a1 = null;
+  testShort(a1);
   a1 = new A();
-  Expect.equals(42, a1?.[42]);
+  testShort(a1);
 
-  AAlias2 a2 = new A();
-  Expect.equals(42, a2?.[42]);   /// static type warning
-
-  ListAlias1 list1 = null;
-  Expect.isNull(list1?.[42]);
-  list1 = ["Lily", "was", "here"];
-  Expect.equals("Lily", list1?.[0]);
-
-  ListAlias list2 = ["Let", "it", "be"];
-  Expect.equals("Let", list2?.[0]);   /// static type warning
+  A a2 = new A();
+  testShort(a2);
 }

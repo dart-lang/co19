@@ -16,14 +16,17 @@ import "../../Utils/expect.dart";
 
 class C {
   String test = "Lily was here";
+  String get test2 => "Show must go on";
 }
 
 main() {
   C c1 = new C();
   Expect.equals("Lily was here", c1.test);
+  Expect.equals("Show must go on", c1.test2);
 
   C? c2 = new C();
   if (c2 != null) {
     Expect.equals("Lily was here", c2.test);
+    Expect.equals("Show must go on", c1.test2);
   }
 }

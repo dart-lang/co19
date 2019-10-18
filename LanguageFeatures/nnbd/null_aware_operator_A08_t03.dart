@@ -8,29 +8,30 @@
  *  SHORT[EXP(e1), fn[x] => x.f = EXP(e2)]
  *
  * @description Check that a property access e?.f translates to:
- *  SHORT[EXP(e), fn[x] => x.f]. Test type aliases
- * @static-warning
+ *  SHORT[EXP(e), fn[x] => x.f]. Test legacy pre-NNBD types
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
+import "legacy_library_lib.dart";
 
-class A {
-  String test = "No woman";
+void testShort(A? x, String e2) {
+  var actual1 = x?.text = e2;
+  var n0 = x;
+  var expected1 = n0 == null ? null : n0.text = e2;
+  Expect.equals(expected1, actual1);
+
+  var actual2 = x?.text3 = e2;
+  var expected2 = n0 == null ? null : n0.text3 = e2;
+  Expect.equals(expected2, actual2);
 }
 
-typedef AAlias1 = A?;
-typedef AAlias2 = A;
-
 main() {
-  AAlias1 a1 = null;
-  Expect.isNull(a1?.test = "no cry");
-  Expect.isNull(a1);
+  A? a1 = null;
+  testShort(a1, "Show must go on");
   a1 = new A();
-  Expect.equals("no cry", a1?.test = "no cry");
-  Expect.equals("no cry", a1?.test);
+  testShort(a1, "Show must go on");
 
-  AAlias2 a2 = new A();
-  Expect.equals("no cry", a2?.test = "no cry");    /// static type warning
-  Expect.equals("no cry", a2.test);
+  A a2 = new A();
+  testShort(a2, "Show must go on");
 }

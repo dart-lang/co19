@@ -14,15 +14,30 @@
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
 
-class A {
-  String test = "No woman";
+class C {
+  String test1 = "Lily was here";
+  void set test2(String v) {
+    this.test1 = v;
+  }
+}
+
+void testShort(C? x, String e2) {
+  var actual1 = x?.test1 = e2;
+  var n0 = x;
+  var expected1 = n0 == null ? null : n0.test1 = e2;
+  Expect.equals(expected1, actual1);
+
+  var actual2 = x?.test2 = e2;
+  var expected2 = n0 == null ? null : n0.test2 = e2;
+  Expect.equals(expected2, actual2);
 }
 
 main() {
-  A? a = null;
-  Expect.isNull(a?.test = "no cry");
-  Expect.isNull(a);
-  a = new A();
-  Expect.equals("no cry", a?.test = "no cry");
-  Expect.equals("no cry", a?.test);
+  C? c1 = null;
+  testShort(c1, "Show must go on");
+  c1 = new C();
+  testShort(c1, "Show must go on");
+
+  C c2 = new C();
+  testShort(c2, "Show must go on");
 }

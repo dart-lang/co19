@@ -30,6 +30,7 @@ void testShort(C? x) {
   var expected2 = n2 == null ? null : n2.test2("Show must go on");
   Expect.equals(expected2, actual2);
 }
+
 main() {
   C? c1 = null;
   testShort(c1);

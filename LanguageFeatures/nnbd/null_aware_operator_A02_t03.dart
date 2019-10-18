@@ -18,9 +18,11 @@ import "legacy_library_lib.dart";
 main() {
   A a1 = new A();
   Expect.equals("Let it be", a1.text);
+  Expect.equals("Let it be", a1.text2);
 
   A? a2 = new A();
   if (a2 != null) {
     Expect.equals("Let it be", a2.text);
+    Expect.equals("Let it be", a2.text2);
   }
 }

@@ -8,19 +8,50 @@
  *  SHORT[EXP(e1), fn[x] => x.f = EXP(e2)]
  *
  * @description Check that a property access e?.f translates to:
- *  SHORT[EXP(e), fn[x] => x.f]
+ *  SHORT[EXP(e), fn[x] => x.f]. Test type aliases
  * @static-warning
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 import "../../Utils/expect.dart";
 
-class A {
-  String test = "No woman";
+class C {
+  String test1 = "Lily was here";
+  void set test2(String v) {
+    this.test1 = v;
+  }
+}
+
+typedef CAlias1 = C?;
+typedef CAlias2 = C;
+
+void testShort(C? x, String e2) {
+  var actual1 = x?.test1 = e2;
+  var n0 = x;
+  var expected1 = n0 == null ? null : n0.test1 = e2;
+  Expect.equals(expected1, actual1);
+
+  var actual2 = x?.test2 = e2;
+  var expected2 = n0 == null ? null : n0.test2 = e2;
+  Expect.equals(expected2, actual2);
 }
 
 main() {
-  A a = new A();
-  Expect.equals("no cry", a?.test = "no cry");    /// static type warning
-  Expect.equals("no cry", a.test);
+  CAlias1 c1 = null;
+  testShort(c1, "Show must go on");
+  c1 = new C();
+  testShort(c1, "Show must go on");
+
+  CAlias1? c2 = null;
+  testShort(c2, "Show must go on");
+  c2 = new C();
+  testShort(c2, "Show must go on");
+
+  CAlias2 c3 = null;
+  testShort(c3, "Show must go on");
+  c3 = new C();
+  testShort(c3, "Show must go on");
+
+  CAlias2 c4 = new C();
+  testShort(c4, "Show must go on");
 }

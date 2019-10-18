@@ -28,14 +28,20 @@ main() {
   Expect.equals("Show must go on", c1.test2("Show must go on"));
 
   CAlias1? c2 = new C();
-  Expect.equals("Lily was here", c2.test1());
-  Expect.equals("Show must go on", c2.test2("Show must go on"));
+  if (c2 != null) {
+    Expect.equals("Lily was here", c2.test1());
+    Expect.equals("Show must go on", c2.test2("Show must go on"));
+  }
 
   CAlias2 c3 = new C();
-  Expect.equals("Lily was here", c3.test1());
-  Expect.equals("Show must go on", c3.test2("Show must go on"));
+  if (c3 != null) {
+    Expect.equals("Lily was here", c3.test1());
+    Expect.equals("Show must go on", c3.test2("Show must go on"));
+  }
 
   CAlias2? c4 = new C();
-  Expect.equals("Lily was here", c4.test1());
-  Expect.equals("Show must go on", c4.test2("Show must go on"));
+  if (c4 != null) {
+    Expect.equals("Lily was here", c4.test1());
+    Expect.equals("Show must go on", c4.test2("Show must go on"));
+  }
 }
