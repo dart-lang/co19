@@ -7,37 +7,37 @@
  * @assertion The assignment e1?.f = e2 translates to:
  *  SHORT[EXP(e1), fn[x] => x.f = EXP(e2)]
  *
- * @description Check that the assignment e1?.f = e2 translates to:
- *  SHORT[EXP(e1), fn[x] => x.f = EXP(e2)]
+ *  The other assignment operators are handled equivalently.
+ *
+ * @description Check that assignments like e1?.f |= e2 translates to:
+ *  SHORT[EXP(e1), fn[x] => x.f |= EXP(e2)]
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
 
 class C {
-  String test1 = "Lily was here";
-  void set test2(String v) {
-    this.test1 = v;
+  int test = 13;
+  init() {
+    test = 13;
   }
 }
 
-void testShort(C? x, String e2) {
-  var actual1 = x?.test1 = e2;
+void testShort(C? x, int e2) {
+  x?.init();
+  var actual1 = x?.test |= e2;
+  x?.init();
   var n0 = x;
-  var expected1 = n0 == null ? null : n0.test1 = e2;
+  var expected1 = n0 == null ? null : n0.test |= e2;
   Expect.equals(expected1, actual1);
-
-  var actual2 = x?.test2 = e2;
-  var expected2 = n0 == null ? null : n0.test2 = e2;
-  Expect.equals(expected2, actual2);
 }
 
 main() {
   C? c1 = null;
-  testShort(c1, "Show must go on");
+  testShort(c1, 4);
   c1 = new C();
-  testShort(c1, "Show must go on");
+  testShort(c1, 4);
 
   C c2 = new C();
-  testShort(c2, "Show must go on");
+  testShort(c2, 4);
 }

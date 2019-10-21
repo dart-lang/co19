@@ -7,8 +7,8 @@
  * @assertion The assignment e1?.f = e2 translates to:
  *  SHORT[EXP(e1), fn[x] => x.f = EXP(e2)]
  *
- * @description Check that a property access e?.f translates to:
- *  SHORT[EXP(e), fn[x] => x.f]. Test legacy pre-NNBD types
+ * @description Check that the assignment e1?.f = e2 translates to:
+ *  SHORT[EXP(e1), fn[x] => x.f = EXP(e2)]. Test legacy pre-NNBD types
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
