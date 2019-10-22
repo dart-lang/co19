@@ -14,26 +14,27 @@
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
 
-class A {
+class C {
   List _list;
-  dynamic operator[](int index) => _list[index];
+  void operator[]=(int index, dynamic value) => _list[index] = value;
 
-  A(int length) {
-    _list = new List(length);
-  }
+  C(int length) :  _list = new List(length);
 }
 
-main() {
-  A? a = null;
-  Expect.isNull(a?.[42] = 13);
-  Expect.isNull(a);
-  a = new A(3);
-  Expect.equals(42, a?.[0] = 42);
-  Expect.equals(42, a1[0]);
+void testShort(C? x, int index, dynamic value) {
+  var actual = x?.[index] = value;
+  var n0 = x;
+  var expected = n0 == null ? null : n0?.[index] = value;
+  Expect.equals(expected, actual);
+}
 
-  List<String>? list = null;
-  Expect.isNull(list?.[42] = 42);
-  list = ["Lily", "was", "here"];
-  Expect.equals("Leeloo", list?.[0] = "Leeloo");
-  Expect.equals("Leeloo", list[0]);
+
+main() {
+  C? c1 = null;
+  testShort(c1, 42, "Lily was here");
+  c1 = new C(3);
+  testShort(c1, 2, "Show must go on");
+
+  C c2 = new C(3);
+  testShort(c2, 2, "Show must go on");
 }

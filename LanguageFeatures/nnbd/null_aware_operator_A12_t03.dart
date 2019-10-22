@@ -8,33 +8,26 @@
  *  SHORT[EXP(e1), fn[x] => x[EXP(e2)] = EXP(e3)]
  *
  * @description Check that if e1 translates to F then e1?.[e2] = e3 translates
- * to: SHORT[EXP(e1), fn[x] => x[EXP(e2)] = EXP(e3)]. Test type aliases
+ * to: SHORT[EXP(e1), fn[x] => x[EXP(e2)] = EXP(e3)]. Test legacy pre-NNBD types
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
+import "legacy_library_lib.dart";
 
-class A {
-  List _list;
-  dynamic operator[](int index) => _list[index];
-
-  A(int length) {
-    _list = new List(length);
-  }
+void testShort(A? x, int index, dynamic value) {
+  var actual = x?.[index] = value;
+  var n0 = x;
+  var expected = n0 == null ? null : n0?.[index] = value;
+  Expect.equals(expected, actual);
 }
 
-typedef AAlias1 = A?;
-typedef AAlias2 = A;
-
 main() {
-  AAlias1 a1 = null;
-  Expect.isNull(a1?.[42] = 13);
-  Expect.isNull(a1);
-  a1 = new A(3);
-  Expect.equals(42, a1?.[0] = 42);
-  Expect.equals(42, a1[0]);
+  A? a1 = null;
+  testShort(a1, 42, "Lily was here");
+  a1 = new A();
+  testShort(a1, 42, "Show must go on");
 
-  AAlias2 a2 = new A(3);
-  Expect.equals(42, a2?.[0] = 42);   /// static type warning
-  Expect.equals(42, a2[0]);
+  A a2 = new A();
+  testShort(a2, 42, "Show must go on");
 }

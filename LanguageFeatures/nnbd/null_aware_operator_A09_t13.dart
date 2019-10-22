@@ -17,7 +17,7 @@
 import "../../Utils/expect.dart";
 
 class C {
-  int test = 13;
+  int? test = 13;
 }
 
 void testShort(C? x, int e2) {
@@ -32,7 +32,13 @@ main() {
   testShort(c1, 42);
   c1 = new C();
   testShort(c1, 42);
+  if (c1 != null) {
+    c1.test = null;
+    testShort(c1, 42);
+  }
 
   C c2 = new C();
+  testShort(c2, 42);
+  c2.test = null;
   testShort(c2, 42);
 }

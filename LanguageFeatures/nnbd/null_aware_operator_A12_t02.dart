@@ -8,27 +8,46 @@
  *  SHORT[EXP(e1), fn[x] => x[EXP(e2)] = EXP(e3)]
  *
  * @description Check that if e1 translates to F then e1?.[e2] = e3 translates
- * to: SHORT[EXP(e1), fn[x] => x[EXP(e2)] = EXP(e3)]
- * @static-warning
+ * to: SHORT[EXP(e1), fn[x] => x[EXP(e2)] = EXP(e3)]. Test type aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 import "../../Utils/expect.dart";
 
-class A {
+class C {
   List _list;
-  dynamic operator[](int index) => _list[index];
+  void operator[]=(int index, dynamic value) => _list[index] = value;
 
-  A(int length) {
-    _list = new List(length);
-  }
+  C(int length) :  _list = new List(length);
 }
 
-main() {
-  A a = new A(3);
-  Expect.equals(42, a?.[0] = 42);   /// static type warning
+typedef CAlias1 = C?;
+typedef CAlias2 = C;
 
-  List<String> list = ["Lily", "was", "here"];
-  Expect.equals("Leeloo", list?.[0] = "Leeloo");  /// static type warning
-  Expect.equals("Leeloo", list[0]);
+void testShort(C? x, int index, dynamic value) {
+  var actual = x?.[index] = value;
+  var n0 = x;
+  var expected = n0 == null ? null : n0?.[index] = value;
+  Expect.equals(expected, actual);
+}
+
+
+main() {
+  CAlias1 c1 = null;
+  testShort(c1, 42, "Lily was here");
+  c1 = new C(3);
+  testShort(c1, 2, "Show must go on");
+
+  CAlias1? c2 = null;
+  testShort(c2, 42, "Lily was here");
+  c2 = new C(3);
+  testShort(c2, 2, "Show must go on");
+
+  CAlias2? c3 = null;
+  testShort(c3, 42, "Lily was here");
+  c3 = new C(3);
+  testShort(c3, 2, "Show must go on");
+
+  CAlias2 c4 = new C(3);
+  testShort(c4, 2, "Show must go on");
 }
