@@ -13,9 +13,7 @@
  * method with parameter of any type ([extends] clause).
  */
 // SharedOptions=--enable-experiment=non-nullable
-// @dart=2.4
 
-import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
 class A1 extends A {

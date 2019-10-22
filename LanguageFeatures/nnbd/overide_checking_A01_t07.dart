@@ -30,6 +30,11 @@ class A2 extends A {
   String field2 = null;
 }
 
+class A3 extends A {
+  String field1;
+  String field2;
+}
+
 main() {
   A a = A();
   a.field1 = null;
@@ -46,6 +51,10 @@ main() {
   A2 a2 = A2();
   Expect.isNull(a2.field1);
   Expect.isNull(a2.field2);
+
+  A3 a3 = A3();
+  Expect.isNull(a3.field1);
+  Expect.isNull(a3.field2);
 
   C c = C();
   c.field1 = null;
