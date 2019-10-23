@@ -10,13 +10,17 @@
  * to override otherwise incompatible signatures for a method.
  * @description Check that overriding works as expected in a migrated library -
  * test that migrated getter without null annotations cannot override legacy
- * getter ([extends] clause).
+ * getter ([implements] clause).
  */
 // SharedOptions=--enable-experiment=non-nullable
 
 import "override_checking_legacy_lib.dart";
 
-class A1 extends A {
+class A1 implements A {
+  int? aField1 = 1;
+  int? aField2 = null;
+  int? aField3;
+
   int get get_field1 => aField1;
 //        ^^^^^^^^^^
 // [analyzer] unspecified
@@ -31,6 +35,15 @@ class A1 extends A {
 //        ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  int test_nullable(int? i) => 2;
+  int test_required({int i = 1}) => 1;
+  int test_never(Null i) => 1;
+  int test_return_nullable() => 1;
+  Null test_return_never() => null;
+  void set set_field1(int i) { aField1 = -1; }
+  void set set_field2(int i) { aField1 = -2; }
+  void set set_field3(int i) { aField1 = -3; }
 }
 
 main() {}

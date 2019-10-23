@@ -14,7 +14,7 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-import "override_checking_opted_in_lib.dart";
+import "override_checking_legacy_lib.dart";
 
 class A1 extends A {
   int test_never(Never i) => 1;

@@ -10,7 +10,7 @@
  * to override otherwise incompatible signatures for a method.
  * @description Check that overriding works as expected in a migrated library -
  * test that migrated method with [Never] return value can override legacy
- * method ([extends] clause, contravariant case).
+ * method ([extends] clause).
  */
 // SharedOptions=--enable-experiment=non-nullable
 

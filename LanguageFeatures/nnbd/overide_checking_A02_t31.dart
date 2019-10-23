@@ -9,28 +9,37 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  * @description Check that overriding works as expected in a migrated library -
- * test that migrated getter without null annotations cannot override legacy
- * getter ([extends] clause).
+ * test that nullable class type parameters work as expected ([implements]
+ * clause).
  */
-// SharedOptions=--enable-experiment=non-nullable
 
+import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
-class A1 extends A {
-  int get get_field1 => aField1;
-//        ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  int get get_field2 => aField2;
-//        ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  int get get_field3 => aField3;
-//        ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+class B1<X extends A?> implements B<X> {
+  dynamic getParamType() => X;
 }
 
-main() {}
+class B2<X extends A> implements B<X> {
+  dynamic getParamType() => X;
+}
+
+main() {
+  B1<A?> b1 = B1<A?>();
+  Expect.equals(A, b1.getParamType());
+
+  B1<Null> b2 = B1<Null>();
+  Expect.equals(Null, b2.getParamType());
+
+  B1 b3 = B1();
+  Expect.equals(A, b3.getParamType());
+
+  B1<A> b4 = B1<A>();
+  Expect.equals(A, b4.getParamType());
+
+  B2<A> b5 = B2<A>();
+  Expect.equals(A, b5.getParamType());
+
+  B2 b6 = B2();
+  Expect.equals(A, b6.getParamType());
+}

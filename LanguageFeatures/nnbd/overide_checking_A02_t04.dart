@@ -14,7 +14,6 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
 class A1 extends A {

@@ -18,7 +18,7 @@ import "override_checking_legacy_lib.dart";
 
 class A1 extends A {
   int test_nullable(int i) => 2;
-//         ^^^^^^^^
+//    ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
