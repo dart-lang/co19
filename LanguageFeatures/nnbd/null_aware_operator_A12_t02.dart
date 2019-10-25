@@ -27,7 +27,7 @@ typedef CAlias2 = C;
 void testShort(C? x, int index, dynamic value) {
   var actual = x?.[index] = value;
   var n0 = x;
-  var expected = n0 == null ? null : n0?.[index] = value;
+  var expected = n0 == null ? null : n0[index] = value;
   Expect.equals(expected, actual);
 }
 

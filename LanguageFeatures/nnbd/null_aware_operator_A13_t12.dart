@@ -7,34 +7,39 @@
  * @assertion If e1 translates to F then e1?.[e2] = e3 translates to:
  *  SHORT[EXP(e1), fn[x] => x[EXP(e2)] = EXP(e3)]
  *
- * @description Check that if e1 translates to F then e1?.[e2] = e3 translates
- * to: SHORT[EXP(e1), fn[x] => x[EXP(e2)] = EXP(e3)]
+ *  The other assignment operators are handled equivalently.
+ *
+ * @description Check that assignments like e1?.[e2] >>>= e3 translates to:
+ *  SHORT[EXP(e1), fn[x] => x[EXP(e2)] >>>= EXP(e3)]
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,triple-shift
 import "../../Utils/expect.dart";
 
 class C {
-  List _list;
+  List<int> _list = [3, 1, 4];
+  int operator[](int index) => _list[index];
   void operator[]=(int index, dynamic value) => _list[index] = value;
 
-  C(int length) :  _list = new List(length);
+  void init() {
+    _list = [3, 1, 4];
+  }
 }
 
 void testShort(C? x, int index, dynamic value) {
-  var actual = x?.[index] = value;
+  var actual = x?.[index] >>>= value;
   var n0 = x;
-  var expected = n0 == null ? null : n0[index] = value;
+  x?.init();
+  var expected = n0 == null ? null : n0[index] >>>= value;
   Expect.equals(expected, actual);
 }
 
-
 main() {
   C? c1 = null;
-  testShort(c1, 42, "Lily was here");
-  c1 = new C(3);
-  testShort(c1, 2, "Show must go on");
+  testShort(c1, 0, 7);
+  c1 = new C();
+  testShort(c1, 0, 7);
 
-  C c2 = new C(3);
-  testShort(c2, 2, "Show must go on");
+  C c2 = new C();
+  testShort(c2, 0, 7);
 }

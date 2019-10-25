@@ -11,7 +11,7 @@
  *  PASSTHRU[F, fn[x] => x.f = EXP(e2)]. Test type aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 import "../../Utils/expect.dart";
 
 class C {
