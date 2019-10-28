@@ -12,13 +12,14 @@
  * test that non-nullable class type parameters work as expected ([implements]
  * clause).
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 import "override_checking_legacy_lib.dart";
 
-class B1<X extends A> implements B<X> {}
+class D1<X extends A> implements D<X> {}
 
 main() {
-  B1<Null>();
+  D1<Null>();
 //   ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

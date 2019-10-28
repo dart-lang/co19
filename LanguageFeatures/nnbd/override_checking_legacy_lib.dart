@@ -30,4 +30,4 @@ class A {
   void set set_field3(int i) { aField1 = -3; }
 }
 
-class B<X extends A> {}
+class D<X extends A> {}

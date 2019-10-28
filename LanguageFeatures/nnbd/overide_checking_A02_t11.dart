@@ -10,7 +10,7 @@
  * to override otherwise incompatible signatures for a method.
  * @description Check that overriding works as expected in a migrated library -
  * test that migrated setter without null annotations cannot override legacy
- * getter ([extends] clause).
+ * setter ([extends] clause).
  */
 // SharedOptions=--enable-experiment=non-nullable
 

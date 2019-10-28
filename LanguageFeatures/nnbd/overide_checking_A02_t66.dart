@@ -9,18 +9,18 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  * @description Check that overriding works as expected in a migrated library -
- * test that migrated method with return value of nullable can override legacy
- * method ([extends] clause).
+ * test that non-nullable class type parameters work as expected (check case
+ * when class implements two classes with the same method names).
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
-class A1 extends A {
-  int? test_return_nullable() => 2;
-}
+abstract class DD1<X extends A> {}
 
-main() {
-  Expect.equals(2, A1().test_return_nullable());
-}
+class D1<X extends A> implements D<X>, DD1<X> {}
+//                               ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+main() {}

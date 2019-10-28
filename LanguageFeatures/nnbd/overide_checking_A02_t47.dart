@@ -12,6 +12,7 @@
  * test that migrated method with non-nullable return value can override
  * legacy method ([with] clause).
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 import "override_checking_legacy_lib.dart";
 import "../../Utils/expect.dart";

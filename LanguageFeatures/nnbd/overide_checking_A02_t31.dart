@@ -12,34 +12,35 @@
  * test that nullable class type parameters work as expected ([implements]
  * clause).
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
-class B1<X extends A?> implements B<X> {
+class D1<X extends A?> implements D<X> {
   dynamic getParamType() => X;
 }
 
-class B2<X extends A> implements B<X> {
+class D2<X extends A> implements D<X> {
   dynamic getParamType() => X;
 }
 
 main() {
-  B1<A?> b1 = B1<A?>();
-  Expect.equals(A, b1.getParamType());
+  D1<A?> d1 = D1<A?>();
+  Expect.equals(A, d1.getParamType());
 
-  B1<Null> b2 = B1<Null>();
-  Expect.equals(Null, b2.getParamType());
+  D1<Null> d2 = D1<Null>();
+  Expect.equals(Null, d2.getParamType());
 
-  B1 b3 = B1();
-  Expect.equals(A, b3.getParamType());
+  D1 d3 = D1();
+  Expect.equals(A, d3.getParamType());
 
-  B1<A> b4 = B1<A>();
-  Expect.equals(A, b4.getParamType());
+  D1<A> d4 = D1<A>();
+  Expect.equals(A, d4.getParamType());
 
-  B2<A> b5 = B2<A>();
-  Expect.equals(A, b5.getParamType());
+  D2<A> d5 = D2<A>();
+  Expect.equals(A, d5.getParamType());
 
-  B2 b6 = B2();
-  Expect.equals(A, b6.getParamType());
+  D2 d6 = D2();
+  Expect.equals(A, d6.getParamType());
 }

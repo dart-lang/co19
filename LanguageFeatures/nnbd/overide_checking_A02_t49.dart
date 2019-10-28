@@ -11,13 +11,14 @@
  * @description Check that overriding works as expected in a migrated library -
  * test that non-nullable class type parameters work as expected ([with] clause).
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 import "override_checking_legacy_lib.dart";
 
-class B1<X extends A> with B<X> {}
+class D1<X extends A> with D<X> {}
 
 main() {
-  B1<Null>();
+  D1<Null>();
 //   ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -9,7 +9,7 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  * @description Check that overriding works as expected in a migrated library -
- * test that migrated setter with null annotations can override legacy getter
+ * test that migrated setter with null annotations can override legacy setter
  * ([extends] clause).
  */
 // SharedOptions=--enable-experiment=non-nullable
