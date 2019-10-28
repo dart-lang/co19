@@ -11,10 +11,19 @@
 library legacy_library_lib;
 
 class A implements AMx {
+  int c1 = 0, c2 = 0;
+  String get log => "test() called $c1 times, text2 called $c2 times";
+
   void foo() {}
-  String test() => "Lily was here";
+  String test() {
+    c1++;
+    return "Lily was here";
+  }
   String text = "Let it be";
-  String get text2 => text;
+  String get text2 {
+    c2++;
+    return text;
+  }
   void set text3(String val) {
     this.text = val;
   }

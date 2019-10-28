@@ -13,6 +13,7 @@
  * as follows, where x and y are fresh object level variables.
  *  fn[k : Exp -> Exp] : Exp =>
  *  let x = EXP(e) in x == null ? null : let y = EXP(x.s) in k(x)
+ * Test cascade assignment
  * @author sgrekhov@unipro.ru
  * @issue 39141
  */
@@ -20,62 +21,57 @@
 import "../../Utils/expect.dart";
 
 class C {
-  int c1 = 0, c2 = 0;
-  String get log => "test1 called $c1 times, test2() called $c2 times";
-
-  String get test1 {
-    c1++;
-    return "Show must go on";
-  }
-
-  String test2() {
-    c2++;
-    return "Let it be";
+  String test1 = "Lily was here";
+  String _test2 = "";
+  void set test2(String val) {
+    _test2 = val;
   }
 }
 
 main() {
   C c1 = new C();
-  var actual1 = c1 ?.. test1;
+  var actual1 = c1 ?.. test1 = "Show must go on";
   var expected = c1;
   Expect.equals(expected, actual1);
-  Expect.equals("test1 called 1 times, test2() called 0 times", c1.log);
+  Expect.equals("Show must go on", c1.test1);
 
-  var actual2 = c1 ?.. test2();
+  var actual2 = c1 ?.. test2 = "Lily was here";
   Expect.equals(expected, actual2);
-  Expect.equals("test1 called 1 times, test2() called 1 times", c1.log);
+  Expect.equals("Lily was here", c1._test2);
 
   var actual3 = c1
-    ?.. test1
-    .. test2();
+    ?.. test1 = "Let it be"
+    .. test2 = "Let it be";
   Expect.equals(expected, actual3);
-  Expect.equals("test1 called 2 times, test2() called 2 times", c1.log);
+  Expect.equals("Let it be", c1.test1);
+  Expect.equals("Let it be", c1._test2);
 
   C? c2 = null;
-  var actual4 = c2 ?.. test1;
+  var actual4 = c2 ?.. test1 = "Show must go on";
   Expect.isNull(actual4);
 
-  var actual5 = c2 ?.. test2();
+  var actual5 = c2 ?.. test2 = "Show must go on";
   Expect.isNull(actual5);
 
   var actual6 = c2
-    ?.. test1
-    .. test2();
+    ?.. test1 = "Show must go on"
+    .. test2 = "Show must go on";
   Expect.isNull(actual6);
 
   c2 = new C();
-  var actual7 = c1 ?.. test1;
+  var actual7 = c1 ?.. test1  = "Let it be";
   var expected2 = c2;
   Expect.equals(expected2, actual7);
-  Expect.equals("test1 called 1 times, test2() called 0 times", c2?.log);
+  Expect.equals("Let it be", c2?.test1);
 
-  var actual8 = c2 ?.. test2();
+  var actual8 = c2 ?.. test2 = "Let it be";
   Expect.equals(expected2, actual8);
-  Expect.equals("test1 called 1 times, test2() called 1 times", c2?.log);
+  Expect.equals("Let it be", c2?._test2);
 
   var actual9 = c2
-      ?.. test1
-      .. test2();
+      ?.. test1 = "Show must go on"
+      .. test2 = "Show must go on";
   Expect.equals(expected2, actual9);
-  Expect.equals("test1 called 2 times, test2() called 2 times", c2?.log);
+  Expect.equals("Show must go on", c2?.test1);
+  Expect.equals("Show must go on", c2?._test2);
 }

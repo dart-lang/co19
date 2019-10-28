@@ -1,0 +1,104 @@
+/*
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion A null-shorting cascade expression e?..s translates as follows,
+ * where x and y are fresh object level variables.
+ *  fn[k : Exp -> Exp] : Exp =>
+ *  let x = EXP(e) in x == null ? null : let y = EXP(x.s) in k(x)
+ *
+ * @description Check that a null-shorting cascade expression e?..s translates
+ * as follows, where x and y are fresh object level variables.
+ *  fn[k : Exp -> Exp] : Exp =>
+ *  let x = EXP(e) in x == null ? null : let y = EXP(x.s) in k(x)
+ * Test e ?.. m()?.f()
+ * @author sgrekhov@unipro.ru
+ * @issue 39141
+ */
+// SharedOptions=--enable-experiment=non-nullable
+import "../../Utils/expect.dart";
+class A {
+  int counter = 0;
+  String m() {
+    counter++;
+    return "Lily was here";
+  }
+}
+
+class C {
+  A? a1 = new A();
+  A? a2 = new A();
+  int counter1 = 0;
+  int counter2 = 0;
+
+  A m1() {
+    counter1++;
+    return a1;
+  }
+  A m2() {
+    counter2++;
+    return a2;
+  }
+}
+
+main() {
+  C c1 = new C();
+  var actual1 = c1 ?.. m1()?.m();
+  var expected = c1;
+  Expect.equals(expected, actual1);
+  Expect.equals(1, c1.m1().counter);
+
+  var actual2 = c1
+    ?.. m1().m()
+    .. m2().m();
+  Expect.equals(expected, actual2);
+  Expect.equals(2, c1.m1().counter);
+  Expect.equals(1, c1.m2().counter);
+
+  c1.a1 = null;
+  var actual3 = c1 ?.. m1()?.m();
+  Expect.equals(expected, actual3);
+  Expect.equals(5, c1.counter1);
+
+  var actual4 = c1
+      ?.. m1()?.m()
+      .. m2()?.m();
+  Expect.equals(expected, actual4);
+  Expect.equals(2, c1.m2().counter);
+
+  C? c2 = null;
+  var actual5 = c2 ?.. m1()?.m();
+  Expect.isNull(actual5);
+
+  var actual6 = c2
+    ?.. m1()?.m()
+    .. m2()?.m();
+  Expect.isNull(actual6);
+
+  c2 = new C();
+  var actual7 = c1 ?.. m1()?.m();
+  var expected2 = c2;
+  Expect.equals(expected2, actual7);
+  Expect.equals(1, c2?.m1().counter);
+
+  var actual8 = c2
+      ?.. m1()?.m()
+      .. m2()?.m();
+  Expect.equals(expected2, actual8);
+  Expect.equals(2, c2.m1().counter);
+  Expect.equals(1, c2.m2().counter);
+
+  c1.a1 = null;
+  var actual9 = c1 ?.. m1()?.m();
+  Expect.equals(expected, actual9);
+  Expect.equals(5, c1.counter1);
+
+  var actual10 = c1
+      ?.. m1()?.m()
+      .. m2()?.m();
+  Expect.equals(expected, actual10);
+  Expect.equals(2, c1.m2().counter);
+  Expect.equals(6, c1.counter1);
+}

@@ -13,10 +13,12 @@
  * as follows, where x and y are fresh object level variables.
  *  fn[k : Exp -> Exp] : Exp =>
  *  let x = EXP(e) in x == null ? null : let y = EXP(x.s) in k(x)
- * Check that '?..' operator must be the first in the cascade sequence
+ *  Check that '?..' operator must be the first in the cascade sequence. Test
+ * type aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+import "../../Utils/expect.dart";
 
 class C {
   String test1 = "Let it be";
@@ -24,15 +26,40 @@ class C {
   void foo() {}
 }
 
+typedef CAlias1 = C?;
+typedef CAlias2 = C;
+
 main() {
-  C? c = null;
-  c ?.. test1
+  CAlias1? c1 = null;
+  c1 ?.. test1
     ?.. test2
 //  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    ?.. foo();
-//  ^^^
+      ?.. foo();
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  CAlias1 c2 = null;
+  c2 ?.. test1
+     ?.. test2
+//   ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      ?.. foo();
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  CAlias2? c3 = null;
+  c3 ?.. test1
+     ?.. test2
+//   ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      ?.. foo();
+//    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
