@@ -18,7 +18,7 @@ import "override_checking_legacy_lib.dart";
 class B1<X extends A> implements B<X> {}
 
 main() {
-  B1<Null> b = B1<Null>();
+  B1<Null>();
 //   ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

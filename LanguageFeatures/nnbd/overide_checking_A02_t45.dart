@@ -9,17 +9,32 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  * @description Check that overriding works as expected in a migrated library -
- * test that non-nullable class type parameters work as expected ([extends]
- * clause).
+ * test that migrated setter without null annotations cannot override legacy
+ * getter ([with] clause).
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 import "override_checking_legacy_lib.dart";
 
-class B1<X extends A> extends B<X> {}
+class A1 with A {
+  int? aField1 = 1;
+  int? aField2 = null;
+  int? aField3;
 
-main() {
- B1<Null>();
-//  ^^^^
+  void set set_field1(int i) { aField1 = i; }
+//         ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void set set_field2(int i) { aField2 = i; }
+//         ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void set set_field3(int i) { aField3 = i; }
+//         ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+main() {}

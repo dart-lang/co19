@@ -32,5 +32,4 @@ class A2 with A {
 // [cfe] unspecified
 }
 
-main() {
-}
+main() {}

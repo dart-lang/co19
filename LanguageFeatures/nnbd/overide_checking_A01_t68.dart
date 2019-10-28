@@ -42,5 +42,4 @@ class A1 implements A, AA {
   void set set_field2(String str) { field2 = str; }
 }
 
-main() {
-}
+main() {}

@@ -37,5 +37,4 @@ class A3 extends A {
 // [cfe] unspecified
 }
 
-main() {
-}
+main() {}

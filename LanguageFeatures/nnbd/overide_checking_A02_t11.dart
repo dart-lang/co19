@@ -34,5 +34,4 @@ class A1 extends A {
 
 }
 
-main() {
-}
+main() {}
