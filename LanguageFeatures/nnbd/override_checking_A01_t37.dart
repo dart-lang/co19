@@ -9,9 +9,11 @@
  * incompatible methods. When choosing the most specific signature during
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
+ *
  * @description Check that when choosing the most specific signature during
  * interface computation, all requiredness annotations are ignored in unmigrated
  * library if method argument is not [null] ([with] clause).
+ *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

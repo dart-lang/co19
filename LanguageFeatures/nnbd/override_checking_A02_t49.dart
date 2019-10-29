@@ -8,8 +8,12 @@
  * override is consistent with all overridden methods from other migrated
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
+ *
  * @description Check that overriding works as expected in a migrated library -
- * test that non-nullable class type parameters work as expected ([with] clause).
+ * test that non-nullable class type parameters work as expected ([with]
+ * clause).
+ *
+ * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 

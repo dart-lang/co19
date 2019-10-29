@@ -8,9 +8,12 @@
  * override is consistent with all overridden methods from other migrated
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
+ *
  * @description Check that overriding works as expected in a migrated library -
  * test that migrated field with null annotations can override legacy field
  * ([implements] clause).
+ *
+ * @author iarkh@unipro.ru
 */
 // SharedOptions=--enable-experiment=non-nullable
 

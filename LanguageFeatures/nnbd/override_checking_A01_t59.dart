@@ -9,10 +9,12 @@
  * incompatible methods. When choosing the most specific signature during
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
- * @description Check that when choosing the most specific class field
- * during interface computation, all nullability annotations are ignored in
- * unmigrated library for getters which return non-null value (check the case
- * when class implements two classes with the same getter names).
+ *
+ * @description Check that when choosing the most specific class field during
+ * interface computation, all nullability annotations are ignored in unmigrated
+ * library for getters which return non-null value (check the case when class
+ * implements two classes with the same getter names).
+ *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

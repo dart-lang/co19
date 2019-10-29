@@ -9,10 +9,13 @@
  * incompatible methods. When choosing the most specific signature during
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
+ *
  * @description Check that when choosing the most specific method signature
  * during interface computation, all nullability annotations are ignored in
  * unmigrated library if method argument is not [null] (check case when class
  * implements two classes with the same method names).
+ *
+ * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // @dart=2.4
