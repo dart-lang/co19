@@ -16,22 +16,30 @@
 import "../../Utils/expect.dart";
 
 class C {
-  String id<T, Y extends num>(T t, Y val) => "C: t=" + t.toString() + ", i=$val";
+  String id<T, Y extends num>(T t, Y val) =>
+      "C: t=" + t.toString() + ", i=$val";
 }
 
 extension Extension1 on C {
-  String id<T, Y extends num>(T t, Y val) => "Extension1: t=" + t.toString() + ", i=$val";
+  String id<T, Y extends num>(T t, Y val) =>
+      "Extension1: t=" + t.toString() + ", i=$val";
 }
 
 extension Extension2 on C {
-  String id<T, Y extends num>(T t, Y val) => "Extension2: t=" + t.toString() + ", i=$val";
+  String id<T, Y extends num>(T t, Y val) =>
+      "Extension2: t=" + t.toString() + ", i=$val";
 }
 
 main() {
   C c = new C();
-  Expect.equals("Extension1: t=Lily was here, i=42", Extension1(c).id<String, int>("Lily was here", 42));
-  Expect.equals("Extension1: t=Show must go on, i=3.14", Extension1(c).id<String, double>("Show must go on", 3.14));
-  Expect.equals("Extension2: t=Lily was here, i=42", Extension2(c).id<String, int>("Lily was here", 42));
-  Expect.equals("Extension2: t=Show must go on, i=3.14", Extension2(c).id<String, double>("Show must go on", 3.14));
-  Expect.equals("C: t=Show must go on, i=3.14", c.id<String, double>("Show must go on", 3.14));
+  Expect.equals("Extension1: t=Lily was here, i=42",
+      Extension1(c).id<String, int>("Lily was here", 42));
+  Expect.equals("Extension1: t=Show must go on, i=3.14",
+      Extension1(c).id<String, double>("Show must go on", 3.14));
+  Expect.equals("Extension2: t=Lily was here, i=42",
+      Extension2(c).id<String, int>("Lily was here", 42));
+  Expect.equals("Extension2: t=Show must go on, i=3.14",
+      Extension2(c).id<String, double>("Show must go on", 3.14));
+  Expect.equals("C: t=Show must go on, i=3.14",
+      c.id<String, double>("Show must go on", 3.14));
 }

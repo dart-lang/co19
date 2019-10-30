@@ -7,27 +7,27 @@
  * @assertion A simple member invocation on a target expression X is an
  * expression of one of the forms:
  * Member invocation on target X	     Corresponding member name
- *   X.id<types>(args)                                  id
- * @description Check explicit extension member invocation in form of
- * X.id<types>(args)
+ *   X binop expr2        +, -, *, / , ~/, %, <, <=, >, >=, <<, >>, >>>, ^, |, &
+ * @description Check explicit extension member invocation in form of X - expr2
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
 
 class C {
-  String id2<T, Y extends num>(T t, Y val) =>
-      "C: t=" + t.toString() + ", i=$val";
+  String value;
+  C(this.value);
+  String operator -(C other) => this.value + "," + other.value;
 }
 
 extension Extension1 on C {
-  String id<T, Y extends num>(T t, Y val) =>
-      "Extension1: t=" + t.toString() + ", i=$val";
+  String operator +(C other) => "Show must go on," + other.value;
 }
 
 main() {
-  C c = new C();
-  Extension1(c).id2<String, int>("Lily was here", 42);
-//              ^^^
+  C c = new C("Lily was here");
+  C other = new C("No woman no cry");
+  Extension1(c) - other;
+//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
