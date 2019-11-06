@@ -10,10 +10,9 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific method signature
- * during interface computation, all nullability annotations are ignored in
- * unmigrated library for the class method return value if it is not [null]
- * ([implements] clause).
+ * @description Check that if legacy class implements opted-in class, legacy
+ * method can return non-null values independently on the nullable annotations
+ * in the parent method.
  *
  * @author iarkh@unipro.ru
  */
@@ -26,9 +25,9 @@ import "override_checking_opted_in_lib.dart";
 class A1 implements A {
   int test_return_nullable() => 4;
 
-  int test_nullable(int i) => 4;
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
+  void test_nullable(int i) {}
+  void test_required({int i = 1}) {}
+  void test_never(Null i) {}
   Null test_return_never() => null;
   String field1 = "a";
   String field2 = "b";
@@ -41,16 +40,16 @@ class A1 implements A {
 class B1 implements B {
   int test_return_nullable() => 5;
 
-  int test_nullable(int i) => 5;
-  int test_required({int i}) => 2;
+  void test_nullable(int i) {}
+  void test_required({int i}) {}
 }
 
 class C1 implements C {
   int test_return_nullable() => 6;
 
-  int test_nullable(int i) => 6;
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
+  void test_nullable(int i) {}
+  void test_required({int i = 1}) {}
+  void test_never(Null i) {}
   Null test_return_never() => null;
   String field1 = "a";
   String field2 = "b";

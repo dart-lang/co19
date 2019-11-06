@@ -10,10 +10,10 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific class field during
- * interface computation, all nullability annotations are ignored in unmigrated
- * library and are not ignored in migrated library (check the case when class
- * implements two classes with the same field names).
+ * @description Check that if legacy class implements two classes with some
+ * field (one or both classes are opted-in), legacy field can accept [null]
+ * values if corresponding parent field is of both nullable or non-nullable
+ * type.
  *
  * @author iarkh@unipro.ru
  */
@@ -32,9 +32,9 @@ class A1 implements A, AA {
   String field1 = "c";
   String field2 = "d";
 
-  int test_nullable(int i) => 4;
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
+  void test_nullable(int i) {}
+  void test_required({int i = 1}) {}
+  void test_never(Null i) {}
   int test_return_nullable() => 1;
   Null test_return_never() => null;
   String get get_field1 => field1;
@@ -47,9 +47,24 @@ class A2 implements A, AA {
   String field1 = null;
   String field2 = null;
 
-  int test_nullable(int i) => 4;
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
+  void test_nullable(int i) {}
+  void test_required({int i = 1}) {}
+  void test_never(Null i) {}
+  int test_return_nullable() => 1;
+  Null test_return_never() => null;
+  String get get_field1 => field1;
+  String get get_field2 => field1;
+  void set set_field1(String str) { field1 = str; }
+  void set set_field2(String str) { field2 = str; }
+}
+
+class A3 implements A, AA {
+  String field1;
+  String field2;
+
+  void test_nullable(int i) {}
+  void test_required({int i = 1}) {}
+  void test_never(Null i) {}
   int test_return_nullable() => 1;
   Null test_return_never() => null;
   String get get_field1 => field1;
@@ -68,4 +83,8 @@ main() {
   A2 a2 = A2();
   Expect.isNull(a2.field1);
   Expect.isNull(a2.field2);
+
+  A3 a3 = A3();
+  Expect.isNull(a3.field1);
+  Expect.isNull(a3.field2);
 }

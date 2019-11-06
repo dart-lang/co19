@@ -10,9 +10,9 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific signature during
- * interface computation, requiredness and nullable annotations are ignored in
- * unmigrated library if method argument is [null] ([implements] clause).
+ * @description Check that if legacy class implements opted-in class, legacy
+ * method with optional named argument without default value can accept argument
+ * independently on the nullable annotations in the parent opted-in class.
  *
  * @author iarkh@unipro.ru
  */
@@ -23,10 +23,12 @@ import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
 class A1 implements A {
-  int test_required({int i = 1}) => 4;
+  void test_required({int i = 0}) {
+    Expect.equals(1, i);
+  }
 
-  int test_nullable(int i) => 4;
-  int test_never(Null i) => 1;
+  void test_nullable(int i) {}
+  void test_never(Null i) {}
   int test_return_nullable() => 1;
   Null test_return_never() => null;
   String field1 = "a";
@@ -38,17 +40,22 @@ class A1 implements A {
 }
 
 class B1 implements B {
-  int test_required({int i = 1}) => 5;
+  void test_required({int i = 0}) {
+    Expect.equals(1, i);
+  }
 
-  int test_nullable(int i) => 5;
+  void test_nullable(int i) {}
+  void test_never(Null i) {}
   int test_return_nullable() => 2;
 }
 
 class C1 implements C {
-  int test_required({int i = 1}) => 6;
+  void test_required({int i = 0}) {
+    Expect.equals(1, i);
+  }
 
-  int test_nullable(int i) => 6;
-  int test_never(Null i) => 1;
+  void test_nullable(int i) {}
+  void test_never(Null i) {}
   int test_return_nullable() => 1;
   Null test_return_never() => null;
   String field1 = "a";
@@ -60,7 +67,7 @@ class C1 implements C {
 }
 
 main() {
-  Expect.equals(4, A1().test_required(i: null));
-  Expect.equals(5, B1().test_required(i: null));
-  Expect.equals(6, C1().test_required(i: null));
+  A1().test_required(i: 1);
+  B1().test_required(i: 1);
+  C1().test_required(i: 1);
 }

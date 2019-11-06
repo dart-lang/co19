@@ -10,9 +10,9 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific method signature
- * during interface computation, all nullability annotations are ignored in
- * unmigrated library for the class type parameter ([with] clause).
+ * @description Check that if legacy class is a mixin with opted-in class, all
+ * nullability annotations in the parent class are ignored in the child class
+ * type parameters and class type parameter can be [Null].
  *
  * @author iarkh@unipro.ru
  */

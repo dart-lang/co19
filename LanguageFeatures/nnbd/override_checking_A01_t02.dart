@@ -10,9 +10,9 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific method signature
- * during interface computation, all nullability annotations are ignored in
- * unmigrated library if method argument is [null] ([extends] clause).
+ * @description Check that if legacy class extends opted-in class, legacy method
+ * can accept [null] arguments if corresponding parent method argument is of
+ * both nullable or non-nullable type.
  *
  * @author iarkh@unipro.ru
  */
@@ -23,23 +23,25 @@ import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
 class A1 extends A {
-  int test_nullable(int i) => 4;
+  void test_nullable(int i) {
+    Expect.isNull(i);
+  }
 }
 
 class B1 extends B {
-  int test_nullable(int i) => 5;
+  void test_nullable(int i) {
+    Expect.isNull(i);
+  }
 }
 
 class C1 extends C {
-  int test_nullable(int i) => 6;
+  void test_nullable(int i) {
+    Expect.isNull(i);
+  }
 }
 
 main() {
-  Expect.equals(1, A().test_nullable(null));
-  Expect.equals(2, B().test_nullable(null));
-  Expect.equals(3, C().test_nullable(null));
-
-  Expect.equals(4, A1().test_nullable(null));
-  Expect.equals(5, B1().test_nullable(null));
-  Expect.equals(6, C1().test_nullable(null));
+  A1().test_nullable(null);
+  B1().test_nullable(null);
+  C1().test_nullable(null);
 }

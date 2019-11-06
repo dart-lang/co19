@@ -3,6 +3,11 @@
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
+/*
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
 /**
  * @assertion In an unmigrated library, override checking is done using legacy
  * types. This means that an unmigrated library can bring together otherwise
@@ -10,9 +15,9 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific class field during
- * interface computation, all nullability annotations are ignored in unmigrated
- * library for setters which set non-null value ([implements] clause).
+ * @description Check that if legacy class implements opted-in class, legacy
+ * setter can accept null values if corresponding parent setter is of both
+ * nullable or non-nullable type.
  *
  * @author iarkh@unipro.ru
  */
@@ -23,18 +28,21 @@ import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
 class A1 implements A {
+  void set set_field1(String str) {
+    Expect.isNull(str);
+  }
+
+  void set set_field2(String str) {
+    Expect.isNull(str);
+  }
   String field1 = "a";
   String field2 = "b";
-  void set set_field1(String str) { field1 = str; }
-  void set set_field2(String str) { field2 = str; }
-  void set set1_field1(String str) { field1 = null; }
-  void set set1_field2(String str) { field2 = null; }
   String get get_field1 => field1;
   String get get_field2 => field2;
 
-  int test_nullable(int i) => 4;
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
+  void test_nullable(int i) => 4;
+  void test_required({int i = 1}) => 1;
+  void test_never(Null i) => 1;
   int test_return_nullable() => 1;
   Null test_return_never() => null;
 }
@@ -42,13 +50,5 @@ class A1 implements A {
 main() {
   A1 a1 = A1();
   a1.set_field1 = null;
-  Expect.isNull(a1.get_field1);
   a1.set_field2 = null;
-  Expect.isNull(a1.get_field1);
-
-  A1 a11 = A1();
-  a11.set1_field1 = null;
-  Expect.isNull(a11.get_field1);
-  a11.set1_field2 = null;
-  Expect.isNull(a11.get_field1);
 }

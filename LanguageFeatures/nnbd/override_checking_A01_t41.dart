@@ -10,9 +10,9 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific class field
- * during interface computation, all nullability annotations are ignored in
- * unmigrated library and are not ignored in migrated library ([with] clause).
+ * @description Check that if legacy class is a mixin with opted-in class,
+ * legacy field can accept [null] values if corresponding parent field is of
+ * both nullable or non-nullable type.
  *
  * @author iarkh@unipro.ru
  */
@@ -32,6 +32,11 @@ class A2 with A {
   String field2 = null;
 }
 
+class A3 with A {
+  String field1;
+  String field2;
+}
+
 main() {
   A1 a1 = A1();
   a1.field1 = null;
@@ -42,4 +47,8 @@ main() {
   A2 a2 = A2();
   Expect.isNull(a2.field1);
   Expect.isNull(a2.field2);
+
+  A3 a3 = A3();
+  Expect.isNull(a3.field1);
+  Expect.isNull(a3.field2);
 }

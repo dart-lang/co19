@@ -10,10 +10,9 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific signature during
- * interface computation, the [Never] type is treated as [Null] for the method
- * argument in the unmigrated library (check the case when class implements two
- * classes with the same method names).
+ * @description Check that if legacy class implements two classes with some
+ * method (one or both classes are opted-in), in the legacy code overrided
+ * method argument of [Never] type is treated as [Null].
  *
  * @author iarkh@unipro.ru
  */
@@ -24,10 +23,12 @@ import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
 class AC implements A, C {
-  int test_never(Null i) => 4;
+  void test_never(Null i) {
+    Expect.isNull(i);
+  }
 
-  int test_required({int i = 1}) => 6;
-  int test_nullable(int i) => 6;
+  void test_required({int i = 1}) {}
+  void test_nullable(int i) {}
   int test_return_nullable() => 1;
   Null test_return_never() => null;
   String field1 = "a";
@@ -39,14 +40,16 @@ class AC implements A, C {
 }
 
 abstract class A1 {
-  int test_never(Null i);
+  void test_never(Null i);
 }
 
 class AA1 implements A, A1 {
-  int test_never(Null i) => 5;
+  void test_never(Null i) {
+    Expect.isNull(i);
+  }
 
-  int test_required({int i = 1}) => 7;
-  int test_nullable(int i) => 7;
+  void test_required({int i = 1}) {}
+  void test_nullable(int i) {}
   int test_return_nullable() => 1;
   Null test_return_never() => null;
   String field1 = "a";
@@ -58,10 +61,12 @@ class AA1 implements A, A1 {
 }
 
 class CA1 implements C, A1 {
-  int test_never(Null i) => 6;
+  void test_never(Null i) {
+    Expect.isNull(i);
+  }
 
-  int test_required({int i = 1}) => 9;
-  int test_nullable(int i) => 9;
+  void test_required({int i = 1}) {}
+  void test_nullable(int i) {}
   int test_return_nullable() => 1;
   Null test_return_never() => null;
   String field1 = "a";
@@ -73,7 +78,7 @@ class CA1 implements C, A1 {
 }
 
 main() {
-  Expect.equals(4, AC().test_never(null));
-  Expect.equals(5, AA1().test_never(null));
-  Expect.equals(6, CA1().test_never(null));
+  AC().test_never(null);
+  AA1().test_never(null);
+  CA1().test_never(null);
 }

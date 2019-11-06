@@ -10,10 +10,9 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific class field
- * during interface computation, all nullability annotations are ignored in
- * unmigrated library and are not ignored in migrated library ([extends]
- * clause).
+ * @description Check that if legacy class extends opted-in class, legacy field
+ * can accept [null] values if corresponding parent field is of both nullable
+ * or non-nullable type.
  *
  * @author iarkh@unipro.ru
  */

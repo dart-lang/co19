@@ -10,10 +10,9 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific method signature
- * during interface computation, all nullability annotations are ignored in
- * unmigrated library for the class method return value if it is not [null]
- * ([extends] clause).
+ * @description Check that if legacy class extends opted-in class, legacy method
+ * can return non-null values independently on the nullable annotations in the
+ * parent method.
  *
  * @author iarkh@unipro.ru
  */
@@ -36,10 +35,6 @@ class C1 extends C {
 }
 
 main() {
-  Expect.equals(1, A().test_return_nullable());
-  Expect.equals(2, B().test_return_nullable());
-  Expect.equals(3, C().test_return_nullable());
-
   Expect.equals(4, A1().test_return_nullable());
   Expect.equals(5, B1().test_return_nullable());
   Expect.equals(6, C1().test_return_nullable());

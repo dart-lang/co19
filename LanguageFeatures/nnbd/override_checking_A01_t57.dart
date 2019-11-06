@@ -10,10 +10,11 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific class field during
- * interface computation, all nullability annotations are ignored in unmigrated
- * library for the class fields (check the case when class implements two
- * classes with the same field names).
+ * @description Check that if legacy class implements two classes with some
+ * field (one or both classes are opted-in), legacy field can accept non-null
+ * values if corresponding parent field is of both nullable or non-nullable
+ * type.
+ *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -31,9 +32,9 @@ class A2 implements A, A1 {
   String field1 = "c";
   String field2 = "d";
 
-  int test_nullable(int i) => 4;
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
+  void test_nullable(int i) {}
+  void test_required({int i = 1}) {}
+  void test_never(Null i) {}
   int test_return_nullable() => 1;
   Null test_return_never() => null;
   String get get_field1 => field1;

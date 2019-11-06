@@ -10,10 +10,9 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific method signature
- * during interface computation, all nullability annotations are ignored in
- * unmigrated library for the class method return value if it is [null]
- * ([extends] clause).
+ * @description Check that if legacy class extends opted-in class, legacy method
+ * can return null values independently on the nullable annotations in the
+ * parent method.
  *
  * @author iarkh@unipro.ru
  */

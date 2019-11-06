@@ -10,10 +10,10 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific method signature
- * during interface computation, [Never] method return value is treated as
- * [Null] in legacy library (check the case when class implements two classes
- * with the same method names).
+ * @description Check that if legacy class implements two classes with some
+ * getter (one or both classes are opted-in), then compiler error is thrown if
+ * parent class method returns [Never] and child method return value which is
+ * not of the type [Null].
  *
  * @author iarkh@unipro.ru
  */
@@ -33,10 +33,10 @@ class A1 implements A, AA {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  int test_nullable(int i) => 4;
   int test_return_nullable() => 4;
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
+  void test_nullable(int i) {}
+  void test_required({int i = 1}) {}
+  void test_never(Null i) {}
   String field1 = "a";
   String field2 = "b";
   String get get_field1 => field1;

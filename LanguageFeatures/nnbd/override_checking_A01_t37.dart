@@ -10,9 +10,10 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific signature during
- * interface computation, all requiredness annotations are ignored in unmigrated
- * library if method argument is not [null] ([with] clause).
+ * @description Check that if legacy class is a mixin with opted-in class,
+ * legacy method with optional named argument with default value can accept
+ * argument independently on the requiredness annotations in the parent opted-in
+ * class.
  *
  * @author iarkh@unipro.ru
  */
@@ -23,14 +24,18 @@ import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
 class A1 with A {
-  int test_required({int i = 1}) => 4;
+  void test_required({int i = 0}) {
+    Expect.equals(1, i);
+  }
 }
 
 class B1 with B {
-  int test_required({int i = 1}) => 5;
+  void test_required({int i = 0}) {
+    Expect.equals(1, i);
+  }
 }
 
 main() {
-  Expect.equals(4, A1().test_required(i: 1));
-  Expect.equals(5, B1().test_required(i: 1));
+  A1().test_required(i: 1);
+  B1().test_required(i: 1);
 }

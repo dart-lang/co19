@@ -10,9 +10,8 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific signature during
- * interface computation, the [Never] type is treated as [Null] for the method
- * argument in the unmigrated library ([extends] clause).
+ * @description Check that if legacy class extends opted-in class, in the legacy
+ * code overrided method argument of [Never] type is treated as [Null].
  *
  * @author iarkh@unipro.ru
  */
@@ -23,16 +22,18 @@ import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
 class A1 extends A {
-  int test_never(Null i) => 4;
+  void test_never(Null i) {
+    Expect.isNull(i);
+  }
 }
 
 class C1 extends C {
-  int test_never(Null i) => 6;
+  void test_never(Null i) {
+    Expect.isNull(i);
+  }
 }
 
 main() {
-  Expect.equals(1, A().test_never(null));
-  Expect.equals(3, C().test_never(null));
-  Expect.equals(4, A1().test_never(null));
-  Expect.equals(6, C1().test_never(null));
+  A1().test_never(null);
+  C1().test_never(null);
 }

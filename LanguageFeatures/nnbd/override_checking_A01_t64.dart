@@ -10,10 +10,9 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific method signature
- * during interface computation, all nullability annotations are ignored in
- * unmigrated library for the class method return value if it is [null] (check
- * the case when class implements two classes with the same method name).
+ * @description Check that if legacy class implements two classes with some
+ * getter (one or both classes are opted-in), legacy method can return null
+ * values independently on the nullable annotations in the parent method.
  *
  * @author iarkh@unipro.ru
  */
@@ -26,9 +25,9 @@ import "override_checking_opted_in_lib.dart";
 class AB implements A, B {
   int test_return_nullable() => null;
 
-  int test_nullable(int i) => 4;
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
+  void test_nullable(int i) {}
+  void test_required({int i = 1}) {}
+  void test_never(Null i) {}
   Null test_return_never() => null;
   String field1 = "a";
   String field2 = "b";
@@ -41,9 +40,9 @@ class AB implements A, B {
 class BC implements B, C {
   int test_return_nullable() => null;
 
-  int test_nullable(int i) => 5;
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
+  void test_nullable(int i) {}
+  void test_required({int i = 1}) {}
+  void test_never(Null i) {}
   Null test_return_never() => null;
   String field1 = "a";
   String field2 = "b";
@@ -56,9 +55,9 @@ class BC implements B, C {
 class AC implements A, C {
   int test_return_nullable() => null;
 
-  int test_nullable(int i) => 6;
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
+  void test_nullable(int i) {}
+  void test_required({int i = 1}) {}
+  void test_never(Null i) {}
   Null test_return_never() => null;
   String field1 = "a";
   String field2 = "b";
@@ -75,9 +74,9 @@ abstract class A1 {
 class AA1 implements A, A1 {
   int test_return_nullable() => null;
 
-  int test_nullable(int i) => 7;
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
+  void test_nullable(int i) {}
+  void test_required({int i = 1}) {}
+  void test_never(Null i) {}
   Null test_return_never() => null;
   String field1 = "a";
   String field2 = "b";
@@ -90,16 +89,16 @@ class AA1 implements A, A1 {
 class BA1 implements B, A1 {
   int test_return_nullable() => null;
 
-  int test_nullable(int i) => 8;
-  int test_required({int i = 2}) => 2;
+  void test_nullable(int i) {}
+  void test_required({int i = 2}) {}
 }
 
 class CA1 implements C, A1 {
   int test_return_nullable() => null;
 
-  int test_nullable(int i) => 9;
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
+  void test_nullable(int i) {}
+  void test_required({int i = 1}) {}
+  void test_never(Null i) {}
   Null test_return_never() => null;
   String field1 = "a";
   String field2 = "b";

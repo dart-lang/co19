@@ -10,9 +10,9 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific class field during
- * interface computation, all nullability annotations are ignored in unmigrated
- * library for getters which return null value ([implements] clause).
+ * @description Check that if legacy class extends opted-in class, legacy getter
+ * can return [null] values if corresponding parent getter is of both nullable
+ * or non-nullable type.
  *
  * @author iarkh@unipro.ru
  */
@@ -28,9 +28,9 @@ class A1 implements A {
   String get get_field1 => null;
   String get get_field2 => null;
 
-  int test_nullable(int i) => 4;
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
+  void test_nullable(int i) {}
+  void test_required({int i = 1}) {}
+  void test_never(Null i) {}
   int test_return_nullable() => 1;
   Null test_return_never() => null;
   void set set_field1(String str) { field1 = str; }

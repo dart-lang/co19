@@ -10,9 +10,9 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific class field
- * during interface computation, all nullability annotations are ignored in
- * unmigrated library for setters which set non-null value ([extends] clause).
+ * @description Check that if legacy class extends opted-in class, legacy setter
+ * can accept non-null values if corresponding parent setter is of both nullable
+ * or non-nullable type.
  *
  * @author iarkh@unipro.ru
  */
@@ -23,26 +23,15 @@ import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
 class A1 extends A {
-  void set set_field1(String str) { field1 = "c"; }
-  void set set_field2(String str) { field2 = "d"; }
+  void set set_field1(String str) {
+    Expect.equals("legacy", str);
+  }
+
+  void set set_field2(String str) {
+    Expect.equals("legacy", str);
+  }
 }
 
 main() {
-  A a = A();
-  a.set_field1 = "set_a";
-  Expect.equals("set_a", a.get_field1);
-  a.set_field2 = "set_a2";
-  Expect.equals("set_a2", a.get_field2);
-
-  A1 a1 = A1();
-  a1.set_field1 = "1";
-  Expect.equals("c", a1.get_field1);
-  a1.set_field2 = "2";
-  Expect.equals("d", a1.get_field2);
-
-  C c = C();
-  c.set_field1 = "1";
-  Expect.equals("1", c.get_field1);
-  c.set_field2 = "2";
-  Expect.equals("2", c.get_field2);
+  A1().set_field1 = "legacy";
 }

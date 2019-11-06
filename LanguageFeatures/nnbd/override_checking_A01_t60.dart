@@ -10,10 +10,10 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific class field during
- * interface computation, all nullability annotations are ignored in unmigrated
- * library for getters which return null value (check the case when class
- * implements two classes with the same getter names).
+ * @description Check that if legacy class implements two classes with some
+ * getter (one or both classes are opted-in), legacy getter can return null
+ * values if corresponding parent field is of both nullable or non-nullable
+ * type.
  *
  * @author iarkh@unipro.ru
  */
@@ -24,21 +24,19 @@ import "../../Utils/expect.dart";
 import "override_checking_opted_in_lib.dart";
 
 abstract class AA {
-  String field1;
-  String field2;
   String get get_field1;
   String get get_field2;
 }
 
-class A1 implements AA, A {
-  String field1 = "a";
-  String field2 = "b";
+class A1 implements A, AA {
   String get get_field1 => null;
   String get get_field2 => null;
 
-  int test_nullable(int i) => 4;
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
+  String field1 = "a";
+  String field2 = "b";
+  void test_nullable(int i) {}
+  void test_required({int i = 1}) {}
+  void test_never(Null i) {}
   int test_return_nullable() => 1;
   Null test_return_never() => null;
   void set set_field1(String str) { field1 = str; }

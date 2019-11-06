@@ -10,9 +10,9 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that when choosing the most specific class field
- * during interface computation, all nullability annotations are ignored in
- * unmigrated library for the class fields ([extends] clause).
+ * @description Check that if legacy class extends opted-in class, legacy field
+ * can accept non-null values if corresponding parent field is of both nullable
+ * or non-nullable type.
  *
  * @author iarkh@unipro.ru
  */
@@ -28,15 +28,7 @@ class A1 extends A {
 }
 
 main() {
-  A a = A();
-  Expect.equals("a", a.field1);
-  Expect.equals("b", a.field2);
-
   A1 a1 = A1();
   Expect.equals("c", a1.field1);
   Expect.equals("d", a1.field2);
-
-  C c = C();
-  Expect.equals("a", c.field1);
-  Expect.equals("b", c.field2);
 }
