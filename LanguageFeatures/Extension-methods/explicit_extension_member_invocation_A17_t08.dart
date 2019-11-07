@@ -9,6 +9,7 @@
  * Composite member invocation on target X	     Corresponding member base name
  *    X.id++, X.id--, ++X.id, --X.id	                        id
  * @description Check explicit extension member invocation in form of --X.id
+ * @issue 39254
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
