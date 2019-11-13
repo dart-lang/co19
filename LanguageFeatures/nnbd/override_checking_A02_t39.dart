@@ -9,9 +9,9 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that overriding works as expected in a migrated library -
- * test that migrated method without [Never] parameter cannot override legacy
- * method with parameter of any type ([with] clause).
+ * @description Check that if opted-in class is a mixin with legacy class,
+ * compile time error is thrown if parent legacy method parameter is of any
+ * legacy type and child opted-in method parameter is [Never].
  *
  * @author iarkh@unipro.ru
  */
@@ -20,8 +20,13 @@
 import "override_checking_legacy_lib.dart";
 
 class A1 with A {
-  int test_never(Never i) => 1;
-//    ^^^^^^^^^^
+  void test_never(Never i) {}
+//     ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test_nullable(Never i) {}
+//     ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

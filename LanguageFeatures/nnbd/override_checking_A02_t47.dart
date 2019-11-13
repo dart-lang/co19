@@ -9,16 +9,15 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that overriding works as expected in a migrated library -
- * test that migrated method with non-nullable return value can override legacy
- * method ([with] clause).
+ * @description Check that if opted-in class is a mixin with legacy class, child
+ * opted-in method can return non-nullable value.
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-import "override_checking_legacy_lib.dart";
 import "../../Utils/expect.dart";
+import "override_checking_legacy_lib.dart";
 
 class A1 with A {
   int test_return_nullable() => 2;

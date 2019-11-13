@@ -9,9 +9,9 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that overriding works as expected in a migrated library -
- * test that migrated method with nullable parameter can override legacy method
- * ([with] clause).
+ * @description Check that if opted-in class is a mixin with legacy class,
+ * opted-in method parameter can be of nullable type and the method can accept
+ * non-null and null arguments.
  *
  * @author iarkh@unipro.ru
  */
@@ -21,12 +21,18 @@ import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
 class A1 with A {
-  int test_nullable(int? i) => 2;
+  void test_nullable(int? i) {
+    Expect.equals(1, i);
+  }
+}
+
+class A2 with A {
+  void test_nullable(int? i) {
+    Expect.isNull(i);
+  }
 }
 
 main() {
-  Expect.equals(1, A().test_nullable(1));
-  Expect.equals(1, A().test_nullable(null));
-  Expect.equals(2, A1().test_nullable(1));
-  Expect.equals(2, A1().test_nullable(null));
+  A1().test_nullable(1);
+  A2().test_nullable(null);
 }

@@ -9,9 +9,8 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that overriding works as expected in a migrated library -
- * test that migrated method with [Never] return value can override legacy
- * method ([extends] clause).
+ * @description Check that if opted-in class extends legacy class, migrated
+ * method with [Never] return value can override legacy method.
  *
  * @author iarkh@unipro.ru
  */

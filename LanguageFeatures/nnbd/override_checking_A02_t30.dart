@@ -9,9 +9,8 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that overriding works as expected in a migrated library -
- * test that migrated method with non-nullable return value can override
- * legacy method ([implements] clause).
+ * @description Check that if opted-in class implements legacy class, child
+ * opted-in method can return non-nullable value.
  *
  * @author iarkh@unipro.ru
  */
@@ -23,19 +22,19 @@ import "../../Utils/expect.dart";
 class A1 implements A {
   int test_return_nullable() => 2;
 
-  int test_nullable(int? i) => 2;
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
+  void test_nullable(int? i) {}
+  void test_required({int? i = 1}) {}
+  void test_never(Null i) {}
   Null test_return_never() => null;
-  int aField1 = 1;
-  int aField2 = 2;
-  int aField3 = 3;
-  int get get_field1 => -1;
-  int get get_field2 => -2;
-  int get get_field3 => -3;
-  void set set_field1(int i) { aField1 = -1; }
-  void set set_field2(int i) { aField1 = -2; }
-  void set set_field3(int i) { aField1 = -3; }
+  int? aField1 = 1;
+  int? aField2 = 2;
+  int? aField3 = 3;
+  int? get get_field1 => -1;
+  int? get get_field2 => -2;
+  int? get get_field3 => -3;
+  void set set_field1(int? i) {}
+  void set set_field2(int? i) {}
+  void set set_field3(int? i) {}
 }
 
 main() {

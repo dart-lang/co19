@@ -9,9 +9,8 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that overriding works as expected in a migrated library -
- * test that migrated setter without null annotations cannot override legacy
- * setter ([extends] clause).
+ * @description Check that if opted-in class implements legacy class, child
+ * opted-in setter cannot have non-nullable argument.
  *
  * @author iarkh@unipro.ru
  */
@@ -27,24 +26,24 @@ class A1 implements A {
   int? get get_field2 => aField2;
   int? get get_field3 => aField3;
 
-  void set set_field1(int i) { aField1 = i; }
+  void set set_field1(int i) {}
 //         ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void set set_field2(int i) { aField2 = i; }
+  void set set_field2(int i) {}
 //         ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void set set_field3(int i) { aField3 = i; }
+  void set set_field3(int i) {}
 //         ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  int test_nullable(int? i) => 2;
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
+  void test_nullable(int? i) {}
+  void test_required({int i = 1}){}
+  void test_never(Null i) {}
   int test_return_nullable() => 1;
   Null test_return_never() => null;
 }

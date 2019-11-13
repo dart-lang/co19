@@ -9,8 +9,8 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that overriding works as expected in a migrated library -
- * test that nullable class type parameters work as expected ([extends] clause).
+ * @description Check that if opted-in class extends legacy class, child
+ * opted-in class type parameter cam be nullable.
  *
  * @author iarkh@unipro.ru
  */
@@ -28,7 +28,7 @@ class D2<X extends A> extends D<X> {
 }
 
 main() {
-  D1<A?> d1 = D1<A?>();
+  D1<A> d1 = D1<A>();
   Expect.equals(A, d1.getParamType());
 
   D1<Null> d2 = D1<Null>();

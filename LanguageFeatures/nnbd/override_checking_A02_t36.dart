@@ -9,9 +9,9 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that overriding works as expected in a migrated library -
- * test that migrated method with non-nullable parameter cannot override legacy
- * method ([with] clause).
+ * @description Check that compiler error is thrown if opted-in class is a
+ * mixin with legacy class and migrated method with non-nullable parameter
+ * overrides legacy method which parameter is nullable.
  *
  * @author iarkh@unipro.ru
  */
@@ -20,7 +20,14 @@
 import "override_checking_legacy_lib.dart";
 
 class A1 with A {
-  int test_nullable(int i) => 2;
+  void test_nullable(int i) {}
+//    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+abstract class A2 with A {
+  void test_nullable(int i);
 //    ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

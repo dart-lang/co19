@@ -9,9 +9,9 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that overriding works as expected in a migrated library -
- * test that migrated setter with null annotations can override legacy setter
- * ([implements] clause).
+ * @description Check that if opted-in class implement legacy class, child
+ * opted-in setter can have nullable argument and so accept null and non-null
+ * values.
  *
  * @author iarkh@unipro.ru
  */

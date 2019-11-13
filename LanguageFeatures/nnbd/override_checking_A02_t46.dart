@@ -9,9 +9,8 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that overriding works as expected in a migrated library -
- * test that migrated method with return value of nullable can override legacy
- * method ([with] clause).
+ * @description Check that if opted-in class is a mixin with legacy class, child
+ * opted-in method can return nullable value.
  *
  * @author iarkh@unipro.ru
  */
@@ -24,6 +23,11 @@ class A1 with A {
   int? test_return_nullable() => 2;
 }
 
+class A2 with A {
+  int? test_return_nullable() => null;
+}
+
 main() {
   Expect.equals(2, A1().test_return_nullable());
+  Expect.isNull(A2().test_return_nullable());
 }

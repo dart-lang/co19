@@ -9,9 +9,9 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that overriding works as expected in a migrated library -
- * test that migrated method without required parameter cannot override legacy
- * method with named parameter with default value ([extends] clause).
+ * @description Check that if opted-in class extends legacy class, migrated
+ * method without required parameter cannot override legacy method with named
+ * parameter with default value.
  *
  * @author iarkh@unipro.ru
  */
@@ -20,10 +20,18 @@
 import "override_checking_legacy_lib.dart";
 
 class A1 extends A {
-  int test_required({int? i}) => 2;
-//    ^^^^^^^^^^^^^
+  void test_required({int? i}) {}
+//     ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-main() {}
+abstract class A2 extends A {
+  void test_required({int? i});
+//     ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+main() {
+}

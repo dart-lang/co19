@@ -9,9 +9,9 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that overriding works as expected in a migrated library -
- * test that migrated method with [Never] return value cannot be called even if
- * it overrides legacy method ([extends] clause).
+ * @description Check that if opted-in class extends legacy class, child
+ * migrated method with [Never] return value cannot be called and compile error
+ * is thrown in this case.
  *
  * @author iarkh@unipro.ru
  */
@@ -25,8 +25,8 @@ class A1 extends A {
 
 main() {
   A1 a = A1();
-  var i = a.test_return_never();
-//          ^^^^^^^^^^^^^^^^^
+  a.test_return_never();
+//  ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

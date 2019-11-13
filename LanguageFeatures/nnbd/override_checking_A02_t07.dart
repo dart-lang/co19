@@ -9,9 +9,9 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that overriding works as expected in a migrated library -
- * test that migrated field without null annotations cannot override legacy
- * field ([extends] clause).
+ * @description Check that if opted-in class extends legacy class, opted-in
+ * field of non-nullable type cannot override legacy field, compile time error
+ * is thrown in this case.
  *
  * @author iarkh@unipro.ru
 */

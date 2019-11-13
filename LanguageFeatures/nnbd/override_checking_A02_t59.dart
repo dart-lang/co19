@@ -9,9 +9,9 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that overriding works as expected in a migrated library -
- * test that migrated getter with null annotations can override legacy getter
- * (check case when class implements two classes with the same method names).
+ * @description Check that if opted-in class implements two classes (one is
+ * legacy) with some getter, opted-in getter of nullable type can override
+ * legacy getter.
  *
  * @author iarkh@unipro.ru
  */
@@ -34,14 +34,14 @@ class A1 implements A, B {
   int? get get_field2 => aField2;
   int? get get_field3 => aField3;
 
-  int test_nullable(int? i) => 2;
-  int test_required({int i = 1}) => 1;
-  int test_never(Null i) => 1;
+  void test_nullable(int? i) {}
+  void test_required({int? i = 1}) {}
+  void test_never(Null i) {}
   int test_return_nullable() => 1;
   Null test_return_never() => null;
-  void set set_field1(int i) { aField1 = -1; }
-  void set set_field2(int i) { aField1 = -2; }
-  void set set_field3(int i) { aField1 = -3; }
+  void set set_field1(int i) {}
+  void set set_field2(int i) {}
+  void set set_field3(int i) {}
 }
 
 main() {
