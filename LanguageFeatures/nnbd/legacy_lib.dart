@@ -10,6 +10,8 @@
 // SharedOptions=--enable-experiment=non-nullable
 library legacy_library_lib;
 
+import 'dart:async';
+
 class A implements AMx {
   int c1 = 0, c2 = 0;
   String get log => "test() called $c1 times, text2 called $c2 times";
@@ -37,6 +39,12 @@ class C<X extends A> {
   X x;
   C(this.x);
 }
+
+class B<X extends int> {
+  X x;
+  B(this.x);
+}
+
 
 class M {
 }
@@ -67,6 +75,14 @@ class S {}
 
 S getLegacyS() => null;
 
-dynamic getLegscyDynamic(x) => x;
+dynamic get legacyDynamic => new Object();
 
-Null getLegscyNull() => null;
+dynamic getLegacyDynamic(x) => x;
+
+Null getLegacyNull() => null;
+
+FutureOr<Null> futureOrNull = null;
+
+FutureOr futureOrDynamic = new Object();
+
+FutureOr<FutureOr<S>> futureOrfutureOrS = new S();

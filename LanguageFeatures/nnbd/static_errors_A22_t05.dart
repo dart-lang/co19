@@ -19,7 +19,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-import "legacy_library_lib.dart";
+import "legacy_lib.dart";
 
 main() {
   var v1 = getLegacyS();

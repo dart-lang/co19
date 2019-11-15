@@ -12,7 +12,7 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-export "legacy_library_lib.dart";
+export "legacy_lib.dart";
 //      ^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

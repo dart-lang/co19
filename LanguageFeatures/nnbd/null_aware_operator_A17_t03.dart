@@ -18,7 +18,7 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
-import "legacy_library_lib.dart";
+import "legacy_lib.dart";
 
 main() {
   A a1 = new A();

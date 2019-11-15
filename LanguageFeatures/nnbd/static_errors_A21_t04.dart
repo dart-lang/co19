@@ -18,15 +18,15 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-import "legacy_library_lib.dart";
+import "legacy_lib.dart";
 
 main() {
-  var a1 = getLegscyDynamic(null);
+  var a1 = getLegacyDynamic(null);
   a1 = null;
 
-  var a2 = getLegscyDynamic("Show must go on");
+  var a2 = getLegacyDynamic("Show must go on");
   a2 = null;
 
-  var a3 = getLegscyNull();
+  var a3 = getLegacyNull();
   a3 = null;
 }

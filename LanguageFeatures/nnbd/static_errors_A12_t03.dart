@@ -12,7 +12,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-import "legacy_library_lib.dart";
+import "legacy_lib.dart";
 
 class C1 extends A? {}
 //               ^

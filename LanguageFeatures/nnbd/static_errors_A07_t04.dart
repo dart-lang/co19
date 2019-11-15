@@ -13,7 +13,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
-import "legacy_library_lib.dart";
+import "legacy_lib.dart";
 
 typedef AAlias = A?;
 

@@ -8,25 +8,29 @@
  * an expression whose type is potentially nullable and not dynamic, except for
  * the methods, setters, getters, and operators on Object.
  *
- * @description Check that it is no compile-time error to call a method, setter,
+ * @description  Check that it is no compile-time error to call a method, setter,
  * getter or operator on an expression whose type is potentially nullable if
- * they are  methods, setters, getters, and operators on Object. Test type
- * aliases
+ * they are  methods, setters, getters, and operators on Object. Test
+ * that methods of Object are allowed for the type <T extends Object?>
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
-class A {
+class C<T extends Object?> {
+  T a;
+  C(this.a);
+
+  test() {
+    Expect.isNotNull(a.hashCode);
+    Expect.isNotNull(a.toString());
+    Expect.isNotNull(a.runtimeType);
+    Expect.isFalse(a == new Object());
+  }
 }
 
-typedef AAlias = A?;
-
 main() {
-  AAlias x = new A();
-  Expect.isNotNull(x.hashCode);
-  Expect.isNotNull(x.toString());
-  Expect.isNotNull(x.runtimeType);
-  Expect.isFalse(x == new A());
+  C<Object?> c = new C<Object?>(new Object());
+  c.test();
 }

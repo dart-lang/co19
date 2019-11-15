@@ -13,7 +13,7 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
-import "legacy_library_lib.dart";
+import "legacy_lib.dart";
 
 void testShort(A? x, String e2) {
   var actual1 = x?.text = e2;

@@ -10,45 +10,37 @@
  *
  * @description Check that it is a compile-time error to call a method, setter,
  * getter or operator on an expression whose type is potentially nullable. Test
- * some class A?
+ * class A*
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-
-class A {
-  String m = "";
-  void foo() {}
-  int get g => 1;
-  void set s(int i) {}
-  A operator+(A other) => other;
-}
+import "legacy_lib.dart";
 
 main() {
-  A? a = new A();
-
-  a.m;
-// ^^
+  A? a1 = new A();
+  a1.c1;
+//  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  a.foo();
-// ^^^^
+  a1.test();
+//  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  a.g;
-// ^^
+  a1.text2;
+//  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  a.s = 2;
-// ^^
+  a1.text3 = "Lily was here";
+//  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  a + a;
-//  ^
+  a1[42];
+//  ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

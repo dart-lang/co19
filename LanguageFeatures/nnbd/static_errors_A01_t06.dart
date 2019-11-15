@@ -10,23 +10,18 @@
  *
  * @description Check that it is no compile-time error to call a method, setter,
  * getter or operator on an expression whose type is potentially nullable if
- * they are  methods, setters, getters, and operators on Object. Test type
- * aliases
+ * they are  methods, setters, getters, and operators on Object. Test
+ * that methods of Object are allowed for the class Null
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
-class A {
-}
-
-typedef AAlias = A?;
-
 main() {
-  AAlias x = new A();
+  var x = null;
   Expect.isNotNull(x.hashCode);
   Expect.isNotNull(x.toString());
   Expect.isNotNull(x.runtimeType);
-  Expect.isFalse(x == new A());
+  Expect.isFalse(x == new Object());
 }

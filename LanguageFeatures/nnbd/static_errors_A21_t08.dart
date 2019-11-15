@@ -19,7 +19,7 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
-import "legacy_library_lib.dart";
+import "legacy_lib.dart";
 
 main() {
   FutureOr<A?> fo1 = null;

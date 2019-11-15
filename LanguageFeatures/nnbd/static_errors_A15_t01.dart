@@ -15,27 +15,28 @@
 class A {
 }
 
-void test1(dynamic x) {
-  throw x;
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-void test2(Null x) {
+void test1(Null x) {
   throw x;
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test3(A? x) {
+void test2(A? x) {
   throw x;
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test4<T extends Null>(T x) {
+void test3<T extends Null>(T x) {
+  throw x;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+void test4<T extends Object?>(T x) {
   throw x;
 //      ^
 // [analyzer] unspecified

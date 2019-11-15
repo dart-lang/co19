@@ -8,26 +8,37 @@
  * an expression whose type is potentially nullable and not dynamic, except for
  * the methods, setters, getters, and operators on Object.
  *
- * @description Check that it is no compile-time error to call a method, setter,
- * getter or operator on an expression whose type is dynamic
+ * @description Check that it is a compile-time error to call a method, setter,
+ * getter or operator on an expression whose type is potentially nullable. Test
+ * the case <T extends num?>
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
-class A {
-  String m = "";
-  void foo() {}
-  int get g => 1;
-  void set s(int i) {}
-  A operator+(A other) => other;
+class C<T extends num?> {
+  T t;
+  C(this.t);
+
+  test() {
+    t.isFinite;
+//    ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+    t.abs();
+//    ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+    t + t;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }
 
 main() {
-  dynamic x = new A();
-  x.m;
-  x.foo();
-  x.g;
-  x.s = 2;
-  x + x;
+  C<int?> c = new C<int?>(3);
+  c.test();
 }

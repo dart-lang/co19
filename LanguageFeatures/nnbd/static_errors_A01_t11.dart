@@ -8,13 +8,13 @@
  * an expression whose type is potentially nullable and not dynamic, except for
  * the methods, setters, getters, and operators on Object.
  *
- * @description Check that it is no compile-time error to call a method, setter,
- * getter or operator on an expression whose type is dynamic
+ * @description Check that it is a compile-time error to call a method, setter,
+ * getter or operator on an expression whose type is potentially nullable. Test
+ * the case <T extends A?>
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-
 class A {
   String m = "";
   void foo() {}
@@ -23,11 +23,39 @@ class A {
   A operator+(A other) => other;
 }
 
+class C<T extends A?> {
+  T a;
+  C(this.a);
+
+  test() {
+    a.m;
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+    a.foo();
+//   ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+    a.g;
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+    a.s = 2;
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+    a + a;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
+
 main() {
-  dynamic x = new A();
-  x.m;
-  x.foo();
-  x.g;
-  x.s = 2;
-  x + x;
+  C<A?> c = new C<A?>(new A());
+  c.test();
 }

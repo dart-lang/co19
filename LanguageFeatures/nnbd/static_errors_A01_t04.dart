@@ -10,10 +10,11 @@
  *
  * @description Check that it is a compile-time error to call a method, setter,
  * getter or operator on an expression whose type is potentially nullable. Test
- * type alias
+ * type alias for class A?
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// Requirements=nnbd-strong
 
 class A {
   String m = "";
@@ -25,21 +26,30 @@ class A {
 
 typedef AAlias = A?;
 
-class C<X extends AAlias> {
-  X x;
-  C(this.x);
-
-  test() {
-    x.m;              //# 01: compile-time error
-    x.foo();          //# 02: compile-time error
-    x.g;              //# 03: compile-time error
-    x.s = 2;          //# 04: compile-time error
-    x + x;            //# 05: compile-time error
-  }
-}
-
 main() {
   AAlias a = new A();
-  C<AAlias> c = new C<AAlias>(a);
-  c.test();
+  a.m;
+// ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  a.foo();
+// ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  a.g;
+// ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  a.s = 2;
+// ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  a + a;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

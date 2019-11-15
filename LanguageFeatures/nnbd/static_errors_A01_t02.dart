@@ -10,28 +10,20 @@
  *
  * @description Check that it is no compile-time error to call a method, setter,
  * getter or operator on an expression whose type is potentially nullable if
- * they are  methods, setters, getters, and operators on Object
+ * they are  methods, setters, getters, and operators on Object. Test some class
+ * A?
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 class A {}
 
-class C<X extends A?> {
-  X x;
-  C(this.x);
-
-  test() {
-    Expect.isNotNull(x.hashCode);
-    Expect.isNotNull(x.toString());
-    Expect.isNotNull(x.runtimeType);
-    Expect.isFalse(x == new A());
-  }
-}
-
 main() {
   A? a = new A();
-  C<A?> c = new C<A?>(a);
-  c.test();
+  Expect.isNotNull(a.hashCode);
+  Expect.isNotNull(a.toString());
+  Expect.isNotNull(a.runtimeType);
+  Expect.isFalse(a == new A());
 }
