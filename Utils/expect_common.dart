@@ -93,7 +93,7 @@ class Expect {
       tolerance = (expected / 1e4).abs();
     }
     // Note: use !( <= ) rather than > so we fail on NaNs
-    if ((expected - actual).abs() <= (tolerance as num)) return;
+    if ((expected - actual).abs() <= tolerance) return;
 
     String msg = _getMessage(reason);
     _fail('Expect.approxEquals(expected:<$expected>, actual:<$actual>, '
