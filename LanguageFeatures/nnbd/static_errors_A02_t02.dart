@@ -8,28 +8,17 @@
  * expression whose type is potentially nullable and not dynamic, except for the
  * methods and fields on Object.
  *
- * @description Check that it is no compile-time error to read a field or tear
- * off a method from an expression whose type is potentially nullable but type
- * dynamic
+ * @description  Check that it is no compile-time error to tear off a method
+ * from an expression if this is a method or field on Object. Test some class A?
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
-class A {
-}
-
-class C<X extends A?> {
-  X x;
-  C(this.x);
-
-  test() {
-    Expect.isNotNull(x.toString);
-  }
-}
+class A {}
 
 main() {
   A? a = new A();
-  C<A?> c = new C<A?>(a);
-  c.test();
+  Expect.isNotNull(a.toString);
 }

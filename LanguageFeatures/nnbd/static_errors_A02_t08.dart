@@ -9,27 +9,23 @@
  * methods and fields on Object.
  *
  * @description Check that it is a compile-time error to read a field or tear
- * off a method from an expression whose type is potentially nullable and not
- * dynamic. Test some class A?
+ * off a method from an expression whose type is potentially nullable. Test
+ * class A*
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-
-class A {
-  final String s = "Lily was here";
-  void foo() {}
-}
+import "legacy_lib.dart";
 
 main() {
-  A? a = new A();
-  a.s;
-// ^^
+  A? a1 = new A();
+  a1.c1;
+//  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  a.foo;
-// ^^^^
+  a1.test;
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

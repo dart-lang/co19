@@ -22,24 +22,15 @@ class A {
 
 typedef AAlias = A?;
 
-class C<X extends AAlias> {
-  X x;
-  C(this.x);
-
-  test() {
-    x.s;
-//   ^
-// [analyzer] unspecified
-// [cfe] unspecified
-    x.foo;
-//   ^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-}
-
 main() {
-  A? a = new A();
-  C<A?> c = new C<A?>(a);
-  c.test();
+  AAlias a = new A();
+  a.s;
+// ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  a.foo;
+// ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

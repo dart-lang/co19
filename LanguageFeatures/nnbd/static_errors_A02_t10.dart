@@ -8,28 +8,27 @@
  * expression whose type is potentially nullable and not dynamic, except for the
  * methods and fields on Object.
  *
- * @description Check that it is a compile-time error to read a field or tear
- * off a method from an expression whose type is potentially nullable and not
- * dynamic. Test some class A?
+ * @description Check that it is a compile-time error to to read a field or tear
+ * off a method from an expression whose type is potentially nullable. Test
+ * the case <T extends num?>
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
-class A {
-  final String s = "Lily was here";
-  void foo() {}
+class C<T extends num?> {
+  T t;
+  C(this.t);
+
+  test() {
+    t.abs;
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }
 
 main() {
-  A? a = new A();
-  a.s;
-// ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  a.foo;
-// ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  C<int?> c = new C<int?>(3);
+  c.test();
 }

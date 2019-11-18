@@ -13,18 +13,14 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-
+// Requirements=nnbd-strong
 class A {
   final String s = "Lily was here";
   void foo() {}
 }
 
-test(dynamic x) {
-  x.s;
-  x.foo;
-}
-
 main() {
-  A? a = new A();
-  test(a);
+  dynamic a = new A();
+  a.s;
+  a.foo;
 }

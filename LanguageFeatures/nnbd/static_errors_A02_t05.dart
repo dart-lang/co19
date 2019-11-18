@@ -8,28 +8,21 @@
  * expression whose type is potentially nullable and not dynamic, except for the
  * methods and fields on Object.
  *
- * @description Check that it is a compile-time error to read a field or tear
- * off a method from an expression whose type is potentially nullable and not
- * dynamic. Test some class A?
+ * @description Check that it is no compile-time error to tear off a method
+ * from an expression if this is a method or field on Object. Test type
+ * aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
+import "../../Utils/expect.dart";
 
 class A {
-  final String s = "Lily was here";
-  void foo() {}
 }
 
-main() {
-  A? a = new A();
-  a.s;
-// ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+typedef AAlias = A?;
 
-  a.foo;
-// ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+main() {
+  AAlias a = new A();
+  Expect.isNotNull(a.toString);
 }

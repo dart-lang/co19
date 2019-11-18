@@ -9,27 +9,19 @@
  * methods and fields on Object.
  *
  * @description Check that it is a compile-time error to read a field or tear
- * off a method from an expression whose type is potentially nullable and not
- * dynamic. Test some class A?
+ * off a method from an expression whose type is potentially nullable. Test
+ * the case <T* extends int?>
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-
-class A {
-  final String s = "Lily was here";
-  void foo() {}
-}
+import "legacy_lib.dart";
 
 main() {
-  A? a = new A();
-  a.s;
-// ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  B<int?> b = new B<int?>(42);
 
-  a.foo;
-// ^^^^
+  b.x.abs;
+//    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
