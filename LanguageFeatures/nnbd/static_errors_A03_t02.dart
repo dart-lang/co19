@@ -8,25 +8,19 @@
  * nullable and not dynamic.
  *
  * @description Check that it is a compile-time error to call an expression
- * whose type is potentially nullable and not dynamic. Test nullable function
- * type
+ * whose type is potentially nullable and not dynamic. Test extension call
+ * method
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,extension-methods
 // Requirements=nnbd-strong
-void foo() {}
-
-typedef void Foo();
+extension on int {
+  int call(int v) => this + v;
+}
 
 main() {
-  Function? f1 = foo;
-  f1();
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  Foo? f2 = foo;
-  f2();
+  int? i = 42;
+  i(1);
 //^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -8,26 +8,27 @@
  * nullable and not dynamic.
  *
  * @description Check that it is a compile-time error to call an expression
- * whose type is potentially nullable and not dynamic. Test nullable function
- * type
+ * whose type is potentially nullable and not dynamic. Test <X extends F?> where
+ * F is a function type
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-void foo() {}
+test1<X extends Function?>(X x) {
+  x();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
 
 typedef void Foo();
 
-main() {
-  Function? f1 = foo;
-  f1();
-//^^
+test2<X extends Foo?>(X x) {
+  x();
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
-  Foo? f2 = foo;
-  f2();
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
+main() {
 }

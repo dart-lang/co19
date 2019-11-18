@@ -45,7 +45,6 @@ class B<X extends int> {
   B(this.x);
 }
 
-
 class M {
 }
 
@@ -86,3 +85,22 @@ FutureOr<Null> futureOrNull = null;
 FutureOr futureOrDynamic = new Object();
 
 FutureOr<FutureOr<S>> futureOrfutureOrS = new S();
+
+void legacyFoo() {}
+
+typedef void LegacyFoo();
+
+Function fLegacy1 = legacyFoo;
+LegacyFoo fLegacy2 = legacyFoo;
+
+class F1<X extends Function> {
+  X x;
+  F1(this.x);
+}
+class F2<X extends LegacyFoo> {
+  X x;
+  F2(this.x);
+}
+
+F1<Function> funcLegacy1 = F1<Function>(legacyFoo);
+F2<LegacyFoo> funcLegacy2 = F2<LegacyFoo>(legacyFoo);

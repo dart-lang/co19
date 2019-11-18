@@ -8,26 +8,38 @@
  * nullable and not dynamic.
  *
  * @description Check that it is a compile-time error to call an expression
- * whose type is potentially nullable and not dynamic. Test nullable function
- * type
+ * whose type is potentially nullable and not dynamic. Test type aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,extension-methods,nonfunction-type-aliases
 // Requirements=nnbd-strong
+extension on int {
+  int call(int v) => this + v;
+}
 void foo() {}
-
 typedef void Foo();
 
+typedef IntAlias = int?;
+typedef FunctionAlias = Function?;
+typedef FooAlias = Foo?;
+
 main() {
-  Function? f1 = foo;
+  IntAlias i = 42;
+  i(1);
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  FunctionAlias f1 = foo;
   f1();
 //^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  Foo? f2 = foo;
+  FooAlias f2 = foo;
   f2();
 //^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
 }

@@ -7,27 +7,21 @@
  * @assertion It is an error to call an expression whose type is potentially
  * nullable and not dynamic.
  *
- * @description Check that it is a compile-time error to call an expression
- * whose type is potentially nullable and not dynamic. Test nullable function
- * type
+ * @description Check that it is no compile-time error to call an expression
+ * whose type is dynamic.
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-void foo() {}
+import "../../Utils/expect.dart";
 
-typedef void Foo();
+int foo() => 42;
+typedef int Foo();
 
 main() {
-  Function? f1 = foo;
-  f1();
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  dynamic f1 = foo;
+  Expect.equals(42, f1());
 
-  Foo? f2 = foo;
-  f2();
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  dynamic f2 = foo;
+  Expect.equals(42, f2());
 }

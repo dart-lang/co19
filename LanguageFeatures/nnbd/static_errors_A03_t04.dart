@@ -8,26 +8,22 @@
  * nullable and not dynamic.
  *
  * @description Check that it is a compile-time error to call an expression
- * whose type is potentially nullable and not dynamic. Test nullable function
- * type
+ * whose type is potentially nullable and not dynamic. Test legacy function
+ * types
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-void foo() {}
-
-typedef void Foo();
+import "legacy_lib.dart";
 
 main() {
-  Function? f1 = foo;
-  f1();
-//^^
+  fLegacy1();
+//^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  Foo? f2 = foo;
-  f2();
-//^^
+  fLegacy2();
+//^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
