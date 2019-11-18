@@ -41,7 +41,6 @@ class A1 implements A, B {
   int? get get_field1 => aField1;
   int? get get_field2 => aField2;
   int? get get_field3 => aField3;
-  void test_nullable(int? i) {}
   void test_required({int? i = 1}) {}
   void test_never(Null i) {}
   int test_return_nullable() => 1;

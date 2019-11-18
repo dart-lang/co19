@@ -9,30 +9,50 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that if opted-in class extends legacy class, opted-in
- * method parameter can be of nullable type and the method can accept
- * non-null and null arguments.
+ * @description Check that if opted-in class implements legacy class, child
+ * opted-in method argument can be of nullable type and accept non-null
+ * arguments.
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "dart:async";
 import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
-class A1 extends A {
-  void test_nullable(int? i) {
+void test() {}
+
+class A implements LEGACY_ARGS {
+  void test_int(int? i) {
     Expect.equals(1, i);
   }
-}
 
-class A2 extends A {
-  void test_nullable(int? i) {
-    Expect.isNull(i);
+  void test_object(Object? i) {
+    Expect.equals(1, i);
   }
+
+  void test_dynamic(dynamic i) {
+    Expect.equals(1, i);
+  }
+
+  void test_function(Function? i) {
+    Expect.equals(test, i);
+  }
+
+  void test_futureOr(FutureOr? i) {
+    Expect.equals(1, i);
+  }
+
+  void test_null(Null i) {}
 }
 
 main() {
-  A1().test_nullable(1);
-  A2().test_nullable(null);
+  A a = A();
+
+  a.test_int(1);
+  a.test_object(1);
+  a.test_dynamic(1);
+  a.test_function(test);
+  a.test_futureOr(1);
 }

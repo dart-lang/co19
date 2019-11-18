@@ -6,19 +6,26 @@
 /**
  * @author iarkh@unipro.ru
  */
-// @ | da | rt=2.4
+// @dart=2.4
 // SharedOptions=--enable-experiment=non-nullable
 
 library override_legacy_lib;
 
+import "dart:async";
 import "../../Utils/expect.dart";
 
-class A {
-  void test_nullable(int i) {
-    Expect.fail("This method should be overriden");
-  }
+class LEGACY_ARGS {
+  void test_int(int i) { Expect.fail("This method should be overriden"); }
+  void test_object(Object o) { Expect.fail("This method should be overriden"); }
+  void test_dynamic(dynamic i) { Expect.fail("This method should be overriden"); }
+  void test_function(Function f) { Expect.fail("This method should be overriden"); }
+  void test_null(Null n) { Expect.fail("This method should be overriden"); }
+  void test_futureOr(FutureOr i) { Expect.fail("This method should be overriden"); }
+}
 
+class A {
   void test_required({int i = 1}) {
+    Expect.fail("This method should be overriden");
     Expect.fail("This method should be overriden");
   }
 

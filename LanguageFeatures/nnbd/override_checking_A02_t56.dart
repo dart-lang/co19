@@ -22,17 +22,11 @@ import "override_checking_legacy_lib.dart";
 
 abstract class B1 {
   void test_never(Never i);
-  void test_nullable(Never i);
 }
 
 class A1 implements A {
   void test_never(Never i) {}
 //     ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void test_nullable(Never i) {}
-//     ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

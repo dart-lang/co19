@@ -10,37 +10,29 @@
  * to override otherwise incompatible signatures for a method.
  *
  * @description Check that if opted-in class implements legacy class, child
- * migrated method with [Never] return value cannot be called and compile error
- * is thrown in this case.
+ * opted-in method argument can accept non-null [FutureOr] argument.
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "dart:async";
+import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
-class A1 implements A {
-  Never test_return_never() => throw "It's impossible!";
+class A implements LEGACY_ARGS {
+  void test_futureOr(FutureOr i) {
+    Expect.equals(1, i);
+  }
 
-  void test_required({int? i = 1}) {}
-  void test_never(Null i) {}
-  int? test_return_nullable() { return 1; }
-  int? aField1 = 1;
-  int? aField2 = 2;
-  int? aField3 = 3;
-  int? get get_field1 => -1;
-  int? get get_field2 => -2;
-  int? get get_field3 => -3;
-  void set set_field1(int? i) {}
-  void set set_field2(int? i) {}
-  void set set_field3(int? i) {}
+  void test_int(int? i) {}
+  void test_object(Object? i) {}
+  void test_dynamic(dynamic i) {}
+  void test_function(Function? i) {}
+  void test_null(Null i) {}
 }
 
 main() {
-  A1 a = A1();
-  a.test_return_never();
-//  ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
+  A a = A();
+  a.test_futureOr(1);
 }

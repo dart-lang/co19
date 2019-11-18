@@ -29,7 +29,6 @@ class A1 implements A, B {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  int? test_nullable(int? i) => 2;
   int? test_never(Null i) => 1;
   int? test_return_nullable() => 1;
   Null test_return_never() => null;

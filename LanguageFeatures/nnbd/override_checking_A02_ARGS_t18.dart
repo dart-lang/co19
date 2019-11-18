@@ -9,42 +9,44 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that if opted-in class implements legacy class, child
- * opted-in setter cannot have non-nullable argument.
+ * @description Check that compiler error is thrown if opted-in class implements
+ * two classes with some method, the first class is legacy and given method in
+ * the second class  has argument of nullable type.
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "dart:async";
 import "override_checking_legacy_lib.dart";
 
-class A1 implements A {
-  int? aField1 = 1;
-  int? aField2 = null;
-  int? aField3;
-  int? get get_field1 => aField1;
-  int? get get_field2 => aField2;
-  int? get get_field3 => aField3;
+abstract class B {
+  void test_int(int i);
+  void test_object(Object i);
+  void test_function(Function i);
+}
 
-  void set set_field1(int i) {}
-//         ^^^^^^^^^^
+class A implements B, LEGACY_ARGS {
+
+  void test_int(int i) {}
+//     ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void set set_field2(int i) {}
-//         ^^^^^^^^^^
+void test_object(Object i) {}
+//   ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void set set_field3(int i) {}
-//         ^^^^^^^^^^
+  void test_function(Function i) {}
+//     ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test_required({int i = 1}){}
-  void test_never(Null i) {}
-  int test_return_nullable() => 1;
-  Null test_return_never() => null;
+
+  void test_futureOr(FutureOr i) {}
+  void test_dynamic(dynamic i) {}
+  void test_null(Null i) {}
 }
 
 main() {}

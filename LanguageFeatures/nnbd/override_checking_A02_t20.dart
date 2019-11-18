@@ -25,7 +25,6 @@ class A1 implements A {
     Expect.equals(1, i);
   }
 
-  void test_nullable(int? i) {}
   void test_never(Null i) {}
   int? test_return_nullable() => 1;
   Null test_return_never() => null;

@@ -9,36 +9,47 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that if opted-in class implements legacy class, opted-in
- * getter of nullable type can override legacy getter.
+ * @description Check that if opted-in class extends legacy class, child
+ * opted-in method argument can be of nullable type and the method can accept
+ * non-null arguments.
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "dart:async";
 import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
-class A1 implements A {
-  int? aField1 = 1;
-  int? aField2 = null;
-  int? aField3;
-  int? get get_field1 => 1;
-  int? get get_field2 => null;
-  int? get get_field3 => aField3;
+void test() {}
 
-  void test_required({required int? i}) {}
-  void test_never(Null i) {}
-  int test_return_nullable() => 1;
-  Null test_return_never() => null;
-  void set set_field1(int i) {}
-  void set set_field2(int i) {}
-  void set set_field3(int i) {}
+class A extends LEGACY_ARGS {
+  void test_int(int? i) {
+    Expect.equals(1, i);
+  }
+
+  void test_object(Object? i) {
+    Expect.equals(1, i);
+  }
+
+  void test_dynamic(dynamic i) {
+    Expect.equals(1, i);
+  }
+
+  void test_function(Function? i) {
+    Expect.equals(test, i);
+  }
+
+  void test_futureOr(FutureOr? i) {
+    Expect.equals(1, i);
+  }
 }
 
 main() {
-  A1 a1 = A1();
-  Expect.equals(1, a1.get_field1);
-  Expect.isNull(a1.get_field2);
-  Expect.isNull(a1.get_field3);
+  A a = A();
+  a.test_int(1);
+  a.test_object(1);
+  a.test_dynamic(1);
+  a.test_function(test);
+  a.test_futureOr(1);
 }

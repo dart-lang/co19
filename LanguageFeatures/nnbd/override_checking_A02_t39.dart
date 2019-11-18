@@ -25,10 +25,6 @@ class A1 with A {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test_nullable(Never i) {}
-//     ^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {}
