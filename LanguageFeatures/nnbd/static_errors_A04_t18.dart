@@ -19,7 +19,7 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "dart:async";
-//import "legacy_lib.dart";
+import "legacy_lib.dart";
 
 typedef void Foo();
 class A {}
@@ -32,11 +32,11 @@ class C1<T extends Object> {
   FutureOr<Function> f1;
   FutureOr<Foo> f2;
   FutureOr<A> a1;
-  //FutureOr<M> m1;
+  FutureOr<M> m1;
   FutureOr<FutureOr<A>> a2;
 
-  C1(FutureOr<T> t, FutureOr<Never> n, FutureOr<Function> f1, FutureOr<Foo> f2, FutureOr<A> a1, /*FutureOr<M> m1,*/ FutureOr<FutureOr<A>> a2)
-      : this.t1 = t, this.n1 = n, this.f1 = f1, this.f2 = f2, this.a1 = a1, /*this.m1 = m1,*/ this.a2 = a2 {}
+  C1(FutureOr<T> t, FutureOr<Never> n, FutureOr<Function> f1, FutureOr<Foo> f2, FutureOr<A> a1, FutureOr<M> m1, FutureOr<FutureOr<A>> a2)
+      : this.t1 = t, this.n1 = n, this.f1 = f1, this.f2 = f2, this.a1 = a1, this.m1 = m1, this.a2 = a2 {}
 }
 
 class C2<T extends Object> {
@@ -45,12 +45,12 @@ class C2<T extends Object> {
   FutureOr<Function> f1;
   FutureOr<Foo> f2;
   FutureOr<A> a1;
-  //FutureOr<M> m1;
+  FutureOr<M> m1;
   FutureOr<FutureOr<A>> a2;
-  C2(this.t1, this.n1, this.f1, this.f2, this.a1, /*this.m1,*/ this.a2);
+  C2(this.t1, this.n1, this.f1, this.f2, this.a1, this.m1, this.a2);
 }
 
 main() {
-  new C1<String>("s", never(), foo, foo, A(), /*M(),*/ A());
-  new C2<String>("s", never(), foo, foo, A(), /*M(),*/ A());
+  new C1<String>("s", never(), foo, foo, A(), M(), A());
+  new C2<String>("s", never(), foo, foo, A(), M(), A());
 }
