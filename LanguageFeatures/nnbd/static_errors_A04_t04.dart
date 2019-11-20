@@ -10,24 +10,44 @@
  * or an initializer list entry, unless the variable or field is marked with the
  * 'late' modifier.
  *
- * @description Check that it is no compile-time error if a top level variable
- * with potentially non-nullable type has no initializer expression but this
- * variable is marked with the 'late' modifier
+ * @description Check that it is an error if a top level variable, static
+ * variable, or instance field with potentially non-nullable type has no
+ * initializer expression and is not initialized in a constructor via an
+ * initializing formal or an initializer list entry. Test some class A
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-
+// Requirements=nnbd-strong
 class A {}
 
-late A a;
-late String s;
-late int i;
-late bool b;
+A a;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+String s;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-late final A aa;
-late final String ss;
-late final int ii;
-late final bool bb;
+
+class C {
+  static A a1;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  A a2;
+//  ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  static String s1;
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  String s2;
+//       ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
 
 main() {
 }

@@ -10,34 +10,30 @@
  * or an initializer list entry, unless the variable or field is marked with the
  * 'late' modifier.
  *
- * @description Check that it is an error if a top level variable, static
- * variable, or instance field with potentially non-nullable type has no
- * initializer expression and is not initialized in a constructor via an
- * initializing formal or an initializer list entry. Test FutureOr<A*>
+ * @description Check that it is no compile-time error if an instance field
+ * with potentially non-nullable type has no initializer expression but
+ * initialized in a constructor via an initializing formal or an initializer
+ * list entry. Test <T extends Object?>
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-import "dart:async";
-import "legacy_lib.dart";
+class A {}
 
-FutureOr<A> f1;
-//          ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+class C1<T extends Object?> {
+  T t;
+  C1(T t): this.t = t {}
+}
 
-
-class C {
-  static FutureOr<A> f2;
-//                   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  FutureOr<A> f3;
-//            ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+class C2<T extends Object?> {
+  T t;
+  C2(this.t);
 }
 
 main() {
+  new C1<A>(new A());
+  new C2<A>(new A());
+
+  new C1<String>("Show must go on");
+  new C2<String>("Lily was here");
 }

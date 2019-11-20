@@ -10,17 +10,29 @@
  * or an initializer list entry, unless the variable or field is marked with the
  * 'late' modifier.
  *
- * @description Check that it is a compile-time error if a static variable
- * with potentially non-nullable type has no initializer expression
+ * @description Check that it is an error if a top level variable, static
+ * variable, or instance field with potentially non-nullable type has no
+ * initializer expression and is not initialized in a constructor via an
+ * initializing formal or an initializer list entry. Test Function
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 
-class A {}
+Function f;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class C {
-  static A a;         //# 01: compile-time error
-  static String s;    //# 02: compile-time error
+  static Function f1;
+//                ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Function f2;
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -13,28 +13,17 @@
  * @description Check that it is an error if a top level variable, static
  * variable, or instance field with potentially non-nullable type has no
  * initializer expression and is not initialized in a constructor via an
- * initializing formal or an initializer list entry. Test FutureOr<A*>
+ * initializing formal or an initializer list entry. Test FutureOr<T>, where
+ * <T extends Object>
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "dart:async";
-import "legacy_lib.dart";
 
-FutureOr<A> f1;
-//          ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-
-class C {
-  static FutureOr<A> f2;
-//                   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  FutureOr<A> f3;
-//            ^^
+class C<T extends Object> {
+  FutureOr<T> t;
+//            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
