@@ -40,5 +40,5 @@ main() {
   Expect.isTrue(b3 is B<A<int>, A<int>>);
   Expect.isTrue(b3 is BAlias<A<int>>);
   Expect.equals(a, b3.x);
-  Expect.equals(a, b3.y);
+  Expect.isNull(b3.y);
 }
