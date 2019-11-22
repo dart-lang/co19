@@ -38,7 +38,7 @@ main() {
   s = "Run, Forrest, Run!";
 
   Expect.equals(3, i);
-  Expect.equals(1.14, n);
+  Expect.equals(1, n);
   Expect.equals(4, d);
   Expect.isFalse(b);
   Expect.equals("Run, Forrest, Run!", s);
