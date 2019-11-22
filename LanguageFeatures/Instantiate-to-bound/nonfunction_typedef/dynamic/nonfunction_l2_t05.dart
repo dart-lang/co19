@@ -56,7 +56,7 @@ typedef A<X1 extends B<X1, X2>, X2 extends X1> = B<X1, X2>;
 
 main() {
   Expect.equals(
-      typeOf<A<B<dynamic, dynamic>, B<dynamic, dynamic>>>(),
+      typeOf<B<B<dynamic, dynamic>, dynamic>>(),
       typeOf<A>()
   );
 }
