@@ -42,8 +42,9 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiation to bounds works OK for [typedef G<X> =
- * Function(X)], [class A<X extends G<A<Y, X>>, Y extends G<A<X, Y>>>]
+ * @description Checks that instantiation to bounds works OK for [class C<X, Y>;
+ * typedef G<X> = Function(X); typedef A<X extends G<C<Y, X>>, Y extends G<C<X,
+ * Y>>> = C<X, Y>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -58,15 +59,15 @@ typedef A<X extends G<C<Y, X>>, Y extends G<C<X, Y>>> = C<X, Y>;
 main() {
   A source;
   var fsource = toF(source);
-  F<A<G<A<Null, Null>>, G<A<Null, Null>>>> target = fsource;
+  F<A<G<C<Null, Null>>, G<C<Null, Null>>>> target = fsource;
 
 
-  F<A<G<A<dynamic, dynamic>>, G<A<dynamic, dynamic>>>> target1 = fsource;    //# 01: compile-time error
-  F<A<dynamic, G<A<dynamic, dynamic>>>> target2 = fsource;                   //# 02: compile-time error
-  F<A<G<dynamic>, G<A<dynamic, dynamic>>>> target3 = fsource;                //# 03: compile-time error
-  F<A<G<A<G<dynamic>, dynamic>>, G<A<dynamic, dynamic>>>> target4 = fsource; //# 04: compile-time error
-  F<A<G<A<dynamic, dynamic>>, dynamic>> target5 = fsource;                   //# 05: compile-time error
-  F<A<G<A<dynamic, dynamic>>, G<dynamic>>> target6 = fsource;                //# 06: compile-time error
+  F<A<G<C<dynamic, dynamic>>, G<C<dynamic, dynamic>>>> target1 = fsource;    //# 01: compile-time error
+  F<A<dynamic, G<C<dynamic, dynamic>>>> target2 = fsource;                   //# 02: compile-time error
+  F<A<G<dynamic>, G<C<dynamic, dynamic>>>> target3 = fsource;                //# 03: compile-time error
+  F<A<G<C<G<dynamic>, dynamic>>, G<C<dynamic, dynamic>>>> target4 = fsource; //# 04: compile-time error
+  F<A<G<C<dynamic, dynamic>>, dynamic>> target5 = fsource;                   //# 05: compile-time error
+  F<A<G<C<dynamic, dynamic>>, G<dynamic>>> target6 = fsource;                //# 06: compile-time error
 
   A();                                                                       //# 07: compile-time error
 }

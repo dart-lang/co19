@@ -56,7 +56,7 @@ typedef A<X extends FutureOr<X>> = C<X>;
 
 main() {
   Expect.equals(
-    typeOf<A<FutureOr<dynamic>>>(),
+    typeOf<C<FutureOr<dynamic>>>(),
     typeOf<A>()
   );
 }

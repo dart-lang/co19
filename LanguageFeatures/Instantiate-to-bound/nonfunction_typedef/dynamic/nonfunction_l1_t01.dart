@@ -43,7 +43,7 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for [typedef
- * A<X extends A<X>>]
+ * A<X extends C<X>> = C<X>]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -51,11 +51,11 @@
 import "../../../../Utils/expect.dart";
 
 class C<X> {}
-typedef A<X extends A<X>> = C<X>;
+typedef A<X extends C<X>> = C<X>;
 
 main() {
   Expect.equals(
-    typeOf<A<A<dynamic>>>(),
+    typeOf<C<C<dynamic>>>(),
     typeOf<A>()
   );
 }

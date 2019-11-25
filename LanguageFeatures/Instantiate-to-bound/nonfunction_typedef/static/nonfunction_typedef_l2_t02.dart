@@ -43,24 +43,8 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works OK for [typedef G<X> =
- * Function(X)], [class A<X extends G<A<X, Y>>, Y extends X>]
- *
- * In the test we have [G] with one type argument which is contravariant, so the
- * meaning of the raw [A] is [A<G<A<Null, Null>>, dynamic>], obtained as
- * follows:
- *
- * X                  Y
- * ----------------------------------
- * G<A<X, Y>>         X             // Initial values.
- * G<A<Null, Null>>   dynamic       // Break SCC {X, Y}.
- *
- * The resulting type is well-bounded, because it is super-bounded, because
- * [dynamic <: G<...>] fails, but [A<G<A<Object, Object>>, Null>] is
- * regular-bounded, because [Null <: ...` and `G<A<Object, Object>> <:
- * G<A<..., ...>>].
- * This also shows that the instance creation at the end is a compile-time
- * error.
- *
+ * Function(X); class C<X, Y>; typedef A<X extends G<C<X,Y>>, Y extends X> =
+ * C<X, Y>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -75,11 +59,11 @@ typedef A<X extends G<C<X,Y>>, Y extends X> = C<X, Y>;
 main() {
   A source;
   var fsource = toF(source);
-  F<A<G<A<Null, Null>>, dynamic>> target = fsource;
+  F<A<G<C<Null, Null>>, dynamic>> target = fsource;
 
   F<A<dynamic, dynamic>> target1 = fsource;                   //# 01: compile-time error
   F<A<G<dynamic>, dynamic>> target2 = fsource;                //# 02: compile-time error
-  F<A<G<A<G<dynamic>, dynamic>>, dynamic>> target3 = fsource; //# 03: compile-time error
+  F<A<G<C<G<dynamic>, dynamic>>, dynamic>> target3 = fsource; //# 03: compile-time error
 
   A();                                                        //# 04: compile-time error
 }

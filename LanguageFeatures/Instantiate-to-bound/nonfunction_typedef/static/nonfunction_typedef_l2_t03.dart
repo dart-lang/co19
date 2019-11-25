@@ -42,8 +42,9 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiation to bounds works OK for [typedef G<X> =
- * X Function(X)], [typedef A<X extends G<A<X, Y>>, Y extends X>]
+ * @description Checks that instantiation to bounds works OK for [class C<X, Y>;
+ * typedef G<X> = X Function(X); typedef A<X extends G<A<X, Y>>, Y extends X> =
+ * C<X, Y>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -53,7 +54,7 @@ F<X> toF<X>(X x) => null;
 
 class C<X, Y> {}
 typedef G<X> = X Function(X);
-typedef A<X extends G<A<X, Y>>, Y extends X> = C<X, Y>;
+typedef A<X extends G<C<X, Y>>, Y extends X> = C<X, Y>;
 
 main() {
   A source;  //# 01: compile-time error

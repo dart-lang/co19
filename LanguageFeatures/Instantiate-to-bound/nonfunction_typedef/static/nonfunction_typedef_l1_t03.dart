@@ -43,14 +43,14 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works OK for [typedef G<X> =
- * X Function(X)], [class C<X>], [typedef A<X extends G<A<X>>>]
+ * X Function(X); class C<X>; typedef A<X extends G<C<X>>>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 typedef G<X> = X Function(X);
 class C<X> {}
-typedef A<X extends G<A<X>>> = C<X>;
+typedef A<X extends G<C<X>>> = C<X>;
 
 main() {
   A source; //# 01: compile-time error
