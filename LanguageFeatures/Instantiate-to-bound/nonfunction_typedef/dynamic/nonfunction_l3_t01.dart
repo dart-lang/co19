@@ -42,8 +42,8 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for the
- *  class [G<X1 extends X2, X2 extends X3, X3 extends G<X1, X2, X3>>]
+ * @description Checks that instantiate-to-bounds works as expected for [typedef
+ * G<X1 extends X2, X2 extends X3, X3 extends A<X1, X2, X3>>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -51,11 +51,11 @@
 import "../../../../Utils/expect.dart";
 
 class A<X, Y, Z> {}
-typedef G<X1 extends X2, X2 extends X3, X3 extends G<X1, X2, X3>> = A<X1, X2, X3>;
+typedef G<X1 extends X2, X2 extends X3, X3 extends A<X1, X2, X3>> = A<X1, X2, X3>;
 
 main() {
   Expect.equals(
-    typeOf<G<dynamic, dynamic, G<dynamic, dynamic, dynamic>>>(),
+    typeOf<A<dynamic, dynamic, A<dynamic, dynamic, dynamic>>>(),
     typeOf<G>()
   );
 }

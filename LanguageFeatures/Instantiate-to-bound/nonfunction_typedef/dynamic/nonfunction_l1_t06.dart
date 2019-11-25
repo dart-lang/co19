@@ -43,7 +43,7 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks instantiation to bounds for the [typedef A<X extends
- * M<A<A<A<A<X>>>>>>]
+ * M<M<M<M<M<M<X>>>>>>> = M<M<X>>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -51,11 +51,11 @@
 import "../../../../Utils/expect.dart";
 
 class M<X> {}
-typedef A<X extends M<A<M<A<M<A<X>>>>>>> = M<A<X>>;
+typedef A<X extends M<M<M<M<M<M<X>>>>>>> = M<M<X>>;
 
 main() {
   Expect.equals(
-    typeOf<A<M<A<M<A<M<A<dynamic>>>>>>>>(),
+    typeOf<M<M<M<M<M<M<M<dynamic>>>>>>>>(),
     typeOf<A>()
   );
 }

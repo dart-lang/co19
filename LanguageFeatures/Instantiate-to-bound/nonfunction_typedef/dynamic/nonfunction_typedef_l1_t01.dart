@@ -42,8 +42,9 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiation to bounds works OK for the
- * non-function typedef with [X Function()] parameter (covariant)
+ * @description Checks that instantiation to bounds works OK for non-function
+ * typedef with [X Function()] type parameter: [typedef G<X> = X Function();
+ * class C<X>; typedef A<X extends G<С<X>>> = C<X>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -53,11 +54,11 @@ import "../../../../Utils/expect.dart";
 typedef G<X> = X Function();
 class C<X> {}
 
-typedef A<X extends G<A<X>>> = C<X>;
+typedef A<X extends G<С<X>>> = C<X>;
 
 main() {
   Expect.equals(
-    typeOf<A<G<A<dynamic>>>>(),
+    typeOf<С<G<C<dynamic>>>>(),
     typeOf<A>()
   );
 }
