@@ -42,27 +42,17 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for [typedef
- * B<X extends B<X, Y>, Y>], [typedef A<X1 extends X2, X2 extends B<X1, X2>>]
+ * @description Checks that compile error is thrown if declared non-function
+ * type alias bounds do not ensure that the type arguments are appropriate for
+ * the body.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
-
 class B<X extends B<X, Y>, Y> {}
 typedef A<X1 extends X2, X2 extends B<X1, X2>> = B<X1, X2>;
+//        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-main() {
-  A source;
-  var fsource = toF(source);
-
-  F<A<B<dynamic, dynamic>, B<dynamic, dynamic>>> target = fsource;
-
-//  F<A<dynamic, dynamic>> target1 = fsource;    //# 01: compile-time error
-//  F<A<dynamic, B<dynamic>>> target2 = fsource; //# 02: compile-time error
-//  F<A<B<dynamic>, dynamic>> target3 = fsource; //# 03: compile-time error
-
-//  A();  //# 04: compile-time error
-}
+main() {}
