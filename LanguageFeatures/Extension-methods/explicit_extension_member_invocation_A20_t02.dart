@@ -9,16 +9,16 @@
  * invocation. That is, the only valid use of an extension application is to
  * invoke members on it. This is similar to how prefix names can also only be
  * used as member invocation targets. The main difference is that extensions can
- * also declare operators. This also includes null-aware member access like
- * E(o)?.id or E(o)?.[v] because those need to evaluate the target to a value
- * and extension applications cannot evaluate to a value.
+ * also declare operators.
  *
- * @description Check that it is a compile-time error if null-aware member
+ * @description Check that it is no compile-time error if null-aware member
  * access like E(o)?.id is used for explicit extension invocation
  * @issue 39325
+ * https://github.com/dart-lang/language/issues/677
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=extension-methods
+import "../../Utils/expect.dart";
 
 class C {
 }
@@ -29,8 +29,5 @@ extension Ext on C {
 
 main() {
   C c = C();
-  Ext(c)?.id;
-//^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified}
+  Expect.equals(42, Ext(c)?.id);
 }
