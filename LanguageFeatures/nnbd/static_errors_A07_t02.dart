@@ -9,51 +9,42 @@
  *
  * @description Check that it is a compile-time error if an optional parameter
  * (named or otherwise) with no default value has a potentially non-nullable
- * type. Test type aliases
+ * type. Test Function
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 
-class A {
-  static void test1(var x, [A a]) {}
+class C {
+  static void test1(var v, [Function f]) {}
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static void test2(var v, {Function f}) {}
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test11(var v, [Function f]) {}
 //                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static void test2(var x, {A a}) {}
+  void test22(var v, {Function f}) {}
 //                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-typedef AAlias = A?;
-
-class C<X extends AAlias> {
-  X x;
-  C(this.x);
-
-  void test1<X extends AAlias>(var v, [X x]) {}
-//                                        ^
+void test1(var v, [Function f]) {}
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test2<X extends AAlias>(var v, {X x}) {}
-//                                        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-void test1<X extends AAlias>(var v, [X x]) {}
-//                                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-void test2<X extends AAlias>(var v, {X x}) {}
-//                                      ^
+void test2(var v, {Function f}) {}
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  AAlias a = new A();
-  C<AAlias> c = new C<AAlias>(a);
 }

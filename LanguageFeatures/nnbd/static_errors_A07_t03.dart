@@ -9,38 +9,43 @@
  *
  * @description Check that it is a compile-time error if an optional parameter
  * (named or otherwise) with no default value has a potentially non-nullable
- * type. Test legacy pre-NNBD types
+ * type. Test function type
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-import "legacy_lib.dart";
+typedef void Foo();
 
-class C<X extends A?> {
-  X x;
-  C(this.x);
-
-  void test1<X extends A?>(var v, [X x]) {}
-//                                    ^
+class C {
+  static void test1(var v, [Foo f]) {}
+//                              ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test2<X extends A?>(var v, {X x}) {}
-//                                    ^
+  static void test2(var v, {Foo f}) {}
+//                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test11(var v, [Foo f]) {}
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test22(var v, {Foo f}) {}
+//                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test1<X extends A?>(var v, [X x]) {}
-//                                  ^
+void test1(var v, [Foo f]) {}
+//                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void test2<X extends A?>(var v, {X x}) {}
-//                                  ^
+void test2(var v, {Foo f}) {}
+//                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
-  A? a = new A();
-  C<A?> c = new C<A?>(a);
 }

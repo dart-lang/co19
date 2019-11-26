@@ -9,12 +9,11 @@
  *
  * @description Check that it is a compile-time error if an optional parameter
  * (named or otherwise) with no default value has a potentially non-nullable
- * type. Test some class A
+ * type. Test some class A*
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-
-class A {}
+import "legacy_lib.dart";
 
 class C {
   static void test1(var v, [A a]) {}

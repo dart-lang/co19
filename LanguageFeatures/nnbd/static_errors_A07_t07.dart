@@ -9,42 +9,40 @@
  *
  * @description Check that it is a compile-time error if an optional parameter
  * (named or otherwise) with no default value has a potentially non-nullable
- * type. Test some class A
+ * type. Test <T extends Object?>
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-class A {}
-
 class C {
-  static void test1(var v, [A a]) {}
-//                            ^
+  static void test1<T extends Object?>(var v, [T t]) {}
+//                                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static void test2(var v, {A a}) {}
-//                            ^
+  static void test2<T extends Object?>(var v, {T t}) {}
+//                                               ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test11(var v, [A a]) {}
-//                      ^
+  void test11<T extends Object?>(var v, [T t]) {}
+//                                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test22(var v, {A a}) {}
-//                      ^
+  void test22<T extends Object?>(var v, {T t}) {}
+//                                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test1(var v, [A a]) {}
-//                   ^
+void test1<T extends Object?>(var v, [T t]) {}
+//                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void test2(var v, {A a}) {}
-//                   ^
+void test2<T extends Object?>(var v, {T t}) {}
+//                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

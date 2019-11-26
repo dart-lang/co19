@@ -29,7 +29,7 @@ LegacyFoo f1;
 
 class C {
   static LegacyFoo f2;
-//                   ^^
+//                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

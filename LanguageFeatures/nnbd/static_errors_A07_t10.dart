@@ -9,42 +9,43 @@
  *
  * @description Check that it is a compile-time error if an optional parameter
  * (named or otherwise) with no default value has a potentially non-nullable
- * type. Test some class A
+ * type. Test FutureOr<F>, where F is a function type
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+import "dart:async";
 
-class A {}
+typedef void Foo();
 
 class C {
-  static void test1(var v, [A a]) {}
-//                            ^
+  static void test1(var v, [FutureOr<Foo> fo]) {}
+//                                        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static void test2(var v, {A a}) {}
-//                            ^
+  static void test2(var v, {FutureOr<Foo> fo}) {}
+//                                        ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test11(var v, [A a]) {}
-//                      ^
+  void test11(var v, [FutureOr<Foo> fo]) {}
+//                                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test22(var v, {A a}) {}
-//                      ^
+  void test22(var v, {FutureOr<Foo> fo}) {}
+//                                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test1(var v, [A a]) {}
-//                   ^
+void test1(var v, [FutureOr<Foo> fo]) {}
+//                               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-void test2(var v, {A a}) {}
-//                   ^
+void test2(var v, {FutureOr<Foo> fo}) {}
+//                               ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

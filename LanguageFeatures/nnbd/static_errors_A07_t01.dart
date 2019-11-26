@@ -9,31 +9,42 @@
  *
  * @description Check that it is a compile-time error if an optional parameter
  * (named or otherwise) with no default value has a potentially non-nullable
- * type.
+ * type. Test Never
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-class A {
-  static void test1(var v, [A a]) {}          //# 01: compile-time error
+class C {
+  static void test1(var v, [Never n]) {}
+//                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  static void test2(var v, {A a}) {}          //# 02: compile-time error
+  static void test2(var v, {Never n}) {}
+//                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test11(var v, [Never n]) {}
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test22(var v, {Never n}) {}
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-class C<X extends A?> {
-  X x;
-  C(this.x);
+void test1(var v, [Never n]) {}
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  void test1<X extends A?>(var v, [X x]) {}   //# 03: compile-time error
-
-  void test2<X extends A?>(var v, {X x}) {}   //# 04: compile-time error
-}
-
-void test1<X extends A?>(var v, [X x]) {}     //# 05: compile-time error
-
-void test2<X extends A?>(var v, {X x}) {}     //# 06: compile-time error
+void test2(var v, {Never n}) {}
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  A? a = new A();
-  C<A?> c = new C<A?>(a);
 }
