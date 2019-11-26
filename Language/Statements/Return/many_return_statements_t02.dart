@@ -4,22 +4,22 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static warning if a function contains both one or more
+ * @assertion It is no static warning if a function contains both one or more
  * return statements of the form return; and one or more return statements of
  * the form return e;.
  *
- * @description Checks that it is a static warning if a function literal has
+ * @description Checks that it is no static warning if a function literal has
  * explicit return statements of different kind.
- *
- * @static-warning
+ * https://github.com/dart-lang/sdk/issues/39476
+ * @static-clean
  * @author ilya
  */
 
 main() {
   (x) {
     if (x)
-      return 1; /// static type warning
+      return 1;
     else
-      return; /// static type warning
+      return;
   } (true);
 }
