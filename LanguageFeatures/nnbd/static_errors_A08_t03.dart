@@ -18,9 +18,18 @@ class A {
 const a = const A();
 
 class C {
-  void test4({covariant required A x = a}) {}                               //# 01: compile-time error
-  void test5(int x = 0, {required covariant A s = a}) {}                    //# 02: compile-time error
-  void test6(int x = 0, {covariant required A y = a, int z = 42}) {}        //# 03: compile-time error
+  void test1({required covariant A x = a}) {}
+//                                 ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  void test2(int x, {required covariant A s = a}) {}
+//                                        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  void test3(int x, {required covariant A y = a, int z = 42}) {}
+//                                        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

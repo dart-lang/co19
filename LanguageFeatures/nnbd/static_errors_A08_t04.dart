@@ -17,63 +17,63 @@ const c = const Const();
 
 class C {
   static void test1({required Const x = c}) {}
-//                                   ^
+//                                  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  static void test3(int x, {required Const s = c}) {}
-//                                          ^
+  static void test2(int x, {required Const s = c}) {}
+//                                         ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   static void test3(int x, {required Const y = c, String z = ""}) {}
-//                                          ^
+//                                         ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   void test4({required Const x = c}) {}
-//                            ^
+//                           ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   void test5(int x, {required Const s = c}) {}
-//                                   ^
+//                                  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   void test6(int x, {required Const y = c, int z = 42}) {}
-//                                   ^
+//                                  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 void test7({required Const x = c}) {}
-//                          ^
+//                         ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 void test8(int x, {required Const s = c}) {}
-//                                 ^
+//                                ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 void test9(int x, {required Const y = c, int z = 42}) {}
-//                                 ^
+//                                ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
   var f1 = ({required Const x = c}) {};
-//                           ^
+//                          ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   var f2 = (int x, {required Const s = c}) {};
-//                                  ^
+//                                 ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   var f3 = (int x, {required Const y = c, int z = 42}) {};
-//                                  ^
+//                                 ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

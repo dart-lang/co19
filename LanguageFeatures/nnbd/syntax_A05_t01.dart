@@ -19,26 +19,32 @@ import "../../Utils/expect.dart";
 class A {}
 
 class C {
-  static String test1({required String x}) => x;
-  String test2({required String x}) => x;
-  A test4({required covariant A x}) => x;
+  static String staticTest1({required String x}) => x;
+  static String staticTest2({required final x}) => x;
+  String instanceTest1({required String x}) => x;
+  A instanceTest2({required covariant A x}) => x;
+  String instanceTest3({required final x}) => x;
 }
 
-String test5({required String x}) => x;
+String test1({required String x}) => x;
 
 typedef String Foo({required String x});
 
-Foo test6 = ({required String x}) => x;
+Foo test2 = ({required String x}) => x;
 
-Function test7 = ({required String x}) => x;
+Function test3 = ({required String x}) => x;
+
+String test4({required final x}) => x;
 
 main() {
   A a = new A();
-  Expect.equals("Love me tender", C.test1(x: "Love me tender"));
-  Expect.equals("love me sweet", C().test2(x: "love me sweet"));
-  Expect.equals(a, C().test4(x: a));
-  Expect.equals("never let me go", test5(x: "never let me go"));
-  Expect.equals("You have made my life complete",
-      test6(x: "You have made my life complete"));
-  Expect.equals("and I love you so", test7(x: "and I love you so"));
+  Expect.equals("Show must go on", C.staticTest1(x: "Show must go on"));
+  Expect.equals("Lily was here", C.staticTest2(x: "Lily was here"));
+  Expect.equals("Let it be", C().instanceTest1(x: "Let it be"));
+  Expect.equals(a, C().instanceTest2(x: a));
+  Expect.equals("No woman no cry", C().instanceTest3(x: "No woman no cry"));
+  Expect.equals("I can't get no",  test1(x: "I can't get no"));
+  Expect.equals("I can't get no",  test2(x: "I can't get no"));
+  Expect.equals("I can't get no",  test3(x: "I can't get no"));
+  Expect.equals("I can't get no",  test4(x: "I can't get no"));
 }

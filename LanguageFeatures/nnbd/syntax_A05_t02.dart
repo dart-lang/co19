@@ -19,26 +19,32 @@ import "../../Utils/expect.dart";
 class A {}
 
 class C {
-  static String test1(int x, {required String y, String z}) => y;
-  String test2(int x, {required String y, String z}) => y;
-  A test4(int x, {required covariant A y, String z}) => y;
+  static String staticTest1(int i, {required String x, String y = ""}) => x;
+  static String staticTest2(int i, {required final x, String y = ""}) => x;
+  String instanceTest1(int i, {required String x, String y = ""}) => x;
+  A instanceTest2(int i, {required covariant A x, String y = ""}) => x;
+  String instanceTest3(int i, {required final x, String y = ""}) => x;
 }
 
-String test5(int x, {required String y, String z}) => y;
+String test1(int i, {required String x, String y = ""}) => x;
 
-typedef String Foo(int x, {required String y, String z});
+typedef String Foo(int i, {required String x, String y});
 
-Foo test6 = (int x, {required String y, String z}) => y;
+Foo test2 = (int i, {required String x, String y = ""}) => x;
 
-Function test7 = (int x, {required String y, String z}) => y;
+Function test3 = (int i, {required String x, String y = ""}) => x;
+
+String test4(int i, {required final x, String y = ""}) => x;
 
 main() {
   A a = new A();
-  Expect.equals("Love me tender", C.test1(3, y: "Love me tender"));
-  Expect.equals("love me sweet", C().test2(1, y: "love me sweet", z: ""));
-  Expect.equals(a, C().test4(1, y: a, z: ""));
-  Expect.equals("never let me go", test5(1, y: "never let me go"));
-  Expect.equals("You have made my life complete",
-      test6(5, y: "You have made my life complete", z: ""));
-  Expect.equals("and I love you so", test7(9, y: "and I love you so"));
+  Expect.equals("Show must go on", C.staticTest1(42, x: "Show must go on"));
+  Expect.equals("Lily was here", C.staticTest2(42, x: "Lily was here"));
+  Expect.equals("Let it be", C().instanceTest1(42, x: "Let it be"));
+  Expect.equals(a, C().instanceTest2(42, x: a));
+  Expect.equals("No woman no cry", C().instanceTest3(42, x: "No woman no cry"));
+  Expect.equals("I can't get no",  test1(42, x: "I can't get no"));
+  Expect.equals("I can't get no",  test2(42, x: "I can't get no"));
+  Expect.equals("I can't get no",  test3(42, x: "I can't get no"));
+  Expect.equals("I can't get no",  test4(42, x: "I can't get no"));
 }
