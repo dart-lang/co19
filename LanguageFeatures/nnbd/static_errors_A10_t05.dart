@@ -14,7 +14,7 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-class A {}
+import "legacy_lib.dart";
 
 main() {
   new List<A>(42);

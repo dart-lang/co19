@@ -11,6 +11,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 
 class C {
   static void test1({required int x = 0}) {}

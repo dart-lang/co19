@@ -9,23 +9,20 @@
  *
  * @description Check that it is an error to call the default List constructor
  * with a length argument and a type argument which is potentially non-nullable.
+ * Test type Never
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-class A {}
-
-class C<X extends A?> {
-  X x;
-  C(this.x);
-
-  test() {
-    List l1 = new List<X>(1); //# 01: compile-time error
-    List l2 = new List<X>(0); //# 02: compile-time error
-  }
-}
+// Requirements=nnbd-strong
 
 main() {
-  A? a = new A();
-  C<A?> c = new C<A?>(a);
-  c.test();
+  new List<Never>(42);
+//    ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  new List<Never>(0);
+//    ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

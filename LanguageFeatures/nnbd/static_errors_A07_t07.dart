@@ -13,7 +13,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-
+// Requirements=nnbd-strong
 class C {
   static void test1<T extends Object?>(var v, [T t]) {}
 //                                               ^

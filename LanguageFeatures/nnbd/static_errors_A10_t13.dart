@@ -7,23 +7,20 @@
  * @assertion It is an error to call the default List constructor with a length
  * argument and a type argument which is potentially non-nullable.
  *
- * @description Check that it is an error to call the default List constructor
- * with a length argument and a type argument which is potentially non-nullable.
- * Test some class A
+ * @description Check that it is not an error if the default List constructor is
+ * called with no length argument but with a type argument which is potentially
+ * non-nullable.
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-class A {}
+import "dart:async";
+import "legacy_lib.dart";
 
 main() {
-  new List<A>(42);
-//    ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  new List<A>(0);
-//    ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  new List<LegacyFoo>();
+  new List<A>();
+  new List<FutureOr<LegacyFoo>>();
+  new List<FutureOr<A>>();
+  new List<FutureOr<FutureOr<A>>>();
 }

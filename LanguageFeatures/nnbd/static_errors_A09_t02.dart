@@ -12,34 +12,34 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-
+// Requirements=nnbd-strong
 class C {
-  static void test1({required int x, String y}) {}
-  void test2({required int x, String y}) {}
+  static void test1({required int x, String y = ""}) {}
+  void test2({required int x, String y = ""}) {}
 }
 
-void test3({required int x, String y}) {}
+void test3({required int x, String y = ""}) {}
 
 typedef void Foo({required int x, String y});
 
 main() {
-  C.test1(y: "");
+  C.test1(y: "Lily was here");
 //  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  C().test2(y: "");
+  C().test2(y: "Lily was here");
 //    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-    test3(y: "");
-//  ^^^^^
+  test3(y: "");
+//^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  Foo foo = ({required int x, String y}) {};
-    foo(y: "");
-//  ^^^
+  Foo foo = ({required int x, String y = ""}) {};
+  foo(y: "Lily was here");
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

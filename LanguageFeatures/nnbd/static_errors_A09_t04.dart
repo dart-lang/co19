@@ -13,26 +13,27 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 import "legacy_lib.dart";
 
 class C {
-  static void test1({required A x, String y, required A z}) {}
-  void test2({required A x, String y, required A z}) {}
+  static void test1({required A x, String y = "", required A z}) {}
+  void test2({required A x, String y = "", required A z}) {}
 
-  static void test11({required A? x, String y, required A? z}) {}
-  void test22({required A? x, String y, required A? z}) {}
+  static void test11({required A? x, String y = "", required A? z}) {}
+  void test22({required A? x, String y = "", required A? z}) {}
 }
 
-void test3({required A x, String y, required A z}) {}
-void test33({required A? x, String y, required A? z}) {}
+void test3({required A x, String y = "", required A z}) {}
+void test33({required A? x, String y = "", required A? z}) {}
 
 typedef void Foo({required A x, String y, required A z});
 typedef void Foo2({required A? x, String y, required A? z});
 
 main() {
   A a = new A();
-  Foo foo = ({required A x, String y, required A z}) {};
-  Foo2 foo2 = ({required A? x, String y, required A? z}) {};
+  Foo foo = ({required A x, String y = "", required A z}) {};
+  Foo2 foo2 = ({required A? x, String y = "", required A? z}) {};
 
   C.test1(x: a, y: "");
 //                   ^
@@ -74,52 +75,42 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  C.test1(z: "No", y: "woman");
+  C.test1(z: a, y: "woman");
 //                           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  C.test11(z: "no", y: "cry");
+  C.test11(z: a, y: "cry");
 //                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  C().test2(z: "No", y: "woman");
+  C().test2(z: a, y: "woman");
 //                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  C().test22(z: "no", y: "cry");
+  C().test22(z: null, y: "cry");
 //                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  test3(z: "No", y: "woman");
+  test3(z: a, y: "woman");
 //                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  test33(z: "no", y: "cry");
+  test33(z: null, y: "cry");
 //                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  test4(z: "No", y: "woman");
-//                         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  test44(z: "no", y: "cry");
-//                        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  foo(z: "No", y: "woman");
+  foo(z: a, y: "woman");
 //                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  foo(z: "no", y: "cry");
+  foo(z: a, y: "cry");
 //                     ^
 // [analyzer] unspecified
 // [cfe] unspecified

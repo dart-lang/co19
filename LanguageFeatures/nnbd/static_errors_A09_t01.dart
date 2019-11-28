@@ -12,7 +12,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-
+// Requirements=nnbd-strong
 class C {
   static void test1({required int x}) {}
   void test2({required int x}) {}
@@ -24,23 +24,23 @@ typedef void Foo({required int x});
 
 main() {
   C.test1();
-//  ^^^
+//  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   C().test2();
-//    ^^^
+//    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-    test3();
-//  ^^^
+  test3();
+//^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   Foo foo = ({required int x}) {};
-    foo();
-//  ^^^
+  foo();
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

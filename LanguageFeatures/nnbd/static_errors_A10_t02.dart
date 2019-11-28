@@ -9,24 +9,31 @@
  *
  * @description Check that it is no error to call the default List constructor
  * without a length argument or a type argument which is not potentially
- * non-nullable.
+ * non-nullable. Test function types
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-class A {}
-
-class C<X extends A?> {
-  X x;
-  C(this.x);
-
-  test() {
-    List l1 = new List<X>();
-    List l2 = new List<A?>(3);
-  }
-}
+// Requirements=nnbd-strong
+typedef void Foo();
 
 main() {
-  A? a = new A();
-  C<A?> c = new C<A?>(a);
-  c.test();
+  new List<Function>(42);
+//    ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  new List<Function>(0);
+//    ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  new List<Foo>(42);
+//    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  new List<Foo>(0);
+//    ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

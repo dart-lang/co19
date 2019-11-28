@@ -11,7 +11,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-
+// Requirements=nnbd-strong
 class C<T extends num> {
   static void test1<T extends num>({required T? x = null}) {}
 //                                              ^^^^^^^^

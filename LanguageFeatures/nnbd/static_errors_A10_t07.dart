@@ -9,21 +9,24 @@
  *
  * @description Check that it is an error to call the default List constructor
  * with a length argument and a type argument which is potentially non-nullable.
- * Test some class A
+ * Test <X extends Object?>
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-class A {}
+class C<X extends Object?> {
+  test() {
+    new List<X>(42);
+//      ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+    new List<X>(0);
+//      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+}
 
 main() {
-  new List<A>(42);
-//    ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  new List<A>(0);
-//    ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

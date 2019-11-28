@@ -9,21 +9,21 @@
  *
  * @description Check that it is an error to call the default List constructor
  * with a length argument and a type argument which is potentially non-nullable.
- * Test some class A
+ * Test F*, where F* is a function type
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-class A {}
+import "legacy_lib.dart";
 
 main() {
-  new List<A>(42);
-//    ^^^^^^^^^^^
+  new List<LegacyFoo>(42);
+//    ^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  new List<A>(0);
-//    ^^^^^^^^^^
+  new List<LegacyFoo>(0);
+//    ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
