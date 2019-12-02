@@ -63,5 +63,4 @@ class A2<X extends A2<X, Y>, Y extends A2<Null, A2<X, Y>>> {}
 // [analyzer] unspecified
 // [cfe] unspecified
 
-
 main() {}
