@@ -8,10 +8,12 @@
  * StackOverflow error in some cases when typedef references itself directly)
  * and 34700 (Analyzer does not reject typedef which has a reference to itself).
  * Checks that compile error appears if [typedef] references itself directly.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 
 typedef F1<X extends F1<F1>> = F1 Function();
+//         ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {}
