@@ -43,9 +43,9 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for [class
- * A<X>], [class B<X> extends A<X>], [class G<X1 extends A<X1>, X2 extends
- * A<X1>, X3 extends B, X4 extends X2>]
- * @Issue 34861, 34950
+ *  A<X>], [class B<X> extends A<X>], [class G<X1 extends A<X1>, X2 extends
+ *  A<X1>, X3 extends B, X4 extends X2>]
+ * @Issue 34861
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();
