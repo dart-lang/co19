@@ -43,21 +43,20 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for [class
- * C<X1, X2>; typedef A<Y extends String, X extends C<Null, C<String, X>>> =
+ * C<X1, X2>; typedef A<Y extends String, X extends C<String, C<String, X>>> =
  * C<Y, X>].
  * @author iarkh@unipro.ru
- * @Issue 34727, 34948
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 import "../../../../Utils/expect.dart";
 
 class C<X1, X2> {}
-typedef A<Y extends String, X extends C<Null, C<String, X>>> = C<Y, X>;
+typedef A<Y extends String, X extends C<String, C<String, X>>> = C<Y, X>;
 
 main() {
   Expect.equals(
-    typeOf<C<String, C<Null, C<String, dynamic>>>>(),
+    typeOf<C<String, C<String, C<String, dynamic>>>>(),
     typeOf<A>(),
   );
 }
