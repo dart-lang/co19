@@ -42,24 +42,26 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for [class
- * A<String, X extends A<void, A<String,X>>>]
- * @Issue 34727, 34948, 34950
+ * @description Checks that compile error is thrown if class is not well-bounded.
+ * @Issue 39574
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
 
-class A<Y extends String, X extends A<void, A<String, X>>> {}
+class A<X extends A<X, Y>, Y extends A<dynamic, A<X, Y>>> {}
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-main() {
-  A source;
-  var fsource = toF(source);
 
-  F<A<String, A<void, A<String, dynamic>>>> target = fsource;
+class A1<X extends A1<X, Y>, Y extends A1<void, A1<X, Y>>> {}
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  F<A<dynamic, dynamic>> target1 = fsource;                         //# 01: compile-time error
-  F<A<dynamic, A<dynamic, A<dynamic, dynamic>>>> target2 = fsource; //# 02: compile-time error
+class A2<X extends A2<X, Y>, Y extends A2<Null, A2<X, Y>>> {}
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  A(); //# 03: compile-time error
-}
+
+main() {}
