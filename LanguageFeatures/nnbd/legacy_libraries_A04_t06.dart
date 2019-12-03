@@ -19,7 +19,7 @@ class C {
 }
 
 main() {
-  C? c = null;
+  C c = null;
   c?.[42];
 // ^
 // [analyzer] unspecified
