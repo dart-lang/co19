@@ -12,21 +12,22 @@
  *
  * @description Check that if the type of the receiver of a null aware operator
  * is T, then the operator is checked as if the receiver had type NonNull(T).
- * Test Null
+ * Test some type A*, where A is nullable
  * @issue 38715
- * Language @issue https://github.com/dart-lang/language/issues/711
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
+import "legacy_lib.dart";
+
 main() {
-  Null a = null;
-  a?.toString();
-//   ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  a ?.. toString();
-//      ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  A? a = null;
+  a?.test();
+  a ?.. test();
+  a?.[0];
+
+  a = new A();
+  a?.test();
+  a ?.. test();
+  a?.[0];
 }

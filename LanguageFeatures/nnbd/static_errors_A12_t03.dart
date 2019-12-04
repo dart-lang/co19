@@ -12,6 +12,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 import "legacy_lib.dart";
 
 class C1 extends A? {}

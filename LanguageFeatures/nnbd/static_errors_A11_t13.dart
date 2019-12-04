@@ -12,21 +12,23 @@
  *
  * @description Check that if the type of the receiver of a null aware operator
  * is T, then the operator is checked as if the receiver had type NonNull(T).
- * Test Null
+ * Test FutureOr<A> for some A
  * @issue 38715
- * Language @issue https://github.com/dart-lang/language/issues/711
  * @author sgrekhov@unipro.ru
+ * @static-warning
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
+import "dart:async";
+
+class A {
+  void test() {}
+  int operator[](int index) => 0;
+}
+
 main() {
-  Null a = null;
-  a?.toString();
-//   ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  a ?.. toString();
-//      ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  FutureOr<A> a = new A();
+  a?.toString();      /// static type warning
+  a ?.. toString();   /// static type warning
+  a?.[0];             /// static type warning
 }

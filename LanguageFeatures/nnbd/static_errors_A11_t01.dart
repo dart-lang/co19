@@ -10,18 +10,26 @@
  * aware operator is T, then the operator is checked as if the receiver had type
  * NonNull(T).
  *
- * @description Check that it is no error if receiver has nullable type
+ * @description Check that if the type of the receiver of a null aware operator
+ * is T, then the operator is checked as if the receiver had type NonNull(T).
+ * Test dynamic
  * @issue 38715
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 class A {
   void test() {}
   int operator[](int index) => 0;
 }
 
 main() {
-  A? a = null;
+  dynamic a = null;
+  a?.test();
+  a ?.. test();
+  a?.[0];
+
+  a = new A();
   a?.test();
   a ?.. test();
   a?.[0];

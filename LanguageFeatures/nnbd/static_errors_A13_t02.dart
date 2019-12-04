@@ -8,13 +8,16 @@
  * of static type Never (including via a null aware operator).
  *
  * @description Check that it is an error to call a method, setter, or getter on
- * a receiver of static type Never (including via a null aware operator).
+ * a receiver of static type Never (including via a null aware operator). Test
+ * type aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
+typedef Neverland = Never;
+
 void test(var x) {
-  if (x is Never) {
+  if (x is Neverland) {
     x.toString();
 //    ^^^^^^^^
 // [analyzer] unspecified

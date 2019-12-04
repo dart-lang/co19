@@ -10,23 +10,22 @@
  * aware operator is T, then the operator is checked as if the receiver had type
  * NonNull(T).
  *
- * @description Check that if the type of the receiver of a null aware operator
- * is T, then the operator is checked as if the receiver had type NonNull(T).
- * Test Null
- * @issue 38715
- * Language @issue https://github.com/dart-lang/language/issues/711
+ * @description Check that it is no error if receiver has nullable type. Test
+ * type alias
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
+class A {
+  void test() {}
+  int operator[](int index) => 0;
+}
+
+typedef AAlias = A?;
+
 main() {
-  Null a = null;
-  a?.toString();
-//   ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  a ?.. toString();
-//      ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  AAlias a = null;
+  a?.test();
+  a ?.. test();
+  a?.[0];
 }

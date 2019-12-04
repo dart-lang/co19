@@ -8,50 +8,55 @@
  * is not assignable to Object
  *
  * @description Check that it is an error if the static type of e in the
- * expression throw e is not assignable to Object
+ * expression throw e is not assignable to Object. Test type aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
 class A {
 }
 
-void test1(Null x) {
+typedef NullAlias = Null;
+typedef AAlias = A?;
+typedef ObjectAlias = Object?;
+typedef FunctionAlias = Function?;
+
+void test1(NullAlias x) {
   throw x;
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test2(A? x) {
+void test2(AAlias x) {
   throw x;
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test3(Function? x) {
+void test3(FunctionAlias x) {
   throw x;
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test4<T extends Null>(T x) {
+void test4<T extends NullAlias>(T x) {
   throw x;
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test5<T extends Object?>(T x) {
+void test5<T extends ObjectAlias>(T x) {
   throw x;
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void test6<T extends Function?>(T x) {
+void test6<T extends FunctionAlias>(T x) {
   throw x;
 //      ^
 // [analyzer] unspecified
