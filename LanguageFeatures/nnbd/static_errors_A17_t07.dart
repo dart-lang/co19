@@ -9,21 +9,38 @@
  * clause; in the variable binding section of a c-style for loop, a for in loop,
  * an await for loop, or a for element in a collection literal.
  *
- * @description Check that it is an error for a formal parameter to be declared
- * late. Test covariant formal parameters
+ * @description Check that it is an error if variable declared late in for
+ * element in a collection literal
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-class A {}
 
-class C {
-  void m1(covariant late A x) {}                    //# 01: compile-time error
-  void m2(A x, [covariant late A y]) {}             //# 02: compile-time error
-  void m3(A x, {covariant late A y}) {}             //# 03: compile-time error
+main() async {
+  List list = [1, 2, 3, 4];
+  <int> [
+    1, 2, 3,
+    for (late var i in list) i,
+//       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  3, 2, 1
+  ];
 
-  void set(covariant late A x) {}                   //# 04: compile-time error
-  C operator +(covariant late C other) => other;    //# 05: compile-time error
-}
+  <int>{
+    1, 2, 3,
+    for (late var i in list) i,
+//       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    3, 2, 1
+  };
 
-main() {
+  <int, int>{
+    21: 21, 22: 22, 23: 23,
+    for (late var i in list) i: i,
+//       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    13: 13, 12: 12, 11: 11
+  };
 }

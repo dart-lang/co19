@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion It is an error for a class with a const constructor to have a late
+ * final field.
+ *
+ * @description Check that it is an error for a class with a const constructor
+ * to have a late final field.
+ * @author sgrekhov@unipro.ru
+ */
+// SharedOptions=--enable-experiment=non-nullable
+
+class C {
+  static late final int s = 42;
+//       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  late final int i = 42;
+//^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const C();
+}
+
+main()  {
+  C();
+}
