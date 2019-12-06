@@ -30,7 +30,6 @@ abstract class B2 {
 class A1 implements A, B1 {
   int? test_return_nullable() => null;
 
-  void test_required({int? i = 1}) {}
   void test_never(Null i) {}
   Null test_return_never() => null;
   int? aField1 = 1;
@@ -47,7 +46,6 @@ class A1 implements A, B1 {
 class A2 implements A, B2 {
   int test_return_nullable() => 2;
 
-  void test_required({int? i = 1}) {}
   void test_never(Null i) {}
   Null test_return_never() => null;
   int? aField1 = 1;

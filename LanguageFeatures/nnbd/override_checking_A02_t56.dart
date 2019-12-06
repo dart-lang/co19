@@ -30,7 +30,6 @@ class A1 implements A {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test_required({required int? i}) {}
   int? test_return_nullable() => 1;
   Null test_return_never() => null;
   int? aField1 = 1;

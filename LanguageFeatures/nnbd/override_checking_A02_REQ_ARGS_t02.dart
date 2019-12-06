@@ -10,22 +10,29 @@
  * to override otherwise incompatible signatures for a method.
  *
  * @description Check that if opted-in class extends legacy class, migrated
- * method with required parameter can override legacy method with named
- * parameter with default value.
+ * method with non-required nullable parameter cannot override legacy method
+ * with named parameter with default value.
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
-class A1 extends A {
-  void test_required({required int? i}) {
-    Expect.equals(1, i);
-  }
+class A1 extends LEGACY_REQUIRED_ARGS {
+  void test_default({int? i}) {}
+//     ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+abstract class A2 extends LEGACY_REQUIRED_ARGS {
+  void test_default({int? i});
+//     ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  A1().test_required(i: 1);
+  A1().test_default(i: 1);
 }

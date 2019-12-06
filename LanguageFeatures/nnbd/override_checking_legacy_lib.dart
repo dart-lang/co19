@@ -23,12 +23,12 @@ class LEGACY_ARGS {
   void test_futureOr(FutureOr i) { Expect.fail("This method should be overriden"); }
 }
 
-class A {
-  void test_required({int i = 1}) {
-    Expect.fail("This method should be overriden");
-    Expect.fail("This method should be overriden");
-  }
+class LEGACY_REQUIRED_ARGS {
+  void test_default({int i = 1}) { Expect.fail("This method should be overriden"); }
+  void test_nondefault({int i}) { Expect.fail("This method should be overriden"); }
+}
 
+class A {
   void test_never(Null i) {
     Expect.fail("This method should be overriden");
   }

@@ -27,7 +27,6 @@ class A1 implements A {
   int? aField1 = 1;
   int? aField2 = null;
   int? aField3;
-  void test_required({required int? i}) {}
   void test_never(Null i) {}
   int test_return_nullable() => 1;
   Null test_return_never() => null;
