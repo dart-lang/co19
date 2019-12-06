@@ -15,24 +15,20 @@ import "dart:async";
 import "../../Utils/expect.dart";
 
 class LEGACY_ARGS {
-  void test_int(int i) { Expect.fail("This method should be overriden"); }
-  void test_object(Object o) { Expect.fail("This method should be overriden"); }
-  void test_dynamic(dynamic i) { Expect.fail("This method should be overriden"); }
+  void test_int(int i)           { Expect.fail("This method should be overriden"); }
+  void test_object(Object o)     { Expect.fail("This method should be overriden"); }
+  void test_dynamic(dynamic i)   { Expect.fail("This method should be overriden"); }
   void test_function(Function f) { Expect.fail("This method should be overriden"); }
-  void test_null(Null n) { Expect.fail("This method should be overriden"); }
+  void test_null(Null n)         { Expect.fail("This method should be overriden"); }
   void test_futureOr(FutureOr i) { Expect.fail("This method should be overriden"); }
 }
 
 class LEGACY_REQUIRED_ARGS {
   void test_default({int i = 1}) { Expect.fail("This method should be overriden"); }
-  void test_nondefault({int i}) { Expect.fail("This method should be overriden"); }
+  void test_nondefault({int i})  { Expect.fail("This method should be overriden"); }
 }
 
 class A {
-  void test_never(Null i) {
-    Expect.fail("This method should be overriden");
-  }
-
   int test_return_nullable() {
     Expect.fail("This method should be overriden");
     return -1;

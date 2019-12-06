@@ -34,7 +34,6 @@ class A1 implements A, B {
   int? get get_field2 => aField2;
   int? get get_field3 => aField3;
 
-  void test_never(Null i) {}
   int test_return_nullable() => 1;
   Null test_return_never() => null;
   void set set_field1(int i) {}

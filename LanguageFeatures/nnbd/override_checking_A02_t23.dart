@@ -22,7 +22,6 @@ import "override_checking_legacy_lib.dart";
 class A1 implements A {
   int? aField1 = 0;
 
-  void test_never(Null i) {}
   int? test_return_nullable() => 1;
   Null test_return_never() => null;
   int? aField2 = 2;
@@ -38,7 +37,6 @@ class A1 implements A {
 class A2 implements A {
   int? aField1 = null;
 
-  void test_never(Null i) {}
   int? test_return_nullable() => 1;
   Null test_return_never() => null;
   int? aField2 = 2;
@@ -54,7 +52,6 @@ class A2 implements A {
 class A3 implements A {
   int? aField1;
 
-  void test_never(Null i) {}
   int? test_return_nullable() => 1;
   Null test_return_never() => null;
   int? aField2 = 2;

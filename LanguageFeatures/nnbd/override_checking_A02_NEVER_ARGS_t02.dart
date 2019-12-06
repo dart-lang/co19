@@ -19,23 +19,37 @@
 
 import "override_checking_legacy_lib.dart";
 
-class A1 implements A {
-  void test_never(Never i) {}
-//     ^^^^^^^^^^
+class A implements LEGACY_ARGS {
+  void test_int(Never i) {}
+//     ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  int? test_return_nullable() => 1;
-  Null test_return_never() => null;
-  int? aField1 = 1;
-  int? aField2 = 2;
-  int? aField3 = 3;
-  int? get get_field1 => -1;
-  int? get get_field2 => -2;
-  int? get get_field3 => -3;
-  void set set_field1(int? i) {}
-  void set set_field2(int? i) {}
-  void set set_field3(int? i) {}
+  void test_object(Never o) {}
+//     ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test_dynamic(Never i) {}
+//     ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test_function(Never f) {}
+//     ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test_null(Never n) {}
+//     ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test_futureOr(Never i) {}
+//     ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }
 
 main() {}

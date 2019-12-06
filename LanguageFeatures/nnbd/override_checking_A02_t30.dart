@@ -22,7 +22,6 @@ import "../../Utils/expect.dart";
 class A1 implements A {
   int test_return_nullable() => 2;
 
-  void test_never(Null i) {}
   Null test_return_never() => null;
   int? aField1 = 1;
   int? aField2 = 2;

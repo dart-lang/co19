@@ -25,7 +25,6 @@ abstract class B {
 class A1 implements A {
   Never test_return_never() => throw "It's impossible!";
 
-  void test_never(Null i) {}
   int? test_return_nullable() => 1;
   int? aField1 = 1;
   int? aField2 = 2;

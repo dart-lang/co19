@@ -19,11 +19,37 @@
 
 import "override_checking_legacy_lib.dart";
 
-class A1 extends A {
-  void test_never(Never i) {}
-//    ^^^^^^^^^^
+class A extends LEGACY_ARGS {
+  void test_int(Never i) {}
+//     ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  void test_object(Never o) {}
+//     ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test_dynamic(Never i) {}
+//     ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test_function(Never f) {}
+//     ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test_null(Never n) {}
+//     ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test_futureOr(Never i) {}
+//     ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }
 
 main() {}

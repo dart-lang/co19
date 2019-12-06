@@ -54,7 +54,6 @@ class A1 implements A, B1 {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test_never(Null i) {}
   int test_return_nullable() => 1;
   Null test_return_never() => null;
 }
@@ -82,7 +81,6 @@ class A2 implements A, B2 {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void test_never(Null i) {}
   int test_return_nullable() => 1;
   Null test_return_never() => null;
 }

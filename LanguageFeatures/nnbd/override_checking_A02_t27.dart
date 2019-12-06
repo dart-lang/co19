@@ -31,7 +31,6 @@ class A1 implements A {
   void set set_field2(int? i) { aField2 = i; }
   void set set_field3(int? i) { aField3 = i; }
 
-  int test_never(Null i) => 1;
   int test_return_nullable() => 1;
   Null test_return_never() => null;
 }
