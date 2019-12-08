@@ -9,28 +9,37 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that if opted-in class is a mixin with legacy class, child
- * opted-in setter can have nullable argument and so accept null and non-null
- * values.
+ * @description Check that if opted-in class implements legacy class, opted-in
+ * field of nullable type can override legacy field.
  *
  * @author iarkh@unipro.ru
- */
+*/
 // SharedOptions=--enable-experiment=non-nullable
 
+import "dart:async";
 import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
-class A1 with A {
-  void set set_field1(int? i) {
-    Expect.equals(1, i);
-  }
-  void set set_field2(int? i) {
-    Expect.isNull(i);
-  }
+class A implements LEGACY_FIELD {
+  int? i;
+  Object? o;
+  dynamic d;
+  Function? func;
+  Null n;
+  FutureOr? f;
+  FutureOr<int>? fi;
+  FutureOr<Function>? ff;
+  void v;
 }
 
 main() {
-  A1 a = A1();
-  a.set_field1 = 1;
-  a.set_field1 = null;
+  A a = A();
+  Expect.isNull(a.i);
+  Expect.isNull(a.d);
+  Expect.isNull(a.o);
+  Expect.isNull(a.func);
+  Expect.isNull(a.n);
+  Expect.isNull(a.f);
+  Expect.isNull(a.fi);
+  Expect.isNull(a.ff);
 }

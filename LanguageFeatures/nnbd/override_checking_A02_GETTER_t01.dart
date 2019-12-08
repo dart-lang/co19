@@ -10,27 +10,38 @@
  * to override otherwise incompatible signatures for a method.
  *
  * @description Check that if opted-in class extends legacy class, opted-in
- * setter can have nullable argument and so accept null and non-null values.
+ * getter of nullable type can override legacy getter which returns non-null
+ * value.
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "dart:async";
 import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
-class A1 extends A {
-  void set set_field1(int? i) {
-    Expect.equals(1, i);
-  }
+void testme() {}
 
-  void set set_field2(int? i) {
-    Expect.isNull(i);
-  }
+class A extends LEGACY_GETTER {
+  int? get getInt => 1;
+  Object? get getObject => 1;
+  dynamic? get getDynamic => 1;
+  Function? get getFunction => testme;
+  Null? get getNull => null;
+  FutureOr? get getFutureOr => 1;
+  FutureOr<int>? get getFutureOrInt => 1;
+  FutureOr<Function>? get getFutureOrFunction => testme;
 }
 
 main() {
-  A1 a = A1();
-  a.set_field1 = 1;
-  a.set_field2 = null;
+  A a = A();
+  Expect.equals(1, a.getInt);
+  Expect.equals(1, a.getObject);
+  Expect.equals(1, a.getDynamic);
+  Expect.equals(testme, a.getFunction);
+  Expect.isNull(a.getNull);
+  Expect.equals(1, a.getFutureOr);
+  Expect.equals(1, a.getFutureOrInt);
+  Expect.equals(testme, a.getFutureOrFunction);
 }

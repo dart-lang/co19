@@ -28,6 +28,71 @@ class LEGACY_REQUIRED_ARGS {
   void test_nondefault({int i})  { Expect.fail("This method should be overriden"); }
 }
 
+class LEGACY_FIELD {
+  int i;
+  Object o;
+  dynamic d;
+  Function func;
+  Null n;
+  FutureOr f;
+  FutureOr<int> fi;
+  FutureOr<Function> ff;
+  void v;
+}
+
+class LEGACY_GETTER {
+  int get getInt {
+    Expect.fail("This method should be overriden");
+    return -1;
+  }
+
+  Object get getObject {
+    Expect.fail("This method should be overriden");
+    return -1;
+  }
+
+  dynamic get getDynamic {
+    Expect.fail("This method should be overriden");
+    return -1;
+  }
+
+  Function get getFunction {
+    Expect.fail("This method should be overriden");
+    return null;
+  }
+
+  Null get getNull {
+    Expect.fail("This method should be overriden");
+    return null;
+  }
+
+  FutureOr get getFutureOr {
+    Expect.fail("This method should be overriden");
+    return -1;
+  }
+
+  FutureOr<int> get getFutureOrInt {
+    Expect.fail("This method should be overriden");
+    return -1;
+  }
+
+  FutureOr<Function> get getFutureOrFunction {
+    Expect.fail("This method should be overriden");
+    return null;
+  }
+}
+
+class LEGACY_SETTER {
+  void set setInt(int i)                             { Expect.fail("This method should be overriden"); }
+  void set setObject(Object o)                       { Expect.fail("This method should be overriden"); }
+  void set setDynamic(dynamic d)                     { Expect.fail("This method should be overriden"); }
+  void set setNull(Null n)                           { Expect.fail("This method should be overriden"); }
+  void set setFunction(Function f)                   { Expect.fail("This method should be overriden"); }
+  void set setFutureOr(FutureOr f)                   { Expect.fail("This method should be overriden"); }
+  void set setFutureOrInt(FutureOr<int> i)           { Expect.fail("This method should be overriden"); }
+  void set setFutureOrFunction(FutureOr<Function> f) { Expect.fail("This method should be overriden"); }
+}
+
 class A {
   int test_return_nullable() {
     Expect.fail("This method should be overriden");
@@ -37,37 +102,6 @@ class A {
   Null test_return_never() {
     Expect.fail("This method should be overriden");
     return null;
-  }
-
-  int aField1 = -1;
-  int aField2 = null;
-  int aField3;
-
-  int get get_field1 {
-    Expect.fail("This method should be overriden");
-    return -1;
-  }
-
-  int get get_field2 {
-    Expect.fail("This method should be overriden");
-    return -1;
-  }
-
-  int get get_field3 {
-    Expect.fail("This method should be overriden");
-    return -1;
-  }
-
-  void set set_field1(int i) {
-    Expect.fail("This method should be overriden");
-  }
-
-  void set set_field2(int i) {
-    Expect.fail("This method should be overriden");
-  }
-
-  void set set_field3(int i) {
-    Expect.fail("This method should be overriden");
   }
 }
 

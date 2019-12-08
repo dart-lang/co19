@@ -10,43 +10,49 @@
  * to override otherwise incompatible signatures for a method.
  *
  * @description Check that if opted-in class implements two classes (one is
- * legacy) with some setter, opted-in setter of nullable type can override
- * legacy setter.
+ * legacy) with some field, opted-in field of nullable type can override legacy
+ * field.
  *
  * @author iarkh@unipro.ru
- */
+*/
 // SharedOptions=--enable-experiment=non-nullable
 
+import "dart:async";
 import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
-abstract class B {
-  void set set_field1(int? i);
-  void set set_field2(int? i);
-  void set set_field3(int? i);
+abstract class AA {
+  int? i;
+  Object? o;
+  dynamic d;
+  Function? func;
+  Null n;
+  FutureOr? f;
+  FutureOr<int>? fi;
+  FutureOr<Function>? ff;
+  void v;
 }
 
-class A1 implements A, B {
-  int? aField1 = 1;
-  int? aField2 = null;
-  int? aField3;
-  void set set_field1(int? i) {
-    Expect.equals(5, i);
-  }
-  void set set_field2(int? i) {
-    Expect.isNull(i);
-  }
-  void set set_field3(int? i) {}
-
-  int? get get_field1 => aField1;
-  int? get get_field2 => aField2;
-  int? get get_field3 => aField3;
-  int test_return_nullable() => 1;
-  Null test_return_never() => null;
+class A implements LEGACY_FIELD, AA {
+  int? i;
+  Object? o;
+  dynamic d;
+  Function? func;
+  Null n;
+  FutureOr? f;
+  FutureOr<int>? fi;
+  FutureOr<Function>? ff;
+  void v;
 }
 
 main() {
-  A1 a = A1();
-  a.set_field1 = 5;
-  a.set_field2 = null;
+  A a = A();
+  Expect.isNull(a.i);
+  Expect.isNull(a.d);
+  Expect.isNull(a.o);
+  Expect.isNull(a.func);
+  Expect.isNull(a.n);
+  Expect.isNull(a.f);
+  Expect.isNull(a.fi);
+  Expect.isNull(a.ff);
 }

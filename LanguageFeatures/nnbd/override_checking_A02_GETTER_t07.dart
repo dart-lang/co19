@@ -10,27 +10,38 @@
  * to override otherwise incompatible signatures for a method.
  *
  * @description Check that if opted-in class is a mixin with legacy class,
- * opted-in getter of nullable type can override legacy getter.
+ * opted-in getter of nullable type can override legacy getter which returns
+ * non-null value.
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "dart:async";
 import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
-class A1 with A {
-  int? aField1 = 1;
-  int? aField2 = null;
-  int? aField3;
-  int? get get_field1 => aField1;
-  int? get get_field2 => aField2;
-  int? get get_field3 => aField3;
+void testme() {}
+
+class A with LEGACY_GETTER {
+  int? get getInt => 1;
+  Object? get getObject => 1;
+  dynamic? get getDynamic => 1;
+  Function? get getFunction => testme;
+  Null? get getNull => null;
+  FutureOr? get getFutureOr => 1;
+  FutureOr<int>? get getFutureOrInt => 1;
+  FutureOr<Function>? get getFutureOrFunction => testme;
 }
 
 main() {
-  A1 a1 = A1();
-  Expect.equals(1, a1.get_field1);
-  Expect.isNull(a1.get_field2);
-  Expect.isNull(a1.get_field3);
+  A a = A();
+  Expect.equals(1, a.getInt);
+  Expect.equals(1, a.getObject);
+  Expect.equals(1, a.getDynamic);
+  Expect.equals(testme, a.getFunction);
+  Expect.isNull(a.getNull);
+  Expect.equals(1, a.getFutureOr);
+  Expect.equals(1, a.getFutureOrInt);
+  Expect.equals(testme, a.getFutureOrFunction);
 }

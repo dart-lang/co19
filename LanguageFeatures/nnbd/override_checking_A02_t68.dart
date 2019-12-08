@@ -23,17 +23,7 @@ abstract class B {
 
 class A1 implements A {
   Never test_return_never() => throw "It's impossible!";
-
   int? test_return_nullable() => 1;
-  int? aField1 = 1;
-  int? aField2 = 2;
-  int? aField3 = 3;
-  int? get get_field1 => -1;
-  int? get get_field2 => -2;
-  int? get get_field3 => -3;
-  void set set_field1(int? i) {}
-  void set set_field2(int? i) {}
-  void set set_field3(int? i) {}
 }
 
 main() {

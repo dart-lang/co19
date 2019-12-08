@@ -9,35 +9,48 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that if opted-in class is a mixin with legacy class,
- * opted-in field of non-nullable type cannot override legacy field, compile
- * time error is thrown in this case.
+ * @description Check that if opted-in class is a mixin with legacy class, child
+ * opted-in setter cannot have non-nullable argument.
  *
  * @author iarkh@unipro.ru
-*/
+ */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "dart:async";
 import "override_checking_legacy_lib.dart";
 
-class A1 with A {
-  int aField1 = 0;
-//    ^^^^^^
+class A with LEGACY_SETTER {
+  void set setInt(int i) {}
+//         ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
-class A2 with A {
-  int aField1 = null;
-//    ^^^^^^
+
+  void set setObject(Object o) {}
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
-class A3 with A {
-  int aField1;
-//    ^^^^^^
+  void set setFunction(Function f) {}
+//         ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  void set setFutureOrInt(FutureOr<int> f) {}
+//         ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void set setFutureOrFunction(FutureOr<Function> f) {}
+//         ^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void set setDynamic(dynamic d) {}
+  void set setNull(Null n) {}
+  void set setFutureOr(FutureOr f) {}
 }
 
-main() {}
+main() {
+  A();
+}

@@ -21,17 +21,7 @@ import "../../Utils/expect.dart";
 
 class A1 implements A {
   int test_return_nullable() => 2;
-
   Null test_return_never() => null;
-  int? aField1 = 1;
-  int? aField2 = 2;
-  int? aField3 = 3;
-  int? get get_field1 => -1;
-  int? get get_field2 => -2;
-  int? get get_field3 => -3;
-  void set set_field1(int? i) {}
-  void set set_field2(int? i) {}
-  void set set_field3(int? i) {}
 }
 
 main() {

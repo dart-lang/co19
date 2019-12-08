@@ -9,42 +9,37 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that if opted-in class extends legacy class, opted-in
- * field of nullable type can override legacy field.
+ * @description Check that if opted-in class is a mixin with legacy class,
+ * opted-in field of nullable type can override legacy field.
  *
  * @author iarkh@unipro.ru
 */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "dart:async";
 import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
-class A1 extends A {
-  int? aField1 = 0;
-}
-
-class A2 extends A {
-  int? aField1 = null;
-}
-
-class A3 extends A {
-  int? aField1;
+class A with LEGACY_FIELD {
+  int? i;
+  Object? o;
+  dynamic d;
+  Function? func;
+  Null n;
+  FutureOr? f;
+  FutureOr<int>? fi;
+  FutureOr<Function>? ff;
+  void v;
 }
 
 main() {
-  A1 a1 = A1();
-  Expect.equals(0, a1.aField1);
-  a1.aField1 = null;
-  Expect.isNull(a1.aField1);
-
-  A2 a2 = A2();
-  Expect.isNull(a2.aField1);
-  a2.aField1 = 4;
-  Expect.equals(4, a2.aField1);
-
-  A3 a3 = A3();
-  a3.aField1 = 4;
-  Expect.equals(4, a3.aField1);
-  a3.aField1 = null;
-  Expect.isNull(a3.aField1);
+  A a = A();
+  Expect.isNull(a.i);
+  Expect.isNull(a.d);
+  Expect.isNull(a.o);
+  Expect.isNull(a.func);
+  Expect.isNull(a.n);
+  Expect.isNull(a.f);
+  Expect.isNull(a.fi);
+  Expect.isNull(a.ff);
 }

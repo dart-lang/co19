@@ -9,40 +9,49 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that if opted-in class implements legacy class, child
- * opted-in setter cannot have non-nullable argument.
+ * @description Check that if opted-in class extends legacy class, opted-in
+ * setter cannot have non-nullable argument and compile error is thrown in this
+ * case.
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "dart:async";
 import "override_checking_legacy_lib.dart";
 
-class A1 implements A {
-  int? aField1 = 1;
-  int? aField2 = null;
-  int? aField3;
-  int? get get_field1 => aField1;
-  int? get get_field2 => aField2;
-  int? get get_field3 => aField3;
-
-  void set set_field1(int i) {}
-//         ^^^^^^^^^^
+class A extends LEGACY_SETTER {
+  void set setInt(int i) {}
+//         ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void set set_field2(int i) {}
-//         ^^^^^^^^^^
+
+  void set setObject(Object o) {}
+//         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void set set_field3(int i) {}
-//         ^^^^^^^^^^
+  void set setFunction(Function f) {}
+//         ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  int test_return_nullable() => 1;
-  Null test_return_never() => null;
+  void set setFutureOrInt(FutureOr<int> f) {}
+//         ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void set setFutureOrFunction(FutureOr<Function> f) {}
+//         ^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void set setDynamic(dynamic d) {}
+  void set setNull(Null n) {}
+  void set setFutureOr(FutureOr f) {}
 }
 
-main() {}
+main() {
+  A();
+}
