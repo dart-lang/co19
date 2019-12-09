@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+/**
+ * @assertion It is a warning to use a null aware operator (?., ?.., ??, ??=,
+ * or ...?) on a non-nullable receiver.
+ *
+ * @description Check it is a warning to use a null aware operator (?., ?.., ??,
+ * ??=, or ...?) on a non-nullable receiver. Test some function type
+ * @author sgrekhov@unipro.ru
+ * @issue 39598
+ */
+// SharedOptions=--enable-experiment=non-nullable
+void foo() {}
+void bar() {}
+typedef void Foo();
+
+main() {
+  Foo a = foo;
+  a?.toString();                                  //# 01: static type warning
+  a?..toString();                                 //# 02: static type warning
+  a ?? bar;                                       //# 03: static type warning
+  a ??= bar;                                      //# 04: static type warning
+  List<Foo> clist = [foo, bar];
+  List<Foo> alist = [foo, bar, ...? clist];       //# 05: static type warning
+}

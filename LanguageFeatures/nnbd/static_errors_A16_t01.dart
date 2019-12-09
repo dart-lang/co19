@@ -9,6 +9,7 @@
  * @description Check that it is not an error for the body of a late field to
  * reference this.
  * @author sgrekhov@unipro.ru
+ * @issue 39658
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";

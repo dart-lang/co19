@@ -10,6 +10,7 @@
  * @description Check it is a warning to use a null aware operator (?., ?.., ??,
  * ??=, or ...?) on a non-nullable receiver. Test type aliases
  * @author sgrekhov@unipro.ru
+ * @issue 39598
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 class A {

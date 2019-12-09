@@ -8,19 +8,23 @@
  * or ...?) on a non-nullable receiver.
  *
  * @description Check it is a warning to use a null aware operator (?., ?.., ??,
- * ??=, or ...?) on a non-nullable receiver. Test legacy pre-NNBD types
+ * ??=, or ...?) on a non-nullable receiver. Test if (t is Object) {…}
  * @author sgrekhov@unipro.ru
  * @issue 39598
+ * @issue 39714
  */
 // SharedOptions=--enable-experiment=non-nullable
-import "legacy_lib.dart";
+class A {
+}
+class C extends A {}
 
 main() {
-  A a = A();
-  a?.foo();                                 //# 01: static type warning
-  a?..foo();                                //# 02: static type warning
-  a ?? new Object();                        //# 03: static type warning
-  a ??= new A();                            //# 04: static type warning
-  List<A> list = [A()];
-  List<A> alist = [A(), A(), ...? list];    //# 05: static type warning
+  A? a = A();
+  C c = C();
+  if (a is Object) {
+    a?.toString();              //# 01: static type warning
+    a?..toString();             //# 02: static type warning
+    a ?? c;                     //# 03: static type warning
+    a ??= c;                    //# 04: static type warning
+  }
 }

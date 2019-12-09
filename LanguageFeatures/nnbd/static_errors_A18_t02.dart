@@ -10,6 +10,7 @@
  * @description Check that it is a runtime error to write to a final variable
  * when that variable is declared late but has been written to already
  * @author sgrekhov@unipro.ru
+ * @issue 39684
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";

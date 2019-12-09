@@ -10,6 +10,7 @@
  * @description Check that it is not a compile time error to write to a final
  * variable if that variable is declared late and does not have an initializer.
  * @author sgrekhov@unipro.ru
+ * @issue 39684
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
@@ -31,6 +32,6 @@ main() {
 
   Expect.equals("Lily", g);
   Expect.equals("was", C.s);
-  Expect.equals("here", v);
+  Expect.equals("here", C().v);
   Expect.equals("Run, Forrest, run", l);
 }

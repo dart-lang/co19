@@ -7,8 +7,8 @@
  * @assertion It is an error for the initializer expression of a late local
  * variable to use a prefix await expression.
  *
- * @description Check that it is an error for a formal parameter to be declared
- * late.
+ * @description Check that it is an error for the initializer expression of a
+ * late local variable to use a prefix await expression.
  * @author sgrekhov@unipro.ru
  * @issue 39661
  */

@@ -8,19 +8,20 @@
  * or ...?) on a non-nullable receiver.
  *
  * @description Check it is a warning to use a null aware operator (?., ?.., ??,
- * ??=, or ...?) on a non-nullable receiver. Test legacy pre-NNBD types
+ * ??=, or ...?) on a non-nullable receiver. Test FutureOr<A*>
  * @author sgrekhov@unipro.ru
  * @issue 39598
  */
 // SharedOptions=--enable-experiment=non-nullable
+import "dart:async";
 import "legacy_lib.dart";
 
 main() {
-  A a = A();
-  a?.foo();                                 //# 01: static type warning
-  a?..foo();                                //# 02: static type warning
-  a ?? new Object();                        //# 03: static type warning
-  a ??= new A();                            //# 04: static type warning
-  List<A> list = [A()];
-  List<A> alist = [A(), A(), ...? list];    //# 05: static type warning
+  FutureOr<A> a = new A();
+  a?.toString();                                  //# 01: static type warning
+  a?..toString();                                 //# 02: static type warning
+  a ?? a;                                         //# 03: static type warning
+  a ??= a;                                        //# 04: static type warning
+  List<FutureOr<A>> clist = [a, a];
+  List<FutureOr<A>> alist = [a, a, ...? clist]; //# 05: static type warning
 }

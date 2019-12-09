@@ -10,6 +10,7 @@
  * @description Check that it is an error for a class with a const constructor
  * to have a late final field.
  * @author sgrekhov@unipro.ru
+ * @issue 39681
  */
 // SharedOptions=--enable-experiment=non-nullable
 
