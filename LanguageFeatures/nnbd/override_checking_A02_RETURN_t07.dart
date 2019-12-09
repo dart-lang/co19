@@ -10,19 +10,37 @@
  * to override otherwise incompatible signatures for a method.
  *
  * @description Check that if opted-in class is a mixin with legacy class, child
- * opted-in method can return non-nullable value.
+ * opted-in method can return non-null value of the nullable type.
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "dart:async";
 import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
-class A1 with A {
-  int test_return_nullable() => 2;
+void testme() {}
+
+class A with LEGACY_RETURN {
+  int? getInt() => 1;
+  Object? getObject() => 1;
+  dynamic? getDynamic() => 1;
+  Function? getFunction() => testme;
+  Null? getNull() => null;
+  FutureOr? getFutureOr() => 1;
+  FutureOr<int>? getFutureOrInt() => 1;
+  FutureOr<Function>? getFutureOrFunction() => testme;
 }
 
 main() {
-  Expect.equals(2, A1().test_return_nullable());
+  A a = A();
+  Expect.equals(1, a.getInt());
+  Expect.equals(1, a.getObject());
+  Expect.equals(1, a.getDynamic());
+  Expect.equals(testme, a.getFunction());
+  Expect.isNull(a.getNull());
+  Expect.equals(1, a.getFutureOr());
+  Expect.equals(1, a.getFutureOrInt());
+  Expect.equals(testme, a.getFutureOrFunction());
 }

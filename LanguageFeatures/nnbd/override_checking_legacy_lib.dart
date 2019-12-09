@@ -93,16 +93,47 @@ class LEGACY_SETTER {
   void set setFutureOrFunction(FutureOr<Function> f) { Expect.fail("This method should be overriden"); }
 }
 
-class A {
-  int test_return_nullable() {
+class LEGACY_RETURN {
+  int getInt() {
     Expect.fail("This method should be overriden");
     return -1;
   }
 
-  Null test_return_never() {
+  Object getObject() {
+    Expect.fail("This method should be overriden");
+    return -1;
+  }
+
+  dynamic getDynamic() {
+    Expect.fail("This method should be overriden");
+    return -1;
+  }
+
+  Function getFunction() {
+    Expect.fail("This method should be overriden");
+    return null;
+  }
+
+  Null getNull() {
+    Expect.fail("This method should be overriden");
+    return null;
+  }
+
+  FutureOr getFutureOr() {
+    Expect.fail("This method should be overriden");
+    return -1;
+  }
+
+  FutureOr<int> getFutureOrInt() {
+    Expect.fail("This method should be overriden");
+    return -1;
+  }
+
+  FutureOr<Function> getFutureOrFunction() {
     Expect.fail("This method should be overriden");
     return null;
   }
 }
 
+class A {}
 class D<X extends A> {}

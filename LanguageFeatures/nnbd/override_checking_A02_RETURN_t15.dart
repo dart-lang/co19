@@ -9,27 +9,26 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that if opted-in class implements legacy class, child
- * opted-in method can return nullable value.
+ * @description Check that if opted-in class implements legacy class, migrated
+ * method with [Never] return value can override legacy method.
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
-class A1 implements A {
-  int? test_return_nullable() => 2;
-  Null test_return_never() => null;
-}
-
-class A2 implements A {
-  int? test_return_nullable() => null;
-  Null test_return_never() => null;
+class A implements LEGACY_RETURN {
+  Never getInt()              => throw "It's impossible!";
+  Never getObject()           => throw "It's impossible!";
+  Never getDynamic()          => throw "It's impossible!";
+  Never getFunction()         => throw "It's impossible!";
+  Never getNull()             => throw "It's impossible!";
+  Never getFutureOr()         => throw "It's impossible!";
+  Never getFutureOrInt()      => throw "It's impossible!";
+  Never getFutureOrFunction() => throw "It's impossible!";
 }
 
 main() {
-  Expect.equals(2, A1().test_return_nullable());
-  Expect.isNull(A2().test_return_nullable());
+  A();
 }

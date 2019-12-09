@@ -10,24 +10,36 @@
  * to override otherwise incompatible signatures for a method.
  *
  * @description Check that if opted-in class extends legacy class, child
- * migrated method with [Never] return value cannot be called and compile error
- * is thrown in this case.
+ * opted-in method can return [null].
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "dart:async";
+import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
-class A1 extends A {
-  Never test_return_never() => throw "It's impossible!";
+class A extends LEGACY_RETURN {
+  int? getInt() => null;
+  Object? getObject() => null;
+  dynamic getDynamic() => null;
+  Function? getFunction() => null;
+  Null getNull() => null;
+  FutureOr getFutureOr() => null;
+  FutureOr<int>? getFutureOrInt() => null;
+  FutureOr<Function>? getFutureOrFunction() => null;
 }
 
 main() {
-  A1 a = A1();
-  a.test_return_never();
-//  ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  A a = A();
 
+  Expect.isNull(a.getInt());
+  Expect.isNull(a.getObject());
+  Expect.isNull(a.getDynamic());
+  Expect.isNull(a.getFunction());
+  Expect.isNull(a.getNull());
+  Expect.isNull(a.getFutureOr());
+  Expect.isNull(a.getFutureOrInt());
+  Expect.isNull(a.getFutureOrFunction());
 }

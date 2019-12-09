@@ -16,17 +16,31 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "dart:async";
 import "override_checking_legacy_lib.dart";
 
-abstract class B {
-  Never test_return_never();
+abstract class AA {
+  int? getInt();
+  Object? getObject();
+  dynamic getDynamic();
+  Function? getFunction();
+  Null getNull();
+  FutureOr getFutureOr();
+  FutureOr<int>? getFutureOrInt();
+  FutureOr<Function>? getFutureOrFunction();
 }
 
-class A1 implements A {
-  Never test_return_never() => throw "It's impossible!";
-  int? test_return_nullable() => 1;
+class A implements AA, LEGACY_RETURN {
+  Never getInt()              => throw "It's impossible!";
+  Never getObject()           => throw "It's impossible!";
+  Never getDynamic()          => throw "It's impossible!";
+  Never getFunction()         => throw "It's impossible!";
+  Never getNull()             => throw "It's impossible!";
+  Never getFutureOr()         => throw "It's impossible!";
+  Never getFutureOrInt()      => throw "It's impossible!";
+  Never getFutureOrFunction() => throw "It's impossible!";
 }
 
 main() {
-  A1();
+  A();
 }

@@ -9,25 +9,32 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that if opted-in class ia a mixin with legacy class, child
- * migrated method with [Never] return value cannot be called and compile error
- * is thrown in this case.
+ * @description Check that if opted-in class extends legacy class, child
+ * opted-in method can return non-nullable value.
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "dart:async";
+import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
-class A1 with A {
-  Never test_return_never() => throw "It's impossible!";
+void testme() {}
+
+class A extends LEGACY_RETURN {
+  int getInt() => 1;
+  Object getObject() => 1;
+  Function getFunction() => testme;
+  FutureOr<int> getFutureOrInt() => 1;
+  FutureOr<Function> getFutureOrFunction() => testme;
 }
 
 main() {
-  A1 a = A1();
-  a.test_return_never();
-//  ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
+  A a = A();
+  Expect.equals(1, a.getInt());
+  Expect.equals(1, a.getObject());
+  Expect.equals(testme, a.getFunction());
+  Expect.equals(1, a.getFutureOrInt());
+  Expect.equals(testme, a.getFutureOrFunction());
 }

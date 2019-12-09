@@ -9,8 +9,8 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that if opted-in class implements legacy class, migrated
- * method with [Never] return value can override legacy method.
+ * @description Check that if opted-in class is a mixin with legacy class,
+ * migrated method with [Never] return value can override legacy method.
  *
  * @author iarkh@unipro.ru
  */
@@ -18,12 +18,17 @@
 
 import "override_checking_legacy_lib.dart";
 
-class A1 implements A {
-  Never test_return_never() => throw "It's impossible!";
-  int? test_return_nullable() { return 1; }
+class A with LEGACY_RETURN {
+  Never getInt()              => throw "It's impossible!";
+  Never getObject()           => throw "It's impossible!";
+  Never getDynamic()          => throw "It's impossible!";
+  Never getFunction()         => throw "It's impossible!";
+  Never getNull()             => throw "It's impossible!";
+  Never getFutureOr()         => throw "It's impossible!";
+  Never getFutureOrInt()      => throw "It's impossible!";
+  Never getFutureOrFunction() => throw "It's impossible!";
 }
 
 main() {
-  A1();
+  A();
 }
-

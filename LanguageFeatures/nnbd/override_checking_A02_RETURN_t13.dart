@@ -18,11 +18,17 @@
 
 import "override_checking_legacy_lib.dart";
 
-class A1 extends A {
-  Never test_return_never() => throw "It's impossible!";
+class A extends LEGACY_RETURN {
+  Never getInt()              => throw "It's impossible!";
+  Never getObject()           => throw "It's impossible!";
+  Never getDynamic()          => throw "It's impossible!";
+  Never getFunction()         => throw "It's impossible!";
+  Never getNull()             => throw "It's impossible!";
+  Never getFutureOr()         => throw "It's impossible!";
+  Never getFutureOrInt()      => throw "It's impossible!";
+  Never getFutureOrFunction() => throw "It's impossible!";
 }
 
 main() {
-  A1();
+  A();
 }
-
