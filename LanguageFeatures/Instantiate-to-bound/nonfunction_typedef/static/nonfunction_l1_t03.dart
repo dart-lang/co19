@@ -43,7 +43,7 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works as expected for
- * [class A<X extends A<X>>], [class B<X extends A<X>>]
+ * [class A<X extends A<X>>; typedef B<X extends A<X>>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -65,11 +65,11 @@ main() {
   F<B<A<A<A<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
   F<B<A<A<A<A<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
 
-  F<B<Null>> target5 = fsource;             //# 05: compile-time error
-  F<B<A<Null>>> target6 = fsource;          //# 06: compile-time error
-  F<B<A<A<Null>>>> target7 = fsource;       //# 07: compile-time error
-  F<B<A<A<A<Null>>>>> target8 = fsource;    //# 08: compile-time error
-  F<B<A<A<A<A<Null>>>>>> target9 = fsource; //# 09: compile-time error
+  F<B<Null>> target5 = fsource;                //# 05: compile-time error
+  F<B<A<Null>>> target6 = fsource;             //# 06: compile-time error
+  F<B<A<A<Null>>>> target7 = fsource;          //# 07: compile-time error
+  F<B<A<A<A<Null>>>>> target8 = fsource;       //# 08: compile-time error
+  F<B<A<A<A<A<Null>>>>>> target9 = fsource;    //# 09: compile-time error
 
-  B(); //# 10: compile-time error
+  B();                                         //# 10: compile-time error
 }

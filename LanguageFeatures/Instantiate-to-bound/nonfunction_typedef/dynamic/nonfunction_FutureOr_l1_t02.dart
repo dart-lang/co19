@@ -43,7 +43,7 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks instantiation to bounds for [typedef A<X extends
- * FutureOr<A<X>>]
+ * FutureOr<C<X>> = C<X>]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -52,11 +52,11 @@ import "dart:async";
 import "../../../../Utils/expect.dart";
 
 class C<X> {}
-typedef A<X extends FutureOr<A<X>>> = C<X>;
+typedef A<X extends FutureOr<C<X>>> = C<X>;
 
 main() {
   Expect.equals(
-    typeOf<A<FutureOr<A<dynamic>>>>(),
+    typeOf<C<FutureOr<C<dynamic>>>>(),
     typeOf<A>()
   );
 }

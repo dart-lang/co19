@@ -15,8 +15,11 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for non-function type
  * alias with function parameter (contravariant)
+ *
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
+
 import "../../../Utils/expect.dart";
 
 class C<X> {}

@@ -43,7 +43,7 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for [class
- * B<X extends B<X, Y>, Y>], [typedef A<X1, X2 extends B<X2, X1>>]
+ * B<X extends B<X, Y>, Y>; typedef A<X1, X2 extends B<X2, X1>>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

@@ -42,26 +42,27 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for [typedef
- * A<String, X extends A<void, A<String,X>>>]
+ * @description Checks that compile error is thrown if non-function type alias
+ *  is not well-bounded.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
-
 class C<X, Y> {}
-typedef A<Y extends String, X extends A<void, A<String, X>>> = C<Y, X>;
 
-main() {
-  A source;
-  var fsource = toF(source);
+typedef A1<X extends A1<X, Y>, Y extends A1<dynamic, A1<X, Y>>> = C<X, Y>;
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  F<A<String, A<void, A<String, dynamic>>>> target = fsource;
+typedef A2<X extends A2<X, Y>, Y extends A2<dynamic, A2<X, Y>>> = C<X, Y>;
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  F<A<dynamic, dynamic>> target1 = fsource;                         //# 01: compile-time error
-  F<A<dynamic, A<dynamic, A<dynamic, dynamic>>>> target2 = fsource; //# 02: compile-time error
+typedef A3<X extends A3<X, Y>, Y extends A3<dynamic, A3<X, Y>>> = C<X, Y>;
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  A(); //# 03: compile-time error
-}
+main() {}

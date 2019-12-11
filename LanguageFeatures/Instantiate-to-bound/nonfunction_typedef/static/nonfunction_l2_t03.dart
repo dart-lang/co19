@@ -42,8 +42,9 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for [typedef
- * A<String, X extends A<Null, A<String,X>>>]
+ * @description Checks that instantiate-to-bounds works as expected for [class
+ * C<X1, X2>; typedef A<Y extends String, X extends C<String, C<String, X>>> =
+ * C<Y, X>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -52,16 +53,27 @@ typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 
 class C<X1, X2> {}
-typedef A<Y extends String, X extends A<Null, A<String, X>>> = C<Y, X>;
+typedef A<Y extends String, X extends C<String, C<String, X>>> = C<Y, X>;
 
 main() {
   A source;
   var fsource = toF(source);
 
-  F<A<String, A<Null, A<String, dynamic>>>> target = fsource;
+  F<A<String, C<String, C<String, dynamic>>>> target = fsource;
 
-  F<A<dynamic, dynamic>> target1 = fsource;                         //# 01: compile-time error
-  F<A<dynamic, A<dynamic, A<dynamic, dynamic>>>> target2 = fsource; //# 02: compile-time error
+  F<A<dynamic, dynamic>> target1 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  A(); //# 03: compile-time error
+  F<A<dynamic, C<dynamic, C<dynamic, dynamic>>>> target2 = fsource;
+//                                                         ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

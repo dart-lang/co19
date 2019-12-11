@@ -42,8 +42,9 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiation to bounds works OK for the class with
- * [typedef G<X> = X Function()] parameter (contravariant)
+ * @description Checks that instantiation to bounds works OK for non-function
+ * typedef with [typedef G<X> = void Function()] type parameter: [typedef G<X> =
+ * void Function(); class C<X>; typedef A<X extends G<C<X>>> = C<X>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -59,19 +60,19 @@ typedef A<X extends G<C<X>>> = C<X>;
 main() {
   A source;
   var fsource = toF(source);
-  F<A<G<A<dynamic>>>> target = fsource;
+  F<A<G<C<dynamic>>>> target = fsource;
 
-  F<A<G<A<Null>>>> target0 = fsource;
+  F<A<G<C<Null>>>> target0 = fsource;
 
   F<A<dynamic>> target1 = fsource;          //# 01: compile-time error
   F<A<G<dynamic>>> target2 = fsource;
-  F<A<G<A<G<dynamic>>>>> target3 = fsource;
-  F<A<G<A<G<A<dynamic>>>>>> target4 = fsource;
+  F<A<G<C<G<dynamic>>>>> target3 = fsource;
+  F<A<G<C<G<C<dynamic>>>>>> target4 = fsource;
 
   F<A<Null>> target5 = fsource;             //# 02: compile-time error
   F<A<G<Null>>> target6 = fsource;
-  F<A<G<A<G<Null>>>>> target7 = fsource;
-  F<A<G<A<G<A<Null>>>>>> target8 = fsource;
+  F<A<G<C<G<Null>>>>> target7 = fsource;
+  F<A<G<C<G<C<Null>>>>>> target8 = fsource;
 
   A();
 }

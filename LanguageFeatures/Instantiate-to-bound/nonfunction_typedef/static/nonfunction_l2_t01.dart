@@ -43,7 +43,7 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for [typedef
- * A<X1 extends X2, X2 extends A<X1, X2>>]
+ * A<X1 extends X2, X2 extends C<X1, X2>>]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -52,16 +52,16 @@ typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 
 class C<X1, X2> {}
-typedef A<X1 extends X2, X2 extends A<X1, X2>> = C<X1, X2>;
+typedef A<X1 extends X2, X2 extends C<X1, X2>> = C<X1, X2>;
 
 main() {
   A source;
   var fsource = toF(source);
 
-  F<A<dynamic, A<dynamic, dynamic>>> target = fsource;
+  F<A<dynamic, C<dynamic, dynamic>>> target = fsource;
 
   F<A<dynamic, dynamic>> target1 = fsource;                         //# 01: compile-time error
-  F<A<A<dynamic, dynamic>, A<dynamic, dynamic>>> target2 = fsource; //# 02: compile-time error
+  F<A<C<dynamic, dynamic>, C<dynamic, dynamic>>> target2 = fsource; //# 02: compile-time error
 
   A(); //# 03: compile-time error
 }

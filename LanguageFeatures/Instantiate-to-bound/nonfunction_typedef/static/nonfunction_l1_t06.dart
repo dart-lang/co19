@@ -43,7 +43,7 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for [typedef
- * O<X extends M<O<M<O<M<O<X>>>>>>>].
+ * O<X extends M<M<M<M<M<M<X>>>>>>> = M<M<X>>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -52,28 +52,28 @@ typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 
 class M<X> {}
-typedef O<X extends M<O<M<O<M<O<X>>>>>>> = M<O<X>>;
+typedef O<X extends M<M<M<M<M<M<X>>>>>>> = M<M<X>>;
 
 main() {
   O source;
   var fsource = toF(source);
 
-  F<O<M<O<M<O<M<O<dynamic>>>>>>>> target = fsource;
+  F<O<M<M<M<M<M<M<dynamic>>>>>>>> target = fsource;
 
-  F<O<dynamic>> target1 = fsource;                //# 01: compile-time error
-  F<O<M<dynamic>>> target2 = fsource;             //# 02: compile-time error
-  F<O<M<O<M<dynamic>>>>> target3 = fsource;       //# 03: compile-time error
-  F<O<M<O<M<O<dynamic>>>>>> target4 = fsource;    //# 04: compile-time error
-  F<O<M<O<M<O<M<dynamic>>>>>>> target5 = fsource; //# 05: compile-time error
+  F<O<dynamic>> target1 = fsource;                         //# 01: compile-time error
+  F<O<M<dynamic>>> target2 = fsource;                      //# 02: compile-time error
+  F<O<M<M<M<dynamic>>>>> target3 = fsource;                //# 03: compile-time error
+  F<O<M<M<M<M<dynamic>>>>>> target4 = fsource;             //# 04: compile-time error
+  F<O<M<M<M<M<M<dynamic>>>>>>> target5 = fsource;          //# 05: compile-time error
 
-  F<O<M<O<M<O<M<O<M<dynamic>>>>>>>>> target6 = fsource;    //# 06: compile-time error
-  F<O<M<O<M<O<M<O<M<O<dynamic>>>>>>>>>> target7 = fsource; //# 07: compile-time error
+  F<O<M<M<M<M<M<M<M<dynamic>>>>>>>>> target6 = fsource;    //# 06: compile-time error
+  F<O<M<M<M<M<M<M<M<M<dynamic>>>>>>>>>> target7 = fsource; //# 07: compile-time error
 
-  F<O<Null>> target8 = fsource;              //# 08: compile-time error
-  F<O<M<Null>>> target9  = fsource;          //# 09: compile-time error
-  F<O<M<O<Null>>>> target10 = fsource;       //# 10: compile-time error
-  F<O<M<O<M<Null>>>>> target11 = fsource;    //# 11: compile-time error
-  F<O<M<O<M<O<Null>>>>>> target12 = fsource; //# 12: compile-time error
+  F<O<Null>> target8 = fsource;                            //# 08: compile-time error
+  F<O<M<Null>>> target9  = fsource;                        //# 09: compile-time error
+  F<O<M<M<Null>>>> target10 = fsource;                     //# 10: compile-time error
+  F<O<M<M<M<Null>>>>> target11 = fsource;                  //# 11: compile-time error
+  F<O<M<M<M<M<Null>>>>>> target12 = fsource;               //# 12: compile-time error
 
-  O(); //# 13: compile-time error
+  O();                                                     //# 13: compile-time error
 }

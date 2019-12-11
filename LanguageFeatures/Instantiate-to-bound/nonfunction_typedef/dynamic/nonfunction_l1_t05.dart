@@ -42,20 +42,23 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for [typedef
- * O<X extends M<O<X>>>].
+ * @description Checks that instantiate-to-bounds works as expected for [class
+ * M<X>; class N<X extends M<N<X>>>; typedef O<X extends M<N<X>>> = M<N<X>>].
  * @author iarkh@unipro.ru
+ * @Issue 34726
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 import "../../../../Utils/expect.dart";
 
 class M<X> {}
-typedef O<X extends M<O<X>>> = M<O<X>>;
+class N<X extends M<N<X>>> {}
+
+typedef O<X extends M<N<X>>> = M<N<X>>;
 
 main() {
   Expect.equals(
-    typeOf<O<M<O<dynamic>>>>(),
+    typeOf<M<N<M<dynamic>>>>(),
     typeOf<O>()
   );
 }

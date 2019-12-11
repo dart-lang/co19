@@ -43,7 +43,7 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works for [class A<X extends
- * A<X>>], [typedef B<X extends A<X>>]
+ * A<X>>; typedef B<X extends A<X>> = A<X>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -55,7 +55,7 @@ typedef B<X extends A<X>> = A<X>;
 
 main() {
   Expect.equals(
-    typeOf<B<A<dynamic>>>(),
+    typeOf<A<A<dynamic>>>(),
     typeOf<B>(),
   );
 }

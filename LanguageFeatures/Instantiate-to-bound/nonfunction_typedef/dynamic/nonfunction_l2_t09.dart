@@ -43,8 +43,8 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for [class
- * B<X extends B<X>>], [class C<X, Y>], [typedef A<X1 extends B<X2>, X2 extends
- * B<X2>>]
+ * B<X extends B<X>>; class C<X, Y>; typedef A<X1 extends B<X2>, X2 extends
+ * B<X2>> = C<X1, X2>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -57,7 +57,7 @@ typedef A<X1 extends B<X2>, X2 extends B<X2>> = C<X1, X2>;
 
 main() {
   Expect.equals(
-      typeOf<A<B<B<dynamic>>, B<dynamic>>>(),
+      typeOf<C<B<B<dynamic>>, B<dynamic>>>(),
       typeOf<A>()
   );
 }

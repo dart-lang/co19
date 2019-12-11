@@ -43,8 +43,8 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works OK for [typedef G<X> =
- * Function(X)], [class C<X, Y>], [typedef A<X extends G<A<X,Y>>, Y extends X> =
- * C<X, Y>] (covariant)
+ * Function(X); class C<X, Y>; typedef A<X extends G<A<X,Y>>, Y extends X> =
+ * C<X, Y>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -57,7 +57,7 @@ typedef A<X extends G<C<X,Y>>, Y extends X> = C<X, Y>;
 
 main() {
   Expect.equals(
-      typeOf<A<G<C<Null, Null>>, dynamic>>(),
+      typeOf<C<G<C<Null, Null>>, dynamic>>(),
       typeOf<A>()
   );
 }

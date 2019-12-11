@@ -43,23 +43,33 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for [class
- * A<String, X extends A<Null, A<String,X>>>]
- * @Issue 34727, 34948, 34950
+ * A<String, X extends A<String, A<String,X>>>]
  * @author iarkh@unipro.ru
  */
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 
-class A<Y extends String, X extends A<Null, A<String, X>>> {}
+class A<Y extends String, X extends A<String, A<String, X>>> {}
 
 main() {
   A source;
   var fsource = toF(source);
 
-  F<A<String, A<Null, A<String, dynamic>>>> target = fsource;
+  F<A<String, A<String, A<String, dynamic>>>> target = fsource;
 
-  F<A<dynamic, dynamic>> target1 = fsource;                         //# 01: compile-time error
-  F<A<dynamic, A<dynamic, A<dynamic, dynamic>>>> target2 = fsource; //# 02: compile-time error
+  F<A<dynamic, dynamic>> target1 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  A(); //# 03: compile-time error
+  F<A<dynamic, A<dynamic, A<dynamic, dynamic>>>> target2 = fsource;
+//                                                         ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }
