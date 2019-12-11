@@ -8,31 +8,32 @@
  * runtime error if v is null, and otherwise evaluates to v.
  *
  * @description Check that an expression of the form e! evaluates e to a value
- * v, throws a runtime error if v is null. Test function type
+ * v, throws no runtime error if v is not null. Test 'super'
  * @author sgrekhov@unipro.ru
  * @issue 39723
- * @issue 39724
+ * @issue 39598
  */
 // SharedOptions=--enable-experiment=non-nullable
-import "../../Utils/expect.dart";
 
-Object? foo(int i) => null;
-Object? bar<T>(T t) => null;
+class A {
+  foo() {}
+  Object? get getValue => "Lily was here";
+  int? operator [](int index) => index;
+}
+
+class C extends A {
+  test() {
+    super!;          //# 01: static type warning
+    super!.foo();    //# 02: static type warning
+    super![42];      //# 03: static type warning
+    super!?.foo();   //# 04: static type warning
+    super!?.[42];    //# 05: static type warning
+    super.getValue!;
+    super[42]!;
+  }
+}
 
 main() {
-  Function? f1 = null;
-  Expect.throws(() {f1!(42);});
-  f1 = foo;
-  if (f1 != null) {
-    Expect.throws(() {
-      f1(42)!;
-    });
-  }
-
-  Function f2 = null;
-  Expect.throws(() {f2<int>!(42);});
-  f2 = bar;
-  if (f2 != null) {
-    Expect.throws(() {f2<int>(42)!;});
-  }
+  C c = new C();
+  c.test();
 }
