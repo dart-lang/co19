@@ -8,27 +8,37 @@
  * runtime error if v is null, and otherwise evaluates to v.
  *
  * @description Check that an expression of the form e! evaluates e to a value
- * v, throws no runtime error if v is not null. Test function type
+ * v, throws a runtime error if v is null. Test constructor
  * @author sgrekhov@unipro.ru
  * @issue 39723
+ * @issue 39724
  */
 // SharedOptions=--enable-experiment=non-nullable
+import "../../Utils/expect.dart";
 
 class A {
+  String s = "Show must go on";
   foo() {}
   Object? get getValue => "Lily was here";
-  int? operator [](int index) => index;
+  Object? get getNull => null;
+  int? operator [](int? index) => index;
+  void operator []=(int index, String val) {
+    s = val;
+  }
 }
 
 main() {
-  A? a = new A();
-  a!;
-  a!.foo();
-  a![42];
-  a!?.foo();
-  a!?.[42];
-  if (a != null) {
-    a.getValue!;
-    a[42]!;
-  }
+  new A()!;
+  new A()!.foo();
+  new A()![42];
+  new A()!?.foo();
+  new A()!?.[42];
+  new A().getValue!;
+  new A()[42]!;
+  new A()!.s = "Lily was here";
+  new A()!?.s = "Lily was here";
+  new A()![0] = "Lily was here";
+  new A()!?.[0] = "Lily was here";
+  Expect.throws(() {new A().getNull!;});
+  Expect.throws(() {new A()[null]!;});
 }

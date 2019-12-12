@@ -8,9 +8,10 @@
  * runtime error if v is null, and otherwise evaluates to v.
  *
  * @description Check that an expression of the form e! evaluates e to a value
- * v, throws no runtime error if v is not null. Test identifier
+ * v, throws no runtime error if v is not null. Test 'super'
  * @author sgrekhov@unipro.ru
  * @issue 39723
+ * @issue 39598
  */
 // SharedOptions=--enable-experiment=non-nullable
 
@@ -24,19 +25,23 @@ class A {
   }
 }
 
-main() {
-  A? a = new A();
-  a!;
-  a!.foo();                       //# 01: static type warning
-  a![42];                         //# 02: static type warning
-  a!?.foo();                      //# 03: static type warning
-  a!?.[42];                       //# 04: static type warning
-  a!.s = "Lily was here";         //# 05: static type warning
-  a!?.s = "Let it be";            //# 06: static type warning
-  a![0] = "Lily was here";        //# 07: static type warning
-  a!?.[0] = "Lily was here";      //# 08: static type warning
-  if (a != null) {
-    a.getValue!;
-    a[42]!;
+class C extends A {
+  test() {
+    super!;          //# 01: static type warning
+    super!.foo();    //# 02: static type warning
+    super![42];      //# 03: static type warning
+    super!?.foo();   //# 04: static type warning
+    super!?.[42];    //# 05: static type warning
+    super!.s = "Lily was here";    //# 06: static type warning
+    super!?.s = "Lily was here";   //# 07: static type warning
+    super![0] = "Lily was here";   //# 08: static type warning
+    super!?.[0] = "Lily was here"; //# 09: static type warning
+    super.getValue!;
+    super[42]!;
   }
+}
+
+main() {
+  C c = new C();
+  c.test();
 }

@@ -8,32 +8,26 @@
  * runtime error if v is null, and otherwise evaluates to v.
  *
  * @description Check that an expression of the form e! evaluates e to a value
- * v, throws no runtime error if v is not null. Test 'super'
+ * v, throws no runtime error if v is not null. Test function type
  * @author sgrekhov@unipro.ru
  * @issue 39723
- * @issue 39598
+ * @issue 39758
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-class A {
-  foo() {}
-  Object? get getValue => "Lily was here";
-  int? operator [](int index) => index;
-}
-
-class C extends A {
-  test() {
-    super!;          //# 01: static type warning
-    super!.foo();    //# 02: static type warning
-    super![42];      //# 03: static type warning
-    super!?.foo();   //# 04: static type warning
-    super!?.[42];    //# 05: static type warning
-    super.getValue!;
-    super[42]!;
-  }
-}
+Object? foo(int i) => "Lily was here";
+Object? bar<T>(T t) => 42;
 
 main() {
-  C c = new C();
-  c.test();
+  Function? f1 = foo;
+  f1!(42);
+  if (f1 != null) {
+      f1(42)!;
+  }
+
+  Function f2 = bar;
+  f2<int>!(42);
+  if (f2 != null) {
+    f2<int>(42)!;
+  }
 }

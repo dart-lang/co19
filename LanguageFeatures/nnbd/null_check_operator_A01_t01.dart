@@ -8,7 +8,7 @@
  * runtime error if v is null, and otherwise evaluates to v.
  *
  * @description Check that an expression of the form e! evaluates e to a value
- * v, throws a runtime error if v is null. Test class
+ * v, throws a runtime error if v is null. Test identifier
  * @author sgrekhov@unipro.ru
  * @issue 39723
  * @issue 39724
@@ -17,9 +17,13 @@
 import "../../Utils/expect.dart";
 
 class A {
+  String s = "Show must go on";
   foo() {}
   Object? get getNull => null;
   Object? operator [](int index) => null;
+  void operator []=(int index, String val) {
+    s = val;
+  }
 }
 
 main() {
@@ -29,13 +33,11 @@ main() {
   Expect.throws(() {a![42];});
   Expect.throws(() {a!?.foo();});
   Expect.throws(() {a!?.[42];});
-  a = new A();
-  if (a != null) {
-    Expect.throws(() {
-      a.getNull!;
-    });
-    Expect.throws(() {
-      a[42]!;
-    });
+  Expect.throws(() {a!.s = "Lily was here";});
+  Expect.throws(() {a![0] = "Lily was here";});
+  A? a1 = new A();
+  if (a1 != null) {
+    Expect.throws(() {a1.getNull!;});
+    Expect.throws(() {a1[42]!;});
   }
 }

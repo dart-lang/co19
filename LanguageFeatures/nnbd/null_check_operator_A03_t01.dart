@@ -8,9 +8,10 @@
  * runtime error if v is null, and otherwise evaluates to v.
  *
  * @description Check that an expression of the form e! evaluates e to a value
- * v, throws no runtime error if v is not null. Test identifier
+ * v, throws no runtime error if v is not null. Test 'this'
  * @author sgrekhov@unipro.ru
  * @issue 39723
+ * @issue 39598
  */
 // SharedOptions=--enable-experiment=non-nullable
 
@@ -22,21 +23,23 @@ class A {
   void operator []=(int index, String val) {
     s = val;
   }
+
+  test() {
+    this!;          //# 01: static type warning
+    this!.foo();    //# 02: static type warning
+    this![42];      //# 03: static type warning
+    this!?.foo();   //# 04: static type warning
+    this!?.[42];    //# 05: static type warning
+    this!.s = "Lily was here";    //# 06: static type warning
+    this!?.s = "Lily was here";   //# 07: static type warning
+    this![0] = "Lily was here";   //# 08: static type warning
+    this!?.[0] = "Lily was here"; //# 09: static type warning
+    this.getValue!;
+    this[42]!;
+  }
 }
 
 main() {
-  A? a = new A();
-  a!;
-  a!.foo();                       //# 01: static type warning
-  a![42];                         //# 02: static type warning
-  a!?.foo();                      //# 03: static type warning
-  a!?.[42];                       //# 04: static type warning
-  a!.s = "Lily was here";         //# 05: static type warning
-  a!?.s = "Let it be";            //# 06: static type warning
-  a![0] = "Lily was here";        //# 07: static type warning
-  a!?.[0] = "Lily was here";      //# 08: static type warning
-  if (a != null) {
-    a.getValue!;
-    a[42]!;
-  }
+  A a = new A();
+  a.test();
 }
