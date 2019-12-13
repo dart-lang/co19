@@ -32,17 +32,17 @@ class A<T> {
 }
 
 main() {
-  new A<String>.named("Gaudeamus igitur")!;
-  new A<String>.named("Gaudeamus igitur")!.foo();
-  new A<String>.named("Gaudeamus igitur")![42];
-  new A<String>.named("Gaudeamus igitur")!?.foo();
-  new A<String>.named("Gaudeamus igitur")!?.[42];
-  new A<String>.named("Gaudeamus igitur").getValue!;
-  new A<String>.named("Gaudeamus igitur")[42]!;
-  new A<String>.named("Gaudeamus igitur")!.s = "Lily was here";
-  new A<String>.named("Gaudeamus igitur")!?.s = "Lily was here";
-  new A<String>.named("Gaudeamus igitur")![0] = "Lily was here";
-  new A<String>.named("Gaudeamus igitur")!?.[0] = "Lily was here";
-  Expect.throws(() {new A<String>.named("Gaudeamus igitur").getNull!;});
-  Expect.throws(() {new A<String>.named("Gaudeamus igitur")[null]!;});
+  new A<String>.named("Let's have fun")!;
+  new A<String>.named("Let's have fun")!.foo();
+  new A<String>.named("Let's have fun")![42];
+  new A<String>.named("Let's have fun")!?.foo();
+  new A<String>.named("Let's have fun")!?.[42];
+  new A<String>.named("Let's have fun").getValue!;
+  new A<String>.named("Let's have fun")[42]!;
+  new A<String>.named("Let's have fun")!.s = "Lily was here";
+  new A<String>.named("Let's have fun")!?.s = "Lily was here";
+  new A<String>.named("Let's have fun")![0] = "Lily was here";
+  new A<String>.named("Let's have fun")!?.[0] = "Lily was here";
+  Expect.throws(() {new A<String>.named("Let's have fun").getNull!;});
+  Expect.throws(() {new A<String>.named("Let's have fun")[null]!;});
 }
