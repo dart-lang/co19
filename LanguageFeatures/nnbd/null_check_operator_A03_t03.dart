@@ -10,6 +10,7 @@
  * @description Check that an expression of the form e! evaluates e to a value
  * v, throws no runtime error if v is not null. Test 'this!()' and 'this()!'
  * @author sgrekhov@unipro.ru
+ * @static-warning
  * @issue 39723
  * @issue 39598
  */
@@ -18,8 +19,8 @@ import "../../Utils/expect.dart";
 
 class C {
   test() {
-    Expect.equals("Lily was here: 42", this!(42));  //# 01: static type warning
-    Expect.equals("Lily was here: 42", this(42)!);  //# 02: static type warning
+    Expect.equals("Lily was here: 42", this!(42));  /// static type warning
+    Expect.equals("Lily was here: 42", this(42)!);  /// static type warning
   }
   String call(int v) => "Lily was here: $v";
 }

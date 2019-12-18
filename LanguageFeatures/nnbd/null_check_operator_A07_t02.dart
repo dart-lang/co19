@@ -10,6 +10,7 @@
  * @description Check that an expression of the form e! evaluates e to a value
  * v, throws no runtime error if v is not null. Test (true)
  * @author sgrekhov@unipro.ru
+ * @static-warning
  * @issue 39723
  */
 // SharedOptions=--enable-experiment=non-nullable,extension-methods
@@ -23,8 +24,8 @@ extension on bool {
 }
 
 main() {
-  Expect.equals("Lily was here 2 times", true!(2));  //# 01: static type warning
-  Expect.equals(24, true![24]);                      //# 02: static type warning
-  true![24] = 24;                                    //# 03: static type warning
-  true!.s = 24;                                      //# 04: static type warning
+  Expect.equals("Lily was here 2 times", true!(2));  /// static type warning
+  Expect.equals(24, true![24]);                      /// static type warning
+  true![24] = 24;                                    /// static type warning
+  true!.s = 24;                                      /// static type warning
 }
