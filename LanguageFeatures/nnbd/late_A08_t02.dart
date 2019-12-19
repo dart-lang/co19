@@ -40,7 +40,7 @@ String? g2 = init("cry");
 
 main() {
   Expect.equals("", _log);
-  Expect.equals("When", C.s1);
+  Expect.equals("No", C.s1);
   Expect.equals("init('No')", _log);
   clear();
 

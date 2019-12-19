@@ -14,55 +14,46 @@
  * the variable assumes the written value. The final value of the initializer
  * expression overwrites any intermediate written values.
  *
- * @description Check that it is a compile error if initializing expression
+ * @description Check that it is a runtime error if initializing expression
  * writes an intermediate value to final field or variable
  * @author sgrekhov@unipro.ru
+ * @issue 39802
  */
 // SharedOptions=--enable-experiment=non-nullable
+import "../../Utils/expect.dart";
 
 class C {
-  static String initS(String val1, String val2) {
-    s = val1;
-//    ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-    return val2;
-  }
-  static late final String s = initS("No woman", "no cry");
-
-  late final String v = initV("No woman", "no cry");
-
-  initV(String val1, String val2) {
-    v = val1;
-//    ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-    return val2;
-  }
+  static late final String s;
+  late final String v;
 }
 
-late final String g = initG("No woman", "no cry");
-
-initG(String val1, String val2) {
-  g = val1;
-//  ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  return val2;
-}
+late final String g;
 
 main() {
-  late final String l = initL("No woman", "no cry");
+  late final String l;
 
-  initL(String val1, String val2) {
-    l = val1;
-//    ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  C.s = "Lily was here";
+  Expect.equals("Lily was here", C.s);
+  Expect.throws(() {C.s = "Show must go on";},
+          (e) => e is LateInitializationError);
+  Expect.equals("Lily was here", C.s);
 
-    return val2;
-  }
+  C c = new C();
+  c.v = "Lily was here";
+  Expect.equals("Lily was here", c.v);
+  Expect.throws(() {c.v = "Show must go on";},
+          (e) => e is LateInitializationError);
+  Expect.equals("Lily was here", c.v);
+
+  g = "Lily was here";
+  Expect.equals("Lily was here", g);
+  Expect.throws(() {g = "Show must go on";},
+          (e) => e is LateInitializationError);
+  Expect.equals("Lily was here", g);
+
+  l = "Lily was here";
+  Expect.equals("Lily was here", l);
+  Expect.throws(() {l = "Show must go on";},
+          (e) => e is LateInitializationError);
+  Expect.equals("Lily was here", l);
 }

@@ -49,8 +49,6 @@ class C {
 late String g = init("Let it be");
 
 main() {
-  late String l = init("Run, Forrest, run");
-
   Expect.equals("", _log);
   Expect.throws(() {C.s;});
   Expect.equals("Lily", C.s);
@@ -67,10 +65,5 @@ main() {
   Expect.throws(() {g;});
   Expect.equals("Let it be", g);
   Expect.equals("init('Let it be')init('Let it be')", _log);
-  clearLog();
-
-  Expect.throws(() {l;});
-  Expect.equals("Run, Forrest, run", l);
-  Expect.equals("init('Run, Forrest, run')init('Run, Forrest, run')", _log);
   clearLog();
 }

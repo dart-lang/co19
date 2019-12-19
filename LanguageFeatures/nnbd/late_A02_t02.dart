@@ -9,11 +9,13 @@
  * be evaluated to a value, assigned to the variable or field, and returned as
  * the value of the read.
  *
- * If there is no initializer expression, the read causes a runtime error.
+ * If there is no initializer expression, the read causes a runtime error to be
+ * thrown which is an instance of LateInitializationError
  *
  * @description Check that it is a runtime error to read late variable without
  * initializer expression
  * @author sgrekhov@unipro.ru
+ * @issue 39801
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
@@ -33,15 +35,15 @@ main() {
   late final String? l1;
   late String? l2;
 
-  Expect.throws(() {C.s1;});
-  Expect.throws(() {C.s2;});
+  Expect.throws(() {C.s1;}, (e) => e is LateInitializationError);
+  Expect.throws(() {C.s2;}, (e) => e is LateInitializationError);
   C c = new C();
-  Expect.throws(() {c.v1;});
-  Expect.throws(() {c.v2;});
-  Expect.throws(() {c.v3;});
+  Expect.throws(() {c.v1;}, (e) => e is LateInitializationError);
+  Expect.throws(() {c.v2;}, (e) => e is LateInitializationError);
+  Expect.throws(() {c.v3;}, (e) => e is LateInitializationError);
 
-  Expect.throws(() {g1;});
-  Expect.throws(() {g2;});
-  Expect.throws(() {l1;});
-  Expect.throws(() {l2;});
+  Expect.throws(() {g1;}, (e) => e is LateInitializationError);
+  Expect.throws(() {g2;}, (e) => e is LateInitializationError);
+  Expect.throws(() {l1;}, (e) => e is LateInitializationError);
+  Expect.throws(() {l2;}, (e) => e is LateInitializationError);
 }

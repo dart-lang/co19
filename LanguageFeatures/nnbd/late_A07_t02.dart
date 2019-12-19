@@ -18,24 +18,21 @@ import "../../Utils/expect.dart";
 
 class A {
   late final int x;
-  late final int? y;
 }
 class B extends A {
-  int get x => 1;
-  int? get y => 1;
+  int x = 3;
 }
 class C extends A {
-  late final int x = 2;
-  late final int? y = 2;
+  late final int x = 3;
 }
 
 void main() {
   B b = new B();
   b.x = 3;
-  Expect.throws(() => b.x = 14, (e) => e is LateInitializationError);
-  Expect.throws(() => new C().x = 3, (e) => e is LateInitializationError);
+  b.x = 14;
 
-  b.y = 3;
-  Expect.throws(() => b.y = 14, (e) => e is LateInitializationError);
-  Expect.throws(() => new C().y = 3, (e) => e is LateInitializationError);
+  A a = new B();
+  a.x = 42;
+  a.x = 41;
+  Expect.throws(() => new C().x = 3);
 }

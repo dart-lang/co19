@@ -14,39 +14,45 @@
  * the variable assumes the written value. The final value of the initializer
  * expression overwrites any intermediate written values.
  *
- * @description Check that evaluating the initializer expression may validly
- * cause a write to the field or variable, assuming that the field or variable
- * is not final. In this case, the variable assumes the written value. The final
- * value of the initializer expression overwrites any intermediate written
- * values.
+ * @description Check that it is a runtime error if initializing expression
+ * writes an intermediate value to final field or variable
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
 
-class A1 {
-  covariant late String v;
-  A1() : this.v = ((this.v = "Lily") == "lily" ? "was": "here");
+class C {
+  static late final String s;
+  static void initS(String val) {
+    s = val;
+    Expect.throws(() {s = "Show must go on";},
+            (e) => e is LateInitializationError);
+  }
+
+  late final String v;
+  void initV(String val) {
+    v = val;
+    Expect.throws(() {v = "Show must go on";},
+            (e) => e is LateInitializationError);
+  }
 }
 
-class A2 {
-  covariant late String v;
-  A2() : this.v = ((this.v = "Lily") == "lily" ? "was": "here");
-}
+late final String g;
 
-class C1 {
-  late String v;
-  C1() : this.v = ((this.v = "Lily") == "lily" ? "was": "here");
-}
-
-class C2 {
-  late String v;
-  C2() : this.v = ((this.v = "Lily") == "lily" ? "was": "here");
+void initG(String val) {
+  g = val;
+  Expect.throws(() {g = "Show must go on";},
+          (e) => e is LateInitializationError);
 }
 
 main() {
-  Expect.equals("here", new A1().v);
-  Expect.equals("here", new A2().v);
-  Expect.equals("here", new C1().v);
-  Expect.equals("here", new C2().v);
+  C.initS("Lily was here");
+  Expect.equals("Lily was here", C.s);
+
+  C c = new C();
+  c.initV("Lily was here");
+  Expect.equals("Lily was here", c.v);
+
+  initG("Lily was here");
+  Expect.equals("Lily was here", g);
 }

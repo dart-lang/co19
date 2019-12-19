@@ -37,11 +37,11 @@ main() {
   Expect.throws(() {a.a1 = "Lily was here";});
   Expect.throws(() {a.a2 = "Lily was here";});
   Expect.equals("No woman", a.a1);
-  Expect.equals("No cry", a.a2);
+  Expect.equals("no cry", a.a2);
 
   C c = new C("No woman", "no cry");
   Expect.throws(() {c.c1 = "Lily was here";});
   Expect.throws(() {c.c2 = "Lily was here";});
   Expect.equals("No woman", c.c1);
-  Expect.equals("No cry", c.c2);
+  Expect.equals("no cry", c.c2);
 }

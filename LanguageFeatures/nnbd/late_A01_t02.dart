@@ -44,6 +44,9 @@ main() {
   late final String? l1 = init("Speaking words of wisdom");
   late String? l2 = init("let it be");
 
+  Expect.equals("init('Speaking words of wisdom')init('let it be')", _log);
+  clearLog();
+
   Expect.equals("", _log);
   Expect.equals("When", C.s1);
   Expect.equals("init('When')", _log);
@@ -76,10 +79,9 @@ main() {
   clearLog();
 
   Expect.equals("Speaking words of wisdom", l1);
-  Expect.equals("init('Speaking words of wisdom')", _log);
+  Expect.equals("", _log);
   clearLog();
 
   Expect.equals("let it be", l2);
-  Expect.equals("init('let it be')", _log);
-  clearLog();
+  Expect.equals("", _log);
 }

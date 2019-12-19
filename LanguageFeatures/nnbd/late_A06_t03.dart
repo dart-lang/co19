@@ -34,9 +34,9 @@ class C {
 main() {
   A a = new A("No woman", "no cry");
   Expect.equals("No woman", a.a1);
-  Expect.equals("No cry", a.a2);
+  Expect.equals("no cry", a.a2);
 
   C c = new C("No woman", "no cry");
   Expect.equals("No woman", c.c1);
-  Expect.equals("No cry", c.c2);
+  Expect.equals("no cry", c.c2);
 }

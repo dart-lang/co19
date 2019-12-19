@@ -36,6 +36,7 @@ String init(String val, void readme()) {
 }
 
 void clear() {
+  _log = "";
   _counter = 0;
 }
 
@@ -51,9 +52,6 @@ late final String? g1 = init("Mother Mary", (){g1;});
 late String? g2 = init("comes to me", (){g2;});
 
 main() {
-  late final String? l1 = init("Speaking words of wisdom", (){l1;);
-  late String? l2 = init("let it be", (){l2;});
-
   Expect.equals("", _log);
   Expect.throws(() {C.s1;});
   Expect.equals("When", C.s1);
@@ -91,14 +89,4 @@ main() {
   Expect.throws(() {g2;});
   Expect.equals("comes to me", g2);
   Expect.equals("init('comes to me'), counter: 2", _log);
-  clear();
-
-  Expect.throws(() {l1;});
-  Expect.equals("Speaking words of wisdom", l1);
-  Expect.equals("init('Speaking words of wisdom'), counter: 2", _log);
-  clear();
-
-  Expect.throws(() {l2;});
-  Expect.equals("let it be", l2);
-  Expect.equals("init('let it be'), counter: 2", _log);
 }

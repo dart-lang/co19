@@ -53,15 +53,8 @@ initG(String val1, String val2) {
 }
 
 main() {
-  late String l = initL("No woman", "no cry");
-
-  initL(String val1, String val2) {
-    l = val1;
-    return val2;
-  }
   Expect.equals("no cry", C.s);
   Expect.equals("no cry", g);
-  Expect.equals("no cry", l);
   C c = new C();
   Expect.equals("no cry", c.v1);
   Expect.equals("no cry", c.v2);

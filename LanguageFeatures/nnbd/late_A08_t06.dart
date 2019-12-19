@@ -23,8 +23,8 @@ const MAX = 10;
 int counter = 0;
 
 class C {
-  static String s = initS();
-  static String initS() {
+  static String? s = initS();
+  static String? initS() {
     if (++counter > MAX) {
       return "result $counter";
     }
@@ -32,8 +32,8 @@ class C {
   }
 }
 
-String g = initG();
-String initG() {
+String? g = initG();
+String? initG() {
   if (++counter > MAX) {
     return "result $counter";
   }

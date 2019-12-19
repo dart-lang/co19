@@ -35,68 +35,24 @@ String init(String val1, String val2, void writeAndReadme()) {
 }
 
 void clear() {
+  _log = "";
   _counter = 0;
 }
 
 class C {
-  static late final String? s1 =
-      init("No woman", "no cry", (){C.s1 = "Lily was here"; C.s1;});
-  static late String? s2 =
-      init("No woman", "no cry", (){C.s2 = "Lily was here"; C.s2;});
-  covariant late String? v1 =
-      init("No woman", "no cry", (){this.v1 = "Lily was here"; this.v1;});
-  late final String? v2 =
-      init("No woman", "no cry", (){this.v2 = "Lily was here"; this.v2;});
-  late String? v3 =
-      init("No woman", "no cry", (){this.v3 = "Lily was here"; this.v3;});
+  static late String? s =
+  init("No woman", "no cry", (){C.s = "Lily was here"; C.s;});
 }
 
-late final String? g1 =
-      init("No woman", "no cry", (){g1 = "Lily was here"; g1;});
-late String? g2 =
-      init("No woman", "no cry", (){g2 = "Lily was here"; g2;});
+late String? g =
+  init("No woman", "no cry", (){g = "Lily was here"; g;});
 
 main() {
-  late final String? l1 =
-      init("No woman", "no cry", (){l1 = "Lily was here"; l1;);
-  late String? l2 = init("No woman", "no cry", (){l2 = "Lily was here"; l2;});
-
   Expect.equals("", _log);
-  Expect.equals("no cry", C.s1);
+  Expect.equals("no cry", C.s);
   Expect.equals("counter: 1", _log);
   clear();
 
-  Expect.equals("no cry", C.s2);
-  Expect.equals("counter: 1", _log);
-  clear();
-
-  C c = new C();
-  Expect.equals("", _log);
-
-  Expect.equals("no cry", c.v1);
-  Expect.equals("counter: 1", _log);
-  clear();
-
-  Expect.equals("no cry", c.v2);
-  Expect.equals("counter: 1", _log);
-  clear();
-
-  Expect.equals("no cry", c.v3);
-  Expect.equals("counter: 1", _log);
-  clear();
-
-  Expect.equals("no cry", g1);
-  Expect.equals("counter: 1", _log);
-  clear();
-
-  Expect.equals("no cry", g2);
-  Expect.equals("counter: 1", _log);
-  clear();
-
-  Expect.equals("no cry", l1);
-  Expect.equals("counter: 1", _log);
-  clear();
-
-  Expect.equals("no cry", l2);
+  Expect.equals("no cry", g);
   Expect.equals("counter: 1", _log);
 }

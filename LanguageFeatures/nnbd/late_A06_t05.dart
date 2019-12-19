@@ -14,6 +14,7 @@
  * write attempt to this field or variable is not an error, but the second
  * attempt of write to it is a runtime error
  * @author sgrekhov@unipro.ru
+ * @issue 39802
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
