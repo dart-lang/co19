@@ -11,6 +11,7 @@
  * a non-nullable expression. Test if (t != null) {…}
  * @author sgrekhov@unipro.ru
  * @issue 39598
+ * @issue 39867
  */
 // SharedOptions=--enable-experiment=non-nullable
 

@@ -11,7 +11,6 @@
  * type E with an argument greater than the current length of the list is not a
  * runtime error if E is subtype of Null
  * @author sgrekhov@unipro.ru
- * @issue 39777
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "legacy_lib.dart";
@@ -28,7 +27,7 @@ test<T>(T t1, T t2) {
 
 main() {
   test<A?>(A(), A());
-  test<LegacyFoo?>(fLegacy1, fLegacy2);
+  test<LegacyFoo?>(fLegacy2, fLegacy2);
   test<FutureOr<A?>>(A(), A());
   test<FutureOr<LegacyFoo?>>(fLegacy2, fLegacy2);
   test<FutureOr<FutureOr<A?>>>(A(), A());

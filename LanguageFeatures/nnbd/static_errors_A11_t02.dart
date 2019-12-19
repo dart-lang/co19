@@ -22,11 +22,5 @@
 main() {
   Null a = null;
   a?.toString();
-//   ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   a ?.. toString();
-//      ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

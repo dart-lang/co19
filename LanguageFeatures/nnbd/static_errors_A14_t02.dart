@@ -10,6 +10,7 @@
  * @description Check that it is an error to apply an expression of type Never
  * in the function position of a function call. Test type aliases
  * @author sgrekhov@unipro.ru
+ * @issue 39866
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
@@ -18,17 +19,8 @@ typedef Neverland = Never;
 void test(var x) {
   if (x is Neverland) {
     x();
-//  ^
-// [analyzer] unspecified
-// [cfe] unspecified
     x(1);
-//  ^
-// [analyzer] unspecified
-// [cfe] unspecified
     x("1");
-//  ^
-// [analyzer] unspecified
-// [cfe] unspecified
   }
 }
 

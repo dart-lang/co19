@@ -11,6 +11,7 @@
  * ??=, or ...?) on a non-nullable receiver. Test if (t != null) {…}
  * @author sgrekhov@unipro.ru
  * @issue 39598
+ * @issue 39714
  */
 // SharedOptions=--enable-experiment=non-nullable
 class A {

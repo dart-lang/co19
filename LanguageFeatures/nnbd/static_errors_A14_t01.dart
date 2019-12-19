@@ -4,12 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error to apply an expression of type Never in the
- * function position of a function call.
+ * @assertion It is not an error to apply an expression of type Never in the
+ * function position of a function call
  *
- * @description Check that it is an error to apply an expression of type Never
- * in the function position of a function call.
+ * @description Check that it isnot  an error to apply an expression of type
+ * Never in the function position of a function call.
  * @author sgrekhov@unipro.ru
+ * @issue 39866
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
@@ -17,17 +18,8 @@
 void test(var x) {
   if (x is Never) {
     x();
-//  ^
-// [analyzer] unspecified
-// [cfe] unspecified
     x(1);
-//  ^
-// [analyzer] unspecified
-// [cfe] unspecified
     x("1");
-//  ^
-// [analyzer] unspecified
-// [cfe] unspecified
   }
 }
 

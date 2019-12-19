@@ -14,6 +14,7 @@
  * is T, then the operator is checked as if the receiver had type NonNull(T).
  * Test some type A*, where A is nullable
  * @issue 38715
+ * "шыыгу 39865
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

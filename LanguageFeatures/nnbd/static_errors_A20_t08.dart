@@ -11,6 +11,7 @@
  * ??=, or ...?) on a non-nullable receiver. Test FutureOr<Never>
  * @author sgrekhov@unipro.ru
  * @issue 39598
+ * @issue 39714
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "dart:async";

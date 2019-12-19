@@ -11,7 +11,6 @@
  * type E with an argument greater than the current length of the list is not a
  * runtime error if E is subtype of Null
  * @author sgrekhov@unipro.ru
- * @issue 39777
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "dart:async";

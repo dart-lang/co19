@@ -13,6 +13,7 @@
  *  PASSTHRU[F, fn[x] => x.f ??= EXP(e2)]
  * @static-warning
  * @author sgrekhov@unipro.ru
+ * @issue 39714
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";

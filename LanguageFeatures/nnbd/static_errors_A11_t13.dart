@@ -22,13 +22,10 @@
 import "dart:async";
 
 class A {
-  void test() {}
-  int operator[](int index) => 0;
 }
 
 main() {
   FutureOr<A> a = new A();
   a?.toString();      /// static type warning
   a ?.. toString();   /// static type warning
-  a?.[0];             /// static type warning
 }

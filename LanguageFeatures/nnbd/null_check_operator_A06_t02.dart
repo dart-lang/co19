@@ -13,6 +13,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 39723
  * @issue 39724
+ * @issue 39758
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";

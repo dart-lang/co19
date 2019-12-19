@@ -11,6 +11,7 @@
  * a receiver of static type Never (including via a null aware operator). Test
  * type aliases
  * @author sgrekhov@unipro.ru
+ * @issue 39866
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
@@ -19,41 +20,14 @@ typedef Neverland = Never;
 void test(var x) {
   if (x is Neverland) {
     x.toString();
-//    ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
     x.runtimeType;
-//    ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
     x.s = 1;
-//   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
     x?.toString();
-//     ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
     x?.runtimeType;
-//     ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
     x?.s = 1;
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
     x?..toString();
-//      ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
     x?..runtimeType;
-//      ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
     x?..s = 1;
-//    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   }
 }
 
