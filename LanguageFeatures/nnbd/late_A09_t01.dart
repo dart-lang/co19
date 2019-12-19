@@ -10,7 +10,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-import "../../Utils/expect.dart";
+// Requirements=nnbd-strong
 import "legacy_lib.dart";
 
 class X {
