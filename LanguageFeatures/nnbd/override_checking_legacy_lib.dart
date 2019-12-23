@@ -41,45 +41,14 @@ class LEGACY_FIELD {
 }
 
 class LEGACY_GETTER {
-  int get getInt {
-    Expect.fail("This method should be overriden");
-    return -1;
-  }
-
-  Object get getObject {
-    Expect.fail("This method should be overriden");
-    return -1;
-  }
-
-  dynamic get getDynamic {
-    Expect.fail("This method should be overriden");
-    return -1;
-  }
-
-  Function get getFunction {
-    Expect.fail("This method should be overriden");
-    return null;
-  }
-
-  Null get getNull {
-    Expect.fail("This method should be overriden");
-    return null;
-  }
-
-  FutureOr get getFutureOr {
-    Expect.fail("This method should be overriden");
-    return -1;
-  }
-
-  FutureOr<int> get getFutureOrInt {
-    Expect.fail("This method should be overriden");
-    return -1;
-  }
-
-  FutureOr<Function> get getFutureOrFunction {
-    Expect.fail("This method should be overriden");
-    return null;
-  }
+  int get getInt                             => throw("This method should be overriden");
+  Object get getObject                       => throw("This method should be overriden");
+  dynamic get getDynamic                     => throw("This method should be overriden");
+  Function get getFunction                   => throw("This method should be overriden");
+  Null get getNull                           => throw("This method should be overriden");
+  FutureOr get getFutureOr                   => throw("This method should be overriden");
+  FutureOr<int> get getFutureOrInt           => throw("This method should be overriden");
+  FutureOr<Function> get getFutureOrFunction => throw("This method should be overriden");
 }
 
 class LEGACY_SETTER {
@@ -94,46 +63,18 @@ class LEGACY_SETTER {
 }
 
 class LEGACY_RETURN {
-  int getInt() {
-    Expect.fail("This method should be overriden");
-    return -1;
-  }
-
-  Object getObject() {
-    Expect.fail("This method should be overriden");
-    return -1;
-  }
-
-  dynamic getDynamic() {
-    Expect.fail("This method should be overriden");
-    return -1;
-  }
-
-  Function getFunction() {
-    Expect.fail("This method should be overriden");
-    return null;
-  }
-
-  Null getNull() {
-    Expect.fail("This method should be overriden");
-    return null;
-  }
-
-  FutureOr getFutureOr() {
-    Expect.fail("This method should be overriden");
-    return -1;
-  }
-
-  FutureOr<int> getFutureOrInt() {
-    Expect.fail("This method should be overriden");
-    return -1;
-  }
-
-  FutureOr<Function> getFutureOrFunction() {
-    Expect.fail("This method should be overriden");
-    return null;
-  }
+  int getInt()                             => throw("This method should be overriden");
+  Object getObject()                       => throw("This method should be overriden");
+  dynamic getDynamic()                     => throw("This method should be overriden");
+  Function getFunction()                   => throw("This method should be overriden");
+  Null getNull()                           => throw("This method should be overriden");
+  FutureOr getFutureOr()                   => throw("This method should be overriden");
+  FutureOr<int> getFutureOrInt()           => throw("This method should be overriden");
+  FutureOr<Function> getFutureOrFunction() => throw("This method should be overriden");
 }
 
-class A {}
-class D<X extends A> {}
+class LEGACY_CLASS<T>                                             {}
+class LEGACY_CLASS_INT<T extends int>                             {}
+class LEGACY_CLASS_OBJECT<T extends Object>                       {}
+class LEGACY_CLASS_FUNCTION<T extends Function>                   {}
+class LEGACY_CLASS_NULL<T extends Null>                           {}
