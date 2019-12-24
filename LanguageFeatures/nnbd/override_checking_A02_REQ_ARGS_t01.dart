@@ -21,13 +21,8 @@ import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
 class A extends LEGACY_REQUIRED_ARGS {
-  void test_default({required int? i}) {
-    Expect.equals(1, i);
-  }
-
-  void test_nondefault({required int? i}) {
-    Expect.equals(1, i);
-  }
+  void test_default({required int? i}) { Expect.equals(1, i); }
+  void test_nondefault({required int? i}) { Expect.equals(1, i); }
 }
 
 main() {

@@ -19,6 +19,9 @@
 
 import "dart:async";
 import "override_checking_legacy_lib.dart";
+import "../../Utils/expect.dart";
+
+void testme() {}
 
 abstract class AA {
   void set setInt(int? i);
@@ -32,37 +35,23 @@ abstract class AA {
 }
 
 class A implements AA, LEGACY_SETTER {
-  void set setInt(int i) {}
-//         ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  void set setInt(int? i)                             { Expect.equals(1, i);      }
+  void set setObject(Object? o)                       { Expect.equals(1, o);      }
+  void set setFunction(Function? f)                   { Expect.equals(testme, f); }
+  void set setFutureOrInt(FutureOr<int>? f)           { Expect.equals(1, f);      }
+  void set setFutureOrFunction(FutureOr<Function>? f) { Expect.equals(testme, f); }
 
-
-  void set setObject(Object o) {}
-//         ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void set setFunction(Function f) {}
-//         ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void set setFutureOrInt(FutureOr<int> f) {}
-//         ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void set setFutureOrFunction(FutureOr<Function> f) {}
-//         ^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void set setDynamic(dynamic d) {}
-  void set setNull(Null n) {}
+  void set setDynamic(dynamic d)   {}
+  void set setNull(Null n)         {}
   void set setFutureOr(FutureOr f) {}
 }
 
 main() {
-  A();
+  A a = A();
+
+  a.setInt = 1;
+  a.setObject = 1;
+  a.setFunction = testme;
+  a.setFutureOrInt = 1;
+  a.setFutureOrFunction = testme;
 }

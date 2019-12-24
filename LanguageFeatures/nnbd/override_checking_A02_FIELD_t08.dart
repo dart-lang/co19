@@ -10,8 +10,8 @@
  * to override otherwise incompatible signatures for a method.
  *
  * @description Check that if opted-in class implements two classes (one is
- * legacy) with some field, opted-in field of non-nullable type cannot override
- * legacy field, compile time error is thrown in this case.
+ * legacy) with some field, opted-in field of non-nullable type can override
+ * legacy field.
  *
  * @author iarkh@unipro.ru
 */
@@ -19,110 +19,25 @@
 
 import "dart:async";
 import "override_checking_legacy_lib.dart";
-
-abstract class AA {
-  int? i;
-  Object? o;
-  dynamic d;
-  Function? func;
-  Null n;
-  FutureOr? f;
-  FutureOr<int>? fi;
-  FutureOr<Function>? ff;
-  void v;
-}
-
-class A1 implements LEGACY_FIELD, AA {
-  int i;
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  Object o;
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  Function func;
-//         ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  FutureOr<int> fi;
-//              ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  FutureOr<Function> ff;
-//                   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  dynamic d;
-  Null n;
-  FutureOr f;
-  void v;
-}
-
-class A2 implements LEGACY_FIELD, AA {
-  int i = null;
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  Object o = null;
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  Function func = null;
-//         ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  FutureOr<int> fi = null;
-//              ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  FutureOr<Function> ff = null;
-//                   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  dynamic d = null;
-  Null n = null;
-  FutureOr f = null;
-  void v = null;
-}
+import "../../Utils/expect.dart";
 
 void testme() {}
+void testme1() {}
 
-class A3 implements LEGACY_FIELD, AA {
+abstract class AA {
+  int i = -1;
+  Object o = 5;
+  Function func = testme1;
+  FutureOr<int> fi = 2;
+  FutureOr<Function> ff = testme1;
+}
+
+class A implements LEGACY_FIELD, AA {
   int i = 1;
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   Object o = "";
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   Function func = testme;
-//         ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   FutureOr<int> fi = 12345;
-//              ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   FutureOr<Function> ff = testme;
-//                   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
   dynamic d = 1;
   Null n = null;
@@ -131,7 +46,10 @@ class A3 implements LEGACY_FIELD, AA {
 }
 
 main() {
-  A1();
-  A2();
-  A3();
+  A a = A();
+  Expect.equals(1, a.i);
+  Expect.equals("", a.o);
+  Expect.equals(testme, a.func);
+  Expect.equals(12345, a.fi);
+  Expect.equals(testme, a.ff);
 }

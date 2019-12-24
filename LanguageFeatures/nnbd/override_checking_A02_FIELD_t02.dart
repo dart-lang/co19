@@ -10,8 +10,7 @@
  * to override otherwise incompatible signatures for a method.
  *
  * @description Check that if opted-in class extends legacy class, opted-in
- * field of non-nullable type cannot override legacy field, compile time error
- * is thrown in this case.
+ * field of non-nullable type can override legacy field.
  *
  * @author iarkh@unipro.ru
 */
@@ -19,92 +18,23 @@
 
 import "dart:async";
 import "override_checking_legacy_lib.dart";
-
-class A1 extends LEGACY_FIELD {
-  int i;
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  Object o;
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  Function func;
-//         ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  FutureOr<int> fi;
-//              ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  FutureOr<Function> ff;
-//                   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-class A2 extends LEGACY_FIELD {
-  int i = null;
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  Object o = null;
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  Function func = null;
-//         ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  FutureOr<int> fi = null;
-//              ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  FutureOr<Function> ff = null;
-//                   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
+import "../../Utils/expect.dart";
 
 void testme() {}
 
-class A3 extends LEGACY_FIELD {
+class A extends LEGACY_FIELD {
   int i = 1;
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   Object o = "";
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   Function func = testme;
-//         ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   FutureOr<int> fi = 12345;
-//              ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   FutureOr<Function> ff = testme;
-//                   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
-  A1();
-  A2();
-  A3();
+  A a = A();
+  Expect.equals(1, a.i);
+  Expect.equals("", a.o);
+  Expect.equals(testme, a.func);
+  Expect.equals(12345, a.fi);
+  Expect.equals(testme, a.ff);
 }

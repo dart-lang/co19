@@ -33,26 +33,11 @@ abstract class B {
 }
 
 class A implements B, LEGACY_ARGS {
-  void test_int(int? i) {
-    Expect.equals(1, i);
-  }
-
-  void test_object(Object? i) {
-    Expect.equals(1, i);
-  }
-
-  void test_dynamic(dynamic i) {
-    Expect.equals(1, i);
-  }
-
-  void test_function(Function? i) {
-    Expect.equals(test, i);
-  }
-
-  void test_futureOr(FutureOr? i) {
-    Expect.equals(1, i);
-  }
-
+  void test_int(int? i)           { Expect.equals(1, i); }
+  void test_object(Object? i)     { Expect.equals(1, i); }
+  void test_dynamic(dynamic i)    { Expect.equals(1, i); }
+  void test_function(Function? i) { Expect.equals(test, i); }
+  void test_futureOr(FutureOr? i) { Expect.equals(1, i); }
   void test_null(Null i) {}
 }
 

@@ -9,14 +9,15 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that if opted-in class extends legacy class, migrated
- * method with [Never] return value can override legacy method.
+ * @description Check that if opted-in class extends legacy class, child
+ * migrated method can have [Never] return value.
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
 import "override_checking_legacy_lib.dart";
+import "../../Utils/expect.dart";
 
 class A extends LEGACY_RETURN {
   Never getInt()              => throw "It's impossible!";
@@ -30,5 +31,14 @@ class A extends LEGACY_RETURN {
 }
 
 main() {
-  A();
+  A a = A();
+
+  Expect.throws(() { a.getInt(); });
+  Expect.throws(() { a.getObject(); });
+  Expect.throws(() { a.getDynamic(); });
+  Expect.throws(() { a.getFunction(); });
+  Expect.throws(() { a.getNull(); });
+  Expect.throws(() { a.getFutureOr(); });
+  Expect.throws(() { a.getFutureOrInt(); });
+  Expect.throws(() { a.getFutureOrFunction(); });
 }

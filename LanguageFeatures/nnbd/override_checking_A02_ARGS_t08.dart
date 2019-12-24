@@ -19,26 +19,24 @@
 
 import "dart:async";
 import "override_checking_legacy_lib.dart";
+import "../../Utils/expect.dart";
 
 class A implements LEGACY_ARGS {
-  void test_int(int i) {}
-//     ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  void test_int(int i)           { Expect.equals(1, i); }
+  void test_object(Object i)     { Expect.equals(1, i); }
+  void test_function(Function i) { Expect.equals(testme, i); }
 
-  void test_object(Object i) {}
-//     ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void test_function(Function i) {}
-//     ^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void test_dynamic(dynamic i) {}
+  void test_dynamic(dynamic i)   {}
   void test_futureOr(FutureOr i) {}
-  void test_null(Null i) {}
+  void test_null(Null i)         {}
 }
 
-main() {}
+void testme() {}
+
+main() {
+  A a = A();
+
+  a.test_int(1);
+  a.test_object(1);
+  a.test_function(testme);
+}

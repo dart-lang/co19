@@ -21,29 +21,12 @@ import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
 class A implements LEGACY_ARGS {
-  void test_int(int? i) {
-    Expect.isNull(i);
-  }
-
-  void test_object(Object? i) {
-    Expect.isNull(i);
-  }
-
-  void test_dynamic(dynamic i) {
-    Expect.isNull(i);
-  }
-
-  void test_function(Function? i) {
-    Expect.isNull(i);
-  }
-
-  void test_futureOr(FutureOr? i) {
-    Expect.isNull(i);
-  }
-
-  void test_null(Null i) {
-    Expect.isNull(i);
-  }
+  void test_int(int? i)           { Expect.isNull(i); }
+  void test_object(Object? i)     { Expect.isNull(i); }
+  void test_dynamic(dynamic i)    { Expect.isNull(i); }
+  void test_function(Function? i) { Expect.isNull(i); }
+  void test_futureOr(FutureOr? i) { Expect.isNull(i); }
+  void test_null(Null i)          { Expect.isNull(i); }
 }
 
 main() {

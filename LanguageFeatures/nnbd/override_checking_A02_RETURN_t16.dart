@@ -9,17 +9,29 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that if opted-in class implements legacy class, child
- * migrated method with [Never] return value cannot be called and compile error
- * is thrown in this case.
+ * @description Check that if opted-in class implements two classes (one is
+ * legacy), child migrated method can have [Never] return value.
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "dart:async";
 import "override_checking_legacy_lib.dart";
+import "../../Utils/expect.dart";
 
-class A implements LEGACY_RETURN {
+abstract class AA {
+  int? getInt();
+  Object? getObject();
+  dynamic getDynamic();
+  Function? getFunction();
+  Null getNull();
+  FutureOr getFutureOr();
+  FutureOr<int>? getFutureOrInt();
+  FutureOr<Function>? getFutureOrFunction();
+}
+
+class A implements AA, LEGACY_RETURN {
   Never getInt()              => throw "It's impossible!";
   Never getObject()           => throw "It's impossible!";
   Never getDynamic()          => throw "It's impossible!";
@@ -33,43 +45,12 @@ class A implements LEGACY_RETURN {
 main() {
   A a = A();
 
-  a.getInt();
-//  ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  a.getObject();
-//  ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  a.getDynamic();
-//  ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  a.getFunction();
-//  ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  a.getNull();
-//  ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  a.getFutureOr();
-//  ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  a.getFutureOrInt();
-//  ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  a.getFutureOrFunction();
-//  ^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.throws(() { a.getInt(); });
+  Expect.throws(() { a.getObject(); });
+  Expect.throws(() { a.getDynamic(); });
+  Expect.throws(() { a.getFunction(); });
+  Expect.throws(() { a.getNull(); });
+  Expect.throws(() { a.getFutureOr(); });
+  Expect.throws(() { a.getFutureOrInt(); });
+  Expect.throws(() { a.getFutureOrFunction(); });
 }

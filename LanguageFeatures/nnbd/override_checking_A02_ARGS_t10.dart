@@ -21,9 +21,7 @@ import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
 class A implements LEGACY_ARGS {
-  void test_futureOr(FutureOr i) {
-    Expect.isNull(i);
-  }
+  void test_futureOr(FutureOr i) { Expect.isNull(i); }
 
   void test_int(int? i) {}
   void test_object(Object? i) {}

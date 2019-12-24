@@ -21,37 +21,14 @@ import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
 class A with LEGACY_SETTER {
-  void set setInt(int? i) {
-    Expect.isNull(i);
-  }
-
-  void set setObject(Object? o) {
-    Expect.isNull(o);
-  }
-
-  void set setDynamic(dynamic d) {
-    Expect.isNull(d);
-  }
-
-  void set setNull(Null n) {
-    Expect.isNull(n);
-  }
-
-  void set setFunction(Function? f) {
-    Expect.isNull(f);
-  }
-
-  void set setFutureOr(FutureOr f) {
-    Expect.isNull(f);
-  }
-
-  void set setFutureOrInt(FutureOr<int>? f) {
-    Expect.isNull(f);
-  }
-
-  void set setFutureOrFunction(FutureOr<Function>? f) {
-    Expect.isNull(f);
-  }
+  void set setInt(int? i)                             { Expect.isNull(i); }
+  void set setObject(Object? o)                       { Expect.isNull(o); }
+  void set setDynamic(dynamic d)                      { Expect.isNull(d); }
+  void set setNull(Null n)                            { Expect.isNull(n); }
+  void set setFunction(Function? f)                   { Expect.isNull(f); }
+  void set setFutureOr(FutureOr f)                    { Expect.isNull(f); }
+  void set setFutureOrInt(FutureOr<int>? f)           { Expect.isNull(f); }
+  void set setFutureOrFunction(FutureOr<Function>? f) { Expect.isNull(f); }
 }
 
 main() {

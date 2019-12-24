@@ -9,15 +9,16 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that compiler error is thrown if opted-in class implements
- * two classes with some method, the first class is legacy and given method in
- * the second class  has argument of nullable type.
+ * @description Check that if opted-in class implements two classes with some
+ * method and the first class is legacy, child opted in method in the second
+ * class  can have argument of nullable type.
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
 import "dart:async";
+import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";
 
 abstract class B {
@@ -27,26 +28,21 @@ abstract class B {
 }
 
 class A implements B, LEGACY_ARGS {
-
-  void test_int(int i) {}
-//     ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-void test_object(Object i) {}
-//   ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void test_function(Function i) {}
-//     ^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
+  void test_int(int i)           { Expect.equals(1, i); }
+  void test_object(Object i)     { Expect.equals(1, i); }
+  void test_function(Function i) { Expect.equals(testme, i); }
 
   void test_futureOr(FutureOr i) {}
-  void test_dynamic(dynamic i) {}
-  void test_null(Null i) {}
+  void test_dynamic(dynamic i)   {}
+  void test_null(Null i)         {}
 }
 
-main() {}
+void testme() {}
+
+main() {
+  A a = A();
+
+  a.test_int(1);
+  a.test_object(1);
+  a.test_function(testme);
+}

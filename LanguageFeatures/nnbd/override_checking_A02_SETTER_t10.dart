@@ -35,37 +35,14 @@ abstract class AA {
 }
 
 class A implements AA, LEGACY_SETTER {
-  void set setInt(int? i) {
-    Expect.equals(1, i);
-  }
-
-  void set setObject(Object? o) {
-    Expect.equals(1, o);
-  }
-
-  void set setDynamic(dynamic? d) {
-  Expect.equals(1, d);
-  }
-
-  void set setNull(Null? n) {
-    Expect.isNull(n);
-  }
-
-  void set setFunction(Function? f) {
-    Expect.equals(testme, f);
-  }
-
-  void set setFutureOr(FutureOr? f) {
-    Expect.equals(1, f);
-  }
-
-  void set setFutureOrInt(FutureOr<int>? f) {
-    Expect.equals(1, f);
-  }
-
-  void set setFutureOrFunction(FutureOr<Function>? f) {
-    Expect.equals(testme, f);
-  }
+  void set setInt(int? i)                             { Expect.equals(1, i);      }
+  void set setObject(Object? o)                       { Expect.equals(1, o);      }
+  void set setDynamic(dynamic? d)                     { Expect.equals(1, d);      }
+  void set setNull(Null? n)                           { Expect.isNull(n);         }
+  void set setFunction(Function? f)                   { Expect.equals(testme, f); }
+  void set setFutureOr(FutureOr? f)                   { Expect.equals(1, f);      }
+  void set setFutureOrInt(FutureOr<int>? f)           { Expect.equals(1, f);      }
+  void set setFutureOrFunction(FutureOr<Function>? f) { Expect.equals(testme, f); }
 }
 
 main() {

@@ -9,67 +9,84 @@
  * libraries in the super-interface chain, since a legacy library is permitted
  * to override otherwise incompatible signatures for a method.
  *
- * @description Check that if opted-in class ia a mixin with legacy class, child
- * migrated method with [Never] return value cannot be called and compile error
+ * @description Check that if opted-in class implements legacy class, opted-in
+ * field of non-nullable type cannot be [Null] or unassigned, compile time error
  * is thrown in this case.
  *
+ * @Issue 39678
+ *
  * @author iarkh@unipro.ru
- */
+*/
 // SharedOptions=--enable-experiment=non-nullable
 
+import "dart:async";
 import "override_checking_legacy_lib.dart";
 
-class A with LEGACY_RETURN {
-  Never getInt()              => throw "It's impossible!";
-  Never getObject()           => throw "It's impossible!";
-  Never getDynamic()          => throw "It's impossible!";
-  Never getFunction()         => throw "It's impossible!";
-  Never getNull()             => throw "It's impossible!";
-  Never getFutureOr()         => throw "It's impossible!";
-  Never getFutureOrInt()      => throw "It's impossible!";
-  Never getFutureOrFunction() => throw "It's impossible!";
+class A1 implements LEGACY_FIELD {
+  int i;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Object o;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Function func;
+//         ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  FutureOr<int> fi;
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  FutureOr<Function> ff;
+//                   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  dynamic d;
+  Null n;
+  FutureOr f;
+  void v;
+}
+
+class A2 implements LEGACY_FIELD {
+  int i = null;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Object o = null;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Function func = null;
+//         ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  FutureOr<int> fi = null;
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  FutureOr<Function> ff = null;
+//                   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  dynamic d = null;
+  Null n = null;
+  FutureOr f = null;
+  void v = null;
 }
 
 main() {
-  A a = A();
-
-  a.getInt();
-//  ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  a.getObject();
-//  ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  a.getDynamic();
-//  ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  a.getFunction();
-//  ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  a.getNull();
-//  ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  a.getFutureOr();
-//  ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  a.getFutureOrInt();
-//  ^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  a.getFutureOrFunction();
-//  ^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  A1();
+  A2();
 }

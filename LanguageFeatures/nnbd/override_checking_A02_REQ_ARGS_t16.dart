@@ -21,7 +21,7 @@
 import "override_checking_legacy_lib.dart";
 
 abstract class B {
-  void test_default({required int i}) {}
+  void test_default({required int i})    {}
   void test_nondefault({required int i}) {}
 }
 
