@@ -13,6 +13,7 @@
  * e1 evaluates to null and otherwise evaluates as e1[e2]. Test legacy pre-NNBD
  * types
  * @author sgrekhov@unipro.ru
+ * @issue 39865
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
