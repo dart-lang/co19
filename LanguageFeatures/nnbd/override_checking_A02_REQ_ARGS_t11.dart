@@ -12,7 +12,6 @@
  * @description Check that if opted-in class implements legacy class, migrated
  * method with required non-nullable parameter can override legacy method with
  * named parameter (which is nullable) with and without default value.
- * @Issue 39678
  *
  * @author iarkh@unipro.ru
  */
