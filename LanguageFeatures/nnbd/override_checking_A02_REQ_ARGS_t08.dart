@@ -11,7 +11,7 @@
  *
  * @description Check that if opted-in class implements two classes with some
  * method (one is legacy), migrated method with non-required nullable parameter
- * cannot override legacy method with named parameter with default value.
+ * can override legacy method with named parameter with default value.
  *
  * @author iarkh@unipro.ru
  */
@@ -25,11 +25,7 @@ abstract class B {
 }
 
 class A implements B, LEGACY_REQUIRED_ARGS {
-  void test_default({int? i}) {}
-//     ^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
+  void test_default({int? i = 1}) {}
   void test_nondefault({int? i}) {}
 }
 
