@@ -10,9 +10,8 @@
  * to override otherwise incompatible signatures for a method.
  *
  * @description Check that if opted-in class implements two classes with some
- * method (one is legacy), migrated method with required non-nullable parameter
- * can override legacy method with named parameter (which is nullable) with
- * default value.
+ * method (one is legacy), migrated method with non-required nullable parameter
+ * cannot override legacy method with named parameter with default value.
  *
  * @author iarkh@unipro.ru
  */
@@ -22,16 +21,21 @@ import "override_checking_legacy_lib.dart";
 import "../../Utils/expect.dart";
 
 abstract class B {
-  void test_default({required int i})    {}
-  void test_nondefault({required int i}) {}
+  void test_default({required int? i})    {}
+  void test_nondefault({int? i}) {}
 }
 
-class A implements B, LEGACY_REQUIRED_ARGS {
-  void test_default({required int i})    { Expect.equals(1, i); }
-  void test_nondefault({required int i}) { Expect.equals(1, i); }
+class A1 implements B, LEGACY_REQUIRED_ARGS {
+  void test_default({required int? i}) {}
+  void test_nondefault({int? i}) { Expect.equals(1, i); }
+}
+
+class A2 implements B, LEGACY_REQUIRED_ARGS {
+  void test_default({required int? i}) {}
+  void test_nondefault({int? i}) { Expect.isNull(i);}
 }
 
 main() {
-  A().test_default(i: 1);
-  A().test_nondefault(i: 1);
+  A1().test_nondefault(i: 1);
+  A2().test_nondefault();
 }

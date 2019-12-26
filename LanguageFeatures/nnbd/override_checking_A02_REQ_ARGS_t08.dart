@@ -21,7 +21,7 @@ import "override_checking_legacy_lib.dart";
 
 abstract class B {
   void test_default({required int? i})    {}
-  void test_nondefault({required int? i}) {}
+  void test_nondefault({int? i}) {}
 }
 
 class A implements B, LEGACY_REQUIRED_ARGS {
@@ -31,12 +31,8 @@ class A implements B, LEGACY_REQUIRED_ARGS {
 // [cfe] unspecified
 
   void test_nondefault({int? i}) {}
-//     ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
   A().test_default(i: 1);
-  A().test_nondefault(i: 1);
 }

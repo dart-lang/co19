@@ -19,20 +19,12 @@
 
 import "override_checking_legacy_lib.dart";
 
-class A1 extends LEGACY_REQUIRED_ARGS {
+class A extends LEGACY_REQUIRED_ARGS {
   void test_default({int? i}) {}
 //     ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
-
-abstract class A2 extends LEGACY_REQUIRED_ARGS {
-  void test_default({int? i});
-//     ^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 main() {
-  A1().test_default(i: 1);
+  A().test_default(i: 1);
 }

@@ -35,9 +35,6 @@ abstract class A2 implements LEGACY_REQUIRED_ARGS {
 // [cfe] unspecified
 
   void test_nondefault({int? i}) {}
-//     ^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
