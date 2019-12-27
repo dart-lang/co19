@@ -7,8 +7,8 @@
  * @assertion It is an error to apply an expression of type Never in the
  * function position of a function call.
  *
- * @description Check that it is an error to apply an expression of type Never
- * in the function position of a function call. Test type aliases
+ * @description Check that it is not  an error to apply an expression of type
+ * Never in the function position of a function call. Test type aliases
  * @author sgrekhov@unipro.ru
  * @issue 39866
  */
