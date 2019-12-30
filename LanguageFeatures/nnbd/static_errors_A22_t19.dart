@@ -19,6 +19,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// Requirements=nnbd-strong
 import "legacy_library_aliases_lib.dart";
 
 class S extends AAlias {}

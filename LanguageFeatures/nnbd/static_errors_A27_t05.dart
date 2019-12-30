@@ -13,7 +13,7 @@
  * @issue 39598
  */
 // SharedOptions=--enable-experiment=non-nullable
-
+// Requirements=nnbd-strong
 test<T extends Object>(T t) {
   t!;     //# 01: static type warning
 }

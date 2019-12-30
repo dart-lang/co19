@@ -14,6 +14,7 @@
  * @issue 39723
  */
 // SharedOptions=--enable-experiment=non-nullable,extension-methods
+// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 extension on bool {

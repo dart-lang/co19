@@ -7,7 +7,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-// @dart=2.4
+// @dart=2.6
 
 library type_reification_legacy_lib;
 

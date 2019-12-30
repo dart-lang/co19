@@ -14,7 +14,7 @@
  * @issue 39867
  */
 // SharedOptions=--enable-experiment=non-nullable
-
+// Requirements=nnbd-strong
 class A {}
 
 main() {

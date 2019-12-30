@@ -14,7 +14,7 @@
  * @issue 39714
  */
 // SharedOptions=--enable-experiment=non-nullable
-
+// Requirements=nnbd-strong
 test<T extends Object>(T t) {
   t?.toString();                                  //# 01: static type warning
   t?..toString();                                 //# 02: static type warning

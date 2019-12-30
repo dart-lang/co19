@@ -12,6 +12,7 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 
 import "exports_legacy_A01_lib.dart";
 

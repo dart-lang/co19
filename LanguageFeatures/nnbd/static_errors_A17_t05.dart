@@ -14,7 +14,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-
+// Requirements=nnbd-strong
 main() {
   var list = [3, 1, 4, 1, 5];
   for (late int i in list) {

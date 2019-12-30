@@ -13,6 +13,7 @@
  * @issue 39723
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 
 main() {
   true!;                //# 01: static type warning

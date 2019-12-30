@@ -13,7 +13,7 @@
  * @issue 39598
  */
 // SharedOptions=--enable-experiment=non-nullable
-
+// Requirements=nnbd-strong
 void foo() {}
 typedef void Foo();
 

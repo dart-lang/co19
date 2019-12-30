@@ -13,6 +13,7 @@
  * @issue 39723
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 
 class A {
   String s = "Show must go on";

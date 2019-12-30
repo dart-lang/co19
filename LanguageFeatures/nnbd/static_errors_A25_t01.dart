@@ -13,7 +13,7 @@
  * @issue 39681
  */
 // SharedOptions=--enable-experiment=non-nullable
-
+// Requirements=nnbd-strong
 class C {
   static late final int s = 42;
 //       ^^^^

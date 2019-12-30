@@ -15,6 +15,7 @@
  * @issue 39865
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 class C {

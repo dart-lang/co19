@@ -19,7 +19,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
-
+// Requirements=nnbd-strong
 abstract class A {
   void foo(int i);
 }

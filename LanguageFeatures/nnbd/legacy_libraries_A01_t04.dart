@@ -15,7 +15,7 @@
  * treated as T
  * @author sgrekhov@unipro.ru
  */
-// @dart=2.4
+// @dart=2.6
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 import "../../Utils/expect.dart";
 import "opted_in_lib.dart";

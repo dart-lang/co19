@@ -17,6 +17,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 
 main() {
   dynamic d1 = null;

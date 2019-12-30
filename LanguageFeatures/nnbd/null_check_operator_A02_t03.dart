@@ -15,6 +15,7 @@
  * @issue 39758
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 
 Object? foo(int i) => "Lily was here";
 

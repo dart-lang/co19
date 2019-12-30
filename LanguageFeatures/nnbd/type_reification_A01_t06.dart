@@ -10,7 +10,7 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-
+// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 import "type_reification_legacy_lib.dart";
 

@@ -16,6 +16,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 import "legacy_lib.dart";
 
 class B extends A with Mx {

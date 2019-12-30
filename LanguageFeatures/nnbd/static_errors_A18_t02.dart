@@ -13,6 +13,7 @@
  * @issue 39684
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 
 late final g;

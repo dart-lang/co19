@@ -13,6 +13,8 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
+
 import "legacy_lib.dart";
 
 dynamic init(x) => x;

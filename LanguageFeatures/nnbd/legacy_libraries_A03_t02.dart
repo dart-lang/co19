@@ -14,7 +14,7 @@
  * @description Check that the type Never is treated as the type Null
  * @author sgrekhov@unipro.ru
  */
-// @dart=2.4
+// @dart=2.6
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 import "../../Utils/expect.dart";
 import "opted_in_aliases_lib.dart";

@@ -12,7 +12,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-
+// Requirements=nnbd-strong
 typedef void foo();
 
 foo? bar(foo? v) => v;

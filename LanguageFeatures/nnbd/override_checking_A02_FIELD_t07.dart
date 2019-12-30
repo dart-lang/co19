@@ -16,7 +16,7 @@
  * @author iarkh@unipro.ru
 */
 // SharedOptions=--enable-experiment=non-nullable
-
+// Requirements=nnbd-strong
 import "dart:async";
 import "../../Utils/expect.dart";
 import "override_checking_legacy_lib.dart";

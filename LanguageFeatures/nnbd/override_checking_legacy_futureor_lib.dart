@@ -10,7 +10,7 @@
  *
  * @author iarkh@unipro.ru
  */
-// @dart=2.4
+// @dart=2.6
 // SharedOptions=--enable-experiment=non-nullable
 
 library override_legacy_futureor_lib;

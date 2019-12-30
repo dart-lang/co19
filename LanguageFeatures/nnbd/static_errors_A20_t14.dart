@@ -14,6 +14,7 @@
  * @issue 39714
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 class A {
 }
 class C extends A {}

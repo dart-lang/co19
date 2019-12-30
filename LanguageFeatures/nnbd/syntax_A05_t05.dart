@@ -14,7 +14,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-
+// Requirements=nnbd-strong
 class A {}
 
 typedef String Foo1(required int x, {String z, required String y});

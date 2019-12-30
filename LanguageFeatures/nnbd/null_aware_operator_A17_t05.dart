@@ -18,7 +18,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
-import "../../Utils/expect.dart";
+// Requirements=nnbd-strong
 
 class C {
   String test1 = "Let it be";

@@ -12,7 +12,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-
+// Requirements=nnbd-strong
 dynamic? foo(dynamic? d) => d;
 
 void? bar(void? v) => v;

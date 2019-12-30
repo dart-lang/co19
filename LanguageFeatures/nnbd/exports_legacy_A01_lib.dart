@@ -7,7 +7,7 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-// @dart=2.4
+// @dart=2.6
 
 library export_opted_lib;
 export "opted_in_lib.dart";

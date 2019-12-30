@@ -14,6 +14,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 import "legacy_lib.dart";
 import "legacy_library_aliases_lib.dart" as aliases;
 

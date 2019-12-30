@@ -16,7 +16,7 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-
+// Requirements=nnbd-strong
 import "override_checking_legacy_lib.dart";
 
 class A1 implements LEGACY_REQUIRED_ARGS {
