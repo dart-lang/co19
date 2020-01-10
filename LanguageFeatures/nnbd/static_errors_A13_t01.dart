@@ -9,7 +9,7 @@
  * Implementations that provide feedback about dead or unreachable code are
  * encouraged to indicate that any arguments to the invocation are unreachable.
  *
- * @description Check that it is тще an error to call a method, setter, or
+ * @description Check that it is not an error to call a method, setter, or
  * getter on a receiver of static type Never (including via a null aware
  * operator).
  * @author sgrekhov@unipro.ru
