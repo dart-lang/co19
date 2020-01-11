@@ -6,7 +6,7 @@
 /**
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // @dart=2.6
 
 library type_reification_legacy_lib;
