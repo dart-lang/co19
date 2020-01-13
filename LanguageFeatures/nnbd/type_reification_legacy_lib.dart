@@ -28,6 +28,6 @@ void test3(A1) {}
 int test4<B1 extends B>(A1 a) { return 2; }
 int test5<T>(A a) { return 3; }
 dynamic test6<T>(a) { return ""; }
-int test7() {}
+int test7() { return 1; }
 
 
