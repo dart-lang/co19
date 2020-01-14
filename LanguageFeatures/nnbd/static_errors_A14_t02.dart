@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error to apply an expression of type Never in the
- * function position of a function call.
+ * @assertion It is not an error to apply an expression of type Never in the
+ * function position of a function call
  *
  * @description Check that it is not  an error to apply an expression of type
  * Never in the function position of a function call. Test type aliases

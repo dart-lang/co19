@@ -4,8 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error to call a method, setter, or getter on a receiver
- * of static type Never (including via a null aware operator).
+ * @assertion It is not an error to call or tear-off a method, setter, or
+ * getter, or to read or write a field, on a receiver of static type Never.
+ * Implementations that provide feedback about dead or unreachable code are
+ * encouraged to indicate that any arguments to the invocation are unreachable.
  *
  * @description Check that it is an error to call a method, setter, or getter on
  * a receiver of static type Never (including via a null aware operator). Test
