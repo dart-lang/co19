@@ -5,7 +5,8 @@
  */
 /**
  * @assertion It is an error for the initializer expression of a late local
- * variable to use a prefix await expression.
+ * variable to use a prefix await expression that is not nested inside of
+ * another function expression.
  *
  * @description Check that it is an error for the initializer expression of a
  * late local variable to use a prefix await expression.
