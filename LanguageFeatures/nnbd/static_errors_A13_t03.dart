@@ -9,20 +9,22 @@
  * Implementations that provide feedback about dead or unreachable code are
  * encouraged to indicate that any arguments to the invocation are unreachable.
  *
- * @description Check that it is an error to call a method, setter, or getter on
- * a receiver of static type Never. Test type aliases
+ * @description Check that it is a warning to call a method, setter, or
+ * getter on a receiver of static type Never via a null aware operator.
  * @author sgrekhov@unipro.ru
  * @issue 39866
+ * @static-warning
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-typedef Neverland = Never;
-
 void test(var x) {
-  if (x is Neverland) {
-    x.toString();
-    x.runtimeType;
-    x.s = 1;
+  if (x is Never) {
+    x?.toString();    /// static type warning
+    x?.runtimeType;   /// static type warning
+    x?.s = 1;         /// static type warning
+    x?..toString();   /// static type warning
+    x?..runtimeType;  /// static type warning
+    x?..s = 1;        /// static type warning
   }
 }
 

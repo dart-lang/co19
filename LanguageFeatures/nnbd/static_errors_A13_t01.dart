@@ -10,8 +10,7 @@
  * encouraged to indicate that any arguments to the invocation are unreachable.
  *
  * @description Check that it is not an error to call a method, setter, or
- * getter on a receiver of static type Never (including via a null aware
- * operator).
+ * getter on a receiver of static type Never.
  * @author sgrekhov@unipro.ru
  * @issue 39866
  */
@@ -22,12 +21,6 @@ void test(var x) {
     x.toString();
     x.runtimeType;
     x.s = 1;
-    x?.toString();
-    x?.runtimeType;
-    x?.s = 1;
-    x?..toString();
-    x?..runtimeType;
-    x?..s = 1;
   }
 }
 
