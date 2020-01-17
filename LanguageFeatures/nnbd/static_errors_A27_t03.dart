@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a warning to use the null check operator (!) on a
- * non-nullable expression.
+ * @assertion It is a warning to use the null check operator (!) on an
+ * expression of type T if T is strictly non-nullable
  *
- * @description Check that it is a warning to use the null check operator (!) on
- * a non-nullable expression. Test some class A
+ * @description It is a warning to use the null check operator (!) on an
+ * expression of type T if T is strictly non-nullable. Test some class A
  * @author sgrekhov@unipro.ru
  * @issue 39598
  */

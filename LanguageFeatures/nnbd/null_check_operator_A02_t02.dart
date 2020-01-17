@@ -26,7 +26,7 @@ main() {
       f1(42)!;
   }
 
-  Function f2 = bar;
+  Function? f2 = bar;
   f2!<int>(42);
   if (f2 != null) {
     f2<int>(42)!;
