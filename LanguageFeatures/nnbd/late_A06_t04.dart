@@ -28,8 +28,6 @@ class C {
 late final String g;
 
 main() {
-  late final String l;
-
   C.s = "No";
   Expect.equals("No", C.s);
   Expect.throws(() {C.s = "Lily was here";});
@@ -42,8 +40,4 @@ main() {
   g = "no";
   Expect.equals("no", g);
   Expect.throws(() {g = "Lily was here";});
-
-  l = "cry";
-  Expect.equals("cry", l);
-  Expect.throws(() {l = "Lily was here";});
 }

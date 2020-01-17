@@ -24,15 +24,11 @@ class C {
 }
 
 main() {
-  late final l;
-
   g = "Lily";
   C.s = "was";
   new C().v = "here";
-  l = "Run, Forrest, run";
 
   Expect.throws(() {g = "Lily";});
   Expect.throws(() {C.s = "was";});
   Expect.throws(() {new C().v = "here";});
-  Expect.throws(() {l = "Run, Forrest, run";});
 }
