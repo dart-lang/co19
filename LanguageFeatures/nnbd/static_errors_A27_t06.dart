@@ -17,9 +17,13 @@
 // Requirements=nnbd-strong
 class A {}
 
-main() {
-  A? a = new A();
+test(var a) {
   if (a is Object) {
     a!;     //# 01: static type warning
   }
+}
+
+main() {
+  A? a = new A();
+  test(a);
 }

@@ -19,7 +19,7 @@ class A {}
 
 main() {
   A? a = new A();
-  if (a is Object) {
+  if (a != null) {
     a!;     //# 01: static type warning
   }
 }

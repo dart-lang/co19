@@ -19,13 +19,17 @@ class A {
 }
 class C extends A {}
 
-main() {
-  A? a = A();
-  C c = C();
+test(var a, C c) {
   if (a is Object) {
     a?.toString();              //# 01: static type warning
     a?..toString();             //# 02: static type warning
     a ?? c;                     //# 03: static type warning
     a ??= c;                    //# 04: static type warning
   }
+}
+
+main() {
+  A? a = A();
+  C c = C();
+  test(a, c);
 }
