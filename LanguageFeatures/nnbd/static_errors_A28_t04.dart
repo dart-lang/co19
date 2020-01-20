@@ -22,9 +22,18 @@ main() {
 // ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  ++x;
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   x--;
 // ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  --x;
+//^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
