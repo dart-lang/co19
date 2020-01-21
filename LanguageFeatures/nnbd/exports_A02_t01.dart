@@ -13,10 +13,7 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
-export "legacy_lib.dart";
+export "exports_legacy_lib.dart";
 //      ^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-main() {
-}

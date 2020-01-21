@@ -22,12 +22,10 @@ typedef F2<X, Y, Z> = X Function<YY extends Y>(Z);
 typedef F3<T> = void Function(T);
 typedef F4<T> = T Function();
 
-int test1(A1) { return 0; }
-int test2(A) { return 1; }
+int test1(A1) => 0;
+int test2(A) => 1;
 void test3(A1) {}
-int test4<B1 extends B>(A1 a) { return 2; }
-int test5<T>(A a) { return 3; }
-dynamic test6<T>(a) { return ""; }
-int test7() { return 1; }
-
-
+int test4<B1 extends B>(A1 a) => 2;
+int test5<T>(A a) => 3;
+dynamic test6<T>(a) => "";
+int test7() => 1;

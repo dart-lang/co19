@@ -7,22 +7,23 @@
  * @assertion If an unmigrated library re-exports a migrated library, the
  * re-exported symbols retain their migrated status (that is, downstream
  * migrated libraries will see their migrated types).
- * @description Check that opted-in library exported to legacy and then back to
- * opted in is still opted-in library.
+ * @description Check that if nullable unassigned variable in opted-in library
+ * is exported to legacy library and then back to the opted in code, it retains
+ * its status, i.e. its value is [null].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
+import "../../Utils/expect.dart";
 import "exports_legacy_A01_lib.dart";
 
 main() {
-  A? a1 = new A();
-  A? a2 = null;
-
-  A a3 = new A();
-  A a4 = null;
-//       ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.isNull(nullable_i1);
+  Expect.isNull(nullable_o1);
+  Expect.isNull(d1);
+  Expect.isNull(f1);
+  Expect.isNull(n1);
+  Expect.isNull(fo1);
+  Expect.isNull(fofo1);
 }

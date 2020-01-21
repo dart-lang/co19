@@ -6,10 +6,8 @@
 /**
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // @dart=2.6
+// SharedOptions=--enable-experiment=non-nullable
+library legacy_library_lib;
 
-library export_opted_lib;
-export "exports_opted_in_lib.dart";
-
-
+class A {}
