@@ -12,6 +12,7 @@
 library override_opted_in_lib;
 
 import "dart:async";
+import "../../Utils/expect.dart";
 
 // Nullable variables:
 int?               nullable_i1;
@@ -97,21 +98,21 @@ typedef def_getNever = Never Function();
 
 void testme() {}
 
-void test_nullable_int_arg(int? i)       {}
-void test_nullable_Object_arg(int? i)    {}
-void test_dynamic_arg(dynamic i)         {}
-void test_nullable_function(Function? f) {}
-void test_null_arg(Null n)               {}
-void test_futureOr_arg(FutureOr i)       {}
+void test_nullable_int_arg(int? i)       { Expect.isNull(i); }
+void test_nullable_object_arg(Object? i) { Expect.isNull(i); }
+void test_dynamic_arg(dynamic i)         { Expect.isNull(i); }
+void test_nullable_function(Function? f) { Expect.isNull(f); }
+void test_null_arg(Null n)               { Expect.isNull(n); }
+void test_futureOr_arg(FutureOr i)       { Expect.isNull(i); }
 
-void test_int_arg(int i)                   {}
-void test_object_arg(Object o)             {}
-void test_function_arg(Function f)         {}
-void test_futureOrInt_arg(FutureOr<int> i) {}
+void test_int_arg(int i)                   { Expect.equals(1, i); }
+void test_object_arg(Object o)             { Expect.equals(1, o); }
+void test_function_arg(Function f)         { Expect.equals(testme, f); }
+void test_futureOrInt_arg(FutureOr<int> i) { Expect.equals(1, i); }
 
 void test_never_arg(Never n) {}
 
-void test_required_arg({required int i}) {}
+void test_required_arg({required int i}) { Expect.equals(1, i); }
 
 int? getNullableInt()           => null;
 Object? getNullableObject()     => null;
@@ -127,13 +128,15 @@ FutureOr<int> getFutureOrInt() => 1;
 
 Never getNever() => throw("Should not reach here");
 
-void testMeDynamic<T>()                            {}
-void testMeNullableInt<T extends int?>()           {}
-void testMeNullableFunction<T extends Function?>() {}
-void testMeNullableObject<T extends Object?>()     {}
-void testMeNull<T extends Null>()                  {}
-void testMeFutureOr<T extends FutureOr>()          {}
+void testGenericDynamic<T>()                            { Expect.equals(Null, T); }
+void testGenericNullableInt<T extends int?>()           { Expect.equals(Null, T); }
+void testGenericNullableFunction<T extends Function?>() { Expect.equals(Null, T); }
+void testGenericNullableObject<T extends Object?>()     { Expect.equals(Null, T); }
+void testGenericNull<T extends Null>()                  { Expect.equals(Null, T); }
+void testGenericFutureOr<T extends FutureOr>()          { Expect.equals(Null, T); }
 
-void testMeInt<T extends int>()           {}
-void testMeFunction<T extends Function>() {}
-void testMeObject<T extends Object>()     {}
+void testGenericInt<T extends int>()           {}
+void testGenericFunction<T extends Function>() {}
+void testGenericObject<T extends Object>()     {}
+
+void testGenericNever<T extends Never>() {}
