@@ -9,8 +9,8 @@
  * migrated libraries will see their migrated types).
  * @description Check that if function typedef which returns nullable value is
  * exported from opted-in library to legacy library and then back to the opted
- * in code, it retains its status. Typedef is in the form [typedef
- * <typeIdentifier> <typeParameters> = <functionType>].
+ * in code, it retains its status. Typedef is in the form [typedef <type>
+ * <identifier> <formalParameterPart>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -28,10 +28,10 @@ typedef exp_getNull             = Null Function();
 typedef exp_getFutureOr         = FutureOr Function();
 
 main() {
-  Expect.equals(exp_getNullableInt,      def_getNullableInt);
-  Expect.equals(exp_getNullableObject,   def_getNullableObject);
-  Expect.equals(exp_getDynamic,          def_getDynamic);
-  Expect.equals(exp_getNullableFunction, def_getNullableFunction);
-  Expect.equals(exp_getNull,             def_getNull);
-  Expect.equals(exp_getFutureOr,         def_getFutureOr);
+  Expect.equals(exp_getNullableInt,      def1_getNullableInt);
+  Expect.equals(exp_getNullableObject,   def1_getNullableObject);
+  Expect.equals(exp_getDynamic,          def1_getDynamic);
+  Expect.equals(exp_getNullableFunction, def1_getNullableFunction);
+  Expect.equals(exp_getNull,             def1_getNull);
+  Expect.equals(exp_getFutureOr,         def1_getFutureOr);
 }

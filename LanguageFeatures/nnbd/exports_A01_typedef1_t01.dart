@@ -9,8 +9,8 @@
  * migrated libraries will see their migrated types).
  * @description Check that typedef [void testme()] exported from opted-in
  * library to legacy library and then back to the opted in code, retains its
- * status. Typedef is in the form [typedef <typeIdentifier> <typeParameters> =
- * <functionType>].
+ * status. Typedef is in the form [typedef <type> <identifier>
+ * <formalParameterPart>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -22,5 +22,5 @@ import "exports_legacy_A01_lib.dart";
 typedef expected = void Function();
 
 main() {
-  Expect.equals(expected, def);
+  Expect.equals(expected, def1);
 }

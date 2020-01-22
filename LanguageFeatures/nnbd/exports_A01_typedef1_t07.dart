@@ -9,8 +9,8 @@
  * migrated libraries will see their migrated types).
  * @description Check that if function typedef which returns non-nullable value
  * is exported from opted-in library to legacy library and then back to the
- * opted in code, it retains its status. Typedef is in the form [typedef
- * <typeIdentifier> <typeParameters> = <functionType>].
+ * opted in code, it retains its status. Typedef is in the form [typedef <type>
+ * <identifier> <formalParameterPart>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -26,8 +26,8 @@ typedef exp_getFunction    = Function Function();
 typedef exp_getFutureOrInt = FutureOr<int> Function();
 
 main() {
-  Expect.equals(exp_getInt,         def_getInt);
-  Expect.equals(exp_getObject,      def_getObject);
-  Expect.equals(exp_getFunction,    def_getFunction);
-  Expect.equals(exp_getFutureOrInt, def_getFutureOrInt);
+  Expect.equals(exp_getInt,         def1_getInt);
+  Expect.equals(exp_getObject,      def1_getObject);
+  Expect.equals(exp_getFunction,    def1_getFunction);
+  Expect.equals(exp_getFutureOrInt, def1_getFutureOrInt);
 }

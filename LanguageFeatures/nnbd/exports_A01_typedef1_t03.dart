@@ -9,8 +9,8 @@
  * migrated libraries will see their migrated types).
  * @description Check that if function typedef with argument of non-nullable
  * type is exported from opted-in library to legacy library and then back to the
- * opted in code, it retains its status. Typedef is in the form [typedef
- * <typeIdentifier> <typeParameters> = <functionType>].
+ * opted in code, it retains its status. Typedef is in the form [typedef <type>
+ * <identifier> <formalParameterPart>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -26,8 +26,8 @@ typedef exp_function_arg    = void Function(Function f);
 typedef exp_futureOrInt_arg = void Function(FutureOr<int> i);
 
 main() {
-  Expect.equals(exp_int_arg,         def_int_arg);
-  Expect.equals(exp_object_arg,      def_object_arg);
-  Expect.equals(exp_function_arg,    def_function_arg);
-  Expect.equals(exp_futureOrInt_arg, def_futureOrInt_arg);
+  Expect.equals(exp_int_arg,         def1_int_arg);
+  Expect.equals(exp_object_arg,      def1_object_arg);
+  Expect.equals(exp_function_arg,    def1_function_arg);
+  Expect.equals(exp_futureOrInt_arg, def1_futureOrInt_arg);
 }

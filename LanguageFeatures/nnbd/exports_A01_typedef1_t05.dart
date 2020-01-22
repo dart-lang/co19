@@ -7,10 +7,10 @@
  * @assertion If an unmigrated library re-exports a migrated library, the
  * re-exported symbols retain their migrated status (that is, downstream
  * migrated libraries will see their migrated types).
- * @description Check that typedef [void testme()] exported from opted-in
- * library to legacy library and then back to the opted in code, retains its
- * status. Typedef is in the form [typedef <typeIdentifier> <typeParameters> =
- * <functionType>].
+ * @description Check that if function typedef with required argument is
+ * exported from opted-in library to legacy library and then back to the opted
+ * in code, it retains its status. Typedef is in the form [typedef <type>
+ * <identifier> <formalParameterPart>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -19,8 +19,8 @@
 import "../../Utils/expect.dart";
 import "exports_legacy_A01_lib.dart";
 
-typedef expected = void Function();
+typedef exp_required_arg = void Function({required int i});
 
 main() {
-  Expect.equals(expected, def);
+  Expect.equals(exp_required_arg, def1_required_arg);
 }

@@ -9,7 +9,8 @@
  * migrated libraries will see their migrated types).
  * @description Check that if function typedef with required argument is
  * exported from opted-in library to legacy library and then back to the opted
- * in code, it retains its status.
+ * in code, it retains its status. Typedef is in the form [typedef
+ * <typeIdentifier> <typeParameters> = <functionType>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

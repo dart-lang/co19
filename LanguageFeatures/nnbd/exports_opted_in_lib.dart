@@ -147,3 +147,37 @@ typedef def_getFunction    = Function Function();
 typedef def_getFutureOrInt = FutureOr<int> Function();
 
 typedef def_getNever = Never Function();
+
+// Function typedefs 1:
+
+typedef void def1();
+
+typedef void def1_nullable_int_arg     (int? i);
+typedef void def1_nullable_object_arg  (int? i);
+typedef void def1_dynamic_arg          (dynamic i);
+typedef void def1_nullable_function_arg(Function? f);
+typedef void def1_null_arg             (Null n);
+typedef void def1_futureOr_arg         (FutureOr i);
+
+typedef void def1_int_arg        (int i);
+typedef void def1_object_arg     (Object o);
+typedef void def1_function_arg   (Function f);
+typedef void def1_futureOrInt_arg(FutureOr<int> i);
+
+typedef void def1_never_arg(Never n);
+
+typedef void def1_required_arg({required int i});
+
+typedef int? def1_getNullableInt();
+typedef Object? def1_getNullableObject();
+typedef dynamic def1_getDynamic();
+typedef Function? def1_getNullableFunction();
+typedef Null def1_getNull();
+typedef FutureOr def1_getFutureOr();
+
+typedef int def1_getInt();
+typedef Object def1_getObject();
+typedef Function def1_getFunction();
+typedef FutureOr<int> def1_getFutureOrInt();
+
+typedef Never def1_getNever();
