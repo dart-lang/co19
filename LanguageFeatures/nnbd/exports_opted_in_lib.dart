@@ -15,6 +15,7 @@ import "dart:async";
 import "../../Utils/expect.dart";
 
 // Nullable variables:
+
 int?               nullable_i1;
 Object?            nullable_o1;
 dynamic            d1;
@@ -39,6 +40,7 @@ FutureOr           fo3         = 1;
 FutureOr<FutureOr> fofo3       = 1;
 
 // Non-nullable variables:
+
 int i            = 0;
 Object o         = 0;
 Function f       = testme;
@@ -46,53 +48,22 @@ FutureOr<int> fi = 0;
 
 Never aNever = throw "Should not reach here";
 
-// Generic classes:
-class GENERIC_NONNULLABLE_INT<T extends int>           {}
-class GENERIC_NONNULLABLE_OBJECT<T extends Object>     {}
-class GENERIC_NONNULLABLE_FUNCTION<T extends Function> {}
+// Generic classes with nullable type parameter:
 
-class GENERIC_NULLABLE<T>                            {}
-class GENERIC_DYNAMIC<T>                             {}
-class GENERIC_NULLABLE_INT<T extends int?>           {}
-class GENERIC_NULLABLE_OBJECT<T extends Object?>     {}
-class GENERIC_NULLABLE_FUNCTION<T extends Function?> {}
-class GENERIC_NULL<T extends Null>                   {}
+class GENERIC_NULLABLE<T>                            { dynamic getParamType() => T; }
+class GENERIC_NULLABLE_INT<T extends int?>           { dynamic getParamType() => T; }
+class GENERIC_NULLABLE_OBJECT<T extends Object?>     { dynamic getParamType() => T; }
+class GENERIC_NULLABLE_FUNCTION<T extends Function?> { dynamic getParamType() => T; }
+class GENERIC_NULL<T extends Null>                   { dynamic getParamType() => T; }
+class GENERIC_FUTUREOR<T extends FutureOr>           { dynamic getParamType() => T; }
 
-class GENERIC_NEVER<T extends Never> {}
+// Generic classes with non-nullable type parameter:
 
-// Function typedefs:
-typedef def = void Function();
+class GENERIC_NONNULLABLE_INT<T extends int>           { dynamic getParamType() => T; }
+class GENERIC_NONNULLABLE_OBJECT<T extends Object>     { dynamic getParamType() => T; }
+class GENERIC_NONNULLABLE_FUNCTION<T extends Function> { dynamic getParamType() => T; }
 
-typedef def_nullable_int_arg      = void Function(int? i);
-typedef def_nullable_object_arg   = void Function(int? i);
-typedef def_dynamic_arg           = void Function(dynamic i);
-typedef def_nullable_function_arg = void Function(Function? f);
-typedef def_null_arg              = void Function(Null n);
-typedef def_futureOr_arg          = void Function(FutureOr i);
-
-typedef def_int_arg         = void Function(int i);
-typedef def_object_arg      = void Function(Object o);
-typedef def_function_arg    = void Function(Function f);
-typedef def_futureOrInt_arg = void Function(FutureOr<int> i);
-
-typedef def_never_arg = void Function(Never n);
-
-typedef def_required_arg = void Function({required int i});
-
-typedef def_getNullableInt      = int? Function();
-typedef def_getNullableObject   = Object? Function();
-typedef def_getDynamic          = dynamic Function();
-typedef def_getNullableFunction = Function? Function();
-typedef def_getNull             = Null Function();
-typedef def_getFutureOr         = FutureOr Function();
-
-typedef def_getInt         = int Function();
-typedef def_getObject      = Object Function();
-typedef def_getFunction    = Function Function();
-typedef def_getFutureOrInt = FutureOr<int> Function();
-
-typedef def_getNever = Never Function();
-
+class GENERIC_NEVER<T extends Never> { dynamic getParamType() => T; }
 
 // Functions:
 
@@ -128,6 +99,8 @@ FutureOr<int> getFutureOrInt() => 1;
 
 Never getNever() => throw("Should not reach here");
 
+// Generic functions:
+
 void testGenericDynamic<T>()                            { Expect.equals(Null, T); }
 void testGenericNullableInt<T extends int?>()           { Expect.equals(Null, T); }
 void testGenericNullableFunction<T extends Function?>() { Expect.equals(Null, T); }
@@ -140,3 +113,37 @@ void testGenericFunction<T extends Function>() {}
 void testGenericObject<T extends Object>()     {}
 
 void testGenericNever<T extends Never>() {}
+
+// Function typedefs:
+
+typedef def = void Function();
+
+typedef def_nullable_int_arg      = void Function(int? i);
+typedef def_nullable_object_arg   = void Function(int? i);
+typedef def_dynamic_arg           = void Function(dynamic i);
+typedef def_nullable_function_arg = void Function(Function? f);
+typedef def_null_arg              = void Function(Null n);
+typedef def_futureOr_arg          = void Function(FutureOr i);
+
+typedef def_int_arg         = void Function(int i);
+typedef def_object_arg      = void Function(Object o);
+typedef def_function_arg    = void Function(Function f);
+typedef def_futureOrInt_arg = void Function(FutureOr<int> i);
+
+typedef def_never_arg = void Function(Never n);
+
+typedef def_required_arg = void Function({required int i});
+
+typedef def_getNullableInt      = int? Function();
+typedef def_getNullableObject   = Object? Function();
+typedef def_getDynamic          = dynamic Function();
+typedef def_getNullableFunction = Function? Function();
+typedef def_getNull             = Null Function();
+typedef def_getFutureOr         = FutureOr Function();
+
+typedef def_getInt         = int Function();
+typedef def_getObject      = Object Function();
+typedef def_getFunction    = Function Function();
+typedef def_getFutureOrInt = FutureOr<int> Function();
+
+typedef def_getNever = Never Function();
