@@ -7,10 +7,10 @@
  * @assertion If an unmigrated library re-exports a migrated library, the
  * re-exported symbols retain their migrated status (that is, downstream
  * migrated libraries will see their migrated types).
- * @description Check that if generic typedef with non-nullable unused type
+ * @description Check that if generic typedef with nullable unused type
  * parameter is exported from opted-in library to legacy library and then back
  * to the opted in code, it retains its status. Typedef is in the form [typedef
- * <typeIdentifier> <typeParameters> = <functionType>].
+ * <type> <identifier> <formalParameterPart>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -22,7 +22,10 @@ import "exports_legacy_A01_lib.dart";
 typedef expected = void Function();
 
 main() {
-  Expect.equals(expected, g_object_def  );
-  Expect.equals(expected, g_int_def     );
-  Expect.equals(expected, g_function_def);
+  Expect.equals(expected, g_def1                  );
+  Expect.equals(expected, g_nullable_object_def1  );
+  Expect.equals(expected, g_nullable_int_def1     );
+  Expect.equals(expected, g_nullable_function_def1);
+  Expect.equals(expected, g_null_def1             );
+  Expect.equals(expected, g_futureOr_def1         );
 }
