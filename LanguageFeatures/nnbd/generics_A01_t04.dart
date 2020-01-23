@@ -24,9 +24,9 @@ typedef BAlias<T1, T2, T3> = B<T1, T2, T3>;
 main() {
   AAlias? source;
   var fsource = toF(source);
-  F<AAlias<dynamic>> target = fsource;
+  F<AAlias<Object?>> target = fsource;
 
   BAlias? sourceB;
   var fsourceB = toF(sourceB);
-  F<BAlias<dynamic, dynamic, dynamic>> targetB = fsourceB;
+  F<BAlias<Object?, Object?, Object?>> targetB = fsourceB;
 }

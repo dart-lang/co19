@@ -22,28 +22,9 @@ typedef T1 Function4<T1, T2, T3>(T2, T3);
 typedef void Function5<T>();
 
 void main() {
-  Expect.equals(
-      typeOf<Function1<Object?>>(),
-      typeOf<Function1>()
-  );
-
-  Expect.equals(
-      typeOf<Function2<Object?>>(),
-      typeOf<Function2>()
-  );
-
-  Expect.equals(
-      typeOf<Function3<Object?>>(),
-      typeOf<Function3>()
-  );
-
-  Expect.equals(
-      typeOf<Function4<Object?, Object?, Object?>>(),
-      typeOf<Function4>()
-  );
-  Expect.equals(
-      typeOf<Function5<Object?>>(),
-      typeOf<Function5>()
-  );
-
+  Expect.equals(typeOf<Function1<Object?>>(), typeOf<Function1>());
+  Expect.equals(typeOf<Function2<Object?>>(), typeOf<Function2>());
+  Expect.equals(typeOf<Function3<Object?>>(), typeOf<Function3>());
+  Expect.equals(typeOf<Function4<Object?, Object?, Object?>>(), typeOf<Function4>());
+  Expect.equals(typeOf<Function5<Object?>>(), typeOf<Function5>());
 }

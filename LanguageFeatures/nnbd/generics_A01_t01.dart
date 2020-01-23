@@ -16,18 +16,9 @@
 import "../../Utils/expect.dart";
 
 class A<T> {}
-
 class B<T1, T2, T3> {}
 
 main() {
-  Expect.equals(
-      typeOf<A<Object?>>(),
-      typeOf<A>()
-  );
-
-  Expect.equals(
-    typeOf<B<Object?, Object?, Object?>>(),
-    typeOf<B>()
-  );
-
+  Expect.equals(typeOf<A<Object?>>(), typeOf<A>());
+  Expect.equals(typeOf<B<Object?, Object?, Object?>>(), typeOf<B>());
 }

@@ -127,7 +127,7 @@ class OPTED_NONNULLABLE_OBJECT<T extends Object>     {}
 class OPTED_NONNULLABLE_FUNCTION<T extends Function> {}
 
 class OPTED_NULLABLE<T>                            {}
-class OPTED_DYNAMIC<T>                             {}
+class OPTED_DYNAMIC<T extends dynamic>             {}
 class OPTED_NULLABLE_INT<T extends int?>           {}
 class OPTED_NULLABLE_OBJECT<T extends Object?>     {}
 class OPTED_NULLABLE_FUNCTION<T extends Function?> {}

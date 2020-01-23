@@ -22,13 +22,6 @@ class B<T1, T2, T3> {}
 typedef BAlias<T1, T2, T3> = B<T1, T2, T3>;
 
 main() {
-  Expect.equals(
-      typeOf<AAlias<Object?>>(),
-      typeOf<AAlias>()
-  );
-
-  Expect.equals(
-      typeOf<BAlias<Object?, Object?, Object?>>(),
-      typeOf<BAlias>()
-  );
+  Expect.equals(typeOf<AAlias<Object?>>(), typeOf<AAlias>());
+  Expect.equals(typeOf<BAlias<Object?, Object?, Object?>>(), typeOf<BAlias>());
 }

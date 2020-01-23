@@ -7,7 +7,8 @@
  * @assertion The default bound of generic type parameters is treated as
  * [Object?].
  * @description Check that default function typedef type parameter is treated as
- * [Object?] dynamically.
+ * [Object?] dynamically. Typedef is in the form [typedef <typeIdentifier>
+ * <typeParameters> = <functionType>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -28,32 +29,11 @@ typedef G3_expected = void Function<T>();
 typedef G5_expected = Object? Function<T>(Object?, Object?);
 
 main() {
-  Expect.equals(
-      typeOf<G1<Object?>>(),
-      typeOf<G1>()
-  );
-
-  Expect.equals(
-      typeOf<G2<Object?>>(),
-      typeOf<G2>()
-  );
-
+  Expect.equals(typeOf<G1<Object?>>(), typeOf<G1>());
+  Expect.equals(typeOf<G2<Object?>>(), typeOf<G2>());
   Expect.equals(G3_expected, G3);
-
-  Expect.equals(
-      typeOf<G4<Object?, Object?, Object?>>(),
-      typeOf<G4>()
-  );
-
+  Expect.equals(typeOf<G4<Object?, Object?, Object?>>(), typeOf<G4>());
   Expect.equals(G5_expected, G5);
-
-  Expect.equals(
-      typeOf<G6<Object?>>(),
-      typeOf<G6>()
-  );
-
-  Expect.equals(
-      typeOf<G7<Object?, Object?, Object?>>(),
-      typeOf<G7>()
-  );
+  Expect.equals(typeOf<G6<Object?>>(), typeOf<G6>());
+  Expect.equals(typeOf<G7<Object?, Object?, Object?>>(), typeOf<G7>());
 }

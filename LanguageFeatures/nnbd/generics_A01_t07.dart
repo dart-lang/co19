@@ -16,35 +16,34 @@
 import "../../Utils/expect.dart";
 
 void test1<T>() {
-  Expect.equals(Object?, T);
+  Expect.equals(typeOf<Object?>(), T);
 }
 
 T test2<T>() {
-  Expect.equals(Object?, T);
+  Expect.equals(typeOf<Object?>(), T);
   return null;
 }
 
-void test3<T>(expected, [T t]) {
-  Expect.equals(expected, T);
+void test3<T>(T t) {
+  Expect.equals(typeOf<Object?>(), T);
 }
 
-T test4<T>(expected, [T t]) {
-  Expect.equals(expected, T);
+T test4<T>([T t]) {
+  Expect.equals(typeOf<Object?>(), T);
   return null;
 }
 
 void test5<T1, T2, T3>() {
-  Expect.equals(dynamic, T1);
-  Expect.equals(dynamic, T2);
-  Expect.equals(dynamic, T3);
+  Expect.equals(typeOf<Object?>(), T1);
+  Expect.equals(typeOf<Object?>(), T2);
+  Expect.equals(typeOf<Object?>(), T3);
 }
 
 void main() {
   test1();
   test2();
-  test3(Object?);
-  test3(Null, null);
-  test4(Object?);
-  test4(int, 45);
+  test3(1);
+  test4();
+  test4(11);
   test5();
 }

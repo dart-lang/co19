@@ -22,9 +22,9 @@ class B<T1, T2, T3> {}
 main() {
   A? source;
   var fsource = toF(source);
-  F<A<dynamic>> target = fsource;
+  F<A<Object?>> target = fsource;
 
   B? sourceB;
   var fsourceB = toF(sourceB);
-  F<B<dynamic, dynamic, dynamic>> targetB = fsourceB;
+  F<B<Object?, Object?, Object?>> targetB = fsourceB;
 }

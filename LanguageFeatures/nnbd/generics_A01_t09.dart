@@ -7,7 +7,8 @@
  * @assertion The default bound of generic type parameters is treated as
  * [Object?].
  * @description Check that default function type alias parameter is treated as
- * [Object?] statically.
+ * [Object?] statically. Typedef is in the form [typedef <type> <identifier>
+ * <formalParameterPart>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
