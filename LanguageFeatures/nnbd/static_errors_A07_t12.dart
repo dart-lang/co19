@@ -5,7 +5,8 @@
  */
 /**
  * @assertion It is an error if an optional parameter (named or otherwise) with
- * no default value has a potentially non-nullable type.
+ * no default value has a potentially non-nullable type except in the parameter
+ * list of an abstract method declaration.
  *
  * @description Check that it is a compile-time error if an optional parameter
  * (named or otherwise) with no default value has a potentially non-nullable
