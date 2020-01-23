@@ -14,6 +14,7 @@
  * forms of reads, including implicit reads via the composite assignment
  * operators as well as pre and post-fix operators
  * @author sgrekhov@unipro.ru
+ * @issue 39876
  */
 // SharedOptions=--enable-experiment=non-nullable,triple-shift
 // Requirements=nnbd-strong
