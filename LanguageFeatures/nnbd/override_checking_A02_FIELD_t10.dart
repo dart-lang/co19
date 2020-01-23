@@ -20,7 +20,7 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "dart:async";
-import "override_checking_legacy_lib.dart";
+import "override_checking_A02_legacy_lib.dart";
 
 class A1 implements LEGACY_FIELD {
   int i;

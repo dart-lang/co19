@@ -17,7 +17,7 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-import "override_checking_legacy_lib.dart";
+import "override_checking_A02_legacy_lib.dart";
 
 class A extends LEGACY_ARGS {
   void test_int(Never i) {}

@@ -21,7 +21,7 @@
 
 import "dart:async";
 import "../../Utils/expect.dart";
-import "override_checking_opted_in_lib.dart";
+import "override_checking_A01_opted_in_lib.dart";
 
 class A with OPTED_NULLABLE_SETTER {
   void set setInt(int i)           { Expect.isNull(i); }

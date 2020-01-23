@@ -18,7 +18,7 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
-import "override_checking_legacy_lib.dart";
+import "override_checking_A02_legacy_lib.dart";
 
 class A implements LEGACY_REQUIRED_ARGS {
   void test_default({required int? i})    { Expect.equals(1, i); }

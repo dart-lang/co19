@@ -20,7 +20,7 @@
 
 import "dart:async";
 import "../../Utils/expect.dart";
-import "override_checking_opted_in_lib.dart";
+import "override_checking_A01_opted_in_lib.dart";
 
 class A extends OPTED_NULLABLE_RETURN {
   int getInt()           { return null; }

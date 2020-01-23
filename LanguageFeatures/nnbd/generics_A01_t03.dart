@@ -16,10 +16,10 @@
 import "../../Utils/expect.dart";
 
 class A<T> {}
-typedef AAlias<T> = A<T>
+typedef AAlias<T> = A<T>;
 
 class B<T1, T2, T3> {}
-typedef BAlias<T1, T2, T3> = B<T1, T2, T3>
+typedef BAlias<T1, T2, T3> = B<T1, T2, T3>;
 
 main() {
   Expect.equals(

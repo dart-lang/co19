@@ -20,7 +20,7 @@
 // @dart=2.6
 
 import "../../Utils/expect.dart";
-import "override_checking_opted_in_lib.dart";
+import "override_checking_A01_opted_in_lib.dart";
 
 class A1<T extends int>      implements OPTED_NONNULLABLE_INT<T>      { dynamic getParamType() => typeOf<T>(); }
 class A2<T extends Object>   implements OPTED_NONNULLABLE_OBJECT<T>   { dynamic getParamType() => typeOf<T>(); }

@@ -16,7 +16,7 @@
 // Requirements=nnbd-strong
 
 import "../../Utils/expect.dart";
-import "exports_legacy_A01_lib.dart";
+import "exports_A01_legacy_lib.dart";
 
 main() {
   Expect.equals(Never, GENERIC_NEVER().getParamType());

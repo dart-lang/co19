@@ -21,7 +21,7 @@
 
 import "dart:async";
 import "../../Utils/expect.dart";
-import "override_checking_opted_in_lib.dart";
+import "override_checking_A01_opted_in_lib.dart";
 
 class A with OPTED_NONNULLABLE_ARGS {
   void test_int(int i)                { Expect.isNull(i); }

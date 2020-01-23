@@ -20,7 +20,7 @@
 // Requirements=nnbd-strong
 import "dart:async";
 import "../../Utils/expect.dart";
-import "override_checking_legacy_lib.dart";
+import "override_checking_A02_legacy_lib.dart";
 
 abstract class B {
   void test_int(int? i);

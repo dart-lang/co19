@@ -22,7 +22,7 @@
 
 import "dart:async";
 import "../../Utils/expect.dart";
-import "override_checking_opted_in_futureor_lib.dart";
+import "override_checking_A01_opted_in_futureor_lib.dart";
 
 class A<T extends Null> with OPTED_FUTUREOR_INT<T> { dynamic getParamType() => typeOf<T>(); }
 

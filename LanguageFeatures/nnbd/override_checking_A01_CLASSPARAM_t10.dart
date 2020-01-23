@@ -18,7 +18,7 @@
 // SharedOptions=--enable-experiment=non-nullable
 // @dart=2.6
 
-import "override_checking_opted_in_lib.dart";
+import "override_checking_A01_opted_in_lib.dart";
 
 class A1<T> extends OPTED_NEVER<T> {}
 //                              ^

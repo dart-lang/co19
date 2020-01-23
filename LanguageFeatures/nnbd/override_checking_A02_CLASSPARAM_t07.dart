@@ -17,7 +17,7 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
-import "override_checking_legacy_lib.dart";
+import "override_checking_A02_legacy_lib.dart";
 
 class Opted<T> implements LEGACY_CLASS<T> {
   dynamic getParamType() => typeOf<T>();

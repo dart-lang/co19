@@ -15,7 +15,7 @@
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
 
-import "exports_legacy_A01_aliases_lib.dart";
+import "exports_A01_legacy_aliases_lib.dart";
 
 main() {
   AAlias a = null;

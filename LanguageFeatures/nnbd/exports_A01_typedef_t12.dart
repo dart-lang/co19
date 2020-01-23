@@ -19,7 +19,7 @@
 
 import "dart:async";
 import "../../Utils/expect.dart";
-import "exports_legacy_A01_lib.dart";
+import "exports_A01_legacy_lib.dart";
 
 typedef exp_dynamic          <T>                   = void Function(T);
 typedef exp_nullable_int     <T extends int?>      = void Function(T);

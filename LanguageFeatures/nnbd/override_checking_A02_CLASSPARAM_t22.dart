@@ -22,7 +22,7 @@
 // Requirements=nnbd-strong
 import "dart:async";
 import "../../Utils/expect.dart";
-import "override_checking_legacy_futureor_lib.dart";
+import "override_checking_A02_legacy_futureor_lib.dart";
 
 class OPTED_CLASS_FUTUREORINT<T extends FutureOr<int>>           {}
 class OPTED_CLASS_FUTUREORFUNCTION<T extends FutureOr<Function>> {}

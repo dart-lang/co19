@@ -20,7 +20,7 @@
 // @dart=2.6
 
 import "dart:async";
-import "override_checking_opted_in_lib.dart";
+import "override_checking_A01_opted_in_lib.dart";
 
 class A1 with OPTED_NEVER_RETURN {
   int getNever() { return 1; }

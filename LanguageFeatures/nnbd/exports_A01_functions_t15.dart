@@ -15,7 +15,7 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
-import "exports_legacy_A01_lib.dart";
+import "exports_A01_legacy_lib.dart";
 
 main() {
   testGenericNever();

@@ -17,7 +17,7 @@
 // Requirements=nnbd-strong
 
 import "../../Utils/expect.dart";
-import "exports_legacy_A01_lib.dart";
+import "exports_A01_legacy_lib.dart";
 
 typedef exp_getNever = Never Function();
 

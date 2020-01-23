@@ -21,8 +21,8 @@
 // Requirements=nnbd-strong
 import "dart:async";
 import "../../Utils/expect.dart";
-import "override_checking_legacy_lib.dart";
-import "override_checking_legacy_futureor_lib.dart";
+import "override_checking_A02_legacy_lib.dart";
+import "override_checking_A02_legacy_futureor_lib.dart";
 
 class OptedFutureOr<T extends FutureOr> extends LEGACY_CLASS_FUTUREOR<T> {
   dynamic getParamType() => T;

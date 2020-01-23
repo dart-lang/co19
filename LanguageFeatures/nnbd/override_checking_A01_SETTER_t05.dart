@@ -19,7 +19,7 @@
 // @dart=2.6
 
 import "../../Utils/expect.dart";
-import "override_checking_opted_in_lib.dart";
+import "override_checking_A01_opted_in_lib.dart";
 
 class A extends OPTED_NEVER_SETTER {
   void set setNever(Null i) { Expect.isNull(i); }

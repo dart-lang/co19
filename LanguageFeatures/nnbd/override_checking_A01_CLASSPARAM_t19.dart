@@ -20,7 +20,7 @@
 // @dart=2.6
 
 import "../../Utils/expect.dart";
-import "override_checking_opted_in_lib.dart";
+import "override_checking_A01_opted_in_lib.dart";
 
 class A<T extends Null> implements OPTED_NEVER<T> { dynamic getParamType() => typeOf<T>(); }
 
