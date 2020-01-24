@@ -20,17 +20,16 @@
  * - It is a warning if a switch over a nullable type does not handle null
  *  either explicitly or via a default.
  *
- * @description Check that it is a warning if a switch over a nullable type does
- * not handle null either explicitly or via a default. Test int?
+ * @description Check that it is no warning if a switch over a legacy type does
+ * not handle null either explicitly or via a default.
  * @author sgrekhov@unipro.ru
- * @static-warning
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "legacy_lib.dart";
 
 main() {
-  switch (iLegacy) { /// static type warning
+  switch (iLegacy) {
     case 1:
       true;
       break;
