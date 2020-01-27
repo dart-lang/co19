@@ -5,10 +5,10 @@
  */
 /**
  * @assertion It is a warning to use a null aware operator (?., ?.., ??, ??=,
- * or ...?) on a non-nullable receiver.
+ * or ...?) on an expression of type T if T is strictly non-nullable.
  *
  * @description Check it is a warning to use a null aware operator (?., ?.., ??,
- * ??=, or ...?) on a non-nullable receiver. Test if (t != null) {…}
+ * ??=, or ...?) on a strictly non-nullable receiver. Test if (t != null) {…}
  * @author sgrekhov@unipro.ru
  * @issue 39598
  * @issue 39714

@@ -5,7 +5,7 @@
  */
 /**
  * @assertion It is a warning to use a null aware operator (?., ?.., ??, ??=,
- * or ...?) on a non-nullable receiver.
+ * or ...?) on an expression of type T if T is strictly non-nullable.
  *
  * @description Check it is no warning if null aware operators (?., ?.., ??,
  * ??=, or ...?) are used on a nullable receiver.
