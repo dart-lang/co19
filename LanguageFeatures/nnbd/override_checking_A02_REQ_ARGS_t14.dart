@@ -19,20 +19,13 @@
 // Requirements=nnbd-strong
 import "override_checking_A02_legacy_lib.dart";
 
-class A1 with LEGACY_REQUIRED_ARGS {
+class A with LEGACY_REQUIRED_ARGS {
   void test_default({int i}) {}
 //     ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-abstract class A2 with LEGACY_REQUIRED_ARGS {
-  void test_default({int i});
-//     ^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
 main() {
-  A1().test_default(i: 1);
+  A().test_default(i: 1);
 }

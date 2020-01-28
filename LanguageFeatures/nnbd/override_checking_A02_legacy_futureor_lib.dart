@@ -17,8 +17,8 @@ library override_legacy_futureor_lib;
 
 import "dart:async";
 
-class LEGACY_CLASS_FUTUREOR<T extends FutureOr>                   {}
+class LEGACY_CLASS_FUTUREOR        <T extends FutureOr          > {}
 class LEGACY_CLASS_FUTUREORFUTUREOR<T extends FutureOr<FutureOr>> {}
 
-class LEGACY_CLASS_FUTUREORINT<T extends FutureOr<int>>           {}
+class LEGACY_CLASS_FUTUREORINT     <T extends FutureOr<int>     > {}
 class LEGACY_CLASS_FUTUREORFUNCTION<T extends FutureOr<Function>> {}

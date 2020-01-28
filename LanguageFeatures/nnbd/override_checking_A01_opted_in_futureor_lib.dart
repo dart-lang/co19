@@ -17,6 +17,6 @@ library override_opted_in_lib;
 
 import "dart:async";
 
-class OPTED_FUTUREOR<T extends FutureOr>          {}
-class OPTED_FUTUREOR_INT<T extends FutureOr<int>> {}
+class OPTED_FUTUREOR         <T extends FutureOr          > {}
+class OPTED_FUTUREOR_INT     <T extends FutureOr<int>     > {}
 class OPTED_FUTUREOR_FUTUREOR<T extends FutureOr<FutureOr>> {}
