@@ -9,6 +9,7 @@
  * @description Check that default function typedef type parameter is treated as
  * [Object?] dynamically. Typedef is in the form [typedef <typeIdentifier>
  * <typeParameters> = <functionType>].
+ * @Issue 40367
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

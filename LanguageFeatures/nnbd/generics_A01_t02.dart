@@ -8,6 +8,7 @@
  * [Object?].
  * @description Check that default class type parameter is treated as [Object?]
  * statically.
+ * @Issue 40368
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

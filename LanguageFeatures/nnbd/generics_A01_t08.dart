@@ -8,6 +8,7 @@
  * [Object?].
  * @description Check that default function type alias parameter is treated as
  * [Object?] dynamically.
+ * @Issue 40367
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
