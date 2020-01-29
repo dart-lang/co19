@@ -68,7 +68,7 @@ main() {
   Expect.isNull(actual6);
 
   c2 = new C();
-  var actual7 = c1 ?.. m1().m();
+  var actual7 = c2 ?.. m1().m();
   var expected2 = c2;
   Expect.equals(expected2, actual7);
   Expect.equals(1, c2?.m1().counter);

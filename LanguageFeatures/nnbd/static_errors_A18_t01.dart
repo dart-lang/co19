@@ -14,25 +14,25 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-import "../../Utils/expect.dart";
+  import "../../Utils/expect.dart";
 
-late final g;
+  late final g;
 
-class C {
-  static late final s;
-  late final v;
-}
+  class C {
+    static late final s;
+    late final v;
+  }
 
-main() {
-  late final l;
+  main() {
+    late final l;
 
-  g = "Lily";
-  C.s = "was";
-  new C().v = "here";
-  l = "Run, Forrest, run";
+    g = "Lily";
+    C.s = "was";
+    new C().v = "here";
+    l = "Run, Forrest, run";
 
-  Expect.equals("Lily", g);
-  Expect.equals("was", C.s);
-  Expect.equals("here", C().v);
-  Expect.equals("Run, Forrest, run", l);
-}
+    Expect.equals("Lily", g);
+    Expect.equals("was", C.s);
+    Expect.equals("here", C().v);
+    Expect.equals("Run, Forrest, run", l);
+  }

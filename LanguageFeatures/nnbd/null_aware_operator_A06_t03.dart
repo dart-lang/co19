@@ -17,7 +17,7 @@ import "../../Utils/expect.dart";
 import "legacy_lib.dart";
 
 void testShort(A? x) {
-  var actual = x?.test;
+  var actual = x?.test();
   var n0 = x;
   var expected = n0 == null ? null : n0.test();
   Expect.equals(expected, actual);

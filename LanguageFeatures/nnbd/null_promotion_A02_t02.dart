@@ -38,7 +38,7 @@ main() {
   }
 
   B<int>? b2 = new B<int>();
-  if (b2 is B<int>()) {
+  if (b2 is B<int>) {
     b2.bar();
     B b22 = b2;
   }

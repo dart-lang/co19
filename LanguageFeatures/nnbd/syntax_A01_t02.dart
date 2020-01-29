@@ -10,6 +10,7 @@
  * @description Check that any type can be suffixed with a ? indicating the
  * nullable version of that type. Test top-level types
  * @author sgrekhov@unipro.ru
+ * @issue 40374
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

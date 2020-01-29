@@ -30,6 +30,6 @@ main() {
   a?..test();                               //# 02: static type warning
   a ?? c;                                   //# 03: static type warning
   a ??= c;                                  //# 04: static type warning
-  List<CAlias?> clist = [C(), C(), null];   //# 05: static type warning
-  List<A> alist = [A(), C(), ...? clist];   //# 06: static type warning
+  List<CAlias> clist = [C(), C()];
+  List<A> alist = [A(), C(), ...? clist];   //# 05: static type warning
 }

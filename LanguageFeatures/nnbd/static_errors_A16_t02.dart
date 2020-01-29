@@ -25,5 +25,5 @@ class C {
 }
 
 main() {
-  Expect.equals("Lily was here", new C().a1);
+  Expect.equals("Lily was here", new C().a1.s);
 }

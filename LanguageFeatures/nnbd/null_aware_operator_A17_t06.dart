@@ -60,7 +60,7 @@ main() {
   Expect.isNull(actual6);
 
   c2 = new C();
-  var actual7 = c1 ?.. test1  = "Let it be";
+  var actual7 = c2 ?.. test1  = "Let it be";
   var expected2 = c2;
   Expect.equals(expected2, actual7);
   Expect.equals("Let it be", c2?.test1);

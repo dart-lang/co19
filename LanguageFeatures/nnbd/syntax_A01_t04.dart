@@ -22,7 +22,7 @@ class C<X extends A?> {
 
 A? testA(A? a) => a;
 
-C<X extends A?>? testC(C<X extends A?>? c) => c;
+C<X>? testC<X extends A?>(C<X>? c) => c;
 
 int? testInt(int? i) => i;
 

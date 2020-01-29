@@ -12,6 +12,8 @@
  * @description Check that assignments like e1?.[e2] ??= e3 translates to:
  *  SHORT[EXP(e1), fn[x] => x[EXP(e2)] ??= EXP(e3)]
  * @author sgrekhov@unipro.ru
+ * @issue 40369
+ * @static-warning
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
@@ -19,8 +21,12 @@ import "../../Utils/expect.dart";
 
 class C {
   List<int>? _list = [3, 1, 4];
-  int operator[](int index) => _list[index];
-  void operator[]=(int index, dynamic value) => _list[index] = value;
+  int operator [](int index) => _list != null ? _list[index] : -1;
+  void operator []=(int index, dynamic value) {
+    if (_list != null) {
+      _list[index] = value;
+    }
+  }
 
   void init() {
     _list = [3, 1, 4];

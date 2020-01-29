@@ -65,7 +65,7 @@ main() {
   Expect.isNull(actual6);
 
   c2 = new C();
-  var actual7 = c1 ?.. test1;
+  var actual7 = c2 ?.. test1;
   var expected2 = c2;
   Expect.equals(expected2, actual7);
   Expect.equals("test1 called 1 times, test2() called 0 times", c2?.log);
