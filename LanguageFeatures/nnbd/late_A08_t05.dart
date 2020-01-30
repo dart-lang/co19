@@ -15,6 +15,7 @@
  * @description Check that reading the variable during initializer evaluation is
  * no longer checked for, and does not cause an error.
  * @author sgrekhov@unipro.ru
+ * @issue 40375
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

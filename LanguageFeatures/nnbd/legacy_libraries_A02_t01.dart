@@ -20,11 +20,11 @@
 import "opted_in_lib.dart";
 
 main() {
-  C.bar();
+  A.bar();
   test();
   new C().test();
 
-  C.bar(named: "Lily");
+  A.bar(named: "Lily");
   test(named: "was");
   new C().test(named: "here");
 }

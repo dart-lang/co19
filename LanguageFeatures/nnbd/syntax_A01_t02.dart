@@ -11,6 +11,7 @@
  * nullable version of that type. Test top-level types
  * @author sgrekhov@unipro.ru
  * @issue 40374
+ * @issue 39896
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

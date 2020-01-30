@@ -12,6 +12,7 @@
  *
  * @description Check overriding of an implicit setter
  * @author sgrekhov@unipro.ru
+ * @issue 40391
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

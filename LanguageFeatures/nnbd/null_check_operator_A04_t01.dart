@@ -7,8 +7,7 @@
  * @assertion An expression of the form e! evaluates e to a value v, throws a
  * runtime error if v is null, and otherwise evaluates to v.
  *
- * @description Check that an expression of the form e! evaluates e to a value
- * v, throws no runtime error if v is not null. Test 'super'
+ * @description Check that expression of the form 'super!' is a compile error
  * @author sgrekhov@unipro.ru
  * @issue 39723
  * @issue 39598
@@ -29,15 +28,42 @@ class A {
 
 class C extends A {
   test() {
-    super!;          //# 01: static type warning
-    super!.foo();    //# 02: static type warning
-    super![42];      //# 03: static type warning
-    super!?.foo();   //# 04: static type warning
-    super!?.[42];    //# 05: static type warning
-    super!.s = "Lily was here";    //# 06: static type warning
-    super!?.s = "Lily was here";   //# 07: static type warning
-    super![0] = "Lily was here";   //# 08: static type warning
-    super!?.[0] = "Lily was here"; //# 09: static type warning
+    super!;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    super!.foo();
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    super![42];
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    super!?.foo();
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    super!?.[42];
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    super!.s = "Lily was here";
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    super!?.s = "Lily was here";
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    super![0] = "Lily was here";
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+    super!?.[0] = "Lily was here";
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
     super.getValue!;
     super[42]!;
   }
