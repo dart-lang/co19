@@ -21,10 +21,17 @@ import "../../Utils/expect.dart";
 
 class C {
   List<int>? _list = [3, 1, 4];
-  int operator [](int index) => _list != null ? _list[index] : -1;
+  int operator [](int index) {
+    List<int>? list = _list;
+    if (list != null) {
+      return list[index];
+    }
+    return -1;
+  }
   void operator []=(int index, dynamic value) {
-    if (_list != null) {
-      _list[index] = value;
+    List<int>? list = _list;
+    if (list != null) {
+      list[index] = value;
     }
   }
 
@@ -46,13 +53,7 @@ main() {
   testShort(c1, 0, 7);
   c1 = new C();
   testShort(c1, 0, 7);
-  if (c1 != null) {
-    c1._list = null;
-    testShort(c1, 0, 7);
-  }
 
   C c2 = new C();
-  testShort(c2, 0, 7);
-  c2._list = null;
   testShort(c2, 0, 7);
 }

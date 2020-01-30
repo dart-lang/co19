@@ -15,6 +15,7 @@
  * @description Check that throwing an exception during initializer evaluation
  * no longer sets a toplevel or static variable no null
  * @author sgrekhov@unipro.ru
+ * @issue 40390
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

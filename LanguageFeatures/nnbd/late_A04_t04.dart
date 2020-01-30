@@ -19,6 +19,7 @@
  * exception and the value of the variable was not written to then next read
  * attempts to evaluate the initializer expression again
  * @author sgrekhov@unipro.ru
+ * @issue 40390
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

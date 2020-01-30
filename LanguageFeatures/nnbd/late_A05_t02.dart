@@ -18,6 +18,7 @@
  * variable has occurred, the read is treated as a first read and the
  * initializer expression is evaluated again
  * @author sgrekhov@unipro.ru
+ * @issue 40390
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
