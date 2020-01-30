@@ -53,13 +53,7 @@ main() {
   testShort(c1, 0, 7);
   c1 = new C();
   testShort(c1, 0, 7);
-  if (c1 != null) {
-    c1._list = null;
-    testShort(c1, 0, 7);
-  }
 
   C c2 = new C();
-  testShort(c2, 0, 7);
-  c2._list = null;
   testShort(c2, 0, 7);
 }
