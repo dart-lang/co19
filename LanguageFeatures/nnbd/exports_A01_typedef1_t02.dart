@@ -21,7 +21,7 @@ import "../../Utils/expect.dart";
 import "exports_A01_legacy_lib.dart";
 
 typedef exp_nullable_int_arg      = void Function(int? i);
-typedef exp_nullable_object_arg   = void Function(int? i);
+typedef exp_nullable_object_arg   = void Function(Object? i);
 typedef exp_dynamic_arg           = void Function(dynamic i);
 typedef exp_nullable_function_arg = void Function(Function? f);
 typedef exp_null_arg              = void Function(Null n);
