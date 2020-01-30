@@ -20,7 +20,7 @@ import "../../Utils/expect.dart";
 import "exports_A01_legacy_lib.dart";
 
 main() {
-  Expect.isTrue(testGenericDynamic is void Function<T>());
+  Expect.isTrue(testGenericDynamic is void Function<T extends dynamic>());
   testGenericDynamic<Null>();
 
   Expect.isTrue(testGenericNullableInt is void Function<T extends int?>());
