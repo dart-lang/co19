@@ -23,10 +23,10 @@ import "../../Utils/expect.dart";
 import "override_checking_A01_opted_in_lib.dart";
 
 class A implements OPTED_NONNULLABLE_RETURN {
-  int getInt()                   { return null; }
-  Object getObject()             { return null; }
-  Function getFunction()         { return null; }
-  FutureOr<int> getFutureOrInt() { return null; }
+  int           getInt()         => null;
+  Object        getObject()      => null;
+  Function      getFunction()    => null;
+  FutureOr<int> getFutureOrInt() => null;
 }
 
 main() {

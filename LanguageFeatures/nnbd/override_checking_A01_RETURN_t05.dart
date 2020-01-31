@@ -24,7 +24,7 @@ import "../../Utils/expect.dart";
 import "override_checking_A01_opted_in_lib.dart";
 
 class A extends OPTED_NEVER_RETURN {
-  Null getNever() { return null; }
+  Null getNever() => null;
 }
 
 main() {

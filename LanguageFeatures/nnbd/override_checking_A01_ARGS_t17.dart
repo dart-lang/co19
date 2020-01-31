@@ -23,7 +23,7 @@ import "../../Utils/expect.dart";
 import "override_checking_A01_opted_in_lib.dart";
 
 class A with OPTED_NEVER_ARGS {
-  void test_never(Never i) { Expect.isNull(i); }
+  void test_never(Null i) { Expect.isNull(i); }
 }
 
 main() {

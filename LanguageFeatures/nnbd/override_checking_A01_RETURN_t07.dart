@@ -26,10 +26,10 @@ import "override_checking_A01_opted_in_lib.dart";
 void testme1() {}
 
 class A implements OPTED_NONNULLABLE_RETURN {
-  int getInt()                   { return 1; }
-  Object getObject()             { return 1; }
-  Function getFunction()         { return testme1; }
-  FutureOr<int> getFutureOrInt() { return 1; }
+  int           getInt()         => 1;
+  Object        getObject()      => 1;
+  Function      getFunction()    => testme1;
+  FutureOr<int> getFutureOrInt() => 1;
 }
 
 main() {

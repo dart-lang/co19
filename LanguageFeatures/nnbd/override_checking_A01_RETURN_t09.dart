@@ -25,12 +25,12 @@ import "override_checking_A01_opted_in_lib.dart";
 void testme1() {}
 
 class A implements OPTED_NULLABLE_RETURN {
-  int getInt()           { return 1; }
-  Object getObject()     { return 1; }
-  Function getFunction() { return testme1; }
-  FutureOr getFutureOr() { return 1; }
-  dynamic getDynamic()   { return 1; }
-  Null getNull()         { return null; }
+  int      getInt()      => 1;
+  Object   getObject()   => 1;
+  Function getFunction() => testme1;
+  FutureOr getFutureOr() => 1;
+  dynamic  getDynamic()  => 1;
+  Null     getNull()     => 1;
 }
 
 main() {

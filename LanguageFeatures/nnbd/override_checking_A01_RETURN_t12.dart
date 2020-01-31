@@ -23,28 +23,28 @@ import "dart:async";
 import "override_checking_A01_opted_in_lib.dart";
 
 class A1 implements OPTED_NEVER_RETURN {
-  int getNever() { return 1; }
+  int getNever() => 1;
 //    ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class A2 implements OPTED_NEVER_RETURN {
-  Object getNever() { return 1; }
+  Object getNever() => 1;
 //       ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class A3 implements OPTED_NEVER_RETURN {
-  dynamic getNever() { return 1; }
+  dynamic getNever() => 1;
 //        ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 class A4 implements OPTED_NEVER_RETURN {
-  FutureOr getNever() { return 1; }
+  FutureOr getNever() => 1;
 //         ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
