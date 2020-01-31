@@ -14,7 +14,7 @@
  * legacy field can be [Null] if corresponding parent field is of the type
  * [Never].
  *
- * @Issue 39917
+ * @Issue 40389
  *
  * @author iarkh@unipro.ru
  */

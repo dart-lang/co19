@@ -14,8 +14,6 @@
  * can accept [Null] argument if corresponding parent method argument is of
  * [Never] type.
  *
- * @Issue 39917
- *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

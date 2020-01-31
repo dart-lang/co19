@@ -13,7 +13,7 @@
  * @description Check that if legacy class is a mixin with opted-in class,
  * legacy method can return [null] if parent method return type is [Never].
  *
- * @Issue 39917
+ * @Issue 40389
  *
  * @author iarkh@unipro.ru
  */

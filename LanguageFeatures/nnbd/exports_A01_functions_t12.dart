@@ -10,6 +10,7 @@
  * @description Check that if generic function with nullable type parameter is
  * exported from opted-in library to legacy library and then back to the opted
  * in code, it retains its status and so can accept [Null] as a type parameter.
+ * @Issue 40399
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

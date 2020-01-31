@@ -15,6 +15,7 @@
  * and child class type parameter can be [Null] even if parent class type
  * parameter is non-nullable.
  *
+ * @Issue 40398
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

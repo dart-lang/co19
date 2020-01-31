@@ -14,7 +14,7 @@
  * getter can return [null] if corresponding parent getter is of the type
  * [Never].
  *
- * @Issue 39917
+ * @Issue 40389
  *
  * @author iarkh@unipro.ru
  */

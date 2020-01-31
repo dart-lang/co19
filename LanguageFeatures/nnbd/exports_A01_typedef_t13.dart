@@ -20,8 +20,8 @@
 import "../../Utils/expect.dart";
 import "exports_A01_legacy_lib.dart";
 
-typedef exp_int     <T extends int>      = void Function(T);
-typedef exp_object  <T extends Object>   = void Function(T);
+typedef exp_int     <T extends int     > = void Function(T);
+typedef exp_object  <T extends Object  > = void Function(T);
 typedef exp_function<T extends Function> = void Function(T);
 
 main() {

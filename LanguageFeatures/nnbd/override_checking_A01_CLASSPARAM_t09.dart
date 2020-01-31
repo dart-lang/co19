@@ -13,7 +13,7 @@
  * @description Check that if legacy class extends opted-in class, child class
  * type parameter can be [Null] if parent class type parameter is [Never].
  *
- * Issue 39917
+ * Issue 40389S
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
