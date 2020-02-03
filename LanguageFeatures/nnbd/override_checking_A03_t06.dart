@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -21,26 +21,41 @@
  * classes because opted out libraries may bring together otherwise incompatible
  * member signatures without causing an error.
  *
- * @description Check that legacy class can inherit the same getter from two
- * opted in classes with contradictory nullability information.
+ * @description Check that generic legacy class can inherit two opted in classes
+ * with type parameters with contradictory nullability information.
  *
- * @Issue 40414
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 
-import "../../Utils/expect.dart";
 import "override_checking_A03_opted_out_lib.dart";
 
-class A extends LEGACY_GETTER_2 {
-  int?      get getInt      => null;
-  Object?   get getObject   => null;
-  Function? get getFunction => null;
-}
-
 main() {
-  A a = A();
-  Expect.isNull(a.getInt);
-  Expect.isNull(a.getObject);
-  Expect.isNull(a.getFunction);
+ LEGACY_INT_1();
+ LEGACY_INT_2();
+ LEGACY_INT_1<int?>();
+ LEGACY_INT_1<int>();
+ LEGACY_INT_2<int?>();
+ LEGACY_INT_2<int>();
+ LEGACY_INT_1<Null>();
+ LEGACY_INT_2<Null>();
+
+ LEGACY_OBJECT_1();
+ LEGACY_OBJECT_2();
+ LEGACY_OBJECT_1<Object?>();
+ LEGACY_OBJECT_1<Object>();
+ LEGACY_OBJECT_2<Object?>();
+ LEGACY_OBJECT_2<Object>();
+ LEGACY_OBJECT_1<Null>();
+ LEGACY_OBJECT_2<Null>();
+
+ LEGACY_FUNCTION_1();
+ LEGACY_FUNCTION_2();
+ LEGACY_FUNCTION_1<Function?>();
+ LEGACY_FUNCTION_1<Function>();
+ LEGACY_FUNCTION_2<Function?>();
+ LEGACY_FUNCTION_2<Function>();
+ LEGACY_FUNCTION_1<Null>();
+ LEGACY_FUNCTION_2<Null>();
 }

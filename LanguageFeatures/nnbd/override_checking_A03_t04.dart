@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -21,27 +21,24 @@
  * classes because opted out libraries may bring together otherwise incompatible
  * member signatures without causing an error.
  *
- * @description Check that legacy class can inherit the same field from two
+ * @description Check that legacy class can inherit the same setter from two
  * opted in classes with contradictory nullability information.
  *
- * Issue 40414
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
-import "../../Utils/expect.dart";
 import "override_checking_A03_opted_out_lib.dart";
 
-class A extends LEGACY_FIELDS_2 {
-  int?      i;
-  Object?   o;
-  Function? f;
-}
-
 main() {
-  A a = A();
-  Expect.isNull(a.i);
-  Expect.isNull(a.o);
-  Expect.isNull(a.f);
+  LEGACY_SETTER_1 x1 = LEGACY_SETTER_1();
+  x1.setInt      = null;
+  x1.setObject   = null;
+  x1.setFunction = null;
+
+  LEGACY_SETTER_2 x2 = LEGACY_SETTER_2();
+  x2.setInt      = null;
+  x2.setObject   = null;
+  x2.setFunction = null;
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -21,8 +21,8 @@
  * classes because opted out libraries may bring together otherwise incompatible
  * member signatures without causing an error.
  *
- * @description Check that legacy class can inherit the same getter from two
- * opted in classes with contradictory nullability information.
+ * @description Check that legacy class can inherit the same method with return
+ * value from two opted in classes with contradictory nullability information.
  *
  * @author iarkh@unipro.ru
  */
@@ -34,13 +34,13 @@ import "override_checking_A03_opted_out_lib.dart";
 import "override_checking_A03_opted_in_lib.dart";
 
 main() {
-  LEGACY_GETTER_1 x1 = LEGACY_GETTER_1();
-  Expect.isNull(x1.getInt);
-  Expect.isNull(x1.getObject);
-  Expect.isNull(x1.getFunction);
+  LEGACY_RETURN_1 x1 = LEGACY_RETURN_1();
+  Expect.isNull(x1.getInt());
+  Expect.isNull(x1.getObject());
+  Expect.isNull(x1.getFunction());
 
-  LEGACY_GETTER_2 x2 = LEGACY_GETTER_2();
-  Expect.equals(1, x2.getInt);
-  Expect.equals(1, x2.getObject);
-  Expect.equals(testme, x2.getFunction);
+  LEGACY_RETURN_2 x2 = LEGACY_RETURN_2();
+  Expect.equals(1, x2.getInt());
+  Expect.equals(1, x2.getObject());
+  Expect.equals(testme, x2.getFunction());
 }

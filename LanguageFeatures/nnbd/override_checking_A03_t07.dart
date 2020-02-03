@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -21,8 +21,8 @@
  * classes because opted out libraries may bring together otherwise incompatible
  * member signatures without causing an error.
  *
- * @description Check that legacy class can inherit the same setter from two
- * opted in classes with contradictory nullability information.
+ * @description Check that generic legacy class can inherit two opted in classes
+ * with type parameters with contradictory nullability information.
  *
  * @author iarkh@unipro.ru
  */
@@ -31,14 +31,47 @@
 
 import "override_checking_A03_opted_out_lib.dart";
 
-main() {
-  LEGACY_SETTER_1 x1 = LEGACY_SETTER_1();
-  x1.setInt      = null;
-  x1.setObject   = null;
-  x1.setFunction = null;
+class I1<T extends int?> extends LEGACY_INT_2<T> {}
+class I2<T extends int>  extends LEGACY_INT_2<T> {}
+class I3<T extends Null> extends LEGACY_INT_2<T> {}
 
-  LEGACY_SETTER_2 x2 = LEGACY_SETTER_2();
-  x2.setInt      = null;
-  x2.setObject   = null;
-  x2.setFunction = null;
+class O1<T extends Object?> extends LEGACY_OBJECT_2<T> {}
+class O2<T extends Object > extends LEGACY_OBJECT_2<T> {}
+class O3<T extends Null   > extends LEGACY_OBJECT_2<T> {}
+
+class F1<T extends Function?> extends LEGACY_FUNCTION_2<T> {}
+class F2<T extends Function > extends LEGACY_FUNCTION_2<T> {}
+class F3<T extends Null     > extends LEGACY_FUNCTION_2<T> {}
+
+main() {
+ I1();
+ I2();
+ I3();
+
+ I1<int>();
+ I1<int?>();
+ I1<Null>();
+ I2<int>();
+ I3<Null>();
+
+ O1();
+ O2();
+ O3();
+
+ O1<Object>();
+ O1<Object?>();
+ O1<Null>();
+ O2<Object>();
+ O3<Null>();
+
+ F1();
+ F2();
+ F3();
+
+ F1<Function>();
+ F1<Function?>();
+ F1<Null>();
+
+ F2<Function>();
+ F3<Null>();
 }

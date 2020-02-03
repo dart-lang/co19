@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -21,11 +21,9 @@
  * classes because opted out libraries may bring together otherwise incompatible
  * member signatures without causing an error.
  *
- * @description Check that legacy class can inherit the same method with
- * parameter from two opted in classes with contradictory nullability
- * information.
+ * @description Check that legacy class can inherit the same field from two
+ * opted in classes with contradictory nullability information.
  *
- * Issue 40414
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -34,15 +32,17 @@
 import "../../Utils/expect.dart";
 import "override_checking_A03_opted_out_lib.dart";
 
-class A extends LEGACY_ARGS_2 {
-  void test_int     (int?      i) { Expect.isNull(i); }
-  void test_object  (Object?   o) { Expect.isNull(o); }
-  void test_function(Function? f) { Expect.isNull(f); }
-}
-
 main() {
-  A a = A();
-  a.test_int     (null);
-  a.test_object  (null);
-  a.test_function(null);
+  LEGACY_FIELDS_1 x1 = LEGACY_FIELDS_1();
+  Expect.isNull(x1.i);
+  Expect.isNull(x1.o);
+  Expect.isNull(x1.f);
+
+  LEGACY_FIELDS_2 x2 = LEGACY_FIELDS_2();
+  x2.i = null;
+  Expect.isNull(x2.i);
+  x2.o = null;
+  Expect.isNull(x2.o);
+  x2.f = null;
+  Expect.isNull(x2.f);
 }
