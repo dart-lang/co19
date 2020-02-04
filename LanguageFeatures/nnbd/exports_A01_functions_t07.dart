@@ -16,7 +16,7 @@
 // Requirements=nnbd-strong
 
 import "../../Utils/expect.dart";
-import "exports_A01_legacy_lib.dart";
+import "exports_A01_opted_out_lib.dart";
 
 main() {
   Expect.isTrue(test_required_arg is void Function({required int i}));

@@ -16,7 +16,7 @@
 // Requirements=nnbd-strong
 
 import "../../Utils/expect.dart";
-import "exports_A01_legacy_aliases_lib.dart";
+import "exports_A01_opted_out_aliases_lib.dart";
 
 void testme() {}
 

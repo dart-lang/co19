@@ -16,7 +16,7 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-import "override_checking_A02_legacy_lib.dart";
+import "override_checking_A02_opted_out_lib.dart";
 import "../../Utils/expect.dart";
 
 class A extends LEGACY_RETURN {

@@ -18,7 +18,7 @@
 
 import "dart:async";
 import "../../Utils/expect.dart";
-import "exports_A01_legacy_lib.dart";
+import "exports_A01_opted_out_lib.dart";
 
 typedef exp_int_arg         = void Function(int i);
 typedef exp_object_arg      = void Function(Object o);

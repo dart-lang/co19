@@ -18,7 +18,7 @@
 // Requirements=nnbd-strong
 
 import "../../Utils/expect.dart";
-import "exports_A01_legacy_lib.dart";
+import "exports_A01_opted_out_lib.dart";
 
 typedef exp_int     <T extends int     > = void Function(T);
 typedef exp_object  <T extends Object  > = void Function(T);

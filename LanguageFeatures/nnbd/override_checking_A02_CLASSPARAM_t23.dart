@@ -17,7 +17,7 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
-import "override_checking_A02_legacy_lib.dart";
+import "override_checking_A02_opted_out_lib.dart";
 
 class OPTED_CLASS<T>                                             {}
 class OPTED_CLASS_INT<T extends int?>                            {}

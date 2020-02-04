@@ -18,7 +18,7 @@
 
 import "dart:async";
 import "../../Utils/expect.dart";
-import "exports_A01_legacy_lib.dart";
+import "exports_A01_opted_out_lib.dart";
 
 main() {
   Expect.isTrue(testGenericDynamic is void Function<T extends dynamic>());

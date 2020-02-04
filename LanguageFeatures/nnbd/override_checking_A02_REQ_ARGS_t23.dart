@@ -18,7 +18,7 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
-import "override_checking_A02_legacy_lib.dart";
+import "override_checking_A02_opted_out_lib.dart";
 
 abstract class A implements LEGACY_REQUIRED_ARGS {
   void test_default({int i}) {}

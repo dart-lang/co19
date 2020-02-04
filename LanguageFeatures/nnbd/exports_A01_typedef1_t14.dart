@@ -17,7 +17,7 @@
 // Requirements=nnbd-strong
 
 import "../../Utils/expect.dart";
-import "exports_A01_legacy_lib.dart";
+import "exports_A01_opted_out_lib.dart";
 
 typedef expected = void Function(Never);
 

@@ -19,7 +19,7 @@
 // Requirements=nnbd-strong
 import "dart:async";
 import "../../Utils/expect.dart";
-import "override_checking_A02_legacy_lib.dart";
+import "override_checking_A02_opted_out_lib.dart";
 
 class A with LEGACY_GETTER {
   int? get getInt => null;
