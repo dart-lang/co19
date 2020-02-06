@@ -16,7 +16,7 @@
  * not all syntactically equal and all passes otherwise. Test [void] opted in
  * type parameter vs [Object], [dynamic] opted out parameters.
  *
- * @Issue 40453
+ * @Issue 40481
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -26,14 +26,7 @@ import "override_checking_A06_opted_out_lib.dart";
 
 class B implements A<void> {}
 
-class in_Object extends out_Object implements B {}
-//    ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-class in_dynamic extends out_dynamic implements B {}
-//    ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+class in_Object  extends out_Object  implements B {} // See Issue 40453, 40481
+class in_dynamic extends out_dynamic implements B {} // See Issue 40453
 
 main() {}

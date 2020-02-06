@@ -17,7 +17,7 @@
  * type parameter vs [FutureOr], [FutureOr<int>], [FutureOr<FutureOr>]
  * parameters.
  *
- * @Issue 39678
+ * @Issue 40454
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

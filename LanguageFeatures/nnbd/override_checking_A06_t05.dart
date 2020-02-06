@@ -17,7 +17,6 @@
  * type parameter vs [Object], [int], [Function], [Null] opted out type
  * parameters.
  *
- * @Issue 40367 (dynamic)
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

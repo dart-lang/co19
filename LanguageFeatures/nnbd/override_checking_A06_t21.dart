@@ -14,9 +14,9 @@
  * @description Check that error occurs if a class implements the same generic
  * class more than once the [NNBD_TOP_MERGE] of all such super-interfaces are
  * not all syntactically equal and all passes otherwise. Test opted in
- * [FutureOr<FutureOr>] type parameter vs [Object], [dynamic], [void] opted out
- * parameters.
-
+ * [FutureOr<FutureOr>] type parameter vs [FutureOr], [FutureOr<int>],
+ * [FutureOr<FutureOr>] parameters.
+ *
  * @Issue 40454
  * @author iarkh@unipro.ru
  */
@@ -28,18 +28,15 @@ import "override_checking_A06_opted_out_lib.dart";
 
 class B implements A<FutureOr<FutureOr>> {}
 
-class in_Object extends out_Object implements B {}
-//    ^^^^^^^^^
+class in_FutureOr_FutureOr extends out_FutureOr_FutureOr implements B {}
+
+class in_FutureOr extends out_FutureOr implements B {}
+//    ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class in_dynamic extends out_dynamic implements B {}
-//    ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-class in_void extends out_void implements B {}
-//    ^^^^^^^
+class in_FutureOr_int extends out_FutureOr_int implements B {}
+//    ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
