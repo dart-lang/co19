@@ -30,7 +30,7 @@ class A implements OPTED_NULLABLE_RETURN {
   Function getFunction() => testme1;
   FutureOr getFutureOr() => 1;
   dynamic  getDynamic()  => 1;
-  Null     getNull()     => 1;
+  Null     getNull()     => Null;
 }
 
 main() {
