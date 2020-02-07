@@ -22,7 +22,7 @@ import "../../Utils/expect.dart";
 import "override_checking_A02_opted_out_lib.dart";
 
 abstract class A extends LEGACY_REQUIRED_ARGS {
-  void test_default({int i});
+  void test_default({int i});   /// static type warning
 }
 
 class B extends A {
