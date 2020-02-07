@@ -28,7 +28,7 @@ abstract class A implements LEGACY_REQUIRED_ARGS {
 
 class B extends A {
   void test_default   ({int i = 1}) { Expect.equals(1, i); }
-  void test_nondefault({int i})     {}
+  void test_nondefault({int i = 1}) {}
 }
 
 main() {
