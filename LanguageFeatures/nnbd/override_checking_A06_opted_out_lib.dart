@@ -12,16 +12,16 @@
 
 import "dart:async";
 
-class A<T> {}
+class A<T> { Type getType() => T; }
 
-class out_int      implements A<int     > {}
-class out_Function implements A<Function> {}
-class out_Object   implements A<Object  > {}
+class out_int      extends A<int     > {}
+class out_Function extends A<Function> {}
+class out_Object   extends A<Object  > {}
 
-class out_dynamic implements A<dynamic> {}
-class out_void    implements A<void   > {}
-class out_Null    implements A<Null   > {}
+class out_dynamic extends A<dynamic> {}
+class out_void    extends A<void   > {}
+class out_Null    extends A<Null   > {}
 
-class out_FutureOr          implements A<FutureOr>           {}
-class out_FutureOr_int      implements A<FutureOr<int>>      {}
-class out_FutureOr_FutureOr implements A<FutureOr<FutureOr>> {}
+class out_FutureOr          extends A<FutureOr>           {}
+class out_FutureOr_int      extends A<FutureOr<int>>      {}
+class out_FutureOr_FutureOr extends A<FutureOr<FutureOr>> {}
