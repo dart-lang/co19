@@ -11,26 +11,26 @@
  * Otherwise, for the purposes of runtime subtyping checks, [C] is considered to
  * implement the canonical interface given by [NNBD_TOP_MERGE(S0, ..., Sn)].
  *
- * @description Check that result of [NNBD_TOP_MERGE] for the following cases:
- *   NNBD_TOP_MERGE(FutureOr*, FutureOr*) = FutureOr
- *   NNBD_TOP_MERGE(FutureOr<int>>*, FutureOr<int>>) = FutureOr<int?>
- *   NNBD_TOP_MERGE<FutureOr<FutureOr>>*, FutureOr<FutureOr>>*) = FutureOr<FutureOr>
+ * @description Check that error occurs as a result of [NNBD_TOP_MERGE(Object*,
+ * Never)].
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
-import "dart:async";
-import "../../Utils/expect.dart";
 import "override_checking_A06_opted_out_lib.dart";
 
-class C1 extends out_FutureOr          implements out_FutureOr1          {}
-class C2 extends out_FutureOr_int      implements out_FutureOr_int1      {}
-class C3 extends out_FutureOr_FutureOr implements out_FutureOr_FutureOr1 {}
+class B extends A<Never> {}
 
-main() {
-  Expect.equals(typeOf<FutureOr>(),           C1().getType());
-  Expect.equals(typeOf<FutureOr<int>>(),      C2().getType());
-  Expect.equals(typeOf<FutureOr<FutureOr>>(), C3().getType());
-}
+class C1 extends out_Object  implements B {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class C2 extends B implements out_Object  {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+main() {}
