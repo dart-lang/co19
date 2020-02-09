@@ -25,3 +25,20 @@ class out_Null    extends A<Null   > {}
 class out_FutureOr          extends A<FutureOr>           {}
 class out_FutureOr_int      extends A<FutureOr<int>>      {}
 class out_FutureOr_FutureOr extends A<FutureOr<FutureOr>> {}
+
+class out_Never extends A<Never> {}
+
+
+class out_int1      extends A<int     > {}
+class out_Function1 extends A<Function> {}
+class out_Object1   extends A<Object  > {}
+
+class out_dynamic1 extends A<dynamic> {}
+class out_void1    extends A<void   > {}
+class out_Null1    extends A<Null   > {}
+
+class out_FutureOr1          extends A<FutureOr>           {}
+class out_FutureOr_int1      extends A<FutureOr<int>>      {}
+class out_FutureOr_FutureOr1 extends A<FutureOr<FutureOr>> {}
+
+class out_Never1 extends A<Never> {}
