@@ -11,29 +11,30 @@
  * Otherwise, for the purposes of runtime subtyping checks, [C] is considered to
  * implement the canonical interface given by [NNBD_TOP_MERGE(S0, ..., Sn)].
  *
- * @description Check that error occurs as a result of [NNBD_TOP_MERGE(FutureOr,
- * FutureOr<FutureOr>].
+ * @description Check the following cases:
+ *   [NNBD_TOP_MERGE(void*, FutureOr*)] is [FutureOr]
+ *   [NNBD_TOP_MERGE(void*, FutureOr<FutureOr>*)] is [FutureOr<FutureOr>]
  *
- * @Issue 40454
+ * @Issue 40541
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 import "dart:async";
+import "../../Utils/expect.dart";
+import "override_checking_A06_opted_out_lib.dart";
 
-class A<T> {}
-class B implements A<FutureOr>           {}
-class C implements A<FutureOr<FutureOr>> {}
+class C1 extends out_void     implements out_FutureOr {}
+class C2 extends out_FutureOr implements out_void     {}
 
-class D1 extends B implements C {}
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+class C3 extends out_void              implements out_FutureOr_FutureOr {}
+class C4 extends out_FutureOr_FutureOr implements out_void              {}
 
-class D2 extends C implements B {}
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+main() {
+  Expect.equals(typeOf<FutureOr>(), C1().getType());
+  Expect.equals(typeOf<FutureOr>(), C2().getType());
 
-void main() {}
+  Expect.equals(typeOf<FutureOr<FutureOr>>(), C3().getType());
+  Expect.equals(typeOf<FutureOr<FutureOr>>(), C4().getType());
+}

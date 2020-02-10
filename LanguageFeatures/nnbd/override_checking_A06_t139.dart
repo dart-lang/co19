@@ -11,8 +11,9 @@
  * Otherwise, for the purposes of runtime subtyping checks, [C] is considered to
  * implement the canonical interface given by [NNBD_TOP_MERGE(S0, ..., Sn)].
  *
- * @description Check that error occurs as a result of [NNBD_TOP_MERGE(FutureOr,
- * FutureOr<FutureOr>].
+ * @description Check the following cases:
+ *   [NNBD_TOP_MERGE(dynamic*, FutureOr*)] is [Object?]
+ *   [NNBD_TOP_MERGE(dynamic*, FutureOr<FutureOr>*)] is [Object?]
  *
  * @Issue 40454
  * @author iarkh@unipro.ru
@@ -20,20 +21,18 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
-import "dart:async";
+import "../../Utils/expect.dart";
+import "override_checking_A06_opted_out_lib.dart";
 
-class A<T> {}
-class B implements A<FutureOr>           {}
-class C implements A<FutureOr<FutureOr>> {}
+class C1 extends out_dynamic   implements out_FutureOr {}
+class C2 extends out_FutureOr implements out_dynamic   {}
 
-class D1 extends B implements C {}
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
+class C3 extends out_dynamic           implements out_FutureOr_FutureOr {}
+class C4 extends out_FutureOr_FutureOr implements out_dynamic           {}
 
-class D2 extends C implements B {}
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-void main() {}
+main() {
+  Expect.equals(typeOf<dynamic>(), C1().getType());
+  Expect.equals(typeOf<dynamic>(), C2().getType());
+  Expect.equals(typeOf<dynamic>(), C3().getType());
+  Expect.equals(typeOf<dynamic>(), C4().getType());
+}
