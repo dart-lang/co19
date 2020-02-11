@@ -9,7 +9,7 @@
  * migrated libraries will see their migrated types).
  * @description Check that if generic function with [Never] type parameter is
  * exported from opted-in library to legacy library and then back to the opted
- * in code, it retains its status and can be called with default type parameter.
+ * in code, it retains its status.
  *
  * @Issue 519
  * @author iarkh@unipro.ru
@@ -20,5 +20,28 @@
 import "exports_A01_opted_out_lib.dart";
 
 main() {
-  testGenericNever();
+  testGenericNever<Null>();
+//                 ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  testGenericNever<dynamic>();
+//                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  testGenericNever<void>();
+//                 ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  testGenericNever<Object?>();
+//                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  testGenericNever<int>();
+//                 ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

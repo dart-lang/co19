@@ -14,7 +14,7 @@
  * implements opted-in class, child class type parameter can be [Null] if parent
  * interface type parameter is [Never].
  *
- * Issue 40389
+ * @Issue 40389
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

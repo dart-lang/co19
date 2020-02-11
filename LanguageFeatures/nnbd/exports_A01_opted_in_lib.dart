@@ -112,7 +112,7 @@ void testGenericInt     <T extends int     >() {}
 void testGenericFunction<T extends Function>() {}
 void testGenericObject  <T extends Object  >() {}
 
-void testGenericNever<T extends Never>() {}
+void testGenericNever<T extends Never>() { Expect.equals(typeOf<Never>(), T);}
 
 // Function typedefs like
 // [typedef <typeIdentifier> <typeParameters> = <functionType>].

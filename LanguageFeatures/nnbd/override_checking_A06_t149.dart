@@ -14,7 +14,7 @@
  * @description Check that the result of [NNBD_TOP_MERGE(FutureOr*,
  * FutureOr<FutureOr>*)] is [FutureOr].
  *
- * Issue @40454, 40541
+ * @Issue @40454, 40541
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

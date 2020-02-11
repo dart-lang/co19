@@ -13,7 +13,7 @@
  * @description Check that if legacy class is a mixin with opted-in class, child
  * class type parameter can be [Null] if parent class type parameter is [Never].
  *
- * Issue 40389
+ * @Issue 40389
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

@@ -13,7 +13,7 @@
  * @description Check that if legacy class extends opted-in class, child class
  * type parameter can be [Null] if parent class type parameter is [Never].
  *
- * Issue 40389S
+ * @Issue 40389
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -22,7 +22,7 @@
 import "../../Utils/expect.dart";
 import "override_checking_A01_opted_in_lib.dart";
 
-class A<T extends Null> extends OPTED_NEVER<T> { dynamic getParamType() => typeOf<T>(); }
+class A<T extends Null> extends OPTED_NEVER<T> { dynamic getParamType() => T; }
 
 main() {
   Expect.equals(Null, A().getParamType());
