@@ -17,8 +17,6 @@
  *  enum cases, either explicitly or via a default.
  * - If T is Q? where Q is an enum type, it is a warning if the switch does not
  *  handle all enum cases and null, either explicitly or via a default.
- * - It is a warning if a switch over a nullable type does not handle null
- *  either explicitly or via a default.
  *
  * @description Check that it is an error if any of the ei evaluate to constants
  * for which equality is not primitive.
