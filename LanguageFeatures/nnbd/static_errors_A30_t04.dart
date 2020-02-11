@@ -13,6 +13,7 @@
  * @description Check that it is not an error if any case of a switch statement
  * may not complete normally
  * @author sgrekhov@unipro.ru
+ * @issue 40392
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

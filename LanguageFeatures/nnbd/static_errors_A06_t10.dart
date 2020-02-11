@@ -12,6 +12,7 @@
  * function expression with a potentially non-nullable return type may complete
  * normally. Test FutureOr<Foo>, where Foo is a function type
  * @author sgrekhov@unipro.ru
+ * @issue 40396
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

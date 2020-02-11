@@ -23,6 +23,7 @@
  * @description Check that it is a warning if T is an enum type and the switch
  * does not handle all enum cases, either explicitly or via a default.
  * @author sgrekhov@unipro.ru
+ * @issue 40395
  * @static-warning
  */
 // SharedOptions=--enable-experiment=non-nullable

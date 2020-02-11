@@ -23,6 +23,7 @@
  * @description Check that it is no warning if T is Q? where Q is an enum type
  * and the switch does handle all enum cases and null via default
  * @author sgrekhov@unipro.ru
+ * @issue 40394
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

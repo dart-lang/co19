@@ -13,6 +13,7 @@
  *  SHORT[EXP(e1), fn[x] => x[EXP(e2)] ??= EXP(e3)]
  * @author sgrekhov@unipro.ru
  * @issue 40369
+ * @issue 40557
  * @static-warning
  */
 // SharedOptions=--enable-experiment=non-nullable

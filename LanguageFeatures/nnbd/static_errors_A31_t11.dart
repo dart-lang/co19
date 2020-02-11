@@ -24,6 +24,7 @@
  * not handle null either explicitly or via a default. Test dynamic
  * @author sgrekhov@unipro.ru
  * @static-warning
+ * @issue https://github.com/dart-lang/language/issues/792
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
