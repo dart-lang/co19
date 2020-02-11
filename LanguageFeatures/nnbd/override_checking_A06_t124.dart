@@ -15,7 +15,7 @@
  *   [NNBD_TOP_MERGE(Object*, FutureOr*)] is [Object?]
  *   [NNBD_TOP_MERGE(Object*, FutureOr<FutureOr>*)] is [Object?]
  *
- * @Issue 40454
+ * @Issue 40454, 40481
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

@@ -11,10 +11,9 @@
  * Otherwise, for the purposes of runtime subtyping checks, [C] is considered to
  * implement the canonical interface given by [NNBD_TOP_MERGE(S0, ..., Sn)].
  *
- * @description Check that error occurs as a result of [NNBD_TOP_MERGE] of
- * [FutureOr] vs [FutureOr<int>*], [FutureOr<FutureOr>*].
+ * @description Check that error occurs as a result of [NNBD_TOP_MERGE(FutureOr,
+ * FutureOr<int>*.
  *
- * @Issue 40454
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -31,16 +30,6 @@ class in1 extends out_FutureOr_int implements B {}
 // [cfe] unspecified
 
 class in2 extends B implements out_FutureOr_int {}
-//    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-class in3 extends out_FutureOr_FutureOr implements B {}
-//    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-class in4 extends B implements out_FutureOr_FutureOr {}
 //    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified

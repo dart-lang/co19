@@ -12,10 +12,10 @@
  * implement the canonical interface given by [NNBD_TOP_MERGE(S0, ..., Sn)].
  *
  * @description Check the following cases:
- *   [NNBD_TOP_MERGE(dynamic*, FutureOr*)] is [Object?]
- *   [NNBD_TOP_MERGE(dynamic*, FutureOr<FutureOr>*)] is [Object?]
+ *   [NNBD_TOP_MERGE(dynamic*, FutureOr*)] is [dynamic]
+ *   [NNBD_TOP_MERGE(dynamic*, FutureOr<FutureOr>*)] is [dynamic]
  *
- * @Issue 40454
+ * @Issue 40454, 40541
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

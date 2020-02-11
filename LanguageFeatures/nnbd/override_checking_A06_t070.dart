@@ -11,28 +11,25 @@
  * Otherwise, for the purposes of runtime subtyping checks, [C] is considered to
  * implement the canonical interface given by [NNBD_TOP_MERGE(S0, ..., Sn)].
  *
- * @description Check that compile error is thrown as a result of
- * [NNBD_TOP_MERGE(FutureOr, dynamic*)]
+ * @description Check that cthe result of [NNBD_TOP_MERGE(FutureOr, dynamic*)]
+ * is dynamic.
  *
- * @Issue 40454
+ * @Issue 40454, 40541
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 import "dart:async";
+import "../../Utils/expect.dart";
 import "override_checking_A06_opted_out_lib.dart";
 
 class B extends A<FutureOr> {}
 
 class in1 extends out_dynamic implements B {}
-//    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 class in2 extends B implements out_dynamic {}
-//    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
-main() {}
+main() {
+  Expect.equals(FutureOr, in1().getType());
+  Expect.equals(FutureOr, in2().getType());
+}

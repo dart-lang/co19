@@ -11,10 +11,11 @@
  * Otherwise, for the purposes of runtime subtyping checks, [C] is considered to
  * implement the canonical interface given by [NNBD_TOP_MERGE(S0, ..., Sn)].
  *
- * @description Check that error occurs as a result of [NNBD_TOP_MERGE] of
- * [Null] vs [FutureOr*].
+ * @description Check that error occurs as a result of the following cases:
+ *    NNBD_TOP_MERGE(Never, FutureOr*)
+ *    NNBD_TOP_MERGE(Never, FutureOr<int>*)
+ *    NNBD_TOP_MERGE(Never, FutureOr<FutureOr>*)
  *
- * @Issue 40454
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -22,7 +23,7 @@
 
 import "override_checking_A06_opted_out_lib.dart";
 
-class B extends A<Null> {}
+class B extends A<Never> {}
 
 class in_FutureOr extends out_FutureOr implements B {}
 //    ^^^^^^^^^^^
