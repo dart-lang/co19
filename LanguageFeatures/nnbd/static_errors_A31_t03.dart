@@ -27,20 +27,17 @@
 
 class C {
   const C();
-
   bool operator ==(Object other) => true;
 }
 
 main() {
   const c1 = const C();
-
   C c = new C();
-
   switch (c) {
-//^^^^^^
+    case c1:
+//       ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    case c1:
       true;
       break;
     default:
