@@ -68,15 +68,31 @@ class ReturnValueGen<X> {
 main() {
   C0<U0, U1, U2> returnValueLocalFunc() => forgetType(t0Instance);
 
-  Expect.throws(() {returnValueFunc();}, (e) => e is TypeError);
-  Expect.throws(() {returnValueLocalFunc();}, (e) => e is TypeError);
-  Expect.throws(() {ReturnValueTest.staticTestMethod();}, (e) => e is TypeError);
+  Expect.throws(() {
+    returnValueFunc();
+  }, (e) => e is TypeError || e is CastError);
+  Expect.throws(() {
+    returnValueLocalFunc();
+  }, (e) => e is TypeError || e is CastError);
+  Expect.throws(() {
+    ReturnValueTest.staticTestMethod();
+  }, (e) => e is TypeError || e is CastError);
 
-  Expect.throws(() {new ReturnValueTest().testMethod();}, (e) => e is TypeError);
-  Expect.throws(() {new ReturnValueTest().testGetter;}, (e) => e is TypeError);
+  Expect.throws(() {
+    new ReturnValueTest().testMethod();
+  }, (e) => e is TypeError || e is CastError);
+  Expect.throws(() {
+    new ReturnValueTest().testGetter;
+  }, (e) => e is TypeError || e is CastError);
 
   // Test type parameters
 
-    Expect.throws(() {new ReturnValueGen<C0<U0, U1, U2>>().testMethod();}, (e) => e is TypeError);
-  Expect.throws(() {new ReturnValueGen<C0<U0, U1, U2>>().testGetter;}, (e) => e is TypeError);
-  }
+  //# <-- NotGenericFunctionType
+  Expect.throws(() {
+    new ReturnValueGen<C0<U0, U1, U2>>().testMethod();
+  }, (e) => e is TypeError || e is CastError);
+  Expect.throws(() {
+    new ReturnValueGen<C0<U0, U1, U2>>().testGetter;
+  }, (e) => e is TypeError || e is CastError);
+  //# -->
+}

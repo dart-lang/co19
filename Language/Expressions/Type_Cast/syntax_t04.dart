@@ -22,6 +22,6 @@ main() {
   try {
     int as num;
     Expect.fail("CastError expected");
-  } on CastError catch (e) {
-  }
+  } on CastError catch (e) {}
+  on TypeError catch (e) {}
 }

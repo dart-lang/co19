@@ -19,5 +19,8 @@ main() {
   } on TypeError catch(e) {
     Expect.isTrue(e.toString() != null);
     Expect.isTrue(e.toString() is String);
+  } on CastError catch(e) {
+    Expect.isTrue(e.toString() != null);
+    Expect.isTrue(e.toString() is String);
   }
 }

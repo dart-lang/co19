@@ -37,4 +37,5 @@ main() {
     c = 1 as I;
     Expect.fail("CastError expected");
   } on CastError catch (e) {}
+   on TypeError catch (e) {}
 }

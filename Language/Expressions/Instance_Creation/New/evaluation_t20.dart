@@ -26,5 +26,5 @@ import '../../../../Utils/expect.dart';
 import 'evaluation_t06_lib.dart' deferred as p;
 
 main() {
-  Expect.throws(() {new p.C.accessibleConstructor();}, (e) => e is TypeError);
+  Expect.throws(() {new p.C.accessibleConstructor();}, (e) => e is TypeError|| e is CastError);
 }

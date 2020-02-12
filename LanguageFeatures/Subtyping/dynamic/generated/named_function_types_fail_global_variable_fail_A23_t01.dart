@@ -77,7 +77,7 @@ T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
 const t1Default = t1Func;
-
+
 
 
 class GlobalVariableTest {
@@ -103,22 +103,22 @@ main() {
 
   Expect.throws(() {
     t1Instance = forgetType(t0Instance);
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
 
   Expect.throws(() {
     bar();
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
 
   Expect.throws(() {
     new GlobalVariableTest();
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
 
   Expect.throws(() {
     new GlobalVariableTest.valid().foo();
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
 
   Expect.throws(() {
     GlobalVariableTest.test();
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
 }
 

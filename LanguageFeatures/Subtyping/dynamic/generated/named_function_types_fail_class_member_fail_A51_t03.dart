@@ -110,16 +110,16 @@ class ClassMember2_t03<X> extends ClassMemberSuper2_t03<X> {
 main() {
   Expect.throws(() {
     new ClassMember1_t03().m = forgetType(t0Instance);
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
   Expect.throws(() {
     new ClassMember1_t03().superSetter = forgetType(t0Instance);
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
   Expect.throws(() {
     new ClassMember1_t03().test1();
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
   Expect.throws(() {
     new ClassMember1_t03().test2();
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
 
   // Test type parameters
 

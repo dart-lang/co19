@@ -77,7 +77,7 @@ T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
 const t1Default = t1Func;
-
+
 
 
 class ClassMemberSuper1_t03 {
@@ -121,16 +121,16 @@ class ClassMember2_t03<X> extends ClassMemberSuper2_t03<X> {
 main() {
   Expect.throws(() {
     new ClassMember1_t03().m = forgetType(t0Instance);
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
   Expect.throws(() {
     new ClassMember1_t03().superSetter = forgetType(t0Instance);
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
   Expect.throws(() {
     new ClassMember1_t03().test1();
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
   Expect.throws(() {
     new ClassMember1_t03().test2();
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
 
   // Test type parameters
 

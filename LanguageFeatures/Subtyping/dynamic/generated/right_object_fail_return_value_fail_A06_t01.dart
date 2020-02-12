@@ -64,15 +64,31 @@ class ReturnValueGen<X> {
 main() {
   Object returnValueLocalFunc() => forgetType(t0Instance);
 
-  Expect.throws(() {returnValueFunc();}, (e) => e is TypeError);
-  Expect.throws(() {returnValueLocalFunc();}, (e) => e is TypeError);
-  Expect.throws(() {ReturnValueTest.staticTestMethod();}, (e) => e is TypeError);
+  Expect.throws(() {
+    returnValueFunc();
+  }, (e) => e is TypeError || e is CastError);
+  Expect.throws(() {
+    returnValueLocalFunc();
+  }, (e) => e is TypeError || e is CastError);
+  Expect.throws(() {
+    ReturnValueTest.staticTestMethod();
+  }, (e) => e is TypeError || e is CastError);
 
-  Expect.throws(() {new ReturnValueTest().testMethod();}, (e) => e is TypeError);
-  Expect.throws(() {new ReturnValueTest().testGetter;}, (e) => e is TypeError);
+  Expect.throws(() {
+    new ReturnValueTest().testMethod();
+  }, (e) => e is TypeError || e is CastError);
+  Expect.throws(() {
+    new ReturnValueTest().testGetter;
+  }, (e) => e is TypeError || e is CastError);
 
   // Test type parameters
 
-    Expect.throws(() {new ReturnValueGen<Object>().testMethod();}, (e) => e is TypeError);
-  Expect.throws(() {new ReturnValueGen<Object>().testGetter;}, (e) => e is TypeError);
-  }
+  //# <-- NotGenericFunctionType
+  Expect.throws(() {
+    new ReturnValueGen<Object>().testMethod();
+  }, (e) => e is TypeError || e is CastError);
+  Expect.throws(() {
+    new ReturnValueGen<Object>().testGetter;
+  }, (e) => e is TypeError || e is CastError);
+  //# -->
+}

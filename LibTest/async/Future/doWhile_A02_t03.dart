@@ -39,7 +39,7 @@ main() {
       },
       onError: (e) {
         Expect.equals(2, num);
-        Expect.isTrue(e is TypeError);
+        Expect.isTrue(e is TypeError || e is CastError);
         asyncEnd();
       }
   );

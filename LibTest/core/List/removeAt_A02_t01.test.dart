@@ -19,7 +19,7 @@ test(List create([int length])) {
     List a = create();
     a.addAll(a0);
     Expect.throws(() {a.removeAt(index);},
-        (e) => (e is ArgumentError) || (e is TypeError));
+        (e) => (e is ArgumentError) || (e is TypeError) || (e is CastError));
   }
 
   List a0 = [1, 3, 3, 4, 5, 6];

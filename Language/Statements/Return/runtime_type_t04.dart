@@ -33,7 +33,7 @@ main() {
       },
       onError: (e) {
         // TODO catch compile error as well
-        Expect.isTrue(e is TypeError);
+        Expect.isTrue(e is TypeError || e is CastError);
         asyncEnd();
       }
   );

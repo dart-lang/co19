@@ -92,87 +92,87 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingSuper1_t03 {
   test() {
     Expect.throws(() {
       superTest(forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       this.superTest(forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       super.superTest(forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       superTestPositioned(forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       this.superTestPositioned(forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       super.superTestPositioned(forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       superTestPositioned(forgetType(t1Instance), forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       this.superTestPositioned(forgetType(t1Instance), forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       super.superTestPositioned(forgetType(t1Instance), forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       superTestNamed(forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       this.superTestNamed(forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       super.superTestNamed(forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       superTestNamed(forgetType(t1Instance), val2: forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       this.superTestNamed(forgetType(t1Instance), val2: forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       super.superTestNamed(forgetType(t1Instance), val2: forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       superSetter = forgetType(t0Instance);
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       this.superSetter = forgetType(t0Instance);
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       super.superSetter = forgetType(t0Instance);
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       superGetter;
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       this.superGetter;
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       super.superGetter;
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
   }
 }
 
@@ -188,63 +188,63 @@ class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingSuper2_t03<X>
   test() {
     Expect.throws(() {
       superTest(forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       this.superTest(forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       super.superTest(forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       superTestNamed(forgetType(t0Instance), val2: forgetType(t1Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       this.superTestNamed(forgetType(t0Instance), val2: forgetType(t1Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       super.superTestNamed(forgetType(t0Instance), val2: forgetType(t1Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       superTestNamed(forgetType(t1Instance), val2: forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       this.superTestNamed(forgetType(t1Instance), val2: forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       super.superTestNamed(forgetType(t1Instance), val2: forgetType(t0Instance));
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       superSetter = forgetType(t0Instance);
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       this.superSetter = forgetType(t0Instance);
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       super.superSetter = forgetType(t0Instance);
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       superGetter;
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       this.superGetter;
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
 
     Expect.throws(() {
       super.superGetter;
-    }, (e) => e is TypeError);
+    }, (e) => e is TypeError || e is CastError);
   }
 }
 
@@ -252,31 +252,31 @@ main() {
   // test class members
   Expect.throws(() {
     new ArgumentsBinding1_t03().superTest(forgetType(t0Instance));
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
 
   Expect.throws(() {
     new ArgumentsBinding1_t03().superTestPositioned(forgetType(t0Instance));
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
 
   Expect.throws(() {
     new ArgumentsBinding1_t03().superTestPositioned(t1Instance, forgetType(t0Instance));
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
 
   Expect.throws(() {
     new ArgumentsBinding1_t03().superTestNamed(forgetType(t0Instance));
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
 
   Expect.throws(() {
     new ArgumentsBinding1_t03().superTestNamed(t1Instance, val2: forgetType(t0Instance));
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
 
   Expect.throws(() {
     new ArgumentsBinding1_t03().superSetter = forgetType(t0Instance);
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
 
   Expect.throws(() {
     new ArgumentsBinding1_t03().superGetter;
-  }, (e) => e is TypeError);
+  }, (e) => e is TypeError || e is CastError);
 
   new ArgumentsBinding1_t03().test();
 

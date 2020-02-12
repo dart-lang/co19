@@ -111,7 +111,8 @@ main() {
 
   // Test type parameters
 
-    // test generic functions
+  //# <-- NotGenericFunctionType
+  // test generic functions
   namedArgumentsFunc2<T1>(forgetType(t0Instance), t2: forgetType(t0Instance));
 
   // test generic class constructors
@@ -126,4 +127,5 @@ main() {
   instance2.namedArgumentsMethod(forgetType(t0Instance),
       t2: forgetType(t0Instance));
   instance2.testSetter = forgetType(t0Instance);
-  }
+  //# -->
+}
