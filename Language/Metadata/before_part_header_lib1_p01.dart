@@ -6,3 +6,5 @@
 
 @Deprecated('before_lib2_p01')
 part of before_lib2;
+
+int i = 0;
