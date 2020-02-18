@@ -4,16 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error if a top level variable, static variable, or
- * instance field with potentially non-nullable type has no initializer
- * expression and is not initialized in a constructor via an initializing formal
- * or an initializer list entry, unless the variable or field is marked with the
- * 'late' modifier.
+ * @assertion It is an error if a top level variable or static variable with a
+ * non-nullable type has no initializer expression unless the variable is marked
+ * with the `late` modifier.
  *
- * @description Check that it is an error if a top level variable, static
- * variable, or instance field with potentially non-nullable type has no
- * initializer expression and is not initialized in a constructor via an
- * initializing formal or an initializer list entry. Test FutureOr<FutureOr<A>>
+ * @description Check that it is an error if a top level variable or static
+ * variable with a non-nullable type has no initializer expression unless the
+ * variable is marked with the `late` modifier. Test FutureOr<FutureOr<A>>
  * where A is some class
  * @author sgrekhov@unipro.ru
  */
@@ -43,17 +40,8 @@ class C {
 //                                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  FutureOr<FutureOr<A>> f5;
-//                      ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  FutureOr<FutureOr<String>> f6;
-//                           ^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
+  new C();
 }
