@@ -28,9 +28,9 @@ typedef AAlias<T1, T2, T3> = A<T1, T2, T3>;
 typedef BAlias = AAlias;
 
 main() {
-  AAlias().test(dynamic);
+  AAlias().test(dynamic, dynamic, dynamic);
   AAlias<int, String, num>().test(int, String, num);
 
-  BAlias().test(dynamic);
+  BAlias().test(dynamic, dynamic, dynamic);
   BAlias<int, String, num>().test(int, String, num);
 }
