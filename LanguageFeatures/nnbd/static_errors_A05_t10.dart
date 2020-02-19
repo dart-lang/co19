@@ -24,19 +24,27 @@ import "dart:async";
 
 class A {}
 
-class C {
+class C1 {
   FutureOr<A> f1;
-//            ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   FutureOr<String> f2;
-//                 ^^
+  C1() {}
+//^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  C() {}
 }
 
+abstract class C2 {
+  FutureOr<A> f1;
+  FutureOr<String> f2;
+  C2() {}
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C3 extends C2 {}
+
 main() {
-  new C();
+  new C1();
+  new C3();
 }

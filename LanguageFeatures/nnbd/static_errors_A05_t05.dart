@@ -21,14 +21,25 @@
 // Requirements=nnbd-strong
 import "legacy_lib.dart";
 
-class C {
+class C1 {
   A a;
-//  ^
+  C1() {}
+//^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  C() {}
 }
 
+abstract class C2 {
+  A a;
+  C2() {}
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C3 extends C2 {}
+
 main() {
-  new C();
+  new C1();
+  new C3();
 }

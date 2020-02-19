@@ -24,19 +24,29 @@ import "dart:async";
 
 typedef void Foo();
 
-class C {
+class C1 {
   FutureOr<Function> f1;
-//                   ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   FutureOr<Foo> f2;
-//              ^^
+
+  C1() {}
+//^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  C() {}
 }
 
+abstract class C2 {
+  FutureOr<Function> f1;
+  FutureOr<Foo> f2;
+
+  C2() {}
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C3 extends C2 {}
+
 main() {
-  new C();
+  new C1();
+  new C3();
 }

@@ -21,14 +21,25 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
-class C<X extends Object> {
+class C1<X extends Object> {
   X x;
-//  ^
+  C1() {}
+//^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  C() {}
 }
 
+abstract class C2<X extends Object> {
+  X x;
+  C2() {}
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C3 extends C2 {}
+
 main() {
-  new C();
+  new C1();
+  new C3();
 }

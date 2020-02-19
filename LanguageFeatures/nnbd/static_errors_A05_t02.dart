@@ -20,14 +20,25 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
-class C {
+class C1 {
   Function f;
-//         ^
+  C1() {}
+//^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  C() {}
 }
 
+abstract class C2 {
+  Function f;
+  C2() {}
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C3 extends C2 {}
+
 main() {
-  new C();
+  new C1();
+  new C3();
 }

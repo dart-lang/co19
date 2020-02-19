@@ -22,14 +22,25 @@
 // Requirements=nnbd-strong
 import "dart:async";
 
-class C<T extends Object> {
+class C1<T extends Object> {
   FutureOr<T> t;
-//            ^
+  C1() {}
+//^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  C() {}
 }
 
+abstract class C2<T extends Object> {
+  FutureOr<T> t;
+  C2() {}
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class C3 extends C2 {}
+
 main() {
-  new C<String>();
+  new C1();
+  new C3();
 }
