@@ -27,27 +27,27 @@ typedef G6<T1, T2, T3> = void Function();
 
 Object? G3_expected<T extends Object?>() { return T; }
 
-F<G1<Object?>> test1(G1 source) {
+F<G1<Object?>>? test1(G1 source) {
   var fsource = toF(source);
   return fsource;
 }
 
-F<G2<Object?>> test2(G2 source) {
+F<G2<Object?>>? test2(G2 source) {
   var fsource = toF(source);
   return fsource;
 }
 
-F<G4<Object?, Object?, Object?>> test4(G4 source) {
+F<G4<Object?, Object?, Object?>>? test4(G4 source) {
   var fsource = toF(source);
   return fsource;
 }
 
-F<G5<Object?>> test5(G5 source) {
+F<G5<Object?>>? test5(G5 source) {
   var fsource = toF(source);
   return fsource;
 }
 
-F<G6<Object?, Object?, Object?>> test6(G6 source) {
+F<G6<Object?, Object?, Object?>>? test6(G6 source) {
   var fsource = toF(source);
   return fsource;
 }

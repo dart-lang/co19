@@ -11,7 +11,7 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
-// Requirements=nnbd-strong
+// Requirements=nnbd-strong,nonfunction-type-aliases
 
 import "../../Utils/expect.dart";
 
@@ -24,9 +24,9 @@ typedef BAlias<T1, T2, T3> = B<T1, T2, T3>;
 main() {
   AAlias? source;
   var fsource = toF(source);
-  F<AAlias<Object?>> target = fsource;
+  F<AAlias<Object?>>? target = fsource;
 
   BAlias? sourceB;
   var fsourceB = toF(sourceB);
-  F<BAlias<Object?, Object?, Object?>> targetB = fsourceB;
+  F<BAlias<Object?, Object?, Object?>>? targetB = fsourceB;
 }

@@ -22,27 +22,27 @@ typedef T Function3<T>(T);
 typedef T1 Function4<T1, T2, T3>(T2, T3);
 typedef void Function5<T>();
 
-F<Function1<Object?>> test1(Function1 source) {
+F<Function1<Object?>>? test1(Function1 source) {
   var fsource = toF(source);
   return fsource;
 }
 
-F<Function2<Object?>> test2(Function2 source) {
+F<Function2<Object?>>? test2(Function2 source) {
   var fsource = toF(source);
   return fsource;
 }
 
-F<Function1<Object?>> test3(Function1 source) {
+F<Function1<Object?>>? test3(Function1 source) {
   var fsource = toF(source);
   return fsource;
 }
 
-F<Function4<Object?, Object?, Object?>> test4(Function4 source) {
+F<Function4<Object?, Object?, Object?>>? test4(Function4 source) {
   var fsource = toF(source);
   return fsource;
 }
 
-F<Function5<dynamic>> test5(Function5 source) {
+F<Function5<dynamic>>? test5(Function5 source) {
   var fsource = toF(source);
   return fsource;
 }
