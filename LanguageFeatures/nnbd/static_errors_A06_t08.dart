@@ -4,47 +4,33 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error if the body of a method, function, getter, or
- * function expression with a potentially non-nullable return type may complete
- * normally.
+ * @assertion It is an error if a mixin declaration or a class declaration with
+ * no generative constructors declares an instance variable with a potentially
+ * non-nullable type and no initializer expression unless the variable is marked
+ * with the late modifier.
  *
- * @description It is an error if the body of a method, function, getter, or
- * function expression with a potentially non-nullable return type may complete
- * normally. Test FutureOr<Never>
+ * @description Check that it is an error if a mixin declaration with no
+ * generative constructors declares an instance variable with a potentially
+ * non-nullable type and no initializer expression. Test some class X
  * @author sgrekhov@unipro.ru
- * @issue 40396
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-import "dart:async";
+typedef void Foo();
 
-class C {
-  static FutureOr<Never> sTest() {}
-//                       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+class A {}
+class X {}
 
-  FutureOr<Never> mTest() {}
-//                ^^^^^
+mixin M on A {
+  X x;
+//  ^
 // [analyzer] unspecified
-// [cfe] unspecified
-
-  FutureOr<Never> get gTest {}
-//                    ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+// [cfe] unspecified}
 }
 
-FutureOr<Never> test() {}
-//              ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
+class C extends A with M {
+}
 
 main() {
-  C.sTest();
-  C c = new C();
-  c.mTest();
-  c.gTest;
-  test();
+  new C();
 }

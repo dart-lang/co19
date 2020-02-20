@@ -4,35 +4,34 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion For the purposes of errors and warnings, the null aware operators
- * ?., ?.., and ?.[] are checked as if the receiver of the operator had
- * non-nullable type. More specifically, if the type of the receiver of a null
- * aware operator is T, then the operator is checked as if the receiver had type
- * NonNull(T).
+ * @assertion It is an error if a required named parameter has a default value.
  *
- * @description Check that if the type of the receiver of a null aware operator
- * is T, then the operator is checked as if the receiver had type NonNull(T).
- * Test Function
- * @issue 38715
- * @issue 39598
- * Language @issue https://github.com/dart-lang/language/issues/711
+ * @description Check that it is an error if a required named parameter has a
+ * default value. Test both covariant and required modifiers
  * @author sgrekhov@unipro.ru
- * @static-warning
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-typedef void Foo();
-
-void foo() {}
-
-main() {
-  Function f1 = foo;
-  f1?.toString();     /// static type warning
-  f1 ?.. toString();  /// static type warning
-
-  Foo f2 = foo;
-  f2?.toString();     /// static type warning
-  f2 ?.. toString();  /// static type warning
+class A {
+  const A();
 }
 
+const a = const A();
 
+class C {
+  void test1({required covariant A x = a}) {}
+//                                 ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  void test2(int x, {required covariant A s = a}) {}
+//                                        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  void test3(int x, {required covariant A y = a, int z = 42}) {}
+//                                        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+main() {
+}

@@ -4,25 +4,33 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is not an error to apply an expression of type Never in the
- * function position of a function call
+ * @assertion For the purposes of errors and warnings, the null aware operators
+ * ?., ?.., and ?.[] are checked as if the receiver of the operator had
+ * non-nullable type. More specifically, if the type of the receiver of a null
+ * aware operator is T, then the operator is checked as if the receiver had type
+ * NonNull(T).
  *
- * @description Check that it is not  an error to apply an expression of type
- * Never in the function position of a function call.
+ * @description Check that if the type of the receiver of a null aware operator
+ * is T, then the operator is checked as if the receiver had type NonNull(T).
+ * Test dynamic
+ * @issue 38715
  * @author sgrekhov@unipro.ru
- * @issue 39866
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-
-void test(var x) {
-  if (x is Never) {
-    x();
-    x(1);
-    x("1");
-  }
+class A {
+  void test() {}
+  int operator[](int index) => 0;
 }
 
 main() {
-  test(null);
+  dynamic a = null;
+  a?.test();
+  a ?.. test();
+  a?.[0];
+
+  a = new A();
+  a?.test();
+  a ?.. test();
+  a?.[0];
 }

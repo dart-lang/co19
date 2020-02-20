@@ -1,32 +1,75 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error for a class with a const constructor to have a late
- * final field.
+ * @assertion It is a compile time error to assign a value to a local variable
+ * marked late and final when the variable is definitely assigned. This includes
+ * all forms of assignments, including assignments via the composite assignment
+ * operators as well as pre and post-fix operators.
  *
- * @description Check that it is an error for a class with a const constructor
- * to have a late final field.
+ * @description Check that it is a compile time error to assign a value to a
+ * local variable marked late and final when the variable is definitely assigned
  * @author sgrekhov@unipro.ru
- * @issue 39681
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-class C {
-  static late final int s = 42;
-//       ^^^^
+
+main() {
+  late final int x = 42;
+  x = 1;
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  late final int i = 42;
-//^^^^
+  x += 1;
+//  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  const C();
-}
 
-main()  {
-  C();
+  x -= 1;
+//  ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  x *= 1;
+//  ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  x %= 1;
+//  ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  x ~/= 1;
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  x <<= 1;
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  x >>= 1;
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  x &= 1;
+//  ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  x ^= 1;
+//  ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  x |= 1;
+//  ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

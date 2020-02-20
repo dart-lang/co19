@@ -4,30 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion We say that a type T is nullable if Null <: T and not T <: Object.
- * This is equivalent to the syntactic criterion that T is any of:
- *  Null
- *  S? for some S
- *  S* for some S where S is nullable
- *  FutureOr<S> for some S where S is nullable
- *  dynamic
- *  void
+ * @assertion It is an error for a variable to be declared as late in any of the
+ * following positions: in a formal parameter list of any kind; in a catch
+ * clause; in the variable binding section of a c-style for loop, a for in loop,
+ * an await for loop, or a for element in a collection literal.
  *
- * @description Check that null can be assigned to nullable type. Test S* for
- * some S where S is nullable. Test pre-NNBD legacy classes
+ * @description Check that it is an error if variable declared late in the
+ * variable binding section of a c-style for loop
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-import "legacy_lib.dart";
-
 main() {
-  var a1 = getLegacyDynamic(null);
-  a1 = null;
-
-  var a2 = getLegacyDynamic("Show must go on");
-  a2 = null;
-
-  var a3 = getLegacyNull();
-  a3 = null;
+  for (late int i = 0; i < 3; i++) {
+//     ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }

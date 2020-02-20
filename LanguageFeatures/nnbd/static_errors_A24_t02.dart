@@ -4,52 +4,31 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error for the initializer expression of a late local
- * variable to use a prefix await expression that is not nested inside of
- * another function expression.
+ * @assertion It is not a compile time error to write to a final variable if
+ * that variable is declared late and does not have an initializer.
  *
- * @description Check that it is an error for the initializer expression of a
- * late local variable to use a prefix await expression.
+ * @description Check that it is a runtime error to write to a final variable
+ * when that variable is declared late but has been written to already
  * @author sgrekhov@unipro.ru
- * @issue 39661
+ * @issue 39684
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-import "dart:async";
+import "../../Utils/expect.dart";
+
+late final g;
 
 class C {
-  static void sTest() async {
-    late int i;
-    i = await 42;
-//      ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-
-  void mTest() async {
-    late int i;
-    i = await 42;
-//      ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+  static late final s;
+  late final v;
 }
 
-void test() async {
-  late int i;
-  i = await 42;
-//    ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
+main() {
+  g = "Lily";
+  C.s = "was";
+  new C().v = "here";
 
-main() async {
-  late int i;
-  i = await 42;
-//    ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  test();
-  C.sTest();
-  C().mTest();
+  Expect.throws(() {g = "Lily";});
+  Expect.throws(() {C.s = "was";});
+  Expect.throws(() {new C().v = "here";});
 }

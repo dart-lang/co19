@@ -4,30 +4,64 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error if the object being iterated over by a for-in loop
- * has a static type which is not dynamic, and is not a subtype of
- * Iterable<dynamic>
+ * @assertion It is an error if the static type of e in the expression 'throw e'
+ * is not assignable to Object
  *
- * @description Check that it is no error if the object being iterated over by a
- * for-in loop has a static type which is dynamic, or a subtype of
- * Iterable<dynamic>
+ * @description Check that it is an error if the static type of e in the
+ * expression throw e is not assignable to Object. Test type aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
+class A {
+}
 
-class C {
+typedef NullAlias = Null;
+typedef AAlias = A?;
+typedef ObjectAlias = Object?;
+typedef FunctionAlias = Function?;
+
+void test1(NullAlias x) {
+  throw x;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+void test2(AAlias x) {
+  throw x;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+void test3(FunctionAlias x) {
+  throw x;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+void test4<T extends NullAlias>(T x) {
+  throw x;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+void test5<T extends ObjectAlias>(T x) {
+  throw x;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+void test6<T extends FunctionAlias>(T x) {
+  throw x;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  C c = C();
-  dynamic d = [c, Object()];
-  List<C> list1 = [C(), C(), C()];
-  List<C?> list2 = [C(), null, C()];
-
-  for (var o in d) {}
-  for (C c in list1) {}
-  for (C? c in list2) {}
-  for (var o in [Object(), Object()]) {}
-  for (var o in [Object(), null, c]) {}
 }

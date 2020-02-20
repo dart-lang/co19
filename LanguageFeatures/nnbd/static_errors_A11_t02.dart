@@ -4,23 +4,71 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion For the purposes of errors and warnings, the null aware operators
- * ?., ?.., and ?.[] are checked as if the receiver of the operator had
- * non-nullable type. More specifically, if the type of the receiver of a null
- * aware operator is T, then the operator is checked as if the receiver had type
- * NonNull(T).
+ * @assertion It is an error if a required named parameter has a default value.
  *
- * @description Check that if the type of the receiver of a null aware operator
- * is T, then the operator is checked as if the receiver had type NonNull(T).
- * Test Null
- * @issue 38715
- * Language @issue https://github.com/dart-lang/language/issues/711
+ * @description Check that it is an error if a required named parameter has a
+ * default value.
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
+class A {
+  const A();
+}
+
+const a = const A();
+
+class C {
+  static void test1({required A x = a}) {}
+//                              ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  static void test2(int x, {required A s = a}) {}
+//                                     ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  static void test3(int x, {required A y = a, String z = ""}) {}
+//                                     ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  void test4({required A x = a}) {}
+//                       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  void test5(int x, {required A s = a}) {}
+//                              ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  void test6(int x, {required A y = a, int z = 42}) {}
+//                              ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+void test7({required A x = a}) {}
+//                     ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+void test8(int x, {required A s = a}) {}
+//                            ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+void test9(int x, {required A y = a, int z = 42}) {}
+//                            ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
-  Null a = null;
-  a?.toString();
-  a ?.. toString();
+  var f1 = ({required A x = a}) {};
+//                      ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  var f2 = (int x, {required A s = a}) {};
+//                             ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  var f3 = (int x, {required A y = a, int z = 42}) {};
+//                             ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

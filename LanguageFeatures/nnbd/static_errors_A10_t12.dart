@@ -4,39 +4,51 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error to call the default List constructor with a length
- * argument and a type argument which is potentially non-nullable.
+ * @assertion It is an error if an optional parameter (named or otherwise) with
+ * no default value has a potentially non-nullable type except in the parameter
+ * list of an abstract method declaration.
  *
- * @description Check that it is not an error if the default List constructor is
- * called with no length argument but with a type argument which is potentially
- * non-nullable.
+ * @description Check that it is a compile-time error if an optional parameter
+ * (named or otherwise) with no default value has a potentially non-nullable
+ * type. Test FutureOr<A*>
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "dart:async";
-typedef void Foo();
-class A {}
+import "legacy_lib.dart";
 
-test1<T extends Object>() {
-  new List<T>();
-}
-test2<T extends Object?>() {
-  new List<T>();
+class C {
+  static void test1(var v, [FutureOr<A> fo]) {}
+//                                      ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static void test2(var v, {FutureOr<A> fo}) {}
+//                                      ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test11(var v, [FutureOr<A> fo]) {}
+//                                ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test22(var v, {FutureOr<A> fo}) {}
+//                                ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
+void test1(var v, [FutureOr<A> fo]) {}
+//                             ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+void test2(var v, {FutureOr<A> fo}) {}
+//                             ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  new List<Never>();
-  new List<Function>();
-  new List<Foo>();
-  new List<A>();
-  new List<FutureOr<Never>>();
-  new List<FutureOr<Function>>();
-  new List<FutureOr<Foo>>();
-  new List<FutureOr<A>>();
-  new List<FutureOr<FutureOr<A>>>();
-
-  test1<String>();
-  test2<String?>();
 }

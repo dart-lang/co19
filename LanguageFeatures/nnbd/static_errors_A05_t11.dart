@@ -14,8 +14,7 @@
  * instance variable with a potentially non-nullable type and no initializer
  * expression, and the class has a generative constructor where the variable is
  * not initialized via an initializing formal or an initializer list entry,
- * unless the variable is marked with the late modifier. Test FutureOr<F> where
- * F is a function type. Test FutureOr<A*>
+ * unless the variable is marked with the late modifier. Test FutureOr<A*>
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

@@ -4,25 +4,32 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile time error to assign a value to a local variable
- * marked late and final when the variable is definitely assigned. This includes
- * all forms of assignments, including assignments via the composite assignment
- * operators as well as pre and post-fix operators.
+ * @assertion It is an error if any case of a switch statement except the last
+ * case (the default case if present) may complete normally. The previous
+ * syntactic restriction requiring the last statement of each case to be one of
+ * an enumerated list of statements (break, continue, return, throw, or rethrow)
+ * is removed.
  *
- * @description Check that is a compile time error to read a local variable
- * marked late when the variable is definitely unassigned. This includes all
- * forms of reads, including implicit reads via the composite assignment
- * operators as well as pre and post-fix operators
+ * @description Check that it is an error if any case of a switch statement
+ * except the last case (the default case if present) may complete normally
  * @author sgrekhov@unipro.ru
- * @issue 39876
  */
-// SharedOptions=--enable-experiment=non-nullable,triple-shift
+// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 main() {
-  late int x;
-  x >>>= 1;
+  int i = 42;
+  switch (i) {
+    case 1: true;
 //  ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+    case 2: foo();
+//  ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+    default: false;
+  }
 }

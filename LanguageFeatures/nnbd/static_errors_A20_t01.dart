@@ -4,29 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a warning to use a null aware operator (?., ?.., ??, ??=,
- * or ...?) on an expression of type T if T is strictly non-nullable.
+ * @assertion It is not an error for the body of a late field to reference this.
  *
- * @description Check it is a warning to use a null aware operator (?., ?.., ??,
- * ??=, or ...?) on a strictly non-nullable receiver.
+ * @description Check that it is not an error for the body of a late field to
+ * reference this.
  * @author sgrekhov@unipro.ru
- * @issue 39598
+ * @issue 39658
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-class A {
-  test() {}
+import "../../Utils/expect.dart";
+
+class C {
+  num pi = 3.14;
+  late num p1 = this.pi;
+  late final p2 = this.pi;
 }
 
-class C extends A {}
-
 main() {
-  A a = A();
-  C c = C();
-  a?.test();                              //# 01: static type warning
-  a?..test();                             //# 02: static type warning
-  a ?? c;                                 //# 03: static type warning
-  a ??= c;                                //# 04: static type warning
-  List<C> clist = [C(), C()];
-  List<A> alist = [A(), C(), ...? clist]; //# 05: static type warning
+  Expect.equals(3.14, new C().p1);
+  Expect.equals(3.14, new C().p2);
 }

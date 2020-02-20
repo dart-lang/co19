@@ -4,50 +4,29 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error for a class to extend, implement, or mixin the type
- * Never
+ * @assertion It is an error for a class with a const constructor to have a late
+ * final field.
  *
- * @description Check that it is an error for a class to extend, implement,
- * or mixin the type Never
+ * @description Check that it is an error for a class with a const constructor
+ * to have a late final field.
  * @author sgrekhov@unipro.ru
+ * @issue 39681
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-class A {}
-class B {}
-
-class C1 extends Never {}
-//               ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-class C2 implements Never {}
-//                  ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-class C3 = A with Never;
-//                ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-class C4 = A with B implements Never;
-//                             ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-class C5 extends A with Never {}
-//                      ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-mixin M1 on Never {}
-//          ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-mixin M2 on A, Never {}
-//             ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-mixin M3 on A implements Never {}
-//                       ^^^^^
+class C {
+  static late final int s = 42;
+//       ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-main() {
+  late final int i = 42;
+//^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const C();
+}
+
+main()  {
+  C();
 }

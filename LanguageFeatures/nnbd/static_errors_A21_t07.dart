@@ -4,27 +4,43 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion We say that a type T is nullable if Null <: T and not T <: Object.
- * This is equivalent to the syntactic criterion that T is any of:
- *  Null
- *  S? for some S
- *  S* for some S where S is nullable
- *  FutureOr<S> for some S where S is nullable
- *  dynamic
- *  void
+ * @assertion It is an error for a variable to be declared as late in any of the
+ * following positions: in a formal parameter list of any kind; in a catch
+ * clause; in the variable binding section of a c-style for loop, a for in loop,
+ * an await for loop, or a for element in a collection literal.
  *
- * @description Check that null can be assigned to nullable type. Test
- * FutureOr<S> for some S where S is nullable
+ * @description Check that it is an error if variable declared late in for
+ * element in a collection literal
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-import "dart:async";
+main() async {
+  List list = [1, 2, 3, 4];
+  <int> [
+    1, 2, 3,
+    for (late var i in list) i,
+//       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  3, 2, 1
+  ];
 
-class C {}
+  <int>{
+    1, 2, 3,
+    for (late var i in list) i,
+//       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    3, 2, 1
+  };
 
-typedef CAlias = C?;
-
-main() {
-  FutureOr<CAlias> fo  = null;
+  <int, int>{
+    21: 21, 22: 22, 23: 23,
+    for (late var i in list) i: i,
+//       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    13: 13, 12: 12, 11: 11
+  };
 }

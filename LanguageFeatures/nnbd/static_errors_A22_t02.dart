@@ -4,41 +4,52 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion We say that a type T is non-nullable if T <: Object. This is
- * equivalent to the syntactic criterion that T is any of:
- *  Never
- *  Any function type (including Function)
- *  Any interface type except Null.
- *  S* for some S where S is non-nullable
- *  FutureOr<S> where S is non-nullable
- *  X extends S where S is non-nullable
- *  X & S where S is non-nullable
+ * @assertion It is an error for the initializer expression of a late local
+ * variable to use a prefix await expression that is not nested inside of
+ * another function expression.
  *
- * @description Check that type which is not subtype of Object cannot be
- * assigned to non-nullable type. Test function type
+ * @description Check that it is an error for the initializer expression of a
+ * late local variable to use a prefix await expression.
  * @author sgrekhov@unipro.ru
+ * @issue 39661
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
+import "dart:async";
 
-void foo() {}
-typedef void bar(int i);
-
-main() {
-  var f1 = foo;
-  f1 = null;
-//     ^^^^
+class C {
+  static void sTest() async {
+    late int i;
+    i = await 42;
+//      ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
 
-  bar f2 = null;
-//         ^^^^
+  void mTest() async {
+    late int i;
+    i = await 42;
+//      ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  }
+}
 
-  Function f3 = (int i) => i;
-  f3 = null;
-//     ^^^^
+void test() async {
+  late int i;
+  i = await 42;
+//    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
+
+main() async {
+  late int i;
+  i = await 42;
+//    ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  test();
+  C.sTest();
+  C().mTest();
 }

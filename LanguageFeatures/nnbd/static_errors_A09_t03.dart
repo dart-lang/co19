@@ -1,66 +1,51 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error if a named parameter that is part of a required
- * group is not bound to an argument at a call site
+ * @assertion It is an error if the body of a method, function, getter, or
+ * function expression with a potentially non-nullable return type may complete
+ * normally.
  *
- * @description Check that it is an error if a named parameter that is part of a
- * required group is not bound to an argument at a call site
+ * @description It is an error if the body of a method, function, getter, or
+ * function expression with a potentially non-nullable return type may complete
+ * normally. Test function type
  * @author sgrekhov@unipro.ru
+ * @issue 40396
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
+
+typedef void Foo();
+
 class C {
-  static void test1({required int x, String y = "", required String z}) {}
-  void test2({required int x, String y = "", required String z}) {}
+  static Foo sTest() {}
+//           ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Foo mTest() {}
+//    ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Foo get gTest {}
+//        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-void test3({required int x, String y = "", required String z}) {}
+Foo test() {}
+//  ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-typedef void Foo({required int x, String y, required String z});
 
 main() {
-  Foo foo = ({required int x, String y = "", required String z}) {};
-
-  C.test1(x: 3, y: "");
-//  ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  C().test2(x: 1, y: "");
-//    ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-    test3(x: 4, y: "");
-//  ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-    foo(x: 5, y: "");
-//  ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  C.test1(z: "No", y: "woman");
-//  ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  C().test2(z: "no", y: "cry");
-//    ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  test3(z: "No", y: "woman");
-//^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  foo(z: "No", y: "woman");
-//^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  C.sTest();
+  C c = new C();
+  c.mTest();
+  c.gTest;
+  test();
 }

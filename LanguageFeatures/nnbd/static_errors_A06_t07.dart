@@ -4,42 +4,34 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error if the body of a method, function, getter, or
- * function expression with a potentially non-nullable return type may complete
- * normally.
+ * @assertion It is an error if a mixin declaration or a class declaration with
+ * no generative constructors declares an instance variable with a potentially
+ * non-nullable type and no initializer expression unless the variable is marked
+ * with the late modifier.
  *
- * @description It is an error if the body of a method, function, getter, or
- * function expression with a potentially non-nullable return type may complete
- * normally. Test <T extends Object>
+ * @description Check that it is an error if a class declaration with no
+ * generative constructors declares an instance variable with a potentially
+ * non-nullable type and no initializer expression. Test some class X
  * @author sgrekhov@unipro.ru
- * @issue 40396
+ * @issue 40677
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
+class X {}
 
-class A {}
-
-class C<T extends Object> {
-  T mTest() {}
-//  ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  T get gTest {}
-//      ^^^^^
+class C {
+  X x;
+  factory C.f() = D;
+//        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
-T test<T extends Object>() {}
-//^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
+class D implements C {
+  X x = new X();
+  D();
+}
 
 main() {
-  C<A> c = new C<A>();
-  c.mTest();
-  c.gTest;
-  test<A>();
+  new C.f();
 }

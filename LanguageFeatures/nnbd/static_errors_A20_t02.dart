@@ -4,36 +4,26 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a warning to use a null aware operator (?., ?.., ??, ??=,
- * or ...?) on an expression of type T if T is strictly non-nullable.
+ * @assertion It is not an error for the body of a late field to reference this.
  *
- * @description Check it is no warning if null aware operators (?., ?.., ??,
- * ??=, or ...?) are used on a nullable receiver.
+ * @description Check that it is not an error for the body of a late field to
+ * reference this.
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
+import "../../Utils/expect.dart";
+
 class A {
-  test() {}
+  String s;
+  A(this.s);
 }
 
-class C extends A {}
+class C {
+  A a = new A("Lily was here");
+  covariant late A a1 = this.a;
+}
 
 main() {
-  A? a = A();
-  C c = C();
-  a?.test();
-  a?..test();
-  a ?? c;
-  a ??= c;
-  List<C>? clist = [C(), C()];
-  List<A> alist = [A(), C(), ...? clist];
-
-  a = null;
-  a?.test();
-  a?..test();
-  a ?? c;
-  a ??= c;
-  clist = null;
-  alist = [A(), C(), ...? clist];
+  Expect.equals("Lily was here", new C().a1.s);
 }

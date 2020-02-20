@@ -4,47 +4,50 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error to call the default List constructor with a length
- * argument and a type argument which is potentially non-nullable.
+ * @assertion It is an error if an optional parameter (named or otherwise) with
+ * no default value has a potentially non-nullable type except in the parameter
+ * list of an abstract method declaration.
  *
- * @description Check that it is an error to call the default List constructor
- * with a length argument and a type argument which is potentially non-nullable.
- * Test type FutureOr<A*>
+ * @description Check that it is a compile-time error if an optional parameter
+ * (named or otherwise) with no default value has a potentially non-nullable
+ * type. Test FutureOr<Function>
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "dart:async";
-import "legacy_lib.dart";
+
+class C {
+  static void test1(var v, [FutureOr<Function> fo]) {}
+//                                             ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static void test2(var v, {FutureOr<Function> fo}) {}
+//                                             ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test11(var v, [FutureOr<Function> fo]) {}
+//                                       ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test22(var v, {FutureOr<Function> fo}) {}
+//                                       ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+void test1(var v, [FutureOr<Function> fo]) {}
+//                                    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+void test2(var v, {FutureOr<Function> fo}) {}
+//                                    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  new List<FutureOr<LegacyFoo>>(42);
-//    ^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  new List<FutureOr<LegacyFoo>>(0);
-//    ^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  new List<FutureOr<A>>(42);
-//    ^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  new List<FutureOr<A>>(0);
-//    ^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  new List<FutureOr<FutureOr<A>>>(42);
-//    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  new List<FutureOr<FutureOr<A>>>(0);
-//    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

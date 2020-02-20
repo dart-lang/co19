@@ -4,31 +4,26 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is not a compile time error to write to a final variable if
- * that variable is declared late and does not have an initializer.
+ * @assertion It is not an error to apply an expression of type Never in the
+ * function position of a function call
  *
- * @description Check that it is a runtime error to write to a final variable
- * when that variable is declared late but has been written to already
+ * @description Check that it is not  an error to apply an expression of type
+ * Never in the function position of a function call. Test type aliases
  * @author sgrekhov@unipro.ru
- * @issue 39684
+ * @issue 39866
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
-import "../../Utils/expect.dart";
+typedef Neverland = Never;
 
-late final g;
-
-class C {
-  static late final s;
-  late final v;
+void test(var x) {
+  if (x is Neverland) {
+    x();
+    x(1);
+    x("1");
+  }
 }
 
 main() {
-  g = "Lily";
-  C.s = "was";
-  new C().v = "here";
-
-  Expect.throws(() {g = "Lily";});
-  Expect.throws(() {C.s = "was";});
-  Expect.throws(() {new C().v = "here";});
+  test(null);
 }

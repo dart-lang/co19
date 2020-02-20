@@ -4,23 +4,30 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a warning to use the null check operator (!) on an
- * expression of type T if T is strictly non-nullable
+ * @assertion It is an error if the object being iterated over by a for-in loop
+ * has a static type which is not dynamic, and is not a subtype of
+ * Iterable<dynamic>
  *
- * @description It is a warning to use the null check operator (!) on an
- * expression of type T if T is strictly non-nullable. Test function type
+ * @description Check that it is no error if the object being iterated over by a
+ * for-in loop has a static type which is dynamic, or a subtype of
+ * Iterable<dynamic>
  * @author sgrekhov@unipro.ru
- * @issue 39598
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-void foo() {}
-typedef void Foo();
+
+class C {
+}
 
 main() {
-  Function f1 = foo;
-  f1!; //# 01: static type warning
+  C c = C();
+  dynamic d = [c, Object()];
+  List<C> list1 = [C(), C(), C()];
+  List<C?> list2 = [C(), null, C()];
 
-  Foo f2 = foo;
-  f2!; //# 02: static type warning
+  for (var o in d) {}
+  for (C c in list1) {}
+  for (C? c in list2) {}
+  for (var o in [Object(), Object()]) {}
+  for (var o in [Object(), null, c]) {}
 }

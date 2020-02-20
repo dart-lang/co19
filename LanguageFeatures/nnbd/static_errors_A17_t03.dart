@@ -4,25 +4,30 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error for a variable to be declared as late in any of the
- * following positions: in a formal parameter list of any kind; in a catch
- * clause; in the variable binding section of a c-style for loop, a for in loop,
- * an await for loop, or a for element in a collection literal.
+ * @assertion It is not an error to call or tear-off a method, setter, or
+ * getter, or to read or write a field, on a receiver of static type Never.
+ * Implementations that provide feedback about dead or unreachable code are
+ * encouraged to indicate that any arguments to the invocation are unreachable.
  *
- * @description Check that it is an error if variable declared late in a catch
- * clause
+ * @description Check that it is a warning to call a method, setter, or
+ * getter on a receiver of static type Never via a null aware operator.
  * @author sgrekhov@unipro.ru
+ * @issue 39866
+ * @static-warning
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-void test() {}
+void test(var x) {
+  if (x is Never) {
+    x?.toString();    /// static type warning
+    x?.runtimeType;   /// static type warning
+    x?.s = 1;         /// static type warning
+    x?..toString();   /// static type warning
+    x?..runtimeType;  /// static type warning
+    x?..s = 1;        /// static type warning
+  }
+}
 
 main() {
-  try {
-    test();
-  } on Exception catch (late e) {
-//                      ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
+  test(null);
 }

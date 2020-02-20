@@ -4,24 +4,50 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is not an error for the body of a late field to reference this.
+ * @assertion It is an error for a class to extend, implement, or mixin the type
+ * Never
  *
- * @description Check that it is not an error for the body of a late field to
- * reference this.
+ * @description Check that it is an error for a class to extend, implement,
+ * or mixin the type Never
  * @author sgrekhov@unipro.ru
- * @issue 39658
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-import "../../Utils/expect.dart";
+class A {}
+class B {}
 
-class C {
-  num pi = 3.14;
-  late num p1 = this.pi;
-  late final p2 = this.pi;
-}
+class C1 extends Never {}
+//               ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+class C2 implements Never {}
+//                  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+class C3 = A with Never;
+//                ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+class C4 = A with B implements Never;
+//                             ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+class C5 extends A with Never {}
+//                      ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+mixin M1 on Never {}
+//          ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+mixin M2 on A, Never {}
+//             ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+mixin M3 on A implements Never {}
+//                       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  Expect.equals(3.14, new C().p1);
-  Expect.equals(3.14, new C().p2);
 }

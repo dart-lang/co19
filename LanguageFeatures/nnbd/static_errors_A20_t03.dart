@@ -4,32 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a warning to use a null aware operator (?., ?.., ??, ??=,
- * or ...?) on an expression of type T if T is strictly non-nullable.
+ * @assertion It is not an error for the body of a late field to reference this.
  *
- * @description Check it is a warning to use a null aware operator (?., ?.., ??,
- * ??=, or ...?) on a strictly non-nullable receiver. Test type aliases
+ * @description Check that it is not an error for the body of a late field to
+ * reference this.
  * @author sgrekhov@unipro.ru
- * @issue 39598
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-class A {
-  test() {}
+import "../../Utils/expect.dart";
+
+class C {
+  num pi = 3.14;
+  late num p1 = this.p2;
+  late final p2 = this.pi;
+  late num? p3 = this.p4;
+  late final num? p4 = this.pi;
 }
 
-class C extends A {}
-
-typedef AAlias = A;
-typedef CAlias = C;
-
 main() {
-  AAlias a = A();
-  CAlias c = C();
-  a?.test();                                //# 01: static type warning
-  a?..test();                               //# 02: static type warning
-  a ?? c;                                   //# 03: static type warning
-  a ??= c;                                  //# 04: static type warning
-  List<CAlias> clist = [C(), C()];
-  List<A> alist = [A(), C(), ...? clist];   //# 05: static type warning
+  Expect.equals(3.14, new C().p1);
+  Expect.equals(3.14, new C().p2);
 }

@@ -4,60 +4,49 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error if the static type of e in the expression 'throw e'
- * is not assignable to Object
+ * @assertion It is an error for a class to extend, implement, or mixin a type
+ * of the form T? for any T.
  *
- * @description Check that it is an error if the static type of e in the
- * expression throw e is not assignable to Object. Test legacy types
+ * @description Check that it is an error for a class to extend, implement,
+ * or mixin a type of the form T? for any T. Test legacy pre-NNBD types
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "legacy_lib.dart";
 
-typedef AAlias = A?;
-
-void test1(AAlias x) {
-  throw x;
-//      ^
+class C1 extends A? {}
+//               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-void test2(A? x) {
-  throw x;
-//      ^
+class C2 implements I? {}
+//                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-void test3(LegacyFoo? x) {
-  throw x;
-//      ^
+class C3 = A with M?;
+//                ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-void test4<T extends AAlias>(T x) {
-  throw x;
-//      ^
+class C4 = A with M implements I?;
+//                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-void test5<T extends A?>(T x) {
-  throw x;
-//      ^
+class C5 extends A with M? {}
+//                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-void test6<T extends LegacyFoo?>(T x) {
-  throw x;
-//      ^
+mixin M1 on A? {}
+//          ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
+mixin M2 on A, M? {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+mixin M3 on A implements I? {}
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

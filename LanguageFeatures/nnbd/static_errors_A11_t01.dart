@@ -4,33 +4,69 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion For the purposes of errors and warnings, the null aware operators
- * ?., ?.., and ?.[] are checked as if the receiver of the operator had
- * non-nullable type. More specifically, if the type of the receiver of a null
- * aware operator is T, then the operator is checked as if the receiver had type
- * NonNull(T).
+ * @assertion It is an error if a required named parameter has a default value.
  *
- * @description Check that if the type of the receiver of a null aware operator
- * is T, then the operator is checked as if the receiver had type NonNull(T).
- * Test dynamic
- * @issue 38715
+ * @description Check that it is an error if a required named parameter has a
+ * default value.
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-class A {
-  void test() {}
-  int operator[](int index) => 0;
+
+class C {
+  static void test1({required int x = 0}) {}
+//                                  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  static void test2(int x, {required String s = ""}) {}
+//                                            ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  static void test3(int x, {required String? y = "", String z = ""}) {}
+//                                             ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  void test4({required int x = 0}) {}
+//                          ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  void test5(int x, {required String s = ""}) {}
+//                                     ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  void test6(int x, {required String? y = "", int z = 42}) {}
+//                                      ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-main() {
-  dynamic a = null;
-  a?.test();
-  a ?.. test();
-  a?.[0];
+void test7({required int x = 0}) {}
+//                       ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+void test8(int x, {required String s = ""}) {}
+//                                  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+void test9(int x, {required String? y = "", int z = 42}) {}
+//                                   ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  a = new A();
-  a?.test();
-  a ?.. test();
-  a?.[0];
+main() {
+  var f1 = ({required int x = 0}) {};
+//                        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var f2 = (int x, {required String s = ""}) {};
+//                                  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var f3 = (int x, {required String? y = "", int z = 42}) {};
+//                                    ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

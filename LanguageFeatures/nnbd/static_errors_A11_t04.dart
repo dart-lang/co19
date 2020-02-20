@@ -4,31 +4,77 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion For the purposes of errors and warnings, the null aware operators
- * ?., ?.., and ?.[] are checked as if the receiver of the operator had
- * non-nullable type. More specifically, if the type of the receiver of a null
- * aware operator is T, then the operator is checked as if the receiver had type
- * NonNull(T).
+ * @assertion It is an error if a required named parameter has a default value.
  *
- * @description Check that if the type of the receiver of a null aware operator
- * is T, then the operator is checked as if the receiver had type NonNull(T).
- * Test Function?
- * @issue 38715
- * Language @issue https://github.com/dart-lang/language/issues/711
+ * @description Check that it is an error if a required named parameter has a
+ * default value. Test legacy pre-NNBD types
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-typedef void Foo();
+import "legacy_lib.dart";
 
-void foo() {}
+const c = const Const();
+
+class C {
+  static void test1({required Const x = c}) {}
+//                                  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static void test2(int x, {required Const s = c}) {}
+//                                         ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static void test3(int x, {required Const y = c, String z = ""}) {}
+//                                         ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test4({required Const x = c}) {}
+//                           ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  void test5(int x, {required Const s = c}) {}
+//                                  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test6(int x, {required Const y = c, int z = 42}) {}
+//                                  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+void test7({required Const x = c}) {}
+//                         ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+void test8(int x, {required Const s = c}) {}
+//                                ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+void test9(int x, {required Const y = c, int z = 42}) {}
+//                                ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  Function? f1 = foo;
-  f1?.toString();
-  f1 ?.. toString();
+  var f1 = ({required Const x = c}) {};
+//                          ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  Foo? f2 = foo;
-  f2?.toString();
-  f2 ?.. toString();
+  var f2 = (int x, {required Const s = c}) {};
+//                                 ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var f3 = (int x, {required Const y = c, int z = 42}) {};
+//                                 ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

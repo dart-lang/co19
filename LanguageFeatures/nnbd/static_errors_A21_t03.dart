@@ -4,33 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion We say that a type T is nullable if Null <: T and not T <: Object.
- * This is equivalent to the syntactic criterion that T is any of:
- *  Null
- *  S? for some S
- *  S* for some S where S is nullable
- *  FutureOr<S> for some S where S is nullable
- *  dynamic
- *  void
+ * @assertion It is an error for a variable to be declared as late in any of the
+ * following positions: in a formal parameter list of any kind; in a catch
+ * clause; in the variable binding section of a c-style for loop, a for in loop,
+ * an await for loop, or a for element in a collection literal.
  *
- * @description Check that null can be assigned to nullable type. Test S? for
- * some S. Test type aliases
+ * @description Check that it is an error if variable declared late in a catch
+ * clause
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-class C {}
-
-typedef CAlias = C?;
-typedef IntAlias = int?;
-typedef StringAlias = String?;
+void test() {}
 
 main() {
-  CAlias c = C();
-  c = null;
-
-  IntAlias i = null;
-
-  StringAlias s = "";
-  s = null;
+  try {
+    test();
+  } on Exception catch (late e) {
+//                      ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }

@@ -1,46 +1,49 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error if a named parameter that is part of a required
- * group is not bound to an argument at a call site
+ * @assertion It is an error if the body of a method, function, getter, or
+ * function expression with a potentially non-nullable return type may complete
+ * normally.
  *
- * @description Check that it is an error if a named parameter that is part of a
- * required group is not bound to an argument at a call site
+ * @description It is an error if the body of a method, function, getter, or
+ * function expression with a potentially non-nullable return type may complete
+ * normally. Test Never
  * @author sgrekhov@unipro.ru
+ * @issue 40396
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
+
 class C {
-  static void test1({required int x}) {}
-  void test2({required int x}) {}
+  static Never sTest() {}
+//             ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Never mTest() {}
+//      ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Never get gTest {}
+//          ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-void test3({required int x}) {}
+Never test() {}
+//    ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-typedef void Foo({required int x});
 
 main() {
-  C.test1();
-//  ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  C().test2();
-//    ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  test3();
-//^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  Foo foo = ({required int x}) {};
-  foo();
-//^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  C.sTest();
+  C c = new C();
+  c.mTest();
+  c.gTest;
+  test();
 }

@@ -4,48 +4,35 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error for the initializer expression of a late local
- * variable to use a prefix await expression that is not nested inside of
- * another function expression.
+ * @assertion It is not a compile time error to write to a final variable if
+ * that variable is declared late and does not have an initializer.
  *
- * @description Check that it is an error for the initializer expression of a
- * late local variable to use a prefix await expression.
+ * @description Check that it is not a compile time error to write to a final
+ * variable if that variable is declared late and does not have an initializer.
  * @author sgrekhov@unipro.ru
- * @issue 39661
+ * @issue 39684
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-import "dart:async";
+  import "../../Utils/expect.dart";
 
-class C {
-  static void sTest() async {
-    late int i = await 42;
-//               ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  late final g;
+
+  class C {
+    static late final s;
+    late final v;
   }
 
-  void mTest() async {
-    late int i = await 42;
-//               ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  main() {
+    late final l;
+
+    g = "Lily";
+    C.s = "was";
+    new C().v = "here";
+    l = "Run, Forrest, run";
+
+    Expect.equals("Lily", g);
+    Expect.equals("was", C.s);
+    Expect.equals("here", C().v);
+    Expect.equals("Run, Forrest, run", l);
   }
-}
-
-void test() async {
-  late int i = await 42;
-//             ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
-
-main() async {
-  late int i = await 42;
-//             ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  test();
-  C.sTest();
-  C().mTest();
-}

@@ -4,32 +4,38 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error if any case of a switch statement except the last
- * case (the default case if present) may complete normally. The previous
- * syntactic restriction requiring the last statement of each case to be one of
- * an enumerated list of statements (break, continue, return, throw, or rethrow)
- * is removed.
+ * @assertion Given a switch statement which switches over an expression e of
+ * type T, where the cases are dispatched based on expressions e0...ek:
  *
- * @description Check that it is an error if any case of a switch statement
- * except the last case (the default case if present) may complete normally
+ * - It is no longer required that the ei evaluate to instances of the same
+ *  class.
+ * - It is an error if any of the ei evaluate to a value whose static type is
+ *  not a subtype of T.
+ * - It is an error if any of the ei evaluate to constants for which equality
+ *  is not primitive.
+ * - If T is an enum type, it is a warning if the switch does not handle all
+ *  enum cases, either explicitly or via a default.
+ * - If T is Q? where Q is an enum type, it is a warning if the switch does not
+ *  handle all enum cases and null, either explicitly or via a default.
+ *
+ * @description Check that it is an error if any of the ei evaluate to a value
+ * whose static type is not a subtype of T
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
+void foo() {}
 
 main() {
-  int i = 42;
+  num i = 42;
   switch (i) {
     case 1: true;
-//  ^^^^
+      break;
+    case "3": foo();
+//       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-    case 2: foo();
-//  ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-    default: false;
+      break;
+    case 42: false;
   }
 }

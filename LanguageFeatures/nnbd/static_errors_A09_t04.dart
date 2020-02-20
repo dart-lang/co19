@@ -1,117 +1,51 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error if a named parameter that is part of a required
- * group is not bound to an argument at a call site
+ * @assertion It is an error if the body of a method, function, getter, or
+ * function expression with a potentially non-nullable return type may complete
+ * normally.
  *
- * @description Check that it is an error if a named parameter that is part of a
- * required group is not bound to an argument at a call site. Test legacy
- * pre-NNBD types
+ * @description It is an error if the body of a method, function, getter, or
+ * function expression with a potentially non-nullable return type may complete
+ * normally. Test some class A
  * @author sgrekhov@unipro.ru
+ * @issue 40396
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-import "legacy_lib.dart";
+
+class A {}
 
 class C {
-  static void test1({required A x, String y = "", required A z}) {}
-  void test2({required A x, String y = "", required A z}) {}
+  static A sTest() {}
+//         ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  static void test11({required A? x, String y = "", required A? z}) {}
-  void test22({required A? x, String y = "", required A? z}) {}
+  A mTest() {}
+//  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A get gTest {}
+//      ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-void test3({required A x, String y = "", required A z}) {}
-void test33({required A? x, String y = "", required A? z}) {}
+A test() {}
+//^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-typedef void Foo({required A x, String y, required A z});
-typedef void Foo2({required A? x, String y, required A? z});
 
 main() {
-  A a = new A();
-  Foo foo = ({required A x, String y = "", required A z}) {};
-  Foo2 foo2 = ({required A? x, String y = "", required A? z}) {};
-
-  C.test1(x: a, y: "");
-//                   ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  C.test11(x: a, y: "");
-//                    ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  C().test2(x: a, y: "");
-//                     ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  C().test22(x: a, y: "");
-//                      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  test3(x: a, y: "");
-//                 ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  test33(x: a, y: "");
-//                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  foo(x: a, y: "");
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  foo2(x: a, y: "");
-//                ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  C.test1(z: a, y: "woman");
-//                           ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  C.test11(z: a, y: "cry");
-//                          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  C().test2(z: a, y: "woman");
-//                             ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  C().test22(z: null, y: "cry");
-//                            ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  test3(z: a, y: "woman");
-//                         ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  test33(z: null, y: "cry");
-//                        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  foo(z: a, y: "woman");
-//                       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  foo(z: a, y: "cry");
-//                     ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  C.sTest();
+  C c = new C();
+  c.mTest();
+  c.gTest;
+  test();
 }

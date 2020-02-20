@@ -4,49 +4,63 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error for a class to extend, implement, or mixin a type
- * of the form T? for any T.
+ * @assertion It is an error if a named parameter that is part of a required
+ * group is not bound to an argument at a call site
  *
- * @description Check that it is an error for a class to extend, implement,
- * or mixin a type of the form T? for any T. Test legacy pre-NNBD types
+ * @description Check that it is an error if a named parameter that is part of a
+ * required group is not bound to an argument at a call site
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-import "legacy_lib.dart";
+class C {
+  static void test1({required int x, String y = "", required String z}) {}
+  void test2({required int x, String y = "", required String z}) {}
+}
 
-class C1 extends A? {}
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
-class C2 implements I? {}
-//                  ^
-// [analyzer] unspecified
-// [cfe] unspecified
-class C3 = A with M?;
-//                ^
-// [analyzer] unspecified
-// [cfe] unspecified
-class C4 = A with M implements I?;
-//                             ^
-// [analyzer] unspecified
-// [cfe] unspecified
-class C5 extends A with M? {}
-//                      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-mixin M1 on A? {}
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
-mixin M2 on A, M? {}
-//             ^
-// [analyzer] unspecified
-// [cfe] unspecified
-mixin M3 on A implements I? {}
-//                       ^
-// [analyzer] unspecified
-// [cfe] unspecified
+void test3({required int x, String y = "", required String z}) {}
+
+typedef void Foo({required int x, String y, required String z});
 
 main() {
+  Foo foo = ({required int x, String y = "", required String z}) {};
+
+  C.test1(x: 3, y: "");
+//  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C().test2(x: 1, y: "");
+//    ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+    test3(x: 4, y: "");
+//  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+    foo(x: 5, y: "");
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C.test1(z: "No", y: "woman");
+//  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C().test2(z: "no", y: "cry");
+//    ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  test3(z: "No", y: "woman");
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  foo(z: "No", y: "woman");
+//^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

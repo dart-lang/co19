@@ -1,54 +1,43 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion We say that a type T is non-nullable if T <: Object. This is
- * equivalent to the syntactic criterion that T is any of:
- *  Never
- *  Any function type (including Function)
- *  Any interface type except Null.
- *  S* for some S where S is non-nullable
- *  FutureOr<S> where S is non-nullable
- *  X extends S where S is non-nullable
- *  X & S where S is non-nullable
+ * @assertion It is an error for the initializer expression of a late local
+ * variable to use a prefix await expression that is not nested inside of
+ * another function expression.
  *
- * @description Check that type which is not subtype of Object cannot be
- * assigned to non-nullable type. Test interface type
+ * @description Check that it is not an error for the initializer expression of
+ * a late local variable to use a prefix await expression if it is nested inside
+ * of another function expression
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-
-abstract class A {
-  void foo(int i);
-}
+import "dart:async";
 
 class C {
-  int bar(int i) => i;
+  static void sTest() async {
+    late Future<int> i = init();
+  }
+
+  void mTest() async {
+    late Future<int> i = init();
+  }
 }
 
-main() {
-  A a1 = null;
-//       ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+void test() async {
+  late Future<int> i = init();
+}
 
-  C c1 = null;
-//      ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+Future<int> init() async {
+  return await 42;
+}
 
-  A? a = null;
-  A a2 = a;
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  C? c = new C();
-  C c2 = c;
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
+main() async {
+  late Future<int> i = init();
+  test();
+  C.sTest();
+  C().mTest();
 }

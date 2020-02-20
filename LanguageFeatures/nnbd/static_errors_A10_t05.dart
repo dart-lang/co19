@@ -4,26 +4,50 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error to call the default List constructor with a length
- * argument and a type argument which is potentially non-nullable.
+ * @assertion It is an error if an optional parameter (named or otherwise) with
+ * no default value has a potentially non-nullable type except in the parameter
+ * list of an abstract method declaration.
  *
- * @description Check that it is an error to call the default List constructor
- * with a length argument and a type argument which is potentially non-nullable.
- * Test some class A
+ * @description Check that it is a compile-time error if an optional parameter
+ * (named or otherwise) with no default value has a potentially non-nullable
+ * type. Test some class A*
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "legacy_lib.dart";
 
-main() {
-  new List<A>(42);
-//    ^^^^^^^^^^^
+class C {
+  static void test1(var v, [A a]) {}
+//                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  new List<A>(0);
-//    ^^^^^^^^^^
+  static void test2(var v, {A a}) {}
+//                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  void test11(var v, [A a]) {}
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test22(var v, {A a}) {}
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+void test1(var v, [A a]) {}
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+void test2(var v, {A a}) {}
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+main() {
 }

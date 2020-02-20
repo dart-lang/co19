@@ -4,36 +4,49 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error to call the default List constructor with a length
- * argument and a type argument which is potentially non-nullable.
+ * @assertion It is an error if an optional parameter (named or otherwise) with
+ * no default value has a potentially non-nullable type except in the parameter
+ * list of an abstract method declaration.
  *
- * @description Check that it is no error to call the default List constructor
- * without a length argument or a type argument which is not potentially
- * non-nullable. Test function types
+ * @description Check that it is a compile-time error if an optional parameter
+ * (named or otherwise) with no default value has a potentially non-nullable
+ * type. Test Function
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-typedef void Foo();
+
+class C {
+  static void test1(var v, [Function f]) {}
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static void test2(var v, {Function f}) {}
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test11(var v, [Function f]) {}
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void test22(var v, {Function f}) {}
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+void test1(var v, [Function f]) {}
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+void test2(var v, {Function f}) {}
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  new List<Function>(42);
-//    ^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  new List<Function>(0);
-//    ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  new List<Foo>(42);
-//    ^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  new List<Foo>(0);
-//    ^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
