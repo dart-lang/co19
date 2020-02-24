@@ -6,10 +6,13 @@
 /**
  * @assertion The default bound of generic type parameters is treated as
  * [Object?].
- * @description Check that default function typedef type parameter is treated as
- * [Object?] statically. Typedef is in the form [typedef <typeIdentifier>
- * <typeParameters> = <functionType>].
- * @Issue 40368
+ *
+ * @description Check that default generic function typedef type parameter is
+ * treated as [Object?] statically.
+ * Typedef is in the form:
+ *    [typedef <typeIdentifier> <typeParameters> = <functionType>].
+ *
+ * @Issue 40367, 40368
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -24,8 +27,6 @@ typedef G4<T1, T2, T3> = T1 Function(T2, T3);
 
 typedef G5<T> = void Function();
 typedef G6<T1, T2, T3> = void Function();
-
-Object? G3_expected<T extends Object?>() { return T; }
 
 F<G1<Object?>>? test1(G1 source) {
   var fsource = toF(source);
@@ -52,8 +53,4 @@ F<G6<Object?, Object?, Object?>>? test6(G6 source) {
   return fsource;
 }
 
-void main() {
-  G3 source3 = G3_expected;
-  source3();
-}
-
+void main() {}

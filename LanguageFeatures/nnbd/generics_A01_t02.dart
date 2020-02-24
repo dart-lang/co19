@@ -6,9 +6,10 @@
 /**
  * @assertion The default bound of generic type parameters is treated as
  * [Object?].
- * @description Check that default class type parameter is treated as [Object?]
- * statically.
- * @Issue 40368
+ * @description Check that default generic class type parameter is treated as
+ * [Object?] statically.
+ *
+ * @Issue 40367, 40368
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -17,15 +18,16 @@
 import "../../Utils/expect.dart";
 
 class A<T> {}
-
 class B<T1, T2, T3> {}
 
-main() {
-  A? source;
+F<A<Object?>>? testA(A? source) {
   var fsource = toF(source);
-  F<A<Object?>>? target = fsource;
-
-  B? sourceB;
-  var fsourceB = toF(sourceB);
-  F<B<Object?, Object?, Object?>>? targetB = fsourceB;
+  return fsource;
 }
+
+F<B<Object?, Object?, Object?>>? testB(B? source) {
+  var fsource = toF(source);
+  return fsource;
+}
+
+main() {}

@@ -6,9 +6,14 @@
 /**
  * @assertion The default bound of generic type parameters is treated as
  * [Object?].
- * @description Check that default class type parameter is treated as [Object?]
- * dynamically.
- * @Issue 40367
+ *
+ * @description It seems like it is not possible to obtain the value of the
+ * default bound at runtime, we can only obtain the result of instantiation to
+ * bound. So the test checks that if generic class type parameter is not clearly
+ * specified, it is treated as [dynamic] at runtime.
+ * See also co19 issue #530.
+ * @Issue 40367, 40368
+ *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -20,6 +25,6 @@ class A<T> {}
 class B<T1, T2, T3> {}
 
 main() {
-  Expect.equals(typeOf<A<Object?>>(), typeOf<A>());
-  Expect.equals(typeOf<B<Object?, Object?, Object?>>(), typeOf<B>());
+  Expect.equals(typeOf<A<dynamic>>(), typeOf<A>());
+  Expect.equals(typeOf<B<dynamic, dynamic, dynamic>>(), typeOf<B>());
 }

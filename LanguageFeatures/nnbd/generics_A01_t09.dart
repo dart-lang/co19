@@ -6,9 +6,11 @@
 /**
  * @assertion The default bound of generic type parameters is treated as
  * [Object?].
- * @description Check that default function type alias parameter is treated as
- * [Object?] statically. Typedef is in the form [typedef <type> <identifier>
- * <formalParameterPart>].
+ * @description Check that default type parameter of the generic function type
+ * alias is treated as [Object?] statically. Typedef is in the form:
+ *    [typedef <type> <identifier> <formalParameterPart>].
+ *
+ * @Issue 40367, 40368
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -16,11 +18,12 @@
 
 import "../../Utils/expect.dart";
 
-typedef T Function1<T>();
+typedef T    Function1<T>( );
 typedef void Function2<T>(T);
-typedef T Function3<T>(T);
-typedef T1 Function4<T1, T2, T3>(T2, T3);
-typedef void Function5<T>();
+typedef T    Function3<T>(T);
+typedef void Function4<T>( );
+
+typedef T1 Function5<T1, T2, T3>(T2, T3);
 
 F<Function1<Object?>>? test1(Function1 source) {
   var fsource = toF(source);
@@ -32,19 +35,19 @@ F<Function2<Object?>>? test2(Function2 source) {
   return fsource;
 }
 
-F<Function1<Object?>>? test3(Function1 source) {
+F<Function3<Object?>>? test3(Function3 source) {
   var fsource = toF(source);
   return fsource;
 }
 
-F<Function4<Object?, Object?, Object?>>? test4(Function4 source) {
+F<Function4<dynamic>>? test4(Function4 source) {
   var fsource = toF(source);
   return fsource;
 }
 
-F<Function5<dynamic>>? test5(Function5 source) {
-  var fsource = toF(source);
-  return fsource;
-}
+ F<Function5<Object?, Object?, Object?>>? test5(Function5 source) {
+   var fsource = toF(source);
+   return fsource;
+ }
 
 void main() {}
