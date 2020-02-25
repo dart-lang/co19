@@ -5,10 +5,15 @@
  */
 /**
  * @assertion bool isDirectory
- * final
- * Is true if the event target was a directory.
- * @description Checks that this property returns true if the event target was a
- * directory. Test Link deleted async
+ *  final
+ *  Is true if the event target was a directory.
+ *
+ *  Note that if the file has been deleted by the time the event has arrived,
+ *  this will always be false on Windows. In particular, it will always be false
+ *  for delete events.
+ *
+ * @description Checks that this property always returns false. Test Link
+ * deleted async
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";

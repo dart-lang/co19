@@ -5,10 +5,15 @@
  */
 /**
  * @assertion bool isDirectory
- * final
- * Is true if the event target was a directory.
- * @description Checks that this property returns true if the event target was a
- * directory. Test directory deleted async
+ *  final
+ *  Is true if the event target was a directory.
+ *
+ *  Note that if the file has been deleted by the time the event has arrived,
+ *  this will always be false on Windows. In particular, it will always be false
+ *  for delete events.
+ *
+ * @description Checks that this property always returns false. Test directory
+ * deleted async
  * @issue 30359
  * @author sgrekhov@unipro.ru
  */
@@ -28,11 +33,7 @@ _main(Directory sandbox) async {
       createEvent: () {
         d.deleteSync();
       }, test: (FileSystemEvent event) {
-        if (Platform.isWindows) {
-          Expect.isFalse(event.isDirectory);
-        } else {
-          Expect.isTrue(event.isDirectory);
-        }
+        Expect.isFalse(event.isDirectory);
       });
   asyncEnd();
 }
