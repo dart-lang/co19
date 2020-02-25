@@ -4,59 +4,51 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error if the static type of e in the expression 'throw e'
- * is not assignable to Object
+ * @assertion It is an error for a class to extend, implement, or mixin a type
+ * of the form T? for any T.
  *
- * @description Check that it is an error if the static type of e in the
- * expression throw e is not assignable to Object
+ * @description Check that it is an error for a class to extend, implement,
+ * or mixin a type of the form T? for any T.
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-class A {
-}
+class A {}
+class B {}
+class C {}
 
-void test1(Null x) {
-  throw x;
-//      ^
+class C1 extends A? {}
+//               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-void test2(A? x) {
-  throw x;
-//      ^
+class C2 implements A? {}
+//                  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-void test3(Function? x) {
-  throw x;
-//      ^
+class C3 = A with B?;
+//                ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-void test4<T extends Null>(T x) {
-  throw x;
-//      ^
+class C4 = A with B implements C?;
+//                             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-void test5<T extends Object?>(T x) {
-  throw x;
-//      ^
+class C5 extends A with B? {}
+//                      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-void test6<T extends Function?>(T x) {
-  throw x;
-//      ^
+mixin M1 on A? {}
+//          ^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
+mixin M2 on A, B? {}
+//             ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+mixin M3 on A implements B? {}
+//                       ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }
