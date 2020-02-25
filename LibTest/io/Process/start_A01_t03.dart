@@ -28,8 +28,8 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-String command;
-List<String> args;
+String command = "";
+List<String> args = new List<String>();
 
 void setCommand() {
     command = 'notexistingcommand';

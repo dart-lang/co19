@@ -32,17 +32,16 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-String command;
-List<String> args;
+String command = "";
+List<String> args = new List<String>();
 
 void setCommand() {
-  if (Platform.isLinux) {
-    command = 'sleep';
-    args = ['5'];
-  }
   if (Platform.isWindows) {
     command = 'ping';
     args = ['127.0.0.1 -n 6 > nul'];
+  } else {
+    command = 'sleep';
+    args = ['5'];
   }
 }
 
