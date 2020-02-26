@@ -43,7 +43,7 @@ main() {
   (new C<dynamic>()).check(dynamic);
   (new C<Null>()).check(Null);
   (new C<Object>()).check(Object);
-  (new C<FutureOr>()).check(FutureOr);
+  (new C<FutureOr>()).check(Object);
   (new C<Null>()).check(Null);
 }
 
