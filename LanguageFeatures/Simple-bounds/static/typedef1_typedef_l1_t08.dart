@@ -28,7 +28,9 @@ typedef A<X extends G<int>> = C<X>;
 
 main() {
   A source;
-  var fsource = toF(source);
-  F<A<G<int>>> target = fsource;
-  A();
+  Expect.throws(() {
+    var fsource = toF(source);
+    F<A<G<int>>> target = fsource;
+    A();
+  });
 }

@@ -28,8 +28,10 @@ typedef A<X extends G> = C<X>;
 
 main() {
   A source;
-  var fsource = toF(source);
-  F<A<G<dynamic>>> target = fsource;
-  F<A<G<Null>>> target1 = fsource;
-  A();
+  Expect.throws(() {
+    var fsource = toF(source);
+    F<A<G<dynamic>>> target = fsource;
+    F<A<G<Null>>> target1 = fsource;
+    A();
+  });
 }

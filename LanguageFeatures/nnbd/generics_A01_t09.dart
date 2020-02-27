@@ -50,4 +50,10 @@ F<Function4<dynamic>>? test4(Function4 source) {
    return fsource;
  }
 
-void main() {}
+void main() {
+  print(test1);
+  print(test2);
+  print(test3);
+  print(test4);
+  print(test5);
+}

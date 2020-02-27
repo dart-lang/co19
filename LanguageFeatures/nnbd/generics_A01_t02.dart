@@ -20,14 +20,17 @@ import "../../Utils/expect.dart";
 class A<T> {}
 class B<T1, T2, T3> {}
 
-F<A<Object?>>? testA(A? source) {
+F<A<Object?>?>? testA(A? source) {
   var fsource = toF(source);
   return fsource;
 }
 
-F<B<Object?, Object?, Object?>>? testB(B? source) {
+F<B<Object?, Object?, Object?>?>? testB(B? source) {
   var fsource = toF(source);
   return fsource;
 }
 
-main() {}
+main() {
+  print(testA);
+  print(testB);
+}

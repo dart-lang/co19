@@ -24,7 +24,9 @@ class A<X extends G<int>> {}
 
 main() {
   A source;
-  var fsource = toF(source);
-  F<A<G<int>>> target = fsource;
-  A();
+  Expect.throws(() {
+    var fsource = toF(source);
+    F<A<G<int>>> target = fsource;
+    A();
+  });
 }

@@ -38,19 +38,25 @@ F<G2<Object?>>? test2(G2 source) {
   return fsource;
 }
 
-F<G4<Object?, Object?, Object?>>? test4(G4 source) {
+F<G4<Object?, Object?, Object?>>? test3(G4 source) {
   var fsource = toF(source);
   return fsource;
 }
 
-F<G5<Object?>>? test5(G5 source) {
+F<G5<Object?>>? test4(G5 source) {
   var fsource = toF(source);
   return fsource;
 }
 
-F<G6<Object?, Object?, Object?>>? test6(G6 source) {
+F<G6<Object?, Object?, Object?> >? test5(G6 source) {
   var fsource = toF(source);
   return fsource;
 }
 
-void main() {}
+void main() {
+  print(test1);
+  print(test2);
+  print(test3);
+  print(test4);
+  print(test5);
+}

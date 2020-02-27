@@ -23,14 +23,17 @@ typedef AAlias<T> = A<T>;
 class B<T1, T2, T3> {}
 typedef BAlias<T1, T2, T3> = B<T1, T2, T3>;
 
-F<AAlias<Object?>>? testA(AAlias? source) {
+F<AAlias<Object?>?>? testA(AAlias? source) {
   var fsource = toF(source);
   return fsource;
 }
 
-F<BAlias<Object?, Object?, Object?>>? testB(BAlias? source) {
+F<BAlias<Object?, Object?, Object?>?>? testB(BAlias? source) {
   var fsource = toF(source);
   return fsource;
 }
 
-main() {}
+main() {
+  print(testA);
+  print(testB);
+}
