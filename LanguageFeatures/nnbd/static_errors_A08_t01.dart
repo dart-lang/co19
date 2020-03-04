@@ -48,4 +48,6 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   };
+  C.test();
+  new C().test2();
 }

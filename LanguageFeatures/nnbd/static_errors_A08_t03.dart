@@ -10,7 +10,7 @@
  *
  * @description Check that it is an error if a potentially non-nullable local
  * variable which has no initializer expression and is not marked late is used
- * before it is definitely assigned. Test tunction type
+ * before it is definitely assigned. Test function type
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
