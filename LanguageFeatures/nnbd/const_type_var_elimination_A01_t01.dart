@@ -10,6 +10,13 @@
  * variables shall be eliminated by taking the least closure of the inferred
  * type with respect to the free type variables.
  *
+ *   class G<T> {
+ *    void foo() {
+ *    const List<T> c = <T>[]; // Error
+ *    const List<T> d = [];    // The list literal is inferred as <Never>[]
+ *    }
+ *   }
+ *
  * @description Check that [const List<T>] variable of a generic class [G<T>]
  * is eliminated into [List<Never>].
  *
@@ -23,7 +30,6 @@
 class G<T> {
   void foo() {
     const List<T> l1 = [];
-    List<Never> l2 = l1;
   }
 }
 
