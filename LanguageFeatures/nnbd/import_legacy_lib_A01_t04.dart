@@ -28,7 +28,4 @@ main() {
 
   C<B> c = new C(b);
   c.x = null;
-//      ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
