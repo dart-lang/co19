@@ -16,6 +16,7 @@
  * Test cascade assignment
  * @author sgrekhov@unipro.ru
  * @issue 39141
+ * @issue 40959
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
@@ -31,17 +32,17 @@ class C {
 
 main() {
   C c1 = new C();
-  var actual1 = c1 ?.. test1 = "Show must go on";
+  var actual1 = c1 ?.. test1 = "Show must go on";     /// static type warning
   var expected = c1;
   Expect.equals(expected, actual1);
   Expect.equals("Show must go on", c1.test1);
 
-  var actual2 = c1 ?.. test2 = "Lily was here";
+  var actual2 = c1 ?.. test2 = "Lily was here";       /// static type warning
   Expect.equals(expected, actual2);
   Expect.equals("Lily was here", c1._test2);
 
   var actual3 = c1
-    ?.. test1 = "Let it be"
+    ?.. test1 = "Let it be"                           /// static type warning
     .. test2 = "Let it be";
   Expect.equals(expected, actual3);
   Expect.equals("Let it be", c1.test1);

@@ -16,6 +16,7 @@
  * Test e ?.. m().n()
  * @author sgrekhov@unipro.ru
  * @issue 39141
+ * @issue 40959
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
@@ -46,13 +47,13 @@ class C {
 
 main() {
   C c1 = new C();
-  var actual1 = c1 ?.. m1().m();
+  var actual1 = c1 ?.. m1().m();        /// static type warning
   var expected = c1;
   Expect.equals(expected, actual1);
   Expect.equals(1, c1.m1().counter);
 
   var actual3 = c1
-    ?.. m1().m()
+    ?.. m1().m()                        /// static type warning
     .. m2().m();
   Expect.equals(expected, actual3);
   Expect.equals(2, c1.m1().counter);

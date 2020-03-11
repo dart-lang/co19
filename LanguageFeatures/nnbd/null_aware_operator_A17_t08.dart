@@ -16,6 +16,7 @@
  * Test e ?.. m()?.f()
  * @author sgrekhov@unipro.ru
  * @issue 39141
+ * @issue 40959
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
@@ -46,26 +47,26 @@ class C {
 
 main() {
   C c1 = new C();
-  var actual1 = c1 ?.. m1()?.m();
+  var actual1 = c1 ?.. m1()?.m();   /// static type warning
   var expected = c1;
   Expect.equals(expected, actual1);
   Expect.equals(1, c1.m1().counter);
 
   var actual2 = c1
-    ?.. m1().m()
+    ?.. m1().m()                    /// static type warning
     .. m2().m();
   Expect.equals(expected, actual2);
   Expect.equals(2, c1.m1().counter);
   Expect.equals(1, c1.m2().counter);
 
   c1.a1 = null;
-  var actual3 = c1 ?.. m1()?.m();
+  var actual3 = c1 ?.. m1()?.m();     /// static type warning
   Expect.equals(expected, actual3);
   Expect.equals(5, c1.counter1);
 
   var actual4 = c1
-      ?.. m1()?.m()
-      .. m2()?.m();
+      ?.. m1()?.m()                   /// static type warning
+      .. m2()?.m();                   /// static type warning
   Expect.equals(expected, actual4);
   Expect.equals(2, c1.m2().counter);
 
@@ -75,7 +76,7 @@ main() {
 
   var actual6 = c2
     ?.. m1()?.m()
-    .. m2()?.m();
+    .. m2()?.m();                     /// static type warning
   Expect.isNull(actual6);
 
   c2 = new C();
@@ -86,19 +87,19 @@ main() {
 
   var actual8 = c2
       ?.. m1()?.m()
-      .. m2()?.m();
+      .. m2()?.m();                   /// static type warning
   Expect.equals(expected2, actual8);
   Expect.equals(2, c2.m1().counter);
   Expect.equals(1, c2.m2().counter);
 
   c1.a1 = null;
-  var actual9 = c1 ?.. m1()?.m();
+  var actual9 = c1 ?.. m1()?.m();     /// static type warning
   Expect.equals(expected, actual9);
   Expect.equals(5, c1.counter1);
 
   var actual10 = c1
-      ?.. m1()?.m()
-      .. m2()?.m();
+      ?.. m1()?.m()                   /// static type warning
+      .. m2()?.m();                   /// static type warning
   Expect.equals(expected, actual10);
   Expect.equals(2, c1.m2().counter);
   Expect.equals(6, c1.counter1);

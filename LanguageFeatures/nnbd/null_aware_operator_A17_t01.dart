@@ -15,6 +15,7 @@
  *  let x = EXP(e) in x == null ? null : let y = EXP(x.s) in k(x)
  * @author sgrekhov@unipro.ru
  * @issue 39141
+ * @issue 40959
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
@@ -37,17 +38,17 @@ class C {
 
 main() {
   C c1 = new C();
-  var actual1 = c1 ?.. test1;
+  var actual1 = c1 ?.. test1;     /// static type warning
   var expected = c1;
   Expect.equals(expected, actual1);
   Expect.equals("test1 called 1 times, test2() called 0 times", c1.log);
 
-  var actual2 = c1 ?.. test2();
+  var actual2 = c1 ?.. test2();   /// static type warning
   Expect.equals(expected, actual2);
   Expect.equals("test1 called 1 times, test2() called 1 times", c1.log);
 
   var actual3 = c1
-    ?.. test1
+    ?.. test1                     /// static type warning
     .. test2();
   Expect.equals(expected, actual3);
   Expect.equals("test1 called 2 times, test2() called 2 times", c1.log);
