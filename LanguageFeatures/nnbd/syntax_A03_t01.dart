@@ -28,7 +28,7 @@ main() {
   test2(o!);
 
   int? i = 42;
-  test2(i);
+  test2(i!);
 
   Expect.throws(() {null!;});
 }
