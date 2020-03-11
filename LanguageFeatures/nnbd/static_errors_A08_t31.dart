@@ -20,22 +20,22 @@ import "legacy_lib.dart";
 
 class C {
   static void test() {
-    LegacyFoo f;
+    late LegacyFoo f;
     Expect.throws(() {f.toString();}, (e) => e is LateInitializationError);
   }
 
   void test2() {
-    LegacyFoo f;
+    late LegacyFoo f;
     Expect.throws(() {f.toString();}, (e) => e is LateInitializationError);
   }
 }
 
 main() {
-  LegacyFoo f;
+  late LegacyFoo f;
   Expect.throws(() {f.toString();}, (e) => e is LateInitializationError);
 
   Function foo = () {
-    LegacyFoo f;
+    late LegacyFoo f;
     Expect.throws(() {f.toString();}, (e) => e is LateInitializationError);
   };
   C.test();

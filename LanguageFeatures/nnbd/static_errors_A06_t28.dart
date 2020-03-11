@@ -14,6 +14,7 @@
  * non-nullable type and no initializer expression. Test F*, where F is a
  * function type
  * @author sgrekhov@unipro.ru
+ * @issue 40940
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

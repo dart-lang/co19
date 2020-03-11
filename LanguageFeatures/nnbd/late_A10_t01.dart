@@ -10,6 +10,7 @@
  * @description Check that it is an error if an instance variable is declared
  * covariant but doesn't introduces an implicit setter
  * @author sgrekhov@unipro.ru
+ * @issue 40941
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

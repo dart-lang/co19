@@ -15,6 +15,7 @@
  * FutureOr<FutureOr<A>> where A is some class
  * @author sgrekhov@unipro.ru
  * @issue 40677
+ * @issue 40940
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
@@ -24,11 +25,10 @@ class A {}
 
 class C {
   FutureOr<FutureOr<A>> f;
-
-  factory C.f() = D;
-//        ^^^
+//                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  factory C.f() = D;
 }
 
 class D implements C {

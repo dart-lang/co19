@@ -4,36 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error to call the default List constructor with a length
- * argument and a type argument which is potentially non-nullable.
+ * @assertion It is an error to call the default List constructor
  *
- * @description Check that it is no error to call the default List constructor
- * without a length argument or a type argument which is not potentially
- * non-nullable. Test function types
+ * @description Check that it is no error to call the default List constructor.
+ * Test function types
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-typedef void Foo();
+import "legacy_lib.dart";
 
 main() {
-  new List<Function>(42);
-//    ^^^^^^^^^^^^^^^^^^
+  new List<A>(42);
+//    ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  new List<Function>(0);
+  new List<A>();
 //    ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  new List<Foo>(42);
-//    ^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  new List<Foo>(0);
-//    ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

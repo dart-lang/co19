@@ -15,22 +15,22 @@
  *  X & S where S is non-nullable
  *
  * @description Check that type which is not subtype of Object cannot be
- * assigned to non-nullable type. Test X & S where S is non-nullable. Test type
- * aliases
+ * assigned to non-nullable type. Test X & S where S is non-nullable
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
-class S {}
 
+class A {}
+class S extends A {}
+
+typedef AAlias = A;
 typedef SAlias = S;
 
-dynamic getDynamic(dynamic v) => v;
-
 main() {
-  var v = getDynamic(new S());
-  if (v is SAlias) {
-    v = null;
+  AAlias a = new S();
+  if (a is SAlias) {
+    a = null;
 //      ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

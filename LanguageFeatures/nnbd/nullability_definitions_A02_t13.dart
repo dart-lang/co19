@@ -23,7 +23,7 @@
 class S {}
 
 class C<T extends S> {
-  test(X t) {
+  test(T t) {
     t = null;
 //      ^^^^
 // [analyzer] unspecified

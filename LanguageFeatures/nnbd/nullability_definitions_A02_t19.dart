@@ -24,7 +24,7 @@ import "legacy_library_aliases_lib.dart";
 
 class S extends AAlias {}
 
-typedef SAlias = S?;
+typedef SAlias = S;
 
 main() {
   AAlias a = new S();

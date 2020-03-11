@@ -13,10 +13,10 @@
  * generative constructors declares an instance variable with a potentially
  * non-nullable type and no initializer expression. Test some class X
  * @author sgrekhov@unipro.ru
+ * @issue 40940
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-typedef void Foo();
 
 class A {}
 class X {}

@@ -14,6 +14,7 @@
  * non-nullable type and no initializer expression. Test function type
  * @author sgrekhov@unipro.ru
  * @issue 40677
+ * @issue 40940
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
@@ -23,10 +24,10 @@ void foo() {}
 
 class C {
   Foo f;
-  factory C.f() = D;
-//        ^^^
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  factory C.f() = D;
 }
 
 class D implements C {

@@ -17,6 +17,7 @@
  * unless the variable is marked with the late modifier. Test FutureOr<T>, where
  * <T extends Object>
  * @author sgrekhov@unipro.ru
+ * @issue 40951
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

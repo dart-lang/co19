@@ -15,6 +15,7 @@
  * F is a function type
  * @author sgrekhov@unipro.ru
  * @issue 40677
+ * @issue 40940
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
@@ -25,12 +26,15 @@ void foo() {}
 
 class C {
   FutureOr<Function> f1;
-  FutureOr<Foo> f2;
-
-  factory C.f() = D;
-//        ^^^
+//                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  FutureOr<Foo> f2;
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  factory C.f() = D;
 }
 
 class D implements C {

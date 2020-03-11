@@ -26,9 +26,10 @@ class C {
 main() {
   g = "Lily";
   C.s = "was";
-  new C().v = "here";
+  C c = new C();
+  c.v = "here";
 
   Expect.throws(() {g = "Lily";});
   Expect.throws(() {C.s = "was";});
-  Expect.throws(() {new C().v = "here";});
+  Expect.throws(() {c.v = "here";});
 }

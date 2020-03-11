@@ -12,6 +12,7 @@
  * (named or otherwise) with no default value has a potentially non-nullable
  * type. Test some class A
  * @author sgrekhov@unipro.ru
+ * @issue 40954
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

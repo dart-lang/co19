@@ -27,7 +27,7 @@ class C<T extends Object> {
   }
 }
 
-void foo<X extends Object>() {
+void foo<T extends Object>() {
   FutureOr<T> x;
   x.toString();
 //^

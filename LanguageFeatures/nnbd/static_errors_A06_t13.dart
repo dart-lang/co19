@@ -15,16 +15,17 @@
  * <X extends Object?>
  * @author sgrekhov@unipro.ru
  * @issue 40677
+ * @issue 40940
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 class C<X extends Object?> {
   X x;
-  factory C.f(X x) = D;
-//        ^^^
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  factory C.f(X x) = D<X>;
 }
 
 class D<X extends Object> implements C<X> {

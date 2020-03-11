@@ -11,6 +11,7 @@
  * or mixin a type of the form T? for any T. Test legacy pre-NNBD types and type
  * aliases
  * @author sgrekhov@unipro.ru
+ * @issue 40949
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong

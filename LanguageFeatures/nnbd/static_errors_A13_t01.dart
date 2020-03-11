@@ -4,25 +4,42 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is an error to call the default List constructor with a length
- * argument and a type argument which is potentially non-nullable.
+ * @assertion It is an error to call the default List constructor.
  *
- * @description Check that it is an error to call the default List constructor
- * with a length argument and a type argument which is potentially non-nullable.
- * Test type Never
+ * @description Check that it is an error to call the default List constructor.
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 main() {
-  new List<Never>(42);
-//    ^^^^^^^^^^^^^^^
+  new List(42);
+//    ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  new List<Never>(0);
+  new List();
+//    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  new List<int>(42);
+//    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  new List<int>();
+//    ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  new List<int?>(42);
 //    ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  new List<int?>();
+//    ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

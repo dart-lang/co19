@@ -16,6 +16,7 @@
  * not initialized via an initializing formal or an initializer list entry,
  * unless the variable is marked with the late modifier. Test Never
  * @author sgrekhov@unipro.ru
+ * @issue 40951
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

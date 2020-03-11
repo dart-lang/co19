@@ -15,6 +15,7 @@
  * <T extends Object>
  * @author sgrekhov@unipro.ru
  * @issue 40677
+ * @issue 40940
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
@@ -22,10 +23,10 @@ import "dart:async";
 
 class C<T extends Object> {
   FutureOr<T> t;
-  factory C.f(T t) = D;
-//        ^^^
+//            ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  factory C.f(T t) = D;
 }
 
 class D<T extends Object> implements C<T> {

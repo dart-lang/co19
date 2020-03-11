@@ -15,13 +15,15 @@
  * operators as well as pre and post-fix operators
  * @author sgrekhov@unipro.ru
  * @issue 39876
+ * @issue 40943
+ * @static-warning
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 main() {
-  late num? x;
-  x ??= 1;
+  late num x;
+  x ??= 1;          /// static type warning
 //  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -17,15 +17,24 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
+import "../../Utils/expect.dart";
 
 Never willThrow() => throw "Lily was here";
 
 main() {
   int i = 42;
-  switch (i) {
-    case 1: willThrow();
-    case 2:
-    case 42: willThrow();
-    default: false;
+  try {
+    switch (i) {
+      case 1:
+        willThrow();
+      case 2:
+      case 42:
+        willThrow();
+      default:
+        false;
+    }
+    Expect.fail("Exception expected");
+  } catch (e) {
+    Expect.equals("Lily was here", e);
   }
 }

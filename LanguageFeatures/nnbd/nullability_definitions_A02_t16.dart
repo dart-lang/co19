@@ -20,14 +20,14 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-class S {}
 
-dynamic getDynamic(dynamic v) => v;
+class A {}
+class S extends A {}
 
 main() {
-  var v = getDynamic(new S());
-  if (v is S) {
-    v = null;
+  A a = new S();
+  if (a is S) {
+    a = null;
 //      ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

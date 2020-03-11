@@ -27,11 +27,11 @@
 void foo() {}
 
 main() {
-  num i = 42;
-  switch (i) {
+  const Object o = const Object();
+  switch (o) {
     case 1: true;
       break;
-    case 3.14: foo();
+    case "3": foo();
       break;
     case 42: false;
   }

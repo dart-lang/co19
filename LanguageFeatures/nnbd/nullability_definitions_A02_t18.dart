@@ -20,8 +20,9 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-import "legacy_lib.dart";
+//import "legacy_lib.dart";
 
+class A {}
 class S extends A {}
 
 main() {

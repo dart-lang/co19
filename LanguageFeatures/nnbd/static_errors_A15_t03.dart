@@ -10,6 +10,7 @@
  * @description Check that it is an error for a class to extend, implement,
  * or mixin a type of the form T? for any T. Test legacy pre-NNBD types
  * @author sgrekhov@unipro.ru
+ * @issue 40949
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

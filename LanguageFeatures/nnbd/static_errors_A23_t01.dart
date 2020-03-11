@@ -5,7 +5,7 @@
  */
 /**
  * @assertion It is an error for a class with a const constructor to have a late
- * final field.
+ * final instance variable..
  *
  * @description Check that it is an error for a class with a const constructor
  * to have a late final field.
@@ -15,11 +15,6 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 class C {
-  static late final int s = 42;
-//       ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   late final int i = 42;
 //^^^^
 // [analyzer] unspecified

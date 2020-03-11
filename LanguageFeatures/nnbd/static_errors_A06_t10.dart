@@ -13,6 +13,7 @@
  * generative constructors declares an instance variable with a potentially
  * non-nullable type and no initializer expression. Test some class A*
  * @author sgrekhov@unipro.ru
+ * @issue 40940
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

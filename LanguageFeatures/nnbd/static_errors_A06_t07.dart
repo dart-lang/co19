@@ -14,6 +14,7 @@
  * non-nullable type and no initializer expression. Test some class X
  * @author sgrekhov@unipro.ru
  * @issue 40677
+ * @issue 40940
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
@@ -21,10 +22,10 @@ class X {}
 
 class C {
   X x;
-  factory C.f() = D;
-//        ^^^
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  factory C.f() = D;
 }
 
 class D implements C {

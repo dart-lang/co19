@@ -8,48 +8,42 @@
  * variable to use a prefix await expression that is not nested inside of
  * another function expression.
  *
- * @description Check that it is an error for the initializer expression of a
- * late local variable to use a prefix await expression.
+ * @description Check that it is not an error if late variable has no
+ * initializing expression and then assigned with a prefix await.
  * @author sgrekhov@unipro.ru
- * @issue 39661
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-import "dart:async";
+
+import "../../Utils/expect.dart";
 
 class C {
   static void sTest() async {
     late int i;
     i = await 42;
-//      ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    Expect.equals(42, i);
   }
 
   void mTest() async {
     late int i;
     i = await 42;
-//      ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    Expect.equals(42, i);
   }
 }
 
 void test() async {
   late int i;
   i = await 42;
-//    ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.equals(42, i);
 }
 
 main() async {
   late int i;
   i = await 42;
-//    ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.equals(42, i);
+
   test();
   C.sTest();
   C().mTest();
+
 }

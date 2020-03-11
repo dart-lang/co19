@@ -13,6 +13,7 @@
  * non-nullable type
  * @author sgrekhov@unipro.ru
  * @issue 40287
+ * @issue 40954
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

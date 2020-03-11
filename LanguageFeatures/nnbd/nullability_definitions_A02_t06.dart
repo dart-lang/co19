@@ -29,7 +29,7 @@ main() {
   var v = getLegacyS();
   S? s = new S();
   v = s;
-//     ^
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

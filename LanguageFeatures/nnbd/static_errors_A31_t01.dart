@@ -14,6 +14,7 @@
  * of the argument type of the setter
  * @author sgrekhov@unipro.ru
  * @issue 40333
+ * @issue 40945
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

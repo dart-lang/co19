@@ -14,6 +14,7 @@
  * non-nullable type and no initializer expression. Test FutureOr<A> where
  * A is some class
  * @author sgrekhov@unipro.ru
+ * @issue 40940
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

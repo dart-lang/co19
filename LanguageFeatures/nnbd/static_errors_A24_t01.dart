@@ -28,11 +28,12 @@
 
     g = "Lily";
     C.s = "was";
-    new C().v = "here";
+    C c = new C();
+    c.v = "here";
     l = "Run, Forrest, run";
 
     Expect.equals("Lily", g);
     Expect.equals("was", C.s);
-    Expect.equals("here", C().v);
+    Expect.equals("here", c.v);
     Expect.equals("Run, Forrest, run", l);
   }

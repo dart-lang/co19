@@ -13,6 +13,7 @@
  * normally. Test FutureOr<Never>
  * @author sgrekhov@unipro.ru
  * @issue 40396
+ * @issue 40948
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

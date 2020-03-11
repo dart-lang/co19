@@ -12,6 +12,7 @@
  * variable which has no initializer expression and is not marked late is used
  * before it is definitely assigned. Test some class A
  * @author sgrekhov@unipro.ru
+ * @issue 40946
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

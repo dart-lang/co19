@@ -13,6 +13,7 @@
  * generative constructors declares an instance variable with a potentially
  * non-nullable type and no initializer expression. Test FutureOr<Never>
  * @author sgrekhov@unipro.ru
+ * @issue 40940
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
