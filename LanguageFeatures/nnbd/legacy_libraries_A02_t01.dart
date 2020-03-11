@@ -22,9 +22,9 @@ import "opted_in_lib.dart";
 main() {
   A.bar();
   test();
-  new C().test();
+  new A().test();
 
   A.bar(named: "Lily");
   test(named: "was");
-  new C().test(named: "here");
+  new A().test(named: "here");
 }
