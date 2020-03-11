@@ -27,5 +27,5 @@ main() {
   C c2 = Ext(c1);
 //       ^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
 }

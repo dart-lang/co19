@@ -35,11 +35,11 @@ class C {
   int counter1 = 0;
   int counter2 = 0;
 
-  A m1() {
+  A? m1() {
     counter1++;
     return a1;
   }
-  A m2() {
+  A? m2() {
     counter2++;
     return a2;
   }

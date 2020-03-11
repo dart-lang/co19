@@ -20,5 +20,5 @@ main() {
   C<Neverland> c = C <Never>();
 //  ^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
 }

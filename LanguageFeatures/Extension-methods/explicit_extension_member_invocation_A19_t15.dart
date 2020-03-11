@@ -23,7 +23,7 @@ extension Ext on C {
   C foo() => Ext(this);
 //           ^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
 }
 
 main() {

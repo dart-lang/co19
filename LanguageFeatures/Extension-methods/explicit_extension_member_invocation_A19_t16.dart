@@ -25,7 +25,7 @@ extension Ext on C {
 C foo(C c) => Ext(c);
 //            ^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
 
 main() {
   C c = C();

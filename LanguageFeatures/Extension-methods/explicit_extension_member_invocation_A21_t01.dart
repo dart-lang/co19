@@ -29,9 +29,9 @@ main() {
     ..foo()
 //  ^^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
     ..bar();
 //  ^^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
 }

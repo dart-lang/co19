@@ -120,6 +120,7 @@ class Expect {
     if (expected == actual) return;
     if ((expected == null) || (actual == null)) {
       _fail('$defaultMessage');
+      return;
     }
     // scan from the left until we find a mismatch
     int left = 0;
