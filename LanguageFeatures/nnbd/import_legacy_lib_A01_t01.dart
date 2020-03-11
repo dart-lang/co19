@@ -21,7 +21,9 @@ import "legacy_lib.dart";
 
 main() {
   A? a1 = new A();
-  a1.text = null;
+  if (a1 != null) {
+    a1.text = null;
+  }
 
   A a2 = new A();
   a2.text = null;
