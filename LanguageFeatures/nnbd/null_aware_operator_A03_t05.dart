@@ -18,23 +18,41 @@ import "../../Utils/expect.dart";
 
 class C {
   String? test1() => "Lily was here";
-  String? test2(String arg) => arg;
+  String? test2(String? arg) => arg;
 }
 
 void testShort(C? x) {
   var actual1 = x?.test1()?.substring(0, 4);
   var n1 = x;
-  var expected1 = n1 == null ? null : n1.test1() == null ? null : n1.test1().substring(0, 4);
+  var expected1 = null;
+  if (n1 != null) {
+    var t1 = n1.test1();
+    if (t1 != null) {
+      expected1 = t1.substring(0, 4);
+    }
+  }
   Expect.equals(expected1, actual1);
 
   var actual2 = x?.test2("Show must go on")?.substring(0, 4);
   var n2 = x;
-  var expected2 = n2 == null ? null : n2.test2("Show must go on") == null ? null : n2.test2("Show must go on").substring(0, 4);
+  var expected2 = null;
+  if (n2 != null) {
+    var t2 = n2.test2("Show must go on");
+    if (t2 != null) {
+      expected2 = t2.substring(0, 4);
+    }
+  }
   Expect.equals(expected2, actual2);
 
   var actual3 = x?.test2(null)?.substring(0, 4);
   var n3 = x;
-  var expected3 = n3 == null ? null : n3.test2(null) == null ? null : n3.test2(null).substring(0, 4);
+  var expected3 = null;
+  if (n3 != null) {
+    var t3 = n3.test2(null);
+    if (t3 != null) {
+      expected2 = t3.substring(0, 4);
+    }
+  }
   Expect.equals(expected3, actual3);
 }
 
