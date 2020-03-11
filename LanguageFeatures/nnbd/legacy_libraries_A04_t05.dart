@@ -15,9 +15,12 @@
 // SharedOptions=--enable-experiment=non-nullable
 
 foo({required String named}) {}
-//   ^^^^^^^^
+//   ^^^^^^^^        ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 main() {
-  foo(named: s);
+  foo(named: "Lily was here");
+//    ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
