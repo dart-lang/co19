@@ -66,7 +66,7 @@ main() {
 
   var actual4 = c1
       ?.. m1()?.m()                   /// static type warning
-      .. m2()?.m();                   /// static type warning
+      .. m2()?.m();
   Expect.equals(expected, actual4);
   Expect.equals(2, c1.m2().counter);
 
@@ -76,7 +76,7 @@ main() {
 
   var actual6 = c2
     ?.. m1()?.m()
-    .. m2()?.m();                     /// static type warning
+    .. m2()?.m();
   Expect.isNull(actual6);
 
   c2 = new C();
@@ -87,7 +87,7 @@ main() {
 
   var actual8 = c2
       ?.. m1()?.m()
-      .. m2()?.m();                   /// static type warning
+      .. m2()?.m();
   Expect.equals(expected2, actual8);
   Expect.equals(2, c2.m1().counter);
   Expect.equals(1, c2.m2().counter);
@@ -99,7 +99,7 @@ main() {
 
   var actual10 = c1
       ?.. m1()?.m()                   /// static type warning
-      .. m2()?.m();                   /// static type warning
+      .. m2()?.m();
   Expect.equals(expected, actual10);
   Expect.equals(2, c1.m2().counter);
   Expect.equals(6, c1.counter1);
