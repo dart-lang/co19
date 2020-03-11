@@ -20,6 +20,7 @@
  * @description Check that [const List<T>] variable of a generic class [G<T>]
  * is eliminated into [List<Never>].
  *
+ * @Issue 40977
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

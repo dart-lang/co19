@@ -24,6 +24,7 @@
  * @description Check that legacy class can inherit the same setter from two
  * opted in classes with contradictory nullability information.
  *
+ * @Issue 40978
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
