@@ -26,7 +26,7 @@ mixin M on X {
   LegacyFoo f;
 //          ^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
 }
 
 class C extends X with M {

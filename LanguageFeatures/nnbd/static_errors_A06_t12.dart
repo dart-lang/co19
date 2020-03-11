@@ -24,7 +24,7 @@ mixin M<T extends Object> on X {
   T t;
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
 }
 
 class C extends X with M<String> {

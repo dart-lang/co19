@@ -28,11 +28,11 @@ mixin M on X {
   FutureOr<Function> f1;
 //                   ^^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
   FutureOr<Foo> f2;
 //              ^^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
 }
 
 class C extends X with M {

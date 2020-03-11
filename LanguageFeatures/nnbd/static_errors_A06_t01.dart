@@ -33,7 +33,7 @@ class D implements C {
   D();
 //^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
 }
 
 main() {

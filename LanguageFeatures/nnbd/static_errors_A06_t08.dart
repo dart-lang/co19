@@ -25,7 +25,7 @@ mixin M on A {
   X x;
 //  ^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
 }
 
 class C extends A with M {

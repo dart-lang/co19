@@ -26,7 +26,7 @@ mixin M<T extends Object> on X {
   FutureOr<T> f;
 //            ^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
 }
 
 class C extends X with M {
