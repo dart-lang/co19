@@ -11,7 +11,6 @@
  *
  * @description Check that assignments like e1.f ??= e2 translates to:
  *  PASSTHRU[F, fn[x] => x.f ??= EXP(e2)]
- * @static-warning
  * @author sgrekhov@unipro.ru
  * @issue 39714
  */
