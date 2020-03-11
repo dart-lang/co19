@@ -24,11 +24,23 @@ class C {
 void testShort(C? x) {
   var actual = x?.test1?.substring(0, 4);
   var n0 = x;
-  var expected = n0 == null ? null : n0.test1 == null ? null : n0.test1.substring(0, 4);
+  var expected = null;
+  if (n0 != null) {
+    var t1 = n0.test1;
+    if (t1 != null) {
+      expected = t1.substring(0, 4);
+    }
+  }
   Expect.equals(expected, actual);
 
   var actual2 = x?.test2?.length;
-  var expected2 = n0 == null ? null : n0.test2 == null ? null : n0.test2.length;
+  var expected2 = null;
+  if (n0 != null) {
+    var t2 = n0.test2;
+    if (t2 != null) {
+      expected2 = t2.length;
+    }
+  }
   Expect.equals(expected2, actual2);
 }
 
@@ -37,8 +49,10 @@ main() {
   testShort(c1);
   c1 = new C();
   testShort(c1);
-  c1.test1 = null;
-  testShort(c1);
+  if (c1 != null) {
+    c1.test1 = null;
+    testShort(c1);
+  }
 
   C c2 = new C();
   testShort(c2);
