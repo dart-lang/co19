@@ -111,7 +111,7 @@ class Expect {
    * Specialized equality test for strings. When the strings don't match,
    * this method shows where the mismatch starts and ends.
    */
-  static void stringEquals(String expected, String actual,
+  static void stringEquals(String? expected, String? actual,
       [String? reason = null]) {
     String msg = _getMessage(reason);
     String defaultMessage =

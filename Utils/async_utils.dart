@@ -106,14 +106,12 @@ class Sync2<T> {
 void asyncTest<T>(Future test(T? value), {required Future<T> setup(),
     required void cleanup(T? value)}) {
   asyncStart();
-  Future<T?> setupFuture = (setup != null) ? setup() : new Future.value(null);
+  Future<T?> setupFuture = setup();
   setupFuture.then((T? setupValue) {
     test(setupValue)
       .then((_) => asyncEnd())
       .whenComplete(() {
-        if (cleanup != null) {
-          cleanup(setupValue);
-        }
+        cleanup(setupValue);
     });
   });
 }
