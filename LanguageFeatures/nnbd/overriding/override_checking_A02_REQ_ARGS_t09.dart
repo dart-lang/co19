@@ -13,6 +13,7 @@
  * method with required non-nullable parameter can override legacy method
  * with named parameter (which is nullable) with and without default value.
  *
+ * @Issue 40950
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

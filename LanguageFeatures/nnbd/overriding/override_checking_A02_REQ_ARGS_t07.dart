@@ -13,6 +13,7 @@
  * method (one is legacy), migrated method with required nullable parameter can
  * override legacy method with named parameter with default value.
  *
+ * @Issue 40950
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
