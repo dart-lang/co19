@@ -28,7 +28,7 @@ main() {
   a?.[0];
 
   a = new A();
-  a?.test();
-  a ?.. test();
-  a?.[0];
+  a?.test();      /// static type warning
+  a ?.. test();   /// static type warning
+  a?.[0];         /// static type warning
 }
