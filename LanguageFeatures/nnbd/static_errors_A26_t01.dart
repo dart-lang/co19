@@ -18,61 +18,104 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-
-main() {
+test1() {
   late int x;
   x;
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+test2() {
+  late int x;
   x += 1;
 //  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+test3() {
+  late int x;
   x -= 1;
 //  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+test4() {
+  late int x;
   x *= 1;
 //  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+test5() {
+  late int x;
   x %= 1;
 //  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+test6() {
+  late int x;
   x ~/= 1;
 //  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+test7() {
+  late int x;
   x <<= 1;
 //  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+test8() {
+  late int x;
   x >>= 1;
 //  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+test9() {
+  late int x;
   x &= 1;
 //  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+test10() {
+  late int x;
   x ^= 1;
 //  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+test11() {
+  late int x;
   x |= 1;
 //  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
+
+main() {
+  test1();
+  test2();
+  test3();
+  test4();
+  test5();
+  test6();
+  test7();
+  test8();
+  test9();
+  test10();
+  test11();
 }

@@ -18,25 +18,41 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-
-main() {
+test1() {
   late int x;
   x++;
 // ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
+
+test2() {
+  late int x;
   ++x;
 //^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+test3() {
+  late int x;
   x--;
 // ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+test4() {
+  late int x;
   --x;
 //^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
+
+main() {
+  test1();
+  test2();
+  test3();
+  test4();
 }
