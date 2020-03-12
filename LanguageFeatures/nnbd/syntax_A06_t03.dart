@@ -24,5 +24,5 @@ main() {
   A? a = null;
   Expect.isNull(a?.[42]);
   a = new A();
-  Expect.equals(42, a?.[42]);
+  Expect.equals(42, a?.[42]);   /// static type warning
 }
