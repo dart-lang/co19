@@ -33,9 +33,6 @@ late final String? g1;
 late String? g2;
 
 main() {
-  late final String? l1;
-  late String? l2;
-
   Expect.throws(() {C.s1;}, (e) => e is LateInitializationError);
   Expect.throws(() {C.s2;}, (e) => e is LateInitializationError);
   C c = new C();
@@ -45,6 +42,4 @@ main() {
 
   Expect.throws(() {g1;}, (e) => e is LateInitializationError);
   Expect.throws(() {g2;}, (e) => e is LateInitializationError);
-  Expect.throws(() {l1;}, (e) => e is LateInitializationError);
-  Expect.throws(() {l2;}, (e) => e is LateInitializationError);
 }
