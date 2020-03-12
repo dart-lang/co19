@@ -5,7 +5,7 @@
  */
 /**
  * @assertion It is an error for a class with a const constructor to have a late
- * final instance variable..
+ * final instance variable.
  *
  * @description Check that it is an error for a class with a const constructor
  * to have a late final field.
