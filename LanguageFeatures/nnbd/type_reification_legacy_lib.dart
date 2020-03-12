@@ -6,7 +6,8 @@
 /**
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 // @dart=2.6
 
 library type_reification_legacy_lib;
@@ -14,8 +15,6 @@ library type_reification_legacy_lib;
 class A {}
 class A1 extends A {}
 class B<T> {}
-
-typedef AliasA = A;
 
 typedef F1 = int Function(A1);
 typedef F2<X, Y, Z> = X Function<YY extends Y>(Z);

@@ -9,21 +9,16 @@
  * opted to legacy library can be casted correctly in opted-in code.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
 
-import "../../Utils/expect.dart";
-import "type_reification_legacy_lib.dart";
+import "../../../Utils/expect.dart";
+import "type_reification_legacy_aliases_lib.dart";
 
 main() {
-  Object? a1 = A1() as Object;
-  var a2 = a1 as A;
+  A? a1 = A1() as Object;
+  var a2 = a1 as AliasA;
   A1 a3 = a2 as A1;
-  Expect.throws(() { a1 as B; });
-  Expect.throws(() { A() as A1; });
-
-  B<A> b = B<A>();
-  B b1 = b as B;
-  Expect.throws(() { b1 as B<A1>; });
-  Expect.throws(() { b1 as A; });
+  Expect.throws(() { a2 as B; });
+  Expect.throws(() { B() as A1iasA; });
 }
