@@ -13,6 +13,7 @@
  * FileStat object with .type set to FileSystemEntityType.notFound and the
  * other fields invalid.
  * @author sgrekhov@unipro.ru
+ * @issue 40706
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -23,15 +24,16 @@ main() async {
 }
 
 _main(Directory sandbox) async {
+  DateTime begOfEpoch = DateTime.fromMillisecondsSinceEpoch(0, isUtc: true);
   File file = new File(getTempFilePath(parent: sandbox));
   asyncStart();
   await FileStat.stat(file.path).then((FileStat fs) {
     Expect.equals(FileSystemEntityType.notFound, fs.type);
     Expect.equals(-1, fs.size);
     Expect.equals(0, fs.mode);
-    Expect.isNull(fs.accessed);
-    Expect.isNull(fs.changed);
-    Expect.isNull(fs.modified);
+    Expect.isTrue(begOfEpoch.isAtSameMomentAs(fs.accessed));
+    Expect.isTrue(begOfEpoch.isAtSameMomentAs(fs.changed));
+    Expect.isTrue(begOfEpoch.isAtSameMomentAs(fs.modified));
     asyncEnd();
   }, onError: (FileStat fs) {
     Expect.fail("Unexpected failure");
