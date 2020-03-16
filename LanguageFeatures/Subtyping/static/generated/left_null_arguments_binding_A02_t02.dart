@@ -6,9 +6,13 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Left Null: T0 is Null.
- * @description Check that if type T0 is Null and T1 is dynamic then T0 is a
- * subtype of a type T1.
+ * Left Null: if T0 is Null then:
+ * - if T1 is a type variable (promoted or not) the query is false
+ * - If T1 is FutureOr<S> for some S, then the query is true iff Null <: S.
+ * - If T1 is Null, S? or S* for some S, then the query is true.
+ * - Otherwise, the query is false
+ * @description Check that if type T0 is Null and T1 is FutureOr<S> for some S,
+ * and Null is subtype of S then T0 is subtype of T1.
  * @author sgrekhov@unipro.ru
  */
 /**
@@ -25,8 +29,10 @@
 
 
 // SharedOptions=--enable-experiment=non-nullable
+import "dart:async";
+
 Null t0Instance = null;
-Null t1Instance = null;
+FutureOr<Null> t1Instance = null;
 
 const t1Default = null;
 
@@ -34,18 +40,18 @@ const t1Default = null;
 
 
 class ArgumentsBindingSuper1_t02 {
-  Null m;
+  FutureOr<Null> m;
 
-  ArgumentsBindingSuper1_t02(Null value): m = value {}
-  ArgumentsBindingSuper1_t02.named(Null value, {Null val2 = t1Default}): m = value {}
-  ArgumentsBindingSuper1_t02.positional(Null value, [Null val2 = t1Default]): m = value {}
+  ArgumentsBindingSuper1_t02(FutureOr<Null> value): m = value {}
+  ArgumentsBindingSuper1_t02.named(FutureOr<Null> value, {FutureOr<Null> val2 = t1Default}): m = value {}
+  ArgumentsBindingSuper1_t02.positional(FutureOr<Null> value, [FutureOr<Null> val2 = t1Default]): m = value {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
-  void superTest(Null val) {}
-  void superTestPositioned(Null val, [Null val2 = t1Default]) {}
-  void superTestNamed(Null val, {Null val2 = t1Default}) {}
-  Null get superGetter => m;
-  void set superSetter(Null val) {}
+  void superTest(FutureOr<Null> val) {}
+  void superTestPositioned(FutureOr<Null> val, [FutureOr<Null> val2 = t1Default]) {}
+  void superTestNamed(FutureOr<Null> val, {FutureOr<Null> val2 = t1Default}) {}
+  FutureOr<Null> get superGetter => m;
+  void set superSetter(FutureOr<Null> val) {}
 }
 
 class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
@@ -114,16 +120,14 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  ArgumentsBinding2_t02<Null> c2 =
-    new ArgumentsBinding2_t02<Null>(t0Instance);
-  c2 = new ArgumentsBinding2_t02<Null>.c2(t1Instance, t0Instance);
-  c2 = new ArgumentsBinding2_t02<Null>.c5(t0Instance);
+    ArgumentsBinding2_t02<FutureOr<Null>> c2 =
+    new ArgumentsBinding2_t02<FutureOr<Null>>(t0Instance);
+  c2 = new ArgumentsBinding2_t02<FutureOr<Null>>.c2(t1Instance, t0Instance);
+  c2 = new ArgumentsBinding2_t02<FutureOr<Null>>.c5(t0Instance);
 
   c2.test(t0Instance, t1Instance);
   c2.superTest(t0Instance);
   c2.superTestNamed(t1Instance, val2: t0Instance);
   c2.superSetter = t0Instance;
   c2.superGetter;
-  //# -->
-}
+  }

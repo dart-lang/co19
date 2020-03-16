@@ -6,9 +6,13 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Left Null: T0 is Null.
- * @description Check that if type T0 is Null and T1 is dynamic then T0 is a
- * subtype of a type T1.
+ * Left Null: if T0 is Null then:
+ * - if T1 is a type variable (promoted or not) the query is false
+ * - If T1 is FutureOr<S> for some S, then the query is true iff Null <: S.
+ * - If T1 is Null, S? or S* for some S, then the query is true.
+ * - Otherwise, the query is false
+ * @description Check that if type T0 is Null and T1 is FutureOr<S> for some S,
+ * and Null is subtype of S then T0 is subtype of T1.
  * @author sgrekhov@unipro.ru
  */
 /**
@@ -25,8 +29,10 @@
 
 
 // SharedOptions=--enable-experiment=non-nullable
+import "dart:async";
+
 Null t0Instance = null;
-Null t1Instance = null;
+FutureOr<Null> t1Instance = null;
 
 const t1Default = null;
 
@@ -34,9 +40,9 @@ const t1Default = null;
 
 
 class ClassMember1_t01 {
-  static Null s = t0Instance;
-  Null m = t0Instance;
-  Null _p = t0Instance;
+  static FutureOr<Null> s = t0Instance;
+  FutureOr<Null> m = t0Instance;
+  FutureOr<Null> _p = t0Instance;
 
   ClassMember1_t01() {
     s = t0Instance;
@@ -44,7 +50,7 @@ class ClassMember1_t01 {
     _p = t0Instance;
   }
 
-  ClassMember1_t01.named(Null value) {
+  ClassMember1_t01.named(FutureOr<Null> value) {
     s = value;
     m = value;
     _p = value;
@@ -58,21 +64,21 @@ class ClassMember1_t01 {
     _p = t0Instance;
   }
 
-  set setter(Null val) {
+  set setter(FutureOr<Null> val) {
     _p = val;
   }
 
-  Null get getter => _p;
+  FutureOr<Null> get getter => _p;
 
   static staticTest() {
     s = t0Instance;
   }
 
-  static set staticSetter(Null val) {
+  static set staticSetter(FutureOr<Null> val) {
     s = val;
   }
 
-  static Null get staticGetter => t0Instance;
+  static FutureOr<Null> get staticGetter => t0Instance;
 }
 
 main() {

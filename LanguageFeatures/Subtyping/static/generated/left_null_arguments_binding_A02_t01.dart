@@ -6,9 +6,13 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Left Null: T0 is Null.
- * @description Check that if type T0 is Null and T1 is dynamic then T0 is a
- * subtype of a type T1.
+ * Left Null: if T0 is Null then:
+ * - if T1 is a type variable (promoted or not) the query is false
+ * - If T1 is FutureOr<S> for some S, then the query is true iff Null <: S.
+ * - If T1 is Null, S? or S* for some S, then the query is true.
+ * - Otherwise, the query is false
+ * @description Check that if type T0 is Null and T1 is FutureOr<S> for some S,
+ * and Null is subtype of S then T0 is subtype of T1.
  * @author sgrekhov@unipro.ru
  */
 /**
@@ -25,39 +29,41 @@
 
 
 // SharedOptions=--enable-experiment=non-nullable
+import "dart:async";
+
 Null t0Instance = null;
-Null t1Instance = null;
+FutureOr<Null> t1Instance = null;
 
 const t1Default = null;
 
 
 
 
-namedArgumentsFunc1(Null t1, {Null t2 = t1Default}) {}
-positionalArgumentsFunc1(Null t1, [Null t2 = t1Default]) {}
+namedArgumentsFunc1(FutureOr<Null> t1, {FutureOr<Null> t2 = t1Default}) {}
+positionalArgumentsFunc1(FutureOr<Null> t1, [FutureOr<Null> t2 = t1Default]) {}
 
 namedArgumentsFunc2<X>(X t1, {required X t2}) {}
 
 class ArgumentsBindingClass {
-  ArgumentsBindingClass(Null t1) {}
+  ArgumentsBindingClass(FutureOr<Null> t1) {}
 
-  ArgumentsBindingClass.named(Null t1, {Null t2 = t1Default}) {}
-  ArgumentsBindingClass.positional(Null t1, [Null t2 = t1Default]) {}
+  ArgumentsBindingClass.named(FutureOr<Null> t1, {FutureOr<Null> t2 = t1Default}) {}
+  ArgumentsBindingClass.positional(FutureOr<Null> t1, [FutureOr<Null> t2 = t1Default]) {}
 
-  factory ArgumentsBindingClass.fNamed(Null t1, {Null t2 = t1Default}) {
+  factory ArgumentsBindingClass.fNamed(FutureOr<Null> t1, {FutureOr<Null> t2 = t1Default}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(Null t1, [Null t2 = t1Default]) {
+  factory ArgumentsBindingClass.fPositional(FutureOr<Null> t1, [FutureOr<Null> t2 = t1Default]) {
     return new ArgumentsBindingClass.positional(t1, t2);
   }
 
-  static namedArgumentsStaticMethod(Null t1, {Null t2 = t1Default}) {}
-  static positionalArgumentsStaticMethod(Null t1, [Null t2 = t1Default]) {}
+  static namedArgumentsStaticMethod(FutureOr<Null> t1, {FutureOr<Null> t2 = t1Default}) {}
+  static positionalArgumentsStaticMethod(FutureOr<Null> t1, [FutureOr<Null> t2 = t1Default]) {}
 
-  namedArgumentsMethod(Null t1, {Null t2 = t1Default}) {}
-  positionalArgumentsMethod(Null t1, [Null t2 = t1Default]) {}
+  namedArgumentsMethod(FutureOr<Null> t1, {FutureOr<Null> t2 = t1Default}) {}
+  positionalArgumentsMethod(FutureOr<Null> t1, [FutureOr<Null> t2 = t1Default]) {}
 
-  set testSetter(Null val) {}
+  set testSetter(FutureOr<Null> val) {}
 }
 
 class ArgumentsBindingGen<X>  {
@@ -97,17 +103,15 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  // test generic functions
-  namedArgumentsFunc2<Null>(t0Instance, t2: t0Instance);
+    // test generic functions
+  namedArgumentsFunc2<FutureOr<Null>>(t0Instance, t2: t0Instance);
 
   // test generic class constructors
-  ArgumentsBindingGen<Null> instance2 = new ArgumentsBindingGen<Null>(t0Instance);
-  instance2 = new ArgumentsBindingGen<Null>.fNamed(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<Null>.named(t0Instance, t2: t0Instance);
+  ArgumentsBindingGen<FutureOr<Null>> instance2 = new ArgumentsBindingGen<FutureOr<Null>>(t0Instance);
+  instance2 = new ArgumentsBindingGen<FutureOr<Null>>.fNamed(t0Instance, t2: t0Instance);
+  instance2 = new ArgumentsBindingGen<FutureOr<Null>>.named(t0Instance, t2: t0Instance);
 
   // test generic class methods and setters
   instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
   instance2.testSetter = t0Instance;
-  //# -->
-}
+  }

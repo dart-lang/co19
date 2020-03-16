@@ -110,12 +110,10 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  ClassMember2_t02<FutureOr<C>> c2 = new ClassMember2_t02<FutureOr<C>>();
+    ClassMember2_t02<FutureOr<C>> c2 = new ClassMember2_t02<FutureOr<C>>();
   c2 = new ClassMember2_t02<FutureOr<C>>.short();
   c2 = new ClassMember2_t02<FutureOr<C>>.named();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);
-  //# -->
-}
+  }

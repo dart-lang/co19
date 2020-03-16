@@ -6,9 +6,13 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Left Null: T0 is Null.
- * @description Check that if type T0 is Null and T1 is dynamic then T0 is a
- * subtype of a type T1.
+ * Left Null: if T0 is Null then:
+ * - if T1 is a type variable (promoted or not) the query is false
+ * - If T1 is FutureOr<S> for some S, then the query is true iff Null <: S.
+ * - If T1 is Null, S? or S* for some S, then the query is true.
+ * - Otherwise, the query is false
+ * @description Check that if type T0 is Null and T1 is FutureOr<S> for some S,
+ * and Null is subtype of S then T0 is subtype of T1.
  * @author sgrekhov@unipro.ru
  */
 /**
@@ -26,8 +30,10 @@
 
 import '../../utils/common.dart';
 // SharedOptions=--enable-experiment=non-nullable
+import "dart:async";
+
 Null t0Instance = null;
-Null t1Instance = null;
+FutureOr<Null> t1Instance = null;
 
 const t1Default = null;
 
@@ -35,7 +41,7 @@ const t1Default = null;
 
 
 class ClassMemberSuper1_t02 {
-  Null m;
+  FutureOr<Null> m;
 
   ClassMemberSuper1_t02(dynamic value): m = value {
   }
@@ -45,7 +51,7 @@ class ClassMemberSuper1_t02 {
 
   ClassMemberSuper1_t02.short(this.m);
 
-  void set superSetter(Null val) {}
+  void set superSetter(FutureOr<Null> val) {}
 }
 
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {
@@ -100,12 +106,10 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  ClassMember2_t02<Null> c2 = new ClassMember2_t02<Null>();
-  c2 = new ClassMember2_t02<Null>.short();
-  c2 = new ClassMember2_t02<Null>.named();
+    ClassMember2_t02<FutureOr<Null>> c2 = new ClassMember2_t02<FutureOr<Null>>();
+  c2 = new ClassMember2_t02<FutureOr<Null>>.short();
+  c2 = new ClassMember2_t02<FutureOr<Null>>.named();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);
-  //# -->
-}
+  }

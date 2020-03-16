@@ -49,7 +49,7 @@
  *  //# @T1 = T1
  *  //# @GenericFunctionType
  *
- * - If test case has tests for the types wich are not generic function types,
+ * - If test case has tests for the types which are not generic function types,
  * this block must be marked by
  *   //# <-- NotGenericFunctionType
  *   ...
