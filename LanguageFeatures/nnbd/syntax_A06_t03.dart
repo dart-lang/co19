@@ -12,6 +12,7 @@
  * null-aware subscripting using the syntax e1?.[e2] which evaluates to null if
  * e1 evaluates to null and otherwise evaluates as e1[e2]. Test legacy pre-NNBD
  * types
+ * @static-warning
  * @author sgrekhov@unipro.ru
  * @issue 39865
  */

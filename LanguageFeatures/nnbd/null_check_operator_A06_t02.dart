@@ -10,6 +10,7 @@
  * @description Check that an expression of the form e! evaluates e to a value
  * v, throws a runtime error if v is null. Test generic class with named
  * constructor
+ * @static-warning
  * @author sgrekhov@unipro.ru
  * @issue 39723
  * @issue 39724

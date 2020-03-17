@@ -15,6 +15,7 @@
  * Test some type A*, where A is nullable
  * @issue 38715
  * @issue 39865
+ * @static-warning
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
