@@ -280,7 +280,8 @@ main() {
 
   // Test type parameters
 
-    // test generic class constructors
+  //# <-- NotGenericFunctionType
+  // test generic class constructors
   Expect.throws(() {
     new ArgumentsBinding2_t02<Object>(forgetType(t0Instance));
   }, (e) => e is TypeError || e is CastError);
@@ -311,4 +312,5 @@ main() {
   }, (e) => e is TypeError || e is CastError);
 
   new ArgumentsBinding2_t02<Object>(t1Instance).test();
-  }
+  //# -->
+}

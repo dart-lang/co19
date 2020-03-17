@@ -6,9 +6,10 @@
 /**
  * @author sgrekhov@unipro.ru
  */
-// @dart=2.4
+// @dart=2.6
 // SharedOptions=--enable-experiment=non-nullable
 library legacy_lib;
 
 class X {
+  const X();
 }

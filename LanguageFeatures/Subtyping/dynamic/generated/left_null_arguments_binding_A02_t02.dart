@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -119,7 +119,8 @@ main() {
 
   // Test type parameters
 
-    ArgumentsBinding2_t02<FutureOr<Null>> c2 =
+  //# <-- NotGenericFunctionType
+  ArgumentsBinding2_t02<FutureOr<Null>> c2 =
     new ArgumentsBinding2_t02<FutureOr<Null>>(forgetType(t0Instance));
   c2 = new ArgumentsBinding2_t02<FutureOr<Null>>.c2(t1Instance, forgetType(t0Instance));
   c2 = new ArgumentsBinding2_t02<FutureOr<Null>>.c5(forgetType(t0Instance));
@@ -129,4 +130,5 @@ main() {
   c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));
   c2.superSetter = forgetType(t0Instance);
   c2.superGetter;
-  }
+  //# -->
+}

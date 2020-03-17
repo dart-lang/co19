@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -123,11 +123,13 @@ main() {
 
   // Test type parameters
 
-    ClassMember2_t01<FutureOr<Object?>> c2 = new ClassMember2_t01<FutureOr<Object?>>();
+  //# <-- NotGenericFunctionType
+  ClassMember2_t01<FutureOr<Object?>> c2 = new ClassMember2_t01<FutureOr<Object?>>();
   c2 = new ClassMember2_t01<FutureOr<Object?>>.short(forgetType(t0Instance),
   forgetType(t0Instance));
   c2 = new ClassMember2_t01<FutureOr<Object?>>.named(forgetType(t0Instance));
   c2.m = forgetType(t0Instance);
   c2.test(forgetType(t0Instance));
   c2.getter;
-  }
+  //# -->
+}

@@ -112,7 +112,8 @@ test<T extends B>(T t0Instance) {
 
   // Test type parameters
 
-    // test generic functions
+  //# <-- NotGenericFunctionType
+  // test generic functions
   namedArgumentsFunc2<Object>(t0Instance, t2: t0Instance);
 
   // test generic class constructors
@@ -123,7 +124,8 @@ test<T extends B>(T t0Instance) {
   // test generic class methods and setters
   instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
   instance2.testSetter = t0Instance;
-  
+  //# -->
+
 }
 
 main() {

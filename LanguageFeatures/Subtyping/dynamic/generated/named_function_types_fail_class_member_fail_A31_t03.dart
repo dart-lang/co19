@@ -118,7 +118,8 @@ main() {
 
   // Test type parameters
 
-    Expect.throws(() {
+  //# <-- NotGenericFunctionType
+  Expect.throws(() {
     new ClassMember2_t03<T1>(t1Instance).m = forgetType(t0Instance);
   }, (e) => e is TypeError || e is CastError);
   Expect.throws(() {
@@ -130,4 +131,5 @@ main() {
   Expect.throws(() {
     new ClassMember2_t03<T1>(t1Instance).test2();
   }, (e) => e is TypeError || e is CastError);
-  }
+  //# -->
+}
