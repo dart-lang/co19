@@ -15,7 +15,7 @@
  */
 // SharedOptions=--enable-experiment=non-nullable,triple-shift
 // Requirements=nnbd-strong
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 class C {
   int test = 12;

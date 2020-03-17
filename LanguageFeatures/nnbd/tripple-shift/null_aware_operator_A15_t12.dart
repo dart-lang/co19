@@ -15,7 +15,7 @@
  */
 // SharedOptions=--enable-experiment=non-nullable,triple-shift
 // Requirements=nnbd-strong
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 class C {
   List<int> _list = [3, 1, 4, 1, 5, 9];
