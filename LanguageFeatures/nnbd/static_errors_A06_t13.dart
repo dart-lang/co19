@@ -28,7 +28,7 @@ class C<X extends Object?> {
   factory C.f(X x) = D<X>;
 }
 
-class D<X extends Object> implements C<X> {
+class D<X extends Object?> implements C<X> {
   X x;
   D(this.x);
 }
