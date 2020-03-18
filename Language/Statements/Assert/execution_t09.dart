@@ -22,5 +22,5 @@ import '../../../Utils/dynamic_check.dart';
 
 main() {
   // TODO check if assert is effective
-  checkAssertionError(() { assert (false); });
+  checkTypeError(() { assert (false); });
 }

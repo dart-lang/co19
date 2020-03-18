@@ -11,16 +11,10 @@
  * @description Checks that it an AssertionError (see  Boolean conversion)
  * is thrown if the expression evaluates to null.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 
 main() {
   var i = null;
-  try {
-    if (i) {i = "hello";}
-    Expect.fail("AssertionError is expected");
-  } on AssertionError catch (e) {
-    // ok
-  }
+  Expect.throws(() {if (i) {i = "hello";}}, (e) => e is TypeError);
 }

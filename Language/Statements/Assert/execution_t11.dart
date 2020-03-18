@@ -21,11 +21,11 @@
 import '../../../Utils/dynamic_check.dart';
 
 main() {
-  checkAssertionError(() {assert(null);});
-  checkAssertionError(() {assert(false, "Some message");}, "Some message");
-  checkAssertionError(() {assert(false, 123);}, 123);
-  checkAssertionError(() {assert(false, 3.14);}, 3.14);
+  checkTypeError(() {assert(null);});
+  checkTypeError(() {assert(false, "Some message");}, "Some message");
+  checkTypeError(() {assert(false, 123);}, 123);
+  checkTypeError(() {assert(false, 3.14);}, 3.14);
 
   var o = new Object();
-  checkAssertionError(() {assert(false, o);}, o);
+  checkTypeError(() {assert(false, o);}, o);
 }
