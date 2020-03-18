@@ -10,15 +10,13 @@
  * a dynamic type error in checked mode when e is not a boolean and it is
  * subjected to a boolean conversion in scripting mode.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
-
 import '../../../Utils/dynamic_check.dart';
 
 main() {
   var v = null;
-  checkAssertionError(() {Expect.isTrue(!v);});
+  checkTypeError(() {Expect.isTrue(!v);});
   v = "true, honestly";
   checkTypeError(() {Expect.isTrue(!v);});
   v = () {};

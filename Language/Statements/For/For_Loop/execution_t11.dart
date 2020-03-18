@@ -24,7 +24,7 @@
 import '../../../../Utils/dynamic_check.dart';
 
 main() {
-  checkAssertionError( () {
+  checkTypeError( () {
     for ( var i = 0; null; i++) {
       break;
     }
