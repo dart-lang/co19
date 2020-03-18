@@ -14,6 +14,7 @@
  *  fn[k : Exp -> Exp] : Exp =>
  *  let x = EXP(e) in x == null ? null : let y = EXP(x.s) in k(x)
  * Test legacy pre-NNBD types
+ * @static-warning
  * @author sgrekhov@unipro.ru
  * @issue 40959
  */

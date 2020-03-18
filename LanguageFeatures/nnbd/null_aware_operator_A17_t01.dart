@@ -13,6 +13,7 @@
  * as follows, where x and y are fresh object level variables.
  *  fn[k : Exp -> Exp] : Exp =>
  *  let x = EXP(e) in x == null ? null : let y = EXP(x.s) in k(x)
+ * @static-warning
  * @author sgrekhov@unipro.ru
  * @issue 39141
  * @issue 40959

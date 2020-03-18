@@ -14,6 +14,7 @@
  *  fn[k : Exp -> Exp] : Exp =>
  *  let x = EXP(e) in x == null ? null : let y = EXP(x.s) in k(x)
  * Test cascade assignment
+ * @static-warning
  * @author sgrekhov@unipro.ru
  * @issue 39141
  * @issue 40959
