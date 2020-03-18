@@ -13,3 +13,7 @@ library legacy_lib;
 class X {
   const X();
 }
+
+class Y extends X {
+  const Y();
+}
