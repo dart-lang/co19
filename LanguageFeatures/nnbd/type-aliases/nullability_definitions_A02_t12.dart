@@ -18,6 +18,7 @@
  * assigned to non-nullable type. Test FutureOr<S> where S is non-nullable. Test
  * legacy pre-NNBD types and type aliases
  * @author sgrekhov@unipro.ru
+ * @issue 40972
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong

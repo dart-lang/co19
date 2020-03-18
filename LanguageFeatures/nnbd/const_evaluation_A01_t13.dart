@@ -9,7 +9,7 @@
  * provided, whether legacy or non-legacy. This ensures that in strong checking
  * mode, the final consistent semantics are obeyed.
  *
- * @description Checks finamically that actual generic class type parameter is
+ * @description Checks dynamically that actual generic class type parameter is
  * evaluated correctly for [Object] type argument.
  *
  * @author iarkh@unipro.ru

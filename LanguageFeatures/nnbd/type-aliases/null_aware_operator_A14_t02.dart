@@ -35,7 +35,7 @@ main() {
     Expect.equals(42, c2[0] = 42);
   }
 
-  CAlias2 c3 = new C();
+  CAlias2? c3 = new C();
   if (c3 != null) {
     Expect.equals(42, c3[0] = 42);
   }

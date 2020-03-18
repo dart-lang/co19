@@ -17,7 +17,7 @@
 // Requirements=nnbd-strong
 import "legacy_library_aliases_lib.dart" as aliases;
 
-typedef AAlias = A?;
+typedef AAlias = aliases.A?;
 
 main() {
   AAlias a = new A();

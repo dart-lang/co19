@@ -17,8 +17,9 @@
 // @dart=2.6
 // SharedOptions=--enable-experiment=non-nullable
 import "../../Utils/expect.dart";
-import "opted_in_lib.dart";
 
 main() {
-  Expect.isTrue(testNever(null) is Null);
+  Never n = null;
+  String s = n;
+  Expect.isTrue(s == null);
 }

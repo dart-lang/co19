@@ -19,8 +19,8 @@ class A {
   foo() {}
 }
 
-typedef AAlias1 = A?
-typedef AAlias2 = AAlias1?
+typedef AAlias1 = A?;
+typedef AAlias2 = AAlias1?;
 
 dynamic init() => null;
 

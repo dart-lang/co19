@@ -18,7 +18,7 @@ import "legacy_library_aliases_lib.dart" as legacy;
 
 dynamic init() => null;
 
-typedef AAlias = A?;
+typedef AAlias = legacy.A?;
 
 main() {
   AAlias a1 = init();

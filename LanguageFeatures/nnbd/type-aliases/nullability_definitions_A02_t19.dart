@@ -17,6 +17,7 @@
  * @description Check that type which is not subtype of Object cannot be
  * assigned to non-nullable type. Test X & S where S is non-nullable
  * @author sgrekhov@unipro.ru
+ * @issue 40972
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong

@@ -47,7 +47,7 @@ main() {
   c2 = new C();
   testShort(c2, "Show must go on");
 
-  CAlias2 c3 = null;
+  CAlias2? c3 = null;
   testShort(c3, "Show must go on");
   c3 = new C();
   testShort(c3, "Show must go on");

@@ -23,35 +23,35 @@ typedef BAlias = B?;
 typedef CAlias = C?;
 
 class C1 extends AAlias {}
-//               ^
+//               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 class C2 implements AAlias {}
-//                  ^
+//                  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 class C3 = A with BAlias;
-//                ^
+//                ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 class C4 = A with B implements CAlias;
-//                             ^
+//                             ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 class C5 extends A with BAlias {}
-//                      ^
+//                      ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 mixin M1 on AAlias {}
-//          ^
+//          ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 mixin M2 on A, BAlias {}
-//             ^
+//             ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 mixin M3 on A implements BAlias {}
-//                       ^
+//                       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

@@ -23,15 +23,20 @@ class A {
 
 typedef AAlias = A?;
 
-main() {
-  AAlias a = new A();
+test(AAlias a) {
   a.s;
-// ^^
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   a.foo;
-// ^^^^
+//  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+}
+
+main() {
+  AAlias a = new A();
+  test(a);
 }

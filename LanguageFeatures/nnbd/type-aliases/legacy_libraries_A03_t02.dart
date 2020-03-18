@@ -20,5 +20,7 @@ import "../../../Utils/expect.dart";
 import "opted_in_aliases_lib.dart";
 
 main() {
-  Expect.isTrue(NeverAlias is Null);
+  NeverAlias n = null;
+  String s = n;
+  Expect.isTrue(s == null);
 }

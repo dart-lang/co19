@@ -46,7 +46,7 @@ main() {
   c2 = new C();
   testShort(c2);
 
-  CAlias2 c3 = null;
+  CAlias2? c3 = null;
   testShort(c3);
   c3 = new C();
   testShort(c3);
