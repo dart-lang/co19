@@ -5,11 +5,11 @@
  */
 /**
  * @assertion The grammar of selectors is extended to allow null-aware
- * subscripting using the syntax e1?.[e2] which evaluates to null if e1
+ * subscripting using the syntax e1?[e2] which evaluates to null if e1
  * evaluates to null and otherwise evaluates as e1[e2].
  *
  * @description Check that the grammar of selectors is extended to allow
- * null-aware subscripting using the syntax e1?.[e2] which evaluates to null if
+ * null-aware subscripting using the syntax e1?[e2] which evaluates to null if
  * e1 evaluates to null and otherwise evaluates as e1[e2]. Test legacy pre-NNBD
  * types and type aliases
  * @author sgrekhov@unipro.ru
@@ -24,17 +24,17 @@ typedef AAlias3 = AAlias?;
 
 main() {
   AAlias? a1 = null;
-  Expect.isNull(a1?.[42]);
+  Expect.isNull(a1?[42]);
   a1 = new A();
-  Expect.equals(42, a1?.[42]);
+  Expect.equals(42, a1?[42]);
 
   AAlias2 a2 = null;
-  Expect.isNull(a2?.[42]);
+  Expect.isNull(a2?[42]);
   a2 = new A();
-  Expect.equals(42, a2?.[42]);
+  Expect.equals(42, a2?[42]);
 
   AAlias3 a3 = null;
-  Expect.isNull(a3?.[42]);
+  Expect.isNull(a3?[42]);
   a3 = new A();
-  Expect.equals(42, a3?.[42]);
+  Expect.equals(42, a3?[42]);
 }

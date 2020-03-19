@@ -34,13 +34,13 @@ main() {
   new A()!.foo();                     /// static type warning
   new A()![42];                       /// static type warning
   new A()!?.foo();                    /// static type warning
-  new A()!?.[42];                     /// static type warning
+  new A()!?[42];                      /// static type warning
   new A().getValue!;
   new A()[42]!;
   new A()!.s = "Lily was here";       /// static type warning
   new A()!?.s = "Lily was here";      /// static type warning
   new A()![0] = "Lily was here";      /// static type warning
-  new A()!?.[0] = "Lily was here";    /// static type warning
+  new A()!?[0] = "Lily was here";     /// static type warning
   Expect.throws(() {new A().getNull!;});
   Expect.throws(() {new A()[null]!;});
 }

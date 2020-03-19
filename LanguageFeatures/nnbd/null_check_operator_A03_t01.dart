@@ -30,11 +30,11 @@ class A {
     this!.foo();    //# 02: static type warning
     this![42];      //# 03: static type warning
     this!?.foo();   //# 04: static type warning
-    this!?.[42];    //# 05: static type warning
+    this!?[42];     //# 05: static type warning
     this!.s = "Lily was here";    //# 06: static type warning
     this!?.s = "Lily was here";   //# 07: static type warning
     this![0] = "Lily was here";   //# 08: static type warning
-    this!?.[0] = "Lily was here"; //# 09: static type warning
+    this!?[0] = "Lily was here";  //# 09: static type warning
     this.getValue!;
     this[42]!;
   }

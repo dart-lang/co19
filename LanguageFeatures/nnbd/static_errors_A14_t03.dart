@@ -5,7 +5,7 @@
  */
 /**
  * @assertion For the purposes of errors and warnings, the null aware operators
- * ?., ?.., and ?.[] are checked as if the receiver of the operator had
+ * ?., ?.., and ?[] are checked as if the receiver of the operator had
  * non-nullable type. More specifically, if the type of the receiver of a null
  * aware operator is T, then the operator is checked as if the receiver had type
  * NonNull(T).

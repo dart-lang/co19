@@ -44,7 +44,7 @@ class C extends A {
 //       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    super!?.[42];
+    super!?[42];
 //       ^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -60,7 +60,7 @@ class C extends A {
 //       ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    super!?.[0] = "Lily was here";
+    super!?[0] = "Lily was here";
 //       ^
 // [analyzer] unspecified
 // [cfe] unspecified

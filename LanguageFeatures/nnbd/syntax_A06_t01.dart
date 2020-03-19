@@ -5,11 +5,11 @@
  */
 /**
  * @assertion The grammar of selectors is extended to allow null-aware
- * subscripting using the syntax e1?.[e2] which evaluates to null if e1
+ * subscripting using the syntax e1?[e2] which evaluates to null if e1
  * evaluates to null and otherwise evaluates as e1[e2].
  *
  * @description Check that the grammar of selectors is extended to allow
- * null-aware subscripting using the syntax e1?.[e2] which evaluates to null if
+ * null-aware subscripting using the syntax e1?[e2] which evaluates to null if
  * e1 evaluates to null and otherwise evaluates as e1[e2].
  * @static-warning
  * @author sgrekhov@unipro.ru
@@ -25,7 +25,7 @@ class C {
 
 main() {
   C? c = null;
-  Expect.isNull(c?.[42]);
+  Expect.isNull(c?[42]);
   c = new C();
-  Expect.equals(4, c?.[2]);   /// static type warning
+  Expect.equals(4, c?[2]);   /// static type warning
 }

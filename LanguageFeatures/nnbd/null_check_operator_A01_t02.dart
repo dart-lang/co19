@@ -31,11 +31,11 @@ main() {
   a!.foo();                       //# 01: static type warning
   a![42];                         //# 02: static type warning
   a!?.foo();                      //# 03: static type warning
-  a!?.[42];                       //# 04: static type warning
+  a!?[42];                        //# 04: static type warning
   a!.s = "Lily was here";         //# 05: static type warning
   a!?.s = "Let it be";            //# 06: static type warning
   a![0] = "Lily was here";        //# 07: static type warning
-  a!?.[0] = "Lily was here";      //# 08: static type warning
+  a!?[0] = "Lily was here";       //# 08: static type warning
   if (a != null) {
     a.getValue!;
     a[42]!;

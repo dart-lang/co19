@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If e1 translates to F then e1?.[e2] = e3 translates to:
+ * @assertion If e1 translates to F then e1?[e2] = e3 translates to:
  *  SHORT[EXP(e1), fn[x] => x[EXP(e2)] = EXP(e3)]
  *
  *  The other assignment operators are handled equivalently.
  *
- * @description Check that assignments like e1?.[e2] -= e3 translates to:
+ * @description Check that assignments like e1?[e2] -= e3 translates to:
  *  SHORT[EXP(e1), fn[x] => x[EXP(e2)] -= EXP(e3)]
  * @author sgrekhov@unipro.ru
  */
@@ -28,7 +28,7 @@ class C {
 }
 
 void testShort(C? x, int index, dynamic value) {
-  var actual = x?.[index] -= value;
+  var actual = x?[index] -= value;
   var n0 = x;
   x?.init();
   var expected = n0 == null ? null : n0[index] -= value;

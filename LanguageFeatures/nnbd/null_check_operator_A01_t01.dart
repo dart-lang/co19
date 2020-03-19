@@ -34,7 +34,7 @@ main() {
   Expect.throws(() {a!.foo();});
   Expect.throws(() {a![42];});
   Expect.throws(() {a!?.foo();});                 /// static type warning
-  Expect.throws(() {a!?.[42];});                  /// static type warning
+  Expect.throws(() {a!?[42];});                   /// static type warning
   Expect.throws(() {a!.s = "Lily was here";});
   Expect.throws(() {a![0] = "Lily was here";});
   A? a1 = new A();

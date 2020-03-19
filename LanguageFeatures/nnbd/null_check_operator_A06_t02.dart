@@ -39,13 +39,13 @@ main() {
   new A<String>.named("Let's have fun")!.foo();   /// static type warning
   new A<String>.named("Let's have fun")![42];     /// static type warning
   new A<String>.named("Let's have fun")!?.foo();  /// static type warning
-  new A<String>.named("Let's have fun")!?.[42];   /// static type warning
+  new A<String>.named("Let's have fun")!?[42];    /// static type warning
   new A<String>.named("Let's have fun").getValue!;
   new A<String>.named("Let's have fun")[42]!;
   new A<String>.named("Let's have fun")!.s = "Lily was here";       /// static type warning
   new A<String>.named("Let's have fun")!?.s = "Lily was here";      /// static type warning
   new A<String>.named("Let's have fun")![0] = "Lily was here";      /// static type warning
-  new A<String>.named("Let's have fun")!?.[0] = "Lily was here";    /// static type warning
+  new A<String>.named("Let's have fun")!?[0] = "Lily was here";     /// static type warning
   Expect.throws(() {new A<String>.named("Let's have fun").getNull!;});
   Expect.throws(() {new A<String>.named("Let's have fun")[null]!;});
 }

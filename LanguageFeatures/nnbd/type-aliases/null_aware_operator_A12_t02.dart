@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If e1 translates to F then e1?.[e2] = e3 translates to:
+ * @assertion If e1 translates to F then e1?[e2] = e3 translates to:
  *  SHORT[EXP(e1), fn[x] => x[EXP(e2)] = EXP(e3)]
  *
- * @description Check that if e1 translates to F then e1?.[e2] = e3 translates
+ * @description Check that if e1 translates to F then e1?[e2] = e3 translates
  * to: SHORT[EXP(e1), fn[x] => x[EXP(e2)] = EXP(e3)]. Test type aliases
  * @author sgrekhov@unipro.ru
  */
@@ -26,7 +26,7 @@ typedef CAlias1 = C?;
 typedef CAlias2 = C;
 
 void testShort(C? x, int index, dynamic value) {
-  var actual = x?.[index] = value;
+  var actual = x?[index] = value;
   var n0 = x;
   var expected = n0 == null ? null : n0[index] = value;
   Expect.equals(expected, actual);

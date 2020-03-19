@@ -12,7 +12,7 @@
  * also declare operators.
  *
  * @description Check that it is no compile-time error if null-aware member
- * access like E(o)?.[v] is used for explicit extension invocation
+ * access like E(o)?[v] is used for explicit extension invocation
  * @issue 39326
  * https://github.com/dart-lang/language/issues/677
  * @author sgrekhov@unipro.ru
@@ -29,5 +29,5 @@ extension Ext on C {
 
 main() {
   C c = C();
-  Expect.equals(42, Ext(c)?.[42]);
+  Expect.equals(42, Ext(c)?[42]);
 }
