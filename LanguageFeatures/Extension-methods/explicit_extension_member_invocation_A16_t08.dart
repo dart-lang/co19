@@ -38,6 +38,7 @@ class C {
 extension Extension1 on C {
   C operator [](int index) {
     this.value += index + 1;
+    return this;
   }
   void operator []=(int index, C other) {
     this.value += other.value + index + 1;
@@ -51,6 +52,7 @@ extension Extension1 on C {
 extension Extension2 on C {
   C operator [](int index) {
     this.value += index + 2;
+    return this;
   }
   void operator []=(int index, C other) {
     this.value += other.value + index + 2;
