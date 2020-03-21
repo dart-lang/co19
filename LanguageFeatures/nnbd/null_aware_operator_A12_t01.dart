@@ -19,7 +19,7 @@ class C {
   List _list;
   void operator[]=(int index, dynamic value) => _list[index] = value;
 
-  C(int length) :  _list = new List(length);
+  C(int length) :  _list = new List.filled(length, null);
 }
 
 void testShort(C? x, int index, dynamic value) {
