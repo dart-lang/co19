@@ -13,7 +13,6 @@
  * migrated abstract method with non-required non-nullable parameter can
  * override legacy method with named parameter (which is nullable) with default
  * value.
- * @static-warning
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -23,7 +22,7 @@ import "../../../Utils/expect.dart";
 import "override_checking_A02_opted_out_lib.dart";
 
 abstract class A with LEGACY_REQUIRED_ARGS {
-  void test_default({int i}); /// static type warning
+  void test_default({int i});
 }
 
 class B extends A {
