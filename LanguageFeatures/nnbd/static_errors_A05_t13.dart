@@ -27,22 +27,27 @@ class A {}
 
 class C1 {
   FutureOr<FutureOr<A>> f1;
-  FutureOr<FutureOr<String>> f2;
-
-  C1() {}
-//^^
+//                      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  FutureOr<FutureOr<String>> f2;
+//                           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C1() {}
 }
 
 abstract class C2 {
   FutureOr<FutureOr<A>> f1;
-  FutureOr<FutureOr<String>> f2;
-
-  C2() {}
-//^^
+//                      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  FutureOr<FutureOr<String>> f2;
+//                           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C2() {}
 }
 
 class C3 extends C2 {}

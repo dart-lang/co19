@@ -25,18 +25,18 @@ import "legacy_lib.dart";
 
 class C1 {
   LegacyFoo f;
-  C1() {}
-//^^
+//          ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  C1() {}
 }
 
 abstract class C2 {
   LegacyFoo f;
-  C2() {}
-//^^
+//          ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  C2() {}
 }
 
 class C3 extends C2 {}

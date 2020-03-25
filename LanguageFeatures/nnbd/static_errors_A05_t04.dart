@@ -24,22 +24,26 @@ class A {}
 
 class C1 {
   A a;
-  String s;
-
-  C1() {}
-//^^
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  String s;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C1() {}
 }
 
 abstract class C2 {
   A a;
-  String s;
-
-  C2() {}
-//^^
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  String s;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C2() {}
 }
 
 class C3 extends C2 {}

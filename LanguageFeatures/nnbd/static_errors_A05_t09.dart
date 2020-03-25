@@ -27,22 +27,28 @@ typedef void Foo();
 
 class C1 {
   FutureOr<Function> f1;
-  FutureOr<Foo> f2;
-
-  C1() {}
-//^^
+//                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  FutureOr<Foo> f2;
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C1() {}
 }
 
 abstract class C2 {
   FutureOr<Function> f1;
-  FutureOr<Foo> f2;
-
-  C2() {}
-//^^
+//                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  FutureOr<Foo> f2;
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C2() {}
 }
 
 class C3 extends C2 {}

@@ -24,18 +24,18 @@
 
 class C1<X extends Object> {
   X x;
-  C1() {}
-//^^
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  C1() {}
 }
 
 abstract class C2<X extends Object> {
   X x;
-  C2() {}
-//^^
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  C2() {}
 }
 
 class C3 extends C2 {}

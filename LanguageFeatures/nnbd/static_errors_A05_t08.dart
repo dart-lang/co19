@@ -24,18 +24,19 @@ import "dart:async";
 
 class C1 {
   FutureOr<Never> n;
-  C1() {}
-//^^
+//                ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  C1() {}
 }
 
 abstract class C2 {
   FutureOr<Never> n;
-  C2() {}
-//^^
+//                ^
 // [analyzer] unspecified
 // [cfe] unspecified
+  C2() {}
 }
 
 class C3 extends C2 {}
