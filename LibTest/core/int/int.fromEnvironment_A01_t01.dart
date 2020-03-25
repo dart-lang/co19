@@ -7,15 +7,22 @@
  * @assertion const int.fromEnvironment(String name, {int defaultValue})
  * Returns the integer value of the given environment declaration name.
  * The result is the same as would be returned by:
- * int.parse(const String.fromEnvironment(name, defaultValue: ""),
- * (_) => defaultValue)
+ * int.tryParse(const String.fromEnvironment(name, defaultValue: ""))
+ *   ?? defaultValue
  * @description Checks that this constructor returns null if there is no
  * environment variable with appropriate name
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
+const ENV_VAR = "SOME_ENV_VARIABLE";
+
 main() {
-  const someFlag = const int.fromEnvironment("someFlag");
-  Expect.isNull(someFlag);
+  const def1 = bool.hasEnvironment(ENV_VAR) ? const int.fromEnvironment(ENV_VAR) : null;
+  const v1 = bool.hasEnvironment(ENV_VAR) ? const int.fromEnvironment(ENV_VAR) : def1;
+  Expect.equals(def1, v1);
+
+  const def2 = bool.hasEnvironment(ENV_VAR) ? const int.fromEnvironment(ENV_VAR) : 42;
+  const v2 = const int.fromEnvironment(ENV_VAR, defaultValue: def2);
+  Expect.equals(def2, v2);
 }
