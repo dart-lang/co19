@@ -37,7 +37,7 @@ main() {
   toParse = ";;";
   parsed = HeaderValue.parse(toParse);
   Expect.equals("", parsed.value);
-  Expect.mapEquals({"": null}, parsed.parameters);
+  Expect.mapEquals({}, parsed.parameters);
 
   toParse = "some string";
   parsed = HeaderValue.parse(toParse);
@@ -48,4 +48,12 @@ main() {
   parsed = HeaderValue.parse(toParse);
   Expect.equals("", parsed.value);
   Expect.mapEquals({"param1": null}, parsed.parameters);
+
+  toParse = ";param1=;";
+  parsed = HeaderValue.parse(toParse);
+  Expect.equals("", parsed.value);
+  Expect.mapEquals({"param1": ""}, parsed.parameters);
+
+  toParse = ';param1="a';
+  Expect.throws(() {HeaderValue.parse(toParse);});
 }

@@ -24,10 +24,15 @@ main() {
   String toParse = "value1, param1=val1, param2=val2";
   HeaderValue parsed = HeaderValue.parse(toParse, valueSeparator: ",");
   Expect.equals("value1", parsed.value);
-  Expect.mapEquals({"param1": "val1", "param2": "val2"}, parsed.parameters);
+  Expect.mapEquals({}, parsed.parameters);
 
   toParse = "value1,param1=val1,param2=val2";
   parsed = HeaderValue.parse(toParse);
   Expect.equals("value1,param1=val1,param2=val2", parsed.value);
   Expect.mapEquals({}, parsed.parameters);
+
+  toParse = "value1; param1=val1; param2=val2";
+  parsed = HeaderValue.parse(toParse, valueSeparator: ";");
+  Expect.equals("value1", parsed.value);
+  Expect.mapEquals({"param1": "val1"}, parsed.parameters);
 }
