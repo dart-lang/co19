@@ -27,6 +27,6 @@ main() {
 
   const def2 =
       bool.hasEnvironment(ENV_VAR) ? const String.fromEnvironment(ENV_VAR) : "";
-  var s2 = String.fromEnvironment(ENV_VAR);
+  var s2 = const String.fromEnvironment(ENV_VAR);
   Expect.equals(def2, s2);
 }
