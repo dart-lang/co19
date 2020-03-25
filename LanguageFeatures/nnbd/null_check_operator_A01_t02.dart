@@ -11,6 +11,7 @@
  * v, throws no runtime error if v is not null. Test identifier
  * @author sgrekhov@unipro.ru
  * @issue 39723
+ * @issue 41193
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong

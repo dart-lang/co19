@@ -12,6 +12,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 39723
  * @issue 39598
+ * @issue 41193
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
