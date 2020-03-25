@@ -16,11 +16,16 @@
  */
 import "../../../Utils/expect.dart";
 
-main() {
-  var s1 = new String.fromEnvironment("SOME_ENV_VARIABLE",
-      defaultValue: "No");
-  Expect.equals("No", s1);
+const ENV_VAR = "SOME_ENV_VARIABLE";
 
-  var s2 = new String.fromEnvironment("SOME_ENV_VARIABLE");
-  Expect.isNull(s2);
+main() {
+  const def1 = bool.hasEnvironment(ENV_VAR) ? const String.fromEnvironment(ENV_VAR) : "No";
+  var s1 = const String.fromEnvironment(ENV_VAR, defaultValue: def1);
+  Expect.equals(def1, s1);
+
+  const def2 = bool.hasEnvironment(ENV_VAR) ? const String.fromEnvironment(ENV_VAR) : null;
+  var s2 = const bool.hasEnvironment(ENV_VAR)
+      ? String.fromEnvironment(ENV_VAR)
+      : def2;
+  Expect.equals(def2, s2);
 }

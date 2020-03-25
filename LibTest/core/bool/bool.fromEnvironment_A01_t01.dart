@@ -15,7 +15,10 @@
  */
 import "../../../Utils/expect.dart";
 
+const ENV_VAR = "SOME_ENV_VARIABLE";
+
 main() {
-  const someFlag = const bool.fromEnvironment("someFlag");
-  Expect.isFalse(someFlag);
+  const def1 = bool.hasEnvironment(ENV_VAR) ? const bool.fromEnvironment(ENV_VAR) : false;
+  var b = bool.hasEnvironment(ENV_VAR) ? const bool.fromEnvironment(ENV_VAR) : def1;
+  Expect.equals(def1, b);
 }
