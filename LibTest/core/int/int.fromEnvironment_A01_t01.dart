@@ -18,11 +18,9 @@ import "../../../Utils/expect.dart";
 const ENV_VAR = "SOME_ENV_VARIABLE";
 
 main() {
-  const def = bool.hasEnvironment(ENV_VAR) ? const int.fromEnvironment(ENV_VAR) : 0;
   const v1 = const int.fromEnvironment(ENV_VAR);
-  Expect.equals(def, v1);
+  Expect.equals(0, v1);
 
-  const def2 = bool.hasEnvironment(ENV_VAR) ? const int.fromEnvironment(ENV_VAR) : 42;
-  const v2 = const int.fromEnvironment(ENV_VAR, defaultValue: def2);
-  Expect.equals(def2, v2);
+  const v2 = const int.fromEnvironment(ENV_VAR, defaultValue: 42);
+  Expect.equals(42, v2);
 }
