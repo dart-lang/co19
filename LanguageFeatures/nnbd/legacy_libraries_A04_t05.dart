@@ -15,7 +15,10 @@
 // SharedOptions=--enable-experiment=non-nullable
 
 foo({required String named}) {}
-//   ^^^^^^^^        ^^^^^
+//   ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+//                   ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 main() {
