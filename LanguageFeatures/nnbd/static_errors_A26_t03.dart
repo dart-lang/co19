@@ -16,15 +16,17 @@
  * @author sgrekhov@unipro.ru
  * @issue 39876
  * @issue 40943
- * @static-warning
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 main() {
   late num x;
-  x ??= 1;          /// static type warning
-//  ^^^
+  x ??= 1;
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
+//      ^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+// [cfe] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
 }
