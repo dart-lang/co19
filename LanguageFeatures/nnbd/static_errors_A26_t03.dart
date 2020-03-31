@@ -28,5 +28,4 @@ main() {
 // [cfe] unspecified
 //      ^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
-// [cfe] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
 }

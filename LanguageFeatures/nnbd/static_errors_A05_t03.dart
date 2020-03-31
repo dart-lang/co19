@@ -25,17 +25,20 @@ typedef void Foo();
 class C1 {
   Foo f;
 //    ^
-// [analyzer] unspecified
 // [cfe] unspecified
   C1() {}
+//^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_INITIALIZED_NON_NULLABLE_INSTANCE_FIELD
+
 }
 
 abstract class C2 {
   Foo f;
 //    ^
-// [analyzer] unspecified
 // [cfe] unspecified
   C2() {}
+//^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_INITIALIZED_NON_NULLABLE_INSTANCE_FIELD
 }
 
 class C3 extends C2 {}

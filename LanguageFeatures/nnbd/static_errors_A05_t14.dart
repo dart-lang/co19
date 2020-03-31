@@ -26,17 +26,19 @@ import "legacy_lib.dart";
 class C1 {
   LegacyFoo f;
 //          ^
-// [analyzer] unspecified
 // [cfe] unspecified
   C1() {}
+//^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_INITIALIZED_NON_NULLABLE_INSTANCE_FIELD
 }
 
 abstract class C2 {
   LegacyFoo f;
 //          ^
-// [analyzer] unspecified
 // [cfe] unspecified
   C2() {}
+//^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_INITIALIZED_NON_NULLABLE_INSTANCE_FIELD
 }
 
 class C3 extends C2 {}
