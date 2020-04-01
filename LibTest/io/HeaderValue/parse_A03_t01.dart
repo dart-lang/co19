@@ -34,5 +34,5 @@ main() {
   toParse = "value1; param1=val1; param2=val2";
   parsed = HeaderValue.parse(toParse, valueSeparator: ";");
   Expect.equals("value1", parsed.value);
-  Expect.mapEquals({"param1": "val1"}, parsed.parameters);
+  Expect.mapEquals({}, parsed.parameters);
 }
