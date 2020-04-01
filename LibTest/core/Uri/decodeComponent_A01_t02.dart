@@ -31,6 +31,10 @@ manuallyEncode(String s) => s.runes
 
 main() {
   for (int i = 0; i < 65279; i++) {
+    if ((i & 0xF800) == 0xD800) {
+      // Skip surrogates.
+      continue;
+    }
     String char = new String.fromCharCode(i);
     String encoded = Uri.encodeComponent(char);
     Expect.equals(char, Uri.decodeComponent(encoded), "Failed for $i");
