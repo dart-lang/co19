@@ -18,7 +18,7 @@
  * setter, getter, or operator that is defined on Object on potentially nullable
  * type. The type used for static analysis of such an invocation or tear-off
  * shall be the type declared on the relevant member on Object.
- *
+ * @issue 41282
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

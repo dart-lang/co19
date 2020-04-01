@@ -11,7 +11,7 @@
  * @description Checks that calling a method (including an operator) or getter
  * on a receiver of static type Never is treated by static analysis as producing
  * a result of type Never
- *
+ * @issue 41273
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

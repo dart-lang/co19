@@ -9,7 +9,7 @@
  *
  * @description Checks that tearing off a method from a receiver of static type
  * Never produces a value of type Never.
- *
+ * @issue 41273
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
