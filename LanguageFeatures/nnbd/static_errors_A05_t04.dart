@@ -32,7 +32,8 @@ class C1 {
   C1() {}
 //^^
 // [analyzer] COMPILE_TIME_ERROR.NOT_INITIALIZED_NON_NULLABLE_INSTANCE_FIELD
-
+//^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_INITIALIZED_NON_NULLABLE_INSTANCE_FIELD
 }
 
 abstract class C2 {
@@ -43,6 +44,8 @@ abstract class C2 {
 //       ^
 // [cfe] unspecified
   C2() {}
+//^^
+// [analyzer] COMPILE_TIME_ERROR.NOT_INITIALIZED_NON_NULLABLE_INSTANCE_FIELD
 //^^
 // [analyzer] COMPILE_TIME_ERROR.NOT_INITIALIZED_NON_NULLABLE_INSTANCE_FIELD
 }
