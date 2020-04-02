@@ -14,10 +14,11 @@
 // @dart=2.6
 // SharedOptions=--enable-experiment=non-nullable
 
-foo({required String named}) {}
+foo({required String
 //   ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+                     named}) {}
 //                   ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
