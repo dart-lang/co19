@@ -22,10 +22,11 @@
 
 main() {
   late num x;
-  x ??= 1;
+  x ??=
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
+        1;
 //      ^
 // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
 }
