@@ -10,8 +10,9 @@
  * interface computation, all nullability and requiredness annotations are
  * ignored, and the [Never] type is treated as [Null].
  *
- * @description Check that if legacy class extends opted-in class, legacy field
- * can be [Null] if corresponding parent field is of the type [Never].
+ * @description Check that if legacy class extends opted-in class, compile error
+ * does not appear and runtime error is thrown when legacy field is of the type
+ * [Null] and corresponding parent field is of the type [Never].
  *
  * @Issue 40389
  *
@@ -28,6 +29,5 @@ class A extends OPTED_NEVER_FIELD {
 }
 
 main() {
-  A a = A();
-  Expect.isNull(a.n);
+  Expect.throws(() { A(); });
 }
