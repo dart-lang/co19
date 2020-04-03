@@ -17,9 +17,8 @@
  *   otherwise [flatten(T) = T]
  *
  * @description Check that type of await expression match with expected
- * non-nullable types dynamically and the expression cannot be null.
+ * non-nullable legacy [FutureOr] statically and the expression cannot be null.
  *
- * @Issue 41266
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -27,11 +26,16 @@
 
 import "dart:async";
 import "../../Utils/expect.dart";
+import "future_flattening_legacy_lib.dart";
 
-dynamic getNull() => null;
-
-Future<bool> test() async => await getNull();
+Future<FutureOr<A>> test() async {
+  FutureOr<A> a = await null;
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
 
 main() {
-  asyncStart(); test().then((value) {}, onError:(e) { asyncEnd(); });
+  asyncStart();
+  test().then((value) => asyncEnd());
 }

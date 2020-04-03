@@ -17,7 +17,7 @@
  *   otherwise [flatten(T) = T]
  *
  * @description Check that type of await expression match with expected
- * non-nullable types dynamically and the expression cannot be null.
+ * non-nullable types statically and the expression cannot be null.
  *
  * @author iarkh@unipro.ru
  */
