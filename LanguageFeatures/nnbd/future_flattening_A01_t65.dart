@@ -16,10 +16,10 @@
  *       [flatten(T) = S]
  *   otherwise [flatten(T) = T]
  *
- * @description Check that type of await expression match with expected
- * [Null] type statically and the expression cannot be non-null.
+ * @description Check that future flattening works correctly for non-nullable
+ * [Future<Object>] type dynamically and the expression cannot be null.
  *
- * @Issue 41266
+ * @Issue 41340
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -28,11 +28,10 @@
 import "dart:async";
 import "../../Utils/expect.dart";
 
-dynamic getInt() => 1;
-
-Future<Null> test() async => await getInt();
+dynamic getNull() => null;
 
 main() {
-  asyncStart();
-  test().then((value) {}, onError:(e) => asyncEnd());
+  Expect.throws(() { Future<Object>(() => getNull()); });
+  Expect.throws(() { Future<Future<Object>>(() => getNull()); });
+  Expect.throws(() { Future<Future<Object>>(() => Future<Object>(() => getNull())); });
 }

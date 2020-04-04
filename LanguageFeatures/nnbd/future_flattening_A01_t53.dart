@@ -37,5 +37,5 @@ Future test() async {
 
 main() {
   asyncStart();
-  test().then((value) {}, onError:(e) { asyncEnd(); });
+  test().then((value) {}, onError:(e) => asyncEnd());
 }

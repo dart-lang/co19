@@ -35,5 +35,5 @@ Future<FutureOr<A>> test() async => await getNull();
 
 main() {
   asyncStart();
-  test().then((value) {}, onError:(e) { asyncEnd(); });
+  test().then((value) {}, onError:(e) => asyncEnd());
 }
