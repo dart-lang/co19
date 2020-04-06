@@ -33,6 +33,8 @@ Future<A> test() async {
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  throw "Should not reach here!";
 }
 
 main() {
