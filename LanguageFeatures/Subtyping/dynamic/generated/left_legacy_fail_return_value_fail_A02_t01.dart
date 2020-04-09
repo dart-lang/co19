@@ -28,6 +28,7 @@
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
 
 class A extends X {

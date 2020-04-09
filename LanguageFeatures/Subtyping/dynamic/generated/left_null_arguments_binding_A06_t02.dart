@@ -30,6 +30,7 @@
 
 import '../../utils/common.dart';
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
 
 Null t0Instance = null;
