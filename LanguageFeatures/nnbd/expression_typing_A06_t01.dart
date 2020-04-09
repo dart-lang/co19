@@ -10,7 +10,10 @@
  * explicit parameter type. Otherwise, the parameter type of the overriding
  * method is dynamic.
  *
- * @description Checks that it is
+ * @description Checks that in legacy mode, an override of operator== with no
+ * explicit parameter type inherits the parameter type of the overridden method
+ * if any override of operator== between the overriding method and Object.== has
+ * an explicit parameter type
  * @author sgrekhov@unipro.ru
  * @issue 41283
  */

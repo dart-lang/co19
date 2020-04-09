@@ -14,7 +14,7 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-// Requirements=nnbd-strong
+// Requirements=nnbd-weak
 
 import "exports_A01_opted_out_lib.dart";
 

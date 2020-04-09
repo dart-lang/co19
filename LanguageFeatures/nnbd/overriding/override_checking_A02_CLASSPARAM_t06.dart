@@ -18,7 +18,7 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-// Requirements=nnbd-strong
+// Requirements=nnbd-weak
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "override_checking_A02_opted_out_futureor_lib.dart";

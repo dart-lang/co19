@@ -14,7 +14,7 @@
  * @issue 40949
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
-// Requirements=nnbd-strong
+// Requirements=nnbd-weak
 import "../legacy_lib.dart";
 
 typedef AAlias = A?;

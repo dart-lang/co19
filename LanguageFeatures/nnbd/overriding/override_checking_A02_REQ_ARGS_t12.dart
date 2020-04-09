@@ -17,7 +17,7 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-// Requirements=nnbd-strong
+// Requirements=nnbd-weak
 import "override_checking_A02_opted_out_lib.dart";
 
 class A implements LEGACY_REQUIRED_ARGS {

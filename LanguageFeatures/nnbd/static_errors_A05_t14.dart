@@ -20,7 +20,7 @@
  * @issue 40951
  */
 // SharedOptions=--enable-experiment=non-nullable
-// Requirements=nnbd-strong
+// Requirements=nnbd-weak
 import "legacy_lib.dart";
 
 class C1 {
