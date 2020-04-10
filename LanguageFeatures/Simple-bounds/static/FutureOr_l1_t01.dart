@@ -17,6 +17,8 @@
  * [FutureOr] is [FutureOr<dynamic>].
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "dart:async";
 
 typedef F<X> = void Function<Y extends X>();

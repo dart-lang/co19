@@ -17,7 +17,7 @@
  * for lists and maps parameters: [A<X extends List>], [B<X extends Map>].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 import "../../../Utils/expect.dart";
 

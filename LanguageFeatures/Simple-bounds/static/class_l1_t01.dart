@@ -12,7 +12,7 @@
  *  [A<X extends num>]
  * @author iarkh@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=non-nullable
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 

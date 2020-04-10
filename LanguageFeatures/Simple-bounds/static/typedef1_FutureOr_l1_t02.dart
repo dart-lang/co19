@@ -17,7 +17,7 @@
  * when type parameter is [FutureOr<List>]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 
 import "dart:async";
 

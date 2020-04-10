@@ -17,6 +17,7 @@
  * extends A] parameter (covariant)
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 // Functions for correct type comparison in language feature tests
 typedef F<X> = void Function<Y extends X>();

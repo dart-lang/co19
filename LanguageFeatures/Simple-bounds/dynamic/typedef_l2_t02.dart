@@ -18,6 +18,7 @@
  * @Issue 34689
  * @author iarkh@unipro.ru
  */
+
 import "../../../Utils/expect.dart";
 
 typedef G<X, Y extends X> = X Function(Y);

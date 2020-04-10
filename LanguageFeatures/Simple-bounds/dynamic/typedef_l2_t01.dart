@@ -17,6 +17,7 @@
  * with two parameters
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 import "../../../Utils/expect.dart";
 
 class A<X> {}

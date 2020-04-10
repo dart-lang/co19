@@ -18,7 +18,8 @@
  * @Issue 34689, 34699
  * @author iarkh@unipro.ru
  */
-// Functions for correct type comparison in language feature tests
+// SharedOptions=--enable-experiment=non-nullable
+
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 

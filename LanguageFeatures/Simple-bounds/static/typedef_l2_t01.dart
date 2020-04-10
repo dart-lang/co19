@@ -17,6 +17,8 @@
  * with two parameters
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 class A<X> {}
 class B<X> {}
 

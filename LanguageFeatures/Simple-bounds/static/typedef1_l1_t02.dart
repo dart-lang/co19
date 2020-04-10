@@ -17,7 +17,7 @@
  * aliases with list and map parameters: [A<X extends List>], [B<X extends Map>]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;

@@ -17,7 +17,7 @@
  * for the very simple case: [typedef A<X extends num> = C<X>]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 import "../../../Utils/expect.dart";
 

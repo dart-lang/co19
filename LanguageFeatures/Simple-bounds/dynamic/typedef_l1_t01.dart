@@ -17,7 +17,7 @@
  * extends num] parameter (covariant)
  * @author iarkh@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=non-nullable
 import "../../../Utils/expect.dart";
 
 typedef G<X extends num> = X Function();

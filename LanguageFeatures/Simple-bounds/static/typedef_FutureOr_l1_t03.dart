@@ -17,6 +17,8 @@
  * extends FutureOr] parameter (invariant)
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "dart:async";
 
 // Functions for correct type comparison in language feature tests

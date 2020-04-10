@@ -17,6 +17,8 @@
  * extends A] parameter (covariant)
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 class A<X> {}
 typedef G<X extends A> = void Function<Y extends X>();
 

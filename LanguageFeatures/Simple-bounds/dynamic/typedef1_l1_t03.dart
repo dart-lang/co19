@@ -17,7 +17,7 @@
  * for [A<X extends List<int>>], [B<X extends Map<int, int>>.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 import "../../../Utils/expect.dart";
 

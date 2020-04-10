@@ -17,6 +17,7 @@
  * [typedef] parameter (invariant)
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 typedef G1<X> = X Function();
 typedef G2<X extends G1<num>> = Y Function<Y extends X>();

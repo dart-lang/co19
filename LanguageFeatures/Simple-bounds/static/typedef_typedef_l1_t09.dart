@@ -17,8 +17,8 @@
  * [typedef] parameter (unused)
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
-// Functions for correct type comparison in language feature tests
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 

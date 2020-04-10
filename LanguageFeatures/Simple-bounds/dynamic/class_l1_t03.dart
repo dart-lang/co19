@@ -17,6 +17,8 @@
  * List<int>>], [B<X extends Map<int, int>>
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../../Utils/expect.dart";
 
 class A<X extends List<int>> {}
