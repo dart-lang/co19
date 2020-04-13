@@ -26,6 +26,6 @@ typedef G<X extends A<B>, Y extends B<A>> =
     void Function<X1 extends X, Y1 extends Y>(X);
 
 main() {
-  G<A<B>, B<A>> source;
-  void Function<X1 extends A<B>, Y1 extends B<A>>(A<B>) target = source;
+  G<A<B>, B<A>>? source;
+  void Function<X1 extends A<B>, Y1 extends B<A>>(A<B>)? target = source;
 }

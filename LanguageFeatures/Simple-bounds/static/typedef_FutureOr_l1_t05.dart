@@ -24,7 +24,11 @@ import "dart:async";
 typedef G<X extends FutureOr> = void Function<Y extends X>();
 
 main() {
-  G source;
-  void Function<X extends FutureOr<dynamic>>() target = source;
-  void Function<X extends FutureOr<Null>>() target1 = source; //# 01: compile-time error
+  G? source;
+  void Function<X extends FutureOr<dynamic>>()? target = source;
+
+  void Function<X extends FutureOr<Null>>()? target1 = source;
+//                                                    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

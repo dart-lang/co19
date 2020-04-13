@@ -14,8 +14,17 @@
 typedef G<X extends num> = void Function<Y extends X>();
 
 main() {
-  G source;
-  void Function<X extends num>() target = source;
-  void Function<X extends dynamic>() target1 = source; //# 01: compile-time error
-  void Function<Null>()              target2 = source; //# 02: compile-time error
+  G? source;
+  void Function<X extends num>()? target = source;
+
+  void Function<X extends dynamic>()? target1 = source;
+//                                             ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<Null>() target2 = source;
+//                               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

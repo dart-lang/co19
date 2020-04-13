@@ -18,37 +18,65 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+import "../../../Utils/expect.dart";
 
 class A<X extends List> {}
 class B<X extends Map> {}
 
 testA() {
-  A source;
+  A? source;
   var fsource = toF(source);
-  F<A<List>> target1 = fsource;
-  F<A<List<dynamic>>> target2 = fsource;
+  F<A<List>>? target1 = fsource;
+  F<A<List<dynamic>>>? target2 = fsource;
 
-  F<A<List<int>>>  target3 = fsource;  //# 01: compile-time error
-  F<A<List<Null>>> target4 = fsource;  //# 02: compile-time error
+  F<A<List<int>>>? target3 = fsource;
+//                           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<List<Null>>>? target4 = fsource;
+//                            ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   A();
 }
 
 testB() {
-  B source;
+  B? source;
   var fsource = toF(source);
-  F<B<Map>> target1 = fsource;
-  F<B<Map<dynamic, dynamic>>> target2 = fsource;
+  F<B<Map>>? target1 = fsource;
+  F<B<Map<dynamic, dynamic>>>? target2 = fsource;
 
-  F<B<Map<int, dynamic>>> target3 = fsource; //# 01: compile-time error
-  F<B<Map<dynamic, int>>> target4 = fsource; //# 02: compile-time error
-  F<B<Map<int, Null>>>    target5 = fsource; //# 03: compile-time error
-  F<B<Map<Null, int>>>    target6 = fsource; //# 04: compile-time error
-  F<B<Map<int, int>>>     target7 = fsource; //# 05: compile-time error
-  F<B<Map<Null, Null>>>   target8 = fsource; //# 06: compile-time error
+  F<B<Map<int, dynamic>>> target3 = fsource;
+//                                  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<B<Map<dynamic, int>>> target4 = fsource;
+//                                  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<B<Map<int, Null>>> target5 = fsource;
+//                               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<B<Map<Null, int>>> target6 = fsource;
+//                               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<B<Map<int, int>>> target7 = fsource;
+//                              ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<B<Map<Null, Null>>> target8 = fsource;
+//                                ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   B();
 }

@@ -21,17 +21,27 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+import "../../../Utils/expect.dart";
 
 typedef G<X, Y extends X> = X Function(Y);
 
 main() {
-  G source;
+  G? source;
   var fsource = toF(source);
-  F<G<dynamic, Null>> target = fsource;
+  F<G<dynamic, Null>?>? target = fsource;
 
-  F<G<Null, dynamic>> target1 = fsource;    //# 01: compile-time error
-  F<G<Null, Null>> target2 = fsource;       //# 02: compile-time error
-  F<G<dynamic, dynamic>> target3 = fsource; //# 03: compile-time error
+  F<G<Null, dynamic>?>? target1 = fsource;
+//                                ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<Null, Null>?>? target2 = fsource;
+//                             ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<dynamic, dynamic>?>? target3 = fsource;
+//                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

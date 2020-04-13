@@ -20,19 +20,24 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
-
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+import "../../../Utils/expect.dart";
 
 class A<X extends FutureOr<List>> {}
 
 main() {
-  A source;
+  A? source;
   var fsource = toF(source);
-  F<A<FutureOr<List<dynamic>>>> target = fsource;
+  F<A<FutureOr<List<dynamic>>>?>? target = fsource;
 
-  F<A<FutureOr<List<int>>>>  target1 = fsource;  //# 01: compile-time error
-  F<A<FutureOr<List<Null>>>> target2 = fsource;  //# 02: compile-time error
+  F<A<FutureOr<List<int>>>?>?  target1 = fsource;
+//                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<FutureOr<List<Null>>>?>? target2 = fsource;
+//                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   A();
 }

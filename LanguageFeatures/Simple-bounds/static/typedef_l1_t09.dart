@@ -24,10 +24,10 @@ class A<X> {}
 typedef G<X extends A> = void Function();
 
 main() {
-  G source;
+  G? source;
   Expect.throws(() {
     var fsource = toF(source);
-    F<G<A<dynamic>>> target = fsource;
-    F<G<A<Null>>> target1 = fsource;
+    F<G<A<dynamic>>?>? target = fsource;
+    F<G<A<Null>>?>? target1 = fsource;
   });
 }

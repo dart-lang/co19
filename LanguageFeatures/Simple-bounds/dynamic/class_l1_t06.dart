@@ -13,25 +13,26 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that simple bounds are correct for non-function type
- * alias with function parameter (not used)
+ * @description Checks that simple bounds are correct for lists and maps
+ * parameters: [A<X extends List>], [B<X extends Map>]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 
 import "../../../Utils/expect.dart";
 
-typedef G<X> = void Function();
-
-class C<X> {}
-typedef A<X extends G> = C<X>;
+class A<X extends List?> {}
+class B<X extends Map?> {}
 
 main() {
-  A? source;
-  Expect.throws(() {
-    var fsource = toF(source);
-    F<A<G<dynamic>>?>? target = fsource;
-    F<A<G<Null>>?>? target1 = fsource;
-    A();
-  });
+  Expect.equals(
+    typeOf<A<List<dynamic>?>>(),
+    typeOf<A>(),
+  );
+
+  Expect.equals(
+    typeOf<B<Map<dynamic, dynamic>?>>(),
+    typeOf<B>(),
+  );
+
 }

@@ -23,7 +23,7 @@ class A<X> {}
 typedef G<X extends A> = void Function<Y extends X>();
 
 main() {
-  G source;
-  void Function<X extends A<dynamic>>() target = source;
-  void Function<X extends A<Null>>() target1 = source;    //# 01: compile-time error
+  G? source;
+  void Function<X extends A<dynamic>>()? target = source;
+  void Function<X extends A<Null>>()? target1 = source;    //# 01: compile-time error
 }

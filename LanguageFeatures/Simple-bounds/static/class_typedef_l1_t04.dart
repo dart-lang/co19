@@ -25,9 +25,9 @@ typedef G<X> = void Function();
 class A<X extends G> {}
 
 main() {
-  A source;
+  A? source;
   var fsource = toF(source);
-  F<A<G<dynamic>>> target = fsource;
-  F<A<G<Null>>> target1 = fsource;
+  F<A<G<dynamic>>?>? target = fsource;
+  F<A<G<Null>>?>? target1 = fsource;
   A();
 }

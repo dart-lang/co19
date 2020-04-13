@@ -25,10 +25,10 @@ typedef G<X> = void Function();
 class A<X extends G<int>> {}
 
 main() {
-  A source;
+  A? source;
   Expect.throws(() {
     var fsource = toF(source);
-    F<A<G<int>>> target = fsource;
+    F<A<G<int>>?>? target = fsource;
     A();
   });
 }

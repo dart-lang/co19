@@ -19,16 +19,19 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-// Functions for correct type comparison in language feature tests
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+import "../../../Utils/expect.dart";
 
 class A<X> {}
 typedef G<X extends A> = X Function();
 
 main() {
-  G source;
+  G? source;
   var fsource = toF(source);
-  F<G<A<dynamic>>> target = fsource;
-  F<G<A<Null>>> target1 = fsource;  // # 01: compile-time error
+  F<G<A<dynamic>>?>? target = fsource;
+
+  F<G<A<Null>>?>? target1 = fsource;
+//                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

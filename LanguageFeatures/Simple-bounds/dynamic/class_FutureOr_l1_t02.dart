@@ -15,7 +15,7 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct when class parameter is
  * [FutureOr<List>]
- * @Issue 34948
+ * @Issue 39666
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

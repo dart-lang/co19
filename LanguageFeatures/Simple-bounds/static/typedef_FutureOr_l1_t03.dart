@@ -20,16 +20,17 @@
 // SharedOptions=--enable-experiment=non-nullable
 
 import "dart:async";
-
-// Functions for correct type comparison in language feature tests
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+import "../../../Utils/expect.dart";
 
 typedef G<X extends FutureOr> = X Function(X);
 
 main() {
-  G source;
+  G? source;
   var fsource = toF(source);
-  F<G<FutureOr<dynamic>>> target = fsource;
-  F<G<FutureOr<Null>>> targetq = fsource;    //# 01: compile-time error
+  F<G<FutureOr<dynamic>>?>? target = fsource;
+
+  F<G<FutureOr<Null>>?>? targetq = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
