@@ -8,9 +8,9 @@
  * a new scope CS in which final local variables specified by p1 and p2 are
  * defined. The statement s is enclosed within CS. The static type of p1 is T
  * and the static type of p2 is StackTrace.
- * @description Checks that on-catch clause introduces a new scope in which final
- * local variables p1 and p2 are defineed, and block s is inclosed within this
- * scope.
+ * @description Checks that on-catch clause introduces a new scope in which
+ * final local variables p1 and p2 are defined, and block s is enclosed within
+ * this scope.
  * @author ngl@unipro.ru
  */
 import '../../../Utils/expect.dart';
@@ -28,8 +28,6 @@ main() {
   } on String catch (p1, p2) {
     p1_1 = p1;
     p2_1 = p2;
-    Expect.throws(() {p1 = null;});
-    Expect.throws(() {p2 = null;});
   }
   Expect.notEquals(p1, p1_1);
   Expect.notEquals(p2, p2_1);
