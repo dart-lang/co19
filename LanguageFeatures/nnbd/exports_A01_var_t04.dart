@@ -36,5 +36,5 @@ main() {
   fi = null;
 //     ^^^^
 // [analyzer] unspecified
-// [cfe] unspecified1
+// [cfe] unspecified
 }
