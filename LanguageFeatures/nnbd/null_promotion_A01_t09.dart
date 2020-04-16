@@ -11,6 +11,7 @@
  * @description Check that [e] is promoted to [NonNull(T)] in the [false]
  * condition. Test pre-NNBD legacy types
  * @author iarkh@unipro.ru
+ * @issue 41494
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak

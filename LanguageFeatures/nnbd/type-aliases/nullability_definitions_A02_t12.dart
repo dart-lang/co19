@@ -19,6 +19,7 @@
  * legacy pre-NNBD types and type aliases
  * @author sgrekhov@unipro.ru
  * @issue 40972
+ * @issue 41501
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-weak

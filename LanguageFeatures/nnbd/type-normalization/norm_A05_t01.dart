@@ -20,5 +20,5 @@ main() {
   Null t = null;
   Null? t1 = t;
   Null? t2 = null;
-  Null t3 = t3;
+  Null t3 = t2;
 }

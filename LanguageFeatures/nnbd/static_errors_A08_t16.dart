@@ -12,10 +12,10 @@
  * variable which has no initializer expression and is not marked late is used
  * before it is definitely assigned. Test F*, where F is a function type
  * @author sgrekhov@unipro.ru
+ * @issue 41498
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
-import "dart:async";
 import "legacy_lib.dart";
 
 class C {

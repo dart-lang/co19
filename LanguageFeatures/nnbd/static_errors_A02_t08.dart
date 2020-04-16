@@ -12,6 +12,7 @@
  * off a method from an expression whose type is potentially nullable. Test
  * class A*
  * @author sgrekhov@unipro.ru
+ * @issue 41495
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak

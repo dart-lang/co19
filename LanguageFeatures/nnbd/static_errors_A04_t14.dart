@@ -13,6 +13,7 @@
  * variable is marked with the `late` modifier. Test F*, where F is a function
  * type
  * @author sgrekhov@unipro.ru
+ * @issue 41496
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak

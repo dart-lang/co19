@@ -17,13 +17,13 @@
 // Requirements=nnbd-weak
 import "legacy_library_aliases_lib.dart" as aliases;
 
-typedef AAlias = A?;
+typedef AAlias = aliases.A?;
 
 main() {
-  AAlias a = new A();
+  AAlias a = new aliases.A();
 
   if (a != null) {
-    a.foo();
+    a.bar();
     AAlias a1 = a;
   }
 

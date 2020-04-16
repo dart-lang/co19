@@ -11,6 +11,7 @@
  * @description Check that [e] is promoted to [NonNull(T)] in the [false]
  * condition. Test pre-NNBD legacy types and type aliases
  * @author iarkh@unipro.ru
+ * @issue 41494
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-weak
@@ -18,10 +19,10 @@ import "legacy_library_aliases_lib.dart" as legacy;
 
 dynamic init(x) => x;
 
-typedef AAlias = A?;
+typedef AAlias = legacy.A?;
 
 main() {
-  AAlias a1 = init(A());
+  AAlias a1 = init(legacy.A());
   if (a1 is Null) {
   } else {
     a1.foo();
