@@ -38,7 +38,7 @@
  * this method is inherited again in the opted in code, compile error appears
  * for non-nullable parameter.
  *
- * @Issue 40414
+ * @Issue 40414,41529
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

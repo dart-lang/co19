@@ -17,7 +17,7 @@
  *   otherwise [flatten(T) = T]
  *
  * @description Check that future flattening works correctly for [Future<void>]
- * type and the expression can be non-null.
+ * type and the expression can be [Future<void>].
  *
  * @author iarkh@unipro.ru
  */
@@ -29,13 +29,7 @@ import "../../Utils/expect.dart";
 
 main() {
   asyncStart();
-  Future<void>(() => 1).then((value) => asyncEnd());
-
-  asyncStart();
-  Future<Future<void>>(() => Future<void>(() => 1)).then((value) {
+  Future<Future<void>>(() => Future<void>(() => null)).then((value) {
     value.then((value1) => asyncEnd());
   });
-
-  asyncStart();
-  Future<Future<void>>(() => 1).then((value) => asyncEnd());
 }

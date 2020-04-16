@@ -13,7 +13,7 @@
  * method with required nullable parameter can override legacy method with named
  * parameter with and without default value.
  *
- * @Issue 40950
+ * @Issue 41527
  *
  * @author iarkh@unipro.ru
  */

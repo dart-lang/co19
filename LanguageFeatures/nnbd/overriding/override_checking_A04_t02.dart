@@ -37,7 +37,7 @@
  * classes with contradictory nullability information and than this field is
  * inherited again in the opted in code, compile error appears.
  *
- * @Issue 40414
+ * @Issue 40414,41529
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

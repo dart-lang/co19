@@ -29,7 +29,6 @@ import "../../Utils/expect.dart";
 
 Future<FutureOr<void>> test() async {
   FutureOr<void> d = await null;
-  return d;
 }
 
 main() {

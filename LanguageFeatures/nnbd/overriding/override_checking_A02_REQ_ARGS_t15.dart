@@ -14,7 +14,7 @@
  * can override legacy method with named parameter (which is nullable) with
  * default value.
  *
- * @Issue 40950
+ * @Issue 41527
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
