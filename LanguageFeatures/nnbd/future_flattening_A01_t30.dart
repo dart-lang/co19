@@ -19,6 +19,7 @@
  * @description Check that type of await expression match with expected
  * nullable [FutureOr] and the expression can be null.
  *
+ * Issue 41437
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

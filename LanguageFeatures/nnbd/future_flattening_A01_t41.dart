@@ -19,7 +19,7 @@
  * @description Check that type of await expression match with expected
  * [FutureOr<Object>] type dynamically and the expression cannot be null.
  *
- * @Issue 41272
+ * @Issue 41272,41437
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

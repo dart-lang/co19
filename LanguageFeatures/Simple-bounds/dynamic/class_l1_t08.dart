@@ -15,6 +15,7 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [A<X extends
  * List<List>>], [B<X extends Map<Map, Map>>]
+ * Issue 41437
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

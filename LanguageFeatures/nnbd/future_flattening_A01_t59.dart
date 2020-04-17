@@ -19,6 +19,7 @@
  * @description Check that future flattening works correctly for non-nullable
  * [Future<int>] and Future<Object> types and the expression can be non-null.
  *
+ * Issue 41437
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

@@ -19,6 +19,7 @@
  * @description Check that future flattening works correctly for [Future<Null>]
  * type dynamically and the expression cannot be non-null.
  *
+ * Issue 41437
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

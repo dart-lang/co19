@@ -19,7 +19,7 @@
  * @description Check that future flattening works correctly for
  * [Future<Object>] type dynamically and the expression cannot be null.
  *
- * @Issue 41340
+ * @Issue 41340,41437
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

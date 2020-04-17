@@ -16,6 +16,7 @@
  * @description Checks that simple bounds are correct for the very simple case:
  *  [A<X extends num>]
  * @author iarkh@unipro.ru
+ * Issue 41437
  */
 // SharedOptions=--enable-experiment=non-nullable
 

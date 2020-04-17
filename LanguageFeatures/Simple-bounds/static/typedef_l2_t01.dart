@@ -15,6 +15,7 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that instantiate-to-bounds works correctly for [typedef]
  * with two parameters
+ * Issue 41437
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
