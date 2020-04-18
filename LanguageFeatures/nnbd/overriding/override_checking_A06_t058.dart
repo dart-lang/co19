@@ -11,22 +11,26 @@
  * Otherwise, for the purposes of runtime subtyping checks, [C] is considered to
  * implement the canonical interface given by [NNBD_TOP_MERGE(S0, ..., Sn)].
  *
- * @description Check that result of [NNBD_TOP_MERGE(Null, Null*)] is [Null].
+ * @description Check that compile error occurs as a result of [NNBD_TOP_MERGE(
+ * Null, void*)].
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 
-import "../../../Utils/expect.dart";
 import "override_checking_A06_opted_out_lib.dart";
 
 class B extends A<Null> {}
 
-class in1 extends out_void implements B        {}
-class in2 extends B        implements out_void {}
+class in1 extends out_void implements B {}
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-main() {
-  Expect.equals(typeOf<void>(), in1().getType());
-  Expect.equals(typeOf<void>(), in2().getType());
-}
+class in2 extends B implements out_void {}
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+main() {}

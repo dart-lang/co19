@@ -11,8 +11,8 @@
  * Otherwise, for the purposes of runtime subtyping checks, [C] is considered to
  * implement the canonical interface given by [NNBD_TOP_MERGE(S0, ..., Sn)].
  *
- * @description Check that error occurs as a result of [NNBD_TOP_MERGE] of
- * [Function] vs [Function*].
+ * @description Check that result of [NNBD_TOP_MERGE(Function, Function*) is
+ * [Function].
  *
  * @Issue 40414
  * @author iarkh@unipro.ru
@@ -20,18 +20,15 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 
+import "../../../Utils/expect.dart";
 import "override_checking_A06_opted_out_lib.dart";
 
 class B extends A<Function> {}
 
-class in_Function extends out_Function implements B {}
-//    ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+class in_int1 extends out_Function implements B {}
+class in_int2 extends B implements out_Function {}
 
-class in_Function1 extends B implements out_Function {}
-//    ^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-main() {}
+main() {
+  Expect.equals(typeOf<Function>(), in_int1().getType());
+  Expect.equals(typeOf<Function>(), in_int2().getType());
+}

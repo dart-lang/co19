@@ -11,25 +11,25 @@
  * Otherwise, for the purposes of runtime subtyping checks, [C] is considered to
  * implement the canonical interface given by [NNBD_TOP_MERGE(S0, ..., Sn)].
  *
- * @description Check that [NNBD_TOP_MERGE(Never, Never*)] causes compile error.
+ * @description Check that NNBD_TOP_MERGE of legacy [FutureOr<int>] and [void]
+ * cayses compile error.
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 
-import "../../../Utils/expect.dart";
 import "override_checking_A06_opted_out_lib.dart";
 
-class B extends A<Never> {}
+class B extends A<void> {}
 
-class C1 extends B implements out_Never {}
-//    ^^
+class in_FutureOr_int extends out_FutureOr_int implements B {}
+//    ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-class C2 extends out_Never implements B {}
-//    ^^
+class in_FutureOr_int1 extends B implements out_FutureOr_int {}
+//    ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

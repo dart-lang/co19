@@ -11,8 +11,9 @@
  * Otherwise, for the purposes of runtime subtyping checks, [C] is considered to
  * implement the canonical interface given by [NNBD_TOP_MERGE(S0, ..., Sn)].
  *
- * @description Check that error occurs as a result of [NNBD_TOP_MERGE] of
- * [FutureOr<FutureOr>] and [Object], [Object?].
+ * @description Check that overriding works correctly as a result of
+ * [NNBD_TOP_MERGE] of [FutureOr<FutureOr>]: ir's error to merge it with
+ * [Object] and it's not error to merge it with nullable [Object?].
  *
  * @author iarkh@unipro.ru
  */
@@ -33,9 +34,6 @@ class D_Object extends B implements C_Object {}
 // [cfe] unspecified
 
 class D_nullable_Object extends B implements C_nullable_Object {}
-//    ^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 class D_Object1 extends C_Object implements B{}
 //    ^^^^^^^^^
@@ -43,8 +41,5 @@ class D_Object1 extends C_Object implements B{}
 // [cfe] unspecified
 
 class D_nullable_Object1 extends C_nullable_Object implements B {}
-//    ^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 void main() {}
