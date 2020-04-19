@@ -14,7 +14,7 @@
  * @description Check that that the result of NNBD_TOP_MERGE(Never, Never)] is
  * [Never].
  *
- * @Issue 40554
+ * @Issue 40554,41573
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

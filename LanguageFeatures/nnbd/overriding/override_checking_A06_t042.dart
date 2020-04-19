@@ -14,7 +14,7 @@
  * @description Check that result of [NNBD_TOP_MERGE] of [dynamic] and [void] is
  * [dynamic].
  *
- * @Issue 40541
+ * @Issue 40541,41576
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

@@ -13,7 +13,7 @@
  *
  * @description Check that result of [NNBD_TOP_MERGE] of [Object?] and
  * [dynamic] is [Object?].
- * @Issue 40541
+ * @Issue 40541,41576
  *
  * @author iarkh@unipro.ru
  */
