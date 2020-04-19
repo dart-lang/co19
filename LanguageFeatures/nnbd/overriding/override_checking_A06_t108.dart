@@ -14,6 +14,7 @@
  * @description Check that compile error is thrown as a result of
  * [NNBD_TOP_MERGE(FutureOr<FutureOr>, Object*)]
  *
+ * @Issue 41566,41567
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
