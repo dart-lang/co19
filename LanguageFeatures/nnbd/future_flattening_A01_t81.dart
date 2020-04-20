@@ -29,7 +29,7 @@ import "../../Utils/expect.dart";
 
 main() {
   asyncStart();
-  Future<Future<void>>(() => Future<void>(() => null)).then((value) {
+  Future<Future<void>>(() => Future<void>((){})).then((value) {
     value.then((value1) => asyncEnd());
   });
 }
