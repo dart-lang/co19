@@ -16,9 +16,10 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import 'opted_out_lib.dart';
+import '../type-aliases/legacy_library_aliases_lib.dart';
 
 main() {
-  var t = getLegacyType<LegacyInt>(42);
-  LegacyInt t1 = t;
+  var t = getLegacyType<IntAlias>(42);
+  IntAlias t1 = t;
   t = t1;
 }

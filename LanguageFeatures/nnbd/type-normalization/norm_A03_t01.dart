@@ -15,11 +15,11 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
-import 'opted_out_lib.dart';
+import '../type-aliases/legacy_library_aliases_lib.dart';
 
 main() {
-  LegacyInt? t = 42;
+  IntAlias? t = 42;
   int? t1 = t;
   int? t2 = 1;
-  LegacyInt? t3 = t2;
+  IntAlias? t3 = t2;
 }

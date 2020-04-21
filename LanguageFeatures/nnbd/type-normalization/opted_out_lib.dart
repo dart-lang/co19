@@ -4,9 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 // @dart=2.6
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 library opted_out_lib;
 
 X getLegacyType<X>(X x) => x;
-
-typedef LegacyInt = int;
