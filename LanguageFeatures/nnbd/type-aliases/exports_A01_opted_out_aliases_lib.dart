@@ -6,7 +6,7 @@
 /**
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // @dart=2.6
 
 library export_opted_aliases_lib;
