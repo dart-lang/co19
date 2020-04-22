@@ -7,22 +7,25 @@
  * @assertion The NORM relation defines the canonical representative of classes
  * of equivalent types...
  * This is based on the following equations:
- *   X & T == X if X <: T
+ *   FutureOr<T> == Future<T> if T <: Future<T>
  *
- * @description Checks that if X <: T then X & T == X
+ * @description Checks that if T is not subtype of Future<T> then
+ * FutureOr<T> != Future<T>
  *
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
+import 'dart:async';
 
-class A {}
-class C extends A {}
+class A<X> {}
+class B<X> implements A<X> {}
+
+  class C extends B<FutureOr<Null>> implements A<Future<Null>> {}
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  C c = C();
-  if (c is A) {
-    C c1 = c;
-    c = new C();
-  }
+  new C();
 }

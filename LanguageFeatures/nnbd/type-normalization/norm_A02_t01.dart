@@ -15,10 +15,11 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
+import 'opted_in_lib.dart';
 import 'opted_out_lib.dart';
 
+class C extends LC<String?> implements A<String?> {}
+
 main() {
-  var t = getLegacyType<int?>(null);
-  int? t1 = t;
-  t = t1;
+  new C();
 }

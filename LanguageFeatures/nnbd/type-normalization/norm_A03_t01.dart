@@ -15,11 +15,13 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
-import '../type-aliases/legacy_library_aliases_lib.dart';
+import 'opted_in_lib.dart';
+import 'opted_out_lib.dart';
+
+class B<X> implements A<X?> {}
+
+class C extends LE<String> implements A<String?> {}
 
 main() {
-  IntAlias? t = 42;
-  int? t1 = t;
-  int? t2 = 1;
-  IntAlias? t3 = t2;
+  new C();
 }

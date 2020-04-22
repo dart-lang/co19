@@ -17,9 +17,8 @@
 // Requirements=nnbd-weak
 import 'opted_out_lib.dart';
 
+class C extends LV implements LA<void> {}
+
 main() {
-  var v = getLegacyType<void>(42);
-  void v1 = v;
-  void v2 = "Lily was here";
-  v = v2;
+  new C();
 }

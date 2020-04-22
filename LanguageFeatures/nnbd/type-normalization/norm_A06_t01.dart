@@ -15,12 +15,11 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
-test(Never? n) {
-  Null n1 = n;
-  Null n2 = null;
-  n = n2;
-}
+class A<X> {}
+class B<X> implements A<X> {}
+
+class C extends B<Never?> implements A<Null> {}
 
 main() {
-  test(null);
+  new C();
 }

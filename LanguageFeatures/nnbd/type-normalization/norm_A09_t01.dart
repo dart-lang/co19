@@ -17,9 +17,8 @@
 // Requirements=nnbd-weak
 import 'opted_out_lib.dart';
 
+class C extends LD implements LA<dynamic> {}
+
 main() {
-  var d = getLegacyType<dynamic>(42);
-  dynamic d1 = d;
-  dynamic d2 = "Lily was here";
-  d = d2;
+  new C();
 }

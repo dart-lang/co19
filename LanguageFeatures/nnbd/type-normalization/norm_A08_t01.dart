@@ -12,14 +12,15 @@
  * @description Checks that void? == void
  *
  * @author sgrekhov@unipro.ru
- * @issue 39896
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
+class A<X> {}
+class B<X> implements A<X?> {}
+
+class C extends B<void> implements A<void> {}
+
 main() {
-  void? v = 42;
-  void v1 = v;
-  void v2 = "Lily was here";
-  void? v3 = v2;
+  new C();
 }

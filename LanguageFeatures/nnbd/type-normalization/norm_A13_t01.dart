@@ -16,10 +16,11 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
-test<X extends Never>(X x, Never n2) {
-  Never n1 = x;
-  x = n2;
-}
+class A<X> {}
+class B<X extends Never> implements A<X> {}
+
+class C extends B<Never> implements A<Never> {}
 
 main() {
+  new C();
 }

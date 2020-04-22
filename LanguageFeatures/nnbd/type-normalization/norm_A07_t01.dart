@@ -15,10 +15,11 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
+class A<X> {}
+class B<X> implements A<X> {}
+
+class C extends B<dynamic?> implements A<dynamic> {}
 
 main() {
-  dynamic? d = 42;
-  dynamic d1 = d;
-  dynamic d2 = "Lily was here";
-  dynamic? d3 = d2;
+  new C();
 }

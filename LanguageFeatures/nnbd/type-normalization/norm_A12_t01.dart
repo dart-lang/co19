@@ -17,12 +17,11 @@
 // Requirements=nnbd-strong
 import 'dart:async';
 
-class C {}
+class A<X> {}
+class B<X> implements A<X> {}
+
+class C extends B<FutureOr<Null>> implements A<Future<Null>?> {}
 
 main() {
-  FutureOr<Future<Object>> f =
-    new Future<Future<Object>>.value(new Future<Object>.value(new Object()));
-  Future<Object> f1 = f;
-  FutureOr<Future<Object>> f2 =
-    new Future<Future<Object>>.value(new Future<Object>.value(new Object()));
+  new C();
 }

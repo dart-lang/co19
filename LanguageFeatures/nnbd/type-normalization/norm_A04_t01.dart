@@ -15,11 +15,11 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
+import 'opted_in_lib.dart';
 import 'opted_out_lib.dart';
-import '../type-aliases/legacy_library_aliases_lib.dart';
+
+class C extends LC2<String> implements A<String> {}
 
 main() {
-  var t = getLegacyType<IntAlias>(42);
-  IntAlias t1 = t;
-  t = t1;
+  new C();
 }

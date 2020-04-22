@@ -13,17 +13,15 @@
  *
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 class T {}
+class A<X> {}
+class B<X> implements A<X?> {}
 
-typedef T1 = T?;
-typedef T2 = T1?;
+class C extends B<T?> implements A<T?> {}
 
 main() {
-  T2 t = new T2();
-  T? t1 = t;
-  T? t2 = new T();
-  T2 t3 = t2;
+  new C();
 }

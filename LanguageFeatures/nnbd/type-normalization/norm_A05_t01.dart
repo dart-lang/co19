@@ -15,10 +15,11 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
+class A<X> {}
+class B<X> implements A<X> {}
+
+class C extends B<Null?> implements A<Null> {}
 
 main() {
-  Null t = null;
-  Null? t1 = t;
-  Null? t2 = null;
-  Null t3 = t2;
+  new C();
 }

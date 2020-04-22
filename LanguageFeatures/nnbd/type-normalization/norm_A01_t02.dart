@@ -7,22 +7,24 @@
  * @assertion The NORM relation defines the canonical representative of classes
  * of equivalent types...
  * This is based on the following equations:
- *   X & T == T if T <: X
+ *   T?? == T?
  *
- * @description Checks that if T <: X then X & T == T
+ * @description Checks that T1?? != T? for some T1 <: T
  *
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
-class A {}
-class C extends A {}
+class T {}
+class T1 extends T {}
+class A<X> {}
+class B<X> implements A<X?> {}
 
+  class C extends B<T1?> implements A<T?> {}
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 main() {
-  A a = C();
-  if (a is C) {
-    C c = a;
-    a = new C();
-  }
+  new C();
 }

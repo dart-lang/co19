@@ -17,8 +17,15 @@
 // Requirements=nnbd-strong
 import 'dart:async';
 
+class A<X> {}
+class B<X> implements A<X> {}
+
+class CO extends B<FutureOr<Object>> implements A<Object> {}
+class CD extends B<FutureOr<dynamic>> implements A<dynamic> {}
+class CV extends B<FutureOr<void>> implements A<void> {}
+
 main() {
-  FutureOr<Object> f = new Future<Object>.value(new Object());
-  Object c = f;
-  FutureOr<Object> f1 = new Object();
+  new CO();
+  new CD();
+  new CV();
 }
