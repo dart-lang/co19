@@ -17,16 +17,11 @@
 // Requirements=nnbd-strong
 dynamic? foo(dynamic? d) => d;
 
-void? bar(void? v) => v;
-
 Null? test(Null? n) => n;
 
 main() {
   dynamic? d = null;
   d = foo(d);
-
-  void? v = null;
-  v = bar(v);
 
   Null? n = null;
   n = test(n);
