@@ -14,6 +14,7 @@
  * @description Check that error does not occue as a result of [NNBD_TOP_MERGE(
  * FutureOr<FutureOr>, void)].
  *
+ * @Issue 41576
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
