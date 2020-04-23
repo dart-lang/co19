@@ -14,7 +14,12 @@ class LB<X> implements LA<X>{}
 class LC<X> implements A<X> {}
 class LC2<X> implements LC<X>{}
 class LE<X> implements B<X> {}
+class LF<X> implements B2<X> {}
 
 class LD implements LA<dynamic>{}
 class LV implements LA<void>{}
+
+class LAO implements A<Object> {}
+class LFO extends FO<Object> {}
+
 

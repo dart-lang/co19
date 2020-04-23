@@ -22,7 +22,7 @@ class A<X> {}
 class B<X> implements A<X?> {}
 
   class C extends B<T1?> implements A<T?> {}
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 main() {

@@ -4,12 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The NORM relation defines the canonical representative of classes
- * of equivalent types...
- * This is based on the following equations:
- *   T** == T*
+ * @assertion
+ * NORM(FutureOr<T>) =
+ *  let S be NORM(T)
+ *  if S is a top type then S
+ *  if S is Object then S
+ *  if S is Object* then S
+ *  if S is Never then Future<Never>
+ *  if S is Null then Future<Null>?
+ *  else FutureOr<S>
  *
- * @description Checks that T** == T*
+ * @description Checks that if NORM(T) is Object* then
+ * NORM(FutureOr<T>) = Object*
  *
  * @author sgrekhov@unipro.ru
  */
@@ -17,7 +23,7 @@
 // Requirements=nnbd-weak
 import 'opted_out_lib.dart';
 
-class C extends LC2<String> implements LC<String> {}
+class C extends LFO implements LAO {}
 
 main() {
   new C();

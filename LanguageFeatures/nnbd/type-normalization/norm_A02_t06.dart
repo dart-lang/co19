@@ -4,13 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The NORM relation defines the canonical representative of classes
- * of equivalent types...
- * This is based on the following equations:
- *   FutureOr<T> == Future<T> if T <: Future<T>
+ * @assertion
+ * NORM(FutureOr<T>) =
+ *  let S be NORM(T)
+ *  if S is a top type then S
+ *  if S is Object then S
+ *  if S is Object* then S
+ *  if S is Never then Future<Never>
+ *  if S is Null then Future<Null>?
+ *  else FutureOr<S>
  *
- * @description Checks that if T is not subtype of Future<T> then
- * FutureOr<T> != Future<T>
+ * @description Checks that if NORM(T) is Null then
+ * NORM(FutureOr<T>) != Future<Null>
  *
  * @author sgrekhov@unipro.ru
  */
@@ -21,11 +26,10 @@ import 'dart:async';
 class A<X> {}
 class B<X> implements A<X> {}
 
-  class C extends B<FutureOr<Null>> implements A<Future<Null>> {}
-//      ^
+class C extends B<FutureOr<Null>> implements A<Future<Null>> {}
+//    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-
 main() {
   new C();
 }

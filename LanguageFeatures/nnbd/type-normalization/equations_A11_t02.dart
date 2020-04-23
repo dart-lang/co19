@@ -23,15 +23,15 @@ class A<X> {}
 class B<X> implements A<X> {}
 
   class CT extends B<FutureOr<T>> implements A<T> {}
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   class CN extends B<FutureOr<Null>> implements A<Null> {}
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   class CF extends B<FutureOr<Future>> implements A<Future> {}
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

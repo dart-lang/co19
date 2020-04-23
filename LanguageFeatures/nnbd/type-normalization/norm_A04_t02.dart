@@ -4,20 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The NORM relation defines the canonical representative of classes
- * of equivalent types...
- * This is based on the following equations:
- *   T** == T*
+ * @assertion
+ * NORM(T*) =
+ *  let S be NORM(T)
+ *  if S is a top type then S
+ *  if S is Null then Null
+ *  if S is R? then R?
+ *  if S is R* then R*
+ *  else S*
  *
- * @description Checks that T** == T*
+ * @description Checks that if NORM(T) is Null then NORM(T*) = Null
  *
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
+import 'opted_in_lib.dart';
 import 'opted_out_lib.dart';
 
-class C extends LC2<String> implements LC<String> {}
+class C extends LF<Null> implements A<Null> {}
 
 main() {
   new C();

@@ -4,12 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The NORM relation defines the canonical representative of classes
- * of equivalent types...
- * This is based on the following equations:
- *   T*? == T?
+ * @assertion
+ * NORM(T?) =
+ *  let S be NORM(T)
+ *  if S is a top type then S
+ *  if S is Never then Null
+ *  if S is Never* then Null
+ *  if S is Null then Null
+ *  if S is FutureOr<R> and R is nullable then S
+ *  if S is FutureOr<R>* and R is nullable then FutureOr<R>
+ *  if S is R? then R?
+ *  if S is R* then R?
+ *  else S?
  *
- * @description Checks that T*? == T?
+ * @description Checks that if NORM(T) is R* then NORM(T?) = R?
  *
  * @author sgrekhov@unipro.ru
  */
