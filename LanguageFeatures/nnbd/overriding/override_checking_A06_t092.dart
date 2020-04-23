@@ -20,13 +20,17 @@
 // Requirements=nnbd-strong
 
 import "dart:async";
+import "../../../Utils/expect.dart";
 
-class A<T> {}
-class B implements A<FutureOr<FutureOr>> {}
-class C implements A<void>  {}
+class A<T> { Type getType() => T; }
+
+class B extends A<FutureOr<FutureOr>> {}
+class C extends A<void>  {}
 
 class D1 extends B implements C {}
-
 class D2 extends C implements B {}
 
-void main() {}
+void main() {
+  Expect.equals(typeOf<FutureOr<FutureOr>>(), D1().getType());
+  Expect.equals(typeOf<void>(), D2().getType());
+}
