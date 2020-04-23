@@ -9,14 +9,14 @@
  * constant or compile-time constant, respectively, and [T] is a compile-time
  * constant type.
  * @description Checks that an expression of the form [e is T] is not accepted
- * and causes compile time error if [T] is not a compile-time constant type.
+ * if [e] is not a constant
  * @compile-error
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
-class A<E> {
-  static const bool res = String is E;
-}
+Object str = "test";
 
 main() {
+  const bool check = str is String;
 }

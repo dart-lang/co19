@@ -8,19 +8,16 @@
  * potentially and compile-time constant expression if [e] is potentially
  * constant or compile-time constant, respectively, and [T] is a compile-time
  * constant type.
- * @description Checks that an expression of the form [e is! T] is accepted if
- * [e] is not a constant
+ * @description Checks that an expression of the form [e is! T] is not accepted
+ * and causes compile time error if [T] is not a compile-time constant type.
  * @compile-error
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
-String anObject = "";
-
-class MyClass {
-  final String obj;
-  const MyClass(Object o) : obj = o is! String ? "OK" : "incorrect";
+class A<E> {
+  static const bool res = String is! E;
 }
 
 main() {
-  const MyClass c = MyClass(anObject);
 }

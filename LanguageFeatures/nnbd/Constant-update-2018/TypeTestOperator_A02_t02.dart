@@ -12,7 +12,9 @@
  * [e] is a compile-time constant
  * @author iarkh@unipro.ru
  */
-import "../../Utils/expect.dart";
+// SharedOptions=--enable-experiment=non-nullable
+
+import "../../../Utils/expect.dart";
 
 const i = 0;
 const i1 = "12345";

@@ -13,9 +13,15 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
-Object str = "test";
+String anObject = "";
+
+class MyClass {
+  final String obj;
+  const MyClass(Object o) : obj = o is String ? "OK" : "incorrect";
+}
 
 main() {
-  const bool check = str is String;
+  const MyClass c = MyClass(anObject);
 }

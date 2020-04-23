@@ -12,7 +12,9 @@
  * [e] is a compile-time constant
  * @author iarkh@unipro.ru
  */
-import "../../Utils/expect.dart";
+// SharedOptions=--enable-experiment=non-nullable
+
+import "../../../Utils/expect.dart";
 
 const i = 0;
 const i1 = "12345";
@@ -24,7 +26,7 @@ class MyClass1 {
 
 class MyClass2 {
   final int res;
-  const MyClass2() : res = (i1 is int && i > 0 ? i1 : -1);
+  const MyClass2() : res = (i1 is int && i > 0 ? i1 as int : -1);
 }
 
 main() {
