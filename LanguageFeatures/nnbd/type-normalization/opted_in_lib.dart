@@ -14,3 +14,5 @@ class B2<X> implements A<X> {}
 
 class FO<X> extends B2<FutureOr<X>> {}
 
+class G<X> {}
+

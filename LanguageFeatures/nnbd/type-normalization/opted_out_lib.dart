@@ -22,4 +22,8 @@ class LV implements LA<void>{}
 class LAO implements A<Object> {}
 class LFO extends FO<Object> {}
 
-
+class LCG<X> implements A<G<X>> {}
+class LCG2<X> implements LCG<X>{}
+class LEG<X> implements B<G<X>> {}
+class LDG implements LA<G<dynamic>>{}
+class LVG implements LA<G<void>>{}
