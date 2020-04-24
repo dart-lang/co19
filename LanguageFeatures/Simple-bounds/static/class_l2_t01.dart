@@ -27,7 +27,23 @@ class B<X extends A, Y extends X> {}
 main() {
   B? source;
   var fsource = toF(source);
+
   F<B<A<dynamic>, A<dynamic>>?>? target = fsource;
+
+  F<B<A<dynamic>?, A<dynamic>?>?>? target01 = fsource;
+//                                            ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<B<A<dynamic>?, A<dynamic>?>>? target02 = fsource;
+//                                           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<B<A<dynamic>, A<dynamic>?>?>? target03 = fsource;
+//                                           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   F<B<A<int>, A<dynamic>>?>? target1  = fsource;
 //                                      ^^^^^^^
@@ -56,6 +72,11 @@ main() {
 
   F<B<A<Null>, A<Null>>?>? target6 = fsource;
 //                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<B<A<Never>, A<dynamic>>?>? target7 = fsource;
+//                                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

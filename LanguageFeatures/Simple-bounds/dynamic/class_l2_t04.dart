@@ -13,36 +13,21 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that simple bounds are correct when class parameter is
- * [FutureOr]
+ * @description Checks that instantiate-to-bounds works as expected for:
+ * [class A<X>], [class B<X>], [class G<X extends A<B?>?, X1 extends B<X>?>>]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-import "dart:async";
+
 import "../../../Utils/expect.dart";
 
-class A<X extends FutureOr> {}
+class A<X> {}
+class B<X> {}
+class G<X extends A<B?>?, X1 extends B<X>?> {}
 
 main() {
-  A? source;
-  var fsource = toF(source);
-
-  F<A<FutureOr<dynamic>>?>? target = fsource;
-
-  F<A<FutureOr<int>>?>? target1 = fsource;
-//                                ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<FutureOr<Null>>?>? target2 = fsource;
-//                                 ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<FutureOr<Never>>?>? target3 = fsource;
-//                                  ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  A();
+  Expect.equals(
+    typeOf<G<A<B<dynamic>?>?, B<A<B<dynamic>?>?>?>>(),
+    typeOf<G>(),
+  );
 }

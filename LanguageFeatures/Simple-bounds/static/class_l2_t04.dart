@@ -14,7 +14,7 @@
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
  * @description Checks that instantiate-to-bounds works as expected for [class
- * G<X extends A<B>, X1 extends B<X>> ]
+ * G<X extends A<B?>?, X1 extends B<X>?> ]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -23,16 +23,16 @@ import "../../../Utils/expect.dart";
 
 class A<X> {}
 class B<X> {}
-class G<X extends A<B>, X1 extends B<X>> {}
+class G<X extends A<B?>?, X1 extends B<X>?> {}
 
 main() {
   G? source;
   var fsource = toF(source);
 
-  F<G<A<B<dynamic>>, B<A<B<dynamic>>>>?>? target = fsource;
+  F<G<A<B<dynamic>?>?, B<A<B<dynamic>?>?>?>?>? target = fsource;
 
-  F<G<A<B<dynamic>?>?, B<A<B<dynamic>?>?>?>?>? target01 = fsource;
-//                                                        ^^^^^^^
+  F<G<A<B<dynamic>>, B<A<B<dynamic>>>>> target01 = fsource;
+//                                                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -46,13 +46,13 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<B<int>>, B<A<B<dynamic>>>>?>? target1 = fsource;
-//                                              ^^^^^^^
+  F<G<A<B<int?>?>?, B<A<B<dynamic>?>?>?>?>? target1 = fsource;
+//                                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<B<dynamic>>, B<A<B<int>>>>?>? target2 = fsource;
-//                                              ^^^^^^^
+  F<G<A<B<dynamic>?>?, B<A<B<int?>?>?>?>?>? target2 = fsource;
+//                                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

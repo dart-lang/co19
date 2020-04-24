@@ -20,6 +20,7 @@ class A<X extends num> {}
 main() {
   A? source;
   var fsource = toF(source);
+
   F<A<num>?>? target = fsource;
 
   F<A<int>?>? target1 = fsource;
@@ -32,8 +33,8 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<Null>?>? target3 = fsource;
-//                       ^^^^^^^
+  F<A<Never>?>? target3 = fsource;
+//                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

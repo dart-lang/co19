@@ -13,35 +13,40 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that simple bounds are correct for [A<X extends
- * List<int>>], [B<X extends Map<int, int>>
+ * @description Checks that simple bounds are correct for lists and maps
+ * parameters: [A<X extends List?>], [B<X extends Map?>]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-
 import "../../../Utils/expect.dart";
 
-class A<X extends List<int>> {}
-class B<X extends Map<int, int>> {}
+class A<X extends List?> {}
+class B<X extends Map?> {}
 
 testA() {
   A? source;
   var fsource = toF(source);
 
-  F<A<List<int>>?>? target = fsource;
+  F<A<List?>?>? target1 = fsource;
+  F<A<List<dynamic>?>?>? target2 = fsource;
 
-  F<A<List<dynamic>>?>? target1 = fsource;
-//                                ^^^^^^^
+  F<A<List>?>? target0 = fsource;
+//                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<List<Never>>?>? target2 = fsource;
+  F<A<List<int>>?>? target3 = fsource;
+//                            ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<List<Null>>?>? target4 = fsource;
+//                            ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<List<Never>>?>? target5 = fsource;
 //                              ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<List<String>>?>? target3 = fsource;
-//                               ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -52,45 +57,46 @@ testB() {
   B? source;
   var fsource = toF(source);
 
-  F<B<Map<int, int>>?>? target = fsource;
+  F<B<Map?>?>? target1 = fsource;
+  F<B<Map<dynamic, dynamic>?>?>? target2 = fsource;
 
-  F<B<Map<dynamic, int>>?>? target1 = fsource;
+  F<B<Map?>?>? target0 = fsource;
+//                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<B<Map<int, dynamic>>?>? target3 = fsource;
 //                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<Map<int, dynamic>>?>? target2 = fsource;
+  F<B<Map<dynamic, int>>?>? target4 = fsource;
 //                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<Map<Never, int>>?>? target3 = fsource;
+  F<B<Map<int, Null>>?>? target5 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<B<Map<Null, int>>?>? target6 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<B<Map<int, int>>?>? target7 = fsource;
+//                                ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<B<Map<Null, Null>>?>? target8 = fsource;
 //                                  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<Map<int, Never>>?>? target4 = fsource;
-//                                  ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<Map<dynamic, dynamic>>?>? target5 = fsource;
-//                                        ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<Map<Never, Never>>?>? target6 = fsource;
+  F<B<Map<Never, Never>>?>? target9 = fsource;
 //                                    ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<Map<String, int>>?>? target7 = fsource;
-//                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<Map<int, String>>?>? target8 = fsource;
-//                                   ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

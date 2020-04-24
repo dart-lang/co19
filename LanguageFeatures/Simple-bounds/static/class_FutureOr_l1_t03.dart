@@ -27,6 +27,7 @@ class A<X extends FutureOr<List?>> {}
 main() {
   A? source;
   var fsource = toF(source);
+
   F<A<FutureOr<List<dynamic>?>>?>? target = fsource;
 
   F<A<FutureOr<List<int>>>?>?  target1 = fsource;
@@ -36,6 +37,11 @@ main() {
 
   F<A<FutureOr<List<Null>>>?>? target2 = fsource;
 //                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<FutureOr<List<Never>>>?>? target3 = fsource;
+//                                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

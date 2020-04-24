@@ -27,15 +27,21 @@ class B<X extends Map<Map, Map>> {}
 testA() {
   A? source;
   var fsource = toF(source);
-  F<A<List<List<dynamic>>>>? target = fsource;
 
-  F<A<List<List<int>>>>? target1 = fsource;
+  F<A<List<List<dynamic>>>?>? target = fsource;
+
+  F<A<List<List<int>>>?>? target1 = fsource;
 //                                ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<List<List<Null>>>>? target2 = fsource;
-//                                 ^^^^^^^
+  F<A<List<List<Null>>>?>? target2 = fsource;
+//                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<List<List<Never>>>?>? target3 = fsource;
+//                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -45,7 +51,9 @@ testA() {
 testB() {
   B? source;
   var fsource = toF(source);
+
   F<B<Map<Map<dynamic, dynamic>, Map<dynamic, dynamic>>>?>? target = fsource;
+
   B();
 }
 

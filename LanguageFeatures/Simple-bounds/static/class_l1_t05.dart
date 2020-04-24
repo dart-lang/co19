@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
 /**
  * @assertion Let [G] be a generic class or parameterized type alias with formal
  * type parameter declarations [F1] .. [Fk] containing formal type parameters
@@ -13,34 +8,53 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that simple bounds are correct when class parameter is
- * [FutureOr]
+ * @description Checks that simple bounds are correct for the very simple case:
+ *  [A<X extends num?>]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-import "dart:async";
 import "../../../Utils/expect.dart";
 
-class A<X extends FutureOr> {}
+class A<X extends num?> {}
 
 main() {
   A? source;
   var fsource = toF(source);
 
-  F<A<FutureOr<dynamic>>?>? target = fsource;
+  F<A<num?>?>? target = fsource;
 
-  F<A<FutureOr<int>>?>? target1 = fsource;
-//                                ^^^^^^^
+  F<A<num>?>? target0 = fsource;
+//                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<FutureOr<Null>>?>? target2 = fsource;
-//                                 ^^^^^^^
+  F<A<int>?>? target1 = fsource;
+//                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<FutureOr<Never>>?>? target3 = fsource;
-//                                  ^^^^^^^
+  F<A<dynamic>?>? target2 = fsource;
+//                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<Never>?>? target3 = fsource;
+//                        ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<Object>?>? target4 = fsource;
+//                         ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<Object?>?>? target5 = fsource;
+//                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<Null>?>? target6 = fsource;
+//                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
