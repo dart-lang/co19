@@ -26,13 +26,9 @@ import "override_checking_A06_opted_out_lib.dart";
 class B extends A<FutureOr<FutureOr>> {}
 
 class in1 extends out_Object implements B {}
-//    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 class in2 extends B implements out_Object {}
-//    ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
-main() {}
+main() {
+  A<Object?> a1 = in1();
+  A<Object?> a2 = in2();
+}
