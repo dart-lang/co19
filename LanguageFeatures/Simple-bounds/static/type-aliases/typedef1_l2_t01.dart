@@ -13,34 +13,26 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that instantiate-to-bounds works as expected for:
- * [class A<X>], [class B<X extends A?, Y extends X>?]
+ * @description Checks that instantiate-to-bounds work as expected for
+ * non-nullable non-function type alias with two depending type parameters.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 
-import "../../../Utils/expect.dart";
+import "../../../../Utils/expect.dart";
+
+class C<X, Y> {}
 
 class A<X> {}
-class B<X extends A?, Y extends X> {}
+typedef B<X extends A, Y extends X> = C<X, Y>;
 
 main() {
   B? source;
   var fsource = toF(source);
 
-  F<B<A<dynamic>?, A<dynamic>?>?>? target = fsource;
+  F<B<A<dynamic>, A<dynamic>>?>? target = fsource;
 
-  F<B<A<dynamic>?, A<dynamic>>?>? target01 = fsource;
-//                                           ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<A<dynamic>?, A<dynamic>?>>? target02 = fsource;
-//                                           ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<A<dynamic>, A<dynamic>?>?>? target03 = fsource;
+  F<B<A<dynamic>?, A<dynamic>?>?>? target0 = fsource;
 //                                           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -72,11 +64,6 @@ main() {
 
   F<B<A<Null>, A<Null>>?>? target6 = fsource;
 //                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<A<Never>, A<dynamic>>?>? target7 = fsource;
-//                                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
