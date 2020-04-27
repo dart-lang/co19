@@ -14,19 +14,19 @@
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for the class with
- * non-nullable function parameter (not used)
+ * nullable function parameter (covariant)
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
 import "../../../Utils/expect.dart";
 
-typedef G<X> = void Function();
-class A<X extends G<int>> {}
+class A<X extends G<int?>?> {}
+typedef G<X> = X Function();
 
 main() {
   Expect.equals(
-      typeOf<A<G<int>>>(),
+      typeOf<A<G<int?>?>>(),
       typeOf<A>()
   );
 }

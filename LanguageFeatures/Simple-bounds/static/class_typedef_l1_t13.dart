@@ -14,19 +14,56 @@
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for the class with
- * non-nullable function parameter (not used)
+ * nullable function parameter (covariant)
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
 import "../../../Utils/expect.dart";
 
-typedef G<X> = void Function();
-class A<X extends G<int>> {}
+typedef G<X> = X Function();
+class A<X extends G<int?>?> {}
 
 main() {
-  Expect.equals(
-      typeOf<A<G<int>>>(),
-      typeOf<A>()
-  );
+  A? source;
+  var fsource = toF(source);
+
+  F<A<G<int?>?>?>? target = fsource;
+
+  F<A<G<int>>>? target01 = fsource;
+//                         ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<int?>>?>? target02 = fsource;
+//                           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<int>?>?>? target03 = fsource;
+//                           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<dynamic>?>?>? target1 = fsource;
+//                             ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<Null>?>?>? target2 = fsource;
+//                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<String>?>?>? target3 = fsource;
+//                            ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<Never>?>?>? target4 = fsource;
+//                           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A();
 }

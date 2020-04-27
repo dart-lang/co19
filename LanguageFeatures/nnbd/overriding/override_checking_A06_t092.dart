@@ -32,6 +32,12 @@ class D1 extends B implements C {}
 class D2 extends C implements B {}
 
 void main() {
-  Expect.equals(typeOf<FutureOr<FutureOr>>(), D1().getType());
-  Expect.equals(typeOf<void>(), D2().getType());
+  A<Object?> d1 = D1();
+  A<Object?> d2 = D2();
+
+  Expect.equals(typeOf<FutureOr<FutureOr>>(), d1.getType());
+  Expect.equals(typeOf<void>(), d2.getType());
+
+  Expect.isTrue(D1() is A<Object?>);
+  Expect.isTrue(D1() is A<Object?>);
 }

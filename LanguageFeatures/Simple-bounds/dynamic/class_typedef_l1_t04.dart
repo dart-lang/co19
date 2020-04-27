@@ -14,7 +14,7 @@
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for the class with
- * function parameter (not used)
+ * non-nullable function parameter (not used)
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

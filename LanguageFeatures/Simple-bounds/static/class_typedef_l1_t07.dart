@@ -14,7 +14,7 @@
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for the class with
- * function parameter (invariant)
+ * non-nullable function parameter (invariant)
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -29,7 +29,21 @@ main() {
   var fsource = toF(source);
 
   F<A<G<int>>?>? target = fsource;
-  A();
+
+  F<A<G<int?>>?>? target01 = fsource;
+//                           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<int?>?>?>? target02 = fsource;
+//                            ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<int>?>?>? target03 = fsource;
+//                           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   F<A<G<dynamic>>?>? target1 = fsource;
 //                             ^^^^^^^
@@ -45,4 +59,6 @@ main() {
 //                            ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  A();
 }

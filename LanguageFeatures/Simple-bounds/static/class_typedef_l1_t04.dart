@@ -14,7 +14,7 @@
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for the class with
- * function parameter (not used)
+ * non-nullable function parameter (not used)
  * Issue 41437
  * @author iarkh@unipro.ru
  */
@@ -28,7 +28,25 @@ class A<X extends G> {}
 main() {
   A? source;
   var fsource = toF(source);
-  F<A<G<dynamic>>?>? target = fsource;
-  F<A<G<Null>>?>? target1 = fsource;
+
+  F<A<G<dynamic>>?>? target1 = fsource;
+  F<A<G<Null>>?>? target2 = fsource;
+  F<A<G<Never>>?>? target3 = fsource;
+
+  F<A<G<dynamic>?>?>? target4 = fsource;
+//                              ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<Null>?>?>? target5 = fsource;
+//                           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<Never>?>?>? target6 = fsource;
+//                            ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   A();
 }

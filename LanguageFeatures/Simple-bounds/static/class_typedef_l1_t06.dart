@@ -14,7 +14,7 @@
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for the class with
- * function parameter (contravariant)
+ * non-nullable function parameter (contravariant)
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -27,7 +27,22 @@ class A<X extends G<int>> {}
 main() {
   A? source;
   var fsource = toF(source);
+
   F<A<G<int>>?>? target = fsource;
+
+  F<A<G<int?>?>?>? target01 = fsource;
+//                           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<int>?>?>? target02 = fsource;
+//                           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  F<A<G<int?>>?>? target03 = fsource;
+//                           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   F<A<G<dynamic>>?>? target1 = fsource;
 //                             ^^^^^^^
