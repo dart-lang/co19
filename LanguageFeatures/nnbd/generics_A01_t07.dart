@@ -37,7 +37,7 @@ void test3<T>(T t) {
 }
 
 T test4<T>(T t) {
-  Expect.equals(typeOf<int>(), T);
+  Expect.equals(typeOf<int?>(), T);
   return i;
 }
 
@@ -51,6 +51,6 @@ void main() {
   test1();
   test2();
   test3(1 as dynamic);
-  test4(11);
+  test4(11 as int?);
   test5();
 }
