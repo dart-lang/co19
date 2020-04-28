@@ -36,5 +36,8 @@ void main() {
   A a = new B();
   a.x = 42;
   a.x = 41;
-  Expect.throws(() => new C().x = 3);
+
+  C c = new C();
+  c.x = 1;
+  Expect.throws(() => c.x = 3);
 }

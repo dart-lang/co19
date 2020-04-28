@@ -35,9 +35,13 @@ void main() {
   B b = new B();
   b.x = 3;
   Expect.throws(() => b.x = 14, (e) => e is LateInitializationError);
-  Expect.throws(() => new C().x = 3, (e) => e is LateInitializationError);
+
+  C c = new C();
+  c.x = 1;
+  Expect.throws(() => c.x = 3, (e) => e is LateInitializationError);
 
   b.y = 3;
   Expect.throws(() => b.y = 14, (e) => e is LateInitializationError);
-  Expect.throws(() => new C().y = 3, (e) => e is LateInitializationError);
+  c.y = 1;
+  Expect.throws(() => c.y = 3, (e) => e is LateInitializationError);
 }
