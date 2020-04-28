@@ -15,6 +15,7 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [typedef] with
  * [typedef] parameter (not used)
+ * @Issue 41684
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -29,15 +30,21 @@ main() {
   var fsource = toF(source);
 
   F<G2<G1<num>>?>? target = fsource;
-
   F<G2<G1<dynamic>>?>? target1 = fsource;
-//                               ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
   F<G2<G1<Null>>?>? target2 = fsource;
 //                            ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
+  F<G2<G1<num?>>?>? target3 = fsource;
+//                            ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G2<G1<Object>>?>? target4 = fsource;
+//                              ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+}
