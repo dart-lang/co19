@@ -21,7 +21,6 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-class A {}
 typedef G<X extends FutureOr> = X Function();
 
 main() {

@@ -28,13 +28,13 @@ main() {
   G2? source;
   G1<num> Function<X extends G1<num>>()? target = source;
 
-  F<G2<G1<dynamic>>?>? target1 = fsource;
-//                               ^^^^^^^
+  F<G2<G1<dynamic>>?>? target1 = source;
+//                               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G2<G1<Null>>?>? target2 = fsource;
-//                            ^^^^^^^
+  F<G2<G1<Null>>?>? target2 = source;
+//                            ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

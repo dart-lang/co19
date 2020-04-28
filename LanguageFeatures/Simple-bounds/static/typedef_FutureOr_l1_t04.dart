@@ -27,9 +27,7 @@ typedef G<X extends FutureOr> = void Function();
 
 main() {
   G? source;
-  Expect.throws(() {
-    var fsource = toF(source);
-    F<G<FutureOr<dynamic>>?>? target = fsource;
-    F<G<FutureOr<Null>>?>? target1 = fsource;
-  });
+  var fsource = toF(source);
+  F<G<FutureOr<dynamic>>?>? target = fsource;
+  F<G<FutureOr<Null>>?>? target1 = fsource;
 }
