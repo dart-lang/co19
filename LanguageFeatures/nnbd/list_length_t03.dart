@@ -30,7 +30,7 @@ test<T>(T t1, T t2) {
 }
 
 main() {
-  test(1, "2");
+  test<Object?>(1, "2");
   test<Null>(null, null);
   test<int?>(3, 14);
   test<String?>("Lily", "was here");
