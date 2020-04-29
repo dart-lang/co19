@@ -28,9 +28,9 @@ class A1<T extends FutureOr>           implements OPTED_FUTUREOR         <T> { d
 class A2<T extends FutureOr<FutureOr>> implements OPTED_FUTUREOR_FUTUREOR<T> { dynamic getParamType() => typeOf<T>(); }
 
 main() {
-  Expect.equals( typeOf<FutureOr>(), A1     ().getParamType());
-  Expect.equals( typeOf<FutureOr>(), A1<int>().getParamType());
+  Expect.equals( typeOf<FutureOr>(), A1().getParamType());
+  Expect.equals( int, A1<int>().getParamType());
 
-  Expect.equals( typeOf<FutureOr<FutureOr>>(), A2                    ().getParamType());
+  Expect.equals( typeOf<FutureOr<FutureOr>>(), A2().getParamType());
   Expect.equals( typeOf<FutureOr<FutureOr>>(), A2<FutureOr<FutureOr>>().getParamType());
 }

@@ -27,6 +27,6 @@ import "override_checking_A01_opted_in_futureor_lib.dart";
 class A<T extends FutureOr<int>> implements OPTED_FUTUREOR_INT<T> { dynamic getParamType() => typeOf<T>(); }
 
 main() {
-  Expect.equals( typeOf<FutureOr<int>>(), A()     .getParamType());
-  Expect.equals( typeOf<FutureOr<int>>(), A<int>().getParamType());
+  Expect.equals( typeOf<FutureOr<int>>(), A().getParamType());
+  Expect.equals( int, A<int>().getParamType());
 }

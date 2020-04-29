@@ -28,5 +28,5 @@ class A<T extends FutureOr<int>> with OPTED_FUTUREOR_INT<T> { dynamic getParamTy
 
 main() {
   Expect.equals( typeOf<FutureOr<int>>(), A().getParamType());
-  Expect.equals( typeOf<FutureOr<int>>(), A<int>().getParamType());
+  Expect.equals( int, A<int>().getParamType());
 }

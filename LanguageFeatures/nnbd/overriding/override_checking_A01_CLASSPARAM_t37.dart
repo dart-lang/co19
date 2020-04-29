@@ -32,7 +32,7 @@ class A2<T extends FutureOr<FutureOr>> extends B2<T> implements OPTED_FUTUREOR_F
 
 main() {
   Expect.equals( typeOf<FutureOr>(), A1().getParamType());
-  Expect.equals( typeOf<FutureOr>(), A1<int>().getParamType());
+  Expect.equals( int, A1<int>().getParamType());
 
   Expect.equals( typeOf<FutureOr<FutureOr>>(), A2().getParamType());
   Expect.equals( typeOf<FutureOr<FutureOr>>(), A2<FutureOr<FutureOr>>().getParamType());

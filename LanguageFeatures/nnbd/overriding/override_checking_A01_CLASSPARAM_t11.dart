@@ -27,12 +27,12 @@ class A2<T extends Object>   implements OPTED_NONNULLABLE_OBJECT  <T> { dynamic 
 class A3<T extends Function> implements OPTED_NONNULLABLE_FUNCTION<T> { dynamic getParamType() => typeOf<T>(); }
 
 main() {
-  Expect.equals(int, A1()     .getParamType());
+  Expect.equals(int, A1().getParamType());
   Expect.equals(int, A1<int>().getParamType());
 
-  Expect.equals(Object, A2()        .getParamType());
+  Expect.equals(Object, A2().getParamType());
   Expect.equals(Object, A2<Object>().getParamType());
 
-  Expect.equals(Function, A3()          .getParamType());
+  Expect.equals(Function, A3().getParamType());
   Expect.equals(Function, A3<Function>().getParamType());
 }
