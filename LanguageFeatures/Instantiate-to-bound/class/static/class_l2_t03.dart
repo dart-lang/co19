@@ -46,24 +46,25 @@
  * A<String, X extends A<String, A<String,X>>>]
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+// SharedOptions=--enable-experiment=non-nullable
+
+import "../../../../Utils/expect.dart";
 
 class A<Y extends String, X extends A<String, A<String, X>>> {}
 
 main() {
-  A source;
+  A? source;
   var fsource = toF(source);
 
-  F<A<String, A<String, A<String, dynamic>>>> target = fsource;
+  F<A<String, A<String, A<String, dynamic>>>?>? target = fsource;
 
-  F<A<dynamic, dynamic>> target1 = fsource;
-//                                 ^^^^^^^
+  F<A<dynamic, dynamic>?>? target1 = fsource;
+//                                   ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<dynamic, A<dynamic, A<dynamic, dynamic>>>> target2 = fsource;
-//                                                         ^^^^^^^
+  F<A<dynamic, A<dynamic, A<dynamic, dynamic>>>?>? target2 = fsource;
+//                                                           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

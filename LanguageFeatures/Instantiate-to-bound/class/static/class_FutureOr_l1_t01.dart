@@ -47,16 +47,16 @@
  * @Issue 34947
  * @author iarkh@unipro.ru
  */
-import "dart:async";
+// SharedOptions=--enable-experiment=non-nullable
 
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+import "../../../../Utils/expect.dart";
+import "dart:async";
 
 class A<X extends FutureOr<X>> {}
 
 main() {
-  A source;
+  A? source;
   var fsource = toF(source);
-  F<A<FutureOr<dynamic> >> target = fsource;
+  F<A<FutureOr<dynamic>>?>? target = fsource;
   A();
 }

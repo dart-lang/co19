@@ -46,10 +46,12 @@
  * Function(X)], [class A<X extends G<A<X, Y>>, Y extends X>] (covariant)
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 typedef G<X> = X Function(X);
 class A<X extends G<A<X>>> {}
 
 main() {
-  A source; //# 01: compile-time error
-  A();      //# 02: compile-time error
+  A? source;
+  A();      //# 01: compile-time error
 }

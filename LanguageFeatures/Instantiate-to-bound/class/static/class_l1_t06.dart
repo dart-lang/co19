@@ -46,32 +46,81 @@
  * class [class O<X extends M<O<M<O<M<O<X>>>>>>>].
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+// SharedOptions=--enable-experiment=non-nullable
+
+import "../../../../Utils/expect.dart";
 
 class M<X> {}
 class O<X extends M<O<M<O<M<O<X>>>>>>> {}
 
 main() {
-  O source;
+  O? source;
   var fsource = toF(source);
 
-  F<O<M<O<M<O<M<O<dynamic>>>>>>>> target = fsource;
+  F<O<M<O<M<O<M<O<dynamic>>>>>>>?>? target = fsource;
 
-  F<O<dynamic>> target1 = fsource;                //# 01: compile-time error
-  F<O<M<dynamic>>> target2 = fsource;             //# 02: compile-time error
-  F<O<M<O<M<dynamic>>>>> target3 = fsource;       //# 03: compile-time error
-  F<O<M<O<M<O<dynamic>>>>>> target4 = fsource;    //# 04: compile-time error
-  F<O<M<O<M<O<M<dynamic>>>>>>> target5 = fsource; //# 05: compile-time error
+  F<O<dynamic>?>? target1 = fsource;
+//                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  F<O<M<O<M<O<M<O<M<dynamic>>>>>>>>> target6 = fsource;    //# 06: compile-time error
-  F<O<M<O<M<O<M<O<M<O<dynamic>>>>>>>>>> target7 = fsource; //# 07: compile-time error
+  F<O<M<dynamic>>?>? target2 = fsource;
+//                             ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  F<O<Null>> target8 = fsource;              //# 08: compile-time error
-  F<O<M<Null>>> target9  = fsource;          //# 09: compile-time error
-  F<O<M<O<Null>>>> target10 = fsource;       //# 10: compile-time error
-  F<O<M<O<M<Null>>>>> target11 = fsource;    //# 11: compile-time error
-  F<O<M<O<M<O<Null>>>>>> target12 = fsource; //# 12: compile-time error
+  F<O<M<O<M<dynamic>>>>?>? target3 = fsource;
+//                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  O(); //# 13: compile-time error
+  F<O<M<O<M<O<dynamic>>>>>?>? target4 = fsource;
+//                                      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<O<M<O<M<O<M<dynamic>>>>>>?>? target5 = fsource;
+//                                         ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<O<M<O<M<O<M<O<M<dynamic>>>>>>>>?>? target6 = fsource;
+//                                               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<O<M<O<M<O<M<O<M<O<dynamic>>>>>>>>>?>? target7 = fsource;
+//                                                  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<O<Null>?>? target8 = fsource;
+//                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<O<M<Null>>?>? target9  = fsource;
+//                           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<O<M<O<Null>>>?>? target10 = fsource;
+//                              ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<O<M<O<M<Null>>>>?>? target11 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<O<M<O<M<O<Null>>>>>?>? target12 = fsource;
+//                                    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  O();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

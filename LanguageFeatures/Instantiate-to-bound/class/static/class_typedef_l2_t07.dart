@@ -46,14 +46,12 @@
  * X Function()], [class A<X extends G<A<Y, X>>, Y extends G<A<X, Y>>>]
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
-
+// SharedOptions=--enable-experiment=non-nullable
 
 typedef G<X> = X Function(X);
 class A<X extends G<A<Y, X>>, Y extends G<A<X, Y>>> {}
 
 main() {
-  A source; //# 01: compile-time error
-  A();      //# 02: compile-time error
+  A? source;  //# 01: compile-time error
+  A();        //# 02: compile-time error
 }

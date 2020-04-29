@@ -46,6 +46,7 @@
  * @Issue 39574
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<X extends A<X, Y>, Y extends A<dynamic, A<X, Y>>> {}
 //                         ^

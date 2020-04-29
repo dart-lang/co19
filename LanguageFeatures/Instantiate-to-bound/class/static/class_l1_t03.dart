@@ -46,28 +46,67 @@
  * [class A<X extends A<X>>], [class B<X extends A<X>>]
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+// SharedOptions=--enable-experiment=non-nullable
+
+import "../../../../Utils/expect.dart";
 
 class A<X extends A<X>> {}
 class B<X extends A<X>> {}
 
 main() {
-  B source;
+  B? source;
   var fsource = toF(source);
 
-  F<B<A<dynamic>>> target = fsource;
+  F<B<A<dynamic>>?>? target = fsource;
 
-  F<B<dynamic>> target1 = fsource;             //# 01: compile-time error
-  F<B<A<A<dynamic>>>> target2 = fsource;       //# 02: compile-time error
-  F<B<A<A<A<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
-  F<B<A<A<A<A<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
+  F<B<dynamic>?>? target1 = fsource;
+//                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  F<B<Null>> target5 = fsource;             //# 05: compile-time error
-  F<B<A<Null>>> target6 = fsource;          //# 06: compile-time error
-  F<B<A<A<Null>>>> target7 = fsource;       //# 07: compile-time error
-  F<B<A<A<A<Null>>>>> target8 = fsource;    //# 08: compile-time error
-  F<B<A<A<A<A<Null>>>>>> target9 = fsource; //# 09: compile-time error
+  F<B<A<A<dynamic>>>?>? target2 = fsource;
+//                                ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  B(); //# 10: compile-time error
+  F<B<A<A<A<dynamic>>>>?>? target3 = fsource;
+//                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<B<A<A<A<A<dynamic>>>>>?>? target4 = fsource;
+//                                      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<B<Null>?>? target5 = fsource;
+//                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<B<A<Null>>?>? target6 = fsource;
+//                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<B<A<A<Null>>>?>? target7 = fsource;
+//                             ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<B<A<A<A<Null>>>>?>? target8 = fsource;
+//                                ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<B<A<A<A<A<Null>>>>>?>? target9 = fsource;
+//                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  B();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

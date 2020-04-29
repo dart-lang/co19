@@ -46,6 +46,8 @@
  * [A<X1 extends A<X1, X2>, X2 extends X1>]
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../../../Utils/expect.dart";
 
 class A<X1 extends A<X1, X2>, X2 extends X1> {}

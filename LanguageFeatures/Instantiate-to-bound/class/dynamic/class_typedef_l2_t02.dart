@@ -46,6 +46,8 @@
  * Function(X)], [class A<X extends G<A<X, Y>>, Y extends X>] (covariant)
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../../../Utils/expect.dart";
 
 typedef G<X> = Function(X);
@@ -53,7 +55,7 @@ class A<X extends G<A<X,Y>>, Y extends X> {}
 
 main() {
   Expect.equals(
-      typeOf<A<G<A<Null, Null>>, dynamic>>(),
+      typeOf<A<G<A<Never, Never>>, dynamic>>(),
       typeOf<A>()
   );
 }

@@ -47,21 +47,25 @@
  * @Issue 35064
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+// SharedOptions=--enable-experiment=non-nullable
 
+import "../../../../Utils/expect.dart";
 
 typedef G<X> = void Function();
 class A<X extends G<A<X, Y>>, Y extends X> {}
 
 main() {
-  A source;
+  A? source;
   var fsource = toF(source);
-  F<A<G<A<dynamic, dynamic>>, dynamic>> target = fsource;
+  F<A<G<A<dynamic, dynamic>>, dynamic>?>? target = fsource;
 
-  F<A<dynamic, dynamic>> target1 = fsource;                   //# 01: compile-time error
-  F<A<G<dynamic>, dynamic>> target2 = fsource;
-  F<A<G<A<G<dynamic>, dynamic>>, dynamic>> target3 = fsource;
+  F<A<dynamic, dynamic>?>? target1 = fsource;
+//                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<dynamic>, dynamic>?>? target2 = fsource;
+  F<A<G<A<G<dynamic>, dynamic>>, dynamic>?>? target3 = fsource;
 
   A();
 }

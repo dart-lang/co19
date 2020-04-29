@@ -46,14 +46,16 @@
  * [typedef G<X> = Function(X)] parameter (contravariant)
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../../../Utils/expect.dart";
 
 typedef G<X> = Function(X);
-class A<X extends G<A<X>>?> {}
+class A<X extends G<A<X>>> {}
 
 main() {
   Expect.equals(
-    typeOf<A<G<A<Null>>>>(),
+    typeOf<A<G<A<Never>>>>(),
     typeOf<A>()
   );
 }

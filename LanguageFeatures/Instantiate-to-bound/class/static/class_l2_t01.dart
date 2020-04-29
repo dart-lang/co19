@@ -46,19 +46,30 @@
  * A<X1 extends X2, X2 extends A<X1, X2>>]
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+// SharedOptions=--enable-experiment=non-nullable
+
+import "../../../../Utils/expect.dart";
 
 class A<X1 extends X2, X2 extends A<X1, X2>> {}
 
 main() {
-  A source;
+  A? source;
   var fsource = toF(source);
 
-  F<A<dynamic, A<dynamic, dynamic>>> target = fsource;
+  F<A<dynamic, A<dynamic, dynamic>>?>? target = fsource;
 
-  F<A<dynamic, dynamic>> target1 = fsource;                         //# 01: compile-time error
-  F<A<A<dynamic, dynamic>, A<dynamic, dynamic>>> target2 = fsource; //# 02: compile-time error
+  F<A<dynamic, dynamic>?>? target1 = fsource;
+//                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  A();  //# 03: compile-time error
+  F<A<A<dynamic, dynamic>, A<dynamic, dynamic>>?>? target2 = fsource;
+//                                                           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -45,6 +45,8 @@
  * @description Checks instantiation to bounds for class [A<X extends A<A<X>>>]
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../../../Utils/expect.dart";
 
 class A<X extends A<A<X>>> {}

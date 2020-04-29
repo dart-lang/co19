@@ -47,28 +47,37 @@
  * @Issue 35064
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+// SharedOptions=--enable-experiment=non-nullable
+
+import "../../../../Utils/expect.dart";
 
 typedef G<X> = void Function();
 class A<X extends G<A<X>>> {}
 
 main() {
-  A source;
+  A? source;
   var fsource = toF(source);
-  F<A<G<A<dynamic>>>> target = fsource;
+  F<A<G<A<dynamic>>>?>? target = fsource;
 
-  F<A<G<A<Null>>>> target0 = fsource;
+  F<A<G<A<Null>>>?>? target0 = fsource;
 
-  F<A<dynamic>> target1 = fsource;          //# 01: compile-time error
-  F<A<G<dynamic>>> target2 = fsource;
-  F<A<G<A<G<dynamic>>>>> target3 = fsource;
-  F<A<G<A<G<A<dynamic>>>>>> target4 = fsource;
+  F<A<dynamic>?>? target1 = fsource;
+//                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  F<A<Null>> target5 = fsource;             //# 02: compile-time error
-  F<A<G<Null>>> target6 = fsource;
-  F<A<G<A<G<Null>>>>> target7 = fsource;
-  F<A<G<A<G<A<Null>>>>>> target8 = fsource;
+  F<A<G<dynamic>>?>? target2 = fsource;
+  F<A<G<A<G<dynamic>>>>?>? target3 = fsource;
+  F<A<G<A<G<A<dynamic>>>>>?>? target4 = fsource;
+
+  F<A<Null>?>? target5 = fsource;
+//                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<Null>>?>? target6 = fsource;
+  F<A<G<A<G<Null>>>>?>? target7 = fsource;
+  F<A<G<A<G<A<Null>>>>>?>? target8 = fsource;
 
   A();
 }

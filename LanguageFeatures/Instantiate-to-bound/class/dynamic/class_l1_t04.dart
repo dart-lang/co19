@@ -43,14 +43,15 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works for:
- * [class A<X extends A<X>>],
- * ;class B<X extends A<A<X>>>]
- * @Issue 34726, 34948
+ * [class A<X extends A<A<X>>>],
+ * [class B<X extends A<A<X>>>]
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../../../Utils/expect.dart";
 
-class A<X extends A<X>> {}
+class A<X extends A<A<X>>> {}
 class B<X extends A<A<X>>> {}
 
 main() {
