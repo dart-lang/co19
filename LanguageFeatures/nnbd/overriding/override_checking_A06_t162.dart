@@ -25,10 +25,10 @@ import "../../../Utils/expect.dart";
 
 class B extends A<FutureOr<FutureOr>> {}
 
-class in1 extends out_FutureOr implements B {}
-class in2 extends B implements out_FutureOr {}
+class C1 extends out_FutureOr implements B {}
+class C2 extends B implements out_FutureOr {}
 
 main() {
-  Expect.equals(FutureOr, in1().getType());
-  Expect.equals(FutureOr, in2().getType());
+  Expect.isTrue(C1().f is FutureOr Function(FutureOr));
+  Expect.isTrue(C2().f is FutureOr Function(FutureOr));
 }

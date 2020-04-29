@@ -26,15 +26,16 @@ import "override_checking_A06_opted_out_lib.dart";
 
 class B extends A<Object?> {}
 
-class C1 extends out_FutureOr          implements B {}
+class C1 extends out_FutureOr implements B {}
 class C2 extends out_FutureOr_FutureOr implements B {}
 
-class C3 extends B implements out_FutureOr          {}
+class C3 extends B implements out_FutureOr {}
 class C4 extends B implements out_FutureOr_FutureOr {}
 
 main() {
-  Expect.equals(typeOf<Object?>(), C1().getType());
-  Expect.equals(typeOf<Object?>(), C2().getType());
-  Expect.equals(typeOf<Object?>(), C3().getType());
-  Expect.equals(typeOf<Object?>(), C4().getType());
+  Expect.isTrue(C1().f is Object? Function(Object?));
+  Expect.isTrue(C2().f is Object? Function(Object?));
+  Expect.isTrue(C3().f is Object? Function(Object?));
+  Expect.isTrue(C4().f is Object? Function(Object?));
+
 }

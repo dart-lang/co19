@@ -12,36 +12,36 @@
 
 import "dart:async";
 
-class A<T> { Type getType() => T; }
+class A_OUT<T> { T Function(T) get f => (x) => x; }
 
-class out_int      extends A<int     > {}
-class out_Function extends A<Function> {}
-class out_Object   extends A<Object  > {}
+class out_int      extends A_OUT<int     > {}
+class out_Function extends A_OUT<Function> {}
+class out_Object   extends A_OUT<Object  > {}
 
-class out_dynamic extends A<dynamic> {}
-class out_void    extends A<void   > {}
-class out_Null    extends A<Null   > {}
+class out_dynamic extends A_OUT<dynamic> {}
+class out_void    extends A_OUT<void   > {}
+class out_Null    extends A_OUT<Null   > {}
 
-class out_FutureOr          extends A<FutureOr          > {}
-class out_FutureOr_int      extends A<FutureOr<int     >> {}
-class out_FutureOr_FutureOr extends A<FutureOr<FutureOr>> {}
+class out_FutureOr          extends A_OUT<FutureOr          > {}
+class out_FutureOr_int      extends A_OUT<FutureOr<int     >> {}
+class out_FutureOr_FutureOr extends A_OUT<FutureOr<FutureOr>> {}
 
-class out_Never extends A<Never> {}
+class out_Never extends A_OUT<Never> {}
 
 
-class out_int1      extends A<int     > {}
-class out_Function1 extends A<Function> {}
-class out_Object1   extends A<Object  > {}
+class out_int1      extends A_OUT<int     > {}
+class out_Function1 extends A_OUT<Function> {}
+class out_Object1   extends A_OUT<Object  > {}
 
-class out_dynamic1 extends A<dynamic> {}
-class out_void1    extends A<void   > {}
-class out_Null1    extends A<Null   > {}
+class out_dynamic1 extends A_OUT<dynamic> {}
+class out_void1    extends A_OUT<void   > {}
+class out_Null1    extends A_OUT<Null   > {}
 
-class out_FutureOr1          extends A<FutureOr          > {}
-class out_FutureOr_int1      extends A<FutureOr<int     >> {}
-class out_FutureOr_FutureOr1 extends A<FutureOr<FutureOr>> {}
+class out_FutureOr1          extends A_OUT<FutureOr          > {}
+class out_FutureOr_int1      extends A_OUT<FutureOr<int     >> {}
+class out_FutureOr_FutureOr1 extends A_OUT<FutureOr<FutureOr>> {}
 
-class out_Never1 extends A<Never> {}
+class out_Never1 extends A_OUT<Never> {}
 
 /* Here is a table of test cases:
         Object Object? Object* Int Int? Int* Function Function? Function* Dynamic Dynamic* Void Void*	Null Null* Never Never* FO  FO*	FO<int>	FO<int?> FO<FO>	FO<int>* FO<FO>*

@@ -22,11 +22,11 @@
 
 import "override_checking_A06_opted_out_lib.dart";
 
-class I1 extends A<int> {}
-class I2 extends A<int?> {}
+class I1 extends A_OUT<int> {}
+class I2 extends A_OUT<int?> {}
 
-class F1 extends A<Function> {}
-class F2 extends A<Function?> {}
+class F1 extends A_OUT<Function> {}
+class F2 extends A_OUT<Function?> {}
 
 class C1 extends out_Never implements I1 {}
 //    ^^

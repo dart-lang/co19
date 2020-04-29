@@ -22,15 +22,11 @@
 
 import "../../../Utils/expect.dart";
 
-class A<T> {
-  void test() { Expect.equals(Never, T); }
-}
-
 class B extends A<Never> {}
 class C extends A<Never> {}
 
 class D extends B implements C {}
 
 void main() {
-  D().test();
+  Expect.isTrue(D().f is Never Function(Never));
 }

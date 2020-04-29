@@ -22,13 +22,13 @@
 import "../../../Utils/expect.dart";
 import "override_checking_A06_opted_out_lib.dart";
 
-class B extends A<void> {}
+class B extends A_OUT<void> {}
 
 // See also Issue 40453
-class in1 extends out_dynamic implements B           {}
-class in2 extends B           implements out_dynamic {}
+class D1 extends out_dynamic implements B {}
+class D2 extends B implements out_dynamic {}
 
 main() {
-  Expect.equals(dynamic, in1().getType());
-  Expect.equals(dynamic, in2().getType());
+  Expect.isTrue(D1().f is dynamic Function(dynamic));
+  Expect.isTrue(D2().f is dynamic Function(dynamic));
 }

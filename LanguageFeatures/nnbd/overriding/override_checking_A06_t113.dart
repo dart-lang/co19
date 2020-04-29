@@ -22,7 +22,7 @@
 import "dart:async";
 import "override_checking_A06_opted_out_lib.dart";
 
-class B extends A<FutureOr<FutureOr>> {}
+class B extends A_OUT<FutureOr<FutureOr>> {}
 
 class in1 extends out_FutureOr_int implements B {}
 //    ^^^

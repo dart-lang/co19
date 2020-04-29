@@ -24,10 +24,10 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "override_checking_A06_opted_out_lib.dart";
 
-class C1 extends out_FutureOr          implements out_FutureOr_FutureOr {}
-class C2 extends out_FutureOr_FutureOr implements out_FutureOr          {}
+class C1 extends out_FutureOr implements out_FutureOr_FutureOr {}
+class C2 extends out_FutureOr_FutureOr implements out_FutureOr {}
 
 main() {
-  Expect.equals(typeOf<FutureOr>(), C1().getType());
-  Expect.equals(typeOf<FutureOr>(), C2().getType());
+  Expect.isTrue(C1().f is FutureOr Function(FutureOr));
+  Expect.isTrue(C2().f is FutureOr Function(FutureOr));
 }

@@ -25,16 +25,16 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "override_checking_A06_opted_out_lib.dart";
 
-class C1 extends out_void     implements out_FutureOr {}
-class C2 extends out_FutureOr implements out_void     {}
+class C1 extends out_void implements out_FutureOr {}
+class C2 extends out_FutureOr implements out_void {}
 
-class C3 extends out_void              implements out_FutureOr_FutureOr {}
-class C4 extends out_FutureOr_FutureOr implements out_void              {}
+class C3 extends out_void implements out_FutureOr_FutureOr {}
+class C4 extends out_FutureOr_FutureOr implements out_void {}
 
 main() {
-  Expect.equals(typeOf<FutureOr>(), C1().getType());
-  Expect.equals(typeOf<FutureOr>(), C2().getType());
+  Expect.isTrue(C1().f is FutureOr Function(FutureOr));
+  Expect.isTrue(C2().f is FutureOr Function(FutureOr));
 
-  Expect.equals(typeOf<FutureOr<FutureOr>>(), C3().getType());
-  Expect.equals(typeOf<FutureOr<FutureOr>>(), C4().getType());
+  Expect.isTrue(C3().f is FutureOr<FutureOr> Function(FutureOr<FutureOr>));
+  Expect.isTrue(C4().f is FutureOr<FutureOr> Function(FutureOr<FutureOr>));
 }

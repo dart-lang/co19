@@ -23,7 +23,7 @@
 
 import "override_checking_A06_opted_out_lib.dart";
 
-class B extends A<Never> {}
+class B extends A_OUT<Never> {}
 
 class in_FutureOr extends out_FutureOr implements B {}
 //    ^^^^^^^^^^^

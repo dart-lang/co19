@@ -21,7 +21,7 @@
 
 import "override_checking_A06_opted_out_lib.dart";
 
-class B extends A<Null> {}
+class B extends A_OUT<Null> {}
 
 class in1 extends out_void implements B {}
 //    ^^^

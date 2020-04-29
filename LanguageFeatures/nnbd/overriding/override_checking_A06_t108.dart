@@ -11,8 +11,8 @@
  * Otherwise, for the purposes of runtime subtyping checks, [C] is considered to
  * implement the canonical interface given by [NNBD_TOP_MERGE(S0, ..., Sn)].
  *
- * @description Check that compile error is thrown as a result of
- * [NNBD_TOP_MERGE(FutureOr<FutureOr>, Object*)]
+ * @description Check that result of [NNBD_TOP_MERGE(FutureOr<FutureOr>,
+ * Object*)] is [Object?]
  *
  * @Issue 41566,41567
  * @author iarkh@unipro.ru
@@ -20,15 +20,16 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 
+import "../../../Utils/expect.dart";
 import "dart:async";
 import "override_checking_A06_opted_out_lib.dart";
 
-class B extends A<FutureOr<FutureOr>> {}
+class B extends A_OUT<FutureOr<FutureOr>> {}
 
-class in1 extends out_Object implements B {}
-class in2 extends B implements out_Object {}
+class D1 extends out_Object implements B {}
+class D2 extends B implements out_Object {}
 
 main() {
-  A<Object?> a1 = in1();
-  A<Object?> a2 = in2();
+  Expect.isTrue(D1().f is Object? Function(Object?));
+  Expect.isTrue(D2().f is Object? Function(Object?));
 }

@@ -27,6 +27,6 @@ class C2 extends out_dynamic implements out_Object  {}
 
 
 main() {
-  Expect.equals(typeOf<Object?>(), C1().getType());
-  Expect.equals(typeOf<Object?>(), C2().getType());
+  Expect.isTrue(C1().f is Object? Function(Object?));
+  Expect.isTrue(C2().f is Object? Function(Object?));
 }

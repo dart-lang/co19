@@ -22,15 +22,11 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-class A<T> {
-  void test() { Expect.equals(typeOf<FutureOr>(), T); }
-}
-
 class B extends A<FutureOr> {}
 class C extends A<FutureOr> {}
 
 class D extends B implements C {}
 
 void main() {
-  D().test();
+  Expect.isTrue(D().f is FutureOr Function(FutureOr));
 }

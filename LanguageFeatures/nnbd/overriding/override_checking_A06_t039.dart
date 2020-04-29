@@ -21,15 +21,11 @@
 
 import "../../../Utils/expect.dart";
 
-class A<T> {
-  void test() { Expect.equals(typeOf<dynamic>(), T); }
-}
-
 class B extends A<dynamic> {}
 class C extends A<dynamic> {}
 
 class D extends B implements C {}
 
 main() {
-  D().test();
+  Expect.isTrue(D().f is dynamic Function(dynamic));
 }

@@ -11,7 +11,7 @@
  * Otherwise, for the purposes of runtime subtyping checks, [C] is considered to
  * implement the canonical interface given by [NNBD_TOP_MERGE(S0, ..., Sn)].
  *
- * @description Check that [NNBD_TOP_MERGE(Never, Never*)] causes compile error.
+ * @description Check that result of [NNBD_TOP_MERGE(Never, Never*)] is [Never].
  *
  * @author iarkh@unipro.ru
  */
@@ -24,13 +24,9 @@ import "override_checking_A06_opted_out_lib.dart";
 class B extends A<Never> {}
 
 class C1 extends B implements out_Never {}
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 class C2 extends out_Never implements B {}
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
-main() {}
+main() {
+  Expect.isTrue(C1().f is Never Function(Never));
+  Expect.isTrue(C2().f is Never Function(Never));
+}

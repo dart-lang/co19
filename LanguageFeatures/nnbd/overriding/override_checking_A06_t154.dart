@@ -13,7 +13,6 @@
  *
  * @description Check that [NNBD_TOP_MERGE(Null, Never*)] is [Null].
  *
- * @Issue 40541
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -24,10 +23,10 @@ import "override_checking_A06_opted_out_lib.dart";
 
 class B extends A<Null> {}
 
-class C1 extends out_Never implements B         {}
-class C2 extends B         implements out_Never {}
+class C1 extends out_Never implements B {}
+class C2 extends B implements out_Never {}
 
 main() {
-  Expect.equals(Null, C1().getType());
-  Expect.equals(Null, C2().getType());
+  Expect.isTrue(C1().f is Null Function(Null));
+  Expect.isTrue(C2().f is Null Function(Null));
 }

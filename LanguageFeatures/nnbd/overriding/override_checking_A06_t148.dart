@@ -26,10 +26,10 @@ import "override_checking_A06_opted_out_lib.dart";
 
 class B extends A<FutureOr<FutureOr>> {}
 
-class in1 extends out_void implements B        {}
-class in2 extends B        implements out_void {}
+class C1 extends out_void implements B {}
+class C2 extends B implements out_void {}
 
 main() {
-  Expect.equals(typeOf<FutureOr<FutureOr>>(), in1().getType());
-  Expect.equals(typeOf<FutureOr<FutureOr>>(), in2().getType());
+  Expect.isTrue(C1().f is FutureOr<FutureOr> Function(FutureOr<FutureOr>));
+  Expect.isTrue(C2().f is FutureOr<FutureOr> Function(FutureOr<FutureOr>));
 }

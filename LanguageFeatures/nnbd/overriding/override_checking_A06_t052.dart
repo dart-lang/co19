@@ -23,12 +23,12 @@
 import "../../../Utils/expect.dart";
 import "override_checking_A06_opted_out_lib.dart";
 
-class B extends A<void> {}
+class B extends A_OUT<void> {}
 
-class in1 extends out_Object implements B          {}
-class in2 extends B          implements out_Object {}
+class D1 extends out_Object implements B {}
+class D2 extends B implements out_Object {}
 
 main() {
-  Expect.equals(typeOf<Object?>(), in1().getType());
-  Expect.equals(typeOf<Object?>(), in2().getType());
+  Expect.isTrue(D1().f is void Function(void));
+  Expect.isTrue(D2().f is void Function(void));
 }

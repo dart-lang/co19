@@ -24,15 +24,16 @@
 import "../../../Utils/expect.dart";
 import "override_checking_A06_opted_out_lib.dart";
 
-class C1 extends out_dynamic   implements out_FutureOr {}
-class C2 extends out_FutureOr implements out_dynamic   {}
+class C1 extends out_dynamic implements out_FutureOr {}
+class C2 extends out_FutureOr implements out_dynamic {}
 
-class C3 extends out_dynamic           implements out_FutureOr_FutureOr {}
-class C4 extends out_FutureOr_FutureOr implements out_dynamic           {}
+class C3 extends out_dynamic implements out_FutureOr_FutureOr {}
+class C4 extends out_FutureOr_FutureOr implements out_dynamic {}
 
 main() {
-  Expect.equals(typeOf<dynamic>(), C1().getType());
-  Expect.equals(typeOf<dynamic>(), C2().getType());
-  Expect.equals(typeOf<dynamic>(), C3().getType());
-  Expect.equals(typeOf<dynamic>(), C4().getType());
+  Expect.isTrue(C1().f is dynamic Function(dynamic));
+  Expect.isTrue(C2().f is dynamic Function(dynamic));
+
+  Expect.isTrue(C3().f is dynamic Function(dynamic));
+  Expect.isTrue(C4().f is dynamic Function(dynamic));
 }

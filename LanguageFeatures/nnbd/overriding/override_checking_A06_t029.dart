@@ -23,7 +23,7 @@
 import "../../../Utils/expect.dart";
 import "override_checking_A06_opted_out_lib.dart";
 
-class B extends A<Object?> {}
+class B extends A_OUT<Object?> {}
 
 class in_dynamic1 extends out_dynamic implements B {}
 class in_dynamic2 extends B implements out_dynamic {}
@@ -32,8 +32,9 @@ class in_void1 extends out_void implements B {}
 class in_void2 extends B implements out_void {}
 
 main() {
-  Expect.equals(typeOf<Object?>(), in_dynamic1().getType());
-  Expect.equals(typeOf<Object?>(), in_dynamic2().getType());
-  Expect.equals(typeOf<Object?>(), in_void1()   .getType());
-  Expect.equals(typeOf<Object?>(), in_void2()   .getType());
+  Expect.isTrue(in_dynamic1().f is Object? Function(Object?));
+  Expect.isTrue(in_dynamic2().f is Object? Function(Object?));
+
+  Expect.isTrue(in_void1().f is Object? Function(Object?));
+  Expect.isTrue(in_void2().f is Object? Function(Object?));
 }

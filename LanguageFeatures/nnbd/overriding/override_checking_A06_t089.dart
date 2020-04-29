@@ -23,7 +23,6 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-class A<T> { Type getType() => T; }
 class B extends A<FutureOr<FutureOr>> {}
 class C extends A<dynamic>  {}
 
@@ -31,6 +30,5 @@ class D1 extends B implements C {}
 class D2 extends C implements B {}
 
 void main() {
-  Expect.equals(dynamic, D1().getType());
-  Expect.equals(dynamic, D2().getType());
+  Expect.isTrue(D1().f is dynamic Function(dynamic));
 }

@@ -23,5 +23,5 @@ import "override_checking_A06_opted_out_lib.dart";
 class C extends out_Never implements out_Never1 {}
 
 main() {
-  Expect.equals(typeOf<Never>(), C().getType());
+  Expect.isTrue(C().f is Never Function(Never));
 }

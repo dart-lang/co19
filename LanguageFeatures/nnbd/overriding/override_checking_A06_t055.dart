@@ -20,13 +20,21 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 
+import "../../../Utils/expect.dart";
 import "override_checking_A06_opted_out_lib.dart";
 
-class B extends A<void> {}
+class B extends A_OUT<void> {}
 
 class in_FutureOr extends out_FutureOr implements B {}
 class in_FutureOr_FutureOr extends out_FutureOr_FutureOr implements B {}
+
 class in_FutureOr1 extends B implements out_FutureOr {}
 class in_FutureOr_FutureOr1 extends B implements out_FutureOr_FutureOr {}
 
-main() {}
+main() {
+  Expect.isTrue(in_FutureOr().f is dynamic Function(dynamic));
+  Expect.isTrue(in_FutureOr1().f is dynamic Function(dynamic));
+
+  Expect.isTrue(in_FutureOr_FutureOr().f is dynamic Function(dynamic));
+  Expect.isTrue(in_FutureOr_FutureOr1().f is dynamic Function(dynamic));
+}

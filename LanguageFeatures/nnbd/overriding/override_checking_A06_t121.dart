@@ -25,8 +25,7 @@ import "override_checking_A06_opted_out_lib.dart";
 class C1 extends out_Object  implements out_dynamic {}
 class C2 extends out_dynamic implements out_Object  {}
 
-
 main() {
-  Expect.equals(typeOf<Object?>(), C1().getType());
-  Expect.equals(typeOf<Object?>(), C2().getType());
+  Expect.isTrue(C1().f is dynamic Function(dynamic));
+  Expect.isTrue(C2().f is dynamic Function(dynamic));
 }

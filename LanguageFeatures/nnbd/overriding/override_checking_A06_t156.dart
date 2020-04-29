@@ -26,6 +26,6 @@ class C1 extends out_Null implements out_Never {}
 class C2 extends out_Never implements out_Null {}
 
 main() {
-  Expect.equals(Null, C1().getType());
-  Expect.equals(Null, C2().getType());
+  Expect.isTrue(C1().f is Null Function(Null));
+  Expect.isTrue(C2().f is Null Function(Null));
 }
