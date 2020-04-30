@@ -46,23 +46,37 @@
  * X Function(); class C<X, Y>; typedef A<X extends G<C<X, Y>>, Y extends X>].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+import "../../../../Utils/expect.dart";
 
 typedef G<X> = X Function();
 class C<X, Y> {}
 typedef A<X extends G<C<X, Y>>, Y extends X> = C<X, Y>;
 
 main() {
-  A source;
+  A? source;
   var fsource = toF(source);
-  F<A<G<C<dynamic, dynamic>>, dynamic>> target = fsource;
 
-  F<A<dynamic, dynamic>> target1 = fsource;                   //# 01: compile-time error
-  F<A<G<dynamic>, dynamic>> target2 = fsource;                //# 02: compile-time error
-  F<A<G<C<G<dynamic>, dynamic>>, dynamic>> target3 = fsource; //# 03: compile-time error
+  F<A<G<C<dynamic, dynamic>>, dynamic>?>? target = fsource;
 
-  A();                                                        //# 04: compile-time error
+  F<A<dynamic, dynamic>?>? target1 = fsource;
+//                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<dynamic>, dynamic>?>? target2 = fsource;
+//                                      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<C<G<dynamic>, dynamic>>, dynamic>?>? target3 = fsource;
+//                                                     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

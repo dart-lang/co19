@@ -46,26 +46,36 @@
  * A<X extends FutureOr<C<X>>]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
+import "../../../../Utils/expect.dart";
 import "dart:async";
 
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
-
-// Probably does not work here because of the issue 34264
 class C<X> {}
 typedef A<X extends FutureOr<C<X>>> = C<X>;
 
 main() {
-  A source;
+  A? source;
   var fsource = toF(source);
-  F<A<FutureOr<C<dynamic>>>> target = fsource;
+  F<A<FutureOr<C<dynamic>>>?>? target = fsource;
 
-  F<A<dynamic>> target1 = fsource;                           //# 01: compile-time error
-  F<A<FutureOr<dynamic>>> target2 = fsource;                 //# 02: compile-time error
-  F<A<FutureOr<C<FutureOr<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
-  F<A<FutureOr<C<FutureOr<C<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
+  F<A<dynamic>?>? target1 = fsource;
+//                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  A();                                                       //# 05: compile-time error
+  F<A<FutureOr<dynamic>>?>? target2 = fsource;
+//                                    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<FutureOr<C<FutureOr<C<dynamic>>>>>?>? target3 = fsource;
+//                                                    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

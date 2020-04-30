@@ -47,16 +47,16 @@
  * G<C<X, Y>>> = C<X, Y>].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 class C<X, Y> {}
 typedef G<X> = X Function(X);
 typedef A<X extends G<C<Y, X>>, Y extends G<C<X, Y>>> = C<X, Y>;
 
 main() {
-  A source; //# 01: compile-time error
-  A();      //# 02: compile-time error
+  A? source;
+  A();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

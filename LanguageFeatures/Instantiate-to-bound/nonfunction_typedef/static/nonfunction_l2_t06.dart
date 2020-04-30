@@ -46,23 +46,31 @@
  * B<X extends B<X>>; class A<X1 extends B<X1>, X2>].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+import "../../../../Utils/expect.dart";
 
 class B<X extends B<X, Y>, Y> {}
 typedef A<X1 extends B<X1, X2>, X2> = B<X1, X2>;
 
-
 main() {
-  A source;
+  A? source;
   var fsource = toF(source);
 
-  F<A<B<dynamic, dynamic>, dynamic>> target = fsource;
+  F<A<B<dynamic, dynamic>, dynamic>?>? target = fsource;
 
-  F<A<dynamic, dynamic>> target1 = fsource;                                     //# 01: compile-time error
-  F<A<B<B<dynamic, dynamic>, B<dynamic, dynamic>>, dynamic>> target2 = fsource; //# 02: compile-time error
+  F<A<dynamic, dynamic>?>? target1 = fsource;
+//                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  A();                                                                          //# 03: compile-time error
+  F<A<B<B<dynamic, dynamic>, B<dynamic, dynamic>>, dynamic>?>? target2 = fsource;
+//                                                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

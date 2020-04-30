@@ -47,11 +47,12 @@
  * the body.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 class B<X extends B<X, Y>, Y> {}
-typedef A<X1 extends X2, X2 extends B<X1, X2>> = B<X1, X2>;
-//        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+typedef A<X1 extends X2, X2 extends B<X1, X2>?>? = B<X1, X2>;
+//        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

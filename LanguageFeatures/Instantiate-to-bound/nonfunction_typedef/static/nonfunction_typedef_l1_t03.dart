@@ -46,13 +46,17 @@
  * X Function(X); class C<X>; typedef A<X extends G<C<X>>>].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 typedef G<X> = X Function(X);
 class C<X> {}
+
 typedef A<X extends G<C<X>>> = C<X>;
 
 main() {
-  A source; //# 01: compile-time error
-  A();      //# 02: compile-time error
+  A? source;
+  A();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

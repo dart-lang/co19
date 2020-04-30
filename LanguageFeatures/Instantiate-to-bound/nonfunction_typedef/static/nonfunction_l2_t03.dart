@@ -47,27 +47,26 @@
  * C<Y, X>].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+import "../../../../Utils/expect.dart";
 
 class C<X1, X2> {}
 typedef A<Y extends String, X extends C<String, C<String, X>>> = C<Y, X>;
 
 main() {
-  A source;
+  A? source;
   var fsource = toF(source);
 
-  F<A<String, C<String, C<String, dynamic>>>> target = fsource;
+  F<A<String, C<String, C<String, dynamic>>>?>? target = fsource;
 
-  F<A<dynamic, dynamic>> target1 = fsource;
-//                                 ^^^^^^^
+  F<A<dynamic, dynamic>?>? target1 = fsource;
+//                                   ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<dynamic, C<dynamic, C<dynamic, dynamic>>>> target2 = fsource;
-//                                                         ^^^^^^^
+  F<A<dynamic, C<dynamic, C<dynamic, dynamic>>>?>? target2 = fsource;
+//                                                           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

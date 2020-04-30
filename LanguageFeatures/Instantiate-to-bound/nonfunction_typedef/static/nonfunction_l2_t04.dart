@@ -46,21 +46,21 @@
  *  is not well-bounded.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 class C<X, Y> {}
 
-typedef A1<X extends A1<X, Y>, Y extends A1<dynamic, A1<X, Y>>> = C<X, Y>;
+typedef A1<X extends A1<X, Y>, Y extends A1<dynamic, A1<X, Y>>>?>? = C<X, Y>;
 //                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef A2<X extends A2<X, Y>, Y extends A2<dynamic, A2<X, Y>>> = C<X, Y>;
+typedef A2<X extends A2<X, Y>, Y extends A2<dynamic, A2<X, Y>>?>? = C<X, Y>;
 //                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-typedef A3<X extends A3<X, Y>, Y extends A3<dynamic, A3<X, Y>>> = C<X, Y>;
+typedef A3<X extends A3<X, Y>, Y extends A3<dynamic, A3<X, Y>>?>? = C<X, Y>;
 //                             ^
 // [analyzer] unspecified
 // [cfe] unspecified

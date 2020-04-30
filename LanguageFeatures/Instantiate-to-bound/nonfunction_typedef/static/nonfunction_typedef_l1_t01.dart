@@ -47,10 +47,9 @@
  * class C<X>; typedef A<X extends G<С<X>>> = C<X>].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+import "../../../../Utils/expect.dart";
 
 typedef G<X> = X Function();
 class C<X> {}
@@ -58,21 +57,63 @@ class C<X> {}
 typedef A<X extends G<C<X>>> = C<X>;
 
 main() {
-  A source;
+  A? source;
   var fsource = toF(source);
-  F<A<G<C<dynamic>>>> target = fsource;
 
-  F<A<G<C<Null>>>> target0 = fsource;          //# 01: compile-time error
+  F<A<G<C<dynamic>>>?>? target = fsource;
 
-  F<A<dynamic>> target1 = fsource;             //# 02: compile-time error
-  F<A<G<dynamic>>> target2 = fsource;          //# 03: compile-time error
-  F<A<G<C<G<dynamic>>>>> target3 = fsource;    //# 04: compile-time error
-  F<A<G<C<G<C<dynamic>>>>>> target4 = fsource; //# 05: compile-time error
+  F<A<G<C<Never>>>?>? target01 = fsource;
+//                               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  F<A<Null>> target5 = fsource;                //# 06: compile-time error
-  F<A<G<Null>>> target6 = fsource;             //# 07: compile-time error
-  F<A<G<C<G<Null>>>>> target7 = fsource;       //# 08: compile-time error
-  F<A<G<C<G<C<Null>>>>>> target8 = fsource;    //# 09: compile-time error
+  F<A<G<C<Null>>>?>? target02 = fsource;
+//                              ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  A();                                         //# 10: compile-time error
+  F<A<dynamic>?>? target1 = fsource;
+//                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<dynamic>>?>? target2 = fsource;
+//                             ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<C<G<dynamic>>>>?>? target3 = fsource;
+//                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<C<G<C<dynamic>>>>>?>? target4 = fsource;
+//                                      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<Never>?>? target5 = fsource;
+//                        ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<Null>>?>? target6 = fsource;
+//                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<C<G<Null>>>>?>? target7 = fsource;
+//                                ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<C<G<C<Null>>>>>?>? target8 = fsource;
+//                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
