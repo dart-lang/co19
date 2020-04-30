@@ -59,8 +59,18 @@ main() {
 
   F<A<dynamic, B<dynamic, dynamic>>?>? target = fsource;
 
-  F<A<dynamic, dynamic>?>? target1 = fsource;                                     //# 01: compile-time error
-  F<A<dynamic, B<B<dynamic, dynamic>, B<dynamic, dynamic>>>?>? target2 = fsource; //# 02: compile-time error
+  F<A<dynamic, dynamic>?>? target1 = fsource;
+//                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  A();                                                                          //# 03: compile-time error
+  F<A<dynamic, B<B<dynamic, dynamic>, B<dynamic, dynamic>>>?>? target2 = fsource;
+//                                                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
