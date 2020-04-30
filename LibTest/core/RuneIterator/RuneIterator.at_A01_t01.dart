@@ -6,8 +6,7 @@
 /**
  * @assertion RuneIterator.at(String string, int index)
  * Create an iterator positioned before the indexth code unit of the string.
- * @description Checks that [RuneIterator] is created with correct
- * position.
+ * @description Checks that [RuneIterator] is created with correct position.
  * @author msyabro
  */
 
@@ -21,8 +20,8 @@ check(string, pos, firstCodePoint) {
 }
 
 main() {
-  check('', 0, null);
-  check('a', 1, null);
+  check('', 0, -1);
+  check('a', 1, -1);
   check('\u{10000}', 0, 0x10000);
   check('\u{10000}\u{10001}\x01', 2, 0x10001);
   check('\u{10000}\u{10001}\x01', 4, 0x01);

@@ -15,9 +15,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic it = new RuneIterator('a');
-
-  try {
-  it.current = 1;
-    Expect.fail('[current] should be final');
-  } on NoSuchMethodError catch(ok) {}
+  Expect.throws(() {
+    it.current = 1;
+  });
 }

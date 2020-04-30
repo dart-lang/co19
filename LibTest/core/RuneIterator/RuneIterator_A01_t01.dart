@@ -21,7 +21,7 @@ check(string, firstCodePoint) {
 }
 
 main() {
-  check('', null);
+  check('', -1);
   check('a', 0x61);
   check('\u{10000}', 0x10000);
   check('\u{10000}\u{10001}\x01', 0x10000);

@@ -5,8 +5,8 @@
  */
 /**
  * @assertion final String currentAsString
- * Returns null if current is null.
- * @description Checks that null is returned.
+ * Returns an empty string if there is no current rune
+ * @description Checks that empty string is returned.
  * @author msyabro
  */
 
@@ -14,13 +14,13 @@ import "../../../Utils/expect.dart";
 
 main() {
   var it = new RuneIterator('');
-  Expect.isNull(it.currentAsString);
+  Expect.equals("", it.currentAsString);
   it.moveNext();
-  Expect.isNull(it.currentAsString);
+  Expect.equals("", it.currentAsString);
 
   it = new RuneIterator('a');
-  Expect.isNull(it.currentAsString);
+  Expect.equals("", it.currentAsString);
   it.moveNext();
   it.moveNext();
-  Expect.isNull(it.currentAsString);
+  Expect.equals("", it.currentAsString);
 }

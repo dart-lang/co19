@@ -6,7 +6,7 @@
 /**
  * @assertion Future.error(error, [Object stackTrace])
  * A future that completes with an error in the next event-loop iteration.
- * If error is null, it is replaced by a NullThrownError.
+ * The error must not be null.
  * @description Checks that a stackTrace can be passed to Future.error.
  * @author ilya
  */

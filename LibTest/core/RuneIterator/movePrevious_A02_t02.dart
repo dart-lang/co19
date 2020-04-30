@@ -5,8 +5,8 @@
  */
 /**
  * @assertion bool movePrevious()
- * Returns false and sets [current] to null if there is no previous element.
- * @description Checks that [current] is set to null if no previous element left.
+ * Returns false and sets [current] to -1 if there is no previous element.
+ * @description Checks that [current] is set to -1 if no previous element left.
  * @author msyabro
  */
 
@@ -15,10 +15,10 @@ import "../../../Utils/expect.dart";
 main() {
   var it = new RuneIterator('');
   it.movePrevious();
-  Expect.isNull(it.current);
+  Expect.equals(-1, it.current);
 
   it = new RuneIterator('abc');
   it.moveNext();
   it.movePrevious();
-  Expect.isNull(it.current);
+  Expect.equals(-1, it.current);
 }
