@@ -47,7 +47,7 @@
  * Y>>> = C<X, Y>].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 import "../../../../Utils/expect.dart";
 
@@ -57,7 +57,7 @@ typedef A<X extends G<C<Y, X>>, Y extends G<C<X, Y>>> = C<X, Y>;
 
 main() {
   Expect.equals(
-      typeOf<C<G<C<Null, Null>>, G<C<Null, Null>>>>(),
+      typeOf<C<G<C<Never, Never>>, G<C<Never, Never>>>>(),
       typeOf<A>()
   );
 }

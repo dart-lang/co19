@@ -44,9 +44,11 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works for [class A<X extends
  * A<X>>; typedef B<X extends A<A<X>>> = A<X>].
+ *
+ * @Issue 41719
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 import "../../../../Utils/expect.dart";
 

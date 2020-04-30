@@ -45,9 +45,9 @@
  * @description Checks that instantiate-to-bounds works as expected for [class
  * M<X>; class N<X extends M<N<X>>>; typedef O<X extends M<N<X>>> = M<N<X>>].
  * @author iarkh@unipro.ru
- * @Issue 34726
+ * @Issue 34726,41719
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 import "../../../../Utils/expect.dart";
 

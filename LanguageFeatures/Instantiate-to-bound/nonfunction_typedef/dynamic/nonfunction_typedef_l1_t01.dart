@@ -47,18 +47,18 @@
  * class C<X>; typedef A<X extends G<С<X>>> = C<X>].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 import "../../../../Utils/expect.dart";
 
 typedef G<X> = X Function();
 class C<X> {}
 
-typedef A<X extends G<С<X>>> = C<X>;
+typedef A<X extends G<C<X>>> = C<X>;
 
 main() {
   Expect.equals(
-    typeOf<С<G<C<dynamic>>>>(),
+    typeOf<C<G<C<dynamic>>>>(),
     typeOf<A>()
   );
 }

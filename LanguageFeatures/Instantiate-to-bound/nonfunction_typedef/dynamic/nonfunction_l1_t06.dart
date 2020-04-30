@@ -46,7 +46,7 @@
  * M<M<M<M<M<M<X>>>>>>> = M<M<X>>].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 import "../../../../Utils/expect.dart";
 
@@ -55,7 +55,7 @@ typedef A<X extends M<M<M<M<M<M<X>>>>>>> = M<M<X>>;
 
 main() {
   Expect.equals(
-    typeOf<M<M<M<M<M<M<M<dynamic>>>>>>>>(),
+    typeOf<M<M<M<M<M<M<M<M<dynamic>>>>>>>>>(),
     typeOf<A>()
   );
 }
