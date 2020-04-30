@@ -9,7 +9,7 @@
  * After this the current value is unset. You must call moveNext
  * make the rune at the position current, or movePrevious
  * for the last rune before the position.
- * @description Checks that [current] is [null] after the reset.
+ * @description Checks that [current] equals -1 after the reset.
  * @author msyabro
  */
 
@@ -19,7 +19,7 @@ check(string, pos) {
   var it = new RuneIterator(string);
   it.moveNext();
   it.reset(pos);
-  Expect.isNull(it.current);
+  Expect.equals(-1, it.current);
 }
 
 main() {

@@ -5,8 +5,8 @@
  */
 /**
  * @assertion int get rawIndex
- * Returns null if the current rune is null.
- * @description Checks that null is returned.
+ * Returns -1 if the current rune is null.
+ * @description Checks that -1 is returned.
  * @author msyabro
  */
 
@@ -14,13 +14,13 @@ import "../../../Utils/expect.dart";
 
 main() {
   var it = new RuneIterator('');
-  Expect.isNull(it.rawIndex);
+  Expect.equals(-1, it.rawIndex);
   it.moveNext();
-  Expect.isNull(it.rawIndex);
+  Expect.equals(-1, it.rawIndex);
 
   it = new RuneIterator('a');
-  Expect.isNull(it.rawIndex);
+  Expect.equals(-1, it.rawIndex);
   it.moveNext();
   it.moveNext();
-  Expect.isNull(it.rawIndex);
+  Expect.equals(-1, it.rawIndex);
 }

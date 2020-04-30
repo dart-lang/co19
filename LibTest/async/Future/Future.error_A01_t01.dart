@@ -6,7 +6,8 @@
 /**
  * @assertion Future.error(error, [Object stackTrace])
  * A future that completes with an error in the next event-loop iteration.
- * If error is null, it is replaced by a NullThrownError.
+ * The error must not be null.
+ *
  * @description Checks that a future created with constructor
  * Future.error has the error passed as a parameter.
  * @author kaigorodov
@@ -33,7 +34,6 @@ main() {
   check(-5);
   check('');
   check('string');
-  check(null);
   check(true);
   check(const []);
   check(const {'k1': 1, 'k2': 2});

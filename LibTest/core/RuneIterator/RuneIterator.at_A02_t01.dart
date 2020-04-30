@@ -6,8 +6,7 @@
 /**
  * @assertion RuneIterator.at(String string, int index)
  * When created, there is no current value.
- * @description Checks that [current] is [null] when
- * [RuneIterator] is created.
+ * @description Checks that [current] equals -1 when [RuneIterator] is created.
  * @author msyabro
  */
 
@@ -15,7 +14,7 @@ import "../../../Utils/expect.dart";
 
 check(string, pos) {
   var it = new RuneIterator.at(string, pos);
-  Expect.isNull(it.current);
+  Expect.equals(-1, it.current);
 }
 
 main() {

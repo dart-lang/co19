@@ -25,9 +25,9 @@ check(string, pos, current, prev) {
 }
 
 main() {
-  check('', 0, null, null);
-  check('a', 1, null, 0x61);
-  check('\u{10000}', 0, 0x10000, null);
+  check('', 0, -1, -1);
+  check('a', 1, -1, 0x61);
+  check('\u{10000}', 0, 0x10000, -1);
   check('\u{10000}\u{10001}\x01', 2, 0x10001, 0x10000);
   check('\u{10000}\u{10001}\x01', 4, 0x01, 0x10001);
   check('string', 2, 0x72, 0x74);

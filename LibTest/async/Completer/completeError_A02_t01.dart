@@ -5,8 +5,8 @@
  */
 /**
  * @assertion void completeError(Object exception, [Object stackTrace])
- * If error is null, it is replaced by a NullThrownError.
- * @description Checks that NullThrownError is thrown if exception is null.
+ * The error must not be null.
+ * @description Checks that the error must not be null.
  * @author ilya
  */
 
@@ -15,13 +15,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var completer = new Completer();
-
-  completer.future.then(
-      (_) => Expect.fail('should not complete with a value'),
-      onError: (e) {
-        Expect.isTrue(e is NullThrownError);
-      }
-    );
-
-  completer.completeError(null);
+  Expect.throws(() {
+    completer.completeError(null);
+  });
 }
