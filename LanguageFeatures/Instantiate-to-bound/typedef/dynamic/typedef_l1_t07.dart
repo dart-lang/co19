@@ -47,6 +47,8 @@
  * @Issue 34689
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../../../Utils/expect.dart";
 
 class A<X extends A<X>> {}
@@ -54,7 +56,7 @@ typedef G<X extends A<X>> = Function(X);
 
 main() {
   Expect.equals(
-      typeOf<G<A<Null>>>(),
+      typeOf<G<A<Never>>>(),
       typeOf<G>()
   );
 }

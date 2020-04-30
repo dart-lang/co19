@@ -47,6 +47,8 @@
  * typedef G<X extends A<X>> = void Function()]
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../../../Utils/expect.dart";
 
 typedef A<X> = void Function(X);
@@ -54,7 +56,7 @@ typedef G<X extends A<X>> = void Function();
 
 main() {
   Expect.equals(
-    typeOf<G<A<Null>>>(),
+    typeOf<G<A<Never>>>(),
     typeOf<G>()
   );
 }

@@ -47,6 +47,8 @@
  * @Issue 34689
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "dart:async";
 import "../../../../Utils/expect.dart";
 
@@ -54,7 +56,7 @@ typedef G<X extends FutureOr<X>> = void Function(X);
 
 main() {
   Expect.equals(
-    typeOf<G<FutureOr<Null>>>(),
+    typeOf<G<FutureOr<Never>>>(),
     typeOf<G>()
   );
 }

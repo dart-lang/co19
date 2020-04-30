@@ -47,11 +47,13 @@
  * Function(Y)]
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../../../Utils/expect.dart";
 
 class A<X> {}
 typedef G<X extends A<Y>, Y extends X> = X Function(Y);
-typedef G_expected = A<dynamic> Function(Null);
+typedef G_expected = A<dynamic> Function(Never);
 
 main() {
   Expect.equals(G_expected, G);

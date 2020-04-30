@@ -47,6 +47,8 @@
  * Function<X1 extends X, Y1 extends Y>(Y)]
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../../../Utils/expect.dart";
 
 class A<X> {}
