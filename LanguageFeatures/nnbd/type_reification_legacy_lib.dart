@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @author sgrekhov@unipro.ru
+ * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
@@ -12,13 +12,13 @@
 
 library type_reification_legacy_lib;
 
-class A {}
+class A            {}
 class A1 extends A {}
-class B<T> {}
+class B<T>         {}
 
-typedef F1 = int Function(A1);
-typedef F2<X, Y, Z> = X Function<YY extends Y>(Z);
-typedef F3<T> = void Function(T);
+typedef F1 = int Function(A1 a);
+typedef F2<X, Y, Z> = X Function<YY extends Y>(Z z);
+typedef F3<T> = void Function(T t);
 typedef F4<T> = T Function();
 
 int test1(A1) => 0;

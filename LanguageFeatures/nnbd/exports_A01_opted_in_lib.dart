@@ -119,19 +119,19 @@ void testGenericNever<T extends Never>() { Expect.equals(typeOf<Never>(), T);}
 
 typedef def = void Function();
 
-typedef def_nullable_int_arg      = void Function(int?     );
-typedef def_nullable_object_arg   = void Function(Object?  );
-typedef def_dynamic_arg           = void Function(dynamic  );
-typedef def_nullable_function_arg = void Function(Function?);
-typedef def_null_arg              = void Function(Null     );
-typedef def_futureOr_arg          = void Function(FutureOr );
+typedef def_nullable_int_arg      = void Function(int?      i);
+typedef def_nullable_object_arg   = void Function(Object?   o);
+typedef def_dynamic_arg           = void Function(dynamic   d);
+typedef def_nullable_function_arg = void Function(Function? f);
+typedef def_null_arg              = void Function(Null      n);
+typedef def_futureOr_arg          = void Function(FutureOr  f);
 
-typedef def_int_arg         = void Function(int          );
-typedef def_object_arg      = void Function(Object       );
-typedef def_function_arg    = void Function(Function     );
-typedef def_futureOrInt_arg = void Function(FutureOr<int>);
+typedef def_int_arg         = void Function(int           i);
+typedef def_object_arg      = void Function(Object        o);
+typedef def_function_arg    = void Function(Function      f);
+typedef def_futureOrInt_arg = void Function(FutureOr<int> f);
 
-typedef def_never_arg = void Function(Never);
+typedef def_never_arg = void Function(Never n);
 
 typedef def_required_arg = void Function({required int i});
 
@@ -165,18 +165,18 @@ typedef g_function_def<T extends Function> = void Function();
 
 typedef g_never_def<T extends Never> = void Function();
 
-typedef g_def_dynamic_arg          <T extends dynamic  > = void Function(T);
-typedef g_def_nullable_int_arg     <T extends int?     > = void Function(T);
-typedef g_def_nullable_object_arg  <T extends Object?  > = void Function(T);
-typedef g_def_nullable_function_arg<T extends Function?> = void Function(T);
-typedef g_def_null_arg             <T extends Null     > = void Function(T);
-typedef g_def_futureOr_arg         <T extends FutureOr > = void Function(T);
+typedef g_def_dynamic_arg          <T extends dynamic  > = void Function(T t);
+typedef g_def_nullable_int_arg     <T extends int?     > = void Function(T t);
+typedef g_def_nullable_object_arg  <T extends Object?  > = void Function(T t);
+typedef g_def_nullable_function_arg<T extends Function?> = void Function(T t);
+typedef g_def_null_arg             <T extends Null     > = void Function(T t);
+typedef g_def_futureOr_arg         <T extends FutureOr > = void Function(T t);
 
-typedef g_def_int_arg     <T extends int     > = void Function(T);
-typedef g_def_object_arg  <T extends Object  > = void Function(T);
-typedef g_def_function_arg<T extends Function> = void Function(T);
+typedef g_def_int_arg     <T extends int     > = void Function(T t);
+typedef g_def_object_arg  <T extends Object  > = void Function(T t);
+typedef g_def_function_arg<T extends Function> = void Function(T t);
 
-typedef g_def_never_arg<T extends Never> = void Function(T);
+typedef g_def_never_arg<T extends Never> = void Function(T t);
 
 typedef g_def_getDynamic         <T extends dynamic  > = T Function();
 typedef g_def_getNullableInt     <T extends int?     > = T Function();
@@ -207,7 +207,7 @@ typedef void def1_object_arg     (Object        o);
 typedef void def1_function_arg   (Function      f);
 typedef void def1_futureOrInt_arg(FutureOr<int> x);
 
-typedef void def1_never_arg(Never);
+typedef void def1_never_arg(Never n);
 
 typedef void def1_required_arg({required int i});
 
@@ -241,18 +241,18 @@ typedef g_function_def1<T extends Function> = void Function();
 
 typedef g_never_def1<T extends Never> = void Function();
 
-typedef g_def1_dynamic_arg          <T extends dynamic  > = void Function(T);
-typedef g_def1_nullable_int_arg     <T extends int?     > = void Function(T);
-typedef g_def1_nullable_object_arg  <T extends Object?  > = void Function(T);
-typedef g_def1_nullable_function_arg<T extends Function?> = void Function(T);
-typedef g_def1_null_arg             <T extends Null     > = void Function(T);
-typedef g_def1_futureOr_arg         <T extends FutureOr > = void Function(T);
+typedef g_def1_dynamic_arg          <T extends dynamic  > = void Function(T t);
+typedef g_def1_nullable_int_arg     <T extends int?     > = void Function(T t);
+typedef g_def1_nullable_object_arg  <T extends Object?  > = void Function(T t);
+typedef g_def1_nullable_function_arg<T extends Function?> = void Function(T t);
+typedef g_def1_null_arg             <T extends Null     > = void Function(T t);
+typedef g_def1_futureOr_arg         <T extends FutureOr > = void Function(T t);
 
-typedef g_def1_int_arg     <T extends int     > = void Function(T);
-typedef g_def1_object_arg  <T extends Object  > = void Function(T);
-typedef g_def1_function_arg<T extends Function> = void Function(T);
+typedef g_def1_int_arg     <T extends int     > = void Function(T t);
+typedef g_def1_object_arg  <T extends Object  > = void Function(T t);
+typedef g_def1_function_arg<T extends Function> = void Function(T t);
 
-typedef g_def1_never_arg<T extends Never> = void Function(T);
+typedef g_def1_never_arg<T extends Never> = void Function(T t);
 
 typedef g_def1_getDynamic         <T extends dynamic  > = T Function();
 typedef g_def1_getNullableInt     <T extends int?     > = T Function();
