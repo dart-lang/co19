@@ -17,15 +17,13 @@
  * expression e evaluates to false and has correct message.
  * @author sgrekhov@unipro.ru
  */
-
-import '../../../Utils/dynamic_check.dart';
+import '../../../Utils/expect.dart';
 
 main() {
-  checkTypeError(() {assert(null);});
-  checkTypeError(() {assert(false, "Some message");}, "Some message");
-  checkTypeError(() {assert(false, 123);}, 123);
-  checkTypeError(() {assert(false, 3.14);}, 3.14);
+  Expect.throws(() {assert(false, "Some message");}, (e) => e is AssertionError);
+  Expect.throws(() {assert(false, 123);}, (e) => e is AssertionError);
+  Expect.throws(() {assert(false, 3.14);}, (e) => e is AssertionError);
 
   var o = new Object();
-  checkTypeError(() {assert(false, o);}, o);
+  Expect.throws(() {assert(false, o);}, (e) => e is AssertionError);
 }

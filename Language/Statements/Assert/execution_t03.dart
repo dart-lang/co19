@@ -18,10 +18,10 @@
  * @author rodionov
  */
 
-import '../../../Utils/dynamic_check.dart';
+import '../../../Utils/expect.dart';
 
 main() {
-  checkTypeError(() {
+  Expect.throws(() {
     assert(null);
   });
 }
