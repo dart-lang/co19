@@ -64,8 +64,8 @@ main() {
 
   F<A<dynamic>> target1 = fsource;                           //# 01: compile-time error
   F<A<FutureOr<dynamic>>> target2 = fsource;                 //# 02: compile-time error
-  F<A<FutureOr<C<FutureOr<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
-  F<A<FutureOr<C<FutureOr<C<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
+  F<A<FutureOr<C<FutureOr<dynamic>>>>> target3 = fsource;
+  F<A<FutureOr<C<FutureOr<C<dynamic>>>>>> target4 = fsource; //# 03: compile-time error
 
-  A();                                                       //# 05: compile-time error
+  A();                                                       //# 04: compile-time error
 }
