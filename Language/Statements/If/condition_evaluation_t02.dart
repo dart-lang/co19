@@ -16,5 +16,5 @@ import '../../../Utils/expect.dart';
 
 main() {
   var i = null;
-  Expect.throws(() {if (i) {i = "hello";}}, (e) => e is TypeError);
+  Expect.throws(() {if (i) {i = "hello";}}, (e) => e is AssertionError);
 }

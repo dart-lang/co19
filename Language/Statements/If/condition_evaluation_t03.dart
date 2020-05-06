@@ -11,14 +11,13 @@
  * @description Checks that it an AssertionError (see  Boolean conversion)
  * is thrown if the expression evaluates to null.
  * @author a.semenov@unipro.ru
- * @reviewer rodionov
  */
-import '../../../Utils/dynamic_check.dart';
+import '../../../Utils/expect.dart';
 
 main() {
-  checkTypeError( () {
+  Expect.throws( () {
     if (null) {
       var i = "hello";
     }
-  });
+  }, (e)=> e is AssertionError);
 }

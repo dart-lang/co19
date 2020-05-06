@@ -12,13 +12,12 @@
  * @author rodionov
  */
 import '../../../Utils/expect.dart';
-import '../../../Utils/dynamic_check.dart';
 
 main() {
   var v = null;
-  checkTypeError(() {Expect.isTrue(!v);});
+  Expect.throws(() {Expect.isTrue(!v);});
   v = "true, honestly";
-  checkTypeError(() {Expect.isTrue(!v);});
+  Expect.throws(() {Expect.isTrue(!v);});
   v = () {};
-  checkTypeError(() {Expect.isTrue(!v);});
+  Expect.throws(() {Expect.isTrue(!v);});
 }

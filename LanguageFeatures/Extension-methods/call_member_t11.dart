@@ -17,10 +17,9 @@
  * @description Check the case when 'call()' method is called via 'super()'
  * @author sgrekhov@unipro.ru
  * @issue https://github.com/dart-lang/language/issues/734
+ * @issue 41782
  */
 // SharedOptions=--enable-experiment=extension-methods
-import "../../Utils/expect.dart";
-
 class A {}
 
 extension on A {
@@ -29,7 +28,10 @@ extension on A {
 
 class C extends A {
   test() {
-    Expect.equals("Lily was here: 42", super(42));
+    super(42);
+//  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

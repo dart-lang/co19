@@ -18,15 +18,14 @@
  * 5. The expression [v''/v]e is evaluated, and the process recurses at step 1.
  * @description Checks that assertion error is raised if c is null.
  * @author rodionov
- * @reviewer iefremov
  */
 
-import '../../../../Utils/dynamic_check.dart';
+import '../../../../Utils/expect.dart';
 
 main() {
-  checkTypeError( () {
+  Expect.throws( () {
     for ( var i = 0; null; i++) {
       break;
     }
-  });
+  }, (e) => e is AssertionError);
 }
