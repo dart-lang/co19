@@ -40,7 +40,7 @@ main() {
   (new C<A, C, C>()).check(A, C, C);
   (new C<dynamic, dynamic, dynamic>()).check(dynamic, dynamic, dynamic);
   (new C<Null, Null, Null>()).check(Null, Null, Null);
-  (new C<Object, List, FutureOr>()).check(Object, List, Object);
-  (new C<FutureOr, dynamic, dynamic>()).check(Object, dynamic, dynamic);
+  (new C<Object, List, FutureOr>()).check(Object, List, FutureOr);
+  (new C<FutureOr, dynamic, dynamic>()).check(FutureOr, dynamic, dynamic);
 }
 

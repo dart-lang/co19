@@ -29,9 +29,6 @@ class C<T> {
   check(expected) {
     Expect.equals(expected, T);
   }
-  check1() {
-    print(T.runtimeType);
-  }
 }
 
 main() {
@@ -43,7 +40,7 @@ main() {
   (new C<dynamic>()).check(dynamic);
   (new C<Null>()).check(Null);
   (new C<Object>()).check(Object);
-  (new C<FutureOr>()).check(Object);
+  (new C<FutureOr>()).check(FutureOr);
   (new C<Null>()).check(Null);
 }
 
