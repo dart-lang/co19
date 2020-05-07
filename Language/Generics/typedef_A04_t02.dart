@@ -26,11 +26,17 @@ class A<T1, T2, T3> {
 
 typedef AAlias<T1, T2, T3> = A<T1, T2, T3>;
 typedef BAlias = AAlias;
+typedef CAlias = A<int, String, num>;
+typedef DAlias<T> = A<T, T, T>;
 
 main() {
   AAlias().test(dynamic, dynamic, dynamic);
   AAlias<int, String, num>().test(int, String, num);
 
   BAlias().test(dynamic, dynamic, dynamic);
-  BAlias<int, String, num>().test(int, String, num);
+
+  CAlias().test(int, String, num);
+
+  DAlias().test(dynamic, dynamic, dynamic);
+  DAlias<int>().test(int, int, int);
 }
