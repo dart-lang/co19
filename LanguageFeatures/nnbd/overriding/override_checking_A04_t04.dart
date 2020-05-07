@@ -4,38 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion If a class [C] in an opted-in library implements the same
- * generic class [I] more than once as [I0], .., [In], and at least one of the
- * [Ii] is not syntactically equal to the others, then it is an error if
- * [NNBD_TOP_MERGE(S0, ..., Sn)] is not defined where [Si] is [NORM(Ii)].
- * Otherwise, for the purposes of runtime subtyping checks, [C] is considered to
- * implement the canonical interface given by [NNBD_TOP_MERGE(S0, ..., Sn)].
+ * @assertion If a class [C] in an opted-in library overrides a member, it is an
+ * error if its signature is not a subtype of the types of all overriden members
+ * from all direct super-interfaces (whether legacy or opted-in). This implies
+ * that override checks for a member m may succeed due to a legacy member
+ * signature for [m] in a direct super-interface, even in the case where an
+ * indirect super-interface has a member signature for [m] where the override
+ * would be a compile-time error.
  *
- * If a class [C] in an opted-in library overrides a member, it is an error if
- * its signature is not a subtype of the types of all overriden members from all
- * super-interfaces (whether legacy or opted-in). For the purposes of override
- * checking, members which are inherited from opted-in classes through legacy
- * classes are still checked against each original declaration at its opted-in
- * type. For example, the following override is considered an error.
- *
- *  // opted_in.dart
- *  class A {
- *      int foo(int? x) {}
- *  }
- *  // opted_out.dart
- *  // @dart = 2.6
- *  import 'opted_in.dart';
- *
- * class B extends A {}
- *  // opted_in.dart
- *  class C extends B {
- *  // Override checking is done against the opted-in signature of A.foo
- *  int? foo(int x) {}
- *  }
- *
- * @description  Check that if legacy class inherits a setter from two opted in
- * classes with contradictory nullability information and than this setter is
- * inherited again in the opted in code, compile error appears.
+ * @description Check that compile error does not appear when legacy class
+ * inherits a setter from two opted in classes with contradictory nullability
+ * information and than this setter is inherited again in the opted in code.
  *
  * @Issue 40414,41529
  * @author iarkh@unipro.ru
@@ -53,19 +32,8 @@ class A extends LEGACY_SETTER_2 {
 
 class B extends LEGACY_SETTER_2 {
   void set setInt     (int      i) {}
-//         ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   void set setObject  (Object   o) {}
-//         ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   void set setFunction(Function f) {}
-//         ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
