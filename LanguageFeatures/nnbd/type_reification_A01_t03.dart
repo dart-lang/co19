@@ -47,7 +47,7 @@ main() {
   Expect.isTrue(test4 is F2<int, B, A1>);
   Expect.isTrue(test4 is F2<int?, B?, A1?>);
   Expect.isTrue(test4 is F2<int, B<Object?>, A1>);
-  Expect.isFalse(test4 is F2<int, B<Object>, A1>);
+  Expect.isTrue(test4 is F2<int, B<Object>, A1>);
 
   Expect.isTrue(test3 is F3<A1?>);
 
