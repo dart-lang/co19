@@ -21,8 +21,8 @@
 
 import "../../../Utils/expect.dart";
 
-class B extends A<void> {}
-class C extends A<void> {}
+class B extends CHECK_TOP_MERGE<void> {}
+class C extends CHECK_TOP_MERGE<void> {}
 
 class D extends B implements C {}
 

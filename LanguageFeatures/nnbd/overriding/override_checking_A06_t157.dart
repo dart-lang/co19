@@ -21,7 +21,7 @@
 import "../../../Utils/expect.dart";
 import "override_checking_A06_opted_out_lib.dart";
 
-class B extends A<Never> {}
+class B extends CHECK_TOP_MERGE<Never> {}
 
 class C1 extends B implements out_Never {}
 class C2 extends out_Never implements B {}

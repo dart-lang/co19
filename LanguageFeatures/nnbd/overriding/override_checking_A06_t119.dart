@@ -22,8 +22,8 @@
 
 import "../../../Utils/expect.dart";
 
-class B extends A<Never> {}
-class C extends A<Never> {}
+class B extends CHECK_TOP_MERGE<Never> {}
+class C extends CHECK_TOP_MERGE<Never> {}
 
 class D extends B implements C {}
 
