@@ -31,7 +31,11 @@ import "../../Utils/expect.dart";
 dynamic getNull() => null;
 
 main() {
-  Expect.throws(() { Future<int>(() => getNull()); });
-  Expect.throws(() { Future<Future<int>>(() => getNull()); });
-  Expect.throws(() { Future<Future<int>>(() => Future<int>(() => getNull())); });
+  asyncStart();
+  Future f = Future<int>(() => getNull());
+  f.then((value) {}, onError:(e) => asyncEnd());
+
+  asyncStart();
+  f = Future<Future<int>>(() => getNull());
+  f.then((value) {}, onError:(e) => asyncEnd());
 }

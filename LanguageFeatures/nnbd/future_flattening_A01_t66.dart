@@ -17,7 +17,7 @@
  *   otherwise [flatten(T) = T]
  *
  * @description Check that future flattening works correctly for
- * [Future<Object>] type dynamically and the expression cannot be null.
+ * [Future<Future<Object>>] type dynamically and the expression cannot be null.
  *
  * @Issue 41340,41437
  * @author iarkh@unipro.ru
@@ -31,5 +31,7 @@ import "../../Utils/expect.dart";
 dynamic getNull() => null;
 
 main() {
-  Expect.throws(() { Future<Future<Object?>>(() => Future<Object>(() => getNull())); });
+  asyncStart();
+  Future f = Future<Object>(() => Future<Object?>(() => getNull()));
+  f.then((value) {}, onError:(e) => asyncEnd());
 }
