@@ -51,7 +51,7 @@
  * actually possible to prove that, and even easy: [X1 <: B<X1, X2>] because
  * [X2 <: B<X1, X2>], per rule 'Left Variable Bound', and [X2 <: B<X1, X2>]
  * holds by rule 'Left Variable Bound' and 'Reflexivity'.
- * 
+ *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
@@ -62,28 +62,8 @@ class B<X extends B<X, Y>, Y> {}
 typedef A<X1 extends X2, X2 extends B<X1, X2>> = B<X1, X2>;
 
 main() {
-  A? source;
-  var fsource = toF(source);
-
-  F<B<dynamic, B<dynamic, dynamic>>?>? target = fsource;
-
-  F<B<dynamic, dynamic>?>? target1 = fsource;
-//                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<B<dynamic, dynamic>, B<dynamic, dynamic>>?>? target2 = fsource;
-//                                                           ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<B<dynamic, dynamic>, dynamic>?>? target3 = fsource;
-//                                               ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  A();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.equals(
+      typeOf<B<dynamic, B<dynamic, dynamic>>>(),
+      typeOf<A>()
+  );
 }
