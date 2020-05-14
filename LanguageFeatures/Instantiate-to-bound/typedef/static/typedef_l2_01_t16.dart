@@ -45,11 +45,16 @@
  * @description Checks that instantiate-to-bounds works correctly for [typedef]
  * with two related parameters: [typedef G<X extends A<X>, Y extends A<Y>> =
  * X Function()]
+ *
+ * @ToDo Which result is expected here? Need to clarify.
+ *
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 class A<X> {}
 typedef G<X extends A<X>, Y extends A<Y>> = X Function();
 
 main() {
-  G source;   //# 01: compile-time error
+  G? source;   //# 01: compile-time error
 }

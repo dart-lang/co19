@@ -46,11 +46,13 @@
  *  G<X extends FutureOr<X>> = void Function<X1 extends X>()] (covariant)
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "dart:async";
 
 typedef G<X extends FutureOr<X>> = void Function<X1 extends X>();
 
 main() {
-  G source;
-  void Function<X extends FutureOr<dynamic>>() target = source;
+  G? source;
+  void Function<X extends FutureOr<dynamic>>()? target = source;
 }

@@ -46,16 +46,26 @@
  *  G<X extends FutureOr<X>> = X Function()] (covariant)
  * @author iarkh@unipro.ru
  */
-import "dart:async";
+// SharedOptions=--enable-experiment=non-nullable
 
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+import "dart:async";
+import "../../../../Utils/expect.dart";
 
 typedef G<X extends FutureOr<X>> = X Function();
 
 main() {
-  G source;
+  G? source;
   var fsource = toF(source);
-  F<G<FutureOr<dynamic>>> target = fsource;
-  F<G<FutureOr<Null>>> target1 = fsource;   //# 01: compile-time error
+
+  F<G<FutureOr<dynamic>>?>? target = fsource;
+
+  F<G<FutureOr<Null>>?>? target1 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<FutureOr<Never>>?>? target2 = fsource;
+//                                  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

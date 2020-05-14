@@ -45,16 +45,15 @@
  * @description Checks that instantiate-to-bounds works correctly for [typedef
  *  G<X extends FutureOr<X>> = void Function()] (unused)
  * @author iarkh@unipro.ru
+ *
+ * @ToDo Which result is expected for unused type parameter? Need to clarify.
  */
-import "dart:async";
+// SharedOptions=--enable-experiment=non-nullable
 
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+import "dart:async";
 
 typedef G<X extends FutureOr<X>> = void Function();
 
 main() {
-  G source;
-  var fsource = toF(source);
-  F<G<FutureOr<dynamic>>> target = fsource;
+  G? source;         //# 01: compile-time error
 }

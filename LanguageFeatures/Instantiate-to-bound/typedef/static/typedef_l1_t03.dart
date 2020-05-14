@@ -45,7 +45,11 @@
  * @description Checks that instantiate-to-bounds works correctly for [typedef
  *  G<X extends A<X>> = X Function()] (invariant)
  * @author iarkh@unipro.ru
+ *
+ * @ToDo Which result is expected for invariant type parameter? Need to clarify.
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 class A<X> {}
 typedef G<X extends A<X>> = X Function(X);
 

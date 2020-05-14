@@ -43,12 +43,17 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for [class A<X
- * extends A<X>>], [typedef G<X extends A<X>> = X Function()] (invariant)
+ * extends A<X>>], [typedef G<X extends A<X>> = void Function<Y extends X>()]
+ *
+ * @ToDo Which result is expected here? Need to clarify.
+ *
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 class A<X extends A<X>> {}
 typedef G<X extends A<X>> = void Function<Y extends X>();
 
 main() {
-  G source;   //# 01: compile-time error
+  G? source;   //# 01: compile-time error
 }

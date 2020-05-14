@@ -45,17 +45,16 @@
  * @description Checks that instantiate-to-bounds works correctly for [typedef
  *  G<X extends FutureOr<X>> = X Function(X)] (invariant)
  * @author iarkh@unipro.ru
+ *
+ * @ToDo Which result is expected for invariant type parameter? Need to clarify.
+ *
  */
-import "dart:async";
+// SharedOptions=--enable-experiment=non-nullable
 
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+import "dart:async";
 
 typedef G<X extends FutureOr<X>> = X Function(X);
 
 main() {
-  G source;
-  var fsource = toF(source);
-  F<G<FutureOr<dynamic>>> target = fsource;
-  F<G<FutureOr<Null>>> target1 = fsource;   //# 01: compile-time error
+  G? source;  //# 01: compile-time error
 }
