@@ -48,20 +48,65 @@
  * @Issue 35068
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+// SharedOptions=--enable-experiment=non-nullable
+
+import "../../../../Utils/expect.dart";
 
 class A<X> {}
 typedef G<X extends Y, Y extends A<Y>> = X Function(Y);
 
 main() {
-  G source;
+  G? source;
   var fsource = toF(source);
-  F<G<A<Null>, A<Null>>> target = fsource;
+  F<G<A<Never>, A<Never>>?>? target = fsource;
 
-  F<G<A<dynamic>, dynamic>> target1 = fsource;    //# 01: compile-time error
-  F<G<A<dynamic>, A<dynamic>>> target2 = fsource; //# 02: compile-time error
-  F<G<A<Null>, A<dynamic>>> target3 = fsource;    //# 03: compile-time error
-  F<G<A<dynamic>, A<Null>>> target4 = fsource;    //# 04: compile-time error
-  F<G<dynamic, A<dynamic>>> target5 = fsource;    //# 05: compile-time error
+  F<G<A<Null>, A<Null>>?>? target1 = fsource;
+//                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Null>, A<Never>>?>? target2 = fsource;
+//                                    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Never>, A<Null>>?>? target3 = fsource;
+//                                    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>, dynamic>?>? target4 = fsource;
+//                                      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>, A<dynamic>>?>? target5 = fsource;
+//                                         ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Never>, A<dynamic>>?>? target6 = fsource;
+//                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Null>, A<dynamic>>?>? target7 = fsource;
+//                                      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>, A<Never>>?>? target8 = fsource;
+//                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>, A<Null>>?>? target9 = fsource;
+//                                      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<dynamic, A<dynamic>>?>? target10 = fsource;
+//                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

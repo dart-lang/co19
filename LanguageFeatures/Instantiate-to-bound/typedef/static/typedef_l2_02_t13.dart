@@ -54,20 +54,79 @@
  * @Issue 34689, 34699
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 class A<X> {}
 typedef G<X extends A<X>, Y extends X> = void Function<Y1 extends Y>(X, Y);
 
 main() {
-  G source;
+  G? source;
 
-  void Function<X extends A<Null>>(A<Null>, A<Null>) target = source;
+  void Function<X extends A<Never>>(A<Never>, A<Never>)? target = source;
 
-  void Function<X extends A<dynamic>>(A<Null>, A<Null>) target1 = source;    //# 01: compile-time error
-  void Function<X extends A<dynamic>>(A<Null>, A<dynamic>) target2 = source; //# 02: compile-time error
-  void Function<X extends A<dynamic>>(A<dynamic>, A<Null>) target3 = source; //# 03: compile-time error
-  void Function<X extends A<dynamic>>(A<Null>, A<dynamic>) target4 = source; //# 04: compile-time error
+  void Function<X extends A<Null>>(A<Null>, A<Null>)? target1 = source;
+//                                                              ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  void Function<X extends A<Null>>(A<Null>, A<dynamic>) target5 = source;
-  void Function<X extends A<Null>>(A<dynamic>, A<Null>) target6 = source;
-  void Function<X extends A<Null>>(A<Null>, A<dynamic>) target37 = source;
+  void Function<X extends A<dynamic>>(A<Null>, A<Null>)? target2 = source;
+//                                                                 ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>>(A<Null>, A<dynamic>)? target3 = source;
+//                                                                    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>>(A<dynamic>, A<Null>)? target4 = source;
+//                                                                    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>>(A<Null>, A<dynamic>)? target5 = source;
+//                                                                    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>>(A<Never>, A<Never>)? target6 = source;
+//                                                                   ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>>(A<Never>, A<dynamic>)? target7 = source;
+//                                                                     ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>>(A<dynamic>, A<Never>)? target8 = source;
+//                                                                     ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>>(A<Never>, A<dynamic>)? target9 = source;
+//                                                                     ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<Never>>(A<Never>, A<dynamic>)? target10 = source;
+
+  void Function<X extends A<Null>>(A<Null>, A<dynamic>)? target11 = source;
+//                                                                  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<Never>>(A<dynamic>, A<Never>)? target12 = source;
+
+  void Function<X extends A<Null>>(A<dynamic>, A<Null>)? target13 = source;
+//                                                                  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<Never>>(A<Never>, A<dynamic>)? target14 = source;
+
+  void Function<X extends A<Null>>(A<Null>, A<dynamic>)? target15 = source;
+//                                                                  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

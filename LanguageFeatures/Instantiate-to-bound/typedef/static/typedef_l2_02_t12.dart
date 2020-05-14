@@ -57,16 +57,53 @@
  * @Issue 34689, 34699
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 class A<X> {}
 typedef G<X extends A<X>, Y extends X> = void Function<Y1 extends Y>(X);
 
 main() {
-  G source;
-  void Function<X extends A<Null>>(A<Null>) target = source;
+  G? source;
+  void Function<X extends A<Never>>(A<Never>)? target = source;
 
-  void Function<X extends A<dynamic>>(A<Null>) target1 = source;    //# 01: compile-time error
-  void Function<X extends A<Null>>(A<dynamic>) target2 = source;
-  void Function<X extends A<dynamic>>(A<dynamic>) target3 = source; //# 02: compile-time error
-  void Function<X extends A<Null>>(dynamic) target4 = source;
-  void Function<X extends A<Null>>(Null) target5 = source;
+  void Function<X extends A<Null>>(A<Null>)? target1 = source;
+//                                                    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>>(A<Null>)? target2 = source;
+//                                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>>(A<Never>)? target3 = source;
+//                                                        ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<Never>>(A<dynamic>)? target4 = source;
+
+  void Function<X extends A<Null>>(A<dynamic>)? target5 = source;
+//                                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>>(A<dynamic>)? target6 = source;
+//                                                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<Never>>(dynamic)? target7 = source;
+
+  void Function<X extends A<Null>>(dynamic)? target8 = source;
+//                                                     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<Null>>(Never)? target9 = source;
+
+  void Function<X extends A<Null>>(Null)? target10 = source;
+//                                                  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

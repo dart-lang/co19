@@ -47,10 +47,23 @@
  * Function<X1 extends X>(X, Y)]
  * @author iarkh@unipro.ru
  */
+//
+// SharedOptions=--enable-experiment=non-nullable
+
 class A<X> {}
 typedef G<X extends Y, Y extends A<Y>> = void Function<X1 extends X>(X, Y);
 
 main() {
-  G source;
-  void Function<X extends A<Null>>(A<Null>, A<Null>) target = source;
+  G? source;
+  void Function<X extends A<Never>>(A<Never>, A<Never>)? target = source;
+
+  void Function<X extends A<Null>>(A<Null>, A<Null>)? target1 = source;
+//                                                              ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>>(A<dynamic>, A<dynamic>)? target2 = source;
+//                                                                       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
