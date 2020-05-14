@@ -16,8 +16,8 @@
  *       [flatten(T) = S]
  *   otherwise [flatten(T) = T]
  *
- * @description Check that type of await expression match with expected
- * non-nullable legacy [FutureOr] dynamically and the expression cannot be null.
+ * @description Check that type of await expression match with expected legacy
+ * [FutureOr] dynamically and the expression can be null in weak mode.
  *
  * @author iarkh@unipro.ru
  */
@@ -37,5 +37,5 @@ Future<FutureOr<A>> test() async {
 
 main() {
   asyncStart();
-  test().then((value) {}, onError:(e) => asyncEnd());
+  test().then((value) => asyncEnd());
 }

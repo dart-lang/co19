@@ -17,7 +17,7 @@
  *   otherwise [flatten(T) = T]
  *
  * @description Check that future flattening works correctly for the legacy
- * [Future<A>] type dynamically and the expression cannot be null.
+ * [Future<A>] type dynamically and the expression can be null in weak mode.
  *
  * @Issue 41340
  * @author iarkh@unipro.ru
@@ -26,11 +26,10 @@
 // Requirements=nnbd-weak
 
 import "dart:async";
-import "../../Utils/expect.dart";
 import "future_flattening_legacy_lib.dart";
 
 dynamic getNull() => null;
 
 main() {
-  Expect.throws(() { Future<Future<A?>>(() => Future<A>(() => getNull())); });
+  Future<Future<A?>>(() => Future<A>(() => getNull()));
 }
