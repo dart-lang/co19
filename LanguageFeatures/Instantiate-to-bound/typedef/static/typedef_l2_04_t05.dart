@@ -48,18 +48,56 @@
  * @Issue 34689, 34699, 35068
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+// SharedOptions=--enable-experiment=non-nullable
+
+import "../../../../Utils/expect.dart";
 
 class A<X> {}
 typedef G<X extends A<Y>, Y extends X> = void Function(X, Y);
 
 main() {
-  G source;
+  G? source;
   var fsource = toF(source);
-  F<G<A<Null>, Null>> target = fsource;
-  F<G<A<dynamic>, dynamic>> target1 = fsource;    //# 01: compile-time error
-  F<G<A<dynamic>, A<Null>>> target2 = fsource;    //# 02: compile-time error
-  F<G<A<dynamic>, A<dynamic>>> target3 = fsource; //# 03: compile-time error
-  F<G<dynamic, A<dynamic>>> target4 = fsource;    //# 04: compile-time error
+
+  F<G<A<Never>, Never>?>? target = fsource;
+
+  F<G<A<Null>, Never>?>? target1 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Never>, Null>?>? target2 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Null>, Null>?>? target3 = fsource;
+//                                ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>, dynamic>?>? target4 = fsource;
+//                                      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>, A<Never>>?>? target5 = fsource;
+//                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>, A<Null>>?>? target6 = fsource;
+//                                      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>, A<dynamic>>?>? target7 = fsource;
+//                                         ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<dynamic, A<dynamic>>?>? target8 = fsource;
+//                                      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
