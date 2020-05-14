@@ -13,15 +13,13 @@
  */
 
 class B {
-  int func() {}
+  int func() => 42;
 }
 
 class A extends B {
-  static int func() {}
+  static int func() => 42;
 }
 
 main() {
-  try {
-    new A();
-  } catch (e) {}
+  new A();
 }

@@ -12,13 +12,15 @@
  * @author kaigorodov
  */
 
-class C {
-  String f(int f) {}
+abstract class A {
+  String f(int f) => "";
   int get f;
 }
 
+class C extends A {
+  int get f => 42;
+}
+
 main() {
-  try {
-    new C();
-  } catch (e) {}
+  new C();
 }

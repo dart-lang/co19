@@ -20,7 +20,5 @@ class A {
   void someMethod() {}
 
 main() {
-  try {
-    new A();
-  } catch (e) {}
+  new A();
 }

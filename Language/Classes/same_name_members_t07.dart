@@ -14,11 +14,9 @@
 
 class C {
   var f;
-  String f(int f) {}
+  String f(int f) => "";
 }
 
 main() {
-  try {
-    new C();
-  } catch (e) {}
+  new C();
 }

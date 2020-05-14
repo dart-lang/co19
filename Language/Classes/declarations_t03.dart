@@ -46,7 +46,5 @@ class A {
 }
 
 main() {
- try {
-    const A();
-  } catch (e) {}
+  const A();
 }

@@ -46,7 +46,5 @@ class C {
 
 
 main() {
-  try {
-    new C.id();
-  } catch (e) {}
+  new C.id();
 }

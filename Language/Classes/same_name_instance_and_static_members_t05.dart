@@ -13,12 +13,10 @@
  */
 
 class A {
-  int func() {}
-  static int func() {}
+  int func() => 42;
+  static int func() => 42;
 }
 
 main() {
-  try {
-    new A();
-  } catch (e) {}
+  new A();
 }

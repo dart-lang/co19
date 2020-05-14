@@ -12,16 +12,14 @@
  * @author kaigorodov
  */
 
-class A {
+abstract class A {
   int f();
 }
 
 class B extends A {
-  static int f;
+  static int f = 42;
 }
 
 main() {
-  try {
-    new B();
-  } catch (e) {}
+  new B();
 }

@@ -69,7 +69,7 @@ class D {
   D.name() : a = 2;
   var x, y = 2, z;
   int a = 1;
-  static int typed;
+  static int? typed;
   static var untyped;
 }
 
@@ -82,7 +82,7 @@ class E {
 class F {
   F(): x = 1, y = 2;
   var x, y;
-  int x1, y1;
+  int? x1, y1;
   var x2=2, y3=2;
 }
 

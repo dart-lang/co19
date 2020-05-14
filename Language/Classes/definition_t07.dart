@@ -19,7 +19,5 @@
 class A<T>
 
 main() {
-  try {
-    new A();
-  } catch (e) {}
+  new A();
 }

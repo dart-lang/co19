@@ -12,13 +12,14 @@
  * @author rodionov
  */
 
-class C {
+abstract class A {
   var f = 0;
   String get f;
 }
 
+class C extends A {
+  String get f => "Lily was here";
+}
 main() {
-  try {
-    new C();
-  } catch (e) {}
+  new C();
 }

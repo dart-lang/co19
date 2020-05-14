@@ -18,7 +18,5 @@
 class A<T1>> {}
 
 main() {
-  try {
-    new A();
-  } catch (e) {}
+  new A();
 }

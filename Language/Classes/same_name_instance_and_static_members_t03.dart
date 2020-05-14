@@ -13,15 +13,13 @@
  */
 
 class A {
-  int f() {}
+  int f() => 42;
 }
 
 class B extends A {
-  static int f;
+  static int f = 42;
 }
 
 main() {
-  try {
-    new B();
-  } catch (e) {}
+  new B();
 }

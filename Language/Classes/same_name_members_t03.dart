@@ -18,7 +18,5 @@ class C {
 }
 
 main() {
-  try {
-    new C();
-  } catch (e) {}
+  new C();
 }

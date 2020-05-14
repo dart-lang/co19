@@ -68,7 +68,7 @@ class D {
   @A() D.name() : a = 2;
   @B(1) var x, y = 2, z;
   @A() int a = 1;
-  @B(1) static int typed;
+  @B(1) static int? typed;
   @A() static var untyped;
 }
 
@@ -81,7 +81,7 @@ class E {
 class F {
   @B(1) F(): x = 1, y = 2;
   @A() var x, y;
-  @B(1) int x1, y1;
+  @B(1) int? x1, y1;
 }
 
 abstract class Abstract {
