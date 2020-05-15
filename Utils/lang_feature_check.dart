@@ -9,4 +9,6 @@ F<X>? toF<X>(X x) => null;
 Type typeOf<X>() => X;
 
 // Function to check nnbd_top_merge feature
-class CHECK_TOP_MERGE<T> { T Function(T) get f => (x) => x; }
+class CHECK_TOP_MERGE<T> {
+  T Function(T) get f => (x) => x;
+}
