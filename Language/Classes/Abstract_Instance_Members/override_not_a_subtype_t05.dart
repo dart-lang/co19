@@ -17,7 +17,7 @@
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A {
-  int foo(var x) {}
+  int foo(var x) => 42;
 }
 typedef AAlias = A;
 
@@ -27,11 +27,9 @@ abstract class B extends AAlias {
 typedef BAlias = B;
 
 class C extends BAlias {
-  String foo(var x) {
-  }
+  String foo(var x) => "Lily was here";
 }
 
 main() {
   new C().foo(2);
 }
-

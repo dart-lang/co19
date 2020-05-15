@@ -16,15 +16,15 @@
  */
 
 class A {
-  foo([int x]) {}
+  foo([int? x]) {}
 }
 
 abstract class B extends A {
-  foo([String x]);
+  foo([String? x]);
 }
 
 class C extends B {
-  foo([String x]) {
+  foo([String? x]) {
   }
 }
 
@@ -32,4 +32,3 @@ main() {
   new A().foo(2);
   new C().foo("1");
 }
-

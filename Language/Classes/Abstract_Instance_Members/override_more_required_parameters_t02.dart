@@ -14,7 +14,6 @@
  * @compile-error
  * @author rodionov
  */
-import "../../../Utils/expect.dart";
 
 abstract class A {
   f(var x);
@@ -25,8 +24,7 @@ class C extends A {
 }
 
 main() {
-  Expect.throws(() => new C().f(2));  /// static type warning missing argument
+  new C().f(2);
 
   new C().f(2, 2);
 }
-

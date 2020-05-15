@@ -27,4 +27,3 @@ class C extends A {
 main() {
   new C().foo("1");
 }
-

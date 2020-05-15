@@ -35,4 +35,3 @@ main() {
     Expect.fail("NoSuchMethodError is not expected.");
   }
 }
-

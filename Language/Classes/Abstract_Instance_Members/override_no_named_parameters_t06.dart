@@ -14,7 +14,6 @@
  * @compile-error
  * @author rodionov
  */
-import "../../../Utils/expect.dart";
 
 abstract class A {
   f({var x, var y, var z});
@@ -28,7 +27,7 @@ main() {
   C c = new C();
   A a = c;
 
-  Expect.throws(() => a.f(x: 1, y: 2, z: 3));
+  a.f(x: 1, y: 2, z: 3);
 
   c.f(x: 1, yy: 2, z: 3);
 }

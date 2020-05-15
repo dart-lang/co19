@@ -34,4 +34,3 @@ main() {
   int v = new C().m1();
   Expect.equals(42, v);
 }
-

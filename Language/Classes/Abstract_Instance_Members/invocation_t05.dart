@@ -28,4 +28,3 @@ class C extends A2Alias {
 main() {
   new C().m1();
 }
-

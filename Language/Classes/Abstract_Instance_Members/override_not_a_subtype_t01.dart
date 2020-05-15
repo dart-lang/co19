@@ -16,7 +16,7 @@
  */
 
 class A {
-  int foo(var x) {}
+  int foo(var x) => 42;
 }
 
 abstract class B extends A {
@@ -24,11 +24,9 @@ abstract class B extends A {
 }
 
 class C extends B {
-  String foo(var x) {
-  }
+  String foo(var x) => "";
 }
 
 main() {
   new C().foo(2);
 }
-
