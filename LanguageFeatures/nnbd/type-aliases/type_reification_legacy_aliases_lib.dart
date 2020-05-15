@@ -7,7 +7,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
-// Requirements=nnbd-strong
+// Requirements=nnbd-weak
 // @dart=2.6
 
 library type_reification_legacy_lib;

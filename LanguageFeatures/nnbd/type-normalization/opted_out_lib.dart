@@ -5,6 +5,7 @@
  */
 // @dart=2.6
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-weak
 library opted_out_lib;
 import 'opted_in_lib.dart';
 

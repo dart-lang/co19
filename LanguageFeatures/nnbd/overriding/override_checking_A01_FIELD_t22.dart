@@ -16,6 +16,7 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-weak
 // @dart=2.6
 
 import "override_checking_A01_opted_in_lib.dart";

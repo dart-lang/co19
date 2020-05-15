@@ -8,7 +8,7 @@
  */
 // @dart=2.6
 // SharedOptions=--enable-experiment=non-nullable
-// Requirements=nnbd-strong
+// Requirements=nnbd-weak
 
 import "override_checking_A03_opted_in_lib.dart";
 

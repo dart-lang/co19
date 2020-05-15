@@ -17,7 +17,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 41283
  */
-// @dart=2.6
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 

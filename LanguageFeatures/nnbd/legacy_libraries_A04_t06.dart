@@ -13,6 +13,7 @@
  */
 // @dart=2.6
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-weak
 
 class C {
   int operator[](int index) => index * 2;

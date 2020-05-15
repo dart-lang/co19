@@ -16,6 +16,7 @@
  */
 // @dart=2.6
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// Requirements=nnbd-weak
 import "../../../Utils/expect.dart";
 import "opted_in_aliases_lib.dart";
 

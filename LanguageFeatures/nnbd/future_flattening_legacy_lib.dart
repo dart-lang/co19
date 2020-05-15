@@ -7,7 +7,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-// Requirements=nnbd-strong
+// Requirements=nnbd-weak
 // @dart=2.6
 
 library future_flattening_legacy_lib;

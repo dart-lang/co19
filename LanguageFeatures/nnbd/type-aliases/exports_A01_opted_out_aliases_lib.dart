@@ -7,6 +7,7 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// Requirements=nnbd-weak
 // @dart=2.6
 
 library export_opted_aliases_lib;
