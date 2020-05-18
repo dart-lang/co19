@@ -10,6 +10,8 @@
  * are allowed for additive expressions.
  * @author hlodvig
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 main() {

@@ -20,12 +20,13 @@
  * cause compile-time errors.
  * @author msyabro
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 topLevelFunction() {}
 
 class S {
   const S();
-  operator +(var x) {}
+  operator +(var x){}
   operator -(var x) {}
   operator [](var idx) {}
   final foo = 1;
@@ -42,22 +43,22 @@ class A extends S {
     super - super[0];
 
     // chaining
-    super + 0 - 1 + {} - null;
+    try { super + 0 - 1 + {} - null; } catch(e) {}
 
     // (...)
-    (this) + (1 ^ 0 & 4) - (1 <= 0);
+    try { (this) + (1 ^ 0 & 4) - (1 <= 0); } catch(e) {}
 
     //invocations
-    method() + topLevelFunction();
-    this.method()(1)(1, 2) - id[0]().x;
+    try { method() + topLevelFunction(); } catch(e) {}
+    try { this.method()(1)(1, 2) - id[0]().x; } catch(e) {}
 
 
     //unary expressions
-    --id - id++;
-    ~-id + !!false;
+    try { --id - id++; } catch(e) {}
+    try { ~-id + !!false; } catch(e) {}
 
     //identifier
-    id + id - id;
+    try { id + id - id; } catch(e) {}
   }
 }
 

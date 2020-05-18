@@ -20,10 +20,10 @@
  * of an additive expression results in the latter being an operand of the
  * former.
  * @author rodionov
- * @reviewer iefremov
  */
-import '../../../Utils/expect.dart';
+// SharedOptions=--enable-experiment=non-nullable
 
+import '../../../Utils/expect.dart';
 
 main() {
   var foo, bar;

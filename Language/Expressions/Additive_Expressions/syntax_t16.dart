@@ -22,7 +22,7 @@
  * @author rodionov
  * @reviewer iefremov
  */
-
+// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   var foo;
