@@ -12,7 +12,6 @@
  * M or M.id can be assigned to the variables whose types are assignable to M
  * and no static warnings are produced.
  * @static-clean
- * @note This test only makes sense in checked mode.
  * @author iefremov
  */
 
@@ -20,18 +19,18 @@ class S {}
 
 class A extends S {
   A.g() {}
-  factory A() {}
-  factory A.bcd() {}
+  factory A() = D;
+  factory A.bcd() = D;
 }
 
 class D extends A {
-  D():super.g();
+  D() : super.g();
 }
 
 main() {
   A a = new A();
   S s = new A();
-  D d = new A();
+  var d = new A();
 
   a = new A.bcd();
   s = new A.bcd();

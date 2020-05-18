@@ -13,7 +13,7 @@
  */
 import "../../../../Utils/expect.dart";
 
-List expect;
+List expect = [];
 
 test(x,y) {
   Expect.listEquals(expect, [x,y]);

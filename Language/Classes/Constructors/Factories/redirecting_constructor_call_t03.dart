@@ -33,18 +33,24 @@ class C implements FAlias {
 }
 typedef CAlias = C;
 
-
 main() {
-  C f = new F(1);
+  F f = new F(1);
   Expect.isTrue(f is C);
-  Expect.equals(1, f.x);
+  if (f is C) {
+    Expect.equals(1, f.x);
+  }
 
   f = new F.foo(1, 2);
   Expect.isTrue(f is C);
-  Expect.equals(1, f.x);
-  Expect.equals(2, f.y);
+  if (f is C) {
+    Expect.equals(1, f.x);
+    Expect.equals(2, f.y);
+  }
 
   f = new F.bar(1, z:3);
-  Expect.equals(1, f.x);
-  Expect.equals(3, f.z);
+  Expect.isTrue(f is C);
+  if (f is C) {
+    Expect.equals(1, f.x);
+    Expect.equals(3, f.z);
+  }
 }

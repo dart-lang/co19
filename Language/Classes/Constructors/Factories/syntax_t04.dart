@@ -19,8 +19,8 @@ class C {
   factory C{}
 }
 
+class A implements C{}
+
 main() {
-  try {
-    new C();
-  } catch (x) {}
+  new C();
 }

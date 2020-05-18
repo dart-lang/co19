@@ -20,7 +20,7 @@ import "../../../../Utils/expect.dart";
 class A {
   A() {}
   factory A.foo() = C.bar;
-  int m() {}
+  int m() => 42;
 }
 
 class C extends A {

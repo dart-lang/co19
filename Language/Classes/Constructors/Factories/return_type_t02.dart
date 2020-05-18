@@ -16,7 +16,10 @@
  */
 
 class A {
-  factory A() {}
+  factory A() = C;
+}
+
+class C implements A {
 }
 
 main() {

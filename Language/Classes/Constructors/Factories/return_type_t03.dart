@@ -16,7 +16,10 @@
  */
 
 class A {
-  factory A.bcd() {}
+  factory A.bcd() = C;
+}
+
+class C implements A {
 }
 
 main() {

@@ -21,7 +21,7 @@ import "../../../../Utils/expect.dart";
 class A {
   A() {}
   factory A.foo() = CAlias.bar;
-  int m() {}
+  int m() => 42;
 }
 typedef AAlias = A;
 

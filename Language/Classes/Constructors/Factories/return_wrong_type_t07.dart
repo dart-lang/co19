@@ -6,14 +6,21 @@
 /**
  * @assertion In checked mode, it is a dynamic type error if a factory returns
  * a non-null object whose type is not a subtype of its actual return type.
- * @description Checks that returning null from factory constructor M does
- * not produce an error.
+ *
+ * @description Checks that returning null from factory constructor M produces
+ * an error.
  * @author ilya
  */
 
 class A {
   factory A() => null;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
   factory A.foo() => null;
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

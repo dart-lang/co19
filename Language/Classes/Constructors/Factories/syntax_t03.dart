@@ -17,11 +17,11 @@
  */
 
 class C {
-  factory C.() {}
+  factory C.() = A;
 }
 
+class A implements C{}
+
 main() {
-  try {
-    new C();
-  } catch (x) {}
+  new C();
 }

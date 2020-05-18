@@ -32,6 +32,6 @@ I<S3, int, int> m1;
 
 main() {
   checkTypeError(() {
-    m1 = new I<S2, num, Function>(); /// static type warning not assignable
+    m1 = new I<S2, num, Function>();
   });
 }

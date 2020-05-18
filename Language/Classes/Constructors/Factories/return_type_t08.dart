@@ -31,9 +31,7 @@ typedef DAlias = D;
 main() {
   A a = new A();
   S s = new A();
-  D d = new D();
 
   a = new A.foo();
   s = new A.foo();
-  d = new A.foo();
 }

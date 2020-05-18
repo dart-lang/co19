@@ -13,7 +13,6 @@
  * @compile-error
  * @author ilya
  */
-
 function() {}
 
 class F {
@@ -21,7 +20,5 @@ class F {
 }
 
 main() {
-  try {
-    new F();
-  } catch (e) {}
+  new F();
 }

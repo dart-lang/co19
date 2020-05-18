@@ -19,7 +19,5 @@ class F {
 }
 
 main() {
-  try {
-    new F();
-  } catch (e) {}
+  new F();
 }

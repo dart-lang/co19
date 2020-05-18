@@ -47,13 +47,17 @@ class AImpl implements lib.A {
   new C();
   new C.id(3);
 
-  AImpl val = new lib.A();
-  Expect.equals(true, (val is AImpl));
+  lib.A val = new lib.A();
+  Expect.isTrue(val is AImpl);
   Expect.equals(1, val.methodA());
-  Expect.equals(2, val.methodB());
+  if (val is AImpl) {
+    Expect.equals(2, val.methodB());
+  }
 
   val = new lib.A.named();
   Expect.equals(true, (val is AImpl));
   Expect.equals(1, val.methodA());
-  Expect.equals(2, val.methodB());
+  if (val is AImpl) {
+    Expect.equals(2, val.methodB());
+  }
 }

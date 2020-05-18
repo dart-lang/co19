@@ -21,11 +21,14 @@ class S2 extends S1 {}
 class S3 extends S2 {}
 
 class M<T, U, V> {
-  factory M() {}
+  factory M() = C<T, U, V>;
+}
+
+class C<T, U, V> implements M<T, U, V> {
 }
 
 typedef f();
 
 main() {
-  M<S3, int, f> m1 = new M<S2, num, Function>();
+  M<S2, num, Function> m1 = new M<S3, int, f>();
 }
