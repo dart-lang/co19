@@ -24,12 +24,9 @@ class IntPair {
   const IntPair(this.x, this.y);
   final int x;
   final int y;
-  operator +(v) => new IntPair(x+v, y+v);
+  operator +(int v) => new IntPair(x + v, y + v);
 }
 
-
 main() {
-  try {
-    var a = const A(const IntPair(1,2)); // parameter does not evaluate to int/bool/String, despite implementing the plus operator
-  } catch (x) {}
+  var a = const A(const IntPair(1, 2)); // parameter does not evaluate to int/bool/String, despite implementing the plus operator
 }

@@ -25,7 +25,5 @@ class A {
 }
 
 main() {
-  try {
-    var a = const A(1);
-  } catch (x) {}
+  const A(1);
 }

@@ -24,5 +24,5 @@ class A extends CAlias {
 }
 
 main() {
-    const A();
+  const A();
 }

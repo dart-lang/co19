@@ -21,11 +21,9 @@
 
 class A {
   final x;
-  const A() : x = new List();
+  const A() : x = new List.from([]);
 }
 
 main() {
-  try {
-    var a = const A();
-  } catch (x) {}
+  const A();
 }

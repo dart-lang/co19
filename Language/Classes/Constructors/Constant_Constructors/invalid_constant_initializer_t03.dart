@@ -25,7 +25,5 @@ class A {
 var a = const A(new DateTime.now().millisecondsSinceEpoch);
 
 main() {
-  try {
-    var b = a;
-  } catch (x) {}
+  var b = a;
 }

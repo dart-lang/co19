@@ -18,9 +18,6 @@ class C {
   const abstract C.id();
 }
 
-
 main() {
-  try {
-    new C.id();
-  } catch (x) {}
+  const C.id();
 }
