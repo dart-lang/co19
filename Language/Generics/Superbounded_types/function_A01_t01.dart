@@ -11,6 +11,8 @@
  * @author iarkh@unipro.ru
  */
 
+// SharedOptions=--enable-experiment=non-nullable
+
 class A<T extends A<T>> {}
 
 void testme1<X extends A>() {}      //# 01: compile-time error

@@ -18,14 +18,20 @@
  * @Issue 36959
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<X extends num> {
-  X x;
+  X? x;
 }
 
-A a1;
-A<dynamic> a2;
-A<Object> a3;
-A<void> a4;
+A? a1;
+A<dynamic>? a2;
+A<Object>? a3;
+A<void>? a4;
 
-main() {}
+main() {
+  A a1;
+  A<dynamic> a2;
+  A<Object> a3;
+  A<void> a4;
+}

@@ -10,6 +10,8 @@
  * function with well bounded type parameter
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 class A<T> {}
 void testme<X extends num>() {}
 
@@ -17,5 +19,4 @@ main() {
   testme();
   testme<num>();
   testme<int>();
-  testme<Null>();
 }

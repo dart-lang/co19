@@ -10,6 +10,7 @@
  * well bounded type parameter is declared
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T extends A<T>> {}
 
@@ -21,12 +22,12 @@ main() {
   B<dynamic> b2;
   B<Object> b3;
   B<void> b4;
-  B<Null> b5;
+  B<Never> b5;
 
   B<A<dynamic>> b6;
   B<A<Object>> b7;
   B<A<void>> b8;
-  B<A<Null>> b9;
+  B<A<Never>> b9;
 
   B<A> b10;
   B<A<A>> b11;

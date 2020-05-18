@@ -11,16 +11,17 @@
  * @Issue 36959
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T extends A<T>> {}
 
 typedef void B1<X extends A<dynamic>>();
-typedef void B2<X extends A<Null>>();
+typedef void B2<X extends A<Never>>();
 typedef void B3<X extends A<Object>>();
 typedef void B4<X extends A<void>>();
 
 typedef void B5<X extends A<A<dynamic>>>();
-typedef void B6<X extends A<A<Null>>>();
+typedef void B6<X extends A<A<Never>>>();
 typedef void B7<X extends A<A<Object>>>();
 typedef void B8<X extends A<A<void>>>();
 

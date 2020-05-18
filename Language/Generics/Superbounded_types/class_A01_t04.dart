@@ -13,6 +13,7 @@
  * constructions.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T extends A<T>> {}
 
@@ -21,12 +22,12 @@ main() {
 
   bool b2 = 1 is A<dynamic>;
   bool b3 = 1 is A<Object>;
-  bool b4 = 1 is A<Null>;
+  bool b4 = 1 is A<Never>;
   bool b5 = 1 is A<void>;
 
   bool b6 = 1 is A<A>;
   bool b7 = 1 is A<A<dynamic>>;
   bool b8 = 1 is A<A<Object>>;
-  bool b9 = 1 is A<A<Null>>;
+  bool b9 = 1 is A<A<Never>>;
   bool b10 = 1 is A<A<void>>;
 }

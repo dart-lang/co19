@@ -10,7 +10,7 @@
  * alias variable with well bounded type parameter is declared
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 class A<T> {}
 
@@ -20,6 +20,6 @@ main() {
   B b1;
   B<dynamic> b2;
   B<Object> b3;
-  B<Null> b4;
+  B<Never> b4;
   B<void> b5;
 }

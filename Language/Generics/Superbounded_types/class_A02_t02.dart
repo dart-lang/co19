@@ -12,6 +12,7 @@
  * used with constructor in the constant object expression.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T extends A<T>> {
   const A();
@@ -21,10 +22,12 @@ main() {
   const a1 = A<dynamic>();    //# 01: compile-time error
   const a2 = A<Object>();     //# 02: compile-time error
   const a3 = A<void>();       //# 03: compile-time error
-  const a4 = A<Null>();
+  const a4 = A<Null>();       //# 04: compile-time error
+  const a5 = A<Never>();
 
-  const a5 = A<A<dynamic>>(); //# 04: compile-time error
-  const a6 = A<A<Object>>();  //# 05: compile-time error
-  const a7 = A<A<void>>();    //# 06: compile-time error
-  const a8 = A<A<Null>>();
+  const a6 = A<A<dynamic>>(); //# 05: compile-time error
+  const a7 = A<A<Object>>();  //# 06: compile-time error
+  const a8 = A<A<void>>();    //# 07: compile-time error
+  const a9 = A<A<Null>>();    //# 08: compile-time error
+  const a0 = A<A<Never>>();
 }

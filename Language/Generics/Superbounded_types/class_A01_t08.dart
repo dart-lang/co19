@@ -11,13 +11,14 @@
  * @Issue 37028
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T extends A<T>> {}
 
 class B1<X extends A<Object>> {}
 class B2<X extends A<dynamic>> {}
 class B3<X extends A<void>> {}
-class B4<X extends A<Null>> {}
+class B4<X extends A<Never>> {}
 
 main() {
 }

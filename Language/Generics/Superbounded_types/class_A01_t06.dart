@@ -14,19 +14,21 @@
  * @Issue 37028
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 class A<T extends A<T>> {}
 
 main() {
-  var b1 = null as A;
+  var b1 = null as A?;
 
-  var b2 = null as A<dynamic>;
-  var b3 = null as A<Object>;
-  var b4 = null as A<Null>;
-  var b5 = null as A<void>;
+  var b2 = null as A<dynamic>?;
+  var b3 = null as A<Object>?;
+  var b4 = null as A<Never>?;
+  var b5 = null as A<void>?;
 
-  var b6 = null as A<A>;
-  var b7 = null as A<A<dynamic>>;
-  var b8 = null as A<A<Object>>;
-  var b9 = null as A<A<Null>>;
-  var b10 = null as A<A<void>>;
+  var b6 = null as A<A>?;
+  var b7 = null as A<A<dynamic>>?;
+  var b8 = null as A<A<Object>>?;
+  var b9 = null as A<A<Never>>?;
+  var b10 = null as A<A<void>>?;
 }

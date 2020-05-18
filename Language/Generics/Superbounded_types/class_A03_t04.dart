@@ -12,6 +12,7 @@
  * is used in the redirecting factory constructor signature
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<X extends A<X>> {
   A() {}

@@ -11,14 +11,16 @@
  * @Issue 37061
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 class A<X extends A<X>> {}
 void testme<X extends Y, Y extends A<X>>() {}
 
 main() {
   testme();                   //# 01: compile-time error
 
-  testme<Null, dynamic>();    //# 02: compile-time error
-  testme<dynamic, Null>();    //# 03: compile-time error
+  testme<Never, dynamic>();    //# 02: compile-time error
+  testme<dynamic, Never>();    //# 03: compile-time error
   testme<dynamic, dynamic>(); //# 04: compile-time error
 
   testme<Null, Object>();     //# 05: compile-time error

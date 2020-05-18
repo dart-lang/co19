@@ -13,6 +13,7 @@
  * 37033 for more details)
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T extends A<T>> {
   const A();
@@ -21,13 +22,13 @@ class A<T extends A<T>> {
 const b1 = 1 is A;
 const b2 = 1 is A<dynamic>;
 const b3 = 1 is A<Object>;
-const b4 = 1 is A<Null>;
+const b4 = 1 is A<Never>;
 const b5 = 1 is A<void>;
 
 const b6 = 1 is A<A>;
 const b7 = 1 is A<A<dynamic>>;
 const b8 = 1 is A<A<Object>>;
-const b9 = 1 is A<A<Null>>;
+const b9 = 1 is A<A<Never>>;
 const b10 = 1 is A<A<void>>;
 
 main() {

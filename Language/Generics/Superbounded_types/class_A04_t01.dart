@@ -14,6 +14,7 @@
  * an immediate subterm of the [extends] clause.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T extends A<T>> {}
 
@@ -23,11 +24,14 @@ class B2<X extends A<X>> extends A<X> {}
 class B3 extends A<dynamic> {}    //# 02: compile-time error
 class B4 extends A<Object> {}     //# 03: compile-time error
 class B5 extends A<void> {}       //# 04: compile-time error
-class B6 extends A<Null> {}
+class B6 extends A<Null> {}       //# 05: compile-time error
 
-class B7 extends A<A<dynamic>> {} //# 05: compile-time error
-class B8 extends A<A<Object>> {}  //# 06: compile-time error
-class B9 extends A<A<void>> {}    //# 07: compile-time error
-class B10 extends A<A<Null>> {}
+class B7 extends A<A<dynamic>> {} //# 06: compile-time error
+class B8 extends A<A<Object>> {}  //# 07: compile-time error
+class B9 extends A<A<void>> {}    //# 08: compile-time error
+class B10 extends A<A<Null>> {}   //# 09: compile-time error
+
+class B11 extends A<Never> {}
+class B12 extends A<A<Never>> {}
 
 main() {}

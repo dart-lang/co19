@@ -13,10 +13,11 @@
  * constructions.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T extends A<T>> {}
 
 main() {
-  var b1 = null as A<int>;    //# 01: compile-time error
-  var b2 = null as A<A<int>>; //# 02: compile-time error
+  var b1 = null as A<int>?;    //# 01: compile-time error
+  var b2 = null as A<A<int>>?; //# 02: compile-time error
 }

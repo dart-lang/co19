@@ -10,6 +10,8 @@
  * function with type parameter which is not well bounded
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 class A<T> {}
 void testme<X extends num>() {}
 

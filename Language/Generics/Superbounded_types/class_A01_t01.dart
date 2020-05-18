@@ -11,6 +11,7 @@
  * @Issue 36959
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T extends A<T>> {}
 
@@ -20,12 +21,12 @@ main() {
   A<dynamic> a2;
   A<Object> a3;
   A<void> a4;
-  A<Null> a5;
+  A<Never> a5;
 
   A<A<dynamic>> a6;
   A<A<Object>> a7;
   A<A<void>> a8;
-  A<A<Null>> a9;
+  A<A<Never>> a9;
 
   A<A> a10;
   A<A<A>> a11;

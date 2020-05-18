@@ -11,6 +11,7 @@
  * @Issue 37028, 37050
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T extends A<T>> {}
 
@@ -18,6 +19,6 @@ class B1<X extends A<X>> {}
 class B5<X extends A<A<Object>>> {}
 class B6<X extends A<A<dynamic>>> {}
 class B7<X extends A<A<void>>> {}
-class B8<X extends A<A<Null>>> {}
+class B8<X extends A<A<Never>>> {}
 
 main() {}

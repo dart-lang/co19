@@ -12,6 +12,7 @@
  * used in [new] expression.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T extends A<T>> {}
 
@@ -19,10 +20,12 @@ main() {
   A a1 = new A<dynamic>();    //# 01: compile-time error
   A a2 = new A<Object>();     //# 02: compile-time error
   A a3 = new A<void>();       //# 03: compile-time error
-  A a4 = new A<Null>();
+  A a4 = new A<Null>();       //# 04: compile-time error
+  A a5 = new A<Never>();
 
-  A a5 = new A<A<dynamic>>(); //# 04: compile-time error
-  A a6 = new A<A<Object>>();  //# 05: compile-time error
-  A a7 = new A<A<void>>();    //# 06: compile-time error
-  A a8 = new A<A<Null>>();
+  A a6  = new A<A<dynamic>>(); //# 05: compile-time error
+  A a7  = new A<A<Object>>();  //# 06: compile-time error
+  A a8  = new A<A<void>>();    //# 07: compile-time error
+  A a9  = new A<A<Null>>();    //# 08: compile-time error
+  A a10 = new A<A<Never>>();
 }

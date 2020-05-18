@@ -10,6 +10,7 @@
  * type parameters which are not bounded well.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T extends A<T>> {}
 
@@ -18,9 +19,9 @@ typedef void B<X extends A<X>>(X);
 main() {
   B<A> b2;
   B<void> b4;
-  B<Null> b5;
+  B<Never> b5;
 
   B<A<dynamic>> b6;
   B<A<void>> b8;
-  B<A<Null>> b9;
+  B<A<Never>> b9;
 }

@@ -13,13 +13,14 @@
  * @Issue 37048
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<X> {
   A() {}
-  factory A.foo1() = C<Null>;
-  factory A.foo2() = C<A<Null>>;
-  factory A.foo3() = C<A<A<Null>>>;
-  factory A.foo4() = C<A<A<A<Null>>>>;
+  factory A.foo1() = C<Never>;
+  factory A.foo2() = C<A<Never>>;        //# 01: compile-time error
+  factory A.foo3() = C<A<A<Never>>>;     //# 02: compile-time error
+  factory A.foo4() = C<A<A<A<Never>>>>;  //# 03: compile-time error
 
 }
 
