@@ -14,8 +14,8 @@
  * @description Checks that boolean literal can't be preceded by unary plus.
  * @compile-error
  * @author hlodvig
- * @reviewer iefremov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   try {

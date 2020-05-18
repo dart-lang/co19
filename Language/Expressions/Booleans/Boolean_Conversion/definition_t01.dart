@@ -9,13 +9,17 @@
  *      assert(v != null);
  *      return identical(v, true);
  *    }(o)
- * @description Checks that AssertionError is thrown when trying to convert
- * null to bool if asserts are enabled.
+ * @description Checks that TypeError is thrown when trying to convert
+ * null to bool with nnbd turned on.
  * @author msyabro
  * @issue 27277
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../../Utils/expect.dart';
 
+dynamic cond = null;
+
 main() {
-  Expect.throws(() {if (null) {}}, (e) => e is AssertionError);
+  Expect.throws(() {if (cond) {}}, (e) => e is TypeError);
 }

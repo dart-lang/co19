@@ -11,8 +11,8 @@
  * @description Checks that it is a compile error to convert int to bool.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 int i = 1;
 

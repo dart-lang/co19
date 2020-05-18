@@ -9,8 +9,8 @@
  * boolean literal to a typed int variable.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   int i = true;

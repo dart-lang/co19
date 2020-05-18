@@ -15,6 +15,8 @@
  * @author msyabro
  * @issue 27277
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../../Utils/expect.dart';
 
 class A {}

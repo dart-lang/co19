@@ -9,8 +9,8 @@
  * boolean literal to a typed bool variable.
  * @static-clean
  * @author msyabro
- * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   bool t = true;

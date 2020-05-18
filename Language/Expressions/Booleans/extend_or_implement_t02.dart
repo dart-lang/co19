@@ -10,8 +10,8 @@
  * class attempts to implement bool.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class C implements bool {}
 

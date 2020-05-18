@@ -10,6 +10,8 @@
  * literal returns the Type object that is the value of the expression bool.
  * @author ngl@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 main() {

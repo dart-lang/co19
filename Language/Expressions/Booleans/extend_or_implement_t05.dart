@@ -10,6 +10,8 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 class A {}
 
 abstract class C extends A with bool {}

@@ -15,8 +15,8 @@
  * name a variable).
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   try {

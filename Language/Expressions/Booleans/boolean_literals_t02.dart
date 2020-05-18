@@ -14,8 +14,8 @@
  * @description Checks that "false" is a reserved word.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   try {

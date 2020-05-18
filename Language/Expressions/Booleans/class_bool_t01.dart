@@ -8,8 +8,9 @@
  * @description Checks that true and false are implement the built-in interface
  * bool.
  * @author msyabro
- * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 main() {
