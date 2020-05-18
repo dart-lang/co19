@@ -19,6 +19,7 @@
  * generic class [C0].
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 import "dart:async";
 import "../../Utils/expect.dart";
@@ -26,12 +27,7 @@ import "../../Utils/expect.dart";
 class A<X extends A<X>> {}
 
 class C<T> {
-  check(expected) {
-    Expect.equals(expected, T);
-  }
-  check1() {
-    print(T.runtimeType);
-  }
+  check(expected) { Expect.equals(expected, T); }
 }
 
 main() {
@@ -43,7 +39,7 @@ main() {
   (new C<dynamic>()).check(dynamic);
   (new C<Null>()).check(Null);
   (new C<Object>()).check(Object);
-  (new C<FutureOr>()).check(Object);
+  (new C<FutureOr>()).check(dynamic);
   (new C<Null>()).check(Null);
 }
 

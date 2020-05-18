@@ -10,11 +10,12 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 class A<T> {}
 class B<T1, T2> {}
 
-typedef Alias<T extends A, T1 extends T<int>> = B<T1, T2>;
+typedef Alias<T1 extends A, T2 extends T1<int>> = B<T1, T2>;
+
 main() {
 }

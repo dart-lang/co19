@@ -27,6 +27,8 @@
  * @Issue 36960
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 
 class A<X extends num> {}
 typedef A<Y> Testme<Y extends String>();

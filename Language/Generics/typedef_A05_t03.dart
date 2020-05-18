@@ -13,6 +13,8 @@
  * @description Checks that [D] maps argument list to types
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../Utils/expect.dart";
 
 class X {}

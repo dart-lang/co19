@@ -13,7 +13,8 @@
  * some class
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
+
 import "../../Utils/expect.dart";
 
 class X {}

@@ -27,6 +27,8 @@
  * @Issue 36960
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
+
 
 class A<X extends void Function(num)> {}
 typedef F<Y> = A<void Function(Y)> Function();

@@ -13,7 +13,7 @@
  * some class with several parameters
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 import "../../Utils/expect.dart";
 
 class A<T1, T2, T3> {

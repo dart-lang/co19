@@ -27,6 +27,8 @@
  * @Issue 36960
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
+
 
 class A<X extends num> {}
 typedef F<Y extends String> = A<Y> Function();

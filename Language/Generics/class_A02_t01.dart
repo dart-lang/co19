@@ -16,22 +16,25 @@
  * argument
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T> {}
 class C<T extends C<T>> {}
 
 main() {
-  A<int> a1;
-  A<C> a2;
-  A<C<Null>> a3;
-  A<C<dynamic>> a4;
+  A<int>? a1;
+  A<C>? a2;
+  A a = A<C<Never>>();
+  A<C<Never>>? a3;
+  A<C<dynamic>>? a4;
 
-  A<C<int>> a5;                //# 01: compile-time error
-  A<C<C<int>>> a6;             //# 02: compile-time error
-  A<C<C<C<C<C<C<int>>>>>>> a7; //# 03: compile-time error
+  A<C<int>>? a5;                //# 01: compile-time error
+  A<C<C<int>>>? a6;             //# 02: compile-time error
+  A<C<C<C<C<C<C<int>>>>>>>? a7; //# 03: compile-time error
 
-  C<C<int>> c1;                //# 04: compile-time error
-  C<C<C<int>>> c2;             //# 05: compile-time error
-  C<C<C<C<C<C<C<int>>>>>>> c3; //# 06: compile-time error
+  C<C<int>>? c1;                //# 04: compile-time error
+  C<C<C<int>>>? c2;             //# 05: compile-time error
+  C<C<C<C<C<C<C<int>>>>>>>? c3; //# 06: compile-time error
+
 }
 

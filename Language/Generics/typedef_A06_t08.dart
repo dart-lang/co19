@@ -15,7 +15,7 @@
  * type parameters and one depends on the other.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 
 typedef AAlias1<X, Y extends X> = void Function<X1 extends X, Y1 extends Y> ();
 main() {}

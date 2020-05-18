@@ -25,6 +25,7 @@
  * is incorrect for [typedef] which defines class.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 typedef void AAlias<T>(T);
 typedef T1 BAlias<T1, T2>(T1, {T2});

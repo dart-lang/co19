@@ -9,7 +9,8 @@
  * @description @description Checks various correct type alias declarations.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
+
 import "../../Utils/expect.dart";
 
 class B<T1, T2> {

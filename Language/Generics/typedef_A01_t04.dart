@@ -16,7 +16,7 @@
  * @description Checks that generic type alias declaration can contain metadata.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 import "../../Utils/expect.dart";
 
 const i = 1;

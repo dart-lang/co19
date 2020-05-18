@@ -13,50 +13,52 @@
  * @description Checks that [D] maps argument list to types
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../Utils/expect.dart";
 
 class X {}
 class Y extends X {}
 
-T checkme1<T>(expected) {
+T checkme1<T>(expected, ret) {
   Expect.equals(expected, T);
-  return null;
+  return ret;
 }
 
-T checkme2<T extends X>(expected) {
+T checkme2<T extends X>(expected, ret) {
   Expect.equals(expected, T);
-  return T == Y ? Y() : (T == X ? X() : null);
+  return ret;
 }
 
-T checkme3<T extends Y>(expected) {
+T checkme3<T extends Y>(expected, ret) {
   Expect.equals(expected, T);
-  return T == Y ? Y() : null;
+  return ret;
 }
 
-typedef T Test1<T>(dynamic);
-typedef T Test2<T extends X>(dynamic);
+typedef T Test1<T>(dynamic d1, dynamic d2);
+typedef T Test2<T extends X>(dynamic d1, dynamic d2);
 
 main() {
   Test1 t1 = checkme1;
-  t1(dynamic);
+  t1(dynamic, 1);
 
   Test1 t2 = checkme2;
-  X x2 = t2(X);
-  Expect.isTrue(t2(X) is X);
+  X x2 = t2(X, X());
+  Expect.isTrue(t2(X, x2) is X);
 
   Test1 t3 = checkme3;
-  Y y3 = t3(Y);
-  Expect.isTrue(t3(Y) is Y);
+  Y y3 = t3(Y, Y());
+  Expect.isTrue(t3(Y, Y()) is Y);
 
   Test2 t4 = checkme2;
-  X x4 = t4(X);
-  Expect.isTrue(t4(X) is X);
+  X x4 = t4(X, X());
+  Expect.isTrue(t4(X, x4) is X);
 
   Test2 t5 = checkme3;
-  Y y5 = t5(Y);
-  Expect.isTrue(t5(Y) is Y);
+  X y5 = t5(Y, Y());
+  Expect.isTrue(t5(Y, y5) is Y);
 
   Test2 t6 = checkme2;
-  X x6 = t6(X);
-  Expect.isTrue(t6(X) is X);
+  X x6 = t6(X, X());
+  Expect.isTrue(t6(X, x6) is X);
 }

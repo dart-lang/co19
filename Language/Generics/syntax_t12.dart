@@ -11,6 +11,7 @@
  * @compile-error
  * @author kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T
 class C<T extends Function>{}

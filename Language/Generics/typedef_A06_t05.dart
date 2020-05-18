@@ -16,7 +16,7 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<X extends A<X>> {}
 typedef AAlias3<X extends A> = Function<Y extends X> ();

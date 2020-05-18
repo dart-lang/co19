@@ -10,6 +10,7 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T> {}
 class B<T1, T2> {}

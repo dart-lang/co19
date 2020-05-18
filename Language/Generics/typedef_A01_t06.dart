@@ -16,7 +16,7 @@
  * @description Checks that [T] should be a type.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 class A {
  static void callme<T>() { return null; }

@@ -9,7 +9,8 @@
  * @description @description Checks various correct type alias declarations.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
+
 import "../../Utils/expect.dart";
 
 class B<T1, T2> {
@@ -21,12 +22,12 @@ class B<T1, T2> {
 typedef BAlias<T1 extends num, T2 extends String> = B<T1, T2>;
 
 main() {
-  BAlias b1 = new B(1, 2);
+  BAlias b1 = new B(1, "2");
   Expect.isTrue(b1 is B);
   Expect.isTrue(b1 is BAlias);
   Expect.isTrue(b1 is BAlias<num, String>);
   Expect.equals(1, b1.x);
-  Expect.equals(2, b1.y);
+  Expect.equals("2", b1.y);
 
   BAlias<int, String> b2 = new B<int, String>(0, "testme");
   Expect.isTrue(b2 is B<int, String>);

@@ -14,7 +14,7 @@
  * metadata, but generic metadata type argument cannot be used in metadata.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 class A<X> { const A(); }
 class C<T> { const C(); }

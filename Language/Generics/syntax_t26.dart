@@ -14,6 +14,7 @@
  * metadata, but generic metadata type argument cannot be used in metadata.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class C<T> { const C(); }
 

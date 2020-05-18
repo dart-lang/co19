@@ -13,15 +13,17 @@
  * some function
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../Utils/expect.dart";
 
 class X {}
 class Y extends X {}
 
 dynamic checkme1() {}
-int checkme2() {}
-X checkme3() {}
-Y checkme4() {}
+int? checkme2() {}
+X? checkme3() {}
+Y? checkme4() {}
 
 typedef Func1<T> = T Function();
 typedef Func2<T extends X> = T Function();
@@ -34,6 +36,6 @@ main() {
 
   Expect.isFalse(checkme1 is Func2);
   Expect.isFalse(checkme2 is Func2);
-  Expect.isTrue (checkme3 is Func2);
-  Expect.isTrue (checkme4 is Func2);
+  Expect.isFalse (checkme3 is Func2);
+  Expect.isFalse (checkme4 is Func2);
 }

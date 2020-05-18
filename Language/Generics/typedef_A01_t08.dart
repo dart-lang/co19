@@ -16,7 +16,9 @@
  * @description Checks that [T] can be [dynamic], [void], [Null], [FutureOr].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
+
+import "dart:async";
 
 typedef S1<T> = dynamic;
 typedef S2<T> = Null;

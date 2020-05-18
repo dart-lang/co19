@@ -14,10 +14,10 @@
  * @description Checks that it is a compile time error if [T] is not
  * well-bounded
  * @compile-error
- * @Issue 33960
+ * @Issue 36960
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<X> {}
 class B<X extends A<int>> {}

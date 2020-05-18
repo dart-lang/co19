@@ -10,7 +10,7 @@
  * typedef with type parameter.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 class A {}
 typedef AAlias = A;

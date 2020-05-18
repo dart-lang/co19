@@ -10,6 +10,8 @@
  * expressions.
  * @author msyabro
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../Utils/expect.dart";
 
 class A<B, C, D, E> {

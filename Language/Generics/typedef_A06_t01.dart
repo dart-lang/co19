@@ -15,7 +15,7 @@
  * bounded.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 
 class A {}
 class B<X> {}

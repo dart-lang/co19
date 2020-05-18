@@ -20,12 +20,13 @@
  * named arguments.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 import "../../Utils/expect.dart";
 
-typedef int test1<T extends num>(int x, {int y, int z});
+typedef int test1<T extends num>(int x, {int? y, int? z});
 
-int t1<T extends int>(int x, {int y, int z}) {
+int t1<T extends int>(int x, {int? y, int? z}) {
   return x + (y == null ? 0 : y)+ (z == null ? 0 : z);
 }
 

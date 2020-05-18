@@ -9,6 +9,7 @@
  * @description Checks that metadata can be attached to type parameter.
  * @author ilya
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 const constant = 0;
 

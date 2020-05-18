@@ -20,6 +20,8 @@
  * metadata.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../Utils/expect.dart";
 
 const i = 1;
@@ -30,6 +32,7 @@ class A { const A(); }
 
 int t1<T extends int>() {
   Expect.equals(int, T);
+  return 0;
 }
 
 T t2<T>(T x, int y) {

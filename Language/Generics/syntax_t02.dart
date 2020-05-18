@@ -9,16 +9,17 @@
  * @description Checks various correct generic class declarations.
  * @author iefremov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 abstract class I{}
 
 class C1<T> {}
 class C2<$, $$, $$$> {}
-class C3<T extends C1, S extends I, V extends Function> {}
-class C4<T extends C3<U, S, V>, U extends C1<U>, V extends Function,
-         S extends I> {}
+class C3<T extends C1?, S extends I?, V extends Function?> {}
+class C4<T extends C3<U, S, V>?, U extends C1<U>?, V extends Function?,
+         S extends I?> {}
 class C5<T extends C1<List<List<List<List>>>>> {}
-class C6<T extends C1<C6<T>>> {}
+class C6<T extends C1<C6<T>?>?> {}
 class C7<T extends C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7
    <C7<T>>>>>>>>>>>>>>>>>>>>>> {}
 
@@ -28,9 +29,9 @@ main() {
   new C3<C1<int>, I, Function>();
   new C4<Null, Null, Null, Null>();
   new C5();
-  new C6<C1<C6<Null>>>();
+  new C6<C1<C6<Never>>>();
   new C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7<C7
-  <C7<Null>>>>>>>>>>>>>>>>>>>>>>();
+  <C7<Never>>>>>>>>>>>>>>>>>>>>>>();
   new ManyParameters();
 }
 

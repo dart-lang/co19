@@ -19,6 +19,8 @@
  * generic class [C0] with several parameters.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "dart:async";
 import "../../Utils/expect.dart";
 
@@ -40,7 +42,7 @@ main() {
   (new C<A, C, C>()).check(A, C, C);
   (new C<dynamic, dynamic, dynamic>()).check(dynamic, dynamic, dynamic);
   (new C<Null, Null, Null>()).check(Null, Null, Null);
-  (new C<Object, List, FutureOr>()).check(Object, List, Object);
-  (new C<FutureOr, dynamic, dynamic>()).check(Object, dynamic, dynamic);
+  (new C<Object, List, FutureOr>()).check(Object, List, dynamic);
+  (new C<FutureOr, dynamic, dynamic>()).check(dynamic, dynamic, dynamic);
 }
 

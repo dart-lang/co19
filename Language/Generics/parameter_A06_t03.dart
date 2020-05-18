@@ -10,6 +10,7 @@
  * context.
  * @author ilya
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class C<T> {
   var x = 1 is T;

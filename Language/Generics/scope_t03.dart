@@ -13,12 +13,15 @@
  * @issue 29388
  * @author iefremov
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../Utils/expect.dart";
 
 class A<N, S, U> {
-  final List<U> field;
+  final List<U>? field;
 
-  A(N n, S s) : field = new List<U>() {
+
+  A(N n, S s) : field = <U>[] {
     Expect.isTrue(n is N);
     Expect.isTrue(s is S);
   }
@@ -30,9 +33,9 @@ class A<N, S, U> {
     return new A.empty();
   }
 
-  const A.c(U u, S s) : field = const [null];
+  const A.c(U u, S s) : field = const [];
 
-  List<U> get getter {
+  List<U>? get getter {
     return field;
   }
 

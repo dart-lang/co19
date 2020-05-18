@@ -20,6 +20,7 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 int i = 1;
 @i typedef int test<T extends num>();

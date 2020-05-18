@@ -17,14 +17,13 @@
  * empty string.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A {
-  static int callme() {
-    return 25;
-  }
+  static int callme() => 25;
 }
 
-int getme() { return 0; }
+int getme() => 0;
 int i = 5;
 String str = "test";
 

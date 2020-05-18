@@ -20,13 +20,14 @@
  * optional position arguments.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 import "../../Utils/expect.dart";
 
 typedef int test1<T extends num>(int x, [int y]);
 
-int t1<T extends int>(int x, [int y]) {
-  return y == null ? x : y;
+int t1<T extends int>(int x, [int y = 0]) {
+  return y == 0 ? x : y;
 }
 
 main() {

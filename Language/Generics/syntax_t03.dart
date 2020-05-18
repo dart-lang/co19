@@ -9,6 +9,7 @@
  * @description Checks various correct generic interface declarations.
  * @author iefremov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 abstract class I {}
 

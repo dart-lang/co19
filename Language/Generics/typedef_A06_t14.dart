@@ -15,7 +15,7 @@
  * class with two typed parameters
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 class A<X, Y> {}
 typedef AAlias1<X, Y> = A<X, Y>;

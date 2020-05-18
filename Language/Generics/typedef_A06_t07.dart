@@ -16,7 +16,7 @@
  * @Issue 36874
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 
 typedef AAlias<X> = void Function<X1 extends X, Y extends X1> ();
 main() {}

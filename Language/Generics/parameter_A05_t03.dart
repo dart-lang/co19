@@ -15,13 +15,15 @@
  * @description Checks that class type parameter is in the scope of its body.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../Utils/expect.dart";
 
 class A {}
 class B extends A {}
 
 class D<X extends A> {
-  X testme;
+  X? testme;
 }
 
 main() {

@@ -9,13 +9,16 @@
  * @description Checks various correct generic function declarations.
  * @author iarkh@unipro.ru
 */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../Utils/expect.dart";
 
 typedef test_func = Function();
 
 class Test<X> {
-  T func1<T>(expected) {
-    Expect.equals(expected, T);
+   T func1<T>(expected1, expected2) {
+     Expect.equals(expected1, T);
+     return expected2;
   }
 
   void func2<T extends X>(expected) {
@@ -24,6 +27,7 @@ class Test<X> {
 
   int func3<T extends num>(expected) {
     Expect.equals(expected, T);
+    return 1;
   }
 
   void fManyParameters<
@@ -33,11 +37,10 @@ class Test<X> {
 main() {
   Test test = new Test();
 
-  test.func1(typeOf<dynamic>());
-  test.func1<String>(typeOf<String>());
-  test.func1<test_func>(typeOf<test_func>());
-  test.func1<dynamic>(typeOf<dynamic>());
-  test.func1<Null>(typeOf<Null>());
+  test.func1(typeOf<dynamic>(), 0);
+  test.func1<String>(typeOf<String>(), "123");
+  test.func1<test_func>(typeOf<test_func>(), main);
+  test.func1<dynamic>(typeOf<dynamic>(), 1);
 
   test.func2(typeOf<dynamic>());
 

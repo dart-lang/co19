@@ -13,6 +13,7 @@
  * @author iefremov
  * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class Enum<E extends Enum<E>> {}
 

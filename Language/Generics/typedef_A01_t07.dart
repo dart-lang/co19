@@ -16,9 +16,11 @@
  * @description Checks that T can be another type alias.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 class A<X> {}
 
 typedef X1<T> = A<T>;
 typedef X2<T> = X1<T>;
+
+main() {}

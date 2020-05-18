@@ -15,7 +15,7 @@
  * bounded.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 class A<X> {}
 class C<X extends C<X>> {}

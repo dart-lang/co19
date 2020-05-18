@@ -16,7 +16,7 @@
  * @description Checks that [T] can be another function type alias.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=non-nullable
 
 typedef Alias1<T> = T Function(T);
 typedef Alias2<T> = Alias1<T>;

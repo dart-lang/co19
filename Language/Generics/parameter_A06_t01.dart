@@ -8,13 +8,13 @@
  * referenced by a static member.
  * @description Checks that compile error occurs if type parameter is used
  * in a type test in static context.
- * @compile-error
  * @author iefremov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class C<T> {
   static bool f() {
-    return null is T;
+    return null is T; //# 01: compile-time error
   }
 }
 

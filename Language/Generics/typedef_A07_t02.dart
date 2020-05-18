@@ -25,6 +25,7 @@
  * is incorrect for [typedef] which defines function.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 typedef AAlias<T> = T Function<T1 extends T>();
 typedef BAlias<T1, T2> = void Function(T1, T2);

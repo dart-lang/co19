@@ -15,12 +15,14 @@
  * scope.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../Utils/expect.dart";
 
 class A {}
 
 typedef Test<X1 extends A, X2 extends X1> = X1 Function(X2);
-typedef Expected1 = A Function(Null);
+typedef Expected1 = A Function(Never);
 typedef Expected2 = A Function(A);
 
 main() {

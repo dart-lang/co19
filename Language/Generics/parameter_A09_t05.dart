@@ -7,14 +7,14 @@
  * @assertion A type parameter cannot be used as a generic type
  * @description Checks that function type alias parameter cannot be used as a
  * generic type
- * @compile-error
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T> {}
 class B<T1, T2> {}
 
-typedef void Alias<T extends A, T1 extends T<int>> = void Function();
+typedef B1<T extends A, T1 extends T<int>> = void Function(); //# 01: compile-time error
 
 main() {
 }

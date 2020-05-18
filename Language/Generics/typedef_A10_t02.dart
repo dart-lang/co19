@@ -10,6 +10,8 @@
  * typedef with type parameter.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 typedef Alias1 = void Function(int);
 typedef Alias2 = void Function<String>(int);
 

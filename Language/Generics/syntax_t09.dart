@@ -11,6 +11,7 @@
  * @compile-error
  * @author iefremov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T> {}
 class C<T, A<T>>{}

@@ -11,27 +11,30 @@
  *   ...
  * [D] introduces a mapping from actual type argument lists to types.
  * @description Checks that [D] maps argument list to types
+ * @Issue 41939
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../Utils/expect.dart";
 
 class X {}
 class Y extends X {}
 
-void checkme1<T>(expected, {T t}) {
+void checkme1<T>(expected, {T? t}) {
   Expect.equals(expected, T);
 }
 
-void checkme2<T extends X>(expected, {T t}) {
+void checkme2<T extends X>(expected, {T? t}) {
   Expect.equals(expected, T);
 }
 
-void checkme3<T extends Y>(expected, {T t}) {
+void checkme3<T extends Y>(expected, {T? t}) {
   Expect.equals(expected, T);
 }
 
-typedef void Test1<T>(dynamic, {T t});
-typedef void Test2<T extends X>(dynamic, {T t});
+typedef void Test1<T>(dynamic, {T? t});
+typedef void Test2<T extends X>(dynamic, {T? t});
 
 main() {
   Test1 t1 = checkme1;

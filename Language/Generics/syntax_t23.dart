@@ -6,24 +6,28 @@
 /**
  * @assertion A class declaration, type alias, or function [G] may be generic,
  * that is, [G] may have formal type parameters declared.
- * @description @description Checks various correct type alias declarations.
+ * @description Checks various correct type alias declarations.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
+
 import "../../Utils/expect.dart";
 
 class A<T> {}
 
 class B<T1, T2> {
-  B(this.x, this.y) {}
-  T1 x;
-  T2 y;
+  B(T1 x, T2 y) {
+    this.x = x;
+    this.y = y;
+  }
+  T1? x;
+  T2? y;
 }
 
 typedef BAlias<T> = B<T, T>;
 
 main() {
-  BAlias b1 = new B(1, 2);
+  BAlias b1 = B(1, 2);
   Expect.isTrue(b1 is B);
   Expect.isTrue(b1 is BAlias);
   Expect.equals(1, b1.x);
@@ -35,10 +39,10 @@ main() {
   Expect.equals(0, b2.x);
   Expect.equals(100, b2.y);
 
-  A a = new A<int>();
-  BAlias<A<int>> b3 = new B<A<int>, A<int>>(a, null);
-  Expect.isTrue(b3 is B<A<int>, A<int>>);
-  Expect.isTrue(b3 is BAlias<A<int>>);
+  var a = new A<int?>();
+  BAlias<A<int?>?> b3 = new B<A<int?>?, A<int?>?>(a, null);
+  Expect.isTrue(b3 is B<A<int?>?, A<int?>?>);
+  Expect.isTrue(b3 is BAlias<A<int?>?>);
   Expect.equals(a, b3.x);
   Expect.isNull(b3.y);
 }

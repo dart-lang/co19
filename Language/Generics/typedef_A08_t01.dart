@@ -24,17 +24,18 @@
  * @description Checks that compile error is thrown if [U] is not well-bounded.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 class A<T extends A<T>> {}
 typedef AAlias<T> = A<T>;
 
 main() {
-    AAlias             a1;
-    AAlias<A>          a2;
-    AAlias<A<Null>>    a3;
-    AAlias<A<dynamic>> a4;
-    AAlias<A<Object>>  a5; //# 01: compile-time error
-    AAlias<A<int>>     a6; //# 02: compile-time error
-    AAlias<int>        a7; //# 03: compile-time error
+    AAlias?             a1;
+    AAlias<A>?          a2;
+    AAlias<A<Never>>?   a3;
+    AAlias<A<dynamic>>? a4;
+    AAlias<A<Object>>?  a5; //# 01: compile-time error
+    AAlias<A<int>>?     a6; //# 02: compile-time error
+    AAlias<int>?        a7; //# 03: compile-time error
+    AAlias<Null>?       a8; //# 04: compile-time error
 }

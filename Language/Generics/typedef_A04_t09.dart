@@ -13,6 +13,8 @@
  * some function
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../Utils/expect.dart";
 
 class X {}
@@ -20,9 +22,9 @@ class Y extends X {}
 
 void checkme1({dynamic a}) {}
 void checkme2({Null a}) {}
-void checkme3({int a}) {}
-void checkme4({X a}) {}
-void checkme5({Y a}) {}
+void checkme3({int? a}) {}
+void checkme4({X? a}) {}
+void checkme5({Y? a}) {}
 
 typedef Func1<T> = void Function({T a});
 typedef Func2<T extends X> = void Function({T a});

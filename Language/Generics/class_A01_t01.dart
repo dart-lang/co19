@@ -15,21 +15,22 @@
  * argument
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class C<T> {}
 
 main() {
-  C c1;
+  C? c1;
 
-  C<int>       c2;
-  C<List<num>> c3;
-  C<void>      c4;
-  C<Null>      c5;
-  C<C>         c6;
+  C<int>?       c2;
+  C<List<num>>? c3;
+  C<void>?      c4;
+  C<Null>?      c5;
+  C<C>?         c6;
 
-  C<int, int>                 c7;  //# 01: compile-time error
-  C<dynamic, dynamic>         c8;  //# 02: compile-time error
-  C<int, String, long>        c9;  //# 03: compile-time error
-  C<int, int, int, int, int> c10;  //# 04: compile-time error
+  C<int, int>?                 c7;  //# 01: compile-time error
+  C<dynamic, dynamic>?         c8;  //# 02: compile-time error
+  C<int, String, long>?        c9;  //# 03: compile-time error
+  C<int, int, int, int, int>? c10;  //# 04: compile-time error
 }
 

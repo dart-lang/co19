@@ -12,9 +12,10 @@
  * bounds.
  * @author kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
-class A<T, U extends T> {
-  T t;
+class A<T, U extends T?> {
+  T? t;
   A(U u) {
      u = t;
   }
