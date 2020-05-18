@@ -7,8 +7,6 @@
  * @author iarkh@unipro.ru
  */
 // @dart=2.6
-// SharedOptions=--enable-experiment=non-nullable
-// Requirements=nnbd-weak
 
 library override_legacy_lib;
 

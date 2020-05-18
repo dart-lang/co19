@@ -10,9 +10,6 @@
  *
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
-// Requirements=nnbd-strong
-
 library override_opted_in_lib;
 
 import "dart:async";

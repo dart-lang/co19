@@ -7,8 +7,6 @@
  * @author iarkh@unipro.ru
  */
 // @dart=2.6
-// SharedOptions=--enable-experiment=non-nullable
-// Requirements=nnbd-weak
 library legacy_library_lib;
 
 class A {}

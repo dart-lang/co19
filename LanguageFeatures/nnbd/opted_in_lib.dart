@@ -6,8 +6,6 @@
 /**
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
-// Requirements=nnbd-strong
 library opted_in_lib;
 
 class A {

@@ -7,8 +7,6 @@
  * @author sgrekhov@unipro.ru
  */
 // @dart=2.6
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
-// Requirements=nnbd-weak
 library legacy_library_aliases_lib;
 
 class A {
