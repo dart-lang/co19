@@ -16,6 +16,8 @@
  *
  * @author a.semenov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 f() {

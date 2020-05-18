@@ -15,6 +15,8 @@
  *
  * @author a.semenov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 final Exception E1 = new Exception("1");

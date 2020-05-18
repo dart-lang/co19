@@ -12,6 +12,8 @@
  * functions with async modifier
  * @author a.semenov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import 'dart:async';
 import '../../../Utils/expect.dart';
 

@@ -22,20 +22,22 @@
  * @static-clean
  * @author a.semenov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "dart:async";
 import '../../../Utils/expect.dart';
 
 Future<bool> boolean(bool b) async => b;
 Future<int> integer(int i) async => i;
 Future<String> string(String s) async => s;
-Future<Exception> exception(Exception e) async => e;
+Future<Exception?> exception(Exception? e) async => e;
 
 
 Future<bool> test() async {
   bool b = await boolean(true);
   int i = await integer(1);
   String s = await string('hello');
-  Exception z = await exception(null);
+  Exception? z = await exception(null);
   // use variables, so  dart analyzer is happy
   return b && i == 1 && s == 'hello' &&  z == null;
 }

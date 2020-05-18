@@ -12,9 +12,10 @@
  * @compile-error
  * @author a.semenov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import 'dart:async';
 import '../../../Utils/expect.dart';
-
 
 f() {
   return new Future<int>.value(1);

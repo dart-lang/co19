@@ -21,6 +21,7 @@
  * @compile-error
  * @author a.semenov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 static_bool(bool x) => x;
 
