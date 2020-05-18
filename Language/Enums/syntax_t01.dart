@@ -14,6 +14,8 @@
  *
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../Utils/expect.dart";
 
 const String some_metadata = "Some metadata";

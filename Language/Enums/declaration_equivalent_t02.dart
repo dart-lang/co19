@@ -19,6 +19,8 @@
  * @description Checks that type of each member of an enum is this enum type
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../Utils/expect.dart";
 
 enum E {a, b, c}

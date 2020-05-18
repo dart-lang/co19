@@ -19,6 +19,8 @@
  * @description Checks that enum index value match declaration order
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../Utils/expect.dart";
 
 enum E {a, b, c}

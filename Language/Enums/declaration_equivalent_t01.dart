@@ -19,6 +19,8 @@
  * @description Checks that toString() for enum E produces string 'E.id'
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../Utils/expect.dart";
 
 enum E {a, b, c}

@@ -20,6 +20,8 @@
  * enum elements
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import "../../Utils/expect.dart";
 
 enum E {a, b, c}

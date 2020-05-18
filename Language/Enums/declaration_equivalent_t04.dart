@@ -19,6 +19,7 @@
  * @description Checks enum values list size
  * @author sgrekhov@unipro.ru
  */
+
 import "../../Utils/expect.dart";
 
 enum E {a, b, c}
