@@ -6,10 +6,12 @@
 /**
  * @assertion An assignable expression of the form id
  * is evaluated as an identifier expression.
- * @description Checks that expression of the form id is evaluated
- * as an identifier expression.
+ * @description Checks that expression of the form id is evaluated as an
+ * identifier expression.
  * @author msyabro
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 main() {

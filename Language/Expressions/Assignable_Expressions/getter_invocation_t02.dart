@@ -10,6 +10,8 @@
  * ((x) => x == null ? null : x.id)(e).
  * @author ngl@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class A {
@@ -26,7 +28,7 @@ class A {
 
 main() {
   A a = new A();
-  A b = null;
+  A? b = null;
   Expect.equals(1, a?.x);
   Expect.equals(20, a?.y);
   Expect.isNull(b?.x);

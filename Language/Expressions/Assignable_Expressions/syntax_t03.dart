@@ -28,6 +28,7 @@
  * an assignment.
  * @author msyabro
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A {
   static var variable;

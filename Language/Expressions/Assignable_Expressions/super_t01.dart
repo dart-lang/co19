@@ -10,6 +10,8 @@
  * evaluated as a getter invocation.
  * @author msyabro
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class S {

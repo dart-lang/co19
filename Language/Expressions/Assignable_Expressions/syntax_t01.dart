@@ -28,6 +28,7 @@
  * can be used in the left hand side of an assignment.
  * @author msyabro
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 topLevelFunction() => ["x"];
 
@@ -41,7 +42,7 @@ class A {
     var ident = [""];
 
     //listLiteral
-    [0, 1, 2, 3][1] = null;
+    [0, 1, 2, 3][1] = 1;
 
     //identifier
     ident[0] = "Lily was here";
@@ -50,11 +51,10 @@ class A {
     const c = 1;
 
     //(functionInvocation)
-    (topLevelFunction())[0] = null;
+    (topLevelFunction())[0] = "testme";
 
     //(methodInvocation)
-    (this.method())[0] = null;
-    (this.method()).length = 2;
+    (this.method())[0] = "1";
   }
 }
 

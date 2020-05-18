@@ -28,6 +28,7 @@
  * can be used in the left hand side of an assignment.
  * @author msyabro
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class S {
   operator [](var index) {}
