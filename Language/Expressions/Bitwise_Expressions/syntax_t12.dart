@@ -28,8 +28,8 @@
  * as the first operand of a bitwise expression without a compile error.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A {}
 

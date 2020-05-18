@@ -28,8 +28,8 @@
  * bitwise expression.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class S {
   operator |(var val) {return this;}

@@ -27,8 +27,8 @@
  * @description Checks that an expression can't terminate with operator &
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   try {

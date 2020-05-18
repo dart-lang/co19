@@ -9,8 +9,9 @@
  * @description Checks that an expression of the form e1 | e2
  * is equivalent to the method invocation e1.operator|(e2).
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class A {

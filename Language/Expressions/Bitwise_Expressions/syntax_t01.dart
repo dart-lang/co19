@@ -28,7 +28,7 @@
  * according to this grammar don't cause compile-time errors.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=triple-shift
+// SharedOptions=--enable-experiment=triple-shift,non-nullable
 
 topLevelFunction() {}
 
@@ -50,21 +50,21 @@ class A extends S {
     try {super & new Object() ^ true | 1; } catch (e) {}
 
     //constants and instance creation
-    try {const S() ^ new A();} catch (e) {}
+    try {const S() ^ new A(); } catch (e) {}
 
     //invocation
-    try {id ^ topLevelFunction();} catch (e) {}
-    try {method() & topLevelFunction();} catch (e) {}
-    try {method() | id;} catch (e) {}
+    try {id ^ topLevelFunction(); } catch (e) {}
+    try {method() & topLevelFunction(); } catch (e) {}
+    try {method() | id; } catch (e) {}
 
     //shift
-    try {1 + 3 & 0;} catch (e) {}
+    try {1 + 3 & 0; } catch (e) {}
 
     // shift expressions
-    try {1 << 2 ^ null >> null;} catch (e) {}
+    try {1 << 2 ^ 333 >> 14; } catch (e) {}
 
     // bitwise shift expressions
-    try {144 >>> 2 ^ null >> null;} catch (e) {}
+    try {144 >>> 2 ^ 133; } catch (e) {}
 
     // bitwise expressions
     1 | -1 | 1 | -1 | 1;
@@ -73,18 +73,18 @@ class A extends S {
     1 ^ -1 | 1 & -1 & 1 | -1 ^ 1 | -1 ^ 1;
 
     //additive expressions
-    try { 1 + 2 ^ 2;} catch (e) {}
-    try { 0 - 0 | null + null;} catch (e) {}
+    try { 1 + 2 ^ 2; } catch (e) {}
+    try { 0 - 0 | id++; } catch (e) {}
 
     //multiplicative expressions
-    try {0 ~/ 1 | 1 - -1;} catch (e) {}
+    try {0 ~/ 1 | 1 - -1; } catch (e) {}
 
     //unary expressions
-    try {--id | id++;} catch (e) {}
-    try {~-id ^ !!false;} catch (e) {}
+    try {--id | id++; } catch (e) {}
+    try {~-id ^ !!false; } catch (e) {}
 
     //identifier
-    try { id ^ id | id & id;} catch (e) {}
+    try { id ^ id | id & id; } catch (e) {}
   }
 }
 

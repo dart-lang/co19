@@ -27,8 +27,8 @@
  * @description Checks that two operators & can't placed one after another.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   try {
