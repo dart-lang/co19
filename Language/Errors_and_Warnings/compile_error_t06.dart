@@ -12,6 +12,7 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 import '../../Utils/expect.dart';
 import 'compile_error_lib.dart' as lib;
