@@ -10,6 +10,8 @@
  * v = v * e.
  * @author msyabro
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../../Utils/expect.dart';
 
 class C {
@@ -26,8 +28,6 @@ class C {
 class A {
   A(val) {
     _c = new C(val);
-    getterInvocation = 0;
-    setterInvocation = 0;
   }
 
   get c {
@@ -48,10 +48,10 @@ class A {
     Expect.equals(expected, res.v);         //checks result
   }
 
-  C _c;
+  C? _c;
 
-  int getterInvocation;
-  int setterInvocation;
+  int getterInvocation = 0;
+  int setterInvocation = 0;
 }
 
 main() {

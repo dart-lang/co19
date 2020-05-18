@@ -10,7 +10,7 @@
  * to v = v >>> e.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=triple-shift
+// SharedOptions=--enable-experiment=triple-shift,non-nullable
 
 import '../../../../Utils/expect.dart';
 
@@ -28,8 +28,6 @@ class C {
 class A {
   A(val) {
     _c = new C(val);
-    getterInvocation = 0;
-    setterInvocation = 0;
   }
 
   get c {
@@ -50,10 +48,10 @@ class A {
     Expect.equals(expected, res.v);     //checks result
   }
 
-  C _c;
+  C? _c;
 
-  int getterInvocation;
-  int setterInvocation;
+  int getterInvocation = 0;
+  int setterInvocation = 0;
 }
 
 main() {

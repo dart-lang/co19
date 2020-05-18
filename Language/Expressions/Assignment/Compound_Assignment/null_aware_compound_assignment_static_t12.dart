@@ -10,12 +10,12 @@
  * equivalent to the expression C.v >>>= e2.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=triple-shift
+// SharedOptions=--enable-experiment=triple-shift,non-nullable
 
 import '../../../../Utils/expect.dart';
 
 class C {
-  static int _v;
+  static int? _v;
   static int getterInvocation = 0;
   static int setterInvocation = 0;
 

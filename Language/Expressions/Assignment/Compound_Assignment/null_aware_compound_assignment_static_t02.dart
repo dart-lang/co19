@@ -10,6 +10,8 @@
  * equivalent to the expression C.v /= e2.
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../../Utils/expect.dart';
 
 class C {

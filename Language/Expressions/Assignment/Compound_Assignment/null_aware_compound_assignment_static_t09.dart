@@ -10,10 +10,12 @@
  * equivalent to the expression C.v &= e2.
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../../Utils/expect.dart';
 
 class C {
-  static int _v;
+  static int? _v;
   static int getterInvocation = 0;
   static int setterInvocation = 0;
 

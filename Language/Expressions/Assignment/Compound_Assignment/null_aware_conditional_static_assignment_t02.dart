@@ -10,6 +10,8 @@
  * only if C.v == null. Test the case when C.v is prefixed
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../../Utils/expect.dart';
 import 'null_aware_assignment_lib.dart' as lib;
 

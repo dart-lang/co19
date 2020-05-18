@@ -12,6 +12,8 @@
  * only if e1.v == null. Test the case when e1.v is prefixed
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../../Utils/expect.dart';
 import 'null_aware_assignment_lib.dart' as lib;
 

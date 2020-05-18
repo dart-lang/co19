@@ -11,7 +11,7 @@
  * e2.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=triple-shift
+// SharedOptions=--enable-experiment=triple-shift,triple-shift
 
 import '../../../../Utils/expect.dart';
 
@@ -29,8 +29,6 @@ class C {
 class A {
   A(val) {
     _c = new C(val);
-    getterInvocation = 0;
-    setterInvocation = 0;
   }
 
   get c {
@@ -43,10 +41,10 @@ class A {
     _c = val;
   }
 
-  C _c;
+  C? _c;
 
-  int getterInvocation;
-  int setterInvocation;
+  int getterInvocation = 0;
+  int setterInvocation = 0;
 }
 
 check(operand1, operand2) {

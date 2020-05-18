@@ -10,7 +10,7 @@
  * to C.v = C.v >>> e.
  * @author iarkh
  */
-// SharedOptions=--enable-experiment=triple-shift
+// SharedOptions=--enable-experiment=triple-shift,non-nullable
 
 import '../../../../Utils/expect.dart';
 
@@ -33,8 +33,8 @@ class C {
 
   static var _v;
 
-  static int setterInvocation;
-  static int getterInvocation;
+  static int setterInvocation = 0;
+  static int getterInvocation = 0;
 }
 
 

@@ -14,17 +14,17 @@
  * that is not used in e.
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../../Utils/expect.dart';
 
 class A {
-  int _v;
-  int getterInvocation;
-  int setterInvocation;
+  int? _v;
+  int getterInvocation = 0;
+  int setterInvocation = 0;
 
   A(val) {
     _v = val;
-    getterInvocation = 0;
-    setterInvocation = 0;
   }
 
   get v {

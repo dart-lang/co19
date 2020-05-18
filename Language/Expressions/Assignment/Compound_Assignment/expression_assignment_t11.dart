@@ -10,6 +10,8 @@
  * to ((x) => x.v = x.v | e2)(e1) where x is a variable that is not used in e2.
  * @author msyabro
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../../Utils/expect.dart';
 
 class C {
@@ -25,8 +27,6 @@ class C {
 class A {
   A(val) {
     _c = new C(val);
-    getterInvocation = 0;
-    setterInvocation = 0;
   }
 
   get c {
@@ -39,10 +39,10 @@ class A {
     _c = val;
   }
 
-  C _c;
+  C? _c;
 
-  int getterInvocation;
-  int setterInvocation;
+  int getterInvocation = 0;
+  int setterInvocation = 0;
 }
 
 check(operand1, operand2) {

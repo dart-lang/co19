@@ -13,10 +13,12 @@
  * used in e
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../../Utils/expect.dart';
 
 class C {
-  int _v;
+  int? _v;
   int getterInvocation = 0;
   int setterInvocation = 0;
 

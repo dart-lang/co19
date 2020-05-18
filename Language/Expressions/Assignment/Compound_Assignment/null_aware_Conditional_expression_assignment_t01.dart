@@ -12,6 +12,8 @@
  * only if e1.v == null and returns null if e1 == null
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../../Utils/expect.dart';
 
 class C {
@@ -19,7 +21,7 @@ class C {
 }
 
 main() {
-  C c = null;
+  C? c = null;
   var res = (c?.v ??= 1);
   Expect.isNull(res);
   Expect.isNull(c);

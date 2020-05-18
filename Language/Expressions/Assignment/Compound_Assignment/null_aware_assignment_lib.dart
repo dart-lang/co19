@@ -10,9 +10,7 @@ class C {
 
   var v1 = null;
 
-  operator[](idx) {
-  return idx == 0 ? null : idx;
-  }
+  operator[](idx) => idx == 0 ? null : idx;
 
   void operator[]=(idx, val) {
     v1 = val;

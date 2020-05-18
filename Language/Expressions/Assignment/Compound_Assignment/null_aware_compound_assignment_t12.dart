@@ -12,12 +12,12 @@
  * not used in e2
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=triple-shift
+// SharedOptions=--enable-experiment=triple-shift,non-nullable
 
 import '../../../../Utils/expect.dart';
 
 class C {
-  int _v;
+  int? _v;
   int getterInvocation = 0;
   int setterInvocation = 0;
 
@@ -37,7 +37,7 @@ class C {
 }
 
 main() {
-  C c1 = null;
+  C? c1 = null;
   var res1 = (c1?.v >>>= 2);
   Expect.isNull(res1);
   Expect.isNull(c1);

@@ -11,6 +11,8 @@
  * to ((x) => x?.v = x.v / e2)(e1) where x is a variable that is not used in e2.
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../../Utils/expect.dart';
 
 class C {
@@ -34,7 +36,7 @@ class C {
 }
 
 main() {
-  C c1 = null;
+  C? c1 = null;
   var res1 = (c1?.v /= 2);
   Expect.isNull(res1);
   Expect.isNull(c1);

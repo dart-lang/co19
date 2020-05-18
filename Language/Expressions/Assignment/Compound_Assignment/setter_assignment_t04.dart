@@ -10,6 +10,8 @@
  * to C.v = C.v % e.
  * @author msyabro
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../../Utils/expect.dart';
 
 class A {
@@ -31,8 +33,8 @@ class C {
 
   static var _v;
 
-  static int setterInvocation;
-  static int getterInvocation;
+  static int setterInvocation = 0;
+  static int getterInvocation = 0;
 }
 
 
