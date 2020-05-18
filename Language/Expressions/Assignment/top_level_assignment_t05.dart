@@ -17,6 +17,7 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 int get v => 0;
 

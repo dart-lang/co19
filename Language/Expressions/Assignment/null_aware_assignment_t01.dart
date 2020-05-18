@@ -12,6 +12,8 @@
  * Test the case when e1 == null
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class C {
@@ -26,7 +28,7 @@ int e() {
 }
 
 main() {
-  C c = null;
+  C? c = null;
   var x = c?.v = e();
   Expect.isNull(c);
   Expect.isNull(x);

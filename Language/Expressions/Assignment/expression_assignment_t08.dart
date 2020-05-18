@@ -17,11 +17,12 @@
  * setter, setter lookup fails
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class C {
-  static void set v(val) {
-  }
+  static void set v(val) {}
 }
 
 main() {

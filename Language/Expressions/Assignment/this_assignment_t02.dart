@@ -15,11 +15,13 @@
  * @author msyabro
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class C {
   test() {
-    Expect.throws(() {v = 1;}, (e) => e is NoSuchMethodError);
+    Expect.throws(() { v = 1; }, (e) => e is NoSuchMethodError);
   }
 }
 

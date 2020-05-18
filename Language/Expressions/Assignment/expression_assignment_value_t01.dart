@@ -15,6 +15,8 @@
  * e2 evaluated to o2.
  * @author msyabro
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class C {

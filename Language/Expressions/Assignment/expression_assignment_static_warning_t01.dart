@@ -16,9 +16,10 @@
  * @compile-error
  * @author msyabro
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class C {
-  static int v;
+  static int? v;
 }
 
 main() {

@@ -16,16 +16,18 @@
  * Test the case when e1 is a constant type literal
  * @author msyabro
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/dynamic_check.dart';
 
-f(x) {return x;}
+f(x) => x;
 
 class A {}
 class B extends A {}
 
 class C {
-  static int v;
-  static B b;
+  static int? v;
+  static B? b;
 }
 
 main() {

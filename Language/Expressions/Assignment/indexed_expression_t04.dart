@@ -13,6 +13,8 @@
  * is thrown.
  * @author rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class C {

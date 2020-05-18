@@ -19,6 +19,7 @@
  * @author kaigorodov
  * @note issue #16233
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class C {
 }

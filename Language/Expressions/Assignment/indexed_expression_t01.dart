@@ -11,6 +11,8 @@
  * to (a, i, e){a.[]=(i, e); return e;} (e1, e2, e3).
  * @author rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class C {

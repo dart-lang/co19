@@ -15,13 +15,15 @@
  * @description Checks that if evaluation of e1 successful then e2 is evaluated
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class C {
   C(int val) {
     v = val;
   }
-  int v;
+  int? v;
 
   C operator +(C val) {
     return new C(0);

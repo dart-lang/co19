@@ -16,10 +16,10 @@
  * @compile-error
  * @author srekhov@unipro.ru
  */
-
+// SharedOptions=--enable-experiment=non-nullable
 
 class C {
-  int v;
+  int? v;
 }
 
 main() {

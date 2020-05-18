@@ -11,11 +11,12 @@
  * @compile-error
  * @author ilya
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class D {}
 
 class C {
-  static D v;
+  static D? v;
 }
 
 main() {

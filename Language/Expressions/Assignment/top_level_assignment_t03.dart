@@ -16,15 +16,17 @@
  * invoked with its formal parameter bound to o
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
-int _v;
+int? _v;
 
 void set v(int val) {
   _v = val;
 }
 
-int get v => _v;
+int? get v => _v;
 
 main() {
   v = 1;

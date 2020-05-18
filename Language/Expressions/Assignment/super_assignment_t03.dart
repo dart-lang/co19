@@ -15,6 +15,8 @@
  * the setter v= in superclass is executed with this bound to this
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class A {

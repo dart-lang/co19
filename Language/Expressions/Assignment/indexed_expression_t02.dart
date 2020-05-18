@@ -11,6 +11,8 @@
  * is the result of evaluating e3.
  * @author rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class C {

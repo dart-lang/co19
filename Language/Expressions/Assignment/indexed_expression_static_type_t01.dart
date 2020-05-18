@@ -10,6 +10,7 @@
  * @static-clean
  * @author ilya
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class D {}
 

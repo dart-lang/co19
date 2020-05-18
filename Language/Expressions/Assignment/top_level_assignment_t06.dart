@@ -16,9 +16,11 @@
  * setter v= is invoked with its formal parameter bound to o
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
-int v;
+int? v;
 
 main() {
   v = 1;

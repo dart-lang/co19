@@ -11,6 +11,8 @@
  * to the evaluation of the to e1.v = e2 if e1 is a type literal
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class C {
@@ -26,7 +28,7 @@ int e() {
 
 main() {
   var x = C?.v = e() + 1;
-  Expect.equals(1, C.v);
+  Expect.equals(1, C?.v);
   Expect.equals(1, x);
   Expect.equals(1, count);
 }

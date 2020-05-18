@@ -10,14 +10,14 @@
  * equivalent to super.[e1] = e2
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class A {
   var v, i;
 
-  operator [](idx) {
-    return v;
-  }
+  operator [](idx) => v;
 
   operator []=(idx, val) {
     i = idx;

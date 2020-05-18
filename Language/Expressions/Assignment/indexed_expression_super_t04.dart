@@ -11,6 +11,8 @@
  * @author sgrekhov@unipro.ru
  * @compile-error
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class A {

@@ -10,10 +10,12 @@
  * of e
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/dynamic_check.dart';
 
 class A {
-  int v;
+  int? v;
 }
 
 class C extends A {

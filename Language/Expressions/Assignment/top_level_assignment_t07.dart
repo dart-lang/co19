@@ -17,9 +17,11 @@
  * the assignment expression is o.
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
-int v;
+int? v;
 
 main() {
   Expect.equals(1, v = 1);
