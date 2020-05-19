@@ -13,7 +13,6 @@
  * has no special meaning and can be used as a variable
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

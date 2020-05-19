@@ -18,7 +18,6 @@
  * is suspended until after f completes. Test instance methods
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import 'dart:async';
 import '../../../Utils/expect.dart';
