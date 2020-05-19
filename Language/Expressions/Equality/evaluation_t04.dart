@@ -14,8 +14,9 @@
  * @description Checks that if operands are not null ee is equivalent to the
  * method invocation o1.==(o2).
  * @author msyabro
- * @reviewer iefremov
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class TestException {}

@@ -8,25 +8,28 @@
  * proceeds as follows:
  * • The expression e is evaluated to an object o.
  * • If either this or o is null, then ee evaluates to evaluates to true if both
- *   this and o are null and to false otherwise. Otherwise
- * • ee is equivalent to the method invocation super.==(o).
- * @description Checks that if o is null, the operator super.==(o) is not called
- * and the result is the same as that of identical(this, o) (false, to be sure).
+ *   this and o are null and to false otherwise. Otherwise ee is equivalent to
+ *   the method invocation super.==(o).
+ * @description Checks that if nnbd is turned on and [o] is [null], the operator
+ * super [==(o)] is not called and "type 'Null' is not a subtype of type
+ * 'Object'" exception appears.
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class S {
   operator ==(other) {
     Expect.fail('operator== invoked with $other argument');
+    return false;
   }
 }
 
 class C extends S {
   test() {
-    Expect.equals(super == null, identical(this, null));
-    Expect.isFalse(super == null);
+    dynamic n = null;
+    Expect.throws(() { super == n; });
   }
 }
 

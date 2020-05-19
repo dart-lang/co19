@@ -18,8 +18,8 @@
  * @description Checks that a class name can be used as the first operand in
  * an equality expression.
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A {}
 

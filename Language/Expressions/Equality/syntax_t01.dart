@@ -19,7 +19,7 @@
  * according to this grammar don't cause compile-time errors.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=triple-shift
+// SharedOptions=--enable-experiment=triple-shift,non-nullable
 
 topLevelFunction() {}
 
@@ -42,7 +42,7 @@ class A extends S {
 
     //function expressions -- issue 1189
     () {} == () => {};
-    () {return null;} == (int x) => 7;
+    () { return null; } == (int x) => 7;
     () => [] != 1;
     () {} != new Object();
 
@@ -55,21 +55,21 @@ class A extends S {
     method() != id;
 
     //shift expressions
-    try {1 >> -1 != () {};} catch (e) {}
-    try {1 << 2 != null >> null;} catch (e) {}
+    try { 1 >> -1 != () {}; } catch (e) {}
+    try { 1 << 2 != 124; } catch (e) {}
 
     //triple shift expressions
-    try {1 >>> 2 != () {};} catch (e) {}
+    try { 1 >>> 2 != () {}; } catch (e) {}
 
     //additive expressions
-    try { 1 + 2 == 2;} catch (e) {}
-    try { 0 - 0 != null + null;} catch (e) {}
+    try { 1 + 2 == 2; } catch (e) {}
+    try { 0 - 0 != null; } catch (e) {}
 
     //multiplicative expressions
-    try {0 ~/ 1 != 1 - -1;} catch (e) {}
+    try { 0 ~/ 1 != 1 - -1; } catch (e) {}
 
     //unary expressions
-    try {~-id != !!false;} catch (e) {}
+    try { ~-id != !!false; } catch (e) {}
   }
 }
 

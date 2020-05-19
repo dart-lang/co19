@@ -15,8 +15,9 @@
  * an equality expression is evaluated as identical(o1, o2) and the .== method
  * of whichever operand is not null never gets invoked.
  * @author kaigorodov
- * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class C {

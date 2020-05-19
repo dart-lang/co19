@@ -8,9 +8,8 @@
  * @description Checks that static type of an equality expression is bool.
  * @static-clean
  * @author msyabro
- * @reviewer kaigorodov
  */
-
+// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   bool b;

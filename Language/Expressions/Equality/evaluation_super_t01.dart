@@ -13,13 +13,12 @@
  * @description Checks that if this is identical to e2, the result of an
  * equality expression is true.
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
-
-class S {
-}
+class S {}
 
 class C extends S {
   test() {

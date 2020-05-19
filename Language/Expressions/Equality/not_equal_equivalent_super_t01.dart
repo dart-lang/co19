@@ -9,8 +9,9 @@
  * @description Checks that expression of the form super != e is equivalent to
  * the expression !(super == e).
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class S{

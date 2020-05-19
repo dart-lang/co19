@@ -18,8 +18,8 @@
  * @description Checks that an equality expression can't start with operator ==.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   try {

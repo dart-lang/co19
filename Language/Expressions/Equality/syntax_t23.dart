@@ -18,12 +18,12 @@
  * @description Checks that a type parameter can be used as the first operand
  * in an equality expression without a compile error.
  * @author msyabro
- * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T> {
   test() {
-    try {T == 1;} catch (e) {}
+    try { T == 1; } catch (e) {}
   }
 }
 

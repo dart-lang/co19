@@ -8,8 +8,8 @@
  * @description Checks that static type of an equality expression is not int.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   int b = (1 == 1);

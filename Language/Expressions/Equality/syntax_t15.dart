@@ -19,9 +19,8 @@
  * equality expression.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   try {

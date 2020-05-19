@@ -14,8 +14,9 @@
  * @description Checks that first evaluated the left operand and then the right
  * operand.
  * @author msyabro
- * @reviewer iefremov
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 var log = '';

@@ -18,12 +18,12 @@
  * @description Checks that a type variable can be used as the second operand
  * in an equality expression without a compile error.
  * @author msyabro
- * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A<T> {
   test() {
-    try {0 == T;} catch (e) {}
+    try { 0 == T; } catch (e) {}
   }
 }
 
