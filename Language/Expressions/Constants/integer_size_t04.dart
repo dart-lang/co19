@@ -9,6 +9,7 @@
  * @description Checks valid compile-time integer constants
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

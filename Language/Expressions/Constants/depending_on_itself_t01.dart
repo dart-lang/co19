@@ -9,8 +9,8 @@
  * @description Checks that it is a compile-time error if a constant variable
  * is initialized with itself.
  * @compile-error
- * @author iefremov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 const m = m;
 

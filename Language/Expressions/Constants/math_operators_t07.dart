@@ -17,6 +17,8 @@
  * initialize a constant variable if e1 and e2 are strings.
  * @author ngl@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 const m = "ab" + "cd";

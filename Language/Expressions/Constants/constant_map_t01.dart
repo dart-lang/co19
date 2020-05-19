@@ -12,8 +12,8 @@
  * @description Checks that a constant map literal can be an element of
  * a constant list literal and is, therefore, a constant expression.
  * @author iefremov
- * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

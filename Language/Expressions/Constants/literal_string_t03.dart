@@ -16,6 +16,7 @@
  * @compile-error
  * @author msyabro
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 foo() => 1;
 

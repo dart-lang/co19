@@ -15,6 +15,7 @@
  * expression.
  * @author iefremov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

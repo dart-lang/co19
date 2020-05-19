@@ -12,8 +12,8 @@
  * @description Checks that various literal booleans can be elements of a
  * constant list literal and are, therefore, constant expressions.
  * @author iefremov
- * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

@@ -13,8 +13,8 @@
  * @description Checks that identifier denoting a static method is a constant
  * expression.
  * @author rodionov
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 foo() {}
 

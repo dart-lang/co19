@@ -16,6 +16,7 @@
  * @compile-error
  * @author msyabro
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 const i1 = "${1.toString()}";
 

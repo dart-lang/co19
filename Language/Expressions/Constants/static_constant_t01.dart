@@ -13,8 +13,8 @@
  * @description Checks that a reference to a static constant variable can be an
  * elementof a constant list literal and is, therefore, a constant expression.
  * @author iefremov
- * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

@@ -13,6 +13,7 @@
  * is not a part of a number literal so those are not included in this test.
  * @author iefremov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

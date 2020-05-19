@@ -15,6 +15,7 @@
  * @compile-error
  * @author msyabro
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A {
   static final x = 1;

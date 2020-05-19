@@ -14,8 +14,8 @@
  * to initialize a constant variable if e2 is integer.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 const m = (true || 0);
 

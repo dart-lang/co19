@@ -11,6 +11,7 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   var i = 0x7FFFFFFFFFFFFFFF0;

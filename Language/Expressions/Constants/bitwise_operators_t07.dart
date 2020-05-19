@@ -19,7 +19,7 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=triple-shift
+// SharedOptions=--enable-experiment=triple-shift,non-nullable
 
 final constList = const [
   1 >>> "one and a half"

@@ -16,6 +16,7 @@
  * @compile-error
  * @author ngl@unipo.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 import '../lib.dart' deferred as prefix;
 

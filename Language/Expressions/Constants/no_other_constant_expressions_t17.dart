@@ -11,6 +11,7 @@
  * constant variable.
  * @author iefremov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 import "../../../Utils/expect.dart";
 
@@ -19,7 +20,7 @@ const m2 = "testme" is String;
 const m3 = "testme" is int;
 
 main() {
-  Expect.isTrue(m1);
+  Expect.isFalse(m1);
   Expect.isTrue(m2);
   Expect.isFalse(m3);
 }

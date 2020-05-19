@@ -17,6 +17,7 @@
  * @compile-error
  * @author iefremov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A {
   const A();

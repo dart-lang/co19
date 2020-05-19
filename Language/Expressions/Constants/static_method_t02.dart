@@ -15,6 +15,7 @@
  * @compile-error
  * @author kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class Bad {
   void m() {}

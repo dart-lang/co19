@@ -16,7 +16,7 @@
  * therefore, constant expressions.
  * @author iefremov
  */
-// SharedOptions=--enable-experiment=triple-shift
+// SharedOptions=--enable-experiment=triple-shift,non-nullable
 
 class C {
   final a, b, c, d, e, f, g, h;

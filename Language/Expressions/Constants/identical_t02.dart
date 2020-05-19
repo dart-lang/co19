@@ -16,6 +16,7 @@
  * @compile-error
  * @author kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

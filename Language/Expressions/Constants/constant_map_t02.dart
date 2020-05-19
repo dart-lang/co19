@@ -13,10 +13,11 @@
  * a constant variable.
  * @author iefremov
  * @compile-error
- * @reviewer rodionov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
-const a = {"a" : "b"};
+var b = {"a" : "b"};
+const a = b;
 
 main() {
   try {
