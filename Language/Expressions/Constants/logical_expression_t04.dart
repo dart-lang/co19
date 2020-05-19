@@ -16,7 +16,6 @@
  * @compile-error
  * @author kaigorodov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 final constList = const [
   true && 1,

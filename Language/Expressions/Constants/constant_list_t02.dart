@@ -15,7 +15,6 @@
  * @author iefremov
  * @reviewer rodionov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 var nonconstant = [1, 2, 3];
 const a = nonconstant;

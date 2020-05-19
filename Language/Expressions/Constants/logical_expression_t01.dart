@@ -15,7 +15,6 @@
  * therefore, constant expressions.
  * @author iefremov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class C {
   final a, b, c, d, e;

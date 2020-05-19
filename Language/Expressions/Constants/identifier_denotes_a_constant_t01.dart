@@ -15,7 +15,6 @@
  * variable can be assigned to a constant variable.
  * @author kaigorodov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

@@ -10,7 +10,6 @@
  * is initialized with itself.
  * @compile-error
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 const m = m;
 

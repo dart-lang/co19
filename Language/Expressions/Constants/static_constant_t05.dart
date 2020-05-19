@@ -14,7 +14,6 @@
  * constant variable can be used as a constant expression.
  * @author ngl@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 import 'constants_lib.dart' as clib;

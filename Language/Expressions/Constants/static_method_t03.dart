@@ -15,7 +15,6 @@
  * @compile-error
  * @author ilya
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   f() {

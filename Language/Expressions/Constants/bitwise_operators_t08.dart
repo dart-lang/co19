@@ -19,7 +19,7 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=triple-shift,non-nullable
+// SharedOptions=--enable-experiment=triple-shift
 
 final constList = const [
   true >>> 25

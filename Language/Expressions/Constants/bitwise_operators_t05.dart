@@ -17,7 +17,6 @@
  * @compile-error
  * @author kaigorodov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 final constList = const [
   1 << "one and a half"

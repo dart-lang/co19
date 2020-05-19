@@ -10,7 +10,6 @@
  * reference in a constant variable's initialization.
  * @author iefremov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 const a1 = a10; //# 01: compile-time error
 const a2 = a1;  //# 02: compile-time error

@@ -14,7 +14,6 @@
  * @author iefremov
  * @compile-error
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 var b = {"a" : "b"};
 const a = b;

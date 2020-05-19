@@ -13,7 +13,6 @@
  * variable.
  * @author ilya
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 const i1 = #foo;
 

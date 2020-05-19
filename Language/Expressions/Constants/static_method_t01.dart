@@ -14,7 +14,6 @@
  * expression.
  * @author rodionov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 foo() {}
 

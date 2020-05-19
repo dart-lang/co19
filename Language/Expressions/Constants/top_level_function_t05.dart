@@ -15,7 +15,6 @@
  * @compile-error
  * @author ngl@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import 'constants_lib.dart' deferred as clib;
 

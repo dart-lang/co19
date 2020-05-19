@@ -17,7 +17,6 @@
  * @Issue 27477
  * @author rodionov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class C<T> {
   static const List lst = const [T];

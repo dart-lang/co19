@@ -14,7 +14,6 @@
  * operands are constant expressions.
  * @author ilya
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

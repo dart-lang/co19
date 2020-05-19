@@ -15,7 +15,6 @@
  * elements of a constant list literal and are, therefore, constant expressions.
  * @author iefremov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

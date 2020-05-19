@@ -15,7 +15,6 @@
  * @compile-error
  * @author iefremov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 const m = !1;
 

@@ -14,9 +14,7 @@
  * variable.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 const a = () {};
 

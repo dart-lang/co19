@@ -18,7 +18,6 @@
  * used to initialize a constant variable.
  * @compile-error
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 final constList = const [
   true + 1,

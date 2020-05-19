@@ -16,7 +16,6 @@
  * @compile-error
  * @author ilya
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 var x;
 const y = identical(x, x);

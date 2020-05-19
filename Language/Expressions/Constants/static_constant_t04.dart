@@ -15,7 +15,6 @@
  * @compile-error
  * @author iefremov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 var a = 1;
 const m = a;

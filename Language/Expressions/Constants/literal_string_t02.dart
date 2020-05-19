@@ -16,7 +16,6 @@
  * @author iefremov
  * @compile-error
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 const l = "${const {'k1': 1, 'k2': 2}}";
 
