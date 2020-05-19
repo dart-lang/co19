@@ -11,7 +11,6 @@
  * @author hlodvig
  * @reviewer rodionov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   int i = 1;

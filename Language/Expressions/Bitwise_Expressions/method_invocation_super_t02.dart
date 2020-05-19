@@ -9,9 +9,7 @@
  * @description Checks that an expression of the form super ^ e2
  * is equivalent to the method invocation super.operator^(e2).
  * @author msyabro
- * @reviewer kaigorodov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

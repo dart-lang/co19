@@ -10,7 +10,6 @@
  * is equivalent to the method invocation super.operator&(e2).
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

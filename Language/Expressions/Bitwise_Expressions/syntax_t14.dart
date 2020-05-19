@@ -29,7 +29,6 @@
  * @compile-error
  * @author kaigorodov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 typedef String fun();
 
