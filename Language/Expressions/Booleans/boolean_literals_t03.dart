@@ -15,7 +15,6 @@
  * @compile-error
  * @author hlodvig
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   try {

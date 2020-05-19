@@ -13,9 +13,8 @@
  * not converted to boolean. It's a compile time error
  * @compile-error
  * @author msyabro
- * @issue 27277
+ * @Issue 27277
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../../Utils/expect.dart';
 

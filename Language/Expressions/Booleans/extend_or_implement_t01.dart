@@ -11,7 +11,6 @@
  * @compile-error
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 abstract class I extends bool {}
 class C implements I {}
