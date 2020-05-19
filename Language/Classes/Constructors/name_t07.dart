@@ -18,7 +18,7 @@
  * @author sgrekhov@unipro.ru
  */
 class A {
-  static int get foo {}
+  static int get foo => 42;
 }
 
 class C extends A {

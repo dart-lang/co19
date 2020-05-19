@@ -39,7 +39,7 @@ class A {
   @A() static fun() {}
   @B(1) get x {}
   @A() set x(var v) {}
-  @B(1) operator ==(dynamic other) {}
+  @B(1) operator ==(dynamic other) => true;
 
   @A() final _x;
 }

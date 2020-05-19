@@ -40,7 +40,7 @@ class A implements I {
   static f() {}
   get x {}
   set x(var v) {}
-  operator ==(dynamic other) {}
+  operator ==(dynamic other) => true;
 
   var _x;
 }

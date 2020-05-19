@@ -17,17 +17,17 @@
  */
 
 class A {
-  static double f() {}
+  static double f() => 3.1415926;
 }
 
 abstract class B extends A {
-  bool f(int x, [String xx]);
+  bool f(int x, [String xx = ""]);
 }
 
 class C extends B {
-  bool f(int x, [String xx]) {}
+  bool f(int x, [String xx = ""]) => false;
 }
 
 main() {
-  new C().f(1, "");
+  new C().f(1, "Lily was here");
 }
