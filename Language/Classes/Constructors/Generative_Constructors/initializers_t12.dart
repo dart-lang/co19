@@ -21,12 +21,10 @@
  */
 
 class C {
-  C() : 2+2 {}
+  C() : 2 + 2 {}
   var x;
 }
 
 main() {
-  try {
-    new C();
-  } catch (x) {}
+  new C();
 }

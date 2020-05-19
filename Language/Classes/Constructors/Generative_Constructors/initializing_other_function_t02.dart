@@ -14,11 +14,13 @@
 
 class C {
   int x;
-  factory C.i([this.x]) {}
+  factory C.i([this.x]) => new A();
+}
+
+class A implements C {
+  int x = 42;
 }
 
 main() {
-  try {
-    new C.i(null);
-  } catch (v) {}
+  new C.i(42);
 }

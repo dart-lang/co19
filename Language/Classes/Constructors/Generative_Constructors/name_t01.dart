@@ -14,7 +14,7 @@
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class C {
-  int i;
+  int i = 0;
   CAlias(this.i);
 }
 typedef CAlias = C;

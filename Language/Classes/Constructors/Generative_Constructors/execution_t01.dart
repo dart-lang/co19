@@ -56,5 +56,5 @@ class C {
 }
 
 main() {
-  var x = new C("f");
+  new C("f");
 }

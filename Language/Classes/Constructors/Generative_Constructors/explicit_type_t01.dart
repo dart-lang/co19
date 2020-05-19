@@ -17,7 +17,7 @@
  */
 
 class C {
-  String x;
+  String? x;
 
   C(int this.x) {}
 }

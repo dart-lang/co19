@@ -43,7 +43,7 @@ class C extends SAlias {
   var $;
   var x;
   var Cc;
-  FType func;
+  FType? func;
 }
 
 main() {

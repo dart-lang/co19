@@ -32,7 +32,5 @@ class C {
 }
 
 main() {
-  try {
-    var x = new C.c0();
-  } catch (x) {}
+  new C.c0();
 }

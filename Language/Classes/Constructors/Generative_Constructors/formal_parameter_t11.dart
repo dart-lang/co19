@@ -20,7 +20,7 @@ class C {
   C.initialFormal(this.x, int this.y, this.z) {}
   C.mixed(p1, this.x, [p2, this.y]) {}
 
-  int x, y, z;
+  int? x, y, z;
 }
 typedef CAlias = C;
 

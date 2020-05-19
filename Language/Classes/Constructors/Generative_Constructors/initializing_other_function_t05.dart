@@ -13,12 +13,10 @@
  */
 
 class C {
-  int x;
+  int x = 0;
   static foo(this.x) {}
 }
 
 main() {
-  try {
-    C.foo(null);
-  } catch (v) {}
+  C.foo(42);
 }

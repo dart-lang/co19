@@ -20,7 +20,5 @@ class C  {
 }
 
 main() {
-  try {
-    var z = new C();
-  } catch (x) {}
+  new C();
 }

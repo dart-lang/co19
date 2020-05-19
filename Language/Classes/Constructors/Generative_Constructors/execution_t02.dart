@@ -49,4 +49,3 @@ main() {
   new C();
   Expect.equals("xyz", log, "Wrong initializers execution order!");
 }
-

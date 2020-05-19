@@ -32,4 +32,3 @@ class C<T> {
 main() {
   new C<A>();
 }
-

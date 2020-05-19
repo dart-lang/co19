@@ -20,7 +20,5 @@ class C {
 }
 
 main() {
-  try {
-    new C(null);
-  } catch (v) {}
+  new C(null);
 }

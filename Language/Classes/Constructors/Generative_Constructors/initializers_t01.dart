@@ -40,7 +40,7 @@ class C extends S {
   var $;
   var x;
   var Cc;
-  FType func;
+  FType? func;
 }
 
 main() {

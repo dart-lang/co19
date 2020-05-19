@@ -20,7 +20,7 @@
  */
 import "../../../../Utils/expect.dart";
 
-bool ok;
+bool ok = false;
 f() {
   ok = true;
 }

@@ -19,7 +19,5 @@ class C {
 }
 
 main() {
-  try {
-    new C.redirect(null);
-  } catch (v) {}
+  new C.redirect(null);
 }

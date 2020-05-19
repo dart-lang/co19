@@ -17,9 +17,6 @@ class C {
   C.c3() {}
 }
 
-
 main() {
-  try {
-    new C.c3();
-  } catch (x) {}
+  new C.c3();
 }

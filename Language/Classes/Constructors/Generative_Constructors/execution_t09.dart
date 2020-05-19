@@ -41,7 +41,5 @@ class C {
 }
 
 main() {
-  try {
-    var c = const C();
-  } catch (e) {}
+  const C();
 }

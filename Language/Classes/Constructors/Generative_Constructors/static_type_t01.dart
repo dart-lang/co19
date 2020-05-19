@@ -18,5 +18,5 @@ class C {
 }
 
 main() {
-  new C(null);
+  new C(42);
 }

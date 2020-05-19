@@ -11,6 +11,7 @@
  * initializers appear in an initializer list.
  * @compile-error
  * @author vasya
+ * @issue 41965
  */
 
 class C {
@@ -19,8 +20,5 @@ class C {
 }
 
 main() {
-  try {
-    C c = new C(0, 1);
-    print(c.x);
-  } catch (x) {}
+  new C(0, 1);
 }

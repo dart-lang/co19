@@ -26,7 +26,5 @@ class C {
 }
 
 main() {
-  try {
-    C c = new C("Initialization by means of an initializing formal of k");
-  } catch (x) {}
+  new C("Initialization by means of an initializing formal of k");
 }

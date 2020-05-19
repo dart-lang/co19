@@ -24,7 +24,5 @@ class B extends AAlias {
 }
 
 main() {
-  try {
-    var x = new B();
-  } catch (x) {}
+  new B();
 }

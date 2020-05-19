@@ -23,7 +23,7 @@ class A {
 }
 
 class B {
-  B([this.x =1 , this.y = 2]);
+  B([this.x = 1 , this.y = 2]);
   var x;
   var y;
 }
@@ -56,6 +56,4 @@ main() {
 
   var c = new C(2);
   Expect.equals(2, c.c);
-  c = new C(null);
-  Expect.equals(null, c.c);
 }
