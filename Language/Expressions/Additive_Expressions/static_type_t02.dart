@@ -19,7 +19,6 @@
  * @static-clean
  * @author ngl@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   int i1 = 1 + 1;

@@ -20,7 +20,6 @@
  * as left operand in an additive expression. It is a compile error.
  * @compile-error
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 typedef f();
 

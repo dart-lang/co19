@@ -18,7 +18,6 @@
  * @static-clean
  * @author ilya
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 int f1(int x, int y) => x + y;
 int f2(int x, int y) => x - y;

@@ -10,7 +10,6 @@
  * equivalent to the method invocation super.op(e2).
  * @author kaigorodov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

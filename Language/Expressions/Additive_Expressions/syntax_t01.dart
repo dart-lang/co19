@@ -20,7 +20,6 @@
  * cause compile-time errors.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 topLevelFunction() {}
 
