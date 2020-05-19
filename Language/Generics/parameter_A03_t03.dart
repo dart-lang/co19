@@ -16,7 +16,6 @@
  * supertype of its upper bound.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 class A<T1> {}
 class B<T1, T2> {}

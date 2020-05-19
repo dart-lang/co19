@@ -15,7 +15,6 @@
  * type arguments
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class C1<T1 extends num?, T2 extends T1> {}
 class C2<T1 extends int?, T2 extends Function?, T3 extends num?, T4 extends List?> {}

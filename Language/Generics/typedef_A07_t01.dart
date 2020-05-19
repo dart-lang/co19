@@ -25,7 +25,7 @@
  * is incorrect for [typedef] which defines class.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A<T> {}
 class B<T1, T2> {}

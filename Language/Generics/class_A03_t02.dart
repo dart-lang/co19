@@ -19,7 +19,6 @@
  * generic class [C0] with several parameters.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import "dart:async";
 import "../../Utils/expect.dart";

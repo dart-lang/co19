@@ -17,7 +17,6 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 typedef void Alias1<T> = null;
 

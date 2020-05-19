@@ -13,7 +13,6 @@
  * @Issue 29388
  * @author iefremov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class C<T, U> {}
 

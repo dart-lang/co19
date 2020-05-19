@@ -26,7 +26,7 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A<X extends num> {}
 typedef AAlias<Y extends String> = A<Y>;

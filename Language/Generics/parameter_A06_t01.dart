@@ -10,7 +10,6 @@
  * in a type test in static context.
  * @author iefremov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class C<T> {
   static bool f() {

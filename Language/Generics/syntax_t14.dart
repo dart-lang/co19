@@ -11,7 +11,6 @@
  * @compile-error
  * @author kaigorodov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class C<T extend >{}
 

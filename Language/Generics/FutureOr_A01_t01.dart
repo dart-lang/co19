@@ -11,7 +11,6 @@
  */
 import "dart:async";
 import "../../Utils/expect.dart";
-// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   FutureOr x1;

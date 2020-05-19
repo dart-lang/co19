@@ -16,7 +16,6 @@
  * argument
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class A<T> {}
 class C<T extends C<T>> {}

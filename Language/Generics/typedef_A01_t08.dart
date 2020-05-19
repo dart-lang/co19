@@ -16,7 +16,7 @@
  * @description Checks that [T] can be [dynamic], [void], [Null], [FutureOr].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 import "dart:async";
 

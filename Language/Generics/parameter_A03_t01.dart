@@ -16,7 +16,6 @@
  * supertype of its upper bound.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class G1<X extends X> {}                           //# 01: compile-time error
 class G2<X extends Y, Y extends X> {}              //# 02: compile-time error

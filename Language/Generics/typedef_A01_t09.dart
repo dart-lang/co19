@@ -16,7 +16,6 @@
  * @description Checks that [T] should be a type.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 my_function<T>() {}
 

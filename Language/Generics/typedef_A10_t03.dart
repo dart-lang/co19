@@ -10,7 +10,6 @@
  * typedef with type parameter.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 typedef void MyTypedef(int);
 

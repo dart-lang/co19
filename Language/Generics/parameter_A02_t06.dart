@@ -13,7 +13,6 @@
  * @static-clean
  * @author iefremov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class G<T> {}
 typedef f();

@@ -12,7 +12,6 @@
  * @description checks that error appears if number of type parameters is
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 void testme1<T>() {}
 T1 testme2<T1, T2>(T2) {}

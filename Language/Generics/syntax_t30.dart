@@ -16,7 +16,6 @@
  * @Issue 36946
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class A<X> {}
 class test<X extends A> = A<X extends A<X>>;

@@ -9,7 +9,6 @@
  * @description Checks various correct generic function declarations.
  * @author iarkh@unipro.ru
 */
-// SharedOptions=--enable-experiment=non-nullable
 
 import "../../Utils/expect.dart";
 

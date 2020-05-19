@@ -15,7 +15,6 @@
  * argument
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class C1<T extends num?> {}
 

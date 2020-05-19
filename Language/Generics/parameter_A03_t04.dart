@@ -16,7 +16,6 @@
  * supertype of its upper bound.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 typedef void Alias1<X extends X>(X);                                 //# 01: compile-time error
 typedef void Alias2<X extends Y, Y extends X>(X, Y);                 //# 02: compile-time error

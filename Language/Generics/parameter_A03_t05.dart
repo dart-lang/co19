@@ -16,7 +16,6 @@
  * supertype of its upper bound.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 void func1<X extends X>(X) {}                                 //# 01: compile-time error
 void func2<X extends Y, Y extends X>(X, Y) {}                 //# 02: compile-time error

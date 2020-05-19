@@ -24,7 +24,7 @@
  * @description Checks that compile error is thrown if [U] is not well-bounded.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A<T extends A<T>> {}
 typedef AAlias<T> = A<T>;

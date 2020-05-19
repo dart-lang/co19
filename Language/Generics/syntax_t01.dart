@@ -9,7 +9,6 @@
  * @description Checks that class can be declared with formal type parameters.
  * @author pagolubev
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import "../../Utils/expect.dart";
 

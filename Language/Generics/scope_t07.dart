@@ -11,9 +11,7 @@
  * @description Checks that example of F-bounded quantification is parsed
  * correctly.
  * @author kaigorodov
- * @reviewer rodionov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class Enum<E extends Enum<E>> {}
 class Things extends Enum<Things> {}

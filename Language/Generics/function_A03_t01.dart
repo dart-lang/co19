@@ -14,7 +14,6 @@
  * @description checks that error appears if some parameter type is incorrect.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class A {}
 class B extends A {}
