@@ -15,7 +15,6 @@
  * @compile-error
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   var e1 = "";

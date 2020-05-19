@@ -13,7 +13,6 @@
  * @description Checks that a conditional expression is evaluated correctly.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

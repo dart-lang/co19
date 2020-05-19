@@ -13,7 +13,6 @@
  * @description Checks that only one of e2 and e3 is evaluated.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

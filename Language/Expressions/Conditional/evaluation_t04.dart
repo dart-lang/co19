@@ -13,7 +13,6 @@
  * @description Checks that o1 is subjected to boolean conversion.
  * @author kaigorodov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

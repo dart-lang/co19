@@ -11,7 +11,6 @@
  * @static-clean
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 main() {
     num n = (true ? 1 : 0.5);
