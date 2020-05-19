@@ -9,9 +9,9 @@
  *  enumType:
  *  metadata enum id ‘{’ id [‘, ’ id]* [‘, ’] ‘}’
  *  ;
- * @description Checks that it no compile error if declared constant values
+ * @description Checks that there is a compile error if declared constant values
  * are separated with two commas.
- * @static-clean
+ * @compile-error
  * @author ngl@unipro.ru
  */
 import "../../Utils/expect.dart";
@@ -20,5 +20,4 @@ enum E {a,, b}
 
 main() {
   E e = E.b;
-  Expect.equals(e, E.b);
 }
