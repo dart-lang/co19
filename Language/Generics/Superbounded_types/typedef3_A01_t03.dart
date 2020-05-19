@@ -10,7 +10,7 @@
  * alias with well bounded type parameter is declared
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A<T extends A<T>> {}
 

@@ -14,7 +14,6 @@
  * as an element in the type list of an [implements] clause
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class A<T extends A<T>> {}
 

@@ -11,7 +11,6 @@
  * @Issue 37028, 37050
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class A<T extends A<T>> {}
 

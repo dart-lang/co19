@@ -11,7 +11,6 @@
  * @Issue 37061
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class A<X extends A<X>> {}
 void testme<X extends Y, Y extends A<X>>() {}

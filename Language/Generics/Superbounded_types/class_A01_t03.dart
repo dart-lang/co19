@@ -10,7 +10,6 @@
  * bounded type parameter is declared
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class A<T extends A<T>> {}
 

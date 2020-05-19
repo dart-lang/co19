@@ -13,7 +13,6 @@
  * @Issue 37048
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class A<X> {
   A() {}

@@ -10,7 +10,6 @@
  * function with two dependant well bounded type parameters
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class A<X extends A<X>> {}
 void testme<X extends Y, Y extends A<X>>() {}

@@ -12,7 +12,6 @@
  * used with constructor in the constant object expression.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class A<T extends A<T>> {
   const A();

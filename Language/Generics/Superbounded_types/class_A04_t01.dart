@@ -14,7 +14,6 @@
  * an immediate subterm of the [extends] clause.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class A<T extends A<T>> {}
 
