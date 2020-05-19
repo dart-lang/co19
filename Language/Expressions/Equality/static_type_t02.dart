@@ -9,7 +9,6 @@
  * @compile-error
  * @author kaigorodov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   int b = (1 == 1);

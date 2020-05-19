@@ -19,7 +19,6 @@
  * in an equality expression without a compile error.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class A<T> {
   test() {

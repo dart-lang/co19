@@ -15,7 +15,6 @@
  * method invocation o1.==(o2).
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

@@ -9,7 +9,6 @@
  * @static-clean
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   bool b;

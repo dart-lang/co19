@@ -16,7 +16,6 @@
  * of whichever operand is not null never gets invoked.
  * @author kaigorodov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 
