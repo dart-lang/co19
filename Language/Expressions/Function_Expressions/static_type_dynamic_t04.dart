@@ -15,10 +15,9 @@
  * to a variable of a function type with incompatible parameter types.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
-typedef int foo(int x, String y, [double a, double b]);
+typedef int? foo(int x, String y, [double? a, double? b]);
 
 main() {
-  foo f = (int x, int y, [double a, double b]) {};
+  foo f = (int x, int y, [double? a, double? b]) {};
 }

@@ -17,9 +17,8 @@
  * @author ngl@unipro.ru
  */
 
-typedef int futureFunc(int p1, {int p2});
+typedef int futureFunc(int p1, {int? p2});
 
 main() {
-  futureFunc ff1 = (int p1, {int p2}) async {return 2;};
-  ff1(1, p2:3);
+  futureFunc ff1 = (int p1, {int? p2}) async { return 2; };
 }

@@ -13,9 +13,9 @@
  * of the form (T1 a1,...,Tn an, {Tn+1 xn+1 = d1,...,Tn+k xn+k = dk}) async {s}
  * with two parameters is assigned to a variable of a function type with
  * parameters that do not correspond to function literal parameters.
- * @compile-error
  * @author ngl@unipro.ru
  */
+
 import 'dart:async';
 
 typedef Future futureFunc();
@@ -23,4 +23,8 @@ typedef Future futureFunc();
 main() {
   futureFunc ff1 = () async {};
   ff1 = (int p1, {int p2: 1}) async {};
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

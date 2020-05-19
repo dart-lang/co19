@@ -15,12 +15,10 @@
  * to a variable of a function type with incompatible parameter types.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
-import '../../../Utils/dynamic_check.dart';
 
-typedef int foo(int x, String y, {double a, double b});
+typedef int foo(int x, String y, {double? a, double? b});
 
 main() {
-  foo f = (int x, int y, {double a, double b}) {};
+  foo f = (int x, int y, {double? a, double? b}) { return 0; };
 }

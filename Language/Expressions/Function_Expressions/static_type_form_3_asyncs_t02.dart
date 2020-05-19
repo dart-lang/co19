@@ -16,12 +16,18 @@
  * @compile-error
  * @author ngl@unipro.ru
  */
+
 import 'dart:async';
 
 typedef Stream streamFuncParam(int p1, {bool p2});
 
 main() {
-  streamFuncParam sfp1 = (int p1, {bool p2}) async* {};
-  sfp1 = (int p1, {int p2}) async* {};
+  streamFuncParam sfp1 = (int p1, {bool? p2}) async* {};
+  sfp1 = (int p1, {int? p2}) async* {};
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+
   sfp1(2);
 }

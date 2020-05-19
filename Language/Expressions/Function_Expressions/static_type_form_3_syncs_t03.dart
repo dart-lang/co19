@@ -16,11 +16,11 @@
  * @compile-error
  * @author ngl@unipro.ru
  */
+
 import 'dart:async';
 
-typedef Future iterFuncParam(List p1, {List p2});
+typedef Future iterFuncParam(List p1, {List? p2});
 
 main() {
-  iterFuncParam ifp1 = (List p1, {List p2}) sync* {};
-  ifp1([]);
+  iterFuncParam ifp1 = (List p1, {List? p2}) sync* {};
 }

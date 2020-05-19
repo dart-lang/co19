@@ -13,7 +13,6 @@
  * ['=>' expression ';']
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 f(var func) {

@@ -16,12 +16,11 @@
  * @static-clean
  * @author ngl@unipro.ru
  */
-import 'dart:async';
 
 typedef Iterable iterFunc();
-typedef Iterable iterFuncParam(List p1, {List p2});
+typedef Iterable iterFuncParam(List p1, {List? p2});
 
 main() {
   iterFunc if1 = () sync* {};
-  iterFuncParam ifp1 = (List p1, {List p2}) sync* {};
+  iterFuncParam ifp1 = (List p1, {List? p2}) sync* {};
 }

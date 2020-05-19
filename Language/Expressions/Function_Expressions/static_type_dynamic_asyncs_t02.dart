@@ -13,15 +13,18 @@
  * the form (T1 a1,...,Tn an, [Tn+1 xn+1 = d1,...,Tn+k xn+k = dk]) async* {s}
  * with two parameters is assigned to a variable of a function type with two
  * parameters that do not correspond to function literal parameters.
- * @compile-error
  * @author ngl@unipro.ru
  */
+
 import 'dart:async';
 
-typedef Stream streamFuncParam(int p1, [bool p2]);
+typedef Stream streamFuncParam(int p1, [bool? p2]);
 
 main() {
-  streamFuncParam sfp1 = (int p1, [bool p2]) async* {};
-  sfp1 = (int p1, [int p2]) async* {};
-  sfp1(3);
+  streamFuncParam sfp1 = (int p1, [bool? p2]) async* {};
+
+  sfp1 = (int p1, [int? p2]) async* {};
+//       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

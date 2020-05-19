@@ -16,10 +16,10 @@
  * of e is int to a variable of a function type with incompatible parameters.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
-typedef int foo(int x, String y, [double a, double b]);
+
+typedef int foo(int x, String y, [double? a, double? b]);
 
 main() {
-  foo f = (int x, int y, [double a, double b]) => 1;
+  foo f = (int x, int y, [double? a, double? b]) => 1;
 }

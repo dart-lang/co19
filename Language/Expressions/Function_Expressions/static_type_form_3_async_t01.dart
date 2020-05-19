@@ -16,17 +16,18 @@
  * @static-clean
  * @author ngl@unipro.ru
  */
+
 import 'dart:async';
 
 typedef Future futureFunc();
-typedef Future futureFuncParam(int p1, {int p2});
+typedef Future futureFuncParam(int p1, {int? p2});
 
 main() {
   futureFunc ff1 = () async {};
   futureFunc ff2 = () async {return true;};
   futureFunc ff3 = () async {return 1;};
 
-  futureFuncParam ffp1 = (int p1, {int p2}) async {};
-  futureFuncParam ffp2 = (int p1, {int p2}) async {return true;};
-  futureFuncParam ffp3 = (int p1, {int p2}) async {return 1;};
+  futureFuncParam ffp1 = (int p1, {int? p2}) async {};
+  futureFuncParam ffp2 = (int p1, {int? p2}) async { return true; };
+  futureFuncParam ffp3 = (int p1, {int? p2}) async { return 1; };
 }

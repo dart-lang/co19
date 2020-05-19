@@ -16,12 +16,13 @@
  * @static-clean
  * @author ngl@unipro.ru
  */
+
 import 'dart:async';
 
 typedef Stream streamFunc();
-typedef Stream streamFuncParam(int p1, {bool p2});
+typedef Stream streamFuncParam(int p1, {bool? p2});
 
 main() {
   streamFunc sf1 = () async* {};
-  streamFuncParam sfp1 = (int p1, {bool p2}) async* {};
+  streamFuncParam sfp1 = (int p1, {bool? p2}) async* {};
 }

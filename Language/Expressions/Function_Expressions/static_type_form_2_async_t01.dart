@@ -16,17 +16,18 @@
  * @static-clean
  * @author ngl@unipro.ru
  */
+
 import 'dart:async';
 
-typedef Future<bool> boolFuncParam(bool p1, {bool p2});
-typedef Future<Object> objBoolFuncParam(bool p1, {bool p2});
-typedef Future<List> listFuncParam({Map m});
-typedef Future<Object> objListFuncParam({Map m});
+typedef Future<bool> boolFuncParam(bool p1, {bool? p2});
+typedef Future<Object> objBoolFuncParam(bool p1, {bool? p2});
+typedef Future<List> listFuncParam({Map? m});
+typedef Future<Object> objListFuncParam({Map? m});
 
 main() {
-  boolFuncParam bfp = (bool p1, {bool p2}) async => false;
-  objBoolFuncParam ofp = (bool p1, {bool p2: false}) async => true;
+  boolFuncParam bfp = (bool p1, {bool? p2}) async => false;
+  objBoolFuncParam ofp = (bool p1, {bool? p2: false}) async => true;
 
-  listFuncParam lfp = ({Map m: const {}}) async => [m];
-  objListFuncParam olfp = ({Map m}) async => [[m]];
+  listFuncParam lfp = ({Map? m: const {}}) async => [m];
+  objListFuncParam olfp = ({Map? m}) async => [[m]];
 }

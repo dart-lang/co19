@@ -14,14 +14,19 @@
  * the form (T1 a1,...,Tn an, {Tn+1 xn+1 = d1,...,Tn+k xn+k = dk}) async => e
  * with two parameters is assigned to a variable of a function type with three
  * parameters.
- * @compile-error
  * @author ngl@unipro.ru
  */
+
 import 'dart:async';
 
 typedef Future<bool> boolFuncParam(bool p1, bool p2, {bool p3});
 
 main() {
-  boolFuncParam bfp = (bool p1, bool p2, {bool p3}) async => true;
-  bfp = (bool p1, {bool p2}) async => false;
+  boolFuncParam bfp = (bool p1, bool p2, {bool? p3}) async => true;
+
+  bfp = (bool p1, {bool? p2}) async => false;
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

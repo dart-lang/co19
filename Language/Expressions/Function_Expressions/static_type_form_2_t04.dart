@@ -16,10 +16,8 @@
  * to a variable whose type is not a function type.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
-import '../../../Utils/dynamic_check.dart';
 
 main() {
-  bool b = (int x, int y, {double a, double b}) => 1;
+  bool b = (int x, int y, {double? a, double? b}) => 1;
 }

@@ -20,6 +20,5 @@
 typedef int futureFuncParam(int p1, [int p2]);
 
 main() {
-  futureFuncParam ffp1 = (int p1, [int p2]) async {return 5;};
-  ffp1(3);
+  futureFuncParam ffp1 = (int p1, [int? p2]) async { return 5; };
 }

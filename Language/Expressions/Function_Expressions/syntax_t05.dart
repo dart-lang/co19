@@ -12,7 +12,6 @@
  * @description Checks that various valid function literal invocation
  * expressions don't produce compile-time errors.
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 abstract class I {}
@@ -21,14 +20,14 @@ typedef tf();
 
 main() {
   () {}();
-  (k) {return k;}(1);
+  (k) { return k; }(1);
   (() => 1)();
-  ((C x, y) => new C())(null, null);
-  ((C p1, tf p2, [tf p3]) => null)(null, null);
-  ((C p1, tf p2, {tf p3}) => null)(null, null);
+  ((C? x, y) => new C())(null, null);
+  ((C? p1, tf? p2, [tf? p3]) => null)(null, null);
+  ((C? p1, tf? p2, {tf? p3}) => null)(null, null);
 
-  (tf p1, tf p2, [tf p3]) => null();
+  (tf? p1, tf? p2, [tf? p3]) => null;
   try {
-    ((tf p1, tf p2, [tf p3]) => null())(null, null); //null() is parsed as a closure invocation
+    ((tf? p1, tf? p2, [tf? p3]) => null)(null, null);
   } catch (x) {}
 }

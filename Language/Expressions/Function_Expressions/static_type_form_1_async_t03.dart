@@ -20,11 +20,11 @@
  * @compile-error
  * @author ngl@unipro
  */
+
 import 'dart:async';
 
 typedef Future<bool> boolFunc();
 
 main() {
   boolFunc intf = () async => 1;
-  intf();
 }

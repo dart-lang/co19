@@ -8,14 +8,14 @@
  * Function.
  * @description Checks that a function literal implements interface Function.
  * @author msyabro
- * @reviewer kaigorodov
  */
+
 import '../../../Utils/expect.dart';
 
 main() {
   Expect.isTrue(() {} is Function);
   Expect.isTrue((() => 1) is Function);
   Expect.isTrue(((p1, p2) {}) is Function);
-  Expect.isTrue(((p1, [int p2]) {}) is Function);
+  Expect.isTrue(((p1, [int? p2]) {}) is Function);
   Expect.isTrue(((p1, {int p2: 1}) {}) is Function);
 }

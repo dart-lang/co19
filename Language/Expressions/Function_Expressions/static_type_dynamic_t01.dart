@@ -16,31 +16,30 @@
  * to have been specified as dynamic.
  * @static-clean
  * @author msyabro
- * @reviewer rodionov
  */
 
 typedef dynamic dynFunc();
-typedef dynamic dynFuncBoolParam(bool p1, [bool p2]);
-typedef dynamic dynFuncIntParam(int p1, [int p2]);
-typedef dynamic dynFuncStringParam(String p1, [String p2]);
-typedef dynamic dynFuncListParam(List p1, [List p2]);
+typedef dynamic dynFuncBoolParam(bool p1, [bool? p2]);
+typedef dynamic dynFuncIntParam(int p1, [int? p2]);
+typedef dynamic dynFuncStringParam(String p1, [String? p2]);
+typedef dynamic dynFuncListParam(List p1, [List? p2]);
 
 main() {
   dynFunc df = () {};
 
-  dynFuncBoolParam dfbp = (bool p1, [bool p2]) {return 1;};
-  dfbp = (bool p1, [bool p2 = true]) {var x = p1;};
+  dynFuncBoolParam dfbp = (bool p1, [bool? p2]) { return 1; };
+  dfbp = (bool p1, [bool? p2 = true]) { var x = p1; };
   dfbp = (a, [p2]) {};
 
-  dynFuncIntParam dfip = (int p1, [int p2]) {[1][0];};
-  dfip = (int p1, [int p2]) {return p1 + p2;};
+  dynFuncIntParam dfip = (int p1, [int? p2]) { [1][0]; };
+  dfip = (int p1, [int? p2]) { return p1 + (p2 as int); };
   dfip = (a, [p2]) {};
 
-  dynFuncStringParam dfsp = (String s1, [String p2]) {return "";};
-  dfsp = (String s1, [String p2]) {10 << 2;};
+  dynFuncStringParam dfsp = (String s1, [String? p2]) { return ""; };
+  dfsp = (String s1, [String? p2]) { 10 << 2; };
   dfsp = (a, [p2]) {};
 
-  dynFuncListParam dflp = (List p1, [List p2]) {};
-  dflp = (List l1, [List p2]) {return {};};
+  dynFuncListParam dflp = (List p1, [List? p2]) {};
+  dflp = (List l1, [List? p2]) { return {}; };
   dflp = (a, [p2]) {};
 }

@@ -12,12 +12,11 @@
  * @description Checks that identifier can be omitted as long as the return
  * type is omitted as well.
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
   () {};
   () => null;
-  (int p1, double p2) {return 1;};
-  (String s, [bool b]) => [];
+  (int p1, double p2) { return 1; };
+  (String s, [bool? b]) => [];
 }

@@ -16,13 +16,12 @@
  * of e is int to a variable of a function type with a boolean return type.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
-typedef bool foo(int x, int y, [double a, double b]);
+typedef bool foo(int x, int y, [double? a, double? b]);
 
-foo f;
+foo? f = null;
 
 main() {
-  f = (int x, int y, [double a, double b]) => 1;
+  f = (int x, int y, [double? a, double? b]) => 1;
 }

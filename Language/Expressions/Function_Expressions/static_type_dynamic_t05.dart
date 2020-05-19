@@ -15,9 +15,8 @@
  * to a variable whose type is not a function type.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  bool b = (int x, int y, [double a, double b]) {var x = 0; ++x; return ++x;};
+  bool b = (int x, int y, [double? a, double? b]) { var x = 0; ++x; return ++x; };
 }

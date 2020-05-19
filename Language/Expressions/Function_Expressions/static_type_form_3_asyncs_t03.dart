@@ -16,11 +16,11 @@
  * @compile-error
  * @author ngl@unipro.ru
  */
+
 import 'dart:async';
 
-typedef Future funcParam(int p1, {bool p2});
+typedef Future funcParam(int p1, {bool? p2});
 
 main() {
-  funcParam sfp1 = (int p1, {bool p2}) async* {};
-  sfp1(2);
+  funcParam sfp1 = (int p1, {bool? p2}) async* {};
 }

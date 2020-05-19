@@ -16,8 +16,9 @@
  * @compile-error
  * @author ngl@unipro.ru
  */
-typedef Iterable iterFuncParam(List p1, {List p2});
+
+typedef Iterable iterFuncParam(List p1, {List? p2});
 
 main() {
-  iterFuncParam ifp1 = (List p1, {Map p2}) sync* {};
+  iterFuncParam ifp1 = (List p1, {Map? p2}) sync* {};
 }

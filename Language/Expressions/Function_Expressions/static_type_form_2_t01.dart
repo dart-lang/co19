@@ -16,16 +16,15 @@
  * (T1,...,Tn, {Tn+1 xn+1,...,Tn+k xn+k}) -> T0.
  * @static-clean
  * @author kaigorodov
- * @reviewer rodionov
  */
 
-typedef bool boolFuncParam(bool p1, {bool p2});
-typedef List listFuncParam({Map m});
+typedef bool boolFuncParam(bool p1, {bool? p2});
+typedef List listFuncParam({Map? m});
 
 main() {
-  boolFuncParam bfp = (bool p1, {bool p2}) => false;
-  bfp = (bool p1, {bool p2: false}) => false && true;
+  boolFuncParam bfp = (bool p1, {bool? p2}) => false;
+  bfp = (bool p1, {bool? p2: false}) => false && true;
 
-  listFuncParam lfp = ({Map m: const {}}) => [m];
-  lfp = ({Map m}) => [[m]];
+  listFuncParam lfp = ({Map? m: const {}}) => [m];
+  lfp = ({Map? m}) => [[m]];
 }

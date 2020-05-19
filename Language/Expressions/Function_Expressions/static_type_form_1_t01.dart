@@ -16,10 +16,9 @@
  * is (T1,...,Tn, [Tn+1 xn+1,...,Tn+k xn+k]) -> T0.
  * @static-clean
  * @author msyabro
- * @reviewer rodionov
  */
 
-int libf() {}
+int libf() { return 1; }
 
 typedef bool boolFunc();
 typedef int intFunc();
@@ -51,7 +50,7 @@ main() {
   listFunc lf = () => [];
   lf = () => const [1, 2, 3];
 
-  boolFuncParam bfp = (bool p1, [bool p2]) => false;
+  boolFuncParam bfp = (bool p1, [bool? p2]) => false;
   bfp = (bool p1, [bool p2 = false]) => false && true;
 
   intFuncParam ifp = (int p1, int p2) => 0;
@@ -61,5 +60,5 @@ main() {
   sfp = (String p) => "";
 
   listFuncParam lfp = ([Map m = const {}]) => [m];
-  lfp = ([Map m]) => [[m]];
+  lfp = ([Map? m]) => [[m]];
 }

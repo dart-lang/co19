@@ -19,6 +19,7 @@
  * @static-clean
  * @author ngl@unipro
  */
+
 import 'dart:async';
 
 typedef Future<int> intFunc();

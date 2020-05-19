@@ -12,7 +12,6 @@
  * @description Checks that the function body is required.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {

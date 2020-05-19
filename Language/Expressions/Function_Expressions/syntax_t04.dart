@@ -13,7 +13,6 @@
  * ['=>' expression ';'].
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
