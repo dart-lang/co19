@@ -16,7 +16,6 @@
  * correctly if e1 is a constant type literal
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

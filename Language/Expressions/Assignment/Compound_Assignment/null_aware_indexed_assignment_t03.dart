@@ -14,7 +14,6 @@
  * are distinct fresh variables that are not used in e3.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../../Utils/expect.dart';
 

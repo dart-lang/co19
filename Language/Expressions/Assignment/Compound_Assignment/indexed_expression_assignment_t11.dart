@@ -11,7 +11,6 @@
  * e1[e2] |= e3 is equivalent to ((a, i) => a[i] = a[i] | e3)(e1, e2).
  * @author rodionov
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../../Utils/expect.dart';
 

@@ -12,7 +12,6 @@
  * set only if e1[e2] == null. Test the case when part of e1 is prefix
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../../Utils/expect.dart';
 import 'null_aware_assignment_lib.dart' as lib;

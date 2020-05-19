@@ -17,7 +17,6 @@
  * the assignment expression is o.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

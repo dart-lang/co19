@@ -19,10 +19,8 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
-class A {
-}
+class A {}
 
 class C extends A {
   test() {

@@ -15,7 +15,6 @@
  * interface of the class of o2 is not a subtype of the actual type of e1.v.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/dynamic_check.dart';
 

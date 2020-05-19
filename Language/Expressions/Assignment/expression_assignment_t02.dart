@@ -15,7 +15,6 @@
  * @description Checks that if evaluation of e1 failed then e2 is not evaluated
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

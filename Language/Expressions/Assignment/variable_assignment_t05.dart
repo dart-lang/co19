@@ -16,7 +16,6 @@
  * variable declared outside of a closure is evaluated correctly inside of it.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

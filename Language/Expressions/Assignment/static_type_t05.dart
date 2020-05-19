@@ -19,7 +19,6 @@
  * @static-clean
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class C {
   static set v(val) {}

@@ -13,7 +13,6 @@
  * the class of o is not a subtype of the actual type of S.v
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/dynamic_check.dart';
 

@@ -15,7 +15,6 @@
  * of a static setter in class C, is equivalent to the assignment C.v = e.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

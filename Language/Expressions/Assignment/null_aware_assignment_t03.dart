@@ -11,7 +11,6 @@
  * to the evaluation of the to e1.v = e2 if e1 is a type literal
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

@@ -10,7 +10,6 @@
  * to ((x) => x.v = x.v & e2)(e1) where x is a variable that is not used in e2.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../../Utils/expect.dart';
 

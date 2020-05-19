@@ -16,7 +16,6 @@
  * case when superclass also has a superclass
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

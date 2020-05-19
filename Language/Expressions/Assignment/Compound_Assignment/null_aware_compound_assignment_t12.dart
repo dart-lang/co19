@@ -12,7 +12,7 @@
  * not used in e2
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=triple-shift,non-nullable
+// SharedOptions=--enable-experiment=triple-shift
 
 import '../../../../Utils/expect.dart';
 

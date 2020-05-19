@@ -25,25 +25,16 @@
  * @author sgrekhov@unipro.ru
  * @compile-error
  */
-// SharedOptions=--enable-experiment=non-nullable
-
-import '../../../Utils/expect.dart';
 
 class TestException {}
 
 class A {
-  noSuchMethod(Invocation im) {
-    Expect.isTrue(im.isSetter);
-    Expect.equals(const Symbol("v="), im.memberName);
-    Expect.listEquals(const [1], im.positionalArguments);
-    Expect.mapEquals(const {}, im.namedArguments);
-    throw new TestException();
-  }
+  noSuchMethod(Invocation im) => throw new TestException();
 }
 
 class C extends A {
   test() {
-    Expect.throws(() {super.v = 1;}, (e) => e is TestException);
+    super.v = 1;
   }
 }
 

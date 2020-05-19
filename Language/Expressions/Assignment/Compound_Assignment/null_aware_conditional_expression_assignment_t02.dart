@@ -12,7 +12,6 @@
  * only if e1.v == null and returns null if e1 == null
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../../Utils/expect.dart';
 

@@ -13,7 +13,6 @@
  * distinct fresh variables that are not used in e2.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../../Utils/expect.dart';
 

@@ -22,7 +22,6 @@
  * argument if there is no setter for v in o1.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 

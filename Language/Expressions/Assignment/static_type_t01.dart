@@ -19,7 +19,6 @@
  * @author kaigorodov
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class C {
 }

@@ -10,7 +10,7 @@
  * to C.v = C.v >>> e.
  * @author iarkh
  */
-// SharedOptions=--enable-experiment=triple-shift,non-nullable
+// SharedOptions=--enable-experiment=triple-shift
 
 import '../../../../Utils/expect.dart';
 
