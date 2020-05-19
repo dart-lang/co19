@@ -12,8 +12,9 @@
  * result of evaluating the expression e3.
  * @description Checks that a conditional expression is evaluated correctly.
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 main() {

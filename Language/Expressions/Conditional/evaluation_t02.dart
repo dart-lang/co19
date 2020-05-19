@@ -12,8 +12,9 @@
  * result of evaluating the expression e3.
  * @description Checks that only one of e2 and e3 is evaluated.
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 main() {

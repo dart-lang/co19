@@ -10,18 +10,17 @@
  * an upper bound of the static type of e2 and the static type of e3.
  * @static-clean
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/dynamic_check.dart';
 
 main() {
-  int i = (true ? 1 : 0.5); // int <=> num
+  num i = (true ? 1 : 0.5); // int <=> num
 
   double d = (true ? 1.0 : 0); // double <=> num
 
-  checkTypeError(() {
-    bool b = (false ? true : []); // bool <=> Object
-  });
+  Object b = (false ? true : []); // bool <=> Object
 
-  List l = (false ? true : []); // List <=> Object
+  Object l = (false ? true : []); // List <=> Object
 }

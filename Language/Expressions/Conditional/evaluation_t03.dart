@@ -14,8 +14,8 @@
  * a bool object.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   var e1 = "";

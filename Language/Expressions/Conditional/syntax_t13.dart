@@ -14,8 +14,8 @@
  * used as one of expressions in a conditional expression without a compile
  * error.
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 typedef int fun();
 

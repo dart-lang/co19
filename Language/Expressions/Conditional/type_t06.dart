@@ -15,6 +15,7 @@
  * type of v is not known to be any promoted type in e2.
  * @author ilya
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class C {}
 class D extends C {

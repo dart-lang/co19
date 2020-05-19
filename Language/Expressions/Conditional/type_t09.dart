@@ -17,6 +17,8 @@
  * to be T in e2.
  * @author ilya
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 class C {}

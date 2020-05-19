@@ -10,8 +10,8 @@
  * not be assigned to bool.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 main() {
   "" ? true : false;

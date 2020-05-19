@@ -13,8 +13,8 @@
  * @description Checks that a reference to a class declaration can be used
  * as one of expressions in a conditional expression without a compile error.
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A {}
 

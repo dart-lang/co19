@@ -14,8 +14,8 @@
  * as the condition in a conditional expression without a compile error.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class A {}
 

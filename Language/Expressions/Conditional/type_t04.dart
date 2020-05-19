@@ -17,6 +17,7 @@
  * @static-clean
  * @author ilya
  */
+// SharedOptions=--enable-experiment=non-nullable
 
 class C {}
 class D extends C {

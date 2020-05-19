@@ -12,8 +12,9 @@
  * result of evaluating the expression e3.
  * @description Checks that o1 is subjected to boolean conversion.
  * @author kaigorodov
- * @reviewer iefremov
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 bool checkTrue(var e1) {

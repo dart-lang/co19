@@ -10,8 +10,9 @@
  * neither Object nor Dynamic.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 class A {}
 
 main() {

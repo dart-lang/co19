@@ -9,8 +9,9 @@
  * @description Checks that different whitespace characters and line terminators
  * are allowed in conditional expressions.
  * @author hlodvig
- * @reviewer kaigorodov
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 import '../../../Utils/expect.dart';
 
 main() {
