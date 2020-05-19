@@ -10,7 +10,6 @@
  * ((x) => x == null ? null : x.id)(e).
  * @author ngl@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import '../../../Utils/expect.dart';
 
