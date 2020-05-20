@@ -33,5 +33,9 @@ dynamic getNull() => null;
 main() {
   asyncStart();
   Future f = Future<Object>(() => Future<Object?>(() => getNull()));
-  f.then((value) {}, onError:(e) => asyncEnd());
+  f.then((value) => asyncEnd());
+
+  asyncStart();
+  Future f1 = Future<Object?>(() => Future<Object>(() => getNull()));
+  f1.then((value) {}, onError:(e) => asyncEnd());
 }
