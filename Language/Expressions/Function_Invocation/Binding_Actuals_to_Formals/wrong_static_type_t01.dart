@@ -12,10 +12,7 @@
  * top-level function.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
-
-import '../../../../Utils/dynamic_check.dart';
 
 func(int x) {}
 

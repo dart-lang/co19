@@ -13,11 +13,10 @@
  * static method.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {
-  static func([int x]) {}
+  static func([int? x]) {}
 
   test() {
     func ('');

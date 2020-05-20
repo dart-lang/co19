@@ -12,8 +12,7 @@
  * less than number of positional parameters of a function literal.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
- */
+  */
 
 main() {
   (p1, p2, p3) {} (1);

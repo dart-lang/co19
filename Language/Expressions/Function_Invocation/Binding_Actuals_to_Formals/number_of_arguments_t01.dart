@@ -12,7 +12,6 @@
  * less than number of positional parameters of a top-level function.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 func(p1, p2, p3) {}

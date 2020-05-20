@@ -10,7 +10,6 @@
  * not match with any name of optional named parameters of an instance method.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {

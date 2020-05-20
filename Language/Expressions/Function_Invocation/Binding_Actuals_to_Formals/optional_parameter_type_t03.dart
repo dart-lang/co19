@@ -13,11 +13,10 @@
  * instance method.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {
-  func([int x]) {}
+  func([int? x]) {}
 
   test() {
     func ('');

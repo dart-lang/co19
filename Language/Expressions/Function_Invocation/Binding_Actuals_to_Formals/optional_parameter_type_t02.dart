@@ -13,10 +13,9 @@
  * function literal.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 main() {
-  var f = () => ([int x]) {};
+  var f = () => ([int? x]) {};
   f('');
 }

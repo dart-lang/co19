@@ -20,7 +20,6 @@
  * All remaining formal parameters of f are bound to their default values.
  * @description Checks that actual parameters are bound correctly.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

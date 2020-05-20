@@ -9,10 +9,9 @@
  * named arguments with the same name in a function invocation expression.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
-func({int np1, int np2, int np3}) {}
+func({int? np1, int? np2, int? np3}) {}
 
 main() {
   try {

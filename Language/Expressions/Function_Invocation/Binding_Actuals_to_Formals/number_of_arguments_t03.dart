@@ -12,7 +12,6 @@
  * less than number of positional parameters of an instance method.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {

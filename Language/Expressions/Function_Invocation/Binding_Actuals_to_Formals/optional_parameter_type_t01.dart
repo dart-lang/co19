@@ -13,10 +13,9 @@
  * top-level function.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
-func([int x]) {}
+func([int? x]) {}
 
 main() {
   func('');

@@ -10,7 +10,6 @@
  * not match with any name of optional named parameters of a top-level function.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 func({p1, p2, p3}) {}

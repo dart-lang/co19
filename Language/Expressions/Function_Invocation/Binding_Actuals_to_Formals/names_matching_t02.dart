@@ -10,7 +10,6 @@
  * not match with any name of optional named parameters of a function literal.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 main() {

@@ -10,7 +10,6 @@
  * is not null and its actual type (bool) is not a subtype of the corresponding
  * positional parameter's type (int).
  * @author msyabro
- * @reviewer rodionov
  */
 
 import '../../../../Utils/dynamic_check.dart';

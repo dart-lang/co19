@@ -10,16 +10,15 @@
  * is not null and its actual type (bool) is not a subtype of the corresponding
  * named parameter's type (int).
  * @author msyabro
- * @reviewer rodionov
  */
 
 import '../../../../Utils/dynamic_check.dart';
 
-func(int p1, int p2, {int np1, int np2, int np3}) {}
+func(int p1, int p2, {int? np1, int? np2, int np3 = 0}) {}
 
 main() {
   dynamic thirdParam = true;
   checkTypeError( () {
-    func(1, 2, np1: 1, np2: 2, np3:thirdParam);
+    func(1, 2, np1: 1, np2: 2, np3: thirdParam);
   });
 }

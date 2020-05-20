@@ -12,7 +12,6 @@
  * function literal.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 main() {

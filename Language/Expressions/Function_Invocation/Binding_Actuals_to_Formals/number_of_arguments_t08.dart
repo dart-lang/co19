@@ -12,7 +12,6 @@
  * than there're formal parameters are provided to a static method invocation.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class C {

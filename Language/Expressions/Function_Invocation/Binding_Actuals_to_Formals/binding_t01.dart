@@ -22,7 +22,6 @@
  * parameters is less than the number of formal positional parameters.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 func(p1, p2, [p3]) {}

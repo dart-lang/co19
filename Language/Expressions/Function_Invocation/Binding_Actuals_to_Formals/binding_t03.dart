@@ -21,7 +21,6 @@
  * @description Checks that all formal parameters that are not in the actual
  * argument list are bound to their default values.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 
