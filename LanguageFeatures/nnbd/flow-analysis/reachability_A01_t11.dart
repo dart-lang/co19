@@ -17,31 +17,21 @@
  *  Let null(N) = unreachable(before(N)).
  *  Let notNull(N) = before(N).
  *
- * @description Checks reachability after variable or getter. Test variable of
- * type Never
+ * @description Checks reachability after variable or getter. Test nullable type
  *
  * @author sgrekhov@unipro.ru
- * @issue 41815
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
-void test(Never n) {
-  late int i;
-  bool b = true;
-  if (b) {
-    n;        // The code after this point is unreachable
-    i = 42;   // Variable is initialized in a dead code. This leaves it definitely unassigned
+main() {
+  int i;
+  String? s = "";
+  if (s != null) {
+    i = 42;
   }
-  i; // It is an error to read a local late variable when it is definitely unassigned.
+  i;
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
-
-main() {
-  try {
-    test(throw "Lily was here");
-  } catch (_) {
-  }
 }

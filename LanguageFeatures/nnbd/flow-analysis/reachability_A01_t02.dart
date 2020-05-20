@@ -14,8 +14,8 @@
  *  Let null(N) = before(N).
  *  Let notNull(N) = unreachable(before(N)).
  * Otherwise if T is non-nullable then:
- *  Let null(N) = before(N).
- *  Let notNull(N) = unreachable(before(N)).
+ *  Let null(N) = unreachable(before(N)).
+ *  Let notNull(N) = before(N).
  *
  * @description Checks reachability after variable or getter. Test getter of
  * type Never
@@ -28,13 +28,16 @@
 Never get n => throw "Lily was here";
 
 main() {
-  int i;
   try {
-    n;        // the code after this point is unreachable
-    i = 42;   // variable is initialized in a dead code
-  } catch (_) {}
-  i;
+    late int i;
+    bool b = true;
+    if (b) {
+      n;        // The code after this point is unreachable
+      i = 42;   // Variable is initialized in a dead code. This leaves it definitely unassigned
+    }
+    i; // It is an error to read a local late variable when it is definitely unassigned.
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
+  } catch (_) {}
 }

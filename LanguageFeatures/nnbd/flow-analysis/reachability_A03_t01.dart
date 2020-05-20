@@ -15,11 +15,11 @@
 // Requirements=nnbd-strong
 
 main() {
-  int i;
+  late int i;
   if (false) {
-    i = 42;     // i is initialized in a dead code
+    i = 42;  // Variable is initialized in a dead code. This leaves it definitely unassigned
   }
-  i;
+  i;  // It is an error to read a local late variable when it is definitely unassigned.
 //^
 // [analyzer] unspecified
 // [cfe] unspecified

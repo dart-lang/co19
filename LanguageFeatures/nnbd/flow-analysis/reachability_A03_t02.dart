@@ -16,9 +16,9 @@
 // Requirements=nnbd-strong
 
 main() {
-  int i;
-  false ? i = 42 : "nothing"; // i is initialized in a dead code
-  i;
+  late int i;
+  false ? i = 42 : "nothing"; // Variable is initialized in a dead code. This leaves it definitely unassigned
+  i;  // It is an error to read a local late variable when it is definitely unassigned.
 //^
 // [analyzer] unspecified
 // [cfe] unspecified

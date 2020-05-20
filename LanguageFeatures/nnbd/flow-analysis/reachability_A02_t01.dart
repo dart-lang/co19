@@ -18,7 +18,7 @@
 main() {
   int i;
   if (true) {
-    i = 42;
+    i = 42;   // Variable is definitely assigned here
   }
-  i;
+  i;  // It's not an error to read local non-nullable variable which is definitely assigned
 }
