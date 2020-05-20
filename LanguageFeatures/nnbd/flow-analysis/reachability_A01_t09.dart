@@ -17,21 +17,21 @@
  *  Let null(N) = unreachable(before(N)).
  *  Let notNull(N) = before(N).
  *
- * @description Checks reachability after variable or getter. Test nullable type
+ * @description Checks reachability after variable or getter. Test getter of
+ * non-nullable type
  *
  * @author sgrekhov@unipro.ru
+ * @issue 41985
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
+String get s => "Lily was here";
+
 main() {
   int i;
-  String? s = "";
   if (s != null) {
-    i = 42;
+    i = 42; // condition is always true therefore `i` must be definitely assigned
   }
-  i;
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  i;  // It's not an error to read local non-nullable variable if it is definitely assigned
 }
