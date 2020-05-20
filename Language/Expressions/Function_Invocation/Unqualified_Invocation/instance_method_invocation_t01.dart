@@ -17,7 +17,6 @@
  * unqualified invocation is equivalent to a method invocation
  * this.id(a1, ..., an, xn+1: an+1, ..., xn+k: an+k).
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

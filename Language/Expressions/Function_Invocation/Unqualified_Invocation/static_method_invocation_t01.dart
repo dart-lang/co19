@@ -16,7 +16,6 @@
  * i is equivalent to the static method invocation
  * C.id(a1, ..., an, xn+1: an+1, ..., xn+k: an+k).
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

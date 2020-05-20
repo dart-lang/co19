@@ -17,7 +17,6 @@
  * compile error
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class S {

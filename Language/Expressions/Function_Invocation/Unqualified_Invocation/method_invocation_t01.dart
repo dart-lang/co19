@@ -19,7 +19,6 @@
  * @description Checks that an unqualified invocation is resolved correctly and
  * the innermost matching declaration is used.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

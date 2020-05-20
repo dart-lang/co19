@@ -17,7 +17,6 @@
  * causes a compile time error
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 main() {

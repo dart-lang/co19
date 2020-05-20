@@ -15,7 +15,6 @@
  * @description Checks that if fid is a static getter, it is evaluated as
  * a function expression invocation.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

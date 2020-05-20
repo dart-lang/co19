@@ -15,7 +15,6 @@
  * @description Checks that if fid is a local function, then i is interpreted
  * as a function expression invocation.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 
