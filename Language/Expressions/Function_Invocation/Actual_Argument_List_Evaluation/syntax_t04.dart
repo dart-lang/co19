@@ -21,7 +21,6 @@
  * must be comma-delimited.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 func(p1, p2) {}

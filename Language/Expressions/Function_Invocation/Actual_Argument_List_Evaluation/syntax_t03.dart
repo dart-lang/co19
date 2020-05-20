@@ -21,7 +21,6 @@
  * placed between positional arguments in a function invocation expression.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 func(p1, {p2, p3}) {}

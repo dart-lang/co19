@@ -11,11 +11,10 @@
  * @description Checks that expressions in an argument list are evaluated in
  * the order of appearance, from left to right and separately from each other.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 
-StringBuffer buffer;
+late StringBuffer buffer;
 
 func(p1, p2, {p3, p4}) {}
 

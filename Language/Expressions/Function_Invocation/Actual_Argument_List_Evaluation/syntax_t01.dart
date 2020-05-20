@@ -20,7 +20,6 @@
  * @description Checks that various arguments which fit into the grammar
  * don't cause compile-time errors.
  * @author msyabro
- * @reviewer rodionov
  */
 
 f() {}
