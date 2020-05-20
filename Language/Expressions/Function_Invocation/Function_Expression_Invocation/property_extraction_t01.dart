@@ -13,7 +13,6 @@
  * @description Checks that if ef is a property access expression,
  * then i is treated as an ordinary method invocation.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

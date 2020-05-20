@@ -12,7 +12,6 @@
  * static warnings.
  * @static-clean
  * @author msyabro
- * @reviewer rodionov
  */
 
 class C {}

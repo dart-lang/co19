@@ -13,7 +13,6 @@
  * of (T1, ..., Tn, [Tn+1 xn+1, ..., Tn+k xn+k]) -> ⊥.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {

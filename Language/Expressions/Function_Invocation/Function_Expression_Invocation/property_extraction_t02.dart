@@ -14,7 +14,6 @@
  * b() on object a, not as an invocation of getter b on a followed by a
  * function call.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

@@ -12,7 +12,6 @@
  * in either case is the same as expected whether ef is a function literal
  * expression or some other kind of expression.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 

@@ -39,11 +39,10 @@ main() {
   Expect.throws(() => (new A()).getter(null, 1, 2));
   Expect.throws(() => (new A()).field("foo", "bar"));
 
-  try {
-    Function func;
+  Expect.throws(() {
+    Function func = null as dynamic;
     func();
-    Expect.fail("NoSuchMethodError is expected");
-  } on NoSuchMethodError catch (e) {}
+  });
 
   try {
     dynamic o1;

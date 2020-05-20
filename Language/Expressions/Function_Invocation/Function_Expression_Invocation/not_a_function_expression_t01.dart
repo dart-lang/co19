@@ -14,7 +14,6 @@
  * function, a library or static getter or a variable.
  * @static-clean
  * @author msyabro
- * @reviewer rodionov
  * @note no static warnings are expected: static type of non-Function
  * getters/variables is Dynamic
  */

@@ -10,7 +10,6 @@
  * may not be assigned to a function type.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
