@@ -54,7 +54,7 @@ test2() {
   Stream stream = generator2();
   stream.listen(
     (v) {
-      Expect.fail('Stream, returned by gen2(), should complete with error');
+      Expect.fail('Stream, returned by generator2(), should complete with error');
     },
     onError: (e) {
       Expect.equals(3.14, e);

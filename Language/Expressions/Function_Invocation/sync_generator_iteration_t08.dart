@@ -35,7 +35,6 @@ import '../../../Utils/expect.dart';
 
 class A {
   int x;
-
   A(this.x);
 }
 

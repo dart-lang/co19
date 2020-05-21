@@ -24,7 +24,7 @@
 
 import '../../../Utils/expect.dart';
 
-int yielded;
+int yielded = 0;
 
 Iterable test() sync* {
   for (int i = 0; i < 16; i++) {
@@ -35,8 +35,8 @@ Iterable test() sync* {
 }
 
 main() {
-  yielded = 0;
   var iterable = test();
+
   Expect.equals(1, iterable.take(1).last);
   Expect.equals(1, yielded);
 

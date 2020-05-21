@@ -23,7 +23,7 @@
 
 import '../../../Utils/expect.dart';
 
-int yielded;
+int yielded = 0;
 
 Iterable test() sync* {
   for (int i = 0; i < 16; i++) {

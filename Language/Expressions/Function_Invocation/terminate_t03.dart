@@ -18,7 +18,7 @@
  */
 import '../../../Utils/expect.dart';
 
-int x;
+int x = 0;
 
 void f() {
   x = 1;

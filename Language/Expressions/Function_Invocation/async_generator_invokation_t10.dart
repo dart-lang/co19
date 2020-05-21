@@ -43,12 +43,14 @@ test1() {
   stream.listen(
       (v) { },
       onDone: () {
-        asyncEnd();
+        // Should not het here! See Issue #25967 evaluation for more details.
+        Expect.fail('Unexpected onDone event produced by generator1');
       }
   ).cancel().then(
       (v) { },
       onError: (e) {
         Expect.equals('abc', e);
+        asyncEnd();
       }
   );
 }
@@ -59,12 +61,14 @@ test2() {
   stream.listen(
       (v) {},
       onDone: () {
-        asyncEnd();
+        // Should not het here! See Issue #25967 evaluation for more details.
+        Expect.fail('Unexpected onDone event produced by generator2');
       }
   ).cancel().then(
       (v) { },
       onError: (e) {
         Expect.equals(3.14, e);
+        asyncEnd();
       }
   );
 }
