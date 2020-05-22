@@ -13,7 +13,6 @@
  * or malbounded.
  * @description Checks that it is a static-warning if T does not denote a type
  * in a const T() expression.
- * @static-warning
  * @compile-error
  * @author ilya
  */

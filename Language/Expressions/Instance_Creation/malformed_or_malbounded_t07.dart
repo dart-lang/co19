@@ -16,7 +16,6 @@
  * of the bounds of the corresponding formal type parameters of G.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class G<T extends num, S extends String> {
