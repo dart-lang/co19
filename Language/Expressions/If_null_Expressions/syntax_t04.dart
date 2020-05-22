@@ -8,8 +8,8 @@
  *  ifNullExpression:
  *   logicalOrExpression (‘??’ logicalOrExpression)*
  *
- * @description Check that it is a compile time error, if
- * first logicalOrExpression is missing
+ * @description Check that it is a compile time error, if first
+ * logicalOrExpression is missing
  * @compile-error
  * @author a.semenov@unipro.ru
  */

@@ -8,14 +8,14 @@
  *  ifNullExpression:
  *   logicalOrExpression (‘??’ logicalOrExpression)*
  *
- * @description Verify several kinds of if-null expressions,
- * logicalOrExpression is variable.
+ * @description Verify several kinds of if-null expressions, logicalOrExpression
+ * is a variable.
  * @author a.semenov@unipro.ru
  */
 import '../../../Utils/expect.dart';
 
 main() {
-  int x = 1;
+  int? x = 1;
   var n = null;
 
   Expect.equals(1, x ?? 10);

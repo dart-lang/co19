@@ -14,19 +14,19 @@
 import '../../../Utils/expect.dart';
 
 int e1count = 0;
-int e1(int r) {
+int? e1(int? r) {
   e1count++;
   return r;
 }
 
 int e2count = 0;
-int e2(int r) {
+int? e2(int? r) {
   e2count++;
   return r;
 }
 
 int e3count = 0;
-int e3(int r) {
+int? e3(int? r) {
   e3count++;
   return r;
 }

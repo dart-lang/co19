@@ -15,19 +15,16 @@
  * @author a.semenov@unipro.ru
  */
 
-import '../../../Utils/dynamic_check.dart';
-
-
 main() {
-  int x = 1 ?? 2;
-  x = 1 ?? 2.0;
-  checkTypeError(() { int y = 2.0 ?? 1; return y; });
+  int? x = 1 ?? 2;
+  num? y = 1 ?? 2.0;
+  x = 2.0 ?? 1;          //# 01: compile-time error
   x = null ?? 1;
   x = null ?? null;
   x = 1 ?? null;
-  x = 1 ?? 'aaa';
-  checkTypeError(() { int y = 'aaa' ?? 1; return y; });
-  checkTypeError(() { int y = 'aaa' ?? true; return y; });
-  return x; // use x, so dart analyzer is happy
+  x = 1 ?? 'aaa';        //# 02: compile-time error
+  x = 'aaa' ?? 1;        //# 03: compile-time error
+  x = 'aaa' ?? true;     //# 04: compile-time error
+  return x;
 }
 

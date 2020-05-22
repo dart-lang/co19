@@ -8,8 +8,8 @@
  *  ifNullExpression:
  *   logicalOrExpression (‘??’ logicalOrExpression)*
  *
- * @description Verify several kinds of if-null expressions,
- * logicalOrExpression is constant value.
+ * @description Verify several kinds of if-null expressions, logicalOrExpression
+ * is a constant value.
  * @author a.semenov@unipro.ru
  */
 import '../../../Utils/expect.dart';
