@@ -27,18 +27,21 @@ Future<void> inSandbox(void test(Directory sandbox), {Directory sandbox}) async 
   }
 }
 
-Future<void> testFileSystemEvent<T extends FileSystemEvent>(Directory dir,
+Future<void> testFileSystemEvent<T extends FileSystemEvent>(Directory root,
     {Future<void> createEvent(),
-    void test(FileSystemEvent event), bool failIfNoEvent = true}) async {
+    void test(FileSystemEvent event), bool failIfNoEvent = true,
+    bool ignoreRootEvents = true}) async {
   final eventCompleter = new Completer<FileSystemEvent>();
   bool first = true;
   StreamSubscription subscription;
-  subscription = dir.watch().listen((FileSystemEvent event) async {
-    if (event is T) {
-      if (first) {
-        first = false;
-        eventCompleter.complete(event);
-        await subscription.cancel();
+  subscription = root.watch().listen((FileSystemEvent event) async {
+    if (!ignoreRootEvents || root.path != event.path) {
+      if (event is T) {
+        if (first) {
+          first = false;
+          eventCompleter.complete(event);
+          await subscription.cancel();
+        }
       }
     }
   });
