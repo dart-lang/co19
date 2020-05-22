@@ -21,7 +21,6 @@
  * type Never
  *
  * @author sgrekhov@unipro.ru
- * @issue 41815
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
