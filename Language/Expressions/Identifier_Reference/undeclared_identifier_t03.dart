@@ -11,7 +11,6 @@
  * @description Checks that it is a static warning when an identifier expression
  * references an undeclared identifier within a static getter.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

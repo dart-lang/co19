@@ -8,14 +8,13 @@
  * the declared name of a prefix, class, type parameter or type alias.
  * @description Checks that it is a compile-time error if a built-in identifier
  * "as" is used as the declared name of a type variable.
- * @compile-error
  * @author ngl@unipro.ru
  */
 
-class A<as> {
-  bool check(x) => x is as;
+class A<as> {                  //# 01: compile-time error
+  bool check(x) => x is as;    //# 02: compile-time error
 }
 
 main() {
-  new A().check(null);
+  A;
 }

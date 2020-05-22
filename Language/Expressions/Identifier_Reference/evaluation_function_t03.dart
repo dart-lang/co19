@@ -15,7 +15,6 @@
  * @description Checks that a reference to a function parameter is evaluated
  * correctly in closures.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

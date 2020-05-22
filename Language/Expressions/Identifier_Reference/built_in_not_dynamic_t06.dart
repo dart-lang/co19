@@ -10,11 +10,8 @@
  * "get" is used as a type annotation of a local variable.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    get foo;
-  } catch (x) {}
+  get foo;
 }

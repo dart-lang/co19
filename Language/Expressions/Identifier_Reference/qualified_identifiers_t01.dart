@@ -9,7 +9,6 @@
  * ;
  * @description Checks qualified identifiers
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

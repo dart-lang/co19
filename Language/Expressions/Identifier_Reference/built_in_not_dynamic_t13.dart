@@ -10,11 +10,8 @@
  * "typedef" is used as a type annotation of a local variable.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    typedef foo;
-  } catch (x) {}
+  typedef foo;
 }

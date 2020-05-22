@@ -14,25 +14,22 @@
  * @description  Checks that if id is not declared nor inherited it is indeed
  * equivalent to this.id and caused compile error
  * @author ilya
- * @compile-error
  */
-import '../../../Utils/expect.dart';
 
 class C {
   noSuchMethod(Invocation _) { times++; }
 
   test() {
-    undeclared; // first reference
+    undeclared;         //# 01: compile-time error
   }
 
   C() {
-    undeclared; // second reference
+    undeclared;         //# 02: compile-time error
   }
 
   static int times = 0;
 }
 
 main() {
-  new C().test();
-  Expect.equals(2, C.times);
+  C();
 }

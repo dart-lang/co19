@@ -37,13 +37,12 @@
  * ;
  * @description Checks that identifier can't contain letters
  * from the cyrillic alphabet.
- * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-  	var щ = 1;
- } catch (e) {}
+  int? 1a;                      //# 01: compile-time error
+  String 2b = "It's wrong!";    //# 02: compile-time error
+  var 3c;                       //# 03: compile-time error
+  4d;                           //# 04: compile-time error
 }

@@ -15,7 +15,6 @@
  * @description  Checks that there is no compile-time error if identifier
  * expression in a return statement refers to a class declaration.
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class A {

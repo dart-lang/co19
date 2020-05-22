@@ -19,5 +19,5 @@ class C {
 }
 
 main() {
-  C.x;
+  C();
 }

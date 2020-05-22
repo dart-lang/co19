@@ -39,11 +39,8 @@
  * are allowed in identifiers.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-  	var abc\u0061=1; // var abca=1;
- } catch (e) {}
+  var abc\u0061=1;
 }

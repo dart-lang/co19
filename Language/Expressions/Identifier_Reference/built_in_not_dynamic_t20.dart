@@ -11,7 +11,6 @@
  * @author ngl@unipro.ru
  */
 
-
 class A<T> {}
 
 main() {

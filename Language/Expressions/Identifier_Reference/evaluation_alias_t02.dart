@@ -15,7 +15,6 @@
  * @description  Checks that there is no compile-time error if identifier
  * expression in a return statement refers to a function type definition.
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 typedef int add(int a, int b);

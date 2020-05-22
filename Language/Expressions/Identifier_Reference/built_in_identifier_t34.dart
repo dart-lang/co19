@@ -8,15 +8,11 @@
  * the declared name of a prefix, class, type parameter or type alias.
  * @description Checks that it is a compile-time error if a built-in identifier
  * "as" is used as the declared name of a type alias.
- * @compile-error
  * @author ngl@unipro.ru
  */
 
-typedef int as();
+typedef int as();  //# 01: compile-time error
 
 main() {
-  try {
-    null is as;
-  } catch (anything) {
-  }
+  null is as;      //# 02: compile-time error
 }

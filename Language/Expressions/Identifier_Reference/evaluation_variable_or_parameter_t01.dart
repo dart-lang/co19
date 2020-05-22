@@ -15,7 +15,6 @@
  * @description  Checks that references to a local variable and formal parameter
  * are evaluated correctly.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

@@ -15,7 +15,6 @@
  * @description Checks that a reference to a local variable is evaluated
  * correctly in closures.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

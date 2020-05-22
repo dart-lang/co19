@@ -40,8 +40,6 @@
  * @author msyabro
  * @reviewer kaigorodov
  */
-import '../../../Utils/expect.dart';
-
 class C {
   bool x() {
     return y y;
@@ -49,7 +47,5 @@ class C {
 }
 
 main() {
-  try {
-  	Expect.isTrue(new C().x());
- } catch (e) {}
+  С();
 }

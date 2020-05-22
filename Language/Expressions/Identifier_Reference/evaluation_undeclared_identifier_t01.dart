@@ -16,7 +16,6 @@
  * @description Checks that NoSuchMethodError is thrown if undeclared
  * identifier is used in a static context.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

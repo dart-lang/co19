@@ -8,12 +8,11 @@
  * the declared name of a prefix, class, type parameter or type alias.
  * @description Checks that it is a compile-time error if a built-in identifier
  * "abstract" is used as the declared name of a prefix.
- * @compile-error
  * @issue 25733
  * @author ngl@unipro.ru
  */
 
-import "../lib.dart" as abstract;
+import "../lib.dart" as abstract;    //# 01: compile-time error
 
 main() {
   abstract.x;

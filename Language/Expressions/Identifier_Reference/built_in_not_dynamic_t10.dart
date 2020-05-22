@@ -10,11 +10,8 @@
  * "operator" is used as a type annotation of a local variable.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    operator foo;
-  } catch (x) {}
+  operator foo;
 }

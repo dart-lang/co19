@@ -12,26 +12,24 @@
  * in a class instance scope, referencing a built-in identifier results in
  * a compile error
  * @author rodionov
- * @compile-error
  */
-import '../../../Utils/expect.dart';
 
 class A {
   test() {
-    Expect.throws(() {abstract();}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {1 + as;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {1 << export;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {external ^ 0;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {1 * factory;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {1 >= get;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {var x = implements;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {1 == import;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {1 == library;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {operator.x;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {1 == part;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {--set;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {true && static;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {++typedef;}, (e) => e is NoSuchMethodError);
+    abstract();          //# 01: compile-time error
+    1 + as;              //# 02: compile-time error
+    1 << export;         //# 03: compile-time error
+    external ^ 0;        //# 04: compile-time error
+    1 * factory;         //# 05: compile-time error
+    1 >= get;            //# 06: compile-time error
+    var x = implements;  //# 07: compile-time error
+    1 == import;         //# 08: compile-time error
+    1 == library;        //# 09: compile-time error
+    operator.x;          //# 10: compile-time error
+    1 == part;           //# 11: compile-time error
+    --set;               //# 12: compile-time error
+    true && static;      //# 13: compile-time error
+    ++typedef;           //# 14: compile-time error
   }
 }
 

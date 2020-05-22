@@ -38,18 +38,11 @@
  * @description Checks that identifier can't contain '@' symbol.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
-import '../../../Utils/expect.dart';
-
-class C {
-  bool x() {
-    return y@;
-  }
-}
 
 main() {
-  try {
-  	Expect.isTrue(new C().x());
- } catch (e) {}
+  int? a@                      //# 01: compile-time error
+  String b@ = "It's wrong!";    //# 02: compile-time error
+  var c@;                       //# 03: compile-time error
+  d@;                           //# 04: compile-time error
 }

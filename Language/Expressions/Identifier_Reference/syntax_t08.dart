@@ -37,20 +37,12 @@
  * ;
  * @description Checks that identifier can't contain letters
  * from the turkish alphabet.
- * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
-import '../../../Utils/expect.dart';
-
-class C {
-  bool x() {
-    return ç;
-  }
-}
 
 main() {
-  try {
-  	Expect.isTrue(new C().x());
- } catch (e) {}
+  int? aç;                      //# 01: compile-time error
+  String çb = "It's wrong!";    //# 02: compile-time error
+  var wrong_ç;                  //# 03: compile-time error
+  ç;                            //# 04: compile-time error
 }

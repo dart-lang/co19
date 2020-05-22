@@ -15,7 +15,6 @@
  * variable in a superclass of the current class.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {
@@ -29,5 +28,5 @@ class B extends A {
 }
 
 main() {
-  new B().func();
+  B();
 }

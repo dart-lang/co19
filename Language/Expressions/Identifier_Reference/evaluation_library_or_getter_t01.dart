@@ -15,7 +15,6 @@
  * @description  Checks that references to a library variables is evaluated
  * correctly and that initializer expression is evaluated only once.
  * @author msyabro
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

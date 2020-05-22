@@ -14,7 +14,6 @@
  *   evaluates to the function defined by d.
  * @description Checks that reference to a static method is evaluated correctly.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

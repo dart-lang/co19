@@ -15,7 +15,6 @@
  * @description Checks that a reference to a variable in a loop is evaluated
  * correctly in closures nested inside that loop.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

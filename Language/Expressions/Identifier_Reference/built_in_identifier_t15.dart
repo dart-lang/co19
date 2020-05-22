@@ -8,15 +8,13 @@
  * the declared name of a prefix, class, type parameter or type alias.
  * @description Checks that it is a compile-time error if a built-in identifier
  * "get" is used as the declared name of a type variable.
- * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
-class A<get> {
-  bool check(x) => x is get;
+class A<get> {                //# 01: compile-time error
+  bool check(x) => x is get;  //# 02: compile-time error
 }
 
 main() {
-  new A().check(null);
+  A();
 }

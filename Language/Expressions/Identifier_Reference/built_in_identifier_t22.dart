@@ -8,16 +8,11 @@
  * the declared name of a prefix, class, type parameter or type alias.
  * @description Checks that it is a compile-time error if a built-in identifier
  * "operator" is used as the declared name of a type alias.
- * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
-typedef int operator();
+typedef int operator();    //# 01: compile-time error
 
 main() {
-  try {
-    null is operator;
-  } catch (anything) {
-  }
+  null is operator;        //# 02: compile-time error
 }

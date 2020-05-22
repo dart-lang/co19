@@ -15,7 +15,6 @@
  * @description  Checks that references to a library function and local function
  * are evaluated correctly.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

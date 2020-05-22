@@ -30,16 +30,16 @@
  */
 
 class C {
-  int a;
+  int? a;
   int get b => 1;
 }
 
 class D extends C {
-  int c;
+  int? c;
   int get d => 1;
 
   test() {
-    int i;
+    int? i;
     i = a;
     i = b;
     i = c;

@@ -8,16 +8,12 @@
  * the declared name of a prefix, class, type parameter or type alias.
  * @description Checks that it is a compile-time error if a built-in identifier
  * "deferred" is used as the declared name of a class.
- * @compile-error
  * @issue 25732
  * @author ngl@unipro.ru
  */
 
-class deferred {}
+class deferred {}      //# 01: compile-time error
 
 main() {
-  try {
-    null is deferred;
-  } catch (anything) {
-  }
+  null is deferred;    //# 02: compile-time error
 }

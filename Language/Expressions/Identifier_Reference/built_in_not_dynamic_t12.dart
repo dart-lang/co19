@@ -10,11 +10,8 @@
  * "static" is used as a type annotation of a local variable.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    static foo;
-  } catch (x) {}
+  static foo;
 }

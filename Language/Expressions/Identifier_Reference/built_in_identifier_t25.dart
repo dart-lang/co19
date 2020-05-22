@@ -8,16 +8,11 @@
  * the declared name of a prefix, class, type parameter or type alias.
  * @description Checks that it is a compile-time error if a built-in identifier
  * "set" is used as the declared name of a type alias.
- * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
-typedef int set();
+typedef int set();    //# 01: compile-time error
 
 main() {
-  try {
-    null is set;
-  } catch (anything) {
-  }
+  null is set;        //# 02: compile-time error
 }

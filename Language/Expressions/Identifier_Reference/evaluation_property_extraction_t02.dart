@@ -14,7 +14,6 @@
  * @description  Checks that identifier expression can refer to an inherited
  * member.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

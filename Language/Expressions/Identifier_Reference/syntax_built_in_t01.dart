@@ -30,7 +30,7 @@
  */
 
 class A {
-  static int static;
+  static int? static;
 }
 
 main() {
@@ -42,29 +42,29 @@ main() {
   deferred;
   var dynamic;
   dynamic;
-  String export;
+  String? export;
   export;
   var external;
   external;
   var factory;
   factory;
-  int get;
+  int? get;
   get;
-  String implements;
+  String? implements;
   implements;
-  int import;
+  int? import;
   import;
-  double library;
+  double? library;
   library;
-  int operator;
+  int? operator;
   operator;
-  double part;
+  double? part;
   part;
   var set;
   set;
-  int static;
+  int? static;
   static;
-  Function typedef;
+  Function? typedef;
   typedef;
   A.static;
 }

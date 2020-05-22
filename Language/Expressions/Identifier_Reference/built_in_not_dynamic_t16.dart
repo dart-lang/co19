@@ -13,8 +13,6 @@
  */
 
 main() {
-  try {
-    library foo;
-  } catch (x) {}
+  library foo;
 }
 

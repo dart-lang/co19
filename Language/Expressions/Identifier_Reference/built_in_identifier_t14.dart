@@ -8,16 +8,11 @@
  * the declared name of a prefix, class, type parameter or type alias.
  * @description Checks that it is a compile-time error if a built-in identifier
  * "get" is used as the declared name of a class.
- * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
-class get {}
+class get {}              //# 01: compile-time error
 
 main() {
-  try {
-    null is get;
-  } catch (anything) {
-  }
+  null is get;            //# 02: compile-time error
 }

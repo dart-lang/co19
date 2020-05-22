@@ -28,5 +28,5 @@ class A<T> {
 }
 
 main() {
-  Expect.equals(int, A.func());
+  A();
 }

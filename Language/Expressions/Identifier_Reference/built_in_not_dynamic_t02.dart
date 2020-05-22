@@ -10,12 +10,8 @@
  * "as" is used as a type annotation of a local variable.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
-
 main() {
-  try {
-    as foo;
-  } catch (x) {}
+  as foo;
 }
