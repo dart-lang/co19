@@ -12,11 +12,8 @@
  * any declaration.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    const UnavailableType();
-  } catch (e) {}
+  const UnavailableType();
 }

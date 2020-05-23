@@ -9,5 +9,5 @@ library deferred_type_lib;
 class C {
   const C(): x = 1;
   const C.n(): x = 2;
-  final int x;
+  final int? x;
 }

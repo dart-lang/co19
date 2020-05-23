@@ -12,13 +12,10 @@
  * a top-level function.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 func() {}
 
 main() {
-  try {
-    const func();
-  } catch (e) {}
+  const func();
 }

@@ -24,7 +24,6 @@
  * @description Checks that a fresh instance of an object is created
  * if any of the fields in i are not identical to the fields in j.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

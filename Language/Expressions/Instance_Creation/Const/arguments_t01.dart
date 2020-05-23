@@ -12,7 +12,6 @@
  * arguments of a constant object expression are not compile-time constants.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class  T {
@@ -20,7 +19,6 @@ class  T {
 }
 
 main() {
-  try {
-    const T(1, new Object(), 2);
-  } catch (e) {}
+  Object o = Object();
+  const T(1, o, 2);
 }

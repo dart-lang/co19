@@ -10,7 +10,6 @@
  * constant object results in an uncaught exception being thrown.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A {

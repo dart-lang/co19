@@ -12,15 +12,13 @@
  * of a constant object expression are not compile-time constants.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class  T {
-  const T(p1, {p2 , p3});
+  const T(p1, {p2, p3});
 }
 
 main() {
-  try {
-    const T(1, 2, p3: [0, 1]);
-  } catch (e) {}
+  int i = 2;
+  const T(1, p2: i, p3: [0, 1]);
 }

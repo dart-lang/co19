@@ -13,7 +13,6 @@
  * a type argument.
  * @issue 27492
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class S<U> {

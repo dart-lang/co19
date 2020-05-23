@@ -12,7 +12,6 @@
  * is the name of a non-constant constructor declared by the type T.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class  A {
@@ -20,7 +19,5 @@ class  A {
 }
 
 main() {
-  try {
-    const A.nonConstCtor();
-  } catch (e) {}
+  const A.nonConstCtor();
 }

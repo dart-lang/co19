@@ -12,13 +12,10 @@
  * is not a name of any constructor declared by the type T.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class  A {}
 
 main() {
-  try {
-    const A.nonexistentConstructor();
-  } catch (e) {}
+  const A.nonexistentConstructor();
 }

@@ -12,7 +12,6 @@
  * named constructor in a constant object expression is empty.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A {
@@ -20,7 +19,5 @@ class A {
 }
 
 main() {
-  try {
-    const A.();
-  } catch (e) {}
+  const A.();
 }

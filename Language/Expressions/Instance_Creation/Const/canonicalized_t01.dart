@@ -24,7 +24,6 @@
  * @description Checks that result of an expression of the form const
  * T.id(a1, ..., an, xn+1: an+1, ..., xn+k: an+k) is an instance of T.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

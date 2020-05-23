@@ -24,17 +24,16 @@
  * @description Checks that equal strings constructed at compile-time are
  * canonicalized.
  * @author iefremov
- * @reviewer msyabro
  */
 import '../../../../Utils/expect.dart';
 
 
 main() {
-  var s1 = "Alea iacta est";
-  var s2 = "Alea iacta est";
+  const s1 = "Alea iacta est";
+  const s2 = "Alea iacta est";
   Expect.isTrue(identical(s1, s2));
 
-  s1 = "Si finis bonus est," " totum bonum erit";
-  s2 = "Si finis " "bonus est, totum " "bonum erit";
-  Expect.isTrue(identical(s1, s2));
+  const s3 = "Si finis bonus est," " totum bonum erit";
+  const s4 = "Si finis " "bonus est, totum " "bonum erit";
+  Expect.isTrue(identical(s3, s4));
 }

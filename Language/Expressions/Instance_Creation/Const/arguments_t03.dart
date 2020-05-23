@@ -20,7 +20,6 @@ class  T {
 }
 
 main() {
-  try {
-    const T(1, 2, [0, 1]);
-  } catch (e) {}
+  int i = 14;
+  const T(1, i, [0, 1]);
 }

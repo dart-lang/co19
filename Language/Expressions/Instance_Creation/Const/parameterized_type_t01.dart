@@ -13,7 +13,6 @@
  * a type argument.
  * @issue 27492
  * @author msyabro
- * @reviewer rodionov
  */
 
 class S<U> {
@@ -27,5 +26,5 @@ class A<T> {
 }
 
 main() {
-  new A<int>().test();
+  A<int>();
 }

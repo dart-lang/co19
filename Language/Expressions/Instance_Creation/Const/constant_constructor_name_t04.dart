@@ -12,7 +12,6 @@
  * is the name of a static method declared by the type T.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class  A {
@@ -20,7 +19,5 @@ class  A {
 }
 
 main() {
-  try {
-    const A.method();
-  } catch (e) {}
+  const A.method();
 }

@@ -11,13 +11,10 @@
  * @description Checks that it is a compile-time error if T is a type alias.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 typedef foo();
 
 main() {
-  try {
-    const foo();
-  } catch (e) {}
+  const foo();
 }

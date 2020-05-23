@@ -14,7 +14,6 @@
  * is T.
  * @static-clean
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A {

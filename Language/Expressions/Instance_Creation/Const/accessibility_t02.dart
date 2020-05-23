@@ -12,11 +12,8 @@
  * any declaration. Named constructor case.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    const UnavailableType.named();
-  } catch (e) {}
+  const UnavailableType.named();
 }

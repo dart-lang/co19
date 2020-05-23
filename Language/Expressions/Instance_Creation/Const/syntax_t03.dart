@@ -12,7 +12,6 @@
  * a constant object expression is missing the type name.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A {
@@ -20,7 +19,5 @@ class A {
 }
 
 main() {
-  try {
-    const ();
-  } catch (e) {}
+  const ();
 }

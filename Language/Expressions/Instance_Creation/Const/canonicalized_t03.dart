@@ -24,7 +24,6 @@
  * @description Checks that constant object expressions yield identical
  * objects if all fields in constructed instances are identical.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

@@ -11,7 +11,6 @@
  * @description Checks that various valid constant object expressions don't
  * produce compile-time errors.
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A {

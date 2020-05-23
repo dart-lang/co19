@@ -11,7 +11,6 @@
  * @description Checks that it is a compile-time error if T is a type variable.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class A {
@@ -25,7 +24,5 @@ class C<T> {
 }
 
 main() {
-  try {
-    new C<A>().test();
-  } catch (e) {}
+  C<A>();
 }
