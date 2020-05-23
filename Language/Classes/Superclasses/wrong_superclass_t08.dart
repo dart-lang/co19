@@ -10,6 +10,7 @@
  * @description Checks that it is a compile-time error if deferred type is used
  * as a superclass
  * @compile-error
+ * $Issue 42031
  * @author sgrekhov@unipro.ru
  */
 
@@ -20,4 +21,5 @@ class A extends core.ArgumentError {}
 
 main() {
   new A();
+  new core.ArgumentError();
 }
