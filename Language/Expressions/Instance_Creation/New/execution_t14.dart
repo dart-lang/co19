@@ -11,7 +11,6 @@
  * @description Checks that result of a new expression with redirecting
  * constructor is instance of class C.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

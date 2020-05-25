@@ -13,7 +13,6 @@
  * constructor argument list, then the constructor's initializer list, and
  * then the constructor body.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

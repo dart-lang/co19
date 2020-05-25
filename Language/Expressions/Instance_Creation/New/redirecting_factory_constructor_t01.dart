@@ -11,7 +11,6 @@
  * @description Checks that evaluation of redirecting factory constructor is
  * equivalent to evaluation of the constructor it's redirecting to.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 
@@ -30,9 +29,9 @@ class C<T> implements R<T> {
 
    bool operator ==(other) {
      if (identical(value, null)) {
-       return identical(other.value, null);
+       return identical((other as C).value, null);
      }
-     return value == other.value;
+     return value == (other as C).value;
    }
 }
 

@@ -14,7 +14,6 @@
  * constructor T.id.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class C<T> {}

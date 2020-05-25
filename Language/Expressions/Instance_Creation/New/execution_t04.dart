@@ -14,7 +14,6 @@
  * of superclass S, then the initializer list of S, the initializer list of C,
  * the body of S, the body of C.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

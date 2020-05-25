@@ -19,6 +19,7 @@
  * {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
  * @description Checks if T.id is a deferred type with prefix p, and p has not
  * been loaded, a dynamic error occurs.
+ * @Issue #33118
  * @author ngl@unipro.ru
  */
 import '../../../../Utils/expect.dart';

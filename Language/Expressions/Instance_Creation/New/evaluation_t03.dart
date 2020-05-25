@@ -20,7 +20,6 @@
  * @description Checks that a compile error occurs if T is not accessible.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 main() {

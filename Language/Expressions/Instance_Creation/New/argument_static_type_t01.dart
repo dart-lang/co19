@@ -12,7 +12,6 @@
  * parameter of the constructor.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class C {

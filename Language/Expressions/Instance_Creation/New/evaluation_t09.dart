@@ -21,7 +21,6 @@
  * lacks a named parameter used in the new expression.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class C {

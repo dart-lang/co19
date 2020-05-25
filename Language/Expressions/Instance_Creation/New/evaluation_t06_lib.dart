@@ -11,3 +11,5 @@ class C {
   C._inaccessibleConstructor() {}
   C.accessibleConstructor() {}
 }
+
+int testme() => 1;

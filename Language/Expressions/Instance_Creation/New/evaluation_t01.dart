@@ -21,7 +21,6 @@
  * constructor of an abstract class.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 abstract class C {

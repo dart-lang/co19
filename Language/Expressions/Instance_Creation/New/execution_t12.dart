@@ -11,7 +11,6 @@
  * @description Checks the order of a new expression evaluation. Redirecting
  * constructor.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

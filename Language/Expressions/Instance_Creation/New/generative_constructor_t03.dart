@@ -15,7 +15,6 @@
  * @description Checks that a fresh instance is allocated with every invocation
  * of a redirecting constructor.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

@@ -13,7 +13,6 @@
  * instantiated does not declare a named constructor T.id.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class C {}

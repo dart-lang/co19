@@ -14,7 +14,6 @@
  * a constructor with the same name.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class C {

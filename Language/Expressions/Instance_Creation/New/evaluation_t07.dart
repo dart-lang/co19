@@ -22,7 +22,6 @@
  * expression.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class C {

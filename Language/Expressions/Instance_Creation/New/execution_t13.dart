@@ -11,7 +11,6 @@
  * @description Checks that result of the new expression is the result of the
  * final constructor in the chain of redirection.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

@@ -11,7 +11,6 @@
  * @description Checks that arguments of a constructor and instance variables
  * are bound correctly when a redirecting constructor is invoked.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

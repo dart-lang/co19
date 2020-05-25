@@ -13,7 +13,6 @@
  * corresponding type parameter bound of class C.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 import '../../../../Utils/dynamic_check.dart';

@@ -8,11 +8,10 @@
  * newExpression:
  *   new type ('.' identifier)? arguments
  * ;
- * @description Checks that it is a compile-time error if
- * a new expression does not have arguments.
+ * @description Checks that it is a compile-time error if a new expression does
+ * not have argument brackets after the class name.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A {
@@ -20,7 +19,5 @@ class A {
 }
 
 main() {
-  try {
-    new A;
-  } catch (e) {}
+  new A;
 }

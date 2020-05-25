@@ -20,7 +20,6 @@
  * @description Checks that it is a compile error if q is not defined.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class C {

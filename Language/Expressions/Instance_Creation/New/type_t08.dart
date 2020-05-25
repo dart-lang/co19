@@ -15,10 +15,12 @@
 import '../../../../Utils/expect.dart';
 
 class C {
-  String log;
+  String log = "";
+
   C() {
     log = "default";
   }
+
   C.named() {
     log = "named";
   }

@@ -12,7 +12,6 @@
  * a the identifier of a named constructor in a new expression is empty.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A {
@@ -20,7 +19,5 @@ class A {
 }
 
 main() {
-  try {
-    new A.();
-  } catch (e) {}
+  new A.();
 }

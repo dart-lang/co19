@@ -12,7 +12,6 @@
  * evaluation taking into account the evaluation of the super constructor
  * which is a redirecting one.
  * @author iefremov
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

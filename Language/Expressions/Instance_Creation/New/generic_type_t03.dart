@@ -17,7 +17,6 @@
  * type but has more type parameters than provided in the new expression.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A<T, S> {}

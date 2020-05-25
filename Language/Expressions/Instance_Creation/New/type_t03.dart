@@ -11,7 +11,6 @@
  * a top-level function is used as a Type.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 func() {}

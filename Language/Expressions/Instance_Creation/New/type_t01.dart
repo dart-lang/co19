@@ -11,7 +11,6 @@
  * if T is not a class accessible in the current scope.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {

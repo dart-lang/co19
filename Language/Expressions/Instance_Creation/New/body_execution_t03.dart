@@ -10,7 +10,6 @@
  * resulting in an object i. The result of the evaluation of e is i.
  * @description Checks the order of a new expression evaluation.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

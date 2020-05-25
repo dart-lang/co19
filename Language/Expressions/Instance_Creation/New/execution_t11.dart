@@ -11,7 +11,6 @@
  * @description Checks that type arguments are bound correctly when evaluating
  * the initializer list of a redirected constructor.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

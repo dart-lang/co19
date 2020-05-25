@@ -27,6 +27,5 @@ class C<T> {
 }
 
 main() {
-  var c = new C<String>();
-  c.test();
+  new C<String>();
 }

@@ -16,8 +16,7 @@
  * constructor invocation even if the class has only constant constructors,
  * one of which is being invoked by the new expression.
  * @author msyabro
- * @reviewer rodionov
- */
+*/
 import '../../../../Utils/expect.dart';
 
 class A {

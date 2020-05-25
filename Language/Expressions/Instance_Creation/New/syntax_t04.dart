@@ -9,10 +9,9 @@
  *   new type ('.' identifier)? arguments
  * ;
  * @description Checks that if a constructor is invoked without new (or const)
- * keyword, it is considered as a (malformed) method invocation.
+ * keyword, it is not considered as a (malformed) method invocation now.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A {

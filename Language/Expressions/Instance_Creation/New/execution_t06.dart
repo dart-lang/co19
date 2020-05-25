@@ -11,7 +11,6 @@
  * @description Checks the order of a new expression with named constructor
  * evaluation taking into account the evaluation of the super constructor.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

@@ -11,7 +11,6 @@
  * @description Checks that the result of a new expression is i (the freshly
  * allocated instance).
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

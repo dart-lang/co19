@@ -10,7 +10,6 @@
  * class produces a compile error.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 abstract class C {

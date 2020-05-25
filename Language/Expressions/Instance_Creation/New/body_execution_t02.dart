@@ -10,7 +10,6 @@
  * resulting in an object i. The result of the evaluation of e is i.
  * @description Checks that type arguments are bound correctly.
  * @author msyabro
- * @reviewer rodionov
  */
 
 class D {}
@@ -40,8 +39,7 @@ abstract class I2 <T extends A> {
 }
 
 class B <T extends A> implements I2<T> {
-  B() {
-  }
+  B() {}
 }
 
 abstract class I3<T, U> {

@@ -12,7 +12,6 @@
  * Named constructor case.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {

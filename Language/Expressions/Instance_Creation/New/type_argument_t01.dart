@@ -21,7 +21,6 @@
  * type argument of a class in a new expression is not a subtype of its bound.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class C<T extends num> {

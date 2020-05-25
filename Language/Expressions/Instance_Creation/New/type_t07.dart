@@ -10,7 +10,6 @@
  * @description Checks that it is a compile error if T is a type variable.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C<T> {
