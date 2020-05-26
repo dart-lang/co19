@@ -19,11 +19,8 @@
  * operator ||.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    true || false ||;
-  } catch (e) {}
+  true || false ||;
 }

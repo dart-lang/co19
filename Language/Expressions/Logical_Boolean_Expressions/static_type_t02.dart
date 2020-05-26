@@ -9,7 +9,6 @@
  * expression is bool.
  * @compile-error
  * @author kaigorodov
- * @reviewer msyabro
  */
 
 main() {

@@ -18,7 +18,6 @@
  * @description Checks that it is permitted to chain as many OR or AND expressions
  * as one wants to.
  * @author rodionov
- * @reviewer iefremov
  */
 
 

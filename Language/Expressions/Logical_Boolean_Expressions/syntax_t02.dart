@@ -19,20 +19,16 @@
  * logical boolean expression.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class S {}
 
 class A extends S {
   test() {
-    try {
-      super && true;
-    } catch (e) {}
+    super && true;
   }
 }
 
 main() {
-  A a = new A();
-  a.test();
+  A();
 }

@@ -12,7 +12,6 @@
  * @description Checks that an expression of the form e1 && e2 is evaluated
  * correctly
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

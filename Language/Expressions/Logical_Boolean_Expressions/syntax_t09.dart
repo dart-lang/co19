@@ -18,11 +18,8 @@
  * @description Checks that two operators && can't be placed one after another.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    true && && false;
-  } catch (e) {}
+  true && && false;
 }

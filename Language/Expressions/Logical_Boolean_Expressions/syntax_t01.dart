@@ -30,7 +30,8 @@ class A {
   test() {
     //literals
     false || true;
-    Expect.throws(() => false || null);
+    dynamic n = null;
+    Expect.throws(() => false || n);
 
     //equality
     id == id || true == false;

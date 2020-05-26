@@ -12,7 +12,6 @@
  * @description Checks that the second operand is not evaluated if the first
  * operand evaluates to false.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 
