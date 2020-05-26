@@ -24,13 +24,10 @@
  * identifiers following a show combinator in an import declaration.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "syntax_lib.dart" show;
 
 main() {
-  try {
-    var x = foo;
-  } catch (ok) {}
+  var x = foo;
 }

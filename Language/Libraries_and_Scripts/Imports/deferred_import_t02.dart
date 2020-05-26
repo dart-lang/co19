@@ -63,33 +63,12 @@ import "../../../Utils/expect.dart";
 import "static_type_lib.dart" deferred as p;
 
 test_loaded() {
-  try {
     p.someFunc();
-  } catch (e) {
-    Expect.fail("Should not be here");
-  }
-  try {
     p.someGetter;
-  } catch (e) {
-    Expect.fail("Should not be here");
-  }
-  try {
     p.someSetter = 1;
-  } catch (e) {
-    Expect.fail("Should not be here");
-  }
-  try {
     p.Func;
-  } catch (e) {
-    Expect.fail("Should not be here");
-  }
-  try {
     Expect.isTrue(p.loadLibrary() is Future);
-  } catch (e) {
-    Expect.fail("Should not be here");
-  }
 }
-
 
 main()  {
   p.loadLibrary().then((v) {

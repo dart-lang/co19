@@ -14,7 +14,5 @@
 import "invalid_uri_t03_lib.dart" deferred as p;
 
 main() {
-  try {
-    p.foo();
-  } on NoSuchMethodError { }
+  p.foo();
 }

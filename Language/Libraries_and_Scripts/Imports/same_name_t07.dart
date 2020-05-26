@@ -18,17 +18,13 @@
  * it as a type name reference in an extends clause.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "same_name_t01_p1_lib.dart";
 import "same_name_t01_p2_lib.dart";
 
-class Foo2 extends foo {
-}
+class Foo2 extends foo {}
 
 main() {
-  try {
-    new Foo2();
-  } catch (anything) {}
+  new Foo2();
 }

@@ -18,7 +18,6 @@
  * the top-level scope of L, but L doesn't reference it.
  * @static-clean
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "same_name_t30_lib.dart";

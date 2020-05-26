@@ -59,7 +59,6 @@
  * @description Checks that it is not a compile-time error when two import
  * declarations use identical prefix.
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "namespace_changes_t29_lib1.dart" as prefix;

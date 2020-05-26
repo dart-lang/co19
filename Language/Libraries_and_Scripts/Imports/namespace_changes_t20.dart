@@ -60,7 +60,6 @@
  * library shadow those from other libraries it re-exports if they have
  * identical names.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

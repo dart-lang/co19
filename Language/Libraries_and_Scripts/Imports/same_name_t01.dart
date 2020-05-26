@@ -19,12 +19,11 @@
  * not participate in an implicit subtype test.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "same_name_t01_p1_lib.dart";
 import "same_name_t01_p2_lib.dart";
 
 main() {
-  foo x;
+  foo? x;
 }

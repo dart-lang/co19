@@ -60,7 +60,6 @@
  * and re-export one another and there're no errors when any of them is being
  * imported by a third library.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

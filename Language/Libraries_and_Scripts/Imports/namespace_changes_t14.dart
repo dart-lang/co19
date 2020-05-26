@@ -60,7 +60,6 @@
  * and if a name is not hidden by any of them, it's available in the resulting
  * namespace.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

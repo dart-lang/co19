@@ -17,7 +17,6 @@
  * that denote different declarations and N is referenced as a type with prefix,
  * then it is ok.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import "same_name_t11_p1_lib.dart";
 import "same_name_t11_p2_lib.dart";

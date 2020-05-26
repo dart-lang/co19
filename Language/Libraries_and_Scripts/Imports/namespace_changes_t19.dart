@@ -60,7 +60,6 @@
  * re-export are applied.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "namespace_changes_lib_reexport2_filtered.dart";
 

@@ -24,15 +24,10 @@
  * library being imported is missing entirely.
  * @compile-error
  * @author vasya
- * @reviewer hlodvig
- * @reviewer msyabro
- * @reviewer rodionov
  */
 
 import as lib;
 
 main() {
-  try {
-    someVar = 0;
-  } catch (e) {}
+  var someVar = 0;
 }

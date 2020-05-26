@@ -24,13 +24,10 @@
  * import directive are specified in the wrong order.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "syntax_lib.dart" show foo as prfx;
 
 main() {
-  try {
-    someVar = 0;
-  } catch (e) {}
+  someVar = 0;
 }

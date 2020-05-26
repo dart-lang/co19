@@ -24,13 +24,10 @@
  * enclosed in quotes.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 import syntax_lib.dart as prfx;
 
 main() {
-  try {
-    someVar = 0;
-  } catch (e) {}
+  someVar = 0;
 }

@@ -62,7 +62,6 @@
  * library it's used in, but not the export namespace of that library
  * (no show/hide combinators are used).
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 
@@ -71,7 +70,7 @@ import "namespace_changes_lib_reexport.dart";
 class JJ extends J {
   get value => 1;
   set value(x) {}
-  foo() {}
+  foo() => "";
 }
 
 main() {
@@ -87,7 +86,7 @@ main() {
 
   // from namespace_changes_p1_lib.dart
   Expect.listEquals([null], bList(1));
-  bFunc bf = null;
+  bFunc? bf = null;
   Expect.equals("B_FOO", bFoo);
   Expect.equals("1_Imports_A02_p1_lib.foo()", new B.spec().foo());
   Expect.equals("i.foo()", new I().foo());

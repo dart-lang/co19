@@ -24,13 +24,10 @@
  * string literal
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 import '1_Imports'_lib.dart';
 
 main() {
-  try {
-    someVar = 0;
-  } catch (e) {}
+  var someVar = 0;
 }

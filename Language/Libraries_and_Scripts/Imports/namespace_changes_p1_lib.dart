@@ -4,17 +4,17 @@
 
 library Imports_A02_p1_lib;
 
-List bList(int i) { return new List(i); }
+List bList(int i) => [null];
 typedef String bFunc<B extends bool, S extends String>(B t, [S s]);
 final bFoo = "B_FOO";
 
 class B {
   B () {}
   B.spec () {}
-  foo() { return "1_Imports_A02_p1_lib.foo()"; }
+  foo() => "1_Imports_A02_p1_lib.foo()";
   var bar = "1_Imports_A02_p1_lib.bar";
   //static final FOO = "B.FOO";
-  get value { return _value; }
+  get value => _value;
   set value(val) { _value = val; }
 
   var _value;
@@ -23,8 +23,8 @@ class B {
 class F implements I {
   var _value;
   F() {}
-  foo() { return "i.foo()"; }
-  get value { return _value; }
+  foo() => "i.foo()";
+  get value => _value;
   set value(val) { _value = val; }
 }
 

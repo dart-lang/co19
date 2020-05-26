@@ -61,8 +61,6 @@
  * override any imports.
  * Testing name collisions for both compatible and incompatible types.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

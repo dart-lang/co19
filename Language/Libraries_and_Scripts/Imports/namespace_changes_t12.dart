@@ -61,7 +61,6 @@
  * export namespace.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "namespace_changes_lib.dart" show aFoo, A;
 

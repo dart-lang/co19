@@ -18,21 +18,18 @@
  * one of the import declarations of L (so there's actually no name clash).
  * @static-clean
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "same_name_t01_p1_lib.dart" hide foo, Bar;
 import "same_name_t01_p2_lib.dart";
 
-class Foo2 extends foo {
-}
+class Foo2 extends foo {}
 
-class Foo3<T extends foo> {
-}
+class Foo3<T extends foo> {}
 
 main() {
   1 is foo;
-  null as foo;
+  null as foo?;
   new foo();
   new Foo2();
   new Foo3<Foo2>();

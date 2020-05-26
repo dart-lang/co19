@@ -11,14 +11,11 @@
  * A imports and re-exports a third one (C) that has the same name as B.
  * @static-clean
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "library_name_t02_libA.dart";
 import "library_name_t02_libB.dart";
 
 main() {
-  try {
-    var someVar = 0;
-  } catch (e) {}
+  var someVar = 0;
 }

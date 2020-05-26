@@ -11,13 +11,10 @@
  * directive does not denote an existing file.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 import "IntentionallyMissingFile.dart";
 
 main() {
-  try {
-    var someVar = 0;
-  } catch (e) {}
+ var someVar = 0;
 }

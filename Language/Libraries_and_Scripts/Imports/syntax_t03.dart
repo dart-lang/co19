@@ -24,15 +24,10 @@
  * enclosed in quotes.
  * @compile-error
  * @author vasya
- * @reviewer hlodvig
- * @reviewer msyabro
- * @reviewer rodionov
  */
 
 import syntax_lib.dart;
 
 main() {
-  try {
-    someVar = 0;
-  } catch (e) {}
+  someVar = 0;
 }

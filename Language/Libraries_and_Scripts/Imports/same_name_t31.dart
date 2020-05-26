@@ -18,7 +18,6 @@
  * the top-level scope of L, which L uses in an explicit type test.
  * @static-clean
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "same_name_t30_lib.dart";
 import "same_name_t30_lib.dart";

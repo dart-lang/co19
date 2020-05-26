@@ -19,14 +19,12 @@
  * clause.
  * @static-clean
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "same_name_t20_p1_lib.dart";
 import "same_name_t20_p2_lib.dart";
 
-class Foo2 extends foo {
-}
+class Foo2 extends foo {}
 
 main() {
   new Foo2();

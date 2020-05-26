@@ -23,7 +23,6 @@
  * @description Checks that it is not an error if there's more than one show
  * or hide combinator in an import directive.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

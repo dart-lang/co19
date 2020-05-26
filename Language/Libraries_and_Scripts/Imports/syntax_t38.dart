@@ -24,7 +24,6 @@
  * combinators include identifiers named 'hide' and 'show' and that filtering
  * of the imported names is done correctly.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

@@ -18,13 +18,11 @@
  * of L and L uses it as a type parameter.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "same_name_t11_p1_lib.dart";
 import "same_name_t11_p2_lib.dart";
 
-class Foo2<T extends foo> {
-}
+class Foo2<T extends foo> {}
 
 main() {
   new Foo2<int>();

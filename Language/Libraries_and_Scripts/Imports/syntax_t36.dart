@@ -24,7 +24,6 @@
  * the same URI more than once and doesn't reference any of the names exported
  * by that library.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 
@@ -32,5 +31,5 @@ import "syntax_t36_lib.dart";
 import "syntax_t36_lib.dart";
 
 main() {
-//  Expect.equals(234124, foo);
+  Expect.equals(234124, foo);
 }

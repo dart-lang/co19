@@ -24,13 +24,10 @@
  * expression in place of the URI.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 import 7 + 7;
 
 main() {
-  try {
-    someVar = 0;
-  } catch (e) {}
+  var someVar = 0;
 }

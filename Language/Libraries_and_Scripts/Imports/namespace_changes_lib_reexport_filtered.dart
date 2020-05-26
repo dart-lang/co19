@@ -25,13 +25,13 @@ class A extends P.B {
 
 abstract class J extends P.I {
 //  factory J() = K;
-  J():super.c();
+  J(): super.c();
   static final FOO = "J.FOO";  
 }
 
 class SubList<T> {
-  List<T> list;
-  SubList() : list = new List<T>() {}
+  List<T> list = <T>[];
+  SubList() : list = <T>[];
   
   void add(T v) {
     list.add(v);

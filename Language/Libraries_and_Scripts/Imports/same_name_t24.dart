@@ -19,7 +19,6 @@
  * expression.
  * @static-clean
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "same_name_t20_p1_lib.dart";

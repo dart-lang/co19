@@ -59,7 +59,6 @@
  * @description Checks that it is not an error if prefix value duplicates a
  * local (not top-level) identifier.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

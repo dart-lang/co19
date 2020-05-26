@@ -18,13 +18,11 @@
  * of L and L uses it as a type name reference in an extends clause.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "same_name_t11_p1_lib.dart";
 import "same_name_t11_p2_lib.dart";
 
-class Foo2 extends foo {
-}
+class Foo2 extends foo {}
 
 main() {
   new Foo2();

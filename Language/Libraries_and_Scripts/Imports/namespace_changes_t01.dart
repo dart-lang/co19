@@ -60,8 +60,6 @@
  * show/hide combinators are used, each non-private top level declaration d of
  * B is added to the scope of A.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

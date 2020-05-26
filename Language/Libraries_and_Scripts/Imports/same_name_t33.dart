@@ -18,21 +18,18 @@
  * names exported by that library in all kinds of valid expressions.
  * @static-clean
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "same_name_t30_lib.dart" hide foo, Bar, id;
 import "same_name_t30_lib.dart";
 
-class Foo2 extends foo {
-}
+class Foo2 extends foo {}
 
-class Foo3<T extends foo> {
-}
+class Foo3<T extends foo> {}
 
 main() {
   1 is foo;
-  null as foo;
+  null as foo?;
   new foo();
   new Foo2();
   new Foo3<Foo2>();

@@ -59,7 +59,6 @@
  * @description Checks that it is possible to import a library that imports and
  * re-exports itself and there're no errors.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

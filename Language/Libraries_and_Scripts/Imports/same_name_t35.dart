@@ -19,7 +19,6 @@
  * a type annotation).
  * @static-clean
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "same_name_t30_lib.dart";
 import "same_name_t30_lib.dart";

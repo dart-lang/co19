@@ -58,8 +58,6 @@
  *
  * @description Checks that generics can be imported.
  * @author kaigorodov
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 import "namespace_changes_lib.dart" as P;

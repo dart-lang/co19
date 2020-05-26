@@ -59,8 +59,6 @@
  * @description Checks that it is not an error if a library imports itself with
  * an empty prefix (which results in name collision).
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 
 library import_itself_library;

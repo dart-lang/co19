@@ -19,7 +19,6 @@
  * clause.
  * @static-clean
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "same_name_t30_lib.dart";

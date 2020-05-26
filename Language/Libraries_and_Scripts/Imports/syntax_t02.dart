@@ -24,15 +24,10 @@
  * import directive is enclosed in parentheses.
  * @compile-error
  * @author vasya
- * @reviewer hlodvig
- * @reviewer msyabro
- * @reviewer rodionov
  */
 
 import("syntax_lib.dart");
 
 main() {
-  try {
-    var someVar = 0;
-  } catch (e) {}
+  someVar = 0;
 }

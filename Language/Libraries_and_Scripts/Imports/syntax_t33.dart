@@ -24,13 +24,10 @@
  * show/hide combinator include a string literal.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "syntax_lib.dart" hide foo, "someVar";
 
 main() {
-  try {
-    someVar = 0;
-  } catch (e) {}
+  someVar = 0;
 }

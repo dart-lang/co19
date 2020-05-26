@@ -20,7 +20,6 @@
  * name clash).
  * @static-clean
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "same_name_t11_p1_lib.dart" hide foo, Bar, id;
@@ -34,7 +33,7 @@ class Foo3<T extends foo> {
 
 main() {
   1 is foo;
-  null as foo;
+  null as foo?;
   new foo();
   new Foo2();
   new Foo3<Foo2>();

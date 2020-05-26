@@ -60,7 +60,6 @@
  * available without it.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 import "namespace_changes_lib.dart" as P;
 

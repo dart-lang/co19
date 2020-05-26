@@ -29,7 +29,5 @@
 import "syntax_lib.dart" deferred;
 
 main() {
-  try {
-    var x = foo;
-  } catch (ok) {}
+  var x = foo;
 }

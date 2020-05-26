@@ -18,7 +18,6 @@
  * name to the import namespace of L, but L doesn't reference it.
  * @static-clean
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "same_name_t01_p1_lib.dart";

@@ -61,7 +61,6 @@
  * re-export A, with or without the prefix used to import A into B.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 import "namespace_changes_lib.dart";
 

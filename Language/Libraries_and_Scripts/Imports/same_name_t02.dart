@@ -18,7 +18,6 @@
  * top-level scope of L and L uses it in an explicit type test.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "same_name_t01_p1_lib.dart";
 import "same_name_t01_p2_lib.dart";

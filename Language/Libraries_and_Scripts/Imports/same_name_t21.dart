@@ -19,7 +19,6 @@
  * in an explicit type test.
  * @static-clean
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "same_name_t20_p1_lib.dart";
 import "same_name_t20_p2_lib.dart";

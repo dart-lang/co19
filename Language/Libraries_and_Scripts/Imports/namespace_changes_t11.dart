@@ -59,7 +59,6 @@
  * @description Checks that 'show' combinator works as specified, given a list
  * of valid identifiers.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

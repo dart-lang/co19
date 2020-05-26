@@ -56,6 +56,7 @@
  * returning a future f, and for every top-level declaration in the imported
  * library a corresponding declaration with the same name in the current
  * library. Calling the imported name results in a runtime error.
+ * @Issue 33118
  * @author ngl@unipro.ru
  */
 import "dart:async";
@@ -63,33 +64,11 @@ import "../../../Utils/expect.dart";
 import "static_type_lib.dart" deferred as p;
 
 main() {
-  try {
-    p.someFunc();
-    Expect.fail("Should not be here");
-  } catch (e) {
-    Expect.isTrue(e is NoSuchMethodError);
-  }
-  try {
-    p.someGetter;
-    Expect.fail("Should not be here");
-  } catch (e) {
-    Expect.isTrue(e is NoSuchMethodError);
-  }
-  try {
-    p.someSetter = 1;
-    Expect.fail("Should not be here");
-  } catch (e) {
-    Expect.isTrue(e is NoSuchMethodError);
-  }
-  try {
-    p.Func;
-    Expect.fail("Should not be here");
-  } catch (e) {
-    Expect.isTrue(e is NoSuchMethodError);
-  }
-  try {
-    Expect.isTrue(p.loadLibrary() is Future);
-  } catch (e) {
-    Expect.fail("Should not be here");
-  }
+
+  Expect.throws(() { p.someFunc(); }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { p.someGetter; }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { p.someSetter = 2; }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { p.Func; }, (e) => e is NoSuchMethodError);
+
+  Expect.isTrue(p.loadLibrary() is Future);
 }

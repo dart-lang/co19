@@ -7,6 +7,7 @@ library Imports_A02_t29_lib2;
 void foo() {
   print ("foo2");
 }
+
 void bar() {
   print ("bar2");
 }

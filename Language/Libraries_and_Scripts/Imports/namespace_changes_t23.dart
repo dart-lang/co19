@@ -60,17 +60,11 @@
  * duplicates a top-level declaration in the importing library.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
-import "../../../Utils/expect.dart";
-
 import "syntax_lib.dart" as prefix;
 
 class prefix {}
 
 main() {
-  try {
-    new prefix();
-    Expect.equals(1, prefix.foo);
-  } catch (ok) {}
+  new prefix();
 }

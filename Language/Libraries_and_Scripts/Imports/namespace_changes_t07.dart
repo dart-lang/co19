@@ -61,8 +61,6 @@
  * imported does not re-export its own imports by default.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 import "namespace_changes_lib.dart" as PP;

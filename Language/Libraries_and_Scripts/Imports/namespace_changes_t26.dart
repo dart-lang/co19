@@ -60,7 +60,6 @@
  * duplicates a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "syntax_lib.dart" as prefix;
@@ -68,7 +67,5 @@ import "syntax_lib.dart" as prefix;
 typedef prefix(int);
 
 main() {
-  try {
-    (int) {} is prefix;
-  } catch (ok) {}
+  (int) {} is prefix;
 }

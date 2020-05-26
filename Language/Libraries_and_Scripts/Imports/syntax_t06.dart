@@ -24,15 +24,10 @@
  * identifier after the 'as' keyword.
  * @compile-error
  * @author vasya
- * @reviewer hlodvig
- * @reviewer msyabro
- * @reviewer rodionov
  */
 
 import "syntax_lib.dart" as;
 
 main() {
-  try {
-    someVar = 0;
-  } catch (e) {}
+  someVar = 0;
 }

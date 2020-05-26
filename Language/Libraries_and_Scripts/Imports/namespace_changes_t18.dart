@@ -59,7 +59,6 @@
  * @description Checks that all show/hide combinators used in a chain of
  * re-export are applied.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

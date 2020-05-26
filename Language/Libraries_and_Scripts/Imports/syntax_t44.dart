@@ -25,7 +25,6 @@
  * of the imported names is done correctly.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "syntax_lib.dart" show hide hide show;
 

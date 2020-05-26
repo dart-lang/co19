@@ -10,13 +10,10 @@
  * @description Checks that it is not a compile-time error if the file pointed
  * to by an import directive exists but does not contain a library declaration.
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "invalid_uri_t03_lib.dart";
 
 main() {
-  try {
-    foo();
-  } catch (e) {}
+  foo();
 }

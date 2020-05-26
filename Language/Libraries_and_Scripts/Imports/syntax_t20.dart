@@ -24,13 +24,10 @@
  * in an import directive.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import as lib show foo;
 
 main() {
-  try {
-    someVar = 0;
-  } catch (e) {}
+  var someVar = 0;
 }

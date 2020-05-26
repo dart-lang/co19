@@ -24,7 +24,6 @@
  * combinators include identifiers not declared or re-exported by the library
  * being imported.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

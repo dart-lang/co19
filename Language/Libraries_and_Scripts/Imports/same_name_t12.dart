@@ -19,7 +19,6 @@
  * explicit type test.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "same_name_t11_p1_lib.dart";
 import "same_name_t11_p2_lib.dart";

@@ -22,8 +22,7 @@
 import "same_name_t01_p1_lib.dart";
 import "same_name_t01_p2_lib.dart";
 
-class Foo2<T extends foo> {
-}
+class Foo2<T extends foo> {}
 
 main() {
   new Foo2<int>();
