@@ -18,11 +18,8 @@
  * does not begin with '{'.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    "key": 1 };
-  } catch (e) {}
+  "key": 1 };
 }

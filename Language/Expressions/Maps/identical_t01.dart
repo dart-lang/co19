@@ -13,7 +13,6 @@
  * @description Checks that constant map literals with identical entries and
  * type arguments are identical.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

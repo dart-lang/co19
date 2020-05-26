@@ -10,7 +10,6 @@
  * constant map literal includes a type variable.
  * @issue 27492
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class C<T> {

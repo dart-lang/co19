@@ -14,7 +14,7 @@
 import '../../../Utils/expect.dart';
 
 main() {
-  bool b;
+  bool b = true;
   try {
     b = false;
     (const {})["1"] = 2;

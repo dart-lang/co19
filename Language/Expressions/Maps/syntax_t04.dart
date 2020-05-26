@@ -18,11 +18,8 @@
  * not separated by a colon.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    var map = {"1" 1};
-  } catch (e) {}
+  var map = {"1" 1};
 }

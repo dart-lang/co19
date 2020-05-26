@@ -12,7 +12,6 @@
  * Map<int, int> (non-constant).
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {

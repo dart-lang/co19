@@ -17,8 +17,8 @@
  * @description Checks that a fresh instance is allocated when evaluating a
  * runtime map literal.
  * @author msyabro
- * @reviewer kaigorodov
  */
+
 import '../../../Utils/expect.dart';
 
 main() {

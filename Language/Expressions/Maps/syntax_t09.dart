@@ -18,11 +18,8 @@
  * literal is not a valid expression.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    var x = {1{}: 1};
-  } catch (e) {}
+  var x = {1{}: 1};
 }

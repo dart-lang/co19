@@ -17,14 +17,14 @@
  * @description Checks that values in a map literal are evaluated in order from
  * left to right.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 
 var evalOrder;
 
-f(number) {
+Object f(number) {
   evalOrder = '$evalOrder$number';
+  return 0;
 }
 
 main() {

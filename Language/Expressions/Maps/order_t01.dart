@@ -9,7 +9,6 @@
  * code.
  * @description Checks that a map literal is ordered.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

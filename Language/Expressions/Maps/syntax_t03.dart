@@ -18,7 +18,6 @@
  * are not separated by a comma.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {

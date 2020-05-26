@@ -18,7 +18,6 @@
  * <String, V>{k1:e1... kn :en} is an object that implements interface
  * Map<String, V>.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

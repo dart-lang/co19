@@ -18,11 +18,8 @@
  * does not begin with '{'.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    var x = const <String, int>  "key": 1 };
-  } catch (e) {}
+  var x = const <String, int>  "key": 1 };
 }

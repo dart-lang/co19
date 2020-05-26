@@ -13,7 +13,6 @@
  */
 
 main() {
-  try {
-    const {"key": [1, 2]};
-  } catch (e) {}
+  Object o = [1, 2];
+  const { "key": o };
 }

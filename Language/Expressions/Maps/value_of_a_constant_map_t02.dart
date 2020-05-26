@@ -13,7 +13,6 @@
  * <dynamic, dynamic>{k1: e1 ... kn: en}.
  * @description Checks that entries of the resulted object are added correctly.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

@@ -11,7 +11,6 @@
  * <String, int> map literal to a variable with declared type Map<int, int>.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {

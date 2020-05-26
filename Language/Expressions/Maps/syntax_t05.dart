@@ -17,11 +17,8 @@
  * @description Checks that a map literal can't contain an empty entry.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    <String, int>{"key1": 1, "key2" : 2,,"key3":3};
-  } catch (e) {}
+  <String, int>{"key1": 1, "key2" : 2,,"key3":3};
 }

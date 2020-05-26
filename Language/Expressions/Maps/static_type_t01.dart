@@ -12,7 +12,6 @@
  * variable of appropriate type.
  * @static-clean
  * @author msyabro
- * @reviewer rodionov
  */
 
 class C {

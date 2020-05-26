@@ -10,12 +10,9 @@
  * in a constant map literal is not a compile-time constant.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
   var x;
-  try {
-    const {"$x": 1};
-  } catch (e) {}
+  const {"$x": 1};
 }

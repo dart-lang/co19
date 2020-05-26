@@ -17,11 +17,8 @@
  * @description Checks that a map literal can't begin with an empty entry.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    var map=<String, int>{, "key1": 1, "key2" : 2, "key3": 3};
-  } catch (e) {}
+  var map = <String, int>{, "key1": 1, "key2" : 2, "key3": 3};
 }

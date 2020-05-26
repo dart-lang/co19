@@ -18,11 +18,8 @@
  * does not end with '}'.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    var x = {"key1": true, "key2":false;
-  } catch (e) {}
+  var x = {"key1": true, "key2":false;
 }

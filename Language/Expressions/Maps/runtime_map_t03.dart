@@ -17,7 +17,6 @@
  * @description Checks that entries with keys ui and values oi are added to the
  * resulted map object.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 
