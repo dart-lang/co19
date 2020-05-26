@@ -23,6 +23,7 @@
  * In other words, constant objects are canonicalized.
  * @description Checks that equal strings constructed at compile-time are
  * canonicalized.
+ * @Issue 985
  * @author iefremov
  */
 import '../../../../Utils/expect.dart';
@@ -36,4 +37,16 @@ main() {
   const s3 = "Si finis bonus est," " totum bonum erit";
   const s4 = "Si finis " "bonus est, totum " "bonum erit";
   Expect.isTrue(identical(s3, s4));
+
+  var v1 = "Alea iacta est";
+  var v2 = "Alea iacta est";
+  Expect.isTrue(identical(v1, v2));
+
+  var v3 = "Si finis bonus est," " totum bonum erit";
+  var v4 = "Si finis " "bonus est, totum " "bonum erit";
+  // The specification actually requires `identical(v3, v4)` to evaluate to true.
+  // However, we have known for several years that this is not how the tools
+  // actually behave, see https://github.com/dart-lang/language/issues/985 for
+  // more details.
+  Expect.isTrue(identical(v3, v4));
 }
