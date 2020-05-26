@@ -13,11 +13,8 @@
  * not end with ']'.
  * @author msyabro
  * @compile-error
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
     [1, 2, 3;
-  } catch (e) {}
 }

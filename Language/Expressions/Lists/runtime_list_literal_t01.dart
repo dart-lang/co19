@@ -15,7 +15,6 @@
  * @description Checks that elements in a list literal are evaluated in order
  * they appear in the program.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

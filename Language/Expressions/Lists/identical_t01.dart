@@ -11,7 +11,6 @@
  * @description Checks that constant lists with identical elements and type
  * arguments are identical.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

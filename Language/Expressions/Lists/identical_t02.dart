@@ -11,7 +11,6 @@
  * @description Checks that constant lists with different elements or type
  * arguments are not identical.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 
@@ -26,7 +25,7 @@ main() {
   Expect.isFalse(identical(const [1, 2, 1 + 2], const [1, 2, 4]));
   Expect.isFalse(identical(const <bool>[false], const <bool>[false, true]));
   Expect.isFalse(
-      identical(const ["a", "b", "c"], const <String>["a", "b", "c"]));
+      identical(const<Object> ["a", "b", "c"], const <String>["a", "b", "c"]));
   Expect.isFalse(
       identical(const [1, null, const C(1)], const [1, null, const C(2)]));
 }

@@ -10,7 +10,6 @@
  * literal to a String variable.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 main() {

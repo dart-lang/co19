@@ -9,7 +9,6 @@
  * vi+1, where vi is the value of the compile time expression ei.
  * @description Checks that the resulted object contains correct elements.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

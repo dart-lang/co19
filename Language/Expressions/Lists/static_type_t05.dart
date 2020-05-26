@@ -11,7 +11,6 @@
  * List<String>.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {

@@ -15,7 +15,6 @@
  * @description Checks that the result of evaluation is an object that
  * implements interface List<E>.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

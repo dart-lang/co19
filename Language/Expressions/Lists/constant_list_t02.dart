@@ -11,7 +11,6 @@
  * expression.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 class A {

@@ -12,7 +12,6 @@
  * @description Checks that it is a runtime error to attempt to access a list
  * using an index that is not a member of its set of indices.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

@@ -14,7 +14,6 @@
  * • The result of the evaluation is a.
  * @description Checks that ith element is set to o(i+1), o <= i < n.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

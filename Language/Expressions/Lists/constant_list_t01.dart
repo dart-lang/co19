@@ -9,14 +9,13 @@
  * type argument of a constant list literal includes a type parameter.
  * @description Checks that it is no error if the type argument of a constant
  * list literal includes a type variable.
- * @issue 27492
+ * @Issue 27492
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class C<T> {
   test() {
-    const <T>[null, null];
+    const <T?>[null, null];
   }
 }
 

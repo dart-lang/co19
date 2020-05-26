@@ -15,7 +15,6 @@
  * @description Checks that a fresh instance is allocated every time when
  * evaluating a runtime list literal.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

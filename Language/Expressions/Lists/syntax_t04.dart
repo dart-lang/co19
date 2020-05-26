@@ -12,11 +12,8 @@
  * @description Checks that a list literal can't start with empty element.
  * @author msyabro
  * @compile-error
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    [, 1, 2, 3];
-  } catch (e) {}
+  [, 1, 2, 3];
 }

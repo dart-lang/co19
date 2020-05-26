@@ -6,16 +6,15 @@
 /**
  * @assertion Attempting to mutate a constant list literal will result in a
  * dynamic error.
- * @description Checks that it is a run-time error to attempt to modify
- * a constant list literal.
+ * @description Checks that it is a run-time error to attempt to modify a
+ * constant list literal.
  * @author msyabro
  * @needsreview Issue 1553
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 
 main() {
-  bool b;
+  bool b = true;
   try {
     b = false;
     (const []).add(1);

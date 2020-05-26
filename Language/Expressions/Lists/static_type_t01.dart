@@ -11,7 +11,6 @@
  * appropriately typed variable.
  * @static-clean
  * @author msyabro
- * @reviewer rodionov
  */
 
 class C {

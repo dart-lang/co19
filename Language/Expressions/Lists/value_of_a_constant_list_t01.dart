@@ -10,7 +10,6 @@
  * @description Checks that the value of a constant list literal is an object
  * that implements interface List<E>.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 
