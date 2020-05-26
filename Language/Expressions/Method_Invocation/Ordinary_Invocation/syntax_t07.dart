@@ -11,7 +11,6 @@
  * positional arguments.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class C {
@@ -19,7 +18,5 @@ class C {
 }
 
 main() {
-  try {
-    C.f(name: null, 1);
-  } catch (e) {}
+  C.f(name: null, 1);
 }

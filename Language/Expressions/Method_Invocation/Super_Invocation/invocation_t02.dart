@@ -12,7 +12,6 @@
  * invocation occurs in an instance variable initializer.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class S {
@@ -25,7 +24,5 @@ class A extends S {
 }
 
 main() {
-  try {
-    new A();
-  } catch (e) {}
+  new A();
 }

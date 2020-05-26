@@ -10,7 +10,6 @@
  * arguments precede positional arguments.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class S {
@@ -19,9 +18,7 @@ class S {
 
 class A extends S {
   test() {
-    try {
-      super.f(name: null, 1);
-    } catch (e) {}
+    super.f(name: null, 1);
   }
 }
 

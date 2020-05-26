@@ -27,7 +27,6 @@
  * @description Checks that the value of method invocation is the value
  * returned by method m.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 

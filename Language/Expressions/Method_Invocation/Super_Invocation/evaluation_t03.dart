@@ -24,23 +24,14 @@
  * @description Checks that the value of an expression is the value returned
  * after f is executed.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 
 class S {
-  m1() {
-    return "v";
-  }
-  m2() {
-    return false;
-  }
-  m3() {
-    return 1;
-  }
-  m4() {
-    return null;
-  }
+  m1() => "v";
+  m2() => false;
+  m3() => 1;
+  m4() => null;
 }
 
 class A extends S {
@@ -48,10 +39,9 @@ class A extends S {
     Expect.equals("v", super.m1());
     Expect.equals(false, super.m2());
     Expect.equals(1, super.m3());
-    Expect.equals(null, super.m4());
+    Expect.isNull(super.m4());
   }
 }
-
 
 main()  {
   new A().test();

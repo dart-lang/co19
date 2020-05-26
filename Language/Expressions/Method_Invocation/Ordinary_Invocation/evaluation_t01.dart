@@ -27,11 +27,10 @@
  * @description Checks that first the expression o is evaluated and then
  * expressions in the argument list in order from left to right.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 
-StringBuffer buffer;
+StringBuffer buffer = StringBuffer();
 
 class A {
   operator +(otherOperand) {
@@ -65,7 +64,6 @@ class O {
 }
 
 main() {
-  buffer = new StringBuffer();
   var o = new O();
   (o + 1).method(new A() + 1, new A() - 2, d: new C(), c: new B());
   Expect.equals("12345", buffer.toString());

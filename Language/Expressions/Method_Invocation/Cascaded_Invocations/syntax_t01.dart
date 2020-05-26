@@ -18,7 +18,6 @@
  * @description Checks that various correct cascaded invocations do not
  * produce compile-time errors.
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {

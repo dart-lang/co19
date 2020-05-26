@@ -15,46 +15,24 @@
  * assigned to variables with various declared types.
  * @static-clean
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../../Utils/expect.dart';
 
+void testme() {}
+
 class C {
-  Function obj;
+  Function obj = testme;
   var dyn;
 }
 
 class S extends C {
   void test() {
-    try {
-      String foo = super.obj();
-      Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch (ex) {}
-
-    try {
-      bool foo = super.dyn();
-      Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch (ex) {}
-
-    try {
-      C foo = super.obj();
-      Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch (ex) {}
-
-    try {
-      Object foo = super.dyn();
-      Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch (ex) {}
-
-    try {
-      List foo = super.obj();
-      Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch (ex) {}
-
-    try {
-      Map foo = super.dyn();
-      Expect.fail("NoSuchMethodError expected.");
-    } on NoSuchMethodError catch (ex) {}
+    Expect.throws(() { String foo = super.obj(); });
+    Expect.throws(() { bool   foo = super.obj(); });
+    Expect.throws(() { Object foo = super.obj(); });
+    Expect.throws(() { C      foo = super.obj(); });
+    Expect.throws(() { List   foo = super.obj(); });
+    Expect.throws(() { Map    foo = super.obj(); });
   }
 }
 

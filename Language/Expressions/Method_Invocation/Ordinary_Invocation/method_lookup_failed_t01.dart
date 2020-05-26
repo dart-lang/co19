@@ -24,8 +24,6 @@
  * @description Checks that if vg is a function, it is executed with respect to
  * the bindings of the evaluated argument list.
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

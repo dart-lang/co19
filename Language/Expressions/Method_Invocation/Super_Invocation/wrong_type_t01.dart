@@ -12,7 +12,6 @@
  * assigned to a function type.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class S {

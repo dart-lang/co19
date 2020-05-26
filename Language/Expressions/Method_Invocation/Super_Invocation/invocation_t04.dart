@@ -12,7 +12,6 @@
  * invocation occurs in a static method.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class S {
@@ -26,7 +25,5 @@ class A extends S {
 }
 
 main() {
-  try {
-    A.staticMethod();
-  } catch (e) {}
+  A.staticMethod();
 }

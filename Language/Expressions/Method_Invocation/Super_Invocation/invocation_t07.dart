@@ -12,17 +12,14 @@
  * invocation occurs in a factory constructor.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 abstract class I extends A {
-  factory I.foo() {return super.make();}
+  factory I.foo() { return super.make(); }
 }
 
 class A {
-   C make() {
-     return new C();
-   }
+   C make() { return new C(); }
 }
 
 class C implements I {
@@ -30,7 +27,5 @@ class C implements I {
 }
 
 main() {
-  try {
-    new I.foo();
-  } catch (x) {}
+  new I.foo();
 }

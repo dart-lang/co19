@@ -13,7 +13,6 @@
  * an instance member named m.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class S {}

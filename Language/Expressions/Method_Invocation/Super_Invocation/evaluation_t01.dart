@@ -24,8 +24,7 @@
  * @description Checks that the body of f is executed with respect to the
  * bindings that resulted from the evaluation of the argument list.
  * @author msyabro
- * @reviewer kaigorodov
- */
+s */
 import '../../../../Utils/expect.dart';
 
 class TestException {}
@@ -38,10 +37,7 @@ class S {
 
 class A extends S {
   test() {
-    try {
-      super.f(new TestException());
-      Expect.fail("Exception is expected");
-    } on TestException catch (e) {}
+    Expect.throws(() {  super.f(new TestException()); }, (e) => e is TestException);
   }
 }
 

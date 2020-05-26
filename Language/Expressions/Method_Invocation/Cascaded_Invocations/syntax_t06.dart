@@ -19,7 +19,6 @@
  * literal.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {
@@ -28,8 +27,6 @@ class C {
 
 main() {
   var o = new C();
-  try {
-    o..1;
-  } catch (e) {}
+  o..1;
 }
 

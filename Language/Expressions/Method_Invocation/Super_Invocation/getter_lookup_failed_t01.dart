@@ -21,8 +21,6 @@
  * @compile-error
  * @author msyabro
  */
-import '../../../../Utils/expect.dart';
-
 class TestException {}
 
 class S {
@@ -33,10 +31,7 @@ class S {
 
 class A extends S {
   test() {
-    try {
-      super.nonExistingMethod();
-      Expect.fail("Exception is expected");
-    } on TestException catch (e) {}
+    super.nonExistingMethod();
   }
 }
 

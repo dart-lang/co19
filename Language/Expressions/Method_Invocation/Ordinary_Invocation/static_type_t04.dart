@@ -15,44 +15,22 @@
  * to variables with various declared types.
  * @static-clean
  * @author rodionov
- * @reviewer iefremov
  */
 import "../../../../Utils/expect.dart";
 
+void testme() {}
+
 class C {
-  static Function f1;
+  static Function f1 = testme;
 }
 
 class A {}
 
 main() {
-  try {
-    String foo = C.f1();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    bool foo = C.f1();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    A foo = C.f1();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    Object foo = C.f1();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    List foo = C.f1();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    Map foo = C.f1();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (e) {}
+  Expect.throws(() { String foo = C.f1(); });
+  Expect.throws(() { bool   foo = C.f1(); });
+  Expect.throws(() { A      foo = C.f1(); });
+  Expect.throws(() { Object foo = C.f1(); });
+  Expect.throws(() { List   foo = C.f1(); });
+  Expect.throws(() { Map    foo = C.f1(); });
 }

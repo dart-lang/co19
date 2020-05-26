@@ -22,12 +22,12 @@ class A {
 }
 
 class C extends A {
-  String m2(String p, [String p2]) => "C" + p;
+  String m2(String p, [String? p2]) => "C" + p;
 }
 
 main() {
-  C c1 = new C();
-  C c2 = null;
+  C? c1 = new C();
+  C? c2 = null;
   Expect.equals("A1", c1?.m1("1"));
   Expect.equals("C2", c1?.m2("2", "3"));
 

@@ -25,7 +25,6 @@
  * function and getter is declared implicitly.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class C {

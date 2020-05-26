@@ -12,7 +12,6 @@
  * invocation occurs in a static variable initializer.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class S {
@@ -24,7 +23,5 @@ class A extends S {
 }
 
 main() {
-  try {
-    A.v;
-  } catch (e) {}
+  A.v;
 }

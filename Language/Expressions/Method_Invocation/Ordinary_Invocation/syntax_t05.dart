@@ -8,12 +8,9 @@
  * o.m(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k).
  * @description Checks that argument list may have comma on the end.
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
   var o;
-  try {
-    o.f(1, 2, 3, );
-  } catch (e) {}
+  o.f(1, 2, 3, );
 }

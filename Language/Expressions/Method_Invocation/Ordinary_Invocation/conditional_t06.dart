@@ -16,8 +16,7 @@
  */
 import '../../../../Utils/expect.dart';
 
-class C {
-}
+class C {}
 
 main() {
   dynamic c1 = new C();

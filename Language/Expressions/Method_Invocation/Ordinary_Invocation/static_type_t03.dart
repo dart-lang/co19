@@ -13,14 +13,13 @@
  * return type of F.
  * @static-clean
  * @author msyabro
- * @reviewer rodionov
  */
 
 class C {
-  static int f1() {}
-  static bool f2() {}
-  static String f3() {}
-  static C f4() {}
+  static int f1() => 1;
+  static bool f2() => true;
+  static String f3() => "";
+  static C f4() => C();
 }
 
 main() {

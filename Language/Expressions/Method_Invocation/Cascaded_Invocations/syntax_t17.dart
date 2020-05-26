@@ -19,17 +19,13 @@
  * additive expression.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
-class C {
-}
+class C {}
 
 main() {
   var a = 1;
   var b = 0;
-  try {
-    new C().. a + b;
-  } catch (e) {}
+  new C().. a + b;
 }
 

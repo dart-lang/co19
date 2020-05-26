@@ -10,7 +10,6 @@
  * current scope. Arguments must be separated with a comma.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class C {
@@ -18,7 +17,5 @@ class C {
 }
 
 main() {
-  try {
-    C.f(1 2);
-  } catch (e) {}
+  C.f(1 2);
 }

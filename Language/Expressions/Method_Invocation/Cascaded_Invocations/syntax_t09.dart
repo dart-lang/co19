@@ -19,7 +19,6 @@
  * literal.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {
@@ -28,8 +27,6 @@ class C {
 
 main() {
   var o = new C();
-  try {
-    o..{'k1': 1, 'k2': 2};
-  } catch (e) {}
+  o..{'k1': 1, 'k2': 2};
 }
 

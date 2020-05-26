@@ -27,7 +27,6 @@
  * @description Checks that a method body is executed and [:this:] is bound
  * to o.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 

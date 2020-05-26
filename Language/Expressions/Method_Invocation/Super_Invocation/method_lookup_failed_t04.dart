@@ -12,28 +12,18 @@
  * @description Checks that the result of super method invocation is the result
  * of calling Function.apply on v.g, [o1, ..., on], {xn+1:on+1, ..., xn+k:on+k}
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 
-f1() {
-  return "v";
-}
+f1() => "v";
+f2() => false;
+f3() => 1;
+f4() => null;
 
-f2() {
-  return false;
-}
-
-f3() {
-  return 1;
-}
-
-f4() {
-  return null;
-}
+testme() => "Should not reach here";
 
 class S {
-  Function func;
+  Function func = testme;
 }
 
 class A extends S {

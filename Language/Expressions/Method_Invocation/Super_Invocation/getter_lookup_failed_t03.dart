@@ -19,7 +19,6 @@
  * named m in the invoking class's superclass.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class TestException {}

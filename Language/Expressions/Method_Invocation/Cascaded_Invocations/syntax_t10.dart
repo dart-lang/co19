@@ -18,7 +18,6 @@
  * @description Checks that it is a compile-time error if suffix is null.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {
@@ -27,8 +26,6 @@ class C {
 
 main() {
   var o = new C();
-  try {
-    o..null;
-  } catch (e) {}
+  o..null;
 }
 

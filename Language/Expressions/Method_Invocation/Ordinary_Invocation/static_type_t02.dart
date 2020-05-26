@@ -12,14 +12,13 @@
  * declared return type of F.
  * @static-clean
  * @author msyabro
- * @reviewer rodionov
  */
 
 class C {
-  int f1() {}
-  bool f2() {}
-  String f3() {}
-  C f4() {}
+  int f1() => 1;
+  bool f2() => true;
+  String f3() => "";
+  C f4() => C();
 }
 
 main() {

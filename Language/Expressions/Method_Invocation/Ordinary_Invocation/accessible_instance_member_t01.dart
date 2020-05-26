@@ -21,7 +21,6 @@
  * instance member named m.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class C {}

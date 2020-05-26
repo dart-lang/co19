@@ -19,7 +19,6 @@
  * expression results in a NoSuchMethodError as expected, since they're being
  * invoked on an instance.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 

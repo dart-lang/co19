@@ -19,7 +19,6 @@
  * instance creation expression.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {
@@ -28,8 +27,6 @@ class C {
 
 main() {
   var c = new C();
-  try {
-    c..new C();
-  } catch (e) {}
+  c..new C();
 }
 

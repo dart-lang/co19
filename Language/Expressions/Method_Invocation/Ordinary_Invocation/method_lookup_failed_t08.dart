@@ -25,8 +25,6 @@
  * the current scope. This causes a compile error
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 main() {

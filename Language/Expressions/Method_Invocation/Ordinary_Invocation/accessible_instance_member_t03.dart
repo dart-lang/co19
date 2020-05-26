@@ -22,13 +22,9 @@
  * @compile-error
  * @author kaigorodov
  */
-import '../../../../Utils/expect.dart';
-
 class C {}
 
 main() {
   C o = new C();
-  Expect.throws(() {
-    o.nonExistingMethod();
-  }, (e) => e is NoSuchMethodError);
+  o.nonExistingMethod();
 }

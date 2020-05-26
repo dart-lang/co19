@@ -24,11 +24,10 @@
  * @description Checks that the argument list is evaluated before the method
  * lookup.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 
-StringBuffer buffer;
+StringBuffer buffer = new StringBuffer();
 
 class S {
   var f;
@@ -38,11 +37,12 @@ class A extends S {
   operator +(otherOperand) {
     buffer.write(1);
   }
+
   operator -(otherOperand) {
     buffer.write(2);
   }
+
   test() {
-    buffer = new StringBuffer();
     try {
       super.f(new A() + 1, new A() - 1);
       Expect.fail("NoSuchMethodError expected.");
@@ -51,7 +51,6 @@ class A extends S {
     }
   }
 }
-
 
 main()  {
   new A().test();

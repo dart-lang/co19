@@ -19,16 +19,11 @@
  * expression.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
-class C {
-}
+class C {}
 
 main() {
   var a = 1;
-  try {
-    new C()..a++;
-  } catch (e) {}
+  C()..a++;
 }
-

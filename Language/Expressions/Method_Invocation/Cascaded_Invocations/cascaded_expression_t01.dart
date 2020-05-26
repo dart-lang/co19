@@ -9,7 +9,6 @@
  * @description Checks that a cascaded expression evaluates suffix and returns
  * the value of e.
  * @author msyabro
- * @reviewer iefremov
  */
 import '../../../../Utils/expect.dart';
 

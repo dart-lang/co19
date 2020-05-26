@@ -12,11 +12,8 @@
  * invocation occurs in a top-level function.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    super.f();
-  } catch (e) {}
+  super.f();
 }

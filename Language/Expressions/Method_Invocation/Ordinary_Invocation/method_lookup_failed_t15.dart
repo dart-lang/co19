@@ -26,15 +26,13 @@
  * error
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class S {
   get m => () {};
 }
 
-class C extends S {
-}
+class C extends S {}
 
 main() {
   C.m();

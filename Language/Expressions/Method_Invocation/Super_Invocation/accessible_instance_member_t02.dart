@@ -13,7 +13,6 @@
  * inaccessible.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 import '../lib.dart';

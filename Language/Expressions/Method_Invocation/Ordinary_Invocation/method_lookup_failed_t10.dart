@@ -26,7 +26,6 @@
  * @compile-error
  * @author msyabro
  */
-import "../../../../Utils/expect.dart";
 
 class S {
   static m() {}
@@ -35,5 +34,5 @@ class S {
 class C extends S {}
 
 main() {
-  Expect.throws(() {C.m();}, (e) => e is NoSuchMethodError);
+  C.m();
 }

@@ -13,14 +13,13 @@
  * declared return type of F.
  * @static-clean
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class S {
-  int f1() {}
-  bool f2() {}
-  String f3() {}
-  S f4() {}
+  int f1() => 1;
+  bool f2() => true;
+  String f3() => "";
+  S f4() => S();
 }
 
 class A extends S {

@@ -19,13 +19,12 @@
  * named m in the invoking class's superclass.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class TestException {}
 
 class S {
-  static int get sm {return 3;}
+  static int get sm => 3;
 }
 
 class A extends S {

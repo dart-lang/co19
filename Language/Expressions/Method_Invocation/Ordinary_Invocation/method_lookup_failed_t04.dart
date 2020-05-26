@@ -24,25 +24,16 @@
  * @description Checks that the value of method invocation is the value
  * returned by function vg.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 
-f1() {
-  return "v";
-}
+f1() => "v";
 
-f2() {
-  return false;
-}
+f2() => false;
 
-f3() {
-  return 1;
-}
+f3() => 1;
 
-f4() {
-  return null;
-}
+f4() => null;
 
 class C {
   var func;

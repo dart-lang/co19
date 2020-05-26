@@ -19,7 +19,6 @@
  * by a suffix.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {
@@ -28,8 +27,6 @@ class C {
 
 main() {
   var o = new C();
-  try {
-    o..m1()..m1()..;
-  } catch (e) {}
+  o..m1()..m1()..;
 }
 

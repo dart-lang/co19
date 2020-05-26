@@ -14,8 +14,6 @@
  * @compile-error
  * @author kaigorodov
  */
-import '../../../../Utils/expect.dart';
-
 class I {}
 
 class S implements I {}
@@ -28,5 +26,4 @@ class A extends S {
 
 main() {
   A a = new A();
-  Expect.throws(() {a.test();}, (e) => e is NoSuchMethodError);
 }

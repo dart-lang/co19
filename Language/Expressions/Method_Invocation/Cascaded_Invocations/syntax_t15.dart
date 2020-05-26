@@ -18,7 +18,6 @@
  * @description Checks that it is a compile-time error if suffix is super.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {
@@ -28,8 +27,6 @@ class C {
 }
 
 main() {
-  try {
-    new C().test();
-  } catch (e) {}
+  new C().test();
 }
 

@@ -40,10 +40,7 @@ class S {
 class A extends S {
   test() {
     this.exception = new TestException();
-    try {
-      super.f();
-      Expect.fail("Exception is expected");
-    } on TestException catch (e) {}
+    Expect.throws(() { super.f(); }, (e) => e is TestException);
   }
 }
 

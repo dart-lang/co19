@@ -21,7 +21,6 @@
  * T but is inaccessible.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 import '../lib.dart';

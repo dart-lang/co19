@@ -24,12 +24,11 @@
  * @description Checks that a NoSuchMethodError is thrown if m is not null
  * and not a function and getter is declared explicitly.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import "../../../../Utils/expect.dart";
 
 class C {
-  static get func {return 1;}
+  static get func { return 1; }
 }
 
 main()  {

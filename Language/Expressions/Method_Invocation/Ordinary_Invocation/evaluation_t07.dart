@@ -27,16 +27,16 @@
  * @description Checks the order of evaluating a static method invocation
  * expression.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import "../../../../Utils/expect.dart";
 
-StringBuffer buffer;
+StringBuffer buffer = new StringBuffer();
 
 class A {
   operator +(otherOperand) {
     buffer.write(2);
   }
+
   operator -(otherOperand) {
     buffer.write(3);
   }
@@ -47,13 +47,13 @@ class C {
     buffer.write(1);
     return func;
   }
+
   static func(arg1, arg2) {
     buffer.write(4);
   }
 }
 
 main()  {
-  buffer = new StringBuffer();
   C.m(new A() + 1, new A() - 1);
   Expect.equals("1234", buffer.toString());
 }

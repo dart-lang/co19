@@ -25,7 +25,6 @@
  * C.m() is equivalent to the expression C.m(...), which in turn is
  * equivalent to C.m.call(...).
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../../Utils/expect.dart";
 

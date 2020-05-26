@@ -12,7 +12,6 @@
  * @description Checks that if vg is a function, then it is called with the
  * evaluated argument list.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 
@@ -24,11 +23,8 @@ class S {
 
 class A extends S {
   test() {
-    func = (exception) {throw exception;};
-    try {
-      super.func(new TestException());
-      Expect.fail("TestException is expected");
-    } on TestException catch (e) {}
+    func = (exception) => throw exception;
+    Expect.throws(() { super.func(new TestException()); }, (e) => e is TestException);
   }
 }
 

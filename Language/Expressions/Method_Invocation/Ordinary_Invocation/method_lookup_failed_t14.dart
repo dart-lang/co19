@@ -25,7 +25,6 @@
  * named m  instead of a static method. This causes a compile error
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {

@@ -7,7 +7,6 @@
  * @assertion A super method invocation i has the form
  * super.m(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
  * @description Checks that argument list may end with comma.
- * @reviewer kaigorodov
  * @author msyabro
  */
 

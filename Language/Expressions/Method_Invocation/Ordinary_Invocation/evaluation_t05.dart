@@ -27,21 +27,15 @@
  * @description Checks that if m is a function, it is executed with respect
  * to the bindings of the evaluated argument list.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import "../../../../Utils/expect.dart";
 
 class TestException {}
 
 class C {
-  static func(exception) {
-    throw exception;
-  }
+  static func(exception) => throw exception;
 }
 
 main()  {
-  try {
-    C.func(new TestException());
-    Expect.fail("Exception is expected");
-  } on TestException catch (e) {}
+  Expect.throws(() { C.func(new TestException()); }, (e) => e is TestException);
 }

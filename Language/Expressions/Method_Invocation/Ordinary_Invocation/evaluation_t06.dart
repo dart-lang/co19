@@ -27,32 +27,23 @@
  * @description Checks that the value of a static method invocation is the
  * value returned by method m.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import "../../../../Utils/expect.dart";
 
 class A {
-  static m() {
-    return "v";
-  }
+  static m() => "v";
 }
 
 class B {
-  static m() {
-    return false;
-  }
+  static m() => false;
 }
 
 class C {
-  static m() {
-    return 1;
-  }
+  static m() => 1;
 }
 
 class D {
-  static m() {
-    return null;
-  }
+  static m() => null;
 }
 
 main()  {

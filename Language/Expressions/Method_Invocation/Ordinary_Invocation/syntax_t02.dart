@@ -10,12 +10,9 @@
  * precede positional arguments.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
   var o;
-  try {
-    o.f(name: null, 1);
-  } catch (e) {}
+  o.f(name: null, 1);
 }

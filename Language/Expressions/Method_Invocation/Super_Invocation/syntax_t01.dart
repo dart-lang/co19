@@ -9,7 +9,6 @@
  * @description Checks that method invocations, which matching the production,
  * don't cause compile-time errors.
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class S {

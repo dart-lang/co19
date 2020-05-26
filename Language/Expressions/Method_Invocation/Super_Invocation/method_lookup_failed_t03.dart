@@ -13,20 +13,16 @@
  * declared getter is invoked as a function and the value it returns is neither
  * null, nor function.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 
 class S {
-  get func {return 1;}
+  get func => 1;
 }
 
 class A extends S {
   test() {
-    try {
-      super.func();
-      Expect.fail("NoSuchMethodError is expected");
-    } on NoSuchMethodError catch (e) {}
+    Expect.throws(() { super.func(); }, (e) => e is NoSuchMethodError);
   }
 }
 

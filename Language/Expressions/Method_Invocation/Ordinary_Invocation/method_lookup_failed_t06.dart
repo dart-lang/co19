@@ -24,7 +24,6 @@
  * @description Checks the result of invocation if the method and getter lookup
  * has failed.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 

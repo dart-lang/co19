@@ -12,13 +12,10 @@
  * invocation occurs in a top-level variable initializer.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 var xx = super.f();
 
 main() {
-  try {
-    print(xx);
-  } catch (x) {}
+  xx;
 }

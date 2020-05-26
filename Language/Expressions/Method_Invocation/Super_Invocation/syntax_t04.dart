@@ -9,7 +9,6 @@
  * @description Checks that arguments must be separated with comma.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class S {
@@ -18,9 +17,7 @@ class S {
 
 class A extends S {
   test() {
-    try {
-      super.f(new Object() new Object());
-    } catch (e) {}
+    super.f(new Object() new Object());
   }
 }
 

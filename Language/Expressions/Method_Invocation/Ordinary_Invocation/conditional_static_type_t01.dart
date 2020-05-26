@@ -19,6 +19,6 @@ class C {
 }
 
 main() {
-  C c = new C();
-  int x = c?.m();
+  C? c = new C();
+  int? x = c?.m();
 }

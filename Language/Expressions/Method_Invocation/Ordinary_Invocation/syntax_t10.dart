@@ -9,7 +9,6 @@
  * @description Checks static invocations, when o denotes a class in the
  * current scope. Argument list may have comma on the end.
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class C {
@@ -17,7 +16,5 @@ class C {
 }
 
 main() {
-  try {
-    C.f(1, 2, 3, );
-  } catch (e) {}
+  C.f(1, 2, 3, );
 }

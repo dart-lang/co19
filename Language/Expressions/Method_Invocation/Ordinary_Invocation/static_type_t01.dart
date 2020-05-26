@@ -17,8 +17,10 @@
  */
 import '../../../../Utils/expect.dart';
 
+void testme() {}
+
 class C {
-  Function f1;
+  Function f1 = testme;
 }
 
 class A {}
@@ -26,33 +28,10 @@ class A {}
 main() {
   C c = new C();
 
-  try {
-    String foo = c.f1();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    bool foo = c.f1();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    A foo = c.f1();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    Object foo = c.f1();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    List foo = c.f1();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    Map foo = c.f1();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (e) {}
+  Expect.throws(() { String foo = c.f1(); });
+  Expect.throws(() { bool   foo = c.f1(); });
+  Expect.throws(() { A      foo = c.f1(); });
+  Expect.throws(() { Object foo = c.f1(); });
+  Expect.throws(() { List   foo = c.f1(); });
+  Expect.throws(() { Map    foo = c.f1(); });
 }

@@ -27,7 +27,6 @@
  * mismatch
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class Foo {

@@ -9,7 +9,6 @@
  * @description Checks that if evaluation of suffix raises an exception
  * a cascaded invocation raises the same exception.
  * @author msyabro
- * @reviewer iefremov
  */
 import '../../../../Utils/expect.dart';
 

@@ -9,12 +9,9 @@
  * @description Checks that arguments must be separated with comma.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
   var o;
-  try {
-    o.f(1 2);
-  } catch (e) {}
+  o.f(1 2);
 }

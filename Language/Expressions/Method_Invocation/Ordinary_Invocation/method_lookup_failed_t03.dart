@@ -24,7 +24,6 @@
  * @description Checks that noSuchMethod() is called when getter is declared
  * explicitly ans vg is not a function (doesn't have the method call).
  * @author msyabro
- * @reviewer iefremov
  */
 import '../../../../Utils/expect.dart';
 
@@ -43,8 +42,5 @@ class C {
 
 main()  {
   var o = new C();
-  try {
-    o.func();
-    Expect.fail("TestException is expected");
-  } on TestException catch (e) {}
+  Expect.throws(() { o.func(); }, (e) => e is TestException);
 }
