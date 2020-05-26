@@ -13,16 +13,14 @@
  * @description Checks that the method m in the superclass is found if there is
  * no method m in a class.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 
 class S {
- int m() { return 12345; }
+ int m() => 12345;
 }
 
-class C extends S {
-}
+class C extends S {}
 
 main()  {
   var o = new C();

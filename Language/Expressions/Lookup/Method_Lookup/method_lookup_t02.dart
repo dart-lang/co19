@@ -13,20 +13,15 @@
  * @description Checks that the method m in the superclass is not selected if
  * method m exists in the class C.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 
 class S {
- int m() {
-   return 12346;
- }
+ int m() => 12346;
 }
 
 class C extends S {
- int m() {
-   return 12345;
- }
+ int m() => 12345;
 }
 
 main()  {

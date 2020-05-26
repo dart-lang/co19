@@ -10,7 +10,6 @@
  * of o.
  * @description Checks that only the setter in the correct class is found.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

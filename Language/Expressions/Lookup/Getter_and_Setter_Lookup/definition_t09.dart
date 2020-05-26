@@ -15,11 +15,10 @@
  * @compile-error
  * @author msyabro, sgrekhov@unipro.ru
  */
-import '../../../../Utils/expect.dart';
 
 class A {
-  test() {
-    Expect.equals(1, a);
+  Object? test() {
+    return a;
   }
 }
 

@@ -9,7 +9,6 @@
  * library L, where C is the class of o.
  * @description Checks that only the method in class C is found.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 
