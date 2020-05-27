@@ -11,7 +11,6 @@
  * @description Checks that two large ints representing the same value are
  * identical.
  * @author kaigorodov
- * @reviewer rodionov
  * @note renamed from 1_Object_Identity_A01_t03.dart
  */
 import "../../../Utils/expect.dart";

@@ -16,8 +16,6 @@
  * @description Checks that two non-zero and non-NaN doubles representing the
  * same value are identical.
  * @author kaigorodov
- * @reviewer rodionov
- * @needsreview issue 7024
  */
 import "../../../Utils/expect.dart";
 

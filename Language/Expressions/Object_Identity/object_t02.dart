@@ -10,7 +10,6 @@
  * @description Checks that an int and a double representing the same numerical
  * value are not identical.
  * @author kaigorodov
- * @reviewer rodionov
  * @note renamed from 1_Object_Identity_A06_t02.dart
  */
 import "../../../Utils/expect.dart";

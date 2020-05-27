@@ -15,8 +15,6 @@
  *        pattern.
  * @description Checks that two NaNs are identical.
  * @author kaigorodov
- * @reviewer rodionov
- * @needsreview issue 7024
  */
 import "../../../Utils/expect.dart";
 

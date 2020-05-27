@@ -11,7 +11,6 @@
  * @description Checks that identical() works as described even if the classes
  * being compared have operator == redefined to return counter-intuitive result.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 
