@@ -7,12 +7,10 @@
  * @assertion The static type of null is ⊥.
  * The decision to use ⊥ instead of Null allows null to be be assigned
  * everywhere without complaint by the static checker.
- * @description Checks that null is assignable to any type without static
- * type warnings.
+ * @description Checks that null is assignable to any nullable type without
+ * static type warnings.
  * @static-clean
  * @author hlodvig
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class A {}
@@ -21,10 +19,10 @@ typedef F();
 
 main() {
   var v = null;
-  int i = null;
-  String s = null;
-  A a = null;
-  Object o = null;
-  F f = null;
-  List<List> l = null;
+  int? i = null;
+  String? s = null;
+  A? a = null;
+  Object? o = null;
+  F? f = null;
+  List<List>? l = null;
 }

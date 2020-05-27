@@ -16,5 +16,5 @@ class A {}
 abstract class C extends A with Null {}
 
 main() {
-  C c = null;
+ C;
 }

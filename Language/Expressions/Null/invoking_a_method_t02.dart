@@ -4,13 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Invoking a method on null yields a NoSuchMethodError unless the
- * method is explicitly implemented by class Null.
- * @description Checks that invoking a method on null yields NoSuchMethodError
- * if the class Null does not explicitly implement it.
+ * @assertion The [Null] class extends the [Object] class and declares no
+ * methods except those also declared by [Object].
+ * @description Checks that invoking a method on [null] yields error if class
+ * [Null] does not explicitly implement it.
  * @author hlodvig
- * @reviewer iefremov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 
@@ -18,10 +16,11 @@ class A {
   void aMethodWithAFancyName() {}
 }
 
+dynamic getNull() => null;
+
 main() {
-  try{
-    A a = null;
-    a.aMethodWithAFancyName();
-    Expect.fail("Invoking method on null should yield NoSuchMethodError");
-  } on NoSuchMethodError {}
+  Expect.throws(() {
+      A a = getNull();
+      a.aMethodWithAFancyName();
+    });
 }

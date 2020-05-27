@@ -14,8 +14,5 @@
 class A implements Null {}
 
 main() {
-  try {
-    new A();
-  } catch (e) {
-  }
+  A();
 }

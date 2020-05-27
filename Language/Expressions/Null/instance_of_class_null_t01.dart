@@ -12,5 +12,5 @@
 import '../../../Utils/expect.dart';
 
 main() {
-  Expect.isTrue("Null", null.runtimeType.toString());
+  Expect.isTrue(null is Null);
 }

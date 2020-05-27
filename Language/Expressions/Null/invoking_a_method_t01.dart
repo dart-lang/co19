@@ -4,18 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Invoking a method on null yields a NoSuchMethodError unless the
- * method is explicitly implemented by class Null.
- * @description Checks that invoking a method on null does not yield a
- * NullPointerException if class Null implements it.
+ * @assertion The [Null] class extends the [Object] class and declares no
+ * methods except those also declared by [Object].
+ * @description Checks that invoking [toString] method on [null] does not yield
+ * error.
  * @author hlodvig
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 class A {}
 
 main() {
-  A a = null;
+  A? a = null;
   var x = a.toString();
 }

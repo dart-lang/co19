@@ -9,14 +9,10 @@
  * @description Checks that Null cannot be extended by a class.
  * @compile-error
  * @author hlodvig
- * @reviewer iefremov
  */
 
 class A extends Null {}
 
 main() {
-  try {
-    new A();
-  } catch (anything) {
-  }
+  A();
 }
