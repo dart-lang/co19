@@ -23,8 +23,6 @@
  * as the right operand of a multiplicative expression without a compile error.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 class A {}

@@ -23,12 +23,8 @@
  * with the multiplicative operator ~/.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    ~/ 0.5 ~/ 0.6;
-  } catch (e) {}
+  ~/ 0.5 ~/ 0.6;
 }

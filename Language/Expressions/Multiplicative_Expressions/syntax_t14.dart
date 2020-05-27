@@ -24,8 +24,6 @@
  * error.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 typedef int f();

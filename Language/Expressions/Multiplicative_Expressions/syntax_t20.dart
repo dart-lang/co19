@@ -23,12 +23,8 @@
  * with the multiplicative operator %.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    % 1 * 2;
-  } catch (e) {}
+ % 1 * 2;
 }

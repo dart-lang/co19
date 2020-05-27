@@ -23,8 +23,6 @@
  * [super ('/' unaryExpression)+] must have at least two operands
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 class S {
@@ -33,13 +31,10 @@ class S {
 
 class A extends S{
   test() {
-    try {
-      super /;
-    } catch (e) {}
+    super /;
   }
 }
 
 main() {
-  A a = new A();
-  a.test();
+  A();
 }

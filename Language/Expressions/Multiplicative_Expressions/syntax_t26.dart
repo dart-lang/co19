@@ -23,13 +23,10 @@
  * operand of a multiplicative expression.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 
 main() {
-  var foo;
-  try {
-    1 * foo = 2;
-  } catch (ok) {}
+  var foo = 4;
+  1 * foo = 2;
 }

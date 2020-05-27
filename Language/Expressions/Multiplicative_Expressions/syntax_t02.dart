@@ -23,12 +23,8 @@
  * [unaryExpression ('*' unaryExpression)*] must have at least two operands
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    1 *;
-  } catch (e) {}
+  1 *;
 }

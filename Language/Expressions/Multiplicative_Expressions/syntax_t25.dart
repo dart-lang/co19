@@ -23,12 +23,8 @@
  * one after another in a multiplicative expression.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    2 ~/ ~/ 2;
-  } catch (e) {}
+  2 ~/ ~/ 2;
 }

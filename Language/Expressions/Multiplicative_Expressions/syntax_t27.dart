@@ -23,7 +23,6 @@
  * of a multiplicative expression results in the latter being an operand of the
  * former.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

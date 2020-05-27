@@ -9,7 +9,6 @@
  * @description Checks that an expression of the form super op e2
  * is equivalent to the method invocation super.op(e2).
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 
@@ -17,7 +16,7 @@ class S {
   var val;
   List<int> trace;
 
-  S(this.val) : trace = new List<int>(4) {
+  S(this.val) : trace = <int>[0, 0, 0, 0] {
      for (var k = 0; k < 4; k++) {
         trace[k] = 0;
      }
@@ -27,14 +26,17 @@ class S {
     trace[0] += 1;
     return val * v;
   }
+
   operator /(var v) {
     trace[1] += 1;
     return val / v;
   }
+
   operator %(var v) {
     trace[2] += 1;
     return val % v;
   }
+
   operator ~/(var v) {
     trace[3] += 1;
     return val ~/ v;
