@@ -29,14 +29,20 @@ S1? t1Instance = const S1();
 
 const t1Default = const S1();
 
-//# @T0 = X0
-//# @T1 = S1?
-
-//# <!-- Global variables & classes definition -->
-
 test<T>(T t0Instance) {
   if (t0Instance is S0) {
-  //# <!-- Test body -->
+    foo() {
+      S1? t1 = t0Instance;
+      t1 = t0Instance;
+      t1Instance = t0Instance;
+    }
+
+    S1? t1 = t0Instance;
+    t1 = t0Instance;
+    t1Instance = t0Instance;
+    foo();
+
+    S1? returnValueLocalFunc() => t0Instance;
   }
 }
 

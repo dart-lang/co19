@@ -13,38 +13,24 @@
  *  or T0 is X0 and X0 has bound S0 and S0 <: T1
  *  or T0 is X0 & S0 and S0 <: T1
  * @description Check that if type T1 is S1? and T0 is X0 & S0 and S0 <: T1 then
- * T0 is subtype of T1.
- * @author sgrekhov@unipro.ru
- */
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
+ * T0 is subtype of T1. Test that if type T0 is a subtype of a type T1, then instance
  * of T0 can be be used as an argument of type T1
  * @author sgrekhov@unipro.ru
  */
-/*
- * This test is generated from right_nullable_A04.dart and 
- * arguments_binding_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
-
-
 // SharedOptions=--enable-experiment=non-nullable
 
 class S1 {
   const S1();
 }
+
 class X0 {}
+
 class S0 extends X0 implements S1 {}
 
 X0 t0Instance = new S0();
 S1? t1Instance = const S1();
 
 const t1Default = const S1();
-
-
-
-
 
 namedArgumentsFunc1(S1? t1, {S1? t2 = t1Default}) {}
 positionalArgumentsFunc1(S1? t1, [S1? t2 = t1Default]) {}
@@ -73,7 +59,7 @@ class ArgumentsBindingClass {
   set testSetter(S1? val) {}
 }
 
-class ArgumentsBindingGen<X>  {
+class ArgumentsBindingGen<X> {
   ArgumentsBindingGen(X t1) {}
 
   ArgumentsBindingGen.named(X t1, {required X t2}) {}
@@ -87,47 +73,44 @@ class ArgumentsBindingGen<X>  {
   set testSetter(X val) {}
 }
 
-
-
 test<T>(T t0Instance) {
   if (t0Instance is S0) {
-  
-  // test functions
-  namedArgumentsFunc1(t0Instance, t2: t0Instance);
-  positionalArgumentsFunc1(t0Instance, t0Instance);
+    // test functions
+    namedArgumentsFunc1(t0Instance, t2: t0Instance);
+    positionalArgumentsFunc1(t0Instance, t0Instance);
 
-  // test class constructors
-  ArgumentsBindingClass instance1 = new ArgumentsBindingClass(t0Instance);
-  instance1 = new ArgumentsBindingClass.fNamed(t0Instance, t2: t0Instance);
-  instance1 = new ArgumentsBindingClass.fPositional(t0Instance, t0Instance);
-  instance1 = new ArgumentsBindingClass.named(t0Instance, t2: t0Instance);
-  instance1 = new ArgumentsBindingClass.positional(t0Instance, t0Instance);
+    // test class constructors
+    ArgumentsBindingClass instance1 = new ArgumentsBindingClass(t0Instance);
+    instance1 = new ArgumentsBindingClass.fNamed(t0Instance, t2: t0Instance);
+    instance1 = new ArgumentsBindingClass.fPositional(t0Instance, t0Instance);
+    instance1 = new ArgumentsBindingClass.named(t0Instance, t2: t0Instance);
+    instance1 = new ArgumentsBindingClass.positional(t0Instance, t0Instance);
 
-  // tests methods and setters
-  instance1.namedArgumentsMethod(t0Instance, t2: t0Instance);
-  instance1.positionalArgumentsMethod(t0Instance, t0Instance);
-  instance1.testSetter = t0Instance;
+    // tests methods and setters
+    instance1.namedArgumentsMethod(t0Instance, t2: t0Instance);
+    instance1.positionalArgumentsMethod(t0Instance, t0Instance);
+    instance1.testSetter = t0Instance;
 
-  // test static methods
-  ArgumentsBindingClass.namedArgumentsStaticMethod(t0Instance, t2: t0Instance);
-  ArgumentsBindingClass.positionalArgumentsStaticMethod(t0Instance, t0Instance);
+    // test static methods
+    ArgumentsBindingClass.namedArgumentsStaticMethod(t0Instance,
+        t2: t0Instance);
+    ArgumentsBindingClass.positionalArgumentsStaticMethod(
+        t0Instance, t0Instance);
 
-  // Test type parameters
+    // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  // test generic functions
-  namedArgumentsFunc2<S1?>(t0Instance, t2: t0Instance);
+    // test generic functions
+    namedArgumentsFunc2<S1?>(t0Instance, t2: t0Instance);
 
-  // test generic class constructors
-  ArgumentsBindingGen<S1?> instance2 = new ArgumentsBindingGen<S1?>(t0Instance);
-  instance2 = new ArgumentsBindingGen<S1?>.fNamed(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<S1?>.named(t0Instance, t2: t0Instance);
+    // test generic class constructors
+    ArgumentsBindingGen<S1?> instance2 =
+        new ArgumentsBindingGen<S1?>(t0Instance);
+    instance2 = new ArgumentsBindingGen<S1?>.fNamed(t0Instance, t2: t0Instance);
+    instance2 = new ArgumentsBindingGen<S1?>.named(t0Instance, t2: t0Instance);
 
-  // test generic class methods and setters
-  instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
-  instance2.testSetter = t0Instance;
-  //# -->
-
+    // test generic class methods and setters
+    instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
+    instance2.testSetter = t0Instance;
   }
 }
 
