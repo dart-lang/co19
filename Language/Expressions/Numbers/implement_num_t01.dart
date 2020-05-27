@@ -9,13 +9,10 @@
  * @description Checks that a user-defined class can not extend num.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A extends num {}
 
 main() {
-  try {
-    new A();
-  } catch (x) {}
+  new A();
 }

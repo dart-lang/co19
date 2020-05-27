@@ -31,11 +31,8 @@
  * non-hexadecimal digits.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    var i = 0xg;
-  } catch (e) {}
+  var i = 0xg;
 }

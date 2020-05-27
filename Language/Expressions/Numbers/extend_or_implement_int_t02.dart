@@ -9,13 +9,10 @@
  * @description Checks that a user-defined class cannot implement int.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A implements int {}
 
 main() {
-  try {
-    new A();
-  } catch (x) {}
+  new A();
 }

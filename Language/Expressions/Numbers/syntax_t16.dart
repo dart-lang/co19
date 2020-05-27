@@ -31,13 +31,9 @@
  * does not have any digits after the decimal point.
  * @compile-error
  * @author hlodvig
- * @reviewer iefremov
- * @reviewer rodionov
  *
  */
 
 main() {
-  try {
-    var i = 0.;
-  } catch (e) {}
+  var i = 0.;
 }

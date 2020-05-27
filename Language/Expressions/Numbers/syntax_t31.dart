@@ -31,11 +31,8 @@
  * non-decimal digits.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    var i = 1f;
-  } catch (e) {}
+  var i = 1f;
 }

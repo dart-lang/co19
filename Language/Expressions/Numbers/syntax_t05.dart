@@ -30,8 +30,6 @@
  * @description Checks that specifying the exponent value of (+/-)0 is indeed
  * redundant.
  * @author hlodvig
- * @reviewer iefremov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

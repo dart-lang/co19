@@ -31,11 +31,8 @@
  * literal.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    var i = +;
-  } catch (e) {}
+  var i = +;
 }

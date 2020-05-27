@@ -9,13 +9,10 @@
  * @description Checks that a user-defined class cannot implement double.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A implements double {}
 
 main() {
-  try {
-    new A();
-  } catch (x) {}
+  new A();
 }

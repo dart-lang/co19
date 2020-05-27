@@ -9,7 +9,6 @@
  * double literals to a typed double variable.
  * @static-clean
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {

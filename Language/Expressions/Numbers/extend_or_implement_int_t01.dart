@@ -9,13 +9,10 @@
  * @description Checks that a user-defined class cannot extend int.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A extends int {}
 
 main() {
-  try {
-    new A();
-  } catch (x) {}
+  new A();
 }

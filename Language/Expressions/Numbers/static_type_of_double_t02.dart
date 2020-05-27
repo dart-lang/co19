@@ -9,7 +9,6 @@
  * to a typed int variable.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {

@@ -13,10 +13,8 @@
 
 class A {}
 
-class C = A with M;
+class C = A with double;
 
 main() {
-  try {
-    new C();
-  } catch (e) {}
+  C();
 }

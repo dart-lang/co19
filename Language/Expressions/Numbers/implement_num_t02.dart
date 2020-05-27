@@ -9,13 +9,10 @@
  * @description Checks that a user-defined class can not implement num.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A implements num {}
 
 main() {
-  try {
-    new A();
-  } catch (x) {}
+  new A();
 }

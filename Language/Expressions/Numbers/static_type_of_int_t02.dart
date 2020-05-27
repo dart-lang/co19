@@ -9,7 +9,6 @@
  * to a typed bool variable.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {

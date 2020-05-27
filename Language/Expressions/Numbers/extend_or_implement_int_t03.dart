@@ -9,7 +9,6 @@
  * @description Checks that a user-defined interface cannot extend int.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 abstract class A extends int {}
@@ -17,7 +16,5 @@ abstract class A extends int {}
 class B implements A {}
 
 main() {
-  try {
-    new B();
-  } catch (x) {}
+  new B();
 }

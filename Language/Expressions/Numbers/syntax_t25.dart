@@ -31,11 +31,8 @@
  * a numeric literal contains both '+' and '-' signs.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    var i = 1e+-1;
-  } catch (e) {}
+  var i = 1e+-1;
 }

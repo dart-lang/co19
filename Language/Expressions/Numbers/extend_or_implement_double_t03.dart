@@ -9,7 +9,6 @@
  * @description Checks that a user-defined interface cannot extend double.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 abstract class A extends double {}
@@ -17,7 +16,5 @@ abstract class A extends double {}
 class B implements A {}
 
 main() {
-  try {
-    new B();
-  } catch (x) {}
+  new B();
 }

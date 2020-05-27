@@ -31,12 +31,8 @@
  * numeric literal.
  * @compile-error
  * @author hlodvig
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    var i = 1e;
-  } catch (e) {}
+  var i = 1e;
 }

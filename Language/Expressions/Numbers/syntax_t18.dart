@@ -31,12 +31,8 @@
  * does not contain a mantissa.
  * @compile-error
  * @author hlodvig
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    var i = +e1;
-  } catch (e) {}
+  var i = +e1;
 }

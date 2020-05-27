@@ -9,13 +9,10 @@
  * @description Checks that a user-defined class cannot extend double.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A extends double {}
 
 main() {
-  try {
-    new A();
-  } catch (x) {}
+  new A();
 }

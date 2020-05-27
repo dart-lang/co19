@@ -30,8 +30,6 @@
  * @description Checks different decimal numeric literals with exponent and
  * decimal point.
  * @author hlodvig
- * @reviewer iefremov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

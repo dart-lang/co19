@@ -31,12 +31,8 @@
  * a numeric literal contains a decimal point.
  * @compile-error
  * @author hlodvig
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    var i = 0e1.0;
-  } catch (e) {}
+  var i = 0e1.0;
 }
