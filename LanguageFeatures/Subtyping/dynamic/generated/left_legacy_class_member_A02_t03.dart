@@ -30,16 +30,21 @@ import '../../utils/common.dart';
 // Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
 
-X t0Instance = new X();
-Y t1Instance = new Y();
+class T1 {
+  const T1();
+}
+class S0 extends T1 {}
 
-const t1Default = const Y();
+var t0Instance = getLegacyType<S0>(new S0());
+T1 t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
 
 class ClassMemberMixin1_t03 {
-  Y m = t1Default;
+  T1 m = t1Default;
 
   void set superSetter(dynamic val) {}
 }
@@ -73,7 +78,7 @@ main() {
   // Test type parameters
 
   //# <-- NotGenericFunctionType
-  ClassMember2_t03<Y> c2 = new ClassMember2_t03<Y>(t1Instance);
+  ClassMember2_t03<T1> c2 = new ClassMember2_t03<T1>(t1Instance);
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

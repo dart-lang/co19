@@ -29,16 +29,21 @@
 // Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
 
-X t0Instance = new X();
-Y t1Instance = new Y();
+class T1 {
+  const T1();
+}
+class S0 extends T1 {}
 
-const t1Default = const Y();
+var t0Instance = getLegacyType<S0>(new S0());
+T1 t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
 
 class ClassMemberMixin1_t03 {
-  Y m = t1Default;
+  T1 m = t1Default;
 
   void set superSetter(dynamic val) {}
 }

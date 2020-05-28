@@ -7,8 +7,6 @@
  * @author sgrekhov@unipro.ru
  */
 // @dart=2.6
-// SharedOptions=--enable-experiment=non-nullable
-// Requirements=nnbd-weak
 library legacy_lib;
 
 class X {
@@ -18,3 +16,5 @@ class X {
 class Y extends X {
   const Y();
 }
+
+T getLegacyType<T>(T t) => t;

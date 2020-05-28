@@ -30,22 +30,27 @@ import '../../utils/common.dart';
 // Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
 
-X t0Instance = new X();
-Y t1Instance = new Y();
+class T1 {
+  const T1();
+}
+class S0 extends T1 {}
 
-const t1Default = const Y();
+var t0Instance = getLegacyType<S0>(new S0());
+T1 t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
 
-Y returnValueFunc() => forgetType(t0Instance);
+T1 returnValueFunc() => forgetType(t0Instance);
 
 class ReturnValueTest {
-  static Y staticTestMethod() => forgetType(t0Instance);
+  static T1 staticTestMethod() => forgetType(t0Instance);
 
-  Y testMethod() => forgetType(t0Instance);
+  T1 testMethod() => forgetType(t0Instance);
 
-  Y get testGetter => forgetType(t0Instance);
+  T1 get testGetter => forgetType(t0Instance);
 }
 
 class ReturnValueGen<X> {
@@ -55,7 +60,7 @@ class ReturnValueGen<X> {
 
 
 main() {
-  Y returnValueLocalFunc() => forgetType(t0Instance);
+  T1 returnValueLocalFunc() => forgetType(t0Instance);
 
   returnValueFunc();
   returnValueLocalFunc();
@@ -68,7 +73,7 @@ main() {
   // Test type parameters
 
   //# <-- NotGenericFunctionType
-  new ReturnValueGen<Y>().testMethod();
-  new ReturnValueGen<Y>().testGetter;
+  new ReturnValueGen<T1>().testMethod();
+  new ReturnValueGen<T1>().testGetter;
   //# -->
 }

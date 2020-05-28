@@ -16,10 +16,15 @@
 // Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
 
-X t0Instance = new X();
-Y t1Instance = new Y();
+class T1 {
+  const T1();
+}
+class S0 extends T1 {}
 
-const t1Default = const Y();
+var t0Instance = getLegacyType<S0>(new S0());
+T1 t1Instance = new T1();
 
-//# @T0 = X
-//# @T1 = Y
+const t1Default = const T1();
+
+//# @T0 = S0
+//# @T1 = T1

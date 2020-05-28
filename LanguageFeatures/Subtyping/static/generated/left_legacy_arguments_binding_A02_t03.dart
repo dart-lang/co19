@@ -29,22 +29,27 @@
 // Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
 
-X t0Instance = new X();
-Y t1Instance = new Y();
+class T1 {
+  const T1();
+}
+class S0 extends T1 {}
 
-const t1Default = const Y();
+var t0Instance = getLegacyType<S0>(new S0());
+T1 t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  Y m = t1Default;
+  T1 m = t1Default;
 
-  void superTest(Y val) {}
-  void superTestPositioned(Y val, [Y val2 = t1Default]) {}
-  void superTestNamed(Y val, {Y val2 = t1Default}) {}
-  Y get superGetter => m;
-  void set superSetter(Y val) {}
+  void superTest(T1 val) {}
+  void superTestPositioned(T1 val, [T1 val2 = t1Default]) {}
+  void superTestNamed(T1 val, {T1 val2 = t1Default}) {}
+  T1 get superGetter => m;
+  void set superSetter(T1 val) {}
 }
 
 class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
@@ -91,7 +96,7 @@ main() {
   // Test type parameters
 
   //# <-- NotGenericFunctionType
-  ArgumentsBinding2_t03<Y> c2 = new ArgumentsBinding2_t03<Y>();
+  ArgumentsBinding2_t03<T1> c2 = new ArgumentsBinding2_t03<T1>();
   c2.test(t0Instance, t1Instance);
   c2.superTest(t0Instance);
   c2.superTestNamed(t1Instance, val2: t0Instance);

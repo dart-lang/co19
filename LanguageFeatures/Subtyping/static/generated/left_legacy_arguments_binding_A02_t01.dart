@@ -29,39 +29,44 @@
 // Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
 
-X t0Instance = new X();
-Y t1Instance = new Y();
+class T1 {
+  const T1();
+}
+class S0 extends T1 {}
 
-const t1Default = const Y();
+var t0Instance = getLegacyType<S0>(new S0());
+T1 t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
 
-namedArgumentsFunc1(Y t1, {Y t2 = t1Default}) {}
-positionalArgumentsFunc1(Y t1, [Y t2 = t1Default]) {}
+namedArgumentsFunc1(T1 t1, {T1 t2 = t1Default}) {}
+positionalArgumentsFunc1(T1 t1, [T1 t2 = t1Default]) {}
 
 namedArgumentsFunc2<X>(X t1, {required X t2}) {}
 
 class ArgumentsBindingClass {
-  ArgumentsBindingClass(Y t1) {}
+  ArgumentsBindingClass(T1 t1) {}
 
-  ArgumentsBindingClass.named(Y t1, {Y t2 = t1Default}) {}
-  ArgumentsBindingClass.positional(Y t1, [Y t2 = t1Default]) {}
+  ArgumentsBindingClass.named(T1 t1, {T1 t2 = t1Default}) {}
+  ArgumentsBindingClass.positional(T1 t1, [T1 t2 = t1Default]) {}
 
-  factory ArgumentsBindingClass.fNamed(Y t1, {Y t2 = t1Default}) {
+  factory ArgumentsBindingClass.fNamed(T1 t1, {T1 t2 = t1Default}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(Y t1, [Y t2 = t1Default]) {
+  factory ArgumentsBindingClass.fPositional(T1 t1, [T1 t2 = t1Default]) {
     return new ArgumentsBindingClass.positional(t1, t2);
   }
 
-  static namedArgumentsStaticMethod(Y t1, {Y t2 = t1Default}) {}
-  static positionalArgumentsStaticMethod(Y t1, [Y t2 = t1Default]) {}
+  static namedArgumentsStaticMethod(T1 t1, {T1 t2 = t1Default}) {}
+  static positionalArgumentsStaticMethod(T1 t1, [T1 t2 = t1Default]) {}
 
-  namedArgumentsMethod(Y t1, {Y t2 = t1Default}) {}
-  positionalArgumentsMethod(Y t1, [Y t2 = t1Default]) {}
+  namedArgumentsMethod(T1 t1, {T1 t2 = t1Default}) {}
+  positionalArgumentsMethod(T1 t1, [T1 t2 = t1Default]) {}
 
-  set testSetter(Y val) {}
+  set testSetter(T1 val) {}
 }
 
 class ArgumentsBindingGen<X>  {
@@ -103,12 +108,12 @@ main() {
 
   //# <-- NotGenericFunctionType
   // test generic functions
-  namedArgumentsFunc2<Y>(t0Instance, t2: t0Instance);
+  namedArgumentsFunc2<T1>(t0Instance, t2: t0Instance);
 
   // test generic class constructors
-  ArgumentsBindingGen<Y> instance2 = new ArgumentsBindingGen<Y>(t0Instance);
-  instance2 = new ArgumentsBindingGen<Y>.fNamed(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<Y>.named(t0Instance, t2: t0Instance);
+  ArgumentsBindingGen<T1> instance2 = new ArgumentsBindingGen<T1>(t0Instance);
+  instance2 = new ArgumentsBindingGen<T1>.fNamed(t0Instance, t2: t0Instance);
+  instance2 = new ArgumentsBindingGen<T1>.named(t0Instance, t2: t0Instance);
 
   // test generic class methods and setters
   instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);

@@ -30,18 +30,23 @@ import '../../utils/common.dart';
 // Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
 
-X t0Instance = new X();
-Y t1Instance = new Y();
+class T1 {
+  const T1();
+}
+class S0 extends T1 {}
 
-const t1Default = const Y();
+var t0Instance = getLegacyType<S0>(new S0());
+T1 t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
 
 class ClassMember1_t01 {
-  static Y s = forgetType(t0Instance);
-  Y m = forgetType(t0Instance);
-  Y _p = forgetType(t0Instance);
+  static T1 s = forgetType(t0Instance);
+  T1 m = forgetType(t0Instance);
+  T1 _p = forgetType(t0Instance);
 
   ClassMember1_t01() {
     s = forgetType(t0Instance);
@@ -49,7 +54,7 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  ClassMember1_t01.named(Y value) {
+  ClassMember1_t01.named(T1 value) {
     s = value;
     m = value;
     _p = value;
@@ -63,21 +68,21 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  set setter(Y val) {
+  set setter(T1 val) {
     _p = val;
   }
 
-  Y get getter => forgetType(_p);
+  T1 get getter => forgetType(_p);
 
   static staticTest() {
     s = forgetType(t0Instance);
   }
 
-  static set staticSetter(Y val) {
+  static set staticSetter(T1 val) {
     s = val;
   }
 
-  static Y get staticGetter => forgetType(t0Instance);
+  static T1 get staticGetter => forgetType(t0Instance);
 }
 
 class ClassMember2_t01<X> {
@@ -101,7 +106,7 @@ class ClassMember2_t01<X> {
     _p = val;
   }
 
-  Y get getter => forgetType(_p);
+  T1 get getter => forgetType(_p);
 }
 
 main() {
@@ -122,10 +127,10 @@ main() {
   // Test type parameters
 
   //# <-- NotGenericFunctionType
-  ClassMember2_t01<Y> c2 = new ClassMember2_t01<Y>();
-  c2 = new ClassMember2_t01<Y>.short(forgetType(t0Instance),
+  ClassMember2_t01<T1> c2 = new ClassMember2_t01<T1>();
+  c2 = new ClassMember2_t01<T1>.short(forgetType(t0Instance),
   forgetType(t0Instance));
-  c2 = new ClassMember2_t01<Y>.named(forgetType(t0Instance));
+  c2 = new ClassMember2_t01<T1>.named(forgetType(t0Instance));
   c2.m = forgetType(t0Instance);
   c2.test(forgetType(t0Instance));
   c2.getter;

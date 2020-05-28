@@ -15,11 +15,12 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
+class S0 {}
 
-X t0Instance = new X();
+var t0Instance = getLegacyType<S0>(new S0());
 Object t1Instance = new Object();
 
 const t1Default = const Object();
 
-//# @T0 = X
+//# @T0 = S0
 //# @T1 = Object

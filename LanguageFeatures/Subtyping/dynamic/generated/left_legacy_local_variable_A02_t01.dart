@@ -30,10 +30,15 @@ import '../../utils/common.dart';
 // Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
 
-X t0Instance = new X();
-Y t1Instance = new Y();
+class T1 {
+  const T1();
+}
+class S0 extends T1 {}
 
-const t1Default = const Y();
+var t0Instance = getLegacyType<S0>(new S0());
+T1 t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
@@ -41,28 +46,28 @@ const t1Default = const Y();
 class LocalVariableTest {
 
   LocalVariableTest() {
-    Y t1 = forgetType(t0Instance);
+    T1 t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
   static staticTest() {
-    Y t1 = forgetType(t0Instance);
+    T1 t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
   test() {
-    Y t1 = forgetType(t0Instance);
+    T1 t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 }
 
 main() {
   foo() {
-    Y t1 = forgetType(t0Instance);
+    T1 t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
-  Y t1 = forgetType(t0Instance);
+  T1 t1 = forgetType(t0Instance);
   t1 = forgetType(t0Instance);
   foo();
   LocalVariableTest x = new LocalVariableTest();

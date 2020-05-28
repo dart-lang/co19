@@ -30,16 +30,21 @@ import '../../utils/common.dart';
 // Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
 
-X t0Instance = new X();
-Y t1Instance = new Y();
+class T1 {
+  const T1();
+}
+class S0 extends T1 {}
 
-const t1Default = const Y();
+var t0Instance = getLegacyType<S0>(new S0());
+T1 t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
 
 class ClassMemberSuper1_t02 {
-  Y m;
+  T1 m;
 
   ClassMemberSuper1_t02(dynamic value): m = value {
   }
@@ -49,7 +54,7 @@ class ClassMemberSuper1_t02 {
 
   ClassMemberSuper1_t02.short(this.m);
 
-  void set superSetter(Y val) {}
+  void set superSetter(T1 val) {}
 }
 
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {
@@ -105,9 +110,9 @@ main() {
   // Test type parameters
 
   //# <-- NotGenericFunctionType
-  ClassMember2_t02<Y> c2 = new ClassMember2_t02<Y>();
-  c2 = new ClassMember2_t02<Y>.short();
-  c2 = new ClassMember2_t02<Y>.named();
+  ClassMember2_t02<T1> c2 = new ClassMember2_t02<T1>();
+  c2 = new ClassMember2_t02<T1>.short();
+  c2 = new ClassMember2_t02<T1>.named();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

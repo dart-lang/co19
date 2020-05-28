@@ -29,26 +29,31 @@
 // Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
 
-X t0Instance = new X();
-Y t1Instance = new Y();
+class T1 {
+  const T1();
+}
+class S0 extends T1 {}
 
-const t1Default = const Y();
+var t0Instance = getLegacyType<S0>(new S0());
+T1 t1Instance = new T1();
+
+const t1Default = const T1();
 
 
 
 
-Y returnValueFunc() => t0Instance;
+T1 returnValueFunc() => t0Instance;
 
 class ReturnValueTest {
-  static Y staticTestMethod() => t0Instance;
+  static T1 staticTestMethod() => t0Instance;
 
-  Y testMethod() => t0Instance;
+  T1 testMethod() => t0Instance;
 
-  Y get testGetter => t0Instance;
+  T1 get testGetter => t0Instance;
 }
 
 main() {
-  Y returnValueLocalFunc() => t0Instance;
+  T1 returnValueLocalFunc() => t0Instance;
 
   returnValueFunc();
   returnValueLocalFunc();
