@@ -7,7 +7,7 @@
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
  * Left Bottom: if T0 is Never then T0 <: T1
- * @description Check that Never isn't a valid super-bounded type argument. Test
+ * @description Check that Never is a valid super-bounded type argument. Test
  * type aliases
  * @author sgrekhov@unipro.ru
  */
@@ -18,7 +18,4 @@ typedef Neverland = Never;
 
 main() {
   C<Neverland> c = C <Never>();
-//  ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

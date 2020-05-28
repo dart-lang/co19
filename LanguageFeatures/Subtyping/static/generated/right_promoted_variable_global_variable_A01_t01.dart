@@ -11,6 +11,7 @@
  * @description Check that if type T1 is a promoted type variables X1 & S1 and
  * T0 <: X1 and T0 <: S1 then T0 is a subtype of T1.
  * @author sgrekhov@unipro.ru
+ * @issue 42086
  */
 /**
  * @description Check that if type T0 is a subtype of a type T1, then instance
