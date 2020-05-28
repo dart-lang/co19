@@ -37,7 +37,6 @@ class S1 extends X1 {
 class T0 extends S1 {}
 
 T0 t0Instance = new T0();
-X1 t1Instance = new S1();
 
 const t1Default = const S1();
 
@@ -57,6 +56,7 @@ class ReturnValueTest {
 
 
 main() {
+  X1 t1Instance = new S1();
   if (t1Instance is S1) {
     
   S1 returnValueLocalFunc() => t0Instance;

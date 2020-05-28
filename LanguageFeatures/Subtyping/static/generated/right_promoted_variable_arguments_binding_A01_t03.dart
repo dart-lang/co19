@@ -37,7 +37,6 @@ class S1 extends X1 {
 class T0 extends S1 {}
 
 T0 t0Instance = new T0();
-X1 t1Instance = new S1();
 
 const t1Default = const S1();
 
@@ -86,6 +85,7 @@ class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingMixin2_t03<X>
 
 
 main() {
+  X1 t1Instance = new S1();
   if (t1Instance is S1) {
     
   ArgumentsBinding1_t03 c1 = new ArgumentsBinding1_t03();

@@ -18,6 +18,7 @@
  * @description Check that if T0 is a promoted type variable X & S and
  * S is not subtype of Object then T0 is not subtype of Object
  * @author sgrekhov@unipro.ru
+ * @issue 42089
  */
 // SharedOptions=--enable-experiment=non-nullable
 class X {}
