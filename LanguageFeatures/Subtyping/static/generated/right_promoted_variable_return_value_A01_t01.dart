@@ -11,7 +11,6 @@
  * @description Check that if type T1 is a promoted type variables X1 & S1 and
  * T0 <: X1 and T0 <: S1 then T0 is a subtype of T1.
  * @author sgrekhov@unipro.ru
- * @issue 42086
  */
 /**
  * @description Check that if type T0 is a subtype of a type T1, then instance
@@ -37,6 +36,7 @@ class S1 extends X1 {
 class T0 extends S1 {}
 
 T0 t0Instance = new T0();
+X1 t1Instance = new S1();
 
 const t1Default = const S1();
 
