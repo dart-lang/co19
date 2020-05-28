@@ -45,7 +45,7 @@
  * @description Checks that instantiate-to-bounds works correctly for [class A<X
  * extends A<X>>], [typedef G<X extends A<X>> = X Function()] (unused)
  *
- * @ToDo Which result is expected for unused type parameter? Need to clarify.
+ * @Issue 41963, 41964
  *
  * @author iarkh@unipro.ru
  */

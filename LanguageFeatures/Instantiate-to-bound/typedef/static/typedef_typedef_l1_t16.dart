@@ -44,16 +44,17 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for
  * [typedef A<X> = void Function(); typedef G<X extends A<X>> = void Function()]
- * @author iarkh@unipro.ru
+s * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+// SharedOptions=--enable-experiment=non-nullable
+
+import "../../../../Utils/expect.dart";
 
 typedef A<X> = void Function();
 typedef G<X extends A<X>> = void Function();
 
 main() {
-  G source;
+  G? source;
   var fsource = toF(source);
-  F<G<A<dynamic>>> target = fsource;
+  F<G<A<dynamic>>?>? target = fsource;
 }

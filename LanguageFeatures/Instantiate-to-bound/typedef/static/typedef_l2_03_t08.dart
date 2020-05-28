@@ -47,7 +47,7 @@
  * Function<X1 extends X, Y1 extends Y>(X)]
  * @Issue 35068
  *
- * @ToDo Which result is expected here? Need to clarify.
+ * @Issue 41963, 41964
  *
  * @author iarkh@unipro.ru
  */
@@ -58,5 +58,8 @@ typedef G<X extends Y, Y extends A<Y>> =
     void Function<X1 extends X, Y1 extends Y>(X);
 
 main() {
-  G? source;  //# 01: compile-time error
+  G? source;
+//   ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

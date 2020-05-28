@@ -45,7 +45,7 @@
  * @description Checks that instantiate-to-bounds works correctly for [typedef
  *  G<X extends A<X>> = X Function()] (covariant)
  *
- * @ToDo Which result is expected here? Need to clarify.
+ * @Issue 41963, 41964
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -54,5 +54,8 @@ class A<X> {}
 typedef G<X extends A<X>> = void Function<Y extends X>();
 
 main() {
-  G? source;  //# 01: compile-time error
+  G? source;
+//   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

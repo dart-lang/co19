@@ -45,11 +45,17 @@
  * @description Checks that instantiate-to-bounds works correctly for
  * [typedef typedef A<X> = X Function();
  * typedef G<X extends A<X>> = void Function<Y extends X>()]
+ * @Issue 41963, 41964
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 typedef A<X> = X Function();
 typedef G<X extends A<X>> = void Function<Y extends X>();
 
 main() {
-  G source;   //# 01: compile-time error
+  G? source;
+//   ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

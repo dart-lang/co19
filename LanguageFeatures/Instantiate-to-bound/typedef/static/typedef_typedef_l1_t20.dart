@@ -47,12 +47,14 @@
  * typedef G<X extends A<X>> = void Function<Y extends X>()]
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=non-nullable
+
 typedef A<X> = void Function();
 typedef G<X extends A<X>> = void Function<Y extends X>();
 
 typedef B = void Function();
 
 main() {
-  G source;
-  void Function<X extends B>() target = source;
+  G? source;
+  void Function<X extends B>()? target = source;
 }

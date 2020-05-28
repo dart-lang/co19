@@ -46,16 +46,19 @@
  * with two related parameters: [typedef G<X extends A<X>, Y extends A<Y>> =
  * void Function<X1 extends X, Y1 extends Y>()]
  *
- * @ToDo Which result is expected here? Need to clarify.
- *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+import "../../../../Utils/expect.dart";
 
 class A<X> {}
 typedef G<X extends A<X>, Y extends A<Y>> =
     void Function<X1 extends X, Y1 extends Y>();
 
 main() {
-  G? source; //# 01: compile-time error
+  G? source;
+//   ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

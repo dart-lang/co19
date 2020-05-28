@@ -46,14 +46,15 @@
  * [typedef A<X> = void Function(); typedef G<X extends A<X>> = X Function(X)]
  * @author iarkh@unipro.ru
  */
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+// SharedOptions=--enable-experiment=non-nullable
+
+import "../../../../Utils/expect.dart";
 
 typedef A<X> = void Function();
 typedef G<X extends A<X>> = X Function(X);
 
 main() {
-  G source;
+  G? source;
   var fsource = toF(source);
-  F<G<A<dynamic>>> target = fsource;
+  F<G<A<dynamic>>?>? target = fsource;
 }

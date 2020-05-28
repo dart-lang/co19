@@ -46,7 +46,7 @@
  * with two related parameters: [typedef G<X extends A<X>, Y extends A<Y>> =
  * void Function<X1 extends X>(Y)]
  *
- * @ToDo Which result is expected here? Need to clarify.
+ * @Issue 41963, 41964
  *
  * @author iarkh@unipro.ru
  */

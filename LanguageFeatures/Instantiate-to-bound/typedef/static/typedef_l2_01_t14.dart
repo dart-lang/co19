@@ -45,9 +45,7 @@
  * @description Checks that instantiate-to-bounds works correctly for [typedef]
  * with two related parameters: [typedef G<X extends A<X>, Y extends A<Y>> =
  * void Function(X)]
- * @Issue 34689, 34699
- *
- * @ToDo Which result is expected here? Need to clarify.
+ * @Issue 34689, 34699, 41963, 41964
  *
  * @author iarkh@unipro.ru
  */
@@ -57,5 +55,9 @@ class A<X> {}
 typedef G<X extends A<X>, Y extends A<Y>> = void Function(X);
 
 main() {
-  G? source;   //# 01: compile-time error
+  G? source;
+//   ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

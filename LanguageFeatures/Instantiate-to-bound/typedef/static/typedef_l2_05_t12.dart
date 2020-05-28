@@ -46,7 +46,7 @@
  * with two related parameters: [typedef G<X extends Y, Y extends A<X>> = void
  * Function<Y1 extends Y>(X)]
  *
- * @ToDo Which result is expected here? Need to clarify.
+ * @Issue 41963, 41964
  *
  * @author iarkh@unipro.ru
  */
@@ -56,5 +56,8 @@ class A<X> {}
 typedef G<X extends Y, Y extends A<X>> = void Function<Y1 extends Y>(X);
 
 main() {
-  G? source;  //# 01: compile-time error
+  G? source;
+//   ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
