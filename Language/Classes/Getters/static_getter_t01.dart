@@ -14,7 +14,7 @@
  */
 
 class C {
-  int n;
+  int n = 0;
   static get v => 5;
   set v(int v1) {
     n = v1;

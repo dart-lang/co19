@@ -13,10 +13,9 @@
  * @author ngl@unipro.ru
  */
 
-
 class C {
   static get v => 5;
-  int v;
+  int v = 42;
 }
 
 main() {

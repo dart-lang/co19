@@ -15,7 +15,7 @@
  */
 
 class C {
-  static int v;
+  static int v = 0;
   set v(int v1) {
   }
 }

@@ -20,7 +20,7 @@
  */
 
 class A {
-  static int v;
+  static int v = 0;
 }
 
 class C extends A {

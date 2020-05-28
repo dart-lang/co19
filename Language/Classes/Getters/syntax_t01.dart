@@ -14,26 +14,26 @@
  */
 
 abstract class A<U, V> {
-  int get g2 => null;
+  int? get g2 => null;
   get g3 => null;
   static get g4 => null;
 
-  int get g5;
+  int? get g5;
   get g6;
 
-  U get g7 => null;
+  U? get g7 => null;
   get g8 => null;
-  V get g9;
+  V? get g9;
   get g10;
 }
 
 class C<U, V> extends A<U,V> {
-  static int get g1 => null;
+  static int? get g1 => null;
   static get g4 => null;
 
   int get g5 => 1;
   get g6 => null;
-  V get g9 => null;
+  V? get g9 => null;
   get g10 => null;
 }
 
@@ -47,4 +47,3 @@ main() {
   x = new C<C, C>().g7;
   x = new C<int, double>().g8;
 }
-

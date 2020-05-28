@@ -26,7 +26,7 @@ class A {
 }
 
 class C extends A {
-  static int n;
+  static int n = 0;
   static set v(int v1) {
     n = v1;
   }

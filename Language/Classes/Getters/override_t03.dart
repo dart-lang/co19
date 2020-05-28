@@ -14,11 +14,11 @@
  */
 
 class A {
-  double get n {}
+  double get n => 3.14;
 }
 
 class C extends A {
-  int n;
+  int n = 42;
 }
 
 main() {

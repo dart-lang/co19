@@ -15,12 +15,12 @@
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A {
-  double n;
+  double n = 3.14;
 }
 typedef AAlias = A;
 
 class C extends AAlias {
-  int get n {}
+  int get n => 42;
 }
 
 main() {

@@ -21,7 +21,7 @@
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A {
-  static int n;
+  static int n = 0;
   static set v(int v1) {
     n = v1;
   }

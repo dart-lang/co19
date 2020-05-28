@@ -17,15 +17,15 @@ class Sub extends Super {}
 
 class A {
   num get getter1 => 0;
-  Super get getter2 => null;
-  Super get getter3 => null;
+  Super? get getter2 => null;
+  Super? get getter3 => null;
   Object get getter4 => new Object();
 }
 
 class C extends A {
   int get getter1 => 1;
-  Super get getter2 => null;
-  Sub get getter3 => null;
+  Super? get getter2 => null;
+  Sub? get getter3 => null;
   Super get getter4 => new Super();
 }
 

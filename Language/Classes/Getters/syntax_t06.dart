@@ -20,7 +20,5 @@ class C {
 }
 
 main() {
-  try {
-    var x = C.getter;
-  } catch (e) {}
+  C.getter;
 }

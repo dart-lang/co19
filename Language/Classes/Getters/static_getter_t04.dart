@@ -15,7 +15,7 @@
  */
 
 class C {
-  static int v;
+  static int v = 42;
   int v = 1;
 }
 

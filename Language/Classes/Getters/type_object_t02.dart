@@ -21,7 +21,7 @@ abstract class A<V> {
   get g2 => null;
   static get g3 => null;
   static int get g4 => 4;
-  V get g5 => null;
+  V? get g5 => null;
 }
 
 class C<V> extends A<V> {

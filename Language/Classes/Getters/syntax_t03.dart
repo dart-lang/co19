@@ -19,7 +19,5 @@ class C {
 }
 
 main() {
-  try {
-    var x = new C().getter;
-  } on C catch (ok) {}
+  new C().getter;
 }
