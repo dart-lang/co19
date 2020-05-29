@@ -9,7 +9,6 @@
  * @description Checks that a relational expression of the form e1 < e2
  * is equivalent to the method invocation e1.operator<(e2).
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

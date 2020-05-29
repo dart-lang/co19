@@ -22,11 +22,8 @@
  * operator <.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    2 <;
-  } catch (e) {}
+  2 <;
 }

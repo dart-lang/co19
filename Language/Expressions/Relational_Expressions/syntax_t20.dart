@@ -22,7 +22,6 @@
  * used as the first operand in a relational expression without a compile error.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 typedef void proc();

@@ -21,11 +21,8 @@
  * @description Checks that a relational expression can't start with operator >.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    > (1 + 1);
-  } catch (e) {}
+  > (1 + 1);
 }

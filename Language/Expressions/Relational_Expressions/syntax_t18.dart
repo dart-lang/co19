@@ -22,7 +22,6 @@
  * as the first operand in a relational expression without a compile error.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class A {

@@ -71,7 +71,6 @@ class A extends S {
 
     //additive expression is a shift expr.
     Expect.isFalse(1 + 2 < 2);
-    try { 0 - 0 > null + null;} catch (e) {}
 
     //multiplicative expression is a shift expr.
     try {2 * 3 >= 0 / 0;} catch (e) {}

@@ -22,7 +22,6 @@
  * in a relational expression without a compile error.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A<T> {

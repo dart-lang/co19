@@ -22,12 +22,8 @@
  * another relational expression.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    1 > 2 > 3;
-  } catch (e) {}
+  1 > 2 > 3;
 }
