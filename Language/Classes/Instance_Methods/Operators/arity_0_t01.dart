@@ -15,7 +15,9 @@ import "../../../../Utils/expect.dart";
 class C {
   bool v;
   C(this.v);
-  operator ~() { return !v; }
+  operator ~() {
+    return !v;
+  }
 }
 
 main() {

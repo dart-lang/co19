@@ -17,8 +17,6 @@ class C {
 }
 
 main() {
-  try {
-    C c = new C();
-    c[] = null;
-  } catch (e) {}
+  C c = new C();
+  c[] = new C();
 }

@@ -15,7 +15,7 @@
 import "../../../../Utils/expect.dart";
 
 class C {
-  int value;
+  int value = 0;
 
   C(int i) {
     value = i;

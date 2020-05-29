@@ -18,8 +18,13 @@ import "../../../../Utils/expect.dart";
 class C {
   bool v;
   C(this.v);
-  operator -() { return !v; }
-  operator -(C v2) { return v||!v2.v; }
+  operator -() {
+    return !v;
+  }
+
+  operator -(C v2) {
+    return v || !v2.v;
+  }
 }
 
 main() {

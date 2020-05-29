@@ -18,8 +18,6 @@ class C {
 }
 
 main() {
-  try {
-    bool b = (new C()[1]);
-  } catch (ex) {}
+  new C()[1];
 }
 

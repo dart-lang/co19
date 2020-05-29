@@ -26,12 +26,10 @@
  */
 
 class C {
-  int operator - {}
+  int operator - {return 42;}
 }
 
 main() {
-  try {
-    C c = new C();
-    var x = -c;
-  } catch (x) {}
+  C c = new C();
+  var x = -c;
 }

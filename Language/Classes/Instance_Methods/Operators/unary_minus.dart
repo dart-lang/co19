@@ -14,7 +14,7 @@ import 'dart:mirrors';
 import '../../../../Utils/expect.dart';
 
 class C {
-  operator - () {}
+  operator -() {}
 }
 
 main() {

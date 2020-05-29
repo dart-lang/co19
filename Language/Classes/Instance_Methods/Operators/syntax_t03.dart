@@ -24,13 +24,12 @@
  * 'operator' is allowed by the spec.
  * @author iefremov
  */
-
+import "../../../../Utils/expect.dart";
 class C {
-  int operator(var v) {}
+  int operator(var v) => 42;
 }
 
 main() {
-  try {
-    C c = new C();
-  } catch (x) {}
+  C c = new C();
+  Expect.equals(42, c.operator(3));
 }

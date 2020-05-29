@@ -16,8 +16,5 @@ class C {
 }
 
 main() {
-  try {
-    var b = (new C() != new C());
-  } catch (x) {}
+  new C() != new C();
 }
-

@@ -14,11 +14,9 @@
  */
 
 class C {
-  operator ==(var val, var val2) {}
+  operator ==(var val, var val2) => true;
 }
 
 main() {
-  try {
-    bool b = (new C() == new C());
-  } catch (ex) {}
+  new C() == new C();
 }

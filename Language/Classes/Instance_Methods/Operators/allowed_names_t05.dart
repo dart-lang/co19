@@ -12,11 +12,10 @@
  */
 
 class C {
-  operator !() {}
+  bool operator !() {}
 }
 
 main() {
-  try {
-    var b = !(new C());
-  } catch (x) {}
+  C? c = new C();
+  c!;
 }

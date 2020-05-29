@@ -14,11 +14,11 @@
  */
 
 class C {
-  int operator[]=(index, value) {}
+  int operator[]=(index, value) => 42;
   operator[](index) {}
 }
 
 main() {
   C c = new C();
-  c[0] = null;
+  c[0] = new C();
 }

@@ -27,28 +27,26 @@
  * @author iefremov
  */
 
-typedef int foo(double);
+typedef int foo(double d);
 
 class C<T> {
-  int operator +(var v) {}
-  List operator [](var v) {}
+  int operator +(var v) => 42;
+  List operator [](var v) => [];
   operator -() {}
   operator -(var v) {}
   operator []=(var v, var v2) {}
   dynamic operator ~() {}
-  foo operator *(var v) {}
-  T operator >(var v) {}
+  foo operator *(var v) => (double s) => 42;
+  T operator >(T t) => t;
 }
 
 main() {
-  try {
-    C c = new C();
-    dynamic x = c + c;
-    x = c - c;
-    x = c[c];
-    c[c] = c;
-    -c;
-    x = ~c;
-    x = c == c;
-  } catch (ok) {}
+  C c = new C();
+  dynamic x = c + c;
+  x = c - c;
+  x = c[c];
+  c[c] = c;
+  -c;
+  x = ~c;
+  x = c == c;
 }

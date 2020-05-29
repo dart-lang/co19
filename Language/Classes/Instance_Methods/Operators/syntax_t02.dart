@@ -26,12 +26,10 @@
  */
 
 class C {
-  int ~/(var v) {} /// compile-time error
+  int ~/(var v) => 42; /// compile-time error
 }
 
 main() {
-  try {
-    C c = new C();
-    var x = c ~/ 'a';
-  } catch (x) {}
+  C c = new C();
+  var x = c ~/ 'a';
 }
