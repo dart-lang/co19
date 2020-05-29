@@ -19,6 +19,6 @@ class C {
 }
 
 main() {
-  C c = new C();
-  Function x = c?.m;
+  C? c = new C();
+  Function? x = c?.m;
 }

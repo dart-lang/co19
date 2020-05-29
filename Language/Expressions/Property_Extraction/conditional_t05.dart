@@ -15,18 +15,20 @@
 import '../../../Utils/expect.dart';
 
 class A {
-  String id1() => "id1";
+  String? id1() => "id1";
 }
 
 class C extends A {
-  String id2() => "id2";
+  String? id2() => "id2";
 }
 
 main() {
   C c1 = new C();
-  C c2 = null;
-  Expect.equals(c1.id1, c1?.id1);
-  Expect.equals(c1.id2, c1?.id2);
+  C? c2 = null;
+  C? c3 = c1;
+
+  Expect.equals(c1.id1, c3?.id1);
+  Expect.equals(c1.id2, c3?.id2);
 
   Expect.isNull(c2?.id1);
   Expect.isNull(c2?.id2);

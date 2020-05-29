@@ -23,8 +23,8 @@ class C extends A {
 }
 
 main() {
-  C c1 = new C();
-  C c2 = null;
+  C? c1 = new C();
+  C? c2 = null;
   Expect.equals("id1", c1?.id1);
   Expect.equals("id2", c1?.id2);
 
