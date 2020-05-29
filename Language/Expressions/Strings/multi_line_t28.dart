@@ -26,11 +26,8 @@
  * double-quoted string closes with one single quote.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    """s';
-  } catch (e) {}
+  """s';
 }

@@ -9,7 +9,6 @@
  * interpolations are recognized.
  * @description Checks that escapes are not recognized in raw strings.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

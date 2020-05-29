@@ -16,7 +16,6 @@
  * @description Checks that \u{HEX_DIGIT_SEQUENCE} is the unicode scalar
  * value represented by the HEX_DIGIT_SEQUENCE.
  * @author msyabro
- * @reviewer rodionov
  * @needsreview  issie 1357
  */
 import '../../../Utils/expect.dart';

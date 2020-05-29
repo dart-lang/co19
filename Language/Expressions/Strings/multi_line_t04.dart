@@ -26,13 +26,10 @@
  * double-quotes string literal contains another triplet of double quotes.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    r"""
-    incorrect """ string
-    """;
-  } catch (e) {}
+  r"""
+  incorrect """ string
+  """;
 }

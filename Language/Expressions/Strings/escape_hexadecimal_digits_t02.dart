@@ -12,11 +12,8 @@
  * that are not hexadecimal digits.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    "\xx";
-  } catch (e) {}
+  "\xx";
 }

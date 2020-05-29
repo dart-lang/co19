@@ -7,7 +7,6 @@
  * @assertion All string literals implement the built-in class String.
  * @description Checks that string literals implement class String.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

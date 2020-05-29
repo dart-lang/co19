@@ -12,7 +12,6 @@
  * @description Checks that \uHEX_DIGIT1 HEX_DIGIT2 HEX_DIGIT3 HEX_DIGIT4 is
  * equivalent to \u{ HEX_DIGIT1 HEX_DIGIT2 HEX_DIGIT3 HEX_DIGIT4}.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

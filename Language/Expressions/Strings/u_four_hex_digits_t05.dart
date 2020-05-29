@@ -11,7 +11,6 @@
  * @description Checks that a string with the \u sequence followed by more than
  * 4 hexadecimal digit characters is interpreted correctly.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

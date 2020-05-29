@@ -10,7 +10,6 @@
  * @description Checks that string interpolation is not performed for raw
  * strings.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

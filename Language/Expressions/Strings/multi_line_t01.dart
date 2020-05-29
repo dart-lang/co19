@@ -25,7 +25,6 @@
  * @description Checks that various valid multi-line string literals
  * don't produce a compile-time error.
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {

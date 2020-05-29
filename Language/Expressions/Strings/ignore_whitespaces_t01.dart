@@ -10,7 +10,6 @@
  * @description Checks that the first new-line in a multi-line string is
  * ignored.
  * @author iefremov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

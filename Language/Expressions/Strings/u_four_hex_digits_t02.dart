@@ -13,11 +13,8 @@
  * hexadecimal digits.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    "\u1a";
-  } catch (e) {}
+  "\u1a";
 }

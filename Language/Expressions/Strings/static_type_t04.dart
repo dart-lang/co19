@@ -9,9 +9,7 @@
  * a raw double-quoted string literal to an int variable.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
-
 
 main() {
   int i = r"string";

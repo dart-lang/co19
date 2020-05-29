@@ -26,7 +26,6 @@
  * @compile-error
  * @reviewer iefremov
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {

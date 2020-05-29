@@ -13,11 +13,8 @@
  * that isn't a hexadecimal digit.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    'some text\umore text';
-  } catch (e) {}
+  'some text\umore text';
 }

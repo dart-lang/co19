@@ -10,7 +10,6 @@
  * • \t for tab, equivalent to \x09.
  * @description Checks that \t is equivalent to \x09.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

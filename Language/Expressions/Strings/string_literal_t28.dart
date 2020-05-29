@@ -32,11 +32,8 @@
  * character is used as a string delimiter.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    `string`;
-  } catch (e) {}
+  `string`;
 }

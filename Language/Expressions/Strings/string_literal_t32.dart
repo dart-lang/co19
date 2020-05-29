@@ -32,12 +32,9 @@
  * string contains \r.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    r"stri
+  r"stri
 g";
-  } catch (e) {}
 }

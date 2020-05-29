@@ -13,11 +13,8 @@
  * braces.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    "empty \u{}";
-  } catch (e) {}
+  "empty \u{}";
 }

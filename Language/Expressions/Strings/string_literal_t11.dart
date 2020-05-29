@@ -32,11 +32,8 @@
  * single quote character that is not escaped using a backslash character.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    'invalid ' string';
-  } catch (e) {}
+  'invalid ' string';
 }

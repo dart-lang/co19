@@ -10,7 +10,6 @@
  * • \b for backspace, equivalent to \x08.
  * @description Checks that \b is equivalent to \x08.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

@@ -8,8 +8,8 @@
  * string literal.
  * @description Checks that the value of a concatenated string literal is
  * correct.
+ * @Issue https://github.com/dart-lang/language/issues/985
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

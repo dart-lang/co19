@@ -11,7 +11,6 @@
  * @description Checks that \xHEX_DIGIT1 HEX_DIGIT2 is equivalent to
  * \u{ HEX_DIGIT1 HEX_DIGIT2}.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

@@ -10,13 +10,10 @@
  * to implement String.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 class C implements String {}
 
 main() {
-  try {
-    new C();
-  } catch (e) {}
+  C();
 }

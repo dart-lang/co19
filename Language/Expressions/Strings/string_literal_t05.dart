@@ -33,11 +33,8 @@
  * single-quotes string literal that isn't raw.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    '\';
-  } catch (e) {}
+  '\';
 }

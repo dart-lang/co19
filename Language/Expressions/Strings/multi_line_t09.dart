@@ -26,13 +26,10 @@
  * string literal begins with single quotes and ends with double ones.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    r'''
-    incorrect string
-    """;
-  } catch (e) {}
+  r'''
+  incorrect string
+  """;
 }

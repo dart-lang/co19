@@ -25,7 +25,6 @@
  * @description Checks that unbalanced string cause compile-time erros.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {

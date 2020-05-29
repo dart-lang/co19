@@ -10,7 +10,6 @@
  * to a String variable in checked mode.
  * @static-clean
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {

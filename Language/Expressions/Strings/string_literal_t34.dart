@@ -31,7 +31,6 @@
  * @description Checks that a string can contain any unicode new line symbols
  * other than \r and \n.
  * @author msyabro
- * @reviewer iefremov
  */
 
 main() {

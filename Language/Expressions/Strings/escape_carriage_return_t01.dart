@@ -10,7 +10,6 @@
  * • \r for carriage return, equivalent to \x0D.
  * @description Checks that \r is equivalent to \x0D.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

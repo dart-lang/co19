@@ -32,11 +32,8 @@
  * string literal does not have the closing quote.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    r'string;
-  } catch (e) {}
+  r'string;
 }

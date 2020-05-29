@@ -25,7 +25,6 @@
  * @description Checks that raw multi-line strings are allowed to have any
  * content except the same kind of triple quotes they're enclosed in.
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {

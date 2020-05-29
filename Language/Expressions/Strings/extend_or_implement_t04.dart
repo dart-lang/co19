@@ -15,5 +15,5 @@ class A {}
 abstract class C extends A with String {}
 
 main() {
-  C c = null;
+  C? c = null;
 }

@@ -32,12 +32,9 @@
  * is used in a single-line string literal.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    "str
-    ing";
-  } catch (e) {}
+  "str
+  ing";
 }

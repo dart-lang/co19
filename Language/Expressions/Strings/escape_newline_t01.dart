@@ -9,7 +9,6 @@
  * • \n for newline, equivalent to \x0A.
  * @description Checks that \n is equivalent to \x0A and newline.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

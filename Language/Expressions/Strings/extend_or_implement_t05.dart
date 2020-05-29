@@ -15,7 +15,5 @@ class A {}
 class C = A with String;
 
 main() {
-  try {
-    new C();
-  } catch (e) {}
+  new C();
 }

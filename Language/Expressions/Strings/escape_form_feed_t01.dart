@@ -10,7 +10,6 @@
  * • \f for form feed, equivalent to \x0C.
  * @description Checks that \f is equivalent to \x0C.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

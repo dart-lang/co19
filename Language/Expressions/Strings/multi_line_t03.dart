@@ -26,7 +26,6 @@
  * single-quotes string literal contains another triplet of single quotes.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {

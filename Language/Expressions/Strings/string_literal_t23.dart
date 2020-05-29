@@ -32,11 +32,8 @@
  * quote and end with single.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    r"string';
-  } catch (e) {}
+  r"string';
 }

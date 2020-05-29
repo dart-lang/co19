@@ -9,7 +9,6 @@
  * @description Checks that various string literal separated by whitespace
  * are concatenated to form a single string literal.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

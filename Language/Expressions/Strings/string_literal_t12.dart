@@ -32,11 +32,8 @@
  * and end with double.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    'string";
-  } catch (e) {}
+  'string";
 }

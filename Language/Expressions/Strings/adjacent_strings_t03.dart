@@ -9,7 +9,6 @@
  * @description Checks that adjacent string literals form a single string
  * literal.
  * @author msyabro
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

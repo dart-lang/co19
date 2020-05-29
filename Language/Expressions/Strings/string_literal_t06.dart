@@ -33,13 +33,10 @@
  * character.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  * @note http://code.google.com/p/dart/issues/detail?id=1549
  */
 
 main() {
-  try {
-    "new\
-    line";
-  } catch (e) {}
+  "new\
+  line";
 }

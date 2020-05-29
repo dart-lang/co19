@@ -10,7 +10,6 @@
  * @description Checks that a string with the \x sequence followed by more than
  * 2 hexadecimal digit characters is interpreted correctly.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

@@ -31,7 +31,6 @@
  * @description Checks that various valid single-line string literals
  * don't produce a compile-time error.
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {

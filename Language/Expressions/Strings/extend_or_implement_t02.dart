@@ -10,14 +10,11 @@
  * attempt to extend String.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 abstract class I extends String {}
 class C implements I {}
 
 main() {
-  try {
-    new C();
-  } catch (e) {}
+  new C();
 }

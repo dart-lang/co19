@@ -33,12 +33,9 @@
  * character.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    'new\
-    line';
-  } catch (e) {}
+  'new\
+  line';
 }

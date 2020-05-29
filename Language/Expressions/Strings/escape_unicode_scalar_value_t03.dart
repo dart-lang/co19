@@ -17,11 +17,8 @@
  * of the HEX_DIGIT_SEQUENCE contains other symbols than HEX_DIGIT.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    '\u{ffg}';
-  } catch (e) {}
+  '\u{ffg}';
 }

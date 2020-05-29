@@ -13,11 +13,8 @@
  * anything.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    "just \u";
-  } catch (e) {}
+  "just \u";
 }

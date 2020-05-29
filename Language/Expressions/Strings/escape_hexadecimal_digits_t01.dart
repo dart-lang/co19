@@ -12,11 +12,8 @@
  * hexadecimal digit.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    "\x1";
-  } catch (e) {}
+  "\x1";
 }

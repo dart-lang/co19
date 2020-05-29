@@ -26,11 +26,8 @@
  * double-quotes string literal does not have the opening triplet.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    incorrect string""";
-  } catch (e) {}
+  incorrect string""";
 }

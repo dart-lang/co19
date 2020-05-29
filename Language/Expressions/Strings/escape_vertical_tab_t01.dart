@@ -10,7 +10,6 @@
  * • \v for vertical tab, equivalent to \x0B.
  * @description Checks that \v is equivalent to \x0B.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

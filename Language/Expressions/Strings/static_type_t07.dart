@@ -9,7 +9,6 @@
  * a multiline double-quoted string literal to an int variable.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 main() {

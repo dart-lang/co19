@@ -32,13 +32,10 @@
  * raw single-quotes string literal.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  * @note http://code.google.com/p/dart/issues/detail?id=1551
  */
 
 main() {
-  try {
-    r'str
-    ing';
-  } catch (e) {}
+  r'str
+  ing';
 }

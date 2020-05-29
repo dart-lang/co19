@@ -26,11 +26,8 @@
  * double-quotes string literal has fewer than 3 opening quotes.
  * @compile-error
  * @author rodionov
- * @reviewer msyabro
  */
 
 main() {
-  try {
-    r""foo""";
-  } catch (e) {}
+  r""foo""";
 }

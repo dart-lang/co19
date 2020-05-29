@@ -32,11 +32,8 @@
  * contain another single quote.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    r'invalid ' string';
-  } catch (e) {}
+  r'invalid ' string';
 }
