@@ -15,18 +15,24 @@
  */
 
 class A {
-  f({var x, var y}) { return x+y; }
+  f({var x, var y}) {
+    return x + y;
+  }
 }
 
-class A1 extends A{}
-class A2 extends A1{}
-class A3 extends A2{}
+class A1 extends A {}
+
+class A2 extends A1 {}
+
+class A3 extends A2 {}
 
 class C extends A3 {
-  f({var y, var x}) { return x+y; }
+  f({var y, var x}) {
+    return x + y;
+  }
 }
 
 main() {
-  new A().f(x:1, y:2);
-  new C().f(x:2, y:1);
+  new A().f(x: 1, y: 2);
+  new C().f(x: 2, y: 1);
 }

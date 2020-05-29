@@ -20,11 +20,11 @@
  */
 
 class A {
-  static double f;
+  static double f = 3.14;
 }
 
 class C extends A {
-  bool f(int x, [String xx]) {
+  bool f(int x, [String? xx]) {
     return true;
   }
 }

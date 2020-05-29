@@ -21,7 +21,7 @@
 import "same_name_static_member_in_superclass_lib.dart";
 
 class C extends A {
-  bool _f(int x, [String xx]) {
+  bool _f(int x, [String? xx]) {
     return x == x;
   }
 }

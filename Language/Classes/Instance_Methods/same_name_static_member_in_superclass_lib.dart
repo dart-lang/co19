@@ -5,6 +5,6 @@
  */
 library same_name_static_member_in_superclass_lib;
 class A {
-  static double _f;
+  static double _f = 0;
   static f() {}
 }

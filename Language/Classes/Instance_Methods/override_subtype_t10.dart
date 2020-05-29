@@ -15,7 +15,7 @@
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A {
-  foo(double name) {}
+  foo(double? name) {}
 }
 typedef AAlias = A;
 class A1 extends A{}
@@ -25,7 +25,7 @@ typedef A2Alias = A2;
 class A3 extends A2{}
 typedef A3Alias = A3;
 class C extends A3Alias {
-  foo(int name) {}
+  foo(int? name) {}
 }
 
 main() {

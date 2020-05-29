@@ -18,10 +18,10 @@ class A {
 }
 
 class C extends A {
-  f() { }
+  f() {}
 }
 
 main() {
-  new A().f(x:1);
+  new A().f(x: 1);
   new C().f();
 }

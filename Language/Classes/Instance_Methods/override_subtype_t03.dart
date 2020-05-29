@@ -14,11 +14,11 @@
  */
 
 class A {
-  foo([double name]) {}
+  foo([double? name]) {}
 }
 
 class C extends A {
-  foo([int name]) {
+  foo([int? name]) {
   }
 }
 

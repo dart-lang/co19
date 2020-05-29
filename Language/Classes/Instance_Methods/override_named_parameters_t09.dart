@@ -15,15 +15,19 @@
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A {
-  f({var x, var y}) { return x+y; }
+  f({var x, var y}) {
+    return x + y;
+  }
 }
 typedef AAlias = A;
 
 class C extends AAlias {
-  f({var y, var x}) { return x+y; }
+  f({var y, var x}) {
+    return x + y;
+  }
 }
 
 main() {
-  new A().f(x:1, y:2);
-  new C().f(x:2, y:1);
+  new A().f(x: 1, y: 2);
+  new C().f(x: 2, y: 1);
 }

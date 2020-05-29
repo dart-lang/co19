@@ -26,8 +26,6 @@ class C extends A {
 }
 
 main() {
-  try {
-    C c = new C();
-    c.foo();
-  } catch (anything) {}
+  C c = new C();
+  c.foo();
 }

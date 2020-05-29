@@ -14,14 +14,18 @@
  */
 
 class A {
-  f({var x1, var x2, var y1, var y2}) { return '$x1$y2'; }
+  f({var x1, var x2, var y1, var y2}) {
+    return '$x1$y2';
+  }
 }
 
 class C extends A {
-  f({var x1, var x2, var y2, var y1}) { return '$x1$y2'; }
+  f({var x1, var x2, var y2, var y1}) {
+    return '$x1$y2';
+  }
 }
 
 main() {
-  new A().f(x1:"Nothing", x2:"endures", y1:"but", y2:"change");
-  new C().f(x1:"Nothing", x2:"endures", y1:"but", y2:"change");
+  new A().f(x1: "Nothing", x2: "endures", y1: "but", y2: "change");
+  new C().f(x1: "Nothing", x2: "endures", y1: "but", y2: "change");
 }

@@ -18,16 +18,16 @@ class Super {}
 class Sub extends Super {}
 
 class A {
-  num f1(Super x, Sub y, [Super a]) {}
-  int f2(Super x, Sub y, [Sub a]) {}
-  dynamic f3(Super x, {Sub a}) {}
+  num? f1(Super x, Sub y, [Super? a]) {}
+  int? f2(Super x, Sub y, [Sub? a]) {}
+  dynamic f3(Super x, {Sub? a}) {}
 }
 typedef AAlias = A;
 
 class C extends AAlias {
-  int f1(Super x, [Super a, Super b]) {}
-  int f2(Super x, [Sub a, Super b, Whatever c]) {}
-  int f3(Super x, {Super a, Super b}) {}
+  int? f1(Super x, [Super? a, Super? b]) {}
+  int? f2(Super x, [Sub? a, Super? b, Whatever? c]) {}
+  int? f3(Super x, {Super? a, Super? b}) {}
 }
 
 main() {

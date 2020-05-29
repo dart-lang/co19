@@ -25,6 +25,6 @@ class C extends AAlias {
 }
 
 main() {
-  new A().f(x:1);
+  new A().f(x: 1);
   new C().f();
 }

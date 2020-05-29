@@ -29,8 +29,6 @@ class C extends AAlias {
 }
 
 main() {
-  try {
-    C c = new C();
-    c.foo();
-  } catch (anything) {}
+  C c = new C();
+  c.foo();
 }

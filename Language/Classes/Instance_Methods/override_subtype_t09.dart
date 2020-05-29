@@ -15,12 +15,12 @@
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A {
-  foo([double name]) {}
+  foo([double? name]) {}
 }
 typedef AAlias = A;
 
 class C extends AAlias {
-  foo([int name]) {}
+  foo([int? name]) {}
 }
 
 main() {

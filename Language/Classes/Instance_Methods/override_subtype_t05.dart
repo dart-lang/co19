@@ -17,27 +17,27 @@ class Super {}
 class Sub extends Super {}
 
 class A {
-  num     f1() {}
-  Super   f2() {}
-  Super   f3() {}
-  Sub     f4() {}
+  num?     f1() {}
+  Super?   f2() {}
+  Super?   f3() {}
+  Sub?     f4() {}
 
-  int     f5(Super x) {}
-  Super   f6(Super x) {}
-  Super   f7(Sub x) {}
-  Sub     f8(Super x) {}
+  int?     f5(Super x) {}
+  Super?   f6(Super x) {}
+  Super?   f7(Sub x) {}
+  Sub?     f8(Super x) {}
 }
 
 class C extends A {
-  int f1() {}
-  Super   f2() {}
-  Sub     f3() {}
-  Sub   f4() {}
+  int? f1() {}
+  Super?   f2() {}
+  Sub?     f3() {}
+  Sub?   f4() {}
 
-  int     f5(dynamic x) {}
-  Super   f6(Super x) {}
-  Super   f7(Super x) {}
-  Sub     f8(Super x) {}
+  int?     f5(dynamic x) {}
+  Super?   f6(Super x) {}
+  Super?   f7(Super x) {}
+  Sub?     f8(Super x) {}
 }
 
 main() {

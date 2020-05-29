@@ -27,7 +27,7 @@ class A {
 }
 
 class C extends A {
-  bool f(int x, [String xx]) {
+  bool f(int x, [String? xx]) {
     return true;
   }
 }
