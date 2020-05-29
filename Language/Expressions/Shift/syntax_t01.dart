@@ -45,12 +45,6 @@ class A extends S {
     super << (super >> []);
     super << (super >>> []);
 
-    //literal with selector is a postfix expr. is an additive expr.
-    try {null >> false;} catch (e) {}
-
-    //literal with selector is a postfix expr. is an additive expr.
-    try {null >>> false;} catch (e) {}
-
     //invocation is a postfix expr. is an additive expr.
     try {method() >> topLevelFunction();} catch (e) {}
     try {1 << method()()();} catch (e) {}
@@ -59,15 +53,11 @@ class A extends S {
 
     //additive expressions
     try { 1 + 2 << 2;} catch (e) {}
-    try { 0 - 0 >> null + null;} catch (e) {}
-
-    try { 0 - 0 >>> 14 + null;} catch (e) {}
 
     //unary expressions
     try {--id << id++;} catch (e) {}
     try {~-id << !!false;} catch (e) {}
     try {~-id >> !!false;} catch (e) {}
-    try {~-id >>> true;} catch (e) {}
 
     //function expression is a primary is an additive expr.
     try { ()=>0 >> 1; } catch (e) {}

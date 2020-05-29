@@ -24,7 +24,5 @@
 // SharedOptions=--enable-experiment=triple-shift
 
 main() {
-  try {
-    2 >>> >>> 1;
-  } catch (e) {}
+  2 >>> >>> 1;
 }

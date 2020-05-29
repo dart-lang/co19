@@ -9,7 +9,6 @@
  * @description Checks that different whitespace characters and line terminators
  * are allowed in shift expressions.
  * @author hlodvig
- * @reviewer kaigorodov
  */
 
 main() {

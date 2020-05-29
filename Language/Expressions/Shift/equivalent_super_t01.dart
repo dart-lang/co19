@@ -9,7 +9,6 @@
  * @description Checks that an expressions of the form super << e2
  * is equivalent to the method invocation super.operator<<(e2).
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 
