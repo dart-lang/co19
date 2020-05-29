@@ -18,12 +18,9 @@
  * construct.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
   var x$ = "dollar";
-  try {
-    '$x$';
-  } catch (e) {}
+  '$x$';
 }

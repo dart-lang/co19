@@ -16,13 +16,10 @@
  * a string interpolation construct is the name of a type alias (see Identifier
  * Reference).
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 typedef int fun();
 
 main() {
-  try {
-    '$fun';
-  } catch (e) {}
+  '$fun';
 }

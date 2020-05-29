@@ -15,7 +15,6 @@
  * @description Checks that it is not a compile-time error if the string
  * interpolation expression is a top-level method name (not invocation).
  * @author kaigorodov
- * @reviewer rodionov
  * @note issue 3994
  */
 

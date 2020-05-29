@@ -120,10 +120,10 @@ class Test {
     var x;
     "$x";
 
-    int i64;
+    int? i64;
     "$i64";
 
-    String _x_;
+    String? _x_;
     "$_x_";
 
     "$id";

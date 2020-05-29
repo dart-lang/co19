@@ -17,11 +17,8 @@
  * brace.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    "$1}";
-  } catch (e) {}
+  "$1}";
 }

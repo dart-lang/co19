@@ -9,7 +9,6 @@
  * interpolation construct is the same for both $id and ${id}, when id is a
  * function name.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

@@ -16,11 +16,8 @@
  * separated between three adjacent string literals.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    '${1' '+' '1}';
-  } catch (e) {}
+  '${1' '+' '1}';
 }

@@ -17,11 +17,8 @@
  * (contains prohibited characters).
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    "$#x";
-  } catch (e) {}
+  "$#x";
 }

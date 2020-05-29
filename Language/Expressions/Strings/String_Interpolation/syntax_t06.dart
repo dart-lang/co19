@@ -16,7 +16,6 @@
  * a string interpolation construct is the name of type parameter (see
  * Identifier Reference).
  * @author msyabro
- * @reviewer rodionov
  */
 
 class C<T> {

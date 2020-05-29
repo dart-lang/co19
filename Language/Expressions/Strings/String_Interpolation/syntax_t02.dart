@@ -17,11 +17,8 @@
  * missing the semicolon at the end of its body).
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    '${() {return 1}}';
-  } catch (e) {}
+  '${() {return 1}}';
 }

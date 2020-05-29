@@ -16,11 +16,8 @@
  * interpolation construct does not have the closing brace.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    "${1";
-  } catch (e) {}
+  "${1";
 }

@@ -16,7 +16,6 @@
  * string interpolation construct is not declared in the current scope.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {

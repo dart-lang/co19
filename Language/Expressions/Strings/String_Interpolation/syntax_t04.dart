@@ -16,7 +16,6 @@
  * a string interpolation construct is the name of a class (see Identifier
  * Reference).
  * @author msyabro
- * @reviewer rodionov
  */
 
 abstract class I {}
@@ -24,8 +23,6 @@ abstract class I {}
 class A {}
 
 main() {
-  try {
-    '$I';
-    '$A';
-  } catch (e) {}
+  '$I';
+  '$A';
 }

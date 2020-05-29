@@ -17,11 +17,8 @@
  * of an expression.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    "${var x = 1}";
-  } catch (e) {}
+  "${var x = 1}";
 }

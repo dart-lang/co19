@@ -10,7 +10,6 @@
  * the concatenation of the strings "s1", e.toString() and "s2".
  * Concatenation is done at compile time.
  * @author kaigorodov
- * @reviewer iefremov
  */
 import '../../../../Utils/expect.dart';
 

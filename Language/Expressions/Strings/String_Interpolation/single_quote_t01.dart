@@ -9,7 +9,6 @@
  * @description Checks that an interpolated string ‘s1${e}s2’ is equivalent to
  * the concatenation of the strings 's1', e.toString() and 's2'.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

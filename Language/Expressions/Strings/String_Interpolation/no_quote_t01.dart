@@ -8,7 +8,6 @@
  * @description Checks that the result of using either form of string
  * interpolation construct is the same for both $id and ${id}.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

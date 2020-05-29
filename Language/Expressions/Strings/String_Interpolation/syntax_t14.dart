@@ -17,13 +17,10 @@
  * with the dollar character.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 main() {
   var $x = "dollar";
   var x = "dollar";
-  try {
-    '$$x';
-  } catch (e) {}
+  '$$x';
 }

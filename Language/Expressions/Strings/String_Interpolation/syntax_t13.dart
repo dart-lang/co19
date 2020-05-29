@@ -17,7 +17,6 @@
  * character is used, even if there're shorter matches for lexically visible
  * identifiers.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import '../../../../Utils/expect.dart';
 

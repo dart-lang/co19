@@ -10,7 +10,6 @@
  * return an object of type string.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A {
