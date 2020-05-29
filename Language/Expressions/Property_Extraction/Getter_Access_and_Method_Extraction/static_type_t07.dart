@@ -24,26 +24,26 @@
  */
 
 class A {
-  int get v {}
+  int? get v {}
 }
 
 class B {
-  bool get v {}
+  bool? get v {}
 }
 
 class C {
-  String get v {}
+  String? get v {}
 }
 
 main()  {
   var classWithGetter;
 
   classWithGetter = new A();
-  int resInt = classWithGetter.v;
+  int? resInt = classWithGetter.v;
 
   classWithGetter = new B();
-  bool resBool = classWithGetter.v;
+  bool? resBool = classWithGetter.v;
 
   classWithGetter = new C();
-  String resString = classWithGetter.v;
+  String? resString = classWithGetter.v;
 }

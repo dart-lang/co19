@@ -13,6 +13,7 @@
  * @description Check that if object is an instance of Type but not a constant
  * type literal and result of method lookup forwards to a static method, then
  * lookup fails
+ * @Issue 42114
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';

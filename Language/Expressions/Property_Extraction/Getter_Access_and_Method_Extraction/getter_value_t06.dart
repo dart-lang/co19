@@ -26,5 +26,5 @@ class C extends A {
 }
 
 main() {
-  Expect.equals(2, new C(1).test());
+  C(1);
 }

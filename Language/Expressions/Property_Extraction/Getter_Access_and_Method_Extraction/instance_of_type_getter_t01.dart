@@ -11,6 +11,7 @@
  * @description Check that if object is an instance of Type but not a constant
  * type literal and result of getter lookup forwards to a static getter, then
  * lookup fails
+ * @Issue 42114
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';
@@ -21,5 +22,5 @@ class C {
 
 main() {
   dynamic o = new C();
-  Expect.throws(() {o.runtimeType.s;}, (e) => e is NoSuchMethodError);
+  Expect.throws(() { o.runtimeType.s; }, (e) => e is NoSuchMethodError);
 }

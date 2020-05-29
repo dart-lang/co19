@@ -15,7 +15,6 @@
  * @description Checks that the result of invocation in case of failed getter
  * lookup is the result of invoking the appropriate noSuchMethod method.
  * @author msyabro, sgrekhov@unipro.ru
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

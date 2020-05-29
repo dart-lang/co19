@@ -20,28 +20,27 @@
  * of the form C.m is the declared return type of the getter.
  * @static-clean
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A {
-  static int get v {}
+  static int? get v {}
 }
 
 class B {
-  static bool get v {}
+  static bool? get v {}
 }
 
 class C {
-  static String get v {}
+  static String? get v {}
 }
 
 class D {
-  static double v;
+  static double? v;
 }
 
 main()  {
-  int resInt = A.v;
-  bool resBool = B.v;
-  String resString = C.v;
-  double resDbl = D.v;
+  int? resInt = A.v;
+  bool? resBool = B.v;
+  String? resString = C.v;
+  double? resDbl = D.v;
 }

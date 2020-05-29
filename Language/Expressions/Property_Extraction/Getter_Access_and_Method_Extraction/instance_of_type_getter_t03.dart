@@ -11,6 +11,7 @@
  * @description Check that if library object is an instance of Type but not a
  * constant type literal and result of method lookup forwards to a static
  * getter, then lookup fails
+ * @Issue 42114
  * @author sgrekhov@unipro.ru
  */
 import '../../../../Utils/expect.dart';

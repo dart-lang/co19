@@ -13,7 +13,6 @@
  * code results in a NoSuchMethodError.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class C {
