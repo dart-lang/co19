@@ -13,12 +13,10 @@
  */
 class C {
   static int v = 0;
-  static int v2;
+  static dynamic v2;
 }
 
 main() {
   int a = C.v++;
-  try {
-    int b = C.v2++;
-  } catch (e) {}
+  try { int b = C.v2++; } catch (e) {}
 }

@@ -15,8 +15,6 @@
 main() {
   int a1 = 0;
   int b1 = a1--;
-  try {
-    int a2;
-    int b2 = a2--;;
-  } catch (e) {}
+  dynamic a2;
+  try { int b2 = a2--; } catch (e) {}
 }

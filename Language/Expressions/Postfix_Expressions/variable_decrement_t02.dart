@@ -10,7 +10,6 @@
  * is equivalent to (){var r = v; v = r - 1; return r;}() in implementation
  * (basically, that postfix -- works via operator- in the described manner).
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

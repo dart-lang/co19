@@ -25,16 +25,12 @@
  * @description Checks that alone super can't be used with postfixOperator.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 class S {}
 class A extends S {
   test() {
-    try {
-      super--;
-    } catch (e) {}
+    super--;
   }
 }
 

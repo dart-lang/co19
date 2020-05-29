@@ -15,12 +15,10 @@
  */
 class C {
   static int v = 0;
-  static int v2;
+  static dynamic v2;
 }
 
 main() {
-  int a1 = C?.v--;
-  try {
-    int a2 = C?.v2--;
-  } catch (e) {}
+  int? a1 = C?.v--;
+  try { int? a2 = C?.v2--; } catch (e) {}
 }

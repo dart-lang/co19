@@ -26,12 +26,8 @@
  * This test is using a labeled for statement.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    label: for (var i in []) {};++;
-  } catch (e) {}
+  label: for (var i in []) {};++;
 }

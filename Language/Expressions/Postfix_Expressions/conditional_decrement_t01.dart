@@ -18,10 +18,10 @@ class C {
 }
 
 main() {
-  C c1 = null;
+  C? c1 = null;
   Expect.equals(c1?.v--, null);
 
-  C c2 = new C();
+  C? c2 = new C();
   Expect.equals(c2?.v--, 0);
   Expect.equals(c2?.v, -1);
 }

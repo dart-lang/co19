@@ -13,13 +13,11 @@
  */
 class C {
   int v = 0;
-  int v2;
+  dynamic v2;
 }
 
 main() {
   C c = new C();
   int a = c.v++;
-  try {
-    int a2 = c.v2++;
-  } catch (e) {}
+  try { int a2 = c.v2++; } catch (e) {}
 }

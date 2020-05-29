@@ -26,12 +26,8 @@
  * literal) can't be used with postfixOperator.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    1++;
-  } catch (e) {}
+  1++;
 }

@@ -10,7 +10,6 @@
  * is equivalent to (){var r = C.v; C.v = r + 1; return r;}() in implementation
  * (basically, that postfix ++ works via operator+ in the described manner).
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 
@@ -28,7 +27,7 @@ class A {
 }
 
 class C {
-  static A v;
+  static A v = A("");
 }
 
 main() {

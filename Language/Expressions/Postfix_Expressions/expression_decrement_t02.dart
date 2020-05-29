@@ -28,7 +28,7 @@ class A {
 }
 
 class C {
-  A v;
+  A v = A("");
   C(arg) {
     v = new A(arg);
   }

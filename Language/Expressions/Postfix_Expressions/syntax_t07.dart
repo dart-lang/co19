@@ -26,13 +26,9 @@
  * postfixOperator.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 main() {
   var x = 1;
-  try {
-    x++++;
-  } catch (e) {}
+  x++++;
 }

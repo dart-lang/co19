@@ -9,7 +9,6 @@
  * @description Checks that evaluation of an expression of the form v++
  * is equivalent to (){var r = v; v = r + 1; return r;}() in effect.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

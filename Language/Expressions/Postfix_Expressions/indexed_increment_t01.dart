@@ -9,7 +9,6 @@
  * @description Checks that a postfix expression of the form e1[e2 ]++, is
  * equivalent to (a, i){var r = a[i]; a[i] = r + 1; return r}(e1, e2) in effect.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

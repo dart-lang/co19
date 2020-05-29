@@ -14,16 +14,14 @@
  */
 class C {
   int v = 0;
-  int v2;
+  dynamic v2;
 }
 
 main() {
-  C c1 = new C();
-  int a1 = c1?.v--;
-  try {
-    int a2 = c1?.v2--;
-  } catch (e) {}
-  C c2;
-  int a3 = c2?.v--;
-  int a4 = c2?.v2--;
+  C? c1 = new C();
+  int? a1 = c1?.v--;
+  try { int? a2 = c1?.v2--; } catch (e) {}
+  C? c2;
+  int? a3 = c2?.v--;
+  int? a4 = c2?.v2--;
 }

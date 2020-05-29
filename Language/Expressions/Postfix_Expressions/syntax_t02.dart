@@ -26,8 +26,6 @@
  * cannot be used with postfixOperator without a compile error.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 typedef f();
 

@@ -11,7 +11,6 @@
  * implementation (basically, that postfix -- works via operator- in the
  * described manner).
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 
