@@ -14,14 +14,22 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
+import "../../utils/common.dart";
 import "../../utils/legacy_lib.dart";
+import '../../../../Utils/expect.dart';
 
-class C extends X {}
+class S1 {
+  const S1();
+}
+class T0 extends S1 {}
 
-C? t0Instance = new C();
-Y t1Instance = new Y();
+T0 t0Instance = new T0();
+var t1Instance = getLegacyType<S1>(new S1());
 
 const t1Default = const Y();
 
-//# @T0 = C?
-//# @T1 = Y
+main() {
+  Expect.throws(() {
+    t1Instance = forgetType(t0Instance);
+  }, (e) => e is TypeError || e is CastError);
+}

@@ -16,22 +16,14 @@
 // Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
 
-class C extends X {}
-
-C t0Instance = new C();
-X t1Instance = new X();
-
-const t1Default = const X();
-
-//# @T0 = C
-//# @T1 = X
-
-//# <!-- Global variables & classes definition -->
-
-test<T extends X>(T t0Instance) {
-//# <!-- Test body -->
+class S1 {
+  const S1();
 }
+class T0 extends S1 {}
+
+T0? t0Instance = new T0();
+var t1Instance = getLegacyType<S1>(new S1());
 
 main() {
-  test<C>(t0Instance);
+  t1Instance = t0Instance;
 }

@@ -8,30 +8,23 @@
  * when:
  * Right Legacy T1 is S1* then:
  * - T0 <: T1 iff T0 <: S1?
- * @description Check that if type T1 is S1* and T0 is not subtype of S1? then
- * T0 is not subtype of T1.
+ * @description Check that if type T1 is S1* and T0 <: S1? then T0 is subtype of
+ * T1.
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
+import "../../utils/common.dart";
 import "../../utils/legacy_lib.dart";
 
-class C extends X {}
-
-C t0Instance = new C();
-Y t1Instance = new Y();
-
-const t1Default = const Y();
-
-//# @T0 = C
-//# @T1 = Y
-
-//# <!-- Global variables & classes definition -->
-
-test<T extends X>(T t0Instance) {
-//# <!-- Test body -->
+class S1 {
+  const S1();
 }
+class T0 extends S1 {}
+
+T0? t0Instance = new T0();
+var t1Instance = getLegacyType<S1>(new S1());
 
 main() {
-  test<C>(t0Instance);
+  t1Instance = forgetType(t0Instance);
 }
