@@ -12,13 +12,10 @@
  * top-level variable initializer.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 var x = this;
 
 main() {
-  try {
-    print(x);
-  } catch (e) {}
+  print(x);
 }

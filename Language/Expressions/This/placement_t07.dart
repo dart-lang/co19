@@ -12,7 +12,6 @@
  * factory constructor.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {
@@ -24,7 +23,5 @@ class C {
 }
 
 main() {
-  try {
-    new C();
-  } catch (e) {}
+  new C();
 }

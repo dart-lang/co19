@@ -12,7 +12,6 @@
  * method.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {
@@ -20,7 +19,5 @@ class C {
 }
 
 main() {
-  try {
-    print(C.method());
-  } catch (e) {}
+  print(C.method());
 }

@@ -11,19 +11,19 @@
  *   ;
  * @description Checks that word 'this' cannot be used to declare an abstract
  * class.
- * @compile-error
  * @author hlodvig
- * @reviewer kaigorodov
  */
 
-abstract class this {
-}
+abstract class this {}
+//             ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-class A implements this {
-}
+class A implements this {}
+//                 ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  try {
-    new A();
-  } catch (e) {}
+  new A();
 }

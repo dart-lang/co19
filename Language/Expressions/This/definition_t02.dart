@@ -10,16 +10,17 @@
  *     this
  *   ;
  * @description Checks that word 'this' cannot be used to declare a class.
- * @compile-error
  * @author hlodvig
- * @reviewer kaigorodov
  */
 
-class this {
-}
+class this {}
+//    ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  try {
-    new this();
-  } catch (e) {}
+  new this();
+//    ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

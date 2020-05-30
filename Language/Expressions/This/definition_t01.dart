@@ -16,7 +16,5 @@
  */
 
 main() {
-  try {
-    var this;
-  } catch (e) {}
+  var this;
 }

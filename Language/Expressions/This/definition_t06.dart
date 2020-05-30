@@ -11,7 +11,6 @@
  *   ;
  * @description Checks that 'this' denotes instance target.
  * @author hlodvig
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

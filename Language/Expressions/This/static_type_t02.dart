@@ -9,7 +9,6 @@
  * @description Checks that type of 'this' is the class itself.
  * @static-clean
  * @author hlodvig
- * @reviewer kaigorodov
  */
 
 class A {

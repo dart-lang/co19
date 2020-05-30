@@ -12,7 +12,6 @@
  * variable initializer.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {
@@ -20,7 +19,5 @@ class C {
 }
 
 main() {
-  try {
-    print(C.x);
-  } catch (e) {}
+  print(C.x);
 }

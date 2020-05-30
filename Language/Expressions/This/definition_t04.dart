@@ -10,16 +10,17 @@
  *     this
  *   ;
  * @description Checks that word 'this' cannot be used to declare a function.
- * @compile-error
  * @author hlodvig
- * @reviewer kaigorodov
  */
 
-void this() {
-}
+void this() {}
+//   ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  try {
-    this();
-  } catch (e) {}
+  this();
+//^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

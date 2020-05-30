@@ -12,13 +12,10 @@
  * parameters list of a top-level function.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 func(this, p) {}
 
 main() {
-  try {
-    func(1, 2);
-  } catch (e) {}
+  func(1, 2);
 }
