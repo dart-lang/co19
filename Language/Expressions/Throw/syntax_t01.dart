@@ -14,7 +14,6 @@
  * @description Checks the throw expression can be used on the right-hand side
  * of a conditional expression.
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 main() {

@@ -15,8 +15,6 @@
  * expression in a finally part of try statement.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {

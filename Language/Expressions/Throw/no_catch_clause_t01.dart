@@ -15,7 +15,6 @@
  * expression in main method.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {

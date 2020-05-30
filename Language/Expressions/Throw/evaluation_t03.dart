@@ -15,7 +15,6 @@
  * indeed raises an exception and transfers control to the nearest enclosing
  * exception handler if there is one.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

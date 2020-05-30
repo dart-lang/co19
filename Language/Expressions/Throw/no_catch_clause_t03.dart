@@ -15,7 +15,6 @@
  * expression in switch statement.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {

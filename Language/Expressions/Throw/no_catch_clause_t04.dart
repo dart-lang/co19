@@ -15,7 +15,6 @@
  * expression in function block of statements.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {

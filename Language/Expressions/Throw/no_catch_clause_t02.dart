@@ -15,7 +15,6 @@
  * expression in while statement.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {

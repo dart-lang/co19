@@ -16,7 +16,6 @@
  * exception handler if there is one.
  *
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 
