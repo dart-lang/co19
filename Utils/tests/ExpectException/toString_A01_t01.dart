@@ -8,15 +8,13 @@
  * @description Checks that this method returns the exception message.
  * @author rodionov
  * @author varlax
- * @reviewer varlax
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
  
 main() {
   ExpectException e = new ExpectException(null);
-  Expect.isTrue(e.toString() == null);
+  Expect.equals("", e.toString());
   
   e = new ExpectException("foo");
-  Expect.isTrue(e.toString().contains("foo",0));
+  Expect.isTrue(e.toString().contains("foo", 0));
 }

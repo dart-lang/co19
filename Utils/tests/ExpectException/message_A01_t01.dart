@@ -5,9 +5,9 @@
  */
 /**
  * @assertion Holds the error message of this exception.
- * @description Checks that this property holds the value passed as constructor's argument.
+ * @description Checks that this property holds the value passed as
+ * constructor's argument.
  * @author rodionov
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
  
@@ -17,7 +17,7 @@ main() {
   check("not empty");
 }
 
-void check(String arg) {
+void check(String? arg) {
   ExpectException e = new ExpectException(arg);
   Expect.equals(arg, e.message);
 }

@@ -5,9 +5,9 @@
  */
 /**
  * @assertion Constructs a new exception with the specified message.
- * @description Checks that this constructor executes without error for various String arguments (including null).
+ * @description Checks that this constructor executes without error for various
+ * String arguments (including null).
  * @author rodionov
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
  
