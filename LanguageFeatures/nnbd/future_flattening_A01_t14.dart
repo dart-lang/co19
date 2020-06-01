@@ -19,23 +19,12 @@
  * @description Check that compile error is thrown if synchronous function with
  * [Future<Object>] return value type returns a value of the type [dynamic].
  *
- * Here is a comment from the Issue #41266:
+ * @description Check that type of await expression match with expected
+ * [Object] type dynamically and the expression cannot be null.
  *
- * Section 9 of the spec says that it is a compile time error if:
- *
- *   The function is asynchronous, [flatten(T)] is not [void], and it would
- *   have been a compile-time error to declare the function with the body [async
- *   { return e; }] rather than [async => e] and the relevant passage of section
- *   17.12 is:
- *
- *   It is a compile-time error if [s] is [return e;], [flatten(S)] is not
- *   [void], and [Future<flatten(S)>] is not assignable to [T]
- *
- * Here [flatten(S)} is [dynamic] and [Future<dynamic>] is not assignable to
- * [Future<lbool>] when the nnbd flag is enabled.
- *
- * If any changes are forthcoming in the spec we will open issues for
- * implementation when needed.
+ * See also:
+ * https://github.com/dart-lang/language/pull/941,
+ * https://github.com/dart-lang/co19/issues/703
  *
  * @Issue 41266,41437
  * @author iarkh@unipro.ru
@@ -44,12 +33,12 @@
 // Requirements=nnbd-strong
 
 import "dart:async";
+import "../../Utils/expect.dart";
 
 dynamic getNull() => null;
 
 Future<Object> test() async => await getNull();
-//             ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
-main() {}
+main() {
+  asyncStart(); test().then((value) {}, onError:(e) => asyncEnd());
+}
