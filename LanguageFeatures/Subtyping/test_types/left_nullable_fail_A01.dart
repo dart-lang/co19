@@ -13,6 +13,8 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
+
 class T1 {
   const T1();
 }

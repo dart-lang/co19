@@ -48,7 +48,7 @@ const t1Default = const C0<U0, U1, U2>();
 
 
 class ArgumentsBindingSuper1_t02 {
-  C0<U0, U1, U2> m;
+  C0<U0, U1, U2> m = t1Default;
 
   ArgumentsBindingSuper1_t02(C0<U0, U1, U2> value): m = value {}
   ArgumentsBindingSuper1_t02.named(C0<U0, U1, U2> value, {C0<U0, U1, U2> val2 = t1Default}): m = value {}

@@ -34,7 +34,7 @@ const t1Default = "";
 
 
 class ArgumentsBindingSuper1_t02 {
-  dynamic m;
+  dynamic m = t1Default;
 
   ArgumentsBindingSuper1_t02(dynamic value): m = value {}
   ArgumentsBindingSuper1_t02.named(dynamic value, {dynamic val2 = t1Default}): m = value {}

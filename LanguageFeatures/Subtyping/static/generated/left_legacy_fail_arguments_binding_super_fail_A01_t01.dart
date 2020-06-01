@@ -41,7 +41,7 @@ const t1Default = "Lily was here";
 
 
 class ArgumentsBindingSuper1_t02 {
-  String m;
+  String m = t1Default;
 
   ArgumentsBindingSuper1_t02(String value): m = value {}
   ArgumentsBindingSuper1_t02.named(String value, {String val2 = t1Default}): m = value {}

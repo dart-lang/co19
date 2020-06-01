@@ -41,7 +41,7 @@ const t1Default = foo;
 
 
 class ArgumentsBindingSuper1_t02 {
-  Function m;
+  Function m = t1Default;
 
   ArgumentsBindingSuper1_t02(Function value): m = value {}
   ArgumentsBindingSuper1_t02.named(Function value, {Function val2 = t1Default}): m = value {}

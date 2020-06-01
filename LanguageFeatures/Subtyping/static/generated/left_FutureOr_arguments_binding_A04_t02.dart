@@ -47,7 +47,7 @@ const t1Default = const C<A>();
 
 
 class ArgumentsBindingSuper1_t02 {
-  FutureOr<C<A>> m;
+  FutureOr<C<A>> m = t1Default;
 
   ArgumentsBindingSuper1_t02(FutureOr<C<A>> value): m = value {}
   ArgumentsBindingSuper1_t02.named(FutureOr<C<A>> value, {FutureOr<C<A>> val2 = t1Default}): m = value {}

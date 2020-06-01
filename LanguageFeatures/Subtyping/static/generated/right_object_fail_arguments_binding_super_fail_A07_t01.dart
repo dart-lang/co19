@@ -36,6 +36,7 @@
 
 
 // SharedOptions=--enable-experiment=non-nullable
+// Requirements=nnbd-strong
 import "dart:async";
 
 class S {}
@@ -49,7 +50,7 @@ const t1Default = const Object();
 
 
 class ArgumentsBindingSuper1_t02 {
-  Object m;
+  Object m = t1Default;
 
   ArgumentsBindingSuper1_t02(Object value): m = value {}
   ArgumentsBindingSuper1_t02.named(Object value, {Object val2 = t1Default}): m = value {}

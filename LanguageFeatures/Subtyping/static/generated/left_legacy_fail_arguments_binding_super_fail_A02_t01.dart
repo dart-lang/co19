@@ -45,7 +45,7 @@ const t1Default = const A();
 
 
 class ArgumentsBindingSuper1_t02 {
-  A m;
+  A m = t1Default;
 
   ArgumentsBindingSuper1_t02(A value): m = value {}
   ArgumentsBindingSuper1_t02.named(A value, {A val2 = t1Default}): m = value {}

@@ -40,7 +40,7 @@ const t1Default = null;
 
 
 class ArgumentsBindingSuper1_t02 {
-  FutureOr<Null> m;
+  FutureOr<Null> m = t1Default;
 
   ArgumentsBindingSuper1_t02(FutureOr<Null> value): m = value {}
   ArgumentsBindingSuper1_t02.named(FutureOr<Null> value, {FutureOr<Null> val2 = t1Default}): m = value {}
