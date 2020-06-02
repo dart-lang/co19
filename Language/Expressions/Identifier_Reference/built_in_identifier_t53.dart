@@ -9,10 +9,11 @@
  * @description Checks that it is a compile-time error if a built-in identifier
  * "abstract" is used as the declared name of a prefix.
  * @issue 25733
+ * @compile-error
  * @author ngl@unipro.ru
  */
 
-import "../lib.dart" as abstract;    //# 01: compile-time error
+import "../lib.dart" as abstract;
 
 main() {
   abstract.x;
