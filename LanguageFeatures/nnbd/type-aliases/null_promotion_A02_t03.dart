@@ -9,7 +9,7 @@
  * continuation, and to [Null] in the [false] continuation.
  *
  * @description Check that type of [e] is promoted to [Null] in the [false]
- * condition. Test [e != null] expression. Test type aliases
+ * continuation. Test [e != null] expression. Test type aliases
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
@@ -32,7 +32,7 @@ main() {
 // [cfe] unspecified
   }
 
-  AAlias2? a2 = init();
+  AAlias2? a2 = new A();
 
   if (a2 != null) {
   } else {
