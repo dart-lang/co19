@@ -25,9 +25,16 @@ import "override_checking_A06_opted_out_lib.dart";
 class B extends CHECK_TOP_MERGE<Never> {}
 
 class C1 extends B implements out_Never {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 class C2 extends out_Never implements B {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  Expect.isTrue(C1().f is Never Function(Never));
-  Expect.isTrue(C2().f is Never Function(Never));
+  C1();
+  C2();
 }
