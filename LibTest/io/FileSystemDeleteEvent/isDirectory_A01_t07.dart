@@ -36,6 +36,6 @@ _main(Directory sandbox) async {
         dir.deleteSync();
       }, test: (FileSystemEvent event) {
         Expect.isFalse(event.isDirectory);
-      });
+      }, ignoreRootEvents: false);
   asyncEnd();
 }
