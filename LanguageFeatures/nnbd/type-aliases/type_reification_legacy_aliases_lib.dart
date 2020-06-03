@@ -12,3 +12,7 @@ library type_reification_legacy_lib;
 
 class A {}
 typedef AliasA = A;
+
+class A1 extends A {}
+class B<T>         {}
+

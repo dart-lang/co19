@@ -16,9 +16,9 @@ import "../../../Utils/expect.dart";
 import "type_reification_legacy_aliases_lib.dart";
 
 main() {
-  A? a1 = A1() as Object;
+  Object? a1 = A1() as Object;
   var a2 = a1 as AliasA;
   A1 a3 = a2 as A1;
   Expect.throws(() { a2 as B; });
-  Expect.throws(() { B() as A1iasA; });
+  Expect.throws(() { B() as AliasA; });
 }
