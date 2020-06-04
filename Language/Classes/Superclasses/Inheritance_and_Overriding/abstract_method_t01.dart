@@ -12,7 +12,6 @@
  * @author msyabro
  */
 
-
 abstract class A {
   foo();
 }
@@ -21,7 +20,5 @@ class B extends A {
 }
 
 main() {
-  try {
-    (new B()).foo();
-  } catch (e) {}
+  new B().foo();
 }

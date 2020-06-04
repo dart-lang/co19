@@ -18,9 +18,9 @@
 
 class S {
   static var v;
-  static int i;
+  static int i = 0;
   static method() {}
-  static int iMethod() {}
+  static int iMethod() => 42;
 }
 typedef SAlias = S;
 

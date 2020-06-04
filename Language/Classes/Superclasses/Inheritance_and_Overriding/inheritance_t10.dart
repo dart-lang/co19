@@ -18,7 +18,7 @@
 
 class S {
   static var v;
-  static int i;
+  static int i = 0;
   static method() {}
   static int iMethod() { return 1; }
 }
@@ -30,7 +30,19 @@ class C extends SAlias {
 main() {
   var c = new C();
   c.v;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   c.i;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   c.method();
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   c.iMethod();
+//  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

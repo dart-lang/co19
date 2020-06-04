@@ -2,5 +2,5 @@ library lib;
 
 class Foreign {
   var _var;
-  int _m() {}
+  int _m() => 42;
 }

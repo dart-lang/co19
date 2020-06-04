@@ -17,7 +17,7 @@
 import "../../../../Utils/expect.dart";
 
 class A {
-  int val;
+  int val = 0;
 }
 
 class B extends A {

@@ -14,7 +14,6 @@
  * @author iefremov
  */
 import "../../../../Utils/expect.dart";
-
 import "overriding_t04_lib.dart";
 
 class C extends S {

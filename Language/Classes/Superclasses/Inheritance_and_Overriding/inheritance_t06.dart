@@ -22,5 +22,11 @@ class C extends lib.Foreign {}
 main() {
   var c = new C();
   c._var;
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   c._m;
+//  ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
