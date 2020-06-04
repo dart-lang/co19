@@ -15,11 +15,8 @@
  * literal in the right part of the expression.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main () {
-  try {
-    1 is 1;
-  } catch (e) {}
+  1 is 1;
 }

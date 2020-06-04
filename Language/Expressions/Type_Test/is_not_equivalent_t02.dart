@@ -8,15 +8,14 @@
  * @description Checks that type annotations does not affect the result of the
  * is!-expression
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 
 main() {
-  int x;
+  int? x;
   Expect.isTrue(x is! int);
-  String s;
+  String? s;
   Expect.isTrue(s is! String);
-  bool b;
+  bool? b;
   Expect.isTrue(b is! bool);
 }

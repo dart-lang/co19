@@ -19,8 +19,11 @@ class D extends C {
   f() {}
 }
 
-C x;
+C? x = C();
+C? x1;
+
 
 main() {
   Expect.isFalse(x is D);
+  Expect.isFalse(x1 is D);
 }

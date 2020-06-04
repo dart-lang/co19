@@ -11,8 +11,6 @@
  */
 import '../../../Utils/expect.dart';
 
-//class C {}
-
 main() {
   Expect.equals((1 is! num), !(1 is num));
   Expect.equals((1.0 is! num), !(1.0 is num));

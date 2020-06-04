@@ -13,7 +13,6 @@
  * ;
  * @description Checks basic grammar.
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {

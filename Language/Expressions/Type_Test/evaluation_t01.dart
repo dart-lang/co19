@@ -12,7 +12,6 @@
  * Otherwise it evaluates to false.
  * @description Checks that the is-expression is evaluated correctly.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 
@@ -31,7 +30,7 @@ main() {
   Expect.isTrue(1.0 is double);
   Expect.isTrue((1 < 2) is bool);
   Expect.isTrue("string" is String);
-  Expect.isTrue(null is Object);
+  Expect.isTrue(null is Object?);
   Expect.isTrue(const [1, 2, 3] is List);
   Expect.isTrue(() {} is Function);
   Expect.isTrue(new Object() is dynamic);

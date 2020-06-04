@@ -14,7 +14,6 @@
  * compile error occurs
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 main() {

@@ -13,15 +13,14 @@
  * @description Checks that type annotations does not affect the result of the
  * is-expression.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 
 main() {
-  int x;
+  int? x;
   Expect.isFalse(x is int);
-  String s;
+  String? s;
   Expect.isFalse(s is String);
-  bool b;
+  bool? b;
   Expect.isFalse(b is bool);
 }

@@ -14,7 +14,6 @@
  * @description Checks that there is no compile-time error when the first
  * operand of a type test expression is a type name.
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 main() {

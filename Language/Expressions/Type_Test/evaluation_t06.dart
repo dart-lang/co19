@@ -14,7 +14,6 @@
  * which has more then n type parameters, then it is a compile error
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class G<T, U, V> {}

@@ -13,8 +13,7 @@
  * @description Checks that null is Undeclared causes compile error.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- */
+*/
 
 main() {
   null is Undeclared;

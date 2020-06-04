@@ -20,9 +20,12 @@ class D extends C {
 }
 
 class S {
-  C x;
+  C? x1;
+  C x2 = C();
+
   test() {
-    Expect.isFalse(x is D);
+    Expect.isFalse(x1 is D);
+    Expect.isFalse(x2 is D);
   }
 }
 

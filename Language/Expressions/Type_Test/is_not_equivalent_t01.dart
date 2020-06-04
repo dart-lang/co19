@@ -7,7 +7,6 @@
  * @assertion The is-expression e is! T is equivalent to !(e is T).
  * @description Checks that the is!-expression is evaluated correctly.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 
@@ -25,7 +24,7 @@ main() {
   Expect.isFalse(1 is! int);
   Expect.isFalse(1.0 is! double);
   Expect.isFalse("string" is! String);
-  Expect.isFalse(null is! Object);
+  Expect.isFalse(null is! Object?);
   Expect.isFalse(() {} is! Function);
   Expect.isFalse(new Object() is! dynamic);
 
