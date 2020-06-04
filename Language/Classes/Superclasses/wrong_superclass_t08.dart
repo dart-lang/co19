@@ -10,7 +10,7 @@
  * @description Checks that it is a compile-time error if deferred type is used
  * as a superclass
  * @compile-error
- * $Issue 42031
+ * @Issue 42031
  * @author sgrekhov@unipro.ru
  */
 
