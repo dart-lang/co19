@@ -40,6 +40,6 @@ main() {
   CAlias.s3 = null;
   new CAlias().s2 = null;
   new CAlias().s4 = null;
-  new CAlias<int, double>().s7 = null;
-  new CAlias<C, C>().s8 = null;
+  new CAlias<int, double>().s7 = 42;
+  new CAlias<C, C>().s8 = new C();
 }

@@ -21,7 +21,7 @@
  */
 
 class A {
-  int n;
+  int n = 0;
   set v(int v1) {
     n = v1;
   }

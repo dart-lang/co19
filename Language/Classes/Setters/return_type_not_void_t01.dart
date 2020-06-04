@@ -4,17 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if a setter declares a return type
- * other than void
- * @description Checks that a compile-time error is produced if a setter
- * declares int as its return type.
- * @compile-error
+ * @assertion It is a static warning if a setter declares a return type other
+ * than void
+ * @description Checks that it is a static warning if a setter declares a return
+ * type other than void
+ * @static-warning
  * @author vasya
+ * @issue 42179
  */
 
 class C {
-  int set foo(var x) {
-  }
+  int set foo(var x) => 42; /// static type warning
 }
 
 main() {

@@ -11,7 +11,7 @@
  * @static-clean
  * @author iefremov
  */
-
+import '../../../Utils/expect.dart';
 class C {
   set foo(var x) {}
 }
@@ -19,7 +19,5 @@ class C {
 f(x) => ((new C()).foo = x).asdf();
 
 main() {
-  try {
-    f(null);
-  } catch (e) {}
+  Expect.throws(() {f(null);});
 }

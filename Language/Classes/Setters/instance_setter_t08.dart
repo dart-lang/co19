@@ -21,14 +21,14 @@
  */
 
 class A {
-  int n;
+  int n = 0;
   set v(int v1) {
     n = v1;
   }
 }
 
 class C extends A {
-  static int v;
+  static int v = 0;
 }
 
 main() {

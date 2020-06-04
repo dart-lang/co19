@@ -15,11 +15,9 @@
  */
 
 class C {
-  set setter => null;
+  set setter {};
 }
 
 main() {
-  try {
-    new C();
-  } catch (e) {}
+  new C();
 }

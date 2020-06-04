@@ -22,7 +22,7 @@
  */
 
 class A {
-  int v;
+  int v = 0;
 }
 
 class C extends A {

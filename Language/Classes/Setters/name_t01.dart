@@ -13,7 +13,6 @@
  * @compile-error
  * @author vasya
  */
-import "../../../Utils/expect.dart";
 
 class C {
   void set foo(value);

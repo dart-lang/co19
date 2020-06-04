@@ -28,5 +28,5 @@ class C<T extends A, S extends T> {
 }
 
 main() {
-  new C<A, B>().foo = null;
+  new C<A, B>().foo = new B();
 }

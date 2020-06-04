@@ -21,7 +21,7 @@
  */
 
 class A {
-  static int n;
+  static int n = 0;
   static get v {
     return n;
   }

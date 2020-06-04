@@ -4,32 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  It is a static warning if a class declares a static setter
+ * @assertion  It is a compile error if a class declares a static setter
  * named v= and also has a non-static member named v.
- * @description Checks that it is a compile error to declare more than one
- * entity with the same name in the same scope.
+ * @description Checks that it is a compile error to declare more static setter
+ * and an instance getter with the same name
  * @compile-error
  * @author kaigorodov
  */
-import "../../../Utils/expect.dart";
 
 class C {
-  String _foo;
-  String get foo {
-    return _foo;
-  }
+  String get foo => "Lily was here";
 
-  static String foo2 = "foo";
-  static set foo(String s) {
-    foo2 = s;
-  }
-  static String get foo {
-    return foo2;
-  }
-
+  static set foo(String s) {}
 }
 
 main() {
   C.foo = "foo";
-  Expect.equals(C.foo, "foo");
 }

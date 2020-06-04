@@ -22,11 +22,11 @@
  */
 
 class A {
-  int v;
+  int v = 0;
 }
 
 class C extends A {
-  static int n;
+  static int n = 0;
   static get v {
     return n;
   }

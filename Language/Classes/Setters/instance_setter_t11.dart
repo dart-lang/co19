@@ -22,11 +22,11 @@
  */
 
 class A {
-  int v;
+  int v = 0;
 }
 
 class C extends A {
-  static int v;
+  static int v = 0;
 }
 
 main() {

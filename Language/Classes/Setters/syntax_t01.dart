@@ -38,6 +38,6 @@ main() {
   C.s3 = null;
   new C().s2 = null;
   new C().s4 = null;
-  new C<int, double>().s7 = null;
-  new C<C, C>().s8 = null;
+  new C<int, double>().s7 = 42;
+  new C<C, C>().s8 = new C();
 }

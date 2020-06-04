@@ -4,16 +4,15 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  It is a compile error if a class has a setter named 'v=' with
- * argument type T and a getter named 'v' with return type S, and T may not be
- * assigned to S.
- * @description Checks that it is a compile error if a class defines a setter
- * named 'foo=' and a getter named 'foo' with argument/return types that are
- * not mutually assignable. Types in getter/setter signatures provided as type
- * parameters with type bounds that are not mutually assignable (int and
- * String).
- * @compile-error
+ * @assertion  It is a static warning if a class has a setter named v= with
+ * argument type T and a getter named v with return type S, and S may not be
+ * assigned to T
+ * @description Checks that it is a static warning if a class has a setter named
+ * v= with argument type T and a getter named v with return type S, and S may
+ * not be assigned to T (int and String).
+ * @static-warning
  * @author vasya
+ * @issue 42179
  */
 
 class C<T extends int, S extends String> {
@@ -21,11 +20,11 @@ class C<T extends int, S extends String> {
     _foo = t;
   }
 
-  S get foo { return _foo; }
+  S get foo { return _foo; }  /// static type warning
 
   var _foo;
 }
 
 main() {
-  new C<int, String>().foo = null;
+  new C<int, String>().foo = 42;
 }

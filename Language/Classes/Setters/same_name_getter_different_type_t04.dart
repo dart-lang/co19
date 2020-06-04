@@ -17,7 +17,7 @@ class A {}
 class B extends A {}
 
 class C {
-  set foo(A d) { }
+  set foo(A a) { }
   
   B get foo => new B();
 }

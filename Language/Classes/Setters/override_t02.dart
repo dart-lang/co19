@@ -14,7 +14,7 @@
  */
 
 class A {
-  String foo;
+  String foo = "Lily was here";
 }
 
 class C extends A {
@@ -23,5 +23,5 @@ class C extends A {
 }
 
 main() {
-  new C().foo = null;
+  new C().foo = true;
 }

@@ -9,9 +9,10 @@
  *   returnType? set identifier formalParameterList
  * ;
  * @description Checks if static setter returns value other than void, then
- * compile-time error occurs
- * @compile-error
+ * a static warning occurs
+ * @static-warning
  * @author sgrekhov@unipro.ru
+ * @issue 42179
  */
 
 class C {

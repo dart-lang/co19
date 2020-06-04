@@ -27,7 +27,7 @@ class A {
 }
 
 class C extends A {
-  int v;
+  int v = 0;
 }
 
 main() {

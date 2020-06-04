@@ -4,9 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The effect of a static setter declaration in class C is to add
- * an instance setter with the same name and signature to the Type object for
- * class C that forwards to the static setter.
+ * @assertion Static setter declaration doesn't add instance setter
+ * with the same name to the Type object of the class
  * @description Check that the instance setter, added to the Type object by
  * static setter declaration, is not added to Type object of this class
  * and not added to the Type of the ancestor
@@ -26,7 +25,7 @@ abstract class A<V> {
 }
 
 class C<V> extends A<V> {
-  static int _s8;
+  static int _s8 = 0;
   static void set s6(value) {return null;}
   static void set s7(int value) {return null;}
   static set s8(int value) => _s8 = value;

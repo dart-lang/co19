@@ -21,11 +21,11 @@
  */
 
 class A {
-  static int v;
+  static int v = 0;
 }
 
 class C extends A {
-  int n;
+  int n = 0;
   set v(int v1) {
     n = v1;
   }
