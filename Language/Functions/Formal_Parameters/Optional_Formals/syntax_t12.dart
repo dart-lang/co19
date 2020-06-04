@@ -16,7 +16,6 @@
  * brackets are mixed in an optional parameters declaration.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 foo({const p: 1]) {
@@ -24,7 +23,5 @@ foo({const p: 1]) {
 }
 
 main() {
-  try {
-    foo();
-  } catch (x) {}
+  foo();
 }

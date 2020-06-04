@@ -10,7 +10,6 @@
  * optional parameter begins with an '_' character.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class A {
@@ -21,7 +20,5 @@ class A {
 }
 
 main() {
-  try {
-    new A(_p: "Optional parameters names must not begin with an underscore!");
-  } catch (x) {}
+  new A(_p: "Optional parameters names must not begin with an underscore!");
 }

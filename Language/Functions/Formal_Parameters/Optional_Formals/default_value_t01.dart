@@ -10,13 +10,9 @@
  * of an optional parameter is not a compile-time constant.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    int x = 1;
-    void func([var y = x]) {}
-  } catch (x) {}
+  int x = 1;
+  void func([var y = x]) {}
 }

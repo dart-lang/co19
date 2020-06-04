@@ -16,7 +16,6 @@
  * character is used in an optional positional parameter declaration.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 foo([var a = 1, var b: 2]) {
@@ -24,7 +23,5 @@ foo([var a = 1, var b: 2]) {
 }
 
 main() {
-  try {
-    foo();
-  } catch (x) {}
+  foo();
 }

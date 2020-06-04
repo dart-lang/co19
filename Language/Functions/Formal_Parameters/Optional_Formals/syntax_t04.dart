@@ -16,14 +16,10 @@
  * parameter declaration must be followed by an expression.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 f([var x = ]) {}
 
 main() {
-  try {
-    f();
-  } catch (x) {}
+  f();
 }

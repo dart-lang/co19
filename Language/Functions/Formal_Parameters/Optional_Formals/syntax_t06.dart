@@ -16,8 +16,6 @@
  * function produces a compile error
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 foo([final p = 1]) {

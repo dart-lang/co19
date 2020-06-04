@@ -14,8 +14,6 @@
  * ;
  * @description Checks using optional parameters together with required ones
  * @author kaigorodov
- * @reviewer iefremov
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

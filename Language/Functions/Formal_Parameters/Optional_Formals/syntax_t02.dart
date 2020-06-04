@@ -15,8 +15,6 @@
  * @description Checks that optional arguments are assigned their default values
  * when not specified in the invocation expression.
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

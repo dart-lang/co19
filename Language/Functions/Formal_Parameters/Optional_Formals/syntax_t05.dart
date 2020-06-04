@@ -16,14 +16,10 @@
  * in an optional positional parameter declaration.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 f([var x = var z]) {}
 
 main() {
-  try {
-    f();
-  } catch (x) {}
+  f();
 }

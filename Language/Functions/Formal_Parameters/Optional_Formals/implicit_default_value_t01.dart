@@ -9,8 +9,6 @@
  * @description Checks that an implicit default value of null is provided
  * if default value is not specified explicitly.
  * @author msyabro
- * @reviewer iefremov
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

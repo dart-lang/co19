@@ -15,9 +15,6 @@
  * @description Checks that optional parameters can be provided with default
  * values
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 void f([bool b = true, int x = 1]) {}
@@ -27,19 +24,19 @@ void i([var a = const [const []]]) {}
 void j([
   var m = const {"foo": "bar", "boo": const [], "zoo": const{"x": "y"}}
 ]) {}
-void k([func([int p, int v, int a]) = null]) {}
+void k([func([int p, int v, int a])? = null]) {}
 
 void f2({bool b: true, int x: 1}) {}
 void g2(var x, {var y: 1}) {}
 void h2({var x, var y: true, var z}) {}
 void i2({a: const [const []]}) {}
 void j2({m: const {"foo": "bar", "boo": const [], "zoo": const{"x": "y"}}}) {}
-void k2({func([int p, int v, int a]): null}) {}
+void k2({func([int p, int v, int a])?: null}) {}
 
-void f_func([void func(var p) = null]) {}
+void f_func([void func(var p)? = null]) {}
 void f_undeclared([var u = 1]) {}
 
-void f_func2({void func(var p): null}) {}
+void f_func2({void func(var p)?: null}) {}
 void f_undeclared2({var u: 1}) {}
 
 main() {

@@ -16,13 +16,10 @@
  * declaration must be followed by an expression.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 f({var x: }) {}
 
 main() {
-  try {
-    f();
-  } catch (x) {}
+  f();
 }

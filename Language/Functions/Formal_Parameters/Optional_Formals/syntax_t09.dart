@@ -16,13 +16,10 @@
  * in an optional named parameter declaration.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 f({var x: var z}) {}
 
 main() {
-  try {
-    f();
-  } catch (x) {}
+  f();
 }
