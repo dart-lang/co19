@@ -28,8 +28,6 @@
  * ;
  * @description Checks correct syntax for specifying optional parameters.
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 void f(var a, var b, [var c]) {}

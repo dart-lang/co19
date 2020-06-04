@@ -30,13 +30,10 @@
  * optional positional parameters are present in one function declaration.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 void f(var a, {var b}, [var c]) {}
 
 main () {
-  try {
-    f(1);
-  } catch (x) {}
+  f(1);
 }

@@ -29,13 +29,10 @@
  * @description Checks that the list of named parameters cannot be empty.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 void f({}) {}
 
 main () {
-  try {
-    f();
-  } catch (x) {}
+  f();
 }

@@ -29,7 +29,6 @@
  * @description Checks that the parameter list may end with a comma.
  * @author iefremov
  * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 void f(var p1, ) {}

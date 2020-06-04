@@ -14,7 +14,6 @@
  * @description Trivially checks that the function scopes are indeed nested
  * in the described order.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

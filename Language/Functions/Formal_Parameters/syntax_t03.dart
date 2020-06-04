@@ -29,13 +29,10 @@
  * @description Checks that parameter declarations must be separated by comma.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 void f(var p1 {var p2}) {}
 
 main () {
-  try {
-    f(1);
-  } catch (x) {}
+  f(1);
 }

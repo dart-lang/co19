@@ -29,7 +29,6 @@
  * @description Checks that the optional positional parameter list may end
  * with a comma.
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 void f([var p1, ]) {}

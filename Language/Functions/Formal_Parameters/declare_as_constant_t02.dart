@@ -10,14 +10,10 @@
  * is declared as a constant typed variable.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 void f(const int x) {}
 
 main () {
-  try {
-    f(1);
-  } catch (x) {}
+  f(1);
 }

@@ -30,14 +30,10 @@
  * curly brace.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 void f(}) {}
 
 main () {
-  try {
-    f();
-  } catch (x) {}
+  f();
 }

@@ -10,13 +10,10 @@
  * parameter is declared as a constant variable.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 void f([const x]) {}
 
 main () {
-  try {
-    f(1);
-  } catch (x) {}
+  f(1);
 }

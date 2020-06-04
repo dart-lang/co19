@@ -30,13 +30,10 @@
  * with a closing square bracket.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 void f([) {}
 
 main () {
-  try {
-    f();
-  } catch (x) {}
+  f();
 }
