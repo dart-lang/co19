@@ -14,14 +14,15 @@
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 import "../../../Utils/expect.dart";
 class A {
-  CAlias c = new CAlias();
 }
 
 class C extends A {
+  AAlias? a;
 }
-typedef CAlias = C;
+typedef AAlias = A;
 
 main() {
   C c = new C();
-  Expect.isNotNull(c.c);
+  c.a = new AAlias();
+  Expect.isNotNull(c.a);
 }

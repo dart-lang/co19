@@ -15,11 +15,12 @@
 import "../../../Utils/expect.dart";
 
 class C {
-  CAlias c = new C();
+  CAlias? c;
 }
 typedef CAlias = C;
 
 main() {
   C c = new C();
+  c.c = new C();
   Expect.isNotNull(c.c);
 }

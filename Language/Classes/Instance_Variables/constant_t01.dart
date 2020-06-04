@@ -17,5 +17,5 @@ class C {
 }
 
 main() {
-  var x = new C().v1;
+  new C().v1;
 }

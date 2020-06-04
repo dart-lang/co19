@@ -13,7 +13,6 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import "../../../Utils/expect.dart";
 
 class A {
   int v1 = 1;
