@@ -4,9 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The effect of a static method declaration in class C is to add an
- * instance method with the same name and signature to the Type object for
- * class C that forwards to the static method.
+ * @assertion Static method declaration doesn't add the instance
+ * method with the same name to the Type object of this class
  * @description Check that the instance method, added to the Type object by
  * static method declaration, is not added to Type object of this class and
  * not added to the Type of the ancestor
@@ -33,8 +32,8 @@ main() {
   C c = new C();
   dynamic t = c.runtimeType;
 
-  Expect.throws(() {var x = t.a1();}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {var x = t.a2();}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {var x = t.s1();}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {var x = t.s2();}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {t.a1();}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {t.a2();}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {t.s1();}, (e) => e is NoSuchMethodError);
+  Expect.throws(() {t.s2();}, (e) => e is NoSuchMethodError);
 }
