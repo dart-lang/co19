@@ -24,14 +24,10 @@
  *
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
 
 int function1 {}
 
 main() {
-  try {
-    function1();
-  } catch (x) {}
+  function1();
 }

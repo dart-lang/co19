@@ -24,14 +24,10 @@
  *
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
 
 f() => for (int i = 0; i < 100; i++);
 
 main() {
-  try {
-    f();
-  } catch (x) {}
+  f();
 }

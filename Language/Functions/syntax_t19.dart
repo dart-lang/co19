@@ -24,14 +24,10 @@
  *
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
 
-f() => switch (1 + 1) {case 1: false; case 2: true; default: false;};
+f() => switch (1 + 1) { case 1: false; case 2: true; default: false; };
 
 main() {
-  try {
-    f();
-  } catch (x) {}
+  f();
 }

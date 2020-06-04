@@ -30,7 +30,7 @@ main() {
   Expect.isTrue(f1 is F1);
   Function f = f1;
 
-  int f2(int p1, int p2, [p3, p4]) {return p1 + p2 + p3 + p4;};
+  int f2(int p1, int p2, [int p3 = 0, int p4 = 0]) {return p1 + p2 + p3 + p4;};
   Expect.isTrue(f2 is F2);
   f = f2;
 

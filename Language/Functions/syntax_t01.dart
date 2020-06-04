@@ -20,7 +20,6 @@
  * ;
  * @description Checks different variants of functions
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 void func() {}
@@ -31,21 +30,21 @@ class A {
   A() {}
   A.x() {}
 
-  int f(int x) {throw '';}
-  A func(var x) {}
-  Object obj() => null;
+  int f(int x) { throw ''; }
+  A? func(var x) {}
+  Object? obj() => null;
 
-  int _val;
-  set val(int v) => v;
-  get val => _val;
+  int? _val;
+  set val(int? v) => v;
+  int? get val => _val;
 
-  String _s;
-  set s(String str) {str = _s; _s = str;}
-  Object get s {Object a = new Object(); return 5;}
+  String? _s;
+  set s(String? str) { str = _s; _s = str; }
+  Object? get s { Object a = new Object(); return 5; }
 }
 
 main() {
   f(g(h())) {}
-  int func([int x = null, int y = null, int z = null]) => 3;
+  int func([int? x = null, int? y = null, int? z = null]) => 3;
   int foo(Object x, var y) => func(1, 2, 3);
 }

@@ -23,8 +23,6 @@
  * the form [functionSignature '=>' expression ';'].
  *
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
 
 f() => throw "exception";

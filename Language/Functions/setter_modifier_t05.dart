@@ -14,7 +14,7 @@
  * @author a.semenov@unipro.ru
  */
 class A {
-  static int _a;
+  static int? _a;
   A() {}
   static set a(int value) async* {
     _a = value;

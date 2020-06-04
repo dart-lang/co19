@@ -12,7 +12,6 @@
  * to a body of the form {return e;}.
  *
  * @author msyabro
- * @reviewer kaigorodov
  */
 import "../../Utils/expect.dart";
 

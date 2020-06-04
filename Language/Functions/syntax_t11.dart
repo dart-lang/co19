@@ -23,7 +23,6 @@
  * [functionSignature '{' statements '}']
  *
  * @author msyabro
- * @reviewer kaigorodov
  */
 
 main() {}

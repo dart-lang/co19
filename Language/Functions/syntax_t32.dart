@@ -24,8 +24,6 @@
  *
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
 
 f() {
@@ -33,7 +31,5 @@ f() {
 }
 
 main() {
-  try {
-    f();
-  } catch (x) {}
+  f();
 }

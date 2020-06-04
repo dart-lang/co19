@@ -24,14 +24,10 @@
  *
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
 
 f() => typedef void f();
 
 main() {
-  try {
-    f();
-  } catch (x) {}
+  f();
 }

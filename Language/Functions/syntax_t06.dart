@@ -19,19 +19,15 @@
  *   '{' statements '}'
  * ;
  *
- * @description Checks that it is a compile error if a block of a
- * function body isn't closed
+ * @description Checks that it is a compile error if a block of a function body
+ * isn't closed
  *
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    function();
-  } catch (x) {}
+  function();
 }
 
 function() {

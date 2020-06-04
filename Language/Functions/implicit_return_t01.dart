@@ -11,7 +11,6 @@
  * to the function body.
  *
  * @author msyabro
- * @reviewer kaigorodov
  */
 import "../../Utils/expect.dart";
 

@@ -14,7 +14,7 @@
  * @author a.semenov@unipro.ru
  */
 class A {
-  int _a;
+  int? _a;
   A() {}
   set a(int value) async {
     _a = value;

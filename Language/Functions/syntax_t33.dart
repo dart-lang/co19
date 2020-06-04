@@ -20,21 +20,22 @@
  * ;
  *
  * @description Checks that returnType must be a valid identifier.
- *
- * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
-class C {
-}
+class C {}
 
-C.B f1() {}
-C.!B f2() {}
+  C.B f1() {}
+//^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C.!B f2() {}
+//^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  try {
-    f1();
-    f2();
-  } catch (x) {}
+  f1();
+  f2();
 }

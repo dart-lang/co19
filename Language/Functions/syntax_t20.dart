@@ -24,14 +24,10 @@
  *
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
 
-f() => try {1+1;} catch (e) {};
+f() => try { 1 + 1; } catch (e) {};
 
 main() {
-  try {
-    f();
-  } catch (x) {}
+  f();
 }

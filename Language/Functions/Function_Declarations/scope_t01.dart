@@ -11,7 +11,6 @@
  * @description Checks that two top-level functions are in the scope of each
  * other and can be mutually recursive.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

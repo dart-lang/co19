@@ -23,8 +23,6 @@
  * of a function of the form [functionSignature '=>' expression ';']
  *
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
 // SharedOptions=--enable-experiment=triple-shift
 
@@ -32,7 +30,6 @@ import "syntax_t03_lib.dart" as prfx;
 
 class A {
   const A();
-
   static final a = 1;
 }
 

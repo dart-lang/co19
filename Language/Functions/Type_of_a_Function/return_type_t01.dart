@@ -11,32 +11,15 @@
  * cause static warnings because type Dynamic has every method and property.
  * @static-clean
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
 f() {}
-g() {return 1;}
+g() => 1;
 
 main() {
-  try {
-    f().someMethod();
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    f().x;
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    g().someMethod();
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    g().x;
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {}
+  Expect.throws(() { f().someMethod(); }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { f().x;            }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { g().someMethod(); }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { g().x;            }, (e) => e is NoSuchMethodError);
 }

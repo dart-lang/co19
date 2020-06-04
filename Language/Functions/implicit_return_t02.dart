@@ -22,7 +22,7 @@ f() async {
   int y = x + 1;
 }
 
-Future g() {}
+Future? g() {}
 
 test() async {
   Expect.isNull(await func());

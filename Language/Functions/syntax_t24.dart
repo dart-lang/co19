@@ -24,14 +24,10 @@
  *
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
 
 f() => class A {};
 
 main() {
-  try {
-    f();
-  } catch (x) {}
+  f();
 }

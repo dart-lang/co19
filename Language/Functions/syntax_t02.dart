@@ -22,8 +22,6 @@
  * @description Checks that returnType is optional
  *
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
 import "../../Utils/expect.dart";
 
@@ -31,8 +29,8 @@ func(int x) => x + x + 1;
 proc() {}
 
 class A {
-  f() {return () {return 20;};}
-  g(int arg) {return arg + arg;}
+  f() { return () { return 20; }; }
+  g(int arg) { return arg + arg; }
   h(int arg) => f()() + g(arg);
 }
 

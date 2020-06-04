@@ -11,13 +11,10 @@
  * @compile-error
  * @author msyabro
  * @reviewer kaigorodov
- * @reviewer iefremov
  */
 
 static void f() {}
 
 main() {
-  try {
-    f();
-  } catch (x) {}
+  f();
 }

@@ -10,12 +10,8 @@
  * with 'static'.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    static void f() {}
-  } catch (x) {}
+  static void f() {}
 }

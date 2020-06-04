@@ -10,7 +10,6 @@
  * @description Checks that the statements are executed by the function.
  *
  * @author msyabro
- * @reviewer kaigorodov
  */
 import "../../Utils/expect.dart";
 

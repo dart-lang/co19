@@ -24,14 +24,10 @@
  *
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    function();
-  } catch (x) {}
+  function();
 }
 
 function() }

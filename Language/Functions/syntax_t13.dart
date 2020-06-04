@@ -23,14 +23,10 @@
  *
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
 
 f(var y) => int x;
 
 main() {
-  try {
-    f(null);
-  } catch (x) {}
+  f(null);
 }

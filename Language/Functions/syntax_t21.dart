@@ -24,14 +24,10 @@
  *
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
 
 f() => return 1;
 
 main() {
-  try {
-    f();
-  } catch (x) {}
+  f();
 }
