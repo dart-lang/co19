@@ -16,7 +16,5 @@
 class A<T> extends T {}
 
 main() {
-  try {
-    new A();
-  } catch (e) {}
+  new A();
 }

@@ -13,12 +13,10 @@
  * @author rodionov
  */
 
-int foo;
+int foo = 42;
 
 class A extends foo {}
 
 main() {
-  try {
-    new A();
-  } catch (e) {}
+  new A();
 }
