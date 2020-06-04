@@ -29,8 +29,6 @@
  * function produces a compile error
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 func(final x) {

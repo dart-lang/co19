@@ -28,29 +28,27 @@
  * @description Checks that various correct declarations with only required
  * formal parameters do not cause any errors.
  * @author msyabro
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
-func_func(void g(var x)) {}
+func_func(void g(var x)?) {}
 func_var(var x) {}
 func_final(final x) {}
-func_finalTyped(final int x) {}
-func_typed(int $) {}
+func_finalTyped(final int? x) {}
+func_typed(int? $) {}
 func_undeclared(z) {}
-func(var x, final y, int z, a, void f()) {}
+func(var x, final y, int? z, a, void f()?) {}
 
 class A<TypeParam> {
   A(this.x);
   A.named(TypeParam this.x);
   var x;
-  method_func(void g(var x) ) {}
+  method_func(void g(var x)? ) {}
   method_var(var x) {}
   method_final(final x) {}
-  method_finalTyped(final int x) {}
-  method_typed(int x) {}
+  method_finalTyped(final int? x) {}
+  method_typed(int? x) {}
   method_undeclared(z) {}
-  method(var x, final y, int z, a, void f()) {}
+  method(var x, final y, int? z, a, void f()?) {}
 }
 
 main() {

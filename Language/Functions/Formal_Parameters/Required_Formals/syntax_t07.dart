@@ -29,8 +29,6 @@
  * variable.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 func(var x()) {
@@ -38,7 +36,5 @@ func(var x()) {
 }
 
 main() {
-  try {
-    func(() {});
-  } catch (e) {}
+  func(() {});
 }

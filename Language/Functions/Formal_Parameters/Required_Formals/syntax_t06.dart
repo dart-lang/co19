@@ -28,7 +28,6 @@
  * @description Checks that a functionSignature parameter cannot be final.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 func(final x()) {
@@ -36,7 +35,5 @@ func(final x()) {
 }
 
 main() {
-  try {
-    func(() {});
-  } catch (e) {}
+  func(() {});
 }

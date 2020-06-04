@@ -29,13 +29,10 @@
  * allowed in library functions.
  * @compile-error
  * @author ilya
- * @reviewer
  */
 
 f(this.x(y)) {}
 
 main() {
-  try {
-    f((x) {});
-  } catch (e) {}
+  f((x) {});
 }

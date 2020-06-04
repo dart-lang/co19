@@ -29,13 +29,10 @@
  * parameter of a function type has default values
  * @compile-error
  * @author ilya
- * @reviewer
  */
 
 f(g({x: 1})) {}
 
 main() {
-  try {
-    f(() {});
-  } catch (e) {}
+  f(() {});
 }

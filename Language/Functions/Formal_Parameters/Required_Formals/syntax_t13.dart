@@ -29,13 +29,10 @@
  * allowed in local functions.
  * @compile-error
  * @author ilya
- * @reviewer
  */
 
 main() {
   f(this.x(y)) {}
 
-  try {
-    f((x) {});
-  } catch (e) {}
+  f((x) {});
 }

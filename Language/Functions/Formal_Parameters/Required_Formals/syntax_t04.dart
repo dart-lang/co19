@@ -29,14 +29,10 @@
  * formal parameter
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 f(static var x) {}
 
 main() {
-  try {
-    f(1);
-  } catch (x) {}
+  f(1);
 }

@@ -29,8 +29,6 @@
  * declared as const
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
- * @reviewer rodionov
  */
 
 func(const x) {
@@ -38,7 +36,5 @@ func(const x) {
 }
 
 main() {
-  try {
-    func(1);
-  } catch (e) {}
+  func(1);
 }
