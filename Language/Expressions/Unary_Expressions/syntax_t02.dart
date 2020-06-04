@@ -33,8 +33,6 @@
  * a reference to a class declaration without a compile error.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 class A {}

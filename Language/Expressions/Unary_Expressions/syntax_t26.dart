@@ -33,12 +33,8 @@
  * incrementOperator. (Variable declaration statement)
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    ++ var x;
-  } catch (e) {}
+  ++ var x;
 }

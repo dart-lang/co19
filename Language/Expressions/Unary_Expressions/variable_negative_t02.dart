@@ -9,8 +9,6 @@
  * @description Checks that expression !!e is equivalent to the expression e
  * when e is a boolean.
  * @author hlodvig
- * @reviewer iefremov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

@@ -60,9 +60,6 @@ class A  extends S{
     try { --this[0]; } catch (e) {}
     try { ++this.x;  } catch (e) {}
 
-    //mapLiteral
-    try { ++{"1" : 1, "2" : 2}["1"]; } catch (e) {}
-
     //listLiteral
     try { ++[0, 1, 2, 3][1]; } catch (e) {}
 

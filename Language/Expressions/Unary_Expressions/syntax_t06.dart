@@ -32,17 +32,13 @@
  * @description Checks that incrementOperator can't be used with super
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 class S {}
 
 class A extends S {
   test() {
-    try {
-      ++super;
-    } catch (e) {}
+    ++super;
   }
 }
 

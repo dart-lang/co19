@@ -32,8 +32,6 @@
  * @description Checks that expressions composed from prefix/unary operators and
  * super that fit into this production don't cause compile-time errors.
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 class S {

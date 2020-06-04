@@ -33,12 +33,8 @@
  * precedes a statement that isn't an expression (block statement).
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    !{int x; x = 1;};
-  } catch (e) {}
+  !{int? x; x = 1;};
 }

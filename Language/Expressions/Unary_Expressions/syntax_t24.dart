@@ -33,8 +33,6 @@
  * precedes a statement that isn't an expression (return statement).
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 main() {

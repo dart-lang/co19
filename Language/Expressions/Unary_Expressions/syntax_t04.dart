@@ -33,8 +33,6 @@
  * a reference to function type alias name without a compile error.
  * @compile-error
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 
 typedef f();

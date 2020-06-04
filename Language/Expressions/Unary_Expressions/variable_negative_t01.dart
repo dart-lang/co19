@@ -9,8 +9,6 @@
  * @description Checks that expression !e is equivalent to the expression
  * e ? false : true when e is a value of type bool.
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

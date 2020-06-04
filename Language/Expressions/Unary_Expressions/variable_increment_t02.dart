@@ -9,7 +9,6 @@
  * @description Checks that evaluation of an expression of the form ++e
  * results in invoking operator+ on the result of e with the proper argument.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

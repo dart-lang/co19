@@ -9,7 +9,6 @@
  * @description Checks that evaluation of an expression of the form ++e is
  * equivalent to e += 1.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 

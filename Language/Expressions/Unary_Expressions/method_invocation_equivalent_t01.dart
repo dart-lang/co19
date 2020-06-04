@@ -9,8 +9,6 @@
  * @description Checks that an expression of the form ~ e is equivalent to the
  * method invocation e.operator~().
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 
