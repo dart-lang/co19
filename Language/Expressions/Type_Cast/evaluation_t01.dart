@@ -14,28 +14,27 @@
  * @description Checks that the type cast operator works as specified when the
  * type of v is a subtype of T.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 
 abstract class I {}
+
 class C implements I {
   C(this.x);
   int x;
 }
 
 main() {
-  var c=null;
   Expect.equals(1, 1 as int);
   Expect.equals(0, 0 as num);
-  Expect.equals(null, c as num);
   Expect.equals("foo", "foo" as String);
   Expect.equals("bar", "bar" as Pattern);
-  c = new C(1);
+
+  var c = null;
+  Expect.equals(null, c as num?);
+
+  c = C(1);
   Expect.identical(c, c as I);
-  try {
-    c = 1 as I;
-    Expect.fail("CastError expected");
-  } on CastError catch (e) {}
-   on TypeError catch (e) {}
+
+  Expect.throws(() { c = 1 as I; }, (e) => e is TypeError);
 }

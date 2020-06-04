@@ -15,7 +15,6 @@
  * G<T1,...,Tn> and G is unknown type, then it is a compile error
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {

@@ -15,11 +15,8 @@
  * of a type cast operator is a function expression rather than a type.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    (int x) => 1 as (num x) => 2;
-  } catch (x) {}
+  (int x) => 1 as (num x) => 2;
 }

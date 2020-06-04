@@ -16,7 +16,6 @@
  * T is not malformed (see Types/Parameterized Types) and CastError is thrown,
  * not TypeError.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 
@@ -24,7 +23,7 @@ class G<S, T> {}
 
 main() {
   // G is G<dynamic,dynamic>, not malformed
-  Expect.throws(() => [] as G, (e) => e is TypeError || e is CastError);
+  Expect.throws(() => [] as G, (e) => e is TypeError);
 
   new G() as G;
 }

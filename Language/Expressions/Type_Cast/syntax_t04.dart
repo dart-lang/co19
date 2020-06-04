@@ -14,14 +14,9 @@
  * @description Checks that it is not a compile-time error when the first
  * argument of a type cast operator is a type literal.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 
 main() {
-  try {
-    int as num;
-    Expect.fail("CastError expected");
-  } on CastError catch (e) {}
-  on TypeError catch (e) {}
+  Expect.throws(() { int as num; }, (e) => e is TypeError);
 }

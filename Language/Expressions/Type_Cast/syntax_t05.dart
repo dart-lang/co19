@@ -15,11 +15,8 @@
  * of a type cast operator is a shift expression rather than a type.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    1 as 1 << 2;
-  } catch (x) {}
+  1 as 1 << 2;
 }

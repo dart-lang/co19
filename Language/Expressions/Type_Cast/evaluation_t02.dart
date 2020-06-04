@@ -14,7 +14,6 @@
  * @description Checks that the type cast operator evaluates to null when
  * the first argument evaluates to null.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import '../../../Utils/expect.dart';
 
@@ -25,8 +24,8 @@ abstract class G<S, T> {}
 typedef bool func(int);
 
 main() {
-    Expect.isNull(n() as int, "null expected");
-    Expect.isNull(null as C, "null expected");
-    Expect.isNull(n() as G<int, bool>, "null expected");
-    Expect.isNull(n() as func, "null expected");
+    Expect.isNull(n() as int?, "null expected");
+    Expect.isNull(null as C?, "null expected");
+    Expect.isNull(n() as G<int, bool>?, "null expected");
+    Expect.isNull(n() as func?, "null expected");
 }

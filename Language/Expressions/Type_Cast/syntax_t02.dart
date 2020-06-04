@@ -15,11 +15,8 @@
  * operator is missing the first argument.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    var x = (as int);
-  } catch (x) {}
+  var x = (as int);
 }

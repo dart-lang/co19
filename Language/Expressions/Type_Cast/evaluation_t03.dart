@@ -14,52 +14,25 @@
  * @description Checks that the type cast operator throws a CastError when v
  * is not null and the type of v is not a subtype of T.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 
 abstract class I {}
+
 class C implements I {
   C(this.x);
   int x;
 }
+
 abstract class G<S, T> {}
+
 typedef bool func(int i);
 
 main() {
-  try {
-    1 as func;
-    Expect.fail("CastError expected");
-  } on CastError catch (ok) {}
-  on TypeError catch (ok) {}
-
-  try {
-    1 as G<int, int>;
-    Expect.fail("CastError expected");
-  } on CastError catch (ok) {}
-  on TypeError catch (ok) {}
-
-  try {
-    true as I;
-    Expect.fail("CastError expected");
-  } on CastError catch (ok) {}
-  on TypeError catch (ok) {}
-
-  try {
-    new C(1) as G<int, bool>;
-    Expect.fail("CastError expected");
-  } on CastError catch (ok) {}
-  on TypeError catch (ok) {}
-
-  try {
-    (() => true) as func;
-    Expect.fail("CastError expected");
-  } on CastError catch (ok) {}
-  on TypeError catch (ok) {}
-
-  try {
-    (() => true) as int;
-    Expect.fail("CastError expected");
-  } on CastError catch (ok) {}
-  on TypeError catch (ok) {}
+  Expect.throws(() { 1 as func;            }, (e) => e is TypeError);
+  Expect.throws(() { 1 as G<int, int>;     }, (e) => e is TypeError);
+  Expect.throws(() { true as I;            }, (e) => e is TypeError);
+  Expect.throws(() { C(1) as G<int, bool>; }, (e) => e is TypeError);
+  Expect.throws(() { (() => true) as func; }, (e) => e is TypeError);
+  Expect.throws(() { (() => true) as int;  }, (e) => e is TypeError);
 }

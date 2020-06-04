@@ -15,11 +15,8 @@
  * operator is missing the second argument.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    1 as;
-  } catch (ok) {}
+  1 as;
 }
