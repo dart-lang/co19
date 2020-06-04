@@ -25,10 +25,7 @@ test() {
   } on int catch (_) {
     n = 42;
   }
-  n; // It's an error to read local non-nullable variable when it is not definitely assigned
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  n; // It's not an error to read local non-nullable variable when it is definitely assigned
 }
 
 main() {
