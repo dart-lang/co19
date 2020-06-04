@@ -25,7 +25,7 @@ typedef IAAlias = IA;
 class A implements IAAlias {}
 abstract class IB {}
 typedef IBAlias = IB;
-class B extends AAlias implements IBAlias {}
+class B extends IAAlias implements IBAlias {}
 abstract class IC {}
 typedef ICAlias = IC;
 abstract class ID {}

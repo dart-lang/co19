@@ -14,7 +14,6 @@
  * @compile-error
  * @author msyabro
  */
-
 abstract class I {
   foo();
 }

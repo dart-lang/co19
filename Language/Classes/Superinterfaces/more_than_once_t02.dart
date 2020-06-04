@@ -20,7 +20,5 @@ typedef IAlias = I;
 class A implements I, J, IAlias {}
 
 main() {
-  try {
-    new A();
-  } catch (e) {}
+  new A();
 }

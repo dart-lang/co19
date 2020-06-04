@@ -14,7 +14,6 @@
  * @static-clean
  * @author ilya
  */
-
 abstract class I {
   foo(int x);
 }

@@ -13,7 +13,7 @@
  * @author rodionov
  */
 
-int foo;
+int foo = 42;
 
 class A implements foo {}
 

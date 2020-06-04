@@ -15,11 +15,8 @@
  * @compile-error
  * @author rodionov
  */
-
 class A implements {}
 
 main() {
-  try {
-    new A();
-  } catch (e) {}
+  new A();
 }

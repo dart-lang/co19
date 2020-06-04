@@ -15,7 +15,5 @@
 class A implements dynamic {}
 
 main() {
-  try {
-    new A();
-  } catch (e) {}
+  new A();
 }
