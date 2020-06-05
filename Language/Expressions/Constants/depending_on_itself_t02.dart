@@ -23,7 +23,4 @@ const a9 = a8;  //# 09: compile-time error
 const a10 = a9; //# 10: compile-time error
 
 main() {
-  try {
-    print(a10);
-  } catch (x) {}
 }
