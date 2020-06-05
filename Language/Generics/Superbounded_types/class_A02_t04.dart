@@ -11,6 +11,7 @@
  * @description Checks that compile error is not thrown when parametrized type
  * is used in the constant object expression with [as] constructions (see Issue
  * 37033 for more details)
+ * @Issue 36959
  * @author iarkh@unipro.ru
  */
 

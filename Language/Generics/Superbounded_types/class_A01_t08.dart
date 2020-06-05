@@ -8,7 +8,7 @@
  * compile-time error.
  * @description Checks that compile error is not thrown when class with type
  * parameter which extends super bounded type is declared
- * @Issue 37028
+ * @Issue 36959, 37028
  * @author iarkh@unipro.ru
  */
 

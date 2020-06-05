@@ -11,6 +11,7 @@
  * @description Checks that compile error is not thrown when well-bounded
  * parametrized type is used in the constant object expression with [is]
  * constructions.
+ * @Issue 36959
  * @author iarkh@unipro.ru
  */
 

@@ -6,9 +6,9 @@
 /**
  * @assertion Any use of a type [T] which is not well-bounded is a
  * compile-time error.
- * @description Checks that compile error is thrown when class with super
+ * @description Checks that compile error is not thrown when class with super
  * bounded type parameter is declared
- * @Issue 37028, 37050
+ * @Issue 36959, 37028, 37050
  * @author iarkh@unipro.ru
  */
 

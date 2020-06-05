@@ -8,7 +8,7 @@
  * compile-time error.
  * @description Checks that compile error is not thrown when function with well
  * bounded type parameter is declared
- * @Issue 37028, 37050
+ * @Issue 36959, 37028, 37050
  * @author iarkh@unipro.ru
  */
 

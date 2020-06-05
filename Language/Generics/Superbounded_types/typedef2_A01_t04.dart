@@ -6,8 +6,8 @@
 /**
  * @assertion Any use of a type [T] which is not well-bounded is a
  * compile-time error.
- * @description Checks that compile error is thrown when function alias with
- * type parameters which are not bounded well.
+ * @description Checks that compile error is not thrown when function alias with
+ * well bounded type parameters is declared.
  * @author iarkh@unipro.ru
  */
 

@@ -8,7 +8,7 @@
  * compile-time error.
  * @description Checks that compile error is not thrown when function alias with
  * well bounded type parameter is declared
- * @Issue 36959
+ * @Issue 36959, 37050
  * @author iarkh@unipro.ru
  */
 
