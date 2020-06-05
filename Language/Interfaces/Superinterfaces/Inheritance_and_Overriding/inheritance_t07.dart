@@ -31,7 +31,6 @@
  * @compile-error
  * @author ngl@unipro.ru
  */
-import '../../../../Utils/expect.dart';
 
 class A {}
 class B extends A {}
@@ -55,11 +54,5 @@ class I implements SI1, SI2, SI3 {
 }
 
 main() {
-  I i = new I();
-  // We expect that I inherits var foo(var v1, [var v2, var v3, var v4]),
-  // so no static warning
-  Expect.equals(i.foo(1), 2);
-  Expect.equals(i.foo(1, 2), 2);
-  Expect.equals(i.foo(1, 2, 3), 2);
-  Expect.equals(i.foo(1, 2, 3, 4), 2);
+  I();
 }

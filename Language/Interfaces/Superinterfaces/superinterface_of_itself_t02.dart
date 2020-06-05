@@ -10,7 +10,6 @@
  * is a superinterface of itself.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 abstract class I<T> implements I<T> {}
@@ -18,8 +17,6 @@ abstract class I<T> implements I<T> {}
 class A implements I {}
 
 main() {
-  try {
-    new A();
-  } catch (e) {}
+  new A();
 }
 

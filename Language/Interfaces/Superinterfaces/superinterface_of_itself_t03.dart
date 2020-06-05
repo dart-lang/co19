@@ -10,7 +10,6 @@
  * interface is an indirect superinterface of itself.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 abstract class J implements I {}
@@ -20,8 +19,6 @@ abstract class I implements J {}
 class A implements I {}
 
 main() {
-  try {
-    new A();
-  } catch (e) {}
+  new A();
 }
 

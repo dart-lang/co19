@@ -27,10 +27,10 @@ abstract class C implements I {
 }
 
 main() {
-  C c = null;
+  C? c = null;
 
-  Expect.throws(() {var x = c.m();}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {var x = c.gett0r;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {c.sett0r = 1;;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {c + 1;}, (e) => e is NoSuchMethodError);
+  c?.m();
+  c?.gett0r;
+  c?.sett0r = 1;
+  Expect.throws(() {(c as C) + 1;});
 }

@@ -39,15 +39,15 @@ class C {}
 class D extends C {}
 
 abstract class SI1 {
-  void foo(A v1, D v2, [int v3]);
+  void foo(A v1, D v2, [int? v3]);
 }
 
 abstract class SI2 {
-  int foo(B v1, [C v2]);
+  int foo(B v1, [C? v2]);
 }
 
 abstract class SI3 {
-  int foo(B v1, int v2, bool v3, [C v4]);
+  int foo(B v1, int v2, bool v3, [C? v4]);
 }
 
 typedef SIAlias1 = SI1;
@@ -57,5 +57,5 @@ typedef SIAlias3 = SI3;
 abstract class I implements SI1, SI2, SI3 {}
 
 main() {
-  I i = null;
+  I? i = null;
 }

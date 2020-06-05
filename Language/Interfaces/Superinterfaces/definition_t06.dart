@@ -25,8 +25,6 @@ abstract class A implements BAlias {}
 class D implements A {}
 
 main() {
-  try {
-    new D();
-  } catch (e) {}
+  new D();
 }
 

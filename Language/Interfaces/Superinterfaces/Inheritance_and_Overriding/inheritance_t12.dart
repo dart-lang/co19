@@ -37,7 +37,7 @@ abstract class SI1 {
 }
 
 abstract class SI2 {
-  void foo(var v, {int foo, int b4r});
+  void foo(var v, {int? foo, int? b4r});
 }
 
 typedef SIAlias1 = SI1;
@@ -46,5 +46,5 @@ typedef SIAlias2 = SI2;
 abstract class I implements SIAlias1, SIAlias2 {}
 
 main() {
-  I i = null;
+  I? i = null;
 }

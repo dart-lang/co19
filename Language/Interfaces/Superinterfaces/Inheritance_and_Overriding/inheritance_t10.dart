@@ -46,5 +46,5 @@ typedef SIAlias2 = SI2;
 abstract class I implements SIAlias1, SIAlias2 {}
 
 main() {
-  I i = null;
+  I? i = null;
 }

@@ -42,5 +42,5 @@ abstract class SI2 {
 abstract class I implements SI1, SI2 {}
 
 main() {
-  I i = null;
+  I? i = null;
 }

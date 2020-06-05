@@ -45,5 +45,5 @@ abstract class I implements SIAlias1, SIAlias2, SIAlias3 {
 }
 
 main() {
-  I i = null;
+  I? i = null;
 }

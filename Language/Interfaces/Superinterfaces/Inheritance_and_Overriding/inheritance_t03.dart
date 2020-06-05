@@ -51,5 +51,5 @@ abstract class SI3 {
 abstract class I implements SI1, SI2, SI3 {}
 
 main() {
-  I i = null;
+  I? i = null;
 }

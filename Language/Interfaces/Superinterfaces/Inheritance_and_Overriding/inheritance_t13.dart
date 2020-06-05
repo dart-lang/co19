@@ -41,18 +41,18 @@ class C {}
 class D extends C {}
 
 abstract class SI1 {
-  int method(num v, String p, {int o1, Pattern o2});
-  int method2(C v, [D o]);
-  int get gett0r;
-  void set sett0r(int v);
+  int method(num? v, String? p, {int? o1, Pattern? o2});
+  int method2(C? v, [D? o]);
+  int? get gett0r;
+  void set sett0r(int? v);
   C operator +(C v);
 }
 
 abstract class SI2 {
-  void method(num v, String p, {int o1, Pattern o2});
-  num method2(C v, [D o]);
-  num get gett0r;
-  void set sett0r(num v);
+  void method(num? v, String? p, {int? o1, Pattern? o2});
+  num method2(C? v, [D? o]);
+  num? get gett0r;
+  void set sett0r(num? v);
   C operator +(C v);
 }
 
@@ -62,11 +62,11 @@ typedef SIAlias2 = SI2;
 abstract class I implements SIAlias1, SIAlias2 {}
 
 main() {
-  I i = null;
+  I? i = null;
 
-  Expect.throws(() {i.method(null, null, o1:null, o2:null);}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {var v = i.method2(null, null);}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {num n = i.gett0r;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {i.sett0r = null;}, (e) => e is NoSuchMethodError);
-  Expect.throws(() {var v = i + null;}, (e) => e is NoSuchMethodError);
+  i?.method(null, null, o1:null, o2:null);
+  var v = i?.method2(null, null);
+  num? n = i?.gett0r;
+  i?.sett0r = null;
+  Expect.throws(() {var v = (i as I) + (i as I);});
 }

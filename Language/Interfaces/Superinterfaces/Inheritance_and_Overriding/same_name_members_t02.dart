@@ -43,5 +43,5 @@ abstract class I implements A1, A2, A3 {
 }
 
 main() {
-  I i = null;
+  I? i = null;
 }
