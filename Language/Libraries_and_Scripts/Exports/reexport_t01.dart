@@ -11,7 +11,6 @@
  * name is not referenced in this library.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  * @issue 6134
  */
 

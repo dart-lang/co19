@@ -14,14 +14,10 @@
  * prefixed with a '#' character.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "syntax_t01_lib.dart";
 
 main() {
-  try {
-    var x = foo;
-  } catch (anything) {
-  }
+  var x = foo;
 }

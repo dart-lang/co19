@@ -10,7 +10,7 @@ export "public_namespace_t01_lib2.dart";
 
 void foo() {}
 
-int bar;
+int bar = 0;
 
 final bool boo = true;
 

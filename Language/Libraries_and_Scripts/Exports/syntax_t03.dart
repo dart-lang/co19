@@ -14,7 +14,6 @@
  * show/hide combinators are also named 'hide' and 'show', and that filtering
  * the export namespace is done correctly.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

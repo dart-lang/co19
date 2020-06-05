@@ -14,13 +14,10 @@
  * identifiers following a show combinator in an export declaration.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "syntax_t04_lib.dart";
 
 main() {
-  try {
-    var x = foo;
-  } catch (anything) {}
+  var x = foo;
 }

@@ -8,7 +8,7 @@ library Exports_A02_t01_lib2;
 
 void foo2() {}
 
-int bar2;
+int bar2 = 2;
 
 final bool boo2 = true;
 

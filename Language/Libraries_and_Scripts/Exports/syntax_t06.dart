@@ -14,13 +14,10 @@
  * includes an 'as prefix' clause.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "syntax_t06_lib.dart";
 
 main() {
-  try {
-    var x = foo;
-  } catch (anything) {}
+  var x = foo;
 }

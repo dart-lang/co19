@@ -13,7 +13,6 @@
  * declarations prevent second copies of them from being added to the export
  * namespace via an explicit export declaration so there's no ambiguity.
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "reexport__itself_t01_lib.dart";

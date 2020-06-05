@@ -14,13 +14,10 @@
  * identifiers following a hide combinator in an export declaration.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "syntax_t05_lib.dart";
 
 main() {
-  try {
-    var x = foo;
-  } catch (anything) {}
+  var x = foo;
 }

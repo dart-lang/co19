@@ -5,4 +5,4 @@
 library Exports_A04_lib_p1;
 
 typedef foo();
-typedef num bar(int i, [double d]);
+typedef num bar(int i, [double? d]);

@@ -13,7 +13,6 @@
  * @description Checks that the URI denoting the library being exported can be
  * a raw string literal.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

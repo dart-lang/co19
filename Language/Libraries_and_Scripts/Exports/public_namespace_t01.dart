@@ -11,7 +11,6 @@
  * are available to the library that imports it without exception as well as
  * those from the libraries it re-exports (no show/hide combinators used).
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "public_namespace_t01_lib.dart";

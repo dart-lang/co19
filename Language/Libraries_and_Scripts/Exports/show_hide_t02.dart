@@ -27,7 +27,6 @@
  * an export declaration is calculated as specified.
  * @note Most of this is already covered by 1_Imports_A02* tests.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

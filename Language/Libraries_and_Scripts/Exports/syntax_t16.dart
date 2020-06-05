@@ -15,7 +15,6 @@
  * the export namespace is done correctly.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "syntax_t02_lib.dart";
 

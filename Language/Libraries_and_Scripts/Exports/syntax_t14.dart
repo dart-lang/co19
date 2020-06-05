@@ -13,7 +13,6 @@
  * @description Checks that it is possible to use metadata with an export
  * declaration.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

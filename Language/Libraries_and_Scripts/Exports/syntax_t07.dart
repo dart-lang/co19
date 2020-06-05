@@ -13,7 +13,6 @@
  * @description Checks that the URI denoting the library being exported can be
  * enclosed in single quotes as well.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

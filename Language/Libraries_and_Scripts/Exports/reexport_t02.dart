@@ -11,15 +11,11 @@
  * name is referenced in this library.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  * @issue 6134
  */
 
 import "reexport_lib.dart";
 
 main() {
-  try {
-    1 is foo;
-  } catch (anything) {
-  }
+  1 is foo;
 }
