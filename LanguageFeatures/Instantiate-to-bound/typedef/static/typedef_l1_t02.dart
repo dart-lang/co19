@@ -58,5 +58,4 @@ main() {
   var fsource = toF(source);
 
   F<G<A<Never>>?>? target = fsource;
-
- }
+}

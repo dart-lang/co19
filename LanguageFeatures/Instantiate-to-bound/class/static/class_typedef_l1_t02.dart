@@ -44,6 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works OK for the class with
  * [typedef G<X> = X Function()] parameter (contravariant)
+ * @Issue 34699
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -102,4 +103,5 @@ main() {
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
+*/
 }

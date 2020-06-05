@@ -45,7 +45,7 @@
  * @description Checks that instantiate-to-bounds works correctly for [typedef]
  * with two related parameters: [typedef G<X extends A<X>, Y extends X> = Y
  * Function(X)]
- * @Issue 35068
+ * @Issue 35068, 34663, 42197
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

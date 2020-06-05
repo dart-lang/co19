@@ -61,6 +61,7 @@
  * This also shows that the instance creation at the end is a compile-time
  * error.
  *
+ * @Issue 34699, 42196
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

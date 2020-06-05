@@ -45,6 +45,7 @@
  * @description Checks that instantiate-to-bounds works correctly for [typedef]
  * with two related parameters: [typedef G<X extends A<X>, Y extends A<Y>> =
  * void Function(X, Y)]
+ * @Issue 34699
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -60,7 +61,7 @@ main() {
 
   F<G<A<Never>, A<Never>>?>? target = fsource;
 
-  F<G<A<Null>, A<Null>>?>? target = fsource;
+  F<G<A<Null>, A<Null>>?>? target0 = fsource;
 //                                  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -75,17 +76,17 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<dynamic>, A<Never>>?>? target2 = fsource;
+  F<G<A<dynamic>, A<Never>>?>? target3 = fsource;
 //                                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<dynamic>, A<dynamic>>?>? target3 = fsource;
+  F<G<A<dynamic>, A<dynamic>>?>? target4 = fsource;
 //                                         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<dynamic, A<dynamic>>?>? target4 = fsource;
+  F<G<dynamic, A<dynamic>>?>? target5 = fsource;
 //                                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

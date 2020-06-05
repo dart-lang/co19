@@ -45,7 +45,7 @@
  * @description Checks that instantiate-to-bounds works correctly for [typedef]
  * with two related parameters: [typedef G<X extends Y, Y extends A<Y>> = X
  * Function(Y)]
- * @Issue 35068
+ * @Issue 35068, 34663, 42197
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -60,7 +60,7 @@ main() {
   var fsource = toF(source);
   F<G<A<Never>, A<Never>>?>? target = fsource;
 
-  F<G<A<Null>, A<Null>>?>? target1 = fsource;
+/*  F<G<A<Null>, A<Null>>?>? target1 = fsource;
 //                                   ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -109,4 +109,5 @@ main() {
 //                                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+*/
 }
