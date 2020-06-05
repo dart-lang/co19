@@ -44,6 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works OK for [typedef G<X> =
  * Function(X)], [class A<X extends G<A<X, Y>>, Y extends X>] (covariant)
+ * @Issue 42196
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
