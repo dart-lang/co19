@@ -20,7 +20,7 @@
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 class A {
-  static int get foo {}
+  static int get foo => 42;
 }
 typedef AAlias = A;
 

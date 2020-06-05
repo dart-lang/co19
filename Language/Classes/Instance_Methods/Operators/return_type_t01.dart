@@ -4,17 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if the return type of the user-declared
+ * @assertion It is a static warning if the return type of the user-declared
  * operator []= is explicitly declared and not void.
- * @description Checks that it is a compile-time error if the return type of
+ * @description Checks that it is a static warning if the return type of
  * the user-declared operator []= is not void.
- * @compile-error
+ * @static-warning
  * @author msyabro
  * @author sgrekhov@unipro.ru
+ * @issue 42198
  */
 
 class C {
-  int operator[]=(index, value) => 42;
+  int operator []=(index, value) => 42; /// static type warning
   operator[](index) {}
 }
 
