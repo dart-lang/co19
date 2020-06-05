@@ -20,15 +20,15 @@
 my_function<T>() {}
 
 class C1<T> {
-  C1(T i) {}
+  C1(T? i) {}
 }
 
 class C2<T> {
-  C2(int, [T j]) {}
+  C2(int, [T? j]) {}
 }
 
 class C3<T1, T2> {
-  C3({T1 i, T2 j}) {}
+  C3({T1? i, T2? j}) {}
 }
 
 typedef Alias1<T> = my_function;            //# 01: compile-time error

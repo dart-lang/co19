@@ -22,7 +22,7 @@
  * type id<T1, . . . , Tl> in a location where [id] denotes [D]. ... It is a
  * compile-time error if [U] is not well-bounded
  * @description Checks that compile error is thrown if [U] is not well-bounded.
- * @Issue 36959
+ * @Issue 36959, 37050
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
