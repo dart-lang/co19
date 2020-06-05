@@ -10,6 +10,7 @@
  *
  * @description Verify several kinds of if-null expressions, logicalOrExpression
  * is a variable.
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import '../../../Utils/expect.dart';
@@ -19,8 +20,8 @@ main() {
   var n = null;
 
   Expect.equals(1, x ?? 10);
-  Expect.equals(1, x ?? 10 ?? 20);
-  Expect.equals(1, x ?? 10 ?? 20 ?? 30);
+  Expect.equals(1, x ?? 10 ?? 20);        /// static type warning
+  Expect.equals(1, x ?? 10 ?? 20 ?? 30);  /// static type warning
   Expect.equals(10, n ?? 10);
   Expect.equals(10, n ?? 10 ?? 20);
   Expect.equals(10, n ?? 10 ?? 20 ?? 40);

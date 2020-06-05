@@ -26,9 +26,9 @@ class F {
 }
 
 class C implements F {
-  C(int x, [int y]) { test(x,y); }
-  C.foo(int x, [int y]) { test(x,y); }
-  C.bar(int x, {int y}) { test(x,y); }
+  C(int x, [int y = 0]) { test(x,y); }
+  C.foo(int x, [int y = 0]) { test(x,y); }
+  C.bar(int x, {int y = 0}) { test(x,y); }
 }
 
 main() {

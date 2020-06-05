@@ -21,7 +21,7 @@ import '../../../Utils/expect.dart';
 
 int? _v;
 
-void set v(int val) {
+void set v(int? val) {
   _v = val;
 }
 

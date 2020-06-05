@@ -15,6 +15,7 @@
  * for its optional parameter while the overridden method does.
  * @static-warning
  * @author msyabro
+ * @issue 42195
  */
 
 abstract class A {

@@ -10,6 +10,7 @@
  * @description Checks that an expression of the form e1?.v >>>= e2 is
  * equivalent to ((x) => x?.v = x.v >>> e2)(e1) where x is a variable that is
  * not used in e2
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=triple-shift
@@ -43,10 +44,10 @@ main() {
   Expect.isNull(c1);
 
   C c2 = new C(null);
-  Expect.throws(() {c2?.v >>>= 2;});
+  Expect.throws(() {c2?.v >>>= 2;});      /// static type warning
 
   C c3 = new C(20);
-  var res3 = (c3?.v >>>= 2);
+  var res3 = (c3?.v >>>= 2);              /// static type warning
   var expected = 20 >>> 2;
   Expect.equals(1, c3.getterInvocation);
   Expect.equals(1, c3.setterInvocation);

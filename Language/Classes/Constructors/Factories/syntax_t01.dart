@@ -22,12 +22,12 @@ class Iface {
   var y;
   Iface(this.x, [this.y=2]);
   factory Iface.named() {return new C();}
-  factory Iface.named2(int i, C j, [String s]) {return new C.id2(i, j, s);}
+  factory Iface.named2(int i, C j, [String s = ""]) {return new C.id2(i, j, s);}
 }
 
 class C extends Iface {
-  C.id(var x, [var y]):super(x,y);
-  C.id2(int i, C j, [String s]): this.id(i);
+  C.id(var x, [var y]): super(x,y);
+  C.id2(int i, C j, [String s = ""]): this.id(i);
   C(): this.id(1);
 }
 

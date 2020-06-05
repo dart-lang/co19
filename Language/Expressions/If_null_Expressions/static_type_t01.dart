@@ -11,20 +11,20 @@
  * @description Check that static type of expression e1??e2 match with
  * static type (int) in assignment.
  *
- * @static-clean
  * @author a.semenov@unipro.ru
  */
 
 main() {
-  int? x = 1 ?? 2;
-  num? y = 1 ?? 2.0;
-  x = 2.0 ?? 1;          //# 01: compile-time error
+  int? x = null ?? 2;
+  num? y = x ?? 2.0;
+  double? d = 3.14;
+  String? s = "Lily was here";
+  x = d ?? 1;          //# 01: compile-time error
   x = null ?? 1;
   x = null ?? null;
-  x = 1 ?? null;
-  x = 1 ?? 'aaa';        //# 02: compile-time error
-  x = 'aaa' ?? 1;        //# 03: compile-time error
-  x = 'aaa' ?? true;     //# 04: compile-time error
+  x = x ?? 'aaa';        //# 02: compile-time error
+  x = s ?? 1;        //# 03: compile-time error
+  x = s ?? true;     //# 04: compile-time error
   return x;
 }
 

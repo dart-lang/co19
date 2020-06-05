@@ -10,6 +10,7 @@
  *
  * @description Verify several kinds of if-null expressions, logicalOrExpression
  * is an expression.
+ * @static-warning
  * @author a.semenov@unipro.ru
  */
 import '../../../Utils/expect.dart';
@@ -17,7 +18,7 @@ import '../../../Utils/expect.dart';
 main() {
   int? x = 1;
   dynamic empty = [];
-  Expect.equals(2, ((x as int) + 1) ?? 10);
+  Expect.equals(2, ((x as int) + 1) ?? 10);         /// static type warning
   Expect.iterableEquals([], empty ?? 10);
-  Expect.equals(30, (10 + 5 * 4) ?? (2 + 2 * 2));
+  Expect.equals(30, (10 + 5 * 4) ?? (2 + 2 * 2));   /// static type warning
 }

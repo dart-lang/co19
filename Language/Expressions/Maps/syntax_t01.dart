@@ -97,10 +97,9 @@ class Test  {
   }
 
   endsWithComma() {
-    var x;
-    x = {"1": 2,};
-    x = const {"1": true, "2": false,};
-    x = <String, int>{"key": 1,};
+    var x1 = {"1": 2,};
+    var x2 = const {"1": true, "2": false,};
+    var x3 = <String, int>{"key": 1,};
   }
 
   interpolation() {

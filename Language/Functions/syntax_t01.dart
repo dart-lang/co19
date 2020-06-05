@@ -40,7 +40,7 @@ class A {
 
   String? _s;
   set s(String? str) { str = _s; _s = str; }
-  Object? get s { Object a = new Object(); return 5; }
+  String? get s { Object a = new Object(); return "42"; }
 }
 
 main() {

@@ -17,6 +17,7 @@
  * See https://github.com/dart-lang/sdk/issues/34437#issuecomment-432093691
  *
  * @issue 27476
+ * @issue 42195
  * @static-warning
  * @author msyabro
  */

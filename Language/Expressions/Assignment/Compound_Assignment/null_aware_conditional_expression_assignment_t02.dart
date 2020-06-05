@@ -11,6 +11,7 @@
  * @description Checks that in expression of the form e1?.v ??= e value is set
  * only if e1.v == null and returns null if e1 == null
  * @author sgrekhov@unipro.ru
+ * @static-warning
  */
 
 import '../../../../Utils/expect.dart';
@@ -42,14 +43,14 @@ main() {
   Expect.isNull(c1);
 
   C c2 = new C(null);
-  var res2 = (c2?.v ??= 2);
+  var res2 = (c2?.v ??= 2);               /// static type warning
   Expect.equals(1, c2.getterInvocation);
   Expect.equals(1, c2.setterInvocation);
   Expect.equals(2, res2);
   Expect.equals(2, c2.v);
 
   C c3 = new C(-1);
-  var res3 = (c3?.v ??= 3);
+  var res3 = (c3?.v ??= 3);               /// static type warning
   Expect.equals(1, c3.getterInvocation);
   Expect.equals(0, c3.setterInvocation);
   Expect.equals(-1, res3);

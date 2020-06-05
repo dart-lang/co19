@@ -12,9 +12,9 @@
  */
 
 class C {
-  C(String s, var x, [Object o, var z = const []]);
+  C(String s, var x, [Object? o, var z = const []]);
   C.c1();
-  C.c2(String s, var x, [Object o, var z = const []]) {}
+  C.c2(String s, var x, [Object? o, var z = const []]) {}
 }
 
 

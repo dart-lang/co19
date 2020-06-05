@@ -8,6 +8,7 @@
  * as a property extraction.
  * @description Checks that expression of the form e?.id is evaluated as
  * ((x) => x == null ? null : x.id)(e).
+ * @static-warning
  * @author ngl@unipro.ru
  */
 
@@ -28,8 +29,8 @@ class A {
 main() {
   A a = new A();
   A? b = null;
-  Expect.equals(1, a?.x);
-  Expect.equals(20, a?.y);
+  Expect.equals(1, a?.x);   /// static type warning
+  Expect.equals(20, a?.y);  /// static type warning
   Expect.isNull(b?.x);
   Expect.isNull(b?.y);
 }
