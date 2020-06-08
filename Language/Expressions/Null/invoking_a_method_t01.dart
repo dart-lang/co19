@@ -9,6 +9,7 @@
  * @description Checks that invoking [toString] method on [null] does not yield
  * error.
  * @author hlodvig
+ * @issue 42219
  */
 
 class A {}

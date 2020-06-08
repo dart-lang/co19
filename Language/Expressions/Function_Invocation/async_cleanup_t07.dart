@@ -13,6 +13,7 @@
  * for loop, is cancelled, when f is terminated by throwing an exception. f is
  * asynchronous generator.
  * @author a.semenov@unipro.ru
+ * @issue 42220
  */
 import 'dart:async';
 import '../../../Utils/expect.dart';

@@ -14,7 +14,8 @@
  *      – Both c1 and c2 represent a NaN value with the same underlying bit
  *        pattern.
  * @description Checks identity if positive and negative zero double instances.
- * @author ngl2unipro.ru
+ * @author ngl@unipro.ru
+ * @issue 42223
  */
 import "../../../Utils/expect.dart";
 

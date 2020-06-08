@@ -20,6 +20,7 @@
  * and s has not been canceled.
  *
  * @author a.semenov@unipro.ru
+ * @issue 42220
  */
 import 'dart:async';
 import '../../../Utils/expect.dart';

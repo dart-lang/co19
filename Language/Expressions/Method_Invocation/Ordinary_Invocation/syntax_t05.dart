@@ -9,8 +9,11 @@
  * @description Checks that argument list may have comma on the end.
  * @author msyabro
  */
+import "../../../../Utils/expect.dart";
 
 main() {
   var o;
-  o.f(1, 2, 3, );
+  Expect.throws(() {
+    o.f(1, 2, 3,  );
+  });
 }

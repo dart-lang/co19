@@ -15,6 +15,7 @@
  * then await expression throws the same exception.
  *
  * @author a.semenov@unipro.ru
+ * @issue 42221
  */
 
 import 'dart:async';

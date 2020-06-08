@@ -10,7 +10,7 @@
  *  • c1 and c2 are constant strings and c1 == c2.
  * @description Checks that two constant strings are identical() iff they are
  * equal
- * @Issue 985
+ * @Issue https://github.com/dart-lang/language/issues/985
  * @author ilya
  */
 import "../../../Utils/expect.dart";

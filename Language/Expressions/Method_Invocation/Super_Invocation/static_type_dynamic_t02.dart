@@ -16,6 +16,7 @@
  * @static-clean
  * @author rodionov
  */
+// Requirements=nnbd-strong
 import '../../../../Utils/expect.dart';
 
 void testme() {}

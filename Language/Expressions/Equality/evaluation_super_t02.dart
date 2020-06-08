@@ -15,7 +15,7 @@
  * 'Object'" exception appears.
  * @author msyabro
  */
-
+// Requirements=nnbd-strong
 import '../../../Utils/expect.dart';
 
 class S {

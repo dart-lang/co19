@@ -13,6 +13,7 @@
  * asynchronous for loops, are cancelled in innermost first order, when f is
  * terminated by return. f is asynchronous generator.
  * @author a.semenov@unipro.ru
+ * @issue 42220
  */
 import 'dart:async';
 import '../../../Utils/expect.dart';
