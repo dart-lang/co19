@@ -5,7 +5,7 @@
  */
 /**
  * @assertion It is a compile-time error if a declared or derived mixin
- * explicitly declares a constructor.
+ * explicitly declares a constructor which is not a factory constructor.
  * @description Checks that it is a compile-time error if a derived mixin
  * explicitly declares a redirecting constructor.
  * @compile-error

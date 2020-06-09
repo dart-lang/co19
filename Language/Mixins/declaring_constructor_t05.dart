@@ -5,10 +5,9 @@
  */
 /**
  * @assertion It is a compile-time error if a declared or derived mixin
- * explicitly declares a constructor.
- * @description Checks that it is a compile-time error if a derived mixin
+ * explicitly declares a constructor which is not a factory constructor.
+ * @description Checks that it is no compile-time error if a derived mixin
  * explicitly declares a factory constructor.
- * @compile-error
  * @issue 24767
  * @author sgrekhov@unipro.ru
  */
@@ -17,8 +16,10 @@ class A {
 }
 
 class M {
-  factory M() {}
+  factory M() => new B();
 }
+
+class B implements M {}
 
 class C extends A with M {
 }
