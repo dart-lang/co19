@@ -18,7 +18,6 @@
  * @description Check that if type T0 not a subtype of a type T1, then it cannot
  * be used as an argument of type T1. Test superclass members. Super constructor
  * required argument is tested.
- * @compile-error
  * @author sgrekhov@unipro.ru
  * @author ngl@unipro.ru
  */

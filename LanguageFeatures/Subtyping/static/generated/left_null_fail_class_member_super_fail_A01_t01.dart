@@ -19,7 +19,6 @@
  * @description Check that if type T0 is not a subtype of a type T1, then
  * instance of T0 cannot be be assigned to the superclass member of type T1.
  * Assignment to variable of super class is tested.
- * @compile-error
  * @author sgrekhov@unipro.ru
  * @author ngl@unipro.ru
  */
