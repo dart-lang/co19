@@ -12,6 +12,7 @@
  * @description Checks that it is no compile error to derive a mixin from a
  * class which has a superclass other than Object
  * @issue 26409
+ * @issue 42239
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";

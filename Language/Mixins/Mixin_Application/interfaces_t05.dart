@@ -12,7 +12,6 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import "../../../Utils/expect.dart";
 
 abstract class I {
   num get g;
@@ -27,6 +26,5 @@ class M {
 class C = S with M implements I;
 
 main() {
-  C c = null;
-  Expect.throws(() {c.g;}, (e) => e is NoSuchMethodError);
+  new C();
 }

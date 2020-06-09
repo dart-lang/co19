@@ -28,16 +28,16 @@
 import '../../../Utils/expect.dart';
 
 class S<T> {
-  T s;
+  T? s;
 }
 
 class M<T1, T2> {
-  T1 m1;
-  T2 m2;
+  T1? m1;
+  T2? m2;
 }
 
 class C<T> extends S with M {
-  T c;
+  T? c;
 }
 
 main() {

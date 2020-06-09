@@ -10,6 +10,7 @@
  * which has a superclass other than Object.
  * @issue 26409
  * @issue 27531
+ * @issue 42239
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";

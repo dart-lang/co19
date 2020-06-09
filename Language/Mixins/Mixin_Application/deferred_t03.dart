@@ -10,6 +10,7 @@
  * includes a deferred type expression. Test type alias
  * @compile-error
  * @author sgrekhov@unipro.ru
+ * @issue 42031
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 

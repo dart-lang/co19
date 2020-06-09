@@ -18,20 +18,20 @@
 import "../../../Utils/expect.dart";
 
 class A {
-  int x;
+  int x = 0;
   int get ga => x;
 }
 
 class M1 {
-  int x;
-  int y;
+  int x = 1;
+  int y = 1;
   int get g1x => x;
   int get g1y => y;
 }
 
 class M2 {
-  int x;
-  int z;
+  int x = 2;
+  int z = 2;
   int get g2x => x;
   int get g2z => z;
 }

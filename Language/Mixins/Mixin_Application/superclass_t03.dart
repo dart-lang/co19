@@ -9,6 +9,7 @@
  * @description Checks that it is no error to derive a mixin from a class
  * which has a superclass other than Object. Test type aliases
  * @issue 26409
+ * @issue 42239
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

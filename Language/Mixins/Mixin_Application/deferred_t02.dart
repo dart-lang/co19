@@ -10,6 +10,7 @@
  * includes a deferred type expression.
  * @compile-error
  * @author sgrekhov@unipro.ru
+ * @issue 42031
  */
 
 import 'deferred_lib.dart' deferred as d;

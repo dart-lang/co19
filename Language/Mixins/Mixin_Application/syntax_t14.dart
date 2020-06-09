@@ -26,6 +26,7 @@
  * class which has a superclass other than Object, even if mixin has all of its
  * methods
  * @issue 26409
+ * @issue 42239
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';

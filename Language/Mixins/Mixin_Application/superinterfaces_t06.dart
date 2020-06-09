@@ -12,6 +12,7 @@
  * @description Checks that it is a compile error if M has implicit
  * superinterfaces and C does not implement them
  * @issue 26409
+ * @issue 42239
  * @compile-error
  * @author sgrekhov@unipro.ru
  */

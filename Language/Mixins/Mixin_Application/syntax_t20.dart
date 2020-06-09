@@ -24,20 +24,21 @@
  * @description Test that mixin may have type parameters. Test that if there are
  * two members have the same name then it is a compile error
  * @issue 26409
+ * @issue 42239
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
 
 class A<T> {
-  T a;
+  T? a;
 }
 
 class S<T> extends A<T> {
-  T a;
+  T? a;
 }
 
 class M<T> extends A<T> {
-  T a;
+  T? a;
 }
 
 class C extends S<int> with M<String> {
