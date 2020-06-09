@@ -26,7 +26,7 @@
  * https://github.com/dart-lang/language/pull/941,
  * https://github.com/dart-lang/co19/issues/703
  *
- * @Issue 41266,41437
+ * @Issue 41266,41437,42236,42237
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
