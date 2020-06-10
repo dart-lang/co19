@@ -30,8 +30,7 @@
 class S {
 }
 
-class C extends S with C {
-}
+class C = S with C;
 
 main() {
   new C();
