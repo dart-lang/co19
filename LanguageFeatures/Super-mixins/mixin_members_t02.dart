@@ -23,7 +23,6 @@ abstract class J {
   static int j1 = 2;
 }
 
-
 class A {
   static int b1 = 3;
 }

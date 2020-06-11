@@ -19,7 +19,7 @@
  */
 import "../../Utils/expect.dart";
 
-String console;
+String console = "";
 
 class I {
   String get i1 => "I.i1";

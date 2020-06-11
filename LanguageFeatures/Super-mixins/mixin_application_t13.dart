@@ -17,7 +17,6 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import "../../Utils/expect.dart";
 
 class S {}
 class T {}
@@ -39,5 +38,5 @@ class MA extends A<X, Y, S, S> with M<X, Y> {
 }
 
 main() {
-  MA ma = new MA();
+  new MA();
 }

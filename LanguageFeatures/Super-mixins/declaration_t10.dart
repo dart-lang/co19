@@ -64,5 +64,5 @@ class AI implements A {
 }
 
 main() {
-  AI ai = new AI();
+  new AI();
 }

@@ -13,6 +13,7 @@
  * @description Checks that a mixin declaration can perform super-invocations.
  * Test operators and "mixin" implementation of "on" clause interfaces
  * @issue 35090
+ * @issue 42285
  * @author sgrekhov@unipro.ru
  */
 import "../../Utils/expect.dart";

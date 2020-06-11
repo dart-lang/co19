@@ -23,16 +23,16 @@ class X extends S {}
 class Y extends T {}
 
 class A<T1> {
-  T1 a(T1 t) => t;
+  T1? a(T1 t) => t;
 }
 
 class B<T1> {
-  T1 b(T1 t) => t;
+  T1? b(T1 t) => t;
 }
 
 class C<T1, T2> implements A<T1>, B<T2> {
-  T1 a(T1 t) => null;
-  T2 b(T2 t) => null;
+  T1? a(T1 t) => null;
+  T2? b(T2 t) => null;
 }
 
 mixin M<T1 extends S, T2 extends T>  on A<T1>, B<T2> {

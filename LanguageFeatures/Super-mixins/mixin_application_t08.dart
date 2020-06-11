@@ -24,7 +24,7 @@ class T {}
 class X extends S {}
 class Y extends T {}
 
-String console;
+String console = "";
 
 class I<T> {
   String get i1 => "I.i1";

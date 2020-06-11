@@ -28,7 +28,7 @@ class I<T> {
 }
 
 abstract class J<T> {
-  String jProperty;
+  String jProperty = "";
   String jMethod();
   String get jGetter;
   void set jSetter(String val);
@@ -44,7 +44,7 @@ class A<T> {
 }
 
 abstract class B<T> {
-  String bProperty;
+  String bProperty = "";
   String bMethod();
   String get bGetter;
   void set bSetter(String);

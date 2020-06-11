@@ -32,18 +32,18 @@ abstract class J {
 
 abstract class B<X extends S> {
   int get gb1;
-  X x;
+  X? x;
 }
 abstract class C<Y extends T> {
   int get gc1;
-  Y y;
+  Y? y;
 }
 
 class A implements B<X>, C<Y> {
   int get gb1 => 1;
   int get gc1 => 2;
-  X x = new X();
-  Y y = new Y();
+  X? x = new X();
+  Y? y = new Y();
 }
 
 mixin M<X extends S, Y extends T> on B<X>, C<Y> implements I, J {

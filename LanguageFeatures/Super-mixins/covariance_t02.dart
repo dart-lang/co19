@@ -18,7 +18,7 @@
  */
 import "../../Utils/expect.dart";
 
-String console;
+String console = "";
 
 class A {
   bar(num n) {

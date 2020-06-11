@@ -34,11 +34,11 @@ abstract class C<T1> {
 mixin M<X extends S, Y extends T> on B<X>, C<Y> implements I, J {
 }
 
-class A implements B, C {
-  String get b1 => "A";
+class A implements B<S>, C<T> {
+  T get b1 => new T();
 }
 
-class MA extends A with M {
+class MA extends A with M<S, T> {
 }
 
 main() {

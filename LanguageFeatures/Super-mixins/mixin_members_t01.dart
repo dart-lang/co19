@@ -23,7 +23,7 @@ class I {
 }
 
 abstract class J {
-  String jProperty;
+  String jProperty = "";
   String jMethod();
   String get jGetter;
   void set jSetter(String val);
@@ -39,7 +39,7 @@ class A {
 }
 
 abstract class B {
-  String bProperty;
+  String bProperty = "";
   String bMethod();
   String get bGetter;
   void set bSetter(String);

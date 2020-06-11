@@ -31,7 +31,7 @@ mixin M<X extends S, Y extends T> on B<X>, C<Y> implements I<S>, J<T> {
   }
   static String sf() => "S.sf()";
 
-  String i;
+  String i = "";
   String get gi;
   set si(String v);
   String mi();

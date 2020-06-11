@@ -32,10 +32,10 @@ mixin M<X1 extends S, Y1 extends T> on B<X1>, C<Y1> implements I<S>, J<T> {
   }
   static String sf() => "S.sf()";
 
-  Y1 i;
-  Y1 get gi;
+  Y1? i;
+  Y1? get gi;
   set si(Y1 v);
-  Y1 mi();
+  Y1? mi();
   Type operator ~();
 }
 
@@ -43,12 +43,12 @@ class A<T1, T2, T3, T4> implements B<T1>, C<T2>, I<T3>, J<T4> {
 }
 
 class MA<X1 extends X, Y1 extends Y> extends A<X, Y1, S, T> with M<X, Y1> {
-  Y1 i = null;
-  Y1 get gi => i;
-  set si(Y v) {
+  Y1? i = null;
+  Y1? get gi => i;
+  set si(Y1 v) {
     i = v;
   }
-  Y1 mi() => null;
+  Y1? mi() => null;
   Type operator ~() => i.runtimeType;
 }
 

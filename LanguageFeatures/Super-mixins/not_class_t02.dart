@@ -22,5 +22,5 @@ mixin M on C {
 class MA extends M {}
 
 main() {
-  MA m = new MA();
+  new MA();
 }

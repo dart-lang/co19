@@ -36,5 +36,5 @@ class MA<X, Y> extends C<Y, X> with M<Y, X> {
 }
 
 main() {
-  MA<X, Y> ma = new MA<X, Y>();
+  new MA<X, Y>();
 }

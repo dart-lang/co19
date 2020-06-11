@@ -19,5 +19,5 @@ mixin M on C {
 }
 
 main() {
-  M m = new M();
+  new M();
 }

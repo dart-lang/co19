@@ -24,12 +24,12 @@ class B {}
 class C {}
 
 mixin M<X extends S, Y extends T> on B, C implements I, J {
-  factory M() {}
+  factory M() = MA<X, Y>;
 }
 
 class A implements B, C, I, J {}
 
-class MA extends A with M {}
+class MA<X extends S, Y extends T> extends A with M<X, Y> {}
 
 main() {
   new MA();

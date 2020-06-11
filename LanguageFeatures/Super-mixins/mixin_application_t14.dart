@@ -28,5 +28,5 @@ mixin M on B, C implements I, J {}
 class MA with M {}
 
 main() {
-  MA ma = new MA();
+  new MA();
 }

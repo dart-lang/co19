@@ -28,7 +28,7 @@ mixin M on B, C implements I, J {
   }
   static String sf() => "S.sf()";
 
-  String i;
+  String i = "";
   String get gi;
   set si(String v);
   String mi();

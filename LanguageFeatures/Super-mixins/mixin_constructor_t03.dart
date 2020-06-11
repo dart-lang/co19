@@ -22,7 +22,7 @@ class B {}
 class C {}
 
 mixin M on B, C implements I, J {
-  factory M() {}
+  factory M() = MA;
 }
 
 class A implements B, C, I, J {}

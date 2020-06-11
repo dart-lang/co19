@@ -21,5 +21,5 @@ mixin M on C {
 class MA implements M {}
 
 main() {
-  MA m = new MA();
+  new MA();
 }

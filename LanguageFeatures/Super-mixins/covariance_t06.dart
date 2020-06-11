@@ -20,11 +20,11 @@
  */
 
 class A {
-  covariant num number;
+  covariant num number = 0;
 }
 
 class B extends A {
-  int number;
+  int number = 1;
 }
 
 mixin M on A {

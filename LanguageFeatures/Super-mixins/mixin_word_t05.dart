@@ -16,5 +16,5 @@
 typedef mixin = int Function(Object a, Object b);
 
 main() {
-  mixin m;
+  mixin? m;
 }
