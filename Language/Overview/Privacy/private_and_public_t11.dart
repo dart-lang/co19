@@ -15,7 +15,6 @@
  * @description Checks that various private class members are perfectly 
  * accessible to a subclass that is declared in the same script.
  * @author iefremov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 

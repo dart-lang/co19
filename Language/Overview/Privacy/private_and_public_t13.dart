@@ -15,7 +15,6 @@
  * @description Checks that local variables and functions names can begin with
  * an underscore and are still accessible in the same scope.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

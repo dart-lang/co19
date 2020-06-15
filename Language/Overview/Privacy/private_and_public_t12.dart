@@ -15,7 +15,6 @@
  * @description Checks that private declarations from the current script do not 
  * conflict with identically named declarations from an imported library.
  * @author iefremov
- * @reviewer rodionov
  */
 
 import "../lib.dart";

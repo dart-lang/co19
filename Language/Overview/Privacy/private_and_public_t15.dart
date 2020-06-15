@@ -15,13 +15,12 @@
  * @description Checks that type parameter names can begin with an underscore 
  * and are still accessible in the appropriate scope.
  * @author iefremov
- * @reviewer rodionov
  */
 
 class G<_, _$, __> {
-  _ x = null;
-  _$ y = null;
-  __ z;
+  _? x = null;
+  _$? y = null;
+  __? z;
 }
 
 class G2<A, B, C> extends G<A, B, C> {}

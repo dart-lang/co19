@@ -16,7 +16,6 @@
  * is not accessible to the current script results in a compile error
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 import "../lib.dart";
 

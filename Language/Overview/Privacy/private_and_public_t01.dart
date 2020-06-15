@@ -15,7 +15,7 @@
  * @description Checks that public declarations declared in a library are 
  * accessible if the library is imported.
  * @author msyabro
- * @reviewer iefremov
+ * @issue 42337
  */
 
 import "../lib.dart";
@@ -25,7 +25,7 @@ class C extends AccessibleClass {}
 main() {
   AccessibleClass c = new AccessibleClass();
   AccessibleClass c2 = new C();
-  accessibleFuncType f = () {};
+  accessibleFuncType f = () => 42;
   accessibleFunction();
   accessibleVariable = 1;
 }

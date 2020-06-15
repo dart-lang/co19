@@ -16,18 +16,10 @@
  * library.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
-import "../../../Utils/expect.dart";
 
 import "../lib.dart" as lib;
 
-class C {
-  void test() {
-    lib._inaccessibleFunction();
-  }
-}
-
 main() {
-  new C().test();
+  lib._inaccessibleFunction();
 }

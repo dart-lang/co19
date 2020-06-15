@@ -16,7 +16,6 @@
  * declared in another library are not visible and do not overload members 
  * from a super class declared in the current library.
  * @author iefremov
- * @reviewer rodionov
  */
 library private_and_public_t21;
 import "../../../Utils/expect.dart";

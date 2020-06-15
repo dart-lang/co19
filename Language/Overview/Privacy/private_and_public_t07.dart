@@ -15,7 +15,6 @@
  * @description Checks that various private class members are perfectly 
  * accessible inside the library where the class is declared.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

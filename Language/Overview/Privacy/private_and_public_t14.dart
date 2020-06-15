@@ -15,7 +15,6 @@
  * @description Checks that function parameter names can begin with an
  * underscore and are still accessible in the appropriate scope.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

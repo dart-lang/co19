@@ -16,8 +16,6 @@
  * inaccessible outside the library.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
- * @reviewer kaigorodov
  */
 import "../lib.dart" as lib;
 

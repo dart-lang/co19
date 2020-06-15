@@ -20,7 +20,9 @@ _inaccessibleFunction() {}
 class ClassWithPrivateMembers {
   ClassWithPrivateMembers() {}
   ClassWithPrivateMembers._named() {}
-  factory ClassWithPrivateMembers._named2() {}
+  factory ClassWithPrivateMembers._named2() {
+    return new ClassWithPrivateMembers();
+  }
 
   var _var = 54;
   static var _staticvar = "abyrvalg";

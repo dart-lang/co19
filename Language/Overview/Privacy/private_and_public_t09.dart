@@ -16,10 +16,10 @@
  * not accessible to the current script results in a compile error
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
+ * @issue 42338
  */
 import "../lib.dart";
 
 main() {
-  ClassWithPrivateMembers._staticvar = 1;
+  ClassWithPrivateMembers._staticvar = "1";
 }

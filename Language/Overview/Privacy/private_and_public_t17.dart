@@ -15,9 +15,7 @@
  * @description Checks that label names can begin with an underscore and are 
  * still usable.
  * @author iefremov
- * @reviewer rodionov
  */
-
 
 main() {
   _: {

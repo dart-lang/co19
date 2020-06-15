@@ -17,11 +17,10 @@
  * in a compile error
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 import "../lib.dart";
 
 main() {
   var c = new ClassWithPrivateMembers();
-  print(c._finalvar);
+  c._finalvar;
 }

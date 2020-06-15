@@ -14,7 +14,6 @@
  * public.
  * @description
  * @author iefremov
- * @reviewer rodionov
  */
 
 library private_and_public_t21_lib;

@@ -16,7 +16,6 @@
  * a private named constructor that is not accessible to the current script.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 import "../lib.dart";
 

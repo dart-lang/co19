@@ -17,7 +17,6 @@
  * in compile error.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 import "../lib.dart";
 

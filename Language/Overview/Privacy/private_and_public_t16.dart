@@ -14,10 +14,8 @@
  * public.
  * @description Checks that prefix names can begin with an underscore.
  * @author iefremov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
-
 import "../lib.dart" as _abc;
 
 main() {
