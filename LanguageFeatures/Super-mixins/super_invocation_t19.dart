@@ -21,7 +21,7 @@ import "../../Utils/expect.dart";
 String console = "";
 
 class A {
-  String get g => "g";
+  String? get g => "g";
 }
 
 class C implements A {
