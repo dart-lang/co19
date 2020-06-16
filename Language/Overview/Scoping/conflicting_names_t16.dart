@@ -14,7 +14,6 @@
  * the same name are declared in a function scope.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 func() {
@@ -23,7 +22,5 @@ func() {
 }
 
 main() {
-  try {
-    func();
-  } catch (e) {}
+  func();
 }

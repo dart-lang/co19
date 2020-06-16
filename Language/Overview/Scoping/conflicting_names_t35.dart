@@ -14,13 +14,10 @@
  * specifies two type parameters with the same name.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 typedef f<T, T>();
 
 main() {
-  try {
-    f<int, String> foo = () {};
-  } catch (x) {}
+  f<int, String> foo = () {};
 }

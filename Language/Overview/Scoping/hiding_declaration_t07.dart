@@ -10,7 +10,6 @@
  * @description Checks that no static warning is produced if a function 
  * parameter hides a function name.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

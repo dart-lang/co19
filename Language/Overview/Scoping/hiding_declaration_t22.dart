@@ -11,7 +11,6 @@
  * introduces a name that is identical to a function type alias available in 
  * the current scope.
  * @author iefremov
- * @reviewer rodionov
  */
 
 typedef foo();

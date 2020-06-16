@@ -14,11 +14,8 @@
  * declaration statement in a for loop declares two identically named variables.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    for (int i, i; i < 10; ++i) {}
-  } catch (x) {}
+  for (int i, i; i < 10; ++i) {}
 }

@@ -11,7 +11,6 @@
  * a class name declared in an enclosing scope.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {}

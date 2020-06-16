@@ -14,7 +14,6 @@
  * declaration with the same name are declared within the library scope.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class conflictingName {}
@@ -22,8 +21,6 @@ class conflictingName {}
 typedef conflictingName();
 
 main() {
-  try {
-    new conflictingName();
-    conflictingName func = null;
-  } catch (e) {}
+  new conflictingName();
+  conflictingName func = () {};
 }

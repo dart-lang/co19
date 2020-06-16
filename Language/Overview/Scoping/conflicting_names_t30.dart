@@ -13,7 +13,6 @@
  * @description Checks that names from different lexical scopes that aren't 
  * nested, do not conflict.
  * @author msyabro
- * @reviewer iefremov
  */
 
 class A {

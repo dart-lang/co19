@@ -13,7 +13,6 @@
  * @description Checks that a nested scope has access to names from enclosing 
  * scopes.
  * @author msyabro
- * @reviewer iefremov
  */
 import "../../../Utils/expect.dart";
 

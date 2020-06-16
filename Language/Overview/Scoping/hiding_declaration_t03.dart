@@ -11,7 +11,6 @@
  * name from a lexically enclosing scope and that does not produce a static 
  * warning.
  * @author msyabro
- * @reviewer iefremov
  */
 
 main() {

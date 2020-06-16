@@ -10,11 +10,10 @@
  * @description Checks that there is no static warning is produced if a local 
  * variable hides a function parameter.
  * @author iefremov
- * @reviewer rodionov
  */
 
 f(p) {
-  var p = null;
+  var p = 42;
 }
 
 main() {

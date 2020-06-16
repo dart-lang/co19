@@ -14,14 +14,11 @@
  * contains a variable and a function with the same name.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 main() {
-  try {
     {
       var conflictingName = 1;
-      conflictingName(p1) {};
+      conflictingName(p1) {}
     }
-  } catch (e) {}
 }

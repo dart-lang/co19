@@ -13,8 +13,6 @@
  * @description Checks that a name from the current lexical scope does not 
  * conflict with names in other, non-enclosing scopes.
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
 import "../../../Utils/expect.dart";
 

@@ -14,14 +14,11 @@
  * contains two functions with the same name.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 void conflictingName() {}
-conflictingName() {return 1;}
+conflictingName() => 42;
 
 main() {
-  try {
-    conflictingName();
-  } catch (e) {}
+  conflictingName();
 }

@@ -14,7 +14,6 @@
  * instance method and an abstract method with the same name.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {
@@ -23,7 +22,5 @@ class A {
 }
 
 main() {
-  try {
-    new A().f();
-  } catch (x) {}
+  new A().f();
 }

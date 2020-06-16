@@ -10,7 +10,6 @@
  * @description Checks that the innermost available name is used instead of 
  * all names from the enclosing scopes that it hides.
  * @author msyabro
- * @reviewer iefremov
  */
 import "../../../Utils/expect.dart";
 

@@ -11,7 +11,6 @@
  * declared inside a do-while loop shadows another local variable declared in an
  * enclosing lexical scope.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

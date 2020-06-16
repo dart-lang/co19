@@ -9,7 +9,6 @@
  * @description Checks that names may be introduced into a scope by 
  * declaration within the scope.
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {

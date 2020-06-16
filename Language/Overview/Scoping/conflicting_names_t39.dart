@@ -14,13 +14,10 @@
  * declares two identically named optional parameters.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 typedef f([x, x]);
 
 main() {
-  try {
-    (([x, xx]) {}) is f;
-  } catch (x) {}
+  (([x, xx]) {}) is f;
 }

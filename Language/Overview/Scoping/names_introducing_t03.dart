@@ -8,9 +8,7 @@
  * scope or by other mechanisms such as imports or inheritance.
  * @description Checks that names may be introduced into a scope by inheritance.
  * @author msyabro
- * @reviewer iefremov
  */
-
 
 class S {
   var x;

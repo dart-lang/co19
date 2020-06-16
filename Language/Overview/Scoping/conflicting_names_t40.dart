@@ -14,14 +14,10 @@
  * declares a positional and an optional parameter using the same name.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 typedef f(x, [x]);
 
 main() {
-  try {
-    // f foo = (x) {};
-    f foo = (x, [y]) {};
-  } catch (x) {}
+  f foo = (x, [y]) {};
 }

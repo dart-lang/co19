@@ -8,14 +8,13 @@
  * scope or by other mechanisms such as imports or inheritance.
  * @description Checks that names may be introduced into a scope by import.
  * @author msyabro
- * @reviewer iefremov
  */
 
 import "../lib.dart";
 
 main() {
-  AccessibleClass c;
-  accessibleFuncType f = () {};
+  AccessibleClass c = new AccessibleClass();
+  accessibleFuncType f = () => 42;
   accessibleFunction();
   accessibleVariable = 1;
 }

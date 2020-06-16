@@ -14,14 +14,11 @@
  * contains two typedef declarations with the same name.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 typedef conflictingName();
 typedef conflictingName(p1, p2);
 
 main() {
-  try {
-    conflictingName func = null;
-  } catch (e) {}
+  conflictingName func = () {};
 }

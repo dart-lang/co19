@@ -9,13 +9,12 @@
  * lexically enclosing scope of S.
  * @description Checks that a hidden function cannot be called.
  * @author msyabro
- * @reviewer iefremov
  */
 import "../../../Utils/expect.dart";
 
-int f() {return 1;}
+int f() => 1;
 
 main() {
-  var f = () {return 2;};
+  var f = () => 2;
   Expect.equals(2, f());
 }

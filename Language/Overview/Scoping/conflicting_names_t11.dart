@@ -14,14 +14,11 @@
  * contains two variables with the same name.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 var conflictingName;
 var conflictingName;
 
 main() {
-  try {
-    conflictingName = null;
-  } catch (e) {}
+  conflictingName = 42;
 }

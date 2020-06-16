@@ -14,7 +14,6 @@
  * class with the same name are declared within the library scope.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 void conflictingName() {}
@@ -22,8 +21,6 @@ void conflictingName() {}
 class conflictingName {}
 
 main() {
-  try {
-    conflictingName();
-    new conflictingName();
-  } catch (e) {}
+  conflictingName();
+  new conflictingName();
 }

@@ -14,7 +14,6 @@
  * function with the same name are declared within the library scope.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 var conflictingName;
@@ -22,8 +21,6 @@ var conflictingName;
 conflictingName(p1) {}
 
 main() {
-  try {
-    conflictingName = 1;
-    conflictingName(1);
-  } catch (e) {}
+  conflictingName = 1;
+  conflictingName(1);
 }

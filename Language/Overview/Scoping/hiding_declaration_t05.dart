@@ -12,7 +12,6 @@
  * context.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {}

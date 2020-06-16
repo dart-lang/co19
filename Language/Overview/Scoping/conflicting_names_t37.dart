@@ -14,11 +14,8 @@
  * declaration statement declares two identically named variables.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    int i, i;
-  } catch (x) {}
+  int i, i;
 }

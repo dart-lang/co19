@@ -10,7 +10,6 @@
  * @description Checks that no static warning is produced if a for loop variable
  * shadows another local variable declared in an enclosing lexical scope.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

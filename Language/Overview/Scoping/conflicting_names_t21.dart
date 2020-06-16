@@ -14,7 +14,6 @@
  * two instance methods with the same name.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class C {
@@ -23,8 +22,6 @@ class C {
 }
 
 main() {
-  try {
-    var c = new C();
-    c.conflictingName;
-  } catch (e) {}
+  var c = new C();
+  c.conflictingName;
 }

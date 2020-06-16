@@ -14,14 +14,11 @@
  * contains two classes with the same name.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 class conflictingName {}
 class conflictingName implements Map {}
 
 main() {
-  try {
-    new conflictingName();
-  } catch (e) {}
+  new conflictingName();
 }

@@ -14,7 +14,6 @@
  * typedef declaration with the same name are declared within the library scope.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 void conflictingName() {}
@@ -22,8 +21,6 @@ void conflictingName() {}
 typedef conflictingName();
 
 main() {
-  try {
-    conflictingName();
-    conflictingName func = null;
-  } catch (e) {}
+  conflictingName();
+  conflictingName func = () {};
 }

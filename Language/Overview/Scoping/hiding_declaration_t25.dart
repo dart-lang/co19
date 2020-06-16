@@ -10,14 +10,13 @@
  * @description Checks that a type parameter correctly hides a function type 
  * alias and no static warning is produced.
  * @author iefremov
- * @reviewer rodionov
  */
 
 typedef foo();
 
 class C<foo> {
   C(foo boo) {
-    foo f = boo; //checked mode should not complain
+    foo f = boo;
   }
 }
 

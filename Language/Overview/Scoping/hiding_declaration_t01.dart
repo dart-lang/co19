@@ -10,7 +10,6 @@
  * @description Checks that a name in the scope of a function can hide a name 
  * from a lexically enclosing scope and that does not produces a static warning.
  * @author msyabro
- * @reviewer iefremov
  */
 
 main() {

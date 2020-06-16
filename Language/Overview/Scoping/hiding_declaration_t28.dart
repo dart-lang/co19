@@ -11,8 +11,6 @@
  * A compile error is expected.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
- * @needsreview dart issue #21092
  */
 class C {}
 

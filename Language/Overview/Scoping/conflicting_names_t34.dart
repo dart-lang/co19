@@ -14,17 +14,14 @@
  * specifies two type parameters with the same name.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 class G<T, T> {
   G() {
-    print("" is T);
+    "" is T;
   }
 }
 
 main() {
-  try {
-    new G<int, String>();
-  } catch (x) {}
+  new G<int, String>();
 }

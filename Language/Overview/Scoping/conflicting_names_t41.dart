@@ -14,13 +14,10 @@
  * declares two identically named parameters.
  * @compile-error
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 typedef f(x, x);
 
 main() {
-  try {
-    f foo = (x, y) {};
-  } catch (x) {}
+  f foo = (x, y) {};
 }

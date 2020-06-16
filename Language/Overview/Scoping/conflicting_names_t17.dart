@@ -14,16 +14,13 @@
  * contains two local functions with the same name.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 func() {
-  conflictingName() {};
-  conflictingName(p1) {};
+  conflictingName() {}
+  conflictingName(p1) {}
 }
 
 main() {
-  try {
-    func();
-  } catch (e) {}
+  func();
 }

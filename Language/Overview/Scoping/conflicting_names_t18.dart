@@ -14,7 +14,6 @@
  * contains a variable and a function with the same name.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 func() {
@@ -23,7 +22,5 @@ func() {
 }
 
 main() {
-  try {
-    func();
-  } catch (e) {}
+  func();
 }
