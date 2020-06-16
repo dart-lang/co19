@@ -9,7 +9,6 @@
  * @description Checks that the Russian small letters are represented as a
  * sequence of Unicode code points.
  * @author vasya
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

@@ -21,7 +21,6 @@
  * Checks symbol U+2029.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {

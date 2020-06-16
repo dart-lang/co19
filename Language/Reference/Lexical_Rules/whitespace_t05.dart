@@ -21,7 +21,6 @@
  * Checks symbol U+000c.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {

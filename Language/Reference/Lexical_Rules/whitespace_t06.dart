@@ -21,7 +21,6 @@
  * Checks symbol U+00a0.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {

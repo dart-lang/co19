@@ -9,7 +9,6 @@
  * @description Checks that common punctuation and arithmetic symbols are
  * represented as a sequence of Unicode code points.
  * @author vasya
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

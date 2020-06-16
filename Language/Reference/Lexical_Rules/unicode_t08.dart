@@ -9,7 +9,6 @@
  * @description Checks that composed characters in comments and strings are
  * compiled correctly.
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 main() {

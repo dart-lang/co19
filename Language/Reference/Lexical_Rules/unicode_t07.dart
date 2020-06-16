@@ -10,7 +10,6 @@
  * used outside of string literals.
  * @compile-error
  * @author hlodvig
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

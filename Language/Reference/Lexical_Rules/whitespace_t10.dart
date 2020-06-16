@@ -20,9 +20,8 @@
  * single-line comment is not translated to a corresponding unicode symbol
  * (like in Java) and therefore, does not start a new, uncommented line.
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {
-  //\u000a abyrvalg!
+  //\u000a
 }
