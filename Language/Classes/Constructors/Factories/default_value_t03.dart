@@ -15,8 +15,8 @@ import "../../../../Utils/expect.dart";
 
 List expect = [];
 
-test(x,y) {
-  Expect.listEquals(expect, [x,y]);
+test(x, y) {
+  Expect.listEquals(expect, [x, y]);
 }
 
 class F {
@@ -26,16 +26,28 @@ class F {
 }
 
 class C implements F {
-  C(int x, [int y = 0]) { test(x,y); }
-  C.foo(int x, [int y = 0]) { test(x,y); }
-  C.bar(int x, {int y = 0}) { test(x,y); }
+  C(int x, [int y = 0]) {
+    test(x, y);
+  }
+  C.foo(int x, [int y = 0]) {
+    test(x, y);
+  }
+  C.bar(int x, {int y = 0}) {
+    test(x, y);
+  }
 }
 
 main() {
-  expect = [1,null]; new F(1);
-  expect = [1,1]; new F(1,1);
-  expect = [1,null]; new F.foo(1);
-  expect = [1,1]; new F.foo(1,1);
-  expect = [1,null]; new F.bar(1);
-  expect = [1,1]; new F.bar(1,y:1);
+  expect = [1, 0];
+  new F(1);
+  expect = [1, 1];
+  new F(1, 1);
+  expect = [1, 0];
+  new F.foo(1);
+  expect = [1, 1];
+  new F.foo(1, 1);
+  expect = [1, 0];
+  new F.bar(1);
+  expect = [1, 1];
+  new F.bar(1, y: 1);
 }

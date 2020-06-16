@@ -32,13 +32,13 @@ f(var entry) {
 
 class S<T, U> {
   S(var x, var y, [var o]) : this.s1 = x("s1${1 is T}"),
-      this.s2 = y("s2${1.0 is U}"), this.s3 = x(1 is U),
+      this.s2 = y("s2${"1" is U}"), this.s3 = x("1" is U),
       this.s4 = x(1.0 is T) {
 
     s1("ok");
   }
   S.named(var x, var y, {var o}) : this.s1 = x("s1${1 is T}"),
-      this.s2 = y("s2${1.0 is U}"),  this.s3 = x(1 is U),
+      this.s2 = y("s2${"1" is U}"),  this.s3 = x("1" is U),
       this.s4 = x(1.0 is T) {
 
     s1("named!");
@@ -49,7 +49,7 @@ class S<T, U> {
   var s3, s4;
 }
 
-class C extends S<int, double> {
+class C extends S<int, String> {
   C() : super(f("a1"), f("a2"), f("o"));
   C.named() : super.named(f("a1"), f("a2"), o : f("o"));
 }
@@ -57,12 +57,12 @@ class C extends S<int, double> {
 main() {
   log = [];
   new C();
-  Expect.listEquals(["a1","a2", "o", "s1true", "s2true", "false", "false",
+  Expect.listEquals(["a1","a2", "o", "s1true", "s2true", "true", "false",
     "ok"], log, "Wrong superinitializer evaluation order!");
 
   log = [];
   new C.named();
-  Expect.listEquals(["a1","a2", "o", "s1true", "s2true", "false", "false",
+  Expect.listEquals(["a1","a2", "o", "s1true", "s2true", "true", "false",
     "named!"], log, "Wrong superinitializer evaluation order!");
 
 }
