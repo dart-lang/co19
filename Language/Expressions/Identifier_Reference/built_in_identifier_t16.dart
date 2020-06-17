@@ -8,11 +8,11 @@
  * the declared name of a prefix, class, type parameter or type alias.
  * @description Checks that it is a compile-time error if a built-in identifier
  * "get" is used as the declared name of a type alias.
+ * @compile-error
  * @author rodionov
  */
 
-typedef int get();  //# 01: compile-time error
+typedef int get();
 
 main() {
-  null is get;      //# 02: compile-time error
 }

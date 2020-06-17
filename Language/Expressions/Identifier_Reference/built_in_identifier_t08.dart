@@ -8,10 +8,11 @@
  * the declared name of a prefix, class, type parameter or type alias.
  * @description Checks that it is a compile-time error if a built-in identifier
  * "dynamic" is used as the declared name of a class.
+ * @compile-error
  * @author rodionov
  */
 
-class dynamic {}    //# 01: compile-time error
+class dynamic {}
 
 class foo extends dynamic {}
 

@@ -8,11 +8,11 @@
  * the declared name of a prefix, class, type parameter or type alias.
  * @description Checks that it is a compile-time error if a built-in identifier
  * "set" is used as the declared name of a class.
+ * @compile-error
  * @author rodionov
  */
 
-class set {}     //# 01: compile-time error
+class set {}
 
 main() {
-  null is set;   //# 02: compile-time error
 }

@@ -23,7 +23,7 @@
  * In other words, constant objects are canonicalized.
  * @description Checks that equal strings constructed at compile-time are
  * canonicalized.
- * @Issue 985
+ * @Issue https://github.com/dart-lang/language/issues/985
  * @author iefremov
  */
 import '../../../../Utils/expect.dart';

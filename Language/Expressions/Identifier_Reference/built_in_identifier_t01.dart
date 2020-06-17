@@ -8,11 +8,11 @@
  * the declared name of a prefix, class, type parameter or type alias.
  * @description Checks that it is a compile-time error if a built-in identifier
  * "abstract" is used as the declared name of a class.
+ * @compile-error
  * @author rodionov
  */
 
-class abstract {}   //# 01: compile-time error
+class abstract {}
 
 main() {
-  null is abstract; //# 02: compile-time error
 }

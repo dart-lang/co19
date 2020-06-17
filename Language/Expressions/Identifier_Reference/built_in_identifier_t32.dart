@@ -8,11 +8,11 @@
  * the declared name of a prefix, class, type parameter or type alias.
  * @description Checks that it is a compile-time error if a built-in identifier
  * "as" is used as the declared name of a class.
+ * @compile-error
  * @author ngl@unipro.ru
  */
 
-class as {}     //# 01: compile-time error
+class as {}
 
 main() {
-  null is as;   //# 02: compile-time error
 }

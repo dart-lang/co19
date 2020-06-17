@@ -8,11 +8,12 @@
  * the declared name of a prefix, class, type parameter or type alias.
  * @description Checks that it is a compile-time error if a built-in identifier
  * "library" is used as the declared name of a class.
+ * @compile-error
  * @author ngl@unipro.ru
  */
 
-class library {}     //# 01: compile-time error
+class library {}
 
 main() {
-  null is library;   //# 02: compile-time error
+  null is library;
 }

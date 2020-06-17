@@ -11,6 +11,7 @@
  * operator >>> specifies two parameters.
  * @compile-error
  * @author iarkh@unipro.ru
+ * @issue 42353
  */
 // SharedOptions=--enable-experiment=triple-shift
 

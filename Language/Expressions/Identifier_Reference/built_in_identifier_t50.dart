@@ -8,11 +8,12 @@
  * the declared name of a prefix, class, type parameter or type alias.
  * @description Checks that it is a compile-time error if a built-in identifier
  * "part" is used as the declared name of a class.
+ * @compile-error
  * @author ngl@unipro.ru
  */
 
-class part {}    //# 01: compile-time error
+class part {}
 
 main() {
-  null is part;  //# 02: compile-time error
+  null is part;
 }

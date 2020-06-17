@@ -9,11 +9,11 @@
  * @description Checks that it is a compile-time error if a built-in identifier
  * "deferred" is used as the declared name of a type alias.
  * @issue 25732
+ * @compile-error
  * @author ngl@unipro.ru
  */
 
-typedef int deferred();    //# 01: compile-time error
+typedef int deferred();
 
 main() {
-  null is deferred;        //# 02: compile-time error
 }

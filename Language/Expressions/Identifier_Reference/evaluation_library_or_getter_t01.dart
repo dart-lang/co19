@@ -28,10 +28,11 @@ class C {
   static Map map = {};
   factory C(i) {
     if (map[i] == null)
-      return map[i] = new C._ctor(i);
+      map[i] = new C._ctor(i);
     else {
       Expect.fail('Initializer expression was evaluated twice');
     }
+    return map[i];
   }
   var id;
   C._ctor(this.id);

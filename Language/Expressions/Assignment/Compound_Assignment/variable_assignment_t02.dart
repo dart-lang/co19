@@ -49,10 +49,10 @@ class A {
     Expect.equals(expected, res.v);         //checks result
   }
 
-  C _c;
+  C? _c;
 
-  int getterInvocation;
-  int setterInvocation;
+  int getterInvocation = 0;
+  int setterInvocation = 0;
 }
 
 main() {
