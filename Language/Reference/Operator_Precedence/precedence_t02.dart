@@ -9,7 +9,6 @@
  * holds true (multiplicative operators have higher precedence than additive
  * and unary expressions have even higher).
  * @author vasya
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

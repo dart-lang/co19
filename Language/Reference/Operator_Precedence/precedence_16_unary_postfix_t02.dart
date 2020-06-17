@@ -10,7 +10,9 @@
  * @description Test that '?.' unary postfix operator has highest
  * precedence (16). Compare with Unary prefix (precedence 15). Test that
  * '?.' has priority higher than ~
+ * @static-warning
  * @author sgrekhov@unipro.ru
+ * @issue 42379
  */
 import "../../../Utils/expect.dart";
 
@@ -30,9 +32,9 @@ class C {
 
 main() {
   C c = new C();
-  ~c?.e();
+  ~c?.e();          /// static type warning
   Expect.equals( "m~", c.log);
 
-  C c2 = null;
+  C? c2 = null;
   Expect.throws(() {~c2?.e();}, (e) => e is NoSuchMethodError);
 }

@@ -8,8 +8,6 @@
  * @description Checks that operator precedence given implicitly by the grammar 
  * holds true. 
  * @author vasya
- * @reviewer rodionov
- * @needsreview add more cases?
  */
 import "../../../Utils/expect.dart";
 

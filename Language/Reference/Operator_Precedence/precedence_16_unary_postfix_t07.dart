@@ -14,7 +14,6 @@
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
   Expect.equals(-2, -(1 + 1));
 }

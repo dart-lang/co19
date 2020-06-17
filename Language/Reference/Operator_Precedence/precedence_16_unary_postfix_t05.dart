@@ -15,7 +15,6 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  List<int> l = new List<int>(1);
-  l[0] = 1;
+  List<int> l = [1];
   Expect.equals(-1, -l[0]);
 }

@@ -17,8 +17,8 @@ import "../../../Utils/expect.dart";
 String log = "";
 
 class C {
-  int get s1 => null;
-  int get s2 => -1;
+  int? get s1 => null;
+  int? get s2 => -1;
 
   void set s1(int val) {
     log += val.toString();

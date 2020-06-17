@@ -15,7 +15,7 @@
 
 class C {
 
-  bool operator ==(C val) {
+  bool operator ==(Object val) {
     return true;
   }
 

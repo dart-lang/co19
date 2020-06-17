@@ -9,7 +9,6 @@
  * holds true (logical AND higher than logical OR and logical negation higher
  * than both).
  * @author vasya
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

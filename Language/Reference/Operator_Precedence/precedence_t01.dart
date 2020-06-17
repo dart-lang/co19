@@ -8,7 +8,6 @@
  * @description Checks that operator precedence given implicitly by the grammar
  * holds true (multiplicative operators have higher precedence than additive).
  * @author vasya
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
