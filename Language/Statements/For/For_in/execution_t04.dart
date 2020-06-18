@@ -16,29 +16,16 @@
  * that n0 is declared to be of type T, where T is the static type of e.iterator.
  * @description Checks that [NoSuchMethodError] is thrown when e is null.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../../Utils/expect.dart';
 
+dynamic getNull() => null;
+
 main() {
-  List l;
-  try {
-    for ( var id in l ) {
-    }
-    Expect.fail("NoSuchMethodError expected when calling for statement");
-  } on NoSuchMethodError catch (ok) {}
-
-  try {
-    for ( dynamic id in l ) {
-    }
-    Expect.fail("NoSuchMethodError expected when calling for statement");
-  } on NoSuchMethodError catch (ok) {}
-
-  try {
-    var id;
-    for ( id in l ) {
-    }
-    Expect.fail("NoSuchMethodError expected when calling for statement");
-  } on NoSuchMethodError catch (ok) {}
+  Expect.throws(() { for(var id in getNull()) {} }, (e) => e is TypeError);
+  Expect.throws(() { for(dynamic id in getNull()) {} }, (e) => e is TypeError);
+  Expect.throws(() {
+      var id;
+      for(id in getNull()) {}
+    }, (e) => e is TypeError);
 }

@@ -16,8 +16,6 @@
  * that n0 is declared to be of type T, where T is the static type of e.iterator.
  * @description Checks that s is not evaluated if e is empty.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../../Utils/expect.dart';
 
@@ -30,7 +28,6 @@ void check(var e) {
 }
 
 main() {
-  check(new List());
   check([]);
   check(new Set());
 }

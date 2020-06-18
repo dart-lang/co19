@@ -18,8 +18,6 @@
  * for (finalConstVarOrType? id in e) s is equivalent to the the following code:
  * var n0 = e.iterator; while (n0.moveNext()) { varOrType? id = n0.current; s }
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../../Utils/expect.dart';
 

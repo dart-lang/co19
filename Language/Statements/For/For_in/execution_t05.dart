@@ -17,7 +17,6 @@
  * @description Checks that all of the mentioned methods are executed in the
  * specified order.
  * @author iefremov
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 
