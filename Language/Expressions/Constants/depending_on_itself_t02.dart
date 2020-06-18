@@ -19,7 +19,7 @@ const a5 = a4;  //# 01: continued
 const a6 = a5;  //# 01: continued
 const a7 = a6;  //# 01: continued
 const a8 = a7;  //# 01: continued
-const a9 = a8;  //#01: continued
+const a9 = a8;  //# 01: continued
 const a10 = a9; //# 01: continued
 
 main() {
