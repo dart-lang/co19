@@ -24,7 +24,6 @@
  * @description Checks that part unit can not contain an import directive.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 library Parts_test_lib.id;

@@ -25,7 +25,6 @@
  * includes a function invocation expression instead of URI.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 part new StringBuffer("part_0.dart").toString();

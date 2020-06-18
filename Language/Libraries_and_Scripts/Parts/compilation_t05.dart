@@ -11,8 +11,8 @@
  * contents of the URI are not a valid part declaration.
  * @description Checks that including a compilation unit with valid
  * topLevelDefinitions does not cause any compile-time errors.
+ * @Issue 42393
  * @author rodionov
- * @reviewer kaigorodov
  */
 library Parts_test_lib;
 import "../../../Utils/expect.dart";
@@ -26,11 +26,11 @@ main() {
   Expect.equals(33, bar(11,22));
 
   Expect.listEquals([], list(0));
-  Expect.listEquals(new List(101), list(101));
-  Expect.listEquals(new List(1000), list(1000));
+  Expect.listEquals(new List.filled(101, 0), list(101));
+  Expect.listEquals(new List.filled(1000, 0), list(1000));
 
   //function alias
-  func<bool, String> ff = (bool b, [String s]) {};
+  func<bool, String> ff = (bool b, [String? s]) => "";
 
   // get/set
   value = 1;

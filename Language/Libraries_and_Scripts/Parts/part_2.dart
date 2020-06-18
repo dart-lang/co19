@@ -6,8 +6,8 @@ part of Parts_test_lib;
 
 foo() { return null; }
 int bar(int x, int y) { return x + y ; }
-List list(int iParam) { return new List(iParam); }
-_privateFunc() {return 0;}
+List list(int iParam) { return new List.filled(iParam, 0); }
+_privateFunc() { return 0; }
 
 typedef String func<B extends bool, S extends String>(B t, [S sParam]);
 

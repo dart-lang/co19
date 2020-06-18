@@ -13,7 +13,6 @@
  * contains an expression where a top-level definition is expected.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 library Parts_test_lib;

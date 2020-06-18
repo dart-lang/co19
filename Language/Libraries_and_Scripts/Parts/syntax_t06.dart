@@ -25,7 +25,6 @@
  * specified by the URI does not exist.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 library Parts_test_lib;

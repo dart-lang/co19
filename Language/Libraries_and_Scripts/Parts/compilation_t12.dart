@@ -13,7 +13,6 @@
  * URI are not a valid part declaration (missing semicolon in the part header).
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 library Parts_test_lib;

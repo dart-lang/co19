@@ -13,7 +13,6 @@
  * unit contains an import declaration.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 part "part_9.dart";

@@ -11,8 +11,8 @@
  * contents of the URI are not a valid part declaration.
  * @description Checks that the top level declarations at URI are compiled in
  * the scope of the current library (including private declarations).
+ * @Issue 42393
  * @author rodionov
- * @reviewer kaigorodov
  */
 library Parts_test_lib;
 import "../../../Utils/expect.dart";
@@ -27,13 +27,13 @@ main() {
   Expect.equals(33, bar(11,22));
 
   Expect.listEquals([], list(0));
-  Expect.listEquals(new List(101), list(101));
-  Expect.listEquals(new List(1000), list(1000));
+  Expect.listEquals(new List.filled(101, 0), list(101));
+  Expect.listEquals(new List.filled(1000, 0), list(1000));
 
   Expect.equals(0, _privateFunc());
 
   //function alias
-  func<bool, String> ff = (bool bParam, [String sParam]) {};
+  func<bool, String>? ff = (bool bParam, [String sParam = ""]) { throw ""; };
 
   // get/set
   value = 1;
@@ -44,14 +44,15 @@ main() {
   Expect.equals("foo", value);
   value = foo();
   Expect.equals(null, value);
-  value = [1,2,3,4];
+  value = [1, 2, 3, 4];
   Expect.listEquals([1,2,3,4], value);
 
   // variables
   Expect.equals(-100, i);
   Expect.equals(false, b);
   Expect.equals("string", s);
-  Expect.equals(const [0,1,2,3], l);
+  Expect.equals(const [0, 1, 2, 3], const [0, 1, 2, 3]);
+  Expect.equals(const [0, 1, 2, 3], l);
   Expect.equals(const {'a': 1, 'b': 2}, m);
   Expect.equals("One" "Two", e);
   Expect.equals('private', _private);

@@ -13,7 +13,6 @@
  * contains a statement where a top-level definition is expected.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 library Parts_test_lib;
 part "part_6.dart";

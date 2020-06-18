@@ -10,14 +10,10 @@
  * another library.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 library Parts_test_lib_not;
-import "../../../Utils/expect.dart";
 part "part_3.dart";
 
 main() {
-  new A();
-  value = 3;
-  Expect.equals(3, value);
+  A();
 }
