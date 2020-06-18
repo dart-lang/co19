@@ -21,12 +21,8 @@
  * missing entirely.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    for () {}
-  } catch (x) {}
+  for () {}
 }

@@ -20,8 +20,6 @@
  * @description Checks that various valid variations of the for statement
  * do not cause any errors.
  * @author rodionov
- * @reviewer iefremov
- * @reviewer msyabro
  */
 
 bool f() {return true;}

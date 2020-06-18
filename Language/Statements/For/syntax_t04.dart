@@ -21,11 +21,8 @@
  * enclosed in curly braces instead of parentheses.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
     for {;;}  {}
-  } catch (x) {}
 }

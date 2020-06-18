@@ -21,16 +21,13 @@
  * in a 'id in expression' is not a simple variable.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 class C {
-  int i;
+  int? i;
 }
 
 main() {
-  try {
-    C c = new C();
-    for (c.i in new List(100)) break;
-  } catch (x) {}
+  C c = new C();
+  for (c.i in List.filled(100, 0)) break;
 }

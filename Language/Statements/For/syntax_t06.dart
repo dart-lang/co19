@@ -21,12 +21,8 @@
  * the for statement does not end with a semicolon, even if empty.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    for ( ; ; )
-  } catch (x) {}
+  for ( ; ; )
 }

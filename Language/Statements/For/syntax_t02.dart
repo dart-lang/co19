@@ -21,12 +21,8 @@
  * enclosing the loop parts is missing.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    for ; ; ) {}
-  } catch (x) {}
+  for ; ; ) {}
 }

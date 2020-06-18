@@ -21,13 +21,9 @@
  * in a 'id in expression' loop variety contain more than one identifier.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    for ( var x, y in new List(10) ) break;
-  } catch (x) {}
+  for ( var x, y in List.filled(10, "") ) break;
 }
 

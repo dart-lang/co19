@@ -22,12 +22,10 @@
  * prior to the for statement.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {
-  for (l in new List(5)) {
+  for (l in List.filled(5, "")) {
     break;
   }
 }

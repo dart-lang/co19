@@ -21,12 +21,8 @@
  * in a 'id in expression' loop variety ends with a semicolon.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    for ( var l in new List(100); ) break;
-  } catch (x) {}
+  for ( var l in new List(100); ) break;
 }

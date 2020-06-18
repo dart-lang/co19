@@ -25,12 +25,10 @@
 import 'dart:async';
 
 class C {
-  int i;
+  int i = 0;
 }
 
 main() async {
-  try {
-    C c = new C();
-    await for (c.i in new Stream.fromIterable([1,2])) break;
-  } catch (x) {}
+  C c = new C();
+  await for (c.i in new Stream.fromIterable([1,2])) break;
 }
