@@ -14,12 +14,11 @@
  * control to the innermost enclosing loop statement and that all finally
  * clauses between them are executed in the innermost-clause-first order.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 
 main() {
-  List order = new List();
+  List order = [];
 
   L:
   do {

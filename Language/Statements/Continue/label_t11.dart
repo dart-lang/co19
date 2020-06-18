@@ -15,13 +15,10 @@
  * inclosing statement with label L.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    L: {
-      continue L;
-    }
-  } catch (x) {}
+  L: {
+    continue L;
+  }
 }

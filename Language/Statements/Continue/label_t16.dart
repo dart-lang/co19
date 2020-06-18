@@ -15,15 +15,12 @@
  * inclosing loop statement.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 
 main() {
-  try {
-    switch (1) {
-      case 1: continue;
-      default:
-    }
-  } catch (x) {}
+  switch (1) {
+    case 1: continue;
+    default:
+  }
 }

@@ -15,15 +15,11 @@
  * inclosing statement with label L.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 
 main() {
-  try {
-    L: if (true) {
-      continue L;
-    }
-  } catch (x) {}
+  L: if (true) {
+    continue L;
+  }
 }

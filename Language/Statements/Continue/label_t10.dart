@@ -15,16 +15,13 @@
  * is no another inclosing statement with label L.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 
 main() {
-  try {
-    L: try {
-      var x = 1;
-    } finally {
-      continue L;
-    }
-  } catch (x) {}
+  L: try {
+    var x = 1;
+  } finally {
+    continue L;
+  }
 }

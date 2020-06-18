@@ -15,7 +15,6 @@
  * and there is no inclosing statement with label L in this local function.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 

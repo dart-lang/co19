@@ -16,7 +16,6 @@
  * containing this continue statement.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 

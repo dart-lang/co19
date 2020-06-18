@@ -15,8 +15,6 @@
  * inclosing statement with label L.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 

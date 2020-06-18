@@ -15,7 +15,6 @@
  * statement.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 

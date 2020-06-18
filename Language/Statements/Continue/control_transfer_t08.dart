@@ -22,7 +22,7 @@ import '../../../Utils/expect.dart';
 import 'stream_utils.dart' as StreamUtils;
 
 test() async {
-  List log = new List();
+  List log = [];
   int i = 0;
 
   await for (String s in StreamUtils.makeStream(['a', 'b'])) {

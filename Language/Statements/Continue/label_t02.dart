@@ -15,16 +15,12 @@
  * label L.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    var counter = 10;
-    for (var i = 0 ; i < 5; ++i ) L: {
-      counter--;
-    }
-    continue L;
-  } catch (x) {}
+  var counter = 10;
+  for (var i = 0 ; i < 5; ++i ) L: {
+    counter--;
+  }
+  continue L;
 }

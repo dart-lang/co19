@@ -15,12 +15,11 @@
  * label.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 
 main() {
   while (true) {
-    () {continue;} ();
+    () { continue; } ();
   }
 }

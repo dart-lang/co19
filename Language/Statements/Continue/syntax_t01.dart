@@ -13,15 +13,11 @@
  * of the form 'contitue;' does not end with a semicolon.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 
 main() {
-  try {
-    do {
-      continue
-    } while (false);
-  } catch (x) {}
+  do {
+    continue
+  } while (false);
 }

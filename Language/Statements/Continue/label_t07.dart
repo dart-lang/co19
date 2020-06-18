@@ -15,21 +15,17 @@
  * is no another inclosing statement with label L.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 
 main() {
-  try {
-    var x = 1;
-    L:
-    switch (x) {
-      case 1:
-        x = 0;
-        continue L;
-      default:
-        x = 2;
-    }
-  } catch (x) {}
+  var x = 1;
+  L:
+  switch (x) {
+    case 1:
+      x = 0;
+      continue L;
+    default:
+      x = 2;
+  }
 }

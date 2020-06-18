@@ -14,7 +14,6 @@
  * in a case clause refers to another (previous) case clause of the same switch
  * statement.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

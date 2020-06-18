@@ -7,40 +7,39 @@
  */
 import 'dart:async';
 
-Stream makeStream(Iterable iterable, {Function beforeCancel():null}) {
+Stream makeStream(Iterable iterable, {Function? beforeCancel()?: null}) {
   Stream s = new Stream.fromIterable(iterable);
-
   return new _StreamWrapper(s, beforeCancel);
 }
 
 class _StreamWrapper extends Stream {
-  Stream _stream;
-  Function _beforeCancel;
+  late Stream _stream;
+  Function? _beforeCancel;
   _StreamWrapper(this._stream, this._beforeCancel);
 
   @override
-  StreamSubscription listen(void onData(event),
-      {Function onError, void onDone(), bool cancelOnError}) {
-    StreamSubscription s =_stream.listen(onData, onError:onError,
-        onDone:onDone, cancelOnError: cancelOnError);
+  StreamSubscription listen(void onData(event)?,
+  {Function? onError, void onDone()?, bool? cancelOnError}) {
+  StreamSubscription s =_stream.listen(onData, onError:onError,
+  onDone:onDone, cancelOnError: cancelOnError);
     return new _StreamSubscriptionWrapper(s, _beforeCancel);
   }
 }
 
 class _StreamSubscriptionWrapper implements StreamSubscription {
   StreamSubscription _streamSubscription;
-  Function _beforeCancel;
+  Function? _beforeCancel;
   _StreamSubscriptionWrapper(this._streamSubscription, this._beforeCancel);
 
   @override
-  Future/*<E>*/ asFuture/*<E>*/([var/*=E*/ futureValue]) {
+  Future<E> asFuture<E>([E? futureValue]) {
     return _streamSubscription.asFuture(futureValue);
   }
 
   @override
   Future cancel() {
     if (_beforeCancel != null) {
-      _beforeCancel();
+      (_beforeCancel as Function)();
     }
     return _streamSubscription.cancel();
   }
@@ -49,22 +48,22 @@ class _StreamSubscriptionWrapper implements StreamSubscription {
   bool get isPaused => _streamSubscription.isPaused;
 
   @override
-  void onData(void handleData(data)) {
+  void onData(void handleData(data)?) {
     _streamSubscription.onData(handleData);
   }
 
   @override
-  void onDone(void handleDone()) {
+  void onDone(void handleDone()?) {
     _streamSubscription.onDone( handleDone);
   }
 
   @override
-  void onError(Function handleError) {
+  void onError(Function? handleError) {
     _streamSubscription.onError(handleError);
   }
 
   @override
-  void pause([Future resumeSignal]) {
+  void pause([Future? resumeSignal]) {
     _streamSubscription.pause(resumeSignal);
   }
 
