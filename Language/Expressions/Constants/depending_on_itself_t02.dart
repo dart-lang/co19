@@ -12,15 +12,15 @@
  */
 
 const a1 = a10; //# 01: compile-time error
-const a2 = a1;  //# 02: compile-time error
-const a3 = a2;  //# 03: compile-time error
-const a4 = a3;  //# 04: compile-time error
-const a5 = a4;  //# 05: compile-time error
-const a6 = a5;  //# 06: compile-time error
-const a7 = a6;  //# 07: compile-time error
-const a8 = a7;  //# 08: compile-time error
-const a9 = a8;  //# 09: compile-time error
-const a10 = a9; //# 10: compile-time error
+const a2 = a1;  //# 01: continued
+const a3 = a2;  //# 01: continued
+const a4 = a3;  //# 01: continued
+const a5 = a4;  //# 01: continued
+const a6 = a5;  //# 01: continued
+const a7 = a6;  //# 01: continued
+const a8 = a7;  //# 01: continued
+const a9 = a8;  //#01: continued
+const a10 = a9; //# 01: continued
 
 main() {
 }
