@@ -15,8 +15,6 @@
  * type arguments appears in a place where a statement is expected.
  * @description Checks that literals other than map can be used as statements.
  * @author kaigorodov
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {

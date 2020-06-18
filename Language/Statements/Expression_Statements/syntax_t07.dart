@@ -17,9 +17,8 @@
  * used as a statement.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  {"foo": "bar"};
+  { "foo": "bar" };
 }

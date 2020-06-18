@@ -16,8 +16,6 @@
  * @description Checks that an expression statement must end with a semicolon.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {

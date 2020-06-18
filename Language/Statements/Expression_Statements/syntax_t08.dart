@@ -16,7 +16,6 @@
  * @description Checks that it is not a compile-time error when a map literal
  * with explicit type arguments or a constant one is used as a statement.
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {

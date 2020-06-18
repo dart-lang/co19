@@ -16,7 +16,6 @@
  * @description Checks that an empty expression statement consisting just a
  * semicolon is perfectly valid.
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {

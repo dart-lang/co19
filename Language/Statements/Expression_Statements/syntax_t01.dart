@@ -16,8 +16,6 @@
  * @description Checks that execution of an expression statement e; proceeds by
  * evaluating e.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

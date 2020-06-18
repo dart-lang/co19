@@ -18,10 +18,9 @@
  * also it's only a part of the whole expression.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try { {"1": 1, "2": 2}["1"] = 0; } catch (e) {}
-  try { {"1": 1, "2": 2}.isEmpty == false; } catch (e) {}
+  {"1": 1, "2": 2}["1"] = 0;            //# 01: compile-time error
+  {"1": 1, "2": 2}.isEmpty == false; }  //# 02: compile-time error
 }

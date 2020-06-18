@@ -15,8 +15,6 @@
  * type arguments appears in a place where a statement is expected.
  * @description Checks that a function expression can form a statement.
  * @author kaigorodov
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {

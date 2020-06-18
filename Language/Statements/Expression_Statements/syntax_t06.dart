@@ -36,7 +36,7 @@ class C extends D{
     const []; //list
     []; //list
     const <int>[];
-    <C>[new C(), new C(), null];
+    <C?>[new C(), new C(), null];
     [[], [], [[]]];
     [[], [{}], [[{}], {}]];
     x = [];
@@ -156,7 +156,7 @@ main() {
   j = 1;
 
   //getter invocation
-  j = g;
+  int? jj = g;
 
   //function expression invocation
   () {}();
