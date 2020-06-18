@@ -14,7 +14,6 @@
  * part directive consists of two adjacent multi-line string literals
  * instead of one.
  * @author rodionov
- * @reviewer kaigorodov
  */
 library SomeLibrary;
 part '''part''' '''.dart''';

@@ -13,7 +13,6 @@
  * @description Checks that it is not an error to use a multi-line string
  * literal as a URI in an export directive.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "syntax_t06_lib.dart";
 

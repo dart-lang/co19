@@ -13,7 +13,6 @@
  * @description Checks that it is not a compile-time error when the URI in an
  * import directive consists of two adjacent multi-line string literals.
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import '''library1''' '''.dart''';

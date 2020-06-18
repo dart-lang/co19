@@ -13,7 +13,6 @@
  * @description Checks that it is not an error to use a raw string literal
  * as a URI in a part directive.
  * @author rodionov
- * @reviewer kaigorodov
  */
 library SomeLibrary;
 part r"part.dart";

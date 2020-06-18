@@ -13,7 +13,6 @@
  * @description Checks that it is not an error to use a multi-line string
  * literal as a URI in an import directive.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import """library1.dart""";
 

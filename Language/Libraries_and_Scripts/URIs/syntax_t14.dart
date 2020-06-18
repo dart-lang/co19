@@ -13,7 +13,6 @@
  * @description Checks that it is not a compile-time error when the URI in a
  * part directive consists of two adjacent string literals instead of one.
  * @author rodionov
- * @reviewer kaigorodov
  */
 library SomeLibrary;
 part "part" ".dart";
