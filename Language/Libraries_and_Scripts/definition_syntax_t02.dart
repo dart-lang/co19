@@ -24,9 +24,6 @@
  * @description Checks that only the library name is required for a library
  * and other directives and definitions can be omitted.
  * @author vasya
- * @reviewer hlodvig
- * @reviewer msyabro
- * @reviewer rodionov
  */
 
 import "definition_syntax_t02_lib.dart";

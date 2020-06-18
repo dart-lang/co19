@@ -25,13 +25,10 @@
  * an additive expression rather than an identifier.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 import "definition_syntax_t21_lib.dart";
 
 main() {
-  try {
-    var someVar = 0;
-  } catch (e) {}
+  var someVar = 0;
 }

@@ -25,14 +25,10 @@
  * is missing the library name.
  * @compile-error
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 
 import "definition_syntax_t18_lib.dart";
 
 main() {
-  try {
-    var someVar = 0;
-  } catch (e) {}
+  var someVar = 0;
 }

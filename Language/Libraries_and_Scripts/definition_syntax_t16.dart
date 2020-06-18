@@ -25,8 +25,6 @@
  * does not end with a semicolon.
  * @compile-error
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 
 import "definition_syntax_t16_lib.dart";

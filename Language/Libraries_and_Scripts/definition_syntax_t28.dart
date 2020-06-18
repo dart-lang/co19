@@ -25,13 +25,10 @@
  * is not a valid identifier (starts with a digit).
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 library 13_Libraries_and_Scripts_A03_t16_lib;
 
 main() {
-  try {
-    var someVar = 1;
-  } catch (e) {}
+  var someVar = 1;
 }

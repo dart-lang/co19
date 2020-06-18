@@ -25,13 +25,10 @@
  * is not a valid identifier (contains non-latin characters).
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "definition_syntax_t29_lib.dart";
 
 main() {
-  try {
-    var someVar = 1;
-  } catch (e) {}
+  var someVar = 1;
 }

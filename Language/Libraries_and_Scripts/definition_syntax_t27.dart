@@ -25,13 +25,10 @@
  * is not a valid identifier (starts with a digit).
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "definition_syntax_t27_lib.dart";
 
 main() {
-  try {
-    var someVar = 1;
-  } catch (e) {}
+  var someVar = 1;
 }

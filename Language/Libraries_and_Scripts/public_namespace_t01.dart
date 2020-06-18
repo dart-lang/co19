@@ -12,8 +12,6 @@
  * introduced by all top level declaration in L, and the names added by L's
  * import.
  * @author vasya
- * @reviewer rodionov
- * @reviewer msyabro
  */
 
 import "public_namespace_t01_lib.dart";

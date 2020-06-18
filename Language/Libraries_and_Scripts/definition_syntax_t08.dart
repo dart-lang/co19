@@ -25,13 +25,10 @@
  * comes before an import directive.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 import "definition_syntax_t08_lib.dart";
 
 main() {
-  try {
-    var someVar = 1;
-  } catch (e) {}
+  var someVar = 1;
 }

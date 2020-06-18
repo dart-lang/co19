@@ -25,13 +25,10 @@
  * enclosed in double quotes.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "definition_syntax_t19_lib.dart";
 
 main() {
-  try {
-    var someVar = 1;
-  } catch (e) {}
+  var someVar = 1;
 }

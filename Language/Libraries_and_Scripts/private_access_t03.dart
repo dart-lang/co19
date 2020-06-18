@@ -12,8 +12,6 @@
  * outside L results in a compile error.
  * @compile-error
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "private_access_t03_lib.dart" as lib;
 

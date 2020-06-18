@@ -23,13 +23,10 @@
  * name of the library.
  * @description Checks that the library name can be a qualified identifier
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 library Libraries.and.Scripts.A03.t18.lib;
 
 main() {
-  try {
-    var someVar = 1;
-  } catch (e) {}
+  var someVar = 1;
 }

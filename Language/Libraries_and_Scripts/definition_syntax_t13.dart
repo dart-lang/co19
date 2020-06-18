@@ -24,7 +24,6 @@
  * @description Checks that valid library directives (according to the spec)
  * do not cause compile-time errors.
  * @author msyabro
- * @reviewer rodionov
  */
 
 import "definition_syntax_t13_p1.dart" as lib1;

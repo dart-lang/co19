@@ -25,13 +25,10 @@
  * before the library name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "definition_syntax_t04_lib.dart";
 
 main() {
-  try {
-    var someVar = 1;
-  } catch (e) {}
+  var someVar = 1;
 }

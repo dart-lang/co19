@@ -13,7 +13,6 @@
  * compile error.
  * @compile-error
  * @author vasya
- * @reviewer msyabro
  */
 import "private_access_t04_lib.dart" as lib;
 

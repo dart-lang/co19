@@ -25,8 +25,6 @@
  * @description Checks that a library containing correct top level definitions
  * is parsed without errors.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 
 import "top_level_syntax_t01_lib.dart";
@@ -42,7 +40,7 @@ main() {
   h('', "");
 
   typeF funcF = () => 1;
-  typeG funcG = () {};
+  typeG funcG = () { return 0; };
   typeH funcH = (p1, p2) {};
 
   x;

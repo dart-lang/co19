@@ -25,14 +25,10 @@
  * enclosed in parentheses.
  * @compile-error
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 
 import "definition_syntax_t15_lib.dart";
 
 main() {
-  try {
-    var someVar = 1;
-  } catch (e) {}
+  var someVar = 1;
 }

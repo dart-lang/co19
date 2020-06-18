@@ -23,13 +23,10 @@
  * name of the library.
  * @description Checks valid library definitions with metadata.
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 import "definition_syntax_t14_lib.dart";
 
 main() {
-  try {
-    var someVar = 1;
-  } catch (e) {}
+  var someVar = 1;
 }

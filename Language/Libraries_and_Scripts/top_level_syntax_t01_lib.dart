@@ -26,7 +26,7 @@ final x = 'x';
 String y = 'y';
 var z;
 
-int a, b, c = 1;
+int? a, b, c = 1;
 
 get getX {}
 set setY(p) {}

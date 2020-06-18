@@ -26,13 +26,10 @@
  * definition in a library.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 import 'top_level_syntax_t17_lib.dart';
 
 main() {
-  try {
-    var someVar = '';
-  } catch (e) {}
+  var someVar = '';
 }

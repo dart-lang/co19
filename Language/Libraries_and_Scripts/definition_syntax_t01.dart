@@ -25,13 +25,10 @@
  * two library definitions with the same identifier.
  * @compile-error
  * @author vasya
- * @reviewer msyabro
  */
 
 import "definition_syntax_t01_lib.dart";
 
 main() {
-  try {
-    var someVar = 1;
-  } catch (e) {}
+  var someVar = 1;
 }
