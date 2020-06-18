@@ -17,7 +17,6 @@ library Script_A01_t01;
  * comes before the script tag.
  * @compile-error
  * @author vasya
- * @reviewer msyabro
  */
 
 main() {

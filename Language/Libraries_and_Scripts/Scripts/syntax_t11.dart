@@ -14,8 +14,6 @@
  * @description Checks that a script is parsed without errors
  * if all allowed directives are present and in the correct order.
  * @author vasya
- * @reviewer rodionov
- * @reviewer msyabro
  */
 
 

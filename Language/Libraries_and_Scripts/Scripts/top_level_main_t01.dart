@@ -11,7 +11,6 @@
  * top level function main()
  * @runtime-error
  * @author vasya
- * @reviewer msyabro
  */
 
 library Script_without_main;

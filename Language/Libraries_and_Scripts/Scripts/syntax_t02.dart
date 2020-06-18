@@ -16,7 +16,6 @@ part "../Parts/part_0.dart";
  * comes before the script tag.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {

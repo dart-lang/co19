@@ -12,9 +12,7 @@
  * https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/dart-isolate.Isolate
  * Fixes in the lang spec pending (see dart bug #14530)
  * @author vasya
- * @reviewer msyabro
  */
-import "../../../Utils/expect.dart";
 
 main(x, y) {
   print("x=${x.runtimeType} $x");

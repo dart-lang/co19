@@ -14,7 +14,6 @@
  * @description Checks that it is not an error when a script (with a script tag)
  * includes an export directive.
  * @author rodionov
- * @reviewer kaigorodov
  */
 export "library1.dart";
 

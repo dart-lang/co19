@@ -15,7 +15,6 @@
  * comes before the library name.
  * @compile-error
  * @author vasya
- * @reviewer msyabro
  */
 
 part "../Parts/part_0.dart";

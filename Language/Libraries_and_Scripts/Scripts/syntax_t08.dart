@@ -15,7 +15,6 @@
  * comes before an import directive.
  * @compile-error
  * @author vasya
- * @reviewer msyabro
  */
 
 part "../Parts/part_0.dart";

@@ -27,7 +27,6 @@
  * is used in place of a top level definition in a script.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 class C {}
@@ -35,7 +34,5 @@ class C {}
 class D {}
 
 main() {
-  try {
-    new D();
-  } catch (e) {}
+  D();
 }

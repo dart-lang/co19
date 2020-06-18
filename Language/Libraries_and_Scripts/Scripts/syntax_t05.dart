@@ -15,7 +15,6 @@
  * comes before the library name.
  * @compile-error
  * @author vasya
- * @reviewer msyabro
  */
 
 import "library1.dart";

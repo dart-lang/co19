@@ -26,7 +26,6 @@
  * @description Checks that a script with valid top level definitions is parsed
  * without errors.
  * @author msyabro
- * @reviewer rodionov
  */
 
 abstract class I {}
@@ -55,7 +54,8 @@ final x = 'x';
 String y = 'y';
 var z;
 
-int a, b, c = 1;
+int? a, b;
+int c = 1;
 
 get _x {}
 set _y(p) {}
@@ -71,7 +71,7 @@ main() {
   h('', "");
 
   typeF funcF = () => 1;
-  typeG funcG = () {};
+  typeG funcG = () { throw "Error"; };
   typeH funcH = (p1, p2) {};
 
   x;

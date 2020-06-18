@@ -13,8 +13,6 @@
  * @description Checks that script is a library and it is possible to import it
  * with a prefix.
  * @author vasya
- * @reviewer rodionov
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

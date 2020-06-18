@@ -27,7 +27,6 @@
  * character is used in place of a top level definition in a script.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 final x = 1;
@@ -35,7 +34,5 @@ final x = 1;
 var y = 2;
 
 main() {
-  try {
-    y = 3;
-  } catch (e) {}
+  y = 3;
 }

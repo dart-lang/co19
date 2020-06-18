@@ -15,7 +15,6 @@
  * library directives.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 library L;

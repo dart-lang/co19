@@ -15,14 +15,11 @@
  * definition (an interface declaration) comes before the library name.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 abstract class I {}
 library Script_A01_t09;
 
 main() {
-  try {
-    new I();
-  } catch (e) {}
+  I();
 }

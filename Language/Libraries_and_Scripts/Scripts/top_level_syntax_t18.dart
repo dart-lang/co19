@@ -28,7 +28,6 @@
  * level definition in a script.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 f1() {}

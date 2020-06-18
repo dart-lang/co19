@@ -10,9 +10,7 @@
  * @description Checks that it is not a run time error if S exports a top level
  * function main().
  * @author vasya
- * @reviewer msyabro
  */
 
-import "library4.dart";
 export "library4.dart";
 

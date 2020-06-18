@@ -17,11 +17,8 @@ class C {}
  * definition (a class declaration) comes before the script tag.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    new C();
-  } catch (e) {}
+  C();
 }

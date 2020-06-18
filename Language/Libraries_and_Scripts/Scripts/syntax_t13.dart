@@ -17,7 +17,6 @@
  * script tags.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {

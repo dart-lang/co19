@@ -15,17 +15,13 @@
  * declaration comes before a part directive.
  * @compile-error
  * @author vasya
- * @reviewer msyabro
  */
 library Script_A01_t14;
-import "../../../Utils/expect.dart";
 import "library1.dart";
 
 final int script = 1; // error
 part "../Parts/part_0.dart";
 
 main() {
-  try {
-    Expect.equals(1, script);
-  } catch (e) {}
+  print(script);
 }
