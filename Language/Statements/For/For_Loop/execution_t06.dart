@@ -19,7 +19,6 @@
  * @description Checks that the expression [v''/v]e is evaluated at the end of
  * each iteration, and the process recurses.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../../Utils/expect.dart';
 
@@ -28,7 +27,7 @@ main() {
   for (var i = 0; i < 10; i++, count += i) {}
   Expect.equals(55, count);
 
-  int foo;
+  int? foo;
   for (var i = 0; i < 10; foo = i % 3, i++) {
     if (i > 0) { // e is not evaluated before the first iteration
       Expect.equals((i - 1) % 3, foo);

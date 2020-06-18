@@ -19,8 +19,6 @@
  * @description Checks that if expression [v'/v]c is evaluated and the result is
  * true, the execution continues at step 3.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../../Utils/expect.dart';
 

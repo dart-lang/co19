@@ -19,7 +19,6 @@
  * @description Checks that if c is not empty then it is evaluated every
  * iteration using the current value of iteration variable.
  * @author iefremov
- * @reviewer rodionov
  */
 import '../../../../Utils/expect.dart';
 

@@ -20,14 +20,13 @@
  * every iteration of the loop by creating a closure for each one and calling
  * it after the loop completes.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../../Utils/expect.dart';
 
 typedef int foo();
 
 main() {
-  List<foo> closures = new List<foo>();
+  List<foo> closures = <foo>[];
   for (int i = 0; i < 10; i++) {
     closures.add(() => i);
   }

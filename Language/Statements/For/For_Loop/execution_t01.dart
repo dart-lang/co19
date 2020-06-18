@@ -18,8 +18,6 @@
  * 5. The expression [v''/v]e is evaluated, and the process recurses at step 1.
  * @description Checks that a missing c expression is equivalent to 'true'.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../../Utils/expect.dart';
 

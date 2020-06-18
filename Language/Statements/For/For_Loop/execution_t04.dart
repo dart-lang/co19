@@ -19,8 +19,6 @@
  * @description Checks that the loop completes if the result of evaluating
  * [v'/v]c is false.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../../Utils/expect.dart';
 

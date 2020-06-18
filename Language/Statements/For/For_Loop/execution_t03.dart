@@ -19,8 +19,6 @@
  * @description Checks that the variable declaration statement var v = e0 is
  * executed first.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../../Utils/expect.dart';
 

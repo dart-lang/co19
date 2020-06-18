@@ -18,14 +18,15 @@
  * 5. The expression [v''/v]e is evaluated, and the process recurses at step 1.
  * @description Checks that assertion error is raised if c is null.
  * @author rodionov
- * @reviewer iefremov
  */
 
 import '../../../../Utils/dynamic_check.dart';
 
+dynamic getNull() => null;
+
 main() {
   checkTypeError( () {
-    for ( var i = 0; null; i++) {
+    for ( var i = 0; getNull(); i++) {
       break;
     }
   });

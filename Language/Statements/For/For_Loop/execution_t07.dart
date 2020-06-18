@@ -19,8 +19,6 @@
  * @description Checks that it is a compile error if c is not of type bool.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {
