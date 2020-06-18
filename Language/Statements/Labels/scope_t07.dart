@@ -9,7 +9,6 @@
  * @description Checks that it is not an error when the same label identifier is
  * used with more than one statement within the same lexical scope.
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {

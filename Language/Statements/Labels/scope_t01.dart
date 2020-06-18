@@ -9,7 +9,6 @@
  * @description Checks that separate (not nested) statements may have labels
  * with the same name.
  * @author rodionov
- * @reviewer iefremov
  */
 
 foo() {}

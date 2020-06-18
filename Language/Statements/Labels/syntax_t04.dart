@@ -16,13 +16,9 @@
  * is empty.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 
 main() {
-  try {
-    : while (true) { break L; }
-  } catch (x) {}
+  : while (true) { break L; }
 }

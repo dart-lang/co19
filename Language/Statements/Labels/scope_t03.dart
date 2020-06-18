@@ -9,11 +9,10 @@
  * @description Checks that a label can't be referenced outside of its statement.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  L: for (int i in [1,2]) {
+  L: for (int i in [1, 2]) {
     break M:
   }
 

@@ -9,7 +9,6 @@
  * @description Checks that it is not an error when the same label identifier is
  * used with case clauses of two unrelated switch statements.
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {

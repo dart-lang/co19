@@ -16,7 +16,6 @@
  * wrong context (next to a class member declaration).
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
@@ -24,8 +23,4 @@ class C {
   Label: int i;
 }
 
-main() {
-  try {
-    new C();
-  } catch (x) {}
-}
+main() {}

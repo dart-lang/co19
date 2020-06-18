@@ -10,7 +10,6 @@
  * statement can override a label from the enclosing scope by using the same
  * identifier.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

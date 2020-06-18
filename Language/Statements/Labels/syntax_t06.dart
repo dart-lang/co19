@@ -16,7 +16,6 @@
  * wrong context (next to a top-level declaration).
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 Label:

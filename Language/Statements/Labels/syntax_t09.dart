@@ -16,7 +16,6 @@
  * wrong context (next to an import declaration).
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 Label: import '../../../Utils/dynamic_check.dart';

@@ -16,7 +16,6 @@
  * the grammar in ch.11).
  * @author iefremov
  * @issue 2238
- * @reviewer kaigorodov
  */
 
 main() {

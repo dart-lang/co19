@@ -9,7 +9,6 @@
  * @description Checks that it is not an error if there's a label that uses the
  * same identifier as a class, function or variable.
  * @author rodionov
- * @reviewer iefremov
  */
 
 Label1() {}

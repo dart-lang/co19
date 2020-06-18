@@ -15,7 +15,6 @@
  * @description Checks that it is not a compile-time error when a label is used
  * next to all kinds of statements.
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {

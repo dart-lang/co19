@@ -10,7 +10,6 @@
  * the same switch statement have labels with the same identifier.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
