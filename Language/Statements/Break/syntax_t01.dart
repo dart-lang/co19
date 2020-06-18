@@ -13,15 +13,11 @@
  * does not end with a semicolon.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 
 main() {
-  try
-    for ( ; ; ) {
-      break
-    }
-  } catch (x) {}
+  for ( ; ; ) {
+    break
+  }
 }

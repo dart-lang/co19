@@ -13,7 +13,6 @@
  * the form "break;" is not enclosed in a do, for, switch or while statement.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 
@@ -22,7 +21,7 @@ foo() {
 }
 
 main() {
-  for (int i in [1,2]) {
+  for (int i in [1, 2]) {
     foo();
   }
 }

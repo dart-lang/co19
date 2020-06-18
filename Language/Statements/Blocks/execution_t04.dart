@@ -11,8 +11,6 @@
  * is missing the opening bracket.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {

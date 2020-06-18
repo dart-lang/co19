@@ -11,7 +11,6 @@
  * ;
  * @description Checks that a break statement can reference its own label.
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 

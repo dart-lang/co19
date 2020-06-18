@@ -12,7 +12,6 @@
  * the enclosing labeled statement and that all finally clauses between them are
  * executed in the innermost-clause-first order.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

@@ -10,8 +10,6 @@
  * @description Checks that contents of a block statement are executed
  * sequentially from top to bottom.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

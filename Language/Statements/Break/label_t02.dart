@@ -13,11 +13,10 @@
  * the form "break L;" occurs outside of a labeled statement.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 foo() {
-  for (int i in [1,2]) {
+  for (int i in [1, 2]) {
     break L;
   }
 }

@@ -10,8 +10,6 @@
  * @description Checks that it is not an error if a block statement has empty
  * contents.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {

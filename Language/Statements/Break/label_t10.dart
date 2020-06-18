@@ -13,18 +13,13 @@
  * the specified identifier in an enclosing scope.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 
 main() {
-  try {
-    L:
-    for (int i in [1,2]) {
-    }
-
-    do {
-      break L;
-    } while (false);
-  } catch (x) {}
+  L:
+  for (int i in [1,2]) {}
+  do {
+    break L;
+  } while (false);
 }

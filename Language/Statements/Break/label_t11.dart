@@ -14,11 +14,10 @@
  * within the innermost function.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 main() {
-  for (int i in [1,2]) {
-    () {break;} ();
+  for (int i in [1, 2]) {
+    () { break; } ();
   }
 }

@@ -13,8 +13,6 @@
  * the form "break;" is not enclosed in a do, for, switch or while statement.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {
