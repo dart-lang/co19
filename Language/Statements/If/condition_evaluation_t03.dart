@@ -11,13 +11,14 @@
  * @description Checks that it an AssertionError (see  Boolean conversion)
  * is thrown if the expression evaluates to null.
  * @author a.semenov@unipro.ru
- * @reviewer rodionov
  */
 import '../../../Utils/dynamic_check.dart';
 
+dynamic getNull() => null;
+
 main() {
   checkTypeError( () {
-    if (null) {
+    if (getNull()) {
       var i = "hello";
     }
   });

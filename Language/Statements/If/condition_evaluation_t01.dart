@@ -12,13 +12,10 @@
  * evaluate to a value of type bool.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
-import '../../../Utils/expect.dart';
 
 main() {
   var o = 1;
   var i = null;
-  if (o) {i = "hello";}
-  Expect.isNull(i);
+  if (o) { i = "hello"; }
 }

@@ -13,8 +13,6 @@
  * converts to the boolean true, then the statement s1 is executed.
  * Boolean true constant is tested as well as various comparison expressions.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

@@ -9,8 +9,6 @@
  * @description Checks that the result of executing an if statement with and
  * without an empty else clause is the same.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

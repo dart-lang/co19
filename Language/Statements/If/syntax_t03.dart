@@ -12,8 +12,6 @@
  * missing.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {

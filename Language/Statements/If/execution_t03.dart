@@ -17,33 +17,27 @@ import '../../../Utils/expect.dart';
 
 main() {
   {
-  var x = 1;
-
-  if (true)
-    var x = 2;
-
-  Expect.equals(1,x);
+   var x = 1;
+   if (true)
+     var x = 2;
+    Expect.equals(1,x);
   }
 
   {
-  var x = 1;
-
-  if (false)
-    var x = 2;
-  else
-    var x = 3;
-
-  Expect.equals(1,x);
+    var x = 1;
+    if (false)
+      var x = 2;
+    else
+        var x = 3;
+    Expect.equals(1,x);
   }
 
   {
-  var x = 1;
-
-  if (false)
-    var x = 2;
-  else
-    Expect.equals(1, x);
-
-  Expect.equals(1,x);
+    var x = 1;
+    if (false)
+      var x = 2;
+    else
+      Expect.equals(1, x);
+    Expect.equals(1,x);
   }
 }

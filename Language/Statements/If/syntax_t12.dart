@@ -11,7 +11,6 @@
  * @description Checks that nested if-else statements are allowed and work
  * correctly with single if nested into the single if.
  * @author hlodvig
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 
