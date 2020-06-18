@@ -9,8 +9,6 @@
  * @description Checks that contents of a documentation comment have no effect
  * on the actual code's execution.
  * @author hlodvig
- * @reviewer iefremov
- * @needsreview issue 2459
  */
 import "../../../../Utils/expect.dart";
 

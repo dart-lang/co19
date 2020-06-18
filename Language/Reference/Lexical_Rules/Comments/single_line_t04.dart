@@ -14,7 +14,6 @@
  * line a comment as well.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 // single

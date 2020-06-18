@@ -13,7 +13,6 @@
  * @description Checks that the nesting of multi-line comments is allowed and
  * there doesn't need to be whitespace between adjacent start/end tokens.
  * @author vasya
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

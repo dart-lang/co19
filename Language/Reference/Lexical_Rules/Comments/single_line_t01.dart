@@ -14,7 +14,6 @@
  * a single-line comment.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 /  Invalid code

@@ -13,7 +13,6 @@
  * @description Checks that everything between '/*' and '*/' is ignored by
  * the Dart compiler.
  * @author vasya
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 
@@ -32,7 +31,7 @@ main() {
   var bar /* set value to -100*/=-100;
   Expect.equals(-100, bar);
 
-  List l = new List(/* set length to 5*/5);
+  List l = new List.filled(/* set length to 5*/5, [3, 1, 4, 1, 5]);
   Expect.equals(5, l.length);
 
   l[0/* init this value to 'String' */] = "String";

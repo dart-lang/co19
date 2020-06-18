@@ -9,10 +9,7 @@
  * @description Checks that the nesting of documentation comments is allowed and
  * there doesn't need to be whitespace between adjacent start/end tokens.
  * @author rodionov
- * @reviewer iefremov
  */
-
-import "../../../../Utils/expect.dart";
 
 /**
   Main comment
@@ -25,5 +22,4 @@ import "../../../../Utils/expect.dart";
 */
 
 main() {
-  Expect.equals(true, true);
 }

@@ -10,7 +10,6 @@
  * more slashes does not make a documentation comment token.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 / // Documentation comment

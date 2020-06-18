@@ -13,7 +13,6 @@
  * @description Checks that everything between '/*' and '*/' is ignored by
  * the Dart compiler.
  * @author vasya
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

@@ -14,7 +14,6 @@
  * multi-line comment end token inside another multi-line comment.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 /*

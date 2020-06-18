@@ -10,7 +10,6 @@
  * whitespace do not make a documentation comment end token.
  * @author vasya
  * @compile-error
- * @reviewer rodionov
  */
 
 /**

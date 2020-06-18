@@ -10,7 +10,6 @@
  * documentation comment start token inside another documentation comment.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 /**

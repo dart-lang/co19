@@ -13,7 +13,6 @@
  * @description Checks that unicode escape sequences in single-line comments
  * are not converted to their corresponding characters.
  * @author hlodvig
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

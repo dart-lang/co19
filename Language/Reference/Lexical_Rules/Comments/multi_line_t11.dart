@@ -13,7 +13,6 @@
  * @description Checks that unicode symbols, including non-CRLF line breaks are
  * completely ignored within comments.
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {

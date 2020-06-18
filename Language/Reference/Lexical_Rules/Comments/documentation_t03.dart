@@ -11,7 +11,6 @@
  * single- and multi-line comment start tokens.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 /** Documentation comment

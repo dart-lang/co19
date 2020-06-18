@@ -14,7 +14,6 @@
  * whitespace do not make a multi-line comment start token.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 / *  Comment

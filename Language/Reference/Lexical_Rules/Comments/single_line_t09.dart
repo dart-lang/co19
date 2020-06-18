@@ -13,7 +13,6 @@
  * @description Checks that single-line comment start tokens inside a multi-line
  * comment are ignored.
  * @author hlodvig
- * @reviewer rodionov
  */
 import "../../../../Utils/expect.dart";
 

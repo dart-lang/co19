@@ -14,7 +14,6 @@
  * is contained in a single-line comment.
  * @compile-error
  * @author hlodvig
- * @reviewer rodionov
  */
 
 main() {

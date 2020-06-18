@@ -9,8 +9,6 @@
  * @description Checks that it is a compile-time error when there is an unpaired
  * multi-line comment start token inside a documentation comment.
  * @compile-error
- * @author rodionov
- * @reviewer iefremov
  */
 
 /**

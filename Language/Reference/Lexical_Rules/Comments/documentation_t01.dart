@@ -11,7 +11,6 @@
  * of comment).
  * @author vasya
  * @compile-error
- * @reviewer rodionov
  */
 
 /
