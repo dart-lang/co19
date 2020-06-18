@@ -17,7 +17,6 @@
  * expression e is a map literal.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {

@@ -17,8 +17,6 @@
  * expression e evaluates to a function that returns a String value.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 String foo() { return "foo"; }

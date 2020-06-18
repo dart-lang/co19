@@ -9,8 +9,8 @@
  * @description Checks that it is a compile error if the type of e is int.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
+
 main() {
   int foo = 1;
   assert (foo);

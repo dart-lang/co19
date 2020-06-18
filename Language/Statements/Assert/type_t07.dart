@@ -10,7 +10,6 @@
  * of e is Function (conditional expression).
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {

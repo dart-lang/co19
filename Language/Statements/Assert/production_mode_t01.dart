@@ -4,20 +4,21 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The assert statement has no effect in production mode.
- * @description Checks that the assert statement has no effect in production
- * mode.
+ * @assertion When assertions are not enabled, execution of an assertion
+ * immediately completes normally
+ * @description Checks that the assert statement has no effect if assertions are
+ * disabled.
  * @author vasya
  */
+// SharedOptions=--enable-asserts=false
 
 import '../../../Utils/expect.dart';
 
 bool check() {
   Expect.fail("assert expression should not be evaluated");
+  return false;
 }
 
 main() {
-  // TODO check if assert is effective
-  assert (false);
   assert(check());
 }

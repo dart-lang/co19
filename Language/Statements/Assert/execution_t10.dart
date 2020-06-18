@@ -20,7 +20,7 @@
  * @author vasya
  */
 
-bar() {return 1;}
+bar() => 1;
 
 main() {
   assert (bar);

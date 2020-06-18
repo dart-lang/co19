@@ -10,7 +10,6 @@
  * () -> int.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 int foo() { return 1; }
 

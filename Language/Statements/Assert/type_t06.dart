@@ -9,7 +9,6 @@
  * @description Checks that it is a compile error if the type of e is num.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 bool foo() {return true;}
 

@@ -17,8 +17,6 @@
  * expression e evaluates to a string.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {

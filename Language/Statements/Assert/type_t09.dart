@@ -4,10 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a static type warning if the type of e may not be assigned
- * to either bool or () -> bool.
- * @description Checks that it is not a static type warning if the static type
- * of e is Object (conditional expression).
+ * @assertion It is a compile-time error if the type of [c] may not be assigned
+ * to [bool].
+ * @description Checks that it is a compile type error if [c] may not be
+ * assignable to [bool].
+ * @compile-error
  * @author ngl@unipro.ru
  */
 

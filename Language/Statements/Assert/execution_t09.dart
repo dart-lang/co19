@@ -15,12 +15,9 @@
  * complete. If the assertion failed, an AssertionError is thrown.
  * @description Checks that an AssertionError is thrown if the assertion fails.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
-import '../../../Utils/dynamic_check.dart';
+import '../../../Utils/Expect.dart';
 
 main() {
-  // TODO check if assert is effective
-  checkTypeError(() { assert (false); });
+  Expect.throws(() { assert(false); }, (e) => e is AssertionError);
 }

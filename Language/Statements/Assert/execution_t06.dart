@@ -18,7 +18,6 @@
  * value of type bool.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef bool boolfunc();
