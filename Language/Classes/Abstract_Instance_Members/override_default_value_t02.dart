@@ -10,15 +10,16 @@
  * m2, the signature of m2 explicitly specifies a default value for a formal
  * parameter p and the signature of m1 specifies a different default value for
  * p.
- * @description Checks that it is a static warning if an abstract method
+ * @description Checks that it is no static warning if an abstract method
  * overrides an instance method and does not explicitly specify a default value
  * for its optional parameter while the instance method does.
  *
- * See https://github.com/dart-lang/sdk/issues/34437#issuecomment-432093691
+ * See
+ * https://github.com/dart-lang/sdk/issues/34437#issuecomment-432093691
+ * https://github.com/dart-lang/sdk/issues/42195#issuecomment-645219669
  *
  * @issue 27476
  * @issue 42195
- * @static-warning
  * @author msyabro
  */
 
@@ -27,7 +28,7 @@ class A {
 }
 
 class C extends A {
-  foo([x]); /// static type warning
+  foo([x]);
 }
 
 main() {
