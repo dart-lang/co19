@@ -19,8 +19,8 @@ var _value;
 final int i = -100;
 final bool b = false;
 final String s = "string";
-final List l = const [0,1,2,3];
-final Map m = const {'a': 1, 'b': 2};
+final List<int> l = const [0, 1, 2, 3];
+final Map<String, int> m = const {'a': 1, 'b': 2};
 final String e = "One"  "Two";
 final _private = 'private';
 
