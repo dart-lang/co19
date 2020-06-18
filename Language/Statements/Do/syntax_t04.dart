@@ -13,15 +13,11 @@
  * the loop expression is missing.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {
   var foo = 0;
-  try {
-    do {
-      break;
-    } while (true ;
-  } catch (x) {}
+  do {
+    break;
+  } while (true ;
 }

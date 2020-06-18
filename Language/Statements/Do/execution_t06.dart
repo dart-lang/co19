@@ -10,21 +10,18 @@
  * object o. Then, o is then subjected to boolean conversion, producing an
  * object r. If r is false, execution of the do statement is complete. If r is
  * true, then the do statement is re-executed recursively.
- * @description Check that AssertionError is thrown if e evaluates to null
+ * @description Check that TypeError is thrown if e evaluates to null
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 
+dynamic getNull() => null;
+
 main() {
   int x = 0;
-  try {
+  Expect.throws(() {
     do {
       x = 2;
-    } while (null);
-    Expect.fail("AssertionError is expected");
-  } on AssertionError {
-    // ok
-  }
+    } while (getNull());
+    }, (e) => e is TypeError);
 }

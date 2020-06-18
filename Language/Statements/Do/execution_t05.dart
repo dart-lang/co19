@@ -13,8 +13,6 @@
  * @description Check that non boolean expression e cause compile error
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {

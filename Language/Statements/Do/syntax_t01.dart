@@ -13,14 +13,10 @@
  * empty.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    do
-    while (true);
-  } catch (x) {}
+  do
+  while (true);
 }
 

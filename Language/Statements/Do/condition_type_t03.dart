@@ -10,7 +10,6 @@
  * be assigned to bool.
  * @compile-error
  * @author hlodvig
- * @reviewer rodionov
  */
 
 main() {

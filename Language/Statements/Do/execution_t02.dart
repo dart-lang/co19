@@ -12,8 +12,6 @@
  * true, then the do statement is re-executed recursively.
  * @description Checks that the loop expression is evaluated after its body.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 
