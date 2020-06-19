@@ -23,6 +23,7 @@
  * generator methods
  *
  * @author a.semenov@unipro.ru
+ * @issue 42391
  */
 import 'dart:async';
 import '../../Utils/expect.dart';

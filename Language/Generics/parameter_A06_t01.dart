@@ -8,12 +8,13 @@
  * referenced by a static member.
  * @description Checks that compile error occurs if type parameter is used
  * in a type test in static context.
+ * @compile-error
  * @author iefremov
  */
 
 class C<T> {
   static bool f() {
-    return null is T; //# 01: compile-time error
+    return null is T;
   }
 }
 

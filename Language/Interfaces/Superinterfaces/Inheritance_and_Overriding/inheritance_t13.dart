@@ -59,7 +59,7 @@ abstract class SI2 {
 typedef SIAlias1 = SI1;
 typedef SIAlias2 = SI2;
 
-abstract class I implements SIAlias1, SIAlias2 {}
+abstract class I implements SIAlias1, SIAlias2, C {}
 
 main() {
   I? i = null;

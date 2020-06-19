@@ -14,7 +14,7 @@
  */
 
 void testme1<T>() {}
-T1 testme2<T1, T2>(T2) {}
+T1? testme2<T1, T2>(T2) {}
 void testme3<T1, T2, T3>() {}
 
 main() {

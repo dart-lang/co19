@@ -21,9 +21,9 @@ class Y extends X {}
 
 void checkme1([dynamic a]) {}
 void checkme2([Null a]) {}
-void checkme3([int a]) {}
-void checkme4([X a]) {}
-void checkme5([Y a]) {}
+void checkme3([int a = 42]) {}
+void checkme4([X? a]) {}
+void checkme5([Y? a]) {}
 
 typedef Func1<T> = void Function([T t]);
 typedef Func2<T extends X> = void Function([T t]);

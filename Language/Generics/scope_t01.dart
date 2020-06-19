@@ -16,7 +16,7 @@
 class A<T, U extends T?> {
   T? t;
   A(U u) {
-     u = t;
+     t = u;
   }
 }
 

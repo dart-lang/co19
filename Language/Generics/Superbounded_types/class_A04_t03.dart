@@ -31,7 +31,4 @@ class B8 extends C with A<A<Object>> {}  //# 07: compile-time error
 class B9 extends C with A<A<void>> {}    //# 08: compile-time error
 class B10 extends C with A<A<Null>> {}   //# 09: compile-time error
 
-class B11 extends C with A<Null> {}
-class B12 extends C with A<A<Null>> {}
-
 main() {}

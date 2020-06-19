@@ -74,5 +74,5 @@ main() {
       int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 07: compile-time error
       int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 07: compile-time error
       int, int, int, int, int, int, int, int>();                                 //# 07: compile-time error
-*/}
+}
 

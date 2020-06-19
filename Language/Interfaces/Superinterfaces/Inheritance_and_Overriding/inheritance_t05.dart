@@ -64,5 +64,4 @@ main() {
   var v = i?.method2(null, null);
   num? n = i?.gett0r;
   i?.sett0r = null;
-  Expect.throws(() {var v = (i as I) + (d as D);}, (e) => e is CastError);
 }

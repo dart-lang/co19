@@ -31,8 +31,8 @@ class D<T1 extends num, T2 extends String> {}
 @A() typedef DAlias<T1 extends num, T2 extends String> = D<T1, T2>;
 
 main() {
-  CAlias ca1 = new CAlias();
-  Expect.isTrue(ca1 is C);
+  CAlias<int> ca1 = new CAlias<int>();
+  Expect.isTrue(ca1 is C<int>);
 
   CAlias<int> ca2 = new CAlias<int>();
   Expect.isTrue(ca2 is C<int>);

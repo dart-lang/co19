@@ -22,6 +22,7 @@
  * @description Checks different valid variants of asynchronous
  * generator functions
  * @author a.semenov@unipro.ru
+ * @issue 42391
  */
 import 'dart:async';
 import '../../Utils/expect.dart';

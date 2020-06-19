@@ -10,12 +10,9 @@
  * its superinterfaces.
  * Expects a compile time error when trying to access a superinterface's static
  * member S via a subinterface, as specified in (Expressions/Getter Invocation)
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
-
-import '../../../../Utils/expect.dart';
 
 abstract class S {
   static int get foo => 1;
