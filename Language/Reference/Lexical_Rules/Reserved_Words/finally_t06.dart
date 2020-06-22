@@ -11,14 +11,11 @@
  * "finally" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    finally:
-    do {
-      break finally;
-    } while (false);
-  } catch (x) {}
+  finally:
+  do {
+  break finally;
+  } while (false);
 }

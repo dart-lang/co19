@@ -11,13 +11,9 @@
  * "with" is used as a local function name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    void with() {}
-    with();
-  } catch (anything) {
-  }
+  void with() {}
+  with();
 }

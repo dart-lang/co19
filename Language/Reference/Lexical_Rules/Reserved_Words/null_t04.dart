@@ -11,16 +11,12 @@
  * "null" is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int null;
+  int null = 42;
 }
 
 main() {
-  try {
-    new C().null is int;
-  } catch (anything) {
-  }
+  new C().null is int;
 }

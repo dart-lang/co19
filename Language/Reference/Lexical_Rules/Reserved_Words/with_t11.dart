@@ -12,13 +12,8 @@
  * directive.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
-import "lib.dart" show with;
+import "lib.dart" as with;
 
 main() {
-  try {
-    int x = 1;
-  } catch (anything) {
-  }
 }

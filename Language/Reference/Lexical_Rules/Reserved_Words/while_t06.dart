@@ -11,14 +11,11 @@
  * "while" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    while:
-    do {
-      break while;
-    } while (false);
-  } catch (x) {}
+  while:
+  do {
+  break while;
+  } while (false);
 }

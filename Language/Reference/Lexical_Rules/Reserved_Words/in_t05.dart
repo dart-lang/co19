@@ -11,12 +11,9 @@
  * is used as a local function name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    void in() {}
-    in();
-  } catch (x) {}
+  void in() {}
+  in();
 }

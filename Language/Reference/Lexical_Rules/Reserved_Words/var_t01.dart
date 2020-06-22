@@ -11,14 +11,10 @@
  * "var" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class var { } // error
 
 main() {
-  try {
-    null is var;
-  } catch (anything) {
-  }
+  null is var;
 }

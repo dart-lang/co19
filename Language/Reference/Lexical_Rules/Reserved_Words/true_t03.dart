@@ -11,14 +11,10 @@
  * "true" is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef void true();
 
 main() {
-  try {
-    null is true;
-  } catch (anything) {
-  }
+  null is true;
 }

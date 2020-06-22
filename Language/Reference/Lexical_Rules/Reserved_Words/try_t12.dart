@@ -11,13 +11,8 @@
  * "try" is used as an identifier in a part declaration.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 part "try_lib.dart";
 
 void main() {
-  try {
-    int x = 0;
-  } catch (anything) {
-  }
 }

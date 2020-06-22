@@ -11,12 +11,9 @@
  * "super" is used as a local function name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    void super() {}
-    super();
-  } catch (x) {}
+  void super() {}
+  super();
 }

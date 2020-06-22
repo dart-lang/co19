@@ -14,12 +14,9 @@
  */
 
 class C {
-  int enum;
+  int enum = 42;
 }
 
 main() {
-  try {
-    new C().enum is int;
-  } catch (anything) {
-  }
+  new C().enum is int;
 }

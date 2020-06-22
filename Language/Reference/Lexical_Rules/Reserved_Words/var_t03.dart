@@ -11,14 +11,10 @@
  * "var" is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef void var();
 
 main() {
-  try {
-    null is var;
-  } catch (anything) {
-  }
+  null is var;
 }

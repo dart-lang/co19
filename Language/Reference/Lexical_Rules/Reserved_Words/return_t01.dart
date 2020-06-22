@@ -11,14 +11,10 @@
  * "return" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class return { } // error
 
 main() {
-  try {
-    null is return;
-  } catch (anything) {
-  }
+  null is return;
 }

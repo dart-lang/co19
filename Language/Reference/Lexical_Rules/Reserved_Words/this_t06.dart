@@ -11,14 +11,11 @@
  * "this" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    this:
-    do {
-      break this;
-    } while (false);
-  } catch (x) {}
+  this:
+  do {
+  break this;
+  } while (false);
 }

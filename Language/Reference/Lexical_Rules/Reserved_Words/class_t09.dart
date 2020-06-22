@@ -11,14 +11,10 @@
  * "class" is used as an identifier in a catch clause.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
   try {
-    try {
-      int x = 0;
-    } catch (class) {}
-  } catch (anything) {
-  }
+    int x = 0;
+  } catch (class) {}
 }

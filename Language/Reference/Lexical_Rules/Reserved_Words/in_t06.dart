@@ -11,14 +11,11 @@
  * is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    in:
-    do {
-      break in;
-    } while (false);
-  } catch (x) {}
+  in:
+  do {
+  break in;
+  } while (false);
 }

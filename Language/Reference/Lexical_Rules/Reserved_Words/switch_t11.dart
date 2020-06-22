@@ -12,13 +12,8 @@
  * directive.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
-import "lib.dart" show switch;
+import "lib.dart" as switch;
 
 main() {
-  try {
-    int x = 1;
-  } catch (anything) {
-  }
 }

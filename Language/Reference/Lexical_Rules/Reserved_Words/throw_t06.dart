@@ -11,14 +11,11 @@
  * "throw" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    throw:
-    do {
-      break throw;
-    } while (false);
-  } catch (x) {}
+  throw:
+  do {
+  break throw;
+  } while (false);
 }

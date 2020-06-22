@@ -11,16 +11,12 @@
  * "rethrow" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {
-  int rethrow;
+  int rethrow = 42;
 }
 
 main() {
-  try {
-    new C().rethrow is int;
-  } catch (anything) {
-  }
+  new C().rethrow is int;
 }

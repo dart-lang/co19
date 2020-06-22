@@ -11,12 +11,9 @@
  * "this" is used as a local function name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    void this() {}
-    this();
-  } catch (x) {}
+  void this() {}
+  this();
 }

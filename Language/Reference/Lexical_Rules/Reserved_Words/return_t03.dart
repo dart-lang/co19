@@ -11,14 +11,10 @@
  * "return" is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef void return();
 
 main() {
-  try {
-    null is return;
-  } catch (anything) {
-  }
+  null is return;}
 }

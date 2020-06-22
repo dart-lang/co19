@@ -12,13 +12,8 @@
  * import directive.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
-import "lib.dart" show continue;
+import "lib.dart" as continue;
 
 main() {
-  try {
-    int x = 1;
-  } catch (anything) {
-  }
 }

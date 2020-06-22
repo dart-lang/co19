@@ -11,14 +11,10 @@
  * "else" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class else { } // error
 
 main() {
-  try {
-    null is else;
-  } catch (anything) {
-  }
+  null is else;
 }

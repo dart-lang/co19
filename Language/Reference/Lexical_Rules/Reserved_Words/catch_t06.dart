@@ -11,14 +11,11 @@
  * "catch" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    catch:
-    do {
-      break catch;
-    } while (false);
-  } catch (x) {}
+  catch:
+  do {
+  break catch;
+  } while (false);
 }

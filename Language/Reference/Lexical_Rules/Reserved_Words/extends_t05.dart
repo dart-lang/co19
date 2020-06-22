@@ -11,12 +11,9 @@
  * "extends" is used as a local function name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    void extends() {}
-    extends();
-  } catch (x) {}
+  void extends() {}
+  extends();
 }

@@ -11,14 +11,11 @@
  * "for" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    for:
-    do {
-      break for;
-    } while (false);
-  } catch (x) {}
+  for:
+  do {
+  break for;
+  } while (false);
 }

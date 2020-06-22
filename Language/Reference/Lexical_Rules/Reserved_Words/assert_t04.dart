@@ -11,16 +11,12 @@
  * "assert" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {
-  int assert;
+  int assert = 42;
 }
 
 main() {
-  try {
-    new C().assert is int;
-  } catch (anything) {
-  }
+  new C().assert is int;
 }

@@ -12,13 +12,8 @@
  * directive.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
-import "lib.dart" show assert;
+import "lib.dart" as assert;
 
 main() {
-  try {
-    int x = 1;
-  } catch (anything) {
-  }
 }

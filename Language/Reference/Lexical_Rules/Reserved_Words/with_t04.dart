@@ -11,16 +11,12 @@
  * "with" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {
-  int with;
+  int with = 42;
 }
 
 main() {
-  try {
-    new C().with is int;
-  } catch (anything) {
-  }
+  new C().with is int;
 }

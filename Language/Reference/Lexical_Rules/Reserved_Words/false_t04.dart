@@ -11,16 +11,12 @@
  * "false" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int false;
+  int false = 42;
 }
 
 main() {
-  try {
-    new C().false is int;
-  } catch (anything) {
-  }
+  new C().false is int;
 }

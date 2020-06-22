@@ -11,14 +11,11 @@
  * "rethrow" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    rethrow:
-    do {
-      break rethrow;
-    } while (false);
-  } catch (x) {}
+  rethrow:
+  do {
+  break rethrow;
+  } while (false);
 }

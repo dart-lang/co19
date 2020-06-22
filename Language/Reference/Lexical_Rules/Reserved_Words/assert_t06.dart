@@ -11,14 +11,11 @@
  * "assert" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    assert:
-    do {
-      break assert;
-    } while (false);
-  } catch (x) {}
+  assert:
+  do {
+  break assert;
+  } while (false);
 }

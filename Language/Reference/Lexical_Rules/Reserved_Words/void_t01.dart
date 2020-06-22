@@ -11,14 +11,10 @@
  * "void" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class void { } // error
 
 main() {
-  try {
-    null is void;
-  } catch (anything) {
-  }
+  null is void;
 }

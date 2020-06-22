@@ -11,14 +11,10 @@
  * is used as a function parameter name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 void f(var is) {}
 
 main() {
-  try {
-    f();
-  } catch (anything) {
-  }
+  f(null);
 }

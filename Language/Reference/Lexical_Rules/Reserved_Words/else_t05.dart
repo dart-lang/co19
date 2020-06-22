@@ -11,12 +11,9 @@
  * "else" is used as a local function name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    void else() {}
-    else();
-  } catch (x) {}
+  void else() {}
+  else();
 }

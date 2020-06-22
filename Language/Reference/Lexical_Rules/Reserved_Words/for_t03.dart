@@ -11,14 +11,10 @@
  * "for" is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef void for();
 
 main() {
-  try {
-    null is for;
-  } catch (anything) {
-  }
+  null is for;
 }

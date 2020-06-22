@@ -11,14 +11,10 @@
  * "extends" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class extends {} // error
 
 main() {
-  try {
-    null is extends;
-  } catch (anything) {
-  }
+  null is extends;
 }

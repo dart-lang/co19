@@ -11,16 +11,12 @@
  * "super" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int super;
+  int super = 42;
 }
 
 main() {
-  try {
-    new C().super is int;
-  } catch (anything) {
-  }
+  new C().super is int;
 }

@@ -11,14 +11,10 @@
  * "try" is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef void try();
 
 main() {
-  try {
-    null is try;
-  } catch (anything) {
-  }
+  null is try;
 }

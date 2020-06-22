@@ -11,14 +11,10 @@
  * "super is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef void super();
 
 main() {
-  try {
-    null is super;
-  } catch (anything) {
-  }
+  null is super;
 }

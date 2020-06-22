@@ -11,14 +11,10 @@
  * is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef void if();
 
 main() {
-  try {
-    null is if;
-  } catch (anything) {
-  }
+  null is if;
 }

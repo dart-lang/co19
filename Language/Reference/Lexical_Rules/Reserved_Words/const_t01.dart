@@ -11,14 +11,10 @@
  * "const" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class const { } // error
 
 main() {
-  try {
-    null is const;
-  } catch (anything) {
-  }
+  null is const;
 }

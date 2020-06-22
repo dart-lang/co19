@@ -11,14 +11,10 @@
  * "class" is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef void class();
 
 main() {
-  try {
-    null is class;
-  } catch (anything) {
-  }
+  null is class;
 }

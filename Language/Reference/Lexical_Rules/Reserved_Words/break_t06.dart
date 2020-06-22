@@ -11,14 +11,11 @@
  * "break" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    break:
-    do {
-      break break;
-    } while (false);
-  } catch (x) {}
+  break:
+  do {
+    break break;
+  } while (false);
 }

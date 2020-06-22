@@ -11,13 +11,8 @@
  * "catch" is used as a library name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 library catch;
 
 main() {
-  try {
-    int x = 1;
-  } catch (anything) {
-  }
 }

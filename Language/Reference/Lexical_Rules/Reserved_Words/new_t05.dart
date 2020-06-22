@@ -11,12 +11,9 @@
  * "new" is used as a local function name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    void new() {}
-    new();
-  } catch (x) {}
+  void new() {}
+  new();
 }

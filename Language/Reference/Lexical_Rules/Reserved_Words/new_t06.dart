@@ -11,14 +11,11 @@
  * "new" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    new:
-    do {
-      break new;
-    } while (false);
-  } catch (x) {}
+  new:
+  do {
+  break new;
+  } while (false);
 }

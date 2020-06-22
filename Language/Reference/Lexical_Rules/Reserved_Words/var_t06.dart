@@ -11,14 +11,11 @@
  * "var" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    var:
-    do {
-      break var;
-    } while (false);
-  } catch (x) {}
+  var:
+  do {
+  break var;
+  } while (false);
 }

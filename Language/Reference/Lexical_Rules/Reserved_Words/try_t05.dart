@@ -11,13 +11,9 @@
  * "try" is used as a local function name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    void try() {}
-    try();
-  } catch (anything) {
-  }
+  void try() {}
+  try();
 }

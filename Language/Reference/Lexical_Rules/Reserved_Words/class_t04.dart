@@ -11,16 +11,12 @@
  * "class" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int class;
+  int class = 42;
 }
 
 main() {
-  try {
-    new C().class is int;
-  } catch (anything) {
-  }
+  new C().class is int;
 }

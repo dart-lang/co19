@@ -11,16 +11,12 @@
  * "while" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int while;
+  int while = 42;
 }
 
 main() {
-  try {
-    new C().while is int;
-  } catch (anything) {
-  }
+  new C().while is int;
 }

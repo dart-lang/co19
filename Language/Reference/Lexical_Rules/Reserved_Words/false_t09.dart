@@ -11,14 +11,10 @@
  * "false" is used as an identifier in a catch clause.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
   try {
-    try {
-      int x = 0;
-    } catch (false) {}
-  } catch (anything) {
-  }
+    int x = 0;
+  } catch (false) {}
 }

@@ -11,16 +11,12 @@
  * "switch" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int switch;
+  int switch = 42;
 }
 
 main() {
-  try {
-    new C().switch is int;
-  } catch (anything) {
-  }
+  new C().switch is int;
 }

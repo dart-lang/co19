@@ -11,14 +11,10 @@
  * "new" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class new { } // error
 
 main() {
-  try {
-    null is new;
-  } catch (anything) {
-  }
+  null is new;
 }

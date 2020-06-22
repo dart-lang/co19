@@ -11,14 +11,10 @@
  * "this" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class this { } // error
 
 main() {
-  try {
-    null is this;
-  } catch (anything) {
-  }
+  null is this;
 }

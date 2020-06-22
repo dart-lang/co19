@@ -11,16 +11,12 @@
  * "throw" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int throw;
+  int throw = 42;
 }
 
 main() {
-  try {
-    new C().throw is int;
-  } catch (anything) {
-  }
+  new C().throw is int;
 }

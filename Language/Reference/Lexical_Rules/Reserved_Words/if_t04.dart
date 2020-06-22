@@ -11,16 +11,12 @@
  * is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int if;
+  int if = 42;
 }
 
 main() {
-  try {
-    new C().if is int;
-  } catch (anything) {
-  }
+  new C().if is int;
 }

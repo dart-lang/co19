@@ -11,14 +11,11 @@
  * "extends" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    extends:
-    do {
-      break extends;
-    } while (false);
-  } catch (x) {}
+  extends:
+  do {
+  break extends;
+  } while (false);
 }

@@ -11,14 +11,10 @@
  * "try" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class try { } // error
 
 main() {
-  try {
-    null is try;
-  } catch (anything) {
-  }
+  null is try;
 }

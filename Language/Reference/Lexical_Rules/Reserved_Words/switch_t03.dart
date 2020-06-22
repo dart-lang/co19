@@ -11,14 +11,10 @@
  * "switch" is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef void switch();
 
 main() {
-  try {
-    null is switch;
-  } catch (anything) {
-  }
+  null is switch;
 }

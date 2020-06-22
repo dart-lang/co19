@@ -11,7 +11,6 @@
  * "continue" is used as a static class member (function) name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {
@@ -19,8 +18,5 @@ class C {
 }
 
 main() {
-  try {
-    C.continue();
-  } catch (anything) {
-  }
+  C.continue();
 }

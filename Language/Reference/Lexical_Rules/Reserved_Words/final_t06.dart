@@ -11,14 +11,11 @@
  * "final" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    final:
-    do {
-      break final;
-    } while (false);
-  } catch (x) {}
+  final:
+  do {
+  break final;
+  } while (false);
 }

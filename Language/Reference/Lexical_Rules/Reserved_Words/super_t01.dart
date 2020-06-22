@@ -11,14 +11,10 @@
  * "super" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class super { } // error
 
 main() {
-  try {
-    null is super;
-  } catch (anything) {
-  }
+  null is super;
 }

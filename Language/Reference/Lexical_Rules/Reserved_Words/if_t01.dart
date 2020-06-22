@@ -11,14 +11,10 @@
  * is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class if { } // error
 
 main() {
-  try {
-    null is if;
-  } catch (anything) {
-  }
+  null is if;
 }

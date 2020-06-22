@@ -11,14 +11,10 @@
  * "catch" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class catch { } // error
 
 main() {
-  try {
-    null is catch;
-  } catch (anything) {
-  }
+  null is catch;
 }

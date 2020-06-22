@@ -11,12 +11,9 @@
  * "null" is used as a local function name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    void null() {}
-    null();
-  } catch (x) {}
+  void null() {}
+  null();
 }

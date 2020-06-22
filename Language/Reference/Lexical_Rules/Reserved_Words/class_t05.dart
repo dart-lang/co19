@@ -11,12 +11,9 @@
  * "class" is used as a local function name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    void class() {}
-    class();
-  } catch (x) {}
+  void class() {}
+  class();
 }

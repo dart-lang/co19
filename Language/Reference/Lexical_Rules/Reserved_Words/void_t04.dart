@@ -11,16 +11,12 @@
  * "void" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int void;
+  int void = 42;
 }
 
 main() {
-  try {
-    new C().void is int;
-  } catch (anything) {
-  }
+  new C().void is int;
 }

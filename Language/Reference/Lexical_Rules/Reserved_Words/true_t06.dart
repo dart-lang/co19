@@ -11,14 +11,11 @@
  * "true" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    true:
-    do {
-      break true;
-    } while (false);
-  } catch (x) {}
+  true:
+  do {
+  break true;
+  } while (false);
 }

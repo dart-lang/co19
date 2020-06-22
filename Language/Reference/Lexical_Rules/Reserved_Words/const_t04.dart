@@ -11,16 +11,12 @@
  * "const" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int const;
+  int const = 42;
 }
 
 main() {
-  try {
-    new C().const is int;
-  } catch (anything) {
-  }
+  new C().const is int;
 }

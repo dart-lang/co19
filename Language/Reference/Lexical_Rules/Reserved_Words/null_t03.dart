@@ -11,14 +11,10 @@
  * "null" is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef void null();
 
 main() {
-  try {
-    null is null;
-  } catch (anything) {
-  }
+  null is null;
 }

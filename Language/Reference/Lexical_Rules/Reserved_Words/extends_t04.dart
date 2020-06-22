@@ -11,16 +11,12 @@
  * "extends" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int extends;
+  int extends = 42;
 }
 
 main() {
-  try {
-    new C().extends is int;
-  } catch (anything) {
-  }
+  new C().extends is int;
 }

@@ -11,14 +11,10 @@
  * "void" is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef void void();
 
 main() {
-  try {
-    null is void;
-  } catch (anything) {
-  }
+  null is void;
 }

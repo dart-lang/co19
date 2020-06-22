@@ -11,16 +11,12 @@
  * "case" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int case;
+  int case = 42;
 }
 
 main() {
-  try {
-    new C().case is int;
-  } catch (anything) {
-  }
+  new C().case is int;
 }

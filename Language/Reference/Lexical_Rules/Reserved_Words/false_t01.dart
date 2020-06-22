@@ -11,14 +11,10 @@
  * "false" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class false { } // error
 
 main() {
-  try {
-    null is false;
-  } catch (anything) {
-  }
+  null is false;
 }

@@ -11,13 +11,9 @@
  * "throw" is used as a local function name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    void throw() {}
-    throw();
-  } catch (anything) {
-  }
+  void throw() {}
+  throw();
 }

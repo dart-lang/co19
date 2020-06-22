@@ -13,11 +13,7 @@
  * @compile-error
  * @author ngl@unipro.ru
  */
-import "lib.dart" show enum;
+import "lib.dart" as enum;
 
 main() {
-  try {
-    int x = 1;
-  } catch (anything) {
-  }
 }

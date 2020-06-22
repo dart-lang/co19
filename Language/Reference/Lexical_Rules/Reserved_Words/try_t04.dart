@@ -11,16 +11,12 @@
  * "try" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int try;
+  int try = 42;
 }
 
 main() {
-  try {
-    new C().try is int;
-  } catch (anything) {
-  }
+  new C().try is int;
 }

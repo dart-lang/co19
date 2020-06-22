@@ -11,12 +11,9 @@
  * "false" is used as a local function name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    void false() {}
-    false();
-  } catch (x) {}
+  void false() {}
+  false();
 }

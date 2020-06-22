@@ -11,14 +11,10 @@
  * "new" is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef void new();
 
 main() {
-  try {
-    null is new;
-  } catch (anything) {
-  }
+  null is new;
 }

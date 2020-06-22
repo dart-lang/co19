@@ -11,16 +11,12 @@
  * "default" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int default;
+  int default = 42;
 }
 
 main() {
-  try {
-    new C().default is int;
-  } catch (anything) {
-  }
+  new C().default is int;
 }

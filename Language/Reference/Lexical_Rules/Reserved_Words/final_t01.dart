@@ -11,14 +11,10 @@
  * "final" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class final { } // error
 
 main() {
-  try {
-    null is final;
-  } catch (anything) {
-  }
+  null is final;
 }

@@ -11,14 +11,10 @@
  * "switch" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class switch { } // error
 
 main() {
-  try {
-    null is switch;
-  } catch (anything) {
-  }
+  null is switch;
 }

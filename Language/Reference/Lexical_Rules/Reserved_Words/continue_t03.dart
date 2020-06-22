@@ -11,14 +11,10 @@
  * "continue" is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef void continue();
 
 main() {
-  try {
-    null is continue;
-  } catch (anything) {
-  }
+  null is continue;
 }

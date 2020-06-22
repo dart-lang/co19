@@ -11,16 +11,12 @@
  * "new" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int new;
+  int new = 42;
 }
 
 main() {
-  try {
-    new C().new is int;
-  } catch (anything) {
-  }
+  new C().new is int;
 }

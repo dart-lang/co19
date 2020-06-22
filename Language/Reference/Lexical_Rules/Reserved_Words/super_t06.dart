@@ -11,14 +11,11 @@
  * "super" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    super:
-    do {
-      break super;
-    } while (false);
-  } catch (x) {}
+  super:
+  do {
+  break super;
+  } while (false);
 }

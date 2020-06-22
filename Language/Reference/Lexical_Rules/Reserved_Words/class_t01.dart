@@ -11,14 +11,10 @@
  * "class" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class class {} // error
 
 main() {
-  try {
-    null is class;
-  } catch (anything) {
-  }
+  null is class;
 }

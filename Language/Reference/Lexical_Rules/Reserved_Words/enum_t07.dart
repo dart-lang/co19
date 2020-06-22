@@ -18,8 +18,5 @@ class C {
 }
 
 main() {
-  try {
-    C.enum();
-  } catch (anything) {
-  }
+  C.enum();
 }

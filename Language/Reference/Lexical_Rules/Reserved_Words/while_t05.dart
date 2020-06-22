@@ -11,13 +11,9 @@
  * "while" is used as a local function name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    void while() {}
-    while();
-  } catch (anything) {
-  }
+  void while() {}
+  while();
 }

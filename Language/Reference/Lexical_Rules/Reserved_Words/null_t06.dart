@@ -11,14 +11,11 @@
  * "null" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    null:
-    do {
-      break null;
-    } while (false);
-  } catch (x) {}
+  null:
+  do {
+  break null;
+  } while (false);
 }

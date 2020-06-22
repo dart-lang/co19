@@ -11,14 +11,10 @@
  * "default" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class default { } // error
 
 main() {
-  try {
-    null is default;
-  } catch (anything) {
-  }
+  null is default;
 }

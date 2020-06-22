@@ -11,14 +11,10 @@
  * "rethrow" is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 typedef void rethrow();
 
 main() {
-  try {
-    null is rethrow;
-  } catch (anything) {
-  }
+  null is rethrow;
 }

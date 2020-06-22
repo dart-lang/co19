@@ -11,14 +11,10 @@
  * "false" is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef void false();
 
 main() {
-  try {
-    null is false;
-  } catch (anything) {
-  }
+  null is false;
 }

@@ -11,7 +11,6 @@
  *  check VERTICAL TAB (U+000B)
  * @author hlodvig
  * @compile-error
- * @reviewer kaigorodov
  */
 
 main() {

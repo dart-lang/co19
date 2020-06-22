@@ -11,16 +11,12 @@
  * "catch" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int catch;
+  int catch = 42;
 }
 
 main() {
-  try {
-    new C().catch is int;
-  } catch (anything) {
-  }
+  new C().catch is int;
 }

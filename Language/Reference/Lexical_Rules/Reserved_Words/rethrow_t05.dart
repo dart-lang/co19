@@ -11,13 +11,9 @@
  * "rethrow" is used as a local function name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    void rethrow() {}
-    rethrow();
-  } catch (anything) {
-  }
+  void rethrow() {}
+  rethrow();
 }

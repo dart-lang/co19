@@ -11,12 +11,9 @@
  * "continue" is used as a local function name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    void continue() {}
-    continue();
-  } catch (x) {}
+  void continue() {}
+  continue();
 }

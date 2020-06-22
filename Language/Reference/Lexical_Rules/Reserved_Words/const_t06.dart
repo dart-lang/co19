@@ -11,14 +11,11 @@
  * "const" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    const:
-    do {
-      break const;
-    } while (false);
-  } catch (x) {}
+  const:
+  do {
+  break const;
+  } while (false);
 }

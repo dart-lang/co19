@@ -11,14 +11,10 @@
  * "with" is used as a class name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class with { } // error
 
 main() {
-  try {
-    null is with;
-  } catch (anything) {
-  }
+  null is with;
 }

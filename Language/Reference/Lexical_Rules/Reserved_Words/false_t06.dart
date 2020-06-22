@@ -11,14 +11,11 @@
  * "false" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    false:
-    do {
-      break false;
-    } while (false);
-  } catch (x) {}
+  false:
+  do {
+  break false;
+  } while (false);
 }

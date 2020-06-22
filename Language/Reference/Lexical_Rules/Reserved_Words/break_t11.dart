@@ -12,13 +12,8 @@
  * directive.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
-import "lib.dart" show break;
+import "lib.dart" as break;
 
 main() {
-  try {
-    int x = 1;
-  } catch (anything) {
-  }
 }

@@ -11,14 +11,10 @@
  * "throw" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class throw { } // error
 
 main() {
-  try {
-    null is throw;
-  } catch (anything) {
-  }
+  null is throw;
 }

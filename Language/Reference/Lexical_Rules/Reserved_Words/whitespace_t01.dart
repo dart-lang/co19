@@ -11,7 +11,6 @@
  * whitespace by verifying that all and any of their occurrences within
  * grammatical productions are ignored. 
  * @author rodionov
- * @reviewer iefremov
  */
 import "../../../../Utils/expect.dart";
 

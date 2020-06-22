@@ -11,13 +11,8 @@
  * "new" is used as a library name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 library new;
 
 main() {
-  try {
-    int x = 1;
-  } catch (anything) {
-  }
 }

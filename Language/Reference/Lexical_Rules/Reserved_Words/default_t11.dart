@@ -12,13 +12,8 @@
  * import directive.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
-import "lib.dart" show default;
+import "lib.dart" as default;
 
 main() {
-  try {
-    int x = 1;
-  } catch (anything) {
-  }
 }

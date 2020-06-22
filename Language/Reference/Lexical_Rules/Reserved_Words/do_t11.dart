@@ -11,13 +11,8 @@
  * is used as an identifier following a 'show' combinator in an import directive.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
-import "lib.dart" show do;
+import "lib.dart" as do;
 
 main() {
-  try {
-    int x = 1;
-  } catch (anything) {
-  }
 }

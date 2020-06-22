@@ -11,14 +11,10 @@
  * "finally" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class finally { } // error
 
 main() {
-  try {
-    null is finally;
-  } catch (anything) {
-  }
+  null is finally;
 }

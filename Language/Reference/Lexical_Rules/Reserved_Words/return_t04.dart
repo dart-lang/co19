@@ -11,16 +11,12 @@
  * "return" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int return;
+  int return = 42;
 }
 
 main() {
-  try {
-    new C().return is int;
-  } catch (anything) {
-  }
+  new C().return is int;
 }

@@ -11,14 +11,10 @@
  * "else" is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef void else();
 
 main() {
-  try {
-    null is else;
-  } catch (anything) {
-  }
+  null is else;
 }

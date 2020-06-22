@@ -11,16 +11,12 @@
  * "finally" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int finally;
+  int finally = 42;
 }
 
 main() {
-  try {
-    new C().finally is int;
-  } catch (anything) {
-  }
+  new C().finally is int;
 }

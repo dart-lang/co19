@@ -11,16 +11,12 @@
  * "break" is used as a class member (field) name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
-  int break;
+  int break = 42;
 }
 
 main() {
-  try {
-    new C().break is int;
-  } catch (anything) {
-  }
+  new C().break is int;
 }

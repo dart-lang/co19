@@ -11,13 +11,8 @@
  * "class" is used as a library name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 library class;
 
 main() {
-  try {
-    int x = 1;
-  } catch (anything) {
-  }
 }

@@ -11,12 +11,9 @@
  * "final" is used as a local function name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    void final() {}
-    final();
-  } catch (x) {}
+  void final() {}
+  final();
 }

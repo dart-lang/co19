@@ -11,14 +11,10 @@
  * "extends" is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef void extends();
 
 main() {
-  try {
-    null is extends;
-  } catch (anything) {
-  }
+  null is extends;
 }

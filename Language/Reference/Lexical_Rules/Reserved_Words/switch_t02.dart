@@ -11,7 +11,6 @@
  * "switch" is used as a type parameter name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class A<switch> {

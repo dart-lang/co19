@@ -11,13 +11,9 @@
  * "assert" is used as a local function name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    void assert() {}
-    assert();
-  } catch (anything) {
-  }
+  void assert() {}
+  assert();
 }

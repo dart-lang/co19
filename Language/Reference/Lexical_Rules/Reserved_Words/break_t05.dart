@@ -11,12 +11,9 @@
  * "break" is used as a local function name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    void break() {}
-    break();
-  } catch (x) {}
+  void break() {}
+  break();
 }

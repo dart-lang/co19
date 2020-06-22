@@ -11,14 +11,10 @@
  * "while" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class while { } // error
 
 main() {
-  try {
-    null is while;
-  } catch (anything) {
-  }
+  null is while;
 }

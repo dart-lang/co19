@@ -11,14 +11,10 @@
  * "for" is used as a class name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
  */
 
 class for { } // error
 
 main() {
-  try {
-    null is for;
-  } catch (anything) {
-  }
+  null is for;
 }

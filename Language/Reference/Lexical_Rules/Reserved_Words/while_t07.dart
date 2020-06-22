@@ -11,7 +11,6 @@
  * "while" is used as a static class member (function) name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class C {
@@ -19,8 +18,5 @@ class C {
 }
 
 main() {
-  try {
-    C.while();
-  } catch (anything) {
-  }
+  C.while();
 }

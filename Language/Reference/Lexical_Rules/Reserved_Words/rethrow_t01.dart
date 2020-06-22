@@ -11,14 +11,10 @@
  * "rethrow" is used as a class name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 class rethrow { } // error
 
 main() {
-  try {
-    null is rethrow;
-  } catch (anything) {
-  }
+  null is rethrow;
 }

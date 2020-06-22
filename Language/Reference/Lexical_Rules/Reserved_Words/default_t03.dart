@@ -11,14 +11,10 @@
  * "default" is used as a function type alias name.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 typedef void default();
 
 main() {
-  try {
-    null is default;
-  } catch (anything) {
-  }
+  null is default;
 }

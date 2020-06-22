@@ -11,14 +11,11 @@
  * "continue" is used as a label name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 main() {
-  try {
-    continue:
-    do {
-      break continue;
-    } while (false);
-  } catch (x) {}
+  continue:
+  do {
+  break continue;
+  } while (false);
 }

@@ -11,14 +11,10 @@
  * "with" is used as a function parameter name.
  * @compile-error
  * @author rodionov
- * @reviewer kaigorodov
  */
 
 void f(var with) {}
 
 main() {
-  try {
-    f();
-  } catch (anything) {
-  }
+  f(null);
 }
