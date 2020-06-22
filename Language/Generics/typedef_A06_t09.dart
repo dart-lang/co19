@@ -14,7 +14,7 @@
  * @description Checks that it is a compile time error if [T] is not
  * well-bounded
  * @compile-error
- * @Issue 36960
+ * @Issue 42436
  * @author iarkh@unipro.ru
  */
 

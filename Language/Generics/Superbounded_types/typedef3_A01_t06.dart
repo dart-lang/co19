@@ -8,6 +8,7 @@
  * compile-time error.
  * @description Checks that compile error is not thrown when non-function type
  * alias variable with not well bounded type parameter is declared
+ * @Issue 37031
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

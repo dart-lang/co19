@@ -24,7 +24,7 @@
  * @description Checks that example from the Spec throws compile error as
  * expected.
  * @compile-error
- * @Issue 36960
+ * @Issue 42436
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

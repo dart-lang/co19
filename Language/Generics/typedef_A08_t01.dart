@@ -34,8 +34,8 @@ main() {
     AAlias<A>?          a2;
     AAlias<A<Never>>?   a3;
     AAlias<A<dynamic>>? a4;
-    AAlias<A<Object>>?  a5; //# 01: compile-time error
-    AAlias<A<int>>?     a6; //# 02: compile-time error
-    AAlias<int>?        a7; //# 03: compile-time error
-    AAlias<Null>?       a8; //# 04: compile-time error
+    AAlias<A<Object?>>? a5;
+    AAlias<A<int>>?     a6; //# 01: compile-time error
+    AAlias<int>?        a7; //# 02: compile-time error
+    AAlias<Null>?       a8; //# 03: compile-time error
 }

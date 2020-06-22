@@ -15,6 +15,7 @@
  * ...
  * @description Checks that non-function generic type alias declaration can
  * contain metadata.
+ * @Issue 42432
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -31,15 +32,12 @@ class D<T1 extends num, T2 extends String> {}
 @A() typedef DAlias<T1 extends num, T2 extends String> = D<T1, T2>;
 
 main() {
-  CAlias<int> ca1 = new CAlias<int>();
-  Expect.isTrue(ca1 is C<int>);
+  CAlias ca1 = new CAlias();
+  Expect.isTrue(ca1 is C<num>);
 
   CAlias<int> ca2 = new CAlias<int>();
   Expect.isTrue(ca2 is C<int>);
 
   DAlias da1 = new DAlias();
-  Expect.isTrue(da1 is D);
-
-  DAlias da2 = new DAlias();
-  Expect.isTrue(da2 is D);
+  Expect.isTrue(da is D<num, String>);
 }

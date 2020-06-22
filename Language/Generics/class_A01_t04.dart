@@ -40,39 +40,38 @@ main() {
   new ManyParameters<int, int, int>(); //# 03: compile-time error
 
   new ManyParameters<int, int, int, int, int, int, int, int, int, int, int, int, //# 04: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 04: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 04: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 04: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 04: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 04: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 04: compile-time error
-      int, int, int, int>();                                                     //# 04: compile-time error
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 04: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 04: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 04: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 04: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 04: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 04: continued
+      int, int, int, int>();                                                     //# 04: continued
 
   new ManyParameters<int, int, int, int, int, int, int, int, int, int, int, int, //# 05: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 05: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 05: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 05: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 05: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 05: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 05: compile-time error
-      int, int, int, int, int>();                                                //# 05: compile-time error
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 05: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 05: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 05: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 05: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 05: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 05: continued
+      int, int, int, int, int>();                                                //# 05: continued
 
   new ManyParameters<int, int, int, int, int, int, int, int, int, int, int, int, //# 06: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 06: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 06: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 06: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 06: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 06: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 06: compile-time error
-      int, int, int, int, int, int, int>();                                      //# 06: compile-time error
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 06: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 06: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 06: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 06: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 06: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 06: continued
+      int, int, int, int, int, int, int>();                                      //# 06: continued
 
   new ManyParameters<int, int, int, int, int, int, int, int, int, int, int, int, //# 07: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 07: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 07: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 07: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 07: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 07: compile-time error
-      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 07: compile-time error
-      int, int, int, int, int, int, int, int>();                                 //# 07: compile-time error
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 07: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 07: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 07: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 07: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 07: continued
+      int, int, int, int, int, int, int, int, int, int, int, int, int, int,      //# 07: continued
+      int, int, int, int, int, int, int, int>();                                 //# 07: continued
 }
-

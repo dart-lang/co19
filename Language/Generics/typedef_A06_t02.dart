@@ -11,13 +11,14 @@
  * Under the assumption that X1, . . . , Xs are types such that Xj <: Bj, for
  * all j ∈ 1..s, it is a compile-time error if [T] is not regular-bounded, and
  * it is a compile-time error if any type occurring in [T] is not well-bounded.
- * @description Checks that it is a compile time error if [T] is not
- * well-bounded
- * @compile-error
+ * @description Checks that it is not a compile time error in the difficult
+ * ([X extends A<X>]) type parameter cases.
+ *
  * @Issue 36870
  * @author iarkh@unipro.ru
  */
 
 class A<X extends A<X>> {}
 typedef AAlias = Function<X extends A<X>> ();
+
 main() {}

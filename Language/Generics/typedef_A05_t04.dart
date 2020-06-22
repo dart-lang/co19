@@ -11,7 +11,7 @@
  *   ...
  * [D] introduces a mapping from actual type argument lists to types.
  * @description Checks that [D] maps argument list to correct types
- * @Issue 41939
+ * @Issue 41939, 42433
  * @author iarkh@unipro.ru
  */
 

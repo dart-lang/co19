@@ -23,6 +23,7 @@
  * they just cannot be abbreviated using a generic type alias.
  * @description Checks that example from the Spec throws compile error as
  * expected.
+ * @Issue 42436
  * @compile-error
  * @author iarkh@unipro.ru
  */

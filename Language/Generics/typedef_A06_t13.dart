@@ -13,6 +13,7 @@
  * it is a compile-time error if any type occurring in [T] is not well-bounded.
  * @description Checks that it is a compile time error if [T] is not
  * well-bounded
+ * @Issue 42436
  * @compile-error
  * @author iarkh@unipro.ru
  */
