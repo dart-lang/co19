@@ -11,7 +11,7 @@
  * @description Checks that compile error is not thrown when parametrized type
  * is used in the constant object expression with [is] constructions (see Issue
  * 37033 for more details)
- * @Issue 36959
+ * @Issue 42415
  * @author iarkh@unipro.ru
  */
 
@@ -22,15 +22,15 @@ class A<T extends A<T>> {
 
 const b1 = 1 is A;
 const b2 = 1 is A<dynamic>;
-const b3 = 1 is A<Object>;
-const b4 = 1 is A<Never>;
-const b5 = 1 is A<void>;
+const b3 = 1 is A<Object?>;
+const b5 = 1 is A<Never>;
+const b6 = 1 is A<void>;
 
-const b6 = 1 is A<A>;
-const b7 = 1 is A<A<dynamic>>;
-const b8 = 1 is A<A<Object>>;
-const b9 = 1 is A<A<Never>>;
-const b10 = 1 is A<A<void>>;
+const b7 = 1 is A<A>;
+const b8 = 1 is A<A<dynamic>>;
+const b9 = 1 is A<A<Object?>>;
+const b11 = 1 is A<A<Never>>;
+const b12 = 1 is A<A<void>>;
 
 main() {
 }

@@ -21,12 +21,12 @@ class B1 implements A {}             //# 01: compile-time error
 class B2<X extends A<X>> implements A<X> {}
 
 class B3 implements A<dynamic> {}    //# 02: compile-time error
-class B4 implements A<Object> {}     //# 03: compile-time error
+class B4 implements A<Object?> {}    //# 03: compile-time error
 class B5 implements A<void> {}       //# 04: compile-time error
 class B6 implements A<Null> {}       //# 05: compile-time error
 
 class B7 implements A<A<dynamic>> {} //# 06: compile-time error
-class B8 implements A<A<Object>> {}  //# 07: compile-time error
+class B8 implements A<A<Object?>> {} //# 07: compile-time error
 class B9 implements A<A<void>> {}    //# 08: compile-time error
 class B10 implements A<A<Null>> {}   //# 09: compile-time error
 

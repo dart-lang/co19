@@ -19,7 +19,7 @@ typedef B<X> = A<X>;
 main() {
   B b1;
   B<dynamic> b2;
-  B<Object> b3;
+  B<Object?> b3;
   B<Never> b4;
   B<void> b5;
 }

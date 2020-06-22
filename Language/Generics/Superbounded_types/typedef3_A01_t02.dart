@@ -14,7 +14,7 @@
 
 class A<T> {}
 
-typedef B1<X extends Object> = A<X>;
+typedef B1<X extends Object?> = A<X>;
 typedef B2<X extends dynamic> = A<X>;
 
 main() {

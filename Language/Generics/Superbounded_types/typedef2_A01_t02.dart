@@ -8,7 +8,7 @@
  * compile-time error.
  * @description Checks that compile error is not thrown when function alias with
  * well bounded type parameter is declared
- * @Issue 36959, 37050
+ * @Issue 36959, 37050, 37034
  * @author iarkh@unipro.ru
  */
 
@@ -16,12 +16,12 @@ class A<T extends A<T>> {}
 
 typedef void B1<X extends A<dynamic>>();
 typedef void B2<X extends A<Never>>();
-typedef void B3<X extends A<Object>>();
+typedef void B3<X extends A<Object?>>();
 typedef void B4<X extends A<void>>();
 
 typedef void B5<X extends A<A<dynamic>>>();
 typedef void B6<X extends A<A<Never>>>();
-typedef void B7<X extends A<A<Object>>>();
+typedef void B7<X extends A<A<Object?>>>();
 typedef void B8<X extends A<A<void>>>();
 
 main() {

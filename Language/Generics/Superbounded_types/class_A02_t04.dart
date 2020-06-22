@@ -11,7 +11,7 @@
  * @description Checks that compile error is not thrown when parametrized type
  * is used in the constant object expression with [as] constructions (see Issue
  * 37033 for more details)
- * @Issue 36959
+ * @Issue 42415
  * @author iarkh@unipro.ru
  */
 
@@ -22,13 +22,13 @@ class A<T extends A<T>> {
 const b1 = null as A?;
 
 const b2 = null as A<dynamic>?;
-const b3 = null as A<Object>?;
+const b3 = null as A<Object?>?;
 const b4 = null as A<Never>?;
 const b5 = null as A<void>?;
 
 const b6 = null as A<A>?;
 const b7 = null as A<A<dynamic>>?;
-const b8 = null as A<A<Object>>?;
+const b8 = null as A<A<Object?>>?;
 const b9 = null as A<A<Never>>?;
 const b10 = null as A<A<void>>?;
 

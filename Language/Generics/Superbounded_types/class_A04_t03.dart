@@ -22,13 +22,16 @@ class B1 extends C with A {}             //# 01: compile-time error
 class B2<X extends A<X>> extends C with A<X> {}
 
 class B3 extends C with A<dynamic> {}    //# 02: compile-time error
-class B4 extends C with A<Object> {}     //# 03: compile-time error
+class B4 extends C with A<Object?> {}    //# 03: compile-time error
 class B5 extends C with A<void> {}       //# 04: compile-time error
 class B6 extends C with A<Null> {}       //# 05: compile-time error
 
 class B7 extends C with A<A<dynamic>> {} //# 06: compile-time error
-class B8 extends C with A<A<Object>> {}  //# 07: compile-time error
+class B8 extends C with A<A<Object?>> {} //# 07: compile-time error
 class B9 extends C with A<A<void>> {}    //# 08: compile-time error
 class B10 extends C with A<A<Null>> {}   //# 09: compile-time error
+
+class B11 extends C with A<Never> {}
+class B12 extends C with A<A<Never>> {}
 
 main() {}

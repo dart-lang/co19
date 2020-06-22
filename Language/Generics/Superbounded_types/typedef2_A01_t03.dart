@@ -20,12 +20,12 @@ main() {
   B b1;
 
   B<dynamic> b2;
-  B<Object> b3;
+  B<Object?> b3;
   B<void> b4;
   B<Never> b5;
 
   B<A<dynamic>> b6;
-  B<A<Object>> b7;
+  B<A<Object?>> b7;
   B<A<void>> b8;
   B<A<Never>> b9;
 

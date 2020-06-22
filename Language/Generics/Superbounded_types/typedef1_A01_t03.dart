@@ -8,7 +8,7 @@
  * compile-time error.
  * @description Checks that compile error is not thrown when function alias with
  * well bounded type parameter is declared
- * @Issue 36959, 37050
+ * @Issue 36959, 37050, 42415
  * @author iarkh@unipro.ru
  */
 
@@ -20,12 +20,12 @@ main() {
   B b1;
 
   B<dynamic> b2;
-  B<Object> b3;
+  B<Object?> b3;
   B<void> b4;
   B<Never> b5;
 
   B<A<dynamic>> b6;
-  B<A<Object>> b7;
+  B<A<Object?>> b7;
   B<A<void>> b8;
   B<A<Never>> b9;
 

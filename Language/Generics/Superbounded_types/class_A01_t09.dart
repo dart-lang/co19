@@ -8,14 +8,14 @@
  * compile-time error.
  * @description Checks that compile error is not thrown when class with super
  * bounded type parameter is declared
- * @Issue 36959, 37028, 37050
+ * @Issue 37034, 37050
  * @author iarkh@unipro.ru
  */
 
 class A<T extends A<T>> {}
 
 class B1<X extends A<X>> {}
-class B5<X extends A<A<Object>>> {}
+class B5<X extends A<A<Object?>>> {}
 class B6<X extends A<A<dynamic>>> {}
 class B7<X extends A<A<void>>> {}
 class B8<X extends A<A<Never>>> {}

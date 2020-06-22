@@ -15,7 +15,7 @@
  *    With this, [a.x] has static type Object, even though the upper bound on
  *    the type variable X is num.
  * @description Checks that example from the Spec works correctly.
- * @Issue 36959
+ * @Issue 36959, 42415
  * @author iarkh@unipro.ru
  */
 
@@ -25,12 +25,12 @@ class A<X extends num> {
 
 A? a1;
 A<dynamic>? a2;
-A<Object>? a3;
+A<Object?>? a3;
 A<void>? a4;
 
 main() {
   A a1;
   A<dynamic> a2;
-  A<Object> a3;
+  A<Object?> a3;
   A<void> a4;
 }

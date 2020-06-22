@@ -16,13 +16,13 @@
 class A<X extends A<X>> {
   A() {}
   factory A.foo1() = C<dynamic>;       //# 01: compile-time error
-  factory A.foo2() = C<Object>;        //# 02: compile-time error
+  factory A.foo2() = C<Object?>;       //# 02: compile-time error
   factory A.foo3() = C<void>;          //# 03: compile-time error
   factory A.foo4() = C<A<dynamic>>;    //# 04: compile-time error
-  factory A.foo5() = C<A<Object>>;     //# 05: compile-time error
+  factory A.foo5() = C<A<Object?>>;    //# 05: compile-time error
   factory A.foo6() = C<A<void>>;       //# 06: compile-time error
   factory A.foo7() = C<A<A<dynamic>>>; //# 07: compile-time error
-  factory A.foo8() = C<A<A<Object>>>;  //# 08: compile-time error
+  factory A.foo8() = C<A<A<Object?>>>; //# 08: compile-time error
   factory A.foo9() = C<A<A<void>>>;    //# 09: compile-time error
 }
 

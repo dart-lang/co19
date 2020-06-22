@@ -11,7 +11,7 @@
  * @description Checks that compile error is not thrown when well-bounded
  * parametrized type is used in the constant object expression with [as]
  * constructions.
- * @Issue 36959, 37028
+ * @Issue 42415, 42429
  * @author iarkh@unipro.ru
  */
 
@@ -21,13 +21,15 @@ main() {
   var b1 = null as A?;
 
   var b2 = null as A<dynamic>?;
-  var b3 = null as A<Object>?;
-  var b4 = null as A<Never>?;
-  var b5 = null as A<void>?;
+  var b3 = null as A<Object?>?;
+  var b4 = null as A<Object>?;       //# 01: compile-time error
+  var b5 = null as A<Never>?;
+  var b6 = null as A<void>?;
 
-  var b6 = null as A<A>?;
-  var b7 = null as A<A<dynamic>>?;
-  var b8 = null as A<A<Object>>?;
-  var b9 = null as A<A<Never>>?;
-  var b10 = null as A<A<void>>?;
+  var b7  = null as A<A>?;
+  var b8  = null as A<A<dynamic>>?;
+  var b9  = null as A<A<Object?>>?;
+  var b10 = null as A<A<Object>>?;   //# 02: compile-time error
+  var b11 = null as A<A<Never>>?;
+  var b12 = null as A<A<void>>?;
 }

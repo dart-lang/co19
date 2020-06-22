@@ -15,12 +15,12 @@
 class A<T extends A<T>> {}
 
 void testme1<X extends A<dynamic>>() {}
-void testme2<X extends A<Object>>() {}
+void testme2<X extends A<Object?>>() {}
 void testme3<X extends A<Never>>() {}
 void testme4<X extends A<void>>() {}
 
 void testme5<X extends A<A<dynamic>>>() {}
-void testme6<X extends A<A<Object>>>() {}
+void testme6<X extends A<A<Object?>>>() {}
 void testme7<X extends A<A<Never>>>() {}
 void testme8<X extends A<A<void>>>() {}
 

@@ -16,7 +16,7 @@ class A<T extends A<T>> {}
 
 typedef B1<X> = A<X>;
 typedef B2<X extends A<dynamic>> = A<X>;
-typedef B3<X extends A<Null>> = A<X>;
+typedef B3<X extends A<Never>> = A<X>;
 typedef B4<X extends A<void>> = A<X>;
 
 main() {

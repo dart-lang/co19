@@ -22,9 +22,9 @@ main() {
   testme<dynamic, Never>();    //# 03: compile-time error
   testme<dynamic, dynamic>(); //# 04: compile-time error
 
-  testme<Null, Object>();     //# 05: compile-time error
+  testme<Null, Object?>();    //# 05: compile-time error
   testme<Object, Null>();     //# 06: compile-time error
-  testme<Object, Object>();   //# 07: compile-time error
+  testme<Object, Object?>();  //# 07: compile-time error
 
   testme<Null, void>();       //# 08: compile-time error
   testme<void, Null>();       //# 09: compile-time error

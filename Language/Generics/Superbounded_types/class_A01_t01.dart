@@ -8,7 +8,7 @@
  * compile-time error.
  * @description Checks that compile error is not thrown when variable with super
  * bounded type parameter is declared
- * @Issue 36959
+ * @Issue 42415, 42429
  * @author iarkh@unipro.ru
  */
 
@@ -18,15 +18,17 @@ main() {
   A a1;
 
   A<dynamic> a2;
-  A<Object> a3;
-  A<void> a4;
-  A<Never> a5;
+  A<Object?> a3;
+  A<Object>  a4;      //# 01: compile-time error
+  A<void>    a5;
+  A<Never>   a6;
 
-  A<A<dynamic>> a6;
-  A<A<Object>> a7;
-  A<A<void>> a8;
-  A<A<Never>> a9;
+  A<A<dynamic>> a7;
+  A<A<Object?>> a8;
+  A<A<Object>>  a9;  //# 02: compile-time error
+  A<A<void>>    a10;
+  A<A<Never>>   a11;
 
-  A<A> a10;
-  A<A<A>> a11;
+  A<A> a12;
+  A<A<A>> a13;
 }

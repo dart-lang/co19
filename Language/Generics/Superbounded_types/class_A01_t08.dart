@@ -8,13 +8,13 @@
  * compile-time error.
  * @description Checks that compile error is not thrown when class with type
  * parameter which extends super bounded type is declared
- * @Issue 36959, 37028
+ * @Issue 37034
  * @author iarkh@unipro.ru
  */
 
 class A<T extends A<T>> {}
 
-class B1<X extends A<Object>> {}
+class B1<X extends A<Object?>> {}
 class B2<X extends A<dynamic>> {}
 class B3<X extends A<void>> {}
 class B4<X extends A<Never>> {}
