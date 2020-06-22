@@ -22,9 +22,9 @@ main() {
       WebSocketTransformer
           .upgrade(request)
           .then((websocket) {
-        Expect.isTrue(websocket.pingInterval == null);
+        Expect.isNull(websocket.pingInterval);
         websocket.pingInterval = const Duration(milliseconds: 100);
-        Expect.isTrue(websocket.pingInterval.toString() == "0:00:00.100000");
+        Expect.equals("00:00:00.100000", websocket.pingInterval.toString());
         websocket.close();
       });
     });
