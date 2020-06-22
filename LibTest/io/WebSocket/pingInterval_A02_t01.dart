@@ -22,7 +22,7 @@ main() {
           .then((websocket) {
         Expect.isNull(websocket.pingInterval);
         websocket.pingInterval = const Duration(milliseconds: 100);
-        Expect.equals("00:00:00.100000", websocket.pingInterval.toString());
+        Expect.isTrue(websocket.pingInterval.toString().endsWith(":00.100000"));
         websocket.pingInterval = null;
         Expect.isTrue(websocket.pingInterval == null);
         websocket.close();
