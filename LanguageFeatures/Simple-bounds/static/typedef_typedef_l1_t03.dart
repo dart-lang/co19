@@ -37,4 +37,9 @@ main() {
 //                            ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  F<G2<G1<Never>>?>? target3 = source;
+//                             ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
