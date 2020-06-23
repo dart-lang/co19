@@ -14,7 +14,7 @@
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
  * @description Checks that bounds are correct for [typedef G<X> = void 
- * Function<Y extends A<X>>(X);]
+ * Function<Y extends A<X?>?>(X?);]
  * @Issue 34689
  * @author iarkh@unipro.ru
  */
@@ -23,7 +23,7 @@ import "../../../Utils/expect.dart";
 
 class A<X> {}
 typedef G<X> = void Function<Y extends A<X>>(X);
-typedef G_expected = void Function<Y extends A<dynamic>>(Never);
+typedef G_expected = void Function<Y extends A<dynamic>?>(Never);
 
 main() {
   Expect.equals(G_expected, G);

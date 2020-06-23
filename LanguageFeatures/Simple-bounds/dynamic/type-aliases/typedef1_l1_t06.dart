@@ -13,18 +13,27 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that bounds are correct for [typedef G<X> = void 
- * Function<Y extends A<X>>(X);]
- * @Issue 34689
+ * @description Checks that simple bounds of non-function type alias are correct
+ * for lists and maps parameters: [A<X extends List>?], [B<X extends Map>?].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
-import "../../../Utils/expect.dart";
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
-class A<X> {}
-typedef G<X> = void Function<Y extends A<X>>(X);
-typedef G_expected = void Function<Y extends A<dynamic>>(Never);
+import "../../../../Utils/expect.dart";
+
+class C<X> {}
+typedef A<X extends List> = C<X>?;
+typedef B<X extends Map> = C<X>?;
 
 main() {
-  Expect.equals(G_expected, G);
+  Expect.equals(
+    typeOf<A<List<dynamic>>?>(),
+    typeOf<A>(),
+  );
+
+  Expect.equals(
+    typeOf<B<Map<dynamic, dynamic>>?>(),
+    typeOf<B>(),
+  );
+
 }

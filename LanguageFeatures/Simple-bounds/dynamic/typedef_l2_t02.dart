@@ -26,7 +26,7 @@ typedef G<X, Y extends X> = X Function(Y);
 
 main() {
   Expect.equals(
-    typeOf<G<dynamic, Null>>(),
+    typeOf<G<dynamic, Never>>(),
     typeOf<G>()
   );
 }
