@@ -52,8 +52,8 @@ testA() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<List<List<Null>>>?>? target2 = fsource;
-//                                   ^^^^^^^
+  F<A<List<List<Never>>>?>? target2 = fsource;
+//                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

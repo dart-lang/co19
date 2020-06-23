@@ -13,39 +13,22 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that simple bounds are correct for non-nullable
- * non-function alias with function parameter (contravariant)
+ * @description Checks that instantiate-to-bounds works as expected for
+ * non-function type alias with two depending typed parameters.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 import "../../../../Utils/expect.dart";
 
-class C<X> {}
+class C<X, Y> {}
+class A<X> {}
 
-typedef G<X> = Function(X);
-typedef A<X extends G> = C<X>;
+typedef B<X extends A, Y extends X> = C<X, Y?>;
 
 main() {
-  A? source;
-  var fsource = toF(source);
-
-  F<A<G<dynamic>>?>? target = fsource;
-
-  F<A<G<dynamic>?>?>? target0 = fsource;
-//                              ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<Null>>?>? target1 = fsource;
-//                          ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<Never>>?>? target2 = fsource;
-//                           ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  A();
+  Expect.equals(
+    typeOf<B<A<dynamic>, A<dynamic>>>(),
+    typeOf<B>(),
+  );
 }

@@ -8,40 +8,27 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that simple bounds are correct for the very simple case:
- *  [A<X extends num>]
+ * @description Checks that simple bounds are correct for non-nullable
+ * non-function type alias [A<X extends num>]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
-import "../../../Utils/expect.dart";
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 
-class A<X extends num> {}
+import "../../../../Utils/expect.dart";
+
+class C<X> {}
+typedef A<X extends num> = C<X>;
 
 main() {
-  A? source;
+  A source;
   var fsource = toF(source);
-
-  F<A<num>>? target = fsource;
-
-  F<A<int>>? target1 = fsource;
-//                      ^^^^^^^
+//                  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<dynamic>>? target2 = fsource;
-//                          ^^^^^^^
+  F<A<num>?>? target = fsource;
+//                     ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<Never>>? target3 = fsource;
-//                        ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<Object>>? target4 = fsource;
-//                         ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  A();
 }

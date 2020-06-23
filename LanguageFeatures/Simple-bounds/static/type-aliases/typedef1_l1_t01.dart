@@ -10,6 +10,7 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for non-nullable
  * non-function type alias [A<X extends num?>?]
+ * @Issue 42449
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
@@ -47,6 +48,11 @@ main() {
 
   F<A<Object>?>? target4 = fsource;
 //                         ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<Never>?>? target5 = fsource;
+//                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

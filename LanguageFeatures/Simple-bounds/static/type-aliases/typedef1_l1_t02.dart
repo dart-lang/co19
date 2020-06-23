@@ -48,6 +48,11 @@ testA() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  F<A<List<Never>>?>? target5 = fsource;
+//                              ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   A();
 }
 

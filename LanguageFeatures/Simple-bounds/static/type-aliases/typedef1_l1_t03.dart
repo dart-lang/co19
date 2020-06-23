@@ -80,13 +80,13 @@ testB() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<Map<Null, int>>?>? target3 = fsource;
-//                                 ^^^^^^^
+  F<B<Map<Never, int>>?>? target3 = fsource;
+//                                  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<Map<int, Null>>?>? target4 = fsource;
-//                                 ^^^^^^^
+  F<B<Map<int, Never>>?>? target4 = fsource;
+//                                  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -95,8 +95,8 @@ testB() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<Map<Null, Null>>?>? target6 = fsource;
-//                                  ^^^^^^^
+  F<B<Map<Never, Never>>?>? target6 = fsource;
+//                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
 /**
  * @assertion Let [G] be a generic class or parameterized type alias with formal
  * type parameter declarations [F1] .. [Fk] containing formal type parameters
@@ -13,40 +8,53 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that instantiate-to-bounds works correctly for [typedef
- *  G<X, Y extends X> = X Function(Y)]
- * @Issue 34689, 34699
+ * @description Checks that simple bounds are correct for non-nullable
+ * non-function type alias [A<X extends num> = C<X>?]
+ * @Issue 42449
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
+// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 
-import "../../../Utils/expect.dart";
+import "../../../../Utils/expect.dart";
 
-typedef G<X, Y extends X> = X Function(Y);
+class C<X> {}
+typedef A<X extends num> = C<X>?;
 
 main() {
-  G? source;
+  A source;
   var fsource = toF(source);
 
-  F<G<dynamic, Never>?>? target = fsource;
+  F<A<num>>? target = fsource;
 
-  F<G<dynamic, Null>?>? target0 = fsource;
-//                                ^^^^^^^
+  F<A<num?>>? target0 = fsource;
+//                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<Null, dynamic>?>? target1 = fsource;
-//                                ^^^^^^^
+  F<A<int>>? target1 = fsource;
+//                     ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<Null, Null>?>? target2 = fsource;
-//                             ^^^^^^^
+  F<A<dynamic>>? target2 = fsource;
+//                         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<dynamic, dynamic>?>? target3 = fsource;
-//                                   ^^^^^^^
+  F<A<Null>>? target3 = fsource;
+//                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  F<A<Object>>? target4 = fsource;
+//                        ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<Never>>? target5 = fsource;
+//                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A();
 }

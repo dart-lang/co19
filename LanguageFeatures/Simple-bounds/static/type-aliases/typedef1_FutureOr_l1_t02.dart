@@ -20,7 +20,7 @@
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 
 import "dart:async";
-import "../../../Utils/expect.dart";
+import "../../../../Utils/expect.dart";
 
 class C<X> {}
 typedef A<X extends FutureOr<List>> = C<X>;
@@ -37,6 +37,11 @@ main() {
 
   F<A<FutureOr<List<Null>>>?>? target2 = fsource;
 //                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<FutureOr<List<Never>>>?>? target3 = fsource;
+//                              ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

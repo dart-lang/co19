@@ -13,60 +13,59 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that simple bounds are correct for non-nullable
- * non-function type alias with function parameter (contravariant)
- * @Issue 42449
+ * @description Checks that instantiate-to-bounds work as expected for
+ * non-nullable non-function type alias with two depending type parameters.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 
 import "../../../../Utils/expect.dart";
 
-class C<X> {}
+class C<X, Y> {}
 
-typedef G<X> = void Function(X);
-typedef A<X extends G<int>> = C<X>;
+class A<X> {}
+typedef B<X extends A, Y extends X> = C<X, Y?>;
 
 main() {
-  A? source;
+  B? source;
   var fsource = toF(source);
 
-  F<A<G<int>>?>? target = fsource;
+  F<B<A<dynamic>, A<dynamic>>?>? target = fsource;
 
-  F<A<G<int?>?>?>? target01 = fsource;
-//                            ^^^^^^^
+  F<B<A<dynamic>?, A<dynamic>?>?>? target0 = fsource;
+//                                           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<int>?>?>? target02 = fsource;
-//                           ^^^^^^^
+  F<B<A<int>, A<dynamic>>?>? target1  = fsource;
+//                                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<int?>>?>? target03 = fsource;
-//                           ^^^^^^^
+  F<B<A<dynamic>, A<int>>?>? target2  = fsource;
+//                                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<dynamic>>?>? target1 = fsource;
-//                             ^^^^^^^
+  F<B<A<Null>, A<dynamic>>?>? target3 = fsource;
+//                                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<Null>>?>? target2 = fsource;
-//                          ^^^^^^^
+  F<B<A<dynamic>, A<Null>>?>? target4 = fsource;
+//                                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<String>>?>? target3 = fsource;
-//                            ^^^^^^^
+  F<B<A<int>, A<int>>?>? target5 = fsource;
+//                                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<Never>>?>? target4 = fsource;
-//                           ^^^^^^^
+  F<B<A<Never>, A<Never>>?>? target6 = fsource;
+//                                   ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  A();
+  B();
 }

@@ -62,7 +62,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<A<Null>, A<Null>>?>? target6 = fsource;
+  F<B<A<Never>, A<Never>>?>? target6 = fsource;
 //                                   ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
