@@ -13,57 +13,29 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that simple bounds are correct for the class with
- * non-nullable function parameter (invariant)
+ * @description Checks that simple bounds are correct for [typedef] with [X
+ * extends A] parameter (invariant)
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
 import "../../../Utils/expect.dart";
 
-typedef G<X> = X Function(X);
-class A<X extends G<int>> {}
+class A<X> {}
+typedef G<X extends A?> = X Function(X);
 
 main() {
-  A? source;
+  G? source;
   var fsource = toF(source);
+  F<G<A<dynamic>?>?>? target = fsource;
 
-  F<A<G<int>>?>? target = fsource;
-
-  F<A<G<int?>>?>? target01 = fsource;
+  F<G<A<Null>?>?>? target1 = fsource;
 //                           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<int?>?>?>? target02 = fsource;
+  F<G<A<Never>?>?>? target2 = fsource;
 //                            ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  F<A<G<int>?>?>? target03 = fsource;
-//                           ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<dynamic>>?>? target1 = fsource;
-//                             ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<Null>>?>? target2 = fsource;
-//                          ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<String>>?>? target3 = fsource;
-//                            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<Never>>?>? target4 = fsource;
-//                           ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  A();
 }

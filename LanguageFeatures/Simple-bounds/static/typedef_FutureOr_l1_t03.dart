@@ -27,10 +27,16 @@ typedef G<X extends FutureOr> = X Function(X);
 main() {
   G? source;
   var fsource = toF(source);
+
   F<G<FutureOr<dynamic>>?>? target = fsource;
 
   F<G<FutureOr<Null>>?>? target1 = fsource;
 //                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<FutureOr<Never>>?>? target2 = fsource;
+//                                  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -21,24 +21,29 @@ main() {
   A? source;
   var fsource = toF(source);
 
-  F<A<num>>? target = fsource;
+  F<A<num>?>? target = fsource;
 
-  F<A<int>>? target1 = fsource;
+  F<A<num?>?>? target0 = fsource;
+//                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<int>?>? target1 = fsource;
 //                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<dynamic>>? target2 = fsource;
+  F<A<dynamic>?>? target2 = fsource;
 //                          ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<Never>>? target3 = fsource;
+  F<A<Never>?>? target3 = fsource;
 //                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<Object>>? target4 = fsource;
+  F<A<Object>?>? target4 = fsource;
 //                         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

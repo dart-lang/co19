@@ -44,5 +44,10 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  F<A<FutureOr<Object>>?>? target4 = fsource;
+//                                  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   A();
 }

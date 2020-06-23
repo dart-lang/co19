@@ -56,7 +56,7 @@ main() {
 // [cfe] unspecified
 
   F<A<G<String>?>?>? target3 = fsource;
-//                            ^^^^^^^
+//                             ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

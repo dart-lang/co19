@@ -55,7 +55,10 @@ testB() {
   F<B<Map>?>? target1 = fsource;
   F<B<Map<dynamic, dynamic>>?>? target2 = fsource;
 
-  F<B<Map<int, dynamic>>?>? target3 = fsource;
+  F<B<Map>?>? target1 = fsource;
+  F<B<Map<dynamic, dynamic>>?>? target2 = fsource;
+
+ F<B<Map<int, dynamic>>?>? target3 = fsource;
 //                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

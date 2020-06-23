@@ -37,4 +37,8 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  F<FutureOr<Never>>? target3 = fsource;
+//                              ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

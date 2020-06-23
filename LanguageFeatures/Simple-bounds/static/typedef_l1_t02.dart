@@ -26,6 +26,7 @@ typedef G<X extends num> = Function(X);
 main() {
   G? source;
   var fsource = toF(source);
+
   F<G<num>?>? target = fsource;
 
   F<G<dynamic>?>? target1 = fsource;

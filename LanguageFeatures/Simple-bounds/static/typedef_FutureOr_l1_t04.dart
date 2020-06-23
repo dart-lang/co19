@@ -30,4 +30,5 @@ main() {
   var fsource = toF(source);
   F<G<FutureOr<dynamic>>?>? target = fsource;
   F<G<FutureOr<Null>>?>? target1 = fsource;
+  F<G<FutureOr<Never>>?>? target2 = fsource;
 }

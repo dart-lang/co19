@@ -14,26 +14,26 @@
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [typedef] with [X
- * extends A] parameter (covariant)
+ * extends A?] parameter (covariant)
  * Issue 41437
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
 class A<X> {}
-typedef G<X extends A> = void Function<Y extends X>();
+typedef G<X extends A?> = void Function<Y extends X>();
 
 main() {
   G? source;
-  void Function<X extends A<dynamic>>()? target = source;
+  void Function<X extends A<dynamic>?>()? target = source;
 
-  void Function<X extends A<Null>>()? target1 = source;
-//                                              ^^^^^^
+  void Function<X extends A<Null>?>()? target1 = source;
+//                                               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified}
 
-  void Function<X extends A<Never>>()? target2 = source;
-//                                               ^^^^^^
+  void Function<X extends A<Never>?>()? target2 = source;
+//                                                ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

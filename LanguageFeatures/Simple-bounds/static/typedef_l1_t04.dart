@@ -31,7 +31,7 @@ main() {
   F<G<dynamic>?>? target1 = fsource;
 
   F<G<Object>?>? target2 = fsource;
-//                       ^^^^^^^
+//                         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -42,6 +42,11 @@ main() {
 
   F<G<num?>?>? target4 = fsource;
 //                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<Never>?>? target5 = fsource;
+//                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

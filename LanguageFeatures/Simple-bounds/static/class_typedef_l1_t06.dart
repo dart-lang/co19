@@ -31,7 +31,7 @@ main() {
   F<A<G<int>>?>? target = fsource;
 
   F<A<G<int?>?>?>? target01 = fsource;
-//                           ^^^^^^^
+//                            ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -39,6 +39,7 @@ main() {
 //                           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
   F<A<G<int?>>?>? target03 = fsource;
 //                           ^^^^^^^
 // [analyzer] unspecified
@@ -56,6 +57,11 @@ main() {
 
   F<A<G<String>>?>?  target3 = fsource;
 //                             ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<Never>>?>? target4 = fsource;
+//                           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
