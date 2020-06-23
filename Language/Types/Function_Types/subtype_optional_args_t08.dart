@@ -15,14 +15,12 @@
  * t2 if the names of its positional optional parameters do not match those of
  * t2 as long as the types do.
  * @author iefremov
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import "../../../Utils/expect.dart";
 
 typedef t2([int x, double y]);
 
 main() {
-  Expect.isTrue(([int x, double xx]) {} is t2);
-  Expect.isTrue(([int y, double x]) {} is t2);
+  Expect.isTrue(([int x = 42, double xx = 3.14]) {} is t2);
+  Expect.isTrue(([int y = 0, double x = 0.0]) {} is t2);
 }

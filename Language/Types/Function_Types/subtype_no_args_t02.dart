@@ -14,7 +14,6 @@
  * @description Checks that this statement is true for function types with no
  * arguments: S is some type, T is Dynamic (assignable to S).
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -35,14 +34,14 @@ typedef t11 t12();
 main() {
   Expect.isTrue(() {} is t1);
   Expect.isTrue(() {} is t2);
-  Expect.isTrue(() {} is t3);
-  Expect.isTrue(() {} is t4);
-  Expect.isTrue(() {} is t5);
-  Expect.isTrue(() {} is t6);
-  Expect.isTrue(() {} is t7);
-  Expect.isTrue(() {} is t8);
-  Expect.isTrue(() {} is t9);
-  Expect.isTrue(() {} is t10);
-  Expect.isTrue(() {} is t11);
-  Expect.isTrue(() {} is t12);
+  Expect.isFalse(() {} is t3);
+  Expect.isFalse(() {} is t4);
+  Expect.isFalse(() {} is t5);
+  Expect.isFalse(() {} is t6);
+  Expect.isFalse(() {} is t7);
+  Expect.isFalse(() {} is t8);
+  Expect.isFalse(() {} is t9);
+  Expect.isFalse(() {} is t10);
+  Expect.isFalse(() {} is t11);
+  Expect.isFalse(() {} is t12);
 }

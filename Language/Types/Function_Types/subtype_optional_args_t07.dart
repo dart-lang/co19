@@ -15,8 +15,6 @@
  * t2 if it has fewer positional optional parameters and none of them has
  * required parameters.
  * @author iefremov
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import "../../../Utils/expect.dart";
 
@@ -27,9 +25,9 @@ typedef t3([int x, int y, int z]);
 main() {
   Expect.isFalse(() {} is t1);
 
-  Expect.isFalse(([int x]) {} is t2);
+  Expect.isFalse(([int x = 42]) {} is t2);
   Expect.isFalse(([var x]) {} is t2);
 
-  Expect.isFalse(([int x, int y]) {} is t3);
+  Expect.isFalse(([int x = 0, int y = 0]) {} is t3);
   Expect.isFalse(([var x, var y]) {} is t3);
 }

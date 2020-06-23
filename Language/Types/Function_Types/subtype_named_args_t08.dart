@@ -17,16 +17,15 @@
  * t2 if their named optional parameters have identical names and mutually
  * assignale types, regardless of the order they're declared in.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 
-typedef t1({int x, double d, String s});
+typedef t1({int? x, double? d, String? s});
 
 main() {
-  Expect.isTrue(({int x, String s, double d}) {} is t1);
-  Expect.isTrue(({double d, int x, String s}) {} is t1);
-  Expect.isTrue(({double d, String s, int x}) {} is t1);
-  Expect.isTrue(({String s, double d, int x}) {} is t1);
-  Expect.isTrue(({String s, int x, double d}) {} is t1);
+  Expect.isTrue(({int? x, String? s, double? d}) {} is t1);
+  Expect.isTrue(({double? d, int? x, String? s}) {} is t1);
+  Expect.isTrue(({double? d, String? s, int? x}) {} is t1);
+  Expect.isTrue(({String? s, double? d, int? x}) {} is t1);
+  Expect.isTrue(({String? s, int? x, double? d}) {} is t1);
 }

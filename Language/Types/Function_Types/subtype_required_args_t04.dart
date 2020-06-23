@@ -15,7 +15,6 @@
  * t2 if a formal parameter of t1 is not assignable to a corresponding parameter
  * of t2 (both t1 and t2 have a single required formal parameter).
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

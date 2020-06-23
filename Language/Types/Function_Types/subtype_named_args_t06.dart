@@ -16,7 +16,6 @@
  * @description Checks that function type t1 is not a subtype of function type
  * t2 if they have different number of required parameters.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 
@@ -27,13 +26,13 @@ main() {
   Expect.isFalse(() {} is t1);
   Expect.isFalse((int x, var y) {} is t1);
   Expect.isFalse((int x, int y) {} is t1);
-  Expect.isFalse(({int x}) {} is t1);
-  Expect.isFalse(({var x}) {} is t1);
+  Expect.isFalse(({required int x}) {} is t1);
+  Expect.isFalse(({required var x}) {} is t1);
 
   Expect.isFalse(() {} is t2);
   Expect.isFalse((int x) {} is t2);
   Expect.isFalse((int y) {} is t2);
-  Expect.isFalse((int x, {int y}) {} is t2);
-  Expect.isFalse(({int x, int y}) {} is t2);
+  Expect.isFalse((int x, {required int y}) {} is t2);
+  Expect.isFalse(({required int x, required int y}) {} is t2);
   Expect.isFalse((int x, int y, int z) {} is t2);
 }

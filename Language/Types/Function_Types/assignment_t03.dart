@@ -20,5 +20,5 @@ class X {}
 typedef B t1(B b);
 
 main() {
-  t1 x1c = (C x) {};
+  t1 x1c = (C x) => new B();
 }

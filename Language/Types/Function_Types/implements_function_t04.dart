@@ -9,7 +9,6 @@
  * function. All function types are subtypes of Function.
  * @description Checks that function literals implement the interface Function.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -20,6 +19,6 @@ main() {
   Expect.isTrue(((var x) => null) is Function);
   Expect.isTrue(((int x) => x) is Function);
   Expect.isTrue((([var x]) => "aa") is Function);
-  Expect.isTrue(((var x, int z, [Object o, var v = 1]) => x + z + o + v) is Function);
+  Expect.isTrue(((var x, int z, [Object? o, var v = 1]) => x + z + o + v) is Function);
   Expect.isTrue(((x, z, {o, v: 1}) => x + z + o + v) is Function);
 }

@@ -18,7 +18,6 @@
  * parameters.
  * This test is like A03/t04, but the order of named parameters is not altered.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -31,17 +30,17 @@ class D implements C {}
 
 typedef B func(Object o);
 typedef B t1(int i, B b, Map<int, num> m, var x,
-             {var ox, B ob, List<num> ol, bool obool});
+             {var ox, B? ob, List<num>? ol, bool? obool});
 
 B f1(int i, B b, Map<int, num> m, var x,
-     {var ox, D ob, List<num> ol, bool obool, extraParam}) {}
+     {var ox, A? ob, List<num>? ol, bool? obool, extraParam}) => new B();
 D f2(int i, D b, Map<int, int> m, func x,
-     {func ox, D ob, List<int> ol, bool obool}) {}
+     {func? ox, D? ob, List<int>? ol, bool? obool}) => new D();
 C f4(num i, A b, Map<Object, Object> m, var x,
-     {var ox, A2 ob, List ol, bool obool, A xx, B yy}) {}
+     {var ox, A2? ob, List? ol, bool? obool, A? xx, B? yy}) => new C();
 
 main() {
   Expect.isTrue(f1 is t1);
-  Expect.isTrue(f2 is t1);
+  Expect.isFalse(f2 is t1);
   Expect.isTrue(f4 is t1);
 }

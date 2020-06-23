@@ -27,9 +27,9 @@ typedef t2(int x, int y);
 class Whatever {}
 
 main() {
-  Expect.isTrue(([int x, Whatever w]) {} is t1);
-  Expect.isTrue(([var x, Whatever w, Whatever w2]) {} is t1);
-  Expect.isTrue((int x, [int y, Whatever w]) {} is t2);
-  Expect.isTrue((int x, [int y, Whatever w, Whatever w2]) {} is t2);
-  Expect.isTrue(([int x, int y, Whatever w, Whatever w2]) {} is t2);
+  Expect.isTrue(([int x = 0, Whatever? w]) {} is t1);
+  Expect.isTrue(([var x, Whatever? w, Whatever? w2]) {} is t1);
+  Expect.isTrue((int x, [int y = 0, Whatever? w]) {} is t2);
+  Expect.isTrue((int x, [int y = 0, Whatever? w, Whatever? w2]) {} is t2);
+  Expect.isTrue(([int x = 42, int y = 0, Whatever? w, Whatever? w2]) {} is t2);
 }

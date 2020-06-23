@@ -14,7 +14,6 @@
  * @description Checks that function type t1 is not a subtype of function type
  * t2 if return types of t1 and t2 are not mutually assignable.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -26,12 +25,12 @@ typedef A t2();
 typedef List<A> t3();
 typedef t1 t4();
 
-double f1() {}
-bool f2() {}
-A f3() {}
-List<int> f4() {}
-t2 f5() {}
-t3 f6() {}
+double f1() => 3.14;
+bool f2() => false;
+A f3() => new A();
+List<int> f4() => [3, 1, 4];
+t2? f5() {}
+t3? f6() {}
 
 main() {
   Expect.isFalse(f1 is t1);

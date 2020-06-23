@@ -21,12 +21,12 @@ class X {}
 typedef C t1(C c);
 
 main() {
-  t1 x1a = (A x) {};
-  t1 x1b = (B x) {};
-  t1 x1c = (C x) {};
+  t1 x1a = (A x) => new C();
+  t1 x1b = (B x) => new C();
+  t1 x1c = (C x) => new C();
 
-  Expect.isTrue((A x) {} is t1);
-  Expect.isTrue((B x) {} is t1);
-  Expect.isTrue((C x) {} is t1);
-  Expect.isFalse((X x) {} is t1);
+  Expect.isTrue((A x) {return new C();} is t1);
+  Expect.isTrue((B x) {return new C();} is t1);
+  Expect.isTrue((C x) {return new C();} is t1);
+  Expect.isFalse((X x) {return new C();} is t1);
 }

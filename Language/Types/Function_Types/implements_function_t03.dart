@@ -10,20 +10,19 @@
  * @description Checks that various local functions implement the interface
  * Function.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
 main() {
   f1() {}
   void f2() {}
-  Object f3() {}
-  int f4() {}
+  Object f3() => new Object();
+  int f4() => 42;
   f5(var x) {}
   void f6(var x) {}
-  String f7([var x]) {}
-  Object f8(var x, int z, [Object o, var v = 1]) {}
-  Object f9(var x, int z, {o, v: 1}) {}
+  String f7([var x]) => "Lily was here";
+  Object f8(var x, int z, [Object? o, var v = 1]) => new Object();
+  Object f9(var xx, int zz, {o, v: 1}) => new Object();
 
   Expect.isTrue(f1 is Function);
   Expect.isTrue(f2 is Function);

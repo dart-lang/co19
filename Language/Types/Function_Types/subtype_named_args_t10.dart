@@ -18,20 +18,19 @@
  * mutually assignable with the type of t2's corresponding named optional
  * parameter.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 
 class B {}
 
 typedef B func(Object o);
-typedef B t1(int i, B b, Map<int, num> m, var x, {var ox, B ob, List<num> ol, bool obool});
+typedef B t1(int i, B b, Map<int, num> m, var x, {var ox, B? ob, List<num>? ol, bool? obool});
 
-B f1(int i, B b, Map<int, num> m, var x, {var ox, func ob, List<num> ol, bool obool}) {}
+B f1(int i, B b, Map<int, num> m, var x, {var ox, func? ob, List<num>? ol, bool? obool}) => new B();
 //                                                 ^^^ func <=/=> B
-B f2(int i, B b, Map<int, num> m, var x, {var ox, B ob, List<B> ol, bool obool}) {}
+B f2(int i, B b, Map<int, num> m, var x, {var ox, B? ob, List<B>? ol, bool? obool}) => new B();
 //                                                          ^^^ B <=/=> num
-B f3(num i, B b, Map<int, num> m, var x, {var ox, B ob, List<num> ol, int obool}) {}
+B f3(num i, B b, Map<int, num> m, var x, {var ox, B? ob, List<num>? ol, int? obool}) => new B();
 //                                                                    ^^^ int <=/=> bool
 
 main() {

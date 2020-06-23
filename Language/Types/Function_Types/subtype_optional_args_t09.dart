@@ -15,21 +15,19 @@
  * t2 even if just one of its required parameters has a type that is not
  * mutually assignable with the type of the corresponding formal parameter of t2.
  * @author iefremov
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import "../../../Utils/expect.dart";
 
 class B {}
 
 typedef B func(Object o);
-typedef B t1(int i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]);
+typedef B t1(int i, B b, Map<int, num> m, var x, [var ox, B? ob, List<num>? ol, bool? obool]);
 
-B f1(double i, B b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {}
+B f1(double i, B b, Map<int, num> m, var x, [var ox, B? ob, List<num>? ol, bool? obool]) => new B();
 //    ^^^ double <=/=> int
-B f2(int i, func b, Map<int, num> m, var x, [var ox, B ob, List<num> ol, bool obool]) {}
+B f2(int i, func b, Map<int, num> m, var x, [var ox, B? ob, List<num>? ol, bool? obool]) => new B();
 //          ^^^ func <=/=> B
-B f3(int i, B b, Map<int, func> m, var x, [var ox, B ob, List<num> ol, bool obool]) {}
+B f3(int i, B b, Map<int, func> m, var x, [var ox, B? ob, List<num>? ol, bool? obool]) => new B();
 //                        ^^^ func <=/=> num
 
 main() {

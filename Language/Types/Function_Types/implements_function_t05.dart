@@ -10,32 +10,31 @@
  * @description Checks that various functions are also Objects, courtesy of the
  * transitive << relation that subtype relation is based on.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 class C {
   if1() {}
-  Object if2(var x, int z, [Object o, var v = 1]) {}
-  Object if3(var x, int z, {o, v: 1}) {}
+  Object if2(var x, int z, [Object? o, var v = 1]) => new Object();
+  Object if3(var x, int z, {o, v: 1}) => new Object();
 
   static sf1() {}
-  static Object sf2(var x, int z, [Object o, var v = 1]) {}
-  static Object sf3(var x, int z, {o, v: 1}) {}
+  static Object sf2(var x, int z, [Object? o, var v = 1]) => new Object();
+  static Object sf3(var x, int z, {o, v: 1}) => new Object();
 }
 
 void tlf1() {}
-Object tlf2(var x, int z, [Object o, var v = 1]) {}
-Object tlf3(var x, int z, {o, v: 1}) {}
+Object tlf2(var x, int z, [Object? o, var v = 1]) => new Object();
+Object tlf3(var x, int z, {o, v: 1}) => new Object();
 
 main() {
   void lf1() {}
-  Object lf2(var x, int z, [Object o, var v = 1]) {}
-  Object lf3(var x, int z, {o, v: 1}) {}
+  Object lf2(var x, int z, [Object? o, var v = 1]) => new Object();
+  Object lf3(var x, int z, {o, v: 1}) => new Object();
 
   Expect.isTrue(() {} is Object);
   Expect.isTrue((var x) {} is Object);
   Expect.isTrue(
-      ((var x, int z, [Object o, var v = 1]) => x + z + o + v) is Object);
+      ((var x, int z, [Object? o, var v = 1]) => x + z + o + v) is Object);
 
   Expect.isTrue(lf1 is Object);
   Expect.isTrue(lf2 is Object);

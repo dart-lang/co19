@@ -27,7 +27,7 @@ main() {
   Expect.isFalse((int x, var y) {} is t1);
   Expect.isFalse((int x, int y) {} is t1);
 
-  Expect.isFalse(([int x]) {} is t2);
+  Expect.isFalse(([int x = 42]) {} is t2);
   Expect.isFalse((int x) {} is t2);
   Expect.isFalse((int y) {} is t2);
   Expect.isFalse((int x, int y, int z) {} is t2);

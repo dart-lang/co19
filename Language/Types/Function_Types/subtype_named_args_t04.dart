@@ -17,7 +17,6 @@
  * types: non-dynamic return type and a bunch of required and named optional
  * parameters.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 
@@ -29,18 +28,24 @@ class C implements B {}
 class D implements C {}
 
 typedef B func(Object o);
-typedef B t1(int i, B b, Map<int, num> m, var x, {var ox, B ob, List<num> ol, bool obool});
+typedef B t1(int i, B b, Map<int, num> m, var x, {
+  required var ox, required B ob, required List<num> ol, required bool obool});
 
-B f1(int i, B b, Map<int, num> m, var x, {extraParam, bool obool, var ox, D ob, List<num> ol}) {}
-D f2(int i, D b, Map<int, int> m, func x, {func ox, D ob, List<int> ol, bool obool}) {}
-C f3(num i, A b, Map<Object, Object> m, var x, {var ox, extraParam, A2 ob, List ol, Object obool}) {}
-C f4(num i, A b, Map<Object, Object> m, var x, {var ox, A2 ob, List ol, bool obool, A xx, B yy}) {}
-A f5(num i, A b, Map<Object, Object> m, var x, {ox, A2 ob, extraParam, List ol, obool}) {}
+B f1(int i, B b, Map<int, num> m, var x, {
+  required extraParam, required bool obool, required var ox, required D ob, required List<num>? ol}) => new B();
+D f2(int i, D b, Map<int, int> m, func x, {
+  required func ox, required D ob, required List<int> ol, required bool obool}) => new D();
+C f3(num i, A b, Map<Object, Object> m, var x, {
+  required var ox, required extraParam, required A2 ob, required List ol, required Object obool}) => new C();
+C f4(num i, A b, Map<Object, Object> m, var x, {
+  required var ox, required A2 ob, required List ol, required bool obool, required A xx, required B yy}) => new C();
+C f5(int i, A b, Map<Object, Object> m, var x, {
+  required ox, required B ob, required List ol, required obool}) => new C();
 
 main() {
-  Expect.isTrue(f1 is t1);
-  Expect.isTrue(f2 is t1);
-  Expect.isTrue(f3 is t1);
-  Expect.isTrue(f4 is t1);
+  Expect.isFalse(f1 is t1);
+  Expect.isFalse(f2 is t1);
+  Expect.isFalse(f3 is t1);
+  Expect.isFalse(f4 is t1);
   Expect.isTrue(f5 is t1);
 }

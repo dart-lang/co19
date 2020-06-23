@@ -17,7 +17,6 @@
  * t2 if the type of a single named optional parameter of t1 is not assignable
  * to the type of t2's single named optional parameter.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 
@@ -25,35 +24,35 @@ class A {}
 class B {}
 
 typedef t1({int p});
-typedef t2({A p});
+typedef t2({A? p});
 typedef t3({List<A> p});
-typedef t4({t1 p});
+typedef t4({t1? p});
 
 main() {
-  Expect.isFalse(({double p}) {} is t1);
-  Expect.isFalse(({bool p}) {} is t1);
-  Expect.isFalse(({A p}) {} is t1);
-  Expect.isFalse(({List<int> p}) {} is t1);
-  Expect.isFalse(({t2 p}) {} is t1);
+  Expect.isFalse(({double p = 3.14}) {} is t1);
+  Expect.isFalse(({bool p = false}) {} is t1);
+  Expect.isFalse(({A? p}) {} is t1);
+  Expect.isFalse(({List<int> p = const [3, 1, 4]}) {} is t1);
+  Expect.isFalse(({t2? p}) {} is t1);
 
-  Expect.isFalse(({double p}) {} is t2);
-  Expect.isFalse(({bool p}) {} is t2);
-  Expect.isFalse(({List<int> p}) {} is t2);
-  Expect.isFalse(({t2 p}) {} is t2);
-  Expect.isFalse(({B p}) {} is t2);
+  Expect.isFalse(({double p = 3.14}) {} is t2);
+  Expect.isFalse(({bool p = false}) {} is t2);
+  Expect.isFalse(({List<int> p = const [3, 1, 4]}) {} is t2);
+  Expect.isFalse(({t2? p}) {} is t2);
+  Expect.isFalse(({B? p}) {} is t2);
 
-  Expect.isFalse(({double p}) {} is t3);
-  Expect.isFalse(({bool p}) {} is t3);
-  Expect.isFalse(({A p}) {} is t3);
-  Expect.isFalse(({List<int> p}) {} is t3);
-  Expect.isFalse(({List<B> p}) {} is t3);
-  Expect.isFalse(({t2 p}) {} is t3);
+  Expect.isFalse(({double p = 3.14}) {} is t3);
+  Expect.isFalse(({bool p = false}) {} is t3);
+  Expect.isFalse(({A? p}) {} is t3);
+  Expect.isFalse(({List<int> p = const <int>[]}) {} is t3);
+  Expect.isFalse(({List<B>? p}) {} is t3);
+  Expect.isFalse(({t2? p}) {} is t3);
 
-  Expect.isFalse(({double p}) {} is t4);
-  Expect.isFalse(({bool p}) {} is t4);
-  Expect.isFalse(({A p}) {} is t4);
-  Expect.isFalse(({List<int> p}) {} is t4);
-  Expect.isFalse(({t2 p}) {} is t4);
-  Expect.isFalse(({t3 p}) {} is t4);
-  Expect.isFalse(({t4 p}) {} is t4);
+  Expect.isFalse(({double p = 42}) {} is t4);
+  Expect.isFalse(({bool p = true}) {} is t4);
+  Expect.isFalse(({A? p}) {} is t4);
+  Expect.isFalse(({List<int> p = const []}) {} is t4);
+  Expect.isFalse(({t2? p}) {} is t4);
+  Expect.isFalse(({t3? p}) {} is t4);
+  Expect.isFalse(({t4? p}) {} is t4);
 }

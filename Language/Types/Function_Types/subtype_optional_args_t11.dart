@@ -22,8 +22,8 @@ typedef t1(int x);
 typedef t2(int x, int y);
 
 main() {
-  Expect.isTrue(([int x]) {} is t1);
+  Expect.isTrue(([int x = 42]) {} is t1);
   Expect.isTrue(([var x]) {} is t1);
-  Expect.isTrue((int x, [int y]) {} is t2);
-  Expect.isTrue(([int x, int y]) {} is t2);
+  Expect.isTrue((int x, [int y = 42]) {} is t2);
+  Expect.isTrue(([int x = 4, int y = 2]) {} is t2);
 }

@@ -16,7 +16,6 @@
  * @description Checks that function type t1 is not a subtype of function type
  * t2 if its named optional parameters are a smaller subset of t2's.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
 
@@ -27,9 +26,9 @@ typedef t3({int x, int y, int z});
 main() {
   Expect.isFalse(() {} is t1);
 
-  Expect.isFalse(({int x}) {} is t2);
+  Expect.isFalse(({int x = 42}) {} is t2);
   Expect.isFalse(({var x}) {} is t2);
 
-  Expect.isFalse(({int x, int y}) {} is t3);
+  Expect.isFalse(({int x = 42, int y = 42}) {} is t3);
   Expect.isFalse(({var x, var y}) {} is t3);
 }

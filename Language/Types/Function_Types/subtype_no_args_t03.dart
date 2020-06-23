@@ -14,7 +14,6 @@
  * @description Checks that this statement is true for function types with no
  * arguments: S is some type, T is some other type assignable to S.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -24,26 +23,26 @@ typedef num returnsNum();
 
   //() -> T is () -> dynamic
 void f1() {}
-int f2() {}
-String f3() {}
-double f4() {}
-Object f5() {}
-returnsDynamic f6() {}
-List f7() {}
-List<int> f8() {}
-Map<int, List<List<List>>> f9() {}
+int f2() => 42;
+String f3() => "Lily was here";
+double f4() => 3.14;
+Object f5() => new Object();
+returnsDynamic? f6() {}
+List f7() => [];
+List<int> f8() => [3, 1, 4];
+Map<int, List<List<List>>>? f9() {}
   //() -> T is () -> Object
-int f10() {}
-String f11() {}
-double f12() {}
-Object f13() {}
-List f14() {}
-List<int> f15() {}
-Map<int, List<List<List>>> f16() {}
+int f10() => 0;
+String f11() => "";
+double f12() => 0;
+Object f13() => "";
+List f14() => [];
+List<int> f15() => [3, 1, 4];
+Map<int, List<List<List>>>? f16() {}
   //() -> T is () -> num
-int f17() {}
-double f18() {}
-num f19() {}
+int f17() => 1;
+double f18() => 2;
+num f19() => 3;
 
 main() {
   //() -> T is () -> dynamic
@@ -64,7 +63,7 @@ main() {
   Expect.isTrue(f13 is returnsObject);
   Expect.isTrue(f14 is returnsObject);
   Expect.isTrue(f15 is returnsObject);
-  Expect.isTrue(f16 is returnsObject);
+  Expect.isFalse(f16 is returnsObject);
 
   //() -> T is () -> num
   Expect.isTrue(f17 is returnsNum);

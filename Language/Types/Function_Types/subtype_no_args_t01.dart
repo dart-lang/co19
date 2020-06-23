@@ -15,7 +15,6 @@
  * arguments: S is void, T is any type.
  * @static-clean to make sure assignments are legal and cause no warnings
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -30,8 +29,8 @@ typedef Object t6();
 typedef t1 t7();
 typedef List t8();
 typedef List<int> t9();
-typedef Map<int, List<List<List>>> t10();
-typedef t10 t11();
+typedef Map<int, List<List<List>>>? t10();
+typedef t10? t11();
 
 
 class Checker<T extends check_t> {
@@ -44,15 +43,15 @@ class Checker<T extends check_t> {
 
 f1() {}
 void f2() {}
-int f3() {}
-String f4() {}
-double f5() {}
-Object f6() {}
-t1 f7() {}
-List f8() {}
-List<int> f9() {}
-Map<int, List<List<List>>> f10() {}
-t10 f11() {}
+int f3() => 42;
+String f4() => "Lily was here";
+double f5() => 3.14;
+Object f6() => new Object();
+t1 f7() => f1;
+List f8() => [];
+List<int> f9() => [3, 1, 4];
+Map<int, List<List<List>>>? f10() {}
+t10? f11() {}
 
 main() {
   new Checker<t1>  (f1);

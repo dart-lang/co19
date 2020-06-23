@@ -15,7 +15,6 @@
  * whether or not a function is a subtype of another, only their types are
  * important.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

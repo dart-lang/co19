@@ -15,7 +15,6 @@
  * t2 even if just one of its formal parameters has a type that is not mutually
  * assignable with the type of the corresponding formal parameter of t2.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -24,11 +23,11 @@ abstract class B {}
 typedef B func(Object o);
 typedef B t1(int i, B b, Map<int, num> m, var x);
 
-B f1(double i, B b, Map<int, num> m, var x) {}
+B? f1(double i, B b, Map<int, num> m, var x) {}
 //    ^^^ double <=/=> int
-B f2(int i, func b, Map<int, num> m, var x) {}
+B? f2(int i, func b, Map<int, num> m, var x) {}
 //           ^^^ func <=/=> B
-B f3(int i, B b, Map<int, func> m, var x) {}
+B? f3(int i, B b, Map<int, func> m, var x) {}
 //                         ^^^ func <=/=> num
 
 main() {

@@ -10,32 +10,29 @@
  * @description Checks that both instance and static methods of classes also
  * implement Function.
  * @author iefremov
- * @reviewer rodionov
- * @needsreview looks like it is impossible to check constructors, operators and
- * getters/setters because they can't be referenced like methods.
  */
 import "../../../Utils/expect.dart";
 
 class C {
   f1() {}
   void f2() {}
-  Object f3() {}
-  int f4() {}
+  Object f3() => new Object();
+  int f4() => 42;
   f5(var x) {}
   void f6(var x) {}
-  String f7([var x]) {}
-  Object f8(var x, int z, [Object o, var v = 1]) {}
-  Object f9(var x, int z, {o, v: 1}) {}
+  String f7([var x]) => "Lily was here";
+  Object f8(var x, int z, [Object? o, var v = 1]) => new Object();
+  Object f9(var x, int z, {o, v: 1}) => new Object();
 
   static f1s() {}
   static void f2s() {}
-  static Object f3s() {}
-  static int f4s() {}
+  static Object f3s() => new Object();
+  static int f4s() => 42;
   static f5s(var x) {}
   static void f6s(var x) {}
-  static String f7s([var x]) {}
-  static Object f8s(var x, int z, [Object o, var v = 1]) {}
-  static Object f9s(var x, int z, {o, v: 1}) {}
+  static String f7s([var x]) => "Show must go on";
+  static Object f8s(var x, int z, [Object? o, var v = 1]) => new Object();
+  static Object f9s(var x, int z, {o, v: 1}) => new Object();
 }
 
 main() {
