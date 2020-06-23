@@ -15,10 +15,7 @@
  * test).
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
-
-import "../../../Utils/dynamic_check.dart";
 
 main() {
   var i = 1;

@@ -18,8 +18,6 @@
 
 import "../somelib1.dart" deferred as p;
 
-class A {}
-
 main() {
-  A a = new p.C();
+  var a = new p.C();
 }
