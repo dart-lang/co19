@@ -21,6 +21,6 @@ main() {
   B<A<dynamic>> b2;
   B<A<Object?>> b3;
   B<A<Null>> b4;
-  B<A<Never>> b4;
-  B<A<void>> b5;
+  B<A<Never>> b5;
+  B<A<void>> b6;
 }
