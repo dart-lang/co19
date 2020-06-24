@@ -12,7 +12,6 @@
  * available in a scope that encloses this block.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 main() {
   {

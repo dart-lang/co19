@@ -14,8 +14,7 @@
  * final.
  * @author vasya
  * @reviewer rodionov
- * @reviewer iefremov
- */
+*/
 import '../../../Utils/expect.dart';
 
 main() {
@@ -33,7 +32,7 @@ main() {
   v =  "id2";
   Expect.isTrue(id2 == v);
 
-  Object id3 = null;
+  Object? id3 = null;
   v =  null;
   Expect.isTrue(id3 == v);
 }

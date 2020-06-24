@@ -13,12 +13,9 @@
  * cannot be used in its initialization.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    var x;
-    Function f = () {x = f;};
-  } catch (x) {}
+  var x;
+  Function f = () {x = f;};
 }

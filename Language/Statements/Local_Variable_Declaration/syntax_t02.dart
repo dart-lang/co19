@@ -28,6 +28,6 @@ main() {
   bool id1 = false;
   id1 = true;
 
-  String id2 = null;
+  String? id2 = null;
   id2 = "";
 }

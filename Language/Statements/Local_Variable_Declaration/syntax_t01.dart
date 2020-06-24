@@ -11,8 +11,6 @@
  * @description Checks several assignments of variables declared as "T id;"
  * that are correct and do not produce static warnings.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 class S {}

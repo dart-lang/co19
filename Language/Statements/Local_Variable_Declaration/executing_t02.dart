@@ -12,7 +12,6 @@
  * @description Checks that an expression e is evaluated correctly in a multiple
  * variable declaration statement.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

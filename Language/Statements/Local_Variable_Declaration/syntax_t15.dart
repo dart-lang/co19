@@ -12,8 +12,6 @@
  * introduces a new variable id with dynamic static type into the innermost
  * enclosing scope.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

@@ -12,12 +12,13 @@
  * available in another block that isn't included in the first one.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
+
 main() {
   {
     var id;
   }
+
   {
     id = null;
   }

@@ -11,7 +11,6 @@
  * @description Checks that the type T in a variable declaration can be
  * parameterized.
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 class T<K,V> {}

@@ -12,11 +12,10 @@
  * available in a scope that encloses this block.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 main() {
   {
-    int id;
+    int? id;
   }
   id = null;
 }
