@@ -9,11 +9,10 @@
  * @description Checks that the name a local function declaration is available
  * in the scope of its own formal parameters.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 
 main() {
-  f(x) => x > 0 ? x * f(x-1) : 1;
+  dynamic f(x) => x > 0 ? x * f(x - 1) : 1;
   Expect.equals(720, f(6));
 }

@@ -10,13 +10,9 @@
  * before its declaration.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  * @note renamed from 04_Local_Function_Declaration_A02_t02
  */
 
 main() {
-  try {
-    func();
-  } catch (e) {}
-  void func() {}
+  func();
 }

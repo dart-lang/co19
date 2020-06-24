@@ -10,7 +10,6 @@
  * @description Checks that a local function declaration is accessible at the
  * point following the function declaration statement.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

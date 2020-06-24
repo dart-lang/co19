@@ -26,12 +26,9 @@
  * declaration with a block for a body is missing the formal parameter list.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 main() {
   void function1 {}
-  try {
-    function1();
-  } catch (x) {}
+  function1();
 }

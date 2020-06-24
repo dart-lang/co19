@@ -15,5 +15,5 @@
 
 main() {
   func();
-  {void func() {}}
+  { void func() {} }
 }
