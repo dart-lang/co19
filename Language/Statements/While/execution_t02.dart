@@ -13,18 +13,17 @@
  * @description Checks that dynamic type error is produced in checked mode
  * if o is null.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 
+dynamic getNull() => null;
+
 main() {
-  try {
-    while (null) {
-      break;
-    }
-    Expect.fail("AssertionError is expected");
-  } on AssertionError {
-    // ok
+  test(list) {
+    Expect.throws(() {
+      while (getNull()) {
+        break;
+      }
+    }, (e) => e is AssertionError);
   }
 }

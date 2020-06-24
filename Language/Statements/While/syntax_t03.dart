@@ -13,13 +13,9 @@
  * end of the statement is missing.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    while (true) break
-  } catch (x) {}
+  while (true) break
 }
 

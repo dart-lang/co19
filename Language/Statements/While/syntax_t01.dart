@@ -13,13 +13,9 @@
  * the expression is missing.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    while true) { }
-  } catch (x) {}
+  while true) {}
 }
 

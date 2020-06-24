@@ -10,7 +10,6 @@
  * be assigned to bool.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 main() {
   while ("true") {

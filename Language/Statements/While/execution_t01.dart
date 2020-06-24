@@ -13,8 +13,6 @@
  * @description Checks that the number of iterations is correct for various
  * valid expressions.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

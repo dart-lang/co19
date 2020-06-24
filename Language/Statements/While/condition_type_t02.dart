@@ -10,10 +10,9 @@
  * be assigned to bool.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 main() {
-  while (1+2) {
+  while (1 + 2) {
     print("foo");
     break;
   }

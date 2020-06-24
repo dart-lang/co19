@@ -13,13 +13,9 @@
  * missing.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    while () { }
-  } catch (x) {}
+  while () { }
 }
 
