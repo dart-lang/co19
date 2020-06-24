@@ -25,16 +25,4 @@ Stream<String> generator() async* {
   yield* 1;
 }
 
-main() {
-  asyncStart();
-  // we have to use runZoned() because specification does not state
-  // how the error should be handled by generator function.
-  // see issue #25634
-  runZoned(
-      () => generator().first,
-      onError: (e) {
-        Expect.isTrue(e is Error);
-        asyncEnd();
-      }
-  );
-}
+main() {}

@@ -43,7 +43,6 @@ class IteratorStub extends Iterator<int> {
 }
 
 class IterableStub extends Iterable<int> {
-
   Iterator<int> get iterator => new IteratorStub();
 }
 

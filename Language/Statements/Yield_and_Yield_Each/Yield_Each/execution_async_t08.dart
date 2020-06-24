@@ -23,7 +23,7 @@
  * canceled and there is no enclosing try finally statement, the immediately
  * enclosing function terminates.
  *
- * @issue #25748
+ * @issue 25748, 34775
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
@@ -37,7 +37,7 @@ Stream<int> generator(Stream<int> input) async* {
 }
 
 Future test() async {
-  List log = [];
+  List<int> log = [];
   StreamController<int> sc = new StreamController<int>();
   Stream<int> s = generator(sc.stream);
   StreamSubscription<int> ss = s.listen(

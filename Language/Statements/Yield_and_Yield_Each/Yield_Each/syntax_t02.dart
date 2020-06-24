@@ -18,7 +18,7 @@
 import '../../../../Utils/expect.dart';
 
 class A {
-  static List<int> e = [0,1,2,3,4,5,6,7,8,9];
+  static List<int> e = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   static Iterable<int> test() sync* {
     yield* e;
   }

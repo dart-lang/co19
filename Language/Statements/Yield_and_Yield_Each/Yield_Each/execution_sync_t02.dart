@@ -29,8 +29,8 @@ import '../../../../Utils/expect.dart';
 
 class IterableWrapper<E> extends Iterable<E> {
 
-  int _iteratorCallCount;
-  Iterable<E> _iterable;
+  late int _iteratorCallCount;
+  late Iterable<E> _iterable;
 
   IterableWrapper(Iterable<E> iterable) {
     _iterable = iterable;

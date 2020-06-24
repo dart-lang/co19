@@ -32,7 +32,7 @@ bool moveNextResult = true;
 
 class IteratorStub extends Iterator<int> {
 
-  int _moveNextCallCount;
+  late int _moveNextCallCount;
 
   IteratorStub() {
     _moveNextCallCount = 0;

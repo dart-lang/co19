@@ -17,7 +17,6 @@
  * @compile-error
  * @author a.semenov@unipro.ru
  */
-import '../../../../Utils/dynamic_check.dart';
 
 Iterable<String> generator() sync* {
   yield* 1;

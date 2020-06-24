@@ -20,7 +20,7 @@ import 'dart:async';
 import '../../../../Utils/expect.dart';
 
 Stream<int> test() async* {
-  yield* new Stream<int>.fromIterable([0,1,2,3,4,5,6,7,8,9]);
+  yield* new Stream<int>.fromIterable([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
 }
 
 main() {

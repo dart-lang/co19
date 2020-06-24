@@ -36,7 +36,7 @@ Future test() async {
   List log = [];
   var data = new Stream.fromIterable([1, 2, 3, 4, 5, 6, 7, 8, 9]);
   Stream<int> s = generator(data);
-  StreamSubscription<int> ss;
+  late StreamSubscription<int> ss;
   ss = s.listen(
       (int i) async {
         log.add(i);
