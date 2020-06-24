@@ -59,6 +59,11 @@ main() {
   var fsource = toF(source);
   F<A<FutureOr<A<dynamic>>>?>? target = fsource;
 
+  F<A<FutureOr<A<dynamic>?>>?>? target0 = fsource;
+//                                        ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   F<A<dynamic>?>? target1 = fsource;
 //                          ^^^^^^^
 // [analyzer] unspecified

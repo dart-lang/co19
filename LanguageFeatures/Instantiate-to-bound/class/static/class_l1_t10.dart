@@ -42,48 +42,20 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for
- * [class A<X extends A<X>>]
+ * @description Checks that type argument does not conform its bounds in [class
+ * A1<X extends A1<A1<X>>?>], [class A2<X extends A2<A2<X>?>>]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-import "../../../../Utils/expect.dart";
-
-class A<X extends A<X>> {}
-
-main() {
-  A? source;
-  var fsource = toF(source);
-  F<A<A<dynamic>>?>? target = fsource;
-
-  F<A<A<dynamic>?>?>? target0 = fsource;
-//                              ^^^^^^^
+class A1<X extends A1<A1<X>>?> {}
+//       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<dynamic>?>? target1 = fsource;
-//                          ^^^^^^^
+class A2<X extends A2<A2<X>?>> {}
+//       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<A<A<dynamic>>>?>? target2 = fsource;
-//                                ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<A<A<A<dynamic>>>>?>? target3 = fsource;
-//                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<A<A<A<A<dynamic>>>>>?>? target4 = fsource;
-//                                      ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  A();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
+main() {}

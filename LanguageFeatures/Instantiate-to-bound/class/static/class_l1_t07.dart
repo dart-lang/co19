@@ -43,41 +43,41 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for
- * [class A<X extends A<X>>]
+ * [class A<X extends A<X>?>]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
 import "../../../../Utils/expect.dart";
 
-class A<X extends A<X>> {}
+class A<X extends A<X>?> {}
 
 main() {
   A? source;
   var fsource = toF(source);
-  F<A<A<dynamic>>?>? target = fsource;
-
-  F<A<A<dynamic>?>?>? target0 = fsource;
-//                              ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  F<A<A<dynamic>?>?>? target = fsource;
 
   F<A<dynamic>?>? target1 = fsource;
 //                          ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<A<A<dynamic>>>?>? target2 = fsource;
-//                                ^^^^^^^
+  F<A<A<A<dynamic>?>>?>? target2 = fsource;
+//                                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<A<A<A<dynamic>>>>?>? target3 = fsource;
+  F<A<A<A<dynamic>?>?>?>? target3 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<A<A<A<dynamic>>>>?>? target4 = fsource;
 //                                   ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<A<A<A<A<dynamic>>>>>?>? target4 = fsource;
+  F<A<A<A<A<A<dynamic>>>>>?>? target5 = fsource;
 //                                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
