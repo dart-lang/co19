@@ -27,7 +27,6 @@
  * type without static warnings or type errors.
  * @static-clean
  * @author iefremov
- * @reviewer rodionov
  */
 
 class C {
@@ -40,7 +39,7 @@ main() {
   var x3 = true;
   var x4 = false;
   var x5 = () {};
-  var x6 = new List();
+  var x6 = new List.empty();
   var x7 = new Map<int, int>();
   var x8 = 1;
   var x9 = 1.0;

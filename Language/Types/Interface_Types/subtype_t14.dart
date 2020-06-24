@@ -23,10 +23,9 @@
  * . . .
  * An interface type T may be assigned to a type S, written T <=> S, if either
  * T <: S or S <: T.
- * @description Checks type test and assigment for a class type extending
+ * @description Checks type test and assignment for a class type extending
  * parameterized class type.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -35,15 +34,15 @@ class NonGeneric extends G<int> {}
 
 // these produce the required static type for static checker
 // but won't fail at run time because they return null after all
-G makeG() {}
-G<int> makeGint() {}
+G? makeG() {}
+G<int>? makeGint() {}
 
 main() {
   Expect.isTrue(new NonGeneric() is G);
-  NonGeneric g4 = makeG();
+  G? g4 = makeG();
   G g4_ = new NonGeneric();
 
   Expect.isTrue(new NonGeneric() is G<int>);
-  NonGeneric g5 = makeGint();
+  G<int>? g5 = makeGint();
   G<int> g5_ = new NonGeneric();
 }

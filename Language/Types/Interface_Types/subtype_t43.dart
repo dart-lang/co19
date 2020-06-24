@@ -27,7 +27,6 @@
  * another parameterized generic g2 (same raw type) if g1's only type parameter
  * is not a subtype of g2's type parameter.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

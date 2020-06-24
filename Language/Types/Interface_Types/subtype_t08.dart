@@ -25,7 +25,6 @@
  * T <: S or S <: T.
  * @description Checks that null is dynamic.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

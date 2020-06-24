@@ -26,7 +26,6 @@
  * @description Checks that type t1 that is more specific than t2 is not a
  * supertype of t2 (t1 and t2 are non-generic interface types).
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

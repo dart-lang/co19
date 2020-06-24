@@ -27,11 +27,10 @@
  * not a subtype of List<String> and vice versa even though List is a subtype
  * of both and both are subtypes of List.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.isFalse(new List<int>() is List<String>);
-  Expect.isFalse(new List<String>() is List<int>);
+  Expect.isFalse(new List<int>.empty() is List<String>);
+  Expect.isFalse(new List<String>.empty() is List<int>);
 }

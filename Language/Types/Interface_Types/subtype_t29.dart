@@ -26,7 +26,6 @@
  * @description Checks that if type T1 is a subtype of T2<G1> where G1 is a
  * type parameter then T1 is a subtype of T2<G2> where G2 :> G1.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

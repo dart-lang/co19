@@ -27,10 +27,9 @@
  * as such assignment doesn't meet any of these conditions.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
-int f() {}
+int f() => 42;
 
 main() {
   double d = f();

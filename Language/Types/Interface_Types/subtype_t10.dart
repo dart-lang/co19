@@ -25,7 +25,6 @@
  * T <: S or S <: T.
  * @description Checks that an interface type may be assigned to its supertype.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

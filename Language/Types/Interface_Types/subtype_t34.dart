@@ -28,7 +28,6 @@
  * any of these conditions.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {}
@@ -37,7 +36,7 @@ class B {}
 
 class C<T> {}
 
-C<B> f() {}
+C<B> f() => new C<B>();
 
 main() {
   C<A> c = f();

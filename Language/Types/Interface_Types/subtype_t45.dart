@@ -28,13 +28,12 @@
  * type parameter that is not a supertype of t1.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A<T> {}
 class B extends A<int> {}
 
-A<double> checker() {}
+A<double> checker() => new A<double>();
 
 main() {
   B b = checker();

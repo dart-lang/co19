@@ -27,7 +27,6 @@
  * g2 even if just one type parameter of g1 is not a subtype of corresponding
  * g2 parameter.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

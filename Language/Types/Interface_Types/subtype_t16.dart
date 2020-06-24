@@ -40,8 +40,6 @@ class Checker<T extends Super> {
   Checker(T t) {
     Expect.isTrue(t is Super);
     Super ss = t;
-    Super f() {}
-    T tt = f();
   }
 }
 

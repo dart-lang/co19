@@ -32,7 +32,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.isTrue([1, null, 'string'] is List<double>);
-  Expect.isTrue([1, null, 'string'] is List<String>);
-  Expect.isTrue([1, null, 'string'] is List<List>);
+  Expect.isFalse([1, null, 'string'] is List<double>);
+  Expect.isFalse([1, null, 'string'] is List<String>);
+  Expect.isFalse([1, null, 'string'] is List<List>);
 }

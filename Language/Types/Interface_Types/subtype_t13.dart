@@ -26,7 +26,6 @@
  * @description Checks that this statement is true for a parameterized type
  * extending other parameterized type with the same type parameter.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -35,20 +34,20 @@ class Generic<T> extends G<T> {}
 
 // these produce the required static type for static checker
 // but won't fail at run time because they return null after all
-G makeG() {}
-G<int> makeGint() {}
-G<Object> makeGObject() {}
+G? makeG() {}
+G<int>? makeGint() {}
+G<Object>? makeGObject() {}
 
 main() {
   Expect.isTrue(new Generic() is G);
   G g = new Generic();
-  Generic g_ = makeG();
+  G? g_ = makeG();
 
   Expect.isTrue(new Generic<int>() is G<int>);
   G<int> g2 = new Generic<int>();
-  Generic<int> g2_ = makeGint();
+  G<int>? g2_ = makeGint();
 
   Expect.isTrue(new Generic<Object>() is G<Object>);
   G<Object> g3 = new Generic<Object>();
-  Generic<Object> g3_ = makeGObject();
+  G<Object>? g3_ = makeGObject();
 }

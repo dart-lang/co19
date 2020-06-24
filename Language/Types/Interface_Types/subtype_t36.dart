@@ -28,7 +28,6 @@
  * arguments.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class I {}
@@ -59,7 +58,7 @@ typedef C typeParameter2(K j, t1_4 f1,               [int i, t2_1 f2]);
 
 class Generic<G> {}
 
-Generic<typeParameter2> f() {}
+Generic<typeParameter2> f() => new Generic<typeParameter2>();
 
 main() {
   Generic<typeParameter1> g = f();

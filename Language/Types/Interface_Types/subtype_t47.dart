@@ -28,13 +28,12 @@
  * A parameterized with another, incompatible set of type parameters.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A<T, S, U, W> {}
 class B<S, U> extends A<S, S, U, U>{}
 
-B<int, double> checker() {}
+B<int, double> checker() => new B<double>();
 
 main() {
   A<int, int, double, int> a = checker();

@@ -27,10 +27,7 @@
  * as such assignment doesn't meet any of these conditions.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
-
-import "../../../Utils/dynamic_check.dart";
 
 String f() {return 'abc';}
 

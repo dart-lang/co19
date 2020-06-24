@@ -8,7 +8,6 @@
  * @description Trivially checks that an interface extending some other
  * interface extends Object as well.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

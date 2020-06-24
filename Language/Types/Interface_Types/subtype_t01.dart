@@ -26,7 +26,6 @@
  * @description Trivially checks that non-generic type T is a subtype of itself
  * and T is assignable to itself.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

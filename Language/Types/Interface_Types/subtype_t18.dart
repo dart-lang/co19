@@ -28,7 +28,6 @@
  * Checks their mutual assignability (no static type warnings) as well.
  * @static-clean
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -46,15 +45,15 @@ class Checker_I<T extends I> implements I {
   }
 }
 
-class Checker_Object<T> {
+class Checker_Object<T extends Object> {
   Checker_Object() {}
 
-  Checker_Object<Object> f2() {}
+  Checker_Object<Object>? f2() {}
 
   check() {
     Expect.isTrue(new Checker_Object<T>() is Checker_Object<Object>);
     Checker_Object<Object> c1 = new Checker_Object<T>();
-    Checker_Object<T> c2 = f2();
+    Checker_Object<Object>? c2 = f2();
   }
 }
 

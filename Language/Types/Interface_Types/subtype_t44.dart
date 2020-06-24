@@ -27,7 +27,6 @@
  * type A with type parameter t1 is not a subtype of A parameterized with
  * another type argument which is not a supertype of t1.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

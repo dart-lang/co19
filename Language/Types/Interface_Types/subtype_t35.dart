@@ -27,7 +27,6 @@
  * type argument is not assignable.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {}
@@ -36,7 +35,7 @@ class B {}
 
 class C<T, S, U> {}
 
-C<num, double, B> f() {}
+C<num, double, B> f() => new C<num, double, B>();
 
 main() {
   C<int, num, A> c = f();

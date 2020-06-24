@@ -28,29 +28,27 @@
  * it's a type error in checked mode when variable is assigned a value whose
  * runtime type is a supertype of the variable's actual type.
  * @static-clean
- * @author iefremov
- * @reviewer rodionov
  */
 
 
 class I {}
-I makeI() {} // returns null to avoid type error in checked mode
+I makeI() => new I();
 
 class A implements I {}
-A makeA() {}
+A makeA() => new A();
 
 class B extends A {}
 
 class C {}
-Object makeObject() {}
+Object makeObject() => new Object();
 
 main() {
   Object o = new C();
-  C c = makeObject();
+  Object c = makeObject();
 
   I i = new A();
-  A a1 = makeI();
+  I a1 = makeI();
 
   A a2 = new B();
-  B b = makeA();
+  A b = makeA();
 }

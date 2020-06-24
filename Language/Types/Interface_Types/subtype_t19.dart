@@ -30,7 +30,6 @@
  * @issue 27556
  * @static-clean
  * @author iefremov
- * @reviewer rodionov
  */
 
 class I<A, B, T> {}
@@ -45,11 +44,8 @@ typedef C f_2(I<J, List<Map<int, num>>, num> i, [List<Map> j]);
 class Checker_I<T extends I<f, num, List<Map<num, Map>>>> implements I {
   Checker_I() {}
 
-  Checker_I<I<f, num, List<Map<num, Map>>>> _() {}
-
   check() {
     Checker_I<I<f, num, List<Map<num, Map>>>> i1 = new Checker_I<T>();
-    Checker_I<T> i2 = _();
   }
 }
 

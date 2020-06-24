@@ -26,11 +26,10 @@
  * @description Checks that any type (interface type, function type, generic)
  * is (more specific than) dynamic.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
-List<Map<List, Map>> f1(num n, Object o, [var x, List y]) {}
+List<Map<List, Map>> f1(num n, Object o, [var x, List? y]) => [];
 
 main() {
   Expect.isTrue(new Object() is dynamic);
@@ -39,9 +38,9 @@ main() {
   Expect.isTrue("" is dynamic);
   Expect.isTrue(true is dynamic);
   Expect.isTrue(false is dynamic);
-  Expect.isTrue(new List() is dynamic);
-  Expect.isTrue(new List<Map<List, List<int>>>() is dynamic);
+  Expect.isTrue(new List.empty() is dynamic);
+  Expect.isTrue(new List<Map<List, List<int>>>.empty() is dynamic);
   Expect.isTrue(() {} is dynamic);
-  Expect.isTrue((num n, Object o, [var x, List y]) {} is dynamic);
+  Expect.isTrue((num n, Object o, [var x, List? y]) {} is dynamic);
   Expect.isTrue(f1 is dynamic);
 }

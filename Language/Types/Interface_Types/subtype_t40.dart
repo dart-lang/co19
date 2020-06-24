@@ -27,7 +27,6 @@
  * Performs this check on some "built-in" interfaces (int, String, etc.) and
  * custom ones.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

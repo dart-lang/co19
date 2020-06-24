@@ -26,7 +26,6 @@
  * @description Checks that function type T is a subtype of itself and
  * T is assignable to itself.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -36,30 +35,30 @@ typedef t3();
 typedef t4(var x);
 typedef int t5(var x);
 typedef String t6(var x, int y);
-typedef t1 t7(t2 x, t3 y);
-typedef t7 t8(t7 x, [t7 y]);
+typedef t1? t7(t2 x, t3 y);
+typedef t7? t8(t7 x, [t7? y]);
 typedef void t9([var x]);
-typedef int t10([int x]);
+typedef int t10([int? x]);
 typedef List t11(int x, int y, List z, Map<String, Object> m);
-typedef List t12(int x, [int y, List z, Map<String, Object> m]);
+typedef List t12(int x, [int? y, List? z, Map<String, Object>? m]);
 typedef List<Map<int, List<List<int>>>>
-        t13(int x, var v, [int y, List z, Map<String, List<int>> m]);
-typedef t13 t14(t13 a, [t13 b]);
+        t13(int x, var v, [int? y, List? z, Map<String, List<int>>? m]);
+typedef t13? t14(t13 a, [t13? b]);
 
 void f1() {}
-num f2() {}
+num f2() => 42;
 f3() {}
 f4(var x) {}
-int f5(var x) {}
-String f6(var x, int y) {}
-t1 f7(t2 x, t3 y) {}
-t7 f8(t7 x, [t7 y]) {}
+int f5(var x) => 42;
+String f6(var x, int y) => "Lily was here";
+t1? f7(t2 x, t3 y) {}
+t7? f8(t7 x, [t7? y]) {}
 void f9([var x]) {}
-int f10([int x]) {}
-List f11(int x, int y, List z, Map<String, Object> m) {}
-List f12(int x, [int y, List z, Map<String, Object> m]) {}
-List<Map<int, List<List<int>>>> f13(int x, var v, [int y, List z, Map<String, List<int>> m]) {}
-t13 f14(t13 a, [t13 b]) {}
+int f10([int? x]) => 0;
+List f11(int x, int y, List z, Map<String, Object> m) => [];
+List f12(int x, [int? y, List? z, Map<String, Object>? m]) => [];
+List<Map<int, List<List<int>>>> f13(int x, var v, [int? y, List? z, Map<String, List<int>>? m]) => [];
+t13? f14(t13 a, [t13? b]) {}
 
 class Checker<T> {
   Checker() {}

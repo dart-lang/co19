@@ -14,9 +14,6 @@
  * @description Checks that a type listed in the implements clause of another
  * class is its supertype.
  * @author iefremov
- * @reviewer rodionov
- * @needsreview It's currently impossible to check whether a type is a direct
- * supertype of another without some sort of reflection framework.
  */
 import "../../../Utils/expect.dart";
 

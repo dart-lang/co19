@@ -23,10 +23,9 @@
  * . . .
  * An interface type T may be assigned to a type S, written T <=> S, if either
  * T <: S or S <: T.
- * @description Checks type check and assigment for generic class types with
+ * @description Checks type check and assignment for generic class types with
  * a bunch of type parameters.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 import "dart:collection";
@@ -38,17 +37,17 @@ class CManyArgs<A, B, C> extends IManyArgs<int, A, B, C, double> {}
 
 // these produce the required static type for static checker
 // but won't fail at run time because they return null after all
-IManyArgs<int, G, G, G, double> make1() {}
-IManyArgs<int, List, Map, Queue, double> make2() {}
+void make1(IManyArgs<int, G, G, G, double> v) {}
+void make2(IManyArgs<int, List, Map, Queue, double> v) {}
 
 main() {
   Expect.isTrue(new CManyArgs<G, G, G>() is IManyArgs<int, G, G, G, double>);
-  CManyArgs<G, G, G> g6 = make1();
+  make1(new CManyArgs<G, G, G>());
   IManyArgs<int, G, G, G, double> g6_ = new CManyArgs<G, G, G>();
 
   Expect.isTrue(new CManyArgs<List, Map, Queue>()
       is IManyArgs<int, List, Map, Queue, double>);
-  CManyArgs<List, Map, Queue> g7 = make2();
+  make2(new CManyArgs<List, Map, Queue>());
   IManyArgs<int, List, Map, Queue, double> g7_ =
       new CManyArgs<List, Map, Queue>();
 }

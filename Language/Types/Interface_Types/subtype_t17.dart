@@ -26,7 +26,6 @@
  * @description Checks that GenericType<T> is a subtype of GenericType<S> where
  * T is subtype of S (T and S are non-generic interfaces and/or Dynamic).
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -39,24 +38,24 @@ class Z<T> {
 }
 
 main() {
-  Expect.isTrue(new List<String>() is List);
-  Expect.isTrue(new List() is List<String>);
-  Expect.isTrue(new List<String>() is List<Object>);
-  Expect.isTrue(new List<String>() is List<Object>);
-  Expect.isTrue(new List<int>() is List<num>);
-  Expect.isTrue(new List<int>() is List);
-  Expect.isTrue(new List<int>() is List<Object>);
-  Expect.isTrue(new List<double>() is List<Object>);
-  Expect.isTrue(new List<double>() is List);
-  Expect.isTrue(new List<double>() is List<num>);
-  Expect.isTrue(new List<J>() is List);
-  Expect.isTrue(new List<J>() is List<Object>);
-  Expect.isTrue(new List<J>() is List<I>);
-  Expect.isTrue(new List<K>() is List<I>);
-  Expect.isTrue(new List<K>() is List<J>);
+  Expect.isTrue(new List<String>.empty() is List);
+  Expect.isFalse(new List.empty() is List<String>);
+  Expect.isTrue(new List<String>.empty() is List<Object>);
+  Expect.isTrue(new List<String>.empty() is List<Object>);
+  Expect.isTrue(new List<int>.empty() is List<num>);
+  Expect.isTrue(new List<int>.empty() is List);
+  Expect.isTrue(new List<int>.empty() is List<Object>);
+  Expect.isTrue(new List<double>.empty() is List<Object>);
+  Expect.isTrue(new List<double>.empty() is List);
+  Expect.isTrue(new List<double>.empty() is List<num>);
+  Expect.isTrue(new List<J>.empty() is List);
+  Expect.isTrue(new List<J>.empty() is List<Object>);
+  Expect.isTrue(new List<J>.empty() is List<I>);
+  Expect.isTrue(new List<K>.empty() is List<I>);
+  Expect.isTrue(new List<K>.empty() is List<J>);
 
   Expect.isTrue(new Z<String>() is Z);
-  Expect.isTrue(new Z() is Z<String>);
+  Expect.isFalse(new Z() is Z<String>);
   Expect.isTrue(new Z<String>() is Z<Object>);
   Expect.isTrue(new Z<String>() is Z<Object>);
   Expect.isTrue(new Z<int>() is Z<num>);

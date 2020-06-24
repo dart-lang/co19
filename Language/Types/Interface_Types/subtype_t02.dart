@@ -26,7 +26,6 @@
  * @description Checks that a generic type T with a single type parameter is a
  * subtype of itself and T is assignable to itself.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -41,26 +40,26 @@ main() {
   Expect.isFalse(identical(a, b));
 
   A<int> n = new A<int>();
-  Expect.isTrue(a is A<int>);
-  Expect.isTrue(n is A);
+  Expect.isTrue(n is A<int>);
+  Expect.isTrue(a is A);
 
   a = n;
   n = new A();
 
-  List l1 = new List();
+  List l1 = new List.empty();
   Expect.isTrue(l1 is List);
   List l2 = l1;
-  l1 = new List();
+  l1 = new List.empty();
 
-  List<int> li1 = new List<int>();
+  List<int> li1 = new List<int>.empty();
   Expect.isTrue(li1 is List<int>);
   List li2 = li1;
-  li1 = new List<int>();
+  li1 = new List<int>.empty();
 
-  List<List<List>> ll1 = new List<List<List>>();
+  List<List<List>> ll1 = new List<List<List>>.empty();
   Expect.isTrue(ll1 is List<List<List>>);
   List ll2 = ll1;
-  ll1 = new List<List<List>>();
+  ll1 = new List<List<List>>.empty();
 
   A<Map<List, List<Map<Object, Map>>>> z = new A<Map<List, List<Map<Object, Map>>>>();
   Expect.isTrue(z is A<Map<List, List<Map<Object, Map>>>>);

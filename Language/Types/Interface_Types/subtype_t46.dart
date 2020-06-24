@@ -27,7 +27,6 @@
  * generic type A parameterized with type arguments of B is not a subtype of A
  * parameterized with an incompatible set of type arguments.
  * @author iefremov
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 

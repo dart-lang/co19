@@ -41,9 +41,9 @@ typedef A f1(int i, D d, Map<int, num> m, var x,
              [var ox, D od, List<num> ol, bool obool]);
 
 B f01(int i, B b, Map<int, num> m, var x,
-      [var ox, B ob, List<num> ol, bool obool]) {}
+      [var ox, B? ob, List<num>? ol, bool? obool]) => new B();
 
-C f11(num i, A b, Map<Object, Object> m, var x) {}
+C f11(num i, A b, Map<Object, Object> m, var x) => new C();
 
 main() {
   f1 fvar = f11;

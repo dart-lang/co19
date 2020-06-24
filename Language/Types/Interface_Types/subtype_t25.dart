@@ -28,7 +28,6 @@
  * S are non-generic interfaces and/or Dynamic).
  * @static-clean
  * @author iefremov
- * @reviewer rodionov
  */
 
 class I {}
@@ -40,88 +39,52 @@ class Z<T> {
 }
 
 main() {
-  List<String> l1 = new List();
-  List l2 = new List<String>();
+  List<String> l1 = new List.empty();
+  List l2 = new List<String>.empty();
 
-  List<Object> l3_super;
-  List<String> l3 = l3_super;
-  List<Object> l3_ = new List<String>();
+  List<Object> l3_ = new List<String>.empty();
 
-  List<num> l4_super;
-  List<int> l4 = l4_super;
-  List<num> l4_ = new List<int>();
+  List<num> l4_ = new List<int>.empty();
 
-  List<Object> l5_super;
-  List<int> l5 = l5_super;
-  List<Object> l5_ = new List<int>();
+  List<Object> l5_ = new List<int>.empty();
 
-  List<Object> l6_super;
-  List<double> l6 = l6_super;
-  List<Object> l6_ = new List<double>();
+  List<Object> l6_ = new List<double>.empty();
 
-  List<num> l7_super;
-  List<double> l7 = l7_super;
-  List<num> l7_ = new List<double>();
+  List<num> l7_ = new List<double>.empty();
 
-  List<Object> l8_super;
-  List<J> l8 = l8_super;
-  List<Object> l8_ = new List<J>();
+  List<Object> l8_ = new List<J>.empty();
 
-  List<I> l9_super;
-  List<J> l9 = l9_super;
-  List<I> l9_ = new List<I>();
+  List<I> l9_ = new List<I>.empty();
 
-  List<I> l10_super;
-  List<K> l10 = l10_super;
-  List<I> l10_ = new List<K>();
+  List<I> l10_ = new List<K>.empty();
 
-  List<J> l11_super;
-  List<K> l11 = l11_super;
-  List<J> l11_ = new List<K>();
+  List<J> l11_ = new List<K>.empty();
 
-  List<int> l12 = new List();
+  List<int> l12 = new List.empty();
 
-  List<double> l13 = new List();
+  List<double> l13 = new List.empty();
 
-  List<J> l14 = new List();
+  List<J> l14 = new List.empty();
 
-  List<String> z1 = new List();
-  List z2 = new List<String>();
+  List<String> z1 = new List<String>.empty();
+  List z2 = new List<String>.empty();
 
-  Z<Object> z3_super;
-  Z<String> z3 = z3_super;
   Z<Object> z3_ = new Z<String>();
 
-  Z<num> z4_super;
-  Z<int> z4 = z4_super;
   Z<num> z4_ = new Z<int>();
 
-  Z<Object> z5_super;
-  Z<int> z5 = z5_super;
   Z<Object> z5_ = new Z<int>();
 
-  Z<Object> z6_super;
-  Z<double> z6 = z6_super;
   Z<Object> z6_ = new Z<double>();
 
-  Z<num> z7_super;
-  Z<double> z7 = z7_super;
   Z<num> z7_ = new Z<double>();
 
-  Z<Object> z8_super;
-  Z<J> z8 = z8_super;
   Z<Object> z8_ = new Z<J>();
 
-  Z<I> z9_super;
-  Z<J> z9 = z9_super;
   Z<I> z9_ = new Z<J>();
 
-  Z<I> z10_super;
-  Z<K> z10 = z10_super;
   Z<I> z10_ = new Z<K>();
 
-  Z<J> z11_super;
-  Z<K> z11 = z11_super;
   Z<J> z11_ = new Z<K>();
 
   Z<int> z12 = new Z();

@@ -50,26 +50,26 @@ typedef B f1_3(int i, B b, Map<int, num> m, var x, [var ox]);
 typedef B f1_4(int i, B b, Map<int, num> m, var x);
 
 B f01(int i, B b, Map<int, num> m, var x,
-      [var ox, B ob, List<num> ol, bool obool]) {}
+      [var ox, B? ob, List<num>? ol, bool? obool]) => new B();
 D f02(int i, D b, Map<num, num> m, var x,
-      [var ox, D ob, List<Object> ol, bool obool]) {}
+      [var ox, D? ob, List<Object>? ol, bool? obool]) => new D();
 C f03(num i, A b, Map<Object, Object> m, var x,
-      [var ox, A2 ob, List ol, Object obool]) {}
+      [var ox, A2? ob, List? ol, Object? obool]) => new C();
 A f04(num i, A b, Map<Object, Object> m, var x,
-      [var ox, A2 ob, List ol, Object obool]) {}
+      [var ox, A2? ob, List? ol, Object? obool]) => new A();
 A f05(num i, A b, Map<Object, Object> m, var x,
-      [var ox, A2 ob, List ol, Object obool, var more1]) {}
+      [var ox, A2? ob, List? ol, Object? obool, var more1]) => new A();
 A f06(num i, A b, Map<Object, Object> m, var x,
-      [var ox, A2 ob, List ol, Object obool, var more1, int more2]) {}
+      [var ox, A2? ob, List? ol, Object? obool, var more1, int? more2]) => new A();
 
 B f21(int i, B b, Map<int, num> m, var x,
-      [var ox, B ob, List<num> ol, bool obool]) {}
+      [var ox, B? ob, List<num>? ol, bool? obool]) => new B();
 B f22(int i, B b, Map<int, num> m, var x,
-      [var ox, B ob, List<num> ol, bool obool]) {}
+      [var ox, B? ob, List<num>? ol, bool? obool]) => new B();
 B f23(int i, B b, Map<int, num> m, var x,
-      [var ox, B ob, List<num> ol, bool obool]) {}
+      [var ox, B? ob, List<num>? ol, bool? obool]) => new B();
 B f24(int i, B b, Map<int, num> m, var x,
-      [var ox, B ob, List<num> ol, bool obool]) {}
+      [var ox, B? ob, List<num>? ol, bool? obool]) => new B();
 
 main() {
   //functions on the right are subtypes of f1

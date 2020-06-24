@@ -28,14 +28,13 @@
  * meet any of these conditions.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {}
 
 class B {}
 
-A f() {}
+A f() => new A();
 
 main() {
   B b = f();
