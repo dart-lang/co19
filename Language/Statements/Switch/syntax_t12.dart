@@ -19,8 +19,6 @@
  * is followed by an expression.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 switchTest(value) {
@@ -33,9 +31,5 @@ switchTest(value) {
   return result;
 }
 
-main() {
-  try {
-    switchTest(0);
-  } catch (x) {}
-}
+main() {}
 

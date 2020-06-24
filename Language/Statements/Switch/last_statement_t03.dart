@@ -10,7 +10,6 @@
  * statement sequence of the default clause is not a break, continue, return or
  * throw statement.
  * @author msyabro
- * @reviewer rodionov
  * @issue 7537
  */
 

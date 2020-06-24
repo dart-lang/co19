@@ -11,7 +11,6 @@
  * statement.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {

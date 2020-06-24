@@ -22,7 +22,6 @@
  * continues looking for statements to execute down from there. Some case
  * expressions are equal to each other.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

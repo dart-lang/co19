@@ -19,8 +19,6 @@
  * repeated.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 foo(value) {
@@ -34,8 +32,4 @@ foo(value) {
   return result;
 }
 
-main() {
-  try {
-    foo(1);
-  } catch (x) {}
-}
+main() {}

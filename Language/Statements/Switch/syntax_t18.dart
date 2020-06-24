@@ -19,7 +19,6 @@
  * followed by case or default keywords.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 foo(value) {
@@ -32,8 +31,4 @@ foo(value) {
   return result;
 }
 
-main() {
-  try {
-    foo(1);
-  } catch (x) {}
-}
+main() {}

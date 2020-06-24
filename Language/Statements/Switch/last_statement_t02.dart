@@ -10,7 +10,6 @@
  * statement sequence of the last case clause is not a break, continue, return
  * or throw statement.
  * @author msyabro
- * @reviewer rodionov
  * @issue 7537
  */
 

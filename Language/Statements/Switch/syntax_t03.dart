@@ -18,7 +18,6 @@
  * @description Checks that nested switch statements modifying the same
  * variables work correctly.
  * @author vasya
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

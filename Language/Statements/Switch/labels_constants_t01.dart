@@ -23,18 +23,14 @@
  * is not a compile-time constant.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
-
 
 f() => 1;
 
 main() {
-  try {
-    switch(1) {
-      case 0:
-      case 2:
-      case f():
-    }
-  } catch (e) {}
+  switch(1) {
+    case 0:
+    case 2:
+    case f():
+  }
 }

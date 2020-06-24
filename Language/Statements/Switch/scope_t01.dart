@@ -10,7 +10,6 @@
  * @description Checks that names from scopes of different case clauses don't
  * conflict.
  * @author msyabro
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

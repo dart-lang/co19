@@ -22,13 +22,10 @@
  * @description Checks that it is not a compile-time error if a case expression
  * is null.
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    switch (null) {
-      case null:
-    }
-  } catch (e) {}
+  switch (null) {
+    case null:
+  }
 }

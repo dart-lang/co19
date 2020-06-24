@@ -11,7 +11,6 @@
  * the case clause’s statement list.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {

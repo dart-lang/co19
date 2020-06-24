@@ -19,9 +19,7 @@
  * not the last case of a switch statement.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
- */
+*/
 
 foo(value) {
   var result;
@@ -34,8 +32,4 @@ foo(value) {
   return result;
 }
 
-main() {
-  try {
-    foo(1);
-  } catch (x) {}
-}
+main() {}

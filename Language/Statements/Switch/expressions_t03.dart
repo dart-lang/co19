@@ -13,18 +13,16 @@
  * are of mixed types.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  * @note renamed from 09_Switch_A02_t02
  */
 
 main() {
   var x=1;
-  try {
-    switch (x) {
-      case 1:
-        x = 1;
-      case 2.0:
-        x = 2;
-    }
-  } catch (e) {}
+  switch (x) {
+    case 1:
+      x = 1;
+      break;
+    case 2.0:
+      x = 2;
+  }
 }

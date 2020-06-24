@@ -13,17 +13,15 @@
  * of a switch statement without a default case have different types.
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 
 main() {
   var x = 1;
-  try {
-    switch (x) {
-      case 0:
-      case 2:
-      case "false":
-    }
-  } catch (e) {}
+
+  switch (x) {
+    case 0:
+    case 2:
+    case "false":
+  }
 }

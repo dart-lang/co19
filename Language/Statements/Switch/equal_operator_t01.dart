@@ -11,12 +11,12 @@
  * @description Checks that it is a compile-time error if class C implements
  * operator ==.
  * @compile-error
+ * @Issue 42461
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 class C {
-  final int x;
+  final int? x;
   const C(this.x);
   bool operator ==(C other) {
     return this.x == other.x;

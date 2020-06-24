@@ -18,7 +18,6 @@
  * @description Checks that a switch statement with all kinds of case
  * expressions (as long as they're allowed by spec) works as expected.
  * @author rodionov
- * @reviewer iefremov
  * @issue 7537
  */
 import '../../../Utils/expect.dart';

@@ -29,7 +29,6 @@
  * the same type as the constants of case clauses, then it is a compile error
  * @compile-error
  * @author msyabro
- * @reviewer rodionov
  */
 
 main() {

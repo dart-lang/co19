@@ -19,9 +19,7 @@
  * end of default case statements is missing.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
- */
+*/
 
 switchTest(value) {
   var result;
@@ -33,8 +31,4 @@ switchTest(value) {
   return result;
 }
 
-main() {
-  try {
-    switchTest(0);
-  } catch (x) {}
-}
+main() {}
