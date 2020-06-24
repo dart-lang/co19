@@ -12,7 +12,6 @@
  * @note Can not test if the stack trace is unchanged because stack trace
  * equality is unspecified in spec (co19 issue 719).
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

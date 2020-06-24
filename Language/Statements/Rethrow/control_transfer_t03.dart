@@ -10,12 +10,11 @@
  * indeed transfers control to the nearest enclosing exception handler if there
  * is one, leaving the current exception and stack trace unchanged.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 
 String ex = "";
-StackTrace st1 = null;
+StackTrace? st1 = null;
 
 test() {
   try {
