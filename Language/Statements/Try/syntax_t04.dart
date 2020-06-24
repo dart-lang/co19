@@ -28,8 +28,6 @@
  * missing the closing curly braces.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {

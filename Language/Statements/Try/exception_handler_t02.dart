@@ -35,7 +35,6 @@
  * handler depending on whether or not the current exception was made undefined
  * by an executed catch clause.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

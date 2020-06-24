@@ -17,10 +17,12 @@ main() {
   try {
     throw "foo";
   } on String catch (p1, p2) {
+
     p1 = "";
 //  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
     p2 = new StackTrace.fromString("");
 //  ^^
 // [analyzer] unspecified

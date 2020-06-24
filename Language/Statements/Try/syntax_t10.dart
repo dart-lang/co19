@@ -28,8 +28,6 @@
  * catch clause without a try statement.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {

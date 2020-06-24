@@ -15,7 +15,6 @@
  * current exception is replaced by the new one and control is transferred to
  * the nearest enclosing exception handler.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

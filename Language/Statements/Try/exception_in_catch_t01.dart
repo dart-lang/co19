@@ -15,7 +15,6 @@
  * clauses of that try statement aren't, and control is transferred to the
  * nearest enclosing exception handler afterwards.
  * @author rodionov
- * @reviewer iefremov
  * @note issue 430
  */
 import '../../../Utils/expect.dart';

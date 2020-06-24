@@ -32,8 +32,6 @@
  * with catch1, until a catch clause that matches the current exception is
  * found.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

@@ -10,9 +10,7 @@
  * of the first exception parameter does not match a thrown object if it's not
  * null and its type is not a subtype of T.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
- */
+*/
 import '../../../Utils/expect.dart';
 
 class A {}

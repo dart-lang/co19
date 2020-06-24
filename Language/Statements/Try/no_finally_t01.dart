@@ -9,7 +9,6 @@
  * @description checks that both forms are equivalent as far as execution of
  * the on-catch clauses is concerned.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 
@@ -20,7 +19,7 @@ class E3 extends E1 {}
 
 int test1(void f()) {
   int log = 0;
-  void append(int digit) {log = log * 10 + digit;}
+  void append(int digit) { log = log * 10 + digit; }
 
   try {
     append(1);
@@ -39,7 +38,7 @@ int test1(void f()) {
 
 int test2(void f()) {
   int log = 0;
-  void append(int digit) {log = log * 10 + digit;}
+  void append(int digit) { log = log * 10 + digit; }
 
   try {
     append(1);

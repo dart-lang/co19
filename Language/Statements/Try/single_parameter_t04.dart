@@ -12,7 +12,6 @@
  * catch clauses and that an exception can not be caught with clauses that don't
  * match.
  * @author iefremov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

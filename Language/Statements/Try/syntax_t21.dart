@@ -27,7 +27,6 @@
  * by a return statement instead of a block.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {

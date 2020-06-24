@@ -9,8 +9,6 @@
  * @description Checks that a catch clause matches an object o if the type of o
  * is a subtype of T1.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

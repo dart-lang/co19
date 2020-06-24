@@ -13,7 +13,6 @@
  * @description Checks that a throw statement inside a finally clause replaces
  * the current exception and unwinds the call stack from the new location.
  * @author iefremov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

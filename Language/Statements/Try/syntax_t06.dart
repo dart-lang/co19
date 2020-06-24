@@ -28,8 +28,6 @@
  * have any catch or finally clauses.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {

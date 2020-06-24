@@ -16,9 +16,9 @@
 import '../../../Utils/expect.dart';
 
 String p1 = "abc";
-StackTrace p2 = null;
+StackTrace? p2 = null;
 String p1_1 = "abc";
-StackTrace p2_1 = null;
+StackTrace? p2_1 = null;
 
 main() {
   Expect.equals(p1, p1_1);

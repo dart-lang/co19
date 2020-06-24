@@ -28,8 +28,6 @@
  * missing try block.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {

@@ -13,7 +13,6 @@
  * @description Checks that a return statement inside a finally clause aborts
  * the stack unwinding.
  * @author iefremov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

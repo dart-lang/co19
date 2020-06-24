@@ -28,8 +28,6 @@
  * try statement is missing the exception parameters.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {

@@ -28,8 +28,6 @@
  * specify any exception parameters.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {

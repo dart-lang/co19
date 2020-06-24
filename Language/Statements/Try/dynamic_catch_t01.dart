@@ -11,7 +11,6 @@
  * @description Checks that a catch clause with no particular type specified for
  * the first exception parameter matches any object.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

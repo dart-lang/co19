@@ -27,7 +27,6 @@
  * @description Checks that it is not a compile-time error if a catch clause
  * specifies parameters with a previously declared id.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

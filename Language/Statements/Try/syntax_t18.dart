@@ -28,7 +28,6 @@
  * missing its block.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 main() {

@@ -15,7 +15,6 @@
  * the current exception, control is transferred to the nearest dynamically
  * enclosing exception handler.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

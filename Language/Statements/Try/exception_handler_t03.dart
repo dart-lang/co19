@@ -32,8 +32,6 @@
  * exception parameter is bound to the current exception and the second to the
  * current stack trace.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  * @note Can't really test anything on stack trace even if its toString()
  * contains certain function names due to possible minification.
  */

@@ -23,7 +23,6 @@
  * @description Checks that stack trace contains the names of relevant
  * functions.
  * @author kaigorodov
- * @reviewer rodionov
  * @note Can't really test anything on stack trace even if its toString()
  * contains certain function names due to possible minification.
  */

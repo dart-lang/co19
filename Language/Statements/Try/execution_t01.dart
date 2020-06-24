@@ -20,7 +20,6 @@
  * @description Checks the execution order of the various parts of a try
  * statement.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

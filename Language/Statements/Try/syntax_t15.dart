@@ -28,8 +28,6 @@
  * specifies two exception parameters with the same name.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 main() {

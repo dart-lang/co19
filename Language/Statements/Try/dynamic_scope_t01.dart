@@ -13,7 +13,6 @@
  * arguments of a catch clause are indeed available within it along with all
  * those declared in the enclosing scopes.
  * @author kaigorodov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 

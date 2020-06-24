@@ -28,7 +28,6 @@
  * is missing the type name.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 main() {

@@ -28,7 +28,6 @@
  * finally clause preceding a catch clause.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {

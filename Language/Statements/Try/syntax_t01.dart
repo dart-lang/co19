@@ -27,7 +27,6 @@
  * @description Checks that various valid variations of the try statement do not
  * cause a compile-time error.
  * @author rodionov
- * @reviewer iefremov
  */
 
 main() {

@@ -9,8 +9,6 @@
  * @description Checks that if T is malformed, compile error is raised.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 
