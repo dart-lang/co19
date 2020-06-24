@@ -15,7 +15,7 @@
  * immediately enclosing async function.
  *
  * @compile-error
- * @issue 26133
+ * @Issue 26133
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
@@ -25,16 +25,4 @@ var r = 'a';
 
 Future<int> foo() async { return r; }
 
-main() {
-  asyncStart();
-  foo().then(
-      (_) {
-        Expect.fail('Either runtime or compile error is expected');
-      },
-      onError: (e) {
-        // TODO catch compile error as well
-        Expect.isTrue(e is TypeError || e is CastError);
-        asyncEnd();
-      }
-  );
-}
+main() {}

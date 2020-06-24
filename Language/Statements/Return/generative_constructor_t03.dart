@@ -10,7 +10,6 @@
  * of the form return null; appears in a generative constructor.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
@@ -18,7 +17,5 @@ class C {
 }
 
 main() {
-  try {
-    new C();
-  } catch (x) {}
+  new C();
 }

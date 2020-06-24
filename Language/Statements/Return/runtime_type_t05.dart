@@ -20,7 +20,7 @@ import '../../../Utils/expect.dart';
 
 var r = null;
 
-Future<int> foo() async { return r; }
+Future<int?> foo() async { return r as int?; }
 
 main() {
   asyncStart();

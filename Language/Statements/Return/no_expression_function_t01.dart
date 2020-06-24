@@ -14,10 +14,9 @@
  * @description Checks that a static warning occurs if a statement of the form
  * "return;" is used in a top-level method whose declared return type is int.
  *
+ * @Issue 42459
  * @static-warning
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 int bar() {

@@ -14,16 +14,10 @@
  * does not end with a semicolon.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 foo() {
   return "foo"
 }
 
-main() {
-  try {
-    foo();
-  } catch (x) {}
-}
+main() {}

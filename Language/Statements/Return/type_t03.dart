@@ -25,14 +25,4 @@ Future<int> foo() async {
   return 'a';
 }
 
-main() {
-  asyncStart();
-  foo().then(
-      (_) {
-        Expect.fail('Either runtime or compile error is expected');
-      },
-      onError: (e) {
-        asyncEnd();
-      }
-  );
-}
+main() {}

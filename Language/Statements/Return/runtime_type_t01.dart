@@ -16,10 +16,7 @@
  *
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
-
-import '../../../Utils/dynamic_check.dart';
 
 var r = 'a';
 

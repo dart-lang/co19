@@ -19,7 +19,7 @@
 import 'dart:async';
 import '../../../Utils/expect.dart';
 
-var r = 3.14;
+num r = 3.14;
 
 Future<num> foo() async { return r; }
 

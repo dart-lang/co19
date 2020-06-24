@@ -10,8 +10,8 @@
  *
  * @description Checks that it is no static warning if a function literal has
  * explicit return statements of different kind.
- * https://github.com/dart-lang/sdk/issues/39476
- * @static-clean
+ * @Issue 39476, 42459
+ * @static-warning
  * @author ilya
  */
 

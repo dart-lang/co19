@@ -10,16 +10,12 @@
  * of the form return e; appears in a generative constructor.
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
- */
+*/
 
 class C {
   C() { return this; }
 }
 
 main() {
-  try {
-    new C();
-    } catch (x) {}
+  new C();
 }

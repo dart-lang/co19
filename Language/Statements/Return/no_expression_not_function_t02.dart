@@ -16,8 +16,6 @@
  * generative constructor is executed by executing "return this;".
  *
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

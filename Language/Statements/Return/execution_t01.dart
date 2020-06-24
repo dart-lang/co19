@@ -18,8 +18,6 @@
  * exception the control is transferred to the appropriate handler.
  *
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

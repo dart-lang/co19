@@ -15,6 +15,7 @@
  * "return;" is used in an asynchronous static method whose declared return
  * type may not be assigned to Future<Null>.
  *
+ * @Issue 42459
  * @static-warning
  * @author a.semenov@unipro.ru
  */

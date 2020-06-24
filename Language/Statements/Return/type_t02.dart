@@ -16,7 +16,6 @@
  *
  * @static-clean
  * @author rodionov
- * @reviewer iefremov
  */
 
 abstract class I {}

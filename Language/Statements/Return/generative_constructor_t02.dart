@@ -10,7 +10,6 @@
  * of the form return e; appears in a named generative constructor.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {
@@ -19,7 +18,5 @@ class C {
 }
 
 main() {
-  try {
-    new C.foo();
-  } catch (x) {}
+  new C.foo();
 }

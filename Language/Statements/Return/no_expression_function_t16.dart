@@ -20,15 +20,15 @@
  */
 import 'dart:async';
 
-Future<Object> bar() async {
+Future<Object?> bar() async {
   return; /// static type warning
 }
 
 class C {
-  static Future<Object> sm() async {
+  static Future<Object?> sm() async {
     return; /// static type warning
   }
-  Future<Object> foo() async {
+  Future<Object?> foo() async {
     return; /// static type warning
   }
 }

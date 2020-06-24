@@ -17,15 +17,10 @@
  *
  * @compile-error
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
-import '../../../Utils/dynamic_check.dart';
 
 int foo() {
   return "0";
 }
 
-main() {
-  foo();
-}
+main() {}

@@ -13,8 +13,6 @@
  * @description Checks that a function is allowed to have more than one return
  * statement, even if it's a trivial case of unreachable code.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 

@@ -15,9 +15,9 @@
  * "return;" is used in an instance method whose declared return type may not be
  * assigned to void.
  *
+ * @Issue 42459
  * @static-warning
  * @author rodionov
- * @reviewer iefremov
  */
 
 class C {

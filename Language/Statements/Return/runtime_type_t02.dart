@@ -13,12 +13,11 @@
  * @description Checks that it's not an error in any mode if o is null.
  *
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 var r = null;
 
-int foo() { return r; }
+int? foo() { return r; }
 
 main() {
   foo();

@@ -14,10 +14,9 @@
  * @description Checks that a static warning occurs if a statement of the form
  * "return;" is used in a getter method whose declared return type is bool.
  *
+ * @Issue 42459
  * @static-warning
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 class C {

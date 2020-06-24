@@ -12,8 +12,6 @@
  * ;
  * @description Checks that the expression in a return statement may be omitted.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 foo() {

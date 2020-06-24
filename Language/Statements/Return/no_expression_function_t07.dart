@@ -15,6 +15,7 @@
  * "return;" is used in a top-level asynchronous function whose declared return
  * type is Future<int>.
  *
+ * @Issue 42459
  * @static-warning
  * @author a.semenov@unipro.ru
  */

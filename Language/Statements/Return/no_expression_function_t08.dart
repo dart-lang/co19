@@ -15,6 +15,7 @@
  * "return;" is used in an asynchronous getter method whose declared return type
  * is Future<bool>.
  *
+ * @Issue 42459
  * @static-warning
  * @author a.semenov@unipro.ru
  */

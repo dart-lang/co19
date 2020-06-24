@@ -21,5 +21,5 @@ class A {
 }
 
 main() {
-  new A().test().isEmpty;
+  new A();
 }
