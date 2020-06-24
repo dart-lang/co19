@@ -46,7 +46,7 @@ Stream<int> generator() async* {
 test() async {
   generatorAlive = false;
   Stream<int> s = generator();
-  StreamSubscription<int> ss;
+  late StreamSubscription<int> ss;
   ss = s.listen(
       (int x) async {
         if (x == 5) { // let generator to work some time

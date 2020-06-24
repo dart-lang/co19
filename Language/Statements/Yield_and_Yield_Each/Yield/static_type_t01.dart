@@ -18,12 +18,10 @@
  * @compile-error
  * @author a.semenov@unipro.ru
  */
-import '../../../../Utils/expect.dart';
 
 Iterable<String> generator() sync* {
   yield 1;
 }
 
 main() {
-  Expect.equals(1, generator().first);
-}
+

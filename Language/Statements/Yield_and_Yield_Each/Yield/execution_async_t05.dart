@@ -36,7 +36,7 @@ import '../../../../Utils/expect.dart';
 bool cancelHandled = false;
 
 Stream<int> generator() async* {
-  bool canceled;
+  bool canceled = false;
   int i = 0;
   while (true) {
     try {
@@ -53,7 +53,7 @@ Stream<int> generator() async* {
 
 test() async {
   Stream<int> s = generator();
-  StreamSubscription<int> ss;
+  late StreamSubscription<int> ss;
   cancelHandled = false;
   ss = s.listen(
       (int x) async {

@@ -35,7 +35,7 @@ import 'dart:async';
 import '../../../../Utils/expect.dart';
 
 Stream<int> generator(List<int> log) async* {
-  bool canceled;
+  bool canceled = false;
   int i = 0;
   int order = 0;
   try {
@@ -66,7 +66,7 @@ Stream<int> generator(List<int> log) async* {
 test() async {
   List<int> log = [];
   Stream<int> s = generator(log);
-  StreamSubscription<int> ss;
+  late StreamSubscription<int> ss;
   ss = s.listen(
       (int x) async {
         if (x == 5) { // let generator to work some time
