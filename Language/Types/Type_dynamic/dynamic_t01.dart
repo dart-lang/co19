@@ -12,7 +12,6 @@
  * Note: all possible declarations are tested in the corresponding chapters.
  * @static-clean
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {

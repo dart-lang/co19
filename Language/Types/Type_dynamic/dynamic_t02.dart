@@ -18,7 +18,7 @@ import "../../../Utils/expect.dart";
 
 class DynamicChecker<S, T> {
   DynamicChecker() {
-    int func(int x) {}
+    int func(int x) => 42;
     var foo;
 
     Expect.isTrue(foo is S);
