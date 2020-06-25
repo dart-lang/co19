@@ -57,6 +57,10 @@ typedef A<X extends FutureOr<X>> = C<X>;
 main() {
   A? source;
   var fsource = toF(source);
-  F<A<FutureOr<dynamic>>?>? target = fsource;
+
+  F<A<FutureOr<dynamic>>?>? target1 = fsource;
+
+  F<C<FutureOr<dynamic>>?>? target2 = fsource;
+
   A();
 }

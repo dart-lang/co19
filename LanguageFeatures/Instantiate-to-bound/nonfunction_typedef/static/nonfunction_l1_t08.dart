@@ -42,32 +42,61 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for [typedef
- * A<X1 extends B<X1, X2>, X2 extends B<X1, X2>>].
+ * @description Checks that instantiate-to-bounds works as expected for
+ * [typedef A<X extends C<X>> = C<X?>]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 import "../../../../Utils/expect.dart";
 
-class B<X, Y> {}
-typedef A<X1 extends B<X1, X2>, X2 extends B<X1, X2>> = B<X1, X2>;
+class C<X> {}
+typedef A<X extends C<X>> = C<X?>;
 
 main() {
   A? source;
   var fsource = toF(source);
 
-  F<A<B<dynamic, dynamic>, B<dynamic, dynamic>>?>? target = fsource;
-  F<B<B<dynamic, dynamic>, B<dynamic, dynamic>>?>? target0 = fsource;
+  F<A<C<dynamic>?>?>? target  = fsource;
+  F<C<C<dynamic>?>?>? target0 = fsource;
 
-
-  F<A<dynamic, dynamic>?>? target1 = fsource;
-//                                   ^^^^^^^
+  F<A<dynamic>?>? target1 = fsource;
+//                          ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<dynamic, dynamic>?>? target2 = fsource;
-//                                   ^^^^^^^
+  F<A<C<C<dynamic>?>?>?>? target2 = fsource;
+//                                  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<C<C<C<dynamic>?>?>?>?>? target3 = fsource;
+//                                      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<C<C<C<C<dynamic>?>?>?>?>?>? target4 = fsource;
+//                                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<C<dynamic>?>? target5 = fsource;
+//                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<C<C<C<dynamic>?>?>?>? target6 = fsource;
+//                                  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<C<C<C<C<dynamic>?>?>?>?>? target7 = fsource;
+//                                      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<C<C<C<C<C<dynamic>?>?>?>?>?>? target8 = fsource;
+//                                          ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

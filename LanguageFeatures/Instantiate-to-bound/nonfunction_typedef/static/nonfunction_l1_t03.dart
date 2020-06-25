@@ -58,7 +58,8 @@ main() {
   B? source;
   var fsource = toF(source);
 
-  F<B<A<dynamic>>?>? target = fsource;
+  F<B<A<dynamic>>?>? target  = fsource;
+  F<A<A<dynamic>>?>? target0 = fsource;
 
   F<B<dynamic>?>? target1 = fsource;
 //                          ^^^^^^^
@@ -80,28 +81,73 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<Null>?>? target5 = fsource;
-//                       ^^^^^^^
+  F<B<Never>?>? target5 = fsource;
+//                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<A<Null>>?>? target6 = fsource;
-//                          ^^^^^^^
+  F<B<A<Never>>?>? target6 = fsource;
+//                           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<A<A<Null>>>?>? target7 = fsource;
-//                             ^^^^^^^
+  F<B<A<A<Never>>>?>? target7 = fsource;
+//                              ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<A<A<A<Null>>>>?>? target8 = fsource;
-//                                ^^^^^^^
+  F<B<A<A<A<Never>>>>?>? target8 = fsource;
+//                                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<A<A<A<A<Null>>>>>?>? target9 = fsource;
-//                                   ^^^^^^^
+  F<B<A<A<A<A<Never>>>>>?>? target9 = fsource;
+//                                    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<dynamic>?>? target10 = fsource;
+//                           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<A<A<dynamic>>>?>? target11 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<A<A<A<dynamic>>>>?>? target12 = fsource;
+//                                    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<A<A<A<A<dynamic>>>>>?>? target13 = fsource;
+//                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<Never>?>? target14 = fsource;
+//                         ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<A<Never>>?>? target15 = fsource;
+//                            ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<A<A<Never>>>?>? target16 = fsource;
+//                               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<A<A<A<Never>>>>?>? target17 = fsource;
+//                                  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<A<A<A<A<Never>>>>>?>? target18 = fsource;
+//                                     ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

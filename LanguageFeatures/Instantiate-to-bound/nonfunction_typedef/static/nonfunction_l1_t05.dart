@@ -60,6 +60,7 @@ main() {
   var fsource = toF(source);
 
   F<O<M<N<M<dynamic>>>>> target = fsource;
+  F<M<N<M<dynamic>>>> target0 = fsource;
 
   F<O<dynamic>?>? target1 = fsource;
 //                          ^^^^^^^
@@ -81,28 +82,28 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<O<Null>?>? target5 = fsource;
-//                       ^^^^^^^
+  F<O<Never>?>? target5 = fsource;
+//                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<O<M<Null>>?>? target6 = fsource;
-//                          ^^^^^^^
+  F<O<M<Never>>?>? target6 = fsource;
+//                           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<O<M<N<Null>>>?>? target7 = fsource;
-//                             ^^^^^^^
+  F<O<M<N<Never>>>?>? target7 = fsource;
+//                              ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<O<M<N<M<Null>>>>?>? target8 = fsource;
-//                                ^^^^^^^
+  F<O<M<N<M<Never>>>>?>? target8 = fsource;
+//                                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<O<M<N<M<N<Null>>>>>?>? target9 = fsource;
-//                                   ^^^^^^^
+  F<O<M<N<M<N<Never>>>>>?>? target9 = fsource;
+//                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

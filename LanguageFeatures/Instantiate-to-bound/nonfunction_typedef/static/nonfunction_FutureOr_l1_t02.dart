@@ -52,12 +52,16 @@ import "../../../../Utils/expect.dart";
 import "dart:async";
 
 class C<X> {}
-typedef A<X extends FutureOr<C<X>>> = C<X>;
+typedef A<X extends FutureOr<C<X?>>> = C<X>;
 
 main() {
   A? source;
   var fsource = toF(source);
+
   F<A<FutureOr<C<dynamic>>>?>? target = fsource;
+
+  F<C<FutureOr<C<dynamic>>>?>? target0 = fsource;
+
 
   F<A<dynamic>?>? target1 = fsource;
 //                          ^^^^^^^
@@ -70,6 +74,21 @@ main() {
 // [cfe] unspecified
 
   F<A<FutureOr<C<FutureOr<C<dynamic>>>>>?>? target3 = fsource;
+//                                                    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<C<dynamic>?>? target4 = fsource;
+//                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<C<FutureOr<dynamic>>?>? target5 = fsource;
+//                                    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<C<FutureOr<C<FutureOr<C<dynamic>>>>>?>? target6 = fsource;
 //                                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -42,37 +42,21 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for [typedef
- * A<X1 extends B<X1, X2>, X2 extends B<X1, X2>>].
+ * @description Checks instantiation to bounds for [typedef A<X extends
+ * FutureOr<C<X>?> = C<X>]
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
+import "dart:async";
 import "../../../../Utils/expect.dart";
 
-class B<X, Y> {}
-typedef A<X1 extends B<X1, X2>, X2 extends B<X1, X2>> = B<X1, X2>;
+class C<X> {}
+typedef A<X extends FutureOr<C<X>?>> = C<X>;
 
 main() {
-  A? source;
-  var fsource = toF(source);
-
-  F<A<B<dynamic, dynamic>, B<dynamic, dynamic>>?>? target = fsource;
-  F<B<B<dynamic, dynamic>, B<dynamic, dynamic>>?>? target0 = fsource;
-
-
-  F<A<dynamic, dynamic>?>? target1 = fsource;
-//                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<dynamic, dynamic>?>? target2 = fsource;
-//                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  A();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.equals(
+    typeOf<C<FutureOr<C<dynamic>?>>>(),
+    typeOf<A>()
+  );
 }

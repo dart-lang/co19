@@ -59,6 +59,8 @@ main() {
 
   F<O<M<M<M<M<M<M<dynamic>>>>>>>> target = fsource;
 
+  F<M<M<M<M<M<M<M<M<dynamic>>>>>>>>> target0 = fsource;
+
   F<O<dynamic>> target1 = fsource;
 //                        ^^^^^^^
 // [analyzer] unspecified
@@ -94,28 +96,28 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<O<Null>> target8 = fsource;
-//                     ^^^^^^^
+  F<O<Never>> target8 = fsource;
+//                      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<O<M<Null>>> target9  = fsource;
-//                         ^^^^^^^
+  F<O<M<Never>>> target9  = fsource;
+//                          ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<O<M<M<Null>>>> target10 = fsource;
-//                            ^^^^^^^
+  F<O<M<M<Never>>>> target10 = fsource;
+//                             ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<O<M<M<M<Null>>>>> target11 = fsource;
-//                               ^^^^^^^
+  F<O<M<M<M<Never>>>>> target11 = fsource;
+//                                ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<O<M<M<M<M<Null>>>>>> target12 = fsource;
-//                                  ^^^^^^^
+  F<O<M<M<M<M<Never>>>>>> target12 = fsource;
+//                                   ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
