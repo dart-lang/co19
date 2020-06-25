@@ -108,28 +108,37 @@ typedef A<X extends G<C<X>>> = C<X>;
 main() {
   A? source;
   var fsource = toF(source);
-  F<A<G<C<dynamic>>>?>? target = fsource;
 
-  F<A<G<C<Null>>>?>? target01 = fsource;
-  F<A<G<C<Never>>>?>? target02 = fsource;
+  F<A<G<C<dynamic>>>?>? target1 = fsource;
+  F<A<G<C<Never>>>?>? target2 = fsource;
 
-  F<A<dynamic>?>? target1 = fsource;
+  F<C<G<C<dynamic>>>?>? target3 = fsource;
+  F<C<G<C<Never>>>?>? target4 = fsource;
+
+  F<A<G<C<Null>>>?>? target5 = fsource;
+//                             ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<dynamic>?>? target6 = fsource;
 //                          ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<dynamic>>?>? target2 = fsource;
-  F<A<G<C<G<dynamic>>>>?>? target3 = fsource;
-  F<A<G<C<G<C<dynamic>>>>>?>? target4 = fsource;
+  F<A<G<dynamic>>?>? target7 = fsource;
 
-  F<A<Null>?>? target5 = fsource;
-//                       ^^^^^^^
+  F<A<G<C<G<dynamic>>>>?>? target8 = fsource;
+
+  F<A<G<C<G<C<dynamic>>>>>?>? target9 = fsource;
+
+  F<A<Null>?>? target10 = fsource;
+//                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<Null>>?>? target6 = fsource;
-  F<A<G<C<G<Null>>>>?>? target7 = fsource;
-  F<A<G<C<G<C<Null>>>>>?>? target8 = fsource;
+  F<A<G<Never>>?>? target11 = fsource;
+  F<A<G<C<G<Never>>>>?>? target12 = fsource;
+  F<A<G<C<G<C<Never>>>>>?>? target13 = fsource;
 
   A();
 }

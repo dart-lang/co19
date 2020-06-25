@@ -59,6 +59,7 @@ main() {
   var fsource = toF(source);
 
   F<A<G<C<dynamic, dynamic>>, dynamic>?>? target = fsource;
+  F<C<G<C<dynamic, dynamic>>, dynamic>?>? target0 = fsource;
 
   F<A<dynamic, dynamic>?>? target1 = fsource;
 //                                   ^^^^^^^

@@ -60,6 +60,7 @@ main() {
   var fsource = toF(source);
 
   F<A<G<C<Never, Never>>, G<C<Never, Never>>>?>? target = fsource;
+  F<C<G<C<Never, Never>>, G<C<Never, Never>>>?>? target0 = fsource;
 
   F<A<G<C<dynamic, dynamic>>, G<C<dynamic, dynamic>>>?>? target1 = fsource;
 //                                                                 ^^^^^^^
