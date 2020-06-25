@@ -21,6 +21,7 @@
  * @description Checks that the execution order as well as type parameters
  * binding for both named and unnamed superinitializers are correct.
  * @author iefremov
+ * @issue 42471
  */
 import "../../../../Utils/expect.dart";
 
@@ -33,13 +34,13 @@ f(var entry) {
 class S<T, U> {
   S(var x, var y, [var o]) : this.s1 = x("s1${1 is T}"),
       this.s2 = y("s2${"1" is U}"), this.s3 = x("1" is U),
-      this.s4 = x(1.0 is T) {
+      this.s4 = x(1.5 is T) {
 
     s1("ok");
   }
   S.named(var x, var y, {var o}) : this.s1 = x("s1${1 is T}"),
       this.s2 = y("s2${"1" is U}"),  this.s3 = x("1" is U),
-      this.s4 = x(1.0 is T) {
+      this.s4 = x(1.5 is T) {
 
     s1("named!");
   }
@@ -64,5 +65,4 @@ main() {
   new C.named();
   Expect.listEquals(["a1","a2", "o", "s1true", "s2true", "true", "false",
     "named!"], log, "Wrong superinitializer evaluation order!");
-
 }
