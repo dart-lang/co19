@@ -15,7 +15,6 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import "../../../Utils/dynamic_check.dart";
 
 class I<T extends num> {
 }

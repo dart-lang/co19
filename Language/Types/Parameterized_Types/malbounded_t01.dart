@@ -14,11 +14,10 @@
  * violates the bound.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A<T extends String> {}
 
 main() {
-  A<int> a;
+  A<int>? a;
 }

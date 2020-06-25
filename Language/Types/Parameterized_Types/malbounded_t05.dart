@@ -14,7 +14,6 @@
  * violates the bound.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
 class F1 {}
@@ -26,5 +25,5 @@ class F3 extends F2 {}
 class A<F extends F2, T extends String, S extends Object> {}
 
 main() {
-  A<F1, String, List> a;
+  A<F1, String, List>? a;
 }

@@ -16,12 +16,13 @@ class A<T> {
 }
 
 class G<T1, T2> {
+  G(this.m1, this.m2);
   A<T1> m1;
   A<T2> m2;
 }
 
 main() {
-  G<int, String> c = new G<int, String>();
+  G<int, String> c = new G<int, String>(new A<int>(), new A<String>());
   A<int> a1 = c.m1;
   A<String> a2 = c.m2;
 }

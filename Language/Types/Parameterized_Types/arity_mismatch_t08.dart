@@ -16,17 +16,10 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-import "../../../Utils/expect.dart";
 
 class C<T1 extends num, T2> {
-  test() {
-    Expect.isTrue(1 is T1);
-    Expect.isTrue(1 is T2);
-    Expect.isTrue('foo' is T1);
-    Expect.isTrue('foo' is T2);
-  }
 }
 
 main() {
-  new C<int, List, List>().test();
+  new C<int, List, List>();
 }

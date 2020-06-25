@@ -15,11 +15,10 @@
  * generic type.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {}
 
 main() {
-  A<int> a = null;
+  A<int>? a = null;
 }

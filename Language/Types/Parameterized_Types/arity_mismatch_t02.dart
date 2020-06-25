@@ -15,11 +15,10 @@
  * parameters than needed.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A<T, U> {}
 
 main() {
-  A<int> a = null;
+  A<int>? a = null;
 }

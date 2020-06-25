@@ -18,12 +18,13 @@ class A<T> {
 class B {
 }
 class G<T1 extends num, T2 extends B> {
+  G(this.m1, this.m2);
   A<T1> m1;
   A<T2> m2;
 }
 
 main() {
-  G<int, B> c = new G<int, B>();
+  G<int, B> c = new G<int, B>(new A<int>(), new A<B>());
   A<int> a1 = c.m1;
   A<B> a2 = c.m2;
 }
