@@ -20,10 +20,9 @@
  * @author kaigorodov
  */
 
-
 class C<T> {
-   static int f(T v) {
-     return 12;
+   static int f(T? v) {
+     return 42;
    }
 }
 

@@ -23,7 +23,7 @@
 
 class C<T> {
    static f() {
-     T v = null;
+     T? v = null;
      return v;
    }
 }

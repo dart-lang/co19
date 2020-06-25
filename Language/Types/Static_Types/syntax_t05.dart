@@ -25,7 +25,6 @@
  * are only space delimited.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class G<A, B> {
@@ -33,7 +32,5 @@ class G<A, B> {
 }
 
 main() {
-  try {
-    G<int double> g;
-  } catch (x) {}
+  G<int double>? g;
 }

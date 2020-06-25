@@ -23,5 +23,5 @@
 var C = null;
 
 main() {
-  C<int, String> c;
+  C<int, String>? c;
 }

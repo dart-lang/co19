@@ -24,19 +24,18 @@
  * @description Checks that using fully qualified type name allows to import it
  * from some library.
  * @author iefremov
- * @reviewer rodionov
  */
 
 import "../somelib.dart" as somelibprefix;
 
 main() {
-  somelibprefix.ClassFromSomeLib v1;
-  somelibprefix.ClassFromSomeLib<int, String, double> v2;
+  somelibprefix.ClassFromSomeLib? v1;
+  somelibprefix.ClassFromSomeLib<int, String, double>? v2;
   somelibprefix.ClassFromSomeLib
     <
     somelibprefix.ClassFromSomeLib<int, bool, double>,
     somelibprefix.ClassFromSomeLib<bool, int, double>,
     somelibprefix.ClassFromSomeLib
-    >
+    >?
     v3;
 }

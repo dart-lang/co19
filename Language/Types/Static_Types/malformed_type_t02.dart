@@ -20,9 +20,8 @@
  * @author kaigorodov
  */
 
-
 class C<T> {
-   static T v = null;
+   static T? v = null;
 }
 
 main() {

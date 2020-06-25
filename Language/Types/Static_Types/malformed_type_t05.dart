@@ -25,5 +25,5 @@ import "../somelib1.dart"; // class C {}
 import "../somelib2.dart"; // class C {}
 
 main() {
-  C c;
+  C? c;
 }

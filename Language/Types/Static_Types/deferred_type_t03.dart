@@ -14,11 +14,8 @@
  * @compile-error
  * @author ngl@unipro.ru
  */
-
-import "../../../Utils/expect.dart";
 import "../somelib1.dart" deferred as p1;
 
-class C1<T> {}
 
 main() {
   String as p1.C;

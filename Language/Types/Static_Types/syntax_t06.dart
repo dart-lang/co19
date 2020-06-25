@@ -23,7 +23,6 @@
  * ;
  * @description Checks that the type argument can be parameterized as well.
  * @author iefremov
- * @reviewer rodionov
  */
 
 class G<T> {

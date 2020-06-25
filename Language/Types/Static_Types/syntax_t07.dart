@@ -25,7 +25,6 @@
  * non-type (using null).
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class G<T> {
@@ -33,7 +32,5 @@ class G<T> {
 }
 
 main() {
-  try {
-    G<null> t;
-  } catch (x) {}
+  G<null>? t;
 }

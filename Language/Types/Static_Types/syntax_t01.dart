@@ -26,7 +26,6 @@
  * ones.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class Generic<T> {
@@ -34,7 +33,5 @@ class Generic<T> {
 }
 
 main() {
-  try {
-    Generic{int} t;
-  } catch (x) {}
+  Generic{int} t = new Generic<int>();
 }

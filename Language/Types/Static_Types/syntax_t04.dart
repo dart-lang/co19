@@ -25,7 +25,6 @@
  * arguments in a static type annotation is empty.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 class Generic<T> {
@@ -33,7 +32,5 @@ class Generic<T> {
 }
 
 main() {
-  try {
-    Generic <> t;
-  } catch (x) {}
+  Generic <>? t;
 }
