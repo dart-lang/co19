@@ -13,7 +13,5 @@
  */
 
 main() {
-  try {
-    f(void a) {};
-  } catch (x) {}
+  f(void a) {};
 }

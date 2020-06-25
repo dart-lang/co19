@@ -14,7 +14,5 @@
  */
 
 main() {
-  try {
-    var void;
-  } catch (anything) {}
+  var void;
 }

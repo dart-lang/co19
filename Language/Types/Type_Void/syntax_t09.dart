@@ -14,9 +14,8 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-
 void v = null;
 
 main() {
-    print(v);
+  print(v);
 }
