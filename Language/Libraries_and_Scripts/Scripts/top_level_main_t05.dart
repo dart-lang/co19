@@ -10,6 +10,7 @@
  * @description Checks that it is not a runtime error if S declares a top-level
  * getter named main, returning function.
  * @author ngl@unipro.ru
+ * @issue 42492
  */
 import "../../../Utils/expect.dart";
 

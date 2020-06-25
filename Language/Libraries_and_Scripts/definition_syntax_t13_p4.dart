@@ -6,4 +6,4 @@
 
 library lib.rary;
 
-int foo;
+int foo = 4;

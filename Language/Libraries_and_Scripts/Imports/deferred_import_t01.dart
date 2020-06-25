@@ -57,6 +57,7 @@
  * library a corresponding declaration with the same name in the current
  * library. Calling the imported name results in a runtime error.
  * @Issue 33118
+ * @issue 42491
  * @author ngl@unipro.ru
  */
 import "dart:async";

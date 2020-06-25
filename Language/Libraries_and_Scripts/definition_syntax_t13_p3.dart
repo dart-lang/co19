@@ -6,4 +6,4 @@
 
 library ___;
 
-int foo;
+int foo = 3;

@@ -13,6 +13,7 @@
  */
 import "invalid_uri_t03_lib.dart" deferred as p;
 
-main() {
+main() async {
+  await p.loadLibrary();
   p.foo();
 }

@@ -9,12 +9,10 @@
  * exported namespace of L1 binds N to a declaration originating in a system
  * library:
  * • The import of L1 is implicitly extended by a hide N clause.
- * • A static warning is issued.
  *
  * @description Checks that if N is referenced by L and N would be introduced
  * by implicit import of 'dart:core' and library whose URI does not begin with
- * 'dart:', then compile error is issued
- * @static-warning
+ * 'dart:', then no compile error is issued
  * @author ilya
  */
 import "../../../Utils/expect.dart";
@@ -23,5 +21,5 @@ import "../../../Utils/expect.dart";
 import "implicit_hide_lib.dart";
 
 main() {
-  Expect.equals('MYLIST', List.typename); /// static-type warning
+  Expect.equals('MYLIST', List.typename);
 }

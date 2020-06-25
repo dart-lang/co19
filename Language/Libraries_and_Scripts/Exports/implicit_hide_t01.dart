@@ -9,17 +9,14 @@
  * and L2, and the exported namespace of L1 binds N to a declaration
  * originating in a system library:
  * • The export of L1 is implicitly extended by a hide N clause.
- * • A static warning is issued.
- * @description Checks that implicit hiding of SDK library classes is
- * prohibited.
- * @static-warning
+ * @description Checks implicit hiding of SDK library classes
  * @author ilya
  */
 import "../../../Utils/expect.dart";
 import 'implicit_hide_t01_lib1.dart';
 
 main() {
-  Expect.equals('MYLIST', List.typename); /// static-type warning
+  Expect.equals('MYLIST', List.typename);
   Expect.equals('MYLIST2', List2.typename);
 }
 

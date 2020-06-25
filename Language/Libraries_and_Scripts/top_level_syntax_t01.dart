@@ -25,6 +25,7 @@
  * @description Checks that a library containing correct top level definitions
  * is parsed without errors.
  * @author vasya
+ * @issue 42392
  */
 
 import "top_level_syntax_t01_lib.dart";

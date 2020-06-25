@@ -6,4 +6,4 @@
 
 library id1234567;
 
-int foo;
+int foo = 2;

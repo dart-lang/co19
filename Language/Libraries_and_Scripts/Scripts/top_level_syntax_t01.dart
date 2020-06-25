@@ -26,6 +26,7 @@
  * @description Checks that a script with valid top level definitions is parsed
  * without errors.
  * @author msyabro
+ * @issue 42392
  */
 
 abstract class I {}
