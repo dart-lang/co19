@@ -12,15 +12,13 @@
  * @description Trivially checks that instance variables declared with 
  * specified type are accessible.
  * @author vasya
- * @reviewer pagolubev
- * @reviewer iefremov
  */
 import "../../Utils/expect.dart";
 
 class C {
   C(this.v2);
-  bool v1;
-  final bool v2;
+  bool? v1;
+  final bool? v2;
   String v3 = "bar";
   final int v4 = 1;
   var x = 1.1;

@@ -12,8 +12,6 @@
  * @description Trivially checks that instance variables declared without 
  * specified type are accessible.
  * @author vasya
- * @reviewer pagolubev
- * @reviewer iefremov
  */
 import "../../Utils/expect.dart";
 

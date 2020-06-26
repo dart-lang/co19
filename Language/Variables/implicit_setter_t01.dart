@@ -13,8 +13,6 @@
  * to the variables declared as in assertion.
  * @static-clean
  * @author vasya
- * @reviewer pagolubev
- * @reviewer iefremov
  */
 import "../../Utils/expect.dart";
 

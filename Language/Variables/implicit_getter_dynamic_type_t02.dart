@@ -26,23 +26,8 @@ class A {
 }
 
 main() {
-  try {
-    A.a.nonexistent();
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {}
-  
-  try {
-    A.b.nonexistent();
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {}
-  
-  try {
-    A.c.nonexistent();
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    A.d.nonexistent();
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {}
+  Expect.throws(() { A.a.nonexistent(); }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { A.b.nonexistent(); }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { A.c.nonexistent(); }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { A.d.nonexistent(); }, (e) => e is NoSuchMethodError);
 }

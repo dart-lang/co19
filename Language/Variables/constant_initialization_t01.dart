@@ -10,14 +10,7 @@
  * is not initialized.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
-import "../../Utils/expect.dart";
-
 const foo;
 
-main() {
-  try {
-    Expect.isNull(foo);
-  } catch (ok) {}
-}
+main() {}

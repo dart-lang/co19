@@ -32,11 +32,8 @@
  * declaration must be delimited by commas.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    var x y;
-  } catch (ok) {}
+  var x y;
 }

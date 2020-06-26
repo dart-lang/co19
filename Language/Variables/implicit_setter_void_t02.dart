@@ -17,7 +17,7 @@
 import "../../Utils/dynamic_check.dart";
 
 class A {
-  int v;
+  int? v;
 }
 
 main() {

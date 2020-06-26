@@ -32,11 +32,8 @@
  * variable is initialized.
  * @compile-error
  * @author hlodvig
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    var --x;
-  } catch (ok) {}
+  var --x;
 }

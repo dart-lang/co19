@@ -11,8 +11,7 @@
  * by assigning a throw expression to a top-level variable and checking that 
  * it is only evaluated when that variable is accessed.
  * @author kaigorodov
- * @reviewer rodionov
- */
+  */
 import "../../Utils/expect.dart";
 
 var foo = throw new IntegerDivisionByZeroException();

@@ -30,8 +30,6 @@
  *   ;
  * @description Checks various valid initialized variable declarations.
  * @author iefremov
- * @reviewer rodionov
- * @reviewer hlodvig
  */
 
 main() {
@@ -48,5 +46,5 @@ main() {
     $tring4 = "a nocturne on a drainpipe flute";
 
     var x, y = 1 + 2, z = 3 * 4, xc = ac+1;
-    double d, d1 = 0.5, d2;
+    double? d, d1 = 0.5, d2;
 }

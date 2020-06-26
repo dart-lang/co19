@@ -32,11 +32,8 @@
  * and 'var'.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    const var x = 1;
-  } catch (ok) {}
+  const var x = 1;
 }

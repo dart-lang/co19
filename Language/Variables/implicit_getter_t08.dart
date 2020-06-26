@@ -17,9 +17,9 @@
  */
 
 class A {
-  static int a;
+  static int? a;
 }
 
 main() {
-  bool a = A.a;
+  bool? a = A.a;
 }

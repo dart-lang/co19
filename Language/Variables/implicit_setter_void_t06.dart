@@ -15,7 +15,6 @@
  * @compile-error
  * @author pagolubev
  */
-import "../../Utils/dynamic_check.dart";
 
 class A {
   static int a = 1;

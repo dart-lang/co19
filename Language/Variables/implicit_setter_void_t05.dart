@@ -18,7 +18,7 @@
 import "../../Utils/dynamic_check.dart";
 
 class A {
-  static int a;
+  static int? a;
 }
 
 main() {

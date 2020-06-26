@@ -32,7 +32,6 @@
  * 'factory' keyword.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 class C {
@@ -40,7 +39,5 @@ class C {
 }
 
 main() {
-  try {
-    new C();
-  } catch (ok) {}
+  new C();
 }

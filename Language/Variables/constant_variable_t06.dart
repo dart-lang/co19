@@ -10,7 +10,6 @@
  * constant variable is not initialized at declaration.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 main() {

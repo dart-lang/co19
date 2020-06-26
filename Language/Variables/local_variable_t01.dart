@@ -12,12 +12,9 @@
  * before its initializer.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    var v = w;
-    var w;
-  } catch (_) {}
+  var v = w;
+  var w;
 }

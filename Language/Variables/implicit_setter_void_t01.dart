@@ -13,14 +13,12 @@
  * type may be assigned to the variables declared with explicitly specified 
  * type.
  * @author vasya
- * @reviewer pagolubev
- * @reviewer iefremov
  */
 import "../../Utils/expect.dart";
 
 class C {
-  bool foo;
-  String bar = "bar";
+  bool? foo;
+  String? bar = "bar";
 }
 
 main() {

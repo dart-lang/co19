@@ -12,13 +12,11 @@
  * @description Checks that a value can be assigned to a static class variable
  * using this implicit setter.
  * @author pagolubev
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../Utils/expect.dart";
 
 class A {
-  static int a;
+  static int? a;
   static int b = 1;
 }
 

@@ -32,11 +32,8 @@
  * expression is missed in an initialized variable declaration.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    var x =;
-  } catch (ok) {}
+  var x =;
 }

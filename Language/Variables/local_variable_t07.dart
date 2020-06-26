@@ -14,10 +14,8 @@
  * @author ilya
  * @author a.semenov@unipro.ru
  */
-import "../../Utils/expect.dart";
- 
+
 main() {
     i;
-
     for (int i = 0; i < 10; ++i) {}
 }

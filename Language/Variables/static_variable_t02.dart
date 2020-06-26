@@ -19,6 +19,4 @@
 
 static var foo = 1;
 
-main() {
-  Expect.equals(1, foo);
-}
+main() {}

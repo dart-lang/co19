@@ -31,11 +31,8 @@
  * @description Checks that a variable declaration cannot end with a comma.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    var x, ;
-  } catch (ok) {}
+  var x, ;
 }

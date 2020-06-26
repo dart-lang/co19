@@ -14,15 +14,12 @@
  * @description Checks that a static variable is not associated with a
  * particular instance.
  * @author kaigorodov
- * @reviewer iefremov
  */
 import "../../Utils/expect.dart";
 
 class Cl {
   static var _foo;
-  int get foo {
-    return _foo;
-  }
+  int get foo => _foo;
   void set foo(int val) {
     _foo = val;
   }

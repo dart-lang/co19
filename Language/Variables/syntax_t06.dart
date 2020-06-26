@@ -31,11 +31,8 @@
  * @description Checks that a variable declaration must contain an identifier.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    final ;
-  } catch (ok) {}
+  final ;
 }

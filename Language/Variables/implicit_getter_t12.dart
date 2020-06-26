@@ -20,7 +20,7 @@ class A {
 }
   
 //--library static variables
-A x1;
+A? x1;
 A x2 = new A();
 const A x3 = const A();
 //final A x4; //can not be
@@ -28,14 +28,14 @@ final A x5 = new A();
 
 class C {
   //--instance variables
-  A y1;
+  A? y1;
   A y2 = new A();
   //const A y3 = const A(); //can not be
-  final A y4;
+  final A? y4;
   final A y5 = new A();
   
   //--class static variables
-  static A z1;
+  static A? z1;
   static A z2 = new A();
   static const A z3 = const A();
   //static final A z4; //can not be
@@ -45,7 +45,7 @@ class C {
 }
 
 main() {
-  A res;
+  A? res;
   
   res = x1;
   res = x2;

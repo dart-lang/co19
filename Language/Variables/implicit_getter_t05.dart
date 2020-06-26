@@ -19,10 +19,10 @@
 
 class A {
   A(this.v);
-  final int v;
+  final int? v;
 }
 
 main() {
   A a = new A(1);
-  bool b = a.v;
+  bool? b = a.v;
 }

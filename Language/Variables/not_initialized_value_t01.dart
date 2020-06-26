@@ -9,8 +9,6 @@
  * @description Checks that various uninitialized variables are set to null
  * by default.
  * @author vasya
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
 import "../../Utils/expect.dart";
 
@@ -18,21 +16,21 @@ class C {
   static var a;
 }
 
-int global;
+int? global;
 
 main() {
   var x;
   Expect.equals(null, x);
-  bool y;
+  bool? y;
   Expect.equals(null, y);
-  String z;
+  String? z;
   Expect.equals(null, z);
-  List l;
+  List? l;
   Expect.equals(null, l);
-  C c;
+  C? c;
   Expect.equals(null, c);
   Expect.equals(null, C.a);
-  Object o;
+  Object? o;
   Expect.equals(null, o);
   Expect.equals(null, global);
 }

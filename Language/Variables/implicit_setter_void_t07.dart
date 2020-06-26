@@ -19,16 +19,16 @@ import "../../Utils/expect.dart";
 class A {}
   
 //--library static variables
-A x1;
+A? x1;
 A x2 = new A();
 
 class C {
   //--instance variables
-  A y1;
+  A? y1;
   A y2 = new A();
   
   //--class static variables
-  static A z1;
+  static A? z1;
   static A z2 = new A();
 }
 

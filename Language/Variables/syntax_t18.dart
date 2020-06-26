@@ -31,7 +31,6 @@
  * @description Checks that a variable cannot be abstract void.
  * @compile-error
  * @author kaigorodov
- * @reviewer iefremov
  */
 
 class C {
@@ -39,7 +38,5 @@ class C {
 }
 
 main() {
-  try {
-    new C();
-  } catch (ok) {}
+  new C();
 }

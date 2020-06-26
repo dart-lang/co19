@@ -32,11 +32,8 @@
  * 'final' and 'var'.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    final var x = 1;
-  } catch (ok) {}
+  final var x = 1;
 }

@@ -14,18 +14,17 @@
  * to a variable of the same type.
  * @static-clean
  * @author msyabro
- * @reviewer iefremov
  */
 
 class A {
-  static int a;
+  static int? a;
   static bool b = true;
   static final String c = '';
   static const List l = const [];
 }
 
 main() {
-  int a = A.a;
+  int? a = A.a;
   bool b = A.b;
   String c = A.c;
   List l = A.l;

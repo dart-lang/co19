@@ -32,11 +32,8 @@
  * of expression in an initialized variable declaration.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    var x = return 0;
-  } catch (ok) {}
+  var x = return 0;
 }

@@ -32,11 +32,8 @@
  * 'final' and 'var' simultaneously.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    const final var x = 1;
-  } catch (ok) {}
+  const final var x = 1;
 }

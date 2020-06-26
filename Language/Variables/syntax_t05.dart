@@ -32,11 +32,8 @@
  * and 'type'.
  * @compile-error
  * @author iefremov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    var int x = 1;
-  } catch (ok) {}
+  var int x = 1;
 }

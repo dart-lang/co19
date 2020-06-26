@@ -11,44 +11,19 @@
  * that the return type of the getter is dynamic.
  * @static-clean
  * @author iefremov
- * @reviewer kaigorodov
  */
 import "../../Utils/expect.dart";
-
 
 main() {
   var foo;
 
-  try {
-    foo.abyr = null;
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
-
-  try {
-    foo.abyr(1, 2, 3);
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
-
-  try {
-    foo.abyrvalg = null;
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
-
+  Expect.throws(() { foo.abyr = null;     }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { foo.abyr(1, 2, 3);   }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { foo.abyrvalg = null; }, (e) => e is NoSuchMethodError);
 
   final boo = null;
 
-  try {
-    boo.abyr = null;
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
-
-  try {
-    boo.abyr(1, 2, 3);
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
-
-  try {
-    boo.abyrvalg = null;
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
+  Expect.throws(() { boo.abyr = null;     }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { boo.abyr(1, 2, 3);   }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { boo.abyrvalg = null; }, (e) => e is NoSuchMethodError);
 }

@@ -32,11 +32,8 @@
  * and 'final'.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 main() {
-  try {
-    const final x = 1;
-  } catch (ok) {}
+  const final x = 1;
 }

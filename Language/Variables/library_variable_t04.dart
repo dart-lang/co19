@@ -11,13 +11,10 @@
  * variable declaration is prefaced with the built-in identifier static.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 
 static final foo = 1; // error
 
 main() {
-  try {
-    print(foo);
-  } catch (ok) {}
+  print(foo);
 }

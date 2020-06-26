@@ -32,11 +32,8 @@
  * variable declaration.
  * @compile-error
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 main() {
-  try {
-    var x, var y;
-  } catch (wtvr) {}
+  var x, var y;
 }

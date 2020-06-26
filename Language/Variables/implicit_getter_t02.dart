@@ -17,10 +17,10 @@
  */
 
 class A {
-  int v;
+  int? v;
 }
 
 main() {
   A a = new A();
-  bool b = a.v;
+  bool? b = a.v;
 }

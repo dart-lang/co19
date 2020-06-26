@@ -12,10 +12,9 @@
  * local variable before its declaration, but in outer scope.
  * @compile-error
  * @author ilya
- *  * @author a.semenov@unipro.ru
+ * @author a.semenov@unipro.ru
  */
-import "../../Utils/expect.dart";
- 
+
 main() {
   var v = w;
   {

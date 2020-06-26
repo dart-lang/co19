@@ -10,15 +10,10 @@
  * is initialized to a non compile-time constant.
  * @compile-error
  * @author msyabro
- * @reviewer iefremov
  */
 import "../../Utils/expect.dart";
 
 class Foo {}
 const Foo foo = new Foo();
 
-main() {
-  try {
-    Expect.isTrue(foo is Foo);
-  } catch (ok) {}
-}
+main() {}

@@ -30,12 +30,11 @@
  *   ;
  * @description Checks various valid variable declarations.
  * @author iefremov
- * @reviewer msyabro
  */
 
 final topLevelFinal = const {};
 final int someConstant = 1;
-bool __1;
+bool? __1;
 var i2 = 2;
 const topLevelConst = 1;
 const String stringConstant = '';
@@ -48,9 +47,9 @@ main() {
   const bool anotherConstant = 1 < 2;
   var init = 5;
   var v;
-  int i;
+  int? i;
 
-  String $tring2, $tring3, $$$tring;
+  String? $tring2, $tring3, $$$tring;
   var $, $$, $$$;
   Object list = [], map = {};
   final x = {}, y = [];
