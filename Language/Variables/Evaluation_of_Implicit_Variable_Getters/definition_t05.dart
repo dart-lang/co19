@@ -24,15 +24,29 @@
  *   can occur. Otherwise
  * - Variable declaration without initializer. The result of executing the
  *   getter method is the value stored in v.
- * @description Checks that CyclicInitializationError is thrown when getter
+ *
+ * @note NNBD Spec now reads: If a variable or field is read from during the
+ * process of evaluating its own initializer expression, and no write to the
+ * variable has occurred, the read is treated as a first read and the
+ * nitializer expression is evaluated again.
+ *
+ * A toplevel or static variable with an initializer is evaluated as if it was
+ * marked [late]. Note that this is a change from pre-NNBD semantics in that:
+ *
+ * Reading the variable during initializer evaluation is no longer checked for,
+ * and does not cause an error.
+ *
+ * @description Checks that CyclicInitializationError is not thrown when getter
  * is referenced during evaluation of initialization expression.
  * @author kaigorodov
  * @Issue 42470
  */
 import "../../../Utils/expect.dart";
 
+int count = 0;
+
 int f() {
-  return C.sTyped;
+  return count++ < 20 ? C.sTyped : count;
 }
 
 class C {
@@ -41,11 +55,5 @@ class C {
 
 
 main() {
-  try {
-    C.sTyped;
-    Expect.fail('CyclicInitializationError is expected');
-  } on CyclicInitializationError catch (e) {
-  } catch (e) {
-    Expect.fail('"$e" of type ${e.runtimeType} thrown instead of CyclicInitializationError');
-  }
+  Expect.equals (21, C.sTyped);
 }

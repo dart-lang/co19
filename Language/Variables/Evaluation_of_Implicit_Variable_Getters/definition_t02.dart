@@ -24,40 +24,60 @@
  *   can occur. Otherwise
  * - Variable declaration without initializer. The result of executing the
  *   getter method is the value stored in v.
- * @description Checks that if during the evaluation of e, the getter for v
- * is invoked, a CyclicInitializationError is thrown. Also expects that
- * after that the result of getter is [:null:]
+ * @note NNBD Spec now reads: If a variable or field is read from during the
+ * process of evaluating its own initializer expression, and no write to the
+ * variable has occurred, the read is treated as a first read and the
+ * nitializer expression is evaluated again.
+ *
+ * A toplevel or static variable with an initializer is evaluated as if it was
+ * marked [late]. Note that this is a change from pre-NNBD semantics in that:
+ *
+ * Throwing an exception during initializer evaluation no longer sets the
+ * variable to [null]
+ *
+ * Reading the variable during initializer evaluation is no longer checked for,
+ * and does not cause an error.
+ *
+ * @description Checks that if during the evaluation of [e], the getter for [v]
+ * is invoked, a [CyclicInitializationError] is not thrown. Confirms that [func]
+ * gets recursively called by incrementing a counter and stopping the infinite
+ * recursion after 20 cycles. This avoids relying on particulars of the behavior
+ * on stack overflow and makes the test cheaper to run.
  * @Issue 42470
  * @author msyabro
  */
 import "../../../Utils/expect.dart";
 
+int count = 0;
+
 f(func) {
   try {
     throw 1; // caugth exceptions do not matter
   } on int catch (e) {
-    func();
+    count++;
+    if (count < 20) func();
   }
+  count = 0;
 }
 
 class C {
   static var sVar = f(() => sVar);
-  static int sTyped = f(() => sTyped);
+  static int? sTyped = f(() => sTyped);
   static final sFinal = f(() => sFinal);
-  static final int sFinalTyped = f(() => sFinalTyped);
+  static final int? sFinalTyped = f(() => sFinalTyped);
 }
 
 
 main() {
-  Expect.throws(() => C.sVar, (e) => e is CyclicInitializationError);
+  () => C.sVar;
   Expect.equals(null, C.sVar);
 
-  Expect.throws(() => C.sTyped, (e) => e is CyclicInitializationError);
+  () => C.sTyped;
   Expect.equals(null, C.sTyped);
 
-  Expect.throws(() => C.sFinal, (e) => e is CyclicInitializationError);
-  Expect.equals(null, C.sFinal);
+  () => C.sFinal;
+  Expect.throws(() { C.sFinal; }, (e) => e is LateInitializationError);
 
-  Expect.throws(() => C.sFinalTyped, (e) => e is CyclicInitializationError);
-  Expect.equals(null, C.sFinalTyped);
+  () => C.sFinalTyped;
+  Expect.throws(() { C.sFinalTyped; }, (e) => e is LateInitializationError);
 }
