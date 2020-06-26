@@ -9,9 +9,7 @@
  * @description Checks that [tan] returns NaN if [radians] is not a finite
  * number.
  * @author msyabro
- * @reviewer pagolubev
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

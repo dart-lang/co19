@@ -9,9 +9,7 @@
  * [x].
  * @description Checks special values.
  * @author msyabro
- * @reviewer pagolubev
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

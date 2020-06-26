@@ -8,9 +8,7 @@
  * Converts [x] to a double and returns the positive square root of the value.
  * @description Checks special values.
  * @author msyabro
- * @reviewer pagolubev
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

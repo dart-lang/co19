@@ -9,9 +9,8 @@
  * -1..1.
  * @description Checks returned values are in the range -PI/2..PI/2, if an
  * argument is in the range -1..1.
- * @reviewer ngl@unipro.ru
+ * @author ngl@unipro.ru
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

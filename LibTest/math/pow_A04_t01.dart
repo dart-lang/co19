@@ -10,9 +10,7 @@
  *  - if x is 1.0, the result is always 1.0.
  * @description Checks the result if [x] is 1.0.
  * @author pagolubev
- * @reviewer msyabro
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

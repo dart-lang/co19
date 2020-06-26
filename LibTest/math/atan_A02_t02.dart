@@ -8,9 +8,8 @@
  * Returns a value in the range -PI/2..PI/2, or NaN if [x] is NaN.
  * @description Checks returned values are in the range -PI/2..PI/2, if an
  * argument is not NaN.
- * @reviewer ngl@unipro.ru
+ * @author ngl@unipro.ru
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

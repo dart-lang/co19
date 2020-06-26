@@ -12,9 +12,7 @@
  * @description Checks the result when [y] is infinite and the absolute value
  * of [x] is less than 1.
  * @author msyabro
- * @reviewer pagolubev
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

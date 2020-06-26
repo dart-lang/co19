@@ -12,7 +12,6 @@
  * or [y] is a double or a negative int.
  * @author msyabro
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

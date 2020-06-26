@@ -11,7 +11,6 @@
  * @description Checks the result when [y] is 1/pow([x], Infinity).
  * @author ngl@unipro.ru
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

@@ -8,9 +8,7 @@
  * Converts [x] to a dobule and returns its arc tangent in radians.
  * @description Checks special values.
  * @author msyabro
- * @reviewer pagolubev
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

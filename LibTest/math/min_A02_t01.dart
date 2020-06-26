@@ -9,9 +9,7 @@
  * @description Checks that if one of the arguments is NaN,
  * the result is also NaN.
  * @author msyabro
-  * @needsreview Undocumented.
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

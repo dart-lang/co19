@@ -8,9 +8,7 @@
  * Returns -0.0 if x is -0.0, and NaN if x is otherwise negative or NaN.
  * @description Checks that [sqrt] return NaN if [x] is negative.
  * @author msyabro
- * @reviewer pagolubev
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

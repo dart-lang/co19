@@ -13,7 +13,6 @@
  * not an odd integer, the result is the same as pow(-x , y).
  * @author ngl@unipro.ru
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

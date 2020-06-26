@@ -9,7 +9,6 @@
  * @description Checks that [exp] returns NaN if [x] is NaN.
  * @author msyabro
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

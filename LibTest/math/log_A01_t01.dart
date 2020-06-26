@@ -8,18 +8,13 @@
  * Converts [x] to a double and returns the natural logarithm of the value.
  * @description Checks set of values.
  * @author msyabro
- * @3rdparty sputnik-v1: S15.8.2.10_A6.js
- * @reviewer pagolubev
- * @needsreview Returned value precision is not specified.
- * Checks exact match with values calculated with LibC.
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
   int vnum = 64;
-  var x = new List(64);
+  var x = new List<double>.filled(64, 0);
   x[0] = 0.00000000000000000001;
   x[1] = 0.25396825396825395000;
   x[2] = 0.50793650793650791000;
@@ -85,8 +80,7 @@ main() {
   x[62] = 15.74603174603174500000;
   x[63] = 16.00000000000000000000;
 
-
-  var y = new List(64);
+  var y = new List<double>.filled(64, 0);
   y[0] = -46.051701859880913680359;
   y[1] = -1.37054600415175140000;
   y[2] = -0.67739882359180614000;

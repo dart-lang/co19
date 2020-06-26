@@ -8,9 +8,7 @@
  * Returns NaN if [x] is NaN or less than zero.
  * @description Checks that [log] returns NaN if [x] is NaN or less than zero.
  * @author msyabro
- * @reviewer pagolubev
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

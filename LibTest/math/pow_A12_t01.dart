@@ -12,9 +12,7 @@
  * @description Checks the result when [x] is -Infinity or -0.0 and [y] is
  * not an odd integer.
  * @author msyabro
- * @reviewer pagolubev
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

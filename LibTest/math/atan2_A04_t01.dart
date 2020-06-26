@@ -8,10 +8,7 @@
  * Returns NaN if either argument is NaN.
  * @description Checks result if one of arguments is NaN.
  * @author msyabro
- * @reviewer pagolubev
- * @needsreview undocumented
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

@@ -7,10 +7,8 @@
  * @assertion double acos(num x)
  * Returns a value in the range 0..PI, or NaN if [x] is outside the range -1..1.
  * @description Checks returned values on arguments outside [-1, 1].
- * @reviewer pagolubev
  * @author msyabro
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

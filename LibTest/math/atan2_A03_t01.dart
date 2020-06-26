@@ -10,7 +10,6 @@
  * @description Checks that if [a] is negative, the result is negative.
  * @author msyabro
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

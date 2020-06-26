@@ -12,7 +12,6 @@
  * the result is an int.
  * @author msyabro
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

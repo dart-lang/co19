@@ -9,9 +9,7 @@
  * ([b], [a]).
  * @description Checks the result for standard angles.
  * @author msyabro
- * @reviewer pagolubev
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

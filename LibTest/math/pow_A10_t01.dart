@@ -10,9 +10,7 @@
  *  - if x is 0.0 and y is positive, the result is 0.0.
  * @description Checks the result when [x] is 0.0 and [y] is positive.
  * @author pagolubev
- * @reviewer msyabro
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
