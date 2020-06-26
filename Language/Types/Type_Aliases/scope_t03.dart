@@ -15,7 +15,6 @@
 import "../../../Utils/expect.dart";
 import "scope.lib.dart";
 
-
 class X {
   static void s() {
     AAlias aa = new A();

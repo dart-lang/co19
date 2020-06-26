@@ -21,16 +21,16 @@ class C {}
 abstract class I {}
 
 typedef void F(int i, String s, C c, I i2, var v, List a, List<int> a2,
-    [int opti, String opts, C optc, I opti2, var optv, List opta,
-      List<int> opta2]);
+    [int? opti, String? opts, C? optc, I? opti2, var optv, List? opta,
+      List<int>? opta2]);
 
 void f(int i, String s, C c, I i2, var v, List a, List<int> a2,
-    [int opti, String opts, C optc, I opti2, var optv, List opta,
-      List<int> opta2]) {}
+    [int? opti, String? opts, C? optc, I? opti2, var optv, List? opta,
+      List<int>? opta2]) {}
 
-typedef void G(int i, String s, C c, {int opti, String opts, C optc});
+typedef void G(int i, String s, C c, {int? opti, String? opts, C? optc});
 
-void g(int i, String s, C c, {int opti, String opts, C optc}) {}
+void g(int i, String s, C c, {int? opti, String? opts, C? optc}) {}
 
 main() {
   Expect.isTrue(f is F);

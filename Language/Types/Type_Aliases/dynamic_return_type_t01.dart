@@ -11,7 +11,6 @@
  * the return type of t1 should be dynamic.
  * @static-clean
  * @author iefremov, sgrekhov@unipro.ru
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 
@@ -20,11 +19,11 @@ typedef F1();
 typedef Func();
 typedef int Func2(int x);
 
-int ifunc() {}
-bool bfunc() {}
-String sfunc() {}
-Func ffunc() {}
-Func2 f2func() {}
+int ifunc() => 42;
+bool bfunc() => false;
+String sfunc() => "Lili was here";
+Func ffunc() => () {};
+Func2 f2func() => (int x) => 42;
 
 main() {
   Expect.isTrue(ifunc is F1);

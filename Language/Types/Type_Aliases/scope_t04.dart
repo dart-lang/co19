@@ -11,6 +11,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
+import "scope.lib.dart";
 
 typedef AAlias = A;             //# 01: compile-time error
 typedef AAlias = C<String>;     //# 02: compile-time error

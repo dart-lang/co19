@@ -24,15 +24,15 @@ typedef int Func2(int x);
 main() {
   Expect.isTrue(([x]) {} is F1);
   Expect.isTrue(([dynamic x]) {} is F1);
-  Expect.isFalse(([int x]) {} is F1);
-  Expect.isTrue(([Object x]) {} is F1);
-  Expect.isFalse(([Func x]) {} is F1);
-  Expect.isFalse(([Func2 x]) {} is F1);
+  Expect.isFalse(([int x = 0]) {} is F1);
+  Expect.isTrue(([Object? x]) {} is F1);
+  Expect.isFalse(([Func? x]) {} is F1);
+  Expect.isFalse(([Func2? x]) {} is F1);
 
   Expect.isTrue(({x}) {} is F2);
   Expect.isTrue(({dynamic x}) {} is F2);
-  Expect.isFalse(({int x}) {} is F2);
-  Expect.isTrue(({Object x}) {} is F2);
-  Expect.isFalse(({Func x}) {} is F2);
-  Expect.isFalse(({Func2 x}) {} is F2);
+  Expect.isFalse(({int x = 0}) {} is F2);
+  Expect.isTrue(({Object? x}) {} is F2);
+  Expect.isFalse(({Func? x}) {} is F2);
+  Expect.isFalse(({Func2? x}) {} is F2);
 }

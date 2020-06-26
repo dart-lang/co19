@@ -45,7 +45,7 @@ main() {
   Adouble ad = 3.1415926;
   Expect.isTrue(ad is double);
 
-  AString as = new AString("Lily was here");
+  AString as = "Lily was here";
   Expect.isTrue(as is String);
 
   AObject ao = new AObject();

@@ -22,6 +22,7 @@ const int meta = 1;
 class C<T1 extends num, T2> {
   T1 t1;
   T2 t2;
+  C(this.t1, this.t2);
 }
 
 @meta typedef CAlias1 = C;
@@ -29,16 +30,15 @@ class C<T1 extends num, T2> {
 typedef CAlias3 = C<int, String>;
 
 main() {
-  CAlias1 ca1 = new CAlias1();
+  CAlias1 ca1 = new CAlias1(3.14, "3.14");
   Expect.isTrue(ca1 is C<num, dynamic>);
   Expect.isTrue(ca1.t1 is num);
   Expect.isTrue(ca1.t2 is dynamic);
   ca1.t1 = 42;
   Expect.equals(42, ca1.t1);
 
-  CAlias2<int> ca2 = new CAlias2<int>();
+  CAlias2<int> ca2 = new CAlias2<int>(42, "");
   Expect.isTrue(ca2 is C<int, String>);
-  Expect.isTrue(ca2 is C<int>);
   Expect.isTrue(ca2.t1 is int);
   Expect.isTrue(ca2.t2 is String);
   ca2.t1 = -1;
@@ -46,9 +46,8 @@ main() {
   ca2.t2 = "Lily was here";
   Expect.equals("Lily was here", ca2.t2);
 
-  CAlias2 ca3 = new CAlias3();
+  CAlias3 ca3 = new CAlias3(42, "");
   Expect.isTrue(ca3 is C<int, String>);
-  Expect.isTrue(ca3 is C<int>);
   Expect.isTrue(ca3.t1 is int);
   Expect.isTrue(ca3.t2 is String);
   ca3.t1 = -1;

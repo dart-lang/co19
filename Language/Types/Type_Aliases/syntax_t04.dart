@@ -23,12 +23,13 @@ class D extends B {}
 
 class C<T extends A> {
   T t;
+  C(this.t);
 }
 
 typedef CAlias<T extends B> = C<T>;
 
 main() {
-  CAlias<D> ca = new CAlias<D>();
+  CAlias<D> ca = new CAlias<D>(new D());
   Expect.isTrue(ca is C<D>);
   Expect.isTrue(ca.t is D);
 }

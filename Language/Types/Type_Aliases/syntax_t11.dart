@@ -18,6 +18,4 @@
 typedef <T>();
 
 main() {
-  try {
-  } catch (x) {}
 }
