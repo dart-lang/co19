@@ -9,18 +9,13 @@
  * ([b], [a]).
  * @description Checks set of values.
  * @author msyabro
- * @reviewer pagolubev
- * @3rdparty sputnik-v1:S15.8.2.2_A5.js
- * @needsreview Returned value precision is not specified.
- * Checks exact match with values calculated with LibC.
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
   int vnum = 64;
-  var x1 = new List(64);
+  var x1 = new List<double>.filled(64, 0);
   x1[0] = -16.00000000000000000000;
   x1[1] = -15.49206349206349200000;
   x1[2] = -14.98412698412698400000;
@@ -86,8 +81,7 @@ main() {
   x1[62] = 15.49206349206349000000;
   x1[63] = 16.00000000000000000000;
 
-
-  var x2 = new List(64);
+  var x2 = new List<double>.filled(64, 0);
   x2[0] = -8.00000000000000000000;
   x2[1] = -7.74603174603174600000;
   x2[2] = -7.49206349206349210000;
@@ -153,8 +147,7 @@ main() {
   x2[62] = 7.74603174603174520000;
   x2[63] = 8.00000000000000000000;
 
-
-  var y = new List(64);
+  var y = new List<double>.filled(64, 0);
   y[0] = -2.03444393579570270000;
   y[1] = -2.03444393579570270000;
   y[2] = -2.03444393579570270000;

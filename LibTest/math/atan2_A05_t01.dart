@@ -10,10 +10,7 @@
  * @description Checks that an Error is thrown when argument is a null (not a
  * number).
  * @author msyabro
- * @reviewer pagolubev
- * @needsreview undocumented
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

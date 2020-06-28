@@ -10,7 +10,6 @@
  * or hexadecimal integer, or a decimal double).
  * @author ngl@unipro.ru
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

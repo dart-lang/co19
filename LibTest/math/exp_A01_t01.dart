@@ -9,18 +9,14 @@
  * [x].
  * @description Checks set of values.
  * @author msyabro
- * @reviewer pagolubev
- * @3rdparty sputnik-v1:S15.8.2.2_A5.js
- * @needsreview Returned value precision is not specified.
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
   
   int vnum = 64;
-  var x = new List(64);
+  var x = new List<double>.filled(64, 0);
   x[0] = -16.00000000000000000000;
   x[1] = -15.49206349206349200000;
   x[2] = -14.98412698412698400000;
@@ -86,8 +82,7 @@ main() {
   x[62] = 15.49206349206349000000;
   x[63] = 16.00000000000000000000;
 
-
-  var y = new List(64);
+  var y = new List<double>.filled(64, 0);
   y[0] = 0.0000001125351747192591200;
   y[1] = 0.0000001870175279627160400;
   y[2] = 0.0000003107966540465112000;

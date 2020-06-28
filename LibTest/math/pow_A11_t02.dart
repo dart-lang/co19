@@ -13,7 +13,6 @@
  * odd integer, the result is -pow(-[x] ,[y])..
  * @author ngl@unipro.ru
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

@@ -12,9 +12,7 @@
  * @description Checks that if [x] is a negative number and
  * [y] is a finite non-integer, the result is NaN.
  * @author pagolubev
- * @reviewer msyabro
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

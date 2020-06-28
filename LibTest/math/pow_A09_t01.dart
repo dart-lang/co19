@@ -10,9 +10,7 @@
  *  - if [x] is 0.0 and [y] is negative, the result is Infinity.
  * @description Checks the result when [x] is 0.0 and [y] is negative.
  * @author pagolubev
- * @reviewer msyabro
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

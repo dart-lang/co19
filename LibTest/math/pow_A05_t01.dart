@@ -10,9 +10,7 @@
  * - otherwise, if either x or y is NaN then the result is NaN.
  * @description Checks the result when [x] or [y] is NaN.
  * @author pagolubev
- * @reviewer msyabro
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

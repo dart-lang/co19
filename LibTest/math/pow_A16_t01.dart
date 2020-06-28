@@ -10,9 +10,7 @@
  *  - if [y] is -Infinity, the result is 1/pow([x], Infinity).
  * @description Checks the result when [y] is -Infinity.
  * @author pagolubev
- * @reviewer msyabro
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

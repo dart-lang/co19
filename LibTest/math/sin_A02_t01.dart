@@ -8,9 +8,7 @@
  * If [radians] is not a finite number, the result is NaN.
  * @description Checks that [sin] returns NaN if x is not a finite number.
  * @author msyabro
- * @reviewer pagolubev
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

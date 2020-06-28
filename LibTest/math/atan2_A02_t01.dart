@@ -10,7 +10,6 @@
  * atan([a]/[b]).
  * @author msyabro
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

@@ -9,7 +9,6 @@
  * @description Checks that [atan] returns NaN if [x] is NaN.
  * @author msyabro
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

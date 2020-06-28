@@ -9,9 +9,7 @@
  * @description Checks that [log] returns negative infinity
  * if [x] is equal to zero.
  * @author msyabro
- * @reviewer pagolubev
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

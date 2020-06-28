@@ -11,18 +11,13 @@
  *
  * @issue 26261
  * @author msyabro
- * @reviewer pagolubev
- * @3rdparty sputnik-v1:S15.8.2.2_A5.js
- * @needsreview Returned value precision is not specified.
- * Checks exact match with values calculated with LibC.
  */
-
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
   int vnum = 64;
-  var x = new List(64);
+  var x = new List<double>.filled(64, 0);
   x[0] = -1.00000000000000000000;
   x[1] = -0.96825396825396826000;
   x[2] = -0.93650793650793651000;
@@ -88,8 +83,7 @@ main() {
   x[62] = 0.96825396825396814000;
   x[63] = 1.00000000000000000000;
 
-
-  var y = new List(64);
+  var y = new List<double>.filled(64, 0);
   y[0] = -1.57079632679489660000;
   y[1] = -1.31814860051033310000;
   y[2] = -1.21253510828227990000;
