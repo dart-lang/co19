@@ -68,7 +68,7 @@ main() {
 // [cfe] unspecified
 
   F<A<A<A<dynamic>?>?>?>? target3 = fsource;
-//                                 ^^^^^^^
+//                                  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

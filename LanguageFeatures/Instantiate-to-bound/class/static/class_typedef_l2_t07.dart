@@ -53,6 +53,13 @@ typedef G<X> = X Function(X);
 class A<X extends G<A<Y, X>>, Y extends G<A<X, Y>>> {}
 
 main() {
-  A? source;  //# 01: compile-time error
-  A();        //# 02: compile-time error
+  A? source;
+//   ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

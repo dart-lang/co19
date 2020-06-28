@@ -53,6 +53,7 @@ class A<X extends G<A<X, Y>>, Y extends X> {}
 
 main() {
   A? source;
+
   A();
 //^
 // [analyzer] unspecified
