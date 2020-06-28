@@ -50,7 +50,7 @@
 // SharedOptions=--enable-experiment=non-nullable
 
 class A<X> {}
-typedef G<X extends A<X>> = X Function(X);
+typedef G<X extends A<X>?> = X Function(X);
 
 main() {
   G? source;

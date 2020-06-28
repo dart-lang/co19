@@ -43,18 +43,59 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for [typedef
- *  G<X extends A<X>> = X Function(X)] (invariant)
- * @Issue 41963, 41964
+ *  G<X extends A<X>> = X? Function()] (covariant)
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "../../../../Utils/expect.dart";
+
 class A<X> {}
-typedef G<X extends A<X>> = X Function(X);
+typedef G<X extends A<X>> = X? Function();
 
 main() {
   G? source;
-//   ^^^^^^
+  var fsource = toF(source);
+
+  F<G<A<dynamic>>?>? target = fsource;
+
+  F<G<A<Null>>?>? target1 = fsource;
+//                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Never>>?>? target2 = fsource;
+//                           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<A<dynamic>>>?>? target3 = fsource;
+//                                ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<A<A<dynamic>>>>?>? target4 = fsource;
+//                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<A<A<A<dynamic>>>>>?>? target5 = fsource;
+//                                      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<A<Never>>>?>? target6 = fsource;
+//                              ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<A<A<Never>>>>?>? target7 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<A<A<A<Never>>>>>?>? target8 = fsource;
+//                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

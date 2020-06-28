@@ -59,6 +59,11 @@ main() {
 
   F<G<A<dynamic>>?>? target = fsource;
 
+  F<G<A<dynamic>?>?>? target0 = fsource;
+//                              ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   F<G<A<Null>>?>? target1 = fsource;
 //                          ^^^^^^^
 // [analyzer] unspecified
@@ -84,18 +89,18 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<A<Null>>>?>? target6 = fsource;
-//                             ^^^^^^^
+  F<G<A<A<Never>>>?>? target6 = fsource;
+//                              ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<A<A<Null>>>>?>? target7 = fsource;
-//                                ^^^^^^^
+  F<G<A<A<A<Never>>>>?>? target7 = fsource;
+//                                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<A<A<A<Null>>>>>?>? target8 = fsource;
-//                                   ^^^^^^^
+  F<G<A<A<A<A<Never>>>>>?>? target8 = fsource;
+//                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

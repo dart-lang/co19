@@ -1,4 +1,4 @@
-/*
+ /*
  * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
@@ -28,7 +28,6 @@
  *   [M] be the union of [M1 .. Mp] (that is, all variables that participate in
  *   a dependency cycle). Let [i] be in [1 .. k]. If [Xi] does not belong to [M]
  *   then [Ui,m+1 = Ui,m]. Otherwise there exists a [q] such that [Xi] belongs
- *   to [Mq]; [Ui,m+1] is then obtained from [Ui,m] by replacing every covariant
  *   occurrence of a variable in [Mq] by [dynamic], and replacing every
  *   contravariant occurrence of a variable in [Mq] by [Null].
  *
@@ -43,18 +42,35 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for [typedef
- *  G<X extends A<X>> = X Function(X)] (invariant)
- * @Issue 41963, 41964
+ *  G<X extends A<X>> = void Function(X?)] (contravariant)
+ * @Issue 34689, 34699
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "../../../../Utils/expect.dart";
+
 class A<X> {}
-typedef G<X extends A<X>> = X Function(X);
+typedef G<X extends A<X>> = void Function(X?);
 
 main() {
   G? source;
-//   ^^^^^^
+  var fsource = toF(source);
+
+  F<G<A<Never>>?>? target = fsource;
+
+  F<G<A<Never>?>?>? target0 = fsource;
+//                            ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>>?>? target1 = fsource;
+//                             ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Null>>?>? target2 = fsource;
+//                          ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
