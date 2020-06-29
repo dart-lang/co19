@@ -32,13 +32,13 @@ class E<String, X extends E<String, X, double, int>, double, int> {}
 class F extends E<String, F, double, int> {}
 
 main() {
-  D d = new D();
-  C<Object, int> c = d;
-  C<Object, dynamic> c1 = d;
+  D d = D();
+  C<Object?, int> c = d;
+  C<Object?, dynamic> c1 = d;
   dynamic c2 = d;
 
-  F f = new F();
-  E<String, Object, double, int> e = f;
-  E<dynamic, Object, Object, Object> e1 = f;
+  F f = F();
+  E<String, Object?, double, int> e = f;
+  E<dynamic, Object?, Object, Object> e1 = f;
   dynamic e2 = f;
 }

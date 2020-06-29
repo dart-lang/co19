@@ -35,10 +35,12 @@
  *   d.next.next.next.next.next.next.next.unknown(46); // Compile-time error.
  * }
  *
- * @description Checks that [d.next.next.next.next.next.next.next.unknown(46)]
- * line from the test example causes a compile-time error
+ * @description Checks that
+ * [d.next?.next?.next?.next?.next?.next?.next?.unknown(46)] returns [null] in
+ * runtime with nnbd enabled if d is declared as dynamic.
  * @author iarkh@unipro.ru
  */
+import "../../Utils/expect.dart";
 
 class C<X extends C<X>> {
   X? next;
@@ -50,10 +52,6 @@ class D extends C<D> {
 }
 
 main() {
-  D d = new D(new D(null));
-  d.next?.next?.next?.next?.next?.next?.next?.unknown(46);
-//                                            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
+  dynamic d = new D(D(null));
+  Expect.isNull(d.next?.next?.next?.next?.next?.next?.next?.unknown(46));
 }

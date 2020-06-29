@@ -28,6 +28,6 @@
 class C<X extends C<X>> {}
 class D extends C<D> {}
 main() {
-  D d = new D();
-  C<Object> c = d;
+  D d = D();
+  C<Object?> c = d;
 }

@@ -35,10 +35,11 @@
  *   d.next.next.next.next.next.next.next.unknown(46); // Compile-time error.
  * }
  *
- * @description Checks that [d.next.next.next.next.next.next.next.unknown(46)]
- * line from the test example causes a compile-time error
+ * @description Checks that [(d as dynamic).next.unknown(43)] line throws a
+ * error in runtime.
  * @author iarkh@unipro.ru
  */
+import "../../Utils/expect.dart";
 
 class C<X extends C<X>> {
   X? next;
@@ -50,10 +51,6 @@ class D extends C<D> {
 }
 
 main() {
-  D d = new D(new D(null));
-  d.next?.next?.next?.next?.next?.next?.next?.unknown(46);
-//                                            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
+  dynamic d = D(D(null));
+  Expect.throws(() { d.next.unknown(43); }, (e) => e is NoSuchMethodError);
 }

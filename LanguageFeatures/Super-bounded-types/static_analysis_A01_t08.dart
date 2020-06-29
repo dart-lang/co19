@@ -30,6 +30,6 @@ class D extends C<D, D> {}
 
 main() {
   D d = new D();
-  C<Object, Object> c = d;
+  C<Object?, Object?> c = d;
   dynamic c2 = d;
 }
