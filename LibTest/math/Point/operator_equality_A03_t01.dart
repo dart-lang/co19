@@ -12,7 +12,6 @@
  * to itself.
  * @author kaigorodov
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

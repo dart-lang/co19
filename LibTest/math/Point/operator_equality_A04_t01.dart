@@ -11,7 +11,6 @@
  * @description Checks that the equality operator is symmetric.
  * @author kaigorodov
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

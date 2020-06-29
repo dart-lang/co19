@@ -6,10 +6,8 @@
 /**
  * @assertion T x
  * @description Checks that [x] returns the x coordinate of this point.
- * @note undocumented
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

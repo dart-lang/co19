@@ -10,10 +10,8 @@
  * @description Checks that [magnitude] read-only and cannot be set.
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
-
 
 main() {
   dynamic r = new Point(3, 5);

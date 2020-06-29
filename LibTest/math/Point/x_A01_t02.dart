@@ -6,13 +6,10 @@
 /**
  * @assertion T x
  * @description Checks that [x] read-only and cannot be set.
- * @note undocumented
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
-
 
 main() {
   dynamic r = new Point(3, 5);

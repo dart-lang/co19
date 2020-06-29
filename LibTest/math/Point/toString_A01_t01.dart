@@ -11,7 +11,6 @@
  * Coordinate values are not Inf or NaN.
  * @author kaigorodov
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

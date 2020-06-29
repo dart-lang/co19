@@ -12,7 +12,6 @@
  * identity comparison.
  * @author kaigorodov
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

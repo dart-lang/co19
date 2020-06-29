@@ -16,7 +16,6 @@
  * runtime error.
  * @author kaigorodov
  */
-
 import "dart:math";
 import "../../../Utils/dynamic_check.dart";
 
