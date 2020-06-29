@@ -9,7 +9,6 @@
  * @description Checks that an instance of [Random] is created.
  * @author msyabro
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

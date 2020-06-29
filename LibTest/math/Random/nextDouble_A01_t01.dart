@@ -9,9 +9,7 @@
  * on the range from 0.0, inclusive, to 1.0, exclusive.
  * @description Checks range of the result.
  * @author msyabro
- * @reviewer pagolubev
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 
