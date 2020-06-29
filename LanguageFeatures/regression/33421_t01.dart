@@ -8,6 +8,7 @@
  * type parameter is a supertype of its upper bound): checks that type parameter
  * cannot extend itself
  * @compile-error
+ * @Issue 33421
  * @author iarkh@unipro.ru
  */
 class A<X extends X> {}

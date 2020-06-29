@@ -15,7 +15,7 @@ import "dart:async";
 
 testme<X extends Future<X>>(X x) {}
 
-Future a = null;
+Future? a = null;
 
 main() {
   testme(a);

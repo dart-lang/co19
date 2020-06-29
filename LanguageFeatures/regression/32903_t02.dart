@@ -8,6 +8,7 @@
  * incorrectly throws [type_argument_not_matching_bounds] error for
  * super-bounded types in preview-dart-2 mode): check case with non-function
  * type alias.
+ * @Issue 32903
  * @author iarkh@unipro.ru
  */
  // SharedOptions=--enable-experiment=nonfunction-type-aliases

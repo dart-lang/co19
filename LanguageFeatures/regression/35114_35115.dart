@@ -10,7 +10,6 @@
  * class with typed function parameter if it's parametrized contravariant or
  * invariant)
  * @Issue 35114, 35115
- * @compile-error
  * @author iarkh@unipro.ru
  */
 
@@ -18,11 +17,11 @@ typedef G<X> = void Function(X);
 class A<X extends G> {}
 
 main() {
-  G<dynamic> b;
-  G<Null> a;
-  G<int> c;
+  G<dynamic>? b;
+  G<Never>? a;
+  G<int>? c;
 
-  A<G<dynamic>> b1;
-  A<G<Null>> a1;
-  A<G<int>> c1;
+  A<G<dynamic>>? b1;
+  A<G<Never>>? a1;
+  A<G<int>>? c1;
 }

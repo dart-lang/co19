@@ -6,6 +6,7 @@
 /**
  * @description Regression test for the issue 34560 (Analyzer: Some correct
  * super-bounded types are rejected): check case with non-function type alias.
+ * @Issue 34560
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -13,8 +14,8 @@
 class C<X> {}
 typedef A<X extends num> = C<X>;
 
-A<dynamic> a;
-List<A<dynamic>> lst;
+A<dynamic>? a;
+List<A<dynamic>>? lst;
 
 main() {
  A<dynamic>(); //# 01: compile-time error

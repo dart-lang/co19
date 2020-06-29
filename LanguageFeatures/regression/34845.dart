@@ -13,18 +13,16 @@
  * @author iarkh@unipro.ru
  */
 
+import "../../Utils/expect.dart";
 import "dart:async";
-
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
 
 class A<X extends FutureOr<X>> {}
 
 main() {
-  A source;
+  A? source;
   var fsource = toF(source);
-  F<A<FutureOr<dynamic> >> target = fsource;
-  F<A<dynamic>> target1 = fsource;
-  F<A<FutureOr<FutureOr<dynamic>>>> target2 = fsource;
-  F<A<FutureOr<FutureOr<FutureOr<dynamic>>>>> target3 = fsource;
+  F<A<FutureOr<dynamic>>?>? target = fsource;
+  F<A<dynamic>?>? target1 = fsource;
+  F<A<FutureOr<FutureOr<dynamic>>>?>? target2 = fsource;
+  F<A<FutureOr<FutureOr<FutureOr<dynamic>>>>?>? target3 = fsource;
 }

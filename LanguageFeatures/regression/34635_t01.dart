@@ -10,6 +10,7 @@
  * way)
  * Check test case from the bug description, i.e. that declaring [class A<X
  * extends A> {}] causes compile error.
+ * @Issue 33152, 34635
  * @compile-error
  * @author iarkh@unipro.ru
  */

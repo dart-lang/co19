@@ -7,19 +7,16 @@
  * @description Regression test for the issue 33701 (Dart does not throw error
  * if function argument parameter extends [Null]).
  *
- * Finally, analyzer behavior was updated, so checks that function type
- * parameter can extend [Null] with nnbd turned on.
- *
- * [X] can be [Never], so such function cannot return [null] and exception is
- * thrown.
+ * Finally analyzer behavior was fixed here, so checks that function type
+ * parameter can extend [Never] with nnbd turned on.
  *
  * @Issue 33701
  * @author iarkh@unipro.ru
  */
 
-void testme1<X extends Null>(X x) {}
-X testme2<X extends Null>() => throw "Cannot do it";
-X testme3<X extends Null>(X x) => throw "Cannot do it";
-void testme4<X extends Null>() {}
+void testme1<X extends Never>(X x) {}
+X testme2<X extends Never>() => throw "Cannot do it";
+X testme3<X extends Never>(X x) => throw "Cannot do it";
+void testme4<X extends Never>() {}
 
 main() {}

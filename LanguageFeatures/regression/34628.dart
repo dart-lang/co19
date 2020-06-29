@@ -8,6 +8,7 @@
  * error whereas dart passes when two depending classes ([B<X extends A<X>>] and
  * [A<X extends B<X>>]) are declared). Checks that it's impossible to declare
  * two classes [B<X extends A<X>>] and [A<X extends B<X>>].
+ * @Issue 34628
  * @compile-error
  * @author iarkh@unipro.ru
  */

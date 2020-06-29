@@ -7,6 +7,7 @@
  * @description Regression test for the issue 33585, 33308 (CFE doesn't check
  * type arguments against the bounds of the corresponding type variables)
  * @compile-error
+ * @Issue 33585
  * @author iarkh@unipro.ru
  */
 

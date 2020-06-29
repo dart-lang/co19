@@ -7,6 +7,7 @@
  * @description Regression test for the Issue 34741: Analyzer doesn't allow
  * function to use type parameter [<Instance of 'TypeParameterMember'>] as a
  * type argument whereas dart does allow this.
+ * @Issue 34741
  * @author iarkh@unipro.ru
  */
 Type typeOf<X>() => X;

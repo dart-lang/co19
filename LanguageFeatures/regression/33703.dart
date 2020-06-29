@@ -6,10 +6,15 @@
 /**
  * @description Regression test for the issue 33703 (Dart does not throw error
  * if class argument parameter extends Null).
- * @compile-error
- * @Issue 33703
+ *
+ * Finally, analyzer behavior was updated, so the test checks that class type
+ * parameter can extend [Null].
+ *
+ * @Issue 33703, 33709
  * @author iarkh@unipro.ru
  */
-class A<X extends Null> {}
+
+class A1<X extends Null> {}
+class A2<X extends Never> {}
 
 main() {}
