@@ -9,10 +9,8 @@
  * @description Checks that an error is thrown if
  * the completer is already completed with a value.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
-
 import "dart:async";
 
 main() {

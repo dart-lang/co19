@@ -15,7 +15,6 @@
  * the error e, completer's future will complete with the error e.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 

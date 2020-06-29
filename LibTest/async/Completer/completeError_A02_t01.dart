@@ -9,13 +9,12 @@
  * @description Checks that the error must not be null.
  * @author ilya
  */
-
 import "dart:async";
-import "../../../Utils/expect.dart";
 
 main() {
   var completer = new Completer();
-  Expect.throws(() {
-    completer.completeError(null);
-  });
+  completer.completeError(null);
+//                        ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

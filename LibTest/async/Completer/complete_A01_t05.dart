@@ -15,7 +15,6 @@
  * with the value v, completer's future will complete with the value v.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -23,7 +22,7 @@ main() {
   var completer = new Completer();
   var future = completer.future;
 
-  var value = [1,2,3];
+  var value = [1, 2, 3];
 
   asyncStart();
 

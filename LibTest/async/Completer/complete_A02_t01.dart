@@ -11,12 +11,10 @@
  * @author msyabro
  */
 import "../../../Utils/expect.dart";
-
 import "dart:async";
 
 main() {
   var completer = new Completer();
-  var future = completer.future;
   completer.complete('value');
 
   Expect.throws(() => completer.complete('another value'));

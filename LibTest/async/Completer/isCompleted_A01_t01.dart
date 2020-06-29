@@ -9,13 +9,11 @@
  * @description Checks that after [complete] is called, isCompleted equals true.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 check(value) {
   var completer = new Completer();
-  var future = completer.future;
   Expect.isFalse(completer.isCompleted);
   completer.complete(value);
   Expect.isTrue(completer.isCompleted);

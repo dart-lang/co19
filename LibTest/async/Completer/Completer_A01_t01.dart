@@ -8,10 +8,8 @@
  * Create a new completer.
  * @description Checks that [Completer] creates an object of class Completer.
  * @author msyabro
- * @reviewer kaigorodov
  */
 import "../../../Utils/expect.dart";
-
 import "dart:async";
 
 main() {

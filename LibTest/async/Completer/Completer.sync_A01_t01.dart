@@ -10,7 +10,6 @@
  * indeed completes the future synchronously.
  * @author msyabro
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
