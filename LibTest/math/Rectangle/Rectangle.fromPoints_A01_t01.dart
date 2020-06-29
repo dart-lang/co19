@@ -10,7 +10,6 @@
  * are equal to the constructor arguments.
  * @author kaigorodov
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

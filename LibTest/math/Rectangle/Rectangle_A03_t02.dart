@@ -12,7 +12,6 @@
  * clamped to zero.
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

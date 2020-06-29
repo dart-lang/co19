@@ -10,7 +10,6 @@
  * name and coordinates.
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

@@ -7,10 +7,8 @@
  * @assertion Point<T> topRight
  * Point<T> get topRight => new Point<T>(this.left + this.width, this.top);
  * @description Checks that topRight is read-only and cannot be set.
- * @note undocumented
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

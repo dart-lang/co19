@@ -9,7 +9,6 @@
  * @description Checks the predicate for some predefined data.
  * @author kaigorodov
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

@@ -12,7 +12,6 @@
  * @description Checks that the equality operator is transitive.
  * @author ngl@unipru.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

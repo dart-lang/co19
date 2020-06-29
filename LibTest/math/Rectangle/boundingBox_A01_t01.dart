@@ -9,7 +9,6 @@
  * @description Checks that this operation is symmetric.
  * @author kaigorodov
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 
@@ -50,6 +49,6 @@ main() {
     Rectangle bb1 = r1.boundingBox(r2);
     Rectangle bb2 = r2.boundingBox(r1);
     rectEquals(
-        bb1, bb2, null, "i=$i; x=$x, y=$y, z=$z, w=$w, bb1=$bb1, bb2=$bb2");
+        bb1, bb2, 0.0001, "i=$i; x=$x, y=$y, z=$z, w=$w, bb1=$bb1, bb2=$bb2");
   }
 }
