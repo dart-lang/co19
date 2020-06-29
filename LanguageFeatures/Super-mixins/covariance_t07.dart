@@ -12,12 +12,14 @@
  * allowed by a class implementing both B and C. The mixin introduced by A can
  * then only be applied to classes that implement both B and C.
  *
- * @description Checks that it is a compile error if mixin is applied to the
- * class which doesn't implement required interface
- * @compile-error
+ * @description Checks that it is a runtime error if mixin is applied to the
+ * class which doesn't implement required interface by covariant. See
+ * https://github.com/dart-lang/sdk/issues/35111#issuecomment-437291038
  * @issue 35111
  * @author sgrekhov@unipro.ru
  */
+import "../../Utils/expect.dart";
+
 class S {}
 class X extends S {}
 class Y extends X {}
@@ -39,5 +41,7 @@ mixin M<T extends S> on A<S> {
 class MA extends B<Y> with M<X> {}
 
 main() {
-  new MA().test(new Y());
+  Expect.throws(() {
+    new MA().test(new Y());
+  });
 }

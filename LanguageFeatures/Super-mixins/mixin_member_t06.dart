@@ -32,12 +32,12 @@ mixin M<X extends num, Y extends num> on B<X>, C<Y> implements I<S>, J<T> {
   }
   static String sf() => "S.sf()";
 
-  Y i = 2.0 as Y;
+  Y i = 2.1 as Y;
   Y get gi => i;
   set si(Y v) {
     i = v;
   }
-  Y mi() => 22.0 as Y;
+  Y mi() => 22.1 as Y;
   Type operator ~() => i.runtimeType;
 }
 
@@ -56,9 +56,9 @@ main() {
 
   MA ma = new MA<int, double>();
   Expect.equals(double, ~ma);
-  Expect.equals(2.0, ma.i);
-  Expect.equals(22.0, ma.mi());
-  Expect.equals(2.0, ma.gi);
+  Expect.equals(2.1, ma.i);
+  Expect.equals(22.1, ma.mi());
+  Expect.equals(2.1, ma.gi);
   ma.si = 3.14;
   Expect.equals(3.14, ma.gi);
 }

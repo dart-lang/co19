@@ -42,7 +42,8 @@ class A extends S {
   int get g1 => 3;
 }
 
-
+class C extends A with M {
+}
 
 main() {
   new C();

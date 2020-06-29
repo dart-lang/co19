@@ -11,7 +11,6 @@
  * Type that is not null for non-null values of various types and doesn't 
  * cause any errors.
  * @author rodionov
- * @reviewer kaigorodov
  */
 import "../../Utils/expect.dart";
 

@@ -10,11 +10,10 @@
  * @description Checks that this getter works with null value, because it is an 
  * instance of type Null which extends Object and should inherit runtimeType.
  * @author rodionov
- * @reviewer kaigorodov
+ * @issue 42512
  */
 import "../../Utils/expect.dart";
 
 main() {
-    Expect.isTrue(null.runtimeType is Type);
-    // can't test for Null as it's inaccessible at the moment
+  Expect.isTrue(null.runtimeType is Type);
 }
