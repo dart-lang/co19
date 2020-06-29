@@ -13,7 +13,6 @@
  * inclusive.
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 
@@ -30,8 +29,8 @@ main() {
   Point p2 = new Point(22, 16);
   MutableRectangle r = new MutableRectangle.fromPoints(p1, p2);
 
-  for (int i = p1.x; i <= p2.x; i++) {
-    for (int j = p1.y; j <= p2.y; j++) {
+  for (num i = p1.x; i <= p2.x; i++) {
+    for (num j = p1.y; j <= p2.y; j++) {
       Expect.isTrue(r.containsPoint(new Point(i, j)));
     }
   }

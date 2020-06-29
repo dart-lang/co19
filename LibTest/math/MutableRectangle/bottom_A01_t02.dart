@@ -9,14 +9,10 @@
  * @description Checks that bottom is read-only and cannot be set.
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 
 main() {
   dynamic r = new MutableRectangle(2, 1, 20, 15);
-  try {
-    r.bottom = 17;
-    Expect.fail("[bottom] should be read-only");
-  } on NoSuchMethodError {};
+  Expect.throws(() {r.bottom = 17;}, (e) => e is NoSuchMethodError);
 }

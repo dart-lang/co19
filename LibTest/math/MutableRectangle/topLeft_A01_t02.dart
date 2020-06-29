@@ -10,14 +10,12 @@
  * @note undocumented
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 
 main() {
   dynamic r = new MutableRectangle(2, 1, 20, 15);
-  try {
+  Expect.throws(() {
     r.topLeft = new Point(1, 1);
-    Expect.fail("[topLeft] should be read-only");
-  } on NoSuchMethodError {};
+  }, (e) => e is NoSuchMethodError);
 }

@@ -13,10 +13,8 @@
  * coordinates.
  * @description Checks that this operator uses value comparison rather than
  * identity comparison.
- * @needsreview #16170
  * @author kaigorodov
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

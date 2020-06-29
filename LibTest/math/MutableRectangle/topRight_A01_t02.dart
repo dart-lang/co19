@@ -7,17 +7,14 @@
  * @assertion Point<T> topRight
  * Point<T> get topRight => new Point<T>(this.left + this.width, this.top);
  * @description Checks that topRight is read-only and cannot be set.
- * @note undocumented
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 
 main() {
   dynamic r = new MutableRectangle(2, 1, 20, 15);
-  try {
+  Expect.throws(() {
     r.topRight = 17;
-    Expect.fail("[topRight] should be read-only");
-  } on NoSuchMethodError {};
+  }, (e) => e is NoSuchMethodError);
 }

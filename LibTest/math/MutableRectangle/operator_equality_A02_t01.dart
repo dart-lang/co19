@@ -10,10 +10,8 @@
  * Total: It must return a boolean for all arguments. It should never throw or
  * return null.
  * @description Checks that it never throws or return null.
- * @needsreview #16170
  * @author kaigorodov
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

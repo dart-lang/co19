@@ -14,15 +14,14 @@
  * top + height, both inclusive.
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 
 main() {
   MutableRectangle r = new MutableRectangle(2, 1, 20, 15);
 
-  for (int i = r.left; i <= r.left + r.width; i++) {
-    for (int j = r.top; j <= r.top + r.height; j++) {
+  for (num i = r.left; i <= r.left + r.width; i++) {
+    for (num j = r.top; j <= r.top + r.height; j++) {
       Expect.isTrue(r.containsPoint(new Point(i, j)));
     }
   }

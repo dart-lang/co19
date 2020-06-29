@@ -11,7 +11,6 @@
  * rectangle, but will not change top.
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

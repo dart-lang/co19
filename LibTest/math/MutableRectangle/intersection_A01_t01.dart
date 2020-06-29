@@ -12,16 +12,15 @@
  * @description Checks the function for some predefined data.
  * @author kaigorodov
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 
 void check(
-    MutableRectangle r1, MutableRectangle r2, MutableRectangle expected) {
-  Rectangle actual1 = r1.intersection(r2);
+    MutableRectangle r1, MutableRectangle r2, MutableRectangle? expected) {
+  Rectangle? actual1 = r1.intersection(r2);
   Expect.equals(expected, actual1,
       "r1=$r1, r2=$r2, expected=$expected, actual1=$actual1");
-  Rectangle actual2 = r2.intersection(r1);
+  Rectangle? actual2 = r2.intersection(r1);
   Expect.equals(actual1, actual2, "r1=$r1, r2=$r2");
 }
 

@@ -10,10 +10,8 @@
  * Symmetric: For all objects o1 and o2, o1 == o2 and o2 == o1 must either both
  * be true, or both be false.
  * @description Checks that the equality operator is symmetric.
- * @needsreview #16170
  * @author kaigorodov
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

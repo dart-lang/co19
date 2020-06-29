@@ -12,7 +12,6 @@
  * a MutableRectangle are not double.NaN.
  * @author ngl@unipru.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

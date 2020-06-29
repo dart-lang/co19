@@ -9,14 +9,12 @@
  * @description Checks that right is read-only and cannot be set.
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 
 main() {
   dynamic r = new MutableRectangle(2, 1, 20, 15);
-  try {
+  Expect.equals(() {
     r.right = 17;
-    Expect.fail("[right] should be read-only");
-  } on NoSuchMethodError {};
+  }, (e) => e is NoSuchMethodError);
 }

@@ -7,10 +7,8 @@
  * @assertion Point<T> bottomLeft
  * Point<T> get bottomLeft => new Point<T>(this.left, this.top + this.height);
  * @description Checks that the returned value is correct.
- * @note undocumented
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

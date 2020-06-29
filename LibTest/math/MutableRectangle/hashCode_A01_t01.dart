@@ -15,7 +15,6 @@
  * different objects have different hash codes.
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

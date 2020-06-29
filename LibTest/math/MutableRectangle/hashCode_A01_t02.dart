@@ -14,10 +14,8 @@
  * @description Checks that [hashCode] is read-only and can't be set.
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
-
 
 main() {
   dynamic r = new MutableRectangle(3, 5, 10, 8);

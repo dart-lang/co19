@@ -9,7 +9,6 @@
  * @description Checks that this operation is symmetric.
  * @author kaigorodov
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

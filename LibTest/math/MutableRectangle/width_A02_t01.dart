@@ -9,7 +9,6 @@
  * @description Checks that the width is set correctly.
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

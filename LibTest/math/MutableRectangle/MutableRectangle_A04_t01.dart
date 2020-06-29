@@ -12,7 +12,6 @@
  * comprises only the single point (left, top).
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

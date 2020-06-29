@@ -10,14 +10,12 @@
  * @description Checks that bottomRight is read-only and cannot be set.
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 
 main() {
   dynamic r = new MutableRectangle(2, 1, 20, 15);
-  try {
+  Expect.throws(() {
     r.bottomRight = new Point(1, 1);
-    Expect.fail("[bottomRight] should be read-only");
-  } on NoSuchMethodError {};
+  }, (e) => e is NoSuchMethodError);
 }

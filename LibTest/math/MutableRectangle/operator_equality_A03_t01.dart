@@ -10,10 +10,8 @@
  * Reflexive: For all objects o, o == o must be true.
  * @description Checks that MutableRectangle with a coordinate equal to NaN is
  * not equal to itself.
- * @needsreview #16167, #16170
  * @author kaigorodov
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

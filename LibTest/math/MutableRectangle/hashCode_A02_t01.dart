@@ -13,7 +13,6 @@
  * equal to each other according to ==.
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 

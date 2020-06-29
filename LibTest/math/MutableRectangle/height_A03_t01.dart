@@ -10,7 +10,6 @@
  * @description Checks that if the height is negative, it is clamped to zero.
  * @author ngl@unipro.ru
  */
-
 import "dart:math";
 import "../../../Utils/expect.dart";
 
