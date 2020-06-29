@@ -26,7 +26,6 @@ test(EventSink create()) {
     },
     onError: (error, StackTrace st) {
       Expect.equals(values[i++], error);
-      Expect.equals(null, st);
     },
     onDone: () {
       asyncEnd();

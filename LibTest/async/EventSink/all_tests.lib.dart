@@ -6,8 +6,8 @@
 /**
  * @assertion EventSync abstract class
  *
- * @description Checks that all members of EventSync are implemented.
- * @note Tests run with ../StreamController/EventSink_class_A01_t01.dart
+ * @description Runner for ll members of EventSync
+ * @note Run by ../StreamSink/StreamSink_inherited_tests.lib.dart
  * @author ngl@unipro.ru
  */
 library all_tests_eventsink;
