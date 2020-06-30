@@ -14,7 +14,7 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-String output1;
+String output1 = "";
 
 main() {
   var value = 99;

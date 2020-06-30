@@ -25,7 +25,7 @@ main() {
     (fValue) {
       Expect.fail("unexpected value=$fValue");
     },
-    onError: (Error e){
+    onError: (Object e){
       Expect.identical(error, e);
       asyncEnd();
     }

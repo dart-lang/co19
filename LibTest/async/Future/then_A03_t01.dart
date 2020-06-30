@@ -31,7 +31,6 @@ check(Object value) {
 main() {
   check("0");
   check(20);
-  check(null);
   check(3.14);
   check(new Object());
 }

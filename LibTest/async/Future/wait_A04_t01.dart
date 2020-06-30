@@ -30,8 +30,8 @@ main() {
           Expect.fail("Returned future should complete with error");
         },
         onError: (Object error) {
-          Expect.isTrue(error==1 || error==2, "error: $error, expected 1 or 2");
-          Expect.isTrue(completers.fold(true, (r,v) => r && v.isCompleted));
+          Expect.isTrue(error == 1 || error == 2, "error: $error, expected 1 or 2");
+          Expect.isTrue(completers.fold(true, (bool r, v) => r && v.isCompleted));
           successful.sort();
           Expect.listEquals([0, 3, 4], successful);
           asyncEnd();

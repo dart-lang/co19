@@ -25,7 +25,7 @@ import "../../../Utils/expect.dart";
 const int N = 6;
 
 main() {
-  List<Future> futures = new List<Future>(N);
+  List<Future> futures = new List<Future>.filled(N, new Future.value());
 
   for (int k = 0; k < N; k++) {
     Completer c = new Completer();
@@ -43,7 +43,6 @@ main() {
       c.complete(6);
     }
   }
-
   Future f = Future.any(futures);
 
   asyncStart();

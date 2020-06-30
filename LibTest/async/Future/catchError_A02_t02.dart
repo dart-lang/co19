@@ -25,6 +25,7 @@ check(value) {
     },
     test: (Object error){
       Expect.fail("test should not be called");
+      return false;
     }
   ).then(
     (x) {

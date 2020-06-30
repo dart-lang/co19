@@ -11,7 +11,6 @@
  * @description Checks that the stream sends this' data to all its subscribers.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 

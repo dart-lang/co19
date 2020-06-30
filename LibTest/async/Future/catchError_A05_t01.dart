@@ -27,7 +27,7 @@ main() {
       }
     )
     .then(
-      (Object value) {
+      (var value) {
         Expect.fail("returned future should complete with error");
       },
       onError: (Object error){

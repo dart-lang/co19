@@ -12,6 +12,7 @@
  * @description Checks that if computation() throws, the created future
  * is completed with the same error.
  * @author ilya
+ * @issue 42525
  */
 import "dart:async";
 import "../../../Utils/expect.dart";

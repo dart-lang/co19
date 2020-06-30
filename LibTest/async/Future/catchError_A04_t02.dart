@@ -27,7 +27,7 @@ main() {
       }
     )
     .then(
-      (Object value){
+      (var value){
         Expect.equals("@", value);
         asyncEnd();
       }

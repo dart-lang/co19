@@ -25,7 +25,11 @@ main() {
 
   FutureOr<bool> f() {
     num++;
-    return (num%2==0) ? num < N : new Future.value(num < N);
+    if (num % 2 == 0) {
+      return num < N;
+    } else {
+      return new Future.value(num < N);
+    }
   }
 
   asyncStart();

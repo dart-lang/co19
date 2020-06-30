@@ -16,7 +16,6 @@
  * @description Checks that a future created with constructor
  * Future.sync has the value of immediately calling computation.
  * @author kaigorodov
-  TODO make more tests
  */
 import "dart:async";
 import "../../../Utils/expect.dart";

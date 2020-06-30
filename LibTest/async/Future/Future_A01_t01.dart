@@ -21,8 +21,15 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  var x;
-  Future<Future<Future<int>>> i = new Future(() => x);
-  //FutureOr<Future<int>> ii = 11;
-  Expect.isNull(x);
+  var x = 42;
+  asyncStart();
+  Future<int> i = new Future(() {
+    new Future.delayed(new Duration(seconds: 1)).then((_) {
+      x = 1;
+      asyncEnd();
+      return 0;
+    });
+    return 2;
+  });
+  Expect.equals(42, x);
 }
