@@ -29,10 +29,10 @@ import "future_flattening_legacy_lib.dart";
 
 Future<A> test() async {
   A a = await null;
-//      ^
+//      ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
+  return new Future<A>.value(new A());
 }
 
 main() {}
