@@ -18,7 +18,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, Iterable<T> expectedData) {
-  List<T> sink = new List();
+  List<T> sink = new List.empty(growable: true);
   asyncStart();
   s.listen(
     (T event) {

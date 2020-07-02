@@ -45,7 +45,7 @@ void check<T>(Stream<T> s, bool test(T element), T expected) {
 
 void test(CreateStreamFunction create) {
   check(create([]), (element) => true, 1);
-  check(create([1, 2, 3]), (int element) => element == null, null);
+  check(create<int?>([1, 2, 3]), (int? element) => element == null, null);
   check(create(new Iterable.generate(0, (int index) => index)),
       (int element) => false, 0);
   check(create(new Iterable.generate(0, (int index) => index)),

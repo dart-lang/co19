@@ -14,6 +14,7 @@
  * @author a.semenov@unipro.ru
  */
 library distinct_A04_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -22,9 +23,12 @@ void check<T>(Stream<T> s, List<T> expectedData, List expectedErrors) {
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([]), [], []);
-  check(create([1, 2, 2, 3], isError:(e) => e.isEven), [1,3],[2,2]);
-  check(create([1, 1, 2, 2, 3, 3], isError:(e) => e.isEven), [1,3],[2,2]);
-  check(create([1, 1, 2, 2, 3, 3], isError:(e) => e.isOdd), [2],[1,1,3,3]);
-  check(create([1, 2, null, null], isError:(e) => e is num), [null], [1,2]);
+  check(create([], defVal: 0), [], []);
+  check<int>(create([1, 2, 2, 3], isError: (e) => e.isEven, defVal: 42), [1, 3], [2, 2]);
+  check<int>(
+      create([1, 1, 2, 2, 3, 3], isError: (e) => e.isEven, defVal: 42), [1, 3], [2, 2]);
+  check<int>(
+      create([1, 1, 2, 2, 3, 3], isError: (e) => e.isOdd, defVal: 42), [2], [1, 1, 3, 3]);
+  check<int?>(
+      create([1, 2, null, null], isError: (e) => e is num, defVal: 42), [null], [1, 2]);
 }

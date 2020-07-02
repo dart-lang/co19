@@ -36,11 +36,11 @@ main() {
   Expect.isFalse(hasListener);
   Expect.isFalse(listenerCancelled);
   asyncStart();
-  StreamSubscription ss;
+  var ss;
   ss = b.listen(
     (_) {
       Future f = ss.cancel();
-      if (f==null) {
+      if (f == null) {
         f = new Future.value(0);
       }
       f.then(

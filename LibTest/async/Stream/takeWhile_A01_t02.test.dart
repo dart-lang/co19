@@ -16,26 +16,34 @@
  * @author a.semenov@unipro.ru
  */
 library takeWhile_A01_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T>(Stream<T> s, bool test(T element),
-           List<T> expectedData, List expectedErrors) {
+void check<T>(Stream<T> s, bool test(T element), List<T> expectedData,
+    List expectedErrors) {
   AsyncExpect.events(expectedData, expectedErrors, s.takeWhile(test));
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([1, 2, 3], isError: (_) => true), (x) => false, [], [1, 2, 3]);
-  check(create([1, 2, 3], isError: (_) => true), (x) => true, [], [1, 2, 3]);
+  check(create([1, 2, 3], isError: (_) => true, defVal: 42), (x) => false, [], [1, 2, 3]);
+  check(create([1, 2, 3], isError: (_) => true, defVal: 42), (x) => true, [], [1, 2, 3]);
 
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defVal: 42), (x) => false, [],
+      [1]);
+  check<int>(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defVal: 42),
+      (x) => x < 4, [2], [1, 3]);
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defVal: 42), (x) => false,
+      [], []);
+  check<int>(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defVal: 42),
+      (x) => x < 4, [1, 3], [2, 4]);
 
-  check(create([1, 2, 3, 4, 5], isError: (x) => x.isOdd), (x) => false, [], [1]);
-  check(create([1, 2, 3, 4, 5], isError: (x) => x.isOdd), (x) => x<4, [2], [1,3]);
-  check(create([1, 2, 3, 4, 5], isError: (x) => x.isEven), (x) => false, [], []);
-  check(create([1, 2, 3, 4, 5], isError: (x) => x.isEven), (x) => x<4, [1,3], [2,4]);
-
-  check(create([1, 2, 3, 4, 5], isError: (x) => x<4), (x) => true, [4, 5], [1, 2, 3]);
-  check(create([1, 2, 3, 4, 5], isError: (x) => x<4), (x) => false, [], [1, 2, 3]);
-  check(create([1, 2, 3, 4, 5], isError: (x) => x<4), (x) => x>2, [4,5], [1, 2, 3]);
-  check(create([1, 2, 3, 4, 5], isError: (x) => x>2), (x) => x<3, [1, 2], [3,4,5]);
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x < 4, defVal: 42), (x) => true,
+      [4, 5], [1, 2, 3]);
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x < 4, defVal: 42), (x) => false, [],
+      [1, 2, 3]);
+  check<int>(create<int>([1, 2, 3, 4, 5], isError: (x) => x < 4, defVal: 42), (x) => x > 2,
+      [4, 5], [1, 2, 3]);
+  check<int>(create<int>([1, 2, 3, 4, 5], isError: (x) => x > 2, defVal: 42), (x) => x < 3,
+      [1, 2], [3, 4, 5]);
 }

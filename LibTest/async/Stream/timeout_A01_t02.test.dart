@@ -13,17 +13,21 @@
  * @author a.semenov@unipro.ru
  */
 library timeout_A01_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-const Duration _10DAYS = const Duration(days:10);
+const Duration _10DAYS = const Duration(days: 10);
 
 void check<T>(Stream<T> s, List<T> expectedData, List expectedErrors) {
   AsyncExpect.events(expectedData, expectedErrors, s.timeout(_10DAYS));
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([1,2,3,4,5], isError: (x) => true), [], [1,2,3,4,5]);
-  check(create([1,2,3,4,5], isError: (x) => x.isEven), [1,3,5], [2,4]);
-  check(create([1,2,3,4,5], isError: (x) => x.isOdd), [2,4], [1,3,5]);
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => true, defVal: 42), [],
+      [1, 2, 3, 4, 5]);
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defVal: 42),
+      [1, 3, 5], [2, 4]);
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defVal: 42),
+      [2, 4], [1, 3, 5]);
 }

@@ -25,9 +25,9 @@ void check<T>(Stream<T> stream, dynamic convert(T event), List expected) {
 
 void test(CreateStreamFunction create) {
   check(create([]), (_) => 1, []);
-  check(create([1,2,3,4,5]), (e) => e, [1,2,3,4,5]);
-  check(create([1,2,3,4,5]), (e) => -e, [-1,-2,-3,-4,-5]);
-  check(create([1,2,3,4,5]), (e) => 0, [0,0,0,0,0]);
+  check<int>(create([1, 2, 3, 4, 5]), (e) => e, [1, 2, 3, 4, 5]);
+  check<int>(create([1, 2, 3, 4, 5]), (e) => -e, [-1, -2, -3, -4, -5]);
+  check<int>(create([1, 2, 3, 4, 5]), (e) => 0, [0, 0, 0, 0, 0]);
   // expand to the same stream
   check(
       create([null, "2", -3, 4.0, []]),

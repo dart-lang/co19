@@ -14,7 +14,7 @@ library handleError_A06_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T>(Stream<T> stream, Function onError(T event), bool test(error)) {
+void check<T>(Stream<T> stream, Function? onError(T event), bool test(error)) {
   Expect.equals(stream.isBroadcast, stream.handleError(onError).isBroadcast);
   Expect.equals(stream.isBroadcast, stream.handleError(onError, test:test).isBroadcast);
 }
@@ -24,12 +24,12 @@ void test(CreateStreamFunction create) {
   check(create([]), (_) => null, (_) => true);
   check(create([]).asBroadcastStream(), (_) => null, (_) => true);
 
-  check(create([1,2,3,4,5]), (_) => null, (_) => true);
-  check(create([1,2,3,4,5]).asBroadcastStream(), (_) => null, (_) => true);
+  check(create([1, 2, 3, 4, 5]), (_) => null, (_) => true);
+  check(create([1, 2, 3, 4, 5]).asBroadcastStream(), (_) => null, (_) => true);
 
-  check(create([]), (e) => throw e, (_) => true);
-  check(create([]).asBroadcastStream(), (e) => throw e, (_) => true);
+  check<Object>(create([]), (e) => throw e, (_) => true);
+  check<dynamic>(create([]).asBroadcastStream(), (e) => throw e, (_) => true);
 
-  check(create([1,2,3,4,5]), (e) => throw e, (_) => true);
-  check(create([1,2,3,4,5]).asBroadcastStream(), (e) => throw e, (_) => true);
+  check<Object>(create([1, 2, 3, 4, 5]), (e) => throw e, (_) => true);
+  check<Object>(create([1, 2, 3, 4, 5]).asBroadcastStream(), (e) => throw e, (_) => true);
 }

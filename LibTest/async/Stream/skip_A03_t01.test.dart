@@ -17,14 +17,30 @@
  * @author a.semenov@unipro.ru
  */
 library skip_A03_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
-  AsyncExpect.events([], [1,2,3], create([1, 2, 3], isError: (_) => true).skip(0));
-  AsyncExpect.events([], [1,2,3], create([1, 2, 3], isError: (_) => true).skip(1));
-  AsyncExpect.events([], [1,2,3], create([1, 2, 3], isError: (_) => true).skip(10));
+  AsyncExpect.events([], [1, 2, 3],
+      create([1, 2, 3], isError: (_) => true, defVal: 42).skip(0));
+  AsyncExpect.events([], [1, 2, 3],
+      create([1, 2, 3], isError: (_) => true, defVal: 42).skip(1));
+  AsyncExpect.events([], [1, 2, 3],
+      create([1, 2, 3], isError: (_) => true, defVal: 42).skip(10));
 
-  AsyncExpect.events([], [1,3,5], create([1, 2, 3, 4, 5], isError: (x) => x.isOdd).skip(10));
-  AsyncExpect.events([3,5], [2,4], create([1, 2, 3, 4, 5], isError: (x) => x.isEven).skip(1));
-  AsyncExpect.events([5], [2,4], create([1, 2, 3, 4, 5], isError: (x) => x.isEven).skip(2));
+  AsyncExpect.events(
+      [],
+      [1, 3, 5],
+      create<int>([1, 2, 3, 4, 5], isError: (x) => x.isOdd, defVal: 42)
+          .skip(10));
+  AsyncExpect.events(
+      [3, 5],
+      [2, 4],
+      create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defVal: 42)
+          .skip(1));
+  AsyncExpect.events(
+      [5],
+      [2, 4],
+      create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defVal: 42)
+          .skip(2));
 }

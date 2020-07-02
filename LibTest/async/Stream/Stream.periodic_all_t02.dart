@@ -4,7 +4,6 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  Stream.fromFutures(Iterable<Future<T>> futures)
  * @assertion Stream.periodic(Duration period,
  *     [T computation(int computationCount)])
  * Creates a stream that repeatedly emits events at period intervals.
@@ -13,9 +12,9 @@
  * @author a.semenov@unipro.ru
  */
 import "dart:async";
-import "allTests_A02.lib.dart";
+import "allTests_A02.lib.dart" as all;
 
-Stream<T> create<T>(Iterable<T> data, {bool isError(T x)}){
+Stream<T> create<T>(Iterable<T> data, {bool isError(T x)?, T? defVal}){
   int count = data.length;
   Iterator<T> iterator = data.iterator;
   return new Stream<T>.periodic(
@@ -23,17 +22,17 @@ Stream<T> create<T>(Iterable<T> data, {bool isError(T x)}){
       (_) {
         count--;
         if (iterator.moveNext()) {
-          Object x = iterator.current;
-          if (isError != null && isError(x)) {
-            throw x;
+          T x = iterator.current;
+          if (isError != null && isError(x) && count >= 0) {
+            throw x!;
           }
           return x;
         }
-        return null;
+        return defVal!;
       }
   ).takeWhile((_) => count >= 0);
 }
 
 main() {
-  test(create);
+  all.test(create);
 }

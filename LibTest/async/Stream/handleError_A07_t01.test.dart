@@ -12,33 +12,31 @@
  * @author a.semenov@unipro.ru
  */
 library handleError_A07_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
-  Stream s = create(["a", 1, "b", 2, "c", 3], isError: (x) => x is num);
+  Stream s =
+      create(["a", 1, "b", 2, "c", 3], isError: (x) => x is num, defVal: 42);
   Map onErrorCalls = new Map();
   Map testCalls = new Map();
   asyncStart();
-  s = s.asBroadcastStream().handleError(
-    (error) {
-      onErrorCalls[error] = 1 + onErrorCalls.putIfAbsent(error, () => 0);
-    },
-    test: (error) {
-      testCalls[error] = 1 + testCalls.putIfAbsent(error, () => 0);
-      return true;
+  s = s.asBroadcastStream().handleError((error) {
+    onErrorCalls[error] = 1 + onErrorCalls.putIfAbsent(error, () => 0);
+  }, test: (error) {
+    testCalls[error] = 1 + testCalls.putIfAbsent(error, () => 0);
+    return true;
+  });
+  Future.wait([s.toList(), s.toList(), s.toList()]).then((List<List> result) {
+    result.forEach((r) => Expect.listEquals(["a", "b", "c"], r));
+    Expect.equals(3, onErrorCalls.length);
+    Expect.equals(3, testCalls.length);
+    for (int e in [1, 2, 3]) {
+      Expect.equals(3, onErrorCalls[e]);
+      Expect.equals(3, testCalls[e]);
     }
-  );
-  Future.wait([s.toList(), s.toList(), s.toList()]).then(
-      (List<List> result) {
-        result.forEach((r) => Expect.listEquals(["a", "b", "c"], r));
-        Expect.equals(3, onErrorCalls.length);
-        Expect.equals(3, testCalls.length);
-        for (int e in [1, 2, 3]) {
-          Expect.equals(3, onErrorCalls[e]);
-          Expect.equals(3, testCalls[e]);
-        };
-        asyncEnd();
-      }
-  );
+    ;
+    asyncEnd();
+  });
 }

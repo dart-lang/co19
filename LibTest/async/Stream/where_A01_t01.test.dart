@@ -19,7 +19,7 @@ void test(CreateStreamFunction create) {
   AsyncExpect.data([], create([]).where((e) => true));
   AsyncExpect.data([], create([]).where((e) => false));
 
-  AsyncExpect.data([null], create([1, 2, 3, null]).where((int e) => e == null));
+  AsyncExpect.data([null], create([1, 2, 3, null]).where((int? e) => e == null));
   AsyncExpect.data([3], create([1, 2, 3]).where((int e) => e > 2));
   AsyncExpect.data(
       [30],

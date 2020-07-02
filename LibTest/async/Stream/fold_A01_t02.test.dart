@@ -15,7 +15,7 @@ library fold_A01_t02;
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
-  Object combine(Object p, var c) {
+  Object? combine(Object? p, var c) {
     Expect.fail("should not be called");
     return 0;
   }

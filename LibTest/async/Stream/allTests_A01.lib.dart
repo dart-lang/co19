@@ -197,10 +197,10 @@ void test(CreateStreamFunction create) {
   distinct_A01_t02.test(create);
   distinct_A02_t01.test(create);
   distinct_A02_t02.test(create);
-//  distinct_A03_t01.test(create); // fails with error, moved to allTests_A03
+  distinct_A03_t01.test(create);
   distinct_A05_t01.test(create);
 
-//  drain_A02_t01.test(create); // fails with error, moved to allTests_A03
+  drain_A02_t01.test(create);
   drain_A02_t02.test(create);
 
   elementAt_A01_t01.test(create);

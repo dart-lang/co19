@@ -16,19 +16,14 @@
  * @author a.semenov@unipro.ru
  */
 import "dart:async";
-import "allTests_A03.lib.dart";
+import "allTests_A01.lib.dart" as all;
 
 Stream<T> create<T>(Iterable<T> data){
-  Future<T> future = new Future.value();
   return new Stream.fromFutures(
-    data.map(
-      (T x) {
-        return future = future.then((_) => x);
-      }
-    )
+    data.map((T x) => new Future.value(x))
   );
 }
 
 main() {
-  test(create);
+  all.test(create);
 }

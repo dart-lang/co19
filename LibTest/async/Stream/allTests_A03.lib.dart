@@ -22,7 +22,5 @@ import "drain_A02_t01.test.dart" as drain_A02_t01;
 void test(CreateStreamFunction create) {
   asBroadcastStream_A05_t03.test(create);
   // failures TODO move in place when fixed
-  asyncMap_A04_t01.test(create);
-  distinct_A03_t01.test(create);
-  drain_A02_t01.test(create);
+  asyncMap_A04_t01.test(create); // issue #29615
 }

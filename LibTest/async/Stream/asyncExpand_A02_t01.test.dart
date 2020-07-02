@@ -18,29 +18,29 @@ library asyncExpand_A02_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T,E>(Stream<T> stream, Stream<E> convert(T event), List<E> expected) {
+void check<T,E>(Stream<T> stream, Stream<E>? convert(T event), List<E> expected) {
   AsyncExpect.data(expected, stream.asyncExpand(convert));
 }
 
 void test(CreateStreamFunction create) {
   check(create([]), (_) => null, []);
-  check(create([1,2,3,4,5]), (_) => null, []);
+  check<int, int?>(create([1, 2, 3, 4, 5]), (_) => null, []);
 
   check(create([]), (e) => create([e]), []);
-  check(create([1,2,3,4,5]), (e) => e.isOdd ? create([e]) : null, [1,3,5]);
+  check<int, int?>(create([1, 2, 3, 4, 5]), (e) => e.isOdd ? create([e]) : null, [1,3,5]);
   check(
-      create(['a',null,'b']),
-      (e) => e!=null ? create([e]) : null,
-      ['a','b']
+      create(['a', null, 'b']),
+      (e) => e != null ? create([e]) : null,
+      ['a', 'b']
   );
-  check(
-      create([1,2,3,4,5]),
-      (e) => e.isOdd ? create([e,e]): null,
-      [1,1,3,3,5,5]
+  check<int, int?>(
+      create([1, 2, 3, 4, 5]),
+      (e) => e.isOdd ? create([e, e]): null,
+      [1, 1, 3, 3, 5, 5]
   );
-  check(
-      create(['a',null,'b']),
-      (e) => e!=null ? create([e,e]) : null,
-      ['a','a','b','b']
+  check<String?, String>(
+      create(['a', null, 'b']),
+      (e) => e != null ? create([e, e]) : null,
+      ['a', 'a', 'b', 'b']
   );
 }

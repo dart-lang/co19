@@ -10,7 +10,7 @@
  * @author kaigorodov
  */
 import "dart:math";
-import "../../../Utils/expect.dart";
+
 main() {
   new Point(0, 0) - new Point(1, null); //# 01: compile-time error
   new Point(0, 0) - new Point(null, 1); //# 02: compile-time error

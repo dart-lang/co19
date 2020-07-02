@@ -19,8 +19,8 @@ import "../../../Utils/expect.dart";
 
 const N = 4;
 
-List<Completer> completers = new List<Completer>(N);
-List<Future> futures = new List<Future>(N);
+List<Completer> completers = new List<Completer>.filled(N, new Completer());
+List<Future> futures = new List<Future>.filled(N, new Future.value());
 List<int> f2c = [3, 1, 0, 2];
 int num = 0;
 

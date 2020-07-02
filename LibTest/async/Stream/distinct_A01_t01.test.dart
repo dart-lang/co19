@@ -21,7 +21,7 @@ import "../../../Utils/expect.dart";
 void check<T>(Stream<T> s) {
   Stream<T> d = s.distinct();
   bool first = true;
-  T previous;
+  T? previous;
   asyncStart();
   d.listen(
     (T event) {

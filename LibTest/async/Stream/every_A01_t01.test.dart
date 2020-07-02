@@ -15,8 +15,8 @@ import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.value(true, create([]).every((var element) => true));
-  AsyncExpect.value(true, create([1, 2, 3]).every((int e) => e != null));
-  AsyncExpect.value(false, create([1, 2, 3, null]).every((int e) => e == null));
+  AsyncExpect.value(true, create([1, 2, 3]).every((int? e) => e != null));
+  AsyncExpect.value(false, create([1, 2, 3, null]).every((int? e) => e == null));
   AsyncExpect.value(true,
       create(new Iterable.generate(0, (int i) => i)).every((int e) => false));
   AsyncExpect.value(false,

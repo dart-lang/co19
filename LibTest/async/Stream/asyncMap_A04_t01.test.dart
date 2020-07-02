@@ -35,8 +35,8 @@ Future<List<T>> subscribe<T>(Stream<T> stream) {
   return completer.future;
 }
 
-Future check<T>(Stream<T> stream, List<T> expected) {
-  Map<Object,int> convertLog = new Map<Object,int>();
+Future? check<T>(Stream<T> stream, List<T> expected) {
+  Map<Object?, int> convertLog = new Map<Object,int>();
 
   T convert(T event) {
     convertLog[event] = 1 + convertLog.putIfAbsent(event, () => 0);
@@ -56,7 +56,6 @@ Future check<T>(Stream<T> stream, List<T> expected) {
         asyncEnd();
       }
   );
-  return null; // to avoid dart analyzer hints
 }
 
 void test(CreateStreamFunction create) {

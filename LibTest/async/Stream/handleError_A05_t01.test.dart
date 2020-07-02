@@ -15,6 +15,7 @@
  * @author a.semenov@unipro.ru
  */
 library handleError_A05_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -22,21 +23,18 @@ void test(CreateStreamWithErrorsFunction create) {
   List errors = [];
   List traces = [];
   asyncStart();
-  Stream s = create([1, 2, 3, 4, 5], isError: (x) => true);
-  s.handleError(
-    (error, stackTrace) {
-      errors.add(error);
-      traces.add(stackTrace);
-    }
-  ).listen(
-    (data) {
-      // ignore
-    },
-    onDone:() {
-      Expect.listEquals([1, 2, 3, 4, 5], errors);
-      Expect.equals(5, traces.length);
-      traces.forEach((st) { Expect.isTrue(st==null || st is StackTrace);});
-      asyncEnd();
-    }
-  );
+  Stream s = create([1, 2, 3, 4, 5], isError: (x) => true, defVal: 42);
+  s.handleError((error, stackTrace) {
+    errors.add(error);
+    traces.add(stackTrace);
+  }).listen((data) {
+    // ignore
+  }, onDone: () {
+    Expect.listEquals([1, 2, 3, 4, 5], errors);
+    Expect.equals(5, traces.length);
+    traces.forEach((st) {
+      Expect.isTrue(st == null || st is StackTrace);
+    });
+    asyncEnd();
+  });
 }

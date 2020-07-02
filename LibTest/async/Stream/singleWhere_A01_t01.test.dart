@@ -20,7 +20,7 @@ void check<T>(Stream<T> s, bool test(T element), T expected) {
 }
 
 void test(CreateStreamFunction create) {
-  check(create([1, 2, 3, null]), (int element) => element == null, null);
+  check<int?>(create([1, 2, 3, null]), (int? element) => element == null, null);
   check(create([1, 2, 3]), (int element) => element > 2, 3);
   check(
       create(new Iterable.generate(10, (int index) => index * 5)),

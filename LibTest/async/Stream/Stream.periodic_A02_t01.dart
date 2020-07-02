@@ -14,15 +14,15 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check(int periodMs) {
-  Stream s = new Stream<int>.periodic(durationMs(periodMs),
-          (computationCount) => computationCount * periodMs);
+  Stream s = new Stream<int>.periodic(
+      durationMs(periodMs), (computationCount) => computationCount * periodMs);
   int count = 0;
   asyncStart();
-  StreamSubscription<int> subs;
+  StreamSubscription<int>? subs;
   subs = s.listen((data) {
     Expect.equals(count * periodMs, data, "check($periodMs): data=$data");
     if (count++ == 10) {
-      subs.cancel();
+      subs?.cancel();
       asyncEnd();
     }
   }) as StreamSubscription<int>;

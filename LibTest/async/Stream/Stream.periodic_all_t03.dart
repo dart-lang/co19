@@ -12,16 +12,14 @@
  * @author a.semenov@unipro.ru
  */
 import "dart:async";
-import "allTests_A01.lib.dart";
+import "allTests_A03.lib.dart" as all;
 
-Stream<T> create<T>(Iterable<T> data){
-
+Stream<T> create<T>(Iterable<T> data) {
   return new Stream.periodic(
-      new Duration(milliseconds:10),
-      (int i) => data.elementAt(i)
-  ).take(data.length);
+          new Duration(milliseconds: 10), (int i) => data.elementAt(i))
+      .take(data.length);
 }
 
 main() {
-  test(create);
+  all.test(create);
 }

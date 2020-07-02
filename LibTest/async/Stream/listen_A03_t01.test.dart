@@ -13,6 +13,7 @@
  * @author kaigorodov
  */
 library listen_A03_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -20,29 +21,25 @@ void check<T>(Stream<T> s, List<T> data, List errors) {
   List<T> dataSink = [];
   List errorSink = [];
   asyncStart();
-  s.listen(
-    (T event) {
-      dataSink.add(event);
-    },
-    onError: (Object error) {
-       errorSink.add(error);
-    },
-    onDone: () {
-      Expect.listEquals(data, dataSink);
-      Expect.listEquals(errors, errorSink);
-      asyncEnd();
-    }
-  );
+  s.listen((T event) {
+    dataSink.add(event);
+  }, onError: (Object error) {
+    errorSink.add(error);
+  }, onDone: () {
+    Expect.listEquals(data, dataSink);
+    Expect.listEquals(errors, errorSink);
+    asyncEnd();
+  });
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([]), [], []);
-  check(create([1, 2, 3, 4], isError:(x) => false), [1, 2, 3, 4], []);
-  check(create([1, 2, 3, 4], isError:(x) => true), [], [1, 2, 3, 4]);
-  check(create([1, 2, 3, 4], isError:(x) => x.isOdd), [2, 4], [1,3]);
+  check(create([], defVal: 42), [], []);
+  check(create([1, 2, 3, 4], isError: (x) => false, defVal: 42), [1, 2, 3, 4],
+      []);
   check(
-      create([null, "2", -3, 4.0, []], isError:(x) => x is num),
-      [null, "2", []],
-      [-3, 4.0]
-  );
+      create([1, 2, 3, 4], isError: (x) => true, defVal: 42), [], [1, 2, 3, 4]);
+  check<int>(create([1, 2, 3, 4], isError: (x) => x.isOdd, defVal: 42), [2, 4],
+      [1, 3]);
+  check(create([null, "2", -3, 4.0, []], isError: (x) => x is num, defVal: 42),
+      [null, "2", []], [-3, 4.0]);
 }

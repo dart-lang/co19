@@ -11,6 +11,7 @@
  * @author kaigorodov
  */
 library map_A01_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -20,13 +21,9 @@ void check<T>(Stream<T> stream, dynamic convert(T event), List expected) {
 
 void test(CreateStreamFunction create) {
   check(create([]), (_) => 1, []);
-  check(create([1,2,3,4,5]), (e) => e, [1,2,3,4,5]);
-  check(create([1,2,3,4,5]), (e) => -e, [-1,-2,-3,-4,-5]);
-  check(create([1,2,3,4,5]), (e) => 0, [0,0,0,0,0]);
+  check(create([1, 2, 3, 4, 5]), (e) => e, [1, 2, 3, 4, 5]);
+  check<int>(create([1, 2, 3, 4, 5]), (e) => -e, [-1, -2, -3, -4, -5]);
+  check(create([1, 2, 3, 4, 5]), (e) => 0, [0, 0, 0, 0, 0]);
   // expand to the same stream
-  check(
-    create([null, "2", -3, 4.0, []]),
-    (e) => e,
-    [null, "2", -3, 4.0, []]
-  );
+  check(create([null, "2", -3, 4.0, []]), (e) => e, [null, "2", -3, 4.0, []]);
 }

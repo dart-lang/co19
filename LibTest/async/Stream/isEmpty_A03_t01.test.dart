@@ -16,7 +16,7 @@ library isEmpty_A03_t01;
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
-  AsyncExpect.value(true, create([]).isEmpty);
-  AsyncExpect.error(1, create([1, 2, 3, null], isError:(x) => x==1).isEmpty);
-  AsyncExpect.value(false, create([1, 2, 3, null], isError:(x) => x==3).isEmpty);
+  AsyncExpect.value(true, create([], defVal: 42).isEmpty);
+  AsyncExpect.error(1, create([1, 2, 3, null], isError:(x) => x==1, defVal: 42).isEmpty);
+  AsyncExpect.value(false, create([1, 2, 3, null], isError:(x) => x==3, defVal: 42).isEmpty);
 }

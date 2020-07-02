@@ -32,11 +32,10 @@ Future<List<T>> subscribe<T>(Stream<T> stream) {
   return completer.future;
 }
 
-Future check<T>(Stream<T> stream, List<T> expected) {
+void check<T>(Stream<T> stream, List<T> expected) {
   Map<T,int> convertLog = new Map<T,int>();
 
   T convert(T event) {
-//  print("convert $event");
     convertLog[event] = 1 + convertLog.putIfAbsent(event, () => 0);
     return event;
   }
@@ -54,7 +53,6 @@ Future check<T>(Stream<T> stream, List<T> expected) {
         asyncEnd();
       }
   );
-  return null;
 }
 
 void test(CreateStreamFunction create) {

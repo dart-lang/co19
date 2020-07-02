@@ -36,7 +36,7 @@ void test(CreateStreamFunction create) {
 
   newSubscription(Stream stream, int count) {
     // get count elements and cancel
-    StreamSubscription subs;
+    var subs;
     subs = stream.listen(
        (_) {
          if (--count==0) {
