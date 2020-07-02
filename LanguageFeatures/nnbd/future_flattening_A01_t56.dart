@@ -42,5 +42,6 @@ Future<FutureOr<Never>> test() async => await getNull();
 
 main() {
   asyncStart();
-  test().then((value) {}, onError:(e) => asyncEnd());
+  test().then((value) { Expect.fail("Should not reach here!"); },
+      onError:(e) => asyncEnd());
 }

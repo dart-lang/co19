@@ -16,7 +16,7 @@
  *       [flatten(T) = S]
  *   otherwise [flatten(T) = T]
  *
- * @description Check that type of [await] expression match with expected
+ * @description Checks that type of [await] expression match with the expected
  * non-nullable types dynamically and the expression cannot be [null].
  *
  * See also:
@@ -37,5 +37,7 @@ dynamic getNull() => null;
 Future<bool> test() async => await getNull();
 
 main() {
-  asyncStart(); test().then((value) {}, onError:(e) => asyncEnd());
+  asyncStart();
+  test().then((value) { Expect.fail("Should not reach here!"); },
+      onError:(e) => asyncEnd());
 }

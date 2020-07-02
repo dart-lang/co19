@@ -25,7 +25,6 @@
 // Requirements=nnbd-strong
 
 import "dart:async";
-import "../../Utils/expect.dart";
 
 Future<FutureOr<Never>> test() async {
   FutureOr<Never> d = await null;
@@ -36,7 +35,4 @@ Future<FutureOr<Never>> test() async {
   return d;
 }
 
-main() {
-  asyncStart();
-  test().then((value) => asyncEnd());
-}
+main() {}

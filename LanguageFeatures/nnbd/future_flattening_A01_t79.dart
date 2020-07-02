@@ -32,5 +32,6 @@ dynamic getInt() => 1;
 
 main() {
   asyncStart();
-  Future<Null>(() => getInt()).then((value) {}, onError: (e) => asyncEnd());
+  Future<Null>(() => getInt()).then((value)
+      { Expect.fail("Should not reach here!"); }, onError: (e) => asyncEnd());
 }

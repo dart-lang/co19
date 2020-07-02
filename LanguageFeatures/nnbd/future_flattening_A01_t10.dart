@@ -16,7 +16,7 @@
  *       [flatten(T) = S]
  *   otherwise [flatten(T) = T]
  *
- * @description Check that type of await expression match with expected
+ * @description Checks that type of await expression matches with the expected
  * non-nullable legacy types statically and the expression cannot be null.
  *
  * @author iarkh@unipro.ru
@@ -25,7 +25,6 @@
 // Requirements=nnbd-weak
 
 import "dart:async";
-import "../../Utils/expect.dart";
 import "future_flattening_legacy_lib.dart";
 
 Future<A> test() async {
@@ -34,10 +33,6 @@ Future<A> test() async {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  throw "Should not reach here!";
 }
 
-main() {
-  asyncStart();
-  test().then((value) => asyncEnd());
-}
+main() {}

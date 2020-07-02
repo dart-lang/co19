@@ -37,5 +37,6 @@ Future<Object> test() async {
 
 main() {
   asyncStart();
-  test().then((value) {}, onError:(e) => asyncEnd());
+  test().then((value) { Expect.fail("Should not reach here!"); },
+      onError:(e) => asyncEnd());
 }

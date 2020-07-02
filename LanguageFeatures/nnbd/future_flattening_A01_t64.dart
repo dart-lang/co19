@@ -33,9 +33,11 @@ dynamic getNull() => null;
 main() {
   asyncStart();
   Future f = Future<int>(() => getNull());
-  f.then((value) {}, onError:(e) => asyncEnd());
+  f.then((value) { Expect.fail("Should not reach here"); },
+      onError:(e) => asyncEnd());
 
   asyncStart();
   f = Future<Future<int>>(() => getNull());
-  f.then((value) {}, onError:(e) => asyncEnd());
+  f.then((value) { Expect.fail("Should not reach here"); },
+      onError:(e) => asyncEnd());
 }

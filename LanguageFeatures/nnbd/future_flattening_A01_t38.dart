@@ -37,7 +37,4 @@ Future<FutureOr<A>> test() async {
   throw "Should not reach here!";
 }
 
-main() {
-  asyncStart();
-  test().then((value) => asyncEnd());
-}
+main() {}
