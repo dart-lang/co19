@@ -30,7 +30,7 @@ void test(CreateStreamFunction create) {
   bool anySubscribers = false;
   bool firstListen = true;
   bool streamOpen = true;
-  Timer timer;
+  var timer;
 
   asyncStart();
 

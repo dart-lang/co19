@@ -43,7 +43,7 @@ void test(CreateStreamWithErrorsFunction create) {
     }
   );
 
-  Stream<int> s = create([1, 2, 3, 4, 5], isError:(x) => x.isEven);
+  Stream<int> s = create([1, 2, 3, 4, 5], isError:(x) => x.isEven, defVal: 42);
 
   asyncStart();
   s.pipe(c).then((x) {

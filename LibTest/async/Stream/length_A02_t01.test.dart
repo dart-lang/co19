@@ -12,15 +12,14 @@
  * @author a.semenov@unipro.ru
  */
 library length_A02_t01;
+
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
-  AsyncExpect.error(1, create([1], isError:(_) => true).length);
-  AsyncExpect.error(3, create([1, 2, 3, null], isError:(e) => e==3).length);
+  AsyncExpect.error(1, create([1], isError: (_) => true).length);
+  AsyncExpect.error(3, create([1, 2, 3, null], isError: (e) => e == 3).length);
   AsyncExpect.error(
-    12,
-    create(
-      new Iterable.generate(10, (int i) => i * 2), isError:(e) => e > 10
-    ).length
-  );
+      12,
+      create<int>(new Iterable.generate(10, (int i) => i * 2),
+          isError: (e) => e > 10).length);
 }

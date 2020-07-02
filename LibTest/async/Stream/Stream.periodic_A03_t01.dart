@@ -20,7 +20,7 @@ const int maxCount = 5;
 void check(int periodMs) {
   String id = "s$periodMs";
   Duration period = durationMs(periodMs);
-  StreamSubscription<int> subs;
+  StreamSubscription<int>? subs;
   int count = 0;
   asyncStart();
   Stream s = new Stream<int>.periodic(period, (computationCount) {
@@ -31,11 +31,12 @@ void check(int periodMs) {
     }
     count++;
     if (count == maxCount) {
-      subs.cancel();
+      subs?.cancel();
       asyncEnd();
     }
+    return count;
   });
-  subs = s.listen((data) {}) as  StreamSubscription<int>;
+  subs = s.listen((data) {}) as StreamSubscription<int>;
 }
 
 main() {

@@ -13,18 +13,24 @@
  * @author kaigorodov
  */
 library where_A01_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T>(Stream<T> s, bool test(T event),
-           List<T> expectedData, List expectedErrors) {
+void check<T>(Stream<T> s, bool test(T event), List<T> expectedData,
+    List expectedErrors) {
   AsyncExpect.events(expectedData, expectedErrors, s.where(test));
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([1,2,3,4,5], isError: (x) => true), (e) => true, [], [1,2,3,4,5]);
-  check(create([1,2,3,4,5], isError: (x) => x.isEven), (e) => true, [1,3,5], [2,4]);
-  check(create([1,2,3,4,5], isError: (x) => x.isEven), (e) => e > 1, [3,5], [2,4]);
-  check(create([1,2,3,4,5], isError: (x) => x.isEven), (e) => false, [], [2,4]);
-  check(create([1,2,3,4,5], isError: (x) => x.isEven), (e) => throw e, [], [1,2,3,4,5]);
+  check(create([1, 2, 3, 4, 5], isError: (x) => true, defVal: 42), (e) => true,
+      [], [1, 2, 3, 4, 5]);
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defVal: 42),
+      (e) => true, [1, 3, 5], [2, 4]);
+  check<int>(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defVal: 42),
+      (e) => e > 1, [3, 5], [2, 4]);
+  check(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defVal: 42),
+      (e) => false, [], [2, 4]);
+  check<int>(create<int>([1, 2, 3, 4, 5], isError: (x) => x.isEven, defVal: 42),
+      (e) => throw e, [], [1, 2, 3, 4, 5]);
 }

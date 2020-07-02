@@ -19,7 +19,7 @@ library takeWhile_A01_t01;
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
-  AsyncExpect.data([], create([]).takeWhile(null));
+  AsyncExpect.data([], create([]).takeWhile((_) => false));
   AsyncExpect.data(
       [-1, -2, -3],
       create([-1, -2, -3, 1, 2, 3, -1, -2, -3]).takeWhile((x) => x < 0)

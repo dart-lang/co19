@@ -16,9 +16,9 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
-  Stream stream = create(["a", "b", "c"], isError:(e) => true);
+  Stream stream = create(["a", "b", "c"], isError:(e) => true, defVal: "");
   AsyncExpect.events([], ["a", "b", "c"], stream.map((e) => e));
 
-  stream = create([1, 2, 3, 4, 5], isError:(e) => e.isEven);
+  stream = create([1, 2, 3, 4, 5], isError:(e) => e.isEven, defVal: 42);
   AsyncExpect.events([1, 3, 5], [2, 4], stream.map((e) => e));
 }

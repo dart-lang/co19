@@ -15,8 +15,8 @@ import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.value(false, create([]).any((element) => true));
-  AsyncExpect.value(false, create([1, 2, 3]).any((int e) => e == null));
-  AsyncExpect.value(true, create([1, 2, 3, null]).any((int e) => e == null));
+  AsyncExpect.value(false, create([1, 2, 3]).any((int? e) => e == null));
+  AsyncExpect.value(true, create([1, 2, 3, null]).any((int? e) => e == null));
   AsyncExpect.value(
       false,
       create(

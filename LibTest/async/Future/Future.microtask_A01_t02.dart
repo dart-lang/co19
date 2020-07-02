@@ -20,9 +20,16 @@ import "../../../Utils/expect.dart";
 main() {
   var value = [1, 2, 3];
   asyncStart();
-  new Future.microtask(() => throw value)
+  new Future.microtask(() {
+    bool b = true;
+    if (b) {
+      throw value;
+    }
+    return 42;
+  })
     .catchError((e) {
       Expect.identical(value, e);
       asyncEnd();
+      return 0;
     });
 }

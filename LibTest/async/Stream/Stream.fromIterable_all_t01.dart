@@ -11,10 +11,9 @@
  * @description Checks Stream interface methods
  * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
-import "allTests_A03.lib.dart";
+import "allTests_A01.lib.dart" as all;
 
 main() {
-  test(<T>(Iterable<T> data) => new Stream<T>.fromIterable(data));
+  all.test(<T>(Iterable<T> data) => new Stream<T>.fromIterable(data));
 }

@@ -18,7 +18,7 @@ library asyncExpand_A03_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T,E>(Stream<T> stream, Stream<E> convert(T event)) {
+void check<T,E>(Stream<T> stream, Stream<E>? convert(T event)) {
   Expect.equals(stream.isBroadcast, stream.asyncExpand(convert).isBroadcast);
 }
 
@@ -27,15 +27,15 @@ void test(CreateStreamFunction create) {
     check(create([]), (_) => null);
     check(create([]).asBroadcastStream(), (_) => null);
 
-    check(create([1,2,3,4,5]), (_) => null);
-    check(create([1,2,3,4,5]).asBroadcastStream(), (_) => null);
+    check(create([1, 2, 3, 4, 5]), (_) => null);
+    check(create([1, 2, 3, 4, 5]).asBroadcastStream(), (_) => null);
 
     check(create([]), (e) => create([e]));
     check(create([]).asBroadcastStream(), (e) => create([e]));
 
-    check(create([1,2,3,4,5]), (e) => create([e]));
-    check(create([1,2,3,4,5]).asBroadcastStream(), (e) => create([e]));
+    check(create([1, 2, 3, 4, 5]), (e) => create([e]));
+    check(create([1, 2, 3, 4, 5]).asBroadcastStream(), (e) => create([e]));
 
-    check(create([1,2,3,4,5]), (e) => create([e,e]));
-    check(create([1,2,3,4,5]).asBroadcastStream(), (e) => create([e,e]));
+    check(create([1, 2, 3, 4, 5]), (e) => create([e, e]));
+    check(create([1, 2, 3, 4, 5]).asBroadcastStream(), (e) => create([e,e]));
 }

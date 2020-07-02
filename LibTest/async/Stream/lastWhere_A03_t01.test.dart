@@ -23,6 +23,7 @@
  * @author a.semenov@unipro.ru
  */
 library lastWhere_A03_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -31,7 +32,7 @@ void check<T>(Stream<T> s, bool test(T element), Object expectedError) {
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([1,2,3], isError:(e) => true), (x) => x > 0, 1);
-  check(create([1,2,3], isError:(e) => e == 3), (x) => x > 0, 3);
-  check(create([-1,1,-2,2,3], isError:(e) => e == 3), (x) => x < 0, 3);
+  check<int>(create([1, 2, 3], isError: (e) => true), (x) => x > 0, 1);
+  check<int>(create([1, 2, 3], isError: (e) => e == 3), (x) => x > 0, 3);
+  check<int>(create([-1, 1, -2, 2, 3], isError: (e) => e == 3), (x) => x < 0, 3);
 }

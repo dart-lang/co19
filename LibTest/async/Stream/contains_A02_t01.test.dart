@@ -14,7 +14,7 @@ library contains_A02_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T>(Stream<T> s, Object match, bool expected) {
+void check<T>(Stream<T> s, Object? match, bool expected) {
   List seen = [];
   s = s.map((x) {
     seen.add(x);

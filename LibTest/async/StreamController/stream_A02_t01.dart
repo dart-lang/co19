@@ -12,11 +12,13 @@
 import "dart:async";
 import "../Stream/allTests_A01.lib.dart";
 
-Stream<T> create<T>(Iterable<T> data, {bool isError(T element)}) {
+Stream<T> create<T>(Iterable<T> data, {bool isError(T element)?}) {
   StreamController<T> sc = new StreamController<T>();
   for (T e in data) {
     if (isError != null && isError(e)) {
-      sc.addError(e);
+      if (e is Object) {
+        sc.addError(e);
+      }
     } else {
       sc.add(e);
     }

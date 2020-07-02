@@ -1,10 +1,11 @@
-  part of Expect;
+part of Expect;
 
 const ONE_MS = const Duration(milliseconds: 1);
 
 typedef CreateStreamFunction = Stream<T> Function<T>(Iterable<T> values);
 typedef CreateStreamWithErrorsFunction =
-    Stream<T> Function<T>(Iterable<T> values, {bool Function(T element)? isError});
+    Stream<T> Function<T>(Iterable<T> values,
+        {bool Function(T element)? isError, T? defVal});
 
 Duration durationMs(delay) {
   return delay == null ? Duration.zero : ONE_MS * delay;
@@ -139,7 +140,7 @@ class AsyncExpect {
       if (expected is List) {
         Expect.listEquals(expected, value, reason);
       } else if (expected is Set) {
-        Expect.setEquals(expected as Iterable<Object>, value as Iterable<Object>, reason);
+        Expect.setEquals(expected, value as Iterable<Object?>, reason);
       } else {
         Expect.equals(expected, value, reason);
       }
@@ -155,7 +156,7 @@ class AsyncExpect {
    * the same way as supplied one. Otherwise, the returned future completes
    * with error.
    */
-  static Future<T> error<T>(Object error, Future<T> future, [String? reason = null]) {
+  static Future<T?> error<T>(Object error, Future<T> future, [String? reason = null]) {
     if (reason == null){
       reason = StackTrace.current.toString();
     }
@@ -163,10 +164,10 @@ class AsyncExpect {
     return future.then(
       (_) {
         Expect.fail("The future is expected to complete with error $reason");
-        return future; // return something to make analizer happy (a hint 'no return' otherwise)
+        return future;
       },
-      onError: (e){
-        if (error is Function){
+      onError: (e) {
+        if (error is Function) {
           Expect.isTrue(Function.apply(error, [e]), reason);
         } else {
           Expect.equals(error, e, reason);

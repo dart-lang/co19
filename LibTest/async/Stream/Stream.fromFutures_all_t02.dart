@@ -12,21 +12,21 @@
  *  their result will be output on the created stream in some unspecified order.
  *    When all futures have completed, the stream is closed.
  *    If no future is passed, the stream closes as soon as possible.
- * @description Checks Stream interface methods
+ * @description Checks Stream interface methods (error processing)
  * @author a.semenov@unipro.ru
  */
 import "dart:async";
-import "allTests_A01.lib.dart";
+import "allTests_A02.lib.dart";
 
-Stream<T> create<T>(Iterable<T> data){
-  Future<T> future = new Future.value();
-  return new Stream.fromFutures(
-    data.map(
-      (T x) {
-        return future = future.then((_) => x);
+Stream<T> create<T>(Iterable<T> data, {bool isError(T x)?}) {
+  return new Stream.fromFutures(data.map((T x) {
+    return new Future.value(x).catchError((_) {}).then((_) {
+      if (isError != null && isError(x)) {
+        throw x!;
       }
-    )
-  );
+      return x;
+    });
+  }));
 }
 
 main() {

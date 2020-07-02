@@ -21,8 +21,8 @@ void test(CreateStreamWithErrorsFunction create) {
   Stream s = create([], isError:(_) => false);
   if (!s.isBroadcast) {
     StreamTests.test(
-        <T>(Iterable<T> data, {bool isError(T x)}) {
-          return create<T>(data, isError: isError).asBroadcastStream();
+        <T>(Iterable<T> data, {bool isError(T x)?, T? defVal}) {
+          return create<T>(data, isError: isError, defVal: defVal).asBroadcastStream();
         }
     );
   }

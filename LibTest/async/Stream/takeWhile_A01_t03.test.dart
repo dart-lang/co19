@@ -27,7 +27,7 @@ void check<T>(Stream<T> s, bool test(T element),
 void test(CreateStreamFunction create) {
   AsyncExpect.data([], create([]).takeWhile((e) => throw "a"));
   check(create([1, 2, 3]), (e) => throw "b", "b", []);
-  check(
+  check<int>(
       create([-1, -2, -3, 1, 2, 3]),
       (element) {
         if (element > 0) {

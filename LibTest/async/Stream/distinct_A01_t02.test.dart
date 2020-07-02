@@ -21,7 +21,7 @@ import "../../../Utils/expect.dart";
 void check<T>(Stream<T> s, bool equals(T previous, T next)) {
   Stream<T> d = s.distinct(equals);
   bool first = true;
-  T previous;
+  var previous;
   asyncStart();
   d.listen(
     (T event) {
@@ -40,15 +40,15 @@ int abs(x) => x < 0 ? -x: x;
 int sign(x) => (x < 0) ? -1: (x == 0 ? 0 : 1);
 
 void test(CreateStreamFunction create) {
-  check(
+  check<int>(
       create([1, 2, 2, 3]),
       (previous, next) => previous == next
   );
-  check(
-      create([2,4,3,1]),
+  check<int>(
+      create([2, 4, 3, 1]),
       (previous, next) => previous % 2 == next % 2
   );
-  check(
+  check<int>(
       create(new Iterable.generate(10, (int index) => index)),
       (var previous, var next) => abs(previous - next) <= 1
   );

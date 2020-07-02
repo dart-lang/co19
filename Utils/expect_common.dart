@@ -179,7 +179,7 @@ class Expect {
    * Checks that every element of [expected] is also in [actual], and that
    * every element of [actual] is also in [expected].
    */
-  static void setEquals(Iterable<Object> expected, Iterable<Object> actual,
+  static void setEquals(Iterable<Object?> expected, Iterable<Object?> actual,
       [String? reason = null]) {
     final missingSet = new Set.from(expected);
     missingSet.removeAll(actual);

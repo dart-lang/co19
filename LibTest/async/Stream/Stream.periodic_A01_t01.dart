@@ -26,21 +26,18 @@ void check(int periodMs) {
   asyncStart();
 
   Stream s = new Stream.periodic(period);
-  StreamSubscription ss;
-  ss = s.listen(
-    (var event) {
-      count++;
-      Expect.isNull(event);
-      Duration expected = period*count;
-      Duration actual = sw.elapsed;
-      Expect.isTrue(expected <= actual, "expected=$expected, actual=$actual");
-      //print('expected=$expected actual=$actual');
-      if (count >= maxCount) {
-        ss.cancel();
-        asyncEnd();
-      }
+  StreamSubscription? ss;
+  ss = s.listen((var event) {
+    count++;
+    Expect.isNull(event);
+    Duration expected = period * count;
+    Duration actual = sw.elapsed;
+    Expect.isTrue(expected <= actual, "expected=$expected, actual=$actual");
+    if (count >= maxCount) {
+      ss?.cancel();
+      asyncEnd();
     }
-  );
+  });
 }
 
 main() {

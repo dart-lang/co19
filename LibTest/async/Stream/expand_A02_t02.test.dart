@@ -11,35 +11,36 @@
  * @author a.semenov@unipro.ru
  */
 library expand_A02_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T,S>(Stream<T> s, Iterable<S>convert(T value), List<S> expected) {
+void check<T, S>(Stream<T> s, Iterable<S> convert(T value), List<S> expected) {
   asyncStart();
   Stream<S> stream = s.asBroadcastStream().expand(convert);
-  Future.wait([
-    stream.toList(),
-    stream.toList(),
-    stream.toList()
-  ]).then(
-    (List<List<S>> results) {
-      Expect.equals(3, results.length);
-      results.forEach((actual) => Expect.listEquals(expected,actual));
-      asyncEnd();
-    }
-  );
+  Future.wait([stream.toList(), stream.toList(), stream.toList()])
+      .then((List<List<S>> results) {
+    Expect.equals(3, results.length);
+    results.forEach((actual) => Expect.listEquals(expected, actual));
+    asyncEnd();
+  });
 }
 
 void test(CreateStreamFunction create) {
+  check(create([]), (value) => [], []);
+  check(create([]), (value) => [1], []);
 
-    check(create([]), (value) => [], []);
-    check(create([]), (value) => [1], []);
+  check(create([1, 2, 3]), (value) => [], []);
+  check(create([1, 2, 3]), (value) => [1], [1, 1, 1]);
+  check(create([1, 2, 3]), (value) => [value], [1, 2, 3]);
+  check(create([1, 2, 3]), (v) => [v, v], [1, 1, 2, 2, 3, 3]);
+  check(create([1, 2, 3]), (v) => [null, v], [null, 1, null, 2, null, 3]);
 
-    check(create([1,2,3]), (value) => [], []);
-    check(create([1,2,3]), (value) => [1], [1,1,1]);
-    check(create([1,2,3]), (value) => [value], [1,2,3]);
-    check(create([1,2,3]), (v) => [v,v], [1,1,2,2,3,3]);
-    check(create([1,2,3]), (v) => [null,v], [null,1,null,2,null,3]);
-
-    check(create([[1,2,3],[4,5]]), (value) => value, [1,2,3,4,5]);
+  check<List<int>, int>(
+      create([
+        [1, 2, 3],
+        [4, 5]
+      ]),
+      (value) => value,
+      [1, 2, 3, 4, 5]);
 }

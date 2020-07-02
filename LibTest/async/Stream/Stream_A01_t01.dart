@@ -11,11 +11,39 @@
 
 import "dart:async";
 
+class MyStreamSubscription<T> extends StreamSubscription<T> {
+  @override
+  Future<E> asFuture<E>([E? futureValue]) {
+  throw UnimplementedError();
+  }
+  @override
+  Future<void> cancel() {
+  throw UnimplementedError();
+  }
+  @override
+  void onData(void Function(T data)? handleData) {
+  }
+  @override
+  void onDone(void Function()? handleDone) {
+  }
+  @override
+  void onError(Function? handleError) {
+  }
+  @override
+  void pause([Future<void>? resumeSignal]) {
+  }
+  @override
+  void resume() {
+  }
+  @override
+  bool get isPaused => throw UnimplementedError();
+}
+
 class MyStream<T> extends Stream<T> {
-  StreamSubscription<T> listen(void onData(T event),
-                   {Function onError, void onDone(), bool cancelOnError})
+  StreamSubscription<T> listen(void onData(T event)?,
+                   {Function? onError, void onDone()?, bool? cancelOnError})
   {
-    return null; 
+    return new MyStreamSubscription();
   }
 }
 

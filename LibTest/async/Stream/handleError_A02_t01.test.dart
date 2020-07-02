@@ -10,6 +10,7 @@
  * @author a.semenov@unipro.ru
  */
 library handleError_A02_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -18,29 +19,27 @@ void check(Stream s, List expectedData, List interceptedErrors) {
   List actualErrors = [];
   List actualHandledErrors = [];
   asyncStart();
-  s.handleError((error) => actualHandledErrors.add(error)).listen(
-      (data) {
-        actualData.add(data);
-      },
-      onError: (error) {
-        actualErrors.add(error);
-      },
-      onDone: () {
-        Expect.listEquals(expectedData, actualData);
-        Expect.listEquals(interceptedErrors, actualHandledErrors);
-        Expect.listEquals([], actualErrors);
-        asyncEnd();
-      }
-  );
+  s.handleError((error) => actualHandledErrors.add(error)).listen((data) {
+    actualData.add(data);
+  }, onError: (error) {
+    actualErrors.add(error);
+  }, onDone: () {
+    Expect.listEquals(expectedData, actualData);
+    Expect.listEquals(interceptedErrors, actualHandledErrors);
+    Expect.listEquals([], actualErrors);
+    asyncEnd();
+  });
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([]), [], []);
-  check(create([], isError:(x) => true), [], []);
+  check(create([], defVal: 42), [], []);
+  check(create([], isError: (x) => true, defVal: 42), [], []);
 
-  check(create([1, 2, 3, 4]), [1, 2, 3, 4], [] );
-  check(create([1, 2, 3, 4], isError:(x)=>true), [], [1, 2, 3, 4]);
-  check(create([1, 2, 3, 4], isError: (x)=>x.isEven), [1, 3], [2, 4]);
-  check(create([null, "2", -3, 4.0, []], isError: (x) => x is num),
-                  [null, "2", []], [-3, 4.0]);
+  check(create([1, 2, 3, 4], defVal: 42), [1, 2, 3, 4], []);
+  check(
+      create([1, 2, 3, 4], isError: (x) => true, defVal: 42), [], [1, 2, 3, 4]);
+  check(create([1, 2, 3, 4], isError: (x) => x.isEven, defVal: 42), [1, 3],
+      [2, 4]);
+  check(create([null, "2", -3, 4.0, []], isError: (x) => x is num, defVal: 42),
+      [null, "2", []], [-3, 4.0]);
 }

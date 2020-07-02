@@ -35,29 +35,31 @@
  * @author kaigorodov
  */
 library firstWhere_A01_t02;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check(Stream<int> s, bool test(int element), Object expected) {
+void check(Stream<int?> s, bool test(int? element), Object? expected) {
   asyncStart();
   bool orElseUsed = false;
-  Future f = s.firstWhere(test, orElse: () {orElseUsed = true;});
-  f.then(
-    (var actual) {
-      Expect.equals(expected, actual);
-      Expect.isFalse(orElseUsed);
-      asyncEnd();
-    }
-  );
+  Future f = s.firstWhere(test, orElse: () {
+    orElseUsed = true;
+    return 42;
+  });
+  f.then((var actual) {
+    Expect.equals(expected, actual);
+    Expect.isFalse(orElseUsed);
+    asyncEnd();
+  });
 }
 
 void test(CreateStreamFunction create) {
-  check(create([1, 2, 3]), (int element) => true, 1);
-  check(create([1, 2, 3]), (int element) => element != null, 1);
-  check(create([1, 2, 3, null]), (int element) => element == null, null);
-  check(create([1, 2, 3]), (int element) => element > 2, 3);
+  check(create([1, 2, 3]), (int? element) => true, 1);
+  check(create([1, 2, 3]), (int? element) => element != null, 1);
+  check(create([1, 2, 3, null]), (int? element) => element == null, null);
+  check(create([1, 2, 3]), (int? element) => element! > 2, 3);
+  check(create(new Iterable.generate(10, (int? index) => index! * 5)),
+      (int? element) => element != 30, 0);
   check(create(new Iterable.generate(10, (int index) => index * 5)),
-      (int element) => element !=30, 0);
-  check(create(new Iterable.generate(10, (int index) => index * 5)),
-      (int element) => element == 30, 30);
+      (int? element) => element == 30, 30);
 }

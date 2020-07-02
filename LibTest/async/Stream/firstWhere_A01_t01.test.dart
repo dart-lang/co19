@@ -38,17 +38,17 @@ library firstWhere_A01_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check(Stream<int> s, bool test(int element), Object expected) {
+void check(Stream<int?> s, bool test(int? element), Object? expected) {
   AsyncExpect.value(expected, s.firstWhere(test));
 }
 
 void test(CreateStreamFunction create) {
-  check(create([1, 2, 3]), (int element) => true, 1);
-  check(create([1, 2, 3]), (int element) => element != null, 1);
-  check(create([1, 2, 3, null]), (int element) => element == null, null);
-  check(create([1, 2, 3]), (int element) => element > 2, 3);
-  check(create(new Iterable.generate(10, (int index) => index * 5)),
-      (int element) => element !=30, 0);
-  check(create(new Iterable.generate(10, (int index) => index * 5)),
-      (int element) => element == 30, 30);
+  check(create<int>([1, 2, 3]), (int? element) => true, 1);
+  check(create([1, 2, 3]), (int? element) => element != null, 1);
+  check(create<int?>([1, 2, 3, null]), (int? element) => element == null, null);
+  check(create([1, 2, 3]), (int? element) => element! > 2, 3);
+  check(create(new Iterable.generate(10, (int? index) => index! * 5)),
+      (int? element) => element != 30, 0);
+  check(create(new Iterable.generate(10, (int? index) => index! * 5)),
+      (int? element) => element == 30, 30);
 }

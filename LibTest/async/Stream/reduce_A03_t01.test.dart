@@ -21,7 +21,7 @@ void check<T>(Stream<T> s, T combine(T p, T e), Object expected) {
 void test(CreateStreamWithErrorsFunction create) {
   check(create([1, 2, 3, 4, 5], isError: (_) => true), (int p, int e) => p + e,
       1);
-  check(create([1, 2, 3, 4, 5], isError: (x) => x.isEven),
+  check<int>(create([1, 2, 3, 4, 5], isError: (x) => x.isEven),
       (int p, int e) => p * e, 2);
   check(create([1, 2, 3, 4, 5], isError: (x) => x == 5),
       (int p, int e) => p + e, 5);

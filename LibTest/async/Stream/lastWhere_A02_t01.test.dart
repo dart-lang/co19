@@ -26,13 +26,13 @@ library lastWhere_A02_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-void check<T>(Stream<T> s, bool test(T element), Object expected) {
+void check<T>(Stream<T> s, bool test(T element), T expected) {
   AsyncExpect.value(expected, s.lastWhere(test, orElse: () => expected));
 }
 
 void test(CreateStreamFunction create) {
   check(create([]), (element) => true, 1);
-  check(create([1, 2, 3]), (int element) => element == null, null);
+  check<int?>(create([1, 2, 3]), (int? element) => element == null, 42);
   check(create(new Iterable.generate(0, (int index) => index)),
       (int element) => false, 0);
   check(create(new Iterable.generate(0, (int index) => index)),

@@ -30,7 +30,7 @@ void multiListen(Stream<int> s) {
     asyncStart();
     if (i.isEven) {
       // listener that quits after half of data
-      StreamSubscription quitter;
+      var quitter;
       quitter = s.listen(
         (int data) {
           if (data > dataSize / 2) {
