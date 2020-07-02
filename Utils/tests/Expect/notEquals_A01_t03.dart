@@ -6,9 +6,9 @@
 /**
  * @assertion static void notEquals(var unexpected, var actual, [String reason = null])
  * Checks whether the unexpected and actual values are not equal (using [:!=:]).
- * @description Checks that object equality is checked with == operator (on unexpected value).
+ * @description Checks that object equality is checked with == operator (on
+ * unexpected value).
  * @author varlax
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

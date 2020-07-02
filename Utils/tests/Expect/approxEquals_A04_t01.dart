@@ -7,18 +7,18 @@
  * @assertion static void approxEquals(num expected, num actual, [num tolerance = null, String reason = null])
  * Descriptive error message is provided in case of failure.
  * @description Checks that message of thrown ExpectException includes 
- *              representation of the expected, actual and tolerance values, as well as the reason.
+ * representation of the expected, actual and tolerance values, as well as the
+ * reason.
  * @author varlax
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
 import "dart:math" as Math;
 
 main() {
-  final double MIN_DOUBLE = Math.pow(2.0, -1074);
+  final double MIN_DOUBLE = Math.pow(2.0, -1074) as double;
   final double NEG_MIN_DOUBLE = -1 * MIN_DOUBLE; 
-  final double MAX_DOUBLE = (2 - Math.pow(2.0, -52)) * Math.pow(2.0, 1023);
+  final double MAX_DOUBLE = (2 - Math.pow(2.0, -52)) * Math.pow(2.0, 1023) as double;
   final double NEG_MAX_DOUBLE = -1 * MAX_DOUBLE; 
 
   // min double > 0 / 10000
@@ -38,17 +38,19 @@ main() {
   check(0, -0.0, double.nan, "");
 }
 
-void check(num arg1, num arg2, [num tol = null, String reason = null]) {
+void check(num arg1, num arg2, [num? tol = null, String? reason = null]) {
   try {
     Expect.approxEquals(arg1, arg2, tol, reason);
     throw new Exception("ExpectException expected");
   } on ExpectException catch(e) {
-    if (!e.message.contains(arg1 != null ? arg1.toString() : "null", 0)) throw "no expected value";
-    if (!e.message.contains(arg2 != null ? arg2.toString() : "null", 0)) throw "no actual value";
-    if (reason != null && !reason.isEmpty && !e.message.contains(reason, 0)) throw "no reason";
-    if (arg1 != null && tol == null) {
+    if(e.message == null) throw "message is null";
+    String msg = e.message as String;
+    if (!msg.contains(arg1.toString(), 0)) throw "no expected value";
+    if (!msg.contains(arg2.toString(), 0)) throw "no actual value";
+    if (reason != null && !reason.isEmpty && !msg.contains(reason, 0)) throw "no reason";
+    if (tol == null) {
       tol = (arg1 / Math.pow(10.0, 4.0)).abs();
     }
-    if (!e.message.contains(tol.toString(), 0)) throw "no tolerance";
+    if (!msg.contains(tol.toString(), 0)) throw "no tolerance";
   }
 }

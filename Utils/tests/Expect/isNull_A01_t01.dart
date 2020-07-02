@@ -7,9 +7,8 @@
  * @assertion static void isNull(var actual, [String reason = null])
  * Checks whether [actual] is null.
  * @description Checks that no exception is thrown when the argument is null,
- *              regardless of reason (the last argument).
+ * regardless of reason (the last argument).
  * @author rodionov
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 

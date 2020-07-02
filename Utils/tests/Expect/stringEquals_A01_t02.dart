@@ -6,10 +6,9 @@
 /**
  * @assertion static void stringEquals(String expected, String actual, [String reason = null])
  * Specialized equality test for strings. 
- * @description Checks that using non-equal string arguments results in ExpectException
- *              being thrown, regardless of reason (the last argument).
+ * @description Checks that using non-equal string arguments results in
+ * ExpectException being thrown, regardless of reason (the last argument).
  * @author rodionov
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 
@@ -29,7 +28,7 @@ main() {
   check("1", "1.0");
 }
 
-void check(String arg1, String arg2, [String reason = null]) {
+void check(var arg1, var arg2, [String? reason = null]) {
   try {
     Expect.stringEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");

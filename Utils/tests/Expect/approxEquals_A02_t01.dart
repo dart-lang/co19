@@ -5,20 +5,21 @@
  */
 /**
  * @assertion static void approxEquals(num expected, num actual, [num tolerance = null, String reason = null])
- * If no tolerance is given, tolerance is assumed to be the value 4 significant digits smaller than the value given for expected.  
- * @description Checks that with no tolerance specified, it is indeed assumed to be 1/10000th of [expected].
+ * If no tolerance is given, tolerance is assumed to be the value 4 significant
+ * digits smaller than the value given for expected.
+ * @description Checks that with no tolerance specified, it is indeed assumed to
+ * be 1/10000th of [expected].
  * Zeros and infinities of both signs are tested.
  * @author rodionov
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 
 import "dart:math" as Math;
 
 main() {
-  final double MIN_DOUBLE = Math.pow(2.0, -1074);
+  final double MIN_DOUBLE = Math.pow(2.0, -1074) as double;
   final double NEG_MIN_DOUBLE = -1 * MIN_DOUBLE; 
-  final double MAX_DOUBLE = (2 - Math.pow(2.0, -52)) * Math.pow(2.0, 1023);
+  final double MAX_DOUBLE = (2 - Math.pow(2.0, -52)) * Math.pow(2.0, 1023) as double;
   final double NEG_MAX_DOUBLE = -1 * MAX_DOUBLE; 
 
   Expect.approxEquals(0, 0);
@@ -60,7 +61,7 @@ main() {
   Expect.approxEquals(double.negativeInfinity, 0, null, "not empty");
 }
 
-void check(num arg1, num arg2, [String reason = null]) {
+void check(num arg1, num arg2, [String? reason = null]) {
   try {
     Expect.approxEquals(arg1, arg2, null, reason);
     throw new Exception("ExpectException expected");

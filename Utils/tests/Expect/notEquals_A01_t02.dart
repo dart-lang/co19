@@ -7,10 +7,9 @@
  * @assertion static void notEquals(var unexpected, var actual, [String reason = null])
  * Checks whether the unexpected and actual values are not equal (using [:!=:]).
  * @description Checks that using equal arguments results in ExpectException
- *              being thrown. Arguments being tested include boolean, numeric and
- *              Object, along with null, empty and non-empty reason arguments.
+ * being thrown. Arguments being tested include boolean, numeric and Object,
+ * along with null, empty and non-empty reason arguments.
  * @author rodionov
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 
@@ -35,7 +34,7 @@ main() {
   check("", "", "bla");
 }
 
-void check(var arg1, var arg2, [String reason = null]) {
+void check(var arg1, var arg2, [String? reason = null]) {
   try {
     Expect.notEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");

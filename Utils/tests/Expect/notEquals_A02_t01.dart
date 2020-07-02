@@ -7,9 +7,8 @@
  * @assertion static void notEquals(var unexpected, var actual, [String reason = null])
  * Descriptive error message is provided in case of failure.
  * @description Checks that message of thrown ExpectException includes 
- *              representation of the unexpected and actual values, as well as the reason.
+ * representation of the unexpected and actual values, as well as the reason.
  * @author varlax
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
@@ -34,13 +33,14 @@ main() {
   check("", "", "bla");
 }
 
-void check(var arg1, var arg2, [String reason = null]) {
+void check(var arg1, var arg2, [String? reason = null]) {
   try {
     Expect.notEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");
   } on ExpectException catch(e) {
-    if (!e.message.contains(arg1 != null ? arg1.toString() : "null", 0)) throw "no unexpected value";
-    if (!e.message.contains(arg2 != null ? arg2.toString() : "null", 0)) throw "no actual value";
-    if (reason != null && !reason.isEmpty && !e.message.contains(reason, 0)) throw "no reason";
+    String msg = e.message as String;
+    if (!msg.contains(arg1 != null ? arg1.toString() : "null", 0)) throw "no unexpected value";
+    if (!msg.contains(arg2 != null ? arg2.toString() : "null", 0)) throw "no actual value";
+    if (reason != null && !reason.isEmpty && !msg.contains(reason, 0)) throw "no reason";
   }
 }

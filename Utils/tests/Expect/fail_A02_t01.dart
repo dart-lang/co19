@@ -8,7 +8,6 @@
  * Descriptive error message is provided. 
  * @description Checks that message of thrown ExpectException is set to the msg argument.
  * @author varlax
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
@@ -18,12 +17,13 @@ main() {
   check("sdjgksjdg");
 }
 
-void check(String msg) {
+void check(String? msg) {
   try {
     Expect.fail(msg);
     throw new Exception("ExpectException expected");
   } on ExpectException catch(e) {
-    if (!e.message.contains(msg.toString(), 0)) throw "ExpectException message: '${e.message}'"
+    String res = e.message as String;
+    if (!res.contains(msg.toString(), 0)) throw "ExpectException message: '${res}'"
       " doesn't contain the argument of fail() ( ${ msg.toString()} )";
   }
 }

@@ -6,10 +6,9 @@
 /**
  * @assertion static void isTrue(var actual, [String reason = null])
  * Checks whether the actual value is a bool and its value is true. 
- * @description Checks that no exception is thrown when the argument is a bool and its value is true,
- *              regardless of reason (the last argument).
+ * @description Checks that no exception is thrown when the argument is a bool
+ * and its value is true, regardless of reason (the last argument).
  * @author rodionov
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 

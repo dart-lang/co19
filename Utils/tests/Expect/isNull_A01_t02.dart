@@ -7,10 +7,9 @@
  * @assertion static void isNull(var actual, [String reason = null])
  * Checks whether [actual] is null.
  * @description Checks that using non-null argument results in ExpectException
- *              being thrown. Arguments being tested include boolean, numeric and
- *              Object, along with null, empty and non-empty reason arguments.
+ * being thrown. Arguments being tested include boolean, numeric and Object,
+ * along with null, empty and non-empty reason arguments.
  * @author rodionov
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 
@@ -32,7 +31,7 @@ main() {
   check(new Object(), "not empty");
 }
 
-void check(var arg, [String reason = null]) {
+void check(var arg, [String? reason = null]) {
   try {
     Expect.isNull(arg, reason);
     throw new Exception("ExpectException expected");

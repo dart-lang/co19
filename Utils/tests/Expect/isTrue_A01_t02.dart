@@ -7,11 +7,9 @@
  * @assertion static void isTrue(var actual, [String reason = null])
  * Checks whether the actual value is a bool and its value is true.
  * @description Checks that using non-boolean argument or boolean false results
- *              in ExpectException being thrown. Arguments being tested include
- *              null, numeric and Object, along with null, empty and non-empty
- *              reason arguments.
+ * in ExpectException being thrown. Arguments being tested include null,
+ * numeric and Object, along with null, empty and non-empty reason arguments.
  * @author rodionov
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 
@@ -33,7 +31,7 @@ main() {
   check(new Object(), "not empty");
 }
 
-void check(var arg, [String reason = null]) {
+void check(var arg, [String? reason = null]) {
   try {
     Expect.isTrue(arg, reason);
     throw new Exception("ExpectException expected");

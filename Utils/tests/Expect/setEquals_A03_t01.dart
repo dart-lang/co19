@@ -7,9 +7,8 @@
  * @assertion static void setEquals(Iterable expected, Iterable actual, [String reason = null])
  * Descriptive error message is provided in case of failure.
  * @description Checks that message of thrown ExpectException includes 
- *              representation of extra and missing elements, as well as the reason.
+ * representation of extra and missing elements, as well as the reason.
  * @author varlax
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
@@ -25,14 +24,15 @@ main() {
   
 }
 
-void check(Iterable arg1, Iterable arg2, Iterable arg3, [String reason = null]) {
+void check(Iterable arg1, Iterable arg2, Iterable arg3, [String? reason = null]) {
   try {
     Expect.setEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");
   } on ExpectException catch(e) {
+    String msg = e.message as String;
     for (var el in arg3) {
-      if (!e.message.contains(el != null ? el.toString() : "null", 0)) throw "no element $el";
+      if (!msg.contains(el != null ? el.toString() : "null", 0)) throw "no element $el";
     }
-    if (reason != null && !reason.isEmpty && !e.message.contains(reason, 0)) throw "no reason";
+    if (reason != null && !reason.isEmpty && !msg.contains(reason, 0)) throw "no reason";
   }
 }

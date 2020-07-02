@@ -6,10 +6,9 @@
 /**
  * @assertion static void listEquals(List expected, List actual, [String reason = null])
  * Checks that all elements in [expected] and [actual] are equal [:==:].
- * @description Checks that using list with non-equal contents results in ExpectException
- *              being thrown.
+ * @description Checks that using list with non-equal contents results in
+ * ExpectException being thrown.
  * @author rodionov
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 
@@ -34,7 +33,7 @@ main() {
   check([0,1,2,3],[1,2,3]);
 }
 
-void check(List arg1, List arg2, [String reason = null]) {
+void check(List arg1, List arg2, [String? reason = null]) {
   try {
     Expect.listEquals(arg1, arg2, reason);
     throw new Exception("ExpectException expected");

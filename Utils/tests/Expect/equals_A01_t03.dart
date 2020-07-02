@@ -8,7 +8,6 @@
  * Checks whether the expected and actual values are equal (using [:==:]).
  * @description Checks that object equality is checked with == operator (on expected value).
  * @author varlax
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

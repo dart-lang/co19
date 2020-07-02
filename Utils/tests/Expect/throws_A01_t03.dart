@@ -7,13 +7,13 @@
  * @assertion static void throws(void f(), [_CheckExceptionFn check = null, String reason = null])
  * typedef bool _CheckExceptionFn(exception)
  * Calls the function [f] and verifies that it throws an exception.
- * The optional [check] function can provide additional validation that the correct exception is being thrown.
+ * The optional [check] function can provide additional validation that the
+ * correct exception is being thrown.
  * @description Checks that a function being checked can throw arbitrary value, 
  * possibly not assignable to Exception. 
  * Testing with functions that throw null, String and Object.
  * @author rodionov
  * @author varlax
- * @reviewer varlax
  */
 import "../../../Utils/expect.dart";
 
@@ -28,7 +28,7 @@ void badboy2() {
 }
 
 void badboy3() {
-  throw null;
+  throw (null as dynamic);
 }
 
 main() {
@@ -47,7 +47,7 @@ main() {
   check(badboy3, (e) => false, "not empty");
 }
 
-void check(void f(), [checkFn ch = null, String reason = null]) {
+void check(void f(), [checkFn? ch = null, String? reason = null]) {
   try {
     Expect.throws(f, ch, reason);
     throw new Exception("ExpectException expected");

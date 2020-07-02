@@ -8,9 +8,8 @@
  * When the strings don't match,
  * this method shows where the mismatch starts and ends. 
  * @description Checks that message of thrown ExpectException includes 
- *              representation of the mismatched region, as well as the reason.
+ * representation of the mismatched region, as well as the reason.
  * @author varlax
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
@@ -25,16 +24,16 @@ main() {
   check("", null, "null", null, "not empty");
 }
 
-void check(var exp, var act, String arg1, [String arg2 = null, String reason = null]) {
+void check(var exp, var act, var arg1, [var arg2 = null, String? reason = null]) {
   try {
     Expect.stringEquals(exp, act, reason);
     throw new Exception("ExpectException expected");
   } on ExpectException catch(e) {
-//    print(e.message);
-    if (!e.message.contains(exp.toString(), 0)) throw "no expected value";
-    if (!e.message.contains(act.toString(), 0)) throw "no actual value";
-    if (arg1 != null && !e.message.contains(arg1, 0)) throw "no correct diff";
-    if (arg2 != null && !e.message.contains(arg2, 0)) throw "no correct diff";
-    if (reason != null && !reason.isEmpty && !e.message.contains(reason, 0)) throw "no reason"; 
+    String msg = e.message as String;
+    if (!msg.contains(exp.toString(), 0)) throw "no expected value";
+    if (!msg.contains(act.toString(), 0)) throw "no actual value";
+    if (arg1 != null && !msg.contains(arg1, 0)) throw "no correct diff";
+    if (arg2 != null && !msg.contains(arg2, 0)) throw "no correct diff";
+    if (reason != null && !reason.isEmpty && !msg.contains(reason, 0)) throw "no reason";
   }
 }

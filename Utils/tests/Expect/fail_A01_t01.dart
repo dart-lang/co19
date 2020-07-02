@@ -6,12 +6,11 @@
 /**
  * @assertion static void fail(String msg)
  * Unconditional failure. 
- * @description Checks that this method always results in failure, regardless of whether
- * or not the argument is null or empty.
+ * @description Checks that this method always results in failure, regardless of
+ * whether or not the argument is null or empty.
  * @author rodionov
- * @reviewer varlax
  * @needsreview The exact mechanism of signaling failure is not documented. We
- *              know it's ExpectException, though.
+ * know it's ExpectException, though.
  */
 import "../../../Utils/expect.dart";
 
@@ -21,7 +20,7 @@ main() {
   check("sdjgksjdg");
 }
 
-void check(String msg) {
+void check(String? msg) {
   try {
     Expect.fail(msg);
     throw new Exception("ExpectException expected");

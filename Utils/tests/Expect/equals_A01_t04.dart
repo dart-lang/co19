@@ -8,7 +8,6 @@
  * Checks whether the expected and actual values are equal (using [:==:]).
  * @description NaNs considered equals
  * @author varlax
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

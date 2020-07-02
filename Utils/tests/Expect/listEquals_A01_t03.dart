@@ -8,7 +8,6 @@
  * Checks that all elements in [expected] and [actual] are equal [:==:].
  * @description Checks that operator == on elements is used for checking.
  * @author varlax
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 class A {

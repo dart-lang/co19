@@ -78,7 +78,7 @@ class Expect {
   }
 
   // Unconditional failure.
-  static void fail(String msg) {
+  static void fail(String? msg) {
     _fail("Expect.fail('$msg')");
   }
 
@@ -179,7 +179,7 @@ class Expect {
    * Checks that every element of [expected] is also in [actual], and that
    * every element of [actual] is also in [expected].
    */
-  static void setEquals(Iterable<Object> expected, Iterable<Object> actual,
+  static void setEquals(Iterable<Object?> expected, Iterable<Object?> actual,
       [String? reason = null]) {
     final missingSet = new Set.from(expected);
     missingSet.removeAll(actual);
