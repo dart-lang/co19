@@ -12,7 +12,6 @@
  * @description Checks that returned value is a Future.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 

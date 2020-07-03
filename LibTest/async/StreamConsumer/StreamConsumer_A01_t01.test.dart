@@ -6,7 +6,7 @@
 /**
  * @assertion StreamConsumer()
  *
- * @description Checks that an istance of StreamConsumer may be created.
+ * @description Checks that an instance of StreamConsumer may be created.
  * @author ngl@unipro.ru
  */
 library StreamConsumer_A01_t01;

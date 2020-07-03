@@ -10,7 +10,6 @@
  * A broadcast stream is checked.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -19,7 +18,7 @@ main() {
   Stream s = controller.stream;
   Expect.isFalse(controller.hasListener);
 
-  List events1 = new List();
+  List events1 = new List.empty(growable: true);
   StreamSubscription ss1 = s.listen((event) {events1.add(event);});
   Expect.isTrue(controller.hasListener);
 

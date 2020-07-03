@@ -9,7 +9,6 @@
  * @description Checks that error events with and without stack can be added.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 

@@ -18,9 +18,7 @@
  * @description Checks that if synchronous methods resulted in an error,
  * while there was no active future, the done future completes with that error.
  * @author ilya
- * @needsreview what is considered an error?
  */
-
 import "dart:async";
 
 main() {
@@ -37,7 +35,6 @@ main() {
   c.addError(1);
 
   c.stream.listen(null, onError: (_) {});
-  //c.stream.listen(null);
 
   c.close()
     .then((x) {

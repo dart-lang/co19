@@ -10,7 +10,6 @@
  * @description Checks that only the StreamSink interface is exposed.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 

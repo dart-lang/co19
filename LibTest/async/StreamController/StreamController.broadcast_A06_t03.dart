@@ -24,13 +24,12 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  bool onPauseCalled = false;
   StreamController controller = new StreamController.broadcast();
   Stream stream = controller.stream;
 
   int event1 = 0;
   asyncStart();
-  StreamSubscription sub1 = stream.listen(
+  stream.listen(
     (event) {
       Expect.equals(event1, event);
       event1++;

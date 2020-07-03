@@ -19,18 +19,18 @@ import "../../../Utils/expect.dart";
 main() {
   int onCancelCallCount = 0;
   asyncMultiStart(6);
-  StreamController controller;
+  StreamController? controller;
   controller = new StreamController.broadcast(
     onCancel: () {
       onCancelCallCount++;
       Expect.equals(1, onCancelCallCount);
       asyncEnd();
-      controller.close();
+      controller?.close();
     }
   );
   List<StreamSubscription> subscriptions = new List.generate(
     5,
-    (_) => controller.stream.listen((event) {})
+    (_) => controller!.stream.listen((event) {})
   );
 
   int i = 0, k = 0;

@@ -12,26 +12,26 @@
 import "dart:async";
 import "../Stream/allTests_A02.lib.dart";
 
-Stream<T> create<T>(Iterable<T> data, {bool isError(T element)}) {
-  StreamController<T> sc;
+Stream<T> create<T>(Iterable<T> data, {bool isError(T element)?, T? defVal}) {
+  StreamController<T>? sc;
   sc = new StreamController<T>(
-    sync:true,
-    onListen:() {
+    sync: true,
+    onListen: () {
       new Future(() {
         for (T e in data) {
-          if (sc.isClosed){
+          if (sc!.isClosed){
             break;
           }
           if (isError != null && isError(e)) {
-            sc.addError(e);
+            sc.addError(e as Object);
           } else {
             sc.add(e);
           }
         }
-      }).then((_) => sc.close());
+      }).then((_) => sc?.close());
     },
     onCancel: () {
-      sc.close();
+      sc?.close();
     }
   );
   return sc.stream;

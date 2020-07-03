@@ -9,7 +9,6 @@
  * @description Checks the property value is of type Stream.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 

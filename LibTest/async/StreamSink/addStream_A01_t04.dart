@@ -13,13 +13,11 @@
  * addError() or close() while the future is not completed.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-
 main() {
-  var from = new Stream.fromIterable([5,6]);
+  var from = new Stream.fromIterable([5, 6]);
 
   var c = new StreamController();
   var sink = c.sink;

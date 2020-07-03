@@ -10,7 +10,6 @@
  * will be completed when sink is closed.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -22,7 +21,7 @@ main() {
 
   asyncStart();
   c.stream.toList().then((x) {
-    Expect.listEquals([1,2], x);
+    Expect.listEquals([1, 2], x);
     asyncEnd();
   });
 

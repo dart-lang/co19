@@ -13,7 +13,6 @@
  * all added to a sink.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -34,5 +33,4 @@ main() {
     Expect.listEquals([1,2,3,4,5], x);
     asyncEnd();
   });
-
 }

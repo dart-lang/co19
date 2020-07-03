@@ -13,7 +13,6 @@
  * error is thrown if events are added after the stream is closed.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -21,7 +20,7 @@ main() {
   StreamController controller = new StreamController();
   Expect.isFalse(controller.isClosed);
 
-  List events1 = new List();
+  List events1 = new List.empty(growable: true);
   StreamSubscription ss = controller.stream.listen(
       (event) {events1.add(event);});
   Expect.isFalse(controller.isClosed);

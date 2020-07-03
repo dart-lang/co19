@@ -14,7 +14,6 @@
  * affected. Checks that paused listener will buffer events internally.
  * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -23,22 +22,18 @@ main() {
   Stream stream = controller.stream;
   asyncMultiStart(2);
   List log1 = [];
-  StreamSubscription sub1 = stream.listen(
-    (event) => log1.add(event),
-    onDone: () {
-      Expect.listEquals([1,2,3,4,5], log1);
-      asyncEnd();
-    }
-  );
+  StreamSubscription sub1 =
+      stream.listen((event) => log1.add(event), onDone: () {
+    Expect.listEquals([1, 2, 3, 4, 5], log1);
+    asyncEnd();
+  });
 
   List log2 = [];
-  StreamSubscription sub2 = stream.listen(
-    (event) => log2.add(event),
-    onDone: () {
-      Expect.listEquals([1,2,3,4,5], log2);
-      asyncEnd();
-    }
-  );
+  StreamSubscription sub2 =
+      stream.listen((event) => log2.add(event), onDone: () {
+    Expect.listEquals([1, 2, 3, 4, 5], log2);
+    asyncEnd();
+  });
 
   controller.add(1);
   controller.add(2);

@@ -13,7 +13,6 @@
  * @description Checks that done completes with the same value as close().
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -25,13 +24,13 @@ main() {
 
   asyncStart();
   c.stream.toList().then((x) {
-    Expect.listEquals([1,2], x);
+    Expect.listEquals([1, 2], x);
     asyncEnd();
   });
 
   asyncStart();
-  var sync = new Sync2((x,y) {
-    Expect.identical(x,y);
+  var sync = new Sync2((x, y) {
+    Expect.identical(x, y);
     asyncEnd();
   });
 

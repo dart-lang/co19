@@ -8,7 +8,7 @@
  * entire streams.
  *
  * @description Checks that all members of StreamComsumer are implemented.
- * @note Tests run with ../StreamController/StreamComsumer_class_A01_t01.dart
+ * @note Tests run by ../StreamSink/StreamSink_inherited_tests.lib.dart
  * @author ngl@unipro.ru
  */
 library all_tests_streamconsumer;

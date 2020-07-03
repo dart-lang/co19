@@ -18,23 +18,23 @@
  * @author a.semenov@unipro.ru
  */
 import "dart:async";
-import "../Stream/allTests_A03.lib.dart";
+import "../Stream/allTests_A02.lib.dart";
 
-Stream<T> create<T>(Iterable<T> data, {bool isError(T element)}) {
-  StreamController<T> sc;
+Stream<T> create<T>(Iterable<T> data, {bool isError(T element)?, T? defVal}) {
+  StreamController<T>? sc;
   sc = new StreamController<T>.broadcast(
     onListen:() {
       for (T e in data) {
         if (isError != null && isError(e)) {
-          sc.addError(e);
+          sc?.addError(e as Object);
         } else {
-          sc.add(e);
+          sc?.add(e);
         }
       }
-      new Future(() => sc.close());
+      new Future(() => sc?.close());
     },
     onCancel: () {
-      sc.close();
+      sc?.close();
     }
   );
   return sc.stream;

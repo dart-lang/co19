@@ -13,7 +13,6 @@
  * or close() when future is completed.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -22,27 +21,24 @@ listen(stream, expectedData, expectedErrors) {
   var actualErrors = [];
 
   asyncStart();
-  stream.listen(
-      (x) {
-        actualData.add(x);
-      },
-      onError: (x) {
-        actualErrors.add(x);
-      },
-      onDone: () {
-        Expect.listEquals(expectedData, actualData);
-        Expect.listEquals(expectedErrors, actualErrors);
-        asyncEnd();
-      });
+  stream.listen((x) {
+    actualData.add(x);
+  }, onError: (x) {
+    actualErrors.add(x);
+  }, onDone: () {
+    Expect.listEquals(expectedData, actualData);
+    Expect.listEquals(expectedErrors, actualErrors);
+    asyncEnd();
+  });
 }
 
 main() {
-  var from = new Stream.fromIterable([5,6]);
+  var from = new Stream.fromIterable([5, 6]);
 
   var c = new StreamController();
   var sink = c.sink;
 
-  listen(c.stream, [5,6,1,3], [2,4]);
+  listen(c.stream, [5, 6, 1, 3], [2, 4]);
 
   asyncStart();
   sink.addStream(from).then((_) {

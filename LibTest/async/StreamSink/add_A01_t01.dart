@@ -9,7 +9,6 @@
  * @description Checks that data events are added as expected.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 

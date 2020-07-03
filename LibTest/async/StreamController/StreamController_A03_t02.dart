@@ -13,14 +13,13 @@
  * errors until the subscriber is registered.
  * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void check(List source) {
   StreamController controller = new StreamController();
   Stream s = controller.stream;
-  List expectedData = source.where((e) => !(e is num) || e>=0).toList();
+  List expectedData = source.where((e) => !(e is num) || e >= 0).toList();
   List expectedErrors = source.where((e) => e is num && e < 0).toList();
   List sink = [];
   List errorSink = [];
@@ -37,19 +36,15 @@ void check(List source) {
   Expect.isTrue(errorSink.isEmpty);
 
   asyncStart();
-  s.listen(
-    (event) {
-      sink.add(event);
-    },
-    onError:(error) {
-      errorSink.add(error);
-    },
-    onDone:() {
-        Expect.listEquals(expectedData, sink);
-        Expect.listEquals(expectedErrors, errorSink);
-        asyncEnd();
-    }
-  );
+  s.listen((event) {
+    sink.add(event);
+  }, onError: (error) {
+    errorSink.add(error);
+  }, onDone: () {
+    Expect.listEquals(expectedData, sink);
+    Expect.listEquals(expectedErrors, errorSink);
+    asyncEnd();
+  });
 
   controller.close();
 }

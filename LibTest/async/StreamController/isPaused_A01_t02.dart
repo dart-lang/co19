@@ -15,7 +15,6 @@
  * listener yet, isPaused returns true.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
