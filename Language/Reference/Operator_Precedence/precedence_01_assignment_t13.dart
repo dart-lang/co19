@@ -11,6 +11,7 @@
  * Compare with cascade '..' (precedence 2) and conditional 'e1 ? e2 : e3'
  * (precedence 3) operators
  * @author sgrekhov@unipro.ru
+ * @issue 40945
  */
 import "../../../Utils/expect.dart";
 
@@ -20,10 +21,10 @@ class C {
   int? get s1 => null;
   int? get s2 => -1;
 
-  void set s1(int val) {
+  void set s1(int? val) {
     log += val.toString();
   }
-  void set s2(int val) {
+  void set s2(int? val) {
     log += val.toString();
   }
 }
