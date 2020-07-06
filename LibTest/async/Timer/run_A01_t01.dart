@@ -10,12 +10,8 @@
  * @description Checks that callback function is called once.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
-
-check(delay) {
-}
 
 main() {
   int count = 0;

@@ -13,16 +13,14 @@
  * timer creation, and false when callback is called.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 check(int delayms) {
-
   asyncStart();
-  Timer t;
+  Timer? t;
   t = new Timer(durationMs(delayms), () {
-    Expect.isFalse(t.isActive);
+    Expect.isFalse(t!.isActive);
     asyncEnd();
   });
 

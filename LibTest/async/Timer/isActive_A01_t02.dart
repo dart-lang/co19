@@ -13,7 +13,6 @@
  * not been canceled.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -25,7 +24,7 @@ check(int delay) {
   Timer t = new Timer.periodic(durationMs(delay), (Timer timer) {
     count++;
     Expect.isTrue(timer.isActive);
-    if (count==times) {
+    if (count == times) {
       timer.cancel();
       Expect.isFalse(timer.isActive);
       asyncEnd();

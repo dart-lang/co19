@@ -10,7 +10,6 @@
  * @description Checks that callback function is called after the given duration.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -22,7 +21,7 @@ check(int delayms) {
   asyncStart();
   new Timer(delay, () {
     Duration actual = sw.elapsed;
-    Expect.isTrue(delay<=actual, "expected=$delay, actual=$actual");
+    Expect.isTrue(delay <= actual, "expected=$delay, actual=$actual");
     asyncEnd();
   });
 }

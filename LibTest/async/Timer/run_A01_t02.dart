@@ -10,7 +10,6 @@
  * @description Checks that callback function is called asynchronously.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 

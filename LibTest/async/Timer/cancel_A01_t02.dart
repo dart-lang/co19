@@ -9,7 +9,6 @@
  * @description Checks that non-periodic Timer is cancelled by cancel()
  * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -18,16 +17,14 @@ main() {
   int count = 0;
 
   Timer timer = new Timer(durationMs(delay), () {
-    count++;
+      count++;
     }
   );
-  
   timer.cancel();
   
   asyncStart();
-  new Timer(durationMs(delay*3), () {
+  new Timer(durationMs(delay * 3), () {
     Expect.equals(count, 0);
     asyncEnd();
   });
-  
 }

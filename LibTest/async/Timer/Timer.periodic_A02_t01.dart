@@ -9,7 +9,6 @@
  * @description Checks that negative duration is accepted.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -19,7 +18,7 @@ check(int delay) {
   asyncStart();
   new Timer.periodic(durationMs(delay), (Timer timer) {
     count++;
-    if (count==times) {
+    if (count == times) {
       timer.cancel();
       asyncEnd();
     }

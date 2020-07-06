@@ -11,14 +11,13 @@
  * the given duration.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
   int times = 10;
   int count = 0;
-  Duration delay=durationMs(20);
+  Duration delay = durationMs(20);
   Stopwatch sw = new Stopwatch();
   sw.start();
 
@@ -27,8 +26,8 @@ main() {
     count++;
     Duration expected = delay * count;
     Duration actual = sw.elapsed;
-    Expect.isTrue(expected<=actual, "expected=$expected, actual=$actual");
-    if (count==times) {
+    Expect.isTrue(expected <= actual, "expected=$expected, actual=$actual");
+    if (count == times) {
       timer.cancel();
       asyncEnd();
     }
