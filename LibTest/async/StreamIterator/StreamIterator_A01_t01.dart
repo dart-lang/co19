@@ -9,7 +9,6 @@
  * @description Checks that instance of StreamIterator is created.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 

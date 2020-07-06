@@ -21,7 +21,6 @@
  * cancelled after that (see doc on cancel).
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -39,8 +38,11 @@ main() {
       si.moveNext().then((value) {
         Expect.identical(false, value);
         asyncEnd();
+        return true;
       });
+      return false;
     });
+    return true;
   });
 
   c.add(1);

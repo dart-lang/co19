@@ -25,7 +25,6 @@
  * returned by moveNext(), that was called prior cancel().
  * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 

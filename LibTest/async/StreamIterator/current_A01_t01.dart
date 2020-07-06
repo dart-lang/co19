@@ -18,7 +18,6 @@
  * @description Checks that the property returns the current value of the stream.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 

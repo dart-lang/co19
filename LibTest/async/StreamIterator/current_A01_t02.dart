@@ -19,7 +19,6 @@
  * call to moveNext and after a call to moveNext completes with a false result.
  * @author ngl@unipro.ru
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 

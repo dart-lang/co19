@@ -19,7 +19,6 @@
  * moveNext completes with an error.
  * @author ngl@unipro.ru
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -33,5 +32,6 @@ main() {
     Expect.equals(1, value);
     Expect.isNull(si.current);
     asyncEnd();
+    return new Future.value(false);
   });
 }
