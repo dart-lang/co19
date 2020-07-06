@@ -12,23 +12,20 @@
  * within the innermost function in which sc occurs.
  * @description Checks that it is a compile-time error if a 'continue L;'
  * statement occurs in a case clause of switch statement with label L and there
- * is no another inclosing statement with label L.
+ * is no another enclosing statement with label L.
  * @compile-error
  * @author vasya
+ * @issue 42593
  */
-
 
 main() {
   var x = 1;
   L:
   switch (x) {
     case 1:
-      print("x=$x");
       x = 0;
       continue L;
     default:
       x = 2;
   }
-  print("x=$x");
-  print("Ok");
 }
