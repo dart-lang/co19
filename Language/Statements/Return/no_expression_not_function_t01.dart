@@ -16,7 +16,6 @@
  * method, getter, setter or factory is executed by executing the statement
  * "return null;".
  *
- * @static-warning
  * @author vasya
  */
 import '../../../Utils/expect.dart';
@@ -25,11 +24,7 @@ bar() {
   return;
 }
 
-abstract class I {
-  factory I() { return; } //static warning: I may not be assigned to void
-}
-
-class Foo implements I {
+class Foo {
   Foo() {}
   get foo { return; }
   method() { return; }
@@ -40,6 +35,6 @@ main() {
   var foo = new Foo();
   Expect.isNull(foo.foo);
   Expect.isNull(foo.method());
-  Expect.isNull(new I());
+  Expect.isNull(bar());
 }
 

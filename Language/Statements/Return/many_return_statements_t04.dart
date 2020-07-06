@@ -15,6 +15,7 @@
  * https://github.com/dart-lang/sdk/issues/39476
  * @static-clean
  * @author ilya
+ * @issue 42581
  */
 
 main() {

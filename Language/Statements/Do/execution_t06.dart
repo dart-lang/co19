@@ -1,4 +1,4 @@
-/*
+  /*
  * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
@@ -10,7 +10,7 @@
  * object o. Then, o is then subjected to boolean conversion, producing an
  * object r. If r is false, execution of the do statement is complete. If r is
  * true, then the do statement is re-executed recursively.
- * @description Check that TypeError is thrown if e evaluates to null
+ * @description Check that runtime error is thrown if e evaluates to null
  * @author vasya
  */
 import '../../../Utils/expect.dart';
@@ -23,5 +23,5 @@ main() {
     do {
       x = 2;
     } while (getNull());
-    }, (e) => e is TypeError);
+    });
 }

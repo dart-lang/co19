@@ -15,6 +15,8 @@
  *
  * @issue 25247
  * @issue 25234
+ * @issue 42582
+ * @issue 42587
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';

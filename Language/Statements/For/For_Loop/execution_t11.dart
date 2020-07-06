@@ -20,12 +20,12 @@
  * @author rodionov
  */
 
-import '../../../../Utils/dynamic_check.dart';
+import '../../../../Utils/expect.dart';
 
 dynamic getNull() => null;
 
 main() {
-  checkTypeError( () {
+  Expect.throws( () {
     for ( var i = 0; getNull(); i++) {
       break;
     }

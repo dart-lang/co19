@@ -4,25 +4,25 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Let f be the function immediately enclosing a return statement of
- * the form return; It is a static warning f is neither a generator nor a
- * generative constructor and either:
- *  • f is synchronous and the return type of f may not be assigned to void or,
- *  • f is asynchronous and the return type of f may not be assigned to
- *    Future<Null>.
+ * @assertion Consider a return statement s of the form return e?;
+ * ...
+ * It is a compile-time error if s is
+ *  return;, unless T is void, dynamic, or Null
  *
- * @description Checks that a static warning occurs if a statement of the form
+ * @description Checks that a compile error occurs if a statement of the form
  * "return;" is used in a getter method whose declared return type is bool.
  *
  * @Issue 42459
- * @static-warning
  * @author vasya
  */
 
 class C {
   C() { }
   bool get foo {
-    return; /// static type warning
+    return;
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

@@ -23,9 +23,12 @@ main() {
   L:
   switch (x) {
     case 1:
+      print("x=$x");
       x = 0;
       continue L;
     default:
       x = 2;
   }
+  print("x=$x");
+  print("Ok");
 }

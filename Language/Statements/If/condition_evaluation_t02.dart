@@ -8,13 +8,13 @@
  * proceeds as follows:
  * First, the expression b is evaluated to an object o. Then, o is subjected to
  * boolean conversion, producing an object r.
- * @description Checks that it an AssertionError (see  Boolean conversion)
- * is thrown if the expression evaluates to null.
+ * @description Checks that it a dynamic error if the expression evaluates to
+ * non boolean
  * @author kaigorodov
  */
 import '../../../Utils/expect.dart';
 
 main() {
   var i = null;
-  Expect.throws(() {if (i) {i = "hello";}}, (e) => e is TypeError);
+  Expect.throws(() {if (i) {i = "hello";}});
 }

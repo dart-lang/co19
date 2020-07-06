@@ -8,16 +8,16 @@
  * proceeds as follows:
  * First, the expression b is evaluated to an object o. Then, o is subjected to
  * boolean conversion, producing an object r.
- * @description Checks that it an AssertionError (see  Boolean conversion)
- * is thrown if the expression evaluates to null.
+ * @description Checks that it a dynamic error if the expression evaluates to
+ * null.
  * @author a.semenov@unipro.ru
  */
-import '../../../Utils/dynamic_check.dart';
+import '../../../Utils/expect.dart';
 
 dynamic getNull() => null;
 
 main() {
-  checkTypeError( () {
+  Expect.throws( () {
     if (getNull()) {
       var i = "hello";
     }

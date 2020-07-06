@@ -14,7 +14,7 @@
  * where n0 is an identifier that does not occur anywhere in the program, except
  * that for purposes of static typechecking, it is checked under the assumption
  * that n0 is declared to be of type T, where T is the static type of e.iterator.
- * @description Checks that [NoSuchMethodError] is thrown when e is null.
+ * @description Checks that a runtime error is thrown when e is null.
  * @author vasya
  */
 import '../../../../Utils/expect.dart';
@@ -22,10 +22,10 @@ import '../../../../Utils/expect.dart';
 dynamic getNull() => null;
 
 main() {
-  Expect.throws(() { for(var id in getNull()) {} }, (e) => e is TypeError);
-  Expect.throws(() { for(dynamic id in getNull()) {} }, (e) => e is TypeError);
+  Expect.throws(() { for(var id in getNull()) {} });
+  Expect.throws(() { for(dynamic id in getNull()) {} });
   Expect.throws(() {
       var id;
       for(id in getNull()) {}
-    }, (e) => e is TypeError);
+    });
 }

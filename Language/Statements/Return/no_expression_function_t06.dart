@@ -4,16 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Let f be the function immediately enclosing a return statement of
- * the form return; It is a static warning f is neither a generator nor a
- * generative constructor and either:
- *  • f is synchronous and the return type of f may not be assigned to void or,
- *  • f is asynchronous and the return type of f may not be assigned to
- *    Future<Null>.
+ * @assertion Consider a return statement s of the form return e?;
+ * ...
+ * It is a compile-time error if s is
+ *  return;, unless T is void, dynamic, or Null
  *
- * @description Checks that there's no static warning when a statement of the
- * form "return;" is used in a method that returns type dynamic, or a
- * constructor.
+ * @description Checks that there's no error when a statement of the form
+ * "return;" is used in a method that returns type dynamic, or a constructor.
  *
  * @static-clean
  * @author rodionov
@@ -31,7 +28,7 @@ class C implements I {
 }
 
 main() {
-  var x = new C();
+  dynamic x = new C();
   x = C.sm();
   x = new C().foo();
   x = new C().g;

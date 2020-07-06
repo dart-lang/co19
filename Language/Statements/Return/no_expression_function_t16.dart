@@ -4,32 +4,40 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Let f be the function immediately enclosing a return statement of
- * the form return; It is a static warning f is neither a generator nor a
- * generative constructor and either:
- *  • f is synchronous and the return type of f may not be assigned to void or,
- *  • f is asynchronous and the return type of f may not be assigned to
- *    Future<Null>.
+ * @assertion Consider a return statement s of the form return e?;
+ * ...
+ * It is a compile-time error if s is
+ *  return;, unless T is void, dynamic, or Null
  *
- * @description Checks that there's a static warning when a statement of the
+ * @description Checks that there's a compile error when a statement of the
  * form "return;" is used in an asynchronous function whose return type is
  * Future<Object>
  *
- * @static-warning
+ * @Issue 42459
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
 
 Future<Object?> bar() async {
-  return; /// static type warning
+  return;
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }
 
 class C {
   static Future<Object?> sm() async {
-    return; /// static type warning
+    return;
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   Future<Object?> foo() async {
-    return; /// static type warning
+    return;
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
