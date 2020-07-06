@@ -25,6 +25,7 @@ main() {
   StreamTransformer<int, dynamic> tr = new StreamTransformer(
     (stream, cancelOnError) {
       Expect.fail('unexpected call to transformer');
+      return stream.listen((var x) {});
     }
   );
   s.transform(tr);

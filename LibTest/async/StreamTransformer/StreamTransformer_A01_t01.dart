@@ -19,6 +19,8 @@
 import "dart:async";
 
 main() {
-  StreamTransformer tr = new StreamTransformer((stream, cancelOnError) {});
+  StreamTransformer tr = new StreamTransformer((stream, cancelOnError) {
+    return stream.listen((var x) {});
+  });
   tr.bind;
 }
