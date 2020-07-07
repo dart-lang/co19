@@ -19,10 +19,8 @@
  * @description Checks that type of [await] expression match with the expected
  * non-nullable types dynamically and the expression cannot be [null].
  *
- * See also:
- * https://github.com/dart-lang/language/pull/941,
- * https://github.com/dart-lang/co19/issues/703
- *
+ * @Issue https://github.com/dart-lang/language/pull/941
+ * @Issue https://github.com/dart-lang/co19/issues/703
  * @Issue 41266,41437,42236,42237
  * @author iarkh@unipro.ru
  */

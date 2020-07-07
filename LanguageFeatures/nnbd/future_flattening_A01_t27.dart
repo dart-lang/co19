@@ -21,10 +21,8 @@
  * compile error is not thrown if synchronous function with [Future<Never>]
  * return value type returns a value of the type [dynamic].
  *
- * See also:
- * https://github.com/dart-lang/language/pull/941,
- * https://github.com/dart-lang/co19/issues/703
- *
+ * @Issue https://github.com/dart-lang/language/pull/941
+ * @Issue https://github.com/dart-lang/co19/issues/703
  * @Issue 41266,41437,42236,42237
  * @author iarkh@unipro.ru
  */

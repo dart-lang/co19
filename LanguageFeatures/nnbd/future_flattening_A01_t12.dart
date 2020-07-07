@@ -16,16 +16,14 @@
  *       [flatten(T) = S]
  *   otherwise [flatten(T) = T]
  *
- * @description Check that type of [await] expression matches with expected
- * non-nullable legacy types dynamically and the expression cannot be [null].
- * Check that compile error is not thrown if <A> is a legacy class, synchronous
- * function with [Future<A>] return value type returns a value of the type
- * [dynamic].
+ * @description Checks the type of [await] expression: neither compile nor
+ * runtime errors is not thrown in nnbd-weak mode if [A] is a legacy class,
+ * synchronous function returns a value of [Future<A>] type which is set to
+ * [null].
  *
- * See also:
- * https://github.com/dart-lang/language/pull/941,
- * https://github.com/dart-lang/co19/issues/703
- *
+ * @Issue https://github.com/dart-lang/language/pull/941
+ * @Issue https://github.com/dart-lang/co19/issues/703
+ * @Issue https://github.com/dart-lang/co19/issues/785
  * @Issue 41266,41437,42236,42237
  * @author iarkh@unipro.ru
  */
@@ -42,6 +40,5 @@ Future<A> test() async => await getNull();
 
 main() {
   asyncStart();
-  test().then((value) { Expect.fail("Should not reach here!"); },
-      onError:(e) => asyncEnd());
+  test().then((value) => asyncEnd());
 }
