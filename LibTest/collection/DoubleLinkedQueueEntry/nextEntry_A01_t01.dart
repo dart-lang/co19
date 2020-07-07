@@ -16,5 +16,5 @@ main() {
   DoubleLinkedQueueEntry e = new DoubleLinkedQueueEntry(1);
   e.append(2);
 
-  Expect.equals(2, e.nextEntry().element);
+  Expect.equals(2, e.nextEntry()?.element);
 }

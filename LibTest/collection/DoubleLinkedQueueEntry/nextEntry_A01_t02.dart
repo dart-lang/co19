@@ -18,7 +18,7 @@ main() {
   queue.add(2);
   queue.add(3);
 
-  Expect.equals(2, queue.firstEntry().nextEntry().element);
-  Expect.equals(3, queue.firstEntry().nextEntry().nextEntry().element);
-  Expect.isNull(queue.firstEntry().nextEntry().nextEntry().nextEntry());
+  Expect.equals(2, queue.firstEntry()?.nextEntry()?.element);
+  Expect.equals(3, queue.firstEntry()?.nextEntry()?.nextEntry()?.element);
+  Expect.isNull(queue.firstEntry()?.nextEntry()?.nextEntry()?.nextEntry());
 }

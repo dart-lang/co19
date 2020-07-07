@@ -17,10 +17,10 @@ main() {
   queue.add(2);
   queue.add(3);
 
-  var e = queue.firstEntry().nextEntry().remove();
+  var e = queue.firstEntry()?.nextEntry()?.remove();
   Expect.equals(2, e);
   Expect.equals(2, queue.length);
   Expect.equals(1, queue.first);
-  Expect.equals(3, queue.firstEntry().nextEntry().element);
-  Expect.equals(1, queue.lastEntry().previousEntry().element);
+  Expect.equals(3, queue.firstEntry()?.nextEntry()?.element);
+  Expect.equals(1, queue.lastEntry()?.previousEntry()?.element);
 }
