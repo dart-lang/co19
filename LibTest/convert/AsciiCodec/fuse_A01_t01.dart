@@ -26,10 +26,10 @@ check(Codec codec, String toEncode) {
 
 main() {
   AsciiCodec codec = new AsciiCodec();
-  Codec inverted = codec.inverted;
-  Codec fused = codec.fuse(inverted);
+  Codec<List<int>, dynamic> inverted = codec.inverted;
+  Codec<String, dynamic> fused = codec.fuse(inverted);
 
   check(fused, r"Some string 123 !@#$%^&*()_+|");
   check(fused, "");
-  Expect.throws(() {check(fused, "Non-ASCII: Кириллица");});
+  Expect.throws(() { check(fused, "Non-ASCII: Кириллица"); });
 }
