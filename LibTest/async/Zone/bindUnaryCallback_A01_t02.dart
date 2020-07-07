@@ -38,6 +38,6 @@ main() {
 
   ZoneUnaryCallback<int,int> boundCallback =
                                   zone.bindUnaryCallback<int,int>(callback);
-  Expect.throws( () => boundCallback(2), (e) => e=="callback error");
+  Expect.throws( () => boundCallback(2), (e) => e == "callback error");
   Expect.equals(0, handlerCallCount);
 }

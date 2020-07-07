@@ -17,12 +17,11 @@
  * @author ilya
  * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(Zone zone) {
-  Zone actionZone = null;
+  Zone? actionZone = null;
 
   void action() {
     actionZone = Zone.current;

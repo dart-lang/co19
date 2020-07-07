@@ -21,16 +21,16 @@ import "../../../Utils/expect.dart";
 
 main() {
   Zone zone = Zone.current;
-  Zone callbackZone = null;
+  Zone? callbackZone = null;
   void callback(int x, int y) {
     callbackZone = Zone.current;
   }
 
   void Function(int, int) boundCallback =
-                  zone.bindBinaryCallbackGuarded<int, int>(callback);
+      zone.bindBinaryCallbackGuarded<int, int>(callback);
 
   runZoned(() {
-    boundCallback(1,2);
+    boundCallback(1, 2);
   });
   Expect.equals(zone, callbackZone);
 }

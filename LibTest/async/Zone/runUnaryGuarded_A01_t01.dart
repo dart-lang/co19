@@ -11,12 +11,11 @@
  * @description Checks that [action] is run in this zone with provided arg
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(Zone zone) {
-  Zone actionZone = null;
+  Zone? actionZone = null;
 
   void action(String x) {
     actionZone = Zone.current;

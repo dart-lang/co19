@@ -11,17 +11,16 @@
  * is executed in this zone.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(Zone zone) {
-  int count=0;
-  Timer timer;
+  int count = 0;
+  Timer? timer;
 
   asyncStart();
   timer = zone.createPeriodicTimer(new Duration(milliseconds: 10), (_timer) {
-    Expect.equals(timer,_timer);
+    Expect.equals(timer, _timer);
     Expect.equals(zone, Zone.current);
     if (++count > 5) {
       _timer.cancel();

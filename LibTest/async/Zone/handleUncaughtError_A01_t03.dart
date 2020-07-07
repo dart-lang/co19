@@ -10,7 +10,6 @@
  * ZoneSpecification and that correct callback is invoked. 
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -20,7 +19,6 @@ var stackTraces={};
 HandleUncaughtErrorHandler newHandler() {
   int id = ++count;
   return (Zone self, ZoneDelegate parent, Zone zone, e, st) {
-    //print('Error handler #$id');
     Expect.identical(id, e);
     Expect.identical(stackTraces[id], st);
   };

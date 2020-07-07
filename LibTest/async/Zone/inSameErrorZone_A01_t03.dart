@@ -11,12 +11,25 @@
  * @description Checks that errors are handled by the error zone callbacks.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-same () => Expect.isTrue(Zone.current.inSameErrorZone(Zone.current.parent));
-diff () => Expect.isFalse(Zone.current.inSameErrorZone(Zone.current.parent));
+same() {
+  Zone? z = Zone.current.parent;
+  if (z != null) {
+    Expect.isTrue(Zone.current.inSameErrorZone(z));
+  return;
+  }
+  Expect.fail("Zone.current.parent is null");
+}
+
+diff() {
+  Zone? z = Zone.current.parent;
+  if (z != null) {
+    Expect.isFalse(Zone.current.inSameErrorZone(z));
+  return;
+  }
+}
 
 main() {
   runZoned(() {

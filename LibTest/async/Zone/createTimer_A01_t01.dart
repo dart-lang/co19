@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 void test(Zone zone) {
   int count = 0;
-  Timer timer;
+  Timer? timer;
 
   asyncStart();
   timer = zone.createTimer(new Duration(milliseconds: 10), () {

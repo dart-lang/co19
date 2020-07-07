@@ -16,7 +16,6 @@
  * @author ilya
  * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -27,18 +26,15 @@ main() {
     handlerCallCount++;
   }
 
-  Zone zone = Zone.current.fork(
-      specification: new ZoneSpecification(
-        handleUncaughtError: handler
-      )
-  );
+  Zone zone = Zone.current
+      .fork(specification: new ZoneSpecification(handleUncaughtError: handler));
 
   int callback(int x, int y) {
     throw "callback error";
   }
 
-  ZoneBinaryCallback<int,int,int> boundCallback =
-                              zone.bindBinaryCallback<int,int,int>(callback);
-  Expect.throws(() => boundCallback(1,2), (e) => e=="callback error");
+  ZoneBinaryCallback<int, int, int> boundCallback =
+      zone.bindBinaryCallback<int, int, int>(callback);
+  Expect.throws(() => boundCallback(1, 2), (e) => e == "callback error");
   Expect.equals(0, handlerCallCount);
 }

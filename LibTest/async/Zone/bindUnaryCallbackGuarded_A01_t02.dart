@@ -17,7 +17,6 @@
  * @description Checks that synchronous [callback] errors are caught in zone.
  * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 

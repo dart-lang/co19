@@ -11,7 +11,6 @@
  * in zone.
  * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -22,19 +21,14 @@ main() {
     handlerCallCount++;
   }
 
-  Zone zone = Zone.current.fork(
-      specification: new ZoneSpecification(
-          handleUncaughtError: handler
-      )
-  );
+  Zone zone = Zone.current
+      .fork(specification: new ZoneSpecification(handleUncaughtError: handler));
 
   int action(String x) {
     throw "action error";
   }
 
-  Expect.throws(
-          () => zone.runUnary<int, String>(action, "2"),
-          (e) => e=="action error"
-  );
+  Expect.throws(() => zone.runUnary<int, String>(action, "2"),
+      (e) => e == "action error");
   Expect.equals(0, handlerCallCount);
 }

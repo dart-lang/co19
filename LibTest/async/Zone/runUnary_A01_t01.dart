@@ -10,7 +10,6 @@
  * @description Checks that [action] is run in this zone with provided arg.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -22,7 +21,6 @@ void test(Zone zone) {
     },
     1
   );
-
   Expect.equals(1, result);
 }
 

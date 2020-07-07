@@ -11,7 +11,6 @@
  * @description Check that operator[] returns expected values.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -22,7 +21,7 @@ main() {
     Zone.current.fork(zoneValues: {#a:11}).run(() {
       Expect.equals(11, Zone.current[#a]);
       Expect.equals(2, Zone.current[#b]);
-      Expect.equals(1, Zone.current.parent[#a]);
+      Expect.equals(1, Zone.current.parent![#a]);
       Expect.isNull(Zone.current[#c]);
     });
   });

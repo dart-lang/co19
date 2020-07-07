@@ -12,11 +12,10 @@
  * same handleUncaughtError callback and false otherwise. Async cases.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-var count=0;
+var count = 0;
 
 HandleUncaughtErrorHandler newHandler() {
   return (Zone self, ZoneDelegate parent, Zone zone, e, st) {
@@ -24,18 +23,18 @@ HandleUncaughtErrorHandler newHandler() {
   };
 }
 
-newErrorZone (Zone z) =>
-  z.fork(specification: new ZoneSpecification(handleUncaughtError: newHandler()));
+newErrorZone(Zone z) => z.fork(
+    specification: new ZoneSpecification(handleUncaughtError: newHandler()));
 
 main() {
   var z = Zone.current;
 
-  same ([_]) {
+  same([_]) {
     Expect.isTrue(Zone.current.inSameErrorZone(z));
     asyncEnd();
   }
 
-  diff ([_]) {
+  diff([_]) {
     Expect.isFalse(Zone.current.inSameErrorZone(z));
     asyncEnd();
   }
@@ -55,4 +54,3 @@ main() {
   asyncStart();
   newErrorZone(z).scheduleMicrotask(diff); // child is new error zone
 }
-

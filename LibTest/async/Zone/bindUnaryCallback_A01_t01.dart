@@ -16,13 +16,12 @@
  * @author ilya
  * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
   Zone zone = Zone.current;
-  Zone callbackZone = null;
+  Zone? callbackZone = null;
 
   int callback(int x) {
     callbackZone = Zone.current;
@@ -32,7 +31,7 @@ main() {
   ZoneUnaryCallback<int, int> boundCallback =
                                     zone.bindUnaryCallback<int, int>(callback);
 
-  int result = null;
+  int? result = null;
   runZoned(() {
     result = boundCallback(3);
   });

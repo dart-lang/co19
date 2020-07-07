@@ -9,7 +9,6 @@
  * @description Checks that member function print exists that accepts String
  * @author ilya
  */
-
 import "dart:async";
 
 main() {

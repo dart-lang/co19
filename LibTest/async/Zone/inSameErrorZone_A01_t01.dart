@@ -12,11 +12,10 @@
  * same handleUncaughtError callback and false otherwise.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-var count=0;
+var count = 0;
 
 HandleUncaughtErrorHandler newHandler() {
   return (Zone self, ZoneDelegate parent, Zone zone, e, st) {
@@ -24,29 +23,41 @@ HandleUncaughtErrorHandler newHandler() {
   };
 }
 
-newErrorZone (Zone z) =>
-  z.fork(specification: new ZoneSpecification(handleUncaughtError: newHandler()));
+newErrorZone(Zone z) => z.fork(
+    specification: new ZoneSpecification(handleUncaughtError: newHandler()));
 
-same () => Expect.isTrue(Zone.current.inSameErrorZone(Zone.current.parent));
-diff () => Expect.isFalse(Zone.current.inSameErrorZone(Zone.current.parent));
+same() {
+  Zone? z = Zone.current.parent;
+  if (z != null) {
+    Expect.isTrue(Zone.current.inSameErrorZone(z));
+    return;
+  }
+  Expect.fail("Zone.current.parent is null");
+}
+
+diff() {
+  Zone? z = Zone.current.parent;
+  if (z != null) {
+    Expect.isFalse(Zone.current.inSameErrorZone(z));
+    return;
+  }
+}
 
 main() {
   var z = Zone.current;
 
-  runZoned(same);     // both do not have error callback
+  runZoned(same); // both do not have error callback
   z.fork().run(same); //
 
   newErrorZone(z).run(() {
-    runZoned(same);     // parent is error zone, child is not and shares callback
+    runZoned(same); // parent is error zone, child is not and shares callback
     z.fork().run(same); //
   });
-  
-  runZoned(diff, onError: (_,__) {}); // child is new error zone
-  newErrorZone(z).run(diff);          // child is new error zone
 
+  runZoned(diff, onError: (_, __) {}); // child is new error zone
+  newErrorZone(z).run(diff); // child is new error zone
 
   newErrorZone(z).run(() {
     newErrorZone(Zone.current).run(diff); // have different error callbacks
   });
 }
-

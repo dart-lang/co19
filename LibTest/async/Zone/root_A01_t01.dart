@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion static const Zone ROOT
+ * @assertion static const Zone root
  * The root zone that is implicitly created.
- * @description Checks that propery ROOT is of type Zone.
+ * @description Checks that property root is of type Zone.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 

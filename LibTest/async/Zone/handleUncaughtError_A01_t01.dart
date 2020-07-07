@@ -9,7 +9,6 @@
  * @description Checks that zone's error callback is invoked.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -19,7 +18,7 @@ var stackTrace;
 void test() {
   try {
     throw error;
-  } catch (e,st) {
+  } catch (e, st) {
     stackTrace = st;
     Zone.current.handleUncaughtError(e, st);
   }

@@ -16,19 +16,18 @@
  * @author ilya
  * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
   Zone zone = Zone.current;
-  Zone callbackZone = null;
+  Zone? callbackZone = null;
 
   ZoneCallback<int> boundCallback = zone.bindCallback<int>(() {
     callbackZone = Zone.current;
     return 1;
   });
-  int result = null;
+  int? result = null;
   runZoned(() {
     result = boundCallback();
   });
