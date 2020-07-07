@@ -26,8 +26,8 @@ check(Codec codec, List<int> toEncode) {
 
 main() {
   Base64Codec codec = new Base64Codec();
-  Codec inverted = codec.inverted;
-  Codec fused = codec.fuse(inverted);
+  Codec<String, dynamic> inverted = codec.inverted;
+  Codec<List<int>, dynamic> fused = codec.fuse(inverted);
   for (int i = 0; i < 256; i++) {
     check(fused, [i]);
   }
