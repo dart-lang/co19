@@ -125,14 +125,13 @@ void generateTests(Directory testCasesDir, Directory testTypesDir,
   }
   int generatedCount = 0;
   for (int i = 0; i < testTypes.length; i++) {
-    File testType = testTypes[i];
+    File testType = testTypes[i] as File;
     bool isFailTest = isFail(testType);
     String testTypeText = testType.readAsStringSync();
     List<String> testTypeTextStrings = testTypeText.split("\n");
-    Map<String, String> replacement = null;
     bool hasMainFunc = hasMain(testTypeTextStrings);
     bool isGenericFunctionType = findIsGenericFunctionType(testTypeTextStrings);
-    replacement = findReplacements(testTypeTextStrings);
+    Map<String, String> replacement = findReplacements(testTypeTextStrings);
     if (replacement.length == 0) {
       continue;
     }
@@ -140,7 +139,7 @@ void generateTests(Directory testCasesDir, Directory testTypesDir,
       testTypeTextStrings = addImport(testTypeTextStrings, isFailTest);
     }
     for (int j = 0; j < testCases.length; j++) {
-      File testCase = testCases[j];
+      File testCase = testCases[j] as File;
       if (isFailTest) {
         if (!isFail(testCase)) {
           continue;
@@ -160,7 +159,7 @@ void generateTests(Directory testCasesDir, Directory testTypesDir,
           getGeneratedFileComment(testType, testCase));
       testCaseText = removeHeader(testCaseText);
       testTypeText = removeHeader(testTypeText);
-      String generatedTestText = null;
+      String generatedTestText = "";
       if (hasMainFunc) {
         String beforeMain = getBeforeMain(testCaseText);
         String mainContent = getMainContent(testCaseText);
@@ -253,7 +252,7 @@ String getComment(String text, int index) {
   if (start > -1 && end > -1) {
     return text.substring(start, end + 2);
   }
-  return null;
+  return "";
 }
 
 String getGeneratedTestHeader(String testTypeText, String testCaseText, String text) {
@@ -318,7 +317,10 @@ String removeNotGenericFunctionTypePart(bool isGenericFunctionType, String text)
 
 String replace(String text, Map<String, String> replacement) {
   replacement.keys.toList().forEach((String Ti) {
-    text = text.replaceAll(Ti, replacement[Ti]);
+    String? repl = replacement[Ti];
+    if (repl != null) {
+      text = text.replaceAll(Ti, repl);
+    }
   });
   return text;
 }
@@ -338,8 +340,8 @@ File getGeneratedTestFile(File testType, File testCase, Directory outputDir) {
   String testCasePrefix = testCaseName.substring(0, index);
   String testCaseSuffix = testCaseName.substring(index).replaceFirst("x", "t");
 
-  String generatedTestName = null;
-  File generatedFile = null;
+  String generatedTestName = "";
+  File? generatedFile = null;
   String testNameSuffix2 = "";
   for (int i = 1;;i++) {
     generatedTestName = testNamePrefix + "_" + testCasePrefix +
