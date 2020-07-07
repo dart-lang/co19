@@ -13,7 +13,7 @@
 import "dart:collection";
 import "../Queue/all_tests.lib.dart";
 
-DoubleLinkedQueue create([Iterable content]) {
+DoubleLinkedQueue create([Iterable? content]) {
   DoubleLinkedQueue res = new DoubleLinkedQueue();
   if (content != null) {
     res.addAll(content);

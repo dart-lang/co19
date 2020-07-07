@@ -9,7 +9,6 @@
  * @description checks that an Error is thrown if n is negative.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

@@ -10,7 +10,6 @@
  * is returned.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "dart:math" as Math;
 import "../../../Utils/expect.dart";

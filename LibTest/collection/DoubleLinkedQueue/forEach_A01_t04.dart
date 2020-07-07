@@ -13,8 +13,8 @@ import "../../../Utils/expect.dart";
 import "dart:collection";
 
 main() {
-  List list = new List();
-  List result = new List(100);
+  List list = new List.empty(growable: true);
+  List result = new List.filled(100, 0);
   DoubleLinkedQueue queue = new DoubleLinkedQueue();
 
   for(int i = 0; i < 100; i++) {

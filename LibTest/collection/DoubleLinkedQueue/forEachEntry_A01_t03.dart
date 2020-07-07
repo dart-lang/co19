@@ -8,7 +8,6 @@
  * @description Checks that exception thrown in [f] breaks the iteration.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

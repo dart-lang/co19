@@ -10,7 +10,6 @@
  * @description Checks that proper list with correct element order is created.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
@@ -19,7 +18,7 @@ void checkEquals(Iterable expected, List actual) {
   Iterator it = expected.iterator;
   var i = 0;
   while (it.moveNext()) {
-    Object o = it.current;
+    Object? o = it.current;
     Expect.identical(actual[i], o);
     Expect.isTrue(actual[i] == o);
     i++;

@@ -20,7 +20,7 @@ import "../../../Utils/expect.dart";
 void check(Iterable a) {
   int count = 0;
   Iterable expanded = a.expand((element) {
-    List res = new List();
+    List res = new List.empty(growable: true);
     for (int k = 0; k < element; k++) {
       res.add(k);
       count++;

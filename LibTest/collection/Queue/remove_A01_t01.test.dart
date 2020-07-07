@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 test(Queue create([Iterable content])) {
 
-  check(List a, Object value, List expected) {
+  check(List a, Object? value, List expected) {
     Queue queue = create(a);
     queue.remove(value);
 

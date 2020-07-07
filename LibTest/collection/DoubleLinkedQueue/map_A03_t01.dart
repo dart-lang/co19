@@ -13,17 +13,16 @@
  * element.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-List<int> visited=new List<int>(200);
+List<int> visited = new List<int>.filled(200, 0);
 
 int f(int element) {
   visited[element]++;
   return element;
 }
-  
+
 void checkResult(DoubleLinkedQueue<int> queue, int expected) {
   int count = 0;
   Iterable<int> mapIter = queue.map(f);

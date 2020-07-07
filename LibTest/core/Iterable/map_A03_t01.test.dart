@@ -16,7 +16,7 @@
 library map_A03_t01;
 import "../../../Utils/expect.dart";
 
-List<int> visited = new List<int>(200);
+List<int> visited = new List<int>.filled(200, 0);
 
 f(var element) {
   int index;
@@ -43,7 +43,7 @@ void checkResult(Iterable a, int expected) {
 }
 
 test(Iterable create([Iterable content])) {
-  List l = new List();
+  List l = new List.empty(growable: true);
   for (int k = 0; k < 200; k++) {
     l.add(k);
     visited[k] = 0;

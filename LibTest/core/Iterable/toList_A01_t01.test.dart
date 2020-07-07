@@ -19,7 +19,7 @@ void checkEquals(Iterable expected, List actual) {
   Iterator it = expected.iterator;
   var i = 0;
   while (it.moveNext()) {
-    Object o = it.current;
+    Object? o = it.current;
     Expect.identical(actual[i], o);
     Expect.isTrue(actual[i] == o);
     i++;
@@ -40,7 +40,7 @@ test(Iterable create([Iterable content])) {
   a = src.toList();
   checkEquals(src, a);
 
-  List lst = new List(34567);
+  List lst = new List.filled(34567, 0);
   lst[34566] = -111111111;
   src = create(lst);
   a = src.toList();

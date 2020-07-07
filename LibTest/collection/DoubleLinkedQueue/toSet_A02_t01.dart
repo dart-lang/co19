@@ -12,7 +12,6 @@
  * @description Checks that proper Set is created.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

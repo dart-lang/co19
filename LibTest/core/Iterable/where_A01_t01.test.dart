@@ -29,10 +29,7 @@ test(Iterable create([Iterable content])) {
   check([-1, 0, 1, 2, 3, 4], f, [2, 3, 4]);
 
   bool f2(var e) { return (e == -123); }
-  List l = new List(100);
-  for (int i = 0; i < l.length; i++) {
-    l[i] = 0;
-  }
+  List l = new List.filled(100, 0);
   l[99] = -123;
   check(l, f2, [-123]);
   

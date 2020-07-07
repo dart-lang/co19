@@ -15,11 +15,11 @@ main() {
   DoubleLinkedQueue queue = new DoubleLinkedQueue();
   
   queue.addFirst(1);
-  Expect.isTrue(queue.firstEntry().element == 1);
+  Expect.isTrue(queue.firstEntry()?.element == 1);
   
   queue.addLast(2);
-  Expect.isTrue(queue.firstEntry().element == 1);
+  Expect.isTrue(queue.firstEntry()?.element == 1);
   
   queue.addFirst(null);
-  Expect.isTrue(queue.firstEntry().element == null);
+  Expect.isTrue(queue.firstEntry()?.element == null);
 }

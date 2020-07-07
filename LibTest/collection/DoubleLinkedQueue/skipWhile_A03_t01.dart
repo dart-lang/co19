@@ -11,13 +11,12 @@
  * tested and satisfy the test, or are returned by the iterator.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
 void check(List a0, bool test0(var element)) {
   DoubleLinkedQueue queue = new DoubleLinkedQueue.from(a0);
-  List all;
+  List all = [];
   bool test(var element) {
     bool res = test0(element);
     if (res) {
@@ -25,14 +24,15 @@ void check(List a0, bool test0(var element)) {
     }
     return res;
   }
-  Iterable itbl=queue.skipWhile(test);
-  
+
+  Iterable itbl = queue.skipWhile(test);
+
   for (int k = 0; k < 5; k++) {
     all = [];
     Iterator it = itbl.iterator;
     while (it.moveNext()) {
       all.add(it.current);
-    }  
+    }
     Expect.listEquals(a0, all);
   }
 }

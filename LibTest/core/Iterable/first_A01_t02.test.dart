@@ -25,7 +25,7 @@ test(Iterable create([Iterable content]), {bool isSet: false}) {
     a = create([head, 1]);
     Expect.equals(head, a.first);
 
-    List b = new List(1000);
+    List b = new List.filled(1000, null);
     b[0] = head;
     b[999] = "top";
     a = create(b);

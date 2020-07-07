@@ -11,7 +11,6 @@
  * elements of this.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

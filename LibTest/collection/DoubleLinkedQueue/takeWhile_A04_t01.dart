@@ -10,7 +10,6 @@
  * stops (its [moveNext()] returns [false]).
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

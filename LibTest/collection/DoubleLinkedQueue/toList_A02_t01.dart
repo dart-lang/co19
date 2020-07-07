@@ -10,13 +10,12 @@
  * its size.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
 void check(List l) {
   int len = l.length;
-  l.add(null);
+  l.add(42);
   Expect.equals(len + 1, l.length);
 
   l.clear();

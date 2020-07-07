@@ -8,7 +8,6 @@
  * @description Checks that length is read-only property and cannot be changed
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

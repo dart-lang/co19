@@ -10,7 +10,6 @@
  * and elements after are retained.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

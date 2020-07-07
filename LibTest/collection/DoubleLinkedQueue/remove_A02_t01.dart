@@ -11,7 +11,6 @@
  * removed from the queue.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
@@ -34,7 +33,7 @@ main() {
   check([], 1, false);
   check([1], 1, true);
   check(new List.from([]), true, false);
-  check(new List(), 2, false);
+  check(new List.empty(), 2, false);
   check(new  List.from([2]), 2, true);
   check(new  List.from([2, 2, 2]), 2, true);
 }

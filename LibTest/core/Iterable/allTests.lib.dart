@@ -97,7 +97,7 @@ import "where_A02_t01.test.dart" as where_A02_t01;
 import "where_A03_t01.test.dart" as where_A03_t01;
 import "where_A04_t01.test.dart" as where_A04_t01;
 
-test(Iterable create([Iterable content]), {bool isSet:false}) {
+test(Iterable create([Iterable? content]), {bool isSet:false}) {
   any_A01_t01.test(create);
   any_A01_t02.test(create);
   any_A01_t03.test(create);

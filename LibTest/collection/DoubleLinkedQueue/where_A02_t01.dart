@@ -10,7 +10,6 @@
  * @description Checks that filtering happens lazily.
  * @author iarkh@unipro.ru
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

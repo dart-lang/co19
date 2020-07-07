@@ -15,7 +15,7 @@ library iterator_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(Iterator create([Iterable content]), {bool isSet: false}) {
+test(Iterator create([Iterable? content]), {bool isSet: false}) {
   void checkIterator(Iterator it, Iterable a) {
     List l = new List.from(a);
     while (it.moveNext()) {
@@ -31,11 +31,11 @@ test(Iterator create([Iterable content]), {bool isSet: false}) {
         create(const [null, 0, 1, const []]), const [null, 0, 1, const []]);
     List l = new List.filled(300, 0);
     checkIterator(create(l), l);
-    l = new List(300);
+    l = new List.filled(300, null);
     checkIterator(create(l), l);
   }
 
-  List a = new List(365);
+  List a = new List.filled(365, 0);
   for (var i = 0; i < a.length; i++) {
     a[i] = i;
   }

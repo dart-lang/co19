@@ -10,7 +10,6 @@
  * queue and it does not affect another elements
  * @author iarkh@unipro.ru
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

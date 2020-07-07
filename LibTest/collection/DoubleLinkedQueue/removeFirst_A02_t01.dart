@@ -9,7 +9,6 @@
  * @description Checks that exception is thrown if the queue is empty.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

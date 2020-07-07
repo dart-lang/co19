@@ -14,16 +14,16 @@
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-int count=0;
+int count = 0;
 
 Iterable f(int element) {
-   count++;
-   return [count];   
+  count++;
+  return [count];
 }
 
 main() {
   DoubleLinkedQueue<int> queue = new DoubleLinkedQueue<int>();
-  
+
   for (int k = 0; k < 10; k++) {
     queue.add(k);
   }
@@ -32,11 +32,10 @@ main() {
   int count2 = 0;
 
   for (int k = 1; k < 10; k++) {
-    Iterator it=expanded.iterator;
+    Iterator it = expanded.iterator;
     while (it.moveNext()) {
       count2++;
       Expect.equals(count2, it.current);
     }
   }
-  
 }

@@ -11,17 +11,22 @@
  * @author iefremov
  */
 library where_A01_t03;
- 
+
 import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content])) {
-  Iterable a = create([]).where((var v){return true;});
+  Iterable a = create([]).where((var v) {
+    return true;
+  });
   Iterator it = a.iterator;
-  while(it.moveNext()) {}
+  while (it.moveNext()) {}
   Expect.isTrue(a.isEmpty);
-  
-  a = create([]).where((var v){Expect.fail("Should not be executed");});
+
+  a = create([]).where((var v) {
+    Expect.fail("Should not be executed");
+    return false;
+  });
   it = a.iterator;
-  while(it.moveNext()) {}
+  while (it.moveNext()) {}
   Expect.isTrue(a.isEmpty);
 }

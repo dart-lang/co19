@@ -26,7 +26,7 @@ test(Iterable create([Iterable content])) {
     }
   }
   check([]);
-  List a = new List();
+  List a = new List.empty(growable: true);
   check(a);
   a.add(0);
   check(a);

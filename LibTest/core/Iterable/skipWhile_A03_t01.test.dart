@@ -15,7 +15,7 @@ library skipWhile_A03_t01;
 import "../../../Utils/expect.dart"	;
 
 void check(Iterable a0, bool test0(var element)) {
-  List all;
+  List all = new List.empty(growable: true);
   bool tst(var element) {
     bool res = test0(element);
     if (res) {

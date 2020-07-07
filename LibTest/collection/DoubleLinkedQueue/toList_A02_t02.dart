@@ -10,11 +10,10 @@
  * change its size.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-List<String> failures=new List<String>();
+List<String> failures = new List<String>.empty(growable: true);
  
 check(List l) {
   Expect.throws (() {

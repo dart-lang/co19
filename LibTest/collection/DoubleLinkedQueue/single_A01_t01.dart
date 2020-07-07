@@ -10,7 +10,6 @@
  * Checks that if this is empty or has more than one element throws a StateError.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

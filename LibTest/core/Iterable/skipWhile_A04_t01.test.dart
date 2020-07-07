@@ -17,14 +17,14 @@ library skipWhile_A04_t01;
 import "../../../Utils/expect.dart"	;
 
 void check(Iterable a0, bool test0(var element)) {
-  bool testPassed = null;
+  bool? testPassed = null;
   bool tst(var element) {
-    Expect.isTrue(testPassed == null || testPassed,
+    Expect.isTrue(testPassed == null || testPassed!,
         "testPassed=$testPassed for element=$element");
     return testPassed = !test0(element);
   }
   for (var element in a0.skipWhile(tst)) {
-    Expect.isTrue(testPassed == null || !testPassed);
+    Expect.isTrue(testPassed == null || !testPassed!);
   }  
 }
 

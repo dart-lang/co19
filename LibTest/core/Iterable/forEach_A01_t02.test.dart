@@ -12,6 +12,5 @@
 library forEach_A01_t02;
 
 test(Iterable create([Iterable content])) {
-  create([]).forEach(null);
   create([]).forEach((var v){});
 }

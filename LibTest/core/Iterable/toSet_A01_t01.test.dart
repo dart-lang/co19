@@ -35,7 +35,7 @@ test(Iterable create([Iterable content])) {
   a = src.toSet();
   checkEquals(src, a);
 
-  List lst = new List(34);
+  List lst = new List.filled(34, null);
   lst[32] = -111111111;
   src = create(lst);
   a = src.toSet();

@@ -21,7 +21,7 @@ main() {
     list.addLast(i);
   }
   
-  List a = new List(100);
+  List a = new List.filled(100, 0);
   list.every((var element) {
     a[element] = element;
     return true;

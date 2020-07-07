@@ -10,7 +10,6 @@
  * @description Checks that the result is correct for simple functions.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "dart:math";
 import "../../../Utils/expect.dart";

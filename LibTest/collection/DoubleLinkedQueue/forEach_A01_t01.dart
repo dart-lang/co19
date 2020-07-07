@@ -10,7 +10,6 @@
  * @description Checks that [forEach()] iterates over each element of the queue.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
@@ -21,7 +20,7 @@ main() {
     queue.addLast(i);
   }
   
-  List a = new List(100);
+  List a = new List.filled(100, 0);
   
   queue.forEach((var element) {
     a[element] = element;

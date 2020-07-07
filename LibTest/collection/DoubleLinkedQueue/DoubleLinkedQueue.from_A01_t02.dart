@@ -16,10 +16,12 @@ import "dart:collection";
 
 class CustomIterator<T> implements Iterator<T> {
   CustomIterator(List<T> list)
-      :_array = list, _length = list.length, _pos = -1 { }
+      : _array = list,
+        _length = list.length,
+        _pos = -1 {}
 
   bool moveNext() {
-    if(_pos + 1 < _length) {
+    if (_pos + 1 < _length) {
       _pos++;
       return true;
     } else {
@@ -32,7 +34,7 @@ class CustomIterator<T> implements Iterator<T> {
       throw new StateError("No element selected yet, use moveNext()");
     }
 
-    if(_pos >= _length) {
+    if (_pos >= _length) {
       throw new StateError("Impossible: current position >= length.");
     }
 
@@ -45,17 +47,12 @@ class CustomIterator<T> implements Iterator<T> {
 }
 
 class IterableClass extends IterableBase {
-  List internalArray;
-
-  IterableClass() {
-    internalArray = [1, 2, 3];
-  }
+  List internalArray = [1, 2, 3];
 
   Iterator get iterator {
     return new CustomIterator(internalArray);
   }
 }
-
 
 void check(DoubleLinkedQueue l, Iterable c) {
   Expect.equals(l.length, c.length);
@@ -69,6 +66,6 @@ main() {
   check(list, [1, 2, 3]);
 
   IterableClass copy = new IterableClass();
-  copy.internalArray = [null,null,"sdsd",copy];
-  check(new DoubleLinkedQueue.from(copy), [null,null,"sdsd",copy]);
+  copy.internalArray = [null, null, "sdsd", copy];
+  check(new DoubleLinkedQueue.from(copy), [null, null, "sdsd", copy]);
 }

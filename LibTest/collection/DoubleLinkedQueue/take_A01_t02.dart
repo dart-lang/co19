@@ -10,7 +10,6 @@
  * method is not called when [take] is executed.
  * @author iarkh@unipro.ru
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

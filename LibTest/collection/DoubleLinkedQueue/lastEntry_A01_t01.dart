@@ -15,14 +15,14 @@ main() {
   DoubleLinkedQueue queue = new DoubleLinkedQueue();
   
   queue.addFirst(1);
-  Expect.isTrue(queue.lastEntry().element == 1);
+  Expect.isTrue(queue.lastEntry()?.element == 1);
   
   queue.addLast(2);
-  Expect.isTrue(queue.lastEntry().element == 2);
+  Expect.isTrue(queue.lastEntry()?.element == 2);
   
   queue.addFirst(null);
-  Expect.isTrue(queue.lastEntry().element == 2);
+  Expect.isTrue(queue.lastEntry()?.element == 2);
   
   queue.addLast(22);
-  Expect.isTrue(queue.lastEntry().element == 22);
+  Expect.isTrue(queue.lastEntry()?.element == 22);
 }

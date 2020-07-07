@@ -9,7 +9,6 @@
  * @description Checks that exactly the first element is removed and returned.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

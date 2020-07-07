@@ -10,7 +10,6 @@
  * none matches.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
@@ -21,7 +20,7 @@ check(List list) {
 }
 
 main() {
-  check(new List());
+  check(new List.empty());
   check([]);
   check(const[]);
   check(new List.from([]));
