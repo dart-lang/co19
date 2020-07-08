@@ -33,9 +33,9 @@ check(HashMap map, Map expected, List unexistent) {
 
 main() {
   HashMap map = new HashMap(
-      equals: (Object key1, Object key2) => true,
+      equals: (Object? key1, Object? key2) => true,
       hashCode: (e) => e,
-      isValidKey: (Object key) => key is int && key > 0);
+      isValidKey: (Object? key) => key is int && key > 0);
 
   map.addAll({0 : 0, 1 : 0, 2 : 12, -3 : 0, -4 : 0});
   check(map, {1 : 0, 2 : 12}, [0, -3, -4, null, 3, 4, 5, 6, 7]);

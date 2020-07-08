@@ -31,17 +31,17 @@ check(HashMap map, Map expected, List unexistent) {
 main() {
   HashMap map = new HashMap();
   Map aMap = new Map();
-  List unexist = new List();
+  List unexist = new List.empty(growable: true);
 
-  for (int i = 0; i <= 40; i+=2) {
+  for (int i = 0; i <= 40; i += 2) {
     aMap.putIfAbsent (i, () => i);
-    unexist.add(i+1);
+    unexist.add(i + 1);
     map.putIfAbsent(i, () => i);
     check(map, aMap, unexist);
   }
 
-  for (int i = 0; i <= 40; i+=2) {
-    unexist.add(i+1);
+  for (int i = 0; i <= 40; i += 2) {
+    unexist.add(i + 1);
     map.putIfAbsent(i, () => i + 1); // nothing should be actually added
     check(map, aMap, unexist);
   }

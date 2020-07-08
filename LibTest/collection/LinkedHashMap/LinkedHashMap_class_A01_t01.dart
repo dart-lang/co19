@@ -10,9 +10,9 @@
  * @author kaigorodov
  */
 import "dart:collection";
-import "../HashMap/inherited_tests.lib.dart";
+import "../../core/Map/allTests_A01_t01.lib.dart";
 
-Map create([Map content]) {
+Map create([Map? content]) {
   if (content == null) {
     return new LinkedHashMap();
   } else {

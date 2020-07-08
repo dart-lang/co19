@@ -15,10 +15,8 @@ import "../../../Utils/expect.dart";
 
 test(Map create([Map content])) {
   
-  List keys = new List(2);
-  keys[0] = 0;
-  keys[1] = 0;
-  List values = new List(2);
+  List keys = new List.filled(2, 0);
+  List values = new List.filled(2, 0);
   void f(var i, var value) {
     keys[i] += 1;
     values[i] = value;

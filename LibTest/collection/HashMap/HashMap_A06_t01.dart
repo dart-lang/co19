@@ -38,7 +38,7 @@ main() {
   Expect.equals(0, i);
   j = map.containsKey("string");
   Expect.equals(0, i);
-  int k = map["abcd"];
+  int? k = map["abcd"];
   Expect.equals(0, i);
   map.remove([]);
   Expect.equals(0, i);

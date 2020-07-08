@@ -26,8 +26,8 @@ check(HashMap map, Map expected, List unexistent) {
 main() {
   Map aMap = {0 : 0, 1 : 0, 2 : 0, -3 : 0, -4 : 0, "testme" : 0, null : 0};
 
-  HashMap map = new HashMap(
-      equals: (Object key1, Object key2) => true,
+  HashMap<Object?, Object> map = new HashMap(
+      equals: (Object? key1, Object? key2) => true,
       hashCode: (dynamic e) => 12345);
 
   map.putIfAbsent(0, () => 0);

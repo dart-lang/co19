@@ -32,7 +32,7 @@ int hashCode(dynamic key) {
   return key;
 }
 
-bool isValidKey(Object key) {
+bool isValidKey(Object? key) {
   sequence = sequence + "i";
   return key is int && key > 0;
 }

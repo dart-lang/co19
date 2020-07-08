@@ -22,7 +22,6 @@ import "forEach_A01_t06.test.dart" as forEach_A01_t06;
 import "forEach_A01_t08.test.dart" as forEach_A01_t08;
 import "forEach_A02_t01.test.dart" as forEach_A02_t01;
 import "putIfAbsent_A01_t01.test.dart" as putIfAbsent_A01_t01;
-import "putIfAbsent_A01_t06.test.dart" as putIfAbsent_A01_t06;
 import "putIfAbsent_A01_t09.test.dart" as putIfAbsent_A01_t09;
 import "putIfAbsent_A01_t10.test.dart" as putIfAbsent_A01_t10;
 
@@ -50,7 +49,6 @@ test(Map create([Map content])) {
   forEach_A01_t08.test(create);
   forEach_A02_t01.test(create);
   putIfAbsent_A01_t01.test(create);
-  putIfAbsent_A01_t06.test(create);
   putIfAbsent_A01_t09.test(create);
   putIfAbsent_A01_t10.test(create);
   

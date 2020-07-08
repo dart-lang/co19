@@ -27,7 +27,7 @@ main() {
   List list = [0, 1, 2, -3, -4, "testme", null];
 
   HashMap map = new HashMap(
-      equals: (Object key1, Object key2) => false,
+      equals: (Object? key1, Object? key2) => false,
       hashCode: (dynamic e) => 12345);
 
   map.putIfAbsent(0, () => 0);
