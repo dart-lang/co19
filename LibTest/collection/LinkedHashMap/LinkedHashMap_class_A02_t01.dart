@@ -25,7 +25,7 @@ checkOrder(LinkedHashMap map, List list, dynamic key, dynamic value) {
 
 main() {
   LinkedHashMap map = new LinkedHashMap();
-  List list = new List();
+  List list = new List.empty(growable: true);
   checkOrder(map, list, 0, 1);
   checkOrder(map, list, 2, 2);
   checkOrder(map, list, "test", 3);
