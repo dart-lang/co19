@@ -12,12 +12,16 @@
  * @author kaigorodov
  */
 import "dart:collection";
-import "inherited_tests.lib.dart" as allTests;
+import "../../core/Iterable/allTests.lib.dart" as iterator_tests;
+
+test(Iterable create([Iterable? content]), {bool isSet:false}) {
+  iterator_tests.test(create, isSet:isSet);
+}
 
 class MyIterable extends IterableBase {
   List _content;
 
-  MyIterable(): _content = new List();
+  MyIterable(): _content = new List.empty(growable: true);
 
   MyIterable.from(Iterable content): _content = new List.from(content);
 
@@ -26,7 +30,7 @@ class MyIterable extends IterableBase {
   }
 }
     
-IterableBase create([Iterable content]) {
+IterableBase create([Iterable? content]) {
   if (content == null) {
     return new MyIterable();
   } else {
@@ -35,5 +39,5 @@ IterableBase create([Iterable content]) {
 }  
 
 main() {
-  allTests.test(create);
+  test(create);
 }
