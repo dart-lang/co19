@@ -10,8 +10,8 @@
  * considered accessible (and hence which take precedence over extensions) are
  * the members on Object.
  *
- * @description Check that instance members have precedence over extension
- * members of nullable type
+ * @description Check that instance members have no precedence over extension
+ * members of nullable type (if they are not members of Object)
  * @author sgrekhov@unipro.ru
  * @issue 41349
  */
@@ -26,8 +26,9 @@ class C {
   void set setter(String v) {
     m = v;
   }
+
   String method(int i) => "$i";
-  void operator[]=(int index, String value) {
+  void operator []=(int index, String value) {
     m = "[$index]=$value";
   }
 }
@@ -38,17 +39,17 @@ extension on C? {
   void set setter(String v) {}
   void set m(String v) {}
   String method(int i) => "Extension: $i";
-  void operator[]=(int index, String value) {}
+  void operator []=(int index, String value) {}
 }
 
 main() {
   C? c = new C();
-  Expect.equals("C getter", c.getter);
+  Expect.equals("Extension getter", c.getter);
   c.m = "Lily was here";
-  Expect.equals("Lily was here", c.m);
+  Expect.equals("m getter", c.m);
   c.setter = "Run, Forrest, run";
-  Expect.equals("Run, Forrest, run", c.m);
-  Expect.equals("42", c.method(42));
-  c[42]="xxx";
-  Expect.equals("[42]=xxx", c.m);
+  Expect.equals("m getter", c.m);
+  Expect.equals("Extension: 42", c.method(42));
+  c[42] = "xxx";
+  Expect.equals("m getter", c.m);
 }
