@@ -8,7 +8,7 @@
  * An unordered collection of key-value pairs, from which you retrieve a value
  * by using its associated key.
  * Each key must be unique. Null values are supported, but null keys are not.
- * @description Checks thet the map works correctly with hashcode collisions.
+ * @description Checks that the map works correctly with hashcode collisions.
  * @author msyabro
  */
 import "../../../Utils/expect.dart";

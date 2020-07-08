@@ -14,7 +14,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Map<String, Object> map = new Map<String, Object>();
+  Map<String, Object?> map = new Map<String, Object?>();
   map["1"] = null;
   Expect.isTrue(map["1"] == null);
 }

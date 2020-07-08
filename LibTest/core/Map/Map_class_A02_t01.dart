@@ -7,14 +7,14 @@
  * @assertion Map<K, V> abstract class
  * An unordered collection of key-value pairs, from which you retrieve a value
  * by using its associated key.
- * Each key must be unique. Null values are supported, but null keys are not.
- * @description Checks that null keys are not supported.
+ * Each key must be unique.
+ * @description Checks that null keys are supported.
  * @author kaigorodov
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  Map<String, Object> map = new Map<String, Object>();
+  Map<String?, Object> map = new Map<String?, Object>();
   map[null] = "123";
   Expect.equals("123", map[null]);
 }
