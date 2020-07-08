@@ -17,7 +17,7 @@ import "dart:collection";
 
 class MyIterable extends Object with IterableMixin {
   List _content;
-  MyIterable(): _content = new List();
+  MyIterable(): _content = new List.empty(growable: true);
   Iterator get iterator {
     return _content.iterator;
   }

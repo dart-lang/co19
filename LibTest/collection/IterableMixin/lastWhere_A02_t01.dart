@@ -11,7 +11,6 @@
  * element meets tha [test] conditions.
  * @author iarkh@unipro.ru
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
@@ -29,7 +28,7 @@ class TestException {}
 check(List list) {
   IterableMixin iterable = new MyIterable(list);
   Expect.throws(() {
-    iterable.lastWhere((Object value) => false, orElse: () {
+    iterable.lastWhere((Object? value) => false, orElse: () {
       throw new TestException();
     });
   },

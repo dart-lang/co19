@@ -9,7 +9,6 @@
  * @description Checks that a [RangeError] is thrown if [count] is negative.
  * @author iarkh@unipro.ru
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

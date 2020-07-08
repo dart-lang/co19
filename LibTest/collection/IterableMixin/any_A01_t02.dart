@@ -17,17 +17,13 @@ import "dart:collection";
 class MyIterable extends Object with IterableMixin {
   List _content;
 
-  MyIterable(): _content = new List();
+  MyIterable(): _content = new List.empty(growable: true);
 
   MyIterable.from(Iterable content): _content = new List.from(content);
 
   Iterator get iterator {
     return _content.iterator;
   }
-}
-
-IterableMixin create([Iterable content]) {
-  return new MyIterable.from(content);
 }
 
 main() {

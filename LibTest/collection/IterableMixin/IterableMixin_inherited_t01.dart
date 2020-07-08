@@ -16,7 +16,7 @@ import "inherited_tests.lib.dart" as allTests;
 class MyIterable extends Object with IterableMixin {
   List _content;
 
-  MyIterable(): _content = new List();
+  MyIterable(): _content = new List.empty(growable: true);
 
   MyIterable.from(Iterable content): _content = new List.from(content);
 
@@ -25,7 +25,7 @@ class MyIterable extends Object with IterableMixin {
   }
 }
 
-IterableMixin create([Iterable content]) {
+IterableMixin create([Iterable? content]) {
   if (content == null) {
     return new MyIterable();
   } else {

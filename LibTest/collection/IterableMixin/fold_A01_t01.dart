@@ -12,7 +12,6 @@
  * @description Checks that the result of folding is correct.
  * @author iarkh@unipro.ru
  */
-
 import "dart:collection";
 import "dart:math";
 import "../../../Utils/expect.dart";

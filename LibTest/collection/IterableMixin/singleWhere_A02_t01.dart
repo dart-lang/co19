@@ -10,7 +10,6 @@
  * @description Checks that a [StateError] is thrown if no element match.
  * @author kaigorodov
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

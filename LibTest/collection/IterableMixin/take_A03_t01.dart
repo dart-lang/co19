@@ -11,7 +11,6 @@
  * [count], all the elements are returned.
  * @author iarkh@unipro.ru
  */
-
 import "dart:collection";
 import "dart:math" as Math;
 import "../../../Utils/expect.dart";

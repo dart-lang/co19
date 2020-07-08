@@ -11,7 +11,6 @@
  * tested and satisfy the test, or are returned by the iterator.
  * @author iarkh@unipro.ru
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

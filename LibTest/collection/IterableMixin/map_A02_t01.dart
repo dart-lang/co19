@@ -11,7 +11,6 @@
  * returned [Iterable] is not iterated over.
  * @author iarkh@unipro.ru
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

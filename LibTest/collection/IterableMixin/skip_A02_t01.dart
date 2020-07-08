@@ -11,7 +11,6 @@
  * then the resulting [Iterable] is empty.
  * @author iarkh@unipro.ru
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

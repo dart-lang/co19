@@ -9,7 +9,6 @@
  * order.
  * @description Checks that exception thrown in [f] breaks the iteration.
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
@@ -40,4 +39,3 @@ main() {
     Expect.equals(1, count);
   }
 }
-

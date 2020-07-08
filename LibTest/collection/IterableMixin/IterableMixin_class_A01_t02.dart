@@ -70,7 +70,7 @@ void check0(MyIterable myIterable) {
     myIterable.firstWhere((element) => true);
   }, (e) => e is StateError);
 
-  Expect.equals(0, myIterable.fold(0, (prev, element) => prev + element));
+  Expect.equals(0, myIterable.fold<int>(0, (int prev, element) => prev + element as int));
 
   myIterable.forEach((e) {
     throw new Exception();
@@ -142,7 +142,7 @@ void check1(MyIterable myIterable) {
 
   Expect.equals(1, myIterable.firstWhere((element) => true));
 
-  Expect.equals(1, myIterable.fold(0, (prev, element) => prev + element));
+  Expect.equals(1, myIterable.fold<int>(0, (int prev, element) => prev + element as int));
 
   Expect.throws(() {
     myIterable.forEach((e) {
@@ -209,7 +209,7 @@ void check2(MyIterable myIterable) {
 
   Expect.equals(1, myIterable.firstWhere((element) => true));
 
-  Expect.equals(3, myIterable.fold(0, (prev, element) => prev + element));
+  Expect.equals(3, myIterable.fold<int>(0, (int prev, element) => prev + element as int));
 
   Expect.throws(() {
     myIterable.forEach((e) {

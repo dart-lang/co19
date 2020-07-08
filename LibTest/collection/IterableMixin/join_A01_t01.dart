@@ -13,7 +13,6 @@
  * the string representations of all the iterable objects.
  * @author iarkh@unipro.ru
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

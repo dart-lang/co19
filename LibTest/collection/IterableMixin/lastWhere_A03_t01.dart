@@ -11,7 +11,6 @@
  * corresponding [test] and [orElse] function is omitted.
  * @author iarkh@unipro.ru
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
