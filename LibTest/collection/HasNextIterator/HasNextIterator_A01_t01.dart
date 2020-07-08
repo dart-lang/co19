@@ -16,6 +16,6 @@ main() {
   HasNextIterator hnit = new HasNextIterator(list.iterator);
   Expect.isTrue(hnit is HasNextIterator);
 
-  hnit = new HasNextIterator(null);
+  hnit = new HasNextIterator([].iterator);
   Expect.isTrue(hnit is HasNextIterator);
 }
