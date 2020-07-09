@@ -27,7 +27,7 @@ check(Codec codec, String toEncode) {
 
 main() {
   Latin1Codec codec = new Latin1Codec();
-  Codec inverted = codec.inverted;
+  Codec<List<int>, dynamic> inverted = codec.inverted;
   Codec fused = codec.fuse(inverted);
 
   check(fused, r"Some string 123 !@#$%^&*()_+|");
