@@ -17,10 +17,10 @@ import "../../../Utils/expect.dart";
 import "../JsonDecoder/table1.lib.dart" show table;
 
 main() {
-  for (List<Object> pair in table) {
+  for (List<Object?> pair in table) {
     JsonEncoder jenc = new JsonEncoder();
     Converter conv = jenc.fuse(new JsonDecoder(null));
-    Object res = conv.convert(pair[0]);
+    Object? res = conv.convert(pair[0]);
     Expect.deepEquals(pair[0], res);
   }
 }

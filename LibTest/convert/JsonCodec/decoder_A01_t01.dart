@@ -14,11 +14,11 @@ import "../../../Utils/expect.dart";
 import "../JsonDecoder/table1.lib.dart" show table;
 
 main() {
-  for (List<Object> pair in table) {
-    JsonCodec codec = new JsonCodec();
-    Expect.isNotNull(codec.decoder);
+  for (List<Object?> pair in table) {
+    JsonCodec? codec = new JsonCodec();
+    Expect.isNotNull(codec?.decoder);
 
-    Object res = codec.decoder.convert(pair[1]);
+    Object? res = codec?.decoder?.convert(pair[1] as String);
     Expect.deepEquals(pair[0], res);
   }
 }

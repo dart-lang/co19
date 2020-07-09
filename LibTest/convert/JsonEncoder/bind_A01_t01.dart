@@ -19,7 +19,7 @@ import "dart:convert";
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-Future check(Object data) async {
+Future check(Object? data) async {
   JsonEncoder encoder = new JsonEncoder();
   StringBuffer sb = new StringBuffer();
   await for (Object event in encoder.bind(new Stream.fromIterable([data]))) {

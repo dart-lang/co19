@@ -23,9 +23,9 @@ import "../JsonEncoder/table2.lib.dart" show table;
 main() {
   JsonCodec codec = new JsonCodec();
   bool failed = false;
-  for (Object obj in table) {
+  for (Object? obj in table) {
     try {
-      String res = codec.encode(obj);
+      String? res = codec.encode(obj);
       failed = true;
     } on JsonUnsupportedObjectError catch(e) {
       Expect.isNotNull(e.cause);

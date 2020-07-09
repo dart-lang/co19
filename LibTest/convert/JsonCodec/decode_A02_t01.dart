@@ -20,16 +20,16 @@ import "../JsonDecoder/table1.lib.dart" show table;
 
 int count = 0;
 
-Object reviver(key, value) {
+Object? reviver(key, value) {
    ++count;
    return value;
 }
 
 main() {
-  for (List<Object> pair in table) {
-    Object jsonObject = pair[0];
-    String jsonString = pair[1];
-    Object res = new JsonCodec().decode(jsonString, reviver: reviver);
+  for (List<Object?> pair in table) {
+    Object? jsonObject = pair[0];
+    String jsonString = pair[1] as String;
+    Object? res = new JsonCodec().decode(jsonString, reviver: reviver);
     Expect.deepEquals(jsonObject, res);
     Expect.isTrue(count > 0);
     count = 0;

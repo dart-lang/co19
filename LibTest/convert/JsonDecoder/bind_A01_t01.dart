@@ -21,7 +21,7 @@ import "../../../Utils/expect.dart";
 
 Future check(List<String> data) async {
   JsonDecoder decoder = new JsonDecoder();
-  await for (Object event in decoder.bind(new Stream.fromIterable(data))) {
+  await for (Object? event in decoder.bind(new Stream.fromIterable(data))) {
     Expect.deepEquals(decoder.convert(data2string(data)), event);
   }
 }

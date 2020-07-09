@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 import "../JsonDecoder/table1.lib.dart" show table;
 
 main() {
-  for (List<Object> pair in table) {
+  for (List<Object?> pair in table) {
     JsonCodec codec = new JsonCodec();
     Expect.isNotNull(codec.decoder);
 

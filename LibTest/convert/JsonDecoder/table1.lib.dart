@@ -7,14 +7,14 @@
   * List of correct Json text samples
   */
 
-List<List<Object>> table = [
+List<List<Object?>> table = [
   [1234, "1234"],
   [3.1415926, "3.1415926"],
   ["String", '"String"'],
   [true, "true"],
   [false, "false"],
   [null, "null"],
-  [new List(), "[]"],
+  [List.filled(0, ""), "[]"],
   [[], "[]"],
   [[1], "[1]"],
   [

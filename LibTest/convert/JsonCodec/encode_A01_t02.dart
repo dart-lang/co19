@@ -22,8 +22,8 @@ import "../../../Utils/expect.dart";
 import "dart:convert";
 
 class S1 {
-  Object a;
-  Object b;
+  Object? a;
+  Object? b;
   
   S1(this.a, this.b);
   
@@ -33,14 +33,12 @@ class S1 {
 }
 
 class S2 {
-  Object a;
-  Object b;
+  Object? a;
+  Object? b;
   
   S2(this.a, this.b);
   
-  Map toJson() {
-    return {a: b};
-  }
+  Map toJson() => {a: b};
 }
 
 List<List<Object>> table = [
@@ -55,8 +53,8 @@ List<List<Object>> table = [
 main() {
   JsonCodec codec = new JsonCodec();
 
-  for (List<Object> pair in table) {
-    String res = codec.encode(pair[0]);
+  for (List<Object?> pair in table) {
+    String? res = codec.encode(pair[0]);
     Expect.equals(pair[1], res);
   }
 }

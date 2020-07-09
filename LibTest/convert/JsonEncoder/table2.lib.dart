@@ -5,13 +5,13 @@
  */
 
 class S1 {
-  Object a;
-  Object b;
+  Object? a;
+  Object? b;
   
   S1(this.a, this.b);
 }
 
-List<Object> table = [
+List<Object?> table = [
   new S1(1234, "1234"),
   new S1(null, []),
   new S1(1.234, {}),

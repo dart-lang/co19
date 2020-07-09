@@ -16,8 +16,7 @@
 import "../../../Utils/expect.dart";
 import "dart:convert";
 
-class C {
-}
+class C {}
 
 main() {
   JsonCodec codec = new JsonCodec();

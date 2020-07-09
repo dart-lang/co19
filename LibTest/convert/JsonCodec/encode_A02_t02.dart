@@ -24,17 +24,15 @@ class S1 {
 
   S1(this.a);
 
-  Object toJson() {
-    throw a;
-  }
+  Object toJson() => throw a;
 }
 
 main() {
   JsonCodec codec = new JsonCodec();
   Error e1 = new Error();
   S1 s1 = new S1(e1);
-  String res;
-  Expect.throws(() {res = codec.encode(s1);},
+  String? res;
+  Expect.throws(() { res = codec.encode(s1); },
       (e) => e is JsonUnsupportedObjectError && e.cause != null,
       "Error expected but result returned: $res");
 }

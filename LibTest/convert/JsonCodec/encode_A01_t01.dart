@@ -20,7 +20,7 @@ import "../../../Utils/expect.dart";
 import "../JsonDecoder/table1.lib.dart" show table;
 
 main() {
-  for (List<Object> pair in table) {
+  for (List<Object?> pair in table) {
     String res = new JsonCodec().encode(pair[0]);
     Expect.equals(pair[1], res);
   }

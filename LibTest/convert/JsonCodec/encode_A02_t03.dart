@@ -22,25 +22,21 @@ import "dart:convert";
 dynamic exc = new ArgumentError();
 
 class S1 {
-  Object a;
-  Object b;
+  Object? a;
+  Object? b;
 
   S1(this.a, this.b);
 
-  List toJson() {
-    return exc;
-  }
+  List toJson() => exc;
 }
 
 class S2 {
-  Object a;
-  Object b;
+  Object? a;
+  Object? b;
 
   S2(this.a, this.b);
 
-  List toJson() {
-    return exc;
-  }
+  List toJson() => exc;
 }
 
 List<Object> table=[
