@@ -37,5 +37,4 @@ test(Iterable create([Iterable content])) {
   Iterable it = create();
   Iterator i = it.iterator;
   Expect.isFalse(i.moveNext());
-  Expect.isNull(i.current);
 }

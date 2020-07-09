@@ -25,8 +25,9 @@
  * an error the next time Iterator.moveNext is called on that iterator. Any
  * modifiable iterable class should specify which operations will break
  * iteration.
- * @description Checks that iterator each time returns new object
+ * @description Checks that iterator each time returns a new object
  * @author sgrekhov@unipro.ru
+ * @issue 42623
  */
 library iterator_A03_t01;
 
@@ -34,5 +35,7 @@ import "../../../Utils/expect.dart";
 
 test(Iterable create([Iterable content])) {
   Iterable i = create();
-  Expect.notEquals(i.iterator, i.iterator);
+  if(!i.iterator.toString().contains("EmptyIterator")) {// EmpltyIterator is a constant, skip it
+    Expect.notEquals(i.iterator, i.iterator);
+  }
 }
