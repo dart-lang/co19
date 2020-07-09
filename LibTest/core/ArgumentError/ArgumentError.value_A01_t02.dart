@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 class C {
 }
 
-void check(var value, String name) {
+void check(var value, String? name) {
   ArgumentError err = new ArgumentError.value(value, name);
   Expect.equals(value, err.invalidValue);
   Expect.equals(name, err.name);

@@ -11,7 +11,7 @@
  */
 import "allTests.lib.dart";
 
-ArgumentError create([value, String name, message]) =>
+ArgumentError create([value, String? name, message]) =>
   new ArgumentError.value(value, name, message);
 
 main() {

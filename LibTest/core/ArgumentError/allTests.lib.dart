@@ -14,7 +14,7 @@ import "invalidValue_A01_t01.test.dart" as invalidValue_A01_t01;
 import "message_A01_t01.test.dart" as message_A01_t01;
 import "name_A01_t01.test.dart" as name_A01_t01;
 
-test(ArgumentError create([value, String name, message])) {
+test(ArgumentError create([value, String? name, message])) {
   invalidValue_A01_t01.test(create);
   message_A01_t01.test(create);
   name_A01_t01.test(create);
