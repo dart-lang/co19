@@ -7,12 +7,11 @@
  * @assertion AbstractClassInstantiationError(String _className)
  * Creates a new Object instance.
  * @description Checks that this constructor executes without error for various
- * strings and null.
+ * strings.
  * @author kaigorodov
  */
 
 main() {
-  new AbstractClassInstantiationError(null);
   new AbstractClassInstantiationError("");
   new AbstractClassInstantiationError("foo");
   new AbstractClassInstantiationError("You are not paid to think!");
