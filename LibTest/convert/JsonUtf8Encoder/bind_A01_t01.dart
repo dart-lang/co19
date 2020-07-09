@@ -20,7 +20,7 @@ import "dart:convert";
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-Future check(Object data) async {
+Future check(Object? data) async {
   JsonUtf8Encoder encoder = new JsonUtf8Encoder();
   await for (Object event in encoder.bind(new Stream.fromIterable([data]))) {
     Expect.listEquals(encoder.convert(data), event);

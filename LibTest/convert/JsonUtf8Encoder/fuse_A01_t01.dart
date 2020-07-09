@@ -19,13 +19,11 @@ import "../../../Utils/expect.dart";
 import "../JsonDecoder/table1.lib.dart" show table;
 
 class MyConverter extends Converter<List<int>, Object> {
-  Object convert(List<int> input) {
-    return input;
-  }
+  Object convert(List<int> input) => input;
 }
 
 main() {
-  for (List<Object> pair in table) {
+  for (List<Object?> pair in table) {
     JsonUtf8Encoder encoder = new JsonUtf8Encoder();
     Converter conv = encoder.fuse(new MyConverter());
     Object res = conv.convert(pair[0]);
