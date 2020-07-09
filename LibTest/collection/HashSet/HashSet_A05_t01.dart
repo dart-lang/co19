@@ -15,7 +15,6 @@
  * if [equals] and [hashCode] functions are not provided for [HashSet.identity]
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

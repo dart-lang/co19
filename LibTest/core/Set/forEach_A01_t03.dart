@@ -8,9 +8,6 @@
  * Applies the function [f] to each element of the collection.
  * @description Passes a function that modifies the set as argument to forEach().
  * @author pagolubev
- * @needsreview Set behaviour when elements are modified while iterating
- * with forEach() is not specified. Currently element modification does
- * not change its position in the hash table.
  */
 library forEach_A01_t03;
 import "set.lib.dart";
@@ -23,7 +20,7 @@ class A implements Comparable {
   bool operator ==(dynamic other) => x == other.x;
   int get hashCode => -1;
   // to allow run this test for ordered sets we need A to be comparable
-  int compareTo(dynamic other) => this.x - other.x;
+  int compareTo(dynamic other) => this.x - other.x as int;
 }
 
 test(Set create([Set content])) {

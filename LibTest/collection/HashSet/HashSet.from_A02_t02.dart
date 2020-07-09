@@ -14,7 +14,6 @@
  * @description Checks that provided down-cast example works as expected
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
@@ -37,6 +36,6 @@ main() {
   check(set, ["testme", "", "string1", "string2", "string3", 'a', 'b', 'c'],
     [1, 2, 3, null, [], [1, 2, 3], {}, new Error(), -1, -2]);
 
-  set = new HashSet.from(list.where((e) => e is Object));
+  set = new HashSet.from(list.where((e) => e is Object?));
   check(set, list, ["unexist", 0 -5]);
 }

@@ -8,7 +8,7 @@
  */
 library set_library;
 
-Set create([Iterable content]) {
+Set create([Iterable? content]) {
   if (content == null) {
     return new Set();
   }

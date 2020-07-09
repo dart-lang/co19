@@ -13,7 +13,7 @@ library inherited_set_tests;
 import "set.lib.dart";
 import "../../core/Iterable/allTests.lib.dart" as iterable_tests;
 
-test(Iterable create([Iterable content])) {
+test(Iterable create([Iterable? content])) {
   iterable_tests.test(create, isSet:true);
 }
 

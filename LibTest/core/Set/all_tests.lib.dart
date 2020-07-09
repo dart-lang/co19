@@ -36,7 +36,6 @@ import "forEach_A01_t04.dart" as forEach_A01_t04;
 import "forEach_A01_t05.dart" as forEach_A01_t05;
 import "intersection_A01_t01.dart" as intersection_A01_t01;
 import "intersection_A01_t03.dart" as intersection_A01_t03;
-import "intersection_A02_t01.dart" as intersection_A02_t01;
 import "intersection_A03_t01.dart" as intersection_A03_t01;
 import "isEmpty_A01_t01.dart" as isEmpty_A01_t01;
 import "length_A01_t01.dart" as length_A01_t01;
@@ -53,8 +52,8 @@ import "retainAll_A01_t02.dart" as retainAll_A01_t02;
 import "retainWhere_A01_t01.dart" as retainWhere_A01_t01;
 import "union_A01_t01.dart" as union_A01_t01;
 
-test(Set create([Iterable content])) {
-  iterable_tests.test(create, isSet:true);
+test(Set create([Iterable? content])) {
+  iterable_tests.test(create, isSet: true);
 
   add_A01_t01.test(create);
   add_A01_t02.test(create);
@@ -79,7 +78,6 @@ test(Set create([Iterable content])) {
   forEach_A01_t05.test(create);
   intersection_A01_t01.test(create);
   intersection_A01_t03.test(create);
-  intersection_A02_t01.test(create);
   intersection_A03_t01.test(create);
   isEmpty_A01_t01.test(create);
   length_A01_t01.test(create);

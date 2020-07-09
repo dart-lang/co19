@@ -40,9 +40,9 @@ check(HashSet set, List list1, List list2) {
 
 main() {
   HashSet set = new HashSet(
-    equals: (Object key1, Object key2) => key1 == key2,
+    equals: (Object? key1, Object? key2) => key1 == key2,
     hashCode: (e) => e.hashCode,
-    isValidKey: (Object key) => key is int && key >= 0);
+    isValidKey: (Object? key) => key is int && key >= 0);
 
   set.addAll([0, 1, -3, "abcd", 15, 38, new Error()]);
   check(set, [0, 1, 15, 38], [-3, null, "abcd", new Error()]);
