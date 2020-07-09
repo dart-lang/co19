@@ -17,10 +17,10 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals("us-ascii", Encoding.getByName("us-ascii").name);
-  Expect.equals("us-ascii", Encoding.getByName("US-ASCII").name);
-  Expect.equals("iso-8859-1", Encoding.getByName("iso-8859-1").name);
-  Expect.equals("iso-8859-1", Encoding.getByName("ISO-8859-1").name);
-  Expect.equals("utf-8", Encoding.getByName("utf-8").name);
-  Expect.equals("utf-8", Encoding.getByName("UTF-8").name);
+  Expect.equals("us-ascii", Encoding.getByName("us-ascii")?.name);
+  Expect.equals("us-ascii", Encoding.getByName("US-ASCII")?.name);
+  Expect.equals("iso-8859-1", Encoding.getByName("iso-8859-1")?.name);
+  Expect.equals("iso-8859-1", Encoding.getByName("ISO-8859-1")?.name);
+  Expect.equals("utf-8", Encoding.getByName("utf-8")?.name);
+  Expect.equals("utf-8", Encoding.getByName("UTF-8")?.name);
 }

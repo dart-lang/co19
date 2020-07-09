@@ -32,7 +32,7 @@ List<String> encodings = [
 
 main() {
   encodings.forEach((String encodingName) {
-    Encoding e = Encoding.getByName(encodingName);
+    Encoding? e = Encoding.getByName(encodingName);
     Expect.isNotNull(e, "Encoding " + encodingName + " is not supported");
   });
 }

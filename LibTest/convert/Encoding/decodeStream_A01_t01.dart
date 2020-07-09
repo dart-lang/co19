@@ -12,10 +12,10 @@ import "dart:async";
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-Future check(Encoding encoding, String str) async {
-  List<int> data = encoding.encode(str);
-  Stream<List<int>> byteStream = new Stream.fromIterable([data]);
-  encoding.decodeStream(byteStream).then((String s) {
+Future check(Encoding? encoding, String str) async {
+  List<int> data = encoding?.encode(str) as List<int>;
+  Stream<List<int>> byteStream = new Stream.fromIterable([data as List<int>]);
+  encoding?.decodeStream(byteStream).then((String s) {
     Expect.equals(str, s);
   });
 }

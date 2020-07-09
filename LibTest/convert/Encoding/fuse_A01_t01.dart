@@ -23,8 +23,8 @@
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-check(Encoding encoding, String toEncode) {
-  Codec inverted = encoding.inverted;
+check(Encoding? encoding, String toEncode) {
+  Codec<List<int>, dynamic> inverted = (encoding as Encoding).inverted;
   Codec fused = encoding.fuse(inverted);
   Expect.equals(toEncode, fused.decode(toEncode));
   Expect.equals(toEncode, fused.encode(toEncode));

@@ -11,8 +11,8 @@
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-check(Encoding encoding, String toEncode, List<int> expected) {
-  List<int> encoded = encoding.encode(toEncode);
+check(Encoding? encoding, String toEncode, List<int> expected) {
+  List<int> encoded = encoding?.encode(toEncode) as List<int>;
   Expect.listEquals(expected, encoded);
 }
 

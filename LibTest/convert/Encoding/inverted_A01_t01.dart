@@ -15,11 +15,11 @@
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-check(Encoding encoding) {
-  Codec inverted = encoding.inverted;
-  Expect.equals(inverted.encoder.convert([0x31, 0x32, 0x33, 0x61, 0x62, 0x63]),
+check(Encoding? encoding) {
+  Codec? inverted = encoding?.inverted;
+  Expect.equals(inverted?.encoder?.convert([0x31, 0x32, 0x33, 0x61, 0x62, 0x63]),
       "123abc");
-  Expect.listEquals(inverted.decoder.convert("123abc"),
+  Expect.listEquals(inverted?.decoder?.convert("123abc"),
       [0x31, 0x32, 0x33, 0x61, 0x62, 0x63]);
 }
 
