@@ -9,6 +9,8 @@
  * @description Checks that this property returns correct value
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-asserts=true
+
 import "../../../Utils/expect.dart";
 
 check(message) {

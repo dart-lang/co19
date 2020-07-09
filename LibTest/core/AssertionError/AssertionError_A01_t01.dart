@@ -12,6 +12,8 @@
  * Checks that AssertionError implements Error.
  * @author rodionov
  */
+// SharedOptions=--enable-asserts=true
+
 import "../../../Utils/expect.dart";
 
 main() {
