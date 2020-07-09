@@ -26,7 +26,8 @@ test(ChunkedConversionSink create(ChunkedConversionSink<List<int>> outSink)) {
     Expect.listEquals([encoded], accumulated);
   });
 
-  ChunkedConversionSink<List<int>> inSink = create(outSink);
+  ChunkedConversionSink<List<int>> inSink =
+      create(outSink) as ChunkedConversionSink<List<int>>;
   var list = utf8.encode("Кириллица");
 
   Expect.isFalse(called);

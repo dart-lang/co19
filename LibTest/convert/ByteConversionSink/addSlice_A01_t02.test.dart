@@ -28,7 +28,7 @@ test(ChunkedConversionSink create(ByteConversionSink outSink)) {
     Expect.listEquals(encoded, accumulated);
   });
 
-  ByteConversionSink inSink = create(outSink);
+  ByteConversionSink inSink = create(outSink) as ByteConversionSink;
   List<int> list = [0xd0, 0xbb, 0xd0, 0xbb];//лл
   Expect.isFalse(called);
   inSink.addSlice(list, 0, 2, false);
