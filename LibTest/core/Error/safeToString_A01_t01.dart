@@ -16,6 +16,7 @@ import "../../../Utils/expect.dart";
 class C {
   String toString() {
     Expect.fail("toString shouldn't be called");
+    throw "Should not reach here";
   }
 }
 
