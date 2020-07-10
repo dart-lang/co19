@@ -31,7 +31,8 @@ String join(LinkedList<MyLinkedListEntry> a, [String separator = ""]) {
 }
 
 void check(LinkedList a, [String separator = ""]) {
-  Expect.equals(a.join(separator), join(a, separator));
+  Expect.equals(
+      a.join(separator), join(a as LinkedList<MyLinkedListEntry>, separator));
 }
 
 main() {

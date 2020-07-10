@@ -16,9 +16,9 @@ import "LinkedList.lib.dart";
 
 var noneMatches=new Object();
 
-void check(LinkedList<MyLinkedListEntry> a, var element) {
+void check(LinkedList a, var element) {
   Expect.throws(() {
-      a.lastWhere((MyLinkedListEntry entry) => entry.value == element);
+      a.lastWhere((entry) => (entry as MyLinkedListEntry).value == element);
     },
     (e)=> e is StateError
   );

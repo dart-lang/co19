@@ -15,7 +15,7 @@ import "dart:collection";
 import "LinkedList.lib.dart";
 
 void check(LinkedList<MyLinkedListEntry<int>> a0, bool test0(int element)) {
-  List<MyLinkedListEntry<int>> all;
+  List<MyLinkedListEntry<int>> all = [];
   bool test(MyLinkedListEntry<int> entry) {
     bool res = test0(entry.value);
     if (res) {

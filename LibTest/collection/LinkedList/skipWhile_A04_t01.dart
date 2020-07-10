@@ -16,14 +16,14 @@ import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
 void check(LinkedList<MyLinkedListEntry<int>> a0, bool test0(int element)) {
-  bool testPassed = null;
+  bool? testPassed = null;
   bool test(MyLinkedListEntry<int> entry) {
-    Expect.isTrue(testPassed == null || testPassed,
+    Expect.isTrue(testPassed == null || testPassed!,
         "testPassed=$testPassed for element=${entry.value}");
     return testPassed =! test0(entry.value);
   }
   for (MyLinkedListEntry<int> element in a0.skipWhile(test)) {
-    Expect.isTrue(testPassed == null || !testPassed);
+    Expect.isTrue(testPassed == null || !testPassed!);
   }  
 }
 

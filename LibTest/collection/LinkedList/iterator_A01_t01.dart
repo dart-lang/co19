@@ -16,7 +16,7 @@ import "LinkedList.lib.dart";
 
 void checkIterator(List a0) {
   LinkedList a = toLinkedList(a0);
-  Iterator<MyLinkedListEntry> it = a.iterator;
+  Iterator<MyLinkedListEntry> it = a.iterator as Iterator<MyLinkedListEntry>;
   int i = 0;
   while (it.moveNext()) {
     Expect.isTrue(it.current.value == a0[i++]);
@@ -27,15 +27,15 @@ void checkIterator(List a0) {
 main() {
   checkIterator([]);
   checkIterator(const [null,0, "1", false, const []]);
-  checkIterator(new List(300));
+  checkIterator(new List.filled(300, 0));
 
-  List a = new List(365);
+  List a = new List.filled(365, 0);
   for (var i=0; i < a.length; i++) {
     a[i] = i;
   }
   checkIterator(a);
 
-  List l = new List();
+  List l = new List.empty(growable: true);
   l.addAll(["0", "1", "2", "3", "4", "5"]);
   a = new List.from(l);
   checkIterator(a);

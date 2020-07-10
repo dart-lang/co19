@@ -28,7 +28,7 @@ void check(List<int> a) {
 }
 
 main() {
-  List<int> a = new List<int>();
+  List<int> a = new List<int>.empty(growable: true);
   check(a);
   a.add(22);
   check(a);

@@ -17,10 +17,10 @@ import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
 main() {
-  LinkedList<MyLinkedListEntry> list1 = new LinkedList<MyLinkedListEntry<int>>();
-  LinkedList<MyLinkedListEntry> list2 = new LinkedList<MyLinkedListEntry<int>>();
+  LinkedList<MyLinkedListEntry<int>> list1 = new LinkedList<MyLinkedListEntry<int>>();
+  LinkedList<MyLinkedListEntry<int>> list2 = new LinkedList<MyLinkedListEntry<int>>();
 
-  LinkedListEntry entry = new MyLinkedListEntry(1);
+  MyLinkedListEntry<int> entry = new MyLinkedListEntry<int>(1);
   list1.add(entry);
 
   Expect.throws(() { list2.add(entry); });

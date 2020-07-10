@@ -23,12 +23,12 @@ main() {
   a.clear();
   Expect.isTrue(a.length == 0);
 
-  a=toLinkedList([1, 2, 3]);
+  a = toLinkedList([1, 2, 3]);
   Expect.isTrue(a.length == 3);
   a.clear();
   Expect.isTrue(a.length == 0);
 
-  a=toLinkedList(["one", "two", "three", "four"]);
+  a = toLinkedList(["one", "two", "three", "four"]);
   Expect.isTrue(a.length == 4);
   a.clear();
   Expect.isTrue(a.length == 0);

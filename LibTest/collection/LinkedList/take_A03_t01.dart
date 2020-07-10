@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
 check(List a0, int n) {
-  LinkedList<MyLinkedListEntry<int>> a = toLinkedList(a0);
+  LinkedList<MyLinkedListEntry<int?>> a = toLinkedList(a0);
   Expect.throws(() { a.take(n); });
 }
 

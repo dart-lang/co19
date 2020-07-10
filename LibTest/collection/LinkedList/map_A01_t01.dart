@@ -31,7 +31,7 @@ void checkResult(List<int> a) {
 }
 
 main() {
-  List<int> a = new List<int>();
+  List<int> a = new List<int>.empty(growable: true);
   checkResult(a);
   a.add(22);
   checkResult(a);

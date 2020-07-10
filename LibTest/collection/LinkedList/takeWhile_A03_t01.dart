@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
 void check(LinkedList<MyLinkedListEntry<int>> a0, bool test0(int element)) {
-  MyLinkedListEntry<int> el;
+  MyLinkedListEntry<int>? el;
   
   bool test(MyLinkedListEntry<int> entry) {
     bool res = test0(entry.value);

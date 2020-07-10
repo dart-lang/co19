@@ -14,5 +14,7 @@ import "LinkedList.lib.dart";
 
 main() {
   dynamic list = toLinkedList([1, 2, 3]);
-  Expect.throws(() { list.iterator = null; }, (e) => e is NoSuchMethodError);
+  Expect.throws(() {
+    list.lenth = 1;
+  }, (e) => e is NoSuchMethodError);
 }

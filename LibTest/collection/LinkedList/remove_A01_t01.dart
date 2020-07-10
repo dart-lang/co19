@@ -27,8 +27,8 @@ check(LinkedList<MyLinkedListEntry> llist,
 }
 
 main() {
-  LinkedList<MyLinkedListEntry> a = new LinkedList<MyLinkedListEntry>();
-  MyLinkedListEntry entry = new MyLinkedListEntry(2);
+  LinkedList<MyLinkedListEntry<int>> a = new LinkedList<MyLinkedListEntry<int>>();
+  MyLinkedListEntry<int> entry = new MyLinkedListEntry<int>(2);
   a.add(entry);
   check(a, entry);
 

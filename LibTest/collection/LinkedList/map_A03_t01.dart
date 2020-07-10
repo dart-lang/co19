@@ -17,14 +17,14 @@ import "../../../Utils/expect.dart";
 import "dart:collection";
 import "LinkedList.lib.dart";
 
-List<int> visited = new List<int>(200);
+List<int> visited = new List<int>.filled(200, 0);
 
 int f(MyLinkedListEntry<int> entry) {
   int element = entry.value;
   visited[element]++;
   return element;
 }
-  
+
 void checkResult(List<int> a, int expected) {
   LinkedList<MyLinkedListEntry<int>> llist = toLinkedList(a);
   int count = 0;
@@ -39,7 +39,7 @@ void checkResult(List<int> a, int expected) {
 }
 
 main() {
-  List<int> a=new List<int>();
+  List<int> a = new List<int>.empty(growable: true);
   for (int k = 0; k < 200; k++) {
     a.add(k);
     visited[k] = 0;

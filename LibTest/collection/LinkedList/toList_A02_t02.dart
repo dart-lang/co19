@@ -12,17 +12,13 @@
  */
 import "LinkedList.lib.dart";
 
-List<String> failures = new List<String>();
+List<String> failures = new List<String>.empty(growable: true);
  
 void check(List a0) {
-  List<MyLinkedListEntry> l = toLinkedList(a0).toList(growable:false);
+  List<MyLinkedListEntry> l = toLinkedList(a0).toList(growable: false);
   try {
     l.clear();
     failures.add("clear");
-  } on UnsupportedError catch (ok) {}
-  try {
-    l.add(null);
-    failures.add("add");
   } on UnsupportedError catch (ok) {}
   try {
     l.removeLast();

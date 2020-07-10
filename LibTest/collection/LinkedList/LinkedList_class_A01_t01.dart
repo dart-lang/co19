@@ -22,5 +22,4 @@ main() {
   Expect.throws(() { list.add(1 as dynamic); });
   Expect.throws(() { list.add(new Object() as dynamic); });
   Expect.throws(() { list.add("test" as dynamic); });
-  Expect.throws(() { list.add(null); });
 }

@@ -15,12 +15,12 @@ import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 
 class A {
-  bool checked;
+  bool checked = false;
   A(bool checked) { this.checked = checked; }
 }
 
 main() {
-  List<A> a = new List(100);
+  List<A> a = new List.filled(100, new A(false));
   for (int i = 0; i < a.length; i++) {
     a[i] = new A(false);
   }

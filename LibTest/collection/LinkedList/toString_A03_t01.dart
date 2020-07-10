@@ -13,7 +13,6 @@
  * hundred.
  * @author iarkh@unipro.ru
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
@@ -36,7 +35,7 @@ main() {
   check([null, [null], [], [1, 2, 3], [[null]]]);
   check([1, "2", "345", "rfq"]);
   check([1, new Error(), 25, 4, null, "adc", null, 28, new Error(), 17, 8,
-      new List()]);
+      new List.empty()]);
 
   List aList = [null, "abcde", -4];
   int i = 15;

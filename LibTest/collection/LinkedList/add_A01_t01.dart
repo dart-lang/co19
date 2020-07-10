@@ -22,7 +22,7 @@ main() {
     Expect.equals(i + 1, a.length);
   }
 
-  LinkedList<MyLinkedListEntry<int>> b = toLinkedList(const<int>[]);
+  LinkedList<MyLinkedListEntry<int?>> b = toLinkedList(const<int?>[]);
   b.add(new MyLinkedListEntry(null));
   Expect.isNull(b.first.value);
   for (var i = 1; i <= 3142; i++) {
