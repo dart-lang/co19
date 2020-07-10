@@ -14,7 +14,9 @@
  * @description Checks that this statement is true for function types with no
  * arguments: S is some type, T is some other type assignable to S.
  * @author iefremov
+ * @issue 42648
  */
+// Requirements=nnbd-strong
 import "../../../Utils/expect.dart";
 
 typedef returnsDynamic();

@@ -7,17 +7,16 @@
  * @assertion The effect of a type alias of the form typedef id = T; declared in
  * a library L is to introduce the name id into the scope of L, bound to the
  * type T .
- * @description Checks that it is a compile error if id is not unique
+ * @description Checks that it is not an error if type alias id shadows type
+ * alias with the same id in imported library
  * @author sgrekhov@unipro.ru
+ * @issue 42640
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 import "scope.lib.dart";
 
-typedef AAlias = A;             //# 01: compile-time error
-typedef AAlias = C<String>;     //# 02: compile-time error
-typedef CAlias<T> = C<T>;       //# 03: compile-time error
-typedef CAlias = C<String>;     //# 04: compile-time error
-typedef CAlias<T1, T2> = C<T1>; //# 05: compile-time error
+typedef AAlias = A;
+typedef CAlias<T> = C<T>;
 
 main() {
 }

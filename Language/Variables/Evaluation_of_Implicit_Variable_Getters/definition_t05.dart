@@ -40,6 +40,7 @@
  * is referenced during evaluation of initialization expression.
  * @author kaigorodov
  * @Issue 42470
+ * @issue 42642
  */
 import "../../../Utils/expect.dart";
 
@@ -52,7 +53,6 @@ int f() {
 class C {
   static int sTyped = f();
 }
-
 
 main() {
   Expect.equals (21, C.sTyped);

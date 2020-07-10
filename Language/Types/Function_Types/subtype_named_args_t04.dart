@@ -17,7 +17,9 @@
  * types: non-dynamic return type and a bunch of required and named optional
  * parameters.
  * @author rodionov
+ * @issue 42648
  */
+// Requirements=nnbd-strong
 import "../../../Utils/expect.dart";
 
 class A {}

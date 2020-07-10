@@ -15,7 +15,7 @@
 class C {}
 typedef CAlias = C;
 
-class CM = C with CAlias;
+mixin CM on C, CAlias {}
 
 main() {
 }

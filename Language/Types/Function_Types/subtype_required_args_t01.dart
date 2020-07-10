@@ -14,7 +14,9 @@
  * @description Checks that this statement is true for function types with a
  * single formal parameter (class, generic, function, Dynamic).
  * @author iefremov
+ * @issue 42648
  */
+// Requirements=nnbd-strong
 import "../../../Utils/expect.dart";
 
 class A {}

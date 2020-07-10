@@ -43,8 +43,9 @@
  * gets recursively called by incrementing a counter and stopping the infinite
  * recursion after 20 cycles. This avoids relying on particulars of the behavior
  * on stack overflow and makes the test cheaper to run.
- * @Issue 42470
  * @author msyabro
+ * @Issue 42470
+ * @issue 42642
  */
 import "../../../Utils/expect.dart";
 
