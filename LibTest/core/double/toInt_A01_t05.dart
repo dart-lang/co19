@@ -34,6 +34,6 @@ main() {
   check(1234567.0);
   check(123456789012345.0);
   check(1234567.0E10);
-  check(Math.pow(2.0, 52));
-  check(Math.pow(2.0, 53));
+  check(Math.pow(2.0, 52) as double);
+  check(Math.pow(2.0, 53) as double);
 }

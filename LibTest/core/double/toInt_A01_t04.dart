@@ -12,6 +12,6 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() {double.infinity.toInt();});
-  Expect.throws(() {double.negativeInfinity.toInt();});
+  Expect.throws(() { double.infinity.toInt(); });
+  Expect.throws(() { double.negativeInfinity.toInt(); });
 }

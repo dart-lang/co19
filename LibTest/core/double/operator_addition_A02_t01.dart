@@ -6,10 +6,12 @@
 /**
  * @assertion double operator +(num other)
  * Throws [Error] if [other] is [:null:].
- * @description Checks that the correct exception is thrown.
+ * @description Checks that exception is thrown.
  * @author msyabro
  */
 import "../../../Utils/expect.dart";
+
+dynamic getNull() => null;
 
 final List<double> values = const [
    double.negativeInfinity,
@@ -62,6 +64,6 @@ final List<double> values = const [
 
 main() {
   values.forEach((double d){
-    Expect.throws(() {d + null;}, (e) => e is Error);
+    Expect.throws(() { d + getNull(); });
   });
 }

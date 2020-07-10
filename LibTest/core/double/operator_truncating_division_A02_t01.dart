@@ -60,9 +60,11 @@ final List<double> values = const [
   double.nan
 ];
 
+dynamic getNull() => null;
+
 check(double d) {
   Expect.throws(() {
-    d ~/ null;
+    d ~/ getNull();
   });
 }
 

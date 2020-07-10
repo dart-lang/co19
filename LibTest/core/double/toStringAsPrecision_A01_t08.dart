@@ -11,5 +11,5 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() {0.1.toStringAsPrecision(0);});
+  Expect.throws(() { 0.1.toStringAsPrecision(0); });
 }

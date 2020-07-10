@@ -8,7 +8,6 @@
  * @description Checks that [:toDouble():] returns the exact value on a values
  * equal to math integers.
  * @author pagolubev
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
@@ -44,8 +43,8 @@ main() {
   check(1234567.0E20);
   check(1234567.0E40);
   check(1234567.0E80);
-  check(Math.pow(2.0, 52));
-  check(Math.pow(2.0, 53));
-  check(Math.pow(2.0, 520));
+  check(Math.pow(2.0, 52) as double);
+  check(Math.pow(2.0, 53) as double);
+  check(Math.pow(2.0, 520) as double);
   check(1.0E308);
 }

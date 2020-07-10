@@ -60,8 +60,10 @@ final List<double> values = const [
   0 / 0
 ];
 
+dynamic getNull() => null;
+
 main() {
   values.forEach((double d) {
-    Expect.throws(() {d - null;}, (e) => e is Error);
+    Expect.throws(() { d - getNull(); }, (e) => e is Error);
   });
 }

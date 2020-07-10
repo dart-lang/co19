@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -7,11 +7,16 @@
  * @assertion String toStringAsFixed(int fractionDigits)
  * The parameter fractionDigits must be an integer satisfying:
  * 0 <= fractionDigits <= 20.
- * @description Checks that an exception is thrown when 'fractionDigits' is 100.
- * @author pagolubev
+ * @description Checks that compile error occurs if [fractionDigits] is
+ * statically [:null:].
+ * @author iarkh
  */
-import "../../../Utils/expect.dart";
+
+double d = 10.0;
 
 main() {
-  Expect.throws(() { 0.1.toStringAsFixed(100); });
+   d.toStringAsFixed(null);
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

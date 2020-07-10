@@ -5,8 +5,9 @@
  */
 /**
  * @assertion String toStringAsFixed(int fractionDigits)
- * The parameter fractionDigits must be an integer satisfying: 0 <= fractionDigits <= 20.
- * @description Checks that the correct exception is thrown.
+ * The parameter fractionDigits must be an integer satisfying:
+ * 0 <= fractionDigits <= 20.
+ * @description Checks that correct exception is thrown.
  * @author msyabro
  */
 import "../../../Utils/expect.dart";
@@ -38,13 +39,10 @@ final List<double> values = const [
    0 / 0
 ];
 
+dynamic getNull() => null;
+
 check(double val) {
-  bool fail = false;
-  try {
-    val.toStringAsFixed(null);
-    fail = true;
-  } catch(e) {}
-  Expect.isFalse(fail, "Error or exception expected.");
+  Expect.throws(() => val.toStringAsFixed(getNull()));
 }
 
 main() {

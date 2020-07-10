@@ -11,7 +11,6 @@
  */
 import "../../../Utils/expect.dart";
 
-
 inner_check(d) {
   var v = d.toDouble();
   Expect.isTrue(v is double);

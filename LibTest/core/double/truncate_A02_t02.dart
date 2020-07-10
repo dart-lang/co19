@@ -12,7 +12,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() {double.infinity.truncate();}, (e) => e is UnsupportedError);
-  Expect.throws(() {double.negativeInfinity.truncate();},
+  Expect.throws(() { double.infinity.truncate(); }, (e) => e is UnsupportedError);
+  Expect.throws(() { double.negativeInfinity.truncate(); },
       (e) => e is UnsupportedError);
 }

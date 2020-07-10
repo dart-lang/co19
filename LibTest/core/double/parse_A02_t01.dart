@@ -13,10 +13,7 @@
 import "../../../Utils/expect.dart";
 
 void checkFE(String str) {
-  try {
-    double.parse(str);
-    Expect.fail("FormatException is expected");
-  } on FormatException catch(e) {}
+  Expect.throws(() { double.parse(str); }, (e) => e is FormatException);
 }
 
 main() {

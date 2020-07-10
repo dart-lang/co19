@@ -60,8 +60,10 @@ final List<double> sample_doubles = const [
   double.nan
 ];
 
+dynamic getNull() => null;
+
 main() {
   sample_doubles.forEach((double d) {
-    Expect.throws(() {d > null;}, (e) => e is Error);
+    Expect.throws(() { d > getNull(); }, (e) => e is Error);
   });
 }

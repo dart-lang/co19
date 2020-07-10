@@ -8,7 +8,6 @@
  * Throws [Error] if [other] is [:null:].
  * @description Checks that the correct exception is thrown
  * @author msyabro
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 
@@ -39,8 +38,10 @@ final List<double> values = const [
    0/0
 ];
 
+dynamic getNull() => null;
+
 main()  {
   values.forEach((double val) {
-    Expect.throws(() {val % null;}, (e) => e is Error);
+    Expect.throws(() { val % getNull(); }, (e) => e is Error);
   });
 }

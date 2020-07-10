@@ -13,7 +13,7 @@
 import "../../../Utils/expect.dart";
 
 check(double arg) {
-  Expect.throws(() {arg.round();}, (e) => e is UnsupportedError
+  Expect.throws(() { arg.round(); }, (e) => e is UnsupportedError
   );
 }
 

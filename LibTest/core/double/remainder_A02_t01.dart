@@ -38,8 +38,10 @@ final List values = const [
    0/0
 ];
 
+dynamic getNull() => null;
+
 main()  {
   values.forEach((val) {
-    Expect.throws(() {val.remainder(null);}, (e) => e is Error);
+    Expect.throws(() { val.remainder(getNull()); }, (e) => e is Error);
   });
 }

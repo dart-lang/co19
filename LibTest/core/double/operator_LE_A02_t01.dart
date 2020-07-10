@@ -6,7 +6,7 @@
 /**
  * @assertion bool operator <=(num other)
  * Throws [Error] if [other] is [:null:].
- * @description Checks that the correct exception is thrown.
+ * @description Checks that correct exception is thrown.
  * @author msyabro
  */
 import "../../../Utils/expect.dart";
@@ -60,8 +60,10 @@ final List<double> sample_doubles = const [
   double.nan
 ];
 
+dynamic getNull() => null;
+
 main() {
   sample_doubles.forEach((double d) {
-    Expect.throws(() {d <= null;}, (e) => e is Error);
+    Expect.throws(() { d <= getNull(); }, (e) => e is Error);
   });
 }

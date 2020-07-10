@@ -11,6 +11,8 @@
  */
 import "../../../Utils/expect.dart";
 
+ dynamic getNull() => null;
+
 main() {
-  Expect.throws(() {0.1.toStringAsPrecision(null);});
+  Expect.throws(() { 0.1.toStringAsPrecision(getNull()); });
 }

@@ -5,7 +5,8 @@
  */
 /**
  * @assertion double remainder(num other)
- * @description Checks that if either 'this' or 'other' is a NaN the result is a NaN.
+ * @description Checks that if either 'this' or 'other' is a NaN the result is a
+ * NaN.
  * @author pagolubev
  */
 import "../../../Utils/expect.dart";

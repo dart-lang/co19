@@ -4,13 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion abstract int round()
- * If this is not finite (NaN or infinity), throws an UnsupportedError.
- * @description Checks that [:round():] on NaN throws an UnsupportedError.
- * @author pagolubev
+ * @assertion int operator ~/(num other)
+ * Throws [Error] if [other] is [:null:].
+ * @description Checks that dividing by null results in an error or exception.
+ * @author msyabro
  */
 import "../../../Utils/expect.dart";
 
+double d = .7;
+
 main() {
-  Expect.throws(() { double.nan.round(); },(e) => e is UnsupportedError);
+  d ~/ null;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
