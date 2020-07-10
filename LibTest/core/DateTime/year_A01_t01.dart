@@ -6,10 +6,10 @@
 /**
  * @assertion final int year
  * Returns the year.
- * @description Creates a new DateTime with various integer year values (less than
- * 10^8 days, as specified in the DateTime class description), and reads the value back.
+ * @description Creates a new DateTime with various integer year values (less
+ * than 10^8 days, as specified in the DateTime class description), and reads
+ * the value back.
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

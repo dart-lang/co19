@@ -8,7 +8,6 @@
  * Returns a new DateTime with the duration added to this.
  * @description Checks that correct values are added to the corresponding properties.
  * @author hlodvig
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

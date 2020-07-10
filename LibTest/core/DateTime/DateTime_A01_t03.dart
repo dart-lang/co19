@@ -4,11 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion factory DateTime(int year, [int month = 1, int day = 1, int hour = 0,
- * int minute = 0, int second = 0, int millisecond = 0])
+ * @assertion factory DateTime(int year, [int month = 1, int day = 1,
+ * int hour = 0, int minute = 0, int second = 0, int millisecond = 0])
  * Constructs a DateTime instance based on the individual parts.
  * The date is in the local time zone. month and day are one-based. 
- * @description Checks that DateTime constructor handles under- and overflow correctly.
+ * @description Checks that DateTime constructor handles under- and overflow
+ * correctly.
  * @author rodionov
  */
 import "../../../Utils/expect.dart";

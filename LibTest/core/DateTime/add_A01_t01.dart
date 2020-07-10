@@ -8,7 +8,6 @@
  * Returns a new DateTime with the duration added to this.
  * @description Checks that the method returns DateTime instance
  * @author hlodvig
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

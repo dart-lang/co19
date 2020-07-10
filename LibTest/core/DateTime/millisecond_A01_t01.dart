@@ -6,10 +6,10 @@
 /**
  * @assertion final int millisecond
  * Returns the millisecond into the second 0...999.
- * @description Creates a new DateTime with various integer milliseconds values (0..999),
+ * @description Creates a new DateTime with various integer milliseconds values
+ * (0..999),
  * and reads the value back.
  * @author hlodvig
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

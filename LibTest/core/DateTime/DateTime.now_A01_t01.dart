@@ -8,7 +8,6 @@
  * Constructs a new DateTime instance with current date time value in the local time zone.
  * @description Checks that the DateTime instance is created.
  * @author hlodvig
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

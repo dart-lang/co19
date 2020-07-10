@@ -6,10 +6,9 @@
 /**
  * @assertion final int second
  * Returns the second into the minute 0...59.
- * @description Creates a new DateTime with various integer seconds values (0..59),
- * and reads the value back.
+ * @description Creates a new DateTime with various integer seconds values
+ * (0..59), and reads the value back.
  * @author hlodvig
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

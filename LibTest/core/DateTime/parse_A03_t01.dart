@@ -12,8 +12,10 @@
  */
 import "../../../Utils/expect.dart";
 
+dynamic getNull() => null;
+
 main(){
-  Expect.throws(() {DateTime.parse(null);}, (e) => e is ArgumentError);
+  Expect.throws(() {DateTime.parse(getNull());}, (e) => e is TypeError);
 
   Expect.throws(() {DateTime.parse("just text");}, (e) => e is FormatException);
   Expect.throws(() {DateTime.parse("");}, (e) => e is FormatException);

@@ -8,7 +8,6 @@
  * Returns a [Duration] with the difference of [:this:] and [other]
  * @description Checks that the method returns correct value
  * @author hlodvig
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 void check(val1, val2, expected){

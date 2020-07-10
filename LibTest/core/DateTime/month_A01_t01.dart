@@ -9,7 +9,6 @@
  * @description Creates a new DateTime with various integer month values (1..12),
  * and reads the value back.
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

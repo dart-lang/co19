@@ -8,7 +8,6 @@
  * Constructs a new DateTime instance with current date time value in the local time zone.
  * @description Checks that the dates constructed by [:DateTime.now():] increase all the time.
  * @author msyabro
- * @reviewer pagolubev
  */
 import "../../../Utils/expect.dart";
 

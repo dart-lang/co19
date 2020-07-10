@@ -6,9 +6,9 @@
 /**
  * @assertion DateTime subtract(Duration duration)
  * Returns a new DateTime with the duration subtracted from this. 
- * @description Checks that correct values are subtracted from the corresponding properties.
+ * @description Checks that correct values are subtracted from the corresponding
+ * properties.
  * @author hlodvig
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

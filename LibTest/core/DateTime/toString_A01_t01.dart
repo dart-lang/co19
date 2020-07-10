@@ -9,7 +9,6 @@
  * The returned string is constructed for the time zone of this instance. 
  * @description check that returned value is String
  * @author hlodvig
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

@@ -6,8 +6,10 @@
 /**
  * @assertionbool bool isAtSameMomentAs(DateTime other)
  * Returns true if this occurs at the same moment as other.
- * The comparison is independent of whether the time is in UTC or in the local time zone.
- * @description Checks that true is returned only if this occurs at the same time as the argument.
+ * The comparison is independent of whether the time is in UTC or in the local
+ * time zone.
+ * @description Checks that true is returned only if this occurs at the same
+ * time as the argument.
  * @author kaigorodov
  */
 

@@ -5,11 +5,10 @@
  */
 /**
  * @assertion final int weekday
- * Returns the week day MON..SUN. In accordance with ISO 8601 a week starts with Monday
- * which has the value 1.
+ * Returns the week day MON..SUN. In accordance with ISO 8601 a week starts with
+ * Monday which has the value 1.
  * @description Checks property value when date is valid.
  * @author hlodvig
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

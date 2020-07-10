@@ -9,8 +9,6 @@
  * Returns a value like a Comparator when comparing this to other.
  * @description Checks DateTime.compareTo() implementation.
  * @author hlodvig
- * @reviewer iefremov
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

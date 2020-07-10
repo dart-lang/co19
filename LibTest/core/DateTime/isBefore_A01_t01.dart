@@ -6,7 +6,8 @@
 /**
  * @assertion bool isBefore(DateTime other)
  * Returns true if this occurs before other.
- * The comparison is independent of whether the time is in UTC or in the local time zone.
+ * The comparison is independent of whether the time is in UTC or in the local
+ * time zone.
  * @description Checks that true is returned only if this occurs before other.
  * @author kaigorodov
  */

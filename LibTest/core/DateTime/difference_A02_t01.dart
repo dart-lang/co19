@@ -6,15 +6,13 @@
 /**
  * @assertion Duration difference(DateTime other) 
  * Throws [Error] if [other] is [:null:].
- * @description Checks that the correct exception is thrown.
+ * @description Checks that exception is thrown if [other] is [null].
  * @author msyabro
- * @needsreview undocumented
  */
 import "../../../Utils/expect.dart";
 
+dynamic getNull() => null;
+
 main() {
-  try {
-    new DateTime.now().difference(null);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  Expect.throws(() => DateTime.now().difference(getNull()));
 }

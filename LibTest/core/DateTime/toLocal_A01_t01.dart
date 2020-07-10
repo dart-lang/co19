@@ -16,7 +16,9 @@ import "../../../Utils/expect.dart";
 
 check(millis) {
   DateTime d = new DateTime.fromMillisecondsSinceEpoch(millis, isUtc: true);
-  Expect.equals(d.toLocal(), new DateTime.fromMillisecondsSinceEpoch(d.millisecondsSinceEpoch, isUtc: false));
+  Expect.equals(d.toLocal(),
+      new DateTime.fromMillisecondsSinceEpoch(
+          d.millisecondsSinceEpoch, isUtc: false));
 }
 
 main() {

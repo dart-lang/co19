@@ -8,7 +8,6 @@
  * Returns a new DateTime with the duration subtracted from this. 
  * @description Checks that this instance is not modified
  * @author hlodvig
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

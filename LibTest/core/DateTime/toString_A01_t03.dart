@@ -13,8 +13,9 @@
 import "../../../Utils/expect.dart";
 
 check(millis) {
-  Expect.notEquals(new DateTime.fromMillisecondsSinceEpoch(millis, isUtc: true).toString(),
-                   new DateTime.fromMillisecondsSinceEpoch(millis, isUtc: false).toString());
+  Expect.notEquals(
+      DateTime.fromMillisecondsSinceEpoch(millis, isUtc: true).toString(),
+      DateTime.fromMillisecondsSinceEpoch(millis, isUtc: false).toString());
 }
 
 main() {

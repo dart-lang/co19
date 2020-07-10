@@ -9,7 +9,6 @@
  * @description Creates a new DateTime with various integer hours values (0..23),
  * and reads the value back.
  * @author hlodvig
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

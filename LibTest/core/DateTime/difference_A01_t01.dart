@@ -8,7 +8,6 @@
  * Returns a [Duration] with the difference of [:this:] and [other]
  * @description Checks that the method returns Duration instance
  * @author hlodvig
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

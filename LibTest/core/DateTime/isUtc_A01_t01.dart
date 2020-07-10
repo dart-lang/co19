@@ -8,7 +8,6 @@
  * True if this DateTime is set to UTC time.
  * @description check that returned value is correct
  * @author hlodvig
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 

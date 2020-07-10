@@ -15,12 +15,13 @@
 import "../../../Utils/expect.dart";
 
 check(millis) {
-  DateTime d = new DateTime.fromMillisecondsSinceEpoch(millis, isUtc: false);
-  Expect.equals(d.toUtc(), new DateTime.fromMillisecondsSinceEpoch(d.millisecondsSinceEpoch, isUtc: true));
+  DateTime d = DateTime.fromMillisecondsSinceEpoch(millis, isUtc: false);
+  Expect.equals(d.toUtc(),
+      DateTime.fromMillisecondsSinceEpoch(d.millisecondsSinceEpoch, isUtc: true));
 }
 
 main() {
-  DateTime d = new DateTime.fromMillisecondsSinceEpoch(100500, isUtc: true);
+  DateTime d = DateTime.fromMillisecondsSinceEpoch(100500, isUtc: true);
   Expect.identical(d, d.toUtc());
 
   check(0);
