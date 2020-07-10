@@ -16,5 +16,7 @@ import "dart:collection";
 
 main() {
   dynamic set = new LinkedHashSet();
-  Expect.throws(() { set.iterator = null; }, (e) => e is NoSuchMethodError);
+  Expect.throws(() {
+    set.iterator = new Iterable.empty().iterator;
+  }, (e) => e is NoSuchMethodError);
 }

@@ -25,7 +25,7 @@ checkOrder(LinkedHashSet set, List list, dynamic value) {
 
 main() {
   LinkedHashSet set = new LinkedHashSet();
-  List list = new List();
+  List list = new List.empty(growable: true);
   checkOrder(set, list, 0);
   checkOrder(set, list, 2);
   checkOrder(set, list, "test");
