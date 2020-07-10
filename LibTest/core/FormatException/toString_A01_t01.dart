@@ -4,15 +4,20 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Undocumented
- * @description Checks that this method causes no error and the result is not
- * null and is indeed a String.
+ * @assertion toString() → String
+ * Returns a description of the format exception.
+ * @description Checks that [toString] causes no error and the result is not
+ * null and is indeed a [String].
  * @author rodionov
  */
 import "../../../Utils/expect.dart";
  
 main() {
-  FormatException e = new FormatException(null);
+  FormatException e = new FormatException();
   Expect.isTrue(e.toString() != null);
   Expect.isTrue(e.toString() is String);
+
+  FormatException s = new FormatException("FormatException");
+  Expect.isTrue(s.toString() != null);
+  Expect.isTrue(s.toString() is String);
 }
