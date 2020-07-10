@@ -8,19 +8,18 @@
  * read-only
  * @description Checks that this property returns name of the variable that
  * caused this error
+ * @Issue 42470
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
 class C {
-  static var x = f();
-  static f() => x + 1;
+  static var x = throw CyclicInitializationError("x");
 }
 
 main() {
   try {
     C.x;
-    Expect.fail("CyclicInitializationError error should be thrown");
   } on CyclicInitializationError catch (e) {
     Expect.equals("x", e.variableName);
   }
