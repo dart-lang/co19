@@ -12,7 +12,7 @@
  */
 import "../../../Utils/expect.dart";
 
-void check(int d, int h, int m, int s, int ms, num q) {
+void check(int d, int h, int m, int s, int ms, int q) {
   Expect.equals(
       (d * 24 * 3600000 + h * 3600000 + m * 60000 + s * 1000 + ms) ~/ q,
       (new Duration(days: d, hours: h, minutes: m, seconds: s, milliseconds: ms)
