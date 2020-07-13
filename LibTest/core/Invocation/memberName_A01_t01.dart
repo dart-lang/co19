@@ -12,7 +12,7 @@
  */
 import "../../../Utils/expect.dart";
 
-Symbol expect;
+Symbol? expect;
 
 @proxy
 class D {

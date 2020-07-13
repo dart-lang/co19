@@ -14,7 +14,7 @@
  */
 import "../../../Utils/expect.dart";
 
-List expect;
+List? expect;
 
 class D {
   method(x, y, z) {}
