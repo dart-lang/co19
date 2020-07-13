@@ -27,20 +27,17 @@ main() {
   check(r"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", ["robot"]);
 }
 
-void check(String pattern, String str, List<String> groupData,
+void check(String pattern, String str, List<String?> groupData,
     {bool multiLine: false, bool caseSensitive: true}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: caseSensitive);
-  Match fm = re.firstMatch(str);
-  if(null == fm) {
-    Expect.fail("\"$pattern\" !~ \"$str\"");
-  }
+  Match fm = re.firstMatch(str) as Match;
 
   Expect.equals(groupData.length, fm.groupCount + 1);
   
   for(int i = 0; i <= fm.groupCount; i++) {
-    String actGr = fm[i];
-    String expGr = groupData[i];
+    String? actGr = fm[i];
+    String? expGr = groupData[i];
     if(expGr != actGr) {
       Expect.fail("Mismatch at group $i: '$expGr' expected instead of '$actGr'");
     }

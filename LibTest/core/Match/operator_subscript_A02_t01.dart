@@ -13,11 +13,8 @@ import "../../../Utils/expect.dart";
  
 void check(String str, String pattern, int index) {
   RegExp re = new RegExp(pattern, multiLine: false, caseSensitive: true);
-  Match m = re.firstMatch(str);
-  try {
-    m[index];
-    Expect.fail("RangeError is expected");
-  } on RangeError catch(e) {} 
+  Match? m = re.firstMatch(str);
+  Expect.throws(() { m?[index]; }, (e) => e is RangeError);
 }
  
 main() {

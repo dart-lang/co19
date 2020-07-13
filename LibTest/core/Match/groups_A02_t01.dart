@@ -12,11 +12,8 @@ import "../../../Utils/expect.dart";
  
 void check(String str, String pattern, List<int> groupIndices) {
   RegExp re = new RegExp(pattern, multiLine: false, caseSensitive: true);
-  Match m = re.firstMatch(str);
-  try {
-    m.groups(groupIndices);
-    Expect.fail("RangeError is expected");
-  } on RangeError catch(e) {} 
+  Match? m = re.firstMatch(str);
+  Expect.throws(() { m?.groups(groupIndices); }, (e) => e is RangeError);
 }
  
 main() {

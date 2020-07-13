@@ -11,14 +11,14 @@
  */
 import "../../../Utils/expect.dart";
 
-void check(String str, String pattern, List<String> expected,
+void check(String str, String pattern, List<String?> expected,
     {bool multiLine: false, bool caseSensitive: true}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: caseSensitive);
-  Match m = re.firstMatch(str);
-  Expect.equals(expected.length, m.groupCount + 1);
+  Match? m = re.firstMatch(str);
+  Expect.equals(expected.length, (m?.groupCount as int) + 1);
   for(int i = 0; i < expected.length; i++) {
-    Expect.equals(expected[i], m.group(i));
+    Expect.equals(expected[i], m?.group(i));
   }
 }
 

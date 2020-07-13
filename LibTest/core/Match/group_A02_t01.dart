@@ -12,13 +12,10 @@ import "../../../Utils/expect.dart";
 
 void check(String str, String pattern, int index) {
   RegExp re = new RegExp(pattern, caseSensitive: true, multiLine: false);
-  Match m = re.firstMatch(str);
-  try {
-    m.group(index);
-    Expect.fail("RangeError is expected");
-  } on RangeError catch(e) {} 
+  Match ? m = re.firstMatch(str);
+  Expect.throws(() { m?.group(index); }, (e) => e is RangeError);
 }
- 
+
 main() {
   check("a", "a", 1);
   check("a", "(a)", 2);

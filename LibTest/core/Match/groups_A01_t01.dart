@@ -45,17 +45,17 @@ main() {
 }
 
 void check(String pattern, String str, int matchNum, List<int> groupIndices,
-    List<String> expGroups, {bool multiLine: false, bool caseSensitive: true}) {
+    List<String?> expGroups, {bool multiLine: false, bool caseSensitive: true}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: caseSensitive);
-  Match match = new List.from(re.allMatches(str))[matchNum];
+  Match? match = new List.from(re.allMatches(str))[matchNum];
   if(null == match) {
     Expect.fail("No match #$matchNum in '$pattern'/ ~ '$str'!");
   }
   // make sure the test parameters are correct
   Expect.equals(expGroups.length, groupIndices.length);
 
-  List<String> groups = match.groups(groupIndices);
+  List<String?> groups = match?.groups(groupIndices) as List<String?>;
   Expect.equals(groupIndices.length, groups.length);
   
   for(int i = 0; i < expGroups.length; i++) {

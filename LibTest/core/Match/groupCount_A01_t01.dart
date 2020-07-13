@@ -14,8 +14,8 @@ void check(String str, String pattern, int quantity,
     {bool multiLine: false, bool caseSensitive: true}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: caseSensitive);
-  Match m = re.firstMatch(str);
-  Expect.equals(quantity, m.groupCount);
+  Match? m = re.firstMatch(str);
+  Expect.equals(quantity, m?.groupCount);
 }
  
 void main() {
