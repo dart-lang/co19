@@ -21,7 +21,7 @@
  * superclass is the application of the mixin composition Mk−1∗...∗M1 to S.
  * In both cases above, C declares the same instance members as M (respec-
  * tively, Mk).
- * @description Test that mixin can be derived from the superclass
+ * @description Test that mixin cannot be derived from the superclass
  * @author sgrekhov@unipro.ru
  * @issue 25765
  */
@@ -29,6 +29,9 @@ class S {
 }
 
 class C extends S with S {
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
