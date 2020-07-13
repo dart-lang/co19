@@ -12,7 +12,7 @@
 import "dart:collection";
 import "../Queue/all_tests.lib.dart" as allQueueTests;
 
-ListQueue create([Iterable content]) {
+ListQueue create([Iterable? content]) {
   if (content == null) {
     return new ListQueue();
   } else {
