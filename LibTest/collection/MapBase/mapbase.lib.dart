@@ -26,7 +26,7 @@ class MapBaseImpl<K, V> extends MapBase<K, V> {
 
   Iterable<K> get keys => _map.keys;
   
-  V operator [](Object key) => _map[key];
+  V? operator [](Object? key) => _map[key];
 
   void operator []=(K key, V value) {
     _map[key] = value;
@@ -36,6 +36,6 @@ class MapBaseImpl<K, V> extends MapBase<K, V> {
     _map.clear();
   }
 
-  V remove(Object key) => _map.remove(key);
+  V? remove(Object? key) => _map.remove(key);
 }
 

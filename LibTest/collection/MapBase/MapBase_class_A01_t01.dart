@@ -13,7 +13,7 @@ import "dart:collection";
 import "mapbase.lib.dart";
 import "inherited_tests.lib.dart" as map_tests;
 
-MapBase create([Map content]) {
+MapBase create([Map? content]) {
   if (content == null) {
     return new MapBaseImpl();
   } else {
