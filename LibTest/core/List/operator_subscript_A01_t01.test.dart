@@ -13,9 +13,9 @@ library operator_subscript_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   List from(List content) {
-    List res = create(content.length);
+    List res = create(content.length, 0);
     res.setRange(0, content.length, content);
     return res;
   }
@@ -32,7 +32,7 @@ test(List create([int length])) {
   Expect.identical(from([1, 2, null])[2], null);
   
   a = const [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
-  List ls = new List<int>(a.length);
+  List ls = new List<int>.filled(a.length, 0);
   for (int i in a) {
     Expect.identical(a[i], i);
     ls[i] = a[i];

@@ -19,24 +19,24 @@ library setRange_A01_t02;
 
 import "../../../Utils/expect.dart";
 
-check(dst) {
+check(List dst, var def) {
   List src = [dst, null];
   src[1] = src;
 
   dst.setRange(0, 2, src);
-  Expect.listEquals([dst, src, null, null, null], dst);
+  Expect.listEquals([dst, src, def, def, def], dst);
 
   dst.setRange(4, 5, src);
-  Expect.listEquals([dst, src, null, null, dst], dst);
+  Expect.listEquals([dst, src, def, def, dst], dst);
 
   dst.setRange(2, 4, src);
   Expect.listEquals([dst, src, dst, src, dst], dst);
 }
 
-test(List create([int length])) {
-  check(create(5));
+test(List<E> create<E>([int length, E fill])) {
+  check(create<dynamic>(5, 0), 0);
 
   List a = create();
   a.length = 5;
-  check(a);
+  check(a, null);
 }

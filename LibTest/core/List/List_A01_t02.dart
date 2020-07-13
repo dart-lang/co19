@@ -21,6 +21,6 @@ check(List l) {
 }
 
 main() {
-  check(new List<String>());
-  check(new List());
+  check(new List<String?>.empty(growable: true));
+  check(new List.empty(growable: true));
 }

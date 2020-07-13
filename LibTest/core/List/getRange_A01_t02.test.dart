@@ -14,7 +14,7 @@ library getRange_A01_t02;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
 
   void check(List src, int start) {
     List a = create();
@@ -23,7 +23,7 @@ test(List create([int length])) {
     Expect.equals(0, dst.length);
   }
 
-  List l = new List(1000);
+  List l = new List.filled(1000, 0);
   check(l, 0);
   check(l, 100);
   check(l, 999);

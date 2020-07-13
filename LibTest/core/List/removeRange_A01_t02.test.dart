@@ -13,7 +13,7 @@ library removeRange_A01_t02;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   var a = create();
   a.removeRange(0, 0);
   Expect.equals(0, a.length);

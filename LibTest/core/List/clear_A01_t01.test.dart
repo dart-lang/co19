@@ -13,7 +13,7 @@ library clear_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
 
   void check(List a0) {
     List a = create();
@@ -24,7 +24,7 @@ test(List create([int length])) {
     Expect.equals(0, a.length);
   }
   
-  List a = new List();
+  List a = new List.empty(growable: true);
   check(a);
   a.add(null);
   check(a);

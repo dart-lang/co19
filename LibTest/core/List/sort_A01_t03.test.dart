@@ -15,12 +15,12 @@ library sort_A01_t03;
 
 import "../../../Utils/expect.dart";
 
-void check(Iterable a, List create([int length])) {
+void check(Iterable<int> a, List<E> create<E>([int length, E fill])) {
   int c(var x, var y) {
     return x < y ? -1 : (x == y ? 0 : 1);
   }
 
-  var a_copy = create(a.length);
+  var a_copy = create(a.length, 0);
   a_copy.setRange(0, a.length, a);
   a_copy.sort(c);
 
@@ -29,10 +29,10 @@ void check(Iterable a, List create([int length])) {
   }
 }
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
 
   int maxlen = 5;
-  var a = new List(maxlen);
+  var a = new List.filled(maxlen, 0);
   int maxdigit = 3;
   int mindigit = -2;
 

@@ -22,9 +22,9 @@ class Eq {
   bool operator ==(other) => other is Eq;
 }
 
-test(List create([int length])) {
-  List a = create(10);
-  checkList(a, null, 0);
+test(List<E> create<E>([int length, E fill])) {
+  List a = create<Object?>(10, 0);
+  checkList(a, 0, 0);
   
   var o = new Object();
   a[4] = o;

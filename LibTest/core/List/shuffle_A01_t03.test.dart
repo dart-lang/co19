@@ -14,7 +14,7 @@ library shuffle_A01_t03;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   List lst = create();
   lst.shuffle();
   Expect.equals(0, lst.length);

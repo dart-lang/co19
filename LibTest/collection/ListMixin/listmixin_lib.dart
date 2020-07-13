@@ -19,8 +19,9 @@ import "dart:collection";
 
 class MyList<E> extends Object with ListMixin<E> {
   List<E> _list;
-  
-  MyList([int length]): _list = (length == null ? new List() : new List(length));
+
+  MyList.empty(): _list = new List<E>.empty(growable: true);
+  MyList(int length, E fill): _list = new List<E>.filled(length, fill);
   
   E operator [](int index) => _list[index];
 
@@ -35,6 +36,12 @@ class MyList<E> extends Object with ListMixin<E> {
   }
 }
  
-List create([int length]) {
-  return new MyList(length);
+List<E> create<E>([int? length, E? fill]) {
+  if (length == null) {
+    return new MyList<E>.empty();
+  }
+  if (fill != null) {
+    return new MyList(length, fill);
+  }
+  throw new Exception("List length specified but fill is null");
 }  

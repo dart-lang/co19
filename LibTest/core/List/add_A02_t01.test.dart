@@ -14,7 +14,7 @@ library add_A02_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
-  Expect.throws(() {create(1).add(null);}, (e) => e is UnsupportedError);
-  Expect.throws(() {create(100).add(null);}, (e) => e is UnsupportedError);
+test(List<E> create<E>([int length, E fill])) {
+  Expect.throws(() {create<int?>(1, 0).add(null);}, (e) => e is UnsupportedError);
+  Expect.throws(() {create<int?>(100, 0).add(null);}, (e) => e is UnsupportedError);
 }

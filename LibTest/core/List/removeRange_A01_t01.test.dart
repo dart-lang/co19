@@ -33,6 +33,6 @@ check(a) {
   Expect.equals(-1, a[0]);
 }
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   check(create());
 }

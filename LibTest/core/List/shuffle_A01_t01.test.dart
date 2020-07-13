@@ -32,7 +32,7 @@ bool isOrderChanged(List list, List sl) {
 }
 
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   List initial = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   var counter = 0;
   for (int i = 0; i < 10; i++) {

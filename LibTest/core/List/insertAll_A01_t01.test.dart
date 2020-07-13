@@ -15,7 +15,8 @@ library insertAll_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-void check(List create([int length]), List a0, int index, Iterable elements) {
+void check(List<E> create<E>([int length, E fill]), List a0, int index,
+    Iterable elements) {
   List a = create();
   a.insertAll(0, a0);
 
@@ -26,7 +27,7 @@ void check(List create([int length]), List a0, int index, Iterable elements) {
   }
   int k = 0;
   for (var element in elements) {
-    Expect.identical(element, a[index+k]);
+    Expect.identical(element, a[index + k]);
     k++;
   }
   for (int k = index; k < a0.length; k++) {
@@ -34,10 +35,10 @@ void check(List create([int length]), List a0, int index, Iterable elements) {
   }
 }
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   List a0 = [1, 3, 3, 4, 5, 6];
   check(create, a0, 0, [10, 20, 33]);
   check(create, a0, 3, [-10, 20, 33]);
-  check(create, a0, a0.length-1, [10, null, 33]);
+  check(create, a0, a0.length - 1, [10, null, 33]);
   check(create, a0, a0.length, [10, 20, -33, null]);
 }

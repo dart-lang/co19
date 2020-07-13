@@ -18,7 +18,7 @@ library indexOf_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   List a = create();
   a.addAll(const [42, 0, -1, 42, -1, 6031769, 0]);
     
@@ -33,7 +33,7 @@ test(List create([int length])) {
   Expect.isTrue(a.indexOf(0, 5) == 6);
   Expect.isTrue(a.indexOf(0, 6) == 6);
 
-  List b = create(a.length);
+  List b = create(a.length, 0);
   for(var i = 0; i<a.length; i++) {
     b[i] = a[i];
   }

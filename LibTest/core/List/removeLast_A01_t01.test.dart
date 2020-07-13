@@ -17,7 +17,7 @@ check(a) {
   Expect.isTrue(a.length == 0);
   a.add(null);
   Expect.isTrue(a.length == 1);
-  Object o = a.removeLast();
+  Object? o = a.removeLast();
   Expect.isTrue(a.length == 0 && o == null);
 
   a.add(1);
@@ -35,7 +35,7 @@ check(a) {
   o = a.removeLast();
   Expect.isTrue(a.length == 0 && o == false);
 
-  List b = new List(100);
+  List b = new List.filled(100, "");
   b[99] = "removeLast";
   a.addAll(b);
   Expect.isTrue(a.length == 100);
@@ -43,6 +43,6 @@ check(a) {
   Expect.isTrue(a.length == 99 && o == b[99]);
 }
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   check(create());
 }

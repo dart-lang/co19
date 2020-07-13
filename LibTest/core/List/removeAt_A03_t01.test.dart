@@ -14,7 +14,7 @@ library removeAt_A03_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
 
   check(List a0, int index) {
     List a = create();

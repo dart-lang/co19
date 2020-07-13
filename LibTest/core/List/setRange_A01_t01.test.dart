@@ -21,16 +21,16 @@ import "../../../Utils/expect.dart";
 
 class A{A(){}}
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   var a = new A();
-  List dst = create(1);
+  List dst = create(1, 0);
   dst.setRange(0, 1, [a], 0);
   Expect.isTrue(dst[0] == a);
   Expect.identical(dst[0], a);
   Expect.isTrue(dst.length == 1);
 
   //zero case
-  dst = create(0);
+  dst = create(0, 0);
   dst.setRange(0, 0, []);
   Expect.isTrue(dst.length == 0);
 }

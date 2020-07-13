@@ -19,14 +19,14 @@ import "../../../Utils/expect.dart";
 
 typedef Generator(int index);
 
-Generator gengen(List<Object> source) {
+Generator gengen(List<Object?> source) {
   return (int index) {
-     return source[index];
-   };
+    return source[index];
+  };
 }
 
-List<String> failures=new List<String>();
- 
+List<String> failures = new List<String>.empty(growable: true);
+
 check(List l) {
   try {
     l.clear();
@@ -45,21 +45,29 @@ check(List l) {
     failures.add("removeLast");
   } on UnsupportedError catch (ok) {}
   try {
-    l.removeRange(0,1);
+    l.removeRange(0, 1);
     failures.add("removeRange");
   } on UnsupportedError catch (ok) {}
 }
 
 main() {
-  check(new List.generate(0, gengen([]), growable:false));
-  
-  List src = [null, [null], [], [1 ,2, 3], [[null]]];
-  List a = new List.generate(src.length, gengen(src), growable:false);
+  check(new List.generate(0, gengen([]), growable: false));
+
+  List src = [
+    null,
+    [null],
+    [],
+    [1, 2, 3],
+    [
+      [null]
+    ]
+  ];
+  List a = new List.generate(src.length, gengen(src), growable: false);
   check(a);
-  
+
   if (failures.isEmpty) return;
-  StringBuffer sb = new StringBuffer("following operations do not cause "
-      + "UnsupportedError on fixed-sized list:\n");
+  StringBuffer sb = new StringBuffer("following operations do not cause " +
+      "UnsupportedError on fixed-sized list:\n");
   sb.writeAll(failures, ", ");
   Expect.fail(sb.toString());
 }

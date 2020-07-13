@@ -48,12 +48,10 @@ import "length_A02_t01.test.dart" as length_A02_t01;
 import "length_A03_t01.test.dart" as length_A03_t01;
 import "length_A04_t01.test.dart" as length_A04_t01;
 import "length_A05_t01.test.dart" as length_A05_t01;
-import "length_A06_t01.test.dart" as length_A06_t01;
 import "operator_subscript_A01_t01.test.dart" as operator_subscript_A01_t01;
 import "operator_subscript_A01_t02.test.dart" as operator_subscript_A01_t02;
 import "operator_subscript_A02_t01.test.dart" as operator_subscript_A02_t01;
 import "operator_subscript_A03_t01.test.dart" as operator_subscript_A03_t01;
-import "operator_subscript_A04_t01.test.dart" as operator_subscript_A04_t01;
 import "operator_subscripted_assignment_A01_t01.test.dart" as operator_subscripted_assignment_A01_t01;
 import "operator_subscripted_assignment_A01_t02.test.dart" as operator_subscripted_assignment_A01_t02;
 import "operator_subscripted_assignment_A02_t01.test.dart" as operator_subscripted_assignment_A02_t01;
@@ -104,7 +102,7 @@ import "sublist_A03_t01.test.dart" as sublist_A03_t01;
 
 import "../../core/Iterable/allTests.lib.dart" as iterableTests;
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   add_A01_t01.test(create);
   add_A01_t02.test(create);
   add_A02_t01.test(create);
@@ -143,12 +141,10 @@ test(List create([int length])) {
   length_A03_t01.test(create);
   length_A04_t01.test(create);
   length_A05_t01.test(create);
-  length_A06_t01.test(create);
   operator_subscript_A01_t01.test(create);
   operator_subscript_A01_t02.test(create);
   operator_subscript_A02_t01.test(create);
   operator_subscript_A03_t01.test(create);
-  operator_subscript_A04_t01.test(create);
   operator_subscripted_assignment_A01_t01.test(create);
   operator_subscripted_assignment_A01_t02.test(create);
   operator_subscripted_assignment_A02_t01.test(create);
@@ -198,7 +194,7 @@ test(List create([int length])) {
   sublist_A03_t01.test(create);
 
   // Run tests for methods inherited from Iterable
-  Iterable createIterable([Iterable content]) {
+  Iterable createIterable([Iterable? content]) {
     if (content == null) {
       return create();
     } else {

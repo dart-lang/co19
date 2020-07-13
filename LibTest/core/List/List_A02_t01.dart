@@ -8,18 +8,12 @@
  * It is an error if length is not a non-negative integer.
  * @description Checks that ArgumentError is thrown as expected.
  * @author vasya
- * @reviewer iefremov
  */
 import "../../../Utils/expect.dart";
 
 main() {
   try {
-    List a = new List(-1);
-    Expect.fail("ArgumentError is expected");
-  } on ArgumentError catch(e) {}
-
-  try {
-    List a = new List(null);
+    List a = new List.filled(-1, 0);
     Expect.fail("ArgumentError is expected");
   } on ArgumentError catch(e) {}
 }

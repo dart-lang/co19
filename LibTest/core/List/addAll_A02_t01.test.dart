@@ -14,16 +14,16 @@ library addAll_A02_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
 
   void check(Iterable content, collection) {
-    List list = create(collection.length);
+    List list = create(collection.length, 0);
     list.setRange(0, collection.length, collection);
     Expect.throws(() {list.addAll(collection);}, (e) => e is UnsupportedError);
   }
 
-  check(new List(100), ["1", "2", "3"]);
-  check(new List.from(new List(0), growable:false), [null]);
-  check(new List.filled(1, new List(1)), new List(34567));
-  check(const [], new List(34567));
+  check(new List.filled(100, ""), ["1", "2", "3"]);
+  check(new List.from(new List.empty(), growable:false), [null]);
+  check(new List.filled(1, 1), new List.filled(34567, 0));
+  check(const [], new List.filled(34567, 0));
 }

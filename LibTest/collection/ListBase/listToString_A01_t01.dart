@@ -19,7 +19,7 @@ class C {
 }
 
 main() {
-  ListBase list = create(3);
+  ListBase<Object> list = create<Object>(3, new Object());
   list[0] = 1;
   list[1] = "2";
   list[2] = new C();

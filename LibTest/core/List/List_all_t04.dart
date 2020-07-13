@@ -9,9 +9,9 @@
  * Tests which consume a lot of memory
  * @author sgrekhov@unipro.ru
  */
-import "../../core/List/sort_A01_t05.test.dart" as sort_A01_t05;
-import "List_class_A01_t01.dart";
+import "../../core/List/sort_A01_t06.test.dart" as sort_A01_t06;
+import "List_all_t01.dart";
 
 main() {
-  sort_A01_t05.test(create);
+  sort_A01_t06.test(create);
 }

@@ -17,7 +17,7 @@ check(list) {
   Expect.throws(() {list.removeRange(0, -1);}, (e) => e is RangeError);
 }
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   var a = create();
   a.length = 1;
   check(a);

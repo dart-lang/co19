@@ -13,7 +13,7 @@ library removeLast_A03_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   List a = create();
   Expect.throws(() {a.removeLast();}, (e) => e is RangeError);
 }

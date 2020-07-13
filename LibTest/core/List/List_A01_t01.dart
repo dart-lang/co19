@@ -33,11 +33,11 @@ void check(List a, int size) {
 }
 
 main() {
-  List a = new List(0);
+  List a = new List.filled(0, 0);
   Expect.isTrue(a.length == 0);
   Expect.throws(() {a[0] = 1;}, (e) => e is RangeError);
 
-  check(new List(1), 1);
-  check(new List(42), 42);
-  check(new List(100500), 100500);
+  check(new List.filled(1, 0), 1);
+  check(new List.filled(42, 0), 42);
+  check(new List.filled(100500, 0), 100500);
 }

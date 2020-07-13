@@ -15,10 +15,10 @@ library operator_subscripted_assignment_A02_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
 
   void check(List a0, int idx) {
-    List a = create(a0.length);
+    List a = create(a0.length, 0);
     a.setRange(0, a0.length, a0);
     Expect.throws(() {a[idx] = null;}, (e) => e is RangeError);
   }
@@ -26,8 +26,8 @@ test(List create([int length])) {
   check([], 0);
   check([], 1);
   check([], -1);
-  check(new List(), 6031769);
-  check(new List(123), 6031769);
+  check(new List.empty(), 6031769);
+  check(new List.filled(123, 0), 6031769);
   check([1], 2);
   check([null, null, null, null], 5);
   check([null, null, null, null], -1);

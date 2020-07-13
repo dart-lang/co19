@@ -15,7 +15,7 @@ library removeWhere_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
 
   void check(List a0, bool test(var element)) {
     List a = create();

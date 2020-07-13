@@ -12,9 +12,9 @@ library operator_subscript_A01_t02;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   List from(Iterable content) {
-    List res = create(content.length);
+    List res = create(content.length, 0);
     res.setRange(0, content.length, content);
     return res;
   }

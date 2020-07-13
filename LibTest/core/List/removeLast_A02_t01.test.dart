@@ -14,8 +14,7 @@ library removeLast_A02_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
-  List a = create(1);
-  a[0] = 0;
+test(List<E> create<E>([int length, E fill])) {
+  List a = create(1, 0);
   Expect.throws(() {a.removeLast();}, (e) => e is UnsupportedError);
 }

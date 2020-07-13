@@ -21,7 +21,7 @@ void assertIsNull(List a, int oldLength) {
   }
 }
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   List a = create();
   a.length = 100;
   assertIsNull(a, 0);

@@ -14,8 +14,8 @@ library iterator_moveNext_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
-  List a = create(25476);
+test(List<E> create<E>([int length, E fill])) {
+  List a = create(25476, 0);
   Iterator it = a.iterator;
   for (var i = 0; i < a.length; i++) {
     Expect.isTrue(it.moveNext());

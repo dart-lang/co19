@@ -14,7 +14,7 @@ library fillRange_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   List a0 = [1, 3, 3, 4, 5, 6];
   List a = create();
   a.length = a0.length;

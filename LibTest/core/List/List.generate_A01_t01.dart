@@ -29,7 +29,7 @@ void checkEquals(List expected, List actual) {
   Iterator it = expected.iterator;
   var i = 0;
   while (it.moveNext()) {
-    Object o = it.current;
+    Object? o = it.current;
     Expect.identical(actual[i], o);
     Expect.isTrue(actual[i] == o);
     i++;
@@ -37,7 +37,7 @@ void checkEquals(List expected, List actual) {
 }
 
 main() {
-  List<int> s = new List<int>();
+  List<int> s = new List<int>.empty(growable: true);
   List a = new List.generate(0, gengen(s));
   Expect.equals(0, a.length);
   Expect.equals(0, s.length);
@@ -48,7 +48,7 @@ main() {
   a = new List.generate(s.length, gengen(s));
   checkEquals(s, a);
 
-  List l = new List();
+  List l = new List.empty(growable: true);
   a = new List.generate(0, gengen(l));
   Expect.equals(0, a.length);
   Expect.equals(0, l.length);
@@ -61,7 +61,7 @@ main() {
   a = new List.generate(src.length, gengen(src));
   checkEquals(src, a);
 
-  src = new List(34567);
+  src = new List.filled(34567, 0);
   src[34566] = -111111111;
   a = new List.generate(src.length, gengen(src));
   checkEquals(src, a);

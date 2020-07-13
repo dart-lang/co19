@@ -44,13 +44,13 @@ check(List ls) {
   checkList(ls, 0, -6031769, 1);
 }
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   List a = create();
   a.addAll(const [42, 0, -1, 42, -1, 6031769, 0]);
 
   check(a);
 
-  List b = create(a.length);
+  List b = create(a.length, 0);
   for(var i = 0; i<a.length; i++) {
     b[i] = a[i];
   }

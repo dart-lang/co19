@@ -14,7 +14,7 @@ library reversed_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
 
   void checkReversedIterator(List a) {
     List b = create();
@@ -29,9 +29,9 @@ test(List create([int length])) {
   
   checkReversedIterator([]);
   checkReversedIterator(const [null, 0, "1", false, const []]);
-  checkReversedIterator(new List(300));
+  checkReversedIterator(new List.filled(300, 0));
 
-  List a = new List(365);
+  List a = new List.filled(365, 0);
   for (var i = 0; i < a.length; i++) {
     a[i] = i;
   }

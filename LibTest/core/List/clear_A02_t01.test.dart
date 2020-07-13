@@ -18,20 +18,20 @@ void check(List a) {
   Expect.throws(() {a.clear();}, (e) => e is UnsupportedError);
 }
 
-test(List create([int length])) {
-  List a = create(0);
+test(List<E> create<E>([int length, E fill])) {
+  List<int?> a = create<int?>(0, 0);
   check(a);
 
-  a = create(1);
+  a = create<int?>(1, 0);
   a[0] = null;
   check(a);
 
-  a = create(3);
+  a = create<int?>(3, 0);
   a[0] = 1;
   a[1] = 1;
   a[2] = 1;
   check(a);
 
-  a = create(89356);
+  a = create<int?>(89356, 0);
   check(a);
 }

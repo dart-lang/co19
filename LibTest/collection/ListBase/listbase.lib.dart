@@ -17,9 +17,9 @@ import "dart:collection";
 
 class ListBaseImpl<E> extends ListBase<E> {
   List<E> _list;
-  
-  ListBaseImpl([int length]):
-        _list = (length == null ? new List() : new List(length));
+
+  ListBaseImpl.empty(): _list = new List<E>.empty(growable: true);
+  ListBaseImpl(int length, E fill): _list = new List.filled(length, fill);
   
   E operator [](int index) => _list[index];
 
@@ -34,7 +34,13 @@ class ListBaseImpl<E> extends ListBase<E> {
   }
 }
 
-List create([int length]) {
-  return new ListBaseImpl(length);
+ListBase<E> create<E>([int? length, E? fill]) {
+  if (length == null) {
+    return new ListBaseImpl<E>.empty();
+  }
+  if (fill != null) {
+    return new ListBaseImpl(length, fill);
+  }
+  throw new Exception("List length specified but fill is null");
 }
 

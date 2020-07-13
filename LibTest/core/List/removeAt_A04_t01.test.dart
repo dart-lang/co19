@@ -15,10 +15,10 @@ library removeAt_A04_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
 
   check(List a0, int index) {
-    List a = create(a0.length);
+    List a = create(a0.length, 0);
     a.setRange(0, a0.length, a0);
     Expect.throws(() {a.removeAt(index);}, (e) => e is UnsupportedError);
   }

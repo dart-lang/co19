@@ -16,9 +16,9 @@ library addAll_A01_t01;
 import "../../../Utils/expect.dart";
 import "dart:collection";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   List a = create();
-  List b = create(1000);
+  List b = create(1000, 0);
   for (var i = 0; i < b.length; i++){
     b[i] = i;
   }
@@ -28,27 +28,27 @@ test(List create([int length])) {
     Expect.equals(b[i], a[i]);
   }
   
-  a = new List();
+  a = new List.empty(growable: true);
   Set set = new Set.from([1, 2, 3, 4, 5]);
   a.addAll(set);
   Expect.listEquals([1, 2, 3, 4, 5], a);
   
-  a = new List();
+  a = new List.empty(growable: true);
   Queue list = new Queue();
   list.addLast(1);
   list.addLast(2);
   a.addAll(list);
   Expect.listEquals([1, 2],a);
   
-  a = new List();
+  a = new List.empty(growable: true);
   a.addAll([]);
   Expect.listEquals([], a);
   
-  a = new List();
+  a = new List.empty(growable: true);
   a.addAll(new Queue());
   Expect.listEquals([], a);
   
-  a = new List();
+  a = new List.empty(growable: true);
   a.addAll(new Set());
   Expect.listEquals([], a);
 

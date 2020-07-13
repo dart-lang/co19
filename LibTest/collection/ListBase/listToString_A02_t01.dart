@@ -21,8 +21,8 @@ class C {
 }
 
 main() {
-  ListBase list1 = create(4);
-  ListBase list2 = create(2);
+  ListBase list1 = create(4, new Object());
+  ListBase list2 = create(2, new Object());
   list2[0] = 3;
   list2[1] = new C();
 

@@ -13,6 +13,6 @@
  */
 library sort_A01_t01;
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   create().sort(null);    
 }

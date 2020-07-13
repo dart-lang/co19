@@ -19,7 +19,7 @@ void check(List a, int index, var element) {
   Expect.throws(() {a.insert(index, element);});
 }
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   List a0 = [1, 3, 3, 4, 5, 6];
   List a = create();
   a.insertAll(0, a0);

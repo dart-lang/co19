@@ -14,10 +14,10 @@ library asMap_A02_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
 
   void check(List a0) {
-    List a = create(a0.length);
+    List a = create(a0.length, new Object());
     Expect.equals(a0.length, a.length);
     a.setRange(0, a0.length, a0);
     var map = a.asMap();
@@ -35,7 +35,7 @@ test(List create([int length])) {
     }
   }
 
-  List a = new List();
+  List a = new List.empty(growable: true);
   check(a);
   a.add(2);
   check(a);

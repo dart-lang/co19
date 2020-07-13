@@ -13,7 +13,7 @@ library removeRange_A02_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
-  var a = create(1);
+test(List<E> create<E>([int length, E fill])) {
+  var a = create(1, 0);
   Expect.throws(() {a.removeRange(0, 1);}, (e) => e is UnsupportedError);
 }

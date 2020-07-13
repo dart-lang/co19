@@ -16,7 +16,7 @@ library sublist_A03_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   List lst = create();
   lst.addAll([0, 1, 2, 3, 4]);
 

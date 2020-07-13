@@ -15,8 +15,8 @@ library setAll_A01_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
-  List lst = create(5);
+test(List<E> create<E>([int length, E fill])) {
+  List lst = create(5, 0);
   lst.setAll(0, [1, 2, 3, 4, 5]);
   for (int i = 1; i <= lst.length; i++) {
     Expect.equals(i, lst[i - 1]);

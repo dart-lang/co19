@@ -6,18 +6,12 @@
 /**
  * @assertion List<E> abstract class 
  * @description Checks that List-specific methods work as specified.
+ * Tests which consume a lot of memory
  * @author kaigorodov
  */
-import "allListTests.lib.dart";
-
-List create([int length = null]) {
-  if (length == null) {
-    return new List();
-  } else {
-    return new List(length);
-  }
-}  
+import "../../core/List/sort_A01_t04.test.dart" as sort_A01_t04;
+import "List_all_t01.dart";
 
 main() {
-  test(create);  
+  sort_A01_t04.test(create);
 }

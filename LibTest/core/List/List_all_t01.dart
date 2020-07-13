@@ -6,12 +6,21 @@
 /**
  * @assertion List<E> abstract class 
  * @description Checks that List-specific methods work as specified.
- * Tests which consume a lot of memory
  * @author kaigorodov
  */
-import "../../core/List/sort_A01_t04.test.dart" as sort_A01_t04;
-import "List_class_A01_t01.dart";
+import "allListTests.lib.dart";
+
+List<E> create<E>([int? length, E? fill]) {
+  if (length == null) {
+    return new List<E>.empty(growable: true);
+  }
+  if (fill != null) {
+    return new List<E>.filled(length, fill);
+  }
+  throw new Exception(
+    "If length was specified then fill must be specified as well");
+}  
 
 main() {
-  sort_A01_t04.test(create);
+  test(create);  
 }

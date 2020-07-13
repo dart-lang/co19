@@ -13,17 +13,17 @@ library operator_subscript_A03_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
 
   void check(List a0, var idx) {
-    List a = create(a0.length);
+    List a = create(a0.length, new Object());
     a.setRange(0, a0.length, a0);
     Expect.throws(() {a[idx];}, (e) => e is Error);
   }
 
   check(const [null], 0.0);
   check(['sd', 'sd'], 'sd');
-  check(new List.from(<int>[null, 1, 0]), true);
-  check(new List(100), {"a": 0});
-  check(new List(100), []);
+  check(new List.from(<int?>[null, 1, 0]), true);
+  check(new List.filled(100, 0), {"a": 0});
+  check(new List.filled(100, 0), []);
 }

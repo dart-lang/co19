@@ -13,7 +13,7 @@
  */
 import "../../../Utils/expect.dart";
 
-List<String> failures=new List<String>();
+List<String> failures = new List<String>.empty(growable: true);
  
 check(List l) {
   try {
@@ -39,8 +39,8 @@ check(List l) {
 }
 
 main() {
-  check(new List<String>(0));
-  check(new List(10));
+  check(new List<String?>.empty());
+  check(new List.filled(10, 0));
   if (failures.isEmpty) return;
   StringBuffer sb = new StringBuffer();
   sb.write("Following operations do not cause UnsupportedError on "

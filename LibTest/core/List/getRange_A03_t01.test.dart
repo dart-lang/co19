@@ -15,7 +15,7 @@ library getRange_A03_t01;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
 
   void check1(List list, int start, int length) {
     Expect.throws(() {list.getRange(start, start + length);},
@@ -27,17 +27,17 @@ test(List create([int length])) {
     list.addAll(a0);
     check1(list, start, end);
 
-    list = create(a0.length);
+    list = create(a0.length, 0);
     list.setRange(0, a0.length, a0);
     check1(list, start, end);    
   }
 
-  check(new List(0), 0, 1);
-  check(new List(10), 1, 10);
-  check(new List(1099), 0, 1100);
-  check(new List(10789), 10000, 10000);
+  check(new List.filled(0, 0), 0, 1);
+  check(new List.filled(10, 0), 1, 10);
+  check(new List.filled(1099, 0), 0, 1100);
+  check(new List.filled(10789, 0), 10000, 10000);
 
-  List l = new List();
+  List l = new List.empty(growable: true);
   check(l, 0, 1);
   l.length = 10;
   check(l, 1, 10);

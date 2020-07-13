@@ -14,7 +14,7 @@ library removeRange_A03_t03;
 
 import "../../../Utils/expect.dart";
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
 
   void check(dynamic start, dynamic end) {
     var l = create();

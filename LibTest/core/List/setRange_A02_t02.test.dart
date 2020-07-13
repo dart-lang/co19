@@ -20,10 +20,10 @@ checkList(dst, dstOffset, count, src) {
       (e) => e is RangeError);
 }
 
-test(List create([int length])) {
+test(List<E> create<E>([int length, E fill])) {
   void check(int dstSize, int srcSize, int dstOffset, int count) {
-    List src = create(srcSize);
-    List dst = create(dstSize);
+    List src = create(srcSize, 0);
+    List dst = create(dstSize, 0);
     checkList(dst, dstOffset, count, src);
 
     src = create();
