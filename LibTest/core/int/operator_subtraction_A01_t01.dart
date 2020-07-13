@@ -24,9 +24,10 @@ main() {
   Expect.equals(1,-9223372036854775808 - 9223372036854775807);
   Expect.equals(-3, 9223372036854775806 - -9223372036854775807);
 
-  final double MIN_DOUBLE = Math.pow(2.0, -1074);
+  final double MIN_DOUBLE = Math.pow(2.0, -1074) as double;
   final double NEG_MIN_DOUBLE = -1 * MIN_DOUBLE; 
-  final double MAX_DOUBLE = (2 - Math.pow(2.0, -52)) * Math.pow(2.0, 1023);
+  final double MAX_DOUBLE =
+      (2 - Math.pow(2.0, -52)) * Math.pow(2.0, 1023) as double;
   final double NEG_MAX_DOUBLE = -1 * MAX_DOUBLE; 
 
   Expect.equals(0.0, 0 - 0.0);

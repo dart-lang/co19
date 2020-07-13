@@ -24,18 +24,11 @@
  */
 import "../../../Utils/expect.dart";
 
+dynamic getNull() => null;
+
 main() {
-  bool called = false;
-  Expect.throws(() {int.parse(null, onError: (s) {
-    called = true;
-    return 1;
-  });});
-  Expect.isFalse(called);
+  Expect.throws(() => int.parse(getNull()));
 
   dynamic val = 5;
-  Expect.throws(() {int.parse(val, onError: (s) {
-    called = true;
-    return 1;
-  });});
-  Expect.isFalse(called);
+  Expect.throws(() => int.parse(val));
 }

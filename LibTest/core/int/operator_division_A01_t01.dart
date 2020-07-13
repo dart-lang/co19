@@ -17,7 +17,7 @@ import "dart:math" as Math;
 double getPrecision(num number) {
   var log2num = Math.log(number.abs()) / Math.ln2;
   int pernum = log2num.ceil();
-  return(Math.pow(2, -51 + pernum));
+  return(Math.pow(2, -51 + pernum) as double);
 }
 
 main() {
