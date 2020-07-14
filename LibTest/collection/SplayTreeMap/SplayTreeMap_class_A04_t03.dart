@@ -23,7 +23,7 @@ class C implements Comparable {
   int value;
   C(this.value);
 
-  compareTo(Object other) {
+  compareTo(Object? other) {
     return this.value - (other as C).value;
   }
 }

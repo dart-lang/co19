@@ -21,7 +21,7 @@ class C {
   C(this.value);
 }
 
-bool compared;
+bool compared = false;
 
 int compare(var key1, var key2) {
   compared = true;

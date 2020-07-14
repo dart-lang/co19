@@ -14,7 +14,7 @@ import "../../core/Map/compKeysTests.lib.dart" as compKeysTests;
 import "nonCompKeysTests.lib.dart" as nonCompKeysTests;
 import "../../core/Map/compKeysWarnTests.lib.dart" as compKeysWarnTests;
 
-Map create([Map content]) {
+Map create([Map? content]) {
   if (content == null) {
     return new SplayTreeMap();
   } else {
