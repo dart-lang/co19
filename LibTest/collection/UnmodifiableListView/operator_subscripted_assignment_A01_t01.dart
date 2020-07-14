@@ -21,5 +21,4 @@ main() {
   Expect.throws(() { l[4] = 1; }, (e) => e is UnsupportedError);
   Expect.throws(() { l[-1] = 1; }, (e) => e is UnsupportedError);
   Expect.throws(() { l[7] = 1; }, (e) => e is UnsupportedError);
-  Expect.throws(() { l[null] = 1; }, (e) => e is UnsupportedError);
 }

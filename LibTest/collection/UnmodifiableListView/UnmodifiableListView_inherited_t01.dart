@@ -16,7 +16,7 @@ import "../../core/Iterable/allTests.lib.dart" as iterableTests;
 
 main() {
   // Run tests for methods inherited from Iterable
-  Iterable createIterable([Iterable content]) {
+  Iterable createIterable([Iterable? content]) {
     if (content == null) {
       return new UnmodifiableListView([]);
     } else {

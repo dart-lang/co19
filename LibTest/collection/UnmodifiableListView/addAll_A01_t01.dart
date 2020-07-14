@@ -21,5 +21,4 @@ main() {
   Expect.throws(() { l.addAll([1, 2, 3, 4, 5]); },
       (e) => e is UnsupportedError);
   Expect.throws(() { l.addAll([]); }, (e) => e is UnsupportedError);
-  Expect.throws(() { l.addAll(null); }, (e) => e is UnsupportedError);
 }

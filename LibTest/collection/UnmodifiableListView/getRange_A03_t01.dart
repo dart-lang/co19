@@ -21,7 +21,7 @@ void check(List src, int start, int end) {
 
 main() {
   check([], 0, 1);
-  check(new List(10), 1, 10);
-  check(new List(1099), 0, 1100);
-  check(new List(10789), 10000, 10000);
+  check(new List.filled(10, 0), 1, 10);
+  check(new List.filled(1099, 0), 0, 1100);
+  check(new List.filled(10789, 0), 10000, 10000);
 }

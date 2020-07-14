@@ -20,5 +20,4 @@ main() {
   Expect.throws(() { l.removeAt(1); }, (e) => e is UnsupportedError);
   Expect.throws(() { l.removeAt(4); }, (e) => e is UnsupportedError);
   Expect.throws(() { l.removeAt(40); }, (e) => e is UnsupportedError);
-  Expect.throws(() { l.removeAt(null); }, (e) => e is UnsupportedError);
 }

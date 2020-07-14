@@ -18,6 +18,4 @@ main() {
       (e) => e is UnsupportedError);
   Expect.throws(() { l.retainWhere((var element) => element > 7); },
       (e) => e is UnsupportedError);
-  Expect.throws(() { l.retainWhere((var element) => element = null); },
-      (e) => e is UnsupportedError);
 }
