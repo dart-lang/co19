@@ -13,7 +13,6 @@
  * some function
  * @author iarkh@unipro.ru
  */
-
 import "../../Utils/expect.dart";
 
 class X {}
@@ -35,6 +34,8 @@ main() {
 
   Expect.isFalse(checkme1 is Func2);
   Expect.isFalse(checkme2 is Func2);
-  Expect.isFalse (checkme3 is Func2);
-  Expect.isFalse (checkme4 is Func2);
+  if (isStrongMode) {
+    Expect.isFalse(checkme3 is Func2);
+    Expect.isFalse(checkme4 is Func2);
+  }
 }

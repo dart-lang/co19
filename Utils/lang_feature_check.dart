@@ -2,7 +2,7 @@ part of Expect;
 
 typedef F<X> = void Function<Y extends X>();
 
-typedef expected_target=Function<X>();
+typedef expected_target = Function<X>();
 
 // Functions for correct type comparison in language feature tests
 F<X>? toF<X>(X x) => null;
@@ -27,3 +27,7 @@ Type? get capturedTypeArgument {
   _capturedTypeArgument = null;
   return result;
 }
+
+// Weak/strong mode flags
+const isWeakMode = null is Never;
+const isStrongMode = !isWeakMode;
