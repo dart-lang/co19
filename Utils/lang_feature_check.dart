@@ -29,5 +29,5 @@ Type? get capturedTypeArgument {
 }
 
 // Weak/strong mode flags
-const isWeakMode = null is Never;
-const isStrongMode = !isWeakMode;
+bool get isWeakMode => const <Null>[] is List<Object>;
+bool get isStrongMode => !isWeakMode;
