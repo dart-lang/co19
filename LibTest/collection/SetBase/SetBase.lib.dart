@@ -25,11 +25,11 @@ class SetBaseImpl<E> extends SetBase<E> {
 
   bool add(E element) => _set.add(element);
 
-  bool contains(Object element) => _set.contains(element);
+  bool contains(Object? element) => _set.contains(element);
 
-  E lookup(Object element) => _set.lookup(element);
+  E? lookup(Object? element) => _set.lookup(element);
 
-  bool remove(Object element) => _set.remove(element);
+  bool remove(Object? element) => _set.remove(element);
 
   Iterator<E> get iterator => _set.iterator;
 
@@ -38,7 +38,7 @@ class SetBaseImpl<E> extends SetBase<E> {
   Set<E> toSet() => _set.toSet();
 }
 
-SetBase create([Iterable content]) {
+SetBase create([Iterable? content]) {
   if (content == null) {
     return new SetBaseImpl();
   } else {

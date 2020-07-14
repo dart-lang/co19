@@ -26,11 +26,11 @@ class SetMixinImpl<E> extends Object with SetMixin<E> {
 
   bool add(E element) => _set.add(element);
 
-  bool contains(Object element) => _set.contains(element);
+  bool contains(Object? element) => _set.contains(element);
 
-  E lookup(Object element) => _set.lookup(element);
+  E? lookup(Object? element) => _set.lookup(element);
 
-  bool remove(Object element) => _set.remove(element);
+  bool remove(Object? element) => _set.remove(element);
 
   Iterator<E> get iterator => _set.iterator;
 
@@ -39,7 +39,7 @@ class SetMixinImpl<E> extends Object with SetMixin<E> {
   Set<E> toSet() => _set.toSet();
 }
 
-Set create([Iterable content]) {
+Set create([Iterable? content]) {
   if (content == null) {
     return new SetMixinImpl();
   } else {
