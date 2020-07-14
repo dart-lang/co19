@@ -27,7 +27,7 @@ int compare(var key1, var key2) {
   }
 }
 
-SplayTreeSet create([Iterable content]) {
+SplayTreeSet create([Iterable? content]) {
   if (content == null) {
     return new SplayTreeSet(compare);
   } else {

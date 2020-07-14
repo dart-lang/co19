@@ -17,7 +17,7 @@ import "dart:collection";
 import "../SetMixin/inherited_tests.lib.dart" as set_mixin_tests;
 import "../IterableMixin/inherited_tests.lib.dart" as iterable_mixin_tests;
 
-test(Set create([Iterable content])) {
+test(Set create([Iterable? content])) {
   set_mixin_tests.test(create);
   iterable_mixin_tests.test(create, isSet: true);
 }
