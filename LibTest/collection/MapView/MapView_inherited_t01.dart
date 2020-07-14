@@ -12,7 +12,7 @@
 import "dart:collection";
 import "inherited_tests.lib.dart" as mapTests;
 
-MapView create([Map content]) {
+MapView create([Map? content]) {
   if (content == null) {
     return new MapView(new LinkedHashMap());
   } else {

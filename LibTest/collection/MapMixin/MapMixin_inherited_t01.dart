@@ -13,7 +13,7 @@ import "dart:collection";
 import "mapmixin.lib.dart";
 import "inherited_tests.lib.dart" as map_tests;
 
-MapMixin create([Map content]) {
+MapMixin create([Map? content]) {
   if (content == null) {
     return new MapMixinImpl();
   } else {
