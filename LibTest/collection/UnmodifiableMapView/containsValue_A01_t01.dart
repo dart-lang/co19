@@ -15,7 +15,6 @@
 import "dart:collection";
 import "../../../Utils/expect.dart";
 
-
 main() {
   UnmodifiableMapView view = new UnmodifiableMapView({});
   Expect.isFalse(view.containsValue(""));

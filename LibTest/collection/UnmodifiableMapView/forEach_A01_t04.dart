@@ -4,24 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void forEach(void action(K key, V value))
+ * @assertion  void forEach(void action(K key, V value))
  * Applies [f] to each key-value pair of the map.
- * @description Checks nested [forEach].
+ * @description Tries to pass function that returns something.
  * @author iarkh@unipro.ru
  */
 import "dart:collection";
-import "../../../Utils/expect.dart";
 
 main() {
   UnmodifiableMapView view = new UnmodifiableMapView({1 : 3, "2" : 5});
 
-  int count = 0;
-  view.forEach((var key1, Object value1) {
-    view.forEach((var key2, Object value2) {
-      view.forEach((var key3, Object value3) {
-        count++;
-      });
-    });
-  });
-  Expect.isTrue(count == 8);
+  int f(var x, Object? y) {
+    return 1;
+  }
+  
+  view.forEach(f);
 }
