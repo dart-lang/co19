@@ -15,7 +15,7 @@
  */
 import "../../../Utils/expect.dart";
 
-check(int index, indexable, String name, int length) {
+check(int index, indexable, String? name, int? length) {
   try {
     RangeError.checkValidIndex(index, indexable, name, length);
     Expect.fail("RangeError expected");

@@ -13,7 +13,7 @@
  */
 import "../../../Utils/expect.dart";
  
-test(RangeError create(num invalidValue, int minValue, int maxValue)) {
+test(RangeError create(num invalidValue, int? minValue, int? maxValue)) {
   Expect.equals(1, create(-1, 1, 3).start);
   Expect.equals(-11, create(-1, -11, 3).start);
   Expect.equals(3, create(0, 3, 22).start);

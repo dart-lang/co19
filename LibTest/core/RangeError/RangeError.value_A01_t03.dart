@@ -12,7 +12,7 @@
  */
 import "../../../Utils/expect.dart";
 
-check(num value, String name, String message) {
+check(num value, String? name, String? message) {
   RangeError re = new RangeError.value(value, name, message);
   Expect.equals(name, re.name);
   if (message != null) {
@@ -26,5 +26,4 @@ check(num value, String name, String message) {
 main() {
   check(-1, null, null);
   check(3.14, "name1", "message1");
-  check(null, "name2", "message2");
 }

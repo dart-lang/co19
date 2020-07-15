@@ -16,7 +16,7 @@
  */
 import "../../../Utils/expect.dart";
 
-check(num invalidValue, int minValue, int maxValue) {
+check(num invalidValue, int? minValue, int? maxValue) {
   RangeError re = new RangeError.range(invalidValue, minValue, maxValue);
   Expect.equals(minValue, re.start);
   Expect.equals(maxValue, re.end);

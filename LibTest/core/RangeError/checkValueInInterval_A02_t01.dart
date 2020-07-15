@@ -16,7 +16,7 @@
  */
 import "../../../Utils/expect.dart";
 
-check(int value, int min, int max, String name, String message) {
+check(int value, int min, int max, String? name, String? message) {
   try {
     RangeError.checkValueInInterval(value, min, max, name, message);
     Expect.fail("RangeError expected");

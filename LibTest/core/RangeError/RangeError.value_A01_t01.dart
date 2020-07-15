@@ -22,5 +22,4 @@ check(num value) {
 main() {
   check(-1);
   check(3.14);
-  check(null);
 }

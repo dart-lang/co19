@@ -12,10 +12,10 @@
 import "allTests.lib.dart" as rangeErrorTests;
 import "inheritedTests.lib.dart" as inherited;
 
-RangeError create(num invalidValue, int minValue, int maxValue) =>
+RangeError create(num invalidValue, int? minValue, int? maxValue) =>
   new RangeError.range(invalidValue, minValue, maxValue);
 
-ArgumentError createArgError([value, String name, message]) {
+ArgumentError createArgError([value, String? name, message]) {
   if (value is num && message is String) {
     return new RangeError.range(value, null, null, name, message);
   } else {

@@ -32,8 +32,8 @@ main() {
   Expect.equals("name", re3.name);
   Expect.equals(1, re3.invalidValue);
 
-  RangeError re4 = new RangeError.index(null, null, "name", "message", 3);
+  RangeError re4 = new RangeError.index(42, null, "name", "message", 3);
   Expect.equals("message", re4.message);
   Expect.equals("name", re4.name);
-  Expect.isNull(re4.invalidValue);
+  Expect.equals(42, re4.invalidValue);
 }

@@ -19,7 +19,7 @@
  */
 import "../../../Utils/expect.dart";
 
-check(int start, int end, int length) {
+check(int start, int? end, int length) {
   try {
     RangeError.checkValidRange(start, end, length);
     Expect.fail("RangeError expected");

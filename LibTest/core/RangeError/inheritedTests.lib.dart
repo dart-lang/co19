@@ -12,6 +12,6 @@ library inheritedTests_A01_t01;
 
 import "../ArgumentError/allTests.lib.dart" as argumentError;
 
-test(ArgumentError create([value, String name, message])) {
+test(ArgumentError create([value, String? name, message])) {
   argumentError.test(create);
 }
