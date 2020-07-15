@@ -16,7 +16,6 @@
  *
  * @author a.semenov@unipro.ru
  */
-
 import "allTests.lib.dart";
 
 Object create() => new Object();

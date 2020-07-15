@@ -21,13 +21,12 @@ main() {
 
   const o3 = const Object();
   const o4 = const Object();
-  print(o3 == o4);
-  //Expect.isFalse(o3 == o4);
+  Expect.isTrue(o3 == o4);
   Expect.equals(o3, o3);
 
   const c1 = const C(1);
   const c2 = const C(1);
-  print(c1 == c2);
+  Expect.isTrue(c1 == c2);
 }
 
 class C {
