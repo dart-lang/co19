@@ -6,9 +6,8 @@
 /**
  * Basic implementation of an unmodifiable [Map].
  * This class has a basic implementation of all but two of the members of an
- * umodifiable [Map]. A simple unmodifiable [Map] class can be implemented by
+ * unmodifiable [Map]. A simple unmodifiable [Map] class can be implemented by
  * extending this class and implementing [keys] and operator[].
- * @description Implementation of [simple UnmodifiableMapBase]
  * @description Checks that unmodifiable map base is created.
  * @author iarkh@unipro.ru
  */

@@ -15,7 +15,7 @@ import "unmodifiablemapbase.lib.dart";
 main() {
   UnmodifiableMapBase base = new UnmodifiableMapBaseImpl({1 : 3, "2" : 5});
 
-  int f(var x, Object y) {
+  int f(var x, Object? y) {
     return 1;
   }
   

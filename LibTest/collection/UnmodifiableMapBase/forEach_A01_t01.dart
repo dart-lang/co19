@@ -6,15 +6,26 @@
 /**
  * @assertion  void forEach(void action(K key, V value))
  * Applies [f] to each key-value pair of the map.
- * @description Checks that error is thrown when the argument is [null]
+ * @description Checks that all mappings are iterated exactly once.
  * @author iarkh@unipro.ru
  */
-
 import "dart:collection";
 import "../../../Utils/expect.dart";
 import "unmodifiablemapbase.lib.dart";
 
 main() {
-  UnmodifiableMapBase base = new UnmodifiableMapBaseImpl({1 : 3, "2" : 5});
-  Expect.throws(() => base.forEach(null));
+  List keys = new List.filled(2, 0);
+  keys[0] = 0;
+  keys[1] = 0;
+  List values = new List.filled(2, "");
+  void f(var i, Object? value) {
+    keys[i] += 1;
+    values[i] = value;
+  }
+
+  UnmodifiableMapBase base = new UnmodifiableMapBaseImpl({0 : "3", 1 : "5"});
+  base.forEach(f);
+  
+  Expect.isTrue(keys[0] == 1 && keys[1] == 1);
+  Expect.isTrue(values[0] == "3" && values[1] == "5");
 }

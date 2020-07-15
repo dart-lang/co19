@@ -17,9 +17,9 @@ main() {
   UnmodifiableMapBase base = new UnmodifiableMapBaseImpl({1 : 3, "2" : 5});
 
   int count = 0;
-  base.forEach((var key1, Object value1) {
-    base.forEach((var key2, Object value2) {
-      base.forEach((var key3, Object value3) {
+  base.forEach((var key1, Object? value1) {
+    base.forEach((var key2, Object? value2) {
+      base.forEach((var key3, Object? value3) {
         count++;
       });
     });
