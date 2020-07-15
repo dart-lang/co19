@@ -10,7 +10,6 @@
  * @description Checks that it is an error if the [rawIndex] is negative.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

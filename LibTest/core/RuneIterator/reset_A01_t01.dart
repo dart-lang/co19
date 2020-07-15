@@ -12,7 +12,6 @@
  * @description Checks that [current] equals -1 after the reset.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string, pos) {

@@ -9,7 +9,6 @@
  * @description Checks that the correct size is returned.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

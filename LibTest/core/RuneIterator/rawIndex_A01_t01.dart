@@ -9,7 +9,6 @@
  * @description Checks that the correct position is returned.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 void check(string) {

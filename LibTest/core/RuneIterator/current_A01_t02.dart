@@ -10,7 +10,6 @@
  * @description Checks that [current] is final and can't be set.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

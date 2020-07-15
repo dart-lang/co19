@@ -12,7 +12,6 @@
  * @description Checks that moveNext and movePrevious set [current] correctly.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string, pos, current, prev) {

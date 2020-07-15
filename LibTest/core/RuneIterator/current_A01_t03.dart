@@ -10,7 +10,6 @@
  * @description Checks that the -1 is returned when it is no current rune
  * @author sgrekhov@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

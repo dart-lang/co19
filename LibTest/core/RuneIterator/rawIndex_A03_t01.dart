@@ -9,9 +9,7 @@
  * @description Checks that position is set correctly.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
-
 
 main() {
   var it = new RuneIterator('string');

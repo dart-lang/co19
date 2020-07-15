@@ -9,7 +9,6 @@
  * @description Checks that empty string is returned.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

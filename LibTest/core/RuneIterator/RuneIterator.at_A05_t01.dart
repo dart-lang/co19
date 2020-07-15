@@ -10,7 +10,6 @@
  * greater than the length of [string].
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

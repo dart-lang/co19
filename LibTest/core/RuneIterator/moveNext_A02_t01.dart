@@ -9,7 +9,6 @@
  * @description Checks that false is returned if no element left.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

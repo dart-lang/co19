@@ -10,7 +10,6 @@
  * @description Checks that the current element of the iterator is returned.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 void check(string) {

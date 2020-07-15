@@ -12,7 +12,6 @@
  * @description Checks that the default value for [rawIndex] is 0.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string, current) {

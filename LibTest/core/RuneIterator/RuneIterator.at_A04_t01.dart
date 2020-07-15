@@ -10,7 +10,6 @@
  * is in the middle of a surrogate pair.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

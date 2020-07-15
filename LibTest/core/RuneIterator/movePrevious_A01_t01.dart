@@ -10,7 +10,6 @@
  * @description Checks that true is returned and [current] is updated correctly.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 void check(string) {

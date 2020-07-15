@@ -9,7 +9,6 @@
  * @description Checks that [RuneIterator] is created with correct position.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string, pos, firstCodePoint) {

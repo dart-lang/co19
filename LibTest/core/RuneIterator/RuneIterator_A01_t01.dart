@@ -10,7 +10,6 @@
  * position.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string, firstCodePoint) {

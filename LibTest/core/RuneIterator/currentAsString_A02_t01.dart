@@ -11,7 +11,6 @@
  * [currentAsString] returns a [String] of length 2, containing two code units.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 void check(string) {

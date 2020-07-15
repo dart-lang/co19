@@ -10,7 +10,6 @@
  * @description Checks that it is an error if the index is negative.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

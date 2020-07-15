@@ -9,7 +9,6 @@
  * @description Checks that [current] is set to -1 if no previous element left.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

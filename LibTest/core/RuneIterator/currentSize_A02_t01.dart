@@ -9,7 +9,6 @@
  * @description Checks that zero is returned if [current] is null.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

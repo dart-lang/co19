@@ -11,7 +11,6 @@
  * than or equal to [string].length.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

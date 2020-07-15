@@ -12,7 +12,6 @@
  * the iterator is positioned after the last element.
  * @author msyabro
  */
-
 main() {
   var it = new RuneIterator('');
   it.moveNext();

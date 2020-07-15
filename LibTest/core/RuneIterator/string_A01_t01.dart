@@ -9,7 +9,6 @@
  * @description Checks that the correct string is returned.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 void check(string) {

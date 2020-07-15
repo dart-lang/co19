@@ -9,7 +9,6 @@
  * @description Checks that [current] equals -1 when [RuneIterator] is created.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 check(string, pos) {
