@@ -10,9 +10,11 @@
 library bidirectional_iterator_all_tests;
 
 import "inheritedTests.lib.dart" as lib_inherited_tests;
-import "movePrevious_A01_t01.test.dart" as libMovePrevious;
+import "movePrevious_A01_t01.test.dart" as libMovePrevious_01;
+import "movePrevious_A01_t02.test.dart" as libMovePrevious_02;
 
-test(BidirectionalIterator create([Iterable content]), {bool isSet:false}) {
+test(BidirectionalIterator create([Iterable? content]), {bool isSet:false}) {
   lib_inherited_tests.test(create, isSet:isSet);
-  libMovePrevious.test(create);
+  libMovePrevious_01.test(create);
+  libMovePrevious_02.test(create);
 }

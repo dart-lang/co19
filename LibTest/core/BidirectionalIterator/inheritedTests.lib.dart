@@ -15,6 +15,6 @@ library inherited_tests_bidirectional_iterator;
 
 import "../Iterator/allTests.lib.dart" as iterator_tests;
 
-test(BidirectionalIterator create([Iterable content]), {bool isSet: false}) {
+test(BidirectionalIterator create([Iterable? content]), {bool isSet: false}) {
   iterator_tests.test(create, isSet: isSet);
 }

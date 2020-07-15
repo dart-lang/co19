@@ -25,20 +25,16 @@ test(Iterator create([Iterable? content]), {bool isSet: false}) {
     Expect.isTrue(l.isEmpty);
   }
 
-  checkIterator(create([]), []);
+  checkIterator(create(<int>[]), []);
   if (!isSet) {
-    checkIterator(
-        create(const [null, 0, 1, const []]), const [null, 0, 1, const []]);
-    List l = new List.filled(300, 0);
-    checkIterator(create(l), l);
-    l = new List.filled(300, null);
+    List<int> l = new List.filled(300, 0);
     checkIterator(create(l), l);
   }
 
-  List a = new List.filled(365, 0);
+  List<int> a = new List.filled(365, 0);
   for (var i = 0; i < a.length; i++) {
     a[i] = i;
   }
   checkIterator(create(a), a);
-  checkIterator(create([0, 1, 2, 3, 4, 5]), [0, 1, 2, 3, 4, 5]);
+  checkIterator(create(<int>[0, 1, 2, 3, 4, 5]), [0, 1, 2, 3, 4, 5]);
 }

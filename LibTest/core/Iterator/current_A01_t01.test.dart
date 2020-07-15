@@ -31,14 +31,14 @@ test(Iterator create([Iterable content]), {bool isSet: false}) {
     }
   }
 
-  checkNext(create([null, 0, 1]), [null, 0, 1]);
-  checkNext(create(const [null, 0, 1]), const [null, 0, 1]);
+  checkNext(create(<int>[0, 1]), [0, 1]);
+  checkNext(create(const <int>[0, 1]), const [0, 1]);
 
-  List lst = new List.filled(17495, 0);
+  List<int> lst = new List<int>.filled(17495, 0);
   for (var i = 0; i < lst.length; i++) {
     lst[i] = lst.length - i;
   }
   checkNext(create(lst), lst);
-  checkNext(create([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, null]),
-      [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, null]);
+  checkNext(create(<int>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]),
+      [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
 }

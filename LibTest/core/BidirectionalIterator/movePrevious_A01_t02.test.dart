@@ -16,7 +16,7 @@ library movePrevious_A01_t02;
 import "../../../Utils/expect.dart";
 
 test(BidirectionalIterator create([Iterable content])) {
-  BidirectionalIterator it = create([0, 1, 2, 3]);
+  BidirectionalIterator it = create(<int>[0, 1, 2, 3]);
 
   it.moveNext();
   it.moveNext();

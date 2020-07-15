@@ -16,13 +16,11 @@ library movePrevious_A01_t01;
 import "../../../Utils/expect.dart";
 
 test(BidirectionalIterator create([Iterable content])) {
-  BidirectionalIterator it = create([0, 1, 2, 3]);
+  BidirectionalIterator it = create(<int>[0, 1, 2, 3]);
 
   Expect.isFalse(it.movePrevious());
-  Expect.equals(null, it.current);
 
   it.moveNext();
 
   Expect.isFalse(it.movePrevious());
-  Expect.equals(null, it.current);
 }

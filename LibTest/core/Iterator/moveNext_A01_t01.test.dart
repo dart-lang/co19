@@ -20,24 +20,24 @@ test(Iterator create([Iterable content]), {bool isSet: false}) {
     Expect.equals(expected, it.moveNext());
   }
 
-  check(create([]), false);
+  check(create(<int>[]), false);
 
-  List a = new List.empty(growable: true);
+  List<int> a = new List.empty(growable: true);
   check(create(a), false);
   a.add(0);
   check(create(a), true);
 
   a = new List.empty(growable: true);
-  a.length = 2547;
+  a.addAll(new List.filled(2547, 0));
   check(create(a), true);
 
   a.clear();
   check(create(a), false);
 
-  a.length = 1;
+  a.add(1);
   check(create(a), true);
 
-  check(create(const[]), false);
+  check(create(const <int>[]), false);
 
-  check(create(const[1]), true);
+  check(create(const <int>[1]), true);
 }
