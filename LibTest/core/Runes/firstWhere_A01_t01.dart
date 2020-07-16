@@ -12,7 +12,6 @@
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
   var runes = new Runes('\x01\x02\x03\x04\x05\x06\x09');
   var res = runes.firstWhere((element) => element == 1);

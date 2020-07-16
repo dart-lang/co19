@@ -11,13 +11,13 @@
  */
 import "../../../Utils/expect.dart";
 
-check(string, n) {
+check(String string, int n) {
   var runes = new Runes(string);
   var res = runes.skip(n);
   Expect.equals(runes.length - n, res.length);
 
   for(int i = 0; i < res.length; ++i) {
-    Expect.equals(runes.elementAt(i+n), res.elementAt(i));
+    Expect.equals(runes.elementAt(i + n), res.elementAt(i));
   }
 }
 

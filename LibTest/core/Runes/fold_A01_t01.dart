@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 
 checkInt(string, expected) {
   var runes = new Runes(string);
-  var res = runes.fold(0, (prev, cur) => prev + cur);
+  var res = runes.fold(0, (int prev, int cur) => prev + cur);
   Expect.equals(expected, res);
 }
 

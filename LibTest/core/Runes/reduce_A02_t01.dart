@@ -12,7 +12,6 @@
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
   var runes = new Runes('');
   Expect.throws(() {runes.reduce((prev, cur) => 0);}, (e) => e is StateError);

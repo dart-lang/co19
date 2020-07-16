@@ -9,7 +9,6 @@
  * @description Checks that the number of elements is returned.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 void check(string, length) {

@@ -10,7 +10,6 @@
  * element.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 void checkIterator(string, expected) {

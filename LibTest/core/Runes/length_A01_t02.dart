@@ -9,7 +9,6 @@
  * @description Checks that [length] is final and can't be set.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
@@ -18,5 +17,4 @@ main() {
   runes.length = 1;
     Expect.fail('[length] should be final');
   } on NoSuchMethodError catch (ok) {}
-
 }

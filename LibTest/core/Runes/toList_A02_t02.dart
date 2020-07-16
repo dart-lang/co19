@@ -16,7 +16,7 @@ main() {
   var runes = new Runes('a');
   var resList = runes.toList(growable:true);
 
-  resList.length = 2;
+  resList.add(1);
   Expect.equals(2, resList.length);
   resList.add(1);
   Expect.equals(3, resList.length);

@@ -9,7 +9,6 @@
  * @description Checks that the function [f] is called for each element of the list.
  * @author msyabro
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

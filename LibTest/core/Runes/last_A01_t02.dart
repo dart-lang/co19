@@ -16,7 +16,6 @@ check(string) {
   Expect.throws(() {runes.last = 0;}, (e) => e is NoSuchMethodError);
 }
 
-
 main() {
   check("just a string");
   check("\u{10000}\u{10001}\u{10002}\u{12345}");
