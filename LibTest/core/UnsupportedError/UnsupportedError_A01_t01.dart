@@ -12,10 +12,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  UnsupportedError ue = new UnsupportedError(null);
-  Expect.isNull(ue.message);
-
-  ue = new UnsupportedError("");
+  UnsupportedError ue = new UnsupportedError("");
   Expect.equals("", ue.message);
 
   ue = new UnsupportedError("11");
