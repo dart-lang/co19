@@ -25,7 +25,7 @@
  * @description Checks that ArgumentError is thrown if name is not a valid
  * qualified identifier.
  * @issue 13715
- * @reviewer
+ * @issue 11669
  */
 import "../../../Utils/expect.dart";
 
