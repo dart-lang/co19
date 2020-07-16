@@ -4,18 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error to import two different libraries with
- * the same name unless their name is the empty string.
- * @description Checks that it is a compile error when a library directly
+ * @assertion It is not a compile-time error to import two different libraries
+ * with the same name
+ * @description Checks that it is not a compile error when a library directly
  * imports two other libraries that have the same library name.
- * @static-warning
  * @author rodionov
  * @author sgrekhov@unipro.ru
  * @issue 42481
  */
-
-import "library_name_t01_lib1.dart";
-import "library_name_t01_lib2.dart";
+import "library_name_t01_lib1.dart";  // library duplicate_name;
+import "library_name_t01_lib2.dart";  // library duplicate_name;
 
 main() {
   foo == 1;
