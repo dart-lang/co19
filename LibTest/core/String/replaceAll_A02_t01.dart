@@ -4,19 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Passing null as either argument results in ArgumentError
- * @description Tries to pass null as either argument and expects an
- * ArgumentError
+ * @assertion Passing null as either argument results in compile error
+ * @description Check that it is a compile error to pass null argument
  * @author msyabro
  */
-import "../../../Utils/expect.dart";
 
 main() {
-  check("a", null);
-  check(null, "");
-  check(null, null);
-}
+  "aaa".replaceAll("a", null);
+//                      ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-void check(Pattern from, String to) {
-  Expect.throws(() {"aaa".replaceAll(from, to);}, (e) => e is ArgumentError);
+  "aaa".replaceAll(null, "");
+//                 ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

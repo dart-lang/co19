@@ -11,7 +11,6 @@
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
   String str = "s";
   String str2 = "string";

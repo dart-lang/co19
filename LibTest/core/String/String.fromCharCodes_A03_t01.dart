@@ -8,9 +8,10 @@
  * @description Checks that an Error is thrown when the argument is null.
  * @author msyabro
  */
-import "../../../Utils/expect.dart";
-
 
 main() {
-  Expect.throws(() {new String.fromCharCodes(null);}, (e) => e is Error);
+  new String.fromCharCodes(null);
+//                         ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -5,12 +5,13 @@
  */
 /**
  * @assertion  abstract int codeUnitAt(int index)
- * Throws ArgumentError if [index] is null
- * @description Tries to pass null as argument and expects an ArgumentError
+ * @description Check that argument is non nullable
  * @author msyabro
  */
-import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() {"string".codeUnitAt(null);}, (e) => e is ArgumentError);
+  "string".codeUnitAt(null);
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

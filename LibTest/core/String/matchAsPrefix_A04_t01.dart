@@ -7,21 +7,14 @@
  * @assertion Match matchAsPrefix(String string, [int start = 0])
  * Match this pattern against the start of string.
  * ...
- * @description Checks that if str is null then exception is thrown
+ * @description Checks that if str is null then it is a compile error
  * @author sgrekhov@unipro.ru
  */
-import "../../../Utils/expect.dart";
 
 main() {
-  check("AE", 0);
-  check("(a|cd)+|ef", 1);
-  check(".+: gr(a|e)y", 1);
-  check("((a)|(ab))((c)|(bc))", 0);
-  check(r"^(a+)\1*,\1+$", 1);
-  check(r"^(a+?)\1*,\1+$", 0);
-  check("(z)((a+)?(b+)?(c))*", 0);
+  "Lily was here".matchAsPrefix(null, 0);
+//                              ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-void check(String pattern, int start) {
-  Expect.throws(() {pattern.matchAsPrefix(null, start);});
-}

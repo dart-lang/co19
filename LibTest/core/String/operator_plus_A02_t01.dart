@@ -6,19 +6,21 @@
 /**
  * @assertion String operator +(String other)
  * ...
- * @description Checks that if other string is null then exception is thrown
+ * @description Checks that if other string is null then it is a compile error
  * @author sgrekhov@unipro.ru
  */
-import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() {
-    "" + null;
-  });
-  Expect.throws(() {
-    r" " + null;
-  });
-  Expect.throws(() {
-    "\n" + null;
-  });
+  "" + null;
+//     ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  r" " + null;
+//       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  "\n" + null;
+//       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

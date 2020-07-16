@@ -5,12 +5,14 @@
  */
 /**
  * @assertion  abstract bool contains(Pattern other, [int startIndex = 0])
- * Passing null in place of a pattern results in Error
- * @description Tries to pass null as [other] and expects an Error
+ * Passing null in place of a pattern results in compile error
+ * @description Check that it is a compile error if argument is null
  * @author msyabro
  */
-import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() {"string".contains(null, 0);});
+  "string".contains(null, 0);
+//                  ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

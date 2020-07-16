@@ -10,7 +10,6 @@
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
   String str1 = "String 1";
   String str2 = "String 2";

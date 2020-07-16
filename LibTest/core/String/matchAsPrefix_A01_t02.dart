@@ -28,8 +28,8 @@ main() {
   check(":alpha:", "1:alpha:ABcdefg", 1, [1, 8, ":alpha:"]);
 }
 
-void check(String pattern, String str, int start, List groupData) {
-  Match fm = pattern.matchAsPrefix(str, start);
+void check(String pattern, String str, int start, List? groupData) {
+  Match? fm = pattern.matchAsPrefix(str, start);
   if(fm == null && groupData != null) {
     Expect.fail("Nothing found for pattern <$pattern> in string <$str>");
   }
@@ -37,10 +37,14 @@ void check(String pattern, String str, int start, List groupData) {
     Expect.isNull(fm);
     return;
   }
-  Expect.equals(str, fm.input);
-  Expect.equals(pattern, fm.pattern);
-  Expect.equals(groupData.length, 3);
-  Expect.equals(groupData[0], fm.start);
-  Expect.equals(groupData[1], fm.end);
-  Expect.equals(groupData[2], fm.group(0));
+  if (fm != null) {
+    Expect.equals(str, fm.input);
+    Expect.equals(pattern, fm.pattern);
+    Expect.equals(groupData.length, 3);
+    Expect.equals(groupData[0], fm.start);
+    Expect.equals(groupData[1], fm.end);
+    Expect.equals(groupData[2], fm.group(0));
+  } else {
+    Expect.fail("Match is null");
+  }
 }

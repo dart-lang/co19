@@ -4,12 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Passing null as argument results in Error
- * @description Tries to pass null as argument and expects an Error
+ * @assertion Passing null as argument results in compile error
+ * @description Check that it is a compile error to pass null argument
  * @author msyabro
  */
-import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() {"1111".split(null);}, (e) => e is Error);
+  "1111".split(null);
+//             ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

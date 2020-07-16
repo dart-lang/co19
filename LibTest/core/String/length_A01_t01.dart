@@ -10,7 +10,6 @@
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
   Expect.isTrue("".length == 0);
   Expect.isTrue("\u0000".length == 1);

@@ -4,20 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion null list elements result in an ArgumentError
- * @description Tries to pass a list with null values
+ * @assertion null list elements result in compile error
+ * @description Check that char code cannot be null
  * @author msyabro
  */
-import "../../../Utils/expect.dart";
-
-void check(List<int> list) {
-  Expect.throws(() {
-    new String.fromCharCodes(list);
-  }, (e) => e is ArgumentError);
-}
 
 main() {
-  check([null]);
-  check([0, 1, 2, 3, null]);
-  check([null, null]);
+  new String.fromCharCodes([0, 1, 2, 3, null]);
+//                                      ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -12,7 +12,6 @@
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
   String string = "string";
   
