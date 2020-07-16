@@ -10,7 +10,6 @@
  * @description Checks that this method does not start the Stopwatch.
  * @author sgrekhov@unipro.ru
  */
-import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
