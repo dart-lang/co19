@@ -7,13 +7,13 @@
  * @assertion new StringBuffer([Object content = ""])
  * Creates the string buffer with an initial content. 
  * @description Tries to pass an argument that is null or isn't a String,
- * correct string conversion expected ("null" in case of null)
+ * correct string conversion expected
  * @author msyabro
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals("null", new StringBuffer(null).toString());
+  Expect.equals(new Object().toString(), new StringBuffer(new Object()).toString());
   Expect.equals("1", new StringBuffer(1).toString());
   Expect.equals("true", new StringBuffer(true).toString());
 }
