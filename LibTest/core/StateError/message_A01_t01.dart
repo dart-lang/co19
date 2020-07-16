@@ -17,7 +17,4 @@ main() {
 
   StateError se2 = new StateError("");
   Expect.equals("", se2.message);
-
-  StateError se3 = new StateError(null);
-  Expect.equals(null, se3.message);
 }
