@@ -30,7 +30,7 @@ check(String content, Map<String, String> parameters) {
     Encoding.getByName(parameters["charset"])), uriData.contentText);
   Expect.equals("text/plain", uriData.mimeType);
   Expect.mapEquals(parameters, uriData.parameters);
-  Expect.equals("data:;charset=" + parameters["charset"] + "," +
+  Expect.equals("data:;charset=" + parameters["charset"].toString() + "," +
       encodeString(content, encoding: Encoding.getByName(parameters["charset"])),
       uriData.toString());
 }

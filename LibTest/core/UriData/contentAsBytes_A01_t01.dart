@@ -18,7 +18,7 @@
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-check(String content, [Encoding encoding]) {
+check(String content, [Encoding? encoding]) {
   UriData uriData = new UriData.fromString(content, encoding: encoding);
   List<int> expected = content.codeUnits;
   if (encoding != null) {
@@ -27,14 +27,16 @@ check(String content, [Encoding encoding]) {
   Expect.listEquals(expected, uriData.contentAsBytes());
 }
 
-List<int> string2bytes(String str, Encoding encoding) {
+List<int> string2bytes(String str, Encoding? encoding) {
   List<int> bytes = [];
   Iterator i = str.codeUnits.iterator;
   while (i.moveNext()) {
     int charCode = i.current;
     String char = new String.fromCharCode(charCode);
-    List<int> codes = encoding.encode(char);
-    bytes.addAll(codes);
+    List<int>? codes = encoding?.encode(char);
+    if (codes != null) {
+      bytes.addAll(codes);
+    }
   }
   return bytes;
 }

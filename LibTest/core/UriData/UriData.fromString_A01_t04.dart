@@ -37,7 +37,7 @@ String map2query(Map<String, String> map) {
   Iterator it = map.keys.iterator;
   while (it.moveNext()) {
     sb.write(";" + encodeString(it.current) + "=" +
-        encodeString(map[it.current], encoding: Encoding.getByName("utf-8")));
+        encodeString(map[it.current]!, encoding: Encoding.getByName("utf-8")));
   }
   return sb.toString();
 }

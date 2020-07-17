@@ -40,13 +40,13 @@ check(String uri, String data, String mimeType, Map<String, String> parameters,
 }
 
 main() {
-  check("data:text/plain;a=b;base64,dataaaa", "dataaaa", "text/plain",
+  check("data:text/plain;a=b;base64,dataaaa", "dataaaa=", "text/plain",
     {"a": "b"}, "US-ASCII", true);
-  check("data:;a=b;base64,dataaaa", "dataaaa", "text/plain", {"a": "b"},
+  check("data:;a=b;base64,dataaaa", "dataaaa=", "text/plain", {"a": "b"},
       "US-ASCII", true);
-  check("data:;a=b;charset=utf-8;base64,dataaaa", "dataaaa", "text/plain",
+  check("data:;a=b;charset=utf-8;base64,dataaaa", "dataaaa=", "text/plain",
       {"a": "b", "charset": "utf-8"}, "utf-8", true);
-  check("data:image/gif;a=b;charset=utf-8;base64,dataaaa", "dataaaa",
+  check("data:image/gif;a=b;charset=utf-8;base64,dataaaa", "dataaaa=",
       "image/gif", {"a": "b", "charset": "utf-8"}, "utf-8", true);
   check("data:a/b;a=b,dataaaa", "dataaaa", "a/b", {"a": "b"}, "US-ASCII", false);
   check("data:a/b;a=b,", "", "a/b", {"a": "b"}, "US-ASCII", false);
@@ -55,6 +55,4 @@ main() {
   String data = " Some data % ";
   check("data:a/b;a=b," + Uri.encodeComponent(data), Uri.encodeComponent(data),
       "a/b", {"a": "b"}, "US-ASCII", false);
-  check("data:a/b;a=b;base64," + Uri.encodeComponent(data), Uri.encodeComponent(data),
-      "a/b", {"a": "b"}, "US-ASCII", true);
 }

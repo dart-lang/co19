@@ -24,7 +24,7 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 import "../Uri/UriDataEncoder.lib.dart";
 
-check(String content, [Encoding encoding]) {
+check(String content, [Encoding? encoding]) {
   UriData uriData = new UriData.fromString(content, encoding: encoding);
   String expected = content;
   Expect.equals(expected, uriData.contentAsString(encoding: encoding));

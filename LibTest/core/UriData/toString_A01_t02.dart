@@ -14,7 +14,7 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 import "../Uri/UriDataEncoder.lib.dart";
 
-check(String content, String mimeType, Encoding encoding,
+check(String content, String mimeType, Encoding? encoding,
     Map<String, String> parameters, bool base64) {
   UriData uriData = new UriData.fromString(content, mimeType: mimeType,
       encoding: encoding, parameters: parameters, base64: base64);
@@ -32,12 +32,12 @@ String map2query(Map<String, String> map) {
   Iterator it = map.keys.iterator;
   while (it.moveNext()) {
     sb.write(";" + encodeString(it.current) + "=" +
-        encodeString(map[it.current], encoding: Encoding.getByName("utf-8")));
+        encodeString(map[it.current]!, encoding: Encoding.getByName("utf-8")));
   }
   return sb.toString();
 }
 
-String base64Encode(String str, Encoding encoding) {
+String base64Encode(String str, Encoding? encoding) {
   List<int> bytes = [];
   Iterator it = str.runes.iterator;
   while (it.moveNext()) {
@@ -53,7 +53,7 @@ String base64Encode(String str, Encoding encoding) {
 }
 
 main() {
-  Encoding utf8 = Encoding.getByName("utf-8");
+  Encoding? utf8 = Encoding.getByName("utf-8");
   check("content", "mime/Type", null, {}, false);
   check("content", "mime/Type", utf8, {}, false);
   check("content", "mime/Type", utf8, {}, true);

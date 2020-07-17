@@ -18,12 +18,7 @@ check(String uri) {
 }
 
 main() {
-  check("data:text/plain;a=b;base64,dataaaa");
-  check("data:image/gif;a=b;charset=utf-8;base64,dataaa");
-  check("data:image/gif;a=b;charset=utf-8;base64,кириллица");
-  check("data:;a=b;charset=utf-8;base64,кириллица");
-  check("data: a / b ;a=b;charset=utf-8;base64,кириллица");
-  check("data: a / b ;й=ф;charset=utf-8;base64,кириллица");
-  check("data: a / b ;й=ф,кириллица");
+  check("data:text/plain;a=b;base64,dataaaa=");
+  check("data:image/gif;a=b;charset=utf-8;base64,dataaaa=");
   check("data:,");
 }

@@ -23,15 +23,15 @@ import "../../../Utils/expect.dart";
 import "../Uri/UriDataEncoder.lib.dart";
 
 check(String content, String encodingName) {
-  Encoding encoding = Encoding.getByName(encodingName);
+  Encoding? encoding = Encoding.getByName(encodingName);
   UriData uriData = new UriData.fromString(content, encoding: encoding);
 
   Expect.equals(encodeString(content, encoding:  encoding),
       uriData.contentText);
   Expect.equals("text/plain", uriData.mimeType);
   Expect.mapEquals({"charset": encodingName}, uriData.parameters);
-  Expect.equals("data:;charset=" + encoding.name + "," + encodeString(content,
-      encoding:  encoding), uriData.toString());
+  Expect.equals("data:;charset=" + (encoding?.name).toString() + "," +
+      encodeString(content, encoding:  encoding), uriData.toString());
 }
 
 main() {

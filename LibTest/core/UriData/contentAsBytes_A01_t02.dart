@@ -18,7 +18,7 @@
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-check(String content, [Encoding encoding]) {
+check(String content, [Encoding? encoding]) {
   UriData uriData1 = new UriData.fromString(content, encoding: encoding,
       base64: false);
   UriData uriData2 = new UriData.fromString(content, encoding: encoding,
