@@ -13,7 +13,6 @@
  * @description Check scheme normalization
  * @author ilya
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

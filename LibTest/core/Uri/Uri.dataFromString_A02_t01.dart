@@ -32,10 +32,10 @@ check(String content, Map<String, String> parameters) {
   Uri uri = new Uri.dataFromString(content, parameters: parameters);
 
   Expect.equals(encodeString(content, encoding:
-    Encoding.getByName(parameters["charset"])), uri.data.contentText);
-  Expect.equals("text/plain", uri.data.mimeType);
-  Expect.mapEquals(parameters, uri.data.parameters);
-  Expect.equals("data:;charset=" + parameters["charset"] + "," +
+    Encoding.getByName(parameters["charset"])), uri.data?.contentText);
+  Expect.equals("text/plain", uri.data?.mimeType);
+  Expect.mapEquals(parameters, uri.data?.parameters);
+  Expect.equals("data:;charset=" + parameters["charset"].toString() + "," +
       encodeString(content, encoding: Encoding.getByName(parameters["charset"])),
       uri.data.toString());
 

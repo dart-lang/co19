@@ -33,9 +33,13 @@ main() {
   var s = 'scheme://user:pass@foo.bar-baz:123/A/V/file-name.ext?query#fragment';
   var uri = Uri.parse(s);
   var match = r.firstMatch(s);
-  Expect.equals(match[2], uri.scheme);
-  Expect.equals(match[4], uri.authority);
-  Expect.equals(match[5], uri.path);
-  Expect.equals(match[7], uri.query);
-  Expect.equals(match[9], uri.fragment);
+  if (match != null) {
+    Expect.equals(match[2], uri.scheme);
+    Expect.equals(match[4], uri.authority);
+    Expect.equals(match[5], uri.path);
+    Expect.equals(match[7], uri.query);
+    Expect.equals(match[9], uri.fragment);
+  } else {
+    Expect.fail("match is null");
+  }
 }

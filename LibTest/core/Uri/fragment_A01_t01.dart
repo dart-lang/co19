@@ -18,4 +18,7 @@ main() {
 
   x = new Uri.http('host', 'path');
   Expect.equals('', x.fragment);
+
+  x = Uri.parse('###');
+  Expect.equals('%23%23', x.fragment);
 }

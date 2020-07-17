@@ -12,7 +12,6 @@
  * @description Checks expected authority settings
  * @author sgrekhov@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
@@ -31,10 +30,13 @@ main() {
       uri.data);
 }
 
-checkUriData(UriData expected, UriData current) {
-  Expect.equals(expected.contentText, current.contentText);
-  Expect.equals(expected.charset, current.charset);
-  Expect.equals(expected.mimeType, current.mimeType);
-  Expect.equals(expected.uri, current.uri);
+checkUriData(UriData expected, UriData? current) {
+  if (current != null) {
+    Expect.equals(expected.contentText, current.contentText);
+    Expect.equals(expected.charset, current.charset);
+    Expect.equals(expected.mimeType, current.mimeType);
+    Expect.equals(expected.uri, current.uri);
+  } else {
+    Expect.fail("Current is null");
+  }
 }
-

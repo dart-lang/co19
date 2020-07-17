@@ -12,7 +12,6 @@
  * @description Checks expected host settings
  * @author ilya
  */
-
 import "../../../Utils/expect.dart";
 
 main() {

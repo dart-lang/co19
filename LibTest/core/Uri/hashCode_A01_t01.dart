@@ -9,9 +9,7 @@
  * @description Checks that hash codes are equal for differently constructed
  * equal URIs
  * @author ilya
- * @reviewer
  */
-
 import "../../../Utils/expect.dart";
 
 main() {
@@ -20,4 +18,3 @@ main() {
   var y = new Uri.http('foo:123', 'a/b', {'a':'1', 'b':'2'});
   Expect.equals(x.hashCode, y.hashCode);
 }
-

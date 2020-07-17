@@ -18,6 +18,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.throws(() { 
-    Uri.parse('http://host/path').queryParameters['foo'] = null;
+    Uri.parse('http://host/path').queryParameters['foo'] = "";
   }, (e) => e is UnsupportedError);
 }

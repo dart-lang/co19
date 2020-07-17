@@ -16,8 +16,16 @@ import "../../../Utils/expect.dart";
 
 main() {
   var q = 'a=b&c&e&f=+';
-  Map map = {'a': ['b'], 'c': [''], 'e': [''], 'f': [' ']};
-  Expect.mapEquals(map, new Uri.http('host', 'path', map).queryParametersAll);
+  Map map = {
+    'a': ['b'],
+    'c': [''],
+    'e': [''],
+    'f': [' ']
+  };
+  Expect.mapEquals(
+      map,
+      new Uri.http('host', 'path', {'a': 'b', 'c': '', 'e': '', 'f': ' '})
+          .queryParametersAll);
   Expect.mapEquals(map, new Uri(query: q).queryParametersAll);
   Expect.mapEquals(map, Uri.parse('http://host/path?$q').queryParametersAll);
 }

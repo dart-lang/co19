@@ -31,7 +31,7 @@ String encodeList(List<int> data) {
   return encoded;
 }
 
-String encodeString(String data, {Encoding encoding}) {
+String encodeString(String data, {Encoding? encoding = null}) {
   String encoded = "";
   Iterator i = data.codeUnits.iterator;
   while (i.moveNext()) {

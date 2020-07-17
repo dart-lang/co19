@@ -35,10 +35,10 @@ main() {
   Expect.isFalse(uri.hasEmptyPath);
 
   uri = Uri.parse("foo: ");
-  Expect.isTrue(uri.hasEmptyPath);
+  Expect.isFalse(uri.hasEmptyPath);
 
   uri = Uri.parse("foo: /");
-  Expect.isTrue(uri.hasEmptyPath);
+  Expect.isFalse(uri.hasEmptyPath);
 
   uri = Uri.parse("foo:");
   Expect.isTrue(uri.hasEmptyPath);

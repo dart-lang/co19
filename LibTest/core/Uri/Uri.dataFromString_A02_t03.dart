@@ -31,10 +31,10 @@ check(String content, Map<String, String> parameters) {
   Uri uri = new Uri.dataFromString(content, parameters: parameters);
 
   Expect.equals(encodeString(content, encoding:
-    Encoding.getByName(parameters["charset"])), uri.data.contentText);
-  Expect.equals("text/plain", uri.data.mimeType);
-  Expect.mapEquals(parameters, uri.data.parameters);
-  Expect.equals("data:;charset=" + parameters["charset"] + "," +
+    Encoding.getByName(parameters["charset"])), uri.data?.contentText);
+  Expect.equals("text/plain", uri.data?.mimeType);
+  Expect.mapEquals(parameters, uri.data?.parameters);
+  Expect.equals("data:;charset=" + parameters["charset"].toString() + "," +
       encodeString(content, encoding: Encoding.getByName(parameters["charset"])),
       uri.data.toString());
 
@@ -47,7 +47,7 @@ check(String content, Map<String, String> parameters) {
 
 main() {
   String content = "Non-ASCII: Кириллица прекрасна!";
-  Encoding encoding = Encoding.getByName("utf-8");
+  Encoding? encoding = Encoding.getByName("utf-8");
 
   Expect.throws(() {
     new Uri.dataFromString(content, encoding: Encoding.getByName("US-ASCII"),
@@ -56,9 +56,9 @@ main() {
 
   Uri uri = new Uri.dataFromString("Non-ASCII: Кириллица прекрасна!",
       encoding: encoding, parameters: {"charset": "US-ASCII"});
-  Expect.equals(encodeString(content, encoding: encoding), uri.data.contentText);
-  Expect.equals("text/plain", uri.data.mimeType);
-  Expect.mapEquals({"charset": "US-ASCII"}, uri.data.parameters);
+  Expect.equals(encodeString(content, encoding: encoding), uri.data?.contentText);
+  Expect.equals("text/plain", uri.data?.mimeType);
+  Expect.mapEquals({"charset": "US-ASCII"}, uri.data?.parameters);
   Expect.equals("data:;charset=US-ASCII," +
       encodeString(content, encoding: encoding), uri.data.toString());
 

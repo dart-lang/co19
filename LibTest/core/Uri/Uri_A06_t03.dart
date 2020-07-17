@@ -18,7 +18,6 @@
  * @description Checks query set via [queryParameters] on characters from
  * Unicode Basic Multilingual Plane
  * @author ilya
- * @reviewer
  */
 import 'dart:convert';
 import "../../../Utils/expect.dart";

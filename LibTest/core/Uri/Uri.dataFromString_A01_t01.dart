@@ -43,9 +43,9 @@ import "UriDataEncoder.lib.dart";
 check(String content) {
   Uri uri = new Uri.dataFromString(content);
 
-  Expect.equals(encodeString(content), uri.data.contentText);
-  Expect.equals("text/plain", uri.data.mimeType);
-  Expect.mapEquals({}, uri.data.parameters);
+  Expect.equals(encodeString(content), uri.data?.contentText);
+  Expect.equals("text/plain", uri.data?.mimeType);
+  Expect.mapEquals({}, uri.data?.parameters);
   Expect.equals("data:," + encodeString(content), uri.data.toString());
 
   Expect.equals("data", uri.scheme);

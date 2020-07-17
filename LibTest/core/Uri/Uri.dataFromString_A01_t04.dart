@@ -44,9 +44,9 @@ import "UriDataEncoder.lib.dart";
 check(String content, Map<String, String> parameters) {
   Uri uri = new Uri.dataFromString(content, parameters: parameters);
 
-  Expect.equals(encodeString(content), uri.data.contentText);
-  Expect.equals("text/plain", uri.data.mimeType);
-  Expect.mapEquals(parameters, uri.data.parameters);
+  Expect.equals(encodeString(content), uri.data?.contentText);
+  Expect.equals("text/plain", uri.data?.mimeType);
+  Expect.mapEquals(parameters, uri.data?.parameters);
   Expect.equals("data:" + map2query(parameters) + "," + encodeString(content),
       uri.data.toString());
 
@@ -62,7 +62,7 @@ String map2query(Map<String, String> map) {
   Iterator it = map.keys.iterator;
   while (it.moveNext()) {
     sb.write(";" + encodeString(it.current) + "=" +
-        encodeString(map[it.current], encoding: Encoding.getByName("utf-8")));
+        encodeString(map[it.current]!, encoding: Encoding.getByName("utf-8")));
   }
   return sb.toString();
 }

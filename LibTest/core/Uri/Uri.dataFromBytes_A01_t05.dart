@@ -38,8 +38,8 @@ main() {
   }
   Uri uri = new Uri.dataFromBytes(data, percentEncoded: true);
 
-  Expect.equals(encodeList(data), uri.data.contentText);
-  Expect.equals("application/octet-stream", uri.data.mimeType);
+  Expect.equals(encodeList(data), uri.data?.contentText);
+  Expect.equals("application/octet-stream", uri.data?.mimeType);
 
   Expect.equals("data", uri.scheme);
   Expect.equals("", uri.userInfo);

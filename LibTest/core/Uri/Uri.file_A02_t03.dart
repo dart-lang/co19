@@ -18,5 +18,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   Uri uri = new Uri.file(r"\\?\c:\a\b", windows: true);
-  Expect.equals("\c:\a\b", uri.path);
+  Expect.equals("/c:/a/b", uri.path);
 }

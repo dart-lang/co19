@@ -17,7 +17,7 @@ main() {
   var x = new Uri.http('', '', {});
   Expect.equals('', x.query);
   
-  x = new Uri.http('', '', {'foo': 'bar', 'bar': null});
+  x = new Uri.http('', '', {'foo': 'bar', 'bar': ''});
   Expect.equals('foo=bar&bar', x.query);
 
   x = new Uri.http('', '', {' \u0000': ' \u0000', ' \u0001': ' \u0001'});

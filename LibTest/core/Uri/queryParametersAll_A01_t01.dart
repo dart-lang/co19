@@ -24,7 +24,6 @@ import "../../../Utils/expect.dart";
 main() {
   var q = 'a=b&a=c&a=d';
   Map map = {'a': ['b', 'c', 'd']};
-  Expect.mapEquals(map, new Uri.http('host', 'path', map).queryParametersAll);
   Expect.mapEquals(map, new Uri(query: q).queryParametersAll);
   Expect.mapEquals(map, Uri.parse('http://host/path?$q').queryParametersAll);
 }
