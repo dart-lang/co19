@@ -5,18 +5,16 @@
  */
 /**
  * @assertion 15.10.2.5: An Atom followed by a Quantifier is repeated the
- *            number of times specified by the Quantifier. A Quantifier can be
- *            non-greedy, in which case the Atom pattern is repeated as few
- *            times as possible while still matching the sequel, or it can be
- *            greedy, in which case the Atom pattern is repeated as many times
- *            as possible while still matching the sequel. The Atom pattern is
- *            repeated rather than the input String that it matches, so
- *            different repetitions of the Atom can match different input
- *            substrings.
+ * number of times specified by the Quantifier. A Quantifier can be non-greedy,
+ * in which case the Atom pattern is repeated as few times as possible while
+ * still matching the sequel, or it can be greedy, in which case the Atom
+ * pattern is repeated as many times as possible while still matching the
+ * sequel. The Atom pattern is repeated rather than the input String that it
+ * matches, so different repetitions of the Atom can match different input
+ * substrings.
  * @description Checks that greedy and non-greedy quantifiers work as expected.
  * @3rdparty sputnik-v1:S15.10.2.5_A1_T1.js-S15.10.2.5_A1_T2.js
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
@@ -28,20 +26,16 @@ main() {
   
 void check(String pattern, String str, List<String> expectedGroups) {
   RegExp re = new RegExp(pattern);
-  Match fm = re.firstMatch(str);
-  if(null == fm) {
-    Expect.fail("\"$pattern\" !~ \"$str\"");
-  }
+  Expect.isNotNull(re.firstMatch(str));
+  Match fm = re.firstMatch(str) as Match;
   if(null != expectedGroups) {
     Expect.equals(expectedGroups.length, fm.groupCount + 1);
     
     for(int i = 0; i <= fm.groupCount; i++) {
-      String expGr = expectedGroups[i];
-      String actGr = fm.group(i);
-      if(expGr != actGr) {
-        Expect.fail("Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
-      }
+      String? expGr = expectedGroups[i];
+      String? actGr = fm.group(i);
+      Expect.equals(expGr, actGr,
+          "Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
     }
   }
 }
-

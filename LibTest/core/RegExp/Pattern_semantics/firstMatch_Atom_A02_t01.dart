@@ -5,20 +5,18 @@
  */
 /**
  * @assertion 15.10.2.8: The form (?! Disjunction ) specifies a zero-width
- *            negative lookahead. In order for it to succeed, the pattern inside
- *            Disjunction must fail to match at the current position. The
- *            current position is not advanced before matching the sequel.
- *            Disjunction can contain capturing parentheses, but backreferences
- *            to them only make sense from within Disjunction itself.
- *            Backreferences to these capturing parentheses from elsewhere in
- *            the pattern always return undefined because the negative lookahead
- *            must fail for the pattern to succeed.
+ * negative lookahead. In order for it to succeed, the pattern inside
+ * Disjunction must fail to match at the current position. The current position
+ * is not advanced before matching the sequel. Disjunction can contain capturing
+ * parentheses, but backreferences to them only make sense from within
+ * Disjunction itself. Backreferences to these capturing parentheses from
+ * elsewhere in the pattern always return undefined because the negative
+ * lookahead must fail for the pattern to succeed.
  * @description Checks that this syntax works as specified.
  * @3rdparty sputnik-v1:S15.10.2.8_A2_T1.js-S15.10.2.8_A2_T11.js
  * @author rodionov
  */
 import "../../../../Utils/expect.dart";
- 
 
 main() {
   check(r"Java(?!Script)([A-Z]\w*)", "using of JavaBeans technology", 9,
@@ -38,12 +36,10 @@ main() {
 }
 
 void check(String pattern, String str, int matchPos,
-    List<String> expectedGroups) {
+    List<String?> expectedGroups) {
   RegExp re = new RegExp(pattern);
-  Match fm = re.firstMatch(str);
-  if(null == fm) {
-    Expect.fail("\"$pattern\" !~ \"$str\"");
-  }
+  Expect.isNotNull(re.firstMatch(str), "\"$pattern\" !~ \"$str\"");
+  Match fm = re.firstMatch(str) as Match;
   if(matchPos >= 0) {
     Expect.equals(matchPos, fm.start);
   }
@@ -51,18 +47,15 @@ void check(String pattern, String str, int matchPos,
     Expect.equals(expectedGroups.length, fm.groupCount + 1);
     
     for(int i = 0; i <= fm.groupCount; i++) {
-      String expGr = expectedGroups[i];
-      String actGr = fm.group(i);
-      if(expGr != actGr) {
-        Expect.fail("Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
-      }
+      String? expGr = expectedGroups[i];
+      String? actGr = fm.group(i);
+      Expect.equals(expGr, actGr,
+          "Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
     }
   }
 }
 
 void checkNeg(String pattern, String str) {
   RegExp re = new RegExp(pattern);
-  if(null != re.firstMatch(str)) {
-    Expect.fail("\"$pattern\" ~ \"$str\"");
-  }
+  Expect.isNull(re.firstMatch(str), "\"$pattern\" ~ \"$str\"");
 }

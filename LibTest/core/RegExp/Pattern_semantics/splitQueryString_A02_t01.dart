@@ -5,21 +5,20 @@
  */
 /**
  * @assertion 15.10.2.12: The production CharacterClassEscape :: S evaluates by
- *            returning the set of all characters not included in the set
- *            returned by CharacterClassEscape :: s.
+ * returning the set of all characters not included in the set returned by
+ * CharacterClassEscape :: s.
  * @description Checks that \S indeed matches all characters but the 26
- *              whitespace and line terminator ones (tested vs all characters
- *              from the basic plane)
+ * whitespace and line terminator ones (tested vs all characters from the basic
+ * plane)
  * @3rdparty sputnik-v1:S15.10.2.12_A2_T1.js-S15.10.2.12_A2_T5.js
  * @author rodionov
- * @note issue 1296
+ * @Issue 1296
  */
 import "../../../../Utils/expect.dart";
  
-
 main() {
   RegExp re = new RegExp("\\S");
-  List<String> errors = new List<String>();
+  List<String> errors = <String>[];
   for (int alpha = 0x0000; alpha <= 0xFFFF; alpha++) {
     switch(alpha) {
       // white space as per chapter 7.2

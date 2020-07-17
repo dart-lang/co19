@@ -15,7 +15,7 @@ import "../../../../Utils/expect.dart";
 
 main() {
   RegExp re = new RegExp("\\n");
-  Expect.isTrue(null != re.firstMatch("\u000A"));
+  Expect.isNotNull(re.firstMatch("\u000A"));
   re = new RegExp("\\n\\n");
-  Expect.isTrue(null != re.firstMatch("\u000A\u000Aasf"));
+  Expect.isNotNull(re.firstMatch("\u000A\u000Aasf"));
 }

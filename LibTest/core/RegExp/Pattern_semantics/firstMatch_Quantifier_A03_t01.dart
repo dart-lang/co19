@@ -5,15 +5,14 @@
  */
 /**
  * @assertion 15.10.2.7: The production QuantifierPrefix :: ? evaluates by
- *            returning the two results 0 and 1.
+ * returning the two results 0 and 1.
  * @description Checks that this quantifier is applied correctly in various
- *              scenarios.
+ * scenarios.
  * @3rdparty sputnik-v1:S15.10.2.7_A5_T1.js-S15.10.2.7_A5_T12.js
  * @author rodionov
  */
 import "../../../../Utils/expect.dart";
  
-
 main() {
   check("java(script)?", "state: javascript is an extension of ecma script", 7,
       ["javascript", "script"]);
@@ -34,12 +33,10 @@ main() {
 }
 
 void check(String pattern, String str, [int matchPos = -1,
-List<String> expectedGroups = null]) {
+List<String?>? expectedGroups = null]) {
   RegExp re = new RegExp(pattern);
-  Match fm = re.firstMatch(str);
-  if(null == fm) {
-    Expect.fail("\"$pattern\" !~ \"$str\"");
-  }
+  Expect.isNotNull(re.firstMatch(str));
+  Match fm = re.firstMatch(str) as Match;
   if(matchPos >= 0) {
     Expect.equals(matchPos, fm.start);
   }
@@ -47,18 +44,15 @@ List<String> expectedGroups = null]) {
     Expect.equals(expectedGroups.length, fm.groupCount + 1);
     
     for(int i = 0; i <= fm.groupCount; i++) {
-      String expGr = expectedGroups[i];
-      String actGr = fm.group(i);
-      if(expGr != actGr) {
-        Expect.fail("Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
-      }
+      String? expGr = expectedGroups[i];
+      String? actGr = fm.group(i);
+      Expect.equals(expGr,actGr,
+          "Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
     }
   }
 }
 
 void checkNeg(String pattern, String str) {
   RegExp re = new RegExp(pattern);
-  if(null != re.firstMatch(str)) {
-    Expect.fail("\"$pattern\" ~ \"$str\"");
-  }
+  Expect.isNull(re.firstMatch(str), "\"$pattern\" ~ \"$str\"");
 }

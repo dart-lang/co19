@@ -5,15 +5,14 @@
  */
 /**
  * @assertion 15.10.2.8: The form (?= Disjunction ) specifies a zero-width
- *            positive lookahead. In order for it to succeed, the pattern inside
- *            Disjunction must match at the current position, but the current
- *            position is not advanced before matching the sequel. If
- *            Disjunction can match at the current position in several ways,
- *            only the first one is tried. Unlike other regular expression
- *            operators, there is no backtracking into a (?= form (this unusual
- *            behaviour is inherited from Perl). This only matters when the
- *            Disjunction contains capturing parentheses and the sequel of the
- *            pattern contains backreferences to those captures.
+ * positive lookahead. In order for it to succeed, the pattern inside
+ * Disjunction must match at the current position, but the current position is
+ * not advanced before matching the sequel. If Disjunction can match at the
+ * current position in several ways, only the first one is tried. Unlike other
+ * regular expression operators, there is no backtracking into a (?= form (this
+ * unusual behaviour is inherited from Perl). This only matters when the
+ * Disjunction contains capturing parentheses and the sequel of the pattern
+ * contains backreferences to those captures.
  * @description Checks that this syntax works as specified.
  * @3rdparty sputnik-v1:S15.10.2.8_A1_T1.js-S15.10.2.8_A1_T5.js
  * @author rodionov
@@ -34,12 +33,10 @@ main() {
 }
 
 void check(String pattern, String str, int matchPos,
-    List<String> expectedGroups) {
+    List<String?> expectedGroups) {
   RegExp re = new RegExp(pattern);
-  Match fm = re.firstMatch(str);
-  if(null == fm) {
-    Expect.fail("\"$pattern\" !~ \"$str\"");
-  }
+  Expect.isNotNull(re.firstMatch(str), "\"$pattern\" !~ \"$str\"");
+  Match fm = re.firstMatch(str) as Match;
   if(matchPos >= 0) {
     Expect.equals(matchPos, fm.start);
   }
@@ -47,11 +44,10 @@ void check(String pattern, String str, int matchPos,
     Expect.equals(expectedGroups.length, fm.groupCount + 1);
     
     for(int i = 0; i <= fm.groupCount; i++) {
-      String expGr = expectedGroups[i];
-      String actGr = fm.group(i);
-      if(expGr != actGr) {
-        Expect.fail("Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
-      }
+      String? expGr = expectedGroups[i];
+      String? actGr = fm.group(i);
+      Expect.equals(expGr, actGr,
+          "Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
     }
   }
 }

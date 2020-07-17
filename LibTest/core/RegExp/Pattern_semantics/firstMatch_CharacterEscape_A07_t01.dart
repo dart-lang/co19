@@ -5,11 +5,11 @@
  */
 /**
  * @assertion 15.10.2.10: The production CharacterEscape :: HexEscapeSequence
- *            evaluates by evaluating the character value of the
- *            HexEscapeSequence (see 7.8.4) and returning its character result.<br/>
- *            HexEscapeSequence :: x HexDigit HexDigit
+ * evaluates by evaluating the character value of the HexEscapeSequence (see
+ * 7.8.4) and returning its character result.<br/>
+ * HexEscapeSequence :: x HexDigit HexDigit
  * @description Checks the assertion using a matching \u-encoded character in
- *              the test string.
+ * the test string.
  * @3rdparty sputnik-v1:S15.10.2.10_A3.1_T1.js, S15.10.2.10_A3.1_T2.js
  * @author rodionov
  */

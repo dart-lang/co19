@@ -5,12 +5,11 @@
  */
 /**
  * @assertion 15.10.2.9: An escape sequence of the form \ followed by a nonzero
- *            decimal number n matches the result of the Nth set of capturing
- *            parentheses (see 15.10.2.11). It is an error if the regular
- *            expression has fewer than n capturing parentheses. If the regular
- *            expression has n or more capturing parentheses but the Nth one is
- *            undefined because it has not captured anything, then the
- *            backreference always succeeds.
+ * decimal number n matches the result of the Nth set of capturing parentheses
+ * (see 15.10.2.11). It is an error if the regular expression has fewer than n
+ * capturing parentheses. If the regular expression has n or more capturing
+ * parentheses but the Nth one is undefined because it has not captured
+ * anything, then the backreference always succeeds.
  * @description Checks that backreferences work as specified.
  * @3rdparty sputnik-v1:S15.10.2.9_A1_T1.js-S15.10.2.9_A1_T5.js
  * @author rodionov
@@ -29,12 +28,10 @@ main() {
 }
 
 void check(String pattern, String str, int matchPos,
-    List<String> expectedGroups) {
+      List<String?> expectedGroups) {
   RegExp re = new RegExp(pattern);
-  Match fm = re.firstMatch(str);
-  if (null == fm) {
-    Expect.fail("\"$pattern\" !~ \"$str\"");
-  }
+  Expect.isNotNull(re.firstMatch(str), "\"$pattern\" !~ \"$str\"");
+  Match fm = re.firstMatch(str) as Match;
   if (matchPos >= 0) {
     Expect.equals(matchPos, fm.start);
   }
@@ -42,16 +39,15 @@ void check(String pattern, String str, int matchPos,
     Expect.equals(expectedGroups.length, fm.groupCount + 1);
     
     for (int i = 0; i <= fm.groupCount; i++) {
-      String expGr = expectedGroups[i];
-      String actGr = fm.group(i);
-      Expect.equals(expGr, actGr, "Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
+      String? expGr = expectedGroups[i];
+      String? actGr = fm.group(i);
+      Expect.equals(expGr, actGr,
+          "Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
     }
   }
 }
 
 void checkNeg(String pattern, String str) {
   RegExp re = new RegExp(pattern);
-  if(null != re.firstMatch(str)) {
-    Expect.fail("\"$pattern\" ~ \"$str\"");
-  }
+  Expect.isNull(re.firstMatch(str), "\"$pattern\" ~ \"$str\"");
 }

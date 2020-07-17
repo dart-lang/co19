@@ -5,26 +5,23 @@
  */
 /**
  * @assertion Since the assertions ^, $, \b and \B do not change endIndex,
- *            multiple subsequent occurrences of the same one are equivalent to
- *            a single assertion.
+ * multiple subsequent occurrences of the same one are equivalent to a single
+ * assertion.
  * @description Checks that the assertion is true.
  * @3rdparty sputnik-v1:S15.10.2.6_A5_T1.js-S15.10.2.6_A5_T2.js
  * @author rodionov
  */
 import "../../../../Utils/expect.dart";
  
-
 main() {
   check(r"^^^^^^^\b\b\b\bro\B\B\B\Bbot\b\b\b\b\b$$$$", "robot", 0);
 }
 
 void check(String pattern, String str, int matchPos) {
   RegExp re = new RegExp(pattern);
-  Match fm = re.firstMatch(str);
-  if(null == fm) {
-    Expect.fail("\"$pattern\" !~ \"$str\"");
-  }
+  Match? fm = re.firstMatch(str);
+  Expect.isNotNull(fm, "\"$pattern\" !~ \"$str\"");
   if(matchPos >= 0) {
-    Expect.equals(matchPos, fm.start);
+    Expect.equals(matchPos, fm?.start);
   }
 }

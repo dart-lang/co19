@@ -5,21 +5,18 @@
  */
 /**
  * @assertion 15.10.2.8: In case-insignificant matches all characters are
- *            implicitly converted to upper case immediately before they are
- *            compared. However, if converting a character to upper case would
- *            expand that character into more than one character (such as
- *            converting "ß" (\u00DF) into "SS"), then the character is left
- *            as-is instead. The character is also left as-is if it is not an
- *            ASCII character but converting it to upper case would make it into
- *            an ASCII character. This prevents Unicode characters such as
- *            \u0131 and \u017F from matching regular expressions such as
- *            /[a-z]/i, which are only intended to match ASCII letters.
- *            Furthermore, if these conversions were allowed, then /[^\W]/i
- *            would match each of a, b, …, h, but not i or s.
+ * implicitly converted to upper case immediately before they are compared.
+ * However, if converting a character to upper case would expand that character
+ * into more than one character (such as converting "ß" (\u00DF) into "SS"),
+ * then the character is left as-is instead. The character is also left as-is if
+ * it is not an ASCII character but converting it to upper case would make it
+ * into an ASCII character. This prevents Unicode characters such as \u0131 and
+ * \u017F from matching regular expressions such as /[a-z]/i, which are only
+ * intended to match ASCII letters. Furthermore, if these conversions were
+ * allowed, then /[^\W]/i would match each of a, b, …, h, but not i or s.
  * @description Checks that this assertion is true.
  * @3rdparty sputnik-v1:S15.10.2.8_A5_T1.js-S15.10.2.8_A5_T2.js
  * @author rodionov
- * @reviewer msyabro
  */
 import "../../../../Utils/expect.dart";
  
@@ -34,13 +31,12 @@ main() {
 }
 
 void check(String pattern, String str, {bool multiLine: false,
-    bool ignoreCase: false, int matchPos: -1, List<String> expectedGroups: null}) {
+    bool ignoreCase: false, int matchPos: -1,
+    List<String>? expectedGroups: null}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
-  Match fm = re.firstMatch(str);
-  if(null == fm) {
-    Expect.fail("\"$pattern\" !~ \"$str\"");
-  }
+  Expect.isNotNull(re.firstMatch(str), "\"$pattern\" !~ \"$str\"");
+  Match fm = re.firstMatch(str) as Match;
   if(matchPos >= 0) {
     Expect.equals(matchPos, fm.start);
   }
@@ -49,10 +45,9 @@ void check(String pattern, String str, {bool multiLine: false,
     
     for(int i = 0; i <= fm.groupCount; i++) {
       String expGr = expectedGroups[i];
-      String actGr = fm.group(i);
-      if(expGr != actGr) {
-        Expect.fail("Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
-      }
+      String? actGr = fm.group(i);
+      Expect.equals(expGr, actGr,
+          "Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
     }
   }
 }
@@ -61,7 +56,5 @@ void checkNeg(String pattern, String str, {bool multiLine: false,
     bool ignoreCase: false}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
-  if(null != re.firstMatch(str)) {
-    Expect.fail("\"$pattern\" ~ \"$str\"");
-  }
+  Expect.isNull(re.firstMatch(str), "\"$pattern\" ~ \"$str\"");
 }

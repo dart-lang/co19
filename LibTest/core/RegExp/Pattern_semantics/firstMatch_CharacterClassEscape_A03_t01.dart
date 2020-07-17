@@ -5,21 +5,20 @@
  */
 /**
  * @assertion 15.10.2.12: The production CharacterClassEscape :: s evaluates by
- *            returning the set of characters containing the characters that are
- *            on the right-hand side of the WhiteSpace (7.2) or LineTerminator
- *            (7.3) productions.
+ * returning the set of characters containing the characters that are on the
+ * right-hand side of the WhiteSpace (7.2) or LineTerminator (7.3) productions.
  * @description Checks that \s indeed matches all 26 whitespace and line
- *              terminator characters but no others (tested vs all characters
- *              from the basic plane)
+ * terminator characters but no others (tested vs all characters from the basic
+ * plane)
  * @3rdparty sputnik-v1:S15.10.2.12_A1_T1.js-S15.10.2.12_A1_T5.js
  * @author rodionov
- * @note issue 1296
+ * @Issue 1296
  */
 import "../../../../Utils/expect.dart";
 
 main() {
   RegExp re = new RegExp("\\s");
-  List<String> errors = new List<String>();
+  List<String> errors = <String>[];
   for (int alpha = 0x0000; alpha <= 0xFFFF; alpha++) {
     switch(alpha) {
       // white space as per chapter 7.2
@@ -62,8 +61,8 @@ main() {
     }
   }
   if(errors.length > 0) {
-    StringBuffer sb=new StringBuffer();
+    StringBuffer sb = new StringBuffer();
     sb.writeAll(errors, "\n");
-    Expect.fail("\n"+sb.toString());
+    Expect.fail("\n" + sb.toString());
   }
 }

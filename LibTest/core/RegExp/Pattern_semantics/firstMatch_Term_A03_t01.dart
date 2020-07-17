@@ -21,22 +21,18 @@ main() {
     "bbb", "c"]);
 }
 
-void check(String pattern, String str,  List<String> expectedGroups) {
+void check(String pattern, String str,  List<String?> expectedGroups) {
   RegExp re = new RegExp(pattern);
-  Match fm = re.firstMatch(str);
-  if(null == fm) {
-    Expect.fail("\"$pattern\" !~ \"$str\"");
-  }
+  Expect.isNotNull(re.firstMatch(str), "\"$pattern\" !~ \"$str\"");
+  Match fm = re.firstMatch(str) as Match;
   if(null != expectedGroups) {
     Expect.equals(expectedGroups.length, fm.groupCount + 1);
     
     for(int i = 0; i <= fm.groupCount; i++) {
-      String expGr = expectedGroups[i];
-      String actGr = fm.group(i);
-      if(expGr != actGr) {
-        Expect.fail("Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
-      }
+      String? expGr = expectedGroups[i];
+      String? actGr = fm.group(i);
+      Expect.equals(expGr, actGr,
+          "Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
     }
   }
 }
-

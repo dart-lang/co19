@@ -5,9 +5,9 @@
  */
 /**
  * @assertion 15.10.2.7: The production QuantifierPrefix :: * evaluates by
- *            returning the two results 0 and infinity.
+ * returning the two results 0 and infinity.
  * @description Checks that this quantifier is applied correctly in various
- *              scenarios.
+ * scenarios.
  * @3rdparty sputnik-v1:S15.10.2.7_A4_T1.js-S15.10.2.7_A4_T19.js
  * @author rodionov
  */
@@ -40,12 +40,10 @@ main() {
 }
 
 void check(String pattern, String str, [int matchPos = -1,
-    List<String> expectedGroups = null]) {
+    List<String>? expectedGroups = null]) {
   RegExp re = new RegExp(pattern);
-  Match fm = re.firstMatch(str);
-  if(null == fm) {
-    Expect.fail("\"$pattern\" !~ \"$str\"");
-  }
+  Expect.isNotNull(re.firstMatch(str));
+  Match fm = re.firstMatch(str) as Match;
   if(matchPos >= 0) {
     Expect.equals(matchPos, fm.start);
   }
@@ -53,18 +51,15 @@ void check(String pattern, String str, [int matchPos = -1,
     Expect.equals(expectedGroups.length, fm.groupCount + 1);
     
     for(int i = 0; i <= fm.groupCount; i++) {
-      String expGr = expectedGroups[i];
-      String actGr = fm.group(i);
-      if(expGr != actGr) {
-        Expect.fail("Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
-      }
+      String? expGr = expectedGroups[i];
+      String? actGr = fm.group(i);
+      Expect.equals(expGr, actGr,
+          "Mismatch at group $i: \"$expGr\" expected instead of \"$actGr\"");
     }
   }
 }
 
 void checkNeg(String pattern, String str) {
   RegExp re = new RegExp(pattern);
-  if(null != re.firstMatch(str)) {
-    Expect.fail("\"$pattern\" ~ \"$str\"");
-  }
+  Expect.isNull(re.firstMatch(str), "\"$pattern\" ~ \"$str\"");
 }
