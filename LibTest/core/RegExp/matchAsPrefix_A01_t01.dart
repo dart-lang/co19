@@ -33,10 +33,8 @@ void check(String pattern, String str, bool multiLine, bool ignoreCase,
     List groupData) {
   RegExp re = new RegExp(
       pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
-  Match fm = re.matchAsPrefix(str);
-  if(fm == null) {
-    Expect.fail("\"$pattern\" !~ \"$str\"");
-  }
+  Expect.isNotNull(re.matchAsPrefix(str));
+  Match fm = re.matchAsPrefix(str) as Match;
   Expect.equals(str, fm.input);
   Expect.equals(pattern, (fm.pattern as RegExp).pattern);
   if(groupData != null) {

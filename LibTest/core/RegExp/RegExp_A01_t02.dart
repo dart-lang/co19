@@ -5,18 +5,23 @@
  */
 /**
  * @assertion Constructs a regular expression.
- * @description Checks that null flags arguments can be used.
+ * @description Checks that null flags arguments can not be used with null
+ * safety turned on.
  * @author rodionov
  */
-import "../../../Utils/expect.dart";
-
 main() {
   RegExp re = new RegExp(r".", multiLine: null, caseSensitive: null);
-  Expect.isFalse(re.firstMatch("a") == null);
+//                                        ^                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  re = new RegExp(r".", multiLine: null, caseSensitive: null);
-  Expect.isFalse(re.firstMatch("b\na") == null);
+  re = new RegExp(r".", multiLine: null, caseSensitive: true);
+//                                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  re = new RegExp(r".", multiLine: null, caseSensitive: null);
-  Expect.isFalse(re.firstMatch("A") == null);
+  re = new RegExp(r".", multiLine: false, caseSensitive: null);
+//                                                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

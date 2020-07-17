@@ -58,7 +58,7 @@ void check(String pattern, String str, bool multiLine, bool ignoreCase,
     Expect.equals(expMatch[1], actMatch.end);
     
     for(int i = 0; i <= actMatch.groupCount; i++) {
-      String actMatchStr = actMatch.group(i);
+      String actMatchStr = actMatch.group(i) as String;
       
       String expMatchStr = expMatch[i + 2];
       

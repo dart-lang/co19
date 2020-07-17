@@ -15,7 +15,6 @@ main() {
   IndexError e = new IndexError(12, indexable);
   Expect.equals(0, e.start);
 
-
   var indexable2 = "insexable";
   IndexError e2 = new IndexError(12, indexable2);
   Expect.equals(0, e2.start);

@@ -5,10 +5,10 @@
  */
 /**
  * @assertion Searches for the first match of the regular expression in the
- *            string [str].
+ * string [str].
  * @description Checks that the returned Match is correctly initialized.
  * @author rodionov
- * @note Issue 1290
+ * @Issue 1290
  */
 import "../../../Utils/expect.dart";
  
@@ -39,10 +39,8 @@ void check(String pattern, String str, bool multiLine, bool ignoreCase,
     List groupData) {
   RegExp re = new RegExp(
       pattern, multiLine: multiLine, caseSensitive: !ignoreCase);
-  Match fm = re.firstMatch(str);
-  if(null == fm) {
-    Expect.fail("\"$pattern\" !~ \"$str\"");
-  }
+  Expect.isNotNull(re.firstMatch(str), "\"$pattern\" !~ \"$str\"");
+  Match fm = re.firstMatch(str) as Match;
   Expect.equals(str, fm.input);
   Expect.equals(pattern, (fm.pattern as RegExp).pattern);
   if(null != groupData) {
@@ -51,12 +49,10 @@ void check(String pattern, String str, bool multiLine, bool ignoreCase,
     Expect.equals(groupData[1], fm.end);
     
     for(int i = 0; i <= fm.groupCount; i++) {
-      String actGr = fm.group(i);
-      String expGr = groupData[i + 2];
-      if(expGr != actGr) {
-        Expect.fail(
+      String? actGr = fm.group(i);
+      String? expGr = groupData[i + 2];
+      Expect.equals(expGr, actGr,
             "Mismatch at group $i: '$expGr' expected instead of '$actGr'");
-      }
     }
   }
 }

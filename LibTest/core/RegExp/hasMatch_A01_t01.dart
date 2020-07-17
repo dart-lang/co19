@@ -5,12 +5,11 @@
  */
 /**
  * @assertion Returns whether the regular expression has a match in the string
- *            [str].
+ * [str].
  * @description Tests whether regular expressions for shallow XML parsing work.
  * @3rdparty sputnik-v1:S15.10.2_A1_T1.js /
- *           http://www.cs.sfu.ca/~cameron/REX.html#AppB
+ * http://www.cs.sfu.ca/~cameron/REX.html#AppB
  * @author rodionov
- * @reviewer msyabro
  */
 
 // REX/Javascript 1.0

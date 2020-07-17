@@ -5,15 +5,14 @@
  */
 /**
  * @assertion Constructs a regular expression.
- * @description Checks that using an invalid pattern results in
- *              FormatException.
+ * @description Checks that using an invalid pattern results in FormatException.
  * @3rdparty sputnik-v1:S15.10.1_A1_T1.js-S15.10.1_A1_T16.js
  * @author rodionov
  */
 import "../../../Utils/expect.dart";
 
 void check(String pattern) {
-  Expect.throws(() {new RegExp(pattern);}, (e) => e is FormatException);
+  Expect.throws(() { new RegExp(pattern); }, (e) => e is FormatException);
 }
 
 main() {

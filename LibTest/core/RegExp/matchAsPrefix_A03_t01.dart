@@ -29,5 +29,5 @@ void check(String pattern, String str, int start, bool multiLine,
     bool ignoreCase) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
-  Expect.throws(() {re.matchAsPrefix(str, start);});
+  Expect.throws(() { re.matchAsPrefix(str, start); });
 }

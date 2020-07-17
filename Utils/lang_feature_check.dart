@@ -13,7 +13,7 @@ class CHECK_TOP_MERGE<T> {
   T Function(T) get f => (x) => x;
 }
 
-// Functions to check leatest and greatest closures
+// Functions to check least and greatest closures
 // See https://github.com/dart-lang/co19/issues/575#issuecomment-613542349
 Type? _capturedTypeArgument;
 

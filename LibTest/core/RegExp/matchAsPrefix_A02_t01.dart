@@ -24,5 +24,5 @@ main() {
 
 void check(String pattern, String str) {
   RegExp re = new RegExp(pattern);
-  Expect.equals(null, re.matchAsPrefix(str));
+  Expect.isNull(re.matchAsPrefix(str));
 }

@@ -11,5 +11,9 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() {new RegExp(null);});
+  Expect.throws(() { new RegExp(null); });
+//                              ^                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

@@ -11,7 +11,9 @@
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
- 
+
+dynamic getNull() => null;
+
 main() {
   check("AE", 0, false, true);
   check("(a|cd)+|ef", 1, false, true);
@@ -26,5 +28,5 @@ void check(String pattern, int start, bool multiLine,
     bool ignoreCase) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
-  Expect.throws(() {re.matchAsPrefix(null, start);});
+  Expect.throws(() { re.matchAsPrefix(getNull(), start); });
 }

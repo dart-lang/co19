@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Searches for the first match of the regular expression in the
- *            string [str] and returns the matched string.
+ * string [str] and returns the matched string.
  * @description Checks that the correct string is returned.
  * @author rodionov
  */

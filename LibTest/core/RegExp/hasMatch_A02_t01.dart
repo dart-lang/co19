@@ -10,13 +10,12 @@
  */
 import "../../../Utils/expect.dart";
 
+dynamic getNull() => null;
+
 check(String pattern, [bool multiLine = false, bool ignoreCase = false]) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
-  try {
-    re.hasMatch(null);
-    Expect.fail("Error is expected");
-  } on Error catch(e) {}
+  Expect.throws(() => re.hasMatch(getNull()));
 }
 
 main() {

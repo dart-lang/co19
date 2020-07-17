@@ -5,10 +5,10 @@
  */
 /**
  * @assertion Returns whether the regular expression has a match in the string
- *            [str].
+ * [str].
  * @description Tests this method with various patterns, flags and input strings.
  * @author rodionov
- * @note issue 1297
+ * @Issue 1297
  */
 import "../../../Utils/expect.dart";
 
@@ -320,19 +320,15 @@ main() {
 }
 
 void check(String pattern, String str, {bool multiLine: false,
-  bool ignoreCase: false}) {
+    bool ignoreCase: false}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
-  if(!re.hasMatch(str)) {
-    Expect.fail("'/$pattern/' !~ '$str'");
-  }
+  Expect.isTrue(re.hasMatch(str), "'/$pattern/' !~ '$str'");
 }
 
 void checkNeg(String pattern, String str, {bool multiLine: false,
   bool ignoreCase: false}) {
   RegExp re = new RegExp(pattern, multiLine: multiLine,
       caseSensitive: !ignoreCase);
-  if(re.hasMatch(str)) {
-    Expect.fail("'/$pattern/' ~ '$str'");
-  }
+  Expect.isFalse(re.hasMatch(str), "'/$pattern/' ~ '$str'");
 }
