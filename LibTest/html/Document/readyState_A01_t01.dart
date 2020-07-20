@@ -12,7 +12,7 @@
  * @description Checks that readyState is at least "interactive".
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   var readyState = document.readyState;

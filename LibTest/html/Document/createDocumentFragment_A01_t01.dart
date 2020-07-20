@@ -9,7 +9,7 @@
  * @description Checks that newly created document fragment is empty.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   DocumentFragment df = document.createDocumentFragment();

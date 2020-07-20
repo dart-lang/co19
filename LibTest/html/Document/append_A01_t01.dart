@@ -11,7 +11,7 @@
  * @description Checks expected lastChild after append
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   var x = new Comment("cool");

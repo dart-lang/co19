@@ -11,7 +11,7 @@
  * @description Checks the value of document.nodeName.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals("#document", document.nodeName);

@@ -12,14 +12,14 @@
  * Checks that importedNode is not removed from the document.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   var myButton = "myButton";
   HtmlDocument d2 =
       document.implementation.createHtmlDocument("Another Document");
   var x = new Element.html('<button id="$myButton"></button>');
-  d2.body.append(x);
+  d2.body?.append(x);
   Expect.equals(d2, x.ownerDocument, "x.ownerDocument");
   Expect.equals(x, d2.getElementById(myButton), "d2.getElementById 1");
   var x2 = document.importNode(x);

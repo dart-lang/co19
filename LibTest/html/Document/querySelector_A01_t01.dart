@@ -27,7 +27,7 @@ main() {
       '</div>',
       treeSanitizer: new NullTreeSanitizer());
 
-  document.body.append(e);
+  document.body?.append(e);
 
   Expect.isTrue(
       document.querySelector('*') is HtmlElement, 'Universal selector');

@@ -13,14 +13,14 @@
  * and its ownerDocument is changed to the current document.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   var myButton = "myButton";
   HtmlDocument d2 =
       document.implementation.createHtmlDocument("Another Document");
   var x = new Element.html('<button id="$myButton"></button>');
-  d2.body.append(x);
+  d2.body?.append(x);
   Expect.equals(d2, x.ownerDocument);
   Expect.equals(x, d2.getElementById(myButton));
   document.adoptNode(x);

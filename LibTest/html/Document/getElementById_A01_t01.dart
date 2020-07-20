@@ -17,7 +17,7 @@ main() {
   var x = new Element.html('<button id="$myButton"></button>');
   var y = new DivElement();
   y.append(x);
-  document.body.append(y);
+  document.body?.append(y);
 
   var z = document.getElementById(myButton);
   Expect.equals(x, z);

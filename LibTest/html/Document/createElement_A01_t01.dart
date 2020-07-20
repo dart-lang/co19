@@ -9,7 +9,7 @@
  * @description Checks that newly created element belongs to this document.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   Element el = document.createElement("div");

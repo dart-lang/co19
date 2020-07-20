@@ -11,7 +11,7 @@
  * @description Checks the value of document.nodeValue.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.isNull(document.nodeValue);

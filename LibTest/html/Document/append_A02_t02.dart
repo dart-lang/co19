@@ -18,13 +18,13 @@ main() {
   var x = new Element.html('<span><button><div></div></button></span>');
   var y = x.querySelector('div');
   var z = new Comment("cool");
-  y.append(z);
-  Expect.equals(z, y.lastChild);
-  Expect.isNotNull(y.firstChild);
+  y?.append(z);
+  Expect.equals(z, y?.lastChild);
+  Expect.isNotNull(y?.firstChild);
 
   document.append(z);
 
-  Expect.isNull(y.firstChild);
+  Expect.isNull(y?.firstChild);
   Expect.equals(l0 + 1, document.nodes.length);
   Expect.isTrue(x.firstChild is ButtonElement);
   Expect.equals(z, document.lastChild);

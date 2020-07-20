@@ -8,9 +8,9 @@
  * @description Checks that this property is present.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
-  WindowBase window = document.window;
-  Expect.isTrue(window is WindowBase);
+  WindowBase? window = document.window;
+  Expect.isTrue(window is WindowBase?);
 }

@@ -28,6 +28,6 @@ main() {
   var x = new Element.html('<span><button><div></div></button></span>');
   check(x, false);
 
-  document.body.append(x);
+  document.body?.append(x);
   check(x, true);
 }

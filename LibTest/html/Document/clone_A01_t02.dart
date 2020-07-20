@@ -30,7 +30,7 @@ void check(Node n1, Node n2) {
 }
 
 main() {
-  Document cd = document.clone(true);
+  Document cd = document.clone(true) as Document;
   Expect.isNotNull(cd, "document.clone(true)==null");
   check(document, cd);
 }

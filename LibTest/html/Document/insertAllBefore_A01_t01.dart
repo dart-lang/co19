@@ -13,7 +13,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var x = [new Comment("cool1"), new Comment("cool2"), new Comment("cool3")];
-  document.insertAllBefore(x, document.firstChild);
+  document.insertAllBefore(x, document.firstChild!);
   Expect.equals(document.firstChild, x[0], 'insert before existing child');
 
   Expect.throws(() {

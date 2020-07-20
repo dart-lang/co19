@@ -10,7 +10,7 @@
  * @description Checks that the accessor works for standard events.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 const eventType = 'keydown';
 

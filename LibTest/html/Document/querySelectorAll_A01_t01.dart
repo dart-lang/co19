@@ -31,7 +31,7 @@ main() {
   }
 
   var e = new Element.html(html, treeSanitizer: new NullTreeSanitizer());
-  document.body.append(e);
+  document.body?.append(e);
 
   testTrue(list, testName) {
     Expect.equals(2, list.length, testName);
