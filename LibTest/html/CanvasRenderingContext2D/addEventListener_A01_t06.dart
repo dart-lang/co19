@@ -16,7 +16,7 @@ var n = 10;
 
 void check(Node x) {
   var type = 'click';
-  document.body.append(x);
+  document.body?.append(x);
 
   asyncMultiStart(n);
 
@@ -27,7 +27,7 @@ void check(Node x) {
       };
 
   for (var i = 0; i < n; ++i)
-    document.body.addEventListener(type, genHandler(), true);
+    document.body?.addEventListener(type, genHandler(), true);
 
   var event = new Event(type);
   x.dispatchEvent(event);
