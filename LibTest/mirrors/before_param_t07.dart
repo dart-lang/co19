@@ -22,7 +22,8 @@ class B {
 
 main() {
   var getterName = MirrorSystem .getSymbol('b=');
-  MethodMirror bMirror = reflectClass(B).instanceMembers[getterName];
+  MethodMirror bMirror =
+    reflectClass(B).instanceMembers[getterName] as MethodMirror;
   ParameterMirror paramMirror = bMirror.parameters[0];
   Expect.equals('.A',
     MirrorSystem.getName(paramMirror.metadata[0].type.qualifiedName));

@@ -15,7 +15,6 @@ class A {
   const A();
 }
 
-
 class B<@A() T> {
 }
 

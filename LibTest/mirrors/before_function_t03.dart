@@ -23,7 +23,8 @@ class B {
 
 main() {
   var methodName = MirrorSystem .getSymbol('b');
-  MethodMirror bMirror = reflectClass(B).staticMembers[methodName];
+  MethodMirror bMirror =
+    reflectClass(B).staticMembers[methodName] as MethodMirror;
   Expect.equals('.A',
     MirrorSystem.getName(bMirror.metadata[0].type.qualifiedName));
 }

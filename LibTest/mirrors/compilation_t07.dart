@@ -10,17 +10,14 @@
  *   • A call to a constant constructor.
  * @description Check that if false is used as metadata, then
  * a compile time error is raised
- * @compile-error
  * @author a.semenov@unipro.ru
  */
 import 'dart:mirrors';
-import '../../Utils/expect.dart';
 
-@false
+@false      //# 01: compile-time error
 class A {}
 
 main() {
   // have to retrieve metadata to get the compile error
-  Expect.fail('Compilation error is expected, but retrieved metadata: ' +
-      reflectClass(A).metadata.map( (e) => e.reflectee ).join(' '));
+  reflectClass(A).metadata.map( (e) => e.reflectee ).join(' ');
 }

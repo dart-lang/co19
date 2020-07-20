@@ -13,7 +13,6 @@
  * @author a.semenov@unipro.ru
  */
 import 'dart:mirrors';
-import '../../Utils/expect.dart';
 
 var variable = 'hello';
 
@@ -22,6 +21,5 @@ class A {}
 
 main() {
   // have to retrieve metadata to get the compile error
-  Expect.fail('Compilation error is expected, but retrieved metadata: ' +
-      reflectClass(A).metadata.map( (e) => e.reflectee ).join(' '));
+ reflectClass(A).metadata.map( (e) => e.reflectee ).join(' ');
 }

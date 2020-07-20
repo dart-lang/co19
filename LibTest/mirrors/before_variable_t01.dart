@@ -15,7 +15,7 @@ class A {
   const A();
 }
 
-@A() int variable;
+@A() int? variable;
 @A() const int constVariable = 0;
 @A() final int finalVariable = 0;
 @A() var dynamicVariable;
@@ -23,10 +23,12 @@ class A {
 main() {
   Symbol emptyName = MirrorSystem.getSymbol('');
   LibraryMirror libraryMirror = currentMirrorSystem().findLibrary(emptyName);
-  var varNames = ['variable', 'constVariable', 'finalVariable', 'dynamicVariable'];
+  var varNames =
+      ['variable', 'constVariable', 'finalVariable', 'dynamicVariable'];
   for (var name in varNames) {
     var symbol = MirrorSystem .getSymbol(name);
-    DeclarationMirror varMirror = libraryMirror.declarations[symbol];
+    DeclarationMirror varMirror =
+        libraryMirror.declarations[symbol] as DeclarationMirror;
     Expect.equals('.A',
       MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
   }

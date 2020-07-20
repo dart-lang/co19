@@ -9,20 +9,17 @@
  *   • A reference to a compile-time constant variable.
  *   • A call to a constant constructor.
  * @description Check that function used as metadata cause a compile time error
- * @compile-error
  * @author a.semenov@unipro.ru
  */
 import 'dart:mirrors';
-import '../../Utils/expect.dart';
 
 void metadata() {
 }
 
-@metadata()
+@metadata()     //# 01: compile-time error
 class A {}
 
 main() {
   // have to retrieve metadata to get the compile error
-  Expect.fail('Compilation error is expected, but retrieved metadata: ' +
-      reflectClass(A).metadata.map( (e) => e.reflectee ).join(' '));
+ reflectClass(A).metadata.map( (e) => e.reflectee ).join(' ');
 }

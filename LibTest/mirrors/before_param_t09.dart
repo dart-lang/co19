@@ -20,7 +20,7 @@ typedef void f(@A() int, String);
 
 main() {
   ParameterMirror paramMirror =
-    (reflectType(f) as TypedefMirror).referent.parameters[0];
+    (reflectType(f) as FunctionTypeMirror).parameters[0];
   Expect.equals('.A',
     MirrorSystem.getName(paramMirror.metadata[0].type.qualifiedName));
 }

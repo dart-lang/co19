@@ -8,13 +8,12 @@
  * following:
  *   • A reference to a compile-time constant variable.
  *   • A call to a constant constructor.
- * @description Check that if static class variable is used as metadata,
- * then a compile time error is raised.
+ * @description Check that if static class variable is used as metadata, then a
+ * compile time error is raised.
  * @compile-error
  * @author a.semenov@unipro.ru
  */
 import 'dart:mirrors';
-import '../../Utils/expect.dart';
 
 class A {
   static var a = 10;
@@ -25,6 +24,5 @@ class B {}
 
 main() {
   // have to retrieve metadata to get compile error
-  Expect.fail('Compilation error is expected, but retrieved metadata: ' +
-      reflectClass(B).metadata.map( (e) => e.reflectee ).join(' '));
+  reflectClass(B).metadata.map( (e) => e.reflectee ).join(' ');
 }
