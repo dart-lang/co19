@@ -10,12 +10,17 @@
  * checked mode.
  * In checked mode, it is a dynamic type error if a deferred, malformed or
  * malbounded type is used in a subtype test.
- * @description Checks that it is not a compile error occurs if deferred type is
- * used in a variable initialization
+ * @description Checks that it is a runtime error if deferred type is used in a
+ * variable initialization
  * @author ngl@unipro.ru
  */
+import "../../../Utils/expect.dart";
 import "../somelib1.dart" deferred as p;
 
 main() {
-  var a = new p.C();
+  try {
+    var a = new p.C();
+    Expect.fail("Exception expected");
+  } catch (_) {
+  }
 }
