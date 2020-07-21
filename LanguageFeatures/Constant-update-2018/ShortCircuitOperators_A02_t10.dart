@@ -12,7 +12,6 @@
  * constant expression.
  * @author iarkh@unipro.ru
  */
-const int i = 25;
 
 class MyClass {
   final bool b;

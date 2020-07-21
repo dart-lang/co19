@@ -19,10 +19,16 @@ const str1 = "test";
 const str2 = null;
 
 class MyClass {
-  final String option;
-  const MyClass(String str) : assert(str != null), option = str;
+  final String? option;
+  const MyClass(String? str) : assert(str != null), option = str;
 }
 
 main() {
-  const MyClass c1 = MyClass(null);
+  const MyClass c1 = MyClass("123");
+
+  const MyClass c2 = MyClass(null);
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

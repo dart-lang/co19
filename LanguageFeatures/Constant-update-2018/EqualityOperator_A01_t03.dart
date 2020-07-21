@@ -11,16 +11,18 @@
  * operands is [null].
  * @description Checks that compile-time exception is thrown if one of the [==]
  * operand is [null] and another one is not a potentially constant.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 
 class A {}
-A a = new A();
+A? a = A();
 
 class B {
   final String option;
-  const B(String str) : assert(a == null), option = str ?? "undefined";
+  const B(String? str) : option = a == null ? "null" : "nonnull";
+//                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

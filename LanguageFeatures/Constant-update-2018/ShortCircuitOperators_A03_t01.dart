@@ -15,13 +15,13 @@ import "../../Utils/expect.dart";
 
 const dynamic d1 = "12345";
 const dynamic d2 = 11;
-const int i = 14;
+const int? i = 14;
 
 main() {
-  const int a1 = 20 ?? (null as String).length;
+  const int a1 = (20 as int?) ?? (null as String).length;
   Expect.equals(20, a1);
 
-  const String a2 = "testme" ?? "wrong";
+  const String? a2 = ("testme" as String?) ?? "wrong";
   Expect.equals("testme", a2);
 
   const int a3 = i ?? d1;

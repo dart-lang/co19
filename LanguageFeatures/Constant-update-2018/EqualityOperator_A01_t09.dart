@@ -12,7 +12,6 @@
  * @description Checks that [==] operator is allowed if one of the operands is
  * [null] in potentially constant or compile-time constant, and compile time
  * error is thrown if assertion fails.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 
@@ -20,10 +19,13 @@ const str1 = "test";
 const str2 = null;
 
 class MyClass {
-  final String option;
-  const MyClass(String str) : assert(str == null), this.option = "OK";
+  final String? option;
+  const MyClass(String? str) : assert(str == null), this.option = "OK";
 }
 
 main() {
   const MyClass c1 = MyClass("123");
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -11,13 +11,15 @@
  * operands is [null].
  * @description Checks that compile-time exception is thrown if one of the [!=]
  * operand is [null] and another one is not a potentially constant.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 
 class A {}
-A a;
+A? a;
 
 main() {
   const bool a1 = (a != null);
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

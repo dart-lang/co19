@@ -19,11 +19,33 @@ class A {
   A();
 }
 
-class MyClass {
+const int i = 2;
+
+class MyClass1<T> {
   final A a;
-  const MyClass(Object o) : a = o as A;
+  const MyClass1(Object o) : a = o as T;
+//                               ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+}
+
+class MyClass2<T> {
+  final A a;
+  const MyClass2(Object o) : a = o as T?;
+//                               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+}
+
+class MyClass3<T> {
+  final A a;
+  const MyClass3(Object o) : a = o as i;
+//                                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  const MyClass c1 = MyClass(A());
 }

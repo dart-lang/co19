@@ -19,22 +19,22 @@ const nil = null;
 
 main() {
   const String s1 = null ?? 124;
-//             ^^^^^^^^^^^^^^^
+//                  ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   const int i1 = nil ?? "";
-//          ^^^^^^^^^^^^^^
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   const String s2 = null ?? d1;
-//             ^^^^^^^^^^^^^^^
+//                  ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   const int i2 = nil ?? d2;
-//          ^^^^^^^^^^^^^^
+//               ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

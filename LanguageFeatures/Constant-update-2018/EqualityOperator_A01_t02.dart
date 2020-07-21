@@ -19,8 +19,8 @@ const str1 = "test";
 const str2 = null;
 
 class MyClass {
-  final String option;
-  const MyClass(String str) : assert(str != null), option = str;
+  final String? option;
+  const MyClass(String? str) : assert(str != null), option = str;
 }
 
 main() {

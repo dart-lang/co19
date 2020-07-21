@@ -20,7 +20,7 @@ const str2 = null;
 
 class MyClass {
   final String option;
-  const MyClass(String str) : assert(str == null), this.option = "OK";
+  const MyClass(String? str) : assert(str == null), this.option = "OK";
 }
 
 main() {

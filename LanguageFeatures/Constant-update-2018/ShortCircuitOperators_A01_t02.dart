@@ -18,8 +18,13 @@
  */
 
 main() {
-  const bool a = true && (null as int) * 11 < 25;
-//               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  const bool a1 = true && (null as int) * 11 < 25;
+//                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const bool a2 = true && (11 + 25);
+//                ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

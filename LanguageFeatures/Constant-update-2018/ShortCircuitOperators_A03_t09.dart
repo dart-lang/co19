@@ -12,15 +12,11 @@
  * @author iarkh@unipro.ru
  */
 
-int nonConst_i = 1;
+int? nonConst_i = 1;
 Null nonConst_null = null;
 dynamic nonConst_null_1 = null;
 dynamic nonConst;
-String nonConst_str = "";
-
-const dynamic d1 = "12345";
-const dynamic d2 = 11;
-const int i = 14;
+String? nonConst_str = "";
 
 main() {
   const int a1 = nonConst_i ?? 1;

@@ -18,7 +18,7 @@ dynamic a = 1;
 
 class MyClass {
   final bool b;
-  const MyClass(Object o) : b = true || ((o as int) > 25);
+  const MyClass(Object? o) : b = true || ((o as int) > 25);
 }
 
 main() {

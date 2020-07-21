@@ -11,15 +11,18 @@
  * operands is [null].
  * @description Checks that compile-time exception is thrown if one of the [!=]
  * operand is [null] and another one is not a potentially constant.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 
+String? d = null;
+
 class A {
-  final String option;
-  const A(String str) : assert(str != null), option = str ?? "undefined";
+  final String? option;
+  const A(String? str) : option = d != null ? str : "d";
+//                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  const A a = A(123);
 }

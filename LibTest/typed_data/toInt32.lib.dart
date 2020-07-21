@@ -8,22 +8,22 @@ library toInt32;
 //import "../../../Utils/expect.dart";
 
 int toInt32(x) {
-  x =x & 0xFFFFFFFF;
+  x = x & 0xFFFFFFFF;
   if (x & 0x80000000 == 0) {
     return x;
   } else {
-    return -((~(x & 0x7FFFFFFF) & 0x7FFFFFFF)+1);
+    return -((~(x & 0x7FFFFFFF) & 0x7FFFFFFF) + 1);
     /*
-    var m=x & 0x7FFFFFFF;
-    print ("m=$m");
-    m=~m;
-    print ("~m=$m");
-    m=m & 0x7FFFFFFF;
-    print ("m31=$m");
-    m=m+1;
-    print ("m+1=$m");
-    m=-m;
-    print ("m=$m");
+    var m = x & 0x7FFFFFFF;
+    print ("m = $m");
+    m = ~m;
+    print ("~m = $m");
+    m = m & 0x7FFFFFFF;
+    print ("m31 = $m");
+    m = m + 1;
+    print ("m + 1 = $m");
+    m = -m;
+    print ("m = $m");
     return m;
     */
   }

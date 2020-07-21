@@ -18,8 +18,16 @@
 
 class MyClass {
   final bool b;
-  const MyClass() : b = false && (null as String).length;
-//                               ^^^^^^^^^^^^^^^^^^^^^^^
+  const MyClass() : b = false && (null as String ?).length;
+//                               ^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class MyClass1 {
+  final bool b;
+  const MyClass1() : b = false && (null as String).length;
+//                                ^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

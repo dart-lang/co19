@@ -14,8 +14,8 @@
  */
 class MyClass {
   final int a;
-  const MyClass(int i1, String i2) : a = (i1 ?? i2.length + "abc");
-//                                                          ^^^^^
+  const MyClass(int? i1, String i2) : a = (i1 ?? (i2.length + "abc") as int);
+//                                                            ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -24,24 +24,24 @@ bool bb = true;
 class MyClass1 {
   final bool b;
   const MyClass1() : b = false && nonConst;
-//                                ^^^^^^^
+//                                ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
   const bool a1 = (i < 0) && nonConst;
-//                           ^^^^^^^
+//                           ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   const bool a2 = false && bb;
-//                         ^
+//                         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   const bool a3 = false && i < nonConst;
-//                             ^^^^^^^
+//                             ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

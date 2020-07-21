@@ -17,8 +17,8 @@ dynamic d2 = 11;
 int i = 14;
 dynamic d;
 
-const const1 = 0;
-const const2 = "testme";
+const int? const1 = 0;
+const String? const2 = "testme";
 
 main() {
   const a1 = const1 ?? d1;
@@ -31,13 +31,13 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const a3 = 14 ?? i;
-//                 ^
+  const a3 = (14 as int?) ?? i;
+//                           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const a4 = "12345" ?? d;
-//                      ^
+  const a4 = ("12345" as String?) ?? d;
+//                                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -8,7 +8,6 @@
  * the operands are of type [bool].
  * @description Checks that operator [^] is not accepted for constants if the
  * dirst one is of type [bool] and the second is of type [int].
- * @compile-error
  * @author iarkh@unipro.ru
  */
 
@@ -17,4 +16,7 @@ const int b2 = 0;
 
 main() {
   const c1 = b1 ^ b2;
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

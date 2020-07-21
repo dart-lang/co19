@@ -15,7 +15,7 @@ import "../../Utils/expect.dart";
 
 class MyClass {
   final String a;
-  const MyClass(Object i1, Object i2) : a = (i1 ?? (i2 as String));
+  const MyClass(String? i1, Object i2) : a = (i1 ?? (i2 as String));
 }
 
 main() {

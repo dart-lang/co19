@@ -16,13 +16,31 @@
  * @author iarkh@unipro.ru
  */
 
-const nil = null;
+const bool? nil = null;
+const dynamic d = 1;
 
-class MyClass {
+class MyClass1 {
   final bool b;
-  const MyClass() : b = false && nil;
+  const MyClass1() : b = false && d;
+}
+
+class MyClass2 {
+  final bool b;
+  const MyClass2() : b = false && nil;
+//                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+class MyClass3 {
+  final bool b;
+  const MyClass3() : b = false && nil as bool;
+}
+
+class MyClass4 {
+  final bool b;
+  const MyClass4() : b = false && d as bool;
 }
 
 main() {
-  const res = MyClass();
 }

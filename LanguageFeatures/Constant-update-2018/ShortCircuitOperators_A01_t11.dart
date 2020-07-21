@@ -19,7 +19,7 @@
 
 const dynamic i = 10;
 bool b = true;
-bool c;
+bool? c;
 dynamic d;
 
 main() {

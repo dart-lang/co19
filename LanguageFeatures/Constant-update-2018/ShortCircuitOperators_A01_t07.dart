@@ -19,11 +19,11 @@
 
 import "../../Utils/expect.dart";
 
-const int checkme = null;
+const int? checkme = null;
 
 class MyClass {
   final bool b;
-  const MyClass(Object o) : b = false && ((o as int) > 25);
+  const MyClass(Object? o) : b = false && ((o as int) > 25);
 }
 
 main() {

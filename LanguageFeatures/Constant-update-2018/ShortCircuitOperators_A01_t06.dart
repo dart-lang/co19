@@ -16,11 +16,21 @@
  * @author iarkh@unipro.ru
  */
 
-const String nil = null;
+const String? nil = null;
+const bool? b = null;
 
 main() {
-  const bool a = false && nil;
-//                        ^^^
+  const bool a1 = false && nil;
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  const bool a2 = false && 111;
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const bool a3 = false && b;
+//                         ^
+// [analyzer] unspecified
 }

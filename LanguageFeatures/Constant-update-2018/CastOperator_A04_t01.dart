@@ -11,13 +11,28 @@
  * variables, so the type expression always resolves to the exact same type.
  * @description Checks that an expression of the form [e as T] is not accepted
  * and causes compile time error if [T] is not a compile-time constant type.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 
-class A {}
-dynamic test = A();
+const x = null;
+
+class A<T> {
+  static const xxx = x as T?;
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+const int i = 0;
 
 main() {
-  const A a = test as A;
+  const x1 = x as i;
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const x2 = x as i?;
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

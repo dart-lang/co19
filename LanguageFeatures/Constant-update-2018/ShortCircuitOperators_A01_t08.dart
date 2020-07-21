@@ -24,7 +24,7 @@ class MyClass {
 
 main() {
   const MyClass c1 = MyClass("testme");
-//                   ^^^^^^^^^^^^^^^^^
+//                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

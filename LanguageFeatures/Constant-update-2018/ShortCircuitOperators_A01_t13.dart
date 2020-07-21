@@ -16,8 +16,6 @@
  * @author iarkh@unipro.ru
  */
 
-import "../../Utils/expect.dart";
-
 dynamic nonConst1 = 11;
 int nonConst2 = 0;
 dynamic nonConst3;
