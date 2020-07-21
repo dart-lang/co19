@@ -14,7 +14,7 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  document.body.innerHtml = '<div></div>';
+  document.body?.innerHtml = '<div></div>';
 
   Expect.isNull(document.text, 'document');
 

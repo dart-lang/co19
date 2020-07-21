@@ -11,12 +11,11 @@
  * @description Checks expected dom after insert
  */
 import "dart:html";
-import "../../../Utils/expect.dart";
 
 main() {
   var div = new Element.html('<div><span></span></div>');
   div.insertAllBefore([new HRElement(), new AnchorElement()], null);
-
-  Expect.equals('<div><span></span><hr><a></a></div>', div.outerHtml,
-      'insert before null');
+//                                                            ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

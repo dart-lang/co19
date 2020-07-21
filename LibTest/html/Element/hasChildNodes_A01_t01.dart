@@ -12,11 +12,10 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  var x = new Element.html('<div></div>');
+  var x0 = new Element.html('<div></div>');
+  Expect.isFalse(x0.hasChildNodes(), 'no children');
 
-  Expect.isFalse(x.hasChildNodes(), 'no children');
-
-  x = new Element.html('<div><p></p><p></p></div>');
+  var x = new Element.html('<div><p></p><p></p></div>');
   Expect.isTrue(x.hasChildNodes(), 'two child');
 
   x.nodes.removeAt(0);

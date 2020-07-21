@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 main() {
   var x = new Element.html('<span>Text</span>');
   x.style.display = 'none';
-  document.body.append(x);
+  document.body?.append(x);
 
   Expect.listEquals([], x.getClientRects());
 }

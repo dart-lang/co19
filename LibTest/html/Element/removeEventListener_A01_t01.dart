@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 main() {
   var type = 'click';
   var x = new ButtonElement();
-  document.body.append(x);
+  document.body?.append(x);
 
   EventListener handler1 = (e) {
     Expect.equals(type, e.type);
@@ -23,7 +23,7 @@ main() {
   };
 
   var seen = false;
-  EventListener handler2;
+  EventListener? handler2;
   handler2 = (e) {
     if (seen) Expect.fail('should be run once');
     Expect.equals(type, e.type);

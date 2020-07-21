@@ -15,13 +15,16 @@ import "../../../Utils/expect.dart";
 main() {
   var type = 'mouseover';
   var x = document.body;
+  if (x != null) {
+    asyncStart();
+    Element.mouseOverEvent.forElement(x).listen((e) {
+      Expect.equals(type, e.type);
+      asyncEnd();
+    });
 
-  asyncStart();
-  Element.mouseOverEvent.forElement(x).listen((e) {
-    Expect.equals(type, e.type);
-    asyncEnd();
-  });
-
-  var event = new MouseEvent(type);
-  x.dispatchEvent(event);
+    var event = new MouseEvent(type);
+    x.dispatchEvent(event);
+  } else {
+    Expect.fail("Body is null");
+  }
 }

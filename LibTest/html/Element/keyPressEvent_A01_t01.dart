@@ -15,13 +15,16 @@ import "../../../Utils/expect.dart";
 main() {
   var type = 'keypress';
   var x = document.body;
+  if (x != null) {
+    asyncStart();
+    Element.keyPressEvent.forElement(x).listen((e) {
+      Expect.equals(type, e.type);
+      asyncEnd();
+    });
 
-  asyncStart();
-  Element.keyPressEvent.forElement(x).listen((e) {
-    Expect.equals(type, e.type);
-    asyncEnd();
-  });
-
-  var event = new KeyboardEvent(type);
-  x.dispatchEvent(event);
+    var event = new KeyboardEvent(type);
+    x.dispatchEvent(event);
+  } else {
+    Expect.fail("Body is null");
+  }
 }

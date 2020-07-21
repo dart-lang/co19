@@ -17,6 +17,6 @@ main() {
   var x = new Element.html('<span></span>');
   Expect.isNull(x.parent);
 
-  document.body.append(x);
+  document.body?.append(x);
   Expect.isTrue(x.parent is BodyElement);
 }

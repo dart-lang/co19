@@ -29,9 +29,9 @@ class UtilsHtml {
 
   static void show(String msg) {
     print("$msg");
-    var llog=document.createElement("div");
-    llog.text=msg;
-    document.body.append(llog);
+    var llog = document.createElement("div");
+    llog.text = msg;
+    document.body?.append(llog);
   }
 
   static String relativeUrl(String path) {
@@ -40,7 +40,7 @@ class UtilsHtml {
     ..href = path
     ..text = path;	
     p.append(link);
-    document.body.children.add(p);
+    document.body?.children.add(p);
     return link.href;
   }
     

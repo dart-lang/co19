@@ -14,11 +14,11 @@ import "../../../Utils/expect.dart";
 
 main() {
   var x = new Element.html('<div>First div</div>');
-  document.body.append(x);
+  document.body?.append(x);
 
   x = new Element.html('<div>Second div</div>');
   x.style.margin = '10px';
-  document.body.append(x);
+  document.body?.append(x);
 
   var r = x.getBoundingClientRect();
   var off = x.documentOffset;

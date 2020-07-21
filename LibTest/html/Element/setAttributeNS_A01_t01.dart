@@ -18,7 +18,7 @@ main() {
   Element x = new Element.html(
       '<svg><foo xlink:href="1" xlink:custom="2"></foo></svg>',
       treeSanitizer: new NullTreeSanitizer());
-  Element y = x.firstChild;
+  Element y = x.firstChild as Element;
 
   y.setAttributeNS(XlinkNamespace, 'href', 'foo');
   Expect.equals('foo', y.getAttributeNS(XlinkNamespace, 'href'),

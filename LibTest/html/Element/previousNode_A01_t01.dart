@@ -19,12 +19,12 @@ main() {
       '<div><span id="span1"></span>text node<span id="span2"></span></div>');
   var y = x.querySelector('#span2');
 
-  y = y.previousNode; // text node should not be skipped
+  y = y?.previousNode as Element; // text node should not be skipped
   Expect.equals('text node', y.text);
 
-  y = y.previousNode; // span1
+  y = y.previousNode as Element; // span1
   Expect.equals('span1', y.id);
 
-  y = y.previousNode;
+  y = y.previousNode as Element;
   Expect.isNull(y);
 }

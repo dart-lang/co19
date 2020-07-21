@@ -26,7 +26,7 @@ const String htmlEL = r'''
 ''';
 
 void main() {
-  document.body.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
+  document.body?.appendHtml(htmlEL, treeSanitizer: NodeTreeSanitizer.trusted);
   List checked = document.querySelectorAll(":checked");
   checked.forEach((var elem) {
     print("${elem.id}");

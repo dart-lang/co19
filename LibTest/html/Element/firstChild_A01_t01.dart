@@ -12,11 +12,14 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  var x = new Element.html('<span></span>');
-  Expect.isNull(x.firstChild);
+  var x0 = new Element.html('<span></span>');
+  Expect.isNull(x0.firstChild);
 
-  x = document.body;
-  x.innerHtml = 'text node<div></div>';
-
-  Expect.isTrue(x.firstChild is Text);
+  var x = document.body;
+  if (x != null) {
+    x.innerHtml = 'text node<div></div>';
+    Expect.isTrue(x.firstChild is Text);
+  } else {
+    Expect.fail("Body is null");
+  }
 }

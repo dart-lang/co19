@@ -19,7 +19,7 @@ import "../../../Utils/expect.dart";
 main() {
   var x = new Element.html('<div><a>A</a>Text</div>');
   x.hidden = true;
-  document.body.append(x);
+  document.body?.append(x);
 
   Expect.isTrue(x.contentEdge.width > 0, 'width');
   Expect.isTrue(x.contentEdge.height > 0, 'height');

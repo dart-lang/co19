@@ -21,6 +21,6 @@ main() {
   x.appendHtml('<!--comment-->text', treeSanitizer: NodeTreeSanitizer.trusted);
 
   Expect.isTrue(x.firstChild is DivElement, 'div');
-  Expect.isTrue(x.firstChild.nextNode is Comment, 'comment');
+  Expect.isTrue(x.firstChild?.nextNode is Comment, 'comment');
   Expect.isTrue(x.lastChild is Text, 'text');
 }

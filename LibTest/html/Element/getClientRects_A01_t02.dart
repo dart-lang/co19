@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var x = new Element.html('<span>foo<br/>bar</span>');
-  document.body.append(x);
+  document.body?.append(x);
   var rects = x.getClientRects();
 
   for (var i = 0; i < rects.length; ++i) {

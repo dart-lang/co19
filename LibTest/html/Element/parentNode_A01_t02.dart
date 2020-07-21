@@ -15,6 +15,6 @@ main() {
   var x = new Element.html('<span></span>');
   Expect.isTrue(x.parentNode is DocumentFragment);
 
-  document.body.append(x);
+  document.body?.append(x);
   Expect.isTrue(x.parentNode is BodyElement);
 }

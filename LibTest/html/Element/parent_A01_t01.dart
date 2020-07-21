@@ -15,15 +15,15 @@ import "../../../Utils/expect.dart";
 
 main() {
   var x = document.body;
-  x.innerHtml = '<div><span><span></div>';
+  x?.innerHtml = '<div><span><span></div>';
 
   var html = document.querySelector('html');
   var body = document.querySelector('body');
   var div = document.querySelector('div');
   var span = document.querySelector('span');
 
-  Expect.equals(div, span.parent);
-  Expect.equals(x, div.parent);
-  Expect.equals(html, x.parent);
-  Expect.isNull(html.parent);
+  Expect.equals(div, span?.parent);
+  Expect.equals(x, div?.parent);
+  Expect.equals(html, x?.parent);
+  Expect.isNull(html?.parent);
 }

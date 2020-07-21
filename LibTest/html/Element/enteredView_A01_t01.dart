@@ -27,5 +27,5 @@ main() {
   var x = document.body;
 
   asyncStart();
-  x.setInnerHtml('<$tag></$tag>', treeSanitizer: new NullTreeSanitizer());
+  x?.setInnerHtml('<$tag></$tag>', treeSanitizer: new NullTreeSanitizer());
 }

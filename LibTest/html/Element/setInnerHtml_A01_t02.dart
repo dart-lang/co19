@@ -19,15 +19,15 @@ import "../../../Utils/expect.dart";
 
 main() {
   var x = document.body;
-  x.setInnerHtml('<div foo="foo"><bar id="bar"></bar></div>',
+  x?.setInnerHtml('<div foo="foo"><bar id="bar"></bar></div>',
       validator: new NodeValidatorBuilder()
         //..allowHtml5()
         ..allowElement('bar', attributes: ["id"])
         ..allowElement('div', attributes: ["foo"]));
-  DivElement div = x.firstChild;
+  DivElement div = x?.firstChild as DivElement;
 
   Expect.mapEquals({'foo': 'foo'}, div.attributes);
 
   var bar = div.querySelector('#bar');
-  Expect.equals('BAR', bar.tagName);
+  Expect.equals('BAR', bar?.tagName);
 }

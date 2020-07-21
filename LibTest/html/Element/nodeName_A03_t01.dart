@@ -17,6 +17,6 @@ main() {
   Expect.equals('#comment', new Comment().nodeName, 'ctor');
 
   var x = document.body;
-  x.innerHtml = '<!--text-->';
-  Expect.equals('#comment', x.firstChild.nodeName, 'parsed');
+  x?.innerHtml = '<!--text-->';
+  Expect.equals('#comment', x?.firstChild?.nodeName, 'parsed');
 }

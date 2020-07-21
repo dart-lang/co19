@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 main() {
   var x = new Element.html('<div>Text</div>');
   x.hidden = true;
-  document.body.append(x);
+  document.body?.append(x);
   var r = x.getBoundingClientRect();
 
   Expect.equals(0, r.width, 'width');

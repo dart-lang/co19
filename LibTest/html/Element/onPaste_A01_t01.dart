@@ -14,13 +14,16 @@ import "../../../Utils/expect.dart";
 main() {
   var type = 'paste';
   var x = document.body;
+  if (x != null) {
+    asyncStart();
+    x.onPaste.listen((e) {
+      Expect.equals(type, e.type);
+      asyncEnd();
+    });
 
-  asyncStart();
-  x.onPaste.listen((e) {
-    Expect.equals(type, e.type);
-    asyncEnd();
-  });
-
-  var event = new Event(type);
-  x.dispatchEvent(event);
+    var event = new Event(type);
+    x.dispatchEvent(event);
+  } else {
+    Expect.fail("Body is null");
+  }
 }

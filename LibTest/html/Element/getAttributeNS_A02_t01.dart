@@ -20,7 +20,7 @@ main() {
   var x = new Element.html('<a xlink:href="1" xlink:custom="2">a</a>',
       treeSanitizer: new NullTreeSanitizer());
 
-  document.body.append(x);
+  document.body?.append(x);
 
   Expect.isNull(x.getAttributeNS(XlinkNamespace, 'unexistent'));
 }

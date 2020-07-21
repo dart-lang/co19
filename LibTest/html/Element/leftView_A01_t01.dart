@@ -26,6 +26,6 @@ main() {
 
   asyncStart();
   var x = new Element.tag(tag);
-  document.body.append(x);
+  document.body?.append(x);
   x.remove();
 }

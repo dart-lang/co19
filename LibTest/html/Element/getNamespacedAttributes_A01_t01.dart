@@ -14,10 +14,10 @@ import "../testcommon.dart";
 
 main() {
   var x = document.body;
-  x.setInnerHtml('<svg><foo xlink:href="foo" xlink:custom="bar"></foo></svg>',
+  x?.setInnerHtml('<svg><foo xlink:href="foo" xlink:custom="bar"></foo></svg>',
       treeSanitizer: new NullTreeSanitizer());
-  var y = x.querySelector('foo');
+  var y = x?.querySelector('foo');
 
   Expect.mapEquals({'href': 'foo', 'custom': 'bar'},
-      y.getNamespacedAttributes(XlinkNamespace));
+      y?.getNamespacedAttributes(XlinkNamespace));
 }

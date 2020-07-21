@@ -15,11 +15,15 @@ import "../../../Utils/expect.dart";
 main() {
   var x = new Element.html('<span><div></div><button></button></span>');
   var y = x.querySelector('div');
-  x.append(y);
+  if (y != null) {
+    x.append(y);
 
-  Expect.equals(2, x.nodes.length);
+    Expect.equals(2, x.nodes.length);
 
-  Expect.isTrue(x.firstChild is ButtonElement);
+    Expect.isTrue(x.firstChild is ButtonElement);
 
-  Expect.equals(y, x.lastChild);
+    Expect.equals(y, x.lastChild);
+  } else {
+    Expect.fail("No 'div' element found");
+  }
 }

@@ -16,20 +16,20 @@ main() {
   var x = new Element.html('<span><div></div></span>');
   var div = x.firstChild;
 
-  div.remove();
+  div?.remove();
   Expect.isNull(x.firstChild, 'removal of the only child');
 
   //-------
   x = new Element.html('<span><div></div><pre></pre></span>');
   div = x.firstChild;
 
-  div.remove();
+  div?.remove();
   Expect.isTrue(x.firstChild is PreElement, 'removal of one of children');
 
   //-------
   x = new Element.html('<span><div><h1></h1></div><pre></pre></span>');
   div = x.firstChild;
 
-  div.remove();
+  div?.remove();
   Expect.isTrue(x.firstChild is PreElement, 'removal of subtree');
 }

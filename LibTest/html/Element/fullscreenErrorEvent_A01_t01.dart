@@ -14,15 +14,19 @@ import "../../../Utils/expect.dart";
 
 main() {
   var x = document.body;
-  var type = Element.fullscreenErrorEvent.getEventType(x);
-  Expect.isTrue(type.contains('fullscreenerror'));
+  if (x != null) {
+    var type = Element.fullscreenErrorEvent.getEventType(x);
+    Expect.isTrue(type.contains('fullscreenerror'));
 
-  asyncStart();
-  Element.fullscreenErrorEvent.forElement(x).listen((e) {
-    Expect.equals(type, e.type);
-    asyncEnd();
-  });
+    asyncStart();
+    Element.fullscreenErrorEvent.forElement(x).listen((e) {
+      Expect.equals(type, e.type);
+      asyncEnd();
+    });
 
-  var event = new Event(type);
-  x.dispatchEvent(event);
+    var event = new Event(type);
+    x.dispatchEvent(event);
+  } else {
+    Expect.fail("Body is null");
+  }
 }

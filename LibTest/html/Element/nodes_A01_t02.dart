@@ -13,11 +13,15 @@ import "../../../Utils/expect.dart";
 
 main() {
   var x = document.body;
-  x.innerHtml = 'text node<p></p>';
+  if (x != null) {
+    x.innerHtml = 'text node<p></p>';
 
-  x.nodes.removeAt(0);
-  x.nodes.removeAt(0);
-  x.nodes.add(new DivElement());
+    x.nodes.removeAt(0);
+    x.nodes.removeAt(0);
+    x.nodes.add(new DivElement());
 
-  Expect.equals('<body><div></div></body>', x.outerHtml);
+    Expect.equals('<body><div></div></body>', x.outerHtml);
+  } else {
+    Expect.fail("Body is null");
+  }
 }

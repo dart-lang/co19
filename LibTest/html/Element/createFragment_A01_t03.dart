@@ -19,12 +19,16 @@ import "../testcommon.dart";
 
 main() {
   var x = document.body;
-  var f = x.createFragment('<div foo="foo"><bar id="bar"></bar></div>',
-      treeSanitizer: new NullTreeSanitizer());
-  DivElement div = f.firstChild as DivElement;
+  if (x != null) {
+    var f = x.createFragment('<div foo="foo"><bar id="bar"></bar></div>',
+        treeSanitizer: new NullTreeSanitizer());
+    DivElement div = f.firstChild as DivElement;
 
-  Expect.mapEquals({'foo': 'foo'}, div.attributes);
+    Expect.mapEquals({'foo': 'foo'}, div.attributes);
 
-  var bar = f.querySelector('#bar');
-  Expect.equals('BAR', bar.tagName);
+    var bar = f.querySelector('#bar');
+    Expect.equals('BAR', bar?.tagName);
+  } else {
+    Expect.fail("Body is null");
+  }
 }

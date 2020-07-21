@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 main() {
   var type = 'click';
   ButtonElement x = new ButtonElement();
-  document.body.append(x);
+  document.body?.append(x);
 
   var n = 10;
 

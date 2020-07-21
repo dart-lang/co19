@@ -27,54 +27,57 @@ main() {
       treeSanitizer: new NullTreeSanitizer());
 
   var x = e.querySelector('child');
+  if (x != null) {
+    Expect.isTrue(x.matchesWithAncestors('*'), 'Universal selector');
 
-  Expect.isTrue(x.matchesWithAncestors('*'), 'Universal selector');
+    Expect.isTrue(x.matchesWithAncestors('pre'), 'Type selector');
 
-  Expect.isTrue(x.matchesWithAncestors('pre'), 'Type selector');
+    Expect.isFalse(x.matchesWithAncestors('table'), 'Type selector, negative');
 
-  Expect.isFalse(x.matchesWithAncestors('table'), 'Type selector, negative');
+    Expect.isTrue(
+        x.matchesWithAncestors('span pre'), 'Descendant selector, direct');
 
-  Expect.isTrue(
-      x.matchesWithAncestors('span pre'), 'Descendant selector, direct');
+    Expect.isTrue(
+        x.matchesWithAncestors('div pre'), 'Descendant selector, indirect');
 
-  Expect.isTrue(
-      x.matchesWithAncestors('div pre'), 'Descendant selector, indirect');
+    Expect.isTrue(x.matchesWithAncestors('* pre'), 'Descendant selector, any');
 
-  Expect.isTrue(x.matchesWithAncestors('* pre'), 'Descendant selector, any');
+    Expect.isTrue(x.matchesWithAncestors('span > pre'), 'Child selector');
 
-  Expect.isTrue(x.matchesWithAncestors('span > pre'), 'Child selector');
+    Expect.isFalse(
+        x.matchesWithAncestors('div > pre'), 'Child selector, negative');
 
-  Expect.isFalse(
-      x.matchesWithAncestors('div > pre'), 'Child selector, negative');
+    Expect.isFalse(x.matchesWithAncestors('pre:first-child'),
+        'The :first-child pseudo-class');
 
-  Expect.isFalse(x.matchesWithAncestors('pre:first-child'),
-      'The :first-child pseudo-class');
+    Expect.isTrue(
+        x.matchesWithAncestors('pre:lang(en)'), 'The :lang() pseudo-class');
 
-  Expect.isTrue(
-      x.matchesWithAncestors('pre:lang(en)'), 'The :lang() pseudo-class');
+    Expect.isFalse(
+        x.matchesWithAncestors('pre:lang(fr)'), 'The :lang() pseudo-class');
 
-  Expect.isFalse(
-      x.matchesWithAncestors('pre:lang(fr)'), 'The :lang() pseudo-class');
+    Expect.isTrue(x.matchesWithAncestors('hr + pre'), 'Adjacent selector');
 
-  Expect.isTrue(x.matchesWithAncestors('hr + pre'), 'Adjacent selector');
+    Expect.isFalse(
+        x.matchesWithAncestors('div + pre'), 'Adjacent selector, negative');
 
-  Expect.isFalse(
-      x.matchesWithAncestors('div + pre'), 'Adjacent selector, negative');
+    Expect.isTrue(x.matchesWithAncestors('pre[id]'), 'Attribute selector 1');
 
-  Expect.isTrue(x.matchesWithAncestors('pre[id]'), 'Attribute selector 1');
+    Expect.isFalse(
+        x.matchesWithAncestors('pre[foo]'), 'Attribute selector 1, negative');
 
-  Expect.isFalse(
-      x.matchesWithAncestors('pre[foo]'), 'Attribute selector 1, negative');
+    Expect.isTrue(
+        x.matchesWithAncestors('pre[id="myid"]'), 'Attribute selector 2');
 
-  Expect.isTrue(
-      x.matchesWithAncestors('pre[id="myid"]'), 'Attribute selector 2');
+    Expect.isFalse(x.matchesWithAncestors('pre[id="myid2"]'),
+        'Attribute selector 2, negative');
 
-  Expect.isFalse(x.matchesWithAncestors('pre[id="myid2"]'),
-      'Attribute selector 2, negative');
+    Expect.isTrue(
+        x.matchesWithAncestors('pre[class~="bar"]'), 'Attribute selector 3');
 
-  Expect.isTrue(
-      x.matchesWithAncestors('pre[class~="bar"]'), 'Attribute selector 3');
-
-  Expect.isFalse(x.matchesWithAncestors('pre[class~="baz"]'),
-      'Attribute selector 3, negative');
+    Expect.isFalse(x.matchesWithAncestors('pre[class~="baz"]'),
+        'Attribute selector 3, negative');
+  } else {
+    Expect.fail("Element was not found");
+  }
 }

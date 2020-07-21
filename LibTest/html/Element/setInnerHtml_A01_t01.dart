@@ -19,8 +19,8 @@ import "../../../Utils/expect.dart";
 
 main() {
   var x = document.body;
-  x.setInnerHtml('<div foo="foo"><bar id="bar"></bar></div>');
-  DivElement div = x.firstChild;
+  x?.setInnerHtml('<div foo="foo"><bar id="bar"></bar></div>');
+  DivElement div = x?.firstChild as DivElement;
 
   Expect.mapEquals({}, div.attributes);
 

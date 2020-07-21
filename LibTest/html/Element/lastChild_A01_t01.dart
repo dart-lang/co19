@@ -16,5 +16,5 @@ main() {
   Expect.isNull(x.lastChild);
 
   x = new Element.html('<div><span></span>text node</div>');
-  Expect.equals('text node', x.lastChild.text);
+  Expect.equals('text node', x.lastChild?.text);
 }

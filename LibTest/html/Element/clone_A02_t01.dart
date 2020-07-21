@@ -21,13 +21,13 @@ main() {
       '</div>',
       treeSanitizer: new NullTreeSanitizer());
 
-  Element y = x.clone(false);
+  Element y = x.clone(false) as Element;
   Expect.mapEquals({'id': 'id1', 'foo': 'foo1'}, y.attributes, 'shallow copy');
 
-  y = x.clone(true);
+  y = x.clone(true) as Element;
   Expect.mapEquals({'id': 'id1', 'foo': 'foo1'}, y.attributes, 'deep copy');
 
   var pre = y.querySelector('pre');
   Expect.mapEquals(
-      {'id': 'id2', 'foo': 'foo2'}, pre.attributes, 'deep copy, children');
+      {'id': 'id2', 'foo': 'foo2'}, pre?.attributes, 'deep copy, children');
 }

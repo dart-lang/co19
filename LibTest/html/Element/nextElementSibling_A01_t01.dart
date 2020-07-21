@@ -18,11 +18,11 @@ main() {
 
   x = new Element.html(
       '<div><span>span1</span>text-node<span>span2</span></div>');
-  Element y = x.firstChild; // span1
+  Element? y = x.firstChild as Element; // span1
 
-  y = y.nextElementSibling; // span2, text node should be skipped
+  y = y?.nextElementSibling; // span2, text node should be skipped
   Expect.isTrue(y is SpanElement);
 
-  y = y.nextElementSibling;
+  y = y?.nextElementSibling;
   Expect.isNull(y);
 }

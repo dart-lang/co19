@@ -11,19 +11,23 @@
  * The returned tree is guaranteed to only contain nodes and attributes which
  * are allowed by the provided validator.
  * @description Checks that if validator and sanitizer are omitted,
- * unknown elements and attribues are removed from provided html.
+ * unknown elements and attributes are removed from provided html.
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
   var x = document.body;
-  DocumentFragment f =
-      x.createFragment('<div foo="foo"><bar id="bar"></bar></div>');
-  DivElement div = f.firstChild as DivElement;
+  if (x != null) {
+    DocumentFragment f =
+    x.createFragment('<div foo="foo"><bar id="bar"></bar></div>');
+    DivElement div = f.firstChild as DivElement;
 
-  Expect.mapEquals({}, div.attributes);
+    Expect.mapEquals({}, div.attributes);
 
-  var bar = f.querySelector('#bar');
-  Expect.isNull(bar);
+    var bar = f.querySelector('#bar');
+    Expect.isNull(bar);
+  } else {
+    Expect.fail("Body is null");
+  }
 }

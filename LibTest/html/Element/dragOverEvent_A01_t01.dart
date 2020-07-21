@@ -15,13 +15,16 @@ import "../../../Utils/expect.dart";
 main() {
   var type = 'dragover';
   var x = document.body;
+  if (x != null) {
+    asyncStart();
+    Element.dragOverEvent.forElement(x).listen((e) {
+      Expect.equals(type, e.type);
+      asyncEnd();
+    });
 
-  asyncStart();
-  Element.dragOverEvent.forElement(x).listen((e) {
-    Expect.equals(type, e.type);
-    asyncEnd();
-  });
-
-  var event = new Event(type);
-  x.dispatchEvent(event);
+    var event = new Event(type);
+    x.dispatchEvent(event);
+  } else {
+    Expect.fail("Body is null");
+  }
 }

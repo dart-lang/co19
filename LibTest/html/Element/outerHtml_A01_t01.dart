@@ -12,11 +12,15 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  var x = new Element.html('<div></div>');
-  Expect.equals('<div></div>', x.outerHtml);
+  var x0 = new Element.html('<div></div>');
+  Expect.equals('<div></div>', x0.outerHtml);
 
-  x = document.body;
-  var h = '<!--comment--><button>foo</button>';
-  x.innerHtml = h;
-  Expect.equals('<body>$h</body>', x.outerHtml);
+  var x = document.body;
+  if (x != null) {
+    var h = '<!--comment--><button>foo</button>';
+    x.innerHtml = h;
+    Expect.equals('<body>$h</body>', x.outerHtml);
+  } else {
+    Expect.fail("Body is null");
+  }
 }

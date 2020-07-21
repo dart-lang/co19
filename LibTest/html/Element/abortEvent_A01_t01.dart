@@ -16,12 +16,16 @@ main() {
   var type = 'abort';
   var x = document.body;
 
-  asyncStart();
-  Element.abortEvent.forElement(x).listen((e) {
-    Expect.equals(type, e.type);
-    asyncEnd();
-  });
+  if (x != null) {
+    asyncStart();
+    Element.abortEvent.forElement(x).listen((e) {
+      Expect.equals(type, e.type);
+      asyncEnd();
+    });
 
-  var event = new Event(type);
-  x.dispatchEvent(event);
+    var event = new Event(type);
+    x.dispatchEvent(event);
+  } else {
+    Expect.fail("Body is null");
+  }
 }

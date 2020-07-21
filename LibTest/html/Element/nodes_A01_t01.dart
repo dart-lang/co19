@@ -12,15 +12,19 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  var x = new Element.html('<table></table>');
-  Expect.equals(0, x.nodes.length);
+  var x0 = new Element.html('<table></table>');
+  Expect.equals(0, x0.nodes.length);
 
-  x = document.body;
-  x.innerHtml = '<div></div>text node<p></p><!--commment node-->';
+  var x = document.body;
+  if (x != null) {
+    x.innerHtml = '<div></div>text node<p></p><!--commment node-->';
 
-  Expect.equals(4, x.nodes.length);
-  Expect.isTrue(x.nodes[0] is DivElement);
-  Expect.isTrue(x.nodes[1] is Text);
-  Expect.isTrue(x.nodes[2] is ParagraphElement);
-  Expect.isTrue(x.nodes[3] is Comment);
+    Expect.equals(4, x.nodes.length);
+    Expect.isTrue(x.nodes[0] is DivElement);
+    Expect.isTrue(x.nodes[1] is Text);
+    Expect.isTrue(x.nodes[2] is ParagraphElement);
+    Expect.isTrue(x.nodes[3] is Comment);
+  } else {
+    Expect.fail("Body is null");
+  }
 }

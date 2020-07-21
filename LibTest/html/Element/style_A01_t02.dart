@@ -12,12 +12,12 @@ import "../../../Utils/expect.dart";
 
 main() {
   var x = new Element.html('<div>First div</div>');
-  document.body.append(x);
+  document.body?.append(x);
   var leftX = x.documentOffset.x;
 
   var y = new Element.html('<div>Second div</div>');
   y.style.margin = '10px';
-  document.body.append(y);
+  document.body?.append(y);
   var leftY = y.documentOffset.x;
 
   Expect.isTrue(leftX < leftY);

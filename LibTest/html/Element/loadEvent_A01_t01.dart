@@ -15,12 +15,16 @@ import "../../../Utils/expect.dart";
 main() {
   var type = 'load';
   var x = document.body;
-  x.innerHtml =
-      '<img src="/root_dart/tests/co19/src/LibTest/html/Element/dart-logo.png">';
+  if (x != null) {
+    x.innerHtml =
+    '<img src="/root_dart/tests/co19/src/LibTest/html/Element/dart-logo.png">';
 
-  asyncStart();
-  Element.loadEvent.forElement(x.firstChild).listen((e) {
-    Expect.equals(type, e.type);
-    asyncEnd();
-  });
+    asyncStart();
+    Element.loadEvent.forElement(x.firstChild as Element).listen((e) {
+      Expect.equals(type, e.type);
+      asyncEnd();
+    });
+  } else {
+    Expect.fail("Body is null");
+  }
 }

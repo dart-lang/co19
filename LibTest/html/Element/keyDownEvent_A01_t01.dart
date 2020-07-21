@@ -15,13 +15,16 @@ import "../../../Utils/expect.dart";
 main() {
   var type = 'keydown';
   var x = document.body;
+  if (x != null) {
+    asyncStart();
+    Element.keyDownEvent.forElement(x).listen((e) {
+      Expect.equals(type, e.type);
+      asyncEnd();
+    });
 
-  asyncStart();
-  Element.keyDownEvent.forElement(x).listen((e) {
-    Expect.equals(type, e.type);
-    asyncEnd();
-  });
-
-  var event = new KeyboardEvent(type);
-  x.dispatchEvent(event);
+    var event = new KeyboardEvent(type);
+    x.dispatchEvent(event);
+  } else {
+    Expect.fail("Body is null");
+  }
 }

@@ -21,8 +21,8 @@ import "../../../Utils/expect.dart";
 main() {
   var x = new ButtonElement();
   var y = new ButtonElement();
-  document.body.append(x);
-  document.body.append(y);
+  document.body?.append(x);
+  document.body?.append(y);
 
   Expect.throws(() {
     y.offsetTo(x);

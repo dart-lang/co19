@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 main() {
   var type = 'click';
   var x = new ButtonElement();
-  document.body.append(x);
+  document.body?.append(x);
 
   asyncMultiStart(3);
 

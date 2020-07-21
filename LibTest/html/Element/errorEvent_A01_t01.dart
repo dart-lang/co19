@@ -15,11 +15,15 @@ import "../../../Utils/expect.dart";
 main() {
   var type = 'error';
   var x = document.body;
-  x.innerHtml = '<img src="IntentionallyMissingFile.png">';
+  if (x != null) {
+    x.innerHtml = '<img src="IntentionallyMissingFile.png">';
 
-  asyncStart();
-  Element.errorEvent.forElement(x, useCapture: true).listen((e) {
-    Expect.equals(type, e.type);
-    asyncEnd();
-  });
+    asyncStart();
+    Element.errorEvent.forElement(x, useCapture: true).listen((e) {
+      Expect.equals(type, e.type);
+      asyncEnd();
+    });
+  } else {
+    Expect.fail("Body is null");
+  }
 }

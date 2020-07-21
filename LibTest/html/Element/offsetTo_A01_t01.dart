@@ -19,7 +19,7 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  document.body.setInnerHtml('''
+  document.body?.setInnerHtml('''
 
 <div style="position: absolute; left: 10px; top: 10px" id="div1">
   some
@@ -28,18 +28,25 @@ main() {
   </div>
 </div>''', treeSanitizer: new NullTreeSanitizer());
 
-  var div1 = document.body.querySelector('#div1');
-  var div2 = document.body.querySelector('#div2');
+  var div1 = document.body?.querySelector('#div1');
+  var div2 = document.body?.querySelector('#div2');
 
   var b = document.body;
+  if (b != null) {
+    Expect.equals(10, div1?.offsetTo(b).x, "div1 relative to body x");
+    Expect.equals(10, div1?.offsetTo(b).y, "div1 relative to body y");
 
-  Expect.equals(10, div1.offsetTo(b).x, "div1 relative to body x");
-  Expect.equals(10, div1.offsetTo(b).y, "div1 relative to body y");
+    if (div1 != null) {
+      Expect.equals(50, div2?.offsetTo(div1).x, "div2 relative to div1 x");
+      Expect.equals(50, div2?.offsetTo(div1).y, "div2 relative to div1 y");
+    } else {
+      Expect.fail("div is null");
+    }
 
-  Expect.equals(50, div2.offsetTo(div1).x, "div2 relative to div1 x");
-  Expect.equals(50, div2.offsetTo(div1).y, "div2 relative to div1 y");
-
-  // indirect offsetParent
-  Expect.equals(60, div2.offsetTo(b).x, "div2 relative to body x");
-  Expect.equals(60, div2.offsetTo(b).y, "div2 relative to body y");
+    // indirect offsetParent
+    Expect.equals(60, div2?.offsetTo(b).x, "div2 relative to body x");
+    Expect.equals(60, div2?.offsetTo(b).y, "div2 relative to body y");
+  } else {
+    Expect.fail("Body is null");
+  }
 }

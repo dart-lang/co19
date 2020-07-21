@@ -14,13 +14,16 @@ import "../../../Utils/expect.dart";
 main() {
   var type = 'beforecut';
   var x = document.body;
+  if (x != null) {
+    asyncStart();
+    x.onBeforeCut.listen((e) {
+      Expect.equals(type, e.type);
+      asyncEnd();
+    });
 
-  asyncStart();
-  x.onBeforeCut.listen((e) {
-    Expect.equals(type, e.type);
-    asyncEnd();
-  });
-
-  var event = new Event(type);
-  x.dispatchEvent(event);
+    var event = new Event(type);
+    x.dispatchEvent(event);
+  } else {
+    Expect.fail("Body is null");
+  }
 }

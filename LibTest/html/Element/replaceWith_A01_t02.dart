@@ -16,6 +16,6 @@ main() {
   var child = parent.querySelector('h1');
 
   Expect.throws(() {
-    child.replaceWith(parent);
+    child?.replaceWith(parent);
   });
 }

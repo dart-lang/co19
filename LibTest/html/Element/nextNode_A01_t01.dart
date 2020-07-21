@@ -18,14 +18,14 @@ main() {
   x = new Element.html(
       '<div><span>span1</span>text node<span>span2</span></div>');
   var y = x.firstChild; // span1
-  Expect.equals('span1', y.text);
+  Expect.equals('span1', y?.text);
 
-  y = y.nextNode; // text node should not be skipped
-  Expect.equals('text node', y.text);
+  y = y?.nextNode; // text node should not be skipped
+  Expect.equals('text node', y?.text);
 
-  y = y.nextNode; // span2
-  Expect.equals('span2', y.text);
+  y = y?.nextNode; // span2
+  Expect.equals('span2', y?.text);
 
-  y = y.nextNode;
+  y = y?.nextNode;
   Expect.isNull(y);
 }

@@ -13,7 +13,7 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  document.body.setInnerHtml('''
+  document.body?.setInnerHtml('''
 
 <div style="position: absolute; left: 10px; top: 10px" id="div1">
   some
@@ -22,8 +22,8 @@ main() {
   </div>
 </div>''', treeSanitizer: new NullTreeSanitizer());
 
-  var div2 = document.body.querySelector('#div2');
+  var div2 = document.body?.querySelector('#div2');
 
-  Expect.equals(50, div2.offset.left, 'left');
-  Expect.equals(60, div2.offset.top, 'top');
+  Expect.equals(50, div2?.offset.left, 'left');
+  Expect.equals(60, div2?.offset.top, 'top');
 }

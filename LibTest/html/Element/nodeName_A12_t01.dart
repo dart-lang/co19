@@ -17,7 +17,6 @@ main() {
   Expect.equals("#text", new Text('text').nodeName, 'ctor');
 
   var x = document.body;
-  x.innerHtml = 'text node';
-
-  Expect.equals("#text", x.firstChild.nodeName, 'parsed');
+  x?.innerHtml = 'text node';
+  Expect.equals("#text", x?.firstChild?.nodeName, 'parsed');
 }
