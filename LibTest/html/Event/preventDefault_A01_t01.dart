@@ -13,7 +13,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var a = new AnchorElement(href: 'missing url');
-  document.body.append(a);
+  document.body?.append(a);
 
   a.onClick.listen((e) {
     e.preventDefault();

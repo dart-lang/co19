@@ -18,11 +18,11 @@ main() {
   var type = 'click';
   var body = document.body;
   var x = new ButtonElement();
-  body.append(x);
+  body?.append(x);
 
   asyncStart();
 
-  body.addEventListener(type, (e) {
+  body?.addEventListener(type, (e) {
     // will be called first on capture
     e.stopImmediatePropagation();
     asyncEnd();

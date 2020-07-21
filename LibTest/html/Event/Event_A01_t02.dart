@@ -14,15 +14,19 @@ import "../../../Utils/expect.dart";
 main() {
   var ev = new Event('whatever');
   var body = document.body;
-  var div = new DivElement();
-  body.append(div);
+  if (body != null) {
+    var div = new DivElement();
+    body.append(div);
 
-  asyncStart();
-  // wait for bubbling
-  body.on['whatever'].listen((e) {
-    Expect.isTrue(e.cancelable);
-    asyncEnd();
-  });
+    asyncStart();
+    // wait for bubbling
+    body.on['whatever'].listen((e) {
+      Expect.isTrue(e.cancelable);
+      asyncEnd();
+    });
 
-  div.dispatchEvent(ev); // initiate on inner div
+    div.dispatchEvent(ev); // initiate on inner div
+  } else {
+    Expect.fail("Body is null");
+  }
 }

@@ -13,10 +13,13 @@ import "../../../Utils/expect.dart";
 main() {
   var ev = new Event('whatever', cancelable: false);
   var body = document.body;
+  if (body != null) {
+    body.on['whatever'].listen((e) {
+      Expect.isFalse(e.cancelable);
+    });
 
-  body.on['whatever'].listen((e) {
-    Expect.isFalse(e.cancelable);
-  });
-
-  body.dispatchEvent(ev);
+    body.dispatchEvent(ev);
+  } else {
+    Expect.fail("Body is null");
+  }
 }

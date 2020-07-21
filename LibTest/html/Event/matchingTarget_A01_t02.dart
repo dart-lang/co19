@@ -17,16 +17,21 @@ import "../../../Utils/expect.dart";
 
 main() {
   var body = document.body;
-  var id1 = new DivElement()..id = 'id';
-  body.append(id1);
+  if (body != null) {
+    var id1 = new DivElement()
+      ..id = 'id';
+    body.append(id1);
 
-  body.onClick.listen((e) {
-    Expect.throws(() {
-      e.matchingTarget;
-    }, (e) => e is UnsupportedError);
-    asyncEnd();
-  });
+    body.onClick.listen((e) {
+      Expect.throws(() {
+        e.matchingTarget;
+      }, (e) => e is UnsupportedError);
+      asyncEnd();
+    });
 
-  asyncStart();
-  id1.click();
+    asyncStart();
+    id1.click();
+  } else {
+    Expect.fail("Body is null");
+  }
 }

@@ -14,9 +14,9 @@ import "../../../Utils/expect.dart";
 main() {
   var body = document.body;
   var div = new DivElement();
-  body.append(div);
+  body?.append(div);
 
-  body.onClick.listen((e) {
+  body?.onClick.listen((e) {
     Expect.identical(body, e.currentTarget);
     asyncEnd();
   });

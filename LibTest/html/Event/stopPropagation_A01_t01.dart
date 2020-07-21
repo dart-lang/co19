@@ -16,11 +16,11 @@ main() {
   var type = 'click';
   var body = document.body;
   var x = new ButtonElement();
-  body.append(x);
+  body?.append(x);
 
   asyncStart();
 
-  body.onClick.listen((e) {
+  body?.onClick.listen((e) {
     // will not be called becase of stopPropagation()
     Expect.fail('should not happen');
   });

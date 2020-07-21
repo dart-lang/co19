@@ -14,23 +14,27 @@ import "../../../Utils/expect.dart";
 main() {
   var body = document.body;
   var div = new DivElement();
-  body.append(div);
+  if (body != null) {
+    body.append(div);
 
-  Element.clickEvent.forElement(body, useCapture: true).listen((e) {
-    Expect.equals(Event.CAPTURING_PHASE, e.eventPhase);
-    asyncEnd();
-  });
+    Element.clickEvent.forElement(body, useCapture: true).listen((e) {
+      Expect.equals(Event.CAPTURING_PHASE, e.eventPhase);
+      asyncEnd();
+    });
 
-  Element.clickEvent.forElement(body).listen((e) {
-    Expect.equals(Event.BUBBLING_PHASE, e.eventPhase);
-    asyncEnd();
-  });
+    Element.clickEvent.forElement(body).listen((e) {
+      Expect.equals(Event.BUBBLING_PHASE, e.eventPhase);
+      asyncEnd();
+    });
 
-  Element.clickEvent.forElement(div).listen((e) {
-    Expect.equals(Event.AT_TARGET, e.eventPhase);
-    asyncEnd();
-  });
+    Element.clickEvent.forElement(div).listen((e) {
+      Expect.equals(Event.AT_TARGET, e.eventPhase);
+      asyncEnd();
+    });
 
-  asyncMultiStart(3);
-  div.dispatchEvent(new Event('click'));
+    asyncMultiStart(3);
+    div.dispatchEvent(new Event('click'));
+  } else {
+    Expect.fail("Body is null");
+  }
 }

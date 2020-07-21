@@ -13,12 +13,16 @@ import "../../../Utils/expect.dart";
 main() {
   var ev = new Event('whatever', canBubble: false);
   var body = document.body;
-  var div = new DivElement();
-  body.append(div);
+  if (body != null) {
+    var div = new DivElement();
+    body.append(div);
 
-  body.on['whatever'].listen((e) {
-    Expect.fail('should not happen');
-  });
+    body.on['whatever'].listen((e) {
+      Expect.fail('should not happen');
+    });
 
-  div.dispatchEvent(ev);
+    div.dispatchEvent(ev);
+  } else {
+    Expect.fail("Body is null");
+  }
 }

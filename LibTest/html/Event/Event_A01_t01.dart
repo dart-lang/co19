@@ -14,9 +14,9 @@ main() {
   var ev = new Event('click');
 
   asyncStart();
-  document.body.onClick.listen((e) {
+  document.body?.onClick.listen((e) {
     asyncEnd();
   });
 
-  document.body.dispatchEvent(ev);
+  document.body?.dispatchEvent(ev);
 }
