@@ -26,7 +26,7 @@ main() {
       '</div>',
       treeSanitizer: new NullTreeSanitizer());
 
-  IFrameElement x = e.querySelector('iframe');
+  IFrameElement x = e.querySelector('iframe') as IFrameElement;
 
   Expect.isTrue(x.matchesWithAncestors('*'), 'Universal selector');
 

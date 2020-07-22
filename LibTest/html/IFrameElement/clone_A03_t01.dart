@@ -19,9 +19,9 @@ main() {
   IFrameElement x = new IFrameElement();
   x.append(new Element.html('<div><pre></pre></div>'));
 
-  IFrameElement y = x.clone(false);
+  IFrameElement y = x.clone(false) as IFrameElement;
   Expect.isNull(y.parent, 'parent of shallow copy');
 
-  y = x.clone(true);
+  y = x.clone(true) as IFrameElement;
   Expect.isNull(y.parent, 'parent of deep copy');
 }

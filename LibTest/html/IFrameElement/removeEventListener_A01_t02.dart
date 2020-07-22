@@ -16,7 +16,7 @@ main() {
   var type = 'click';
   IFrameElement x = new IFrameElement();
   var body = document.body;
-  body.append(x);
+  body?.append(x);
 
   EventListener handler1 = (e) {
     Expect.equals(type, e.type);
@@ -24,18 +24,18 @@ main() {
   };
 
   var seen = false;
-  EventListener handler2;
+  EventListener? handler2;
   handler2 = (e) {
     if (seen) Expect.fail('should be run once');
     Expect.equals(type, e.type);
-    body.removeEventListener(
+    body?.removeEventListener(
         type, handler2, true); // remove itself when triggered
     seen = true;
     asyncEnd();
   };
 
-  body.addEventListener(type, handler1, true);
-  body.addEventListener(type, handler2, true);
+  body?.addEventListener(type, handler1, true);
+  body?.addEventListener(type, handler2, true);
 
   asyncMultiStart(3); // first time two handlers, second time one handler
   var event = new Event(type);

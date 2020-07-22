@@ -16,19 +16,19 @@ import "../../../Utils/expect.dart";
 main() {
   IFrameElement x = new IFrameElement();
   x.append(new Element.html('<div><pre></pre>text</div>'));
-  var y = x.clone(true);
+  Node? y = x.clone(true);
 
   Expect.isTrue(y is IFrameElement, 'IFrameElement');
 
-  y = y.firstChild;
+  y = y?.firstChild;
   Expect.isTrue(y is DivElement, 'div');
 
-  y = y.nextNode;
+  y = y?.nextNode;
   Expect.isTrue(y is PreElement, 'pre');
 
-  y = y.nextNode;
+  y = y?.nextNode;
   Expect.isTrue(y is Text, 'text');
 
-  y = y.nextNode;
+  y = y?.nextNode;
   Expect.isNull(y);
 }

@@ -17,5 +17,5 @@ main() {
 
   Expect.equals(document, x.ownerDocument, 'nest1');
 
-  Expect.equals(document, x.firstChild.ownerDocument, 'nest2');
+  Expect.equals(document, x.firstChild?.ownerDocument, 'nest2');
 }

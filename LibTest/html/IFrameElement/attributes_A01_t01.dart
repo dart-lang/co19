@@ -13,7 +13,7 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  IFrameElement x = new Element.html('<iframe></iframe>');
+  IFrameElement x = new Element.html('<iframe></iframe>') as IFrameElement;
   Expect.mapEquals({}, x.attributes);
 
   var y = new Element.html('<iframe id="foo" class="bar"></div>');

@@ -13,12 +13,13 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x = new Element.html('<iframe class="y">Content Text</iframe>');
+  IFrameElement x = new Element.html('<iframe class="y">Content Text</iframe>')
+      as IFrameElement;
   Expect.isTrue(x.spellcheck, 'default');
 
-  x = new Element.html('<iframe spellcheck="false"></iframe>');
+  x = new Element.html('<iframe spellcheck="false"></iframe>') as IFrameElement;
   Expect.isFalse(x.spellcheck, 'explicit false');
 
-  x = new Element.html('<iframe spellcheck="true"></iframe>');
+  x = new Element.html('<iframe spellcheck="true"></iframe>') as IFrameElement;
   Expect.isTrue(x.spellcheck, 'explicit true');
 }

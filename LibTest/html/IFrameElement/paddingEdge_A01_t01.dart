@@ -17,8 +17,9 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x = new Element.html('<iframe class="y">Content Text</iframe>');
-  document.body.append(x);
+  IFrameElement x = new Element.html('<iframe class="y">Content Text</iframe>')
+      as IFrameElement;
+  document.body?.append(x);
   var edge = x.paddingEdge;
   var height = edge.height;
   var width = edge.width;

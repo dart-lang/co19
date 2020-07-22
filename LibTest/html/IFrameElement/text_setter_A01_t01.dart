@@ -15,7 +15,7 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x = new Element.html('<iframe></iframe>');
+  IFrameElement x = new Element.html('<iframe></iframe>') as IFrameElement;
   var h = new Element.html('<span><div></div>append_1</span>');
   x.append(h);
   x.append(new Element.html('<span><div></div>append_2</span>'));
@@ -27,5 +27,5 @@ main() {
   x.text = text;
   Expect.equals(1, x.nodes.length);
   Expect.isTrue(x.firstChild is Text);
-  Expect.equals(text, x.firstChild.text);
+  Expect.equals(text, x.firstChild?.text);
 }

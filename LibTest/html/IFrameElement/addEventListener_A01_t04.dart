@@ -16,12 +16,12 @@ import "../../../Utils/expect.dart";
 main() {
   var type = 'focus';
   IFrameElement x = new IFrameElement();
-  document.body.append(x);
+  document.body?.append(x);
 
   asyncMultiStart(2);
 
   // intercept on capture
-  document.body.addEventListener(type, (e) {
+  document.body?.addEventListener(type, (e) {
     Expect.equals(type, e.type);
     Expect.equals(Event.CAPTURING_PHASE, e.eventPhase);
     asyncEnd();

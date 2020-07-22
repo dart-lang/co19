@@ -21,8 +21,8 @@ main() {
   x = new IFrameElement();
   x.appendHtml('<div><div>', treeSanitizer: NodeTreeSanitizer.trusted);
   x.appendHtml('<!--comment-->text', treeSanitizer: NodeTreeSanitizer.trusted);
-  document.body.append(x);
+  document.body?.append(x);
   Expect.isTrue(x.firstChild is DivElement, 'div');
-  Expect.isTrue(x.firstChild.nextNode is Comment, 'comment');
+  Expect.isTrue(x.firstChild?.nextNode is Comment, 'comment');
   Expect.isTrue(x.lastChild is Text, 'text');
 }

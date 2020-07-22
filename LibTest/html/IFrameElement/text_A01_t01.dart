@@ -16,6 +16,6 @@ main() {
   Expect.equals("", x.text, 'document');
 
   var text = "Content Text";
-  x = new Element.html('<iframe>$text</iframe>');
+  x = new Element.html('<iframe>$text</iframe>') as IFrameElement;
   Expect.equals(text, x.text, "text");
 }

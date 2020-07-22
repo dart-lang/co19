@@ -14,12 +14,12 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  IFrameElement x = new Element.html('<iframe></iframe>');
+  IFrameElement x = new Element.html('<iframe></iframe>') as IFrameElement;
   Expect.mapEquals({}, x.dataset);
 
   IFrameElement y = new Element.html(
       '<iframe id="id" data-foo="0" data-foo-bar="1"></iframe>',
-      treeSanitizer: new NullTreeSanitizer());
+      treeSanitizer: new NullTreeSanitizer()) as IFrameElement;
 
   Expect.mapEquals({'foo': '0', 'fooBar': '1'}, y.dataset);
 }

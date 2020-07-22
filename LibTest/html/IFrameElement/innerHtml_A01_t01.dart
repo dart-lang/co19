@@ -13,8 +13,9 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement iframe = new Element.html('<iframe>Content</iframe>');
-  document.body.append(iframe);
+  IFrameElement iframe =
+      new Element.html('<iframe>Content</iframe>') as IFrameElement;
+  document.body?.append(iframe);
   iframe.innerHtml = '<button>foo</button>';
   var firstChild = iframe.firstChild;
 //  print("firstChild=${firstChild.runtimeType} $firstChild");

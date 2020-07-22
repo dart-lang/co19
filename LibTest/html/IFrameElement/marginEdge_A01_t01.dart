@@ -20,7 +20,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var x = new Element.html('<iframe>Text</iframe>');
-  document.body.append(x);
+  document.body?.append(x);
 
   var width = x.marginEdge.width;
   var height = x.marginEdge.height;

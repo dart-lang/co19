@@ -24,5 +24,5 @@ class MyIFrameElement extends IFrameElement {
 main() {
   IFrameElement x = new IFrameElement();
   asyncStart();
-  document.body.append(x);
+  document.body?.append(x);
 }

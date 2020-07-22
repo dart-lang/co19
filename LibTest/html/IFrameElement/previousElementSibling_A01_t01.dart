@@ -13,11 +13,12 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x = new Element.html('<iframe class="y">Content Text</iframe>');
+  IFrameElement x = new Element.html('<iframe class="y">Content Text</iframe>')
+      as IFrameElement;
   Expect.isNull(x.previousElementSibling);
 
   var body = document.body;
-  var child = body.children.last;
-  body.append(x);
+  var child = body?.children.last;
+  body?.append(x);
   Expect.equals(child, x.previousElementSibling);
 }

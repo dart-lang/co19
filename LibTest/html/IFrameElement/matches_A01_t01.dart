@@ -25,7 +25,7 @@ main() {
       '</div>',
       treeSanitizer: new NullTreeSanitizer());
 
-  var x = e.querySelector('iframe');
+  var x = e.querySelector('iframe')!;
 
   Expect.isTrue(x.matches('*'), 'Universal selector');
 

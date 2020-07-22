@@ -12,11 +12,11 @@ import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  document.body.setInnerHtml('''<div>
+  document.body?.setInnerHtml('''<div>
          <iframe class="ief">
          </iframe>
          </div>''', treeSanitizer: new NullTreeSanitizer());
-  Element x = document.body.getElementsByClassName('ief')[0];
+  Element x = document.body?.getElementsByClassName('ief')[0] as Element;
 
   x.style.color = 'red';
   x.style.direction = 'rtl';

@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 main() {
   IFrameElement x = new IFrameElement();
   x.append(new Element.html('<span>foo<br/>bar</span>'));
-  document.body.append(x);
+  document.body?.append(x);
   var rects = x.getClientRects();
   var bigRrect = x.getBoundingClientRect();
 

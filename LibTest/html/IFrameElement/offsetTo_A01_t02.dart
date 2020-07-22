@@ -23,11 +23,11 @@ import "../testcommon.dart";
 
 main() {
   IFrameElement x = new Element.html('''<iframe  class="x">
-         </iframe>''', treeSanitizer: new NullTreeSanitizer());
+         </iframe>''', treeSanitizer: new NullTreeSanitizer()) as IFrameElement;
   IFrameElement y = new Element.html('''<iframe  class="y">
-         </iframe>''', treeSanitizer: new NullTreeSanitizer());
-  document.body.append(x);
-  document.body.append(y);
+         </iframe>''', treeSanitizer: new NullTreeSanitizer()) as IFrameElement;
+  document.body?.append(x);
+  document.body?.append(y);
 
   Expect.throws(() {
     y.offsetTo(x);

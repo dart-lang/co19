@@ -17,7 +17,7 @@ main() {
   IFrameElement x = new IFrameElement();
   x.append(new Element.html('<span>Text</span>'));
   x.style.display = 'none';
-  document.body.append(x);
+  document.body?.append(x);
 
   Expect.listEquals([], x.getClientRects());
 }

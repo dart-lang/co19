@@ -13,7 +13,8 @@ import "../../../Utils/expect.dart";
 
 main() {
   //-------------------
-  IFrameElement iframe = new Element.html('<iframe>Content</iframe>');
+  IFrameElement iframe =
+      new Element.html('<iframe>Content</iframe>') as IFrameElement;
   var ref = iframe.childNodes[0];
 
   iframe.insertAllBefore([], ref);
@@ -21,7 +22,7 @@ main() {
       '<iframe>Content</iframe>', iframe.outerHtml, 'insert empty list');
 
   //-------------------
-  iframe = new Element.html('<iframe>Content</iframe>');
+  iframe = new Element.html('<iframe>Content</iframe>') as IFrameElement;
   ref = iframe.childNodes[0];
   iframe.insertAllBefore([new HRElement(), new AnchorElement()], ref);
 
@@ -29,7 +30,7 @@ main() {
       'insert before existing child');
 
   //-------------------
-  iframe = new Element.html('<iframe></iframe>');
+  iframe = new Element.html('<iframe></iframe>') as IFrameElement;
   ref = new PreElement(); // not a child
 
   Expect.throws(() {

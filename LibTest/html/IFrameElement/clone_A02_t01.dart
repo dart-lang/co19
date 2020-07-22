@@ -18,9 +18,9 @@ main() {
   Map<String, String> attrs = {'id': 'id1', 'foo': 'foo1'};
   x.attributes = attrs;
 
-  IFrameElement y = x.clone(false);
+  IFrameElement y = x.clone(false) as IFrameElement;
   Expect.mapEquals(attrs, y.attributes, 'shallow copy');
 
-  y = x.clone(true);
+  y = x.clone(true) as IFrameElement;
   Expect.mapEquals(attrs, y.attributes, 'deep copy');
 }

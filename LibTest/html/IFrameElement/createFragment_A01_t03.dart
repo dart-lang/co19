@@ -21,10 +21,10 @@ main() {
   IFrameElement x = new IFrameElement();
   var f = x.createFragment('<div foo="foo"><bar id="bar"></bar></div>',
       treeSanitizer: new NullTreeSanitizer());
-  DivElement div = f.firstChild;
+  DivElement div = f.firstChild as DivElement;
 
   Expect.mapEquals({'foo': 'foo'}, div.attributes);
 
   var bar = f.querySelector('#bar');
-  Expect.equals('BAR', bar.tagName);
+  Expect.equals('BAR', bar?.tagName);
 }

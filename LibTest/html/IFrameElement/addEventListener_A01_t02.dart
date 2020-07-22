@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 main() {
   var type = 'my_event';
   IFrameElement x = new IFrameElement();
-  document.body.append(x);
+  document.body?.append(x);
 
   asyncStart();
   x.addEventListener(type, (e) {

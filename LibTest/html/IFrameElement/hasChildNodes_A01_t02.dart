@@ -13,7 +13,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var x = new Element.html('<iframe>IFrameElement Content</iframe>');
-  document.body.append(x);
+  document.body?.append(x);
 
   Expect.isTrue(x.hasChildNodes(), 'one child 1');
 

@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 main() {
   IFrameElement x = new IFrameElement();
   x.hidden = true;
-  document.body.append(x);
+  document.body?.append(x);
   var r = x.getBoundingClientRect();
 
   Expect.equals(0, r.width, 'width');

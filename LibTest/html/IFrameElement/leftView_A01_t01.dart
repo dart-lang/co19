@@ -25,7 +25,7 @@ main() {
   document.register(tag, IFrameElement1, extendsTag: "iframe");
 
   asyncStart();
-  IFrameElement1 x = new Element.tag(tag);
-  document.body.append(x);
+  IFrameElement1 x = new Element.tag(tag) as IFrameElement1;
+  document.body?.append(x);
   x.remove();
 }

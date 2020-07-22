@@ -18,40 +18,49 @@
  */
 import "dart:html";
 import "../testcommon.dart";
+import "../../../Utils/expect.dart";
 
-void check(int a, int b, String m) {
-// Expect.equals(a, b, m);
-  if (a == b) {
-    print("$m: ok");
-  } else {
-    print("$m: $a expected $b actual");
-  }
+void check(num a, num b, String m) {
+  Expect.equals(a, b, m);
 }
 
 main() {
   var b = document.body;
-
-  b.setInnerHtml('''<iframe class="ief1"
+  if (b != null) {
+    b.setInnerHtml('''<iframe class="ief1"
                    style="position: absolute; left: 10px; top: 10px">
           some text
          </iframe>''', treeSanitizer: new NullTreeSanitizer());
-  IFrameElement ief1 = b.getElementsByClassName("ief1")[0];
-  var ref = ief1.childNodes[0];
+    IFrameElement ief1 = b.getElementsByClassName("ief1")[0] as IFrameElement;
+    var ref = ief1.childNodes[0];
 
-  IFrameElement ief2 = new Element.html('''<iframe  class="ief1"
+    IFrameElement ief2 = new Element.html('''<iframe  class="ief1"
                     style="position: absolute; left: 50px; top: 50px">
-         </iframe>''', treeSanitizer: new NullTreeSanitizer());
-  ief1.insertBefore(ief2, ref);
+         </iframe>''', treeSanitizer: new NullTreeSanitizer()) as IFrameElement;
+    ief1.insertBefore(ief2, ref);
 
-  print("ief1=${ief1.outerHtml}");
+    check(10, ief1
+        .offsetTo(b)
+        .x, "id1 relative to body x");
+    check(20, ief1
+        .offsetTo(b)
+        .y, "id1 relative to body y");
 
-  check(10, ief1.offsetTo(b).x, "id1 relative to body x");
-  check(20, ief1.offsetTo(b).y, "id1 relative to body y");
+    check(50, ief2
+        .offsetTo(ief1)
+        .x, "id2 relative to id1 x");
+    check(50, ief2
+        .offsetTo(ief1)
+        .y, "id2 relative to id1 y");
 
-  check(50, ief2.offsetTo(ief1).x, "id2 relative to id1 x");
-  check(50, ief2.offsetTo(ief1).y, "id2 relative to id1 y");
-
-  // indirect offsetParent
-  check(60, ief2.offsetTo(b).x, "id2 relative to body x");
-  check(60, ief2.offsetTo(b).y, "id2 relative to body y");
+    // indirect offsetParent
+    check(60, ief2
+        .offsetTo(b)
+        .x, "id2 relative to body x");
+    check(60, ief2
+        .offsetTo(b)
+        .y, "id2 relative to body y");
+  } else {
+    Expect.fail("Bodu is null");
+  }
 }

@@ -16,5 +16,5 @@ main() {
   Expect.isNull(x.lastChild);
 
   x = new Element.html('<iframe>text node</iframe>');
-  Expect.equals('text node', x.lastChild.text);
+  Expect.equals('text node', x.lastChild?.text);
 }

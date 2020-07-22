@@ -13,31 +13,31 @@ import "../../../Utils/expect.dart";
 
 main() {
   var div, x;
-  IFrameElement iframe;
+  IFrameElement? iframe;
 
   void init() {
-    div = new Element.html('<div><iframe>Content</iframe></div>');
+    div = new Element.html('<div><iframe>Content</iframe></div>') as DivElement;
     iframe = div.firstChild;
     x = 'text';
   }
 
   init();
-  iframe.insertAdjacentText('beforeBegin', x);
+  iframe?.insertAdjacentText('beforeBegin', x);
   Expect.equals(
       '<div>text<iframe>Content</iframe></div>', div.outerHtml, 'beforeBegin');
 
   init();
-  iframe.insertAdjacentText('afterBegin', x);
+  iframe?.insertAdjacentText('afterBegin', x);
   Expect.equals(
       '<div><iframe>textContent</iframe></div>', div.outerHtml, 'afterBegin');
 
   init();
-  iframe.insertAdjacentText('beforeEnd', x);
+  iframe?.insertAdjacentText('beforeEnd', x);
   Expect.equals(
       '<div><iframe>Contenttext</iframe></div>', div.outerHtml, 'beforeEnd');
 
   init();
-  iframe.insertAdjacentText('afterEnd', x);
+  iframe?.insertAdjacentText('afterEnd', x);
   Expect.equals(
       '<div><iframe>Content</iframe>text</div>', div.outerHtml, 'afterEnd');
 }

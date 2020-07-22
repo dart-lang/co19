@@ -19,11 +19,12 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x = new Element.html('<iframe id="id">some text</iframe>');
+  IFrameElement x =
+      new Element.html('<iframe id="id">some text</iframe>') as IFrameElement;
   x.hidden = false;
-  document.body.append(x);
-  int width = x.borderEdge.width;
-  int height = x.borderEdge.height;
+  document.body?.append(x);
+  var width = x.borderEdge.width;
+  var height = x.borderEdge.height;
 
   x.hidden = true;
   Expect.equals(width, x.borderEdge.width, 'width');

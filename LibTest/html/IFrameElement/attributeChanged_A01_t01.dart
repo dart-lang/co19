@@ -27,7 +27,7 @@ class MyIFrameElement extends IFrameElement {
 main() {
   IFrameElement x = new MyIFrameElement();
   x.attributes['foo'] = 'old-val';
-  document.body.append(x);
+  document.body?.append(x);
 
   asyncStart();
   x.attributes['foo'] = 'new-val';

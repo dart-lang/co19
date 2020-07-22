@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 main() {
   var type = 'click';
   IFrameElement x = new IFrameElement();
-  document.body.append(x);
+  document.body?.append(x);
 
   var n = 10;
 
@@ -28,7 +28,7 @@ main() {
       };
 
   for (var i = 0; i < n; ++i)
-    document.body.addEventListener(type, genHandler(), true);
+    document.body?.addEventListener(type, genHandler(), true);
 
   var event = new Event(type);
   x.dispatchEvent(event);

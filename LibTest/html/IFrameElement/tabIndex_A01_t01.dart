@@ -14,7 +14,7 @@ import "../testcommon.dart";
 
 main() {
   IFrameElement x = new Element.html('<iframe tabindex="1"></iframe>',
-      treeSanitizer: new NullTreeSanitizer());
+      treeSanitizer: new NullTreeSanitizer()) as IFrameElement;
   Expect.equals(1, x.tabIndex);
 
   x.setAttribute('tabindex', '2');

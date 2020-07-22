@@ -12,9 +12,10 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement iframe = new Element.html('<iframe>Content</iframe>');
+  IFrameElement iframe =
+      new Element.html('<iframe>Content</iframe>') as IFrameElement;
   Expect.isFalse(iframe.hidden);
 
-  iframe = new Element.html('<iframe hidden>Content</iframe>');
+  iframe = new Element.html('<iframe hidden>Content</iframe>') as IFrameElement;
   Expect.isTrue(iframe.hidden);
 }

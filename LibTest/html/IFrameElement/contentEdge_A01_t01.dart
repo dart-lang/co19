@@ -20,11 +20,11 @@ main() {
   IFrameElement x1 = new IFrameElement();
   x1.append(new Element.html('<div><a>A</a>Text</div>'));
   x1.hidden = true;
-  document.body.append(x1);
+  document.body?.append(x1);
   IFrameElement x2 = new IFrameElement();
   x2.append(new Element.html('<div><a>A</a>Text</div>'));
   x2.hidden = true;
-  document.body.append(x2);
+  document.body?.append(x2);
 
   Expect.equals(x1.contentEdge.width, x2.contentEdge.height);
 }

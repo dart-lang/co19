@@ -14,7 +14,7 @@ import "../testcommon.dart";
 
 main() {
   IFrameElement x = new Element.html('<iframe id="id" custom="foo"></iframe>',
-      treeSanitizer: new NullTreeSanitizer());
+      treeSanitizer: new NullTreeSanitizer()) as IFrameElement;
 
   x.setAttribute('id', 'myid');
   Expect.equals('myid', x.getAttribute('id'), 'change standard attribute');

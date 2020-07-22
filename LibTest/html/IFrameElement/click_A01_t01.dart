@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 main() {
   var body = document.body;
   IFrameElement x = new IFrameElement();
-  body.append(x);
+  body?.append(x);
 
   asyncStart();
   x.onClick.listen((e) {

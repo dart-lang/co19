@@ -14,9 +14,9 @@ import "../../../Utils/expect.dart";
 
 main() {
   IFrameElement x = new IFrameElement();
-  document.body.append(x);
+  document.body?.append(x);
   var h = new Element.html('<span><div></div>append_02_02</span>');
-  var y = h.querySelector('div');
+  var y = h.querySelector('div') as Element;
 
   Expect.equals(h, y.parent);
 

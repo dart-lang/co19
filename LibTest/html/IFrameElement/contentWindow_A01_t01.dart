@@ -15,14 +15,14 @@ const text = "Hi there!";
 
 main() {
   IFrameElement ife = new IFrameElement();
-  document.body.append(ife);
-  WindowBase nw = ife.contentWindow;
+  document.body?.append(ife);
+  WindowBase? nw = ife.contentWindow;
   asyncStart();
-  nw.addEventListener("message", (Event event) {
+  nw?.addEventListener("message", (Event event) {
     Expect.equals(text, (event as MessageEvent).data);
     nw.close();
     asyncEnd();
   });
 
-  nw.postMessage(text, "*");
+  nw?.postMessage(text, "*");
 }

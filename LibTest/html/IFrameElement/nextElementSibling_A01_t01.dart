@@ -15,13 +15,13 @@ import "../../../Utils/expect.dart";
 main() {
   var x = new Element.html('<iframe></iframe>');
   Expect.isNull(x.nextElementSibling, "null 1");
-  document.body.append(x);
+  document.body?.append(x);
 
-  document.body.append(new Text('text-node'));
+  document.body?.append(new Text('text-node'));
   Expect.isNull(x.nextElementSibling, "null 2"); // Text is not an Element
 
   var y = new Element.html('<div><span>text element</span></div>');
-  document.body.append(y);
+  document.body?.append(y);
   var y1 = x.nextElementSibling;
   Expect.equals(y, y1);
 }

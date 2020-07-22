@@ -25,12 +25,10 @@ main() {
                       lang="en">
                  </pre>
                </span>
-            </iframe>''', treeSanitizer: new NullTreeSanitizer());
-  document.body.append(e);
-  print("e=${e.runtimeType} ${e.toString()}");
+            </iframe>''', treeSanitizer: new NullTreeSanitizer()) as IFrameElement;
+  document.body?.append(e);
 
   var star = e.querySelector('*');
-  print("star=${star.runtimeType} ${star.toString()}");
 
   Expect.isTrue(e.querySelector('*') is SpanElement, 'Universal selector');
 

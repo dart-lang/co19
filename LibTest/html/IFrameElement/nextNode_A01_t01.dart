@@ -14,10 +14,10 @@ import "../../../Utils/expect.dart";
 main() {
   var x = new Element.html('<iframe></iframe>');
   Expect.isNull(x.nextNode, "null");
-  document.body.append(x);
+  document.body?.append(x);
 
   var y = new Text('text-node');
-  document.body.append(y);
+  document.body?.append(y);
   var y1 = x.nextNode;
   Expect.equals(y, y1, "text added");
 }

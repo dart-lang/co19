@@ -23,10 +23,10 @@ main() {
         //..allowHtml5()
         ..allowElement('bar', attributes: ["id"])
         ..allowElement('div', attributes: ["foo"]));
-  DivElement div = f.firstChild;
+  DivElement div = f.firstChild as DivElement;
 
   Expect.mapEquals({'foo': 'foo'}, div.attributes);
 
   var bar = f.querySelector('#bar');
-  Expect.equals('BAR', bar.tagName);
+  Expect.equals('BAR', bar?.tagName);
 }

@@ -12,9 +12,10 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x = new Element.html('<iframe class="y">Content Text</iframe>');
+  IFrameElement x = new Element.html('<iframe class="y">Content Text</iframe>')
+      as IFrameElement;
 
   Expect.equals(document, x.ownerDocument, 'nest1');
 
-  Expect.equals(document, x.firstChild.ownerDocument, 'nest2');
+  Expect.equals(document, x.firstChild?.ownerDocument, 'nest2');
 }

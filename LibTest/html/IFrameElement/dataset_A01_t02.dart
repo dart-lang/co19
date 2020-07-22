@@ -15,7 +15,7 @@ import "../testcommon.dart";
 
 main() {
   IFrameElement x = new Element.html('<iframe data-foo-bar="1"></iframe>',
-      treeSanitizer: new NullTreeSanitizer());
+      treeSanitizer: new NullTreeSanitizer()) as IFrameElement;
 
   x.dataset['fooBar'] = 'one';
   x.dataset['fooBarBaz'] = 'two';

@@ -14,7 +14,8 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x = new Element.html('<iframe id="id"></iframe>');
+  IFrameElement x =
+      new Element.html('<iframe id="id"></iframe>') as IFrameElement;
   Expect.equals('id', x.id);
   Expect.equals(null, x.className);
 

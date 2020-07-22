@@ -14,12 +14,12 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  IFrameElement x = new Element.html('<iframe class="y">Content Text</iframe>');
+  IFrameElement x = new Element.html('<iframe class="y">Content Text</iframe>') as IFrameElement;
 
   var body = document.body;
-  body.append(x);
+  body?.append(x);
   Expect.equals(body, x.parentNode);
 
-  body.children.remove(x);
+  body?.children.remove(x);
   Expect.equals(null, x.parentNode);
 }

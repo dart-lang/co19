@@ -13,7 +13,7 @@ import "../../../UtilsHtml/expect.dart";
 
 main() {
   IFrameElement x = new IFrameElement();
-  document.body.append(x);
+  document.body?.append(x);
   var y = new Comment("cool");
   x.append(y);
   Expect.equals(y, x.lastChild);
