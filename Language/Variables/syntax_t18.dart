@@ -28,8 +28,8 @@
  *   initializedIdentifierList:
  *     initializedIdentifier (‘, ’ initializedIdentifier)*
  *   ;
- * @description Checks that a variable cannot be abstract void.
- * @compile-error
+ * @description Checks that a variable may be abstract void.
+ * See https://github.com/dart-lang/language/tree/master/accepted/future-releases/abstract-external-fields
  * @author kaigorodov
  */
 

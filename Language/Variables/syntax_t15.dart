@@ -28,9 +28,9 @@
  *   initializedIdentifierList:
  *     initializedIdentifier (‘, ’ initializedIdentifier)*
  *   ;
- * @description Checks that a variable declaration cannot contain the 
+ * @description Checks that a variable declaration may contain the
  * 'abstract' keyword.
- * @compile-error
+ * See https://github.com/dart-lang/language/tree/master/accepted/future-releases/abstract-external-fields
  * @author kaigorodov
  */
 
