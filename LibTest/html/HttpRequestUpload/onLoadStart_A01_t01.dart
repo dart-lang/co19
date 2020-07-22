@@ -9,7 +9,7 @@
  * @description Checks that only single event is fired.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   HttpRequest request = new HttpRequest();

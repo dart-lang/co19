@@ -9,7 +9,7 @@
  * @description Checks the state of request at variuos moments of time.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   HttpRequest request = new HttpRequest();
