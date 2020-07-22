@@ -11,13 +11,13 @@
  */
 import "dart:html";
 import "dart:async";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   var request = new HttpRequest();
-  EventStreamProvider<ProgressEvent> sreamProvider =
+  EventStreamProvider<Event> sreamProvider =
       HttpRequest.readyStateChangeEvent;
-  Stream<ProgressEvent> stream = sreamProvider.forTarget(document);
+  Stream<Event> stream = sreamProvider.forTarget(document);
   stream.listen((event) {
     Expect.equals("readystatechange", event.type, "stream.listen.onData");
   }, onError: (Object error) {

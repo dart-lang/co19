@@ -25,13 +25,12 @@
  */
 import "dart:html";
 import "dart:async";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   asyncStart();
   Future<HttpRequest> f =
       HttpRequest.request("test.dart", method: "GET", onProgress: (event) {
-//      UtilsHtml.show("event.type=${event.type}");
     Expect.equals("progress", event.type, "stream.listen.onData");
   });
   f.then((HttpRequest r) {

@@ -14,7 +14,7 @@
  * 'json', 'text' are allowed.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 const values = const ['arraybuffer', 'blob', 'document', 'json', 'text'];
 

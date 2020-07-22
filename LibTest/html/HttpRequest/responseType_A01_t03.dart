@@ -13,7 +13,7 @@
  * @description Checks that uther values are not supported.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   var request = new HttpRequest();

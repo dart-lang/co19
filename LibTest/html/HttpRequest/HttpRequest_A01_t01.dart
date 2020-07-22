@@ -9,7 +9,7 @@
  * @description Checks the state of newly created request.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   var request = new HttpRequest();

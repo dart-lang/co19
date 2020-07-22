@@ -11,12 +11,11 @@
  * @description Checks that readystatechange events are exposed.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   asyncStart();
   var f = HttpRequest.getString("test.dart", onProgress: (event) {
-//      UtilsHtml.show("event.type=${event.type}");
     Expect.equals("progress", event.type, "stream.listen.onData");
   });
   f.then((content) {

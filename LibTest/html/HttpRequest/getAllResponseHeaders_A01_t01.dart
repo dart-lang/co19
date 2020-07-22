@@ -11,7 +11,7 @@
  * @description Checks that response headers are retrieved.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 void check(String allHeaders) {
   List<String> headers = allHeaders.split('\n');
