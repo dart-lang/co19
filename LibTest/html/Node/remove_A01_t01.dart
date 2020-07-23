@@ -13,13 +13,13 @@ import "../../../Utils/expect.dart";
 
 void check(Node x) {
   var body = document.body;
-  var lastChild = body.lastChild;
+  var lastChild = body?.lastChild;
 
-  body.append(x);
-  Expect.equals(x, body.lastChild, "lastChild after append");
+  body?.append(x);
+  Expect.equals(x, body?.lastChild, "lastChild after append");
 
   x.remove();
-  Expect.equals(lastChild, body.lastChild, "lastChild after remove");
+  Expect.equals(lastChild, body?.lastChild, "lastChild after remove");
 }
 
 main() {

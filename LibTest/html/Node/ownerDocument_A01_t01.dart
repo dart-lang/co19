@@ -15,7 +15,7 @@ var d = document.implementation.createHtmlDocument('doc');
 
 void check(Node x) {
   Expect.equals(document, x.ownerDocument);
-  IFrameElement x2 = d.importNode(x);
+  Node x2 = d.importNode(x);
   Expect.equals(d, x2.ownerDocument);
 }
 

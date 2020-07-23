@@ -21,7 +21,7 @@ void check(Node x) {
   };
 
   var seen = false;
-  EventListener handler2;
+  EventListener? handler2;
   handler2 = (e) {
     if (seen) Expect.fail('should be run once');
     Expect.equals(type, e.type);

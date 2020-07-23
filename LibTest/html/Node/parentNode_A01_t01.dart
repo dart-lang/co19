@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 void check(Node x) {
   Expect.equals(null, x.parentNode, "before append $x");
   var body = document.body;
-  body.append(x);
+  body?.append(x);
   Expect.equals(body, x.parentNode, "before remove $x");
 
   x.remove();

@@ -13,9 +13,9 @@ import "../../../Utils/expect.dart";
 
 main() {
   var x = new Comment("comment");
-  document.body.append(x);
+  document.body?.append(x);
   Expect.isNull(x.nextNode);
   var y = new Text("text");
-  document.body.append(y);
+  document.body?.append(y);
   Expect.equals(y, x.nextNode);
 }

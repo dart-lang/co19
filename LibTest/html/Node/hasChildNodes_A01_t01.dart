@@ -15,7 +15,7 @@ void check(Node x) {
   Expect.isFalse(x.hasChildNodes(), 'no children');
 
   var z = new Element.html('<span><div></div><button></button></span>');
-  var y = z.querySelector('div');
+  var y = z.querySelector('div') as Element;
 
   x.append(y);
   Expect.isTrue(x.hasChildNodes(), 'one child');
