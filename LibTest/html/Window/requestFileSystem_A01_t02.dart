@@ -24,7 +24,7 @@ main() {
 
   asyncStart();
   nw.requestFileSystem(10).then((FileSystem fs) {
-    fs.root.createDirectory("abc").then((Entry entry) {
+    fs.root?.createDirectory("abc").then((Entry entry) {
       Expect.isTrue(entry.isDirectory);
       asyncEnd();
     }, onError: (e) {

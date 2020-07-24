@@ -18,7 +18,7 @@ import "../../../UtilsHtml/expect.dart";
 main() {
   var text = 'textext';
   IFrameElement frame = new IFrameElement();
-  document.body.append(frame);
+  document.body?.append(frame);
 //  frame.contentWindow.document.body.append(new Text(text));
 //  frame.appendHtml("<div>$text</div>");
 //  frame.setInnerHtml("<html><head></head><body><div>$text</div></body></html>");
@@ -32,8 +32,8 @@ main() {
       var node = nodes[n];
       print("  node $n = $node");
     }
-    child = child.firstChild;
-    if (child == null) break;
+    var fchild = child.firstChild;
+    if (fchild == null) break;
   }
 
   bool res = window.find(text, false, false, false, false, false, false);

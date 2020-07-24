@@ -20,14 +20,14 @@ import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 
 main() {
-  Window nw = window.open("about:blank", "_blank");
+  Window nw = window.open("about:blank", "_blank") as Window;
   asyncCompleted.then((n) {
     nw.close();
   });
 
   asyncStart();
   nw.requestFileSystem(10).then((FileSystem fs) {
-    fs.root.createFile("abc").then((Entry entry) {
+    fs.root?.createFile("abc").then((Entry entry) {
       Expect.isTrue(entry.isFile);
       asyncEnd();
     }, onError: (e) {

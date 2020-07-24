@@ -17,12 +17,11 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  Window nw = document.window;
+  Window nw = document.window as Window;
   Future<num> animationFrame = nw.animationFrame;
   asyncStart();
   animationFrame.then((num) {
     Expect.isTrue(num is double);
-    print("num=$num");
     asyncEnd();
     nw.close();
   });

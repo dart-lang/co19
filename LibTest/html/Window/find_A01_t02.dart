@@ -16,7 +16,7 @@ import "../../../UtilsHtml/expect.dart";
 
 main() {
   var text = 'text';
-  document.body.append(new Text(text));
+  document.body?.append(new Text(text));
   bool res = window.find(text, false, false, false, false, false, false);
   Expect.isTrue(res, "text not found");
 

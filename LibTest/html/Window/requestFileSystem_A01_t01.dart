@@ -24,7 +24,7 @@ main() {
 
   asyncStart();
   nw.requestFileSystem(10).then((FileSystem fs) {
-    fs.root.createFile("xyz").then((Entry entry) {
+    fs.root?.createFile("xyz").then((Entry entry) {
       print("file created:$entry");
       Expect.isTrue(entry.isFile);
       asyncEnd();
