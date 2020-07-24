@@ -39,6 +39,7 @@ _main(Directory sandbox) async {
   bool thrown = false;
   await dir.delete(recursive: false).catchError((_) {
     thrown = true;
+    return dir;
   }).then((_) {
     Expect.isTrue(thrown);
     asyncEnd();

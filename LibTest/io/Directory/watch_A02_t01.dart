@@ -26,13 +26,13 @@ _main(Directory sandbox) async {
   Directory dir = getTempDirectorySync(parent: sandbox);
   Directory child = dir.createTempSync();
 
-  final eventCompleter = new Completer<FileSystemEvent>();
-  StreamSubscription subscription;
+  final eventCompleter = new Completer<FileSystemEvent?>();
+  StreamSubscription? subscription;
   asyncStart();
   subscription = dir.watch(events: FileSystemEvent.create,
       recursive: true).listen((FileSystemEvent event) async {
     eventCompleter.complete(event);
-    await subscription.cancel();
+    await subscription?.cancel();
     if (event.type != FileSystemEvent.create) {
       Expect.fail("Wrong event arrived");
     } else {
@@ -43,7 +43,7 @@ _main(Directory sandbox) async {
 
   await eventCompleter.future
       .timeout(Duration(seconds: eventsTimeout), onTimeout: () async {
-    await subscription.cancel();
+    await subscription?.cancel();
     Expect.fail("Watch timed out");
   });
 }

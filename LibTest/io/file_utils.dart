@@ -16,7 +16,7 @@ import "../../Utils/expect.dart";
 
 final int eventsTimeout = 45;
 
-Future<void> inSandbox(void test(Directory sandbox), {Directory sandbox}) async {
+Future<Object?> inSandbox(Object? test(Directory sandbox), {Directory? sandbox}) async {
   if (sandbox == null) {
     sandbox = getTempDirectorySync();
   }
@@ -28,19 +28,19 @@ Future<void> inSandbox(void test(Directory sandbox), {Directory sandbox}) async 
 }
 
 Future<void> testFileSystemEvent<T extends FileSystemEvent>(Directory root,
-    {Future<void> createEvent(),
-    void test(FileSystemEvent event), bool failIfNoEvent = true,
+    {required Future<void> createEvent(),
+    required void test(FileSystemEvent? event), bool failIfNoEvent = true,
     bool ignoreRootEvents = true}) async {
-  final eventCompleter = new Completer<FileSystemEvent>();
+  final eventCompleter = new Completer<FileSystemEvent?>();
   bool first = true;
-  StreamSubscription subscription;
+  StreamSubscription? subscription;
   subscription = root.watch().listen((FileSystemEvent event) async {
     if (!ignoreRootEvents || root.path != event.path) {
       if (event is T) {
         if (first) {
           first = false;
           eventCompleter.complete(event);
-          await subscription.cancel();
+          await subscription?.cancel();
         }
       }
     }
@@ -48,7 +48,7 @@ Future<void> testFileSystemEvent<T extends FileSystemEvent>(Directory root,
   await createEvent();
   final event = await eventCompleter.future
       .timeout(Duration(seconds: eventsTimeout), onTimeout: () async {
-    await subscription.cancel();
+    await subscription?.cancel();
     if (failIfNoEvent) {
       Expect.fail("No event was fired for $eventsTimeout seconds");
     }
@@ -59,7 +59,7 @@ Future<void> testFileSystemEvent<T extends FileSystemEvent>(Directory root,
 /**
  * Creates temporary file in a parent directory
  */
-File getTempFileSync({Directory parent, String name}) {
+File getTempFileSync({Directory? parent, String? name}) {
   parent ??= Directory.systemTemp;
   name ??= getPrefix() + getTempFileName();
   File file = new File(parent.path + Platform.pathSeparator + name);
@@ -67,13 +67,13 @@ File getTempFileSync({Directory parent, String name}) {
   return file;
 }
 
-Future<File> getTempFile({Directory parent, String name}) async {
+Future<File> getTempFile({Directory? parent, String? name}) async {
   parent ??= Directory.systemTemp;
   name ??= getPrefix() + getTempFileName();
   return new File(parent.path + Platform.pathSeparator + name).create();
 }
 
-Directory getTempDirectorySync({Directory parent, String name}) {
+Directory getTempDirectorySync({Directory? parent, String? name}) {
   parent ??= Directory.systemTemp;
   if (name == null) {
     return parent.createTempSync(getPrefix());
@@ -83,7 +83,7 @@ Directory getTempDirectorySync({Directory parent, String name}) {
   return dir;
 }
 
-Future<Directory> getTempDirectory({Directory parent, String name}) async {
+Future<Directory> getTempDirectory({Directory? parent, String? name}) async {
   parent ??= Directory.systemTemp;
   if (name == null) {
     return parent.createTemp(getPrefix());
@@ -92,7 +92,7 @@ Future<Directory> getTempDirectory({Directory parent, String name}) async {
   return dir.create();
 }
 
-Link getTempLinkSync({Directory parent, String target, String name}) {
+Link getTempLinkSync({Directory? parent, String? target, String? name}) {
   parent ??= Directory.systemTemp;
   target ??= getTempDirectorySync(parent: parent).path;
   name ??= getPrefix() + getTempFileName(extension: ".lnk");
@@ -101,7 +101,7 @@ Link getTempLinkSync({Directory parent, String target, String name}) {
   return link;
 }
 
-Future<Link> getTempLink({Directory parent, String target, String name}) {
+Future<Link> getTempLink({Directory? parent, String? target, String? name}) {
   parent ??= Directory.systemTemp;
   target ??= getTempDirectorySync(parent: parent).path;
   name ??= getPrefix() + getTempFileName();
@@ -111,10 +111,7 @@ Future<Link> getTempLink({Directory parent, String target, String name}) {
 
 void deleteLinkWithTarget(Link link) {
   String linkTarget = link.targetSync();
-  if (linkTarget == null) {
-    return;
-  }
-  FileSystemEntity target = null;
+  FileSystemEntity? target = null;
   if (FileSystemEntity.isDirectorySync(linkTarget)) {
     target = new Directory(linkTarget);
   } else if (FileSystemEntity.isFileSync(linkTarget)) {
@@ -123,19 +120,16 @@ void deleteLinkWithTarget(Link link) {
     target = new Link(linkTarget);
   }
   try {
-    target.delete(recursive: true);
+    target?.delete(recursive: true);
   } on Exception {}
   try {
     link.delete();
   } on Exception {}
 }
 
-Random rnd = null;
+Random rnd = new Random(new DateTime.now().microsecondsSinceEpoch);
 
-String getTempFileName({String extension}) {
-  if (rnd == null) {
-    rnd = new Random(new DateTime.now().microsecondsSinceEpoch);
-  }
+String getTempFileName({String? extension}) {
   extension = (extension == null
       ? ".tmp"
       : (extension.startsWith(".") ? extension : "." + extension));
@@ -151,9 +145,6 @@ String getTempFileName({String extension}) {
 }
 
 String getTempDirectoryName() {
-  if (rnd == null) {
-    rnd = new Random(new DateTime.now().microsecondsSinceEpoch);
-  }
   String name = rnd.nextInt(10000).toString() +
       "-" +
       rnd.nextInt(10000).toString() +
@@ -170,13 +161,13 @@ String getPrefix() {
   return fileName.substring(0, fileName.indexOf(".")) + "_";
 }
 
-String getTempFilePath({Directory parent, String name}) {
+String getTempFilePath({Directory? parent, String? name}) {
   parent ??= Directory.systemTemp;
   name ??= getPrefix() + getTempFileName();
   return parent.path + Platform.pathSeparator + name;
 }
 
-String getTempDirectoryPath({Directory parent, String name}) {
+String getTempDirectoryPath({Directory? parent, String? name}) {
   parent ??= Directory.systemTemp;
   name ??= getTempDirectoryName();
   return parent.path + Platform.pathSeparator + name;
