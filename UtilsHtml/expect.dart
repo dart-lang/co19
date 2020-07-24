@@ -33,16 +33,5 @@ class UtilsHtml {
     llog.text = msg;
     document.body?.append(llog);
   }
-
-  static String relativeUrl(String path) {
-    var p = new ParagraphElement();
-    var link = new AnchorElement()
-    ..href = path
-    ..text = path;	
-    p.append(link);
-    document.body?.children.add(p);
-    return link.href;
-  }
-    
 }
  
