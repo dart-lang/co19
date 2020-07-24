@@ -20,24 +20,23 @@ main() {
   sink.addError(1);
   try {
     throw 2;
-  } catch(e,st) {
+  } catch (e, st) {
     stackTrace = st;
     sink.addError(e, st);
   }
 
   var first = true;
   asyncStart();
-  c.stream.listen(null, onError:(e,st) {
+  c.stream.listen(null, onError: (e, st) {
     if (first) {
       Expect.identical(1, e);
-      Expect.identical(null, st);
+      Expect.identical("", st.toString());
       first = false;
-    } else { 
+    } else {
       Expect.identical(2, e);
       Expect.identical(stackTrace, st);
       asyncEnd();
     }
   });
-
   c.close();
 }
