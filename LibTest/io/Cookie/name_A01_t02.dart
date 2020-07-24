@@ -19,6 +19,5 @@ main() {
   Cookie cookie = new Cookie.fromSetCookieValue(" cname = cval; Domain=dartlang.org");
   Expect.equals("cname", cookie.name);
 
-  cookie.name = " cname ";
-  Expect.equals("cname", cookie.name);
+  Expect.throws(() {cookie.name = " cname ";});
 }

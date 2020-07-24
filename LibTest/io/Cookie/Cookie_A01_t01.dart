@@ -7,15 +7,15 @@
  * @assertion Cookie(String name, String value)
  * Creates a new cookie optionally setting the name and value.
  * By default the value of httpOnly will be set to true.
- * @description Checks that it is a runtime exception if name is null
+ * @description Checks that it is a compile error if name is null
  * @issue 29463
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
-import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() {
-    new Cookie(null, "some value");
-  });
+  new Cookie(null, "some value");
+//           ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
