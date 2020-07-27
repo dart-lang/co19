@@ -36,11 +36,11 @@ main() async {
 }
 
 _main(Directory sandbox) async {
-  Encoding encoding = Encoding.getByName("iso-8859-1");
+  Encoding? encoding = Encoding.getByName("iso-8859-1");
   File file = getTempFileSync(parent: sandbox);
   String toWrite = "â\nã";
   asyncStart();
-  await file.writeAsString(toWrite, encoding: encoding).then((f) {
+  await file.writeAsString(toWrite, encoding: encoding!).then((f) {
     Expect.equals(toWrite, f.readAsStringSync(encoding: encoding));
     Expect.equals(toWrite, file.readAsStringSync(encoding: encoding));
     Expect.listEquals([0xe2, 0xa, 0xe3], file.readAsBytesSync());

@@ -33,13 +33,13 @@ _main(Directory sandbox) async {
   file.writeAsBytesSync(content);
   asyncStart();
   final c = new Completer();
-  StreamSubscription<List<int>> s = null;
+  StreamSubscription<List<int>>? s = null;
   s = await file.openRead().listen((data) async {
     Expect.isTrue(data.length <= content.length);
     for (int i = 0; i < data.length; i++) {
       Expect.equals(content[i], data[i]);
     }
-    await s.cancel();
+    await s?.cancel();
     c.complete();
     asyncEnd();
   });

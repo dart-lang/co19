@@ -27,8 +27,7 @@ _main(Directory sandbox) async {
   File file2 = getTempFileSync(parent: sandbox);
   file2.writeAsStringSync("Existing file content");
 
-  File copied = null;
-  copied = file1.copySync(file2.path);
+  File copied = file1.copySync(file2.path);
   Expect.equals(file2.path, copied.path);
   Expect.isTrue(copied.existsSync());
   Expect.equals("", copied.readAsStringSync());
