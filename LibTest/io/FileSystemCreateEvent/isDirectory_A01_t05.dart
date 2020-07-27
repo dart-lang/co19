@@ -29,8 +29,8 @@ _main(Directory sandbox) async {
   await testFileSystemEvent<FileSystemCreateEvent>(dir,
       createEvent: () async {
         await getTempLink(parent: dir, target: target.path);
-      }, test: (FileSystemEvent event) {
-        Expect.isFalse(event.isDirectory);
+      }, test: (FileSystemEvent? event) {
+        Expect.isFalse(event?.isDirectory);
       });
   asyncEnd();
 }

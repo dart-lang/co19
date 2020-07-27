@@ -24,12 +24,12 @@ _main(Directory sandbox) async {
   Directory dir = getTempDirectorySync(parent: sandbox);
   asyncStart();
 
-  String path = null;
+  String? path = null;
   await testFileSystemEvent<FileSystemCreateEvent>(dir,
-      createEvent: () {
+      createEvent: () async {
         path = dir.createTempSync().path;
-      }, test: (FileSystemEvent event) {
-        Expect.equals(path, event.path);
+      }, test: (FileSystemEvent? event) {
+        Expect.equals(path, event?.path);
       });
   asyncEnd();
 }

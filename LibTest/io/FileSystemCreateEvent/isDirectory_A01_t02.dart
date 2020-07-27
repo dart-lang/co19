@@ -25,8 +25,8 @@ _main(Directory sandbox) async {
   await testFileSystemEvent<FileSystemCreateEvent>(sandbox,
       createEvent: () async {
         await getTempFile(parent: sandbox);
-      }, test: (FileSystemEvent event) {
-        Expect.isFalse(event.isDirectory);
+      }, test: (FileSystemEvent? event) {
+        Expect.isFalse(event?.isDirectory);
       });
   asyncEnd();
 }

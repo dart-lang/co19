@@ -24,10 +24,10 @@ _main(Directory sandbox) async {
   asyncStart();
 
   await testFileSystemEvent<FileSystemCreateEvent>(dir,
-      createEvent: () {
+      createEvent: () async {
         getTempLinkSync(parent: dir, target: target.path);
-      }, test: (FileSystemEvent event) {
-        Expect.equals(FileSystemEvent.create, event.type);
+      }, test: (FileSystemEvent? event) {
+        Expect.equals(FileSystemEvent.create, event?.type);
       });
   asyncEnd();
 }

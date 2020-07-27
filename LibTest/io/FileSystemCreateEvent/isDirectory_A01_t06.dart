@@ -27,17 +27,17 @@ _main(Directory sandbox) async {
   Directory target = getTempDirectorySync(parent: sandbox);
   asyncStart();
 
-  await testFileSystemEvent<FileSystemCreateEvent>(dir, createEvent: () {
-    getTempLinkSync(parent: dir, target: target.path);
-  }, test: (FileSystemEvent event) {
+  await testFileSystemEvent<FileSystemCreateEvent>(dir, createEvent: () async {
+    await getTempLinkSync(parent: dir, target: target.path);
+  }, test: (FileSystemEvent? event) {
     /* On Mac this check sometimes fails. See
     https://github.com/dart-lang/co19/issues/186#issuecomment-443188150 and
     below */
     Expect.isFalse(
-        event.isDirectory,
+        event?.isDirectory,
         'Got unexpected event '
-        '${event.runtimeType} { path: ${event.path}, type: ${event.type}, '
-        'isDirectory: ${event.isDirectory} } while in sandbox: ${sandbox} '
+        '${event?.runtimeType} { path: ${event?.path}, type: ${event?.type}, '
+        'isDirectory: ${event?.isDirectory} } while in sandbox: ${sandbox} '
         'with dir: ${dir} and target: ${target}');
   });
   asyncEnd();
