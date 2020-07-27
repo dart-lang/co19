@@ -13,29 +13,38 @@
  * being reported.
  * @description Checks that on Linux OS exit codes in the [0..255] range are
  * returned as is
- * range are
-
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
+// For now (27/07/2020) we cannot use Expect because it's migrated to null
+// safety but process, that run this test, don't have null safety and therefore
+// compile error occurs (exit code 254)
+//import "../../../Utils/expect.dart";
 import "dart:io";
 
-run_process(i) { exit(i); }
+run_process(i) {
+  exit(i);
+}
 
 run_main(int i) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
-  await Process.run(executable,
-      [eScript, i.toString()]).then((ProcessResult results) {
-    Expect.equals(i, results.exitCode);
+  await Process.run(executable, [eScript, i.toString()])
+      .then((ProcessResult results) {
+    if (results.exitCode != i) {
+      throw new Exception("Wrong exit code! Expected <$i> but actual <${results.exitCode}>");
+    }
+    //Expect.equals(i, results.exitCode);
     called++;
   });
-  Expect.equals(1, called);
+  if (called != 1) {
+    throw new Exception("Called must be <1> but actually <$called>");
+  }
+  //Expect.equals(1, called);
 }
 
 main(List<String> args) {
-  if(!Platform.isWindows) {
+  if (!Platform.isWindows) {
     if (args.length > 0)
       run_process(int.parse(args[0]));
     else {

@@ -6,12 +6,14 @@
 /**
  * @assertion void exit(int code)
  * Exit the Dart VM process immediately with the given exit code.
- * @description Checks that calling [exit(null)] causes [ArgumentError].
+ * @description Checks that calling [exit(null)] causes compile error.
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
 import "dart:io";
 
 main(List<String> args) {
-  Expect.throws(() { exit(null); }, (e) => e is ArgumentError);
+  exit(null);
+//     ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

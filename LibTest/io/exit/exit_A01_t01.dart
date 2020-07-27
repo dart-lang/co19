@@ -9,26 +9,37 @@
  * @description Checks that process returns given code after the [exit] call.
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
+// For now (27/07/2020) we cannot use Expect because it's migrated to null
+// safety but process, that run this test, don't have null safety and therefore
+// compile error occurs (exit code 254)
+//import "../../../Utils/expect.dart";
 import "dart:io";
 
-run_process() { exit(123); }
+run_process() {
+  exit(123);
+}
 
 run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
   await Process.run(executable, [eScript, "run"]).then((ProcessResult results) {
-    Expect.equals(123, results.exitCode);
+    if (results.exitCode != 123) {
+      throw new Exception("Wrong exit code <${results.exitCode}>");
+    }
+    //Expect.equals(123, results.exitCode);
     called++;
   });
-  Expect.equals(1, called);
+  if (called != 1) {
+    throw new Exception("Called must be <1> but actually <$called>");
+  }
+  //Expect.equals(1, called);
 }
 
 main(List<String> args) {
-  if(args.length > 0)
+  if(args.length > 0) {
     run_process();
-  else {
+  } else {
     run_main();
   }
 }
