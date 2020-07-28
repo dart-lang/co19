@@ -15,10 +15,7 @@ import "../../../Utils/expect.dart";
 
 void check(count) {
   dynamic l = new ByteData(count);
-  try {
-    l.offsetInBytes = 0;
-    Expect.fail("[offsetInBytes] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { l.offsetInBytes = 0; }, (e) => e is NoSuchMethodError);
 }
 
 main() {

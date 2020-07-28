@@ -41,7 +41,6 @@ main() {
     Expect.equals(expectedBigEndian[i],
         byteDataFromU32.getUint64(i * bytesInElement, Endian.big));
     Expect.equals(expectedLittleEndian[i],
-        byteDataFromU32.getUint64(
-            i * bytesInElement, Endian.little));
+        byteDataFromU32.getUint64(i * bytesInElement, Endian.little));
   }
 }

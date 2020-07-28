@@ -18,13 +18,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   var byteData = new ByteData(5);
-  try {
-    byteData.getUint8(5);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
-
-  try {
-    byteData.getUint8(10);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
+  Expect.throws(() { byteData.getUint8(5 ); }, (e) => e is RangeError);
+  Expect.throws(() { byteData.getUint8(10); }, (e) => e is RangeError);
 }

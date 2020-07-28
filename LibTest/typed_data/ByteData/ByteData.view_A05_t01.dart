@@ -24,10 +24,8 @@ import "../../../Utils/expect.dart";
 void check(List<int> array, int offset) {
   var tmp = new Int8List.fromList(array);
   var byteBuffer = tmp.buffer;
-  try {
-    new ByteData.view(byteBuffer, offset);
-    Expect.fail("RangeError exception is expected");
-  } on RangeError {}
+  Expect.throws(() { ByteData.view(byteBuffer, offset); },
+      (e) => e is RangeError);
 }
 
 main() {

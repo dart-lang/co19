@@ -22,8 +22,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   var byteData = new ByteData(0);
-  try {
-    byteData.setInt32(-1, 0);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
+  Expect.throws(() { byteData.setInt32(-1, 0); }, (e) => e is RangeError);
 }

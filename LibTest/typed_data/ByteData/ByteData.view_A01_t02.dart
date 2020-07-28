@@ -25,8 +25,7 @@ void check(List<int> array, int offset, int length) {
   ByteData l = new ByteData.view(byteBuffer, offset, length);
   Expect.equals(length, l.lengthInBytes);
   for (int i = 0; i < l.lengthInBytes; ++i) {
-    Expect.equals(
-        tmp[offset ~/ Uint8List.bytesPerElement + i], l.getUint8(i));
+    Expect.equals(tmp[offset ~/ Uint8List.bytesPerElement + i], l.getUint8(i));
   }
 }
 

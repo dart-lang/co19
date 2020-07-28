@@ -17,11 +17,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(length) {
-  Expect.throws(() {
-    new ByteData(length);
-    // new ByteData cannot be created
-    Expect.fail('length is not a non-negative integer');
-  });
+  Expect.throws(() => ByteData(length));
 }
 
 main() {

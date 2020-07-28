@@ -24,13 +24,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   var byteData = new ByteData(10);
-  try {
-    byteData.setInt64(3, 0);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
-
-  try {
-    byteData.setInt64(20, 0);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
+  Expect.throws(() { byteData.setInt64( 3, 0); }, (e) => e is RangeError);
+  Expect.throws(() { byteData.setInt64(20, 0); }, (e) => e is RangeError);
 }
