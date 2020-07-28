@@ -19,21 +19,27 @@ const dynamic d = "another string";
 class MyClass1 {
   final int res;
   const MyClass1() : res = (false ? s : 0);
+//                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class MyClass2 {
   final int res;
-  const MyClass2() : res = (false ? d : 0);
+  const MyClass2() : res = (false ? d as int : 0);
 }
 
 class MyClass3 {
   final int res;
-  const MyClass3() : res = (false ? 0 : s);
+  const MyClass3() : res = (false ? 0 : s as int);
 }
 
 class MyClass4 {
   final int res;
   const MyClass4() : res = (false ? 0 : "bad str");
+//                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class MyClass5 {
@@ -43,9 +49,6 @@ class MyClass5 {
 
 main() {
   const c1 = MyClass1();
-//           ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
   const c2 = MyClass2();
 
@@ -55,7 +58,7 @@ main() {
 // [cfe] unspecified
 
   const c4 = MyClass4();
-//          ^^^^^^^^^^
+//           ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

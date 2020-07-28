@@ -16,14 +16,14 @@ import "../../Utils/expect.dart";
 
 class MyClass {
   final int res;
-  const MyClass() : res = (false ? (null as String).length > 0 : 125);
+  const MyClass() : res = (false ? (null as String).length : 125);
 }
 
 main() {
   const MyClass c1 = MyClass();
   Expect.equals(125, c1.res);
 
-  const String str = false ? (null as String).length < 14 : "OK";
+  const str = false ? (null as String).length : "OK";
   Expect.equals("OK", str);
 
   const String str1 = false ? "wrong" : "OK";

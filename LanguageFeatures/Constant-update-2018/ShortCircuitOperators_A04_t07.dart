@@ -15,6 +15,6 @@
 import "../../Utils/expect.dart";
 
 main() {
-  const String str = false ? (null as String).length : "OK";
+  const str = false ? (null as String).length : "OK";
   Expect.equals("OK", str);
 }

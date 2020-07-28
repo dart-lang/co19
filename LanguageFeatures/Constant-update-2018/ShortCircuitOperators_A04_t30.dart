@@ -39,6 +39,9 @@ class MyClass3 {
 class MyClass4 {
   final res;
   const MyClass4() : res = null ? "yes" : "no";
+//                         ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class MyClass5 {

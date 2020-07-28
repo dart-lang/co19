@@ -12,29 +12,29 @@
  * @author iarkh@unipro.ru
  */
 
-const int i = 1;
+const int? i = 1;
 
-const String nil = null;
-const String str = "check me here";
+const String? nil = null;
+const String? str = "check me here";
 
 main() {
   const String s1 = 14 ?? "12345";
-//             ^^
+//                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   const String s2 = i ?? "12345";
-//             ^^
+//                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   const int i1 = "12345" ?? 12345;
-//          ^^
+//                       ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const int res = str ?? 12345;
-//          ^^^
+  const int i2 = str ?? 12345;
+//                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

@@ -16,7 +16,7 @@ import "../../Utils/expect.dart";
 
 class MyClass {
   final bool res;
-  const MyClass() : res = (false ? (null as String).length : true);
+  const MyClass() : res = (false ? (null as String).length < 1 : true);
 }
 
 main() {

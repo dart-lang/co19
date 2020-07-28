@@ -16,12 +16,12 @@ import "../../Utils/expect.dart";
 
 class MyClass1 {
   final bool res;
-  const MyClass1() : res = (true ? true : (null as String).length);
+  const MyClass1() : res = (true ? true : (null as String).length as bool);
 }
 
 class MyClass2 {
   final int res;
-  const MyClass2() : res = (true ? 125 : (null as String).length > 0);
+  const MyClass2() : res = (true ? 125 : (null as String).length);
 }
 
 class MyClass3 {
@@ -37,8 +37,8 @@ main() {
   Expect.equals(125, c2.res);
 
   const MyClass3 c3 = MyClass3(123);
-  Expect.equals(125, c2.res);
+  Expect.equals(125, c3.res);
 
   const MyClass3 c4 = MyClass3("12345");
-  Expect.equals(125, c2.res);
+  Expect.equals(125, c4.res);
 }

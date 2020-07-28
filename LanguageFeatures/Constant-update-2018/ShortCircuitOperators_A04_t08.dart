@@ -15,9 +15,9 @@
  */
 
 main() {
-  String s1;
-  const String str1 = false ? s1 : "OK";
-//                            ^^
+  String? s1;
+  const String? str1 = false ? s1 : "OK";
+//                             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

@@ -24,13 +24,13 @@ class MyClass2 {
 }
 
 class MyClass3 {
-  final int res;
-  const MyClass3(int val) : res = (false ? 125 : val);
+  final int? res;
+  const MyClass3(int? val) : res = (false ? 125 : val);
 }
 
 class MyClass4 {
-  final int res;
-  const MyClass4(int val) : res = (false ? val: 11);
+  final int? res;
+  const MyClass4(int? val) : res = (false ? val: 11);
 }
 
 

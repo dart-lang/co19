@@ -8,18 +8,18 @@
  * evaluates to [null], and the second operand must be a potentially constant
  * expression.
  * @description Checks that compile-time exception is not thrown if the first
- * operand of [??] operator is not [null] regardless of the type of the second
- * operand.
+ * operand of [??] operator is not [null] regardless of the actual type of the
+ * second operand.
  * @author iarkh@unipro.ru
  */
 
-const int i = 1;
+const int? i = 1;
 const dynamic d1 = 11;
-const String d2 = "check me here";
+const String? d2 = "check me here";
 
 main() {
-  const String s1 = "" ?? 124;
-  const int i1 = i ?? "";
+  const String s1 = "" ?? (124 as String);
+  const int i1 = i ?? ("" as int);
   const String s2 = d2 ?? d1;
   const int i2 = d1 ?? d2;
 }

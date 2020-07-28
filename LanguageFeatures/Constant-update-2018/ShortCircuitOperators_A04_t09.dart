@@ -16,7 +16,7 @@ import "../../Utils/expect.dart";
 
 class MyClass {
   final int res;
-  const MyClass(String test) : res = (true ? 11 : test.length);
+  const MyClass(dynamic test) : res = (true ? 11 : test.length);
 }
 
 main() {

@@ -25,7 +25,7 @@ class MyClass1 {
 }
 
 class MyClass2 {
-  final int res;
+  final res;
   const MyClass2() : res = (true ? i : false);
 //                                 ^
 // [analyzer] unspecified

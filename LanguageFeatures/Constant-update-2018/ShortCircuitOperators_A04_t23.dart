@@ -18,7 +18,7 @@ const dynamic d = "another string";
 
 main() {
 
-  const int i1 = true ? s : 1;
+  const int i1 = true ? s as int : 1;
 //          ^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -28,15 +28,15 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const int i3 = true ? 0 : s;
+  const int i3 = true ? 0 : s as int;
 
   const int i4 = true ? 10 : d;
 
-  const int i5 = false ? s : 1;
+  const int i5 = false ? s as int : 1;
 
   const int i6 = false ? d : 1;
 
-  const int i7 = false ? 0 : s;
+  const int i7 = false ? 0 : s as int;
 //          ^^
 // [analyzer] unspecified
 // [cfe] unspecified

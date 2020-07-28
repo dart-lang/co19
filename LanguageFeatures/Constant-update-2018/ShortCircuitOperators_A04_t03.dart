@@ -15,9 +15,9 @@
 import "../../Utils/expect.dart";
 
 main() {
-  const String str1 = true ? "OK" : 12345;
+  const String str1 = true ? "OK" : 12345 as String;
   Expect.equals("OK", str1);
 
-  const String str2 = true ? "OK" : (null as String).length;
+  const String str2 = true ? "OK" : (null as String).length as String;
   Expect.equals("OK", str2);
 }
