@@ -32,8 +32,8 @@ _main(Directory sandbox) async {
   await testFileSystemEvent<FileSystemDeleteEvent>(sandbox,
       createEvent: () async {
         await d.delete();
-      }, test: (FileSystemEvent event) {
-        Expect.isFalse(event.isDirectory);
+      }, test: (FileSystemEvent? event) {
+        Expect.isFalse(event?.isDirectory);
       });
   asyncEnd();
 }

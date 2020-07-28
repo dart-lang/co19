@@ -24,13 +24,13 @@ _main(Directory sandbox) async {
   Directory d = sandbox.createTempSync();
   asyncStart();
 
-  String path;
+  String? path;
   await testFileSystemEvent<FileSystemDeleteEvent>(sandbox,
-      createEvent: () {
+      createEvent: () async {
         path = d.path;
         d.deleteSync();
-      }, test: (FileSystemEvent event) {
-        Expect.equals(path, event.path);
+      }, test: (FileSystemEvent? event) {
+        Expect.equals(path, event?.path);
       });
   asyncEnd();
 }

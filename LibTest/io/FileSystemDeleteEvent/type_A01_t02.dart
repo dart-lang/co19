@@ -23,10 +23,10 @@ _main(Directory sandbox) async {
   asyncStart();
 
   await testFileSystemEvent<FileSystemDeleteEvent>(sandbox,
-      createEvent: () {
+      createEvent: () async {
         d.deleteSync();
-      }, test: (FileSystemEvent event) {
-        Expect.equals(FileSystemEvent.delete, event.type);
+      }, test: (FileSystemEvent? event) {
+        Expect.equals(FileSystemEvent.delete, event?.type);
       });
   asyncEnd();
 }
