@@ -14,10 +14,8 @@ import "../../../Utils/expect.dart";
 
 void check(count) {
   dynamic buffer = new Int8List(count).buffer;
-  try {
-    buffer.lengthInBytes = 0;
-    Expect.fail("[lengthInBytes] should be read-only");
-  } on NoSuchMethodError /*catch (ok)*/ {}
+  Expect.throws(
+      () { buffer.lengthInBytes = 0; }, (e) => e is NoSuchMethodError);
 }
 
 main() {

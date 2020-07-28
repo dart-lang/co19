@@ -18,8 +18,5 @@ import "../../../Utils/expect.dart";
 main() {
   dynamic list = new Int8List(10);
   var buffer = list.buffer;
-  try {
-    buffer.hashCode = 1;
-    Expect.fail("[hashCode] should be read-only");
-  } on NoSuchMethodError /*catch (ok)*/ {}
+  Expect.throws(() { buffer.hashCode = 1; }, (e) => e is NoSuchMethodError);
 }
