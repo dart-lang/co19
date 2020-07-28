@@ -26,9 +26,9 @@ _main(Directory sandbox) async {
   File f = getTempFileSync(parent: dir);
   asyncStart();
   await testFileSystemEvent<FileSystemModifyEvent>(dir,
-      createEvent: () {
+      createEvent: () async {
         f.setLastAccessedSync(new DateTime.now());
-      }, test: (FileSystemEvent event) {
+      }, test: (FileSystemEvent? event) {
         Expect.isFalse((event as FileSystemModifyEvent).contentChanged);
       });
   asyncEnd();

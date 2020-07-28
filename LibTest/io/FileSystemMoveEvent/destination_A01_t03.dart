@@ -23,15 +23,15 @@ main() async {
 _main(Directory sandbox) async {
   Directory dir = getTempDirectorySync(parent: sandbox);
   Link link = getTempLinkSync(parent: dir);
-  Link renamed = null;
+  Link? renamed = null;
 
   asyncStart();
   await testFileSystemEvent<FileSystemMoveEvent>(dir,
-      createEvent: () {
+      createEvent: () async {
         renamed = link.renameSync(getTempFilePath(parent: dir));
-      }, test: (FileSystemEvent event) {
+      }, test: (FileSystemEvent? event) {
         if ((event as FileSystemMoveEvent).destination != null) {
-          Expect.equals(renamed.path, (event as FileSystemMoveEvent).destination);
+          Expect.equals(renamed?.path, (event as FileSystemMoveEvent).destination);
         }
       }, failIfNoEvent: false);
   asyncEnd();

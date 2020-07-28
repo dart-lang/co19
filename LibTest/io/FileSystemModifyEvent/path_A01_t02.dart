@@ -27,10 +27,10 @@ _main(Directory sandbox) async {
 
   asyncStart();
   await testFileSystemEvent<FileSystemModifyEvent>(dir,
-      createEvent: () {
+      createEvent: () async {
         f.writeAsStringSync("Lily was here");
-      }, test: (FileSystemEvent event) {
-        Expect.equals(f.path, event.path);
+      }, test: (FileSystemEvent? event) {
+        Expect.equals(f.path, event?.path);
       });
   asyncEnd();
 }

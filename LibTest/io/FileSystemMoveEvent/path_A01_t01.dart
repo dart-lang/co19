@@ -26,10 +26,10 @@ _main(Directory sandbox) async {
   String path = d.path;
   asyncStart();
   await testFileSystemEvent<FileSystemMoveEvent>(dir,
-      createEvent: () {
+      createEvent: () async {
         d.renameSync(getTempDirectoryPath(parent: dir));
-      }, test: (FileSystemEvent event) {
-        Expect.equals(path, event.path);
+      }, test: (FileSystemEvent? event) {
+        Expect.equals(path, event?.path);
       }, failIfNoEvent: false);
   asyncEnd();
 }
