@@ -16,9 +16,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   var l = new Float32List.fromList([]);
-  try {
-    l.last;
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  Expect.throws(() { l.last; }, (e) => e is StateError);
 }
 

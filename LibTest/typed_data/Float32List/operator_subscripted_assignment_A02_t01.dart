@@ -15,22 +15,10 @@ import "../../../Utils/expect.dart";
 
 check(List<double> list) {
   var l = new Float32List.fromList(list);
-  try {
-    l[-1] = 1.0;
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
-  try {
-    l[l.length] = 1.0;
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
-  try {
-    l[0x80000000] = 1.0;
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
-  try {
-    l[0x7fffffff] = 1.0;
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
+  Expect.throws(() { l[-1]         = 1.0; }, (e) => e is RangeError);
+  Expect.throws(() { l[l.length]   = 1.0; }, (e) => e is RangeError);
+  Expect.throws(() { l[0x80000000] = 1.0; }, (e) => e is RangeError);
+  Expect.throws(() { l[0x7fffffff] = 1.0; }, (e) => e is RangeError);
 }
 
 main() {

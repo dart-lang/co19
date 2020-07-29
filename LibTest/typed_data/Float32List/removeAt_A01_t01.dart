@@ -23,10 +23,7 @@ import "../../../Utils/expect.dart";
 check(List<double> list) {
   var l = new Float32List.fromList(list);
   var length = l.length;
-  try {
-    l.removeAt(0);
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {};
+  Expect.throws(() { l.removeAt(0); }, (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 }
 

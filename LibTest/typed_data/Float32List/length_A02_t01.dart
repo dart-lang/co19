@@ -17,10 +17,7 @@ import "../../../Utils/expect.dart";
 
 void check(List<double> array, int length) {
   var l = new Float32List.fromList(array);
-  try {
-    l.length = 1;
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {}
+  Expect.throws(() { l.length = 1; }, (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 }
 

@@ -18,13 +18,13 @@ import "../../../Utils/expect.dart";
 
 checkDouble(List<double> list, double expected) {
   var l = new Float32List.fromList(list);
-  var res = l.fold(0.0, (prev, cur) => prev + cur);
+  var res = l.fold(0.0, (double prev, double cur) => prev + cur);
   Expect.equals(expected, res);
 }
 
 checkInt(List<double> list, int expected) {
   var l = new Float32List.fromList(list);
-  var res = l.fold(0, (prev, cur) => prev + cur);
+  var res = l.fold(0, (num prev, double cur) => prev + cur);
   Expect.equals(expected, res);
 }
 

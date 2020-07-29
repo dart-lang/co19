@@ -19,15 +19,16 @@ main() {
   var list = new Float32List.fromList([0.0]);
   var resList = list.toList(growable: true);
 
-  resList.length = 2;
-  Expect.equals(2, resList.length);
+  // Cannot change length here as list type parameter is not nullable
+  Expect.throws(() { resList.length = 2; }, (e) => e is TypeError);
+  Expect.equals(1, resList.length);
   resList.add(1.0);
-  Expect.equals(3, resList.length);
+  Expect.equals(2, resList.length);
   resList.addAll([1.0, 2.0, 3.0]);
-  Expect.equals(6, resList.length);
+  Expect.equals(5, resList.length);
 
   resList.removeLast();
-  Expect.equals(5, resList.length);
+  Expect.equals(4, resList.length);
   resList.clear();
   Expect.equals(0, resList.length);
 }

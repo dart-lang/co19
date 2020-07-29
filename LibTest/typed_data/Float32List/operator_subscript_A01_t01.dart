@@ -23,7 +23,7 @@ check(List<double> list) {
 main() {
   check([]);
   check([1.0]);
-  var list = new List<double>(255);
+  var list = List<double>.filled(255, 0.0);
   for (int i = 0; i < 255; ++i) {
     list[i] = i * 1.0;
   }
