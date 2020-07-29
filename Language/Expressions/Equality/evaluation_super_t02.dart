@@ -11,16 +11,15 @@
  *   this and o are null and to false otherwise. Otherwise ee is equivalent to
  *   the method invocation super.==(o).
  * @description Checks that if nnbd is turned on and [o] is [null], the operator
- * super [==(o)] is not called and "type 'Null' is not a subtype of type
- * 'Object'" exception appears.
+ * super [==(o)] is called and no exception is thrown.
  * @author msyabro
+ * @issue https://github.com/dart-lang/co19/issues/871
  */
 // Requirements=nnbd-strong
 import '../../../Utils/expect.dart';
 
 class S {
   operator ==(other) {
-    Expect.fail('operator== invoked with $other argument');
     return false;
   }
 }
@@ -28,7 +27,7 @@ class S {
 class C extends S {
   test() {
     dynamic n = null;
-    Expect.throws(() { super == n; });
+    Expect.isFalse(super == n);
   }
 }
 
