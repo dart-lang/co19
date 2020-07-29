@@ -41,7 +41,6 @@ import "../../../Utils/expect.dart";
 test() async {
   bool authenticateProxyCalled = false;
   bool findProxyCalled = false;
-  int requestCounter = 0;
 
   HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen((HttpRequest request) {
