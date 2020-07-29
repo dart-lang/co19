@@ -25,7 +25,7 @@ check(LinkedHashSet set, Iterable expected) {
 
 main() {
   LinkedHashSet<num> superSet =
-      new LinkedHashSet<num>.from([0, 1, 2.0, 3.14, 4]);
+      new LinkedHashSet<num>.from([0, 1, 2.1, 3.14, 4]);
   Iterable<num> tmp = superSet.where((v) => v is int);
   LinkedHashSet<int> subSet = new LinkedHashSet<int>.from(tmp);
   check(subSet, [0, 1, 4]);

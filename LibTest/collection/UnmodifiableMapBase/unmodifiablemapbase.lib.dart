@@ -23,5 +23,5 @@ class UnmodifiableMapBaseImpl<K, V> extends UnmodifiableMapBase<K, V> {
 
   Iterable<K> get keys => _map.keys;
   
-  V? operator [](Object key) => _map[key];
+  V? operator [](Object? key) => _map[key];
 }

@@ -45,7 +45,7 @@ class CustomIterator<T> implements Iterator<T> {
 }
 
 class IterableClass extends IterableBase {
-  List internalArray;
+  List internalArray = [];
   
   IterableClass() {
     internalArray = [1, 2, 3];

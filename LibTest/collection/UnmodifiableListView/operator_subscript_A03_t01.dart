@@ -17,7 +17,7 @@ void check(List a0, var idx) {
 }
 
 main() {
-  check([null], 0.0);
+  check([null], 0.1);
   check(['sd', 'sd'], 'sd');
   check([null, 1, 0], true);
   check(new List.filled(100, 0), {"a": 0});

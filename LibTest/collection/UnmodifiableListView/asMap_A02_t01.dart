@@ -33,7 +33,7 @@ void check(List a0) {
 }
 
 main() {
-  List a = new List();
+  List a = new List.empty(growable: true);
   check(a);
   a.add(2);
   check(a);
