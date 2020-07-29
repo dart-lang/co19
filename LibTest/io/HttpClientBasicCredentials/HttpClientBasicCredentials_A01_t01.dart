@@ -19,12 +19,14 @@ var localhost = InternetAddress.loopbackIPv4.address;
 test() async {
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
-    if (request.headers[HttpHeaders.authorizationHeader] == null) {
+    var hdr = request.headers[HttpHeaders.authorizationHeader];
+    if (hdr == null) {
       request.response.statusCode = HttpStatus.unauthorized;
-      request.response.headers.set(HttpHeaders.wwwAuthenticateHeader, 'Basic');
+      request.response.headers
+          .set(HttpHeaders.wwwAuthenticateHeader, 'Basic, realm=realm');
       request.response.close();
     } else {
-      var authorization = request.headers[HttpHeaders.authorizationHeader][0];
+      var authorization = hdr[0];
       String encoded = base64.encode(utf8.encode("co19-test:password"));
       Expect.equals("Basic ${encoded}", authorization);
       request.response.close();
@@ -36,10 +38,10 @@ test() async {
 
   client.authenticate = (Uri url, String scheme, String realm) {
     Expect.equals("Basic", scheme);
-    Expect.isNull(realm);
-    Completer completer = new Completer();
+    Expect.equals("realm", realm);
+    Completer<bool> completer = new Completer<bool>();
     client.addCredentials(Uri.parse("http://${localhost}:${server.port}"), "",
-          new HttpClientBasicCredentials("co19-test", "password"));
+        new HttpClientBasicCredentials("co19-test", "password"));
     completer.complete(true);
 
     return completer.future;

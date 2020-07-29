@@ -21,7 +21,8 @@ var localhost = InternetAddress.loopbackIPv4.address;
 test() async {
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
-    if (request.headers[HttpHeaders.authorizationHeader] == null) {
+    var hdr = request.headers[HttpHeaders.authorizationHeader];
+    if (hdr == null) {
       request.response.statusCode = HttpStatus.unauthorized;
       StringBuffer authHeader = new StringBuffer();
       authHeader.write('Digest');
@@ -31,7 +32,7 @@ test() async {
       request.response.headers.set(HttpHeaders.wwwAuthenticateHeader, authHeader);
       request.response.close();
     } else {
-      var authorization = request.headers[HttpHeaders.authorizationHeader][0];
+      var authorization = hdr[0];
       Expect.isTrue(authorization.contains('Digest'));
       Expect.isTrue(authorization.contains('username="co19-test"'));
       Expect.isTrue(authorization.contains('realm="realm"'));
@@ -47,7 +48,7 @@ test() async {
   client.authenticate = (Uri url, String scheme, String realm) {
     Expect.equals("Digest", scheme);
     Expect.equals("realm", realm);
-    Completer completer = new Completer();
+    Completer<bool> completer = new Completer<bool>();
     client.addCredentials(
         Uri.parse("http://${localhost}:${server.port}/xxx"), "realm",
           new HttpClientDigestCredentials("co19-test", "password"));
