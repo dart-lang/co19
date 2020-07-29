@@ -15,8 +15,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic obj = new Float32x4(0.0, 0.0, 0.0, 0.0);
-  try {
-    obj.z = 1e-1;
-    Expect.fail("[z] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { obj.z = 1e-1; }, (e) => e is NoSuchMethodError);
 }

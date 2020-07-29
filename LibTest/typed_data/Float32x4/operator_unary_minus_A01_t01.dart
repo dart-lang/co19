@@ -6,8 +6,8 @@
 /**
  * @assertion Float32x4 operator -()
  * Negate operator.
- * @description Checks that every lane of the new [Float32x4] equals the
- * negate value of the corresponding lane of [this].
+ * @description Checks that every lane of the new [Float32x4] equals the negate
+ * value of the corresponding lane of [this].
  * @author msyabro
  */
 

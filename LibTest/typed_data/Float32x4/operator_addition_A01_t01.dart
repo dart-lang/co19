@@ -6,8 +6,8 @@
 /**
  * @assertion Float32x4 operator +(Float32x4 other)
  * Addition operator.
- * @description Checks that every lane of the new [Float32x4] equals the
- * sum of corresponding lanes of operands.
+ * @description Checks that every lane of the new [Float32x4] equals the sum of
+ * corresponding lanes of operands.
  * @author msyabro
  */
 
