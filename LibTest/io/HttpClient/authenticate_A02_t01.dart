@@ -54,7 +54,7 @@ test() async {
   client.authenticate = (Uri url, String scheme, String realm) {
     Expect.equals("Digest", scheme);
     Expect.equals("realm", realm);
-    Completer completer = new Completer();
+    Completer<bool> completer = new Completer<bool>();
     completer.complete(false);
     return completer.future;
   };

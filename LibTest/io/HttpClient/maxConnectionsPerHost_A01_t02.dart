@@ -23,7 +23,7 @@ import "../../../Utils/expect.dart";
 
 var localhost = InternetAddress.loopbackIPv4.address;
 
-void test(int maxConnections, int max) {
+void test(int? maxConnections, int max) {
   asyncStart();
   HttpServer.bind(localhost, 0).then((server) {
     int handled = 0;

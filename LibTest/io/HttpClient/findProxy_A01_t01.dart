@@ -32,6 +32,7 @@
  * proxy server to be used for opening a HTTP connection to the specified url.
  * Test "DIRECT" connection and Basic authentication
  * @author sgrekhov@unipro.ru
+ * @issue 42870
  */
 import "dart:io";
 import 'dart:async';
@@ -52,7 +53,7 @@ test() async {
           .set(HttpHeaders.proxyAuthenticateHeader, 'Basic, realm=realm');
       request.response.statusCode = HttpStatus.proxyAuthenticationRequired;
       request.response.close();
-    } else  {
+    } else {
       Expect.isTrue(findProxyCalled);
       Expect.isTrue(authenticateProxyCalled);
       request.response.close();
@@ -69,7 +70,7 @@ test() async {
   client.authenticateProxy =
       (String host, int port, String scheme, String realm) {
         authenticateProxyCalled = true;
-        Completer completer = new Completer();
+        Completer<bool> completer = new Completer<bool>();
         completer.complete(true);
         return completer.future;
   };

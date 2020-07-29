@@ -32,9 +32,9 @@ test() async {
       response.statusCode = HttpStatus.proxyAuthenticationRequired;
       response.close();
     } else {
-      var authorization = request.headers[HttpHeaders.proxyAuthorizationHeader][0];
-      Expect.isTrue(authorization.contains('Digest'));
-      Expect.isTrue(authorization.contains('realm="client-realm"'));
+      var authorization = request.headers[HttpHeaders.proxyAuthorizationHeader]?[0];
+      Expect.isTrue(authorization?.contains('Digest'));
+      Expect.isTrue(authorization?.contains('realm="client-realm"'));
       response.close();
       server.close();
       asyncEnd();
@@ -51,7 +51,7 @@ test() async {
     Expect.equals(server.port, port);
     Expect.equals("Digest", scheme);
     Expect.equals("server-realm", realm);
-    Completer completer = new Completer();
+    Completer<bool> completer = new Completer<bool>();
     client.addProxyCredentials(InternetAddress.loopbackIPv4.address, port,
         "client-realm",
         new HttpClientDigestCredentials("co19-test", "password"));

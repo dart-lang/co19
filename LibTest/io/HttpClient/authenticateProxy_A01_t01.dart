@@ -44,7 +44,7 @@ test() async {
       response.statusCode = HttpStatus.proxyAuthenticationRequired;
       response.close();
     } else {
-      var authorization = request.headers[HttpHeaders.proxyAuthorizationHeader][0];
+      var authorization = request.headers[HttpHeaders.proxyAuthorizationHeader]?[0];
       String encoded = base64.encode(utf8.encode("co19-test:password"));
       Expect.equals("Basic ${encoded}", authorization);
       response.close();
@@ -63,7 +63,7 @@ test() async {
     Expect.equals(server.port, port);
     Expect.equals("Basic", scheme);
     Expect.equals("realm", realm);
-    Completer completer = new Completer();
+    Completer<bool> completer = new Completer<bool>();
     client.addProxyCredentials(InternetAddress.loopbackIPv4.address, port,
         "realm", new HttpClientBasicCredentials("co19-test", "password"));
     completer.complete(true);

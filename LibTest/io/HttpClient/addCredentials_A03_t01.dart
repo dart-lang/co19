@@ -29,8 +29,8 @@ test() async {
           'Digest, realm="server-realm", nonce=1');
       request.response.close();
     } else {
-      var authorization = request.headers[HttpHeaders.authorizationHeader][0];
-      Expect.isTrue(authorization.contains('realm="client-realm"'));
+      var authorization = request.headers[HttpHeaders.authorizationHeader]?[0];
+      Expect.isTrue(authorization?.contains('realm="client-realm"'));
       request.response.close();
       server.close();
       asyncEnd();
@@ -41,7 +41,7 @@ test() async {
   client.authenticate = (Uri url, String scheme, String realm) {
     Expect.equals("Digest", scheme);
     Expect.equals("server-realm", realm);
-    Completer completer = new Completer();
+    Completer<bool> completer = new Completer<bool>();
     client.addCredentials(Uri.parse("http://${localhost}:${server.port}"),
         "client-realm",
         new HttpClientDigestCredentials("co19-test", "password"));

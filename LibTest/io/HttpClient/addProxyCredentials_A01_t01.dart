@@ -24,7 +24,7 @@ var localhost = InternetAddress.loopbackIPv4.address;
 test() async {
   HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen((HttpRequest request) {
-    var authorization = request.headers[HttpHeaders.proxyAuthorizationHeader][0];
+    var authorization = request.headers[HttpHeaders.proxyAuthorizationHeader]?[0];
     String encoded = base64.encode(utf8.encode("co19-test:password"));
     Expect.equals("Basic ${encoded}", authorization);
     request.response.close();

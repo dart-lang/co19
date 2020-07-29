@@ -40,7 +40,7 @@ test() async {
           'Basic, realm="realm", domain="/xxxt/"');
       request.response.close();
     } else {
-      var authorization = request.headers[HttpHeaders.authorizationHeader][0];
+      var authorization = request.headers[HttpHeaders.authorizationHeader]?[0];
       String encoded = base64.encode(utf8.encode("co19-test:password"));
       Expect.equals("Basic ${encoded}", authorization);
       request.response.close();
@@ -53,7 +53,7 @@ test() async {
   client.authenticate = (Uri url, String scheme, String realm) {
     Expect.equals("Basic", scheme);
     Expect.equals("realm", realm);
-    Completer completer = new Completer();
+    Completer<bool> completer = new Completer<bool>();
     client.addCredentials(
         Uri.parse(
             "http://${InternetAddress.loopbackIPv4.address}:${server.port}/xxx"),

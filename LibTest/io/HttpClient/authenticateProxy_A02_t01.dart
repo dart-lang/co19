@@ -63,7 +63,7 @@ test() async {
     Expect.equals(server.port, port);
     Expect.equals("Basic", scheme);
     Expect.equals("realm", realm);
-    Completer completer = new Completer();
+    Completer<bool> completer = new Completer<bool>();
     completer.complete(false);
     return completer.future;
   };

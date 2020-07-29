@@ -45,11 +45,13 @@ test() async {
       Expect.equals(helloWorld, content);
       client.close(force: true);
 
-      client.getUrl(Uri.parse("http://${localhost}:${server.port}"))
-          .then((HttpClientRequest request) {
-        return request.close();
-      }).then((HttpClientResponse response) {
-        Expect.fail("Request should not be sent!");
+      Expect.throws(() {
+        client.getUrl(Uri.parse("http://${localhost}:${server.port}"))
+            .then((HttpClientRequest request) {
+          return request.close();
+        }).then((HttpClientResponse response) {
+          Expect.fail("Request should not be sent!");
+        });
       });
     });
   });
