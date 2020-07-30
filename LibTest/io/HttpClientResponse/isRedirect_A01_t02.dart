@@ -12,6 +12,7 @@
  * of the normal redirect codes
  * @author sgrekhov@unipro.ru
  * @issue 31962
+ * @issue 42886
  */
 import "dart:io";
 import "dart:convert";
@@ -34,7 +35,6 @@ test(String method, int statusCode) async {
       request.response.write(helloWorld);
       request.response.close();
       server.close();
-
     } else {
       server.close();
       Expect.fail("Wrong URI:" + request.uri.path);
@@ -50,7 +50,6 @@ test(String method, int statusCode) async {
     Expect.isTrue(response.isRedirect);
     asyncEnd();
     response.cast<List<int>>().transform(utf8.decoder).listen((content) {
-
     });
   });
 }
