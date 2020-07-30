@@ -31,8 +31,8 @@ test() async {
   client.get(localhost, server.port, "")
       .then((HttpClientRequest request) {
         Expect.isNotNull(request.connectionInfo);
-        Expect.equals(server.port, request.connectionInfo.remotePort);
-        Expect.equals(localhost, request.connectionInfo.remoteAddress.address);
+        Expect.equals(server.port, request.connectionInfo?.remotePort);
+        Expect.equals(localhost, request.connectionInfo?.remoteAddress.address);
         return request.close();
       })
       .then((HttpClientResponse response) {

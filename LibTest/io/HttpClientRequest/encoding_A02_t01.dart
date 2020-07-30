@@ -30,7 +30,7 @@ test(String method) async {
   HttpClient client = new HttpClient();
   client.open(method, localhost, server.port, "")
       .then((HttpClientRequest request) {
-    Expect.throws(() {request.encoding = Encoding.getByName("UTF-8");});
+    Expect.throws(() {request.encoding = Encoding.getByName("UTF-8")!;});
     return request.close();
   }).then((HttpClientResponse response) {
     response.cast<List<int>>().transform(utf8.decoder).listen((content) {});

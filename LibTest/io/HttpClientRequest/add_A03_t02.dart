@@ -29,7 +29,7 @@ import "../../../Utils/expect.dart";
 var localhost = InternetAddress.loopbackIPv4.address;
 
 test(String method) async {
-  Stream<List> stream = new Stream<List>.fromIterable(
+  Stream<List<int>> stream = new Stream<List<int>>.fromIterable(
       [[3, 1, 4, 1, 5], [], [9], []]);
 
   asyncStart();
