@@ -20,15 +20,13 @@ main() {
   var list = new Float32x4List(1);
   var resList = list.toList(growable:true);
 
-  resList.length = 2;
-  Expect.equals(2, resList.length);
   resList.add(pack(1.0));
-  Expect.equals(3, resList.length);
+  Expect.equals(2, resList.length);
   resList.addAll([pack(1.0), pack(2.0), pack(3.0)]);
-  Expect.equals(6, resList.length);
+  Expect.equals(5, resList.length);
 
   resList.removeLast();
-  Expect.equals(5, resList.length);
+  Expect.equals(4, resList.length);
   resList.clear();
   Expect.equals(0, resList.length);
 }

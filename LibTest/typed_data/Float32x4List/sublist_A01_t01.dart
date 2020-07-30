@@ -22,7 +22,7 @@ equal(obj1, obj2) {
   return res.flagX && res.flagY && res.flagZ && res.flagW;
 }
 
-void check(List<Float32x4> list, dynamic start, dynamic end) {
+void check(List<Float32x4> list, int start, int end) {
   var l = new Float32x4List.fromList(list);
   var res = l.sublist(start, end);
 

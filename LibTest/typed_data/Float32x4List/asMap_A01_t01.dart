@@ -23,10 +23,10 @@ check(List<Float32x4> list) {
   var m = l.asMap();
   for (int key = 0; key < list.length; ++key) {
     Expect.isTrue(m.containsKey(key));
-    Expect.equals(l[key].x, m[key].x);
-    Expect.equals(l[key].y, m[key].y);
-    Expect.equals(l[key].z, m[key].z);
-    Expect.equals(l[key].w, m[key].w);
+    Expect.equals(l[key].x, m[key]?.x);
+    Expect.equals(l[key].y, m[key]?.y);
+    Expect.equals(l[key].z, m[key]?.z);
+    Expect.equals(l[key].w, m[key]?.w);
   }
 }
 

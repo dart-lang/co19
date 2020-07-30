@@ -18,14 +18,12 @@ import "../../../Utils/expect.dart";
 
 check(length) {
   var l = new Float32x4List(length);
-  try {
+  Expect.throws(() {
     l.elementAt(length + 1);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
-  try {
+  }, (e) => e is RangeError);
+  Expect.throws(() {
     l.elementAt(-1);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
+  }, (e) => e is RangeError);
 }
 
 main() {

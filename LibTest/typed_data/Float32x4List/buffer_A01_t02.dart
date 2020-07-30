@@ -17,10 +17,8 @@ Float32x4 pack(x, y, z, w) => new Float32x4(x,y,z,w);
 
 void check(List<Float32x4> list) {
   dynamic l = new Float32x4List.fromList(list);
-  try {
-    l.buffer = new Float32x4List.fromList(list).buffer;
-    Expect.fail("[buffer] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { l.buffer = new Float32x4List.fromList(list).buffer; },
+          (e) => e is NoSuchMethodError);
 }
 
 main() {

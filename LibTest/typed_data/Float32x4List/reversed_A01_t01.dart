@@ -6,8 +6,8 @@
 /**
  * @assertion Iterable<E> reversed
  * Returns an [Iterable] of the objects in [this] list in reverse order.
- * @description Checks that the elements of [reversed] are the elements
- * of [this] in reverse order.
+ * @description Checks that the elements of [reversed] are the elements of
+ * [this] in reverse order.
  * @author msyabro
  */
 
@@ -34,7 +34,7 @@ main() {
   check([pack(1.0)]);
   check([pack(1.0), pack(2.0)]);
   check([pack(1.0), pack(2.0), pack(3.0)]);
-  var list = new List<Float32x4>(1000);
+  var list = List<Float32x4>.filled(1000, pack(0.0));
   for (int i = 0; i < 1000; ++i) {
     list[i] = pack(i * 1.0);
   }

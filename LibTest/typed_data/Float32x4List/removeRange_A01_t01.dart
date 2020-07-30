@@ -22,10 +22,7 @@ Float32x4 pack(v) => new Float32x4.splat(v);
 check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
   var length = l.length;
-  try {
-    l.removeRange(0, 1);
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {};
+  Expect.throws(() { l.removeRange(0, 1); }, (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 }
 

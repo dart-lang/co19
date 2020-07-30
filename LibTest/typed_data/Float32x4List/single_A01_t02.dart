@@ -15,8 +15,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic l = new Float32x4List.fromList([new Float32x4.zero()]);
-  try {
-    l.single = new Float32x4.splat(.1);
-    Expect.fail("[single] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { l.single = new Float32x4.splat(.1); },
+          (e) => e is NoSuchMethodError);
 }

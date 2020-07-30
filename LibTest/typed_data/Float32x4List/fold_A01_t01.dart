@@ -20,7 +20,8 @@ Float32x4 pack(v) => new Float32x4.splat(v);
 
 checkInt(List<Float32x4> list, int expected) {
   var l = new Float32x4List.fromList(list);
-  var res = l.fold(0, (prev, cur) => prev + cur.x + cur.y + cur.z + cur.w);
+  var res = l.fold(
+      0, (dynamic prev, cur) => prev + cur.x + cur.y + cur.z + cur.w);
   Expect.equals(expected, res);
 }
 

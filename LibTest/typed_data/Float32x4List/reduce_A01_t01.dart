@@ -33,7 +33,6 @@ checkConst(List<Float32x4> list, expected) {
   Expect.isTrue(equal(expected, res));
 }
 
-
 main() {
   check([
     pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0), pack(6.0),

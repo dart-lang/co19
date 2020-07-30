@@ -39,7 +39,7 @@ main() {
     pack(6.0), pack(7.0), pack(8.0), pack(9.0), pack(10.0)
   ]);
 
-  var a = new List<Float32x4>(255);
+  var a = List<Float32x4>.filled(255, pack(0.0));
   for (var i = 0; i < a.length; i++) {
     a[i] = pack(i * 1.0);
   }

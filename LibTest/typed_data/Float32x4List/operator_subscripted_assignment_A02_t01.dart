@@ -18,22 +18,13 @@ Float32x4 pack(v) => new Float32x4.splat(v);
 
 check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
-  try {
-    l[-1] = new Float32x4.zero();
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
-  try {
-    l[l.length] = new Float32x4.zero();
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
-  try {
-    l[0x80000000] = new Float32x4.zero();
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
-  try {
-    l[0x7fffffff] = new Float32x4.zero();
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
+  Expect.throws(() { l[-1] = new Float32x4.zero(); }, (e) => e is RangeError);
+  Expect.throws(
+          () { l[l.length] = new Float32x4.zero(); }, (e) => e is RangeError);
+  Expect.throws(
+          () { l[0x80000000] = new Float32x4.zero(); }, (e) => e is RangeError);
+  Expect.throws(
+          () { l[0x7fffffff] = new Float32x4.zero(); }, (e) => e is RangeError);
 }
 
 main() {

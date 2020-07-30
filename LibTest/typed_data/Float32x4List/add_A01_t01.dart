@@ -17,10 +17,8 @@ import "../../../Utils/expect.dart";
 
 check(length) {
   var l = new Float32x4List(length);
-  try {
-    l.add(new Float32x4(.0, .0, .0, .0));
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {}
+  Expect.throws(() { l.add(new Float32x4(.0, .0, .0, .0)); },
+          (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 }
 

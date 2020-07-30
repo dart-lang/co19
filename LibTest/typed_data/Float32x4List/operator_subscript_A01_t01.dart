@@ -30,7 +30,7 @@ check(List<Float32x4> list) {
 main() {
   check([]);
   check([pack(1.0)]);
-  List<Float32x4> list = new List(255);
+  List<Float32x4> list = List<Float32x4>.filled(255, pack(0.0));
   for (int i = 0; i < 255; ++i) {
     list[i] = pack(i * 1.0);
   }

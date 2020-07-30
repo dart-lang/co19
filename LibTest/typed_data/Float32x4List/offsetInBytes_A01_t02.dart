@@ -17,10 +17,7 @@ Float32x4 pack(v) => new Float32x4.splat(v);
 
 void check(List<Float32x4> array) {
   dynamic l = new Float32x4List.fromList(array);
-  try {
-    l.offsetInBytes = 0;
-    Expect.fail("[offsetInBytes] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { l.offsetInBytes = 0; }, (e) => e is NoSuchMethodError);
 }
 
 main() {

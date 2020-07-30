@@ -16,8 +16,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic l = new Float32x4List.fromList([]);
-  try {
-    l.single;
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  Expect.throws(() { l.single; }, (e) => e is StateError);
 }

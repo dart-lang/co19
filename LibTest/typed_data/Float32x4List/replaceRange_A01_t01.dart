@@ -24,18 +24,14 @@ Float32x4 pack(v) => new Float32x4.splat(v);
 check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
   var length = l.length;
-  try {
-    l.replaceRange(0, 1, [pack(.0)]);
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {};
+  Expect.throws(() { l.replaceRange(0, 1, [pack(.0)]); },
+          (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 
-  try {
-    l.replaceRange(0, 100, [pack(0.0), pack(1.0), pack(2.0)]);
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {};
+  Expect.throws(
+          () { l.replaceRange(0, 100, [pack(0.0), pack(1.0), pack(2.0)]); },
+          (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
-
 }
 
 main() {

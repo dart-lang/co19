@@ -19,8 +19,6 @@ Float32x4 pack(v) => new Float32x4.splat(v);
 
 main() {
   Float32x4List l = new Float32x4List.fromList([]);
-  try {
-    l.reduce((prev, cur) => pack(0.0));
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  Expect.throws(
+          () { l.reduce((prev, cur) => pack(0.0)); }, (e) => e is StateError);
 }

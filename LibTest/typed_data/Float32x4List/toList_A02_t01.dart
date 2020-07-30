@@ -17,10 +17,6 @@ import "../../../Utils/expect.dart";
 main() {
   var list = new Float32x4List(1);
   dynamic resList = list.toList(growable:false);
-
-  try {
-    resList.length = 10;
-    Expect.fail("List should be fixed-length");
-  } on UnsupportedError {}
+  Expect.throws(() { resList.length = 10; }, (e) => e is UnsupportedError);
   Expect.equals(1, resList.length);
 }

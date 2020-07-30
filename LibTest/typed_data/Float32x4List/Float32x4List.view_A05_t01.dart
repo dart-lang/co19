@@ -26,11 +26,8 @@ Float32x4 pack(v) => new Float32x4.splat(v);
 void check(List<Float32x4> array, int offset) {
   var tmp = new Float32x4List.fromList(array);
   var byteBuffer = tmp.buffer;
-  try {
-    new Float32x4List.view(byteBuffer, offset);
-    Expect.fail("RangeError exception is expected");
-  } on RangeError {
-  }
+  Expect.throws(() { Float32x4List.view(byteBuffer, offset); },
+          (e) => e is RangeError);
 }
 
 main() {

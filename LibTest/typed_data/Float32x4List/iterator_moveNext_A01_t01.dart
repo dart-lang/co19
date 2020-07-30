@@ -26,7 +26,7 @@ main() {
   Expect.isTrue(it.moveNext());
   Expect.isFalse(it.moveNext());
 
-  l = new Float32x4List(1000);
+  l = Float32x4List.fromList(List.filled(1000, pack(0.0)));
   it = l.iterator;
   for (var i = 0; i < 1000; ++i) {
     Expect.isTrue(it.moveNext());

@@ -19,10 +19,7 @@ Float32x4 pack(v) => new Float32x4.splat(v);
 
 void check(List<Float32x4> array, int length) {
   var l = new Float32x4List.fromList(array);
-  try {
-    l.length = 1;
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {}
+  Expect.throws(() { l.length = 1; }, (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 }
 

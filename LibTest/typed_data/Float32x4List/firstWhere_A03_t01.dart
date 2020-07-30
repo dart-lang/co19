@@ -19,10 +19,7 @@ Float32x4 o() => new Float32x4.zero();
 
 check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
-  try {
-    l.firstWhere((e) => false);
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  Expect.throws(() { l.firstWhere((e) => false); }, (e) => e is StateError);
 }
 
 main() {

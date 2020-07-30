@@ -19,10 +19,9 @@ Float32x4 pack(v) => new Float32x4.splat(v);
 
 check(List<Float32x4> array) {
   var l = new Float32x4List.fromList(array);
-  try {
+  Expect.throws(() {
     l.single;
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  }, (e) => e is StateError);
 }
 
 main() {
