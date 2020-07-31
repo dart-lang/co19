@@ -15,7 +15,6 @@
  * @issue 42886
  */
 import "dart:io";
-import "dart:convert";
 import "../../../Utils/expect.dart";
 
 var localhost = InternetAddress.loopbackIPv4.address;
@@ -44,13 +43,12 @@ test(String method, int statusCode) async {
   HttpClient client = new HttpClient();
   client.open(method, localhost, server.port, "/xxx")
       .then((HttpClientRequest request) {
-    Expect.isTrue(request.followRedirects);
+    request.followRedirects = false;
     return request.close();
   }).then((HttpClientResponse response) {
     Expect.isTrue(response.isRedirect);
     asyncEnd();
-    response.cast<List<int>>().transform(utf8.decoder).listen((content) {
-    });
+    server.close();
   });
 }
 
