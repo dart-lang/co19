@@ -8,12 +8,10 @@
  * @description Checks that using a null pattern argument results in Error.
  * @author rodionov
  */
-import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() { new RegExp(null); });
-//                              ^                    ^
+  new RegExp(null);
+//           ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
 }

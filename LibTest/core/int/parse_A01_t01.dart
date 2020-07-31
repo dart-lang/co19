@@ -32,6 +32,6 @@ main() {
   Expect.isTrue(int.parse("12 ") == 12);
   Expect.isTrue(int.parse("\n\t 12    ") == 12);
 
-  Expect.isTrue(int.parse("9223372036854775807") == 9223372036854775807);
-  Expect.isTrue(int.parse("-9223372036854775808") == -9223372036854775808);
+  Expect.isTrue(int.parse("9007199254740991") == 9007199254740991);
+  Expect.isTrue(int.parse("-9007199254740991") == -9007199254740991);
 }

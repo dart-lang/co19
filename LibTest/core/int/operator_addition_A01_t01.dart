@@ -19,8 +19,7 @@ main() {
   Expect.equals(-2147483647, -2147483648 + 1);
   Expect.equals(4294967296, 4294967295 + 1);
   Expect.equals( -4294967295, -4294967296 + 1);
-  Expect.equals(-8301034833169298229, 9223372036854775807 + 922337203685477580);
-  Expect.equals(-1, -9223372036854775808 + 9223372036854775807);
+  Expect.equals(-1, -9007199254740991 + 9007199254740990);
 
   final double MIN_DOUBLE = Math.pow(2.0, -1074) as double;
   final double NEG_MIN_DOUBLE = -1 * MIN_DOUBLE; 

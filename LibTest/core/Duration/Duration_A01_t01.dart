@@ -22,8 +22,8 @@ main() {
   check(30, 10, 20, 45, 700, 666);
   check(0x7fffffff, 0, 0x7fffffff, 0, 0x7fffffff, 0x7fffffff);
   check(0, 0x80000000, 0, 0x80000000, 0, 0x80000000);
-  check(0x7fffffffffffffff, 0, 0x7fffffffffffffff, 0, 0x7fffffffffffffff,
-      0x7fffffffffffffff);
+  check(0x7ffffffffffff, 0, 0x7ffffffffffff, 0, 0x7ffffffffffff,
+      0x7ffffffffffff);
   check(0, 0x8000000000000000, 0, 0x8000000000000000, 0, 0);
 }
 

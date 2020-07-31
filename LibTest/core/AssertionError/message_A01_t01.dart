@@ -28,11 +28,13 @@ check(message) {
 }
 
 main() {
-  check(null);
-  check("I'll be back!");
-  check(123);
-  check(3.14);
-  check(true);
-  check(false);
-  check(new Object());
+  if (assertStatementsEnabled) {
+    check(null);
+    check("I'll be back!");
+    check(123);
+    check(3.14);
+    check(true);
+    check(false);
+    check(new Object());
+  }
 }

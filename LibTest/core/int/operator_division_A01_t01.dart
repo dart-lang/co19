@@ -12,14 +12,6 @@
 import "../../../Utils/expect.dart";
 import "dart:math" as Math;
 
-// the gap between this double and the next
-// @3rdparty sputnik-v1/lib/math_precision.js
-double getPrecision(num number) {
-  var log2num = Math.log(number.abs()) / Math.ln2;
-  int pernum = log2num.ceil();
-  return(Math.pow(2, -51 + pernum) as double);
-}
-
 main() {
   Expect.equals(1.0,  1 / 1);
   Expect.equals(-1.0, 1 / -1);
@@ -33,7 +25,7 @@ main() {
 
   Expect.equals(1.0, 2147483647 / 2147483647);
 
-  Expect.equals(922337203685477600.0, 1844674407370955161 / 2);
-  Expect.equals(-922337203685477600.0, 1844674407370955161 / -2);
-  Expect.equals(2.0, 1844674407370955161 / 922337203685477580);
+  Expect.equals(4503599627370495.5, 9007199254740991 / 2);
+  Expect.equals(-4503599627370495.5, 9007199254740991 / -2);
+  Expect.equals(2.0, 9007199254740991 / 4503599627370495.5);
 }

@@ -7,8 +7,6 @@
  * @assertion This operator implements bit-wise negation operation.
  * @description Checks that this operator returns correct value.
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 main() {
@@ -21,10 +19,10 @@ main() {
   check(-10);
   check(2147483647);
   check(4294967295);
-  check(9223372036854775807);
+  check(9007199254740991);
   check(-2147483647);
   check(-4294967295);
-  check(-9223372036854775807);
+  check(-9007199254740991);
 }
 
 void check(int x) {

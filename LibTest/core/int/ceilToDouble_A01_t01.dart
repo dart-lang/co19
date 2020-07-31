@@ -11,7 +11,6 @@
  * @author vasya
  */
 import "../../../Utils/expect.dart";
-
 import "dart:math" as Math;
 
 void check(int x) {
@@ -30,9 +29,8 @@ main() {
   check(-2147483648);
   check(4294967295);
   check(-4294967296);
-  check(9223372036854775807);
-  check(-9223372036854775808);
-  check(-1844674407370955161);
+  check(9007199254740991);
+  check(-9007199254740991);
   check(1 << 1024);
   check(1 << 1124);
   check(-(1 << 1024));

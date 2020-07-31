@@ -22,6 +22,7 @@
  *  operator== and hashCode depending on the object.
  * @description Checks that equality operator works as expected.
  * @author sgrekhov@unipro.ru
+ * @issue 42895
  */
 import "../../../Utils/expect.dart";
 

@@ -26,7 +26,7 @@ main() {
   Expect.throws(() {int.parse("1", radix: -20);});
   Expect.throws(() {int.parse("1", radix: 37);});
   Expect.throws(() {int.parse("1", radix: -37);});
-  Expect.throws(() {int.parse("1", radix: 1234567891234567890);});
+  Expect.throws(() {int.parse("1", radix: 9007199254740991);});
 
   for (int i = 2; i <= 36; i++) {
     int.parse("1", radix: i);

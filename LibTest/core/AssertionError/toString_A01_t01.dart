@@ -15,11 +15,13 @@
 import "../../../Utils/expect.dart";
  
 main() {
-  try {
-    assert(1 == 2);
-    Expect.fail("AssertionError expected");
-  } on AssertionError catch(e) {
-    Expect.isTrue(e.toString() != null);
-    Expect.isTrue(e.toString() is String);
+  if (assertStatementsEnabled) {
+    try {
+      assert(1 == 2);
+      Expect.fail("AssertionError expected");
+    } on AssertionError catch (e) {
+      Expect.isTrue(e.toString() != null);
+      Expect.isTrue(e.toString() is String);
+    }
   }
 }

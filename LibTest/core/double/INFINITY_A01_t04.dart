@@ -10,9 +10,7 @@
  */
 import "../../../Utils/expect.dart";
 
-
 main() {
-  Expect.isFalse(double.infinity is int);
   Expect.isTrue(double.infinity is double);
   Expect.isTrue(double.infinity is num);
 }

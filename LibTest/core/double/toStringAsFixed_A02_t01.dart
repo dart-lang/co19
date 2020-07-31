@@ -42,7 +42,7 @@ final List<double> values = const [
 dynamic getNull() => null;
 
 check(double val) {
-  Expect.throws(() => val.toStringAsFixed(getNull()));
+  Expect.throws(() => val.toStringAsFixed(getNull()), null, "Failed for '$val'");
 }
 
 main() {

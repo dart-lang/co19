@@ -29,6 +29,7 @@
  * another read of the variable, then [CyclicInitializationError] is not thrown
  * and [StackOverflowError] happens instead. Test library variable.
  * @Issue 42470
+ * @issue 42893
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";

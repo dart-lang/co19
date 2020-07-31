@@ -18,8 +18,8 @@ check(double d, int i, bool greaterThan) {
 }
 
 main() {
-  check(-1/0, -9223372036854775808, false); // !(-infinity > -2^63)
-  check(-1.7976931348623157e308, -9223372036854775808, false); // !(-maxdouble > -2^63)
+  check(-1/0, -9007199254740991, false); // !(-infinity > -2^53)
+  check(-1.7976931348623157e308, -9007199254740991, false); // !(-maxdouble > -2^53)
 
   check(-100.00000000000001, -100, false);
   check(-100.0, -100, false);
@@ -44,6 +44,6 @@ main() {
   check(100.0, 100, false);
   check(100.00000000000001, 100, true);
 
-  check(1.7976931348623157e308, 9223372036854775807, true); // maxdouble > 2^63 - 1 
-  check(1/0, 9223372036854775807, true); // infinity > 2^63 - 1
+  check(1.7976931348623157e308, 9007199254740991, true); // maxdouble > 2^53 - 1
+  check(1/0, 9007199254740991, true); // infinity > 2^53 - 1
 }

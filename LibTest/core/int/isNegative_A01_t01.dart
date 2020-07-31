@@ -8,7 +8,6 @@
  * negative.
  * @description Checks that this method returns correct value.
  * @author vasya
- * @reviewer msyabro
  */
 import "../../../Utils/expect.dart";
 
@@ -22,6 +21,6 @@ main() {
   for (var i = 0; i <= 100; i++){
     Expect.isFalse(i.isNegative);
   }
-  Expect.isFalse(9223372036854775807.isNegative);
-  Expect.isTrue((-9223372036854775808).isNegative);
+  Expect.isFalse(9007199254740991.isNegative);
+  Expect.isTrue((-9007199254740991).isNegative);
 }

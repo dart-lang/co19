@@ -30,11 +30,11 @@ main() {
   Expect.isFalse(3.isEven);
   Expect.isFalse(5.isEven);
   Expect.isFalse(9.isEven);
-  Expect.isFalse(8000000000000000001.isEven);
+  Expect.isFalse((8000000000000000000 - 1).isEven);
 
   Expect.isFalse((-1).isEven);
   Expect.isFalse((-3).isEven);
   Expect.isFalse((-5).isEven);
   Expect.isFalse((-9).isEven);
-  Expect.isFalse((-800000000000000001).isEven);
+  Expect.isFalse((-800000000000000000 + 1).isEven);
 }

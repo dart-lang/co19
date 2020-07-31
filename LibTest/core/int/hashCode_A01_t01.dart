@@ -8,8 +8,6 @@
  * @description Checks that this getter returns a non-null value and throws no
  * exceptions
  * @author vasya
- * @reviewer msyabro
- * @reviewer rodionov
  */
 import "../../../Utils/expect.dart";
 
@@ -19,6 +17,6 @@ main() {
   Expect.isTrue(null != (-2147483648).hashCode);
   Expect.isTrue(null != 4294967295.hashCode);
   Expect.isTrue(null != (-4294967296).hashCode);
-  Expect.isTrue(null != 9223372036854775807.hashCode);
-  Expect.isTrue(null != (-9223372036854775808).hashCode);
+  Expect.isTrue(null != 9007199254740991.hashCode);
+  Expect.isTrue(null != (-9007199254740991).hashCode);
 }

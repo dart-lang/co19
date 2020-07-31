@@ -11,7 +11,10 @@
  */
 main() {
   RegExp re = new RegExp(r".", multiLine: null, caseSensitive: null);
-//                                        ^                    ^
+//                                        ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+//                                                             ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

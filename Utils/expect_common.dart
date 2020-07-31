@@ -341,3 +341,10 @@ class ExpectException implements Exception {
   ExpectException([this.message]);
   String toString() => message ?? "";
 }
+
+/// Is true iff `assert` statements are enabled.
+final bool assertStatementsEnabled = (() {
+  bool result = false;
+  assert(result = true);
+  return result;
+})();

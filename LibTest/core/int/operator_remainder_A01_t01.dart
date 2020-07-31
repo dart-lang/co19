@@ -8,7 +8,7 @@
  * The % operator yields the remainder of its operands from an implied division;
  * the left operand is the dividend and the right operand is the divisor.
  * @description Checks that this operator returns correct value for integer
- *              arguments (including 0).
+ * arguments (including 0).
  * @author vasya
  */
 import "../../../Utils/expect.dart";
@@ -28,11 +28,11 @@ main() {
   Expect.equals(0, 2147483647 % 2147483647);
   Expect.equals(1, 2147483647 % 2147483646);
 
-  Expect.equals(1844674407370955161,
-      1844674407370955161 % 1844674407370955162);
-  Expect.equals(0, 1844674407370955161 % 1844674407370955161);
-  Expect.equals(1, 1844674407370955162 % 1844674407370955161);
+  Expect.equals(9007199254740990,
+      9007199254740990 % 9007199254740991);
+  Expect.equals(0, 9007199254740991 % 9007199254740991);
+  Expect.equals(1, 9007199254740991 % 9007199254740990);
 
-  Expect.equals(0, 0 % 1844674407370955161);
-  Expect.equals(0, 0 % -1844674407370955161);
+  Expect.equals(0, 0 % 9007199254740991);
+  Expect.equals(0, 0 % -9007199254740991);
 }

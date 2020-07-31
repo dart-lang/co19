@@ -26,8 +26,6 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() {c.foo.abyr = null;}, (e) => e is NoSuchMethodError);
-
   bool called = false;
   Expect.equals(1, int.parse("-a1", onError: (s) {
     called = true;

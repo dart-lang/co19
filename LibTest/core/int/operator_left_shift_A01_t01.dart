@@ -9,6 +9,7 @@
  * @description Checks that this operator returns correct value for non-negative
  * and not exceedingly large arguments.
  * @author vasya
+ * @issue 42892
  */
 import "../../../Utils/expect.dart";
 

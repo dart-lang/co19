@@ -20,8 +20,9 @@ main() {
   check(-1, 0);
   check(0, 0);
 }
-  
+
 void check(int x, num z) {
-  Expect.throws(
-          () { x.remainder(z); }, (e) => e is IntegerDivisionByZeroException);
+  Expect.throws(() {
+    x.remainder(z);
+  }, (e) => e is IntegerDivisionByZeroException);
 }

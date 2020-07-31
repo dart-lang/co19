@@ -22,11 +22,11 @@ test(List<E> create<E>([int length, E fill])) {
   }
 
   check(new List.filled(1, 0), -1);
-  check(new List.filled(1, 0), -(1 << 31));
+  check(new List.filled(1, 0), -(1 << 30));
   check([1], -1);
-  check([1], -(1 << 31));
+  check([1], -(1 << 30));
   check(const [1], -1);
-  check(const [1], -(1 << 31));
+  check(const [1], -(1 << 30));
   check(new List.empty(), -1);
-  check(new List.empty(), -(1 << 31));
+  check(new List.empty(), -(1 << 30));
 }

@@ -9,6 +9,7 @@
  * @description Checks that exception is thrown if [message] is [:null:].
  * @author iarkh
  */
+// Requirements=nnbd-strong
 import "../../../Utils/expect.dart";
 
 dynamic getNull() => null;
