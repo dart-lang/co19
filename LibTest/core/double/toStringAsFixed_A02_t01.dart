@@ -9,6 +9,7 @@
  * 0 <= fractionDigits <= 20.
  * @description Checks that correct exception is thrown.
  * @author msyabro
+ * @issue 42919
  */
 import "../../../Utils/expect.dart";
 

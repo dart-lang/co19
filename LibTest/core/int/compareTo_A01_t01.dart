@@ -33,5 +33,4 @@ main() {
   Expect.equals(1,  (-9007199254740990).compareTo(-9007199254740991));
 
   Expect.equals(0, 0x1800000000000000.compareTo(0x1800000000000000));
-  Expect.equals(1, 0x1800000000000000.compareTo(0x199999999999999));
 }

@@ -21,7 +21,7 @@ test(List<E> create<E>([int length, E fill])) {
     Expect.throws(() {a[idx];}, (e) => e is Error);
   }
 
-  check(const [null], 0.0);
+  check(const [null], 0.1);
   check(['sd', 'sd'], 'sd');
   check(new List.from(<int?>[null, 1, 0]), true);
   check(new List.filled(100, 0), {"a": 0});

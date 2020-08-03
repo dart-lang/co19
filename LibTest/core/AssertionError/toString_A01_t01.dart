@@ -10,8 +10,6 @@
  * statement.
  * @author rodionov
  */
-// SharedOptions=--enable-asserts=true
-
 import "../../../Utils/expect.dart";
  
 main() {

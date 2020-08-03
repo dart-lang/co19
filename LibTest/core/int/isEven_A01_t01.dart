@@ -18,23 +18,23 @@ main() {
   Expect.isTrue(4.isEven);
   Expect.isTrue(6.isEven);
   Expect.isTrue(8.isEven);
-  Expect.isTrue(8000000000000000000.isEven);
+  Expect.isTrue(8000000000000000.isEven);
 
   Expect.isTrue((-2).isEven);
   Expect.isTrue((-4).isEven);
   Expect.isTrue((-6).isEven);
   Expect.isTrue((-8).isEven);
-  Expect.isTrue((-80000000000000000).isEven);
+  Expect.isTrue((-8000000000000000).isEven);
 
   Expect.isFalse(1.isEven);
   Expect.isFalse(3.isEven);
   Expect.isFalse(5.isEven);
   Expect.isFalse(9.isEven);
-  Expect.isFalse((8000000000000000000 - 1).isEven);
+  Expect.isFalse((8000000000000000 - 1).isEven);
 
   Expect.isFalse((-1).isEven);
   Expect.isFalse((-3).isEven);
   Expect.isFalse((-5).isEven);
   Expect.isFalse((-9).isEven);
-  Expect.isFalse((-800000000000000000 + 1).isEven);
+  Expect.isFalse((-8000000000000000 + 1).isEven);
 }
