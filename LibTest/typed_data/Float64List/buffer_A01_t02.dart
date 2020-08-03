@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 void check(List<double> array) {
   dynamic l = new Float64List.fromList(array);
-  Expect.throws(() { l.buffer = new Float64List.fromList(array).buffer;},
+  Expect.throws(() { l.buffer = new Float64List.fromList(array).buffer; },
           (e) => e is NoSuchMethodError);
 }
 

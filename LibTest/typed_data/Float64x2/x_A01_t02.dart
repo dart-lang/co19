@@ -15,8 +15,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic fl64x2 = new Float64x2(0.0, 0.0);
-  try {
-    fl64x2.x = 1.0;
-    Expect.fail("x should be read-only");
-  } on Error {}
+  Expect.throws(() { fl64x2.x = 1.0; });
 }

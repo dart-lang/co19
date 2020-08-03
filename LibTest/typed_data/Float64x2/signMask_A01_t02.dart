@@ -16,8 +16,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic fl64x2 = new Float64x2(1.0, 2.0);
-  try {
-    fl64x2.signMask = 0;
-    Expect.fail("signMask should be read-only");
-  } on Error {}
+  Expect.throws(() { fl64x2.signMask = 0; } );
 }
