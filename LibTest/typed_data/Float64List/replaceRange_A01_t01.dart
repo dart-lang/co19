@@ -22,18 +22,15 @@ import "../../../Utils/expect.dart";
 check(List<double> list) {
   var l = new Float64List.fromList(list);
   var length = l.length;
-  try {
+  Expect.throws(() {
     l.replaceRange(0, 1, [0.0]);
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {};
+  }, (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 
-  try {
+  Expect.throws(() {
     l.replaceRange(0, 100, [0.0, 1.0, 2.0]);
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {};
+  }, (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
-
 }
 
 main() {

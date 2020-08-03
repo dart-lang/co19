@@ -18,20 +18,17 @@ import "../../../Utils/expect.dart";
 
 main() {
   var l = new Float64List.fromList([]);
-  try {
+  Expect.throws(() {
     l.singleWhere((e) => true);
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  }, (e) => e is StateError);
 
   l = new Float64List.fromList([1.0, 2.0, 3.0, 4.0, 5.0]);
-  try {
+  Expect.throws(() {
     l.singleWhere((e) => e == 0);
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  }, (e) => e is StateError);
 
   l = new Float64List.fromList([1.0, 2.0, 3.0, 4.0, 5.0]);
-  try {
+  Expect.throws(() {
     l.singleWhere((e) => false);
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  }, (e) => e is StateError);
 }

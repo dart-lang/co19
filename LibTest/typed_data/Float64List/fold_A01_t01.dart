@@ -18,7 +18,7 @@ import "../../../Utils/expect.dart";
 
 checkInt(List<double> list, double expected) {
   var l = new Float64List.fromList(list);
-  var res = l.fold(0, (prev, cur) => prev + cur);
+  var res = l.fold(0, (num prev, double cur) => prev + cur);
   Expect.equals(expected, res);
 }
 

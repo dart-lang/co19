@@ -19,10 +19,9 @@ import "../../../Utils/expect.dart";
 check(List<double> list, double element) {
   var l = new Float64List.fromList(list);
   var length = l.length;
-  try {
+  Expect.throws(() {
     l.remove(element);
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {};
+  }, (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 }
 

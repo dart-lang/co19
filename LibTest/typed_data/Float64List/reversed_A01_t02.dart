@@ -15,15 +15,14 @@ import "../../../Utils/expect.dart";
 
 check(List<double> list) {
   dynamic l = new Float64List.fromList(list);
-  try {
+  Expect.throws(() {
     l.reversed = list;
-    Expect.fail("[reversed] should be read-only");
-  } on NoSuchMethodError {}
+  }, (e) => e is NoSuchMethodError);
 }
 
 main() {
   check([]);
-  var list = new List<double>(255);
+  var list = List<double>.filled(255, 0.0);
   for (int i = 0; i < 255; ++i) {
     list[i] = i * 1.0;
   }

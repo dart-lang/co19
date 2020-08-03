@@ -15,10 +15,7 @@ import "../../../Utils/expect.dart";
 
 void check(List<double> list) {
   dynamic l = new Float64List.fromList(list);
-  try {
-    l.lengthInBytes = 0;
-    Expect.fail("[lengthInBytes] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { l.lengthInBytes = 0; }, (e) => e is NoSuchMethodError);
 }
 
 main() {

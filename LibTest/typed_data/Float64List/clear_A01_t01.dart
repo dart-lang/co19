@@ -18,10 +18,7 @@ import "../../../Utils/expect.dart";
 
 check(int length) {
   var l = new Float64List(length);
-  try {
-    l.clear();
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {}
+  Expect.throws(() { l.clear(); }, (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 }
 

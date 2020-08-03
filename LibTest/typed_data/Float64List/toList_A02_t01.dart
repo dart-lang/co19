@@ -18,9 +18,8 @@ main() {
   var list = new Float64List.fromList([0.0]);
   var resList = list.toList(growable: false);
 
-  try {
+  Expect.throws(() {
     resList.length = 10;
-    Expect.fail("List should be fixed-length");
-  } on UnsupportedError {}
+  }, (e) => e is UnsupportedError);
   Expect.equals(1, resList.length);
 }

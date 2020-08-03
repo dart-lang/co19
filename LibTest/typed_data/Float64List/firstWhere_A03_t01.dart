@@ -16,10 +16,7 @@ import "../../../Utils/expect.dart";
 
 check(List<double> list) {
   var l = new Float64List.fromList(list);
-  try {
-    l.firstWhere((e) => false);
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  Expect.throws(() { l.firstWhere((e) => false); }, (e) => e is StateError);
 }
 
 main() {

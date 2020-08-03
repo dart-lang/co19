@@ -15,10 +15,8 @@ import "../../../Utils/expect.dart";
 
 void check(List<double> array) {
   dynamic l = new Float64List.fromList(array);
-  try {
-    l.buffer = new Float64List.fromList(array).buffer;
-    Expect.fail("[buffer] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { l.buffer = new Float64List.fromList(array).buffer;},
+          (e) => e is NoSuchMethodError);
 }
 
 main() {
