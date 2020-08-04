@@ -45,5 +45,7 @@ main() {
     Expect.fail("StackOverflowError should be thrown");
   } on CyclicInitializationError catch (e) {
     Expect.fail("StackOverflowError should be thrown");
-  } on StackOverflowError catch (e) {}
+  } on Error catch (e) {
+    // See https://github.com/dart-lang/sdk/issues/42893
+  }
 }
