@@ -14,7 +14,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals(0, 0 >> 3);
-  Expect.equals(-2, -4 >> 1);
   Expect.equals(100, 100 >> 0);
   Expect.equals(0, 1 >> 1);
 
@@ -41,6 +40,8 @@ main() {
   Expect.equals(0, 1024 >> 12);
 
   if (!isJS) {
+    Expect.equals(-2, -4 >> 1);
+
     Expect.equals(-1024, -1024 >> 0);
     Expect.equals(-512, -1024 >> 1);
     Expect.equals(-256, -1024 >> 2);
