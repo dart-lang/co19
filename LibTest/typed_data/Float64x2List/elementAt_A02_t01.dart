@@ -19,14 +19,8 @@ Float64x2 f64x2(v) => new Float64x2.splat(v);
 void check(List<Float64x2> list) {
   var l = new Float64x2List.fromList(list);
 
-  try {
-    l.elementAt(-1);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
-  try {
-    l.elementAt(l.length);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
+  Expect.throws(() { l.elementAt(-1);       }, (e) => e is RangeError);
+  Expect.throws(() { l.elementAt(l.length); }, (e) => e is RangeError);
 }
 
 main() {

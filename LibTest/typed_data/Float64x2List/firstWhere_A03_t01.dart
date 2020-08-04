@@ -23,8 +23,6 @@ main() {
     f64x2(11.0), f64x2(12.0), f64x2(13.0), f64x2(14.0), f64x2(15.0),
     f64x2(16.0), f64x2(17.0)
   ]);
-  try {
-    l.firstWhere((element) => element.x > 20);
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  Expect.throws(() { l.firstWhere((element) => element.x > 20); },
+          (e) => e is StateError);
 }

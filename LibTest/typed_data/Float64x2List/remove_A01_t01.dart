@@ -21,10 +21,7 @@ Float64x2 f64x2(v) => new Float64x2.splat(v);
 check(List<Float64x2> list, Float64x2 value) {
   var l = new Float64x2List.fromList(list);
   var len = l.length;
-  try {
-    l.remove(value);
-    Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError {}
+  Expect.throws(() { l.remove(value); }, (e) => e is UnsupportedError);
   Expect.equals(len, l.length);
 }
 

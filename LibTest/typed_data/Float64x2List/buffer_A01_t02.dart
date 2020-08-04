@@ -17,10 +17,8 @@ Float64x2 f64x2(x, y) => new Float64x2(x,y);
 
 void check(List<Float64x2> list) {
   dynamic l = new Float64x2List.fromList(list);
-  try {
-    l.buffer = new Float64x2List.fromList(list).buffer;
-    Expect.fail("[buffer] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { l.buffer = Float64x2List.fromList(list).buffer; },
+          (e) => e is NoSuchMethodError);
 }
 
 main() {

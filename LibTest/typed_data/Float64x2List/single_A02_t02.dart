@@ -19,10 +19,7 @@ Float64x2 f64x2(v) => new Float64x2.splat(v);
 
 void check(List<Float64x2> list) {
   var l = new Float64x2List.fromList(list);
-  try {
-    l.single;
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  Expect.throws(() { l.single; }, (e) => e is StateError);
 }
 
 main() {

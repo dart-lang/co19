@@ -23,16 +23,10 @@ Float64x2 f64x2(v) => new Float64x2.splat(v);
 main() {
   var l = new Float64x2List.fromList(
       [f64x2(1.0), f64x2(2.0), f64x2(3.0), f64x2(4.0), f64x2(5.0), f64x2(6.0)]);
-  try {
-    l.insert(2, f64x2(11.0));
-    Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError {}
+  Expect.throws(() { l.insert(2, f64x2(11.0)); }, (e) => e is UnsupportedError);
   Expect.equals(6, l.length);
 
   l = new Float64x2List.fromList([]);
-  try {
-    l.insert(0, f64x2(11.0));
-    Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError {}
+  Expect.throws(() { l.insert(0, f64x2(11.0)); }, (e) => e is UnsupportedError);
   Expect.equals(0, l.length);
 }

@@ -15,8 +15,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic obj = new Float64x2List(0);
-  try {
-    obj.iterator = obj.iterator;
-    Expect.fail("[iterator] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(
+          () { obj.iterator = obj.iterator; }, (e) => e is NoSuchMethodError);
 }

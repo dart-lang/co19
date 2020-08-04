@@ -20,7 +20,7 @@ Float64x2 f64x2(v) => new Float64x2.splat(v);
 
 checkDouble(List<Float64x2> list, double expected) {
   var l = new Float64x2List.fromList(list);
-  var res = l.fold(0, (prev, cur) => prev + cur.x + cur.y);
+  var res = l.fold(0, (num prev, cur) => prev + cur.x + cur.y);
   Expect.equals(expected, res);
 }
 

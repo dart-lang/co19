@@ -23,10 +23,7 @@ main() {
   Float64x2List tmp = new Float64x2List(4);
   var byteBuffer = tmp.buffer;
   for (int i = 1; i < Float64x2List.bytesPerElement; ++i) {
-    try {
-      new Float64x2List.view(byteBuffer, i);
-      Expect.fail("ArgumentError should be thrown.");
-    } on ArgumentError {
-    }
+    Expect.throws(() { Float64x2List.view(byteBuffer, i); },
+            (e) => e is ArgumentError);
   }
 }

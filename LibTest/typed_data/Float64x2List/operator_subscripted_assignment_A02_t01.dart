@@ -18,14 +18,9 @@ Float64x2 f64x2V(v) => new Float64x2.splat(v);
 
 check(List<Float64x2> list) {
   var l = new Float64x2List.fromList(list);
-  try {
-    l[-1] = new Float64x2.zero();
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
-  try {
-    l[l.length] = new Float64x2.zero();
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
+  Expect.throws(() { l[-1] = new Float64x2.zero(); }, (e) => e is RangeError);
+  Expect.throws(
+          () { l[l.length] = new Float64x2.zero(); }, (e) => e is RangeError);
 }
 
 main() {

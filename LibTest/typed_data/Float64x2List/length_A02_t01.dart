@@ -20,10 +20,7 @@ Float64x2 f64x2(v) => new Float64x2.splat(v);
 
 void check(List<Float64x2> list) {
   var l = new Float64x2List.fromList(list);
-  try {
-    l.length = 2;
-    Expect.fail("This opetation shouldn't be supported");
-  } on UnsupportedError {}
+  Expect.throws(() { l.length = 2; }, (e) => e is UnsupportedError);
   Expect.equals(list.length, l.length);
 }
 

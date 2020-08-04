@@ -20,18 +20,10 @@ Float64x2 f64x2(v) => new Float64x2.splat(v);
 
 void check(List<Float64x2> list) {
   var l = new Float64x2List.fromList(list);
-  try {
-    l.addAll([]);
-    Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError {}
-  try {
-    l.addAll([f64x2(22.0)]);
-    Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError {}
-  try {
-    l.addAll([f64x2(22.0), f64x2(24.0)]);
-    Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError {}
+  Expect.throws(() { l.addAll([]); }, (e) => e is UnsupportedError);
+  Expect.throws(() { l.addAll([f64x2(22.0)]); }, (e) => e is UnsupportedError);
+  Expect.throws(() { l.addAll([f64x2(22.0), f64x2(24.0)]); },
+          (e) => e is UnsupportedError);
 }
 
 main() {

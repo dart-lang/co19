@@ -21,15 +21,11 @@ Float64x2 f64x2(v) => new Float64x2.splat(v);
 check(List<Float64x2> list) {
   var l = new Float64x2List.fromList(list);
   var len = l.length;
-  try {
-    l.retainWhere((e) => true);
-    Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError {}
+  Expect.throws(
+          () { l.retainWhere((e) => true); }, (e) => e is UnsupportedError);
   Expect.equals(len, l.length);
-  try {
-    l.retainWhere((e) => false);
-    Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError {}
+  Expect.throws(
+          () { l.retainWhere((e) => false); }, (e) => e is UnsupportedError);
   Expect.equals(len, l.length);
 }
 

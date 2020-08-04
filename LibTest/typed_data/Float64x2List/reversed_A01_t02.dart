@@ -15,8 +15,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic obj = new Float64x2List(0);
-  try {
-    obj.reversed = obj.reversed;
-    Expect.fail("[reversed] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(
+          () { obj.reversed = obj.reversed; }, (e) => e is NoSuchMethodError);
 }

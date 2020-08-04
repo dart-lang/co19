@@ -17,10 +17,7 @@ Float64x2 f64x2(v) => new Float64x2.splat(v);
 
 void check(List<Float64x2> array) {
   dynamic l = new Float64x2List.fromList(array);
-  try {
-    l.lengthInBytes = 32;
-    Expect.fail("[lengthInBytes] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { l.lengthInBytes = 32; }, (e) => e is NoSuchMethodError);
 }
 
 main() {

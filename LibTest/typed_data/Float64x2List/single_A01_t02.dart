@@ -17,9 +17,5 @@ Float64x2 f64x2(v) => new Float64x2.splat(v);
 
 main() {
   dynamic obj = new Float64x2List.fromList([f64x2(1.0)]);
-
-  try {
-    obj.single = f64x2(2.0);
-    Expect.fail("[single] shou;d be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { obj.single = f64x2(2.0); }, (e) => e is NoSuchMethodError);
 }

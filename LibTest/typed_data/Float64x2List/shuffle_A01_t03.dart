@@ -28,6 +28,7 @@ main() {
 
   Expect.equals(shuffled1.length, shuffled2.length);
   for (int i = 0; i < shuffled1.length; i++) {
-    Expect.isTrue(shuffled1[i].x == shuffled2[i].x && shuffled1[i].y == shuffled2[i].y);
+    Expect.isTrue(
+        shuffled1[i].x == shuffled2[i].x && shuffled1[i].y == shuffled2[i].y);
   }
 }

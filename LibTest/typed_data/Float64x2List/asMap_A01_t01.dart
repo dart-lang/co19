@@ -23,8 +23,8 @@ void check(List<Float64x2> list) {
   var m = l.asMap();
   Expect.isTrue(m is Map);
   for (int i = 0; i < list.length; ++i) {
-    Expect.equals(l[i].x, m[i].x);
-    Expect.equals(l[i].y, m[i].y);
+    Expect.equals(l[i].x, m[i]?.x);
+    Expect.equals(l[i].y, m[i]?.y);
   }
 }
 

@@ -15,12 +15,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic obj = new Float64x2List(0);
-  try {
-    obj.isEmpty = true;
-    Expect.fail("[isEmpty] should be read-only");
-  } on NoSuchMethodError {}
-  try {
-    obj.isEmpty = false;
-    Expect.fail("[isEmpty] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { obj.isEmpty = true;  }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { obj.isEmpty = false; }, (e) => e is NoSuchMethodError);
 }

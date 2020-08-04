@@ -19,10 +19,7 @@ void check(List<Float64x2> list, int offset, int length) {
   Float64x2List tmp = new Float64x2List.fromList(list);
   var byteBuffer = tmp.buffer;
   dynamic l = new Float64x2List.view(byteBuffer, offset, length);
-  try {
-    l.offsetInBytes = 0;
-    Expect.fail("[offsetInBytes] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { l.offsetInBytes = 0; }, (e) => e is NoSuchMethodError);
   Expect.equals(offset, l.offsetInBytes);
 }
 
