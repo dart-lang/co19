@@ -25,13 +25,13 @@ import "../../../Utils/expect.dart";
 
 main() {
   asyncStart();
-  HttpServer server = null;
+  HttpServer? server = null;
   HttpServer.bind(InternetAddress.loopbackIPv4, 0).then((HttpServer s) {
     server = s;
     int counter = 0;
     int total = 0;
-    server.defaultResponseHeaders.add("my-header", "my-value");
-    server.defaultResponseHeaders.forEach((String name, List<String> value) {
+    s.defaultResponseHeaders.add("my-header", "my-value");
+    s.defaultResponseHeaders.forEach((String name, List<String> value) {
       if (name == "x-frame-options") {
         Expect.listEquals(["SAMEORIGIN"], value);
         counter++;
@@ -57,10 +57,10 @@ main() {
     Expect.equals(5, counter);
     Expect.equals(5, total);
 
-    server.defaultResponseHeaders.removeAll("my-header");
+    server?.defaultResponseHeaders.removeAll("my-header");
     counter = 0;
     total = 0;
-    server.defaultResponseHeaders.forEach((String name, List<String> value) {
+    server?.defaultResponseHeaders.forEach((String name, List<String> value) {
       if (name == "x-frame-options") {
         Expect.listEquals(["SAMEORIGIN"], value);
         counter++;
@@ -83,8 +83,6 @@ main() {
     Expect.equals(4, total);
     asyncEnd();
   }).whenComplete(() {
-    if (server != null) {
-      server.close();
-    }
+    server?.close();
   });
 }

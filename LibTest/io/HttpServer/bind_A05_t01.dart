@@ -28,7 +28,7 @@ import "../../../Utils/expect.dart";
 test() async {
   HttpServer server1 =
       await HttpServer.bind(InternetAddress.loopbackIPv4, 1234);
-  HttpServer server2 = null;
+  HttpServer? server2 = null;
   bool thrown = false;
   try {
     server2 = await HttpServer.bind(InternetAddress.loopbackIPv4, 1234);
@@ -36,9 +36,7 @@ test() async {
     thrown = true;
   } finally {
     server1.close();
-    if (server2 != null) {
-      server2.close();
-    }
+    server2?.close();
     Expect.isTrue(thrown);
   }
   asyncEnd();

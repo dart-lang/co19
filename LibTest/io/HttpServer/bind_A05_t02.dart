@@ -27,16 +27,16 @@ import "../../../Utils/expect.dart";
 
 test() async {
   asyncStart();
-  HttpServer server1 = null;
-  HttpServer server2 = null;
+  HttpServer? server1 = null;
+  HttpServer? server2 = null;
   try {
     server1 = await HttpServer.bind(InternetAddress.loopbackIPv4, 1234,
         shared: true);
     server2 = await HttpServer.bind(InternetAddress.loopbackIPv4, 1234,
         shared: true);
   } finally {
-    server1.close();
-    server2.close();
+    server1?.close();
+    server2?.close();
     asyncEnd();
   }
 }

@@ -24,17 +24,15 @@ import "../../../Utils/expect.dart";
 
 main() {
   asyncStart();
-  HttpServer server = null;
+  HttpServer? server = null;
   HttpServer.bind(InternetAddress.loopbackIPv4, 0).then((HttpServer s) {
     server = s;
-    Expect.equals(120, server.idleTimeout.inSeconds);
+    Expect.equals(120, s.idleTimeout?.inSeconds);
 
-    server.idleTimeout = new Duration(seconds: 10);
-    Expect.equals(10, server.idleTimeout.inSeconds);
+    s.idleTimeout = new Duration(seconds: 10);
+    Expect.equals(10, s.idleTimeout?.inSeconds);
     asyncEnd();
   }).whenComplete(() {
-    if (server != null) {
-      server.close();
-    }
+    server?.close();
   });
 }

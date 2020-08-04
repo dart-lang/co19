@@ -13,11 +13,11 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 test() async {
-  HttpServer server = null;
-  server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
+  HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.first.then((HttpRequest request) {
     Expect.equals(6, request.contentLength);
     request.response.close();
+    server.close();
     asyncEnd();
   });
 

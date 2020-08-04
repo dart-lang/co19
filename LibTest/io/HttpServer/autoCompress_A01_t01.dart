@@ -22,14 +22,12 @@ import "../../../Utils/expect.dart";
 
 main() {
   asyncStart();
-  HttpServer server = null;
+  HttpServer? server = null;
   HttpServer.bind(InternetAddress.loopbackIPv4, 0).then((HttpServer s) {
     server = s;
-    Expect.isFalse(server.autoCompress);
+    Expect.isFalse(s.autoCompress);
     asyncEnd();
   }).whenComplete(() {
-    if (server != null) {
-      server.close();
-    }
+    server?.close();
   });
 }

@@ -17,14 +17,12 @@ import "../../../Utils/expect.dart";
 
 main() {
   asyncStart();
-  HttpServer server = null;
+  HttpServer? server = null;
   HttpServer.bind("127.0.0.1", 0).then((HttpServer s) {
     server = s;
-    Expect.equals(InternetAddress.loopbackIPv4, server.address);
+    Expect.equals(InternetAddress.loopbackIPv4, s.address);
     asyncEnd();
   }).whenComplete(() {
-    if (server != null) {
-      server.close();
-    }
+    server?.close();
   });
 }
