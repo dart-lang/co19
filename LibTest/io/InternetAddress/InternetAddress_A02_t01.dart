@@ -8,13 +8,14 @@
  * If the [address] in address is not a numeric IPv4 (dotted-decimal notation)
  * or IPv6 (hexadecimal representation) address [ArgumentError] is thrown.
  * @description Checks that attempt to create an [InternetAddress] with [null]
- * address causes an [ArgumentError].
+ * address causes a compile error
  * @author iarkh@unipro.ru
  */
-
-import "../../../Utils/expect.dart";
 import "dart:io";
 
 main() {
-  Expect.throws(() { new InternetAddress(null); }, (e) => e is ArgumentError);
+  new InternetAddress(null);
+//                    ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

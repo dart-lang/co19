@@ -10,7 +10,6 @@
  * @description Checks that exception is thrown if such a host does not exist.
  * @author iarkh@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
 import "dart:io";
 import "dart:async";
@@ -22,6 +21,6 @@ main() {
       Expect.fail("Host does not exist");
     });
   }, onError: (e) {
-    print(e);
+    // Ok
   });
 }
