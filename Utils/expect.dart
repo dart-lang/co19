@@ -4,9 +4,6 @@
 
 library Expect;
 import "dart:async";
-
-import '../Language/Expressions/Constants/identical_t02.dart';
-
 part "expect_common.dart";
 part "async_utils.dart";
 part "lang_feature_check.dart";
