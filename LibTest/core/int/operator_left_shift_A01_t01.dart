@@ -36,16 +36,17 @@ main() {
   Expect.equals(4, 1 << 2);
   Expect.equals(2, 1 << 1);
   Expect.equals(1, 1 << 0);
-  
-  Expect.equals(-1024, -1  << 10);
-  Expect.equals(-512, -1 << 9);
-  Expect.equals(-256, -1 << 8);
-  Expect.equals(-128, -1 << 7);
-  Expect.equals(-64, -1 << 6);
-  Expect.equals(-32, -1 << 5);
-  Expect.equals(-16, -1 << 4);
-  Expect.equals(-8, -1 << 3);
-  Expect.equals(-4, -1 << 2);
-  Expect.equals(-2, -1 << 1);
-  Expect.equals(-1, -1 << 0);
+  if (!isJS) {
+    Expect.equals(-1024, -1 << 10);
+    Expect.equals(-512, -1 << 9);
+    Expect.equals(-256, -1 << 8);
+    Expect.equals(-128, -1 << 7);
+    Expect.equals(-64, -1 << 6);
+    Expect.equals(-32, -1 << 5);
+    Expect.equals(-16, -1 << 4);
+    Expect.equals(-8, -1 << 3);
+    Expect.equals(-4, -1 << 2);
+    Expect.equals(-2, -1 << 1);
+    Expect.equals(-1, -1 << 0);
+  }
 }

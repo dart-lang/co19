@@ -30,16 +30,18 @@ main() {
   Expect.equals(0x19, (0x19 ^ 0x03) ^ 0x03);
   Expect.equals(0x03, 0x19 ^ (0x03 ^ 0x19));
   Expect.equals(0x03, (0x19 ^ 0x03) ^ 0x19);
-  
-  // x ^ x = 0
-  Expect.equals(0, 0xABC235D235EFE ^ 0xABC235D235EFE);
-  // x ^ 0 = x
-  Expect.equals(0xABC235D235EFE, 0xABC235D235EFE ^ 0);
-  Expect.equals(0xABC235D235EFE, 0 ^ 0xABC235D235EFE);
 
-  Expect.equals(0x7FFFFFFFFFFFF, 0x4000000000000 ^ 0x3FFFFFFFFFFFF);
-  
-  Expect.equals(-2, 1 ^ (-1));
-  Expect.equals(-0x10000000000001, (-1) ^ 0x010000000000000);
+  if (!isJS) {
+    // x ^ x = 0
+    Expect.equals(0, 0xABC235D235EFE ^ 0xABC235D235EFE);
+    // x ^ 0 = x
+    Expect.equals(0xABC235D235EFE, 0xABC235D235EFE ^ 0);
+    Expect.equals(0xABC235D235EFE, 0 ^ 0xABC235D235EFE);
+
+    Expect.equals(0x7FFFFFFFFFFFF, 0x4000000000000 ^ 0x3FFFFFFFFFFFF);
+
+    Expect.equals(-2, 1 ^ (-1));
+    Expect.equals(-0x10000000000001, (-1) ^ 0x010000000000000);
+  }
 }
 

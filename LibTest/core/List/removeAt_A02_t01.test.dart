@@ -24,7 +24,7 @@ test(List<E> create<E>([int length, E fill])) {
 
   List a0 = [1, 3, 3, 4, 5, 6];
   check(a0, true);
-  check(a0, 0.0);
+  check(a0, 0.1);
   check(a0, "3");
   check(a0, [3]);
 }

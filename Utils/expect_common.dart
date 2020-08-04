@@ -348,3 +348,6 @@ final bool assertStatementsEnabled = (() {
   assert(result = true);
   return result;
 })();
+
+/// Is true iff js compiler is used
+final bool isJS = identical(1.0, 1);

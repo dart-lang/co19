@@ -23,7 +23,8 @@ void main() {
   Expect.equals(3, 3 | 2);
   Expect.equals(3, 1 | 2);
   Expect.equals(3, 0 | 3);
-
-  Expect.equals(0x180000000, 0x100000000 | 0x80000000);
-  Expect.equals(0x7ffffffffffff, 0x7ffffffffffff | 400000000000000);
+  if (!isJS) {
+    Expect.equals(0x180000000, 0x100000000 | 0x80000000);
+    Expect.equals(0x7ffffffffffff, 0x7ffffffffffff | 400000000000000);
+  }
 }

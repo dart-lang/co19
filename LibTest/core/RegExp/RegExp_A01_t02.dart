@@ -10,21 +10,13 @@
  * @author rodionov
  */
 main() {
-  RegExp re = new RegExp(r".", multiLine: null, caseSensitive: null);
-//                                        ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-//                                                             ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  re = new RegExp(r".", multiLine: null, caseSensitive: true);
-//                                 ^
+  RegExp re = new RegExp(r".", multiLine: null, caseSensitive: true);
+//                             ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   re = new RegExp(r".", multiLine: false, caseSensitive: null);
-//                                                       ^
+//                                        ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
