@@ -9,14 +9,18 @@
  *   returnType? set identifier formalParameterList
  * ;
  * @description Checks if static setter returns value other than void, then
- * a static warning occurs
- * @static-warning
+ * a compile error occurs
  * @author sgrekhov@unipro.ru
  * @issue 42179
  */
 
 class C {
-  static int set s2(int value) {return 2;} /// static type warning
+  static int set s2(int value) {
+//       ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    return 42;
+  }
 }
 
 main() {
