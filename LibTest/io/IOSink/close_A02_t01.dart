@@ -16,17 +16,29 @@ import "dart:async";
 import "dart:io";
 
 class MyStreamConsumer extends StreamConsumer<List<int>> {
-  Future addStream(Stream<List> stream) { return new Future(() {}); }
-  Future close() { return new Future(() {});
+  Future addStream(Stream<List> stream) {
+    return new Future(() {});
+  }
+
+  Future close() {
+    return new Future(() {});
   }
 }
 
 main() {
-  Stream<List> stream = new Stream<List<int>>.fromIterable([[1, 2], [12], [3, 22]]);
-  StreamConsumer consumer = new MyStreamConsumer();
+  Stream<List<int>> stream = new Stream<List<int>>.fromIterable([
+    [1, 2],
+    [12],
+    [3, 22]
+  ]);
+  StreamConsumer<List<int>> consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   sink.addStream(stream).then((x) {
-    new Future.delayed(new Duration(seconds: 3)).then((_) { sink.close(); });
+    new Future.delayed(new Duration(seconds: 3)).then((_) {
+      sink.close();
+    });
   });
-  Expect.throws(() { sink.close(); }, (e) => e is StateError);
+  Expect.throws(() {
+    sink.close();
+  }, (e) => e is StateError);
 }

@@ -22,7 +22,7 @@ class MyStreamConsumer extends StreamConsumer<List<int>> {
 
 main() {
   Stream<List<int>> stream = new Stream<List<int>>.fromIterable([[1, 2]]);
-  StreamConsumer consumer = new MyStreamConsumer();
+  StreamConsumer<List<int>> consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   sink.addStream(stream).then((x) {
     new Future.delayed(new Duration(seconds: 3)).then((_) { sink.close(); });

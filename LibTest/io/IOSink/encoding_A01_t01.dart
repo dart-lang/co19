@@ -30,8 +30,5 @@ main() {
   sink.encoding = systemEncoding;
   Expect.equals(systemEncoding, sink.encoding);
 
-  sink.encoding = null;
-  Expect.isNull(sink.encoding);
-
   sink.close();
 }

@@ -31,11 +31,10 @@ class MyStreamConsumer extends StreamConsumer<List<int>> {
   Future close() { return new Future(() {}); }
 }
 
-test(Encoding enc) async {
+test(Encoding? enc) async {
   called = 0;
-  StreamConsumer consumer = new MyStreamConsumer();
-  IOSink sink;
-  sink = (enc == null) ?
+  StreamConsumer<List<int>> consumer = new MyStreamConsumer();
+  IOSink sink = (enc == null) ?
     new IOSink(consumer) : new IOSink(consumer, encoding : enc);
   sink.add(aList);
   await sink.close();

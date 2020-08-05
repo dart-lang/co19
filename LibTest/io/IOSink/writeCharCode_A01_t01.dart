@@ -34,7 +34,7 @@ class MyStreamConsumer extends StreamConsumer<List<int>> {
 }
 
 test() async {
-  StreamConsumer consumer = new MyStreamConsumer();
+  StreamConsumer<List<int>> consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   for(int i = 0; i < 10000; i++) {
     sink.writeCharCode(i);

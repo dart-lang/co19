@@ -28,7 +28,7 @@ void testNegative(IOSink sink, int i) {
 }
 
 main() {
-  StreamConsumer consumer = new MyStreamConsumer();
+  StreamConsumer<List<int>> consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   testNegative(sink, -1);
   testNegative(sink, -2045);

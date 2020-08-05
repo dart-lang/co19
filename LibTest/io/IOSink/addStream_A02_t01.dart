@@ -23,7 +23,7 @@ class MyStreamConsumer extends StreamConsumer<List<int>> {
 }
 
 main() {
-  StreamConsumer consumer = new MyStreamConsumer();
+  StreamConsumer<List<int>> consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   sink.addStream(stream1).then((x) {
     new Future.delayed(new Duration(seconds: 3)).then((_) { sink.close(); });

@@ -31,7 +31,7 @@ class MyStreamConsumer extends StreamConsumer<List<int>> {
 }
 
 test() async {
-  StreamConsumer consumer = new MyStreamConsumer();
+  StreamConsumer<List<int>> consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   sink.addError("ERROR", trace);
   await sink.close();

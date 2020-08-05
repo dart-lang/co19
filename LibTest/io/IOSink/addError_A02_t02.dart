@@ -30,7 +30,7 @@ class MyStreamConsumer extends StreamConsumer<List<int>> {
 }
 
 test() async {
-  StreamConsumer consumer = new MyStreamConsumer();
+  StreamConsumer<List<int>> consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   Stream<List<int>> aStream = new Stream<List<int>>.fromIterable([[1, 2, 3, 4, 5]]);
   await sink.addStream(aStream);

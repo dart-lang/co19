@@ -12,7 +12,6 @@
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
-
 import "dart:async";
 import "dart:io";
 
@@ -20,16 +19,23 @@ bool called = false;
 
 class MyStreamConsumer extends StreamConsumer<List<int>> {
   Future addStream(Stream<List> stream) {
-    stream.toList().then((x) { called = true; });
+    stream.toList().then((x) {
+      called = true;
+    });
     return new Future(() {});
   }
-  Future close() { return new Future(() {} ); }
+
+  Future close() {
+    return new Future(() {});
+  }
 }
 
 main() {
-  Stream<List> aStream = new Stream<List>.fromIterable([[1, 2, 3, 4, 5]]);
+  Stream<List<int>> aStream = new Stream<List<int>>.fromIterable([
+    [1, 2, 3, 4, 5]
+  ]);
   List<int> aList = [10, 20, 30, 40, 50];
-  StreamConsumer consumer = new MyStreamConsumer();
+  StreamConsumer<List<int>> consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
 
   sink.addStream(aStream).then((x) {
@@ -38,6 +44,8 @@ main() {
     });
   });
 
-  Expect.throws(() { sink.add(aList); }, (e) => e is StateError);
+  Expect.throws(() {
+    sink.add(aList);
+  }, (e) => e is StateError);
   Expect.isFalse(called);
 }

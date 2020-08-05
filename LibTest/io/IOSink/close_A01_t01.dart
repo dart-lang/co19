@@ -16,15 +16,24 @@ import "dart:io";
 int closed = 0;
 
 class MyStreamConsumer extends StreamConsumer<List<int>> {
-  Future addStream(Stream<List<int>> stream) { return new Future(() {}); }
-  Future close() { return new Future(() {}).then((x) { closed++; });
+  Future addStream(Stream<List<int>> stream) {
+    return new Future(() {});
+  }
+
+  Future close() {
+    return new Future(() {}).then((x) {
+      closed++;
+    });
   }
 }
 
 main() async {
-  Stream<List<int>> stream =
-  new Stream<List<int>>.fromIterable([[1, 2], [12], [3, 22]]);
-  StreamConsumer consumer = new MyStreamConsumer();
+  Stream<List<int>> stream = new Stream<List<int>>.fromIterable([
+    [1, 2],
+    [12],
+    [3, 22]
+  ]);
+  StreamConsumer<List<int>> consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   await sink.addStream(stream);
   Expect.equals(0, closed);

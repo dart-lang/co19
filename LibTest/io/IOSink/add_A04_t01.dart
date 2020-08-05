@@ -11,9 +11,7 @@
  * been passed to add.
  * @author sgrekhov@unipro.ru
  */
-
 import "../../../Utils/expect.dart";
-
 import "dart:async";
 import "dart:io";
 
@@ -35,7 +33,7 @@ class MyStreamConsumer extends StreamConsumer<List<int>> {
 
 test() async {
   List<int> data = [3, 1, 4, 1, 5];
-  StreamConsumer consumer = new MyStreamConsumer();
+  StreamConsumer<List<int>> consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   sink.add(data);
   data.add(9);

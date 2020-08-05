@@ -22,7 +22,7 @@ class MyStreamConsumer extends StreamConsumer<List<int>> {
       Expect.fail("Should not be here!");
     }, onError: (error, StackTrace st) {
       called++;
-      Expect.isNull(st);
+      Expect.equals("", st.toString());
     });
     return new Future(() {});
   }
@@ -30,7 +30,7 @@ class MyStreamConsumer extends StreamConsumer<List<int>> {
 }
 
 test() async {
-  StreamConsumer consumer = new MyStreamConsumer();
+  StreamConsumer<List<int>> consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   sink.addError("ERROR");
   await sink.close();

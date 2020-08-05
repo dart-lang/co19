@@ -28,7 +28,7 @@ class MyStreamConsumer extends StreamConsumer<List<int>> {
 
 main() {
   asyncStart();
-  StreamConsumer consumer = new MyStreamConsumer();
+  StreamConsumer<List<int>> consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   Stream<List<int>> aStream = new Stream<List<int>>.fromIterable([[1, 2, 3, 4, 5]]);
   sink.addStream(aStream).then((x) {

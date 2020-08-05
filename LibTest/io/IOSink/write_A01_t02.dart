@@ -49,7 +49,7 @@ class MyStreamConsumer extends StreamConsumer<List<int>> {
 }
 
 main() {
-  StreamConsumer consumer = new MyStreamConsumer();
+  StreamConsumer<List<int>> consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   objects.forEach((x) { sink.write(x); });
   sink.close();

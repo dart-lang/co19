@@ -15,7 +15,6 @@
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
-
 import "dart:async";
 import "dart:io";
 
@@ -38,7 +37,7 @@ class MyStreamConsumer extends StreamConsumer<List<int>> {
 test() async {
   Stream<List<int>> aStream = new Stream<List<int>>.fromIterable([[1, 2, 3, 4, 5]]);
   List<int> list2 = [10, 20, 30, 40, 50];
-  StreamConsumer consumer = new MyStreamConsumer();
+  StreamConsumer<List<int>> consumer = new MyStreamConsumer();
   IOSink sink = new IOSink(consumer);
   await sink.addStream(aStream);
   Expect.equals(1, callCounter);

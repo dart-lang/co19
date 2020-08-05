@@ -38,7 +38,7 @@ class MyStreamConsumer extends StreamConsumer<List<int>> {
 test() async {
   encodings.forEach((enc) async {
     called = 0;
-    StreamConsumer consumer = new MyStreamConsumer();
+    StreamConsumer<List<int>> consumer = new MyStreamConsumer();
     IOSink sink = new IOSink(consumer, encoding: enc);
     sink.write(str);
     await sink.close();
