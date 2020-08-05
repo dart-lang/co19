@@ -34,11 +34,7 @@ _main(Directory sandbox) async {
 
   asyncStart();
   await link.target().then((String path) {
-    if (Platform.isWindows) {
-      Expect.equals(parent.path + Platform.pathSeparator, path);
-    } else {
-      Expect.equals("..", path);
-    }
+    Expect.equals("..", path);
     asyncEnd();
   });
 }

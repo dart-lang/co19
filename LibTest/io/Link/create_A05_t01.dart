@@ -17,18 +17,18 @@
  * components are created. The directories in the path of target are not
  * affected, unless they are also in path.
  *
- * On the Windows platform, this will only work with directories, and the target
- * directory must exist. The link will be created as a Junction. Only absolute
- * links will be created, and relative paths to the target will be converted to
- * absolute paths by joining them with the path of the directory the link is
- * contained in.
+ * On the Windows platform, this call will create a true symbolic link instead
+ * of a Junction. In order to create a symbolic link on Windows, Dart must be
+ * run in Administrator mode or the system must have Developer Mode enabled,
+ * otherwise a FileSystemException will be raised with ERROR_PRIVILEGE_NOT_HELD
+ * set as the errno when this call is made.
  *
  * On other platforms, the posix symlink() call is used to make a symbolic link
  * containing the string target. If target is a relative path, it will be
  * interpreted relative to the directory containing the link.
- * @description Checks that on the Windows platform  only absolute links will be
- * created, and relative paths to the target will be converted to absolute paths
- * by joining them with the path of the directory the link is contained in.
+ *
+ * @description Checks that on the Windows platform relative paths to the target
+ * is not converted to absolute paths (as it was in the past)
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -50,7 +50,7 @@ _main(Directory sandbox) async {
         getTempFileName(extension: "lnk"));
     asyncStart();
     await link.create(dirName).then((Link created) {
-      Expect.equals(target.path, created.targetSync());
+      Expect.equals(dirName, created.targetSync());
       asyncEnd();
     });
   }

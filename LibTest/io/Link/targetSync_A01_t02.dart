@@ -29,10 +29,5 @@ _main(Directory sandbox) async {
   Link link = new Link(
       target.path + Platform.pathSeparator + getTempFileName(extension: "lnk"));
   link.createSync("..");
-  if (Platform.isWindows) {
-    Expect.equals(
-        target.parent.path + Platform.pathSeparator, link.targetSync());
-  } else {
-    Expect.equals("..", link.targetSync());
-  }
+  Expect.equals("..", link.targetSync());
 }
