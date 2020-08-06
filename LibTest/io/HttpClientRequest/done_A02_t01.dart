@@ -29,7 +29,9 @@ test(String method) async {
   int counter = 0;
   final request = await client.open(
       method, server.address.address, server.port, '');
-  request.done.catchError((_) {
+  request.done.then((v) {
+    Expect.fail("Error expected");
+  }, onError: (_) {
     counter++;
   });
   try {
@@ -37,7 +39,7 @@ test(String method) async {
   } catch (error) {
     counter++;
   }
-  await client.close();
+  client.close();
   await server.close();
   Expect.equals(2, counter);
 }

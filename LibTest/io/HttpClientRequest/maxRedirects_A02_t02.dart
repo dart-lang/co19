@@ -43,7 +43,9 @@ test(String method, int maxRedirects, int status) async {
           request.maxRedirects = maxRedirects;
         }
         return request.close();
-  }).catchError((e) {
+  }).then((value) {
+    Expect.fail("Error expected");
+  }, onError: (e) {
     Expect.isTrue(e is RedirectException);
     asyncEnd();
   });
