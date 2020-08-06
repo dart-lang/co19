@@ -18,7 +18,7 @@ main() {
     JsonCodec? codec = new JsonCodec();
     Expect.isNotNull(codec?.decoder);
 
-    Object? res = codec?.decoder?.convert(pair[1] as String);
+    Object? res = codec?.decoder.convert(pair[1] as String);
     Expect.deepEquals(pair[0], res);
   }
 }

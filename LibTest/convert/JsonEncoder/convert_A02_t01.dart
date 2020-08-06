@@ -30,7 +30,7 @@ main() {
   for (Object? obj in table) {
     Expect.throws(() {
       JsonEncoder enc = new JsonEncoder();
-      String res = enc.convert(obj);
+      enc.convert(obj);
     });
   }
 }

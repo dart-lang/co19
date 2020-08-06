@@ -26,7 +26,7 @@ check(Codec codec, String toEncode) {
 
 main() {
     Utf8Codec codec = new Utf8Codec();
-    Codec inverted = codec.inverted;
+    Codec<List<int>, String> inverted = codec.inverted;
     Codec fused = codec.fuse(inverted);
 
     check(fused, "Some string");

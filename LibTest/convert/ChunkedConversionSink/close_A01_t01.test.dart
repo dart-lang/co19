@@ -25,12 +25,7 @@ test(ChunkedConversionSink create(ChunkedConversionSink<List<int>> outSink)) {
   Utf8Decoder decoder = new Utf8Decoder();
 
   var outSink = new ChunkedConversionSink<List<int>>.withCallback((accumulated) {
-
-    print('decoded ${decoder.convert(accumulated[0])} $called');
-    if (accumulated.length == 2)
-      print('decoded ${decoder.convert(accumulated[1])} $called');
     called = true;
-
     Expect.listEquals([encoded], accumulated);
   });
 
