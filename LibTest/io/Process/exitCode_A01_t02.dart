@@ -37,7 +37,7 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 String command = "";
-List<String> args = new List<String>();
+List<String> args = new List<String>.empty(growable: true);
 
 void setCommand() {
   if (Platform.isWindows) {
@@ -57,7 +57,7 @@ main() {
 
     process.exitCode.then((int value) {
       if (Platform.isWindows) {
-        Expect.equals(1, value);
+        Expect.equals(-1, value);
       } else if (Platform.isLinux || Platform.isMacOS) {
         Expect.equals(-15, value);
       }

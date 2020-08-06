@@ -29,19 +29,20 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 String command = "";
-List<String> args = new List<String>();
+List<String> args = new List<String>.empty(growable: true);
 
 void setCommand() {
-    command = 'notexistingcommand';
-    args = [];
+  command = 'notexistingcommand';
+  args = [];
 }
 
 main() {
   bool pFailed = false;
   setCommand();
   asyncStart();
-  Process.start(command, args).catchError((onError) {
-    Expect.isTrue(onError is Exception);
+  Process.start(command, args).then((Process prc) {
+    Expect.fail("Error expected");
+  }, onError: (_) {
     pFailed = true;
   }).then((_) {
     Expect.isTrue(pFailed);

@@ -20,16 +20,9 @@ import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-String command;
-List<String> args;
-
-void setCommand() {
-  command = 'dart';
-  args = ['--version'];
-}
-
 main() {
-  setCommand();
+  String command = 'dart';
+  List<String> args = ['--version'];
   Future<ProcessResult> fProcessResult =
       Process.run(command, args, stdoutEncoding: null);
   fProcessResult.then((ProcessResult result) {

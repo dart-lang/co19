@@ -35,7 +35,7 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 String command = "";
-List<String> args = new List<String>();
+List<String> args = new List<String>.empty(growable: true);
 
 void setCommand() {
   if (Platform.isWindows) {
