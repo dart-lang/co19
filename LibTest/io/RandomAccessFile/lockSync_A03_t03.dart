@@ -34,7 +34,7 @@ main() {
   var tests = [
         () => checkLock(rf.path, 0, fLen, FileLock.exclusive, locked: false)
   ];
-  Future.forEach(tests, (f) => f()).whenComplete(() {
+  Future.forEach(tests, (Function f) => f()).whenComplete(() {
     asyncEnd();
     rf.closeSync();
     file.deleteSync();

@@ -34,7 +34,7 @@ void check(int fLen) {
   var rfLock = rf.lock(FileLock.exclusive);
   rfLock.then((RandomAccessFile f) {
     var tests = [() => checkUnlocked(f.path, 0, -1, FileLock.blockingShared)];
-    Future.forEach(tests, (f) => f()).whenComplete(() {
+    Future.forEach(tests, (Function f) => f()).whenComplete(() {
       asyncEnd();
       rf.closeSync();
       file.deleteSync();

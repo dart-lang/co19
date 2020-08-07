@@ -38,7 +38,7 @@ void check(int fLen) {
     () => checkLocked(rf.path),
     () => checkLocked(rf.path, fLen, fLen + 10)
   ];
-  Future.forEach(tests, (f) => f()).whenComplete(() {
+  Future.forEach(tests, (Function f) => f()).whenComplete(() {
     asyncEnd();
     rf.unlockSync();
     rf.closeSync();

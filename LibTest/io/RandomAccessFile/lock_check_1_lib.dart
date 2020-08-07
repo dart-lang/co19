@@ -10,13 +10,16 @@
 library lock_check_1_lib;
 
 import "dart:io";
-import "../../../Utils/expect.dart";
+// TODO For now (07/08/2020) we cannot use Expect because it's migrated to null
+// safety but process, that run this test, don't have null safety and therefore
+// compile error occurs (exit code 254)
+//import "../../../Utils/expect.dart";
 
 // Check whether the file is locked or not.
-checkLock(String path, int start, int end, FileLock mode, {bool locked}) {
+checkLock(String path, int start, int end, FileLock mode, {bool locked = false}) {
   // Client process returns either 'LOCK FAILED' or 'LOCK SUCCEEDED'.
   var expected = locked ? 'LOCK FAILED' : 'LOCK SUCCEEDED';
-  var arguments = new List<String>()
+  var arguments = new List<String>.empty(growable: true)
     ..add(Platform.script.resolve('lock_check_1_lib.dart').toFilePath())
     ..add(path)
     ..add(mode == FileLock.exclusive ? 'EXCLUSIVE' : 'SHARED')
@@ -35,7 +38,8 @@ checkLock(String path, int start, int end, FileLock mode, {bool locked}) {
       print(result.stderr);
       print("  arguments:");
       print(arguments);
-      Expect.fail('Client subprocess exit code: ${result.exitCode}');
+      //Expect.fail('Client subprocess exit code: ${result.exitCode}');
+      throw new Exception('Client subprocess exit code: ${result.exitCode}');
     }
   });
 }
@@ -53,8 +57,8 @@ main(List<String> args) {
     return 0;
   }
   File file = new File(args[0]);
-  int start = null;
-  int end = null;
+  int start = 0;
+  int end = 0;
   var mode = FileLock.exclusive;
   if (args[1] == 'SHARED') {
     mode = FileLock.shared;
@@ -65,7 +69,7 @@ main(List<String> args) {
   if (args[3] != 'null') {
     end = int.parse(args[3]);
   }
-  var raf = file.openSync(mode: APPEND);
+  var raf = file.openSync(mode: FileMode.append);
   try {
     raf.lockSync(mode, start, end);
     print('LOCK SUCCEEDED');

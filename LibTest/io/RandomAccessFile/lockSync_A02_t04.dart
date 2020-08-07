@@ -41,7 +41,7 @@ void check(int fLen) {
         () => checkUnlocked(rf.path, 0, start),
         () => checkUnlocked(rf.path, end)
   ];
-  Future.forEach(tests, (f) => f()).whenComplete(() {
+  Future.forEach(tests, (Function f) => f()).whenComplete(() {
     asyncEnd();
     if (Platform.isWindows) {
       rf.unlockSync(start, end);

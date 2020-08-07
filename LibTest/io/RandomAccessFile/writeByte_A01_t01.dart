@@ -37,7 +37,7 @@ void check(int num, List<int> list) {
         Expect.isTrue(i == list[i]);
       }
       for (int i = num + 1; i < 10; i++) {
-        Expect.isTrue(null == list[i]);
+        Expect.equals(0, list[i]);
       }
       asyncEnd();
     }).whenComplete(() {
@@ -48,7 +48,7 @@ void check(int num, List<int> list) {
 }
 
 main() {
-  List<int> list = new List<int>(10);
+  List<int> list = new List<int>.filled(10, 0);
   for (int i = 0; i < 10; i++) {
     check(i, list);
   }

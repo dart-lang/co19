@@ -28,13 +28,13 @@ check(int start) {
     for (int i = 0; i < 10; i++) {
       rf.writeByteSync((i + 1) & 0xff);
     }
-    List<int> list = new List<int>(20);
+    List<int> list = new List<int>.filled(20, 0);
     rf.setPositionSync(0);
     var num = rf.readIntoSync(list, start, start);
     Expect.isTrue(num is int);
     Expect.equals(0, num);
     for (int i = 0; i < 20; i++) {
-      Expect.equals(list[i], null);
+      Expect.equals(list[i], 0);
     }
     asyncEnd();
     rf.closeSync();

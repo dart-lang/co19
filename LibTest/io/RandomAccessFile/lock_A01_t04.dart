@@ -43,7 +43,7 @@ main() {
       () => checkUnlocked(f.path, 4, 5, FileLock.shared),
       () => checkUnlocked(f.path, 5, 6, FileLock.shared)
     ];
-    Future.forEach(tests, (f) => f()).whenComplete(() {
+    Future.forEach(tests, (Function f) => f()).whenComplete(() {
       asyncEnd();
       if (Platform.isWindows) {
         rf.unlockSync(2, 5);

@@ -38,7 +38,7 @@ main() {
     () => checkUnlocked(rf1.path, 15, 20),
     () => checkUnlocked(rf1.path, 25, 30)
   ];
-  Future.forEach(tests, (f) => f()).whenComplete(() {
+  Future.forEach(tests, (Function f) => f()).whenComplete(() {
     rf1.unlockSync(10, 15);
     var tests = [
       () => checkUnlocked(rf1.path, 10, 15),
@@ -46,7 +46,7 @@ main() {
       () => checkUnlocked(rf1.path, 0, 20),
       () => checkUnlocked(rf1.path, 25, 30)
     ];
-    Future.forEach(tests, (f) => f()).whenComplete(() {
+    Future.forEach(tests, (Function f) => f()).whenComplete(() {
       asyncEnd();
       if (Platform.isWindows) {
         rf2.unlockSync(20, 25);

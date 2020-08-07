@@ -37,7 +37,7 @@ void check(int fLen) {
     var tests = [
       () => checkLocked(f.path),
     ];
-    Future.forEach(tests, (f) => f()).whenComplete(() {
+    Future.forEach(tests, (Function f) => f()).whenComplete(() {
       asyncEnd();
       rf.unlockSync();
       rf.closeSync();

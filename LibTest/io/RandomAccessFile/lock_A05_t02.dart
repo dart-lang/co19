@@ -47,7 +47,7 @@ main() {
   var rfLock = rf1.lock(FileLock.exclusive, 4, 6);
   rf2.lockSync(FileLock.exclusive, 7, 8);
   rfLock.then((RandomAccessFile f) {
-    rf2.closeSync();
+    //rf2.closeSync();
     var tests = [];
     if (!Platform.isWindows) {
       tests.addAll([
@@ -60,9 +60,10 @@ main() {
         () => checkUnlocked(file.path)
       ]);
     }
-    Future.forEach(tests, (f) => f()).whenComplete(() {
+    Future.forEach(tests, (f) => (f as Function)()).whenComplete(() {
       asyncEnd();
       rf1.closeSync();
+      rf2.closeSync();
       file.deleteSync();
     });
   });

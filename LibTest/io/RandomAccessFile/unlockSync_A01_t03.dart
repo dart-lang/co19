@@ -36,14 +36,14 @@ main() {
     () => checkLocked(rf.path, 12, 30),
     () => checkLocked(rf.path, 30, 40)
   ];
-  Future.forEach(tests, (f) => f()).whenComplete(() {
+  Future.forEach(tests, (Function f) => f()).whenComplete(() {
     rf.unlockSync(15);
     var tests = [
       () => checkUnlocked(rf.path, 0, 12),
       () => checkLocked(rf.path, 12, 15),
       () => checkUnlocked(rf.path, 15, 50)
     ];
-    Future.forEach(tests, (f) => f()).whenComplete(() {
+    Future.forEach(tests, (Function f) => f()).whenComplete(() {
       asyncEnd();
       rf.unlockSync();
       rf.closeSync();

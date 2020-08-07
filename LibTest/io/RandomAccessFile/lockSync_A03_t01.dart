@@ -31,7 +31,7 @@ void check(int fLen) {
   asyncStart();
   rf.lockSync(FileLock.exclusive);
   var tests = [() => checkLocked(rf.path, 0, fLen, FileLock.exclusive)];
-  Future.forEach(tests, (f) => f()).whenComplete(() {
+  Future.forEach(tests, (Function f) => f()).whenComplete(() {
     asyncEnd();
     rf.unlockSync();
     rf.closeSync();

@@ -40,7 +40,7 @@ main() {
       () => checkLocked(f.path, 4, 5),
       () => checkLocked(f.path, 5, 6)
     ];
-    Future.forEach(tests, (f) => f()).whenComplete(() {
+    Future.forEach(tests, (Function f) => f()).whenComplete(() {
       asyncEnd();
       rf.unlockSync();
       rf.closeSync();

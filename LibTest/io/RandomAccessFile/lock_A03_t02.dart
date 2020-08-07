@@ -36,7 +36,7 @@ void check(int fLen) {
       () => checkUnlocked(f.path, 0, -1, FileLock.shared),
       () => checkUnlocked(f.path, fLen, fLen + 20, FileLock.shared)
     ];
-    Future.forEach(tests, (f) => f()).whenComplete(() {
+    Future.forEach(tests, (Function f) => f()).whenComplete(() {
       asyncEnd();
       rf.unlockSync();
       rf.closeSync();
