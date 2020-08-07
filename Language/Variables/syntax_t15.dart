@@ -28,16 +28,21 @@
  *   initializedIdentifierList:
  *     initializedIdentifier (‘, ’ initializedIdentifier)*
  *   ;
- * @description Checks that a variable declaration may contain the
+ * @description Checks that a field declaration may contain the
  * 'abstract' keyword.
  * See https://github.com/dart-lang/language/tree/master/accepted/future-releases/abstract-external-fields
  * @author kaigorodov
+ * @issue 42979
  */
 
-class C {
-  abstract var x = 1;
+abstract class C {
+  abstract int x;
+}
+
+class D extends C {
+  int x = 1;
 }
 
 main() {
-  new C();
+  new D();
 }

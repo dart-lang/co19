@@ -33,10 +33,10 @@
  * @author kaigorodov
  */
 
-class C {
-  abstract void x = 1;
+abstract class C {
+  abstract void x;
 }
 
 main() {
-  new C();
+  C? c = null;
 }
