@@ -4,13 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  It is a static warning if a class has a setter named v= with
+ * @assertion  It is a compile error if a class has a setter named v= with
  * argument type T and a getter named v with return type S, and S may not be
  * assigned to T
- * @description Checks that it is a static warning if a class has a setter named
+ * @description Checks that it is a compile error if a class has a setter named
  * v= with argument type T and a getter named v with return type S, and S may
  * not be assigned to T (int and String).
- * @static-warning
  * @author vasya
  * @issue 42179
  */
@@ -20,8 +19,10 @@ class C<T extends int, S extends String> {
     _foo = t;
   }
 
-  S get foo { return _foo; }  /// static type warning
-
+  S get foo { return _foo; }
+//      ^^^
+// [analyzer] unspecified
+// [cfe] iunspecified
   var _foo;
 }
 
