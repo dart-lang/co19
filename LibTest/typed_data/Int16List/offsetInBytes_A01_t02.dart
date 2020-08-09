@@ -15,6 +15,8 @@ import "../../../Utils/expect.dart";
 
 void check(List<int> array) {
   dynamic l = new Int16List.fromList(array);
+  Expect.throws(() { l.offsetInBytes = 0; }, (e) => e is NoSuchMethodError);
+
   try {
     l.offsetInBytes = 0;
     Expect.fail("[offsetInBytes] should be read-only");

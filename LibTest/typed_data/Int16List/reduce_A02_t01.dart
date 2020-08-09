@@ -17,8 +17,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   var l = new Int16List.fromList([]);
-  try {
-    l.reduce((prev, cur) => 0);
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  Expect.throws(() { l.reduce((prev, cur) => 0); }, (e) => e is StateError);
 }

@@ -22,18 +22,13 @@ import "../../../Utils/expect.dart";
 check(List<int> list) {
   var l = new Int16List.fromList(list);
   var length = l.length;
-  try {
-    l.replaceRange(0, 1, [0]);
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {};
+  Expect.throws(() { l.replaceRange(0, 1, [0]); },
+          (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 
-  try {
-    l.replaceRange(0, 100, [0, 1, 2]);
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {};
+  Expect.throws(() { l.replaceRange(0, 100, [0, 1, 2]); },
+          (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
-
 }
 
 main() {

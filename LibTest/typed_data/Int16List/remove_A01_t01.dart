@@ -20,10 +20,7 @@ import "../../../Utils/expect.dart";
 check(List<int> list, int element) {
   var l = new Int16List.fromList(list);
   var length = l.length;
-  try {
-    l.remove(element);
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {};
+  Expect.throws(() { l.remove(element); }, (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 }
 
