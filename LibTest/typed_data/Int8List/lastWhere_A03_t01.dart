@@ -16,10 +16,7 @@ import "../../../Utils/expect.dart";
 
 check(List<int> list) {
   var l = new Int8List.fromList(list);
-  try {
-    l.lastWhere((e) => false);
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  Expect.throws(() { l.lastWhere((e) => false); }, (e) => e is StateError);
 }
 
 main() {

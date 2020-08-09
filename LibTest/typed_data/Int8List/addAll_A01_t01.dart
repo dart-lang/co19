@@ -18,10 +18,7 @@ import "../../../Utils/expect.dart";
 
 check(length) {
   var l = new Int8List(length);
-  try {
-    l.addAll([]);
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {}
+  Expect.throws(() { l.addAll([]); }, (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 }
 

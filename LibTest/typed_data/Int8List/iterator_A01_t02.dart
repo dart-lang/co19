@@ -15,8 +15,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic l = new Int8List.fromList([0]);
-  try {
-    l.iterator = l.iterator;
-    Expect.fail("[iterator] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { l.iterator = l.iterator; }, (e) => e is NoSuchMethodError);
 }

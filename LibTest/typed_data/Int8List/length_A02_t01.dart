@@ -18,10 +18,7 @@ import "../../../Utils/expect.dart";
 
 void check(List<int> array, int length) {
   dynamic l = new Int8List.fromList(array);
-  try {
-    l.length = 1;
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {}
+  Expect.throws(() { l.length = 1; }, (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 }
 

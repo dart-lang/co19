@@ -19,15 +19,13 @@ main() {
   var list = new Int8List.fromList([0]);
   var resList = list.toList(growable: true);
 
-  resList.length = 2;
-  Expect.equals(2, resList.length);
   resList.add(1);
-  Expect.equals(3, resList.length);
+  Expect.equals(2, resList.length);
   resList.addAll([1, 2, 3]);
-  Expect.equals(6, resList.length);
+  Expect.equals(5, resList.length);
 
   resList.removeLast();
-  Expect.equals(5, resList.length);
+  Expect.equals(4, resList.length);
   resList.clear();
   Expect.equals(0, resList.length);
 }
