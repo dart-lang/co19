@@ -15,8 +15,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   var l = new Int32List.fromList([]);
-  try {
-    l.single;
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  Expect.throws(() { l.single; }, (e) => e is StateError);
 }

@@ -18,10 +18,7 @@ import "../../../Utils/expect.dart";
 check(List<int> list) {
   var l = new Int32List.fromList(list);
   var length = l.length;
-  try {
-    l.removeLast();
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {};
+  Expect.throws(() { l.removeLast(); }, (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 }
 

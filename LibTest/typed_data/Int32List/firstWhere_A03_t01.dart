@@ -17,10 +17,7 @@ import "../../../Utils/expect.dart";
 
 check(List<int> list) {
   var l = new Int32List.fromList(list);
-  try {
-    l.firstWhere((e) => false);
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  Expect.throws(() { l.firstWhere((e) => false); }, (e) => e is StateError);
 }
 
 main() {
