@@ -26,7 +26,7 @@ check(convert(event), List expected) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
       int counter = 0;
-      Timer timer;
+      Timer? timer;
       List list = [];
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
@@ -39,7 +39,7 @@ check(convert(event), List expected) {
         receiver.receive();
         counter++;
         if (timer != null) {
-          timer.cancel();
+          timer?.cancel();
         }
         timer = new Timer(const Duration(milliseconds: 200), () {
           Expect.isNull(receiver.receive());

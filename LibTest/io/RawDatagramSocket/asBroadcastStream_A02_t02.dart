@@ -58,7 +58,7 @@ Future<List<RawSocketEvent>> checkOnListen() async {
     }
     Completer<int> completer = new Completer<int>();
     Future<int> f = completer.future;
-    StreamSubscription ss;
+    StreamSubscription? ss;
     anySubscribers = true;
 
     ss = mss.listen((event) {
@@ -67,7 +67,7 @@ Future<List<RawSocketEvent>> checkOnListen() async {
       received.add(event);
 
       if (received.length == 1) {
-        ss.cancel();
+        ss?.cancel();
         anySubscribers = false;
         if (!completer.isCompleted) {
           receiver.close();
@@ -88,7 +88,7 @@ Future<List<RawSocketEvent>> checkOnListen() async {
       if (!completer.isCompleted) {
         receiver.close();
         completer.complete(listen);
-        ss.cancel();
+        ss?.cancel();
         anySubscribers = false;
       }
     });

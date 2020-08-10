@@ -24,7 +24,7 @@ check(int expReceive, [bool no_read_events = false]) {
       if (no_read_events) {
         receiver.readEventsEnabled = false;
       }
-      Timer timer2;
+      Timer? timer2;
       int received = 0;
       int sent = 0;
       var read = 0;
@@ -56,7 +56,7 @@ check(int expReceive, [bool no_read_events = false]) {
         if (datagram != null) {
           Expect.listEquals([s++], datagram.data);
         }
-        if (timer2 != null) timer2.cancel();
+        timer2?.cancel();
         timer2 = new Timer(const Duration(milliseconds: 400), () {
           receiver.close();
         });

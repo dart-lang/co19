@@ -29,7 +29,7 @@ Future<List<int>> anyElement(RawDatagramSocket receiver, int expectedValue,
   Future<List<int>> f = completer.future;
 
   bool test(RawSocketEvent x) {
-    var d = receiver?.receive();
+    var d = receiver.receive();
     if (d != null) {
       tested.add(d.data[0]);
       return d.data[0] == expectedValue;
@@ -64,7 +64,7 @@ check(int expectedValue, {int attempts = 5}) async {
     return;
   }
 
-  List<int> bytesSent;
+  List<int> bytesSent = [];
   for (int i = 0; i < attempts; i++) {
     bytesSent =
         await sendDatagramOnce(producer, toSend, localhost, receiver.port);

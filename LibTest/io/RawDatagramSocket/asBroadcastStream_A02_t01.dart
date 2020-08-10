@@ -52,14 +52,14 @@ Future<List<RawSocketEvent>> check() async {
   Expect.isTrue(wasSent, "No datagram was sent");
 
   Expect.equals(0, listen);
-  StreamSubscription ss1;
-  StreamSubscription ss2;
+  StreamSubscription? ss1;
+  StreamSubscription? ss2;
   ss1 = mss.listen((event) {
     Expect.equals(1, listen);
     received1.add(event);
     receiver.receive();
     if (received1.length == 2) {
-      ss1.cancel();
+      ss1?.cancel();
       ss2 = mss.listen((event) {
         Expect.equals(2, listen);
         received.add(event);
@@ -68,7 +68,7 @@ Future<List<RawSocketEvent>> check() async {
         if (!completer.isCompleted) {
           completer.complete(received);
         }
-        ss2.cancel();
+        ss2?.cancel();
       });
     }
   });

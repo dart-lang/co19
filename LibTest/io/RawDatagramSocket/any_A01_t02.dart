@@ -15,7 +15,6 @@
  * first received RawSocketEvent.read event.
  * @author ngl@unipro.ru
  */
-//import "dart:async";
 import "dart:io";
 import "../http_utils.dart";
 import "../../../Utils/expect.dart";
@@ -39,4 +38,3 @@ main() async {
     checkTested<RawSocketEvent>(tested, findEvent);
   }
 }
-

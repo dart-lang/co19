@@ -31,7 +31,6 @@ check(Stream convert(event)) async {
 }
 
 main() {
-  check((e) => null);
   check((e) => new Stream.fromIterable([e]));
   check((e) => new Stream.fromIterable([e, e]));
 }

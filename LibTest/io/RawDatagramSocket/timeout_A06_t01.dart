@@ -63,12 +63,10 @@ check(dataExpected, errorCountExpected, [bool no_write_events = false]) {
       }, onDone: () {
       });
 
-      Timer timer;
+      Timer? timer;
       s.listen((event) {
         list2.add(event);
-        if (timer != null) {
-          timer.cancel();
-        }
+        timer?.cancel();
         timer = new Timer(const Duration(milliseconds: 200), () {
           Expect.isNull(receiver.receive());
           receiver.close();
@@ -77,10 +75,7 @@ check(dataExpected, errorCountExpected, [bool no_write_events = false]) {
         Expect.isTrue(e is TimeoutException);
         count2++;
       }, onDone: () {
-        if (timer != null) {
-          timer.cancel();
-        }
-        print('$no_write_events  $count1 $count2  $list1 $list2');
+        timer?.cancel();
         Expect.equals(count1, count2);
         Expect.deepEquals(list1, list2);
         asyncEnd();

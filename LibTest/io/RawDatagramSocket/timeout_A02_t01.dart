@@ -59,16 +59,14 @@ check(List dataExpected, [bool no_write_events = false]) {
           onTimeout: (EventSink sink) {
         count++;
       });
-      Timer timer;
+      Timer? timer;
       s.listen((event) {
         list.add(event);
-        Datagram d = receiver.receive();
+        Datagram? d = receiver.receive();
         if (event == RawSocketEvent.write && d != null) {
           writeDataNotNull = true;
         }
-        if (timer != null) {
-          timer.cancel();
-        }
+        timer?.cancel();
         timer = new Timer(const Duration(milliseconds: 200), () {
           Expect.isNull(receiver.receive());
           receiver.close();
@@ -79,9 +77,7 @@ check(List dataExpected, [bool no_write_events = false]) {
           dataExpected.removeAt(1);
         }
         Expect.deepEquals(dataExpected, list);
-        if (timer != null) {
-          timer.cancel();
-        }
+        timer?.cancel();
         asyncEnd();
       });
     });

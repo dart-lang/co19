@@ -18,7 +18,7 @@ import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-check(test(e), dataExpected) {
+check(bool test(e), dataExpected) {
   asyncStart();
   var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {

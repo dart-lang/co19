@@ -32,8 +32,8 @@ check(int n) {
   var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
-      StreamSubscription ss1 = null;
-      StreamSubscription ss2 = null;
+      StreamSubscription? ss1 = null;
+      StreamSubscription? ss2 = null;
       int counter1 = 0;
       int counter2 = 0;
       int counter = 0;
@@ -53,7 +53,7 @@ check(int n) {
       }, onError: (e) {
         Expect.fail('Should not be here.');
       }, onDone: () {
-        if (ss1.isPaused) {
+        if (ss1 != null && ss1.isPaused) {
           Expect.fail('Should not be here.');
         }
       });
@@ -62,15 +62,15 @@ check(int n) {
         counter++;
         receiver.receive();
         if (counter == n) {
-          ss1.pause();
-          ss2.pause();
+          ss1?.pause();
+          ss2?.pause();
         }
         if (counter == 9) {
           Expect.isTrue(counter1 <= n);
           Expect.equals(counter, 9);
           Expect.isTrue(counter2 <= n);
-          ss1.resume();
-          ss2.resume();
+          ss1?.resume();
+          ss2?.resume();
         }
       }, onDone: () {
         asyncEnd();
@@ -81,7 +81,7 @@ check(int n) {
       }, onError: (e) {
         Expect.fail('Should not be here.');
       }, onDone: () {
-        if (ss2.isPaused) {
+        if (ss2 != null && ss2.isPaused) {
           Expect.fail('Should not be here.');
         }
       });

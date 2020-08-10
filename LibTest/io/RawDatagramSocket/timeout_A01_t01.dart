@@ -30,7 +30,7 @@ check(List dataExpected, [bool no_write_events = false]) {
         receiver.writeEventsEnabled = false;
       }
       int sent = 0;
-      Timer timer;
+      Timer? timer;
       List list = [];
       int totalSent = 0;
       int nullWriteData = 0;
@@ -45,21 +45,17 @@ check(List dataExpected, [bool no_write_events = false]) {
       Stream s = receiver.timeout(const Duration(milliseconds: 300));
       s.listen((event) {
         list.add(event);
-        Datagram d = receiver.receive();
+        Datagram? d = receiver.receive();
         if (event == RawSocketEvent.write && d == null) {
           nullWriteData = 1;
         }
-        if (timer != null) {
-          timer.cancel();
-        }
+        timer?.cancel();
         timer = new Timer(const Duration(milliseconds: 200), () {
           Expect.isNull(receiver.receive());
           receiver.close();
         });
       }, onDone: () {
-        if (timer != null) {
-          timer.cancel();
-        }
+        timer?.cancel();
         if (nullWriteData != 0) {
           dataExpected.insert(1, RawSocketEvent.read);
         }

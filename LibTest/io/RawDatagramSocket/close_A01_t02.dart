@@ -26,7 +26,9 @@ Future<List<List<int>>> receiveAndClose(RawDatagramSocket receiver,
   Future<List<List<int>>> f = completer.future;
   receiver.listen((_event) {
     var datagram = receiver.receive();
-    received.add(datagram?.data);
+    if (datagram != null) {
+      received.add(datagram.data.toList());
+    }
     if (received.length == 1) {
       receiver.close();
     }

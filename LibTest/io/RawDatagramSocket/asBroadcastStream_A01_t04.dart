@@ -43,11 +43,11 @@ Future<List<RawSocketEvent>> check() async {
       await sendDatagram(producer, toSend, localhost, receiver.port);
   Expect.isTrue(wasSent, "No datagram was sent");
 
-  StreamSubscription ss1;
+  StreamSubscription? ss1;
   ss1 = mss.listen((event) {
     received1.add(event);
   }, onDone: () {
-    ss1.cancel();
+    ss1?.cancel();
   });
 
   mss.listen((event) {

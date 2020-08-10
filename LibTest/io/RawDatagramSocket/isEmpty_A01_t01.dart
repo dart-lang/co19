@@ -36,6 +36,7 @@ check([bool no_write_events = false]) {
 
     socket.isEmpty.timeout(const Duration(milliseconds: 200), onTimeout: () {
       producer.close();
+      return true;
     });
 
     socket.isEmpty.then((value) {

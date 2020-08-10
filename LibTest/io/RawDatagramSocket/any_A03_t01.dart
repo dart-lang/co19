@@ -33,7 +33,7 @@ Future<List<RawSocketEvent>> anyElement(RawDatagramSocket receiver,
     if (x == RawSocketEvent.read) {
       throw 11;
     }
-    if (receiver?.receive() == null) {
+    if (receiver.receive() == null) {
       return true;
     } else {
       return false;

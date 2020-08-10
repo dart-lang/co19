@@ -19,14 +19,14 @@ import "../../../Utils/expect.dart";
 var localhost = InternetAddress.loopbackIPv4;
 
 Future<List<List<int>>> receiveClosed(RawDatagramSocket receiver,
-    {Duration delay = const Duration(seconds: 2), RawSocketEvent event}) {
+    {Duration delay = const Duration(seconds: 2), RawSocketEvent? event}) {
   List<List<int>> received = [];
   Completer<List<List<int>>> completer = new Completer<List<List<int>>>();
   Future<List<List<int>>> f = completer.future;
   receiver.listen((_event) {
     var datagram = receiver.receive();
-    if (_event == event) {
-      received.add(datagram == null ? null : datagram.data);
+    if (_event == event && datagram != null) {
+      received.add(datagram.data.toList());
     }
     if (_event == RawSocketEvent.closed) {
       if(!completer.isCompleted) {

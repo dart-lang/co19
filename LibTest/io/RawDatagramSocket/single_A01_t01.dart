@@ -23,7 +23,7 @@ check([bool no_write_events = false]) {
       if (no_write_events) {
         receiver.writeEventsEnabled = false;
       }
-      Timer  timer2;
+      Timer?  timer2;
       int received = 0;
       var rEvent;
 
@@ -33,7 +33,7 @@ check([bool no_write_events = false]) {
       receiver.single.then((event) {
         received++;
         rEvent = event;
-        if (timer2 != null) timer2.cancel();
+        timer2?.cancel();
         timer2 = new Timer(const Duration(milliseconds: 200), () {
           Expect.isNull(receiver.receive());
           if (received != 1) {
