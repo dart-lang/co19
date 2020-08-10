@@ -20,7 +20,7 @@ Int32x4 i32x4p(n) => new Int32x4(n, n + 1, n + 2, n + 3);
 
 void checkInt(List<Int32x4> list, int expected) {
   var l = new Int32x4List.fromList(list);
-  var res = l.fold(0, (prev, cur) => prev + cur.x);
+  var res = l.fold(0, (num prev, cur) => prev + cur.x);
   Expect.equals(expected, res);
 }
 

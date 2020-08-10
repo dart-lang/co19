@@ -18,9 +18,7 @@ import "../../../Utils/expect.dart";
 
 Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 
-equal(o1, o2) {
-  return o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
-}
+equal(o1, o2) => o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
 
 main() {
   var list = [
@@ -28,24 +26,10 @@ main() {
     i32x4(1), i32x4(8), i32x4(9), i32x4(4), i32x4(5)
   ];
   var l = new Int32x4List.fromList(list);
-  try {
-    l.singleWhere((e) => false);
-    Expect.fail("StateError is expected");
-  } on StateError {}
-
-  try {
-    l.singleWhere((e) => e.x > 9);
-    Expect.fail("StateError is expected");
-  } on StateError {}
-
-  try {
-    l.singleWhere((e) => e.x < 0);
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  Expect.throws(() { l.singleWhere((e) => false  ); }, (e) => e is StateError);
+  Expect.throws(() { l.singleWhere((e) => e.x > 9); }, (e) => e is StateError);
+  Expect.throws(() { l.singleWhere((e) => e.x < 0); }, (e) => e is StateError);
 
   l = new Int32x4List.fromList([]);
-  try {
-    l.singleWhere((e) => true);
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  Expect.throws(() { l.singleWhere((e) => true); }, (e) => e is StateError);
 }

@@ -16,6 +16,8 @@ import "../../../Utils/expect.dart";
 
 main() {
   var l = new Int32x4List.fromList([]);
+  Expect.throws(() { l.first; }, (e) => e is StateError);
+
   try {
     l.first;
     Expect.fail("StateError is expected");

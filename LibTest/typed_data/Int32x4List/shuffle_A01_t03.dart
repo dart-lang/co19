@@ -16,9 +16,8 @@ import "../../../Utils/expect.dart";
 
 i32x4p(n) => new Int32x4(n, n + 1, n + 2, n + 3);
 
-equal(o1, o2) {
-  return o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
-}
+equal(o1, o2) => o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
+
 
 main() {
   List<Int32x4> list = [i32x4p(1), i32x4p(2), i32x4p(3), i32x4p(4), i32x4p(5),

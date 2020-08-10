@@ -18,7 +18,6 @@ Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 void check(List<Int32x4> list) {
   var l = new Int32x4List.fromList(list);
   Expect.equals(list.length * Int32x4List.bytesPerElement, l.lengthInBytes);
-
 }
 
 main() {

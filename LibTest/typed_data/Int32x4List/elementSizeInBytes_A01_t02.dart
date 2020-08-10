@@ -16,9 +16,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic l = new Int32x4List(2);
-
-  try {
-    l.elementSizeInBytes = 32;
-    Expect.fail("elementSizeInBytes should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(
+          () { l.elementSizeInBytes = 32; }, (e) => e is NoSuchMethodError);
 }

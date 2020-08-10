@@ -15,8 +15,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic l = new Int32x4List(0);
-  try {
-    l.isEmpty = false;
-    Expect.fail("isEmpty should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { l.isEmpty = false; }, (e) => e is NoSuchMethodError);
 }

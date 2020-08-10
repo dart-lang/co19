@@ -17,9 +17,7 @@ import "../../../Utils/expect.dart";
 
 Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 
-equal(o1, o2) {
-  return o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
-}
+equal(o1, o2) => o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
 
 main() {
   var list = [i32x4(0), i32x4(1), i32x4(2), i32x4(6), i32x4(4), i32x4(5)];
@@ -27,15 +25,14 @@ main() {
   var res = l.toList(growable: true);
 
   Expect.equals(l.length, res.length);
-  res. length = 10;
-  Expect.equals(10, res.length);
+
   res.add(i32x4(11));
-  Expect.equals(11, res.length);
+  Expect.equals(7, res.length);
   res.addAll([i32x4(11), i32x4(12)]);
-  Expect.equals(13, res.length);
+  Expect.equals(9, res.length);
 
   res.removeLast();
-  Expect.equals(12, res.length);
+  Expect.equals(8, res.length);
   res.clear();
   Expect.equals(0, res.length);
 }

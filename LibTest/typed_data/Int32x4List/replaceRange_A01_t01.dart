@@ -23,22 +23,15 @@ Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 main() {
   var list = [i32x4(0), i32x4(1), i32x4(2), i32x4(3)];
   var l = new Int32x4List.fromList(list);
-  try {
-    l.replaceRange(6, 8, [i32x4(2), i32x4(3)]);
-    Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError {}
+  Expect.throws(() { l.replaceRange(6, 8, [i32x4(2), i32x4(3)]); },
+          (e) => e is UnsupportedError);
   Expect.equals(list.length, l.length);
 
-  try {
-    l.replaceRange(1, 3, [i32x4(2), i32x4(3)]);
-    Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError {}
+  Expect.throws(() { l.replaceRange(1, 3, [i32x4(2), i32x4(3)]); },
+          (e) => e is UnsupportedError);
   Expect.equals(list.length, l.length);
 
   l = new Int32x4List(0);
-  try {
-    l.replaceRange(0, 0, []);
-    Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError {}
+  Expect.throws(() { l.replaceRange(1, 0, []); }, (e) => e is UnsupportedError);
   Expect.equals(0, l.length);
 }

@@ -21,22 +21,16 @@ Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 main() {
   var list = [i32x4(0), i32x4(1), i32x4(2), i32x4(3)];
   var l = new Int32x4List.fromList(list);
-  try {
-    l.retainWhere((e) => e.x == 4);
-    Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError {}
+  Expect.throws(
+          () { l.retainWhere((e) => e.x == 4); }, (e) => e is UnsupportedError);
   Expect.equals(list.length, l.length);
 
-  try {
-    l.retainWhere((e) => e.x < 2);
-    Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError {}
+  Expect.throws(
+          () { l.retainWhere((e) => e.x < 2); }, (e) => e is UnsupportedError);
   Expect.equals(list.length, l.length);
 
   l = new Int32x4List(0);
-  try {
-    l.retainWhere((e) => false);
-    Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError {}
+  Expect.throws(
+          () { l.retainWhere((e) => false); }, (e) => e is UnsupportedError);
   Expect.equals(0, l.length);
 }

@@ -19,18 +19,7 @@ Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 main() {
   var list = [i32x4(1), i32x4(2), i32x4(3), i32x4(4), i32x4(5), i32x4(6)];
   var l = new Int32x4List.fromList(list);
-  try {
-    l.lastWhere((e) => e.x > 6);
-    Expect.fail("StateError is expected");
-  } on StateError {}
-
-  try {
-    l.lastWhere((e) => e.y == 10);
-    Expect.fail("StateError is expected");
-  } on StateError {}
-
-  try {
-    l.lastWhere((e) => e.z < 0);
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  Expect.throws(() { l.lastWhere((e) => e.x >  6 ); }, (e) => e is StateError);
+  Expect.throws(() { l.lastWhere((e) => e.y == 10); }, (e) => e is StateError);
+  Expect.throws(() { l.lastWhere((e) => e.z <  0 ); }, (e) => e is StateError);
 }

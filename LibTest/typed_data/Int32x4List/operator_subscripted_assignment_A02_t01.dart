@@ -17,14 +17,8 @@ Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 
 void check(list) {
   var l = new Int32x4List.fromList(list);
-  try {
-    l[-1] = i32x4(11);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
-  try {
-    l[l.length] = i32x4(12);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
+  Expect.throws(() { l[-1] = i32x4(11);       }, (e) => e is RangeError);
+  Expect.throws(() { l[l.length] = i32x4(12); }, (e) => e is RangeError);
 }
 
 main() {

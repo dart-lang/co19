@@ -22,10 +22,6 @@ main() {
   var l = new Int32x4List.fromList(list);
   var res = l.toList(growable: false);
 
-  try {
-    res.length = 10;
-    Expect.fail("List must be fixed-length");
-  } on UnsupportedError {}
-
+  Expect.throws(() { res.length = 10; }, (e) => e is UnsupportedError);
   Expect.equals(l.length, res.length);
 }

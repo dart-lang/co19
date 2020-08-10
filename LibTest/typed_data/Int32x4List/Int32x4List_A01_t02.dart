@@ -14,9 +14,7 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-equal(o1, o2) {
-  return o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
-}
+equal(o1, o2) => o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
 
 void check(length) {
   var l = new Int32x4List(length);

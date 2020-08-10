@@ -17,10 +17,7 @@ Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 
 void check(list) {
   dynamic l = new Int32x4List.fromList(list);
-  try {
-    l.lengthInBytes = 0;
-    Expect.fail("lengthInBytes should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { l.lengthInBytes = 0; }, (e) => e is NoSuchMethodError);
 }
 
 main() {

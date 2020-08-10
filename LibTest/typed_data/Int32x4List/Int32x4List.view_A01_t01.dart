@@ -21,9 +21,7 @@ import "../../../Utils/expect.dart";
 
 Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 
-equal(o1, o2) {
-  return o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
-}
+equal(o1, o2) => o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
 
 void check(List<Int32x4> list, offset, length) {
   var l = new Int32x4List.fromList(list);
@@ -32,7 +30,7 @@ void check(List<Int32x4> list, offset, length) {
   Expect.isTrue(view is Int32x4List);
   Expect.equals(view.length, length);
   for (int i = 0; i < view.length; ++i) {
-    Expect.isTrue(equal(l[i + (offset >> 4)], view[i]));
+    Expect.isTrue(equal(l[i + (offset >> 4) as int], view[i]));
   }
 }
 

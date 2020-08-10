@@ -20,10 +20,8 @@ Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 
 void check(list) {
   var l = new Int32x4List.fromList(list);
-  try {
-    l.addAll([i32x4(100), i32x4(101), i32x4(102)]);
-    Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError {}
+  Expect.throws(() { l.addAll([i32x4(100), i32x4(101), i32x4(102)]); },
+          (e) => e is UnsupportedError);
 }
 
 main() {
