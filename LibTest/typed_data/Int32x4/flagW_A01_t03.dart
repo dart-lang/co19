@@ -15,8 +15,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic obj = new Int32x4.bool(false, false, false, false);
-  try {
-    obj.flagW = true;
-    Expect.fail("[flagW] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { obj.flagW = true; }, (e) => e is NoSuchMethodError);
 }

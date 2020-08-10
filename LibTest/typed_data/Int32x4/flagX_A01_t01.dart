@@ -6,8 +6,7 @@
 /**
  * @assertion bool flagX
  * Extracted [x] value. Returns false for 0, true for any other value.
- * @description Checks that false is returned if [x] is 0 and
- * true otherwise.
+ * @description Checks that false is returned if [x] is 0 and true otherwise.
  * @author msyabro
  */
 

@@ -16,8 +16,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic obj = new Int32x4(1, 2, 3, 4);
-  try {
-    obj.signMask = 0;
-    Expect.fail("[signMask] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { obj.signMask = 0; }, (e) => e is NoSuchMethodError);
 }
