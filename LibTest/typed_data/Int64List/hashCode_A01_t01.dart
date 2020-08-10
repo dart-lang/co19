@@ -19,7 +19,6 @@
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
-
 main() {
   var obj1 = new Int64List(0);
   var obj2 = new Int64List(0);

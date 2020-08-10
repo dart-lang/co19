@@ -19,16 +19,12 @@ import "../../../Utils/expect.dart";
 check(List<int> list) {
   var l = new Int64List.fromList(list);
   var length = l.length;
-  try {
-    l.removeWhere((e) => false);
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {};
+  Expect.throws(
+          () { l.removeWhere((e) => false); }, (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 
-  try {
-    l.removeWhere((e) => true);
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {};
+  Expect.throws(
+          () { l.removeWhere((e) => true); }, (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 }
 
