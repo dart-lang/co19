@@ -54,10 +54,10 @@ Future<HttpServer> spawnEchoWebSocketServer() {
   });
 }
 
-List<int> _bigData = null;
+List<int> _bigData = [];
 
 List<int> get bigData  {
- if (_bigData == null) {
+ if (_bigData.isEmpty) {
    _bigData = getList(8187);
  }
  return _bigData;
@@ -135,14 +135,17 @@ compareSentData(List<List<int>> data, List<int> sentStatus) {
 }
 
 Future<List<List<int>>> receiveDatagram(RawDatagramSocket receiver,
-    {Duration delay = const Duration(seconds: 2), RawSocketEvent event}) {
+    {Duration delay = const Duration(seconds: 2), RawSocketEvent? event}) {
   List<List<int>> received = [];
   Completer<List<List<int>>> completer = new Completer<List<List<int>>>();
   Future<List<List<int>>> f = completer.future;
   receiver.listen((_event) {
     var datagram = receiver.receive();
     if (event == null || _event == event) {
-      received.add(datagram?.data);
+      var d = datagram?.data.toList();
+      if (d != null) {
+        received.add(d);
+      }
     }
     if (_event == RawSocketEvent.closed) {
       if(!completer.isCompleted) {
