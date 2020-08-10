@@ -9,15 +9,13 @@
 library lock_check_2_lib;
 
 import "dart:io";
-// TODO For now (07/08/2020) we cannot use Expect because it's migrated to null
-// safety but process, that run this test, don't have null safety and therefore
-// compile error occurs (exit code 254)
-// import "../../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 // Check whether the file is may be locked with an exclusive lock.
 checkLock(String path, int start, int end, FileLock mode, {bool locked = false}) {
   var expected = 'OS Error:';
   var arguments = new List<String>.empty(growable: true)
+    ..add("--enable-experiment=non-nullable")
     ..add(Platform.script.resolve('lock_check_2_lib.dart').toFilePath())
     ..add(path)
     ..add(mode == FileLock.exclusive ? 'EXCLUSIVE' : 'SHARED')
@@ -34,8 +32,7 @@ checkLock(String path, int start, int end, FileLock mode, {bool locked = false})
       print(result.stderr);
       print("  arguments:");
       print(arguments);
-      //Expect.fail('Client subprocess exit code: ${result.exitCode}');
-      throw new Exception('Client subprocess exit code: ${result.exitCode}');
+      Expect.fail('Client subprocess exit code: ${result.exitCode}');
     }
   });
 }
