@@ -18,7 +18,7 @@ check(InternetAddress address) {
   asyncStart();
   SecurityContext sc = new SecurityContext(withTrustedRoots: true);
   RawSecureServerSocket.bind(address, 0, sc).then((server) {
-    List<String> list = server.supportedProtocols;
+    List<String>? list = server.supportedProtocols;
     Expect.equals(null, list);
     server.close();
     asyncEnd();

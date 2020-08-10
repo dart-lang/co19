@@ -33,7 +33,7 @@ SecurityContext clientContext = new SecurityContext()
 check(InternetAddress address) {
   const messageSize = 10;
   List<int> expected = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  List<RawSecureSocket> sList = [null, null];
+  List<RawSecureSocket?> sList = [null, null];
   int sli = 0;
   var firstValue = null;
   var closed = 0;
@@ -47,7 +47,7 @@ check(InternetAddress address) {
     bs.listen((client) {
       int bytesRead = 0;
       int bytesWritten = 0;
-      List<int> data = new List<int>(messageSize);
+      List<int> data = new List<int>.filled(messageSize, 0);
       client.writeEventsEnabled = false;
       sList[sli++] = client;
       client.listen((event) {
@@ -99,7 +99,7 @@ check(InternetAddress address) {
           int bytesRead = 0;
           int bytesWritten = 0;
           List<int> dataSent = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-          List<int> dataReceived = new List<int>(dataSent.length);
+          List<int> dataReceived = new List<int>.filled(dataSent.length, 0);
           client.listen((event) {
             switch (event) {
               case RawSocketEvent.read:

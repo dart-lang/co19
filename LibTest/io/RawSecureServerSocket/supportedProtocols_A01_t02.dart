@@ -21,7 +21,7 @@ check(InternetAddress address) {
   RawSecureServerSocket
       .bind(address, 0, sc, supportedProtocols: protocols)
       .then((server) {
-    List<String> list = server.supportedProtocols;
+    List<String>? list = server.supportedProtocols;
     Expect.listEquals(protocols, list);
     server.close();
     asyncEnd();
