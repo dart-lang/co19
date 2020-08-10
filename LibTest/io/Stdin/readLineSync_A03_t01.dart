@@ -21,7 +21,8 @@ List<int> expected = utf8.encode("TESTME Тест для проверки 1âã"
 String str = utf8.decode(expected);
 
 void run_process(String filename, Encoding enc) async {
-  String res = stdin.readLineSync(encoding : enc);
+  String? res = stdin.readLineSync(encoding : enc);
+  res = res ?? "";
   File fl = new File(filename);
   await fl.writeAsString(res);
 }

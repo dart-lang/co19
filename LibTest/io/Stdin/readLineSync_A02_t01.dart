@@ -19,7 +19,7 @@ import "stdin_utils.dart";
 
 run_process() {
   stdout.write("Start");
-  String str = stdin.readLineSync();
+  String? str = stdin.readLineSync();
   stdout.write(str);
   stdout.write("End");
 }
@@ -29,8 +29,10 @@ run_main() async {
   String eScript = Platform.script.toString();
   int called = 0;
 
-  await Process.start(executable, [eScript, "test"], runInShell: true).then(
-      (Process process) async {
+  await Process.start(
+          executable, ["--enable-experiment=non-nullable", eScript, "test"],
+          runInShell: true)
+      .then((Process process) async {
     process.stdin.write("1");
     await new Future.delayed(new Duration(seconds: 2)).then((_) async {
       // Wait some time: call should be blocked until no new line in stdin

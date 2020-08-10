@@ -29,13 +29,15 @@ run_main() async {
   String eScript = Platform.script.toString();
   int called = 0;
 
-  await Process.start(executable, [eScript, "test"], runInShell: true).then(
-      (Process process) async {
+  await Process.start(
+          executable, ["--enable-experiment=non-nullable", eScript, "test"],
+          runInShell: true)
+      .then((Process process) async {
     process.stdin.add([5]);
     await new Future.delayed(new Duration(seconds: 2)).then((_) async {
       process.kill();
       await process.exitCode.then((_) async {
-        process.stderr.toList().then((errors){
+        process.stderr.toList().then((errors) {
           Expect.isTrue(errors.isEmpty);
         });
         await process.stdout.toList().then((out) {

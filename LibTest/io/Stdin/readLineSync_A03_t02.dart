@@ -23,7 +23,8 @@ List<int> expected = [1, 2, 3, 128, 129, 200, 254, 255];
 String str = latin1.decode(expected);
 
 void run_process(String filename, Encoding enc) async {
-  String res = stdin.readLineSync(encoding : enc);
+  String? res = stdin.readLineSync(encoding : enc);
+  res = res ?? "";
   File fl = new File(filename);
   await fl.writeAsBytes(res.codeUnits);
 }

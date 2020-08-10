@@ -23,7 +23,8 @@ String str = systemEncoding.decode(expected);
 
 
 run_process(String filename) async {
-  String res = stdin.readLineSync(encoding: systemEncoding);
+  String? res = stdin.readLineSync(encoding: systemEncoding);
+  res = res ?? "";
   File fl = new File(filename);
   await fl.writeAsString(res);
 }

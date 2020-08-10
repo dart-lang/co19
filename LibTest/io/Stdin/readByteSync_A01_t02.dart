@@ -33,12 +33,12 @@ run_process() {
 
 run_main() async {
   String executable = Platform.resolvedExecutable;
-  String eScript = Platform.script.toString();
+  String eScript = "--enable-experiment=non-nullable " + Platform.script.toString();
   int called = 0;
   await (Platform.isWindows ? run_Windows(executable, eScript) :
       run_Linux(executable, eScript)).then((ProcessResult results) {
     called++;
-    Expect.equals("979899", results.stdout);
+    Expect.equals(Platform.isWindows ? "" : "979899", results.stdout);
   });
   Expect.equals(1, called);
 }

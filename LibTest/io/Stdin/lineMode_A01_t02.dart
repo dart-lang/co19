@@ -13,14 +13,18 @@
 import "../../../Utils/expect.dart";
 import "dart:io";
 
-run_process() { exit (stdin.lineMode ? 0 : 1); }
+run_process() {
+  exit(stdin.lineMode ? 0 : 1);
+}
 
 run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = -1;
-  await Process.run(executable, [eScript, "test"],
-      runInShell: true).then((ProcessResult results) {
+  await Process.run(
+          executable, ["--enable-experiment=non-nullable", eScript, "test"],
+          runInShell: true)
+      .then((ProcessResult results) {
     called = results.exitCode;
     if (called != 0 && called != 1) print(results.stderr);
   });

@@ -12,7 +12,6 @@
  * @description Checks that default encoding is system encoding
  * @author iarkh@unipro.ru
  */
-
 import "dart:io";
 import "test.lib.dart";
 
@@ -20,7 +19,8 @@ List<int> expected = [1, 2, 3, 50, 60, 100, 124, 125, 126, 127];
 String str = systemEncoding.decode(expected);
 
 run_process(String filename) async {
-  String res = stdin.readLineSync();
+  String? res = stdin.readLineSync();
+  res = res ?? "";
   File fl = new File(filename);
   await fl.writeAsString(res);
 }
