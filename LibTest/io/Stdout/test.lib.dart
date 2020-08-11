@@ -13,19 +13,19 @@ import "dart:convert";
 import "dart:io";
 
 Future<ProcessResult> run_Windows(
-    String executable, String script, String filename, Encoding enc) {
-  return Process.run(executable, [script, "test", ">", filename],
+    String executable, String script, String filename, Encoding? enc) {
+  return Process.run(executable, ["--enable-experiment=non-nullable", script, "test", ">", filename],
       runInShell: true, stdoutEncoding: enc);
 }
 
 Future<ProcessResult> run_Linux(
-    String executable, String script, String filename, Encoding enc) {
+    String executable, String script, String filename, Encoding? enc) {
   return Process.run("bash",
-      ["-c", executable + " " + script + " test > " + filename],
+      ["-c", executable + " --enable-experiment=non-nullable " + script + " test > " + filename],
       runInShell: true, stdoutEncoding: enc);
 }
 
-run_main(Encoding enc, List<int> expected) async {
+run_main(Encoding? enc, List<int> expected) async {
   String executable = Platform.resolvedExecutable;
   String script = Platform.script.toString();
   int called = 0;

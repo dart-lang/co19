@@ -26,9 +26,6 @@ test(Stdout sink) {
 
   sink.encoding = systemEncoding;
   Expect.equals(systemEncoding, sink.encoding);
-
-  sink.encoding = null;
-  Expect.isNull(sink.encoding);
 }
 
 main() {

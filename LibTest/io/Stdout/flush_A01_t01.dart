@@ -17,11 +17,11 @@ import "dart:io";
 test(Stdout sink) async {
   int called = 0;
   int cnt = 0;
-  Stream<List> stream1 = new Stream<List<int>>.fromIterable([[1, 2]]);
-  Stream<List> stream2 = new Stream<List<int>>.fromIterable([[12], [3, 22]]);
-  Stream<List> stream3 = new Stream<List<int>>.fromIterable([[3, 22]]);
-  Stream<List> stream4 = new Stream<List<int>>.fromIterable([[1, 1, 2, 1], [12]]);
-  Stream<List> stream5 = new Stream<List<int>>.fromIterable([[1, 2]]);
+  Stream<List<int>> stream1 = new Stream<List<int>>.fromIterable([[1, 2]]);
+  Stream<List<int>> stream2 = new Stream<List<int>>.fromIterable([[12], [3, 22]]);
+  Stream<List<int>> stream3 = new Stream<List<int>>.fromIterable([[3, 22]]);
+  Stream<List<int>> stream4 = new Stream<List<int>>.fromIterable([[1, 1, 2, 1], [12]]);
+  Stream<List<int>> stream5 = new Stream<List<int>>.fromIterable([[1, 2]]);
   await sink.addStream(stream1).then((x) { cnt++; });
   sink.add([0]);
   await sink.addStream(stream2).then((x) { cnt++; });

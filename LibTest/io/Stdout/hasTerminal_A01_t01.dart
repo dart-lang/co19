@@ -9,7 +9,6 @@
  * @description Checks [hasTerminal] property correctness for [stdout].
  * @author iarkh@unipro.ru
  */
-
 import "dart:io";
 import "../../../Utils/expect.dart";
 

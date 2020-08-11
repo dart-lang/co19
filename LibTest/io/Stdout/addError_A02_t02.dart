@@ -16,26 +16,30 @@ import "dart:io";
 import "dart:async";
 
 run_process(IOSink sink) async {
-  Stream<List> aStream = new Stream<List<int>>.fromIterable([[1, 2, 3, 4, 5]]);
+  Stream<List<int>> aStream = new Stream<List<int>>.fromIterable([
+    [1, 2, 3, 4, 5]
+  ]);
   await sink.addStream(aStream).then((x) {
     new Future.delayed(new Duration(seconds: 3));
   });
-  sink.addError("error for synk");
+  sink.addError("error for sink");
 }
 
 run_main(String mode) async {
   int called = 0;
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
-  await Process.run(executable, [eScript, mode]).then((ProcessResult results) {
-    Expect.isTrue(results.stderr.contains("error for synk"));
+  await Process.run(
+          executable, ["--enable-experiment=non-nullable", eScript, mode])
+      .then((ProcessResult results) {
+    Expect.isTrue(results.stderr.contains("error for sink"));
     called++;
   });
   Expect.equals(1, called);
 }
 
 main(List<String> args) {
-  if(args.length > 0)
+  if (args.length > 0)
     run_process(args[0] == "err" ? stderr : stdout);
   else {
     run_main("out");
