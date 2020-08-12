@@ -23,7 +23,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   const SystemEncoding systemEncoding = const SystemEncoding();
-  Codec inverted = systemEncoding.inverted;
+  Codec<List<int>, String> inverted = systemEncoding.inverted;
   Codec fuse = systemEncoding.fuse(inverted);
   Expect.equals("abcd", fuse.encode("abcd"));
   Expect.equals("abcd", fuse.decode("abcd"));
