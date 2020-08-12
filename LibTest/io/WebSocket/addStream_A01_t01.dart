@@ -19,10 +19,10 @@ import "../http_utils.dart";
 
 main() {
   asyncTest<HttpServer>(
-    (HttpServer server) async =>
+    (HttpServer? server) async =>
       AsyncExpect.data(
         ["Hello", ",", "World"],
-        await WebSocket.connect("ws://${server.address.address}:${server.port}/")
+        await WebSocket.connect("ws://${server?.address.address}:${server?.port}/")
       ),
     setup: () => spawnWebSocketServer(
       (WebSocket ws) async {
@@ -30,6 +30,6 @@ main() {
         ws.close();
       }
     ),
-    cleanup: (HttpServer server) => server.close()
+    cleanup: (HttpServer? server) => server?.close()
   );
 }

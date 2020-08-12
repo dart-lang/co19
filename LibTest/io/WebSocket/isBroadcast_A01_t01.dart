@@ -17,18 +17,18 @@ main() {
     server.listen((request) {
       WebSocketTransformer
           .upgrade(request)
-          .then((websocket) {
-        Expect.isTrue(websocket.isBroadcast == false);
-        websocket.close();
-        Expect.isTrue(websocket.isBroadcast == false);
+          .then((websocket) async {
+        Expect.isFalse(websocket.isBroadcast);
+        await websocket.close();
+        Expect.isFalse(websocket.isBroadcast);
       });
     });
 
     var webs = WebSocket.connect("ws://127.0.0.1:${server.port}/");
     webs.then((client) {
-      Expect.isTrue(client.isBroadcast == false);
+      Expect.isFalse(client.isBroadcast);
       client.close().then((_) {
-        Expect.isTrue(client.isBroadcast == false);
+        Expect.isFalse(client.isBroadcast);
         server.close();
       });
     });

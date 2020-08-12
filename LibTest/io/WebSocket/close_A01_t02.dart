@@ -25,15 +25,14 @@ main() {
       });
     });
 
-    var webs = WebSocket.connect("ws://127.0.0.1:${server.port}/");
-    webs.then((client) {
-      Expect.isTrue(client.closeCode == null);
-      Expect.isTrue(client.closeReason == null);
+    WebSocket.connect("ws://127.0.0.1:${server.port}/").then((client) async {
+      Expect.isNull(client.closeCode);
+      Expect.isNull(client.closeReason);
+      await server.close();
       client.close().then((_) {
-        Expect.isTrue(client.closeCode == WebSocketStatus.noStatusReceived);
-        Expect.isTrue(client.closeReason == "");
+        Expect.equals(WebSocketStatus.noStatusReceived, client.closeCode);
+        Expect.equals("", client.closeReason);
       });
-      server.close();
     });
   });
 }

@@ -22,14 +22,14 @@ const Utf8Codec utf8 = const Utf8Codec();
 
 main() {
   asyncTest<HttpServer>(
-    (HttpServer server) async {
-      WebSocket ws = await WebSocket.connect("ws://${server.address.address}:${server.port}/");
+    (HttpServer? server) async {
+      WebSocket ws = await WebSocket.connect("ws://${server?.address.address}:${server?.port}/");
       ws.addUtf8Text(utf8.encode("Hello"));
       ws.close();
     },
     setup: () => spawnWebSocketServer(
       (WebSocket ws) => AsyncExpect.data(["Hello"], ws)
     ),
-    cleanup: (HttpServer server) => server.close()
+    cleanup: (HttpServer? server) => server?.close()
   );
 }

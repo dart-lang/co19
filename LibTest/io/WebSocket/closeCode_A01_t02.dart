@@ -12,7 +12,6 @@
  * closed.
  * @author ngl@unipro.ru
  */
-
 import "dart:io";
 import "../../../Utils/expect.dart";
 
@@ -27,12 +26,12 @@ main() {
     });
 
     var webs = WebSocket.connect("ws://127.0.0.1:${server.port}/");
-    webs.then((client) {
-      Expect.isTrue(client.closeCode == null);
+    webs.then((client) async {
+      Expect.isNull(client.closeCode);
+      await server.close();
       client.close().then((_) {
-        Expect.isTrue(client.closeCode == WebSocketStatus.normalClosure);
+        Expect.equals(WebSocketStatus.normalClosure, client.closeCode);
       });
-      server.close();
     });
   });
 }

@@ -19,12 +19,12 @@ const List<int> BYTES = const [1, 2, 3];
 
 main() {
   asyncTest<HttpServer>(
-      (HttpServer server) async =>
+      (HttpServer? server) async =>
         AsyncExpect.data(
           [BYTES],
-          await WebSocket.connect("ws://${server.address.address}:${server.port}/")
+          await WebSocket.connect("ws://${server?.address.address}:${server?.port}/")
         ),
       setup: () => spawnStaticContentWebSocketServer(BYTES),
-      cleanup: (HttpServer server) => server.close()
+      cleanup: (HttpServer? server) => server?.close()
   );
 }

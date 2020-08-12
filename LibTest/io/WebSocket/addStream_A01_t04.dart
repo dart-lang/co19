@@ -23,14 +23,14 @@ List<List<int>> BYTES = [CODEC.encode("Hello"), CODEC.encode(","), CODEC.encode(
 
 main() {
   asyncTest<HttpServer>(
-    (HttpServer server) async {
-       WebSocket ws = await WebSocket.connect("ws://${server.address.address}:${server.port}/");
+    (HttpServer? server) async {
+       WebSocket ws = await WebSocket.connect("ws://${server?.address.address}:${server?.port}/");
        await ws.addStream(new Stream.fromIterable(BYTES));
        ws.close();
     },
     setup: () => spawnWebSocketServer(
       (WebSocket ws) => AsyncExpect.data(BYTES, ws)
     ),
-    cleanup: (HttpServer server) => server.close()
+    cleanup: (HttpServer? server) => server?.close()
   );
 }

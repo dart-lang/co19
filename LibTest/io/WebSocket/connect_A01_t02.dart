@@ -40,8 +40,8 @@ import "../http_utils.dart";
 
 import "allTests_A02.lib.dart";
 
-Future<Stream> create<T>(Iterable<T> data, {bool Function(T element) isError}) async {
-  HttpServer server;
+Future<Stream> create<T extends Object>(Iterable<T> data, {bool Function(T element)? isError}) async {
+  HttpServer? server;
   server = await spawnWebSocketServer((WebSocket ws) {
     data.forEach((T x) {
       if (isError != null && isError(x)){
@@ -51,7 +51,7 @@ Future<Stream> create<T>(Iterable<T> data, {bool Function(T element) isError}) a
       }
     });
     ws.close(WebSocketStatus.normalClosure).then((_) {
-      server.close();
+      server?.close();
     });
   });
   return WebSocket.connect("ws://${server.address.address}:${server.port}/");

@@ -29,8 +29,7 @@
  * negotiate with the specified CompressionOptions. If none is specified then
  * the WebSocket will be created with the default CompressionOptions.
  *
- * @description Checks that this constructor creates a new WebSocketTransformer
- * object.
+ * @description Checks that this constructor creates a new WebSocket object.
  * @author ngl@unipro.ru
  */
 import "dart:io";

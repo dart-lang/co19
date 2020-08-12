@@ -26,9 +26,14 @@ main() {
 
     var webs = WebSocket.connect("ws://127.0.0.1:${server.port}/");
     webs.then((client) {
-      Expect.isTrue(client.length is Future<int>);
-      client.close().then((_) {
-        server.close();
+      bool called = false;
+      client.length.then((value) {
+        Expect.equals(0, value);
+        called = true;
+      });
+      client.close().then((_) async {
+        await server.close();
+        Expect.isTrue(called);
       });
     });
   });

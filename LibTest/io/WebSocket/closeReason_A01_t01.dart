@@ -8,7 +8,8 @@
  * The close reason set when the WebSocket connection is closed. If there is no
  * close reason available this property will be null
  * @description Checks that the [closeReason] is null when connection is not
- * closed and is set to a string value if the WebSocket connection is closed.
+ * closed and is set to an empty string value if the WebSocket connection is
+ * closed.
  * @author ngl@unipro.ru
  */
 import "dart:io";
@@ -25,13 +26,12 @@ main() {
     });
 
     var webs = WebSocket.connect("ws://127.0.0.1:${server.port}/");
-    webs.then((client) {
-      Expect.isTrue(client is WebSocket);
-      Expect.isTrue(client.closeReason == null);
+    webs.then((WebSocket client) async {
+      Expect.isNull(client.closeReason);
+      await server.close();
       client.close().then((_) {
-        Expect.isTrue(client.closeReason is String);
+        Expect.equals("", client.closeReason);
       });
-      server.close();
     });
   });
 }

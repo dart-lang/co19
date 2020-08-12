@@ -41,11 +41,11 @@ import "../http_utils.dart";
 import "allTests_A01.lib.dart";
 
 Future<Stream> create<T>(Iterable<T> data) async {
-  HttpServer server;
+  HttpServer? server;
   server = await spawnWebSocketServer((WebSocket ws) {
     data.forEach((T x) => ws.add(x));
     ws.close(WebSocketStatus.normalClosure).then((_) {
-      server.close();
+      server?.close();
     });
   });
   return WebSocket.connect("ws://${server.address.address}:${server.port}/");
