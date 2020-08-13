@@ -28,7 +28,7 @@ void check(Codec fused, List<int> expectedData) {
 
 main() {
   ZLibCodec codec = new ZLibCodec();
-  Codec inverted = codec.inverted;
+  Codec<List<int>, dynamic> inverted = codec.inverted;
   Codec fused = codec.fuse(inverted);
 
   for (int i = 0; i < 10; i++) {

@@ -20,8 +20,8 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  ZLibCodec codec = new ZLibCodec(dictionary: [1,2,3]);
-  Expect.listEquals([1,2,3], codec.dictionary);
+  ZLibCodec codec = new ZLibCodec(dictionary: [1, 2, 3]);
+  Expect.listEquals([1, 2, 3], codec.dictionary);
   codec = new ZLibCodec(dictionary: null);
   Expect.equals(null, codec.dictionary);
 }

@@ -17,7 +17,6 @@ main() {
   ZLibCodec codec = new ZLibCodec();
   ZLibDecoder decoder = codec.decoder;
   ZLibEncoder encoder = new ZLibEncoder();
-  Expect.isTrue(decoder is ZLibDecoder);
 
   List<int> data = [1, 2, 3];
   List<int> encodedData = encoder.convert(data);

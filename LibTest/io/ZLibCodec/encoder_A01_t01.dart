@@ -18,8 +18,6 @@ main() {
   ZLibEncoder encoder = codec.encoder;
   ZLibDecoder decoder = codec.decoder;
 
-  Expect.isTrue(encoder is ZLibEncoder);
-
   List<int> data = [1, 2, 3];
   List<int> encodedData = encoder.convert(data);
   Expect.listEquals(data, decoder.convert(encodedData));

@@ -19,5 +19,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   ZLibCodec codec = new ZLibCodec(strategy: ZLibOption.strategyDefault);
-  Expect.equals(0, codec.strategy);
+  Expect.equals(ZLibOption.strategyDefault, codec.strategy);
 }

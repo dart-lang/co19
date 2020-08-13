@@ -24,11 +24,10 @@ import "../../../Utils/expect.dart";
 main() {
   List<int> dictionary = [1,2,3];
   ZLibCodec v = new ZLibCodec(dictionary: dictionary);
-  Expect.isTrue(v is ZLibCodec);
-  Expect.equals(6, v.level);
-  Expect.equals(15, v.windowBits);
-  Expect.equals(8, v.memLevel);
-  Expect.equals(0, v.strategy);
+  Expect.equals(ZLibOption.defaultLevel, v.level);
+  Expect.equals(ZLibOption.defaultWindowBits, v.windowBits);
+  Expect.equals(ZLibOption.defaultMemLevel, v.memLevel);
+  Expect.equals(ZLibOption.strategyDefault, v.strategy);
   Expect.equals(dictionary, v.dictionary);
   Expect.equals(false, v.raw);
   Expect.equals(false, v.gzip);
