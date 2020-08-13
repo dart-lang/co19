@@ -22,7 +22,7 @@ main() {
 
   HttpServer.bind("127.0.0.1", 0).then((server) {
     server.listen((request) {
-      Expect.isTrue(WebSocketTransformer.isUpgradeRequest(request) is bool);
+      Expect.isTrue(WebSocketTransformer.isUpgradeRequest(request));
       WebSocketTransformer
           .upgrade(request, protocolSelector: selector)
           .then((websocket) {

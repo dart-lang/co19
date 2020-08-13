@@ -28,12 +28,10 @@ main() {
     return protocols[0];
   }
 
-  var webs;
   HttpServer.bind("127.0.0.1", 0).then((server) {
     server.listen((request) {
-      webs = WebSocketTransformer.upgrade(request, protocolSelector: select);
-      Expect.isTrue(webs is Future<WebSocket>);
-      webs.then((websocket) {
+      var webs = WebSocketTransformer.upgrade(request, protocolSelector: select);
+      webs.then((WebSocket websocket) {
         websocket.close();
       });
     });
