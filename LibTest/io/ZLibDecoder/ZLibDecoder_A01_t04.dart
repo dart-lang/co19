@@ -19,8 +19,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   ZLibDecoder v = new ZLibDecoder(raw: true);
-  Expect.isTrue(v is ZLibDecoder);
-  Expect.equals(15, v.windowBits);
+  Expect.equals(ZLibOption.defaultWindowBits, v.windowBits);
   Expect.equals(null, v.dictionary);
   Expect.equals(true, v.raw);
 }
