@@ -22,14 +22,13 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  List<int> dictionary = new List<int>();
+  List<int> dictionary = new List<int>.empty();
   ZLibEncoder v = new ZLibEncoder(dictionary: dictionary);
-  Expect.isTrue(v is ZLibEncoder);
   Expect.equals(false, v.gzip);
-  Expect.equals(6, v.level);
-  Expect.equals(15, v.windowBits);
-  Expect.equals(8, v.memLevel);
-  Expect.equals(0, v.strategy);
+  Expect.equals(ZLibOption.defaultLevel, v.level);
+  Expect.equals(ZLibOption.defaultWindowBits, v.windowBits);
+  Expect.equals(ZLibOption.defaultMemLevel, v.memLevel);
+  Expect.equals(ZLibOption.strategyDefault, v.strategy);
   Expect.equals(dictionary, v.dictionary);
   Expect.equals(false, v.raw);
 }

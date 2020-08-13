@@ -19,5 +19,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   ZLibEncoder v = new ZLibEncoder(strategy: ZLibOption.strategyDefault);
-  Expect.equals(0, v.strategy);
+  Expect.equals(ZLibOption.strategyDefault, v.strategy);
 }

@@ -20,7 +20,7 @@ main() {
   ZLibEncoder encoder = new ZLibEncoder();
   Converter fused = encoder.fuse(new ZLibDecoder());
 
-  Expect.listEquals([], fused.convert([]));
+  Expect.listEquals([], fused.convert(<int>[]));
 
   for (int i = 0; i < 10; i++) {
     List<int> data = new List.generate(i, (i) => i);
