@@ -20,9 +20,8 @@ import "dart:math";
 import "../../../Utils/dynamic_check.dart";
 
 main() {
-
   checkTypeError(() {
-    return new Point<int>(1, 2) * 1.0;
+    return new Point<int>(1, 2) * 1.1;
   });
   new Point<double>(1.0, 2.1) * 1;
 }

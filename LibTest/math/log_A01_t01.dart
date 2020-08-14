@@ -147,6 +147,6 @@ main() {
   y[63] = 2.77258872223978110000;
 
   for (int i = 0; i < vnum; i++) {
-    Expect.equals(y[i], Math.log(x[i]));
+    Expect.approxEquals(y[i], Math.log(x[i]), 1e14);
   }
 }

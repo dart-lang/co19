@@ -15,27 +15,31 @@ import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
-  Expect.equals(
-      double.infinity, Math.pow(0.9999999999999999, double.negativeInfinity));
-  Expect.equals(
-      double.infinity, Math.pow(-0.9999999999999999, double.negativeInfinity));
-  Expect.equals(double.infinity, Math.pow(0.5, double.negativeInfinity));
-  Expect.equals(double.infinity, Math.pow(-0.5, double.negativeInfinity));
-  Expect.equals(double.infinity,
-      Math.pow(4.9406564584124654e-324, double.negativeInfinity));
-  Expect.equals(double.infinity,
-      Math.pow(-4.9406564584124654e-324, double.negativeInfinity));
+  if (!isJS) {
+    Expect.equals(
+        double.infinity, Math.pow(0.9999999999999999, double.negativeInfinity));
+    Expect.equals(
+        double.infinity,
+        Math.pow(-0.9999999999999999, double.negativeInfinity));
+    Expect.equals(double.infinity, Math.pow(0.5, double.negativeInfinity));
+    Expect.equals(double.infinity, Math.pow(-0.5, double.negativeInfinity));
+    Expect.equals(double.infinity,
+        Math.pow(4.9406564584124654e-324, double.negativeInfinity));
+    Expect.equals(double.infinity,
+        Math.pow(-4.9406564584124654e-324, double.negativeInfinity));
 
-  Expect.equals(1.0, Math.pow(-1, double.negativeInfinity));
-  Expect.equals(1.0, Math.pow(-1.0, double.negativeInfinity));
+    Expect.equals(1.0, Math.pow(-1, double.negativeInfinity));
+    Expect.equals(1.0, Math.pow(-1.0, double.negativeInfinity));
 
-  Expect.equals(.0, Math.pow(1.0000000000000002, double.negativeInfinity));
-  Expect.equals(.0, Math.pow(-1.0000000000000002, double.negativeInfinity));
-  Expect.equals(.0, Math.pow(2, double.negativeInfinity));
-  Expect.equals(.0, Math.pow(-2, double.negativeInfinity));
-  Expect.equals(.0, Math.pow(123.123, double.negativeInfinity));
-  Expect.equals(.0, Math.pow(-123.123, double.negativeInfinity));
-  Expect.equals(.0, Math.pow(1.7976931348623157e308, double.negativeInfinity));
-  Expect.equals(
-      .0, Math.pow(-1.7976931348623157e308, double.negativeInfinity));
+    Expect.equals(.0, Math.pow(1.0000000000000002, double.negativeInfinity));
+    Expect.equals(.0, Math.pow(-1.0000000000000002, double.negativeInfinity));
+    Expect.equals(.0, Math.pow(2, double.negativeInfinity));
+    Expect.equals(.0, Math.pow(-2, double.negativeInfinity));
+    Expect.equals(.0, Math.pow(123.123, double.negativeInfinity));
+    Expect.equals(.0, Math.pow(-123.123, double.negativeInfinity));
+    Expect.equals(
+        .0, Math.pow(1.7976931348623157e308, double.negativeInfinity));
+    Expect.equals(
+        .0, Math.pow(-1.7976931348623157e308, double.negativeInfinity));
+  }
 }

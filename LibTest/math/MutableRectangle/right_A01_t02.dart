@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic r = new MutableRectangle(2, 1, 20, 15);
-  Expect.equals(() {
+  Expect.throws(() {
     r.right = 17;
   }, (e) => e is NoSuchMethodError);
 }
