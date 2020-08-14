@@ -35,10 +35,10 @@
  */
 
 class C {
-//    ^
+  abstract int? x;
+//^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-  abstract int? x;
 }
 
 main() {
