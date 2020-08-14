@@ -15,10 +15,7 @@ import "../../../Utils/expect.dart";
 
 void check(List<int> list) {
   dynamic l = new Uint8ClampedList.fromList(list);
-  try {
-    l.lengthInBytes = 0;
-    Expect.fail("[lengthInBytes] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { l.lengthInBytes = 0; }, (e) => e is NoSuchMethodError);
 }
 
 main() {

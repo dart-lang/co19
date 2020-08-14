@@ -14,8 +14,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 main() {
-  var l = new Uint8ClampedList.fromList([10, 20, 30, 40, 50, 60, 70, 80, 90,
-      100]);
+  var l = Uint8ClampedList.fromList([10, 20, 30, 40, 50, 60, 70, 80, 90, 100]);
   for (int i = 1; i <= 10; ++i) {
     Expect.equals(i * 10, l.elementAt(i - 1));
   }

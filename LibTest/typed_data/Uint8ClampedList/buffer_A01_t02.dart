@@ -14,10 +14,7 @@ import "../../../Utils/expect.dart";
 
 void check(List<int> array) {
   dynamic l = new Uint8ClampedList.fromList(array);
-  try {
-    l.buffer = new Uint8ClampedList.fromList(array).buffer;
-    Expect.fail("[buffer] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { l.buffer = l.buffer; }, (e) => e is NoSuchMethodError);
 }
 
 main() {

@@ -16,10 +16,7 @@ import "../../../Utils/expect.dart";
 
 check(List<int> array) {
   var l = new Uint8ClampedList.fromList(array);
-  try {
-    l.single;
-    Expect.fail("StateError is expected");
-  } on StateError {}
+  Expect.throws(() { l.single; }, (e) => e is StateError);
 }
 
 main() {
