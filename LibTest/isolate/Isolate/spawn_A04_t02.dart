@@ -22,14 +22,12 @@ void entryPoint(List message) {
   dynamic i = 1;
   SendPort sendPort = message[1];
   ReceivePort receivePort = new ReceivePort();
-  receivePort.listen(
-     (data) {
-        sendPort.send(data);
-        // An error that should stop the isolate
-        sendPort.send(", " + i); /// static type warning
-        sendPort.send("hello");
-     }
-  );
+  receivePort.listen((data) {
+    sendPort.send(data);
+    // An error that should stop the isolate
+    sendPort.send(", " + i);
+    sendPort.send("hello");
+  });
   message[0].send(receivePort.sendPort);
 }
 
@@ -38,9 +36,9 @@ test() async {
   ReceivePort receivePort = new ReceivePort();
   Future<List> receivedData = receivePort.toList();
 
-  Isolate isolate = await Isolate.spawn(entryPoint,
-                                  [controlPort.sendPort, receivePort.sendPort],
-                                   errorsAreFatal:true);
+  Isolate isolate = await Isolate.spawn(
+      entryPoint, [controlPort.sendPort, receivePort.sendPort],
+      errorsAreFatal: true);
   SendPort sendPort = await controlPort.first;
 
   sendPort.send("test1");

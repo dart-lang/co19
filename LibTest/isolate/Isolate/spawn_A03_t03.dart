@@ -25,18 +25,20 @@ void entryPoint(SendPort sendPort) {
 test() async {
   bool paused = true;
   ReceivePort receivePort = new ReceivePort();
-  receivePort.listen(
-      (data) {
-        Expect.isFalse(paused, "Isolate should not be in paused state");
-        Expect.equals("response", data);
-        asyncEnd();
-        receivePort.close();
-      }
-  );
-  Isolate isolate = await Isolate.spawn(entryPoint, receivePort.sendPort, paused: true);
-  await new Future.delayed(new Duration(seconds:1));
+  receivePort.listen((data) {
+    Expect.isFalse(paused, "Isolate should not be in paused state");
+    Expect.equals("response", data);
+    asyncEnd();
+    receivePort.close();
+  });
+  Isolate isolate =
+      await Isolate.spawn(entryPoint, receivePort.sendPort, paused: true);
+  await new Future.delayed(new Duration(seconds: 1));
   paused = false;
-  isolate.resume(isolate.pauseCapability);
+  var pc = isolate.pauseCapability;
+  if (pc != null) {
+    isolate.resume(pc);
+  }
 }
 
 main() {

@@ -28,7 +28,7 @@ var expectedMessage="message";
 
 class Connection {
   var receivePort = new ReceivePort();
-  SendPort replyPort;
+  SendPort? replyPort;
   
   Connection([this.replyPort]);
   
@@ -36,7 +36,7 @@ class Connection {
     Expect.equals(expectedMessage, message);
     receivePort.close();
     if (replyPort!=null) {
-      replyPort.send(message);
+      replyPort?.send(message);
     }
     asyncEnd();
   }

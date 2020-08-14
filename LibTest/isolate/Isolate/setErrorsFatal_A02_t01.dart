@@ -21,7 +21,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
-Future test(Capability wrongCapability) async {
+Future test(Capability? wrongCapability) async {
   // setup
   ReceivePort errorPort = new ReceivePort();
   StreamIterator errors = new StreamIterator(errorPort);

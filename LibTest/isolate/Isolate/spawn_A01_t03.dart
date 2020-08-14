@@ -25,19 +25,19 @@
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 
-var expectedMessage="message";
+var expectedMessage = "message";
 
 class Connection {
   var receivePort = new ReceivePort();
-  SendPort replyPort;
-  
+  SendPort? replyPort;
+
   Connection([this.replyPort]);
-  
+
   void receiveHandler(var message) {
     Expect.equals(expectedMessage, message);
     receivePort.close();
-    if (replyPort!=null) {
-      replyPort.send(message);
+    if (replyPort != null) {
+      replyPort?.send(message);
     }
     asyncEnd();
   }

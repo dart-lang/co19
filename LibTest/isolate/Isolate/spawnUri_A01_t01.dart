@@ -35,11 +35,10 @@
  *
  * @author kaigorodov
  */
-
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 
-var expectedMessage="spawnUri_A01_t01";
+var expectedMessage = "spawnUri_A01_t01";
 
 var receivePort = new ReceivePort();
 
@@ -49,15 +48,12 @@ void receiveHandler(var message) {
   asyncEnd();
 }
 
-void main(List args, SendPort replyPort) {
+void main(List args, SendPort? replyPort) {
   asyncStart();
   receivePort.listen(receiveHandler);
-  Isolate.spawnUri(
-            new Uri.file("spawnUri_A01_t01_isolate.dart"),
-            [expectedMessage],
-            receivePort.sendPort
-  );
-  if (replyPort!=null) {
+  Isolate.spawnUri(new Uri.file("spawnUri_A01_t01_isolate.dart"),
+      [expectedMessage], receivePort.sendPort);
+  if (replyPort != null) {
     replyPort.send(args[0]);
   }
 }

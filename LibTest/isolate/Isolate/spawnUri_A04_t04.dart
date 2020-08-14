@@ -54,12 +54,15 @@ test() async {
   );
   Isolate isolate = await Isolate.spawnUri(
                               new Uri.file("spawnUri_A04_t04_isolate.dart"),
-                              null,
+                              [],
                               receivePort.sendPort,
                               paused: true);
   await new Future.delayed(ONE_SECOND);
   paused = false;
-  isolate.resume(isolate.pauseCapability);
+  var pc = isolate.pauseCapability;
+  if (pc != null) {
+    isolate.resume(pc);
+  }
 }
 
 main() {

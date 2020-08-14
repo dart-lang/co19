@@ -23,24 +23,20 @@ import "IsolateUtil.dart";
 void entryPoint(SendPort sendPort) {
   ReceivePort receivePort = new ReceivePort();
   dynamic i = 1;
-  receivePort.listen( (_) => "a" + i);
+  receivePort.listen((_) => "a" + i);
   sendPort.send(receivePort.sendPort);
 }
+
 test() async {
   ReceivePort receivePort = new ReceivePort();
   ReceivePort errorPort = new ReceivePort();
-  Isolate.spawn(
-      entryPoint,
-      receivePort.sendPort,
-      errorsAreFatal:false,
-      onError:errorPort.sendPort
-  );
+  Isolate.spawn(entryPoint, receivePort.sendPort,
+      errorsAreFatal: false, onError: errorPort.sendPort);
   SendPort sendPort = await receivePort.first;
   sendPort.send("test");
 
   int count = 0;
   await for (var error in errorPort) {
-
     Expect.isTrue(count < 5, "received unexpected data: $error");
     Expect.isTrue(error is List);
     Expect.equals(2, error.length);

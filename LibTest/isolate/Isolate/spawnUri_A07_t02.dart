@@ -21,16 +21,10 @@ import "IsolateUtil.dart";
 
 test() async {
   ReceivePort errorPort = new ReceivePort();
-  Isolate.spawnUri(
-      new Uri.file("spawnUri_A07_t02_isolate.dart"),
-      null, // args
-      null, // message
-      errorsAreFatal:false,
-      onError:errorPort.sendPort
-  );
+  Isolate.spawnUri(new Uri.file("spawnUri_A07_t02_isolate.dart"), [], null,
+      errorsAreFatal: false, onError: errorPort.sendPort);
   var count = 0;
   await for (var error in errorPort) {
-
     Expect.isTrue(count < 2, "received unexpected data $error");
     Expect.isTrue(error is List);
     Expect.equals(2, error.length);

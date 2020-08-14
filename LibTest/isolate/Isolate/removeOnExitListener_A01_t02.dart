@@ -35,12 +35,10 @@ test() async {
   await receivePort.first;
 
   server.isolate.removeOnExitListener(onExit.sendPort);
-  
+
   await server.stop();
-  onExitFuture = onExitFuture.timeout(
-      new Duration(milliseconds:200),
-      onTimeout:() => "timeout"
-  );
+  onExitFuture = onExitFuture.timeout(new Duration(milliseconds: 200),
+      onTimeout: () => "timeout");
   Expect.equals("timeout", await onExitFuture);
   // clean up
   onExit.close();

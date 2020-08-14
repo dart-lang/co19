@@ -31,7 +31,7 @@ entryPoint(message){
   }
 }
 
-Future test(List<Object> values) async {
+Future test(List<Object?> values) async {
   ReceivePort onExit = new ReceivePort();
   Isolate isolate = await Isolate.spawn(
       entryPoint,
@@ -40,7 +40,7 @@ Future test(List<Object> values) async {
       errorsAreFatal:true
   );
   // check
-  for (Object value in values) {
+  for (Object? value in values) {
     ReceivePort pingPort = new ReceivePort();
     isolate.ping(pingPort.sendPort, response:value);
     Expect.equals(value, await pingPort.first);

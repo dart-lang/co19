@@ -22,10 +22,10 @@ test() async {
   ReceivePort receivePort = new ReceivePort();
 
   Isolate isolate = await Isolate.spawnUri(
-                                new Uri.file("spawnUri_A05_t05_isolate.dart"),
-                                null,
-                                [controlPort.sendPort, receivePort.sendPort],
-                                 errorsAreFatal:false);
+      new Uri.file("spawnUri_A05_t05_isolate.dart"),
+      [],
+      [controlPort.sendPort, receivePort.sendPort],
+      errorsAreFatal: false);
   SendPort sendPort = await controlPort.first;
 
   int i = 0;

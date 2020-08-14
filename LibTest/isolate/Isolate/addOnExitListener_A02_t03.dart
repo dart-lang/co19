@@ -25,7 +25,7 @@ import "dart:math";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
-Future test(List<Object> values) async {
+Future test(List<Object?> values) async {
   ErrorServer server = await ErrorServer.spawn(errorsAreFatal:false);
   ReceivePort onExit = new ReceivePort();
   List events = [];
@@ -34,7 +34,7 @@ Future test(List<Object> values) async {
       events.add(data);
     }
   );
-  for (Object value in values) {
+  for (Object? value in values) {
     server.isolate.addOnExitListener(onExit.sendPort, response:value);
   }
   server.requestStop();
@@ -45,7 +45,7 @@ Future test(List<Object> values) async {
 
 main() {
   asyncStart();
-  List<Object> values = [
+  List<Object?> values = [
     null, true, false, "string", 10, 1.1, double.nan, double.infinity
   ];
   Random random = new Random();

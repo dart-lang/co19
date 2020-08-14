@@ -23,7 +23,7 @@ import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
 test() async {
-  ErrorServer server = await ErrorServer.spawn(errorsAreFatal:true);
+  ErrorServer server = await ErrorServer.spawn(errorsAreFatal: true);
   ReceivePort onExit = new ReceivePort();
   onExit.listen(
     (_) {

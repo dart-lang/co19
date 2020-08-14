@@ -28,7 +28,7 @@ test() async {
   Future<List> receivedData = receivePort.toList();
   ReceivePort exitPort = new ReceivePort();
 
-  Isolate.spawn(entryPoint, receivePort.sendPort, onExit:exitPort.sendPort);
+  Isolate.spawn(entryPoint, receivePort.sendPort, onExit: exitPort.sendPort);
   Expect.isNull(await exitPort.first);
   receivePort.close();
   Expect.listEquals(["hello", "world"], await receivedData);

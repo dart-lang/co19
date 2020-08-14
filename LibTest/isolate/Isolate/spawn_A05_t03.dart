@@ -24,18 +24,12 @@ void entryPoint(message) {
 main() {
   asyncStart();
   ReceivePort exitPort = new ReceivePort();
-  exitPort.listen(
-     (value) {
-        exitPort.close();
-        Expect.isNull(value);
-        asyncEnd();
-     }
-  );
+  exitPort.listen((value) {
+    exitPort.close();
+    Expect.isNull(value);
+    asyncEnd();
+  });
 
-  Isolate.spawn(
-      entryPoint,
-      "hello",
-      errorsAreFatal:true,
-      onExit:exitPort.sendPort
-  );
+  Isolate.spawn(entryPoint, "hello",
+      errorsAreFatal: true, onExit: exitPort.sendPort);
 }

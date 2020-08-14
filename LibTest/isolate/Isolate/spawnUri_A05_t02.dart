@@ -24,10 +24,10 @@ test() async {
   Future<List> receivedData = receivePort.toList();
 
   Isolate isolate = await Isolate.spawnUri(
-                                  new Uri.file("spawnUri_A05_t02_isolate.dart"),
-                                  null,
-                                  [controlPort.sendPort, receivePort.sendPort],
-                                  errorsAreFatal:true);
+      new Uri.file("spawnUri_A05_t02_isolate.dart"),
+      [],
+      [controlPort.sendPort, receivePort.sendPort],
+      errorsAreFatal: true);
   SendPort sendPort = await controlPort.first;
 
   sendPort.send("test1");

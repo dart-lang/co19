@@ -25,17 +25,15 @@ void entryPoint(message) {
 main() {
   asyncStart();
   ReceivePort errorPort = new ReceivePort();
-  errorPort.listen(
-     (error) {
-        print(error);
-        errorPort.close();
-        Expect.isTrue(error is List);
-        Expect.equals(2, error.length);
-        Expect.isTrue(error[0] is String);
-        Expect.isTrue(error[1] is String);
-        asyncEnd();
-     }
-  );
+  errorPort.listen((error) {
+    print(error);
+    errorPort.close();
+    Expect.isTrue(error is List);
+    Expect.equals(2, error.length);
+    Expect.isTrue(error[0] is String);
+    Expect.isTrue(error[1] is String);
+    asyncEnd();
+  });
 
-  Isolate.spawn(entryPoint, "hello", onError:errorPort.sendPort);
+  Isolate.spawn(entryPoint, "hello", onError: errorPort.sendPort);
 }

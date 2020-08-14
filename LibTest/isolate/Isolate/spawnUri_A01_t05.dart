@@ -39,36 +39,33 @@ import "../../../Utils/expect.dart";
 
 void main0() {
   var receivePort = new ReceivePort();
-  SendPort sendPort;
+  SendPort? sendPort;
   int n = 10;
-  
+
   asyncStart();
   receivePort.listen((var message) {
     if (message is SendPort) {
-      sendPort=message;
+      sendPort = message;
     } else {
       Expect.equals(n, message);
     }
     if (n > 0) {
       n--;
-      sendPort.send(n);
+      sendPort?.send(n);
     } else {
       receivePort.close();
       asyncEnd();
     }
   });
-  Isolate.spawnUri(
-      new Uri.file("spawnUri_A01_t05.dart"),
-      [(n - 1).toString()],
-      receivePort.sendPort
-  );
+  Isolate.spawnUri(new Uri.file("spawnUri_A01_t05.dart"), [(n - 1).toString()],
+      receivePort.sendPort);
 }
 
-void main(List args, SendPort replyPort) {
+void main(List args, SendPort? replyPort) {
   if (replyPort == null) {
     main0();
     return;
-  } 
+  }
   var receivePort = new ReceivePort();
   receivePort.listen((var message) {
     replyPort.send(message);

@@ -22,11 +22,9 @@ void entryPoint(SendPort sendPort) {
   dynamic i = 1;
 
   // this should awake the isolate from suspended state, caused by error
-  new Future.delayed(TWO_SECONDS).then(
-      (_) {
-        sendPort.send("finish");
-      }
-  );
+  new Future.delayed(TWO_SECONDS).then((_) {
+    sendPort.send("finish");
+  });
   sendPort.send("hello");
   // An error that should stop the isolate
   sendPort.send(", " + i);
@@ -36,9 +34,8 @@ void entryPoint(SendPort sendPort) {
 test() async {
   ReceivePort receivePort = new ReceivePort();
 
-  Isolate isolate = await Isolate.spawn(entryPoint,
-                                        receivePort.sendPort,
-                                        errorsAreFatal:false);
+  Isolate isolate = await Isolate.spawn(entryPoint, receivePort.sendPort,
+      errorsAreFatal: false);
   List receivedData = [];
   await for (var data in receivePort) {
     receivedData.add(data);
@@ -46,7 +43,7 @@ test() async {
       Expect.equals("ping", await ping(isolate, "ping", THREE_SECONDS));
     } else if (data == "finish") {
       receivePort.close();
-      Expect.listEquals(["hello","finish"], receivedData);
+      Expect.listEquals(["hello", "finish"], receivedData);
       asyncEnd();
     }
   }

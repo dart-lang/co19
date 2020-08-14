@@ -23,8 +23,8 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
-Future test(Object value) async {
-  ErrorServer server = await ErrorServer.spawn(errorsAreFatal:false);
+Future test(Object? value) async {
+  ErrorServer server = await ErrorServer.spawn(errorsAreFatal: false);
   ReceivePort onExit = new ReceivePort();
   onExit.listen(
     (data) {
@@ -32,7 +32,7 @@ Future test(Object value) async {
       Expect.equals(value, data);
     }
   );
-  server.isolate.addOnExitListener(onExit.sendPort, response:value);
+  server.isolate.addOnExitListener(onExit.sendPort, response: value);
   server.requestStop();
 }
 

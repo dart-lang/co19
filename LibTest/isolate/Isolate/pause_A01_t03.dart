@@ -24,34 +24,33 @@ import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
 void entryPoint(SendPort sendPort) {
-  new Future.delayed(ONE_SECOND, () { sendPort.send("from timer 1"); });
-  new Future.delayed(TWO_SECONDS, () { sendPort.send("from timer 2"); });
+  new Future.delayed(ONE_SECOND, () {
+    sendPort.send("from timer 1");
+  });
+  new Future.delayed(TWO_SECONDS, () {
+    sendPort.send("from timer 2");
+  });
   sendPort.send("activated");
 }
 
 test() async {
   bool additionalData = false;
-  Isolate isolate;
+  Isolate? isolate;
   ReceivePort receivePort = new ReceivePort();
-  receivePort.listen(
-    (data){
-      if ("activated"==data) {
-        isolate.pause();
-      } else {
-        print(data);
-        additionalData = true;
-      }
+  receivePort.listen((data) {
+    if ("activated" == data) {
+      isolate?.pause();
+    } else {
+      print(data);
+      additionalData = true;
     }
-  );
+  });
   ReceivePort onExit = new ReceivePort();
-  isolate = await Isolate.spawn(
-                                entryPoint,
-                                receivePort.sendPort,
-                                onExit:onExit.sendPort
-                              );
+  isolate = await Isolate.spawn(entryPoint, receivePort.sendPort,
+      onExit: onExit.sendPort);
   await new Future.delayed(THREE_SECONDS);
 // clean up & check
-  isolate.kill(priority:Isolate.immediate);
+  isolate.kill(priority: Isolate.immediate);
   await onExit.first;
   receivePort.close();
   Expect.isFalse(additionalData);

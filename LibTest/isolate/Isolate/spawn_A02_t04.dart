@@ -24,31 +24,18 @@
  * than one argument, then type error is arisen in checked mode or returned
  * Future instance completes with error otherwise. In strong mode compile
  * error arises.
- * @compile-error
  * @issue #26588
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
-import "../../../Utils/expect.dart";
 
 entryPoint2Args(message1, message2) {
   print("message1: $message1 message2: $message2");
 }
 
 main() {
-  asyncStart();
-  try {
-    Isolate.spawn(entryPoint2Args, "hello").then( /// compile error
-        (v) {
-          Expect.fail("Isolate.spawn(entryPoint2Args, 'hello') is expected to fail");
-        },
-        onError: (e) {
-          Expect.fail("Future completed with error: $e");
-          asyncEnd();
-        }
-    );
-  } catch (e) {
-    print("Caught an error: $e");
-    asyncEnd();
-  }
+  Isolate.spawn(entryPoint2Args, "hello");
+//              ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

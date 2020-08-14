@@ -26,7 +26,7 @@ void entryPoint(String message) {
 test() async {
   Isolate isolate = await Isolate.spawn(entryPoint, "hello", paused:true);
   Expect.isNotNull(isolate.pauseCapability);
-  isolate.resume(isolate.pauseCapability);
+  isolate.resume(isolate.pauseCapability!);
   asyncEnd();
 }
 

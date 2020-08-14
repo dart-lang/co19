@@ -23,7 +23,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
-Duration _500MS = new Duration(milliseconds:500);
+Duration _500MS = new Duration(milliseconds: 500);
 
 Future test(List<int> resumePermutation) async {
   ReceivePort receivePort = new ReceivePort();
@@ -35,13 +35,13 @@ Future test(List<int> resumePermutation) async {
   resumeCapability.add(server.isolate.pause());
   Expect.equals("timeout", await server.ping("paused0", _500MS, "timeout"));
 
-  for (int i=1; i<resumePermutation.length; i++) {
+  for (int i = 1; i < resumePermutation.length; i++) {
     resumeCapability.add(server.isolate.pause(new Capability()));
     Expect.equals("timeout", await server.ping("paused$i", _500MS, "timeout"));
   }
 
   int i = 0;
-  while (i<resumePermutation.length-1) {
+  while (i < resumePermutation.length - 1) {
     server.isolate.resume(resumeCapability[resumePermutation[i]]);
     Expect.equals("timeout", await server.ping("resume$i", _500MS, "timeout"));
     i++;
@@ -58,9 +58,9 @@ Future test(List<int> resumePermutation) async {
 main() {
   asyncStart();
   Future.wait([
-    test([0,1,2,3,4]),
-    test([4,3,2,1,0]),
-    test([3,2,0,1,4]),
-    test([2,0,3,4,1])
-  ]).then( (_) => asyncEnd() );
+    test([0, 1, 2, 3, 4]),
+    test([4, 3, 2, 1, 0]),
+    test([3, 2, 0, 1, 4]),
+    test([2, 0, 3, 4, 1])
+  ]).then((_) => asyncEnd());
 }

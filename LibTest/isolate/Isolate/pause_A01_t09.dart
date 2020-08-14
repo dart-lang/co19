@@ -34,14 +34,14 @@ void entryPoint(SendPort sendPort) {
 }
 
 test() async {
-  Isolate isolate;
+  Isolate? isolate;
   List receivedData = [];
-  Capability resumeCapability;
+  Capability? resumeCapability;
   ReceivePort receivePort = new ReceivePort();
   receivePort.listen(
     (data){
       if ("activated"==data) {
-        resumeCapability = isolate.pause();
+        resumeCapability = isolate?.pause();
       }
       receivedData.add(data);
     }
@@ -54,7 +54,7 @@ test() async {
                               );
   await new Future.delayed(THREE_SECONDS);
 // clean up & check
-  isolate.resume(resumeCapability);
+  isolate.resume(resumeCapability!);
   await onExit.first;
   receivePort.close();
   Expect.listEquals(["activated", "timer 1", "timer 2"], receivedData);

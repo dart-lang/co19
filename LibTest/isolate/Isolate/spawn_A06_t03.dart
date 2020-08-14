@@ -25,9 +25,9 @@ void entryPoint(message) {
   // second error
   new Future.delayed(ONE_SECOND, () => "b" + i2);
   // third error
-  new Future.delayed(TWO_SECONDS, () => "c" + i3 );
+  new Future.delayed(TWO_SECONDS, () => "c" + i3);
   // fourth error
-  new Future.delayed(THREE_SECONDS, () => "d" + i4 );
+  new Future.delayed(THREE_SECONDS, () => "d" + i4);
 
   // first error
   var x = "a" + i1;
@@ -35,22 +35,17 @@ void entryPoint(message) {
 
 test() async {
   ReceivePort errorPort = new ReceivePort();
-  Isolate.spawn(
-      entryPoint,
-      "hello",
-      errorsAreFatal:false,
-      onError:errorPort.sendPort
-  );
+  Isolate.spawn(entryPoint, "hello",
+      errorsAreFatal: false, onError: errorPort.sendPort);
   int count = 0;
   await for (var error in errorPort) {
-
     Expect.isTrue(count < 4, "received unexpected data: $error");
     Expect.isTrue(error is List);
     Expect.equals(2, error.length);
     Expect.isTrue(error[0] is String);
     Expect.isTrue(error[1] is String);
     count++;
-    if (count == 4){
+    if (count == 4) {
       new Future.delayed(TWO_SECONDS, () => errorPort.close());
     }
   }

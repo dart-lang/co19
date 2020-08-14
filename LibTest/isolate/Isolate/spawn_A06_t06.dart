@@ -31,16 +31,11 @@ void entryPoint(message) {
 
 test() async {
   ReceivePort errorPort = new ReceivePort();
-  Isolate.spawn(
-      entryPoint,
-      "hello",
-      errorsAreFatal:true,
-      onError:errorPort.sendPort
-  );
+  Isolate.spawn(entryPoint, "hello",
+      errorsAreFatal: true, onError: errorPort.sendPort);
 
   int count = 0;
   await for (var error in errorPort) {
-
     Expect.equals(0, count, "received unexpected data $error");
     Expect.isTrue(error is List);
     Expect.equals(2, error.length);

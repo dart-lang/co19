@@ -19,19 +19,12 @@ import "../../../Utils/expect.dart";
 main() {
   asyncStart();
   ReceivePort exitPort = new ReceivePort();
-  exitPort.listen(
-     (value) {
-        exitPort.close();
-        Expect.isNull(value);
-        asyncEnd();
-     }
-  );
+  exitPort.listen((value) {
+    exitPort.close();
+    Expect.isNull(value);
+    asyncEnd();
+  });
 
-  Isolate.spawnUri(
-      new Uri.file("spawnUri_A06_t03_isolate.dart"),
-      null, // args
-      null, // message
-      errorsAreFatal:true,
-      onExit:exitPort.sendPort
-  );
+  Isolate.spawnUri(new Uri.file("spawnUri_A06_t03_isolate.dart"), [], null,
+      errorsAreFatal: true, onExit: exitPort.sendPort);
 }

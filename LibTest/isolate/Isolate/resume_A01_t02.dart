@@ -43,7 +43,10 @@ test() async {
 
   await new Future.delayed(ONE_SECOND);
   paused = false;
-  isolate.resume(isolate.pauseCapability);
+  var pc = isolate.pauseCapability;
+  if (pc != null) {
+    isolate.resume(pc);
+  }
 }
 
 main() {

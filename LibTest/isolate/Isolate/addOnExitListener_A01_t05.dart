@@ -26,7 +26,7 @@ import "IsolateUtil.dart";
 test() async {
   ErrorServer server = await ErrorServer.spawn(errorsAreFatal:false);
 
-  List<Object> expectedResponses = [
+  List<Object?> expectedResponses = [
     null, null,
     true, false,
     0, 1, -1, 1024,
@@ -35,10 +35,10 @@ test() async {
   ];
 
   ReceivePort onExit = new ReceivePort();
-  List<Future<Object>> actualResponses = [onExit.first];
+  List<Future<dynamic>> actualResponses = [onExit.first];
   server.isolate.addOnExitListener(onExit.sendPort);
 
-  for (Object r in expectedResponses.skip(1)){
+  for (Object? r in expectedResponses.skip(1)){
     ReceivePort p = new ReceivePort();
     actualResponses.add(p.first);
     server.isolate.addOnExitListener(p.sendPort, response:r);

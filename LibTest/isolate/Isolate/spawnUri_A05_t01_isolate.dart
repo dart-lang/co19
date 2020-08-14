@@ -11,7 +11,7 @@ import "dart:isolate";
 import "dart:async";
 import "IsolateUtil.dart";
 
-main(List<String> args, SendPort sendPort) {
+main(List<String> args, SendPort? sendPort) {
   // this may awake the isolate from suspended state, caused by error
   new Future.delayed(TWO_SECONDS).then(
       (_) {
@@ -21,6 +21,6 @@ main(List<String> args, SendPort sendPort) {
   sendPort.send("hello");
   // An error that should stop the isolate
   dynamic i = 1;
-  sendPort.send(", " + i); /// static type warning
+  sendPort.send(", " + i);
   sendPort.send("world");
 }

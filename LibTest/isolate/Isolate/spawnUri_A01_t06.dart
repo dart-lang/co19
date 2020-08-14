@@ -43,7 +43,7 @@ import "../../../Utils/expect.dart";
 
 // Due to issue #26738 it is necessary to keep initial isolate alive,
 // so the started isolate could proceed.
-void main(List args, SendPort replyPort) {
+void main(List args, SendPort? replyPort) {
   asyncStart();
   ReceivePort onExit = new ReceivePort();
   Future.wait([

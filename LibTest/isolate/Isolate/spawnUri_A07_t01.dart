@@ -19,22 +19,15 @@ import "../../../Utils/expect.dart";
 main() {
   asyncStart();
   ReceivePort errorPort = new ReceivePort();
-  errorPort.listen(
-     (error) {
-//        print(error);
-        errorPort.close();
-        Expect.isTrue(error is List);
-        Expect.equals(2, error.length);
-        Expect.isTrue(error[0] is String);
-        Expect.isTrue(error[1] is String);
-        asyncEnd();
-     }
-  );
+  errorPort.listen((error) {
+    errorPort.close();
+    Expect.isTrue(error is List);
+    Expect.equals(2, error.length);
+    Expect.isTrue(error[0] is String);
+    Expect.isTrue(error[1] is String);
+    asyncEnd();
+  });
 
-  Isolate.spawnUri(
-      new Uri.file("spawnUri_A07_t01_isolate.dart"),
-      null, // args
-      null, // message
-      onError:errorPort.sendPort
-  );
+  Isolate.spawnUri(new Uri.file("spawnUri_A07_t01_isolate.dart"), [], null,
+      onError: errorPort.sendPort);
 }

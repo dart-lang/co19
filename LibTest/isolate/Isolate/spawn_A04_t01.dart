@@ -28,7 +28,7 @@ void entryPoint(SendPort sendPort) {
   sendPort.send("hello");
   // An error that should stop the isolate
   dynamic i = 1;
-  sendPort.send(", " + i); /// static type warning
+  sendPort.send(", " + i);
   sendPort.send("world");
 }
 

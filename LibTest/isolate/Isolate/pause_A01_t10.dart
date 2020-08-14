@@ -34,14 +34,14 @@ void entryPoint(SendPort sendPort) {
 }
 
 test() async {
-  Isolate isolate;
+  Isolate? isolate;
   List receivedData = [];
   Capability resumeCapability = new Capability();
   ReceivePort receivePort = new ReceivePort();
   receivePort.listen(
     (data){
       if ("activated"==data) {
-        isolate.pause(resumeCapability);
+        isolate?.pause(resumeCapability);
       }
       receivedData.add(data);
     }

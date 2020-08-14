@@ -38,7 +38,6 @@ test() async {
   int count = 2;
   server.generateError();
   await for (var error in errorPort) {
-    //print(error);
     Expect.isTrue(count < 7, "received unexpected data: $error");
     Expect.isTrue(error is List);
     Expect.equals(2, error.length);

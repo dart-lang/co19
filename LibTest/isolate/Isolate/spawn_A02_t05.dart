@@ -24,31 +24,18 @@
  * arguments, then type error is arisen in checked mode or returned
  * Future instance completes with error otherwise. Compile error arises in
  * strong mode
- * @compile-error
  * @issue #26588
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
-import "../../../Utils/expect.dart";
 
 entryPointNoArgs() {
   print("entryPointNoArgs is called");
 }
 
 main() {
-  asyncStart();
-  try {
-    Isolate.spawn(entryPointNoArgs, "hello").then( /// compile error
-        (v) {
-          Expect.fail("Isolate.spawn(entryPointNoArgs, 'hello') is expected to fail");
-        },
-        onError: (e) {
-          Expect.fail("Future completed with error: $e");
-          asyncEnd();
-        }
-    );
-  } catch (e) {
-    print("Caught an error: $e");
-    asyncEnd();
-  }
+  Isolate.spawn(entryPointNoArgs, "hello");
+//              ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

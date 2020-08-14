@@ -39,7 +39,7 @@ import "dart:isolate";
 import "../../../Utils/expect.dart";
 
 class Connection {
-  String expectedMessage;
+  String expectedMessage = "";
   var receivePort = new ReceivePort();
 
   Connection(int n) {

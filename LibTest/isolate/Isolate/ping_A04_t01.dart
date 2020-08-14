@@ -15,8 +15,8 @@
  * It is recommended to only use simple values that can be sent to all isolates,
  * like null, booleans, numbers or strings.
  *
- * @description Check that if response cannot be sent to the isolate, then
- * the request is ignored.
+ * @description Check that if response cannot be sent to the isolate, then error
+ * occurs
  *
  * @issue #28094
  * @author a.semenov@unipro.ru
@@ -30,7 +30,9 @@ test() async {
   ErrorServer server = await ErrorServer.spawn();
   // check
   ReceivePort pingPort = new ReceivePort();
-  server.isolate.ping(pingPort.sendPort, response:server.isolate);
+  Expect.throws(() {
+    server.isolate.ping(pingPort.sendPort, response: server.isolate);
+  });
   Future pingResponse = pingPort.first.timeout(TWO_SECONDS, onTimeout: () {
     pingPort.close();
     return "timeout";

@@ -24,7 +24,7 @@ test() async {
 
   Isolate isolate = await Isolate.spawnUri(
                                 new Uri.file("spawnUri_A05_t01_isolate.dart"),
-                                null,
+                                [],
                                 receivePort.sendPort,
                                 errorsAreFatal:true);
   await new Future.delayed(ONE_SECOND);

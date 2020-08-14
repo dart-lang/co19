@@ -21,7 +21,7 @@ import "dart:isolate";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
-Duration _500MS = new Duration(milliseconds:500);
+Duration _500MS = new Duration(milliseconds: 500);
 
 test() async {
   ReceivePort receivePort = new ReceivePort();
@@ -35,7 +35,7 @@ test() async {
   server.isolate.resume(new Capability());
   Expect.equals("timeout", await server.ping("resume", _500MS, "timeout"));
 
-  await server.kill(priority:Isolate.immediate);
+  await server.kill(priority: Isolate.immediate);
   receivePort.close();
   asyncEnd();
 }

@@ -25,10 +25,9 @@ test() async {
 
   Isolate.spawnUri(
       new Uri.file("spawnUri_A06_t02_isolate.dart"),
-      null, // args
+      [], // args
       receivePort.sendPort,
-      onExit:exitPort.sendPort
-  );
+      onExit: exitPort.sendPort);
   Expect.isNull(await exitPort.first);
   receivePort.close();
   Expect.listEquals(["hello", "world"], await receivedData);

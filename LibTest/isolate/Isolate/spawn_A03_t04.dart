@@ -48,7 +48,10 @@ test() async {
   Isolate isolate = await Isolate.spawn(entryPoint, receivePort.sendPort, paused: true);
   await new Future.delayed(new Duration(seconds:1));
   paused = false;
-  isolate.resume(isolate.pauseCapability);
+  var pc = isolate.pauseCapability;
+  if (pc != null) {
+    isolate.resume(pc);
+  }
 }
 
 main() {

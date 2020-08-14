@@ -28,14 +28,12 @@ void entryPoint(SendPort sendPort) {
 
 test() async {
   ReceivePort receivePort = new ReceivePort();
-  Future<Object> receiveFuture = receivePort.first;
-  Isolate isolate = await Isolate.spawn(
-                                      entryPoint,
-                                      receivePort.sendPort,
-                                      paused: true);
+  Future receiveFuture = receivePort.first;
+  Isolate isolate =
+      await Isolate.spawn(entryPoint, receivePort.sendPort, paused: true);
   isolate.resume(new Capability());
-  Expect.equals("timeout", await receiveFuture.timeout(ONE_SECOND,
-                                                      onTimeout:()=>"timeout"));
+  Expect.equals("timeout",
+      await receiveFuture.timeout(ONE_SECOND, onTimeout: () => "timeout"));
   receivePort.close();
   asyncEnd();
 }

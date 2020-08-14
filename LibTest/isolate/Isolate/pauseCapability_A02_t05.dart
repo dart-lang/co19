@@ -28,23 +28,26 @@ void entryPoint(SendPort sendPort) {
   sendPort.send("hello");
 }
 
-Future test(Capability pauseCapability) async {
+Future test(Capability? pauseCapability) async {
   ReceivePort receivePort = new ReceivePort();
-  Future<Object> receiveFuture = receivePort.first;
+  Future receiveFuture = receivePort.first;
   Isolate isolate = await Isolate.spawn(entryPoint,
                                         receivePort.sendPort,
                                         paused:true);
 
   Isolate clone = new Isolate(isolate.controlPort,
-                              pauseCapability:pauseCapability,
+                              pauseCapability: pauseCapability,
                               terminateCapability:null);
 
-  clone.resume(clone.pauseCapability);
+  var pc = clone.pauseCapability;
+  if (pc != null) {
+    clone.resume(pc);
+  }
 
   var timeout = receiveFuture.timeout(ONE_SECOND, onTimeout:() => "timeout");
   Expect.equals("timeout", await timeout);
 
-  isolate.resume(isolate.pauseCapability);
+  isolate.resume(isolate.pauseCapability!);
   receivePort.close();
   return null;
 }

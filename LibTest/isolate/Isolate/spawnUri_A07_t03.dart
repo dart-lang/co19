@@ -22,23 +22,17 @@ import "IsolateUtil.dart";
 
 test() async {
   ReceivePort errorPort = new ReceivePort();
-  Isolate.spawnUri(
-      new Uri.file("spawnUri_A07_t03_isolate.dart"),
-      null, // args
-      null, // message
-      errorsAreFatal:false,
-      onError:errorPort.sendPort
-  );
+  Isolate.spawnUri(new Uri.file("spawnUri_A07_t03_isolate.dart"), [], null,
+      errorsAreFatal: false, onError: errorPort.sendPort);
   int count = 0;
   await for (var error in errorPort) {
-
     Expect.isTrue(count < 4, "received unexpected data: $error");
     Expect.isTrue(error is List);
     Expect.equals(2, error.length);
     Expect.isTrue(error[0] is String);
     Expect.isTrue(error[1] is String);
     count++;
-    if (count == 4){
+    if (count == 4) {
       new Future.delayed(TWO_SECONDS, () => errorPort.close());
     }
   }

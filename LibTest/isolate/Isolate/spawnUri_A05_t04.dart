@@ -22,17 +22,15 @@ test() async {
   ReceivePort receivePort = new ReceivePort();
 
   Isolate isolate = await Isolate.spawnUri(
-                                new Uri.file("spawnUri_A05_t04_isolate.dart"),
-                                null,
-                                receivePort.sendPort,
-                                errorsAreFatal:false);
+      new Uri.file("spawnUri_A05_t04_isolate.dart"), [], receivePort.sendPort,
+      errorsAreFatal: false);
   List receivedData = [];
   await for (var data in receivePort) {
     receivedData.add(data);
     Expect.equals("ping", await ping(isolate, "ping", THREE_SECONDS));
     if (data == "finish") {
       receivePort.close();
-      Expect.listEquals(["hello","second","third","finish"], receivedData);
+      Expect.listEquals(["hello", "second", "third", "finish"], receivedData);
       asyncEnd();
     }
   }

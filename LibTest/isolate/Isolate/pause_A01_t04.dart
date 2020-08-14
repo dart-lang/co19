@@ -31,12 +31,12 @@ void entryPoint(SendPort sendPort) {
 
 test() async {
   bool additionalData = false;
-  Isolate isolate;
+  Isolate? isolate;
   ReceivePort receivePort = new ReceivePort();
   receivePort.listen(
     (data){
       if ("activated"==data) {
-        isolate.pause(new Capability());
+        isolate?.pause(new Capability());
       } else {
         print(data);
         additionalData = true;
