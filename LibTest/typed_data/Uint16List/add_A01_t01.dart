@@ -17,10 +17,7 @@ import "../../../Utils/expect.dart";
 
 check(length) {
   var l = new Uint16List(length);
-  try {
-    l.add(0);
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {}
+  Expect.throws(() { l.add(0); }, (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 }
 

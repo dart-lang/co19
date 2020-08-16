@@ -18,10 +18,6 @@ import "../../../Utils/expect.dart";
 main() {
   Uint16List list = new Uint16List.fromList([0]);
   dynamic resList = list.toList(growable: false);
-
-  try {
-    resList.length = 10;
-    Expect.fail("List should be fixed-length");
-  } on UnsupportedError {}
+  Expect.throws(() { resList.length = 10; }, (e) => e is UnsupportedError);
   Expect.equals(1, resList.length);
 }

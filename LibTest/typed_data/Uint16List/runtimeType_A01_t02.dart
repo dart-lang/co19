@@ -15,8 +15,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   dynamic obj = new Uint16List(0);
-  try {
-    obj.runtimeType = null;
-    Expect.fail("[runtimeType] should be read-only");
-  } on NoSuchMethodError {}
+  Expect.throws(() { obj.runtimeType = null; }, (e) => e is NoSuchMethodError);
 }
