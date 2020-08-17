@@ -17,19 +17,9 @@ import "../../../Utils/expect.dart";
 
 check(length) {
   var l = new Uint64List(length);
-  try {
-    l.elementAt(length + 1);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
-  try {
-    l.elementAt(length);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
-
-  try {
-    l.elementAt(-1);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
+  Expect.throws(() { l.elementAt(length + 1); }, (e) => e is RangeError);
+  Expect.throws(() { l.elementAt(length    ); }, (e) => e is RangeError);
+  Expect.throws(() { l.elementAt(-1        ); }, (e) => e is RangeError);
 }
 
 main() {

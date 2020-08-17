@@ -17,8 +17,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   var l = new Uint64List.fromList([0, 0, 0, 0, 0]);
-
-  Expect.throws(() {
-    l.getRange(1, 0);
-  });
+  Expect.throws(() { l.getRange(1, 0); });
 }

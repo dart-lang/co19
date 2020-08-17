@@ -19,10 +19,7 @@ import "../../../Utils/expect.dart";
 check(List<int> list) {
   var l = new Uint64List.fromList(list);
   var length = l.length;
-  try {
-    l.removeRange(0, 1);
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {};
+  Expect.throws(() { l.removeRange(0, 1); }, (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 }
 
