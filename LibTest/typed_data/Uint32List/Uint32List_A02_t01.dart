@@ -15,9 +15,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(length) {
-  Expect.throws(() {
-    new Uint32List(length);
-  });
+  Expect.throws(() { Uint32List(length); });
 }
 
 main() {

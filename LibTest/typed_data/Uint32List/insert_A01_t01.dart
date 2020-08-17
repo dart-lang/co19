@@ -20,16 +20,10 @@ import "../../../Utils/expect.dart";
 
 main() {
   var l = new Uint32List(10);
-  try {
-    l.insert(0, 0);
-    Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError {}
+  Expect.throws(() { l.insert(0, 0); }, (e) => e is UnsupportedError);
   Expect.equals(10, l.length);
 
   l = new Uint32List(0);
-  try {
-    l.insert(0, 0);
-    Expect.fail("UnsupportedError is expected");
-  } on UnsupportedError {}
+  Expect.throws(() { l.insert(0, 0); }, (e) => e is UnsupportedError);
   Expect.equals(0, l.length);
 }

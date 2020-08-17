@@ -19,10 +19,8 @@ import "../../../Utils/expect.dart";
 check(List<int> list) {
   var l = new Uint32List.fromList(list);
   var length = l.length;
-  try {
-    l.removeWhere((e) => false);
-    Expect.fail("This operation should not be supported");
-  } on UnsupportedError {};
+  Expect.throws(
+          () { l.removeWhere((e) => false); }, (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 
   try {

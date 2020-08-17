@@ -25,9 +25,7 @@ main() {
   var list = new Uint32List(2);
   var buffer = list.buffer;
   for (int i = 1; i < Uint32List.bytesPerElement; ++i) {
-    try {
-      new Uint32List.view(buffer, i);
-      Expect.fail("ArgumentError is expected");
-    } on ArgumentError {}
+     Expect.throws(
+             () { Uint32List.view(buffer, i); }, (e) => e is ArgumentError);
   }
 }
