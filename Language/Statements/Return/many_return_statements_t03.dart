@@ -12,7 +12,7 @@
  * and implicit return statements of different kind.
  *
  * @note implicit returns do not count, see 14764
- * $Issue 39476
+ * @Issue 39476
  * @static-clean
  * @author ilya
  */
