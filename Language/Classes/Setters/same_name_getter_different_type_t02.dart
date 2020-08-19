@@ -12,15 +12,14 @@
  * not mutually assignable. Types in getter/setter signatures provided
  * explicitly (String and double).
  * @author iefremov
+ * @static-warning
  * @issue 42179
  */
 
 class C {
   set foo(double d) {}
+
   String get foo => "";
-//           ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {

@@ -11,6 +11,7 @@
  * v= with argument type T and a getter named v with return type S, and S may
  * not be assigned to T (int and String).
  * @author vasya
+ * @static-warning
  * @issue 42179
  */
 
@@ -20,9 +21,7 @@ class C<T extends int, S extends String> {
   }
 
   S get foo { return _foo; }
-//      ^^^
-// [analyzer] unspecified
-// [cfe] iunspecified
+
   var _foo;
 }
 
