@@ -20,8 +20,8 @@
 import "../../Utils/expect.dart";
 
 main() {
-  var c1 = [1, 2, 3];
-  var c2 = [1.1, 2.2, 3.3];
+  List<int>? c1 = [1, 2, 3];
+  List<double>? c2 = [1.1, 2.2, 3.3];
   var set1 = {
     for (var i = 1; i < 5; i++)
       if (i.isEven) ...c1 else ...c2

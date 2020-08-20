@@ -59,6 +59,6 @@ main() async {
   var s2 = new Stream.fromIterable(l2);
 
   var set1 = {await for (var v in s1) v, await for (var v in s2) v};
-  Expect.isTrue(set1 is Set<Object>);
+  Expect.isTrue(set1 is Set<Object?>);
   Expect.setEquals(set1exp, set1);
 }

@@ -14,9 +14,9 @@
  */
 
 main() {
-  <int, int>{if (true) "not int": 1};                 //# 01: compile-time error
-  Map<int, int> m = {if (true) "not int": 1};         //# 02: compile-time error
-  const <int, int>{if (true) "not int": 1};           //# 03: compile-time error
-  <int, int>{for (var i in []) "not int": 1};         //# 04: compile-time error
-  Map<int, int> m = {for (var i in []) "not int": 1}; //# 05: compile-time error
+  <int, int>{if (true) "not int": 1};                  //# 01: compile-time error
+  Map<int, int> m1 = {if (true) "not int": 1};         //# 02: compile-time error
+  const <int, int>{if (true) "not int": 1};            //# 03: compile-time error
+  <int, int>{for (var i in []) "not int": 1};          //# 04: compile-time error
+  Map<int, int> m2 = {for (var i in []) "not int": 1}; //# 05: compile-time error
 }

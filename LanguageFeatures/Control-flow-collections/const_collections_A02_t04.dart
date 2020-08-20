@@ -31,7 +31,7 @@ main() {
   var v1 = const { if (t) "x1": bool };
   Expect.mapEquals({"x1": bool}, v1);
 
-  var v2 = const <String, Duration> { if (1 > 0) "x2": null };
+  var v2 = const <String?, Duration?> { if (1 > 0) "x2": null };
   Expect.mapEquals({"x2": null}, v2);
 
   var v3 = const <String, dynamic> {if (1 < 0) "x3": false};
@@ -43,7 +43,7 @@ main() {
   var v5 = const {if (t) 1: bool };
   Expect.mapEquals({1: bool}, v5);
 
-  var v6 = const <int, Duration> {if (1 > 0) 1: null };
+  var v6 = const <int?, Duration?> {if (1 > 0) 1: null };
   Expect.mapEquals({1: null}, v6);
 
   var v7 = const <int, dynamic> {if (1 < 0) 1: false};

@@ -65,6 +65,6 @@ main() async {
   var s2 = new Stream.fromIterable(l2);
 
   var list1 = [await for (var v in s1) v, await for (var v in s2) v];
-  Expect.isTrue(list1 is List<Object>);
+  Expect.isTrue(list1 is List<Object?>);
   Expect.listEquals(list1exp, list1);
 }

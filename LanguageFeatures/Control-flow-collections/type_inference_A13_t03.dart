@@ -20,8 +20,8 @@
 import "../../Utils/expect.dart";
 
 main() {
-  var c1 = {1: 1, 2: 2, 3: 3};
-  var c2 = {1.1: 1.1, 2.2: 2.2, 3.3: 3.3};
+  Map<int, int>? c1 = {1: 1, 2: 2, 3: 3};
+  Map<double, double>? c2 = {1.1: 1.1, 2.2: 2.2, 3.3: 3.3};
 
   var map1 = {
   for (var i = 1; i < 5; i++)

@@ -64,6 +64,6 @@ main() async {
 
   var map1 = {await for (var v in s1) v.key: v.value,
       await for (var v in s2) v.key: v.value};
-  Expect.isTrue(map1 is Map<Object, Object>);
+  Expect.isTrue(map1 is Map<Object?, Object?>);
   Expect.mapEquals(map1exp, map1);
 }

@@ -21,8 +21,8 @@ import "../../Utils/expect.dart";
 
 main() {
   var collection = [1, 2, 3, 4, 5];
-  var c1 = {1: 1, 2: 2, 3: 3};
-  var c2 = {1.1: 1.1, 2.2: 2.2, 3.3: 3.3};
+  Map<int, int>? c1 = {1: 1, 2: 2, 3: 3};
+  Map<double, double>? c2 = {1.1: 1.1, 2.2: 2.2, 3.3: 3.3};
 
   var map1 = {
   for (var i in collection)

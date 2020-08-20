@@ -29,6 +29,6 @@ main() {
     if (c is C)
       1
     else
-      c.c;
+      c.c
   ];
 }

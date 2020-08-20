@@ -20,7 +20,7 @@ import "../../Utils/expect.dart";
 
 main() {
   var i = 1;
-  var x = [1, 2, 3];
+  List<int>? x = [1, 2, 3];
   var set1 = {
     if (i > 0) ...x,
   };

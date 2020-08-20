@@ -16,7 +16,7 @@ import "../../Utils/expect.dart";
 
 main() {
   var i = 1;
-  var x = {1: "Let", 2: "it", 3: "be"};
+  Map<int, String>? x = {1: "Let", 2: "it", 3: "be"};
   var map1 = {
     if (i > 0) ...x,
   };

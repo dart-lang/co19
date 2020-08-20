@@ -18,19 +18,19 @@ main() {
   bool b = true;
   var collection = <double>[3, 1.0, 4, 1, 5];
 
-  List<int> list = [if (b) 1.0];                      //# 01: compile-time error
-  List<int> list = [if (!b) 1.0,];                    //# 02: compile-time error
-  List<int> list = [if (b) for (var v in collection) if (v > 3) v,]; //# 03: compile-time error
-  List<int> list = [if (!b) for (var v in collection) if (v > 3) v]; //# 04: compile-time error
+  List<int> list1 = [if (b) 1.0];                      //# 01: compile-time error
+  List<int> list2 = [if (!b) 1.0,];                    //# 02: compile-time error
+  List<int> list3 = [if (b) for (var v in collection) if (v > 3) v,]; //# 03: compile-time error
+  List<int> list4 = [if (!b) for (var v in collection) if (v > 3) v]; //# 04: compile-time error
 
-  List list = <int>[if (b) 1.0];                      //# 05: compile-time error
-  List list = <int>[if (!b) 1.0,];                    //# 06: compile-time error
-  List list = <int>[if (b) for (var v in collection) if (v > 3) v,]; //# 07: compile-time error
-  List list = <int>[if (!b) for (var v in collection) if (v > 3) v]; //# 08: compile-time error
+  List lis5t = <int>[if (b) 1.0];                      //# 05: compile-time error
+  List list6 = <int>[if (!b) 1.0,];                    //# 06: compile-time error
+  List list7 = <int>[if (b) for (var v in collection) if (v > 3) v,]; //# 07: compile-time error
+  List list8 = <int>[if (!b) for (var v in collection) if (v > 3) v]; //# 08: compile-time error
 
-  const list = <int>[if (1 > 2) 1.0];                 //# 09: compile-time error
-  const list = <int>[if (2 > 1) 1.0,];                //# 10: compile-time error
+  const list9 = <int>[if (1 > 2) 1.0];                 //# 09: compile-time error
+  const list10 = <int>[if (2 > 1) 1.0,];                //# 10: compile-time error
 
-  var list = const <int>[if (1 > 2) 1.0];             //# 11: compile-time error
-  var list = const <int>[if (2 > 1) 1.0,];            //# 12: compile-time error
+  var list11 = const <int>[if (1 > 2) 1.0];             //# 11: compile-time error
+  var list12 = const <int>[if (2 > 1) 1.0,];            //# 12: compile-time error
 }
