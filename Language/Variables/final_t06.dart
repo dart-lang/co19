@@ -13,9 +13,13 @@
  * constructor.
  * It is a compile-time error if a local variable v is final and v is not
  * initialized at its point of declaration.
- * @description Checks that it is a compile error if local variable is final
+ *
+ * @note With https://github.com/dart-lang/language/pull/1091/files changes, it
+ * is not an error to declared a final local variable without an initialized. It
+ * is an error to read one unless it is definitely assigned.
+ *
+ * @description Checks that there is no compile error if local variable is final
  * and not initialized at its point of declaration.
- * @compile-error
  * @author ilya
  */
 

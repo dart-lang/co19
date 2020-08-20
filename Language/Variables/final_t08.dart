@@ -18,15 +18,13 @@
  * is not an error to declared a final local variable without an initialized. It
  * is an error to read one unless it is definitely assigned.
  *
- * @description Checks that there is no compile error if local variable is final
- * and not initialized at its point of declaration.
+ * @description Checks that it is a compile error to read local unassigned final
+ * variable.
+ * @compile-error
  * @author ilya
  */
 
 main() {
-  f() {
-    final i;
-    return i = 1;
-  }
-  f();
+  final i;
+  var j = i;
 }
