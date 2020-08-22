@@ -71,7 +71,7 @@ main() {
   var v16 = const {int, num, String,};
   Expect.iterableEquals({int, num, String}, v16);
 
-  var v17 = const <Type>{int, num, String, null};
+  var v17 = const <Type?>{int, num, String, null};
   Expect.iterableEquals({int, num, String, null}, v17);
 
   const v18 = {int, num, String};

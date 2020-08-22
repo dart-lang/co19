@@ -12,15 +12,18 @@
  * ...
  * If none of these cases match, it is an error.
  *
- * @description Checks that if it is a compile error if non of the cases
+ * @description Checks that if it is a compile error if none of the cases
  * (`Iterable<Object>` nor of `Map<Object, Object>`, and it's also not `dynamic`
  * nor `Null`) match
  * @author sgrekhov@unipro.ru
  */
 
 void test<T>(T t) {
-  var s1 = {...t};      //# 01: compile-time error
-  var s2 = {...?t};     //# 02: compile-time error
+  var s1 = {...t };                //# 01: compile-time error
+  var s2 = {...?t};                //# 02: compile-time error
+
+  var s3 = {...(t as dynamic) };   //# 03: compile-time error
+  var s4 = {...?(t as dynamic)};   //# 04: compile-time error
 }
 
 main() {

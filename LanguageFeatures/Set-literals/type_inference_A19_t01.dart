@@ -17,7 +17,7 @@
  */
 
 main() {
-  var s = "Let it be";
+  String? s = "Let it be";
   var x1 = <int, String>{...s};    //# 01: compile-time error
   var x2 = <int, String>{...?s};   //# 02: compile-time error
 }

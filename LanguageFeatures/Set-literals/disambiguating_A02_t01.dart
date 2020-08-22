@@ -34,4 +34,7 @@ main() {
 
   Iterable<Object> o = {};
   Expect.isTrue(o is Set);
+
+  Iterable<Object?> o1 = {};
+  Expect.isTrue(o1 is Set);
 }

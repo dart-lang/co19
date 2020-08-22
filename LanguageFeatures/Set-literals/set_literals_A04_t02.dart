@@ -14,25 +14,25 @@ import "dart:collection";
 class C {}
 
 main() {
-  LinkedHashSet<int> test() => <int>{};             //# 01: compile-time error
-  LinkedHashSet<int> test() => const <int>{};       //# 02: compile-time error
-  LinkedHashSet<int> test() => <int>{1, 2};         //# 03: compile-time error
-  LinkedHashSet<int> test() => {1, 2};              //# 04: compile-time error
-  LinkedHashSet<int> test() => const <int>{1, 2};   //# 05: compile-time error
+  LinkedHashSet<int> test1() => <int>{};             //# 01: compile-time error
+  LinkedHashSet<int> test2() => const <int>{};       //# 02: compile-time error
+  LinkedHashSet<int> test3() => <int>{1, 2};         //# 03: compile-time error
+  LinkedHashSet<int> test4() => {1, 2};              //# 04: compile-time error
+  LinkedHashSet<int> test5() => const <int>{1, 2};   //# 05: compile-time error
 
-  LinkedHashSet test() => <int>{};                  //# 06: compile-time error
-  LinkedHashSet test() => const <int>{};            //# 07: compile-time error
-  LinkedHashSet test() => <int>{1, 2};              //# 08: compile-time error
-  LinkedHashSet test() => {1, 2};                   //# 09: compile-time error
-  LinkedHashSet test() => const <int>{1, 2};        //# 10: compile-time error
+  LinkedHashSet test6()  => <int>{};                 //# 06: compile-time error
+  LinkedHashSet test7()  => const <int>{};           //# 07: compile-time error
+  LinkedHashSet test8()  => <int>{1, 2};             //# 08: compile-time error
+  LinkedHashSet test9()  => {1, 2};                  //# 09: compile-time error
+  LinkedHashSet test10() => const <int>{1, 2};       //# 10: compile-time error
 
-  LinkedHashSet<C> test() => <C>{};                 //# 11: compile-time error
-  LinkedHashSet<C> test() => const <C>{};           //# 12: compile-time error
-  LinkedHashSet<C> test() => <C>{new C()};          //# 13: compile-time error
-  LinkedHashSet<int> test() => {new C()};           //# 14: compile-time error
+  LinkedHashSet<C> test11() => <C>{};                //# 11: compile-time error
+  LinkedHashSet<C> test12() => const <C>{};          //# 12: compile-time error
+  LinkedHashSet<C> test13() => <C>{new C()}          //# 13: compile-time error
+  LinkedHashSet<int> test14() => {new C()};          //# 14: compile-time error
 
-  LinkedHashSet test() => <C>{};                    //# 15: compile-time error
-  LinkedHashSet test() => const <C>{};              //# 16: compile-time error
-  LinkedHashSet test() => <C>{new C()};             //# 17: compile-time error
-  LinkedHashSet test() => {new C()};                //# 18: compile-time error
+  LinkedHashSet test15() => <C>{};                   //# 15: compile-time error
+  LinkedHashSet test16() => const <C>{};             //# 16: compile-time error
+  LinkedHashSet test17() => <C>{new C()};            //# 17: compile-time error
+  LinkedHashSet test18() => {new C()};               //# 18: compile-time error
 }

@@ -17,7 +17,7 @@
  */
 
 main() {
-  var s = "Let it be";
-  var x1 = <String>{...s};    //# 01: compile-time error
-  var x2 = <String>{...?s};   //# 02: compile-time error
+  String? s = "Let it be";
+  var x1 = <String >{...s};    //# 01: compile-time error
+  var x2 = <String?>{...?s};   //# 02: compile-time error
 }

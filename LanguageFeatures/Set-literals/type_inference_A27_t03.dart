@@ -27,12 +27,12 @@ import "../../Utils/expect.dart";
 main() {
   var n = null;
   var m1 = {...?n, 1: 2};
-  Expect.isTrue(m1 is Map<Object, Object>);
+  Expect.isTrue(m1 is Map<Object?, Object?>);
   Expect.isFalse(m1 is Map<int, int>);
   Expect.isFalse(m1 is Map<Null, Null>);
 
   var m2 = {1: 2, ...?n};
-  Expect.isTrue(m2 is Map<Object, Object>);
+  Expect.isTrue(m2 is Map<Object?, Object?>);
   Expect.isFalse(m2 is Map<int, int>);
   Expect.isFalse(m2 is Map<Null, Null>);
 }

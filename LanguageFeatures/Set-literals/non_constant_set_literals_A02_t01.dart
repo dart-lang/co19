@@ -33,8 +33,8 @@ main() {
   LinkedHashSet<int> o0 = new LinkedHashSet<int>();
   Expect.iterableEquals(o0, s0);
 
-  var s1 = <int> {3, 1, 4, null, 1, 4};
-  LinkedHashSet<int> o1 = new LinkedHashSet<int>();
+  var s1 = <int?> {3, 1, 4, null, 1, 4};
+  LinkedHashSet<int?> o1 = new LinkedHashSet<int?>();
   o1.add(3);
   o1.add(1);
   o1.add(4);
@@ -43,8 +43,8 @@ main() {
   o1.add(4);
   Expect.iterableEquals(o1, s1);
 
-  var s2 = <Object> {'3', 1, 4, null, 1, null,};
-  LinkedHashSet<Object> o2 = new LinkedHashSet<Object>();
+  var s2 = <Object?> {'3', 1, 4, null, 1, null,};
+  LinkedHashSet<Object?> o2 = new LinkedHashSet<Object?>();
   o2.add('3');
   o2.add(1);
   o2.add(4);

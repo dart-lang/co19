@@ -26,12 +26,12 @@ import "../../Utils/expect.dart";
 main() {
   var n = null;
   var s1 = {...?n, 1};
-  Expect.isTrue(s1 is Set<Object>);
+  Expect.isTrue(s1 is Set<Object?>);
   Expect.isFalse(s1 is Set<int>);
   Expect.isFalse(s1 is Set<Null>);
 
   var s2 = {1, ...?n};
-  Expect.isTrue(s2 is Set<Object>);
+  Expect.isTrue(s2 is Set<Object?>);
   Expect.isFalse(s2 is Set<int>);
   Expect.isFalse(s2 is Set<Null>);
 }

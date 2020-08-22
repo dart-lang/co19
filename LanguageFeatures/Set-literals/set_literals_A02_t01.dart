@@ -36,13 +36,13 @@ main() {
   Expect.isTrue(v6 is Set<String>);
 
   var v7 = const {'1', 2, '3', null};
-  Expect.isTrue(v7 is Set<Object>);
+  Expect.isTrue(v7 is Set<Object?>);
 
   const v8 = {'1', 2, '3', null};
-  Expect.isTrue(v8 is Set<Object>);
+  Expect.isTrue(v8 is Set<Object?>);
 
   var v9 = {'1', 2, '3', null};
-  Expect.isTrue(v9 is Set<Object>);
+  Expect.isTrue(v9 is Set<Object?>);
 
   dynamic d;
 

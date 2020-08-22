@@ -17,8 +17,8 @@
  */
 
 main() {
-  var s = [1, 2, 3];
-  var m = {1:1, 2: 2};
+  List? s = [1, 2, 3];
+  Map? m = {1:1, 2: 2};
   var x1 = <int, int>{...s, ...m};       //# 01: compile-time error
   var x2 = <int, int>{...?s, ...?m};     //# 02: compile-time error
 }

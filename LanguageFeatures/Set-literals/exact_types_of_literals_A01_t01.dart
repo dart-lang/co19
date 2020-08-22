@@ -19,54 +19,36 @@ import "dart:collection";
 
 class C<T> with SetMixin<T> implements LinkedHashSet<T> {
 
-
   factory C({bool equals(T e1, T e2),
     int hashCode(T e),
-    bool isValidKey(potentialKey)}) {}
+    bool isValidKey(potentialKey)}) => throw "Should not reach here";
 
   @override
-  bool add(T value) {
-    // TODO: implement add
-    return null;
-  }
+  bool add(T value) => throw "Should not reach here";
 
   @override
-  T lookup(Object element) {
-    // TODO: implement lookup
-    return null;
-  }
+  T lookup(Object? element) => throw "Should not reach here";
 
   @override
-  bool remove(Object value) {
-    // TODO: implement remove
-    return null;
-  }
+  bool remove(Object? value) => throw "Should not reach here";
 
   @override
-  bool contains(Object element) {
-    // TODO: implement contains
-    return null;
-  }
+  bool contains(Object? element) => throw "Should not reach here";
 
   @override
-  Set<T> toSet() {
-    // TODO: implement toSet
-    return null;
-  }
+  Set<T> toSet()  => throw "Should not reach here";
 
   @override
-  // TODO: implement iterator
-  Iterator<T> get iterator => null;
+  Iterator<T> get iterator => throw "Should not reach here";
 
   @override
-  // TODO: implement length
-  int get length => null;
+  int get length => throw "Should not reach here";
 }
 
 main() {
-  C<int> c = <int> {};                        //# 01: compile-time error
-  C<int> c = {3, 1, 4,};                      //# 02: compile-time error
-  C c = {3, 1, 4,};                           //# 03: compile-time error
+  C<int> c1 = <int> {};                        //# 01: compile-time error
+  C<int> c2 = {3, 1, 4,};                      //# 02: compile-time error
+  C c3 = {3, 1, 4,};                           //# 03: compile-time error
   dynamic d;
-  C c = {3, 1, 4,null, d};                    //# 04: compile-time error
+  C c4 = {3, 1, 4, null, d};                    //# 04: compile-time error
 }

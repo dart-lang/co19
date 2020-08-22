@@ -18,7 +18,7 @@ main() {
 
   const v4 = {null, null};                          //# 04: compile-time error
   var v5 = const {null, null};                      //# 05: compile-time error
-  var v6 = const <int>{null, null};                 //# 06: compile-time error
+  var v6 = const <int?>{null, null};                //# 06: compile-time error
 
   const v7 = {'1', '2' + '1', "3 - 1", "1",};             //# 07: compile-time error
   const v8 = {'1', '2' + '1', "3 - 1", true, 1 == 1};     //# 08: compile-time error

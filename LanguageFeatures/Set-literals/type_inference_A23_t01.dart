@@ -21,6 +21,6 @@ import "../../Utils/expect.dart";
 
 main() {
   Map m = {1: 1, 2: 2, 3: 3};
-  Expect.isTrue(m is Map<Object, Object>);
+  Expect.isTrue(m is Map<Object?, Object?>);
   Expect.isFalse(m is Map<int, int>);
 }
