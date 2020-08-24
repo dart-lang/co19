@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -20,13 +20,16 @@
  *
  * @description Checks that this is a compile error if local variable is final
  * and not initialized at its point of reading.
- * compile-error
- * @author ilya
+ * @author iarkh@unipro.ru
+ * @author sgrekhov@unipro.ru
  */
 
 class C {
   f() {
     final i;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
     return i;
   }
 }
