@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 main() {
   IFrameElement x = new IFrameElement();
   x.innerHtml = '<iframe class="y">Content Text</iframe>';
-  var d = document.implementation.createHtmlDocument('doc');
-  IFrameElement x2 = d.importNode(x) as IFrameElement;
-  Expect.equals(d, x2.ownerDocument);
+  var d = document.implementation?.createHtmlDocument('doc');
+  IFrameElement? x2 = d?.importNode(x) as IFrameElement?;
+  Expect.equals(d, x2?.ownerDocument);
 }

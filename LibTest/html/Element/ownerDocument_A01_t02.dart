@@ -12,9 +12,9 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  var d = document.implementation.createHtmlDocument('doc');
+  var d = document.implementation?.createHtmlDocument('doc');
 
-  Expect.equals(d, d.createElement('text').ownerDocument, 'text');
+  Expect.equals(d, d?.createElement('text').ownerDocument, 'text');
 
-  Expect.equals(d, d.createElement('paragraph').ownerDocument, 'paragraph');
+  Expect.equals(d, d?.createElement('paragraph').ownerDocument, 'paragraph');
 }

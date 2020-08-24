@@ -17,9 +17,9 @@ main() {
   request.open('GET', "IntentionallyMissingFile");
   asyncStart();
   request.onError.listen((event) {
-    Expect.equals(request.status, 404);
+    Expect.equals(404, request.status);
     Expect.isNull(request.response);
-    Expect.isTrue(request.responseText.length == 0);
+    Expect.equals(0, request.responseText?.length);
     asyncEnd();
   });
   request.send();

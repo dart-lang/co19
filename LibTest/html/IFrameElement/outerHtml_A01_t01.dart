@@ -16,7 +16,7 @@ main() {
   var h = '<iframe class="y"></iframe>';
   IFrameElement x = new Element.html(h, treeSanitizer: new NullTreeSanitizer())
       as IFrameElement;
-  String y = x.outerHtml;
+  String? y = x.outerHtml;
   Expect.equals(h, y);
 
   h = 'Content Text';

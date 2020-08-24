@@ -12,8 +12,8 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  var d = document.implementation.createHtmlDocument('doc');
-  d.body?.innerHtml = '<iframe class="y">Content Text</iframe>';
+  var d = document.implementation?.createHtmlDocument('doc');
+  d?.body?.innerHtml = '<iframe class="y">Content Text</iframe>';
 
-  Expect.equals(d, d.body?.nodes[0].ownerDocument, 'first');
+  Expect.equals(d, d?.body?.nodes[0].ownerDocument, 'first');
 }

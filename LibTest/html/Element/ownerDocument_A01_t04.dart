@@ -13,7 +13,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var n = document.createElement('text');
-  var d = document.implementation.createHtmlDocument('doc');
-  d.adoptNode(n);
+  var d = document.implementation?.createHtmlDocument('doc');
+  d?.adoptNode(n);
   Expect.equals(d, n.ownerDocument);
 }

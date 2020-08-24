@@ -16,11 +16,15 @@ import "../../../Utils/expect.dart";
 void check(Node x) {
   var z = new Element.html('<span><div></div><button></button></span>');
   var y = z.querySelector('div');
-  Expect.equals(2, z.nodes.length, "2");
+  if (y != null) {
+    Expect.equals(2, z.nodes.length, "2");
 
-  x.append(y);
-  Expect.equals(1, z.nodes.length, "1");
-  Expect.isTrue(z.firstChild is ButtonElement);
+    x.append(y);
+    Expect.equals(1, z.nodes.length, "1");
+    Expect.isTrue(z.firstChild is ButtonElement);
+  } else {
+    Expect.fail("div element is null");
+  }
 }
 
 main() {

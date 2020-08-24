@@ -17,10 +17,6 @@ import "../../../Utils/expect.dart";
 main() {
   Document cd = document.clone(false) as Document;
   Expect.isNotNull(cd, "document.clone(false)==null");
-  var childs = document.childNodes;
   var cdchilds = cd.childNodes;
-  Expect.equals(childs.length, cdchilds.length);
-  for (int k = 0; k < childs.length; k++) {
-    Expect.identical(childs[k], cdchilds[k]);
-  }
+  Expect.equals(0, cdchilds.length);
 }

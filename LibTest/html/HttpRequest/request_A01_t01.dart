@@ -34,7 +34,8 @@ main() {
     Expect.equals("progress", event.type, "stream.listen.onData");
   });
   f.then((HttpRequest r) {
-    Expect.isTrue(r.responseText.length > 0);
+    Expect.isNotNull(r.responseText?.length);
+    Expect.isTrue(r.responseText!.length > 0);
     asyncEnd();
   }, onError: (Object error) {
     Expect.fail("request.onLoad.listen:onError($error)");

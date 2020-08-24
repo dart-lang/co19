@@ -17,13 +17,13 @@ import "../../../Utils/expect.dart";
 
 main() {
   var myButton = "myButton";
-  HtmlDocument d2 =
-      document.implementation.createHtmlDocument("Another Document");
+  HtmlDocument? d2 =
+      document.implementation?.createHtmlDocument("Another Document");
   var x = new Element.html('<button id="$myButton"></button>');
-  d2.body?.append(x);
+  d2?.body?.append(x);
   Expect.equals(d2, x.ownerDocument);
-  Expect.equals(x, d2.getElementById(myButton));
+  Expect.equals(x, d2?.getElementById(myButton));
   document.adoptNode(x);
-  Expect.isNull(d2.getElementById(myButton));
+  Expect.isNull(d2?.getElementById(myButton));
   Expect.equals(document, x.ownerDocument);
 }

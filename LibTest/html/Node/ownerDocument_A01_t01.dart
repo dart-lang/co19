@@ -11,12 +11,12 @@
 import "dart:html";
 import "../../../Utils/expect.dart";
 
-var d = document.implementation.createHtmlDocument('doc');
+var d = document.implementation?.createHtmlDocument('doc');
 
 void check(Node x) {
   Expect.equals(document, x.ownerDocument);
-  Node x2 = d.importNode(x);
-  Expect.equals(d, x2.ownerDocument);
+  Node? x2 = d?.importNode(x);
+  Expect.equals(d, x2?.ownerDocument);
 }
 
 main() {
