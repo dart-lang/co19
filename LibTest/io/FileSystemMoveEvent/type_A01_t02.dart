@@ -26,7 +26,9 @@ _main(Directory sandbox) async {
       createEvent: () async {
         d.renameSync(getTempDirectoryPath(parent: dir));
       }, test: (FileSystemEvent? event) {
-        Expect.equals(FileSystemEvent.move, event?.type);
+        if (event != null) {
+          Expect.equals(FileSystemEvent.move, event.type);
+        }
       }, failIfNoEvent: false);
   asyncEnd();
 }
