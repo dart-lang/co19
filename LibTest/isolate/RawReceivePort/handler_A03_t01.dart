@@ -17,7 +17,7 @@ import "dart:isolate";
 import "../../../Utils/expect.dart";
 
 void entryPoint(SendPort sendPort) {
-  for (int i=0; i<100; i++) {
+  for (int i = 0; i < 100; i++) {
     sendPort.send(i);
   }
 }
@@ -26,28 +26,30 @@ typedef void Handler(event);
 
 main() {
   asyncStart();
-  RawReceivePort receivePort;
+  RawReceivePort? receivePort;
   List receivedData1 = [];
   List receivedData2 = [];
 
   void check() {
-    if (receivedData1.length==50 && receivedData2.length==50) {
-      receivePort.close();
-      Expect.listEquals(new List<int>.generate(50, (i)=>i*2), receivedData1);
-      Expect.listEquals(new List<int>.generate(50, (i)=>i*2+1), receivedData2);
+    if (receivedData1.length == 50 && receivedData2.length == 50) {
+      receivePort?.close();
+      Expect.listEquals(
+          new List<int>.generate(50, (i) => i * 2), receivedData1);
+      Expect.listEquals(
+          new List<int>.generate(50, (i) => i * 2 + 1), receivedData2);
       asyncEnd();
     }
   }
 
-  Handler handler1;
+  Handler? handler1;
   Handler handler2 = (event) {
     receivedData2.add(event);
-    receivePort.handler = handler1;
+    receivePort?.handler = handler1;
     check();
   };
   handler1 = (event) {
     receivedData1.add(event);
-    receivePort.handler = handler2;
+    receivePort?.handler = handler2;
     check();
   };
 

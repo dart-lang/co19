@@ -12,37 +12,36 @@
  *
  * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 
-Duration _500MS = new Duration(milliseconds:500);
+Duration _500MS = new Duration(milliseconds: 500);
 
 void entryPoint(SendPort sendPort) {
-  for (int i=0; i<10; i++) {
+  for (int i = 0; i < 10; i++) {
     sendPort.send(i);
   }
 }
 
 main() {
   asyncStart();
-  RawReceivePort receivePort;
+  RawReceivePort? receivePort;
   List receivedData = [];
 
   void receiveHandler(event) {
     receivedData.add(event);
     if (receivedData.length == 5) {
-      receivePort.handler = null;
+      receivePort?.handler = null;
       // wait 500 ms for unexpected data
       new Future.delayed(_500MS).then((_) {
-        receivePort.close();
+        receivePort?.close();
         Expect.listEquals(new List<int>.generate(5, (i) => i), receivedData);
         asyncEnd();
       });
-
     }
   }
+
   receivePort = new RawReceivePort(receiveHandler);
   Isolate.spawn(entryPoint, receivePort.sendPort);
 }
