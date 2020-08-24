@@ -10,15 +10,14 @@
  * @description Checks that correct answer is passed to the future.
  * @author kaigorodov
  */
-
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable<int> data, bool test(var element), bool expected) {
+check(Iterable<int?> data, bool test(var element), bool expected) {
   ReceivePort s = IsolateStream.fromIterable(data);
   asyncStart();
-  s.any(test).then((bool actual){
+  s.any(test).then((bool actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });
@@ -26,8 +25,10 @@ check(Iterable<int> data, bool test(var element), bool expected) {
 
 main() {
   check([], (element) => true, false);
-  check([1,2,3], (element) => element == null, false);
+  check([1, 2, 3], (element) => element == null, false);
   check([1, 2, 3, null], (element) => element == null, true);
-  check(new Iterable.generate(0, (index) => index * 2), (element) => true, false);
-  check(new Iterable.generate(10, (index) => index * 5), (element) => element==30, true);
+  check(
+      new Iterable.generate(0, (index) => index * 2), (element) => true, false);
+  check(new Iterable.generate(10, (index) => index * 5),
+      (element) => element == 30, true);
 }

@@ -14,15 +14,14 @@
  * returned stream is indeed a broadcast stream.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 
 main() {
-  ReceivePort s1=new ReceivePort();
-  Stream s2=s1.asBroadcastStream();
-  Stream s3=s2.asBroadcastStream();
+  ReceivePort s1 = new ReceivePort();
+  Stream s2 = s1.asBroadcastStream();
+  Stream s3 = s2.asBroadcastStream();
   try {
     Expect.isFalse(s1.isBroadcast);
     Expect.isTrue(s2.isBroadcast);
@@ -31,4 +30,3 @@ main() {
     s1.close();
   }
 }
-

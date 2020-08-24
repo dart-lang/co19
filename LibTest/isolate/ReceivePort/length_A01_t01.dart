@@ -9,15 +9,14 @@
  * @description Checks that correct number of elements is returned.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable<int> data, int expected) {
-  Stream s=IsolateStream.fromIterable(data);
+check(Iterable<int?> data, int expected) {
+  Stream s = IsolateStream.fromIterable(data);
   asyncStart();
-  s.length.then((value){
+  s.length.then((value) {
     Expect.equals(expected, value);
     asyncEnd();
   });
@@ -25,7 +24,7 @@ check(Iterable<int> data, int expected) {
 
 main() {
   check([], 0);
-  check([1,2,3,null], 4);
-  check(new Iterable.generate(0, (int index)=>index*2), 0);
-  check(new Iterable.generate(10, (int index)=>index*2), 10);
+  check([1, 2, 3, null], 4);
+  check(new Iterable.generate(0, (int index) => index * 2), 0);
+  check(new Iterable.generate(10, (int index) => index * 2), 10);
 }

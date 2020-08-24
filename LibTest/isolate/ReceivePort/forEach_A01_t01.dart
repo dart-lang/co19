@@ -17,7 +17,7 @@ import "IsolateStream.dart" as IsolateStream;
 
 void check(List data) {
   Stream s = IsolateStream.fromIterable(data);
-  List sink = new List();
+  List sink = [];
   asyncStart();
   Future f = s.forEach((var element){
     sink.add(element);

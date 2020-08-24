@@ -34,7 +34,6 @@
  * no [orElse] function provided, the future will receive an error.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;

@@ -14,34 +14,31 @@
  * consecutive equal elements in terms of operator ==. 
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable<int> data) {
-  Stream s=IsolateStream.fromIterable(data);
-  Stream d=s.distinct();
-  bool first=true;
+check(Iterable<int?> data) {
+  Stream s = IsolateStream.fromIterable(data);
+  Stream d = s.distinct();
+  bool first = true;
   var previous;
   asyncStart();
-  d.listen((var event){
-      if (first) {
-        first=false;
-      } else {
-        Expect.isFalse(previous==event);
-      }
-      previous=event;
-    },
-    onDone:(){
-      asyncEnd();
+  d.listen((var event) {
+    if (first) {
+      first = false;
+    } else {
+      Expect.isFalse(previous == event);
     }
-  );
+    previous = event;
+  }, onDone: () {
+    asyncEnd();
+  });
 }
 
 main() {
   check([]);
-  check([1,2,2,3]);
-  check([1,2,null,null]);
-  check(new Iterable.generate(0, (int index)=>1));
+  check([1, 2, 2, 3]);
+  check([1, 2, null, null]);
+  check(new Iterable.generate(0, (int index) => 1));
 }

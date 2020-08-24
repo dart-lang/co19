@@ -17,7 +17,7 @@ void check(Iterable data, combine(var previous, var element), var expected) {
   Stream s = IsolateStream.fromIterable(data);
   asyncStart();
   Future f = s.reduce(combine);
-  f.then((var actual){
+  f.then((var actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });

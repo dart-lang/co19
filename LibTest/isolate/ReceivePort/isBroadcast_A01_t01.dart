@@ -9,7 +9,6 @@
  * @description Checks that default implementation returns false.
  * @author kaigorodov
  */
-
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 
@@ -19,4 +18,3 @@ main() {
   Expect.isFalse(s.isBroadcast);
   s.close();
 }
-

@@ -14,27 +14,24 @@
  * the resulting stream ends with a done event.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-int eventCount=2; // the length of the source stream
-int takeCount=2; // how many events to take
+int eventCount = 2; // the length of the source stream
+int takeCount = 2; // how many events to take
 
 void main() {
-  Iterable it=new Iterable.generate(eventCount, (int index)=>index);
-  Stream s = IsolateStream.fromIterable(it).map((x) => throw new ArgumentError(x));
-  Stream t=s.take(takeCount);
+  Iterable it = new Iterable.generate(eventCount, (int index) => index);
+  Stream s =
+      IsolateStream.fromIterable(it).map((x) => throw new ArgumentError(x));
+  Stream t = s.take(takeCount);
   asyncStart();
-  t.listen((value){
-      Expect.fail("onData call not expected");
-    },
-    onError: (error) {
-      Expect.isTrue(error is ArgumentError);
-    },
-    onDone: () {
-      asyncEnd();
-    }
-  );
+  t.listen((value) {
+    Expect.fail("onData call not expected");
+  }, onError: (error) {
+    Expect.isTrue(error is ArgumentError);
+  }, onDone: () {
+    asyncEnd();
+  });
 }

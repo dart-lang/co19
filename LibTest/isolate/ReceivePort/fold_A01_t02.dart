@@ -11,23 +11,23 @@
  * @note undocumented
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-void check(Iterable data, initialValue, combine(previous, var element), var expected) {
-  Stream s=IsolateStream.fromIterable(data);
+void check(
+    Iterable data, initialValue, combine(previous, var element), var expected) {
+  Stream s = IsolateStream.fromIterable(data);
   asyncStart();
-  Future f=s.fold(initialValue, combine);
-  f.then((var actual){
+  Future f = s.fold(initialValue, combine);
+  f.then((var actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });
 }
 
 main() {
-  check([], null, null, null);
-  check([], 777, null, 777);
-  check([], "", null, "");
+  check([], null, (p, e) {Expect.fail("combine musn't be called");}, null);
+  check([], 777, (p, e) {Expect.fail("combine musn't be called");}, 777);
+  check([], "", (p, e) {Expect.fail("combine musn't be called");}, "");
 }

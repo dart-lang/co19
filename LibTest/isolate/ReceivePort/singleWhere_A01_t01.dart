@@ -18,7 +18,7 @@ void check(Iterable data, bool test(var element), var expected) {
   Stream s = IsolateStream.fromIterable(data);
   asyncStart();
   Future f = s.singleWhere(test);
-  f.then((var actual){
+  f.then((var actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });
@@ -27,5 +27,6 @@ void check(Iterable data, bool test(var element), var expected) {
 main() {
   check([1, 2, 3, null], (var element) => element == null, null);
   check([1, 2, 3], (var element) => element > 2, 3);
-  check(new Iterable.generate(10, (int index) => index * 5), (var element) => element == 30, 30);
+  check(new Iterable.generate(10, (int index) => index * 5),
+      (var element) => element == 30, 30);
 }

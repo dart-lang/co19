@@ -11,24 +11,21 @@
  * @note undocumented
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
 void check(Iterable data, combine(previous, var element)) {
-  Stream s=IsolateStream.fromIterable(data);
+  Stream s = IsolateStream.fromIterable(data);
   asyncStart();
-  Future f=s.reduce(combine);
-    f.then((value){
-      Expect.fail("unexpected call to onValue($value)");
-    },
-    onError: (Object error){
-      asyncEnd();
-    }
-  );
+  Future f = s.reduce(combine);
+  f.then((value) {
+    Expect.fail("unexpected call to onValue($value)");
+  }, onError: (Object error) {
+    asyncEnd();
+  });
 }
 
 main() {
-  check([], null);
+  check([], (p, e) {Expect.fail("combine musn't be called");});
 }

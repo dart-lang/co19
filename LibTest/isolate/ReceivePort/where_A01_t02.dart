@@ -17,35 +17,27 @@ import "IsolateStream.dart" as IsolateStream;
 
 void check(Iterable data, bool test(event)) {
   Stream s = IsolateStream.fromIterable(data)
-    .map( (x) => x%2 == 0 ? x : throw new ArgumentError(x) )
-    .asBroadcastStream();
+      .map((x) => x % 2 == 0 ? x : throw new ArgumentError(x))
+      .asBroadcastStream();
 
   Sync2 sync = new Sync2((err1, err2) {
     Expect.listEquals(err1, err2);
   });
 
   asyncStart();
-  s.listen((var value){},
-    onError: (error) {
-      sync.put1(error);
-    },
-    onDone:() {
-      asyncEnd();
-    }
-  );
+  s.listen((var value) {}, onError: (error) {
+    sync.put1(error);
+  }, onDone: () {
+    asyncEnd();
+  });
   asyncStart();
-  s.where(test).listen((var value){},
-    onError: (error) {
-      sync.put1(error);
-    },
-    onDone:() {
-      asyncEnd();
-    }
-  );
+  s.where(test).listen((var value) {}, onError: (error) {
+    sync.put1(error);
+  }, onDone: () {
+    asyncEnd();
+  });
 }
 
 main() {
-  check(new Iterable.generate(10, (int index) => index),
-    (event) => true
-  );
+  check(new Iterable.generate(10, (int index) => index), (event) => true);
 }

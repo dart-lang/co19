@@ -17,7 +17,6 @@
  * @author ilya
  * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
@@ -26,7 +25,7 @@ List receivedEvents = [];
 bool cancelOk = true;
 
 void finish() {
-  new Future.delayed(new Duration(milliseconds: 500), (){
+  new Future.delayed(new Duration(milliseconds: 500), () {
     // give some time for events to be delivered
     if (!cancelOk) {
       Expect.listEquals([], receivedEvents, "Received unexpected events");
@@ -35,13 +34,12 @@ void finish() {
   });
 }
 
-
 main() {
   asyncStart();
-  var s = IsolateStream.fromIterable([0,1,2,3], onDone:finish);
+  var s = IsolateStream.fromIterable([0, 1, 2, 3], onDone: finish);
 
   Stream b = s.asBroadcastStream(onListen: (subs) {
-    cancelOk = (subs.cancel()==null) && cancelOk;
+    cancelOk = (subs.cancel() == null) && cancelOk;
   });
 
   b.listen((e) {

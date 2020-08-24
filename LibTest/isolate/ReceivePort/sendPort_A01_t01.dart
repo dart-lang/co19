@@ -8,9 +8,7 @@
  * Returns a SendPort that sends to this receive port.
  * @description Checks that a new SendPort that sends to this receive port is returned.
  * @author msyabro
- * @reviewer kaigorodov
  */
-
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 
@@ -18,12 +16,12 @@ void main() {
   ReceivePort rPort = new ReceivePort();
   var sPort = rPort.sendPort;
   Expect.isTrue(sPort is SendPort);
-  
+
   asyncStart();
   rPort.listen((var message) {
     rPort.close();
     asyncEnd();
   });
-  
+
   sPort.send("message1");
 }

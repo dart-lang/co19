@@ -9,11 +9,10 @@
  * @description Checks that the method returns whether this stream contains any elements.
  * @author kaigorodov
  */
-
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
-check(Iterable<int> data, bool expected) {
+check(Iterable<int?> data, bool expected) {
   asyncStart();
   IsolateStream.fromIterable(data).isEmpty.then((bool actual) {
     Expect.equals(expected, actual);
@@ -23,7 +22,7 @@ check(Iterable<int> data, bool expected) {
 
 main() {
   check([], true);
-  check([1,2,3,null], false);
-  check(new Iterable.generate(0, (int index)=>1), true);
-  check(new Iterable.generate(10, (int index)=>1), false);
+  check([1, 2, 3, null], false);
+  check(new Iterable.generate(0, (int index) => 1), true);
+  check(new Iterable.generate(10, (int index) => 1), false);
 }

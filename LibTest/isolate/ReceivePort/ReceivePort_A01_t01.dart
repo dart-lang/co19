@@ -14,21 +14,20 @@
  * @description Checks that incoming messages are buffered until a listener is registered..
  * @author kaigorodov
  */
-
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 
-var counter=10;
+var counter = 10;
 
 void main() {
   ReceivePort rPort = new ReceivePort();
-  SendPort sPort=rPort.sendPort;
-  for (int k=counter; k>0; k--) {
+  SendPort sPort = rPort.sendPort;
+  for (int k = counter; k > 0; k--) {
     sPort.send(k);
   }
   rPort.listen((message) {
     Expect.equals(counter, message);
-    if (message>1) {
+    if (message > 1) {
       counter--;
     } else {
       rPort.close();

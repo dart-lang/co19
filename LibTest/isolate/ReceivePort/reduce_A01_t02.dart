@@ -11,21 +11,20 @@
  * @note undocumented
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
 void check(Iterable data, combine(previous, var element), var expected) {
-  Stream s=IsolateStream.fromIterable(data);
+  Stream s = IsolateStream.fromIterable(data);
   asyncStart();
-  Future f=s.reduce(combine);
-  f.then((var actual){
+  Future f = s.reduce(combine);
+  f.then((var actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });
 }
 
 main() {
-  check([777], null, 777);
+  check([777], (p, e) {Expect.fail("combine musn't be called");}, 777);
 }

@@ -10,7 +10,6 @@
  * @description Checks that data events are produced according to transform.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;

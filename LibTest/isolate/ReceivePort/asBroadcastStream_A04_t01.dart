@@ -13,19 +13,17 @@
  * stops having listeners because the underlying stream ends.
  * @author ilya
  */
-
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
 main() {
-  var s = IsolateStream.fromIterable([1,2,3]);
+  var s = IsolateStream.fromIterable([1, 2, 3]);
 
   asyncStart();
   var b = s.asBroadcastStream(onCancel: (subs) {
     asyncEnd();
   });
-  b.listen((_){});
-  b.listen((_){});
-  b.listen((_){});
+  b.listen((_) {});
+  b.listen((_) {});
+  b.listen((_) {});
 }
-

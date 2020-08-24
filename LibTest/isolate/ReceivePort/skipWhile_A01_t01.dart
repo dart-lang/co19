@@ -12,7 +12,6 @@
  * @description Checks that elements matched by a test are skipped.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
@@ -20,31 +19,28 @@ import "IsolateStream.dart" as IsolateStream;
 /** index - first position in the stream where test() returns false
  */
 void check(List data, bool test(var element), int index) {
-  Stream s=IsolateStream.fromIterable(data);
-  Stream t=s.skipWhile(test);
-  bool seen=false;
+  Stream s = IsolateStream.fromIterable(data);
+  Stream t = s.skipWhile(test);
+  bool seen = false;
   asyncStart();
-  t.listen((value){
-      if (!seen) {
-        Expect.isFalse(test(value), "test($value)=true");
-        seen=true;
-      } else {
-        index++;
-      }
-      Expect.equals(data[index], value);
-    },
-    onDone: (){
-      Expect.equals(seen, index<data.length);
-      asyncEnd();
+  t.listen((value) {
+    if (!seen) {
+      Expect.isFalse(test(value), "test($value)=true");
+      seen = true;
+    } else {
+      index++;
     }
-  );
+    Expect.equals(data[index], value);
+  }, onDone: () {
+    Expect.equals(seen, index < data.length);
+    asyncEnd();
+  });
 }
 
 main() {
-  check([],null,0);
-  check([1,2,3], (element)=>false, 0);
-  check([-1,-2,-3,1,2,3], (element)=>element<0, 3);
-  check([1,2,3], (element)=>element==1, 1);
-  check([1,2,3], (element)=>true, 3);
+  check([], (element) => false , 0);
+  check([1, 2, 3], (element) => false, 0);
+  check([-1, -2, -3, 1, 2, 3], (element) => element < 0, 3);
+  check([1, 2, 3], (element) => element == 1, 1);
+  check([1, 2, 3], (element) => true, 3);
 }
-

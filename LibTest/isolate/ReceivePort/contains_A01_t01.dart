@@ -10,16 +10,15 @@
  * occurs in the elements provided by this stream.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
 check(List l, var match, bool expected) {
-  Stream s=IsolateStream.fromIterable(l);
-  Future<bool> fu=s.contains(match);
+  Stream s = IsolateStream.fromIterable(l);
+  Future<bool> fu = s.contains(match);
   asyncStart();
-  fu.then((actual){
+  fu.then((actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });
@@ -27,9 +26,8 @@ check(List l, var match, bool expected) {
 
 main() {
   check([], null, false);
-  check([1,2,[]], null, false);
-  check([1,2,null,[]], null, true);
-  check([1,2,[]], 4, false);
-  check([1,2,null,[]], 2, true);
+  check([1, 2, []], null, false);
+  check([1, 2, null, []], null, true);
+  check([1, 2, []], 4, false);
+  check([1, 2, null, []], 2, true);
 }
-

@@ -18,8 +18,8 @@ import "IsolateStream.dart" as IsolateStream;
 
 void check(Iterable data, bool test(int element)) {
   Stream s = IsolateStream.fromIterable(data);
-  List collected = new List();
-  bool _test(element){
+  List collected = [];
+  bool _test(element) {
     if (test(element)) {
       return true;
     } else {
@@ -27,21 +27,21 @@ void check(Iterable data, bool test(int element)) {
       return false;
     }
   }
+
   asyncStart();
   Stream sw = s.where(_test);
-  sw.listen((var value){
-      Expect.isTrue(test(value));
-      collected.add(value);
-    },
-    onDone:() {
-      Expect.setEquals(data, collected);
-      asyncEnd();
-    }
-  );
+  sw.listen((var value) {
+    Expect.isTrue(test(value));
+    collected.add(value);
+  }, onDone: () {
+    Expect.setEquals(data, collected);
+    asyncEnd();
+  });
 }
 
 main() {
-  check([1,2,3,null], (int element) => element == null);
-  check([1,2,3], (int element) => element > 2);
-  check(new Iterable.generate(10, (int index) => index * 5), (int element) => element == 30);
+  check([1, 2, 3, 4], (int element) => element == 4);
+  check([1, 2, 3], (int element) => element > 2);
+  check(new Iterable.generate(10, (int index) => index * 5),
+      (int? element) => element == 30);
 }

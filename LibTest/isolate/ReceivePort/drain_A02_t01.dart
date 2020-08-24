@@ -9,24 +9,22 @@
  * @description Checks that the future completes with the given futureValue.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
 void check(Stream s) {
-  const expected=-11;
-  Future f=s.drain(expected);
+  const expected = -11;
+  Future f = s.drain(expected);
   asyncStart();
-  f.then(
-    (value){
-      Expect.equals(expected, value);
-      asyncEnd();
-    }
-  );
+  f.then((value) {
+    Expect.equals(expected, value);
+    asyncEnd();
+  });
 }
 
 main() {
   check(IsolateStream.fromIterable([]));
-  check(IsolateStream.fromIterable(new Iterable.generate(10, (int index)=>index)));
+  check(IsolateStream.fromIterable(
+      new Iterable.generate(10, (int index) => index)));
 }

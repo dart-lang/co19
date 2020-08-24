@@ -25,12 +25,12 @@ void iMain(List data) {
 ReceivePort fromFuture(Future content) {
   var element;
   bool completed = false;
-  SendPort sendPort;
-  SendPort sendPort2;
+  SendPort? sendPort;
+  SendPort? sendPort2;
   void sendElement() {
     if (sendPort != null && completed) {
-      sendPort.send(element);
-      sendPort2.send(null);
+      sendPort?.send(element);
+      sendPort2?.send(null);
     }
   }
 
@@ -55,7 +55,7 @@ ReceivePort fromFuture(Future content) {
   return receivePort;
 }
 
-ReceivePort fromIterable(Iterable content, {onDone(): null}) {
+ReceivePort fromIterable(Iterable content, {Function? onDone}) {
   ReceivePort receivePort = new ReceivePort();
   ReceivePort receivePort2 = new ReceivePort();
   receivePort2.listen((portList) {

@@ -10,7 +10,6 @@
  * @author kaigorodov
  * @author a.semenov@unipro.ru
  */
-
 import 'dart:async';
 import "dart:isolate";
 import "../../../Utils/expect.dart";
@@ -23,13 +22,9 @@ main() {
   asyncStart();
   ReceivePort receivePort = new ReceivePort();
   var sendPort = receivePort.sendPort;
-  Future.wait([Isolate.spawn(iMain, sendPort), receivePort.first]).then(
-      (v) => receivePort.close()
-  ).then(
-      (v) => receivePort.close()
-  ).then(
-      (v) => receivePort.close()
-  ).then(
-      (v) => asyncEnd()
-  );
+  Future.wait([Isolate.spawn(iMain, sendPort), receivePort.first])
+      .then((v) => receivePort.close())
+      .then((v) => receivePort.close())
+      .then((v) => receivePort.close())
+      .then((v) => asyncEnd());
 }

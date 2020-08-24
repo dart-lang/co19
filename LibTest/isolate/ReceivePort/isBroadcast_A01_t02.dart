@@ -9,7 +9,6 @@
  * @description Checks true is returned for a broadcast stream.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "dart:isolate";
 import "../../../Utils/expect.dart";

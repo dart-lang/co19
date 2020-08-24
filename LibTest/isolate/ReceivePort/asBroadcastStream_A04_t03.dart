@@ -14,7 +14,6 @@
  * again in onListen callback when new listeners appear.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
@@ -31,40 +30,37 @@ main() {
 
   asyncStart();
 
-  var b = s.asBroadcastStream(
-      onListen: (subs) {
-        if (firstListen) 
-          firstListen = false;
-        else {
-          Expect.isTrue(subs.isPaused);
-          subs.resume();
-        }
-      },
-      onCancel: (subs) {
-        if (streamOpen) {
-          Expect.isFalse(subs.isPaused);
-          subs.pause();
-          anySubscribers = false;
-        } else {
-          subs.cancel();
-          timer.cancel();
-          Expect.listEquals([], values);
-          asyncEnd();
-        }
-      });
+  var b = s.asBroadcastStream(onListen: (subs) {
+    if (firstListen)
+      firstListen = false;
+    else {
+      Expect.isTrue(subs.isPaused);
+      subs.resume();
+    }
+  }, onCancel: (subs) {
+    if (streamOpen) {
+      Expect.isFalse(subs.isPaused);
+      subs.pause();
+      anySubscribers = false;
+    } else {
+      subs.cancel();
+      timer.cancel();
+      Expect.listEquals([], values);
+      asyncEnd();
+    }
+  });
 
   newSubscription(stream, n) {
     // get n elements and cancel
-    var count=0;
+    var count = 0;
     var subs = stream.listen(null);
     subs.onData((x) {
       // remove seen value from list
       values.remove(x);
-      if (++count == n)
-        subs.cancel();
+      if (++count == n) subs.cancel();
     });
     subs.onDone(() {
-      streamOpen=false;
+      streamOpen = false;
     });
   }
 
@@ -79,4 +75,3 @@ main() {
 
   timer = new Timer.periodic(durationMs(10), addSubscribersIfNeeded);
 }
-

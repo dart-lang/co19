@@ -13,12 +13,11 @@
  * stops having listeners because they all cancel subscription.
  * @author ilya
  */
-
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
 main() {
-  var s = IsolateStream.fromIterable([1,2,3]);
+  var s = IsolateStream.fromIterable([1, 2, 3]);
 
   asyncStart();
   var b = s.asBroadcastStream(onCancel: (subs) {
@@ -30,11 +29,12 @@ main() {
   newSubscription(stream) {
     // get one element and cancel
     var subs = stream.listen(null);
-    subs.onData((_) {subs.cancel();});
+    subs.onData((_) {
+      subs.cancel();
+    });
   }
 
   newSubscription(b);
   newSubscription(b);
   newSubscription(b);
 }
-

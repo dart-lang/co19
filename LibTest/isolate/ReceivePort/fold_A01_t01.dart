@@ -9,7 +9,6 @@
  * @description Checks that the result is correct.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
@@ -19,13 +18,13 @@ void check(Iterable data, initialValue, combine(var previous, var element),
   Stream s = IsolateStream.fromIterable(data);
   asyncStart();
   Future f = s.fold(initialValue, combine);
-  f.then((var actual){
+  f.then((var actual) {
     Expect.equals(expected, actual);
     asyncEnd();
   });
 }
 
 main() {
-  check([1,2,3,4], 0, (var previous, var element)=>previous+element, 10);
-  check([1,2,3,4], 1, (var previous, var element)=>previous*element, 24);
+  check([1, 2, 3, 4], 0, (var previous, var element) => previous + element, 10);
+  check([1, 2, 3, 4], 1, (var previous, var element) => previous * element, 24);
 }

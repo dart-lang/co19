@@ -38,7 +38,7 @@ check(Iterable data, bool test(var element), int expected) {
 
 main() {
   check([], (var element) => true, 1);
-  check([1, 2, 3], (var element) => element == null, null);
+  check([1, 2, 3], (var element) => element == null, 0);
   check(new Iterable.generate(0, (int index) => index), (var element) => false,
       0);
   check(

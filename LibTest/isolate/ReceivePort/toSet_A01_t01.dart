@@ -17,15 +17,15 @@ void check(List data) {
   Stream s = IsolateStream.fromIterable(data);
   Future f = s.toSet();
   asyncStart();
-  f.then((var value){
-      Expect.setEquals(data, value);
-      asyncEnd();
-    });
+  f.then((var value) {
+    Expect.setEquals(data, value);
+    asyncEnd();
+  });
 }
 
 main() {
   check([]);
-  check([-1,-2,-3,1,2,3-1,-2,-3]);
-  check([1,2,3]);
-  check(["1",2,null]);
+  check([-1, -2, -3, 1, 2, 3 - 1, -2, -3]);
+  check([1, 2, 3]);
+  check(["1", 2, null]);
 }

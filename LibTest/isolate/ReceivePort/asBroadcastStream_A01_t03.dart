@@ -15,7 +15,6 @@
  * @author ilya
  * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
@@ -25,7 +24,7 @@ List receivedData = [];
 bool onDoneCalled = false;
 
 void finish() {
-  if (cancelResult==null) {
+  if (cancelResult == null) {
     Expect.listEquals([0], receivedData);
     Expect.isFalse(onDoneCalled);
   }
@@ -35,7 +34,7 @@ void finish() {
 main() {
   asyncStart();
 
-  var s = IsolateStream.fromIterable([0,1,2,3], onDone: finish);
+  var s = IsolateStream.fromIterable([0, 1, 2, 3], onDone: finish);
   var b = s.asBroadcastStream();
 
   StreamSubscription subs = b.listen(null);
@@ -49,4 +48,3 @@ main() {
     onDoneCalled = true;
   });
 }
-

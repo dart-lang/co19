@@ -10,12 +10,18 @@
  * @description Checks that it joins string representations correctly.
  * @author ilya
  */
-
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
 main() {
-  var iter = [1,null,false,true,'string',3.14,];
+  var iter = [
+    1,
+    null,
+    false,
+    true,
+    'string',
+    3.14,
+  ];
   iter.add(iter); // add self reference
   var s = IsolateStream.fromIterable(iter);
 
@@ -25,4 +31,3 @@ main() {
     asyncEnd();
   });
 }
-

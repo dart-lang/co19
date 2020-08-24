@@ -10,7 +10,6 @@
  * @author ilya
  * @node future completion value is not documented
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;

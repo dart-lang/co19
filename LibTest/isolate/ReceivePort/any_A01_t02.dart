@@ -11,7 +11,6 @@
  * is encounterd.
  * @author ilya
  */
-
 import "dart:async";
 import "dart:isolate";
 import "../../../Utils/expect.dart";
@@ -22,21 +21,22 @@ main() {
   int first = 0;
   bool encountered = false;
   bool test(var element) {
-     bool res = element % 10 == 0;
-     if (res && !encountered) {
-       encountered = true;
-       first = element;
-     }
-     return res;
+    bool res = element % 10 == 0;
+    if (res && !encountered) {
+      encountered = true;
+      first = element;
+    }
+    return res;
   }
+
   asyncStart();
-  ReceivePort stream = IsolateStream.fromIterable(new Iterable.generate(100, (_) => ++count));
-  Future<bool>  f = stream.any(test);
+  ReceivePort stream =
+      IsolateStream.fromIterable(new Iterable.generate(100, (_) => ++count));
+  Future<bool> f = stream.any(test);
   f.then((x) {
-      Expect.isTrue(x);
-      Expect.isTrue(encountered);
-      Expect.equals(10, first);
-      asyncEnd();
+    Expect.isTrue(x);
+    Expect.isTrue(encountered);
+    Expect.equals(10, first);
+    asyncEnd();
   });
 }
-

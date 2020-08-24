@@ -9,23 +9,21 @@
  * @description Checks that the future completes with null if futureValue is omitted.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
 void check(Stream s) {
-  Future f=s.drain();
+  Future f = s.drain();
   asyncStart();
-  f.then(
-    (value){
-      Expect.equals(null, value);
-      asyncEnd();
-    }
-  );
+  f.then((value) {
+    Expect.equals(null, value);
+    asyncEnd();
+  });
 }
 
 main() {
   check(IsolateStream.fromIterable([]));
-  check(IsolateStream.fromIterable(new Iterable.generate(10, (int index)=>index)));
+  check(IsolateStream.fromIterable(
+      new Iterable.generate(10, (int index) => index)));
 }

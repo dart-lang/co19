@@ -16,7 +16,6 @@
  * @author ilya
  * @author a.semenov@unipro.ru
  */
-
 import "dart:async";
 import "IsolateStream.dart" as IsolateStream;
 import '../../../Utils/expect.dart';
@@ -30,14 +29,13 @@ void finish() {
 
 main() {
   asyncStart();
-  Stream s = IsolateStream.fromIterable([], onDone:finish);
+  Stream s = IsolateStream.fromIterable([], onDone: finish);
 
   s.asBroadcastStream(onListen: (StreamSubscription subs) {
-     try {
-       subs.onData((_) {});
-     } catch(e){
-       testPassed = true;
-     }
+    try {
+      subs.onData((_) {});
+    } catch (e) {
+      testPassed = true;
+    }
   }).listen((_) {});
 }
-

@@ -9,7 +9,6 @@
  * @description Checks that the first element is returned.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;

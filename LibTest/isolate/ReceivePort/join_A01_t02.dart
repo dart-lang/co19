@@ -11,13 +11,12 @@
  * separator is provided.
  * @author ilya
  */
-
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
 main() {
-  var iter = [1,null,false,true,'string',2.78];
-  var separator='---qwe---';
+  var iter = [1, null, false, true, 'string', 2.78];
+  var separator = '---qwe---';
   iter.add(iter); // add self reference
   var s = IsolateStream.fromIterable(iter);
 
@@ -27,4 +26,3 @@ main() {
     asyncEnd();
   });
 }
-

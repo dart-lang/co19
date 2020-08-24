@@ -11,25 +11,21 @@
  * stream is empty.
  * @author kaigorodov
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
 void check(Stream s) {
   asyncStart();
-  s.first.then(
-    (value){
-      Expect.fail("empty stream returned $value");
-    },
-    onError:(error){
-      Expect.isTrue(error is StateError);
-      asyncEnd();
-    }
-  );
+  s.first.then((value) {
+    Expect.fail("empty stream returned $value");
+  }, onError: (error) {
+    Expect.isTrue(error is StateError);
+    asyncEnd();
+  });
 }
 
 main() {
   check(IsolateStream.fromIterable([]));
-  check(IsolateStream.fromIterable(new Iterable.generate(0, (int index)=>1)));
+  check(IsolateStream.fromIterable(new Iterable.generate(0, (int index) => 1)));
 }

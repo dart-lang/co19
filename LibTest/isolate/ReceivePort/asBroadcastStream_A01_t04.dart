@@ -14,7 +14,6 @@
  * other still listen to completion.
  * @author ilya
  */
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
@@ -23,18 +22,17 @@ const subscribersCount = 10;
 const dataSize = 12;
 
 multiListen(Stream s) {
-
-  for(int i=0; i<subscribersCount; ++i) {
+  for (int i = 0; i < subscribersCount; ++i) {
     asyncStart();
     if (i.isEven) {
       // listener that quits after half of data
-      var listening=true;
+      var listening = true;
       var quitter = s.listen(null);
       quitter.onData((data) {
         if (listening) {
-          if (data > dataSize/2) {
+          if (data > dataSize / 2) {
             quitter.cancel();
-            listening=false;
+            listening = false;
             asyncEnd();
           }
         } else {
@@ -43,8 +41,10 @@ multiListen(Stream s) {
       });
     } else {
       // listener that works to completion
-      int processed=0;
-      s.listen((data){++processed;}, onDone: () {
+      int processed = 0;
+      s.listen((data) {
+        ++processed;
+      }, onDone: () {
         Expect.equals(dataSize, processed);
         asyncEnd();
       });
@@ -53,7 +53,7 @@ multiListen(Stream s) {
 }
 
 main() {
-  multiListen(IsolateStream.fromIterable(new Iterable.generate(dataSize, (i) => i))
-      .asBroadcastStream());
+  multiListen(
+      IsolateStream.fromIterable(new Iterable.generate(dataSize, (i) => i))
+          .asBroadcastStream());
 }
-
