@@ -30,7 +30,7 @@ void main() {
   cyclicList.add(cyclicList);
   (cyclicList[0] as List).add(cyclicList);
 
-  List<Object> cyclicList2 = [1, 2, 3, null];
+  List<Object?> cyclicList2 = [1, 2, 3, null];
   cyclicList2.add(cyclicList);
   cyclicList2.add(cyclicList2);
 

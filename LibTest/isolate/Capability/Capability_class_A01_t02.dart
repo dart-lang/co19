@@ -27,7 +27,7 @@ void entryPoint(SendPort sendPort) {
   sendPort.send(capability0);
   sendPort.send(capability0);
   // next three are not equal
-  for (int i=0; i<3; i++) {
+  for (int i = 0; i < 3; i++) {
     sendPort.send(new Capability());
   }
   // last is a control port, used to stop the isolate and close all ports
@@ -41,23 +41,25 @@ void entryPoint(SendPort sendPort) {
 Future test() async {
   ReceivePort receivePort = new ReceivePort();
   Isolate.spawn(entryPoint, receivePort.sendPort);
-  List capabilities = await receivePort.take(7).toList();
+  List cp = await receivePort.take(7).toList();
+  List<Object> capabilities = new List.from(cp);
 
   Object create() => capabilities[0];
 
   List<Object> createEqual(int number) {
-    Expect.isTrue(number<4);
+    Expect.isTrue(number < 4);
     return capabilities.sublist(0, number);
   }
 
   List<Object> createNotEqual(int number) {
-    Expect.isTrue(number<4);
-    return capabilities.sublist(3, 3+number);
+    Expect.isTrue(number < 4);
+    return capabilities.sublist(3, 3 + number);
   }
+
   // execute tests
   object.test(create, createEqual, createNotEqual);
   // clean up
-  capabilities.last.send("finish");
+  (capabilities.last as SendPort).send("finish");
   asyncEnd();
 }
 

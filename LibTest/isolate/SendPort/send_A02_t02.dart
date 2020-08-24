@@ -14,7 +14,6 @@
  * @description Checks that cyclic maps are sent properly.
  * @author iefremov
  */
-
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 

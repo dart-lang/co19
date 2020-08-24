@@ -30,7 +30,7 @@ void entryPoint(SendPort sendPort) {
   sendPort.send(receivePort.sendPort);
   sendPort.send(receivePort.sendPort);
   // next three are not equal
-  for (int i=0; i<3; i++) {
+  for (int i = 0; i < 3; i++) {
     ReceivePort receivePort = new ReceivePort();
     ports.add(receivePort);
     sendPort.send(receivePort.sendPort);
@@ -47,23 +47,24 @@ void entryPoint(SendPort sendPort) {
 Future test() async {
   ReceivePort receivePort = new ReceivePort();
   Isolate isolate = await Isolate.spawn(entryPoint, receivePort.sendPort);
-  List sendPorts = await receivePort.take(7).toList();
-
+  List sp = await receivePort.take(7).toList();
+  List<Object> sendPorts = new List.from(sp);
   Object create() => sendPorts[0];
 
   List<Object> createEqual(int number) {
-    Expect.isTrue(number<4);
+    Expect.isTrue(number < 4);
     return sendPorts.sublist(0, number);
   }
 
   List<Object> createNotEqual(int number) {
-    Expect.isTrue(number<4);
-    return sendPorts.sublist(3, 3+number);
+    Expect.isTrue(number < 4);
+    return sendPorts.sublist(3, 3 + number);
   }
+
   // execute tests
   object.test(create, createEqual, createNotEqual);
   // clean up
-  sendPorts.last.send("finish");
+  (sendPorts.last as SendPort).send("finish");
   asyncEnd();
 }
 
