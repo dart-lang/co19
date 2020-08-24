@@ -12,7 +12,7 @@
  * ...
  * If none of these cases match, it is an error.
  *
- * @description Checks that if it is a compile error if none of the cases
+ * @description Checks that it is a compile error if none of the cases
  * (`Iterable<Object>` nor of `Map<Object, Object>`, and it's also not `dynamic`
  * nor `Null`) match
  * @compile-error
@@ -22,7 +22,7 @@
 Map<X, Y> foo<X, Y>(Map<X, Y> m) => m;
 
 void test<T>(T t) {
-  var m = foo({...?t});
+  foo({...?t});
 }
 
 main() {
