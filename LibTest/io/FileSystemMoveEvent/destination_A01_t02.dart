@@ -29,7 +29,7 @@ _main(Directory sandbox) async {
       createEvent: () {
         renamed = dir.renameSync(getTempDirectoryPath(parent: sandbox));
       }, test: (FileSystemEvent event) {
-        if ((event as FileSystemMoveEvent).destination != null) {
+        if (event != null && (event as FileSystemMoveEvent).destination != null) {
           Expect.equals(renamed.path, (event as FileSystemMoveEvent).destination);
         }
       }, failIfNoEvent: false);
