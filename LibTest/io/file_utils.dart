@@ -158,7 +158,7 @@ String getTempDirectoryName() {
 String getPrefix() {
   String fileName =
       Platform.script.pathSegments[Platform.script.pathSegments.length - 1];
-  return fileName.substring(0, fileName.indexOf(".")) + "_";
+  return "co19-" + fileName.substring(0, fileName.indexOf(".")) + "_";
 }
 
 String getTempFilePath({Directory? parent, String? name}) {

@@ -167,12 +167,14 @@ class AsyncExpect {
         return future;
       },
       onError: (e) {
+        // print("On error called");
         if (error is Function) {
           Expect.isTrue(Function.apply(error, [e]), reason);
         } else {
           Expect.equals(error, e, reason);
         }
         asyncEnd();
+        return null;
       }
     );
   }
