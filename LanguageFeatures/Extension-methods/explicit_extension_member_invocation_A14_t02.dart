@@ -23,7 +23,7 @@ extension Extension1 on C {
 main() {
   C c = C();
   Extension1(c)<String, int>("Lily was here", 42);
-//^^^^^^^^^^^^^
+//                          ^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

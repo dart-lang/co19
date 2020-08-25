@@ -23,5 +23,8 @@ extension ExtendedList<T> on List<T> {
 
 main() {
   List<String> list = ["Lily", "was"];
-  list.add("here", count: 2);           //# 01: compile-time error
+  list.add("here", count: 2);
+//                 ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -16,7 +16,7 @@
  * correct, based on number or type of the arguments, it only checks whether
  * there is a member at all.
  *
- * @description Check that dynamic invocation doesn't invoke any extension
+ * @description Check that dynamic invocation does invoke appropriate extension
  * method
  * @author sgrekhov@unipro.ru
  */
@@ -24,7 +24,7 @@
 import "../../Utils/expect.dart";
 
 class C {
-  String log;
+  String log = "";
   String method(int i) => "$i";
   noSuchMethod(Invocation i) {
     log = "C NSM invoked. Number of arguments ${i.positionalArguments.length}";
@@ -34,17 +34,19 @@ class C {
 extension on C {
   String method(int i, String s) {
     this.log = "Extension on C: $i $s";
+    return "C";
   }
 }
 
 extension on dynamic {
   String method(int i, String s) {
     this.log = "Extension on dynamic: $i $s";
+    return "dynamic";
   }
 }
 
 main() {
   dynamic c = new C();
   c.method(42, "-42");
-  Expect.equals("C NSM invoked. Number of arguments 2", c.log);
+  Expect.equals("Extension on dynamic: 42 -42", c.log);
 }

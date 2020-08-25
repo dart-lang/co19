@@ -22,7 +22,7 @@
 // SharedOptions=--enable-experiment=extension-methods
 
 class A {
-  void Function(int, [String]) get call => (x, [y]) {};
+  void Function(int, [String]) get call => (x, [y = '']) {};
 }
 
 main() {

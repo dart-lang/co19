@@ -24,7 +24,7 @@
 import "../../Utils/expect.dart";
 
 class A {
-  String log;
+  String log = "";
 }
 
 class C extends A {
@@ -37,6 +37,7 @@ class C extends A {
 extension E<T extends A> on T {
   String method(int i, String s) {
     this.log = "Extension: $i $s";
+    return "E";
   }
 }
 

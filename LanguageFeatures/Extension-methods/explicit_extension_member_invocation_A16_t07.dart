@@ -65,12 +65,12 @@ extension Extension2 on C {
 
 main() {
   C c = C();
-  Extension1(c)[13] <<= 42;
-  Expect.equals(128, c.value);
+  Extension1(c)[13] <<= 42; // [] and []= from extension, << from C
+  Expect.equals(126, c.value);
 
   c.init();
-  Extension2(c)[13] <<= 42;
-  Expect.equals(133, c.value);
+  Extension2(c)[13] <<= 42; // [] and []= from extension, << from C
+  Expect.equals(129, c.value);
 
   c.init();
   c[13] <<= 42;

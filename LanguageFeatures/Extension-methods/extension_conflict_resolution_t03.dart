@@ -37,5 +37,5 @@ extension MyIntList1<T extends int> on List<T> {
 
 main() {
   List<int> aList = [0];
-  bool res = aList.isIntLibraryVersion;
+  aList.isIntLibraryVersion;
 }

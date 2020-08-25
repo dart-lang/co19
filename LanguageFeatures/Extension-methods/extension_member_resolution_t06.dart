@@ -25,7 +25,7 @@ import "../../Utils/expect.dart";
 
 class A {}
 class C extends A {
-  String m;
+  String m = "";
   String get getter => "C getter";
   void set setter(String v) {
     m = v;

@@ -25,8 +25,6 @@
  */
 // SharedOptions=--enable-experiment=extension-methods
 
-import "../../Utils/expect.dart";
-
 class A {
   String name = "My name is A";
 }
@@ -45,7 +43,8 @@ extension ExtendedC on C {
 
 main() {
   A a = A();
-  Expect.throws(() {
-    ExtendedC(a).checkme();
-  });
+  ExtendedC(a).checkme();
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

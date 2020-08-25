@@ -16,6 +16,7 @@
  * @issue 39325
  * https://github.com/dart-lang/language/issues/677
  * @author sgrekhov@unipro.ru
+ * @static-warning
  */
 // SharedOptions=--enable-experiment=extension-methods
 import "../../Utils/expect.dart";
@@ -29,5 +30,5 @@ extension Ext on C {
 
 main() {
   C c = C();
-  Expect.equals(42, Ext(c)?.id);
+  Expect.equals(42, Ext(c)?.id);  /// static type warning
 }

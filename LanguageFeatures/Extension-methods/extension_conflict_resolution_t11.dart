@@ -32,13 +32,13 @@
 
 import "../../Utils/expect.dart";
 
-class A<X extends A<X>> {}
+class A<X extends A<X>?> {}
 
-extension ext1<X extends A<X>> on A<X> {
+extension ext1<X extends A<X>?> on A<X> {
   bool get checkme => false;
 }
 
-extension ext2<X extends A<Null>> on A<X> {
+extension ext2<X extends A<Null>?> on A<X> {
   bool get checkme => true;
 }
 

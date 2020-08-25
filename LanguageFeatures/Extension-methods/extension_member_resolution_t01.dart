@@ -24,7 +24,7 @@
 import "../../Utils/expect.dart";
 
 class C {
-  String m;
+  String m = "";
   String get getter => "C getter";
   void set setter(String v) {
     m = v;

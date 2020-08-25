@@ -41,7 +41,7 @@ extension MySimpleExt on String {
 }
 
 main() {
-  Object aString = "testme";
+  dynamic aString = "testme";
   Expect.isTrue(testlib.MySimpleExt(aString).isLibraryVersion);
   Expect.isFalse(MySimpleExt(aString).isLibraryVersion);
 }

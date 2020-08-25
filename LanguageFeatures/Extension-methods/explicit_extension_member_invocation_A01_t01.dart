@@ -46,7 +46,7 @@ extension ExtendedC on C {
 main() {
   A a = A();
   C c = C();
-  A ac = new C();
+  dynamic ac = new C();
   Expect.equals("My name is A", ExtendedA(a).checkme());
   Expect.equals("My name is C", ExtendedC(c).checkme());
   Expect.equals("My name is C", ExtendedC(ac).checkme());

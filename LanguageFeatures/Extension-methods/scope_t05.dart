@@ -17,5 +17,8 @@ import "scope_all_lib.dart";
 class Foo {}
 
 main() {
-  Foo.staticFoo;    //# 01: compile-time error
+  Foo.staticFoo;
+//    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

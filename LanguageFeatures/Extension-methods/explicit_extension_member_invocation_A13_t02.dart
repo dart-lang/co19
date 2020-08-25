@@ -23,7 +23,7 @@ extension Extension1 on C {
 main() {
   C c = new C();
   Extension1(c)(42);
-//^^^^^^^^^^^^^
+//             ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

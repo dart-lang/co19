@@ -41,19 +41,19 @@
 import "../../Utils/expect.dart";
 
 extension BestCom<T extends num> on Iterable<T> {
-  T best() { throw null; }
+  T best() { throw ""; }
 }
 extension BestList<T> on List<T> {
-  T best() { return(null); }
+  T best() { return this[0]; }
 }
 
 extension BestSpec on List<num> {
-  num best() { return(0); }
+  num best() { return 0; }
 }
 
 main() {
   List<int> x = [1, 2, 3];
-  Expect.isNull(x.best());
+  Expect.equals(1, x.best());
   List<num> y = [1, 2, 3];
   Expect.equals(0, y.best());
 }

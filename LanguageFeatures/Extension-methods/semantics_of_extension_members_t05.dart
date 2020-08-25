@@ -27,7 +27,7 @@ extension MyUnaryNumber on List<Object> {
 }
 
 main() {
-  List list = [3, 1, 4, 1];
+  List<Object> list = [3, 1, 4, 1];
   Expect.isTrue(list.isEven);
   Expect.isFalse(list.isOdd);
   Expect.isTrue(MyUnaryNumber.isListEven(list));

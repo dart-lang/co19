@@ -21,18 +21,18 @@
 // SharedOptions=--enable-experiment=extension-methods
 import "../../Utils/expect.dart";
 
-class C<T extends num> {
+class C<T extends int> {
   T value;
+  C(this.value);
 }
 
-extension IntExtWithCall<T extends num> on C<T> {
+extension IntExtWithCall<T extends int> on C<T> {
   Iterable<T> call(int to) =>
-    Iterable<T>.generate(to - this.value + 1, (i) => i + this.value);
+    Iterable<T>.generate(to - this.value + 1, (i) => (i + this.value) as T);
 }
 
 main() {
-  C<int> c = new C<int>();
-  c.value = 1;
+  C<int> c = new C<int>(1);
   Expect.iterableEquals([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], c(10));
   c.value = 2;
   Expect.iterableEquals([2, 3, 4, 5], c(5));

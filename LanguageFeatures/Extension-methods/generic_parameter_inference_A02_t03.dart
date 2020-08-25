@@ -40,7 +40,7 @@ extension TypedEquals<T> on T {
 
 main() {
   String s = getString();
-  Object o = getObject();
+  dynamic o = getObject();
 
   Expect.throws(() { s.equals(o); });
 }

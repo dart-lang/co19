@@ -25,7 +25,7 @@ import "../../Utils/expect.dart";
 
 extension ExtendedList<T> on List<T> {
   int get getter => this.length * 2;
-  List<T> operator-() => this.reversed.toList();
+  List<T> operator -() => this.reversed.toList();
   List<List<T>> split(int at) => <List<T>>[this.sublist(0, at), this.sublist(at)];
   void set setter(int v) {this.length = v;}
 
@@ -43,8 +43,8 @@ main() {
   Expect.listEquals([["Lily"], ["was", "here"]], list.split(1));
   Expect.listEquals(["here", "was", "Lily"], -list);
   Expect.listEquals([["was", "here"], ["Lily"]], -list.split(1));
-  list.setter = 13;
-  Expect.equals(13, list.length);
+  list.setter = 2;
+  Expect.equals(2, list.length);
 
   Expect.equals("List", ExtendedList.staticGetter);
   Expect.equals("Lily was here", ExtendedList.staticMethod("Lily was here"));

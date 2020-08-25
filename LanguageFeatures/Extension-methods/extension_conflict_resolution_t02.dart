@@ -37,5 +37,5 @@ extension MyFancyList on List {
 
 main() {
   List aList = [];
-  bool res = aList.isLibraryVersion;
+  aList.isLibraryVersion;
 }

@@ -26,12 +26,9 @@ extension Ext on C {
 main() {
   C c = C();
   Ext(c)
+//^^^
+// [analyzer] unspecified
+// [cfe] unspecified
     ..foo()
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
     ..bar();
-//  ^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
