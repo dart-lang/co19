@@ -13,6 +13,7 @@
  * explicitly (String and double).
  * @author iefremov
  * @issue 42179
+ * @issue 42702
  */
 
 class C {

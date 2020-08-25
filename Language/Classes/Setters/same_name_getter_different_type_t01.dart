@@ -12,6 +12,7 @@
  * not be assigned to T (int and String).
  * @author vasya
  * @issue 42179
+ * @issue 42702
  */
 
 class C<T extends int, S extends String> {
