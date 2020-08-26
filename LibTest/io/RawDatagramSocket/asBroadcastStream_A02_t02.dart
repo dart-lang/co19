@@ -21,6 +21,7 @@
  * subscription-like object that represents the underlying subscription to this
  * stream.
  * @author ngl@unipro.ru
+ * @issue 43174
  */
 import "dart:async";
 import "dart:io";
@@ -72,7 +73,7 @@ Future<List<RawSocketEvent>> checkOnListen() async {
         if (!completer.isCompleted) {
           receiver.close();
           completer.complete(listen);
-          return f;
+          //return f;
         }
       }
 
@@ -80,7 +81,7 @@ Future<List<RawSocketEvent>> checkOnListen() async {
       anySubscribers = false;
       if (!completer.isCompleted) {
         completer.complete(listen);
-        return f;
+        //return f;
       }
     });
 

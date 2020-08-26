@@ -17,7 +17,7 @@ main(List<String> args, List message) {
      (data) {
         sendPort.send(data);
         // An error that should stop the isolate
-        sendPort.send(", " + i); /// static type warning
+        sendPort.send(", " + i);
         sendPort.send("hello");
      }
   );

@@ -7,6 +7,7 @@
  * @assertion Metadata can appear before  ...  type parameter ...
  * @description Check that metadata is allowed before type parameter declaration
  * @author a.semenov@unipro.ru
+ * @issue 43186
  */
 import 'dart:mirrors';
 import '../../Utils/expect.dart';

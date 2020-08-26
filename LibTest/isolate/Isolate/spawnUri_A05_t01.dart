@@ -23,10 +23,8 @@ test() async {
   Future<List> receivedData = receivePort.toList();
 
   Isolate isolate = await Isolate.spawnUri(
-                                new Uri.file("spawnUri_A05_t01_isolate.dart"),
-                                [],
-                                receivePort.sendPort,
-                                errorsAreFatal:true);
+      new Uri.file("spawnUri_A05_t01_isolate.dart"), [], receivePort.sendPort,
+      errorsAreFatal: true);
   await new Future.delayed(ONE_SECOND);
 
   Expect.equals("timeout", await ping(isolate, "ping", THREE_SECONDS));

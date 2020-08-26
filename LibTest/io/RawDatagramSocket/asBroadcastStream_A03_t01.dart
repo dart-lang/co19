@@ -18,6 +18,7 @@
  * @description Checks that if onCancel is provided, it is called in a similar
  * way to onListen when the returned stream stops having listener.
  * @author ngl@unipro.ru
+ * @issue 43174
  */
 import "dart:async";
 import "dart:io";
@@ -69,14 +70,12 @@ Future<List<RawSocketEvent>> checkOnCancel() async {
         if (!completer.isCompleted) {
           receiver.close();
           completer.complete(cancel);
-          return f;
         }
       }
     }, onDone: () {
       anySubscribers = false;
       if (!completer.isCompleted) {
         completer.complete(cancel);
-        return f;
       }
     });
 

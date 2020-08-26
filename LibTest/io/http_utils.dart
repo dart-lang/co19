@@ -77,19 +77,15 @@ Future<List<int>> sendDatagramOnce(RawDatagramSocket producer,
   List<int> sent = [];
   Completer<List<int>> completer = new Completer<List<int>>();
   Future<List<int>> f = completer.future;
-  if (data != null) {
-    int i = 0;
-    new Timer.periodic(period, (timer) {
-      if (i < data.length) {
-        sent.add(producer.send(data[i++], address, port));
-      } else {
-        timer.cancel();
-        completer.complete(sent);
-      }
-    });
-  } else {
-    completer.complete(sent);
-  }
+  int i = 0;
+  new Timer.periodic(period, (timer) {
+    if (i < data.length) {
+      sent.add(producer.send(data[i++], address, port));
+    } else {
+      timer.cancel();
+      completer.complete(sent);
+    }
+  });
   return f;
 }
 
@@ -168,9 +164,6 @@ Future<List<List<int>>> receiveDatagram(RawDatagramSocket receiver,
 compareReceivedData(List<List<int>> sent, List<List<int>> received) {
   Expect.isTrue(received.length <= sent.length, "${received.length} <= ${sent.length}");
   for (int i = 0; i < received.length; i++) {
-    if (received[i] == null) {
-      continue;
-    }
     bool found = false;
     for (int j = 0; j < sent.length; j++) {
       if (_listEquals(received[i], sent[j])) {

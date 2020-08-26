@@ -15,12 +15,12 @@ main(List<String> args, SendPort? sendPort) {
   // this may awake the isolate from suspended state, caused by error
   new Future.delayed(TWO_SECONDS).then(
       (_) {
-        sendPort.send("finish");
+        sendPort?.send("finish");
       }
   );
-  sendPort.send("hello");
+  sendPort?.send("hello");
   // An error that should stop the isolate
   dynamic i = 1;
-  sendPort.send(", " + i);
-  sendPort.send("world");
+  sendPort?.send(", " + i);
+  sendPort?.send("world");
 }

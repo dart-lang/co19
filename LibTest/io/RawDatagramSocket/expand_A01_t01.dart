@@ -42,7 +42,6 @@ Future<List> checkExpand(convert) async {
     if (!completer.isCompleted) {
       completer.complete(received);
     }
-    return f;
   });
 
   return f;

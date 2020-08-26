@@ -45,7 +45,6 @@ Future<List<dynamic>> checkExpend(convert) async {
     if (!completer.isCompleted) {
       completer.complete(received);
     }
-    return f;
   });
 
   bcs.listen((event) {
