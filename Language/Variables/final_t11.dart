@@ -27,10 +27,10 @@
 class C {
   f() {
     final i;
-//        ^
+    return i;
+//         ^
 // [analyzer] unspecified
 // [cfe] unspecified
-    return i;
   }
 }
 
