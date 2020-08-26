@@ -30,12 +30,10 @@ test() async {
   String helloWorld = 'Hello, test world!';
   HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv6, 0);
 
-  asyncStart();
   server.listen((HttpRequest request) {
     request.response.write(helloWorld);
     request.response.close();
     server.close();
-    asyncEnd();
   });
 
   asyncStart();
@@ -51,6 +49,5 @@ test() async {
 }
 
 main() {
-  asyncStart();
   test();
 }

@@ -23,7 +23,7 @@ import "../../../Utils/expect.dart";
 main() {
   const SystemEncoding systemEncoding = const SystemEncoding();
   if (Platform.isLinux || Platform.isMacOS) {
-    Expect.equals("utf-8", systemEncoding.name);
+    Expect.equals("system", systemEncoding.name);
   }
   // For windows there is no way to find current code page
 }

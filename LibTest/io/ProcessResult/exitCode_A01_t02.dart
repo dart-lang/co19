@@ -20,7 +20,7 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  String command = 'dart';
+  String command = Platform.resolvedExecutable;
   List<String> args = ['--version'];
   Future<ProcessResult> fProcessResult = Process.run(command, args);
   fProcessResult.then((ProcessResult result) {
