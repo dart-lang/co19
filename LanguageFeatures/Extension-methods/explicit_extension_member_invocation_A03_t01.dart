@@ -12,7 +12,7 @@
  * @issue 39156
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 class C {
   String name = "My name is C";

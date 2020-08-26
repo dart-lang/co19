@@ -6,7 +6,7 @@
 /**
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 library tearoff1_lib;
 
 class X {

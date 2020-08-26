@@ -11,7 +11,7 @@
  * function typed context is a compile-time error
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 extension on int {
   String call(int v) => "Result: $v";

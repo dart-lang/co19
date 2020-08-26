@@ -37,7 +37,7 @@
  * implementation. The type of [w] becomes [num].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 import "../../Utils/expect.dart";
 
 extension BestCom<T extends num> on Iterable<T> {

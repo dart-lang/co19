@@ -11,7 +11,7 @@
  * shadowed and not conflicting with another imported declaration.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 import "scope_all_lib.dart";
 
 class Foo {}

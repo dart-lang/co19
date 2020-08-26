@@ -19,7 +19,7 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 extension on Iterable<int> {
   String call(num v) => "My name is Iterable:$v";

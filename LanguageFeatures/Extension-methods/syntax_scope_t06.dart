@@ -23,7 +23,7 @@
  * one declared in this scope shadows an imported one
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 import "syntax_scope_t05_lib.dart";
 
 main() {

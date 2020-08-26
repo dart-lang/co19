@@ -18,7 +18,7 @@
  * single type variable
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 class C<T> {}
 
 extension MyC<T> on C<T> {}

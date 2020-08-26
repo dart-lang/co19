@@ -12,7 +12,7 @@
  * @description Check that [this] bounds to the receiver value
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 import "../../Utils/expect.dart";
 

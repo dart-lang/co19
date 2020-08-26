@@ -14,7 +14,7 @@
  * @description Check static type of the extension member
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 class C {
 }

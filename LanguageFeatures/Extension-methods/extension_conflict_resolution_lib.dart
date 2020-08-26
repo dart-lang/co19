@@ -3,7 +3,7 @@
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 library extension_conflict_resolution_lib;
 
 extension MyFancyList on List {

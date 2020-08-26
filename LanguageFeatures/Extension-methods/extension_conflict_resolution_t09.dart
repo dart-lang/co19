@@ -26,7 +26,7 @@
  * than [SmartIterable<T> on List<T>]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 import "../../Utils/expect.dart";
 
 extension SmartIterable<T> on Iterable<T> {

@@ -12,7 +12,7 @@
  * X.id(args)
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 class C {
   String id2(String val) => "Let it be. " + val;

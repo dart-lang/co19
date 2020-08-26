@@ -14,7 +14,7 @@
  * static member without prefix
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 class C {
   static String cStaticMember = "Lily was here";

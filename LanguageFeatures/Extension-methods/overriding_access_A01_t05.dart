@@ -31,7 +31,7 @@
  * member of the receiver type tis imported with a prefix.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 import "../../Utils/expect.dart";
 import "extension_conflict_resolution_lib.dart" as testlib;

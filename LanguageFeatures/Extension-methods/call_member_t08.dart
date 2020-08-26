@@ -19,7 +19,7 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 class A {
   void Function(int, [String]) get call => (x, [y = '']) {};

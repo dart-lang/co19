@@ -12,7 +12,7 @@
  * (base-)name as a member of the type it is declared on
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 import "../../Utils/expect.dart";
 

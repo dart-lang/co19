@@ -14,7 +14,7 @@
  * simple or composite member invocation. Test ~/= operator
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 class C {
   int value;

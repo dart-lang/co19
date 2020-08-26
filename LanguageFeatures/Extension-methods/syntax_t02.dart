@@ -17,7 +17,7 @@
  * top-level
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 class C {
   extension MyFancyList<T> on List<T> {       //# 01: compile-time error

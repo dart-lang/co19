@@ -19,7 +19,7 @@
  * @author sgrekhov@unipro.ru
  * @issue https://github.com/dart-lang/language/issues/734
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 import "../../Utils/expect.dart";
 
 class A {}

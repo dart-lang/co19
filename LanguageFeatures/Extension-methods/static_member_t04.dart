@@ -12,7 +12,7 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 extension MySmart on Object {
   void doNothing() {}

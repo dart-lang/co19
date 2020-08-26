@@ -19,7 +19,7 @@
  * @description Check that {} is a set literal in the example above.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 import "../../Utils/expect.dart";
 

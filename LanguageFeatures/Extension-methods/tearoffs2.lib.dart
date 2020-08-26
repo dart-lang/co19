@@ -6,7 +6,7 @@
 /**
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 library tearoff2_lib;
 import "tearoffs1.lib.dart";

@@ -10,7 +10,7 @@
  * not declare a member with the given name
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 extension MySimpleExt on String {
   bool get test => false;

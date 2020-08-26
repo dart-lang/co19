@@ -28,7 +28,7 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 extension MyFancyList1<T> on List<T> {
   bool get isTested => false;

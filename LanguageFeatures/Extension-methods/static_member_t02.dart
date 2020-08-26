@@ -10,7 +10,7 @@
  * @description Check that static member can be accessed by usual way
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 import "../../Utils/expect.dart";
 

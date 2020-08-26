@@ -26,7 +26,7 @@
  * members with [on] type clause are equitable, but not referenced.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 import "../../Utils/expect.dart";
 

@@ -13,7 +13,7 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 extension IncorrectExtension<T1, T2> on T1<T2> {
   void testme() {}

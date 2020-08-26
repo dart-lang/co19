@@ -12,7 +12,7 @@
  * X.id -= expr2
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 import "../../Utils/expect.dart";
 
 class C {

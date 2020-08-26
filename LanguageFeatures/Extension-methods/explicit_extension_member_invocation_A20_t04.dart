@@ -18,7 +18,7 @@
  * @author sgrekhov@unipro.ru
  * @static-warning
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 import "../../Utils/expect.dart";
 
 class C {

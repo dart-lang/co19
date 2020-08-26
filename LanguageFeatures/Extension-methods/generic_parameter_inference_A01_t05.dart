@@ -12,7 +12,7 @@
  * choice and error is thrown if method parameter is of incorrect type.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 extension SuperList<T> on List<T> {
   void checkme1<R>(R i) {}
