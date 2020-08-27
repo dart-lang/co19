@@ -21,7 +21,7 @@ RegExp ipv6 = new RegExp(r'^::|^::1|^([a-fA-F0-9]{1,4}::?){1,7}([a-fA-F0-9]{1,4}
 
 main() {
   Future<List<InternetAddress>> list =
-    InternetAddress.lookup("localhost", type: InternetAddressType.IPv6);
+    InternetAddress.lookup("::1", type: InternetAddressType.IPv6);
 
   list.then((addresses) {
     addresses.forEach((InternetAddress addr) {

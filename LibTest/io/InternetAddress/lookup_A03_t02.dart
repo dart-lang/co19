@@ -19,7 +19,7 @@ import "dart:async";
 
 main() {
   Future<List<InternetAddress>> list =
-    InternetAddress.lookup("localhost", type: InternetAddressType.IPv6);
+    InternetAddress.lookup("::1", type: InternetAddressType.IPv6);
 
   list.then((addresses) {
     addresses.forEach((InternetAddress addr) {
