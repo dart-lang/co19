@@ -22,10 +22,8 @@ List<String> args = new List<String>.empty(growable: true);
 
 void setCommand() {
   command = Platform.resolvedExecutable;
-  String path = Platform.script.toFilePath().substring(
-      0, Platform.script.toFilePath().lastIndexOf(Platform.pathSeparator));
   args = [
-    path + Platform.pathSeparator + 'stream_lib.dart',
+    Platform.script.resolve('stream_lib.dart').toFilePath(),
     'Hi, stdout',
     'Hi, stderr'
   ];
@@ -37,9 +35,13 @@ main() {
   Process.start(command, args).then((Process process) {
     Expect.isTrue(process.stderr is Stream<List<int>>);
     Utf8Decoder decoder = new Utf8Decoder();
-    process.stdout.toList().then((List outList) {
+    process.stdout.toList().then((List outList) async {
+      if (outList.isEmpty) {
+        List stderr = await process.stderr.toList();
+        Expect.fail("Stdout is empty. Stderr: $stderr");
+      }
       String decoded = decoder.convert(outList[0]);
-      Expect.isTrue(decoded.contains("Hi, stdout"));
+      Expect.isTrue(decoded.contains("Hi, stdout"), "Actual value: $decoded");
       asyncEnd();
     });
   });

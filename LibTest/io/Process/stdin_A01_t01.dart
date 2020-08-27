@@ -22,9 +22,12 @@ List<String> args = new List<String>.empty(growable: true);
 
 void setCommand() {
   command = Platform.resolvedExecutable;
-  String path = Platform.script.toFilePath().substring(
-      0, Platform.script.toFilePath().lastIndexOf(Platform.pathSeparator));
-  args = [path + Platform.pathSeparator + 'stream_lib.dart', '1', '2', 'true'];
+  args = [
+    Platform.script.resolve('stream_lib.dart').toFilePath(),
+    '1',
+    '2',
+    'true'
+  ];
 }
 
 main() {
