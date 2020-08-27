@@ -27,18 +27,17 @@
  * type of [T1] is a subtype if instantiated type of [T2] and i-2-b type of [T1]
  * is a subtype of the instantiate type of [T2]
  * @author iarkh@unipro.ru
+ * @issue 43211
  */
-
-
 import "../../Utils/expect.dart";
 
 class A<X extends A<X>?> {}
 
-extension ext1<X extends A<X>?> on A<X> {
+extension ext1<X extends A<X>?> on A<X?> {
   bool get checkme => false;
 }
 
-extension ext2<X extends A<Null>?> on A<X> {
+extension ext2<X extends A<Null>?> on A<X?> {
   bool get checkme => true;
 }
 

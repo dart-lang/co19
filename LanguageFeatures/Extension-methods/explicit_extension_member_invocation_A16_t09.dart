@@ -13,7 +13,7 @@
  * @issue 39198
  * @author sgrekhov@unipro.ru
  */
-,triple-shift
+// SharedOptions=--enable-experiment=triple-shift
 import "../../Utils/expect.dart";
 
 class C {

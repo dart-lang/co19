@@ -11,7 +11,7 @@
  * @description Check explicit extension member invocation in form of X >>> expr2
  * @author sgrekhov@unipro.ru
  */
-,triple-shift
+// SharedOptions=--enable-experiment=triple-shift
 
 class C {
   String value;

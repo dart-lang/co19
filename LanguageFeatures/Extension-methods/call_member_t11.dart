@@ -18,6 +18,7 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  * @issue https://github.com/dart-lang/language/issues/734
+ * @issue 41782
  */
 
 import "../../Utils/expect.dart";

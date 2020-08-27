@@ -10,6 +10,7 @@
  *    X.id++, X.id--, ++X.id, --X.id	                        id
  * @description Check explicit extension member invocation in form of ++X.id
  * @issue 39254
+ * @issue 43218
  * @author sgrekhov@unipro.ru
  */
 

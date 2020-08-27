@@ -17,6 +17,7 @@
  * https://github.com/dart-lang/language/issues/677
  * @author sgrekhov@unipro.ru
  * @static-warning
+ * @issue 43217
  */
 
 import "../../Utils/expect.dart";

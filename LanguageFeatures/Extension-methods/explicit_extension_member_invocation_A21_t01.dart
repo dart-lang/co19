@@ -12,8 +12,8 @@
  * @description Check that cascade invocations cannot be applied to explicit
  * extension invocation
  * @author sgrekhov@unipro.ru
+ * @issue 43214
  */
-
 
 class C {
 }
