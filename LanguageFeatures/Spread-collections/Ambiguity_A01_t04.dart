@@ -23,6 +23,10 @@
 
 import "../../Utils/expect.dart";
 
+Map? getAMap1() => {1: 1, "test": 1, 14: null};
+Map? getAMap4() => <bool, String>{true: "true", false: "false"};
+Map? getAMap3() => <String, bool>{};
+
 main() {
   var map1 = {1: 1, "test": 1, 14: null};
   var map2 = null;
@@ -38,16 +42,16 @@ main() {
   Map res3 = {...?map2, ...map4};
   Expect.mapEquals(map4, res3);
 
-  Map res4 = {...?map1, ...?map2};
+  Map res4 = {...?getAMap1(), ...?map2};
   Expect.mapEquals(map1, res4);
 
-  Map res5 = {...?map2, ...?map3};
+  Map res5 = {...?map2, ...?getAMap3()};
   Expect.mapEquals(map3, res5);
 
-  Map res6 = {...?map2, ...?map4};
+  Map res6 = {...?map2, ...?getAMap4()};
   Expect.mapEquals(map4, res6);
 
-  Map res7 = {...?map1, ...?map2, ...?map3, ...?map4};
+  Map res7 = {...?getAMap1(), ...?map2, ...?getAMap3(), ...?getAMap4()};
   Expect.mapEquals(
       {1: 1, "test": 1, 14: null, true: "true", false: "false"}, res7);
 }

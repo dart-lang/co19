@@ -16,10 +16,10 @@
 
 import "../../Utils/expect.dart";
 
-main() {
-  const map = {2: 20, 3: 30};
-  const Map map1 = null;
+const Map? map = {2: 20, 3: 30};
+const Map? map1 = null;
 
+main() {
   const res1 = {1: 10, ...map, 4: 40};
   Expect.mapEquals({1: 10, 2: 20, 3: 30, 4: 40}, res1);
 

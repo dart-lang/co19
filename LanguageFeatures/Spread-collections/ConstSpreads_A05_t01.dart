@@ -10,13 +10,12 @@
  * the constant spread map
  * @author iarkh@unipro.ru
  */
+Map? map1 = {2: 2, 7: 18, 9: 3};
+Map? map2 = {11: 4, 5: 12};
+Map? map3 = {};
+Map? map4 = null;
 
 main() {
-  Map map1 = {2: 2, 7: 18, 9: 3};
-  Map map2 = {11: 4, 5: 12};
-  Map map3 = {};
-  Map map4 = null;
-
   const Map res1 = {...map1};                           //# 01: compile-time error
   const Map res2 = <int, int>{...?map1};                //# 02: compile-time error
   const Map res3 = <int, String>{...map2};              //# 03: compile-time error

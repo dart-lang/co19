@@ -11,12 +11,12 @@
 
 import "../../Utils/expect.dart";
 
-main() {
-  const map1 = {1: 2, 13: 7, 9: 19};
-  const map2 = {11: "checkme"};
-  const map3 = {};
-  const map4 = null;
+const Map? map1 = {1: 2, 13: 7, 9: 19};
+const Map? map2 = {11: "checkme"};
+const Map? map3 = {};
+const Map? map4 = null;
 
+main() {
   const Map res1 = {...map1};
   Expect.mapEquals(map1, res1);
   const Map res2 = <int, int>{...?map1};

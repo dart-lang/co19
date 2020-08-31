@@ -26,15 +26,15 @@
 
 import "../../Utils/expect.dart";
 
-main() {
-  var things = [2, null, 3];
+List? things = [2, null, 3];
 
+main() {
   var more = [1, ...things, 4];
   Expect.listEquals([1, 2, null, 3, 4], more);
 
   var also = [1, ...?things, 4];
   Expect.listEquals([1, 2, null, 3, 4], more);
 
-  more = [1, ...things.where((thing) => thing != null), 4];
+  more = [1, ...(things as List).where((thing) => thing != null), 4];
   Expect.listEquals([1, 2, 3, 4], more);
 }

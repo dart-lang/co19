@@ -27,16 +27,14 @@ import "dart:collection";
 import "../../Utils/expect.dart";
 
 class MyIterable extends IterableBase {
-  MyIterator iterator;
-
+  late MyIterator iterator;
   MyIterable(List list) { iterator = new MyIterator(list); }
-
   Iterator getIterator() { return iterator; }
 }
 
 class MyIterator extends Iterator {
   int i = -1;
-  List list;
+  late List list;
 
   MyIterator(List aList) { list = aList; }
 

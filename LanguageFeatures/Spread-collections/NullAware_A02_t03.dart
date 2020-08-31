@@ -26,9 +26,9 @@
 
 import "../../Utils/expect.dart";
 
-main() {
-  var things = {1: 2, 2: null,  3: 3};
+Map? things = {1: 2, 2: null,  3: 3};
 
+main() {
   Map more = {4: 4,  ...things, 5: 10};
   Expect.mapEquals({4: 4, 1: 2, 2: null,  3: 3, 5: 10}, more);
 

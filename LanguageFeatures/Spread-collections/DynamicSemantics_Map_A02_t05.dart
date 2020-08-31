@@ -28,8 +28,8 @@
 import "dart:collection";
 import "../../Utils/expect.dart";
 
-Map map1 = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5};
-Map map2 = {4: 7, 2: 12};
+Map? map1 = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5};
+Map? map2 = {4: 7, 2: 12};
 
 main() {
   Expect.mapEquals(

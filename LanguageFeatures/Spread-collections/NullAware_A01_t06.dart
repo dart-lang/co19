@@ -24,7 +24,7 @@
 import "../../Utils/expect.dart";
 
 Map getAMap(
-    String engineDartPath, Map extraFrontEndOptions, String mainPath) {
+    String engineDartPath, Map? extraFrontEndOptions, String mainPath) {
   return({1: engineDartPath, 2: '--target=flutter', ...extraFrontEndOptions,
       3: mainPath});
 }

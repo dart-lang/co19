@@ -12,8 +12,8 @@
 
 import "../../Utils/expect.dart";
 
-const Map map1 = {1: 1, 2: 2, 3: 3};
-const Map map2 = {};
+const Map? map1 = {1: 1, 2: 2, 3: 3};
+const Map? map2 = {};
 
 main() {
   Map res1 = {...?map1};

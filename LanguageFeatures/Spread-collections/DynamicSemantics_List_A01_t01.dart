@@ -16,10 +16,10 @@
 import "../../Utils/expect.dart";
 
 main() {
-  List list1 = [1, 2, 3, 4, 5];
-  List list2 = [];
-  List list3 = null;
-  List list4 = [1 ,2, 3, "checkme"];
+  List? list1 = [1, 2, 3, 4, 5];
+  List? list2 = [];
+  List? list3 = null;
+  List? list4 = [1 ,2, 3, "checkme"];
 
   Expect.isTrue(<int>[...list1] is List<int>);
   Expect.isTrue(<int>[1, 2, ...list1] is List<int>);
@@ -27,5 +27,5 @@ main() {
   Expect.isTrue(<String>[...list2, "123"] is List<String>);
   Expect.isTrue(<String>[...?list3] is List<String>);
   Expect.isTrue(<int>[...?list3] is List<int>);
-  Expect.isTrue([...list4] is List<Object>);
+  Expect.isTrue([...list4] is List<Object?>);
 }

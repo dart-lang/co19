@@ -15,9 +15,11 @@
 
 import "../../Utils/expect.dart";
 
+const List? list = [2, 3];
+const list1 = null;
+const Set? set = {2, 3};
+
 main() {
-  const list = [2, 3];
-  const list1 = null;
   const res1 = [1, ...list, 4];
   Expect.listEquals([1, 2, 3, 4], res1);
   const res2 = [1, ...?list, 4];
@@ -25,7 +27,6 @@ main() {
   const res3 = [1, ...?list1, 4];
   Expect.listEquals([1, 4], res3);
 
-  const set = {2, 3};
   const res4 = [1, ...set, 4];
   Expect.listEquals([1, 2, 3, 4], res4);
   const res5 = [1, ...?set, 4];

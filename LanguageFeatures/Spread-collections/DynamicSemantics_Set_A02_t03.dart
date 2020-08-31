@@ -25,7 +25,7 @@ import "dart:collection";
 import "../../Utils/expect.dart";
 
 class MyIterable extends IterableBase {
-  MyIterator iterator;
+  late MyIterator iterator;
 
   MyIterable(Set set) { iterator = new MyIterator(set); }
 
@@ -34,7 +34,7 @@ class MyIterable extends IterableBase {
 
 class MyIterator extends Iterator {
   int i = -1;
-  List list;
+  late List list;
 
   MyIterator(Set set) { list = set.toList(); }
 
@@ -53,8 +53,8 @@ List mySets = [{1, 2, 3, 4, 5},
 
 main() {
   mySets.forEach((var set) {
-    MyIterable it = new MyIterable(set);
+    MyIterable? it = new MyIterable(set);
     Expect.setEquals(set, {...?it});
-    Expect.isFalse(it.getIterator().moveNext());
+    Expect.isFalse((it as MyIterable).getIterator().moveNext());
   });
 }

@@ -27,12 +27,11 @@
 
 import "../../Utils/expect.dart";
 
-main() {
-  Map map1 = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5};
-  Map map2 = {};
-  Map map3 = null;
-  Map map4 = {1: 1, 2: 2, 3: 3, 4: "checkme"};
+Map? map2 = {};
+Map? map3 = null;
+Map? map4 = {1: 1, 2: 2, 3: 3, 4: "checkme"};
 
+main() {
   Expect.mapEquals({}, {...?map3});
   Expect.mapEquals({1: 1, 2: 2, 4: 4}, {1: 1, 2: 2, ...?map3, 4: 4});
 

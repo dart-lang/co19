@@ -15,11 +15,11 @@
  * @author iarkh@unipro.ru
  */
 
-main() {
-  const list1 = [2, 7, 9];
-  const list2 = [2, 12, 33];
-  const list3 = [2, 12, 4, 12, 11, 0, 3];
+const List? list1 = [2, 7, 9];
+const List? list2 = [2, 12, 33];
+const List? list3 = [2, 12, 4, 12, 11, 0, 3];
 
+main() {
   const res1 = {...list1, ...list2};                             //# 01: compile-time error
   const res2 = {1, 14, ...?list1, 99, ...list2};                 //# 02: compile-time error
   const res3 = {...list2, ...list1};                             //# 03: compile-time error

@@ -12,13 +12,13 @@
  * @author iarkh@unipro.ru
  */
 
-main() {
-  List list1 = [2, 7, 9];
-  Set list2 = {"checkme"};
-  List list3 = [];
-  List list4 = null;
-  int i = 7;
+List? list1 = [2, 7, 9];
+Set?  list2 = {"checkme"};
+List? list3 = [];
+List? list4 = null;
+int?  i     = 7;
 
+main() {
   const res1 =  {...list1};                                       //# 01: compile-time error
   const res2 =  {...?list1};                                      //# 02: compile-time error
   const res3 =  {...list2};                                       //# 03: compile-time error

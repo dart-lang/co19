@@ -16,8 +16,8 @@
  */
 
 main() {
-  const Map res1 = const {...?{1: 1, 2: 2}, 4: 3};
-  const Map res2 = const {...?<Object, Object>{}};
+  const Map res1 = const {...?({1: 1, 2: 2} as Map?), 4: 3};
+  const Map res2 = const {...?(<Object, Object>{} as Map?)};
   const Map res3 = const {...?{}};
   const Map res4 = const {...?null};
 }

@@ -12,12 +12,16 @@
  * expression.
  * @description: Checks that constant set spread [...?] element can be constant
  * list or set or [null].
+ * @Issue 43260
  * @author iarkh@unipro.ru
  */
 
 main() {
   const Set res1 = const {...?[1, 2, 3], 4};
-  const Set res2 = const {5, ...?{2, 11}};
-  const Set res3 = const {...?{}};
-  const Set res4 = const {...?null};
+  const Set res2 = const {...?([1, 2, 3] as List?), 4};
+  const Set res3 = const {5, ...?{2, 11}};
+  const Set res4 = const {5, ...?({2, 11} as Set?)};
+  const Set res5 = const {...?{}};
+  const Set res6 = const {...?({} as Set?)};
+  const Set res7 = const {...?null};
 }

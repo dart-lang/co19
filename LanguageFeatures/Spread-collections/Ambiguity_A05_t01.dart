@@ -19,9 +19,9 @@
  */
 
 main() {
-  Set aSet   = {1, 2, 3};
-  List aList = [1, 2, 3];
-  Map aMap   = {1: 1, 2: 2, 3: 3};
+  Set? aSet   = {1, 2, 3};
+  List? aList = [1, 2, 3];
+  Map? aMap   = {1: 1, 2: 2, 3: 3};
 
   var res1  = <int, int, int>{...aList};            //# 01: compile-time error
   var res2  = <int, int, int, int>{...aList};       //# 02: compile-time error

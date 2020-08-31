@@ -38,12 +38,16 @@ class MyIterator extends Iterator {
   dynamic get current { return i; }
 }
 
+Set? getASet() => {1, 2, 3};
+List? getAList() => [0, 2, 4, 6, 8];
+Iterable? getIterable() => MyIterable();
+
 main() {
-  var set1 = {1, 2, 3};
-  var list1 = [0, 2, 4, 6, 8];
+  Set set1 = {1, 2, 3};
+  List list1 = [0, 2, 4, 6, 8];
   var map = null;
-  List list2 = null;
-  Iterable i = new MyIterable();
+  List? list2 = null;
+  Iterable i = MyIterable();
 
   Set res1 = {...set1, ...?list2};
   Expect.setEquals(set1, res1);
@@ -54,7 +58,7 @@ main() {
   Set res3 = {...?map, ...list1};
   Expect.setEquals(list1.toSet(), res3);
 
-  Set res4 = {...?list2, ...?i};
+  Set res4 = {...?list2, ...?getIterable()};
   Expect.setEquals(i.toSet(), res4);
 
   Set res5 = {...i, ...?map};
@@ -63,6 +67,7 @@ main() {
   Set res6 = {...set1, ...list1, ...?list2, ...?map, ...i};
   Expect.setEquals({1, 2, 3, 0, 4, 6, 8, 5, 7, 9}, res6);
 
-  Set res7 = {...?set1, ...?list1, ...?list2, ...?map, ...?i};
+  Set res7 =
+      {...?getASet(), ...?getAList(), ...?list2, ...?map, ...?getIterable()};
   Expect.setEquals({1, 2, 3, 0, 4, 6, 8, 5, 7, 9}, res7);
 }

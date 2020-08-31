@@ -19,12 +19,12 @@
 import "dart:collection";
 import "../../Utils/expect.dart";
 
-main() {
-  Map map1 = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5};
-  Map map2 = {};
-  Map map3 = null;
-  Map map4 = {1: "a", 2: "2", 3: "three", 4: "checkme"};
+Map? map1 = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5};
+Map? map2 = {};
+Map? map3 = null;
+Map? map4 = {1: "a", 2: "2", 3: "three", 4: "checkme"};
 
+main() {
   Expect.isTrue(<int, int>{...map1} is LinkedHashMap<int, int>);
   Expect.isTrue(<int, Object>{...map1} is LinkedHashMap<int, Object>);
   Expect.isTrue(<Object, Object>{...map1} is LinkedHashMap<Object, Object>);
@@ -38,5 +38,5 @@ main() {
   Expect.isTrue(
       <int, String>{...?map3, 1: "123"} is LinkedHashMap<int, String>);
   Expect.isTrue(<int, String>{...?map3} is LinkedHashMap<int, String>);
-  Expect.isTrue({...map4} is LinkedHashMap<Object, Object>);
+  Expect.isTrue({...map4} is LinkedHashMap<Object?, Object?>);
 }

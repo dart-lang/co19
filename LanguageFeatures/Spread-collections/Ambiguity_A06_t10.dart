@@ -15,6 +15,6 @@
  */
 
 main() {
-  List aList = [8, 9, 10];
+  List? aList = [8, 9, 10];
   var res = {...?aList, 0: 0};
 }

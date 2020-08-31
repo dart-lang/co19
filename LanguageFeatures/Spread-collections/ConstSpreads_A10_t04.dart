@@ -30,11 +30,11 @@ class MyClass {
 
 
 main() {
-  const List l1 = [...?(A() is B ? [12345] : [])];
-  const List l2 = [...?(A() is A ? [12345] : [0])];
-  const List l3 = [...?(MyClass("test") is MyClass ? [12345] : [])];
-  const List l4 = [...?(A() is B ? {12345} : {1})];
-  const List l5 = [...?(A() is A ? {12345} : {0})];
-  const List l6 = [...?(MyClass("test") is MyClass ? {12345} : {1})];
+  const List l1 = [...?(A() is B ? [12345] as List? : [])];
+  const List l2 = [...?(A() is A ? [12345] as List? : [0])];
+  const List l3 = [...?(MyClass("test") is MyClass ? [12345] : [] as List?)];
+  const List l4 = [...?(A() is B ? {12345} as List? : {1})];
+  const List l5 = [...?(A() is A ? {12345} as Set? : {0})];
+  const List l6 = [...?(MyClass("test") is MyClass ? {12345} : {1} as Set?)];
   const List l7  = [...?(A() is B ? [12345] : null)];
 }

@@ -15,14 +15,14 @@
  * @author iarkh@unipro.ru
  */
 
-List l = [];
-Set s = {};
+List? l = [];
+Set? s = {};
 
-const m1 = {1: 1};
-Map m2 = {2: 2};
+const Map? m1 = {1: 1};
+Map? m2 = {2: 2};
 
-const int i1 = 25;
-int i2 = 25;
+const int? i1 = 25;
+int? i2 = 25;
 
 main() {
   const List res1 = const [...?l];  //# 01: compile-time error

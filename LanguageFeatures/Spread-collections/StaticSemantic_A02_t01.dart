@@ -34,7 +34,7 @@ class MyIterator extends Iterator {
 }
 
 main() {
-  Iterable iterable = new MyIterable();
-  Expect.listEquals(iterable.toList(), [...iterable]);
-  Expect.listEquals(iterable.toList(), [...?iterable]);
+  Iterable? iterable = new MyIterable();
+  Expect.listEquals(iterable?.toList(), [...iterable]);
+  Expect.listEquals(iterable?.toList(), [...?iterable]);
 }

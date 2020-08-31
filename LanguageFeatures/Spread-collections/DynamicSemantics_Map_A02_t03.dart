@@ -34,10 +34,10 @@ class MapBaseImpl<K, V> extends MapBase<K, V> {
   MapBaseImpl(): _map = new LinkedHashMap<K, V>();
   MapBaseImpl.from(Map content): _map = new LinkedHashMap<K, V>.from(content);
   Iterable<K> get keys => _map.keys;
-  V operator [](Object key) => _map[key];
+  V? operator [](Object? key) => _map[key];
   void operator []=(K key, V value) { _map[key] = value; }
   void clear() { _map.clear(); }
-  V remove(Object key) => _map.remove(key);
+  V? remove(Object? key) => _map.remove(key);
 }
 
 List myMaps = <Map>[{1: 1, 2: 2, 3: 3, 4: 4, 5: 5},
@@ -48,7 +48,7 @@ List myMaps = <Map>[{1: 1, 2: 2, 3: 3, 4: 4, 5: 5},
 
 main() {
   myMaps.forEach((var m) {
-    Map map = new MapBaseImpl.from(m);
+    Map? map = new MapBaseImpl.from(m);
     Expect.mapEquals(m, {...?map});
   });
 }

@@ -21,6 +21,6 @@
  */
 
 main() {
-  Map aMap = {1: 1, 2: 2, 3: 3};
+  Map? aMap = {1: 1, 2: 2, 3: 3};
   var res = <int>{...?aMap};
 }

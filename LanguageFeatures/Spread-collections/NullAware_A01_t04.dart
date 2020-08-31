@@ -24,7 +24,7 @@
 import "../../Utils/expect.dart";
 
 Set getASet(
-    String engineDartPath, List extraFrontEndOptions, String mainPath) {
+    String engineDartPath, List? extraFrontEndOptions, String mainPath) {
   return(
       {engineDartPath, '--target=flutter', ...extraFrontEndOptions, mainPath});
 }

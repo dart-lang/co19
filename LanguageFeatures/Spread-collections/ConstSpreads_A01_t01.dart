@@ -14,10 +14,10 @@
 import "../../Utils/expect.dart";
 
 main() {
-  const list1 = [2, 7, 9];
-  const list2 = ["checkme"];
-  const list3 = [];
-  const List list4 = null;
+  const List? list1 = [2, 7, 9];
+  const List? list2 = ["checkme"];
+  const List? list3 = [];
+  const List? list4 = null;
 
   const res1 = [...list1];
   Expect.listEquals(list1, res1);

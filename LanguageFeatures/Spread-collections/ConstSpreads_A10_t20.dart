@@ -14,9 +14,9 @@
  * @author iarkh@unipro.ru
  */
 
-const l = [];
-const s = {11};
-const m = {1: 1};
+const List? l = [];
+const Set? s = {11};
+const Map? m = {1: 1};
 
 main() {
   const res1 = {...?l};

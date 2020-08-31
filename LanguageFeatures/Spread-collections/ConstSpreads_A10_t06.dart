@@ -17,5 +17,5 @@
  */
 
 main() {
-  const List res = const [...?{1: 2, 3: 4}];
+  const List res = const [...?({1: 2, 3: 4} as Map?)];
 }

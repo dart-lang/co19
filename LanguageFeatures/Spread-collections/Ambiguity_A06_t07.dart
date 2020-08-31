@@ -15,6 +15,6 @@
  */
 
 main() {
-  Map aMap = {1: 2};
+  Map? aMap = {1: 2};
   var res = {8, ...?aMap};
 }

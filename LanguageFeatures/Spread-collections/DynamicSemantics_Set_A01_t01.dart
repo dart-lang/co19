@@ -17,17 +17,17 @@
 import "dart:collection";
 import "../../Utils/expect.dart";
 
-main() {
-  List list1 = [1, 2, 3, 4, 5];
-  List list2 = [];
-  List list3 = null;
-  List list4 = [1 ,2, 3, "checkme"];
+List? list1 = [1, 2, 3, 4, 5];
+List? list2 = [];
+List? list3 = null;
+List? list4 = [1 ,2, 3, "checkme"];
 
+main() {
   Expect.isTrue(<int>{...list1} is LinkedHashSet<int>);
   Expect.isTrue(<int>{1, 2, ...list1} is LinkedHashSet<int>);
   Expect.isTrue(<int>{1, ...?list1, 14, 9} is LinkedHashSet<int>);
   Expect.isTrue(<String>{...list2, "123"} is LinkedHashSet<String>);
   Expect.isTrue(<String>{...?list3} is LinkedHashSet<String>);
   Expect.isTrue(<int>{...?list3} is LinkedHashSet<int>);
-  Expect.isTrue({...list4} is LinkedHashSet<Object>);
+  Expect.isTrue({...list4} is LinkedHashSet<Object?>);
 }

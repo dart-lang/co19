@@ -23,12 +23,12 @@
 
 import "../../Utils/expect.dart";
 
-main() {
-  List list1 = [100, 200, 300, 400, 500];
-  List list2 = [];
-  List list3 = null;
-  List list4 = [1 ,2, 3, "checkme"];
+List? list1 = [100, 200, 300, 400, 500];
+List? list2 = [];
+List? list3 = null;
+List? list4 = [1 ,2, 3, "checkme"];
 
+main() {
   Expect.setEquals({}, {...?list3});
   Expect.setEquals({1, 2, 4}, {1, 2, ...?list3, 4});
   Expect.setEquals({10, 1, 2, 3, "checkme", 100, 200, 300, 400, 500},

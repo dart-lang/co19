@@ -20,8 +20,8 @@
  */
 
 main() {
-  Set aSet = {1, 2, 3};
-  List aList = [1, 2, 3];
+  Set? aSet = {1, 2, 3};
+  List? aList = [1, 2, 3];
 
   var res1 = <int, int>{...?aList}; //# 01: compile-time error
   var res2 = <int, int>{...?aSet};  //# 02: compile-time error

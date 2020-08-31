@@ -30,8 +30,9 @@ class MyClass {
 
 
 main() {
-  const Map l1 = {...?(A() is B ? {1: 12345} : <Object, Object>{})};
-  const Map l2 = {...?(A() is A ? {12345: 4} : {0: 1})};
-  const Map l3 = {...?(MyClass("test") is MyClass ? {"a": "b"} : <int, int>{})};
+  const Map l1 = {...?(A() is B ? {1: 12345} : <Object, Object>{} as Map?)};
+  const Map l2 = {...?(A() is A ? {12345: 4} : {0: 1} as Map?)};
+  const Map l3 = {...?(MyClass("test") is MyClass ?
+      {"a": "b"} : <int, int>{} as Map?)};
   const Map m4 = {...?(A() is B ? {6: 7} : null)};
 }

@@ -15,8 +15,8 @@
  * @author iarkh@unipro.ru
  */
 
-const l = [];
-const s = {11};
+const List? l = [];
+const Set? s = {11};
 const n = null;
 
 main() {

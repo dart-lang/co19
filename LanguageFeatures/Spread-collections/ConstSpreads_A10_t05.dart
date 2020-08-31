@@ -16,7 +16,7 @@
  */
 
 main() {
-  const List res1 = const [...?[1, 2, 3], 4];
-  const List res2 = const [5, ...?{2, 11}];
+  const List res1 = const [...?([1, 2, 3] as List?), 4];
+  const List res2 = const [5, ...?({2, 11} as Set?)];
   const List res3 = const [...?null];
 }

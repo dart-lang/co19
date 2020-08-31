@@ -13,11 +13,11 @@
 
 import "../../Utils/expect.dart";
 
-const List list1 = [1, 2, 3, 4, 5];
-const List list2 = [];
+const List? list1 = [1, 2, 3, 4, 5];
+const List? list2 = [];
 
-const Set set1 = {1, 2, 3, 4, 5};
-const Set set2 = {};
+const Set? set1 = {1, 2, 3, 4, 5};
+const Set? set2 = {};
 
 main() {
   const List res1 = [...?list1];

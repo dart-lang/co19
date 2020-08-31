@@ -15,9 +15,9 @@
  * @author iarkh@unipro.ru
  */
 
-const m1 = {1: 1};
-const m2 = {};
-const n = null;
+const Map? m1 = {1: 1};
+const Map? m2 = {};
+const Map? n = null;
 
 main() {
   const Map res1 = const {...?m1};

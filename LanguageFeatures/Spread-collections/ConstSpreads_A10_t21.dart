@@ -14,17 +14,17 @@
  * @author iarkh@unipro.ru
  */
 
-const l1 = [];
-List l2 = [];
+const List? l1 = [];
+List? l2 = [];
 
-const s1 = {11};
-Set s2 = {};
+const Set? s1 = {11};
+Set? s2 = {};
 
-const m1 = {1: 1};
-Map m2 = {2: 2};
+const Map? m1 = {1: 1};
+Map? m2 = {2: 2};
 
-const int i1 = 25;
-int i2 = 25;
+const int? i1 = 25;
+int? i2 = 25;
 
 const n = null;
 
