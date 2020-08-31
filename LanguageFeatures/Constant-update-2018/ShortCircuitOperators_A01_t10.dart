@@ -15,6 +15,7 @@
  * constant [&&] expression is [false] and the second one is not a constant
  * expression.
  * @author iarkh@unipro.ru
+ * @issue 43258
  */
 
 dynamic nonConst;

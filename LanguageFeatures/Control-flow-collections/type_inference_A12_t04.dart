@@ -25,7 +25,7 @@ main() {
   List<double>? c2 = [1.1, 2.2, 3.3];
   var set1 = {
     for (var i in collection)
-      if (i.isEven) ...c1 else ...c2
+      if (i.isEven) ...?c1 else ...?c2
   };
   Expect.isTrue(set1 is Set<num>);
   Expect.isFalse(set1 is Set<int>);

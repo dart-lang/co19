@@ -10,6 +10,7 @@
  * @description Checks that [||] throws a compile error if the first operand in
  * the constant expression [||] is [true] and the second one is not a constant.
  * @author iarkh@unipro.ru
+ * @issue 43258
  */
 
 dynamic nonConst;

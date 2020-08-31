@@ -10,6 +10,7 @@
  * @description Checks that compile-time exception is not thrown if the first
  * operand of [??] operator is not [null] regardless of the actual type of the
  * second operand.
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 

@@ -22,7 +22,7 @@ main() {
   var i = 1;
   List<int>? x = [1, 2, 3];
   var set1 = {
-    if (i > 0) ...x,
+    if (i > 0) ...?x,
   };
   Expect.isTrue(set1 is Set<int>);
 

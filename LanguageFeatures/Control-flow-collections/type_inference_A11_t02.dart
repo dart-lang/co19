@@ -26,7 +26,7 @@ main() {
   Map<int, int>? x = {1:1, 2:1, 3:3};
   Map<double, double>? y = {1.1: 1.3, 2.2: 2.2, 3.3: 3.3};
   var map1 = {
-    if (i > 0) ...x else ...y,
+    if (i > 0) ...?x else ...?y,
   };
   Expect.isTrue(map1 is Map<num, num>);
   Expect.isFalse(map1 is Map<int, num>);

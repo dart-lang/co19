@@ -25,7 +25,7 @@ main() {
 
   var map1 = {
   for (var i = 1; i < 5; i++)
-    if (i.isEven) ...c1 else ...c2
+    if (i.isEven) ...?c1 else ...?c2
   };
   Expect.isTrue(map1 is Map<num, num>);
   Expect.isFalse(map1 is Map<int, num>);

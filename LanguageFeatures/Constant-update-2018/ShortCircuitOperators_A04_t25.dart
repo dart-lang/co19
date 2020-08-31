@@ -57,11 +57,6 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const c4 = MyClass4();
-//           ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   const c5 = MyClass5();
 //           ^^^^^^^^^^
 // [analyzer] unspecified

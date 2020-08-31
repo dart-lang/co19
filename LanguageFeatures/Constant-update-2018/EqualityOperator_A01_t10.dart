@@ -11,7 +11,6 @@
  * operands is [null].
  * @description Checks that [!=] operator is allowed if one of the operands is
  * [null].
- * @compile-error
  * @author iarkh@unipro.ru
  */
 

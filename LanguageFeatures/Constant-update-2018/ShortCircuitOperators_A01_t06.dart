@@ -33,4 +33,5 @@ main() {
   const bool a3 = false && b;
 //                         ^
 // [analyzer] unspecified
+// [cfe] unspecified
 }

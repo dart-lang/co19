@@ -23,7 +23,7 @@ main() {
   List<int>? x = [1, 2, 3];
   List<double>? y = [1.1, 2.2, 3.3];
   var set1 = {
-    if (i > 0) ...x else ...y,
+    if (i > 0) ...?x else ...?y,
   };
   Expect.isTrue(set1 is Set<num>);
   Expect.isFalse(set1 is Set<double>);

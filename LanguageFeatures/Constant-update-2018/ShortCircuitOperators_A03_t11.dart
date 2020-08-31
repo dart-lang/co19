@@ -10,6 +10,7 @@
  * @description Checks that operator [??] throws a error if the first operand is
  * not [null] and the second one is not a potentially constant.
  * @author iarkh@unipro.ru
+ * @issue 43258
  */
 
 dynamic d1 = "12345";

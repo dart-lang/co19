@@ -66,11 +66,6 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const res4 = MyClass4();
-//             ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   const res5 = MyClass5();
 //             ^^^^^^^^^^
 // [analyzer] unspecified

@@ -18,7 +18,7 @@ main() {
   var i = 1;
   Map<int, String>? x = {1: "Let", 2: "it", 3: "be"};
   var map1 = {
-    if (i > 0) ...x,
+    if (i > 0) ...?x,
   };
   Expect.isTrue(map1 is Map<int, String>);
 
