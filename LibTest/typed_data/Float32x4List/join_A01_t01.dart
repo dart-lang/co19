@@ -12,6 +12,7 @@
  * @description Checks that the returned [String] contains all elements from
  * [this] separated by [separator].
  * @author msyabro
+ * @issue 43267
  */
 
 import "dart:typed_data";

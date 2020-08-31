@@ -12,6 +12,7 @@
  * @description Checks that if [separator] is omitted, elements of [this]
  * are not separated in the returned String.
  * @author msyabro
+ * @issue 43267
  */
 
 import "dart:typed_data";

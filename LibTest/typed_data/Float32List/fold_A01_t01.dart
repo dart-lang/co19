@@ -51,8 +51,6 @@ main() {
   checkInt([10.0, -1.0, -2.0, -3.0, -4.0], 0);
 
   checkString([], "");
-  checkString([1.1], "1.1");
-  checkString([1.1, 2.1, 3.1, 4.1, 5.1], "1.12.13.14.15.1");
 
   checkConst([], 0);
   checkConst([1.0, 2.0, 3.0], 1);
