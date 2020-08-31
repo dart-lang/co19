@@ -19,6 +19,7 @@
  * length in bytes is divisible by sixteen), otherwise, the last bytes can't be
  * part of the view.
  * @author ngl@unipro.ru
+ * @issue 43204
  */
 
 import "dart:typed_data";

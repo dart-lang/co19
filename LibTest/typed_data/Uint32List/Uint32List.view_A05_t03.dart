@@ -17,6 +17,7 @@
  * @description Checks that [RangeError] is thrown if [offsetInBytes] +
  * ([length] * elementSizeInBytes) is greater than the length of [buffer].
  * @author msyabro
+ * @issue 43196
  */
 
 import "dart:typed_data";

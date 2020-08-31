@@ -15,6 +15,7 @@
  * of [buffer].
  * @description Checks that [RangeError] is thrown if [length] is negative.
  * @author msyabro
+ * @issue 43196
  */
 
 import "dart:typed_data";

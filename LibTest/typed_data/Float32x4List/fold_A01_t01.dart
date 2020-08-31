@@ -25,12 +25,6 @@ checkInt(List<Float32x4> list, int expected) {
   Expect.equals(expected, res);
 }
 
-checkString(List<Float32x4> list, String expected) {
-  var l = new Float32x4List.fromList(list);
-  var res = l.fold("", (prev, cur) => "${prev}${cur.w + cur.z}");
-  Expect.equals(expected, res);
-}
-
 checkConst(List<Float32x4> list, int expected) {
   var l = new Float32x4List.fromList(list);
   var res = l.fold(0, (prev, cur) => 1);
@@ -45,11 +39,6 @@ main() {
     pack(7.0), pack(8.0), pack(9.0), pack(10.0)
   ], 220);
   checkInt([pack(10.0), pack(-1.0), pack(-2.0), pack(-3.0), pack(-4.0)], 0);
-
-  checkString([], "");
-  checkString([pack(1.0)], "2.0");
-  checkString([pack(1.0), pack(2.0), pack(3.0), pack(4.0), pack(5.0)],
-      "2.04.06.08.010.0");
 
   checkConst([], 0);
   checkConst([pack(1.0), pack(2.0), pack(3.0)], 1);

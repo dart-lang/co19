@@ -15,6 +15,7 @@
  * @description Checks that [RangeError] is thrown if `byteOffset + 8` is
  * greater than the length of this object.
  * @issue 12880
+ * @issue 43196
  * @author msyabro
  */
 

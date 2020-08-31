@@ -18,7 +18,7 @@ import "../../../Utils/expect.dart";
 
 check(int length) {
   Float32x4List l = new Float32x4List(length);
-  Expect.throws(() { l.clear; }, (e) => e is UnsupportedError);
+  Expect.throws(() { l.clear(); }, (e) => e is UnsupportedError);
   Expect.equals(length, l.length);
 }
 

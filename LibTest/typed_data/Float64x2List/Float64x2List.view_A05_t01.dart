@@ -15,6 +15,7 @@
  * buffer.
  * @description Checks that RangeError is thrown if offsetInBytes is negative.
  * @author ngl@unipro.ru
+ * @issue 43230
  */
 
 import "dart:typed_data";

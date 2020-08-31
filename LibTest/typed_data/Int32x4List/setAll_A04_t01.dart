@@ -11,6 +11,7 @@
  * @description Checks that the values of iterable may change, if iterable is
  * based on this list.
  * @author ngl@unipro.ru
+ * @issue 43227
  */
 
 import "dart:typed_data";

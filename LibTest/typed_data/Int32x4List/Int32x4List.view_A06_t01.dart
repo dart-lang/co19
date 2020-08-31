@@ -15,6 +15,7 @@
  * @description Checks that ArgumentError is thrown if offsetInBytes is not a
  * multiple of BYTES_PER_ELEMENT.
  * @author ngl@unipro.ru
+ * @issue 43210
  */
 
 import "dart:typed_data";

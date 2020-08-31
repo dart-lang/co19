@@ -11,6 +11,7 @@
  * @description Checks that [RangeError] is thrown if [byteOffset] is greater
  * than or equal to the length of this object.
  * @author msyabro
+ * @issue 43196
  */
 
 import "dart:typed_data";

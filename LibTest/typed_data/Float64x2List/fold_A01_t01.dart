@@ -43,9 +43,9 @@ main() {
       50.0);
 
   checkString([], "res");
-  checkString([f64x2(1.0), f64x2(2.0)], "res 2.0 4.0");
-  checkString([f64x2(1.0), f64x2(3.0), f64x2(5.0), f64x2(7.0), f64x2(9.0)],
-      "res 2.0 6.0 10.0 14.0 18.0");
+  checkString([f64x2(1.1), f64x2(2.1)], "res 2.2 4.2");
+  checkString([f64x2(1.1), f64x2(3.1), f64x2(5.1), f64x2(7.1), f64x2(9.1)],
+      "res 2.2 6.2 10.2 14.2 18.2");
 
   checkConst([], 0);
   checkConst([f64x2(1.0), f64x2(2.0)], 11);

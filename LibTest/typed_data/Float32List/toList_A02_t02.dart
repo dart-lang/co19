@@ -20,7 +20,11 @@ main() {
   var resList = list.toList(growable: true);
 
   // Cannot change length here as list type parameter is not nullable
-  Expect.throws(() { resList.length = 2; }, (e) => e is TypeError);
+  if (isStrongMode) {
+    Expect.throws(() {
+      resList.length = 2;
+    }, (e) => e is TypeError);
+  }
   Expect.equals(1, resList.length);
   resList.add(1.0);
   Expect.equals(2, resList.length);

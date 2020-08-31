@@ -23,7 +23,7 @@ main() {
   check(-1);
   check(-10);
   check(-0.5);
-  check(3.0);
+  check(3.14);
   check("11");
   check(new Object());
   check([0]);

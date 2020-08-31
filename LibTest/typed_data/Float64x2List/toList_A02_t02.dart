@@ -22,9 +22,9 @@ main() {
   var res = l.toList(growable: true);
   Expect.equals(3, res.length);
 
-  res.length = 4;
-  Expect.equals(4, res.length);
+  res.length = 2;
+  Expect.equals(2, res.length);
 
   res.add(f64x2(3.0));
-  Expect.equals(5, res.length);
+  Expect.equals(3, res.length);
 }

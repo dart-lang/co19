@@ -12,6 +12,7 @@
  * a region of this byte buffer, and any changes made to Float64List will also
  * change the buffer, and vice versa.
  * @author ngl@unipro.ru
+ * @issue 43204
  */
 
 import "dart:typed_data";

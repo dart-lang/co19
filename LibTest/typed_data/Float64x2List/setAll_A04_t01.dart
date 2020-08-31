@@ -12,6 +12,7 @@
  * @description Checks that if iterable is based on this list, its values may
  * change during the setAll operation.
  * @author ngl@unipro.ru
+ * @issue 43227
  */
 
 import "dart:typed_data";

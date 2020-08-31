@@ -14,6 +14,7 @@
  * greater than the length of this object.
  * @description Checks that [RangeError] is thrown if [byteOffset] is negative.
  * @author msyabro
+ * @issue 43196
  */
 
 import "dart:typed_data";

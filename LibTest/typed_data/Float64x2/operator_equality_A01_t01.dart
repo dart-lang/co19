@@ -10,6 +10,7 @@
  * and other are the same object.
  * @description Checks that only the same objects are equal.
  * @author ngl@unipro.ru
+ * @issue 43255
  */
 
 import "dart:typed_data";
