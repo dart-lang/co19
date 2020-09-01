@@ -17,6 +17,7 @@
  * invocation of the Symbol constructor, or objects implementing Type originally
  * created by a constant type literal expression
  * @author sgrekhov@unipro.ru
+ * @issue 43281
  */
 import "../../Utils/expect.dart";
 

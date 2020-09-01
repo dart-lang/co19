@@ -13,6 +13,7 @@
  * @description Checks that if s has no typeArgument, then one is inferred in
  * exactly the same way as for list literals
  * @author sgrekhov@unipro.ru
+ * @issue 43281
  */
 import "../../Utils/expect.dart";
 

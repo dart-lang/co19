@@ -20,10 +20,11 @@
  * element is V, where K and V are the types such that Map<K, V> is a
  * superinterface of S
  * @author sgrekhov@unipro.ru
+ * @static-warning
  */
 import "../../Utils/expect.dart";
 
-void test1<T extends Map<num, String>?>(T t) {
+void test1<T extends Map<num, String>>(T t) {
   var m1 = {...t};
   var m2 = {...?t};
   Expect.isTrue(m1 is Map<num, String>);
@@ -32,7 +33,7 @@ void test1<T extends Map<num, String>?>(T t) {
   Expect.isFalse(m2 is Map<int, String>);
 }
 
-void test2<T extends Map<Object, Object>?>(T t) {
+void test2<T extends Map<Object, Object>>(T t) {
   var m1 = {...t};
   var m2 = {...?t};
   Expect.isTrue(m1 is Map<Object, Object>);

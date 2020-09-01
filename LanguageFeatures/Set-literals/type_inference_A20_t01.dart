@@ -16,6 +16,7 @@
  * is ? then the static type of collection is Set<T> where T is the least upper
  * bound of the inferred set element types of the elements
  * @author sgrekhov@unipro.ru
+ * @issue 43280
  */
 import "../../Utils/expect.dart";
 
@@ -28,5 +29,5 @@ class C<X> {
 }
 
 main() {
-  C<int>().test(2);
+  C<int>().test(42);
 }

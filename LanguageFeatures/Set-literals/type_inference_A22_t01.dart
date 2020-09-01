@@ -16,6 +16,7 @@
  * is ? then the static key type of collection is K where K is the least upper
  * bound of the inferred key types of the elements.
  * @author sgrekhov@unipro.ru
+ * @issue 43280
  */
 import "../../Utils/expect.dart";
 

@@ -19,10 +19,11 @@
  * then the inferred set element type of element is T where T is the type such
  * that Iterable<T> is a superinterface of S
  * @author sgrekhov@unipro.ru
+ * @static-warning
  */
 import "../../Utils/expect.dart";
 
-void test1<T extends Iterable<num>?>(T t) {
+void test1<T extends Iterable<num>>(T t) {
   var s1 = {...t};
   var s2 = {...?t};
   Expect.isTrue(s1 is Set<num>);
@@ -31,7 +32,7 @@ void test1<T extends Iterable<num>?>(T t) {
   Expect.isFalse(s2 is Set<int>);
 }
 
-void test2<T extends Iterable<Object>?>(T t) {
+void test2<T extends Iterable<Object>>(T t) {
   var s1 = {...t};
   var s2 = {...?t};
   Expect.isTrue(s1 is Set<Object>);

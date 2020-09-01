@@ -13,6 +13,7 @@
  * @description Checks that evaluation of s creates an unmodifiable object
  * implementing Set<T> with v1 … vn as elements
  * @author sgrekhov@unipro.ru
+ * @issue 43281
  */
 import "../../Utils/expect.dart";
 

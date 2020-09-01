@@ -18,9 +18,9 @@ import "dart:collection";
 
 class C<T> with SetMixin<T> implements Set<T> {
 
-  factory C({bool equals(T e1, T e2),
-    int hashCode(T e),
-    bool isValidKey(potentialKey)}) => throw "Should not reach here";
+  factory C({bool equals(T e1, T e2)?,
+    int hashCode(T e)?,
+    bool isValidKey(potentialKey)?}) => throw "Should not reach here";
 
   @override
   bool add(T value) => throw "Should not reach here";

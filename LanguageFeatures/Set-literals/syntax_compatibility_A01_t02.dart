@@ -36,7 +36,7 @@ main() {
   Expect.isTrue(v3 is Set);
   Expect.iterableEquals({3, 2, 1}, v3);
 
-  var v4 = <int?>{c.n1 ??= (c as C).x, c.x ??= 4, C?.n2, c?.x ?? 3};
+  var v4 = <int?>{c?.n1 ??= (c as C).x, c?.x ??= 4, C?.n2, c?.x ?? 3};
   Expect.isTrue(v4 is Set);
   Expect.iterableEquals({1, 4, 2}, v4);
 }
