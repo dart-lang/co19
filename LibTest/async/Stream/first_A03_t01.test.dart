@@ -12,10 +12,11 @@
  * @author ilya
  */
 library first_A03_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
-  Stream s = create([1,2,3], isError:(_) => true);
+  Stream s = create([1, 2, 3], isError: (_) => true, defVal: 42);
   AsyncExpect.error(1, s.first);
 }

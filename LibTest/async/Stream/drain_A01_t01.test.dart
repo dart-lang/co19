@@ -15,10 +15,11 @@
  * @author kaigorodov
  */
 library drain_A01_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
-  Stream<int> s = create([1,2,3,4,5], isError:(e) => true);
+  Stream<int> s = create([1, 2, 3, 4, 5], isError: (e) => true, defVal: 42);
   AsyncExpect.error(1, s.drain());
 }

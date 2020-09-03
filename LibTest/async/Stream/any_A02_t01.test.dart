@@ -21,10 +21,10 @@ void check<T>(Stream<T> stream, Object expectedError) {
 
 void test(CreateStreamWithErrorsFunction create) {
   Object error = new Error();
-  check(create([error], isError: (_) => true), error);
+  check(create([error], isError: (_) => true, defVal: new Object()), error);
 
   error = new Exception();
-  check(create([error], isError: (_) => true), error);
+  check(create([error], isError: (_) => true, defVal: new Object()), error);
 
-  check(create<int>([1, 2, 3], isError: (x) => x.isOdd), 1);
+  check(create<int>([1, 2, 3], isError: (x) => x.isOdd, defVal: 42), 1);
 }

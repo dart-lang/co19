@@ -32,7 +32,10 @@ void check<T>(Stream<T> s, bool test(T element), Object expectedError) {
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check<int>(create([1, 2, 3], isError: (e) => true), (x) => x > 0, 1);
-  check<int>(create([1, 2, 3], isError: (e) => e == 3), (x) => x > 0, 3);
-  check<int>(create([-1, 1, -2, 2, 3], isError: (e) => e == 3), (x) => x < 0, 3);
+  check<int>(
+      create([1, 2, 3], isError: (e) => true, defVal: 42), (x) => x > 0, 1);
+  check<int>(
+      create([1, 2, 3], isError: (e) => e == 3, defVal: 42), (x) => x > 0, 3);
+  check<int>(create([-1, 1, -2, 2, 3], isError: (e) => e == 3, defVal: 42),
+      (x) => x < 0, 3);
 }

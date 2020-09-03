@@ -14,7 +14,7 @@
 import "dart:async";
 import "allTests_A02.lib.dart" as all;
 
-Stream<T> create<T>(Iterable<T> data, {bool isError(T x)?, T? defVal}) {
+Stream<T> create<T>(Iterable<T> data, {bool isError(T x)?, required T defVal}) {
   int count = data.length;
   Iterator<T> iterator = data.iterator;
   return new Stream<T>.periodic(
@@ -28,7 +28,7 @@ Stream<T> create<T>(Iterable<T> data, {bool isError(T x)?, T? defVal}) {
           }
           return x;
         }
-        return defVal!;
+        return defVal;
       }
   ).takeWhile((_) => count >= 0);
 }

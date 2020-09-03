@@ -12,6 +12,7 @@
  * @author kaigorodov
  */
 library forEach_A02_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -20,8 +21,12 @@ void check(Stream s, Object expectedError) {
 }
 
 void test(CreateStreamWithErrorsFunction create) {
-  check(create([1, 2, 3, 4], isError:(v) => v==4), 4);
+  check(create([1, 2, 3, 4], isError: (v) => v == 4, defVal: 42), 4);
   List list = [];
-  check(create([null, "2", -3, 4.0, list], isError:(v) => v==list), list);
-  check(create([null, "2", -3, 4.0, list], isError:(v) => v==4.0), 4.0);
+  check(
+      create([null, "2", -3, 4.0, list], isError: (v) => v == list, defVal: 42),
+      list);
+  check(
+      create([null, "2", -3, 4.0, list], isError: (v) => v == 4.0, defVal: 42),
+      4.0);
 }

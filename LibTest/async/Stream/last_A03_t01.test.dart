@@ -19,14 +19,14 @@ void test(CreateStreamWithErrorsFunction create) {
   Error error = new Error();
   AsyncExpect.error(
     error,
-    create([1, 2, error, 4, 5], isError: (e) => e is Error).last
+    create([1, 2, error, 4, 5], isError: (e) => e is Error, defVal: 42).last
   );
   AsyncExpect.error(
       error,
-      create([error, 4, 5], isError: (e) => e is Error).last
+      create([error, 4, 5], isError: (e) => e is Error, defVal: 42).last
   );
   AsyncExpect.error(
       error,
-      create([1, 2, error], isError: (e) => e is Error).last
+      create([1, 2, error], isError: (e) => e is Error, defVal: 42).last
   );
 }

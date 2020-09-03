@@ -11,6 +11,7 @@
  * @author kaigorodov
  */
 library every_A02_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -20,9 +21,15 @@ void check(Stream s, Object expectedError) {
 
 void test(CreateStreamWithErrorsFunction create) {
   Object error = new ArgumentError(1);
-  check(create([error], isError:(e) => true), error);
-  check(create([1, 2, error, 3, 4], isError:(e) => e is ArgumentError), error);
+  check(create([error], isError: (e) => true, defVal: new Object()), error);
+  check(
+      create([1, 2, error, 3, 4],
+          isError: (e) => e is ArgumentError, defVal: new Object()),
+      error);
   error = new StateError("");
-  check(create([error], isError:(e) => true), error);
-  check(create([1, 2, error, 3, 4], isError:(e) => e is StateError), error);
+  check(create([error], isError: (e) => true, defVal: new Object()), error);
+  check(
+      create([1, 2, error, 3, 4],
+          isError: (e) => e is StateError, defVal: new Object()),
+      error);
 }

@@ -12,13 +12,14 @@
  * @author kaigorodov
  */
 library elementAt_A02_t01;
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
-  for (int k=0; k<10; k++) {
+  for (int k = 0; k < 10; k++) {
     Iterable<int> i = new Iterable<int>.generate(10, (int x) => x);
-    Stream<int> s = create(i, isError:(e) => e==k);
+    Stream<int> s = create(i, isError: (e) => e == k, defVal: 42);
     AsyncExpect.error(k, s.elementAt(k));
   }
 }
