@@ -38,7 +38,6 @@
  * @description Checks that [c2.next.next.unknown(45)] line from the test
  * example causes compile-time error
  * @author iarkh@unipro.ru
- * @compile-error
  */
 
 class C<X extends C<X>> {

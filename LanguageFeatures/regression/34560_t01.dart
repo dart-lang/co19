@@ -16,5 +16,5 @@ A<dynamic>? a;
 List<A<dynamic>>? lst;
 
 main() {
- A<dynamic>(); //# 01: compile-time error
+  A<dynamic>(); //# 01: compile-time error
 }

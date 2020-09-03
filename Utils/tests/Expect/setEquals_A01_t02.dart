@@ -23,14 +23,16 @@ main() {
       [0, 235892385, .32, "abracadabra"], "");
   check(new Set.from([0, 235892385, '', "abracadabra"]), 
       [0, 235892385, 54, "abracadabra"], "not empty");
-  
-  check(new Set.from([double.nan]), [double.nan]);
-  check(new Set.from([double.nan]), [double.nan], "");
-  check(new Set.from([double.nan]), [double.nan], "not empty");
+  if (!isJS) {
+    check(new Set.from([double.nan]), [double.nan]);
+    check(new Set.from([double.nan]), [double.nan], "");
+    check(new Set.from([double.nan]), [double.nan], "not empty");
 
-  check(new Queue.from([double.nan]), new Set.from([double.nan]));
-  check(new Queue.from([double.nan]), new Set.from([double.nan]), "");
-  check(new Queue.from([double.nan]), new Set.from([double.nan]), "not empty");
+    check(new Queue.from([double.nan]), new Set.from([double.nan]));
+    check(new Queue.from([double.nan]), new Set.from([double.nan]), "");
+    check(
+        new Queue.from([double.nan]), new Set.from([double.nan]), "not empty");
+  }
 }
 
 void check(Iterable arg1, Iterable arg2, [String? reason = null]) {

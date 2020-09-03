@@ -5,7 +5,7 @@ const ONE_MS = const Duration(milliseconds: 1);
 typedef CreateStreamFunction = Stream<T> Function<T>(Iterable<T> values);
 typedef CreateStreamWithErrorsFunction =
     Stream<T> Function<T>(Iterable<T> values,
-        {bool Function(T element)? isError, T? defVal});
+        {bool Function(T element)? isError, required T defVal});
 
 Duration durationMs(delay) {
   return delay == null ? Duration.zero : ONE_MS * delay;

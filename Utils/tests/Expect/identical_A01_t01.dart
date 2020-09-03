@@ -19,9 +19,11 @@ main()
   Expect.identical(null, null, "");
   Expect.identical(null, null, "not empty");
 
-  Expect.identical(double.nan, double.nan);
-  Expect.identical(double.nan, double.nan, "");
-  Expect.identical(double.nan, double.nan, "not empty");
+  if (!isJS) {
+    Expect.identical(double.nan, double.nan);
+    Expect.identical(double.nan, double.nan, "");
+    Expect.identical(double.nan, double.nan, "not empty");
+  }
 
   Expect.identical(1, 1);
   Expect.identical(1, 1, "");
