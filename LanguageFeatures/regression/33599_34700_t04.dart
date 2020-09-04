@@ -16,7 +16,7 @@
 //^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-//           ^
+//                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
