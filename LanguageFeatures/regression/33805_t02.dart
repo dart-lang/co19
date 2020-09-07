@@ -13,9 +13,9 @@
 class A<X> {}
 testme<X extends A<X>>(X) {}
 
-A? a;
-A<A>? a1;
-A<A<A>>? a2;
+A a;
+A<A> a1;
+A<A<A>> a2;
 
 main() {
   testme(a);  //# 01: compile-time error

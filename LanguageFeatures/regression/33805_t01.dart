@@ -13,7 +13,7 @@ class A<X> {}
 X testme<X extends A<X>>() {}
 
 main() {
-  A? a = testme();        //# 01: compile-time error
-  A<A>? a1 = testme();    //# 02: compile-time error
-  A<A<A>>? a2 = testme(); //# 03: compile-time error
+  A a = testme();        //# 01: compile-time error
+  A<A> a1 = testme();    //# 02: compile-time error
+  A<A<A>> a2 = testme(); //# 03: compile-time error
 }
