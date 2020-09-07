@@ -21,7 +21,7 @@ main() {
       asyncEnd();
     });
 
-    var event = new Event(type);
+    var event = new TransitionEvent(type);
     x.dispatchEvent(event);
   } else {
     Expect.fail("Body is null");

@@ -11,7 +11,7 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  var ev = new Event('click');
+  var ev = new MouseEvent('click');
 
   asyncStart();
   document.body?.onClick.listen((e) {

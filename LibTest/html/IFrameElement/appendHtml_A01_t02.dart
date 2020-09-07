@@ -9,6 +9,7 @@
  * last child of this element.
  * @description Checks that new node will be added after the
  * last child of this element.
+ * @issue 43315
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -17,12 +18,8 @@ const myButton = "myButton";
 
 main() {
   IFrameElement x = new IFrameElement();
-  x.appendHtml('<span><div></div><button class="$myButton></button></span>',
+  x.appendHtml('<span><div></div><button class="$myButton"></button></span>',
       treeSanitizer: NodeTreeSanitizer.trusted);
   dynamic ch = x.lastChild;
-
-  List<Node> z = ch.getElementsByClassName(myButton);
-
-  var y = z[0].parent;
-  Expect.equals(y, z);
+  Expect.isTrue(ch is CharacterData);
 }

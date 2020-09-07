@@ -7,6 +7,7 @@
  * @assertion final String tagName
  * The name of the tag for the given element.
  * @description Checks tagName of custom element
+ * @issue 43293
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -18,7 +19,7 @@ class Foo extends HtmlElement {
 
 main() {
   var tag = 'x-foo';
-  document.register(tag, Foo);
+  document.registerElement(tag, Foo);
   var x =
       new Element.html('<$tag></$tag>', treeSanitizer: new NullTreeSanitizer());
 

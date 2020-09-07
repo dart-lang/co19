@@ -33,7 +33,7 @@ main() {
     });
 
     asyncMultiStart(3);
-    div.dispatchEvent(new Event('click'));
+    div.dispatchEvent(new MouseEvent('click'));
   } else {
     Expect.fail("Body is null");
   }

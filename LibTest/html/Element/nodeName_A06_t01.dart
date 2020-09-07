@@ -16,5 +16,5 @@ import "../../../Utils/expect.dart";
 main() {
   var x = document.implementation?.createDocumentType('html',
       '-//W3C//DTD HTML 4.01//EN', 'http://www.w3.org/TR/html4/strict.dtd');
-  Expect.equals('html', x.nodeName);
+  Expect.equals('html', x?.nodeName);
 }

@@ -9,6 +9,7 @@
  * last child of this element.
  * @description Checks that new node will be added after the
  * last child of this element.
+ * @issue 43315
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -19,10 +20,7 @@ main() {
   Expect.isTrue(x.firstChild is Text, 'append to empty children list');
 
   x = new IFrameElement();
-  x.appendHtml('<div><div>', treeSanitizer: NodeTreeSanitizer.trusted);
-  x.appendHtml('<!--comment-->text', treeSanitizer: NodeTreeSanitizer.trusted);
+  x.appendHtml('<div></div>', treeSanitizer: NodeTreeSanitizer.trusted);
   document.body?.append(x);
-  Expect.isTrue(x.firstChild is DivElement, 'div');
-  Expect.isTrue(x.firstChild?.nextNode is Comment, 'comment');
-  Expect.isTrue(x.lastChild is Text, 'text');
+  Expect.isTrue(x.firstChild is CharacterData);
 }

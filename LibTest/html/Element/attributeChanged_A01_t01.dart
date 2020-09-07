@@ -8,7 +8,7 @@
  * Called by the DOM whenever an attribute on this has been changed.
  * @description Checks that attributeChanged is called and called with correct
  * parameters.
- * @needsreview causes timeout if Expect.equals fails
+ * @issue 43293
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -27,7 +27,7 @@ class Foo extends HtmlElement {
 
 main() {
   var tag = 'x-foo';
-  document.register(tag, Foo);
+  document.registerElement(tag, Foo);
   var x = new Element.html('<$tag foo="old-val"></$tag>',
       treeSanitizer: new NullTreeSanitizer());
 

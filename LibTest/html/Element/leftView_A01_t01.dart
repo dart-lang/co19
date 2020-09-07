@@ -8,6 +8,7 @@
  * Called by the DOM when this element has been removed from the live document.
  * @description Checks that leftView() is called when element is removed from
  * the live document.
+ * @issue 43293
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -22,7 +23,7 @@ class Foo extends HtmlElement {
 
 main() {
   var tag = 'x-foo';
-  document.register(tag, Foo);
+  document.registerElement(tag, Foo);
 
   asyncStart();
   var x = new Element.tag(tag);

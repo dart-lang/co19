@@ -14,6 +14,7 @@
  * @description Checks that if element is hidden it does not affect dimensions
  * of the rectangle.
  * @needsreview issue #17456
+ * @issue 43294
  */
 import "dart:html";
 import "../../../Utils/expect.dart";

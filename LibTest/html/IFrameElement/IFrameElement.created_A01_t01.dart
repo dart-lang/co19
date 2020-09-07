@@ -8,6 +8,7 @@
  * Constructor instantiated by the DOM when a custom element has been created.
  * This can only be called by subclasses from their created constructor.
  * @description Checks that this constructor can be called only by subclasses
+ * @issue 43293
  */
 import "dart:html";
 import "../../../UtilsHtml/expect.dart";
@@ -29,7 +30,7 @@ main() {
   });
 
   var tag = 'my-iframe';
-  document.register(tag, MyIFrameElement, extendsTag: "iframe");
+  document.registerElement(tag, MyIFrameElement, extendsTag: "iframe");
 
   ife = document.createElement('iframe', 'my-iframe');
   document.body?.append(ife);

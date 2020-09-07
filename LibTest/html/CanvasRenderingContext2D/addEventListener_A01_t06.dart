@@ -38,7 +38,7 @@ main() {
     new Text("Text1"),
     new Comment("Comment"),
     new IFrameElement(),
-    document,
+    //document,
     new DocumentFragment(),
   ];
   asyncMultiStart(targets.length * n);

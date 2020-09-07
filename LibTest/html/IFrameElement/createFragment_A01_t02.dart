@@ -10,8 +10,8 @@
  * follows the sanitization rules specified by the validator or treeSanitizer.
  * The returned tree is guaranteed to only contain nodes and attributes which
  * are allowed by the provided validator.
- * @description Checks that if provided validator allows non standard elements
- * and attributes, they are included in created fragment.
+ * @description Checks that this method call creates text only
+ * @issue 43331
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -23,10 +23,8 @@ main() {
         //..allowHtml5()
         ..allowElement('bar', attributes: ["id"])
         ..allowElement('div', attributes: ["foo"]));
-  DivElement div = f.firstChild as DivElement;
-
-  Expect.mapEquals({'foo': 'foo'}, div.attributes);
+  Expect.isTrue(f.firstChild is CharacterData);
 
   var bar = f.querySelector('#bar');
-  Expect.equals('BAR', bar?.tagName);
+  Expect.isNull(bar);
 }

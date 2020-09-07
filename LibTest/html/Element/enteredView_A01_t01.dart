@@ -8,6 +8,7 @@
  * Called by the DOM when this element has been inserted into the live document.
  * @description Checks that enteredView() is called when element is inserted
  * into the live document.
+ * @issue 43293
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -23,7 +24,7 @@ class Foo extends HtmlElement {
 
 main() {
   var tag = 'x-foo';
-  document.register(tag, Foo);
+  document.registerElement(tag, Foo);
   var x = document.body;
 
   asyncStart();

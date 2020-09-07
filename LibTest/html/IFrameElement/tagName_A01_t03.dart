@@ -18,7 +18,7 @@ class Foo extends HtmlElement {
 
 main() {
   var tag = 'x-foo';
-  document.register(tag, Foo);
+  document.registerElement(tag, Foo);
   Element x =
       new Element.html('<$tag></$tag>', treeSanitizer: new NullTreeSanitizer());
 

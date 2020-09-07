@@ -8,6 +8,7 @@
  * Called by the DOM when this element has been removed from the live document.
  * @description Checks that leftView() is called when element is removed from
  * the live document.
+ * @issue 43293
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -22,7 +23,7 @@ class IFrameElement1 extends IFrameElement {
 
 main() {
   var tag = 'x-foo';
-  document.register(tag, IFrameElement1, extendsTag: "iframe");
+  document.registerElement(tag, IFrameElement1, extendsTag: "iframe");
 
   asyncStart();
   IFrameElement1 x = new Element.tag(tag) as IFrameElement1;

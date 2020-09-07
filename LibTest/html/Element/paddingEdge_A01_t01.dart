@@ -12,6 +12,7 @@
  * will return the same numerical height if the element is hidden or not.
  * @description Checks that if element is hidden it does not affect dimensions
  * of the rectangle.
+ * @issue 43294
  */
 import "dart:html";
 import "../../../Utils/expect.dart";

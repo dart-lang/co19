@@ -8,6 +8,7 @@
  * Retrieve the value of the attribute with the specified name and namespace,
  * from the current node.
  * @description Checks expected attributes values.
+ * @issue 16395
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -18,7 +19,7 @@ main() {
       '<svg><foo xlink:href="1" xlink:custom="2"></foo></svg>',
       treeSanitizer: new NullTreeSanitizer());
   document.body?.append(x);
-  AnchorElement y = x.firstChild as AnchorElement;
+  Element y = x.firstChild as Element;
 
   Expect.equals('1', y.getAttributeNS(XlinkNamespace, 'href'));
   Expect.equals('2', y.getAttributeNS(XlinkNamespace, 'custom'));

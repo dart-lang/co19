@@ -7,6 +7,7 @@
  * @assertion Map<String, String> getNamespacedAttributes(String namespace)
  * Gets a map for manipulating the attributes of a particular namespace.
  * @description Checks expected attributes values.
+ * @issue 16395
  */
 import "dart:html";
 import "../../../Utils/expect.dart";

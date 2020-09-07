@@ -9,78 +9,71 @@
  * specified group of selectors.
  *
  * selectors should be a string using CSS selector syntax.
- * @description Checks various selectors (not exhaustive)
- * @needsreview issue #17456: all qureies return null
+ * @description Checks that for IframeElement all queries return null
+ * @issue #17456: all queries return null
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
-  IFrameElement e = new Element.html('''<iframe>
-             <span>
-               <hr>
-                 <pre id="myid"
-                      class="foo bar"
-                      lang="en">
-                 </pre>
-               </span>
-            </iframe>''', treeSanitizer: new NullTreeSanitizer()) as IFrameElement;
+
+  IFrameElement e = Element.html(
+      '<iframe src="iframe.html"></iframe>',
+      treeSanitizer: new NullTreeSanitizer()) as IFrameElement;
   document.body?.append(e);
 
-  var star = e.querySelector('*');
+  Expect.isNull(e.querySelector('*'), 'Universal selector');
 
-  Expect.isTrue(e.querySelector('*') is SpanElement, 'Universal selector');
-
-//  Expect.isTrue(e.querySelector('pre') is PreElement, 'Type selector');
+  Expect.isNull(e.querySelector('pre'), 'Type selector');
 
   Expect.isNull(e.querySelector('table'), 'Type selector, negative');
 
-//  Expect.isTrue(e.querySelector('span pre') is PreElement, 'Descendant selector, direct');
+  Expect.isNull(e.querySelector('span pre'), 'Descendant selector, direct');
 
-//  Expect.isTrue(e.querySelector('div pre') is PreElement, 'Descendant selector, indirect');
+  Expect.isNull(e.querySelector('div pre'), 'Descendant selector, indirect');
 
-//  Expect.isTrue(e.querySelector('* pre') is PreElement, 'Descendant selector, any');
+  Expect.isNull(e.querySelector('* pre'), 'Descendant selector, any');
 
-//  Expect.isTrue(e.querySelector('span > pre') is PreElement, 'Child selector');
+  Expect.isNull(e.querySelector('span > pre'), 'Child selector');
 
   Expect.isNull(e.querySelector('div > pre'), 'Child selector, negative');
 
   Expect.isNull(
       e.querySelector('pre:first-child'), 'The :first-child pseudo-class');
 
-//  Expect.isTrue(e.querySelector('pre:lang(en)') is PreElement, 'The :lang() pseudo-class');
+  Expect.isNull(e.querySelector('pre:lang(en)'), 'The :lang() pseudo-class');
 
   Expect.isNull(e.querySelector('pre:lang(fr)'), 'The :lang() pseudo-class');
 
-//  Expect.isTrue(e.querySelector('hr + pre') is PreElement, 'Adjacent selector');
+  Expect.isNull(e.querySelector('hr + pre'), 'Adjacent selector');
 
   Expect.isNull(e.querySelector('div + pre'), 'Adjacent selector, negative');
 
-//  Expect.isTrue(e.querySelector('pre[id]') is PreElement, 'Attribute selector 1');
+  Expect.isNull(e.querySelector('pre[id]'), 'Attribute selector 1');
 
   Expect.isNull(e.querySelector('pre[foo]'), 'Attribute selector 1, negative');
 
-//  Expect.isTrue(e.querySelector('pre[id="myid"]') is PreElement, 'Attribute selector 2');
+  Expect.isNull(e.querySelector('pre[id="myid"]'), 'Attribute selector 2');
 
   Expect.isNull(
       e.querySelector('pre[id="myid2"]'), 'Attribute selector 2, negative');
 
-//  Expect.isTrue(e.querySelector('pre[class~="bar"]') is PreElement, 'Attribute selector 3');
+  Expect.isNull(e.querySelector('pre[class~="bar"]'), 'Attribute selector 3');
 
   Expect.isNull(
       e.querySelector('pre[class~="baz"]'), 'Attribute selector 3, negative');
 
-  // Expect.isTrue(e.querySelector('pre[lang|="en"]') is PreElement, 'Attribute selector 4');
+  Expect.isNull(e.querySelector('pre[lang|="en"]'), 'Attribute selector 4');
 
   Expect.isNull(
       e.querySelector('pre[lang|="fr"]'), 'Attribute selector 4, negative');
 
-//  Expect.isTrue(e.querySelector('pre.foo') is PreElement, 'Class selector');
+  Expect.isNull(e.querySelector('pre.foo'), 'Class selector');
 
   Expect.isNull(e.querySelector('pre.baz'), 'Class selector, negative');
 
-//  Expect.isTrue(e.querySelector('pre#myid') is PreElement, 'Id selector');
+  Expect.isNull(e.querySelector('pre#myid'), 'Id selector');
 
   Expect.isNull(e.querySelector('pre#baz'), 'Id selector, negative');
 }

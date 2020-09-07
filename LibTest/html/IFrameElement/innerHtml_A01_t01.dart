@@ -6,8 +6,9 @@
 /**
  * @assertion String innerHtml
  * Parses the HTML fragment and sets it as the contents of this element.
- * @description Checks expected innerHtml settings
+ * @description Checks that for iframe html set by innerHtml is set as text
  * @issue #17456
+ * @issue 43331
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -18,6 +19,5 @@ main() {
   document.body?.append(iframe);
   iframe.innerHtml = '<button>foo</button>';
   var firstChild = iframe.firstChild;
-//  print("firstChild=${firstChild.runtimeType} $firstChild");
-  Expect.isTrue(firstChild is ButtonElement);
+  Expect.isTrue(firstChild is CharacterData);
 }

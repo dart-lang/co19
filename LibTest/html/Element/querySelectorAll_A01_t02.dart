@@ -18,10 +18,8 @@ const String htmlEL = r'''
 <input type=checkbox id=checkbox1 checked>
 <input type=radio id=radio1 checked>
 <form>
-  <menu type=popup id=formmenu>
-    <menuitem type=checkbox checked id=menuitem1>
-    <menuitem type=radio checked id=menuitem2>
-  </menu>
+  <input type=checkbox id=checkbox2 checked>
+  <input type=radio id=radio2 checked>
 </form>
 ''';
 

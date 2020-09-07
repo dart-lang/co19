@@ -31,5 +31,5 @@ main() {
     asyncEnd();
   });
 
-  x.dispatchEvent(new Event(type));
+  x.dispatchEvent(new MouseEvent(type));
 }

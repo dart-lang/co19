@@ -32,35 +32,10 @@ main() {
           some text
          </iframe>''', treeSanitizer: new NullTreeSanitizer());
     IFrameElement ief1 = b.getElementsByClassName("ief1")[0] as IFrameElement;
-    var ref = ief1.childNodes[0];
 
-    IFrameElement ief2 = new Element.html('''<iframe  class="ief1"
-                    style="position: absolute; left: 50px; top: 50px">
-         </iframe>''', treeSanitizer: new NullTreeSanitizer()) as IFrameElement;
-    ief1.insertBefore(ief2, ref);
-
-    check(10, ief1
-        .offsetTo(b)
-        .x, "id1 relative to body x");
-    check(20, ief1
-        .offsetTo(b)
-        .y, "id1 relative to body y");
-
-    check(50, ief2
-        .offsetTo(ief1)
-        .x, "id2 relative to id1 x");
-    check(50, ief2
-        .offsetTo(ief1)
-        .y, "id2 relative to id1 y");
-
-    // indirect offsetParent
-    check(60, ief2
-        .offsetTo(b)
-        .x, "id2 relative to body x");
-    check(60, ief2
-        .offsetTo(b)
-        .y, "id2 relative to body y");
+    check(10, ief1.offsetTo(b).x, "id1 relative to body x");
+    check(10, ief1.offsetTo(b).y, "id1 relative to body y");
   } else {
-    Expect.fail("Bodu is null");
+    Expect.fail("Body is null");
   }
 }

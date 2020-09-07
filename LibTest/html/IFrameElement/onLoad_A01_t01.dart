@@ -22,5 +22,5 @@ main() {
     asyncEnd();
   });
 
-  x.src = "/root_dart/tests/co19/src/LibTest/html/IFrameElement/iframe.html";
+  x.src = "iframe.html";
 }

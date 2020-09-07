@@ -19,7 +19,7 @@ main() {
     e.preventDefault();
   });
 
-  var res = a.dispatchEvent(new Event('click'));
+  var res = a.dispatchEvent(new MouseEvent('click'));
 
   Expect.isFalse(res);
 }

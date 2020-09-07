@@ -15,7 +15,7 @@ main() {
   var parent = new Element.html('<div><h1></h1></div>');
   var child = parent.querySelector('h1');
 
-  Expect.throws(() {
-    child?.replaceWith(parent);
-  });
+  child?.replaceWith(parent);
+  Expect.equals('<h1></h1>', parent.innerHtml);
+  Expect.equals('<div><h1></h1></div>', parent.outerHtml);
 }

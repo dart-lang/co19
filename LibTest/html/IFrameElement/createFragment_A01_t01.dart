@@ -10,8 +10,8 @@
  * follows the sanitization rules specified by the validator or treeSanitizer.
  * The returned tree is guaranteed to only contain nodes and attributes which
  * are allowed by the provided validator.
- * @description Checks that if validator and sanitizer are omitted,
- * unknown elements and attribues are removed from provided html.
+ * @description Checks that this method call creates text only
+ * @issue 43331
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -19,9 +19,7 @@ import "../../../Utils/expect.dart";
 main() {
   IFrameElement x = new IFrameElement();
   var f = x.createFragment('<div foo="foo"><bar id="bar"></bar></div>');
-  DivElement div = f.firstChild as DivElement;
-
-  Expect.mapEquals({}, div.attributes);
+  Expect.isTrue(f.firstChild is CharacterData);
 
   var bar = f.querySelector('#bar');
   Expect.isNull(bar);

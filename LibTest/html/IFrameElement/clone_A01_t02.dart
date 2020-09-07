@@ -23,7 +23,7 @@ main() {
   y = y?.firstChild;
   Expect.isTrue(y is DivElement, 'div');
 
-  y = y?.nextNode;
+  y = y?.firstChild;
   Expect.isTrue(y is PreElement, 'pre');
 
   y = y?.nextNode;

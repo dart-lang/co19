@@ -20,10 +20,10 @@ void check(Node n1, Node n2) {
   Expect.isNotNull(n1);
   Expect.isNotNull(n2);
   Expect.isFalse(identical(n1, n2));
-  Expect.equals(n1, n2);
+  Expect.equals(n1.toString(), n2.toString());
   var ch1 = n1.childNodes;
   var ch2 = n2.childNodes;
-  Expect.listEquals(ch1, ch2);
+  Expect.equals(ch1.toString(), ch2.toString());
   for (int k = 0; k < ch1.length; k++) {
     check(ch1[k], ch2[k]);
   }
@@ -31,6 +31,6 @@ void check(Node n1, Node n2) {
 
 main() {
   Document cd = document.clone(true) as Document;
-  Expect.isNotNull(cd, "document.clone(true)==null");
+  Expect.isNotNull(cd, "document.clone(true) == null");
   check(document, cd);
 }

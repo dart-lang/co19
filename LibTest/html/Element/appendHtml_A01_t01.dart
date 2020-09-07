@@ -17,7 +17,8 @@ main() {
   x.appendHtml('text', treeSanitizer: NodeTreeSanitizer.trusted);
   Expect.isTrue(x.firstChild is Text, 'append to empty children list');
 
-  x = new Element.html('<span><div><div></span>');
+  x = new Element.html('<span></span>');
+  x.appendHtml('<div></div>', treeSanitizer: NodeTreeSanitizer.trusted);
   x.appendHtml('<!--comment-->text', treeSanitizer: NodeTreeSanitizer.trusted);
 
   Expect.isTrue(x.firstChild is DivElement, 'div');

@@ -21,6 +21,6 @@ main() {
     asyncEnd();
   });
 
-  var event = new Event(type);
+  var event = new ClipboardEvent(type);
   x.dispatchEvent(event);
 }

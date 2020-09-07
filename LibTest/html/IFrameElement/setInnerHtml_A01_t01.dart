@@ -12,18 +12,22 @@
  * The resulting tree is guaranteed to only contain nodes and attributes
  * which are allowed by the provided validator.
  * @description Checks that if validator and sanitizer are omitted,
- * unknown elements and attribues are removed from provided html.
- * @needsreview issue #17456
+ * unknown elements and attributes are removed from provided html.
+ * @issue #17456
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
+import "../testcommon.dart";
 
 main() {
-  IFrameElement x = new IFrameElement();
+  IFrameElement x = Element.html(
+      '<iframe src="iframe.html"></iframe>',
+      treeSanitizer: new NullTreeSanitizer()) as IFrameElement;
+  document.body?.append(x);
   x.setInnerHtml('<div foo="foo"><bar id="bar"></bar></div>');
-  DivElement div = x.firstChild as DivElement;
-  Expect.mapEquals({}, div.attributes);
+  print(x.firstChild);
+  Expect.isTrue(x.firstChild is CharacterData);
 
-  var bar = div.querySelector('#bar');
+  var bar = x.querySelector('#bar');
   Expect.isNull(bar);
 }

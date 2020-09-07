@@ -34,6 +34,6 @@ main() {
     asyncEnd();
   });
 
-  var event = new Event(type);
+  var event = new MouseEvent(type);
   x.dispatchEvent(event);
 }

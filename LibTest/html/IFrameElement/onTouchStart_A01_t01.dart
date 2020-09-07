@@ -21,6 +21,6 @@ main() {
     asyncEnd();
   });
 
-  var event = new Event(type);
+  var event = new TouchEvent(type);
   x.dispatchEvent(event);
 }
