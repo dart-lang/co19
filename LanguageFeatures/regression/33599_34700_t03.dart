@@ -13,10 +13,7 @@
  */
 
   typedef F1<X extends F1<F1>> = F1 Function();
-//^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-//                     ^^
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
 

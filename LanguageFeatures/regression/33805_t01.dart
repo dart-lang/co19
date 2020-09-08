@@ -10,10 +10,10 @@
  * @author iarkh@unipro.ru
  */
 class A<X> {}
-X testme<X extends A<X>>() {}
+X testme<X extends A<X>>(dynamic x) => x;
 
 main() {
-  A a = testme();        //# 01: compile-time error
-  A<A> a1 = testme();    //# 02: compile-time error
-  A<A<A>> a2 = testme(); //# 03: compile-time error
+  A a = testme(new A());              //# 01: compile-time error
+  A<A> a1 = testme(new A<A>());       //# 02: compile-time error
+  A<A<A>> a2 = testme(new A<A<A>>()); //# 03: compile-time error
 }
