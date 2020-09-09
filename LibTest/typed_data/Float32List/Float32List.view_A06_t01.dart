@@ -25,6 +25,6 @@ main() {
   var list = new Float32List(2);
   var buffer = list.buffer;
   for (int i = 1; i < Float32List.bytesPerElement; ++i) {
-    Expect.throws(() => Float32List.view(buffer, i), (e) => e is RangeError);
+    Expect.throws(() => Float32List.view(buffer, i), (e) => e is ArgumentError);
   }
 }

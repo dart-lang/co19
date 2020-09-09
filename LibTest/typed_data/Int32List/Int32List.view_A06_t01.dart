@@ -26,6 +26,6 @@ main() {
   var list = new Int32List(2);
   var buffer = list.buffer;
   for (int i = 1; i < Int32List.bytesPerElement; ++i) {
-    Expect.throws(() { Int32List.view(buffer, i); }, (e) => e is RangeError);
+    Expect.throws(() { Int32List.view(buffer, i); }, (e) => e is ArgumentError);
   }
 }
