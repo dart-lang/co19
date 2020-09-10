@@ -11,34 +11,22 @@
  * aString:  The text string for which to search.
  * aSearchInFrames: Boolean. If true, specifies a search in frames.
  * @description Checks that searchInFrames parameter works.
+ * @issue 43351
  */
 import "dart:html";
 import "../../../UtilsHtml/expect.dart";
+import "../testcommon.dart";
 
 main() {
-  var text = 'textext';
-  IFrameElement frame = new IFrameElement();
-  document.body?.append(frame);
-//  frame.contentWindow.document.body.append(new Text(text));
-//  frame.appendHtml("<div>$text</div>");
-//  frame.setInnerHtml("<html><head></head><body><div>$text</div></body></html>");
-  frame.appendHtml("<html><head></head><body><div>$text</div></body></html>",
-      treeSanitizer: NodeTreeSanitizer.trusted);
-  var child = frame;
-  for (int k = 1; k < 5; k++) {
-    var nodes = child.nodes;
-    print("$k $child nodes.length=${nodes.length}");
-    for (int n = 1; n < nodes.length; n++) {
-      var node = nodes[n];
-      print("  node $n = $node");
-    }
-    var fchild = child.firstChild;
-    if (fchild == null) break;
-  }
+  var text = 'Content';
+  var x = Element.html(
+      '<iframe src="../iframe.html"></iframe>',
+      treeSanitizer: new NullTreeSanitizer());
+  document.body?.append(x);
 
-  bool res = window.find(text, false, false, false, false, false, false);
-  Expect.isFalse(res, "text not found");
+  bool res = window.find(text, false, false, false, false, true, false);
+  Expect.isTrue(res, "text not found");
 
-  res = window.find(text, false, false, false, true, false, false);
-  Expect.isTrue(res, "text found");
+  res = window.find(text, false, false, false, false, false, false);
+  Expect.isFalse(res, "text found");
 }

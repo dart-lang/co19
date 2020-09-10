@@ -16,7 +16,7 @@ void check(Node x) {
   var z = new Text('text');
   List<Node> nodes = [y, z];
   x.nodes = nodes;
-  Expect.identical(x.nodes, nodes);
+  Expect.listEquals(x.nodes, nodes);
 }
 
 main() {

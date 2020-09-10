@@ -24,7 +24,6 @@ main() {
   List<Node> targets = [
     new Comment("comment"),
     new Text("text"),
-    new DocumentFragment(),
   ];
   for (Node x in targets) {
     check(x);

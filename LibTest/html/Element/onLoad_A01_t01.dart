@@ -16,7 +16,7 @@ main() {
   dynamic x = document.body;
   if (x != null) {
     x.innerHtml =
-    '<img src="dart-logo.png">';
+    '<img src="pixel.png">';
 
     asyncStart();
     x.firstChild.onLoad.listen((e) {

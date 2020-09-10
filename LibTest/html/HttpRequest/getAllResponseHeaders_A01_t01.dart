@@ -27,7 +27,7 @@ void check(String allHeaders) {
 
 main() {
   var request = new HttpRequest();
-  request.open('GET', "test.dart");
+  request.open('GET', "http://localhost");
   asyncStart();
   request.onLoad.listen((event) {
     switch (request.readyState) {

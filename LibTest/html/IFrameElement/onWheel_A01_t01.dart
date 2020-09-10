@@ -4,23 +4,23 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ElementStream<TouchEvent> get onTransitionEnd
- * Stream of transitionend events handled by this Element.
+ * @assertion ElementStream<WheelEvent> get onWheel
+ * Stream of wheel events handled by this Element.
  * @description Checks that correct events are delivered via the stream
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  var type = 'transitionend';
+  var type = 'wheel';
   var x = new IFrameElement();
 
   asyncStart();
-  x.onTransitionEnd.listen((e) {
+  x.onWheel.listen((e) {
     Expect.equals(type, e.type);
     asyncEnd();
   });
 
-  var event = new TransitionEvent(type);
+  var event = new WheelEvent(type);
   x.dispatchEvent(event);
 }

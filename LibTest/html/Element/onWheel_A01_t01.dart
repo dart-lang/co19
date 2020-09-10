@@ -4,25 +4,24 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion const mouseWheelEvent
- * Static factory designed to expose mousewheel events to event handlers
- * that are not necessarily instances of Element.
+ * @assertion ElementStream<WheelEvent> get onWheel
+ * Stream of wheel events handled by this Element.
  * @description Checks that correct events are delivered via the stream
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  var type = 'mousewheel';
+  var type = 'wheel';
   var x = document.body;
   if (x != null) {
     asyncStart();
-    Element.mouseWheelEvent.forElement(x).listen((e) {
+    x.onWheel.listen((e) {
       Expect.equals(type, e.type);
       asyncEnd();
     });
 
-    var event = new MouseEvent(type);
+    var event = new WheelEvent(type);
     x.dispatchEvent(event);
   } else {
     Expect.fail("Body is null");

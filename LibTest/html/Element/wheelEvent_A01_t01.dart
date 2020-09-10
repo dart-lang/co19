@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion const transitionEndEvent
- * Static factory designed to expose transitionend events to event handlers
+ * @assertion const wheelEvent
+ * Static factory designed to expose mouse wheel events to event handlers
  * that are not necessarily instances of Element.
  * @description Checks that correct events are delivered via the stream
  */
@@ -13,16 +13,16 @@ import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  var type = 'transitionend';
+  var type = 'wheel';
   var x = document.body;
   if (x != null) {
     asyncStart();
-    Element.transitionEndEvent.forElement(x).listen((e) {
+    Element.wheelEvent.forElement(x).listen((e) {
       Expect.equals(type, e.type);
       asyncEnd();
     });
 
-    var event = new TransitionEvent(type);
+    var event = new WheelEvent(type);
     x.dispatchEvent(event);
   } else {
     Expect.fail("Body is null");

@@ -19,7 +19,6 @@ main() {
   document.body?.append(new Text(text));
   bool res1 = window.find(text, false, false, false, false, false, false);
   bool res2 = window.find(text, false, false, false, false, false, false);
-  print("res1=$res1 res2=$res2");
-  Expect.isTrue(res1, "text not found");
-  Expect.isTrue(res2, "second time text not found");
+  Expect.isTrue(res1, "Text not found");
+  Expect.isFalse(res2, "Text found");
 }

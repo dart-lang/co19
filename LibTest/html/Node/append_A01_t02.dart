@@ -6,13 +6,14 @@
 /**
  * @assertion Node append(Node newChild)
  * Adds a node to the end of the child nodes list of this node.
- * @description Checks expected lastChild after document.body.append(DocumentFragment)
+ * @description Checks expected lastChild after
+ * document.body.append(DivElement)
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
-  Node x = new DocumentFragment();
+  Node x = new DivElement();
   document.body?.append(x);
   Expect.equals(document.body, x.parentNode, "after append $x");
 }
