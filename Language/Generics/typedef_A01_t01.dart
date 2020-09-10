@@ -38,6 +38,6 @@ main() {
   CAlias<int> ca2 = new CAlias<int>();
   Expect.isTrue(ca2 is C<int>);
 
-  DAlias da1 = new DAlias();
+  DAlias da = new DAlias();
   Expect.isTrue(da is D<num, String>);
 }
