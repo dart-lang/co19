@@ -18,5 +18,8 @@ import 'instance_of_type_lib.dart' as lib;
 
 main() {
   dynamic o = new lib.C();
-  Expect.throws(() {o.runtimeType.sg;}, (e) => e is NoSuchMethodError);
+  dynamic t = o.runtimeType;
+  Expect.throws(() {
+    t.sg;
+  }, (e) => e is NoSuchMethodError);
 }
