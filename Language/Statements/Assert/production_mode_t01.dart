@@ -10,7 +10,6 @@
  * disabled.
  * @author vasya
  */
-// SharedOptions=--enable-asserts=false
 
 import '../../../Utils/expect.dart';
 
@@ -20,5 +19,7 @@ bool check() {
 }
 
 main() {
-  assert(check());
+  if (!assertStatementsEnabled()) {
+    assert(check());
+  }
 }

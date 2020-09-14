@@ -19,8 +19,6 @@
  * @author rodionov
  */
 
-import '../../../Utils/dynamic_check.dart';
-
 main() {
   assert(null);
 }
