@@ -13,7 +13,7 @@
  * @description Checks that searchInFrames parameter works.
  * @issue 43351
  */
-// OtherResources=../IframeElement/iframe.html
+// OtherResources=iframe.html
 import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 import "../testcommon.dart";
