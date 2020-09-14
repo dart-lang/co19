@@ -8,6 +8,7 @@
  * Stream of load events handled by this Element.
  * @description Checks that correct events are delivered via the stream
  */
+// OtherResources=iframe.html
 import "dart:html";
 import "../../../Utils/expect.dart";
 

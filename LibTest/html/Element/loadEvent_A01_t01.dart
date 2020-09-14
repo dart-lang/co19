@@ -9,6 +9,7 @@
  * that are not necessarily instances of Element.
  * @description Checks that correct events are delivered via the stream
  */
+// OtherResources=dart-logo.png
 import "dart:html";
 import "../../../Utils/expect.dart";
 
@@ -16,8 +17,7 @@ main() {
   var type = 'load';
   var x = document.body;
   if (x != null) {
-    x.innerHtml =
-    '<img src="/root_dart/tests/co19/src/LibTest/html/Element/dart-logo.png">';
+    x.innerHtml = '<img src="dart-logo.png">';
 
     asyncStart();
     Element.loadEvent.forElement(x.firstChild as Element).listen((e) {

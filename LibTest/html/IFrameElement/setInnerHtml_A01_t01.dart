@@ -15,6 +15,7 @@
  * unknown elements and attributes are removed from provided html.
  * @issue #17456
  */
+// OtherResources=iframe.html
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../testcommon.dart";

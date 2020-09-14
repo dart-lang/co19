@@ -12,6 +12,7 @@
  * @description Checks that for IframeElement all queries return null
  * @issue #17456: all queries return null
  */
+// OtherResources=iframe.html
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../testcommon.dart";

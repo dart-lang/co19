@@ -8,6 +8,7 @@
  * Stream of load events handled by this Element.
  * @description Checks that correct events are delivered via the stream
  */
+// OtherResources=dart-logo.png
 import "dart:html";
 import "../../../Utils/expect.dart";
 
@@ -15,8 +16,7 @@ main() {
   var type = 'load';
   dynamic x = document.body;
   if (x != null) {
-    x.innerHtml =
-    '<img src="pixel.png">';
+    x.innerHtml = '<img src="dart-logo.png">';
 
     asyncStart();
     x.firstChild.onLoad.listen((e) {
