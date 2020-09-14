@@ -12,17 +12,17 @@
 
 class C<X> {
   void instanceMethod(X val) {}
-  void instanceMethodPos(X val, [X pos]) {}
-  void instanceMethodNam(X val, {X nam}) {}
+  void instanceMethodPos(X val, [X? pos]) {}
+  void instanceMethodNam(X val, {X? nam}) {}
 }
 
 void foo<X>(X x) {}
 
-void positional1<X>(X d1, [X d2]) {}
-void positional2<X>(dynamic x1, [X d2]) {}
+void positional1<X>(X d1, [X? d2]) {}
+void positional2<X>(dynamic x1, [X? d2]) {}
 
-void named1<X>(X d1, {X d2}) {}
-void named2<X>(dynamic x1, {X d2}) {}
+void named1<X>(X d1, {X? d2}) {}
+void named2<X>(dynamic x1, {X? d2}) {}
 
 main() {
   C<double> c = C<double>();
@@ -103,8 +103,8 @@ main() {
   named2<double>(42, d2: null ?? 0x42);
 
   void bar<X>(X x) {}
-  void barPos<X>(X x, [X d2]) {}
-  void barNam<X>(X x, {X d2}) {}
+  void barPos<X>(X x, [X? d2]) {}
+  void barNam<X>(X x, {X? d2}) {}
 
   bar<double>(42);
   bar<double>(1 > 0 ? 42 : 3.14);

@@ -13,7 +13,6 @@
  * value of a double valued integer literal with binary representation of 54 bit
  * length can not be represented exactly as an IEEE 754 double-precision value
  * (the most significant bit is 1 and the low bit is 1).
- * @compile-error
  * @author ngl@unipro.ru
  */
 

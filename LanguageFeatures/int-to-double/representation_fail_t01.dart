@@ -14,7 +14,6 @@
  * IEEE 754 double-precision value. The unbounded integer 18446744073709551616
  * has the exact double value represented as 0x43F0000000000000, and the integer
  * 18446744073709551615 hasn't the exact double value representation.
- * @compile-error
  * @author ngl@unipro.ru
  */
 

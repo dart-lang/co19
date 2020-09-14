@@ -12,7 +12,6 @@
  * @description Checks that it is a compile-time error if the unbounded integer
  * value of a double valued integer literal cannot be represented exactly as an
  * IEEE 754 double-precision value.
- * @compile-error
  * @author ngl@unipro.ru
  */
 

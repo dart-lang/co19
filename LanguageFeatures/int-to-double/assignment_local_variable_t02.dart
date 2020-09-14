@@ -8,12 +8,13 @@
  * @description Checks that the static type of a double valued integer literal
  * is [double]. Test local variable assignment and hexadecimal literals
  * @author sgrekhov@unipro.ru
+ * @static-warning
  */
 
 class C {
 
   static void staticMethod() {
-    double s1 = 0x42;
+    double? s1 = 0x42;
     double s2 = (1 > 0 ? 0x42 : 3.14);
     double s3 = (null ?? 0x42);
     const double s4 = -0x42;
@@ -26,7 +27,7 @@ class C {
   }
 
   void instanceMethod() {
-    double m1 = 0x42;
+    double? m1 = 0x42;
     double m2 = (1 > 0 ? 0x42 : 3.14);
     double m3 = (null ?? 0x42);
     const double m4 = -0x42;
@@ -40,7 +41,7 @@ class C {
 }
 
 void foo() {
-  double l1 = 0x42;
+  double? l1 = 0x42;
   double l2 = (1 > 0 ? 0x42 : 3.14);
   double l3 = (null ?? 0x42);
   const double l4 = -0x42;
@@ -54,7 +55,7 @@ void foo() {
 }
 
 main() {
-  double d1 = 0x42;
+  double? d1 = 0x42;
   double d2 = (1 > 0 ? 0x42 : 3.14);
   double d3 = (null ?? 0x42);
   const double d4 = -0x42;
@@ -70,7 +71,7 @@ main() {
   new C().instanceMethod();
 
   void bar() {
-    double b1 = 0x42;
+    double? b1 = 0x42;
     double b2 = (1 > 0 ? 0x42 : 3.14);
     double b3 = (null ?? 0x42);
     const double b4 = -0x42;

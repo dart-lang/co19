@@ -11,7 +11,7 @@
  */
 
 class C {
-  double m1;
+  double? m1;
 
   void set instanceSetter(double val) {
     m1 = val;

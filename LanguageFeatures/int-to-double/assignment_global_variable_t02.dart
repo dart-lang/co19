@@ -9,7 +9,7 @@
  * is [double]. Test global variable assignment and hexadecimal values
  * @author sgrekhov@unipro.ru
  */
-double g1 = 0x42;
+double? g1 = 0x42;
 double g2 = (1 > 0 ? 0x42 : 3.14);
 double g3 = (null ?? 0x42);
 const double g4 = -0x42;

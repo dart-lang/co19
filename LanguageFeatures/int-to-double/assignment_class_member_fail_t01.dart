@@ -7,14 +7,13 @@
  * @assertion The static type of a double valued integer literal is [double]
  * @description Checks that it is a compile error if integer but not a literal
  * is assigned to a class member
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 int foo() => 42;
 
 class C {
-  double m;
-  static double s;
+  double m = 0;
+  static double s = 0;
 
   void set instanceSetter(double val) {
     m = val;
@@ -33,7 +32,7 @@ main() {
   C.staticSetter = foo();       //# 05: compile-time error
   C?.staticSetter = foo();      //# 06: compile-time error
 
-  C c = null;
+  C? c = null;
   c?.m1 = foo();                //# 07: compile-time error
   c?.instanceSetter = foo();    //# 08: compile-time error
   c = new C();

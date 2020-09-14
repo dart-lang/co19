@@ -12,21 +12,21 @@
 
 class C {
   static void staticMethod(double val) {}
-  static void staticMethodPos(double val, [double pos]) {}
-  static void staticMethodNam(double val, {double nam}) {}
+  static void staticMethodPos(double val, [double pos = 0]) {}
+  static void staticMethodNam(double val, {double nam = 0}) {}
 
   void instanceMethod(double val) {}
-  void instanceMethodPos(double val, [double pos]) {}
-  void instanceMethodNam(double val, {double nam}) {}
+  void instanceMethodPos(double val, [double pos = 0]) {}
+  void instanceMethodNam(double val, {double nam = 0}) {}
 }
 
 void foo(double x) {}
 
-void positional1(double d1, [double d2]) {}
-void positional2(dynamic x1, [double d2]) {}
+void positional1(double d1, [double d2 = 0]) {}
+void positional2(dynamic x1, [double d2 = 0]) {}
 
-void named1(double d1, {double d2}) {}
-void named2(dynamic x1, {double d2}) {}
+void named1(double d1, {double d2 = 0}) {}
+void named2(dynamic x1, {double d2 = 0}) {}
 
 main() {
   C.staticMethod(42);
@@ -138,8 +138,8 @@ main() {
   named2(42, d2: null ?? 0x42);
 
   void bar(double x) {}
-  void barPos(double x, [double d2]) {}
-  void barNam(double x, {double d2}) {}
+  void barPos(double x, [double d2 = 0]) {}
+  void barNam(double x, {double d2 = 0}) {}
 
   bar(42);
   bar(1 > 0 ? 42 : 3.14);

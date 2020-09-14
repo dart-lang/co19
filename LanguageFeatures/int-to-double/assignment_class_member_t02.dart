@@ -8,6 +8,7 @@
  * @description Checks that the static type of a double valued integer literal
  * is [double]. Test class member assignment and hexadecimal values
  * @author sgrekhov@unipro.ru
+ * @static-warning
  */
 
 
@@ -37,7 +38,7 @@ main() {
   C.staticSetter = -0x42;
   C?.staticSetter = 0x42;
 
-  C c = null;
+  C? c = null;
   c?.m1 = 0x42;
   c?.instanceSetter = -0x42;
   c?.m1 ??= 0x42;

@@ -9,7 +9,7 @@
  * is [double]. Test global variable assignment
  * @author sgrekhov@unipro.ru
  */
-double g1 = 42;
+double? g1 = 42;
 double g2 = (1 > 0 ? 42 : 3.14);
 double g3 = (null ?? 42);
 const double g4 = -42;
