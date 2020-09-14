@@ -19,7 +19,7 @@ bool check() {
 }
 
 main() {
-  if (!assertStatementsEnabled()) {
+  if (!assertStatementsEnabled) {
     assert(check());
   }
 }
