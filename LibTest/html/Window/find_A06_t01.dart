@@ -13,7 +13,7 @@
  * @description Checks that searchInFrames parameter works.
  * @issue 43351
  */
-// OtherResources=iframe.html
+// OtherResources=../IframeElement/iframe.html
 import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 import "../testcommon.dart";
@@ -21,7 +21,7 @@ import "../testcommon.dart";
 main() {
   var text = 'Content';
   var x = Element.html(
-      '<iframe src="../iframe.html"></iframe>',
+      '<iframe src="iframe.html"></iframe>',
       treeSanitizer: new NullTreeSanitizer());
   document.body?.append(x);
 
