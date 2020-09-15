@@ -23,11 +23,12 @@ import "../../Utils/expect.dart";
 class C<X> {
   test(X x) {
     var v = {x, 1, 2};
-    Expect.isTrue(v is Set<Object>);
-    Expect.isFalse(v is Set<int>);
+    Expect.isTrue(v is Set<Object?>);
+    Expect.isFalse(v is Set<int?>);
   }
 }
 
 main() {
-  C<int>().test(42);
+  C<int?>().test(42);
+  C<int?>().test(null);
 }

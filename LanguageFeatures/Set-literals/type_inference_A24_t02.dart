@@ -23,11 +23,12 @@ import "../../Utils/expect.dart";
 class C<K, V extends num> {
   test(K k, V v) {
     var m = {k: v, 1: 2};
-    Expect.isTrue(m is Map<Object, num>);
-    Expect.isFalse(m is Map<Object, int>);
+    Expect.isTrue(m is Map<Object?, num>);
+    Expect.isFalse(m is Map<Object?, int>);
+    Expect.isFalse(m is Map<int?, num>);
   }
 }
 
 main() {
-  C<int, int>().test(3, 4);
+  C<int?, int>().test(3, 4);
 }
