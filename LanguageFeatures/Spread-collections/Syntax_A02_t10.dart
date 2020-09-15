@@ -41,8 +41,8 @@
 import "../../Utils/expect.dart";
 
 main() {
-  List list1 = null;
-  List set = null;
+  List? list1 = null;
+  List? set = null;
 
   Set a;
 

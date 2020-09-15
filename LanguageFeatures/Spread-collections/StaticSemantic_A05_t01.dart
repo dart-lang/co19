@@ -15,7 +15,7 @@
 import "dart:collection";
 
 class MyIterable<T> extends IterableBase<T> {
-  MyIterator<T> iterator;
+  late MyIterator<T> iterator;
   MyIterable() { iterator = new MyIterator(); }
   Iterator getIterator<T>() { return iterator; }
 }
@@ -25,12 +25,16 @@ class MyIterator<T> extends Iterator<T> {
   bool moveNext() { return false; }
 
   @override
-  T get current { return null; }
+  T get current => throw "Should not reach here!";
 }
 
 main() {
+  test1();
+  test2();
+}
 
-  List<Object> l1  = <Object> [];
+void test1() {
+  List l1  = <Object> [];
   List<bool> l2  = <bool>[true, false, true, true];
   List<String> l3  = <String>[];
   List<String> l4  = <String>["1", "2"];
@@ -47,6 +51,17 @@ main() {
 
   List list16 = <String>[...i1];
   List list17 = <String>[...i2];
+}
+
+void test2() {
+  List? l1  = <Object> [];
+  List<bool>? l2  = <bool>[true, false, true, true];
+  List<String>? l3  = <String>[];
+  List<String>? l4  = <String>["1", "2"];
+  List? l5 = <Object>["1", "2"];
+
+  Iterable<String>? i1 = new MyIterable<String>();
+  Iterable? i2 = new MyIterable<Object>();
 
   List list8 = <String>[...?l1];
   List list9 = <Object>[...?l2];
@@ -56,5 +71,4 @@ main() {
 
   List list13 = <String>[...?i1];
   List list14 = <String>[...?i2];
-
 }

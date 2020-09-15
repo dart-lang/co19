@@ -16,9 +16,9 @@ import "dart:async";
 
 main() {
   dynamic x1;
-  List x2;
-  Set x3;
-  Iterable x4;
+  List? x2;
+  Set? x3;
+  Iterable? x4;
   Null x5;
 
   Set s1  = {...?x1};

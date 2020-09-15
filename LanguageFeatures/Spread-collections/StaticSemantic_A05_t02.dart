@@ -15,7 +15,7 @@
 import "dart:collection";
 
 class MyIterable<T> extends IterableBase<T> {
-  MyIterator<T> iterator;
+  late MyIterator<T> iterator;
   MyIterable() { iterator = new MyIterator(); }
   Iterator getIterator<T>() { return iterator; }
 }
@@ -25,10 +25,15 @@ class MyIterator<T> extends Iterator<T> {
   bool moveNext() { return false; }
 
   @override
-  T get current { return null; }
+  T get current => throw "Should not reach here!";
 }
 
 main() {
+  test1();
+  test2();
+}
+
+void test1() {
   List<int> l1  = <int>[1, 2, 3];
   List<bool> l2  = <bool>[true, false, true, true];
   List<int> l3  = <int>[];
@@ -43,6 +48,16 @@ main() {
   List list4  = <String>[...l4];  //# 04: compile-time error
   List list5  = <String>[...i1];  //# 05: compile-time error
   List list6  = <String>[...i2];  //# 06: compile-time error
+}
+
+void test2() {
+  List<int>? l1  = <int>[1, 2, 3];
+  List<bool>? l2  = <bool>[true, false, true, true];
+  List<int>? l3  = <int>[];
+  List<bool>? l4  = <bool>[];
+
+  Iterable<int>? i1 = new MyIterable<int>();
+  Iterable<bool>? i2 = new MyIterable<bool>();
 
   List list7  = <String>[...?l1]; //# 07: compile-time error
   List list8  = <String>[...?l2]; //# 08: compile-time error

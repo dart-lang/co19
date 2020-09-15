@@ -16,9 +16,9 @@ import "../../Utils/expect.dart";
 
 main() {
   dynamic x1;
-  List x2;
-  Set x3;
-  Iterable x4;
+  List? x2;
+  Set? x3;
+  Iterable? x4;
 
   Set res;
 

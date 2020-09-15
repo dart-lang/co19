@@ -35,8 +35,8 @@
 
 main() {
   List list1 = ["abc", "int", "hello"];
-  List list2;
-  int i;
+  List list2 = [];
+  int i = 0;
 
   List a = const [...list2];                                       //# 01: compile-time error
   a = const ["testme", ...list2];                                  //# 02: compile-time error

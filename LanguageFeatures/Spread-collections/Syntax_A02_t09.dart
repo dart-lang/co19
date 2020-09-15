@@ -40,9 +40,10 @@
 
 import "../../Utils/expect.dart";
 
+Map map1 = {1: 1, 2: 4, 3: 6};
+late Map map2;
+
 main() {
-  Map map1 = {1: 1, 2: 4, 3: 6};
-  Map map2;
   Map a;
 
   Expect.throws(() => a = {...map2});

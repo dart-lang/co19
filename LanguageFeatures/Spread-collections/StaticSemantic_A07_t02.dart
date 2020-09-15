@@ -14,6 +14,11 @@
  */
 
 main() {
+  test1();
+  test2();
+}
+
+void test1() {
   Map<String, int> m1 = <String, int>{};
   Map<int, int> m2 = <int, int>{};
   Map<String, String> m3 = <String, String>{};
@@ -31,6 +36,17 @@ main() {
   Map map6  = <int, String>{...m6};  //# 06: compile-time error
   Map map7  = <int, String>{...m7};  //# 07: compile-time error
   Map map8  = <int, String>{...m8};  //# 08: compile-time error
+}
+
+void test2() {
+  Map<String, int>? m1 = <String, int>{};
+  Map<int, int>? m2 = <int, int>{};
+  Map<String, String>? m3 = <String, String>{};
+  Map<bool, bool>? m4 = <bool, bool>{};
+  Map<bool, bool>? m5 = <bool, bool>{true: false, false: true};
+  Map<String, int>? m6 = <String, int>{"1": 11};
+  Map<int, int>? m7 = <int, int>{1: 22, 2: 13, 3: 4};
+  Map<String, String>? m8 = <String, String>{"1": "22", "2": "13", "3": "4"};
 
   Map map9  = <int, String>{...?m1}; //# 09: compile-time error
   Map map10 = <int, String>{...?m2}; //# 10: compile-time error

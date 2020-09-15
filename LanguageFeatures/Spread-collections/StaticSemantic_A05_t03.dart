@@ -15,8 +15,8 @@
 import "dart:collection";
 
 class MyIterable<T> extends IterableBase<T> {
-  MyIterator<T> iterator;
-  MyIterable() { iterator = new MyIterator(); }
+  late MyIterator<T> iterator;
+  MyIterable() { iterator = MyIterator(); }
   Iterator getIterator<T>() { return iterator; }
 }
 
@@ -25,7 +25,7 @@ class MyIterator<T> extends Iterator<T> {
   bool moveNext() { return false; }
 
   @override
-  T get current { return null; }
+  T get current => throw "Should not reach here!";
 }
 
 main() {
@@ -45,18 +45,18 @@ main() {
   Iterable<bool> i3 = new MyIterable<bool>();
   Iterable i4 = new MyIterable<Object>();
 
-  Set list1 = <String>{...l1};
-  Set list2 = <String>{...l2}; //# 01: compile-time error
+  Set list1 = <String>{...l1}; //# 01: compile-time error
+  Set list2 = <String>{...l2}; //# 02: compile-time error
   Set list3 = <Object>{...l3};
-  Set list4 = <String>{...l4}; //# 02: compile-time error
-  Set list5 = <String>{...l5}; //# 03: compile-time error
-  Set list6 = <String>{...l6}; //# 04: compile-time error
+  Set list4 = <String>{...l4}; //# 03: compile-time error
+  Set list5 = <String>{...l5}; //# 04: compile-time error
+  Set list6 = <String>{...l6}; //# 05: compile-time error
   Set list7 = <String>{...l7};
   Set list8 = <String>{...l8};
-  Set list9 = <String>{...l9};
+  Set list9 = <String>{...l9};  //# 06: compile-time error
 
-  Set list11 = <String>{...i1}; //# 05: compile-time error
+  Set list11 = <String>{...i1}; //# 07: compile-time error
   Set list12 = <String>{...i2};
-  Set list13 = <String>{...i3}; //# 06: compile-time error
+  Set list13 = <String>{...i3}; //# 08: compile-time error
   Set list14 = <String>{...i4};
 }

@@ -35,7 +35,7 @@
 import "../../Utils/expect.dart";
 
 main() {
-  List list1 = null;
+  List? list1 = null;
   List list2 = [14, 18, 99];
   List list3 = [0, 2, 4, 6, 8];
 

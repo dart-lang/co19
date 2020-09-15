@@ -24,10 +24,10 @@ class MyIterator extends Iterator {
   MyIterator() {}
 
   @override
-  bool moveNext() { return ++i < 10; }
+  bool moveNext() => ++i < 10;
 
   @override
-  dynamic get current { return i; }
+  dynamic get current => i;
 }
 
 main() {
@@ -35,11 +35,15 @@ main() {
   List list = [null, 14, "testme"];
   Iterable i = new MyIterable();
 
-  Set set1 = {...set};
-  Set set2 = {...list};
-  Set set3 = {...i};
+  Set s1 = {...set};
+  Set s2 = {...list};
+  Set s3 = {...i};
 
-  Set set4 = {...?set};
-  Set set5 = {...?list};
-  Set set6 = {...?i};
+  Set? set1 = {1, 2, 3};
+  List? list1 = [null, 14, "testme"];
+  Iterable? i1 = new MyIterable();
+
+  Set s4 = {...?set1};
+  Set s5 = {...?list1};
+  Set s6 = {...?i1};
 }

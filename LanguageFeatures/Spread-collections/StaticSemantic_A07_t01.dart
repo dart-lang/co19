@@ -14,7 +14,11 @@
  */
 
 main() {
+  test1();
+  test2();
+}
 
+void test1() {
   Map m1 = <Object, Object> {};
   Map<int, String> m2 = <int, String>{};
   Map m3 = <Object, Object> {1: "1", 2: "2"};
@@ -24,6 +28,13 @@ main() {
   Map map2 = <int, String>{...m2};
   Map map3 = <int, String>{...m3};
   Map map4 = <int, String>{...m4};
+}
+
+void test2() {
+  Map? m1 = <Object, Object> {};
+  Map<int, String>? m2 = <int, String>{};
+  Map? m3 = <Object, Object> {1: "1", 2: "2"};
+  Map<int, String>? m4 = <int, String>{1: "11"};
 
   Map map5 = <int, String>{...?m1};
   Map map6 = <int, String>{...?m2};

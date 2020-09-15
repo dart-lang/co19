@@ -38,10 +38,11 @@
  * @author iarkh@unipro.ru
  */
 
+late Map map2;
+
 main() {
   Map map1 = {1: 1, 2: 4, 3: 6};
-  Map map2;
-  int i;
+  int i = 0;
 
   Map a;
   a = const {...map2};          //# 01: compile-time error

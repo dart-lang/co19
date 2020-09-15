@@ -15,11 +15,11 @@
 import "dart:async";
 
 main() {
-  Object x1;
-  Map x2;
-  int x3;
+  Object? x1;
+  Map? x2;
+  int? x3;
   void x4;
-  Future x5;
+  Future? x5;
   FutureOr x6;
 
   Set s1 = {...?x1}; //# 01: compile-time error

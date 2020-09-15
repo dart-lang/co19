@@ -14,15 +14,15 @@
 import "dart:async";
 
 main() {
-  Object x1;
-  List x2;
-  Set x3;
-  int x4;
-  Iterable x5;
-  Null x6;
+  Object x1 = Object();
+  List x2 = [];
+  Set x3 = {1};
+  int x4 = 0;
+  late Iterable x5;
+  Null x6 = null;
   void x7;
   Future x8;
-  FutureOr x9;
+  FutureOr x9 = 4;
 
   Map m1 = {...x1}; //# 01: compile-time error
   Map m2 = {...x2}; //# 02: compile-time error

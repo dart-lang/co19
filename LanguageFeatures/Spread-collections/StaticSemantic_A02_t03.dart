@@ -18,7 +18,9 @@ main() {
   List l2 = [1, 2, ...i];      //# 02: compile-time error
   List l3 = [14, ...str, 28];  //# 03: compile-time error
 
-  List l4 = [...?{1: 11}];     //# 04: compile-time error
-  List l5 = [1, 2, ...?i];     //# 05: compile-time error
-  List l6 = [14, ...?str, 28]; //# 06: compile-time error
+  int? i1 = i;
+  String? str1 = str;
+  List l4 = [...?({1: 11} as Map?)]; //# 04: compile-time error
+  List l5 = [1, 2, ...?i1];          //# 05: compile-time error
+  List l6 = [14, ...?str1, 28];      //# 06: compile-time error
 }

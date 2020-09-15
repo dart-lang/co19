@@ -15,13 +15,13 @@
 import "dart:async";
 
 main() {
-  Object x1;
-  Map x2;
-  int x3;
-  Null x4;
-  void x5;
-  Future x6;
-  FutureOr x7;
+  Object x1 = Object();
+  Map x2 = {};
+  int x3 = 0;
+  void x4;
+  FutureOr x5 = 0;
+  Null x6 = null;
+  Future x7;
 
   List l1 = [...x1]; //# 01: compile-time error
   List l2 = [...x2]; //# 02: compile-time error

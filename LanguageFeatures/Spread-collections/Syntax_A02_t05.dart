@@ -38,11 +38,12 @@
  * @author iarkh@unipro.ru
  */
 
+late Set set2;
+
 main() {
   Set set1 = {"abc", "int", "hello"};
-  List list;
-  Set set2;
-  int i;
+  List list = [];
+  int i = 0;
 
   List a;
   a = const {...set2};                                            //# 01: compile-time error

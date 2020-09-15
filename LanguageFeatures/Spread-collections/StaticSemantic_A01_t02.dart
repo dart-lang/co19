@@ -15,13 +15,53 @@
  * right type even though the list that contains them does not. As long as the
  * spread object is "spreadable" — it implements [Iterable] — there is no
  * static error.
+ * @note That's an error with null-safety to assign List<num> to List<int>, see
+ * https://github.com/dart-lang/language/blob/471a98ca0dd5b02d194ffad0dc128065771253a0/specification/dartLangSpec.tex#L8245,
+ * because `num` isn't assignable to `int`.
  * @description Checks that static error is thrown if spread element and
  * list type arguments are incompatible.
- * @compile-error
+ *
  * @author iarkh@unipro.ru
  */
 
 main() {
-  List<num> numbers = <num>[1, 2, 3];
-  List<String> list = <String>[...numbers];
- }
+  var numbers = <num>[1, 2, 3];
+  <int>[...numbers];
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var objects = <Object?>[2, 7, 9];
+  <int>[...objects];
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  <String>[...objects];
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var numbers1 = <num>[1.1, 2, 3];
+  <int>[...numbers1];
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  List<num>? numbers2 = <num>[1, 2, 3];
+  <int>[...?numbers2];
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  List<Object>? objects2 = <Object>[2, 7, 9];
+  <int>[...?objects2];
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  <String>[...numbers];
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}

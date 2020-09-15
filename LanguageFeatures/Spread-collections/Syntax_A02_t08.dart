@@ -40,11 +40,11 @@
 
 import "../../Utils/expect.dart";
 
-main() {
-  Set set;
-  List list;
-  List list1 =[1, 2, 3];
+late Set set;
+late List list;
+List list1 = [1, 2, 3];
 
+main() {
   Set a;
   Expect.throws(() => a = {...set});
   Expect.throws(() => a = {"testme", ...set});

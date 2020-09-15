@@ -35,12 +35,12 @@
 
 import "../../Utils/expect.dart";
 
+late List list1;
+late List list2 = [1, 2, 12];
+
+late List a;
+
 main() {
-  List list1;
-  List list2 = [1, 2, 12];
-
-  List a;
-
   Expect.throws(() => a = [...list1]);
   Expect.throws(() => a = ["testme", ...list1]);
   Expect.throws(() => a = [...list1, "testme"]);

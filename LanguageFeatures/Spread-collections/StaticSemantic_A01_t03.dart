@@ -15,6 +15,10 @@
  * right type even though the list that contains them does not. As long as the
  * spread object is "spreadable" — it implements [Iterable] — there is no
  * static error.
+ * @note That's an error with null-safety to assign Set<num> to Set<int>, see
+ * https://github.com/dart-lang/language/blob/471a98ca0dd5b02d194ffad0dc128065771253a0/specification/dartLangSpec.tex#L8245,
+ * because `num` isn't assignable to `int`.
+
  * @description Checks that for sets it's possible to have the spread
  * expression which is not assignable to the result collection type, no static
  * error in this case.
@@ -24,27 +28,20 @@
 import "../../Utils/expect.dart";
 
 main() {
-  var numbers = <num>[1, 2, 3];
+  var numbers = <dynamic>[1, 2, 3];
   Expect.setEquals(<int>{1, 2, 3}, <int>{...numbers});
 
-  var objects = <Object>[2, 7, 9];
-  Expect.setEquals(<int>{2, 7, 9}, <int>{...objects});
-
   var a;
-  Expect.throws(() => a = <String>{...objects});
+  Expect.throws(() => a = <String>{...numbers});
 
-  var numbers1 = <num>[1.1, 2, 3];
+  var numbers1 = <dynamic>[1.1, 2, 3];
   Expect.throws(() => a = <int>{...numbers1});
 
+  List<dynamic>? numbers2 = <dynamic>[1, 2, 3];
+  Expect.setEquals(<int>{1, 2, 3}, <int>{...?numbers2});
 
-  numbers = <num>[1, 2, 3];
-  Expect.setEquals(<int>{1, 2, 3}, <int>{...?numbers});
+  Expect.throws(() => a = <String>{...?numbers2});
 
-  objects = <Object>[2, 7, 9];
-  Expect.setEquals(<int>{2, 7, 9}, <int>{...?objects});
-
-  Expect.throws(() => a = <String>{...?objects});
-
-  numbers1 = <num>[1.1, 2, 3];
-  Expect.throws(() => a = <int>{...?numbers1});
+  List<dynamic>? numbers3 = [1.1, 2, 3];
+  Expect.throws(() => a = <int>{...?numbers3});
 }

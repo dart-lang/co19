@@ -14,7 +14,7 @@
 
 main() {
   dynamic x1;
-  Map x2;
+  Map? x2;
   Null x3;
 
   Map m1  = {...?x1};
