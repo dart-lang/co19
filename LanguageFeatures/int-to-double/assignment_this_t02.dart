@@ -7,7 +7,9 @@
  * @assertion The static type of a double valued integer literal is [double]
  * @description Checks that the static type of a double valued integer literal
  * is [double]. Test this assignment expression and hexadecimal values
+ * @static-warning
  * @author sgrekhov@unipro.ru
+ * @issue 43461
  */
 
 class C {
