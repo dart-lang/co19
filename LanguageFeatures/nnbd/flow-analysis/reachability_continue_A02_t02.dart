@@ -24,6 +24,7 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
+import "../../../Utils/expect.dart";
 
 main() {
   late int i;
@@ -33,11 +34,15 @@ main() {
     int k = 0;
     while (k++ < 3) {
       continue outerLoop;
-      i = 42; // Variable is initialized in a dead code. This leaves it definitely unassigned
+      i = 42; // Variable is initialized in a dead code
     }
   }
-  i; // It is an error to read a local late variable when it is definitely unassigned.
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  try {
+    // 'i' is treated here by flow analysis as possibly assigned, so it is a
+    // runtime (not a compile time) error to read it
+    i;
+    Expect.fail("LateInitializationError expected");
+  } on LateInitializationError {
+    // Ok, expected
+  }
 }
