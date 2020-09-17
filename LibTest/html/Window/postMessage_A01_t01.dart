@@ -16,9 +16,10 @@ const text = "Hi there!";
 main() {
   asyncStart();
   window.addEventListener("message", (Event event) {
-    print("ev=$event");
-    Expect.equals(text, (event as MessageEvent).data);
-    asyncEnd();
+    if ((event as MessageEvent).data != "dart-main-done") { // filter out test runner messages
+      Expect.equals(text, (event as MessageEvent).data);
+      asyncEnd();
+    }
   });
 
   window.postMessage(text, "*");
