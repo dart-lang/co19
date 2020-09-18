@@ -18,7 +18,7 @@
  * @author sgrekhov@unipro.ru
  */
 
-import '../../../Utils/Expect.dart';
+import '../../../Utils/expect.dart';
 
 main() {
   if (assertStatementsEnabled) {

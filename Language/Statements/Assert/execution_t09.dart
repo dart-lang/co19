@@ -16,7 +16,7 @@
  * @description Checks that an AssertionError is thrown if the assertion fails.
  * @author vasya
  */
-import '../../../Utils/Expect.dart';
+import '../../../Utils/expect.dart';
 
 main() {
   if (assertStatementsEnabled) {
