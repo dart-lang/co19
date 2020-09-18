@@ -15,10 +15,6 @@ main() {
   IFrameElement x = new IFrameElement();
   document.body?.append(x);
 
-  asyncStart();
-  x.onFocus.listen((e) {
-    asyncEnd();
-  });
-
   x.focus();
+  Expect.equals(x, document.activeElement);
 }

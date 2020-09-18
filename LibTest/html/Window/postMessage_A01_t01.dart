@@ -16,8 +16,7 @@ const text = "Hi there!";
 main() {
   asyncStart();
   window.addEventListener("message", (Event event) {
-    if ((event as MessageEvent).data != "dart-main-done") { // filter out test runner messages
-      Expect.equals(text, (event as MessageEvent).data);
+    if ((event as MessageEvent).data == text) {
       asyncEnd();
     }
   });
