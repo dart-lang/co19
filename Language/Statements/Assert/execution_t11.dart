@@ -23,9 +23,15 @@ import '../../../Utils/expect.dart';
 main() {
   if (assertStatementsEnabled) {
     dynamic n = null;
-    Expect.throws(() {
-      assert(n);
-    }, (e) => e is TypeError);
+    if(isStrongMode) {
+      Expect.throws(() {
+        assert(n);
+      }, (e) => e is TypeError);
+    } else {
+      Expect.throws(() {
+        assert(n);
+      }, (e) => e is AssertionError);
+    }
 
     Expect.throws(() {
       assert(false, "Some message");
