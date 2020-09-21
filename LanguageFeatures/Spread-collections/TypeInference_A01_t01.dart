@@ -50,7 +50,7 @@ main() {
 
   List list7 = [123, "123", null, a, ...a_list, ...?b_list, c, b, ...?c_list,
       ...str_list, ...int_list, null, 1499, []];
-  Expect.isTrue(list7 is List<Object>);
+  Expect.isTrue(list7 is List<Object?>);
 
   List list8;
 

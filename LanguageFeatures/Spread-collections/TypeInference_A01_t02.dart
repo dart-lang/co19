@@ -50,7 +50,7 @@ main() {
 
   Set set7 = {123, "123", null, a, ...a_list, ...?b_list, c, b, ...?c_list,
       ...str_list, ...int_list, null, 1499, []};
-  Expect.isTrue(set7 is Set<Object>);
+  Expect.isTrue(set7 is Set<Object?>);
 
   Set set8;
   Expect.throws(() => set8 = <int>{...str_list});

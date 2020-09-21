@@ -55,7 +55,7 @@ main() {
 
   Map map7 = {123: 14, "123": "1", new A1(): null, new A2(): new C1(), ...a_map,
       ...?b_map, 148: new C1(), ...?c_map, ...int_map, 1499: null, -7: []};
-  Expect.isTrue(map7 is Map<Object, Object>);
+  Expect.isTrue(map7 is Map<Object?, Object?>);
 
   Map map8;
   Expect.throws(() => map8 = <int, int>{...str_map});
