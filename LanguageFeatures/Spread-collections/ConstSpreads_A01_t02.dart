@@ -8,14 +8,15 @@
  * time to the series of elements contained in the spread object list.
  * @description Checks that a spread set element expands at compile time to the
  * series of elements contained in the spread object list.
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 
 import "../../Utils/expect.dart";
 
-const List? list1 = [2, 7, 9];
-const List? list2 = ["checkme"];
-const List? list3 = [];
+const List list1 = [2, 7, 9];
+const List list2 = ["checkme"];
+const List list3 = [];
 const List? list4 = null;
 
 main() {

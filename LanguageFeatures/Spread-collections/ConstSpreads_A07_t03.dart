@@ -11,12 +11,13 @@
  *   const another = [1, ...list, 4]; // [1, 2, 3, 4].
  * @description: Checks that spread element in the map can refer to constant
  * collections defined elsewhere
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 
 import "../../Utils/expect.dart";
 
-const Map? map = {2: 20, 3: 30};
+const Map map = {2: 20, 3: 30};
 const Map? map1 = null;
 
 main() {

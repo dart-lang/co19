@@ -7,23 +7,23 @@
  * @assertion It is a compile-time error if:
  * A spread element in a list or set literal has a static type that is not
  * dynamic and not a subtype of Iterable<Object>.
- * @description Checks that compile error is thrown if spread element in the
- * set is not dynamic and is not assignable to [Iterable]
+ * @description Checks that it is no compile error if spread element in the
+ * set is dynamic or assignable to [Iterable]
  * @author iarkh@unipro.ru
  */
 
 import "../../Utils/expect.dart";
 
 main() {
-  dynamic x1;
-  List? x2;
-  Set? x3;
-  Iterable? x4;
+  dynamic x1 = [];
+  List x2 = [];
+  Set x3 = {};
+  Iterable x4 = [];
 
   Set res;
 
-  Expect.throws(() => res = {...x1});
-  Expect.throws(() => res = {...x2});
-  Expect.throws(() => res = {...x3});
-  Expect.throws(() => res = {...x4});
+  res = {...x1};
+  res = {...x2};
+  res = {...x3};
+  res = {...x4};
 }

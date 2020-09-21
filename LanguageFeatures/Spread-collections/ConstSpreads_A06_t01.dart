@@ -7,6 +7,7 @@
  * @assertion This enables in-place literals (which aren't very useful):
  *   const list = [...["why"]];
  * @description Checks that in-place literals are enabled for lists
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 

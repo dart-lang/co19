@@ -7,7 +7,7 @@
  * @assertion It is a compile-time error if:
  * A spread element in a list or set literal has a static type that is not
  * dynamic and not a subtype of Iterable<Object>.
- * @description Checks that compile error is thrown if spread element in the
+ * @description Checks that it is a compile error if spread element in the
  * set is not dynamic and is not assignable to [Iterable]
  * @author iarkh@unipro.ru
  */

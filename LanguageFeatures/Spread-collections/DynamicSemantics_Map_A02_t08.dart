@@ -21,16 +21,17 @@
  *       b. Evaluate [e2] to a value value.
  *       c. Call map[key] = value.
  * @description Checks that final map is correct
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 
 import "dart:collection";
 import "../../Utils/expect.dart";
 
-Map? map1 = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5};
-Map? map2 = {4: 7, 2: 12};
-Map? map3 = map1;
-Map? verylongmap = {1: "test", 2: 248, 14: 10, -7: "-7", 100: 218, 13: -24.11,
+Map map1 = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5};
+Map map2 = {4: 7, 2: 12};
+Map map3 = map1;
+Map verylongmap = {1: "test", 2: 248, 14: 10, -7: "-7", 100: 218, 13: -24.11,
   24: 14, 8: -8, 174: "13", 149: null, "12345": 12345, 27: 37, 222: null,
   -100: "-", 147: "", "": "", 100000: -100, 12456: -11, 23: 23, 25: 25, 17: 27,
   349: 2222222, -12345: "12345", 123: 123, 122: 122, 121: 121, 120: 249,

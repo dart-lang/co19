@@ -21,12 +21,13 @@
  *   // [1, 2, 3, 4].
  * @description Checks that [null] element is allowed inside the spreadable
  * element in the map.
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 
 import "../../Utils/expect.dart";
 
-Map? things = {1: 2, 2: null,  3: 3};
+Map things = {1: 2, 2: null,  3: 3};
 
 main() {
   Map more = {4: 4,  ...things, 5: 10};

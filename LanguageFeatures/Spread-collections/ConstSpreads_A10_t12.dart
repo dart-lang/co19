@@ -12,6 +12,7 @@
  * expression.
  * @description: Checks that constant set spread [...?] element can be constant
  * list or set or [null].
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 

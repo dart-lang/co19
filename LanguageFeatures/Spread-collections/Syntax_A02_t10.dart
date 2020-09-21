@@ -44,23 +44,10 @@ main() {
   List? list1 = null;
   List? set = null;
 
-  Set a;
-
   Expect.setEquals([].toSet(), {...?list1});
-  Expect.throws(() => a = {...list1});
-
   Expect.setEquals({12}, {12, ...?list1});
-  Expect.throws(() => a = {12, ...list1});
-
   Expect.setEquals({...?list1, 12}, {12});
-  Expect.throws(() => a = {...list1, 12});
-
   Expect.setEquals([].toSet(), {...?set});
-  Expect.throws(() => a = {...set});
-
   Expect.setEquals({12}, {12, ...?set});
-  Expect.throws(() => a = {12, ...set});
-
   Expect.setEquals({12}, {...?set, 12});
-  Expect.throws(() => a = {...set, 12});
 }

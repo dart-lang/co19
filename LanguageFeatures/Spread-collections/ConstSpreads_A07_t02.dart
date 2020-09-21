@@ -11,14 +11,15 @@
  *   const another = [1, ...list, 4]; // [1, 2, 3, 4].
  * @description: Checks that spread element in the set can refer to constant
  * collections defined elsewhere
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 
 import "../../Utils/expect.dart";
 
-const List? list  = [2, 3];
+const List list  = [2, 3];
 const List? list1 = null;
-const Set?  set   = {2, 3};
+const Set  set   = {2, 3};
 
 main() {
   const res1 = {1, ...list, 4};

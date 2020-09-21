@@ -10,16 +10,17 @@
  *    ...
  * 3. The result of the literal expression is [list].
  * @description Checks that instance of [List<E>] is created for a list literal
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 
 import "../../Utils/expect.dart";
 
 main() {
-  List? list1 = [1, 2, 3, 4, 5];
-  List? list2 = [];
+  List list1 = [1, 2, 3, 4, 5];
+  List list2 = [];
   List? list3 = null;
-  List? list4 = [1 ,2, 3, "checkme"];
+  List list4 = [1 ,2, 3, "checkme"];
 
   Expect.isTrue(<int>[...list1] is List<int>);
   Expect.isTrue(<int>[1, 2, ...list1] is List<int>);

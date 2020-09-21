@@ -27,7 +27,7 @@
 
 import "../../Utils/expect.dart";
 
-Map? map2 = {};
+Map map2 = {};
 Map? map3 = null;
 Map? map4 = {1: 1, 2: 2, 3: 3, 4: "checkme"};
 

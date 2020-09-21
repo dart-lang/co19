@@ -21,12 +21,13 @@
  *   // [1, 2, 3, 4].
  * @description Checks that [null] element is allowed inside the spreadable
  * element in the list.
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 
 import "../../Utils/expect.dart";
 
-List? things = [2, null, 3];
+List things = [2, null, 3];
 
 main() {
   var more = [1, ...things, 4];

@@ -16,25 +16,20 @@
  *   ...?extraFrontEndOptions,
  *   mainPath
  *   ];
- * @description Checks that exception is thrown if spreadable element in the
+ * @description Checks that acompile error if spreadable element in the
  * [List] is not null-aware and it's [null].
  * @author iarkh@unipro.ru
  */
-
-import "../../Utils/expect.dart";
 
 List getAList(
     String engineDartPath, List? extraFrontEndOptions, String mainPath) {
   return(
       [engineDartPath, "--target=flutter", ...extraFrontEndOptions, mainPath]);
+//                                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  List a;
-
-  Expect.listEquals(
-      ["enginePath", "--target=flutter", "--option1", "--option2", "mainPath"],
-      getAList("enginePath", ["--option1", "--option2"], "mainPath"));
-
-  Expect.throws(() => a = getAList("enginePath", null, "mainPath"));
+  getAList("enginePath", null, "mainPath");
 }

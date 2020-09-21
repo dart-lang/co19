@@ -8,6 +8,7 @@
  * [Iterable<T>] for some [T], then the upwards inference element type is [T].
  * @description Checks that spread element upwards inference element type is [T]
  * in the set literal
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 

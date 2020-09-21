@@ -39,18 +39,10 @@ main() {
   List list2 = [14, 18, 99];
   List list3 = [0, 2, 4, 6, 8];
 
-  List a;
-
   Expect.listEquals([], [...?list1]);
-  Expect.throws(() => a = [...list1]);
-
   Expect.listEquals([12], [12, ...?list1]);
-  Expect.throws(() => a = [12, ...list1]);
-
   Expect.listEquals([12], [...?list1, 12]);
-  Expect.throws(() => a = [...list1, 12]);
 
   Expect.listEquals([14, 18, 99, 0, 2, 4, 6, 8],
       [14, 18, 99, ...?list1, 0, 2, 4, 6, 8]);
-  Expect.throws(() => a = [...list2, ...list1, ...list3]);
 }

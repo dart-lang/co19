@@ -8,6 +8,7 @@
  *
  *   const list = [...["why"]];
  * @description Checks that in-place literals are enabled for sets
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 

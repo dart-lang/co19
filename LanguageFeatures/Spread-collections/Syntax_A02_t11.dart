@@ -37,19 +37,12 @@
  * map
  * @author iarkh@unipro.ru
  */
-
 import "../../Utils/expect.dart";
 
 main() {
   Map? nullMap = null;
-  Map? a = {};
 
   Expect.mapEquals({}, {...?nullMap});
-  Expect.throws(() => a = {...nullMap});
-
   Expect.mapEquals({1: 1}, {1: 1, ...?nullMap});
-  Expect.throws(() => a = {1: 1, ...nullMap});
-
   Expect.mapEquals({1: 1}, {...?nullMap, 1: 1});
-  Expect.throws(() => a = {...nullMap, 1: 1});
 }

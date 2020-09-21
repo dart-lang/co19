@@ -21,7 +21,6 @@
  * because `num` isn't assignable to `int`.
  * @description Checks that static error is thrown if spread element and
  * map type arguments are incompatible.
- * @compile-error
  * @author iarkh@unipro.ru
  */
 

@@ -8,6 +8,7 @@
  * class that implements [Iterable] but isn't even a subtype of List.
  * @description Checks that [Iterable] object can be spread into the spreadable
  * list.
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 
@@ -34,7 +35,7 @@ class MyIterator extends Iterator {
 }
 
 main() {
-  Iterable? iterable = new MyIterable();
+  Iterable iterable = new MyIterable();
   Expect.listEquals(iterable?.toList(), [...iterable]);
   Expect.listEquals(iterable?.toList(), [...?iterable]);
 }

@@ -13,16 +13,17 @@
  *   3. The result of the map literal expression is [map].
  * @description Checks that instance of [LinkedHashMap<K, V>] is created for a
  * map literal
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 
 import "dart:collection";
 import "../../Utils/expect.dart";
 
-Map? map1 = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5};
-Map? map2 = {};
+Map map1 = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5};
+Map map2 = {};
 Map? map3 = null;
-Map? map4 = {1: "a", 2: "2", 3: "three", 4: "checkme"};
+Map map4 = {1: "a", 2: "2", 3: "three", 4: "checkme"};
 
 main() {
   Expect.isTrue(<int, int>{...map1} is LinkedHashMap<int, int>);

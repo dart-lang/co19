@@ -18,15 +18,16 @@
  *           a. Evaluate [set.add(value)].
  * @description Checks that if element is null-aware and it's [null], nothing
  * added to the result set.
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 
 import "../../Utils/expect.dart";
 
-List? list1 = [100, 200, 300, 400, 500];
-List? list2 = [];
+List list1 = [100, 200, 300, 400, 500];
+List list2 = [];
 List? list3 = null;
-List? list4 = [1 ,2, 3, "checkme"];
+List list4 = [1 ,2, 3, "checkme"];
 
 main() {
   Expect.setEquals({}, {...?list3});

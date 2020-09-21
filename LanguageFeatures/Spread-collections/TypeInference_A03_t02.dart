@@ -9,6 +9,7 @@
  * element in that map is [Map<K, V>].
  * @description Checks statically that a spread element inference context type
  * is [K, V] in the map literal
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 

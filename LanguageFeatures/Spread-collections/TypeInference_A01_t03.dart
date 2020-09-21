@@ -9,6 +9,7 @@
  * spread element in that list is [Iterable<T>].
  * @description Checks statically that a spread element inference context type
  * is [T] in the list literal
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 

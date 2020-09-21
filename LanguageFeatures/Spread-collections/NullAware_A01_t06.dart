@@ -16,24 +16,20 @@
  *   ...?extraFrontEndOptions,
  *   mainPath
  *   ];
- * @description Checks that exception is thrown if spreadable element in the
+ * @description Checks that it is a compile error if spreadable element in the
  * [Map] is not null-aware and it's [null].
  * @author iarkh@unipro.ru
  */
 
-import "../../Utils/expect.dart";
-
 Map getAMap(
     String engineDartPath, Map? extraFrontEndOptions, String mainPath) {
   return({1: engineDartPath, 2: '--target=flutter', ...extraFrontEndOptions,
+//                                                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
       3: mainPath});
 }
 
 main() {
-  Map a;
-  Expect.mapEquals(
-      {1: "enginePath", 2: "--target=flutter", 0: "--option1", 3: "mainPath"},
-      getAMap("enginePath", {0: "--option1"}, "mainPath"));
-
-  Expect.throws(() => a = getAMap("enginePath", null, "mainPath"));
+  getAMap("enginePath", null, "mainPath");
 }

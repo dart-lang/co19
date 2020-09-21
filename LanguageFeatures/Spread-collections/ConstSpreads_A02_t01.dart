@@ -6,14 +6,15 @@
 /**
  * @assertion In a constant map, a spread element expands to the series of
  * entries contained in the spread object map.
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 
 import "../../Utils/expect.dart";
 
-const Map? map1 = {1: 2, 13: 7, 9: 19};
-const Map? map2 = {11: "checkme"};
-const Map? map3 = {};
+const Map map1 = {1: 2, 13: 7, 9: 19};
+const Map map2 = {11: "checkme"};
+const Map map3 = {};
 const Map? map4 = null;
 
 main() {

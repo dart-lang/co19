@@ -17,6 +17,7 @@
  *    {...l, ...m} // Static error, because it must be both a set and a map.
  * @description Checks that if one of the spreadable element is [Map], result
  * is statically [Map]
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 

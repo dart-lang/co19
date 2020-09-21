@@ -12,6 +12,7 @@
  * expression.
  * @description: Checks that constant map spread [...?] element can only be a
  * constant map or null.
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 

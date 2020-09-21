@@ -15,9 +15,9 @@
  * @author iarkh@unipro.ru
  */
 
-const List? list1 = [2, 7, 9];
-const List? list2 = [2, 12, 33];
-const List? list3 = [2, 12, 4, 12, 11, 0, 3];
+const List list1 = [2, 7, 9];
+const List list2 = [2, 12, 33];
+const List list3 = [2, 12, 4, 12, 11, 0, 3];
 
 main() {
   const res1 = {...list1, ...list2};                             //# 01: compile-time error

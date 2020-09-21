@@ -9,6 +9,7 @@
  * value type is [V].
  * @description Checks that spread element upwards inference key type is [K] and
  * the value type is [V] in the map literal
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 

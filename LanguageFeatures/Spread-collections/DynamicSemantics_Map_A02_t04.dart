@@ -21,6 +21,7 @@
  *       b. Evaluate [e2] to a value value.
  *       c. Call map[key] = value.
  * @description Checks that elements are added to the result map
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 
@@ -41,11 +42,11 @@ class MapBaseImpl<K, V> extends MapBase<K, V> {
 
 List list = [123, 4];
 
-Map? map1 = new MapBaseImpl.from({1: 1, 2: 2, 3: 3, 4: 4, 5: 5});
-Map? map2 = new MapBaseImpl.from(
+Map map1 = new MapBaseImpl.from({1: 1, 2: 2, 3: 3, 4: 4, 5: 5});
+Map map2 = new MapBaseImpl.from(
     {10: "a", 9: "14", 8: 1, 7: 2, 6: null});
-Map? map3 = new MapBaseImpl.from({10: 1, 20: 2, 30: map4, 40: list, 50: 14});
-Map? map4 = {};
+Map map3 = new MapBaseImpl.from({10: 1, 20: 2, 30: map4, 40: list, 50: 14});
+Map map4 = {};
 Map? map5 = null;
 
 main() {

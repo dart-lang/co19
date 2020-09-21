@@ -20,6 +20,7 @@
  *
  * @description Checks that elements are added to the result list in correct
  * order.
+ * @static-warning
  * @author iarkh@unipro.ru
  */
 
@@ -50,10 +51,10 @@ class MyIterator extends Iterator {
 List aList = [11, 28];
 Set aSet = {};
 
-Iterable? it1 = new MyIterable([1, 2, 3, 4, 5]);
-Iterable? it2 = new MyIterable(["a", "14", "1", "2", null, 143, aList]);
-Iterable? it3 = [100, 200, aSet, aList, 300];
-Iterable? it4 = [];
+Iterable it1 = new MyIterable([1, 2, 3, 4, 5]);
+Iterable it2 = new MyIterable(["a", "14", "1", "2", null, 143, aList]);
+Iterable it3 = [100, 200, aSet, aList, 300];
+Iterable it4 = [];
 Iterable? it5 = null;
 
 main() {

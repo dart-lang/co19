@@ -10,9 +10,9 @@
  * the constant spread map
  * @author iarkh@unipro.ru
  */
-Map? map1 = {2: 2, 7: 18, 9: 3};
-Map? map2 = {11: 4, 5: 12};
-Map? map3 = {};
+Map map1 = {2: 2, 7: 18, 9: 3};
+Map map2 = {11: 4, 5: 12};
+Map map3 = {};
 Map? map4 = null;
 
 main() {
