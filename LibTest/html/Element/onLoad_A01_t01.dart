@@ -8,7 +8,6 @@
  * Stream of load events handled by this Element.
  * @description Checks that correct events are delivered via the stream
  */
-// OtherResources=dart-logo.png
 import "dart:html";
 import "../../../Utils/expect.dart";
 
@@ -16,7 +15,8 @@ main() {
   var type = 'load';
   dynamic x = document.body;
   if (x != null) {
-    x.innerHtml = '<img src="dart-logo.png">';
+    // This is path to the image on tryjobs. May not work locally
+    x.innerHtml = '<img src="/root_dart/tests/co19/src/LibTest/html/Element/dart-logo.png">';
 
     asyncStart();
     x.firstChild.onLoad.listen((e) {
