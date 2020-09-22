@@ -43,7 +43,30 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works as expected for
- * [class A<X extends A<X>>], [class B<X extends A<X>?>]
+ * [class A<X extends A<X>>], [class B<X extends A<X>?>].
+ *
+ * In order to allow the use of `A<X>` in the bound in `B`, we must show that
+ * `X` satisfies the bound on the type parameter of `A`, i.e., we must show
+ * `X <: A<X>`. But the constraint on `X` in `B` is actually `X <: A<X>?`, and
+ * that is satisfied by `X == Null`, and it is not true that `Null <: A<Null>`,
+ * which is a counterexample to the claim that we can show `X <: A<X>`.
+ *
+ * The point is that we need to show that `X <: A<X>?` implies `X <: A<X>`, and
+ * we know we can never prove that because we have a counterexample.
+ *
+ * There is no such problem in `C`: In that case we need to show that
+ * `X <: C<X>?` implies `X <: C<X>?`, which is immediate.
+ *
+ * The underlying requirement is that the type in the bound (like `A<X>` and
+ * `C<X>`) must be well-bounded, just like any other type, based on whatever we
+ * know about the involved types. In this situation the declared bounds of type
+ * parameters is the only thing we know about those type parameters, so we need
+ * to show that the declared bounds suffice to show that the type is
+ * well-bounded. For instance, in `C` we need to show that the bound in `C`
+ * suffices to show the bound in `C`; but in `B` we need to show that the bound
+ * in `B` suffices to show the bound in `A` (and it  doesn't, so `B` is an
+ * error).
+ *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -51,67 +74,13 @@
 import "../../../../Utils/expect.dart";
 
 class A<X extends A<X>> {}
+
 class B<X extends A<X>?> {}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+class C<X extends C<X>?> {}
 
 main() {
-  B? source;
-  var fsource = toF(source);
-
-  F<B<A<dynamic>?>?>? target = fsource;
-
-  F<A<A<dynamic>>?>? target0 = fsource;
-//                             ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<dynamic>?>? target1 = fsource;
-//                          ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<A<A<dynamic>>>?>? target2 = fsource;
-//                                ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<A<A<A<dynamic>>>>?>? target3 = fsource;
-//                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<A<A<A<A<dynamic>>>>>?>? target4 = fsource;
-//                                      ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<Null>?>? target5 = fsource;
-//                       ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<A<Null>>?>? target6 = fsource;
-//                          ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<A<A<Null>>>?>? target7 = fsource;
-//                             ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<A<A<A<Null>>>>?>? target8 = fsource;
-//                                ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<B<A<A<A<A<Null>>>>>?>? target9 = fsource;
-//                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  B();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 }

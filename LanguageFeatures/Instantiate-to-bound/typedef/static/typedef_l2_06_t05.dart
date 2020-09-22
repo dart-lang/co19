@@ -45,6 +45,7 @@
  * @description Checks that instantiate-to-bounds works correctly for [typedef]
  * with two related parameters: [typedef G<X extends A<Y>, Y extends A<X>> =
  * void Function(X, Y)]
+ * @Issue 42197
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
