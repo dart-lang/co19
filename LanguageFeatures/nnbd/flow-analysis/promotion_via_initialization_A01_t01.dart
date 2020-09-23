@@ -22,6 +22,7 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
+import "../../../Utils/expect.dart";
 
 class T {
   int foo() => 42;
@@ -31,8 +32,5 @@ main() {
   var x;
   x = new T();
   x.foo();
-  x.bar(); // Check that x is not dynamic any longer
-//  ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.throws(() {x.bar();}, (e) => e is NoSuchMethodError); // Check that x is dynamic
 }

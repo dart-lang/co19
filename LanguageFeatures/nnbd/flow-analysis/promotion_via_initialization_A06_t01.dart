@@ -22,6 +22,7 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
+import "../../../Utils/expect.dart";
 
 class S {}
 class T extends S {
@@ -32,8 +33,5 @@ main() {
   var x;
   x = new S();
   x = new T();
-  x.foo();
-//  ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.equals(42, x.foo());
 }
