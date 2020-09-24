@@ -15,7 +15,7 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [typedef] with
  * [typedef] parameter (contravariant)
- * @Issue 34689, 34699
+ * @Issue 34689, 34699, 35114
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -25,19 +25,20 @@ import "../../../Utils/expect.dart";
 typedef G1<X> = X Function();
 typedef G2<X extends G1> = void Function(X);
 
-main() {
-  G2? source;
+void test(G2 source) {
   var fsource = toF(source);
 
-  F<G2<G1<Never>>?>? target = fsource;
+  F<G2<G1<Never>>> target = fsource;
 
-  F<G2<G1<Null>>?>? target1 = fsource;
-//                            ^^^^^^^
+  F<G2<G1<Null>>> target1 = fsource;
+//                          ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G2<G1<dynamic>>?>? target2 = fsource;
-//                               ^^^^^^^
+  F<G2<G1<dynamic>>> target2 = fsource;
+//                             ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+main() {}

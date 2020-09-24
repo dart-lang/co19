@@ -15,7 +15,7 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [typedef] with [X
  * extends num] parameter (not used)
- * @Issue 41684
+ * @Issue 41684, 42429
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -24,30 +24,26 @@ import "../../../Utils/expect.dart";
 
 typedef G<X extends num> = void Function();
 
-main() {
-  G? source;
+void testme(G source) {
   var fsource = toF(source);
-  F<G<num>?>? target = fsource;
-  F<G<dynamic>?>? target1 = fsource;
+  F<G<num>> target = fsource;
 
-  F<G<Object>?>? target2 = fsource;
-//                         ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  F<G<dynamic>> target1 = fsource;
 
-  F<G<Null>?>? target3 = fsource;
+  F<G<Object>> target2 = fsource;
 //                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<num?>?>? target4 = fsource;
-//                       ^^^^^^^
+  F<G<Null>> target3 = fsource;
+//                     ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<Never>?>? target5 = fsource;
-//                        ^^^^^^^
+  F<G<num?>> target4 = fsource;
+//                     ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  F<G<Never>> target5 = fsource;
 }

@@ -5,7 +5,7 @@ typedef F<X> = void Function<Y extends X>();
 typedef expected_target = Function<X>();
 
 // Functions for correct type comparison in language feature tests
-F<X>? toF<X>(X x) => null;
+F<X> toF<X>(X x) => <Y extends X>() {};
 Type typeOf<X>() => X;
 
 // Function to check nnbd_top_merge feature

@@ -23,22 +23,21 @@
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-F<X> toF<X>(X x) => null;
-
 typedef G<X extends FutureOr> = Function(X);
 
-main() {
-  G? source;
+test(G source) {
   var fsource = toF(source);
-  F<G<FutureOr<Never>>?>? target = fsource;
+  F<G<FutureOr<Never>>> target = fsource;
 
-  F<G<FutureOr<Null>>?>? target0 = fsource;
-//                                 ^^^^^^^
+  F<G<FutureOr<Null>>> target0 = fsource;
+//                               ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<FutureOr<dynamic>>?>? target1 = fsource;
-//                                    ^^^^^^^
+  F<G<FutureOr<dynamic>>> target1 = fsource;
+//                                  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+main() {}

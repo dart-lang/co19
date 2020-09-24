@@ -23,18 +23,18 @@
 class A<X> {}
 typedef G<X extends A?> = void Function<Y extends X>();
 
-main() {
-  G? source;
-  void Function<X extends A<dynamic>?>()? target = source;
+void test(G source) {
+  void Function<X extends A<dynamic>?>() target = source;
 
-  void Function<X extends A<Null>?>()? target1 = source;
-//                                               ^^^^^^
+  void Function<X extends A<Null>?>() target1 = source;
+//                                              ^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
 
-  void Function<X extends A<Never>?>()? target2 = source;
-//                                                ^^^^^^
+  void Function<X extends A<Never>?>() target2 = source;
+//                                               ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
+main() {}
