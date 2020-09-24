@@ -29,6 +29,10 @@ void testme(G source) {
   F<G<A<dynamic>>> target = fsource;
   F<G<A<Null>>> target1 = fsource;
   F<G<A<Never>>> target2 = fsource;
+
+  F<G<A<dynamic>?>> target3 = fsource;
+  F<G<A<Null>?>> target4 = fsource;
+  F<G<A<Never>?>> target5 = fsource;
 }
 
 main() {}

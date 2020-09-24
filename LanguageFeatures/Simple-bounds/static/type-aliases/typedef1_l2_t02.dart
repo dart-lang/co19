@@ -28,46 +28,47 @@ class B<X> {}
 
 typedef G<X extends A<B>, X1 extends B<X>> = C<X, X1>;
 
-main() {
-  G? source;
+void test(G source) {
   var fsource = toF(source);
 
-  F<G<A<B<dynamic>>, B<A<B<dynamic>>>>?>? target = fsource;
+  F<G<A<B<dynamic>>, B<A<B<dynamic>>>>> target = fsource;
 
-  F<G<A<B<dynamic>?>?, B<A<B<dynamic>?>?>?>?>? target0 = fsource;
-//                                                       ^^^^^^^
+  F<G<A<B<dynamic>?>?, B<A<B<dynamic>?>>>> target0 = fsource;
+//                                                   ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<B<int>>, B<A<B<dynamic>>>>?>? target1 = fsource;
-//                                              ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<B<dynamic>>, B<A<B<int>>>>?>? target2 = fsource;
-//                                    ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<B<Null>>, B<A<B<dynamic>>>>?>? target3 = fsource;
-//                                     ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<B<dynamic>>, B<A<B<Null>>>>?>? target4 = fsource;
-//                                     ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<B<int>>, B<A<B<int>>>>?>? target5 = fsource;
-//                                          ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<B<Null>>, B<A<B<Null>>>>?>? target6 = fsource;
+  F<G<A<B<int>>, B<A<B<dynamic>>>>> target1 = fsource;
 //                                            ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<B<dynamic>>, B<A<B<int>>>>> target2 = fsource;
+//                                            ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<B<Null>>, B<A<B<dynamic>>>>> target3 = fsource;
+//                                             ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<B<dynamic>>, B<A<B<Null>>>>> target4 = fsource;
+//                                             ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<B<int>>, B<A<B<int>>>>> target5 = fsource;
+//                                        ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<B<Null>>, B<A<B<Null>>>>> target6 = fsource;
+//                                          ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   G();
 }
+
+main() {}
