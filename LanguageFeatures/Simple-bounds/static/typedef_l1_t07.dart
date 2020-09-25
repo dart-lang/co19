@@ -13,9 +13,10 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that simple bounds are correct for [typedef] with [X
- * extends A] parameter (contravariant)
- * @Issue 34689, 34699, 35114
+ * @description Checks that simple bounds are correct for contravariant [typedef
+ * G<X extends A> = Function(X)]. This should be [G<A<dynamic>>]: [X] has the
+ * bound [A] which just means [A<dynamic>], and that's the initial and final
+ * value for [X] during i2b.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -27,15 +28,15 @@ typedef G<X extends A> = Function(X);
 
 void testme(G source) {
   var fsource = toF(source);
-  F<G<A<Never>>> target = fsource;
+  F<G<A<dynamic>>> target = fsource;
 
   F<G<A<Null>>> target1 = fsource;
 //                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<dynamic>>> target2 = fsource;
-//                           ^^^^^^^
+  F<G<A<Never>>> target2 = fsource;
+//                         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

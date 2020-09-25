@@ -14,7 +14,10 @@
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
  * @description Checks that simple bounds are correct for [typedef] with
- * [typedef] parameter (not used)
+ * [typedef] parameter (not used).
+ * Note that G2<T1> == G2<T2> == void Function() for all types T1 and T2. So as
+ * long as you have F<G2<...>> it doesn't matter what ... stands for, it's
+ * always just the same type.
  * @Issue 41684
  * @author iarkh@unipro.ru
  */

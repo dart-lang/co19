@@ -47,3 +47,5 @@ void testme(G source) {
 
   F<G<Never>> target5 = fsource;
 }
+
+main() {}

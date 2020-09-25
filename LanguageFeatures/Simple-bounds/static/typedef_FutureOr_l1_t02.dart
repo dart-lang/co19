@@ -13,9 +13,12 @@
  * a type [T] on the form qualified (for instance, [C] or [p.D]) which denotes a
  * generic class or parameterized type alias [G1] (that is, [T] is a raw type),
  * every type argument of [G1] has a simple bound.
- * @description Checks that simple bounds are correct for [typedef] with [X
- * extends FutureOr] parameter (contravariant)
- * @Issue 34689, 35114, 35115
+ * @description Checks that simple bounds are correct for the contravariant
+ * FutureOr case: [typedef G<X extends FutureOr> = Function(X)]. This should be
+ * [G<FutureOr<dynamic>>]. A raw [G] has a bound, [FutureOr], which means
+ * [FutureOr<dynamic>], and that bound is simply the initial and final value of
+ * the i2b value of [X]. No cycles, no dependencies between type variables,
+ * we're just done immediately.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -28,6 +31,9 @@ typedef G<X extends FutureOr> = Function(X);
 test(G source) {
   var fsource = toF(source);
   F<G<FutureOr<Never>>> target = fsource;
+//                               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   F<G<FutureOr<Null>>> target0 = fsource;
 //                               ^^^^^^^
@@ -35,9 +41,6 @@ test(G source) {
 // [cfe] unspecified
 
   F<G<FutureOr<dynamic>>> target1 = fsource;
-//                                  ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {}
