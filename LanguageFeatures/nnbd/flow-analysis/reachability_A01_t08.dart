@@ -25,15 +25,19 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
+import "../../../Utils/expect.dart";
 
 main() {
   late int i;
   String s = "";
   if (s == null) {
-    i = 42; // Variable is initialized in a dead code. This leaves it definitely unassigned
+    i = 42; // `i` is not definitely unassigned because in a weak mode the
+            // condition may be true
   }
-  i;  // It is an error to read a local late variable when it is definitely unassigned.
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  try {
+    i;
+    Expect.fail("LateInitializationError expected");
+  } on LateInitializationError catch(e) {
+    // Ok
+  }
 }

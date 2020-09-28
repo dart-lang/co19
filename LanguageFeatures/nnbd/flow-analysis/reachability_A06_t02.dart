@@ -20,7 +20,11 @@ main () {
   int i;
   String? s = "";
   if (s! != null) {
-    i = 42;  // condition is always true therefore `i` must be definitely assigned
+    i = 42;   // `i` is not definitely assigned because in a weak mode the
+              // condition may be false
   }
-  i;  // It's not an error to read local non-nullable variable if it is definitely assigned
+  i; // It is an error to read a local non-nullable variable which is not definitely assigned
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
