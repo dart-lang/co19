@@ -11,6 +11,7 @@
  * @description Checks that function 'main' may have one optional positional
  * argument
  * @author sgrekhov@unipro.ru
+ * @issue 43584
  */
 main([List<String> args = const []]) {
 }

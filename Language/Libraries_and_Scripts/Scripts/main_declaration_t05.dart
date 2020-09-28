@@ -12,6 +12,9 @@
  * library prefix named 'main' is not an error
  * @author sgrekhov@unipro.ru
  */
-library export_main;
+import "library8.dart";
+import "../../../Utils/expect.dart";
 
-import "library1.dart" as main;
+main() {
+  Expect.equals(8, i8);
+}

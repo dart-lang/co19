@@ -13,3 +13,6 @@
  * @author sgrekhov@unipro.ru
  */
 library main;
+
+main() {
+}
