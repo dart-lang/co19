@@ -15,7 +15,7 @@
  * every type argument of [G1] has a simple bound.
  * @description Checks that instantiate-to-bounds works correctly for [typedef
  *  G<X, Y extends X> = X Function(Y)]
- * @Issue 34689, 34699
+ * @Issue 34689, 34699, 43599
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -24,29 +24,40 @@ import "../../../Utils/expect.dart";
 
 typedef G<X, Y extends X> = X Function(Y);
 
-main() {
-  G? source;
+test(G source) {
   var fsource = toF(source);
 
-  F<G<dynamic, Never>?>? target = fsource;
+  F<G<dynamic, Never>> target = fsource;
 
-  F<G<dynamic, Null>?>? target0 = fsource;
-//                                ^^^^^^^
+  F<G<dynamic, Null>> target1 = fsource;
+//                              ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<Null, dynamic>?>? target1 = fsource;
-//                                ^^^^^^^
+  F<G<Never, dynamic>> target2 = fsource;
+//                               ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<Null, Null>?>? target2 = fsource;
+  F<G<Null, dynamic>> target3 = fsource;
+//                              ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<Null, Null>> target4 = fsource;
+//                           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<Never, Never>> target5 = fsource;
 //                             ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<dynamic, dynamic>?>? target3 = fsource;
-//                                   ^^^^^^^
+  F<G<dynamic, dynamic>> target6 = fsource;
+//                                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+main() {}

@@ -18,7 +18,7 @@
  * Note that G2<T1> == G2<T2> == void Function() for all types T1 and T2. So as
  * long as you have F<G2<...>> it doesn't matter what ... stands for, it's
  * always just the same type.
- * @Issue 41684
+ * @Issue 41684, 42429
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
