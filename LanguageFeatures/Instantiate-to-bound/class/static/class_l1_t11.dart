@@ -42,8 +42,9 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiation to bounds works as expected for
- * [class A<X extends A<X>>], [class B<X extends A<X>?>].
+ *
+ * @description Checks that trying to declare [class A<X extends A<X>>],
+ * [class B<X extends A<X>?>] causes error:
  *
  * In order to allow the use of `A<X>` in the bound in `B`, we must show that
  * `X` satisfies the bound on the type parameter of `A`, i.e., we must show
@@ -70,8 +71,6 @@
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
-
-import "../../../../Utils/expect.dart";
 
 class A<X extends A<X>> {}
 

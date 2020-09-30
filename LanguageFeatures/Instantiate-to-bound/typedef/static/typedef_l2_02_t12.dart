@@ -46,13 +46,12 @@
  * with two related parameters: [typedef G<X extends A<X>, Y extends X> = void
  * Function<Y1 extends Y>(X)]
  *
- * Two compile-time errors here.
- * Let's consider 01: [void Function<X extends A<dynamic>>(A<Null>) target1 =
+ * Let's consider [void Function<X extends A<dynamic>>(A<Null>) target1 =
  * source]:  The type of [source] is raw [G] which is [G<A<Null>, A<Null>>]
  * which is unaliased to [void Function<Y1 extends A<Null>>(A<Null>)].  It
  * explains why [source] can't be assigned to [target1]:  their types are
  * incomparable because the type parameters of these generic function types are
- * different ([A<dynamic>] vs [A<Null>]).
+ * different ([A<dynamic>] vs [A<Never>]).
  *
  * @Issue 34689, 34699
  * @author iarkh@unipro.ru
@@ -62,57 +61,52 @@
 class A<X> {}
 typedef G<X extends A<X>, Y extends X> = void Function<Y1 extends Y>(X);
 
-main() {
-  G? source;
-  void Function<X extends A<Never>>(A<Never>)? target = source;
+void test(G source) {
+  void Function<X extends A<Never>>(A<Never>) target = source;
 
-  void Function<X extends A<Null>>(A<Null>)? target1 = source;
-//                                                     ^^^^^^
+  void Function<X extends A<Null>>(A<Null>) target1 = source;
+//                                                    ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void Function<X extends A<dynamic>>(A<Null>)? target2 = source;
+  void Function<X extends A<dynamic>>(A<Null>) target2 = source;
+//                                                       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>>(A<Never>) target3 = source;
 //                                                        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void Function<X extends A<dynamic>>(A<Never>)? target3 = source;
-//                                                         ^^^^^^
+  void Function<X extends A<Never>>(A<dynamic>) target4 = source;
+
+  void Function<X extends A<Null>>(A<dynamic>) target5 = source;
+//                                                       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void Function<X extends A<Never>>(A<dynamic>)? target4 = source;
-//                                                         ^^^^^^
+  void Function<X extends A<dynamic>>(A<dynamic>) target6 = source;
+//                                                          ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void Function<X extends A<Null>>(A<dynamic>)? target5 = source;
-//                                                        ^^^^^^
+  void Function<X extends A<Never>>(dynamic) target7 = source;
+
+  void Function<X extends A<Null>>(dynamic) target8 = source;
+//                                                    ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void Function<X extends A<dynamic>>(A<dynamic>)? target6 = source;
-//                                                           ^^^^^^
+  void Function<X extends A<Null>>(Never) target9 = source;
+//                                                  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void Function<X extends A<Never>>(dynamic)? target7 = source;
-//                                                      ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends A<Null>>(dynamic)? target8 = source;
-//                                                     ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends A<Null>>(Never)? target9 = source;
-//                                                   ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends A<Null>>(Null)? target10 = source;
-//                                                   ^^^^^^
+  void Function<X extends A<Null>>(Null) target10 = source;
+//                                                  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+main() {}

@@ -53,19 +53,18 @@ import "../../../../Utils/expect.dart";
 typedef A<X> = void Function(X);
 typedef G<X extends A<X>> = void Function(X);
 
-main() {
-  G? source;
+test(G source) {
   var fsource = toF(source);
 
-  F<G<A<Never>>> target = fsource;
+  F<G<A<dynamic>>> target = fsource;
 
   F<G<A<Null>>> target0 = fsource;
 //                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<dynamic>>> target1 = fsource;
-//                           ^^^^^^^
+  F<G<A<Never>>> target1 = fsource;
+//                         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -114,3 +113,5 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+main() {}
