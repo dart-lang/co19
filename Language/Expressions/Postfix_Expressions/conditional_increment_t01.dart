@@ -21,7 +21,7 @@ main() {
   C? c1 = null;
   Expect.equals(c1?.v++, null);
 
-  C? c2 = new C();
+  var c2 = new C() as C?;
   Expect.equals(c2?.v++, 0);
   Expect.equals(c2?.v, 1);
 }

@@ -19,13 +19,13 @@ void foo() {}
 typedef void Foo();
 
 main() {
-  Function? f1 = foo;
+  var f1 = foo as Function?;
   f1();
 //^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  Foo? f2 = foo;
+  var f2 = foo as Foo?;
   f2();
 //^^
 // [analyzer] unspecified

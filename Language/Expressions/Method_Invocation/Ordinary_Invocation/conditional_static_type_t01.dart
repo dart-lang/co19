@@ -19,6 +19,6 @@ class C {
 }
 
 main() {
-  C? c = new C();
+  var c = new C() as C?;
   int? x = c?.m();
 }

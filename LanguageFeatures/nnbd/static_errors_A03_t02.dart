@@ -19,7 +19,7 @@ extension on int {
 }
 
 main() {
-  int? i = 42;
+  var i = 42 as int?;
   i(1);
 //^^
 // [analyzer] unspecified

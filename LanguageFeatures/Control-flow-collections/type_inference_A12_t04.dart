@@ -21,8 +21,8 @@ import "../../Utils/expect.dart";
 
 main() {
   var collection = [1, 2, 3, 4, 5];
-  List<int>? c1 = [1, 2, 3];
-  List<double>? c2 = [1.1, 2.2, 3.3];
+  var c1 = [1, 2, 3] as List<int>?;
+  var c2 = [1.1, 2.2, 3.3] as List<double>?;
   var set1 = {
     for (var i in collection)
       if (i.isEven) ...?c1 else ...?c2

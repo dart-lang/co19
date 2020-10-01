@@ -20,13 +20,13 @@ Object? foo(int i) => "Lily was here";
 Object? bar<T>(T t) => 42;
 
 main() {
-  Function? f1 = foo;
+  var f1 = foo as Function?;
   f1!(42);
   if (f1 != null) {
       f1(42)!;
   }
 
-  Function? f2 = bar;
+  var f2 = bar as Function?;
   f2!<int>(42);
   if (f2 != null) {
     f2<int>(42)!;

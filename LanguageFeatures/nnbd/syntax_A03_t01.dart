@@ -21,13 +21,13 @@ test1(C c) {}
 test2(Object o) {}
 
 main() {
-  C? c = new C();
+  var c = new C() as C?;
   test1(c!);
 
-  Object? o = new Object();
+  var o = new Object() as Object?;
   test2(o!);
 
-  int? i = 42;
+  var i = 42 as int?;
   test2(i!);
 
   Expect.throws(() {null!;});

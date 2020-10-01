@@ -27,7 +27,7 @@ class A {
 }
 
 main() {
-  A? a = new A();
+  var a = new A() as A?;
   a!;
   a!.foo();                       //# 01: static type warning
   a![42];                         //# 02: static type warning

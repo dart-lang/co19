@@ -24,7 +24,6 @@
  * to the result map if the element is not [null]
  * @author iarkh@unipro.ru
  */
-
 import "dart:collection";
 import "../../Utils/expect.dart";
 
@@ -48,7 +47,7 @@ List myMaps = <Map>[{1: 1, 2: 2, 3: 3, 4: 4, 5: 5},
 
 main() {
   myMaps.forEach((var m) {
-    Map? map = new MapBaseImpl.from(m);
+    var map = new MapBaseImpl.from(m) as Map?;
     Expect.mapEquals(m, {...?map});
   });
 }

@@ -24,19 +24,19 @@ typedef FunctionAlias = Function?;
 typedef FooAlias = Foo?;
 
 main() {
-  IntAlias i = 42;
+  var i = 42 as IntAlias;
   i(1);
 //^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  FunctionAlias f1 = foo;
+  var f1 = foo as FunctionAlias;
   f1();
 //^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  FooAlias f2 = foo;
+  var f2 = foo as FooAlias;
   f2();
 //^^
 // [analyzer] unspecified

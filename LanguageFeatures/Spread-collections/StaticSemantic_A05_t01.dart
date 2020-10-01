@@ -11,7 +11,6 @@
  * in the list literal is assignable to the type of the list.
  * @author iarkh@unipro.ru
  */
-
 import "dart:collection";
 
 class MyIterable<T> extends IterableBase<T> {
@@ -54,14 +53,14 @@ void test1() {
 }
 
 void test2() {
-  List? l1  = <Object> [];
-  List<bool>? l2  = <bool>[true, false, true, true];
-  List<String>? l3  = <String>[];
-  List<String>? l4  = <String>["1", "2"];
-  List? l5 = <Object>["1", "2"];
+  var l1  = <Object> [] as List?;
+  var l2  = <bool>[true, false, true, true] as List<bool>?;
+  var l3  = <String>[] as List<String>?;
+  var l4  = <String>["1", "2"] as List<String>?;
+  var l5 = <Object>["1", "2"] as List?;
 
-  Iterable<String>? i1 = new MyIterable<String>();
-  Iterable? i2 = new MyIterable<Object>();
+  var i1 = new MyIterable<String>() as Iterable<String>?;
+  var i2 = new MyIterable<Object>() as Iterable?;
 
   List list8 = <String>[...?l1];
   List list9 = <Object>[...?l2];

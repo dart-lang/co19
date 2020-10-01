@@ -34,7 +34,7 @@ main() {
   C c1 = new C();
   T t1 = c1.runtimeType;
 
-  C? c2 = new C();
+  var c2 = new C() as C?;
   T t2 = c2.runtimeType;
 //       ^^
 // [analyzer] unspecified

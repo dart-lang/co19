@@ -16,7 +16,7 @@ import "../../../Utils/expect.dart";
 main() {
   IFrameElement x = new IFrameElement();
   x.append(new Element.html('<div><pre></pre>text</div>'));
-  Node? y = x.clone(true);
+  var y = x.clone(true) as Node?;
 
   Expect.isTrue(y is IFrameElement, 'IFrameElement');
 

@@ -23,7 +23,7 @@ typedef AAlias1 = A?;
 typedef AAlias2 = AAlias1?;
 
 main() {
-  AAlias1 a1 = new A();
+  var a1 = new A() as AAlias1;
   if (a1 != null) {
   } else {
     a1.foo();
@@ -32,7 +32,7 @@ main() {
 // [cfe] unspecified
   }
 
-  AAlias2? a2 = new A();
+  var a2 = new A() as AAlias2?;
 
   if (a2 != null) {
   } else {

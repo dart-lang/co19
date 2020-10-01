@@ -43,7 +43,7 @@ extension on C? {
 }
 
 main() {
-  C? c = new C();
+  var c = new C() as C?;
   Expect.equals("Extension getter", c.getter);
   c.m = "Lily was here";
   Expect.equals("m getter", c.m);

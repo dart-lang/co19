@@ -20,7 +20,7 @@ class A {
   A() {}
 
   factory A.factoryA() {
-    C? c = new C();
+    var c = new C() as C?;
     return c;
 //         ^
 // [analyzer] unspecified

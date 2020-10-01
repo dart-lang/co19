@@ -24,6 +24,6 @@ extension on int {
   bool get isEven => false;
 }
 main() {
-  int? i = 42;
+  var i = 42 as int?;
   Expect.isTrue(i?.isEven);
 }

@@ -18,7 +18,7 @@ class C {
 }
 
 main() {
-  C? c1 = new C();
+  var c1 = new C() as C?;
   int? a1 = c1?.v--;
   try { int? a2 = c1?.v2--; } catch (e) {}
   C? c2;

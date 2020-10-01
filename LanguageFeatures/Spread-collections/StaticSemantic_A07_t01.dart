@@ -31,10 +31,10 @@ void test1() {
 }
 
 void test2() {
-  Map? m1 = <Object, Object> {};
-  Map<int, String>? m2 = <int, String>{};
-  Map? m3 = <Object, Object> {1: "1", 2: "2"};
-  Map<int, String>? m4 = <int, String>{1: "11"};
+  var m1 = <Object, Object> {} as Map?;
+  var m2 = <int, String>{} as Map<int, String>?;
+  var m3 = <Object, Object> {1: "1", 2: "2"} as Map?;
+  var m4 = <int, String>{1: "11"} as Map<int, String>?;
 
   Map map5 = <int, String>{...?m1};
   Map map6 = <int, String>{...?m2};

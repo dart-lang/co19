@@ -27,7 +27,7 @@ typedef SAlias = S;
 
 main() {
   var v = getLegacyS();
-  S? s = new S();
+  var s = new S() as S?;
   v = s;
 //    ^
 // [analyzer] unspecified

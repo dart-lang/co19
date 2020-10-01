@@ -30,7 +30,7 @@ main() {
 // [cfe] unspecified
 
   var v2 = getLegacyS();
-  S? s = new S();
+  var s = new S() as S?;
   v2 = s;
 //     ^
 // [analyzer] unspecified

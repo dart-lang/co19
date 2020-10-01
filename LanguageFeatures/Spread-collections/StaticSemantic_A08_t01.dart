@@ -10,7 +10,6 @@
  * set, but can be spreaded into a set literal.
  * @author iarkh@unipro.ru
  */
-
 import "dart:collection";
 
 class MyIterable extends IterableBase {
@@ -39,9 +38,9 @@ main() {
   Set s2 = {...list};
   Set s3 = {...i};
 
-  Set? set1 = {1, 2, 3};
-  List? list1 = [null, 14, "testme"];
-  Iterable? i1 = new MyIterable();
+  var set1 = {1, 2, 3} as Set?;
+  var list1 = [null, 14, "testme"] as List?;
+  var i1 = new MyIterable() as Iterable?;
 
   Set s4 = {...?set1};
   Set s5 = {...?list1};

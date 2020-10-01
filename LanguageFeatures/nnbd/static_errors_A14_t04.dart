@@ -24,11 +24,11 @@ typedef void Foo();
 void foo() {}
 
 main() {
-  Function? f1 = foo;
+  var f1 = foo as Function?;
   f1?.toString();
   f1 ?.. toString();
 
-  Foo? f2 = foo;
+  var f2 = foo as Foo?;
   f2?.toString();
   f2 ?.. toString();
 }

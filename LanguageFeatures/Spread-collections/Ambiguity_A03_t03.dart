@@ -22,8 +22,8 @@
 import "../../Utils/expect.dart";
 
 main() {
-  Set? aSet = {1, 2, 3};
-  List? aList = [1, 2, 3];
+  var aSet = {1, 2, 3} as Set?;
+  var aList = [1, 2, 3] as List?;
 
   var res1 = <int>{...?aSet};
   Expect.isTrue(res1 is Set);

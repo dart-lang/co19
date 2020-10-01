@@ -27,7 +27,7 @@ int e() {
 }
 
 main() {
-  C? c = new C();
+  var c = new C() as C?;
   var x = c?.v = e() + 1;
   Expect.equals(1, c?.v);
   Expect.equals(1, x);

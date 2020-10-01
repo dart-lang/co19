@@ -33,7 +33,7 @@ enum E {
 }
 
 main() {
-  E? e = E.three;
+  var e = E.three as E?;
   switch (e) {
     case E.one:
       true;

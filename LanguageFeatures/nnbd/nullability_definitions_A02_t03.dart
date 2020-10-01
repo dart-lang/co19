@@ -46,7 +46,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  C? c = new C();
+  var c = new C() as C?;
   C c2 = c;
 //       ^
 // [analyzer] unspecified

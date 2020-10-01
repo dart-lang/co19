@@ -25,7 +25,7 @@ class A {
 }
 
 main() {
-  A? a = new A();
+  var a = new A() as A?;
 
   a.m;
 // ^^

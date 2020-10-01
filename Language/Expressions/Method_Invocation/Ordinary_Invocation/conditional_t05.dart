@@ -26,7 +26,7 @@ class C extends A {
 }
 
 main() {
-  C? c1 = new C();
+  var c1 = new C() as C?;
   C? c2 = null;
   Expect.equals("A1", c1?.m1("1"));
   Expect.equals("C2", c1?.m2("2", p2: "3"));

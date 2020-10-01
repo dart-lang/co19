@@ -17,7 +17,7 @@
 import "legacy_lib.dart";
 
 main() {
-  A? a = new A();
+  var a = new A() as A?;
 
   if (a != null) {
   } else {

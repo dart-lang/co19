@@ -20,13 +20,13 @@ class A {
 class C extends A {}
 
 main() {
-  A? a = A();
+  var a = A() as A?;
   C c = C();
   a?.test();
   a?..test();
   a ?? c;
   a ??= c;
-  List<C>? clist = [C(), C()];
+  var clist = [C(), C()] as List<C>?;
   List<A> alist = [A(), C(), ...? clist];
 
   a = null;

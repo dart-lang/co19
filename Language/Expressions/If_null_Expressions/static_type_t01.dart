@@ -15,16 +15,16 @@
  */
 
 main() {
-  int? x = null ?? 2;
-  num? y = x ?? 2.0;
-  double? d = 3.14;
-  String? s = "Lily was here";
-  x = d ?? 1;          //# 01: compile-time error
+  var x = (null ?? 2) as int?;
+  var y = (x ?? 2.0) as num?;
+  var d = 3.14 as double?;
+  var s = "Lily was here" as String?;
+  x = d ?? 1;         //# 01: compile-time error
   x = null ?? 1;
   x = null ?? null;
-  x = x ?? 'aaa';        //# 02: compile-time error
-  x = s ?? 1;        //# 03: compile-time error
-  x = s ?? true;     //# 04: compile-time error
+  x = x ?? 'aaa';     //# 02: compile-time error
+  x = s ?? 1;         //# 03: compile-time error
+  x = s ?? true;      //# 04: compile-time error
   return x;
 }
 

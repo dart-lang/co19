@@ -18,7 +18,7 @@
 
 main () {
   int i;
-  String? s = "";
+  var s = "" as String?;
   if (s! != null) {
     i = 42;   // `i` is not definitely assigned because in a weak mode the
               // condition may be false

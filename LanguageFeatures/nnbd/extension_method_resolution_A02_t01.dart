@@ -21,7 +21,7 @@ extension on int {
   bool get isEven => false;
 }
 main() {
-  int? i = 42;
+  var i = 42 as int?;
   i.isEven;
 //  ^^^^^^
 // [analyzer] unspecified

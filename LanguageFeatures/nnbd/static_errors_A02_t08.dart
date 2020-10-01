@@ -19,7 +19,7 @@
 import "legacy_lib.dart";
 
 main() {
-  A? a1 = new A();
+  var a1 = new A() as A?;
   a1.c1;
 //  ^^^
 // [analyzer] unspecified

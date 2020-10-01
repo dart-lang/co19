@@ -27,7 +27,7 @@ class A {
 typedef AAlias = A?;
 
 main() {
-  AAlias a = new A();
+  var a = new A() as AAlias;
   a.m;
 // ^^
 // [analyzer] unspecified

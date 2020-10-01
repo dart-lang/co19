@@ -46,10 +46,10 @@ void test1() {
 }
 
 void test2() {
-  int? number = 1;
-  String? str = "checkme";
-  List? list = [1, 2, 3, 4, 5];
-  Iterator? itr = new MyIterator();
+  var number = 1 as int?;
+  var str = "checkme" as String?;
+  var list = [1, 2, 3, 4, 5] as List?;
+  var itr = new MyIterator() as Iterator?;
 
   var m5  = <dynamic, dynamic>{...?number};  //# 05: compile-time error
   var m6  = <dynamic, dynamic>{...?str};     //# 06: compile-time error

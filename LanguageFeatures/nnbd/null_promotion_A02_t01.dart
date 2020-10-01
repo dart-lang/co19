@@ -24,7 +24,7 @@ class B<T> {
 }
 
 main() {
-  A? a = new A();
+  var a = new A() as A?;
   if (a != null) {
   } else {
     a.foo();
@@ -33,7 +33,7 @@ main() {
 // [cfe] unspecified
   }
 
-  B? b1 = new B();
+  var b1 = new B() as B?;
   if (b1 != null) {
   } else {
     b1.bar();
@@ -42,7 +42,7 @@ main() {
 // [cfe] unspecified
   }
 
-  B<int>? b2 = new B<int>();
+  var b2 = new B<int>() as B<int>?;
   if (b2 != null) {
   } else {
     b2.bar();
@@ -51,7 +51,7 @@ main() {
 // [cfe] unspecified
   }
 
-  int? i = 42;
+  var i = 42 as int?;
   if (i != null) {
   } else {
     i.isOdd;

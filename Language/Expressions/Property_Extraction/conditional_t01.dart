@@ -22,7 +22,7 @@ class C extends A {
 }
 
 main() {
-  C? c1 = new C();
+  var c1 = new C() as C?;
   C? c2 = null;
   Expect.equals("id", c1?.id);
   Expect.isNull(c2?.id);

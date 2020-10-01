@@ -20,7 +20,6 @@
  * to the result set in correct order if this spread element is not [null].
  * @author iarkh@unipro.ru
  */
-
 import "dart:collection";
 import "../../Utils/expect.dart";
 
@@ -53,7 +52,7 @@ List mySets = [{1, 2, 3, 4, 5},
 
 main() {
   mySets.forEach((var set) {
-    MyIterable? it = new MyIterable(set);
+    var it = new MyIterable(set) as MyIterable?;
     Expect.setEquals(set, {...?it});
     Expect.isFalse((it as MyIterable).getIterator().moveNext());
   });

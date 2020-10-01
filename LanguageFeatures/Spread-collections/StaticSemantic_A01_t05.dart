@@ -39,14 +39,14 @@ main() {
   Map strings = <String, String>{};
   Expect.mapEquals({}, <int, int>{...strings});
 
-  Map? numbers1 = {1: 1, 2: 2, 3: 3};
+  var numbers1 = {1: 1, 2: 2, 3: 3} as Map?;
   Expect.mapEquals({1: 1, 2: 2, 3: 3}, <int, int>{...?numbers1});
 
-  Map? objects1 = <Object, Object>{2: 22, 7: 77, 9: 99};
+  var objects1 = <Object, Object>{2: 22, 7: 77, 9: 99} as Map?;
   Expect.mapEquals({2: 22, 7: 77, 9: 99}, <int, int>{...?objects1});
 
   Expect.throws(() => a = <String, int>{...?objects1});
 
-  Map? strings1 = <String, String>{};
+  var strings1 = <String, String>{} as Map?;
   a = <int, int>{11: 12, ...?strings1};
 }

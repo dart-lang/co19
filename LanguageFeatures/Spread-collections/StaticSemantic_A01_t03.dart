@@ -37,11 +37,11 @@ main() {
   var numbers1 = <dynamic>[1.1, 2, 3];
   Expect.throws(() => a = <int>{...numbers1});
 
-  List<dynamic>? numbers2 = <dynamic>[1, 2, 3];
+  var numbers2 = <dynamic>[1, 2, 3] as List<dynamic>?;
   Expect.setEquals(<int>{1, 2, 3}, <int>{...?numbers2});
 
   Expect.throws(() => a = <String>{...?numbers2});
 
-  List<dynamic>? numbers3 = [1.1, 2, 3];
+  var numbers3 = [1.1, 2, 3] as List<dynamic>?;
   Expect.throws(() => a = <int>{...?numbers3});
 }

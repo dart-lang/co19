@@ -14,8 +14,8 @@
 import "../../Utils/expect.dart";
 
 class C {
-  int? n1 = 1;
-  static int? n2 = 2;
+  var n1 = 1 as int?;
+  static var n2 = 2 as int?;
   int? x = null;
 }
 
@@ -26,7 +26,7 @@ main() {
   Expect.isTrue(v1 is Set);
   Expect.iterableEquals({3, 2, null}, v1);
 
-  C? c = C();
+  var c = C() as C?;
 
   var v2 = {c?.x ?? 3, C?.n2, c?.n1};
   Expect.isTrue(v2 is Set);

@@ -48,7 +48,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  CAlias? c = new C();
+  var c = new C() as CAlias?;
   CAlias c2 = c;
 //            ^
 // [analyzer] unspecified

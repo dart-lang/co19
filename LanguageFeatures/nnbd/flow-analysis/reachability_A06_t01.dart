@@ -19,7 +19,7 @@ import "../../../Utils/expect.dart";
 
 main () {
   late int i;
-  String? s = "";
+  var s = "" as String?;
   if (s! == null) {
     i = 42; // `i` is not definitely unassigned because in a weak mode the
             // condition may be true

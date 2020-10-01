@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var x = new Element.html('<div><pre></pre>text</div>');
-  Node? y = x.clone(true);
+  var y = x.clone(true) as Node?;
   Expect.isTrue(y is DivElement, 'div');
 
   y = y?.firstChild;

@@ -15,7 +15,7 @@ import "../JsonDecoder/table1.lib.dart" show table;
 
 main() {
   for (List<Object?> pair in table) {
-    JsonCodec? codec = new JsonCodec();
+    var codec = new JsonCodec() as JsonCodec?;
     Expect.isNotNull(codec?.decoder);
 
     Object? res = codec?.decoder.convert(pair[1] as String);

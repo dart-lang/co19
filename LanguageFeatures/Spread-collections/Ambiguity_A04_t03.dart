@@ -21,7 +21,7 @@
 import "../../Utils/expect.dart";
 
 main() {
-  Map? aMap = {1: 1, 2: 2, 3: 3};
+  var aMap = {1: 1, 2: 2, 3: 3} as Map?;
 
   var res = <int, int>{...?aMap};
   Expect.isTrue(res is Map);
