@@ -54,48 +54,67 @@ import "../../../../Utils/expect.dart";
 typedef G<X> = Function(X);
 class A<X extends G<A<X>>> {}
 
-main() {
-  A? source;
+test(A source) {
   var fsource = toF(source);
-  F<A<G<A<Never>>>?>? target = fsource;
+  F<A<G<A<Never>>>> target = fsource;
 
-  F<A<dynamic>?>? target1 = fsource;
-//                          ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<dynamic>>?>? target2 = fsource;
-//                             ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<A<G<dynamic>>>>?>? target3 = fsource;
-//                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<A<G<A<dynamic>>>>>?>? target4 = fsource;
-//                                      ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<Never>?>? target5 = fsource;
+  F<A<dynamic>> target1 = fsource;
 //                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<Never>>?>? target6 = fsource;
+  F<A<G<dynamic>>> target2 = fsource;
 //                           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<A<G<Never>>>>?>? target7 = fsource;
+  F<A<G<A<G<dynamic>>>>> target3 = fsource;
 //                                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<A<G<A<Never>>>>>?>? target8 = fsource;
+  F<A<G<A<G<A<dynamic>>>>>> target4 = fsource;
 //                                    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<Never>> target5 = fsource;
+//                      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<Never>>> target6 = fsource;
+//                         ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<A<G<Never>>>>> target7 = fsource;
+//                               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<A<G<A<Never>>>>>> target8 = fsource;
+//                                  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<Null>> target9 = fsource;
+//                     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<Null>>> target10 = fsource;
+//                         ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<A<G<Null>>>>> target11 = fsource;
+//                               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<A<G<A<Null>>>>>> target12 = fsource;
+//                                  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -104,3 +123,5 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+main() {}

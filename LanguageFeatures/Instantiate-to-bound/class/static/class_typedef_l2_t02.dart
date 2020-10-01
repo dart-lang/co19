@@ -71,23 +71,42 @@ import "../../../../Utils/expect.dart";
 typedef G<X> = Function(X);
 class A<X extends G<A<X, Y>>, Y extends X> {}
 
-main() {
-  A? source;
+test(A source) {
   var fsource = toF(source);
-  F<A<G<A<Never, Never>>, dynamic>?>? target = fsource;
+  F<A<G<A<Never, Never>>, dynamic>> target = fsource;
 
-  F<A<dynamic, dynamic>?>? target1 = fsource;
-//                                   ^^^^^^^
+  F<A<G<A<Null, Null>>, dynamic>> target1 = fsource;
+//                                          ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<dynamic>, dynamic>?>? target2 = fsource;
-//                                      ^^^^^^^
+  F<A<G<A<dynamic, dynamic>>, dynamic>> target2 = fsource;
+//                                                ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<A<G<dynamic>, dynamic>>, dynamic>?>? target3 = fsource;
-//                                                     ^^^^^^^
+  F<A<G<A<Never, Never>>, Never>> target3 = fsource;
+//                                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<A<dynamic, dynamic>>, Never>> target4 = fsource;
+//                                              ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<dynamic, dynamic>> target5 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<dynamic>, dynamic>> target6 = fsource;
+//                                    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<A<G<dynamic>, dynamic>>, dynamic>> target7 = fsource;
+//                                                   ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -96,3 +115,5 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+main() {}

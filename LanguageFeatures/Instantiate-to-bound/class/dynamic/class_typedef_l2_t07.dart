@@ -42,43 +42,20 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for [A<X
- * extends FutureOr<A<X>?>]
- * @Issue 34264, 34948
+ * @description Checks that instantiation to bounds works OK for [typedef G<X> =
+ * X Function(X)], [class A<X extends G<A<X, Y>>, Y extends X>] (invariant)
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
 import "../../../../Utils/expect.dart";
-import "dart:async";
 
-class A<X extends FutureOr<A<X>?>> {}
+typedef G<X> = X Function(X);
+class A<X extends G<A<Y, X>>, Y extends G<A<X, Y>>> {}
 
-void test(A source) {
-  var fsource = toF(source);
-  F<A<FutureOr<A<dynamic>?>>> target = fsource;
-
-  F<A<FutureOr<A<dynamic>?>?>> target0 = fsource;
-
-  F<A<dynamic>> target1 = fsource;
-//                        ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<FutureOr<dynamic>?>> target2 = fsource;
-//                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<FutureOr<A<FutureOr<A<dynamic>?>>?>>> target3 = fsource;
-//                                                    ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  A();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+main() {
+  Expect.equals(
+      typeOf<A<G<A<dynamic, dynamic>>,G<A<dynamic, dynamic>>>>(),
+      typeOf<A>()
+  );
 }
-
-main() {}
