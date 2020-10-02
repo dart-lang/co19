@@ -51,12 +51,21 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "../../../../Utils/expect.dart";
+
 class A<X> {}
 typedef G<X extends A<X>> = void Function();
 
-main() {
-  G? source;
-//   ^^^^^^^
+test(G source) {
+  var fsource = toF(source);
+
+  F<G<A<dynamic>>> target1 = fsource;
+  F<G<A<Never>>>   target2 = fsource;
+
+  F<G<A<Null>>>    target3 = fsource;
+//                           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+main() {}

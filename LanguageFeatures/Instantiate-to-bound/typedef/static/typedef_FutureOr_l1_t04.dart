@@ -57,9 +57,9 @@ typedef G<X extends FutureOr<X>> = void Function();
 test(G source) {
   var fsource = toF(source);
 
-  F<G<FutureOr<dynamic>>> target = fsource;
-  F<G<FutureOr<Null>>> target1 = fsource;
-  F<G<FutureOr<Null>>> target2 = fsource;
+  F<G<FutureOr<dynamic>>> target1 = fsource;
+  F<G<FutureOr<Never>>>   target2 = fsource;
+  F<G<FutureOr<Null>>>    target3 = fsource;
 }
 
 main() {}
