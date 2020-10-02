@@ -51,12 +51,23 @@
 // SharedOptions=--enable-experiment=non-nullable
 
 import "dart:async";
+import "../../../../Utils/expect.dart";
 
 typedef G<X extends FutureOr<X>> = X Function(X);
 
-main() {
-  G? source;
-//   ^^^^^^^
+test(G source) {
+  var fsource = toF(source);
+  F<G<FutureOr<dynamic>>> target = fsource;
+
+  F<G<FutureOr<Null>>> target1 = fsource;
+//                               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<FutureOr<Null>>> target2 = fsource;
+//                               ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+main() {}

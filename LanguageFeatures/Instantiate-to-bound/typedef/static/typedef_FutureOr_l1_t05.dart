@@ -52,7 +52,18 @@ import "dart:async";
 
 typedef G<X extends FutureOr<X>> = void Function<X1 extends X>();
 
-main() {
-  G? source;
-  void Function<X extends FutureOr<dynamic>>()? target = source;
+test(G source) {
+  void Function<X extends FutureOr<dynamic>>() target1 = source;
+
+  void Function<X extends FutureOr<Never>>()   target2 = source;
+//                                                       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends FutureOr<Null>>()    target3 = source;
+//                                                       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
+
+main() {}
