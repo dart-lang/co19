@@ -57,7 +57,7 @@ main() {
 
     process.exitCode.then((int value) {
       if (Platform.isWindows) {
-        Expect.equals(-1, value);
+        Expect.isTrue(value == 1 || value == -1);
       } else if (Platform.isLinux || Platform.isMacOS) {
         Expect.equals(-15, value);
       }
