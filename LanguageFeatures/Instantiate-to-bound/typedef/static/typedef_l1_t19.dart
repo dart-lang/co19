@@ -50,8 +50,6 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-import "../../../../Utils/expect.dart";
-
 class A<X> {}
 typedef G<X extends A<X>> = void Function<Y extends X?>();
 
