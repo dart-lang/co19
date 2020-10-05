@@ -4,15 +4,19 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a run time error if S does not declare or export either:
- * • A top-level function named main, or
- * • A top-level getter named main that returns a function.
- * @description Checks that it is not a runtime error if S declares a top-level
- * getter named main, returning function.
+ * @assertion Let L be a library that exports a declaration D named main. It is
+ * a compile-time error unless D is a function declaration.
+ *
+ * @description Checks that it is a compile error if L declares a top-level
+ * getter named main, returning a function.
  * @author ngl@unipro.ru
  * @issue 42492
  */
-import "../../../Utils/expect.dart";
+var x = 42;
 
-var x = 1;
-get main => () { Expect.equals(1, x); };
+get main => () {
+//  ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  print(x);
+};
