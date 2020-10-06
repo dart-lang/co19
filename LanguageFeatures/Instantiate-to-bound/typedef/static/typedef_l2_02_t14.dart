@@ -43,7 +43,7 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for [typedef]
- * with two related parameters: [typedef G<X extends A<X>, Y extends A<Y>> =
+ * with two related parameters: [typedef G<X extends A<X>, Y extends X> =
  * void Function(X)]
  * @Issue 34689, 34699, 41963, 41964
  *
@@ -51,12 +51,42 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "../../../../Utils/expect.dart";
+
 class A<X> {}
 typedef G<X extends A<X>, Y extends X> = void Function(X);
 
-main() {
-  G? source;
-//   ^^^^^^
+test(G source) {
+  var fsource = toF(source);
+
+  F<G<A<Never>, A<dynamic>>> target1 = fsource;
+
+  F<G<A<dynamic>, A<dynamic>>> target2 = fsource;
+//                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>,   A<Never>>> target3 = fsource;
+//                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Never>,   A<Never>>>   target4 = fsource;
+
+  F<G<A<dynamic>, A<Null>>>    target5 = fsource;
+//                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Null>,    A<dynamic>>> target6 = fsource;
+//                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Null>,   A<Null>>>     target7 = fsource;
+//                                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+main() {}

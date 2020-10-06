@@ -110,6 +110,9 @@ main() {
 // [cfe] unspecified
 
   void Function<X extends A<Never>>(A<Never>, A<dynamic>)? target10 = source;
+//                                                                    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   void Function<X extends A<Null>>(A<Null>, A<dynamic>)? target11 = source;
 //                                                                  ^^^^^^
@@ -117,6 +120,9 @@ main() {
 // [cfe] unspecified
 
   void Function<X extends A<Never>>(A<dynamic>, A<Never>)? target12 = source;
+//                                                                    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   void Function<X extends A<Null>>(A<dynamic>, A<Null>)? target13 = source;
 //                                                                  ^^^^^^
@@ -124,6 +130,9 @@ main() {
 // [cfe] unspecified
 
   void Function<X extends A<Never>>(A<Never>, A<dynamic>)? target14 = source;
+//                                                                    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   void Function<X extends A<Null>>(A<Null>, A<dynamic>)? target15 = source;
 //                                                                  ^^^^^^

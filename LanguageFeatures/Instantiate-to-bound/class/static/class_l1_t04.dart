@@ -44,7 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works as expected for
  * [class A<X extends A<X>>], [class B<X extends A<A<X>>>]
- * @Issue 34726, 34948
+ * @Issue 34726, 34948, 43687
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable

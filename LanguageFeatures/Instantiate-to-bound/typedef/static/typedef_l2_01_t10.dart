@@ -56,7 +56,7 @@ class A<X> {}
 typedef G<X extends A<X>, Y extends A<Y>> = void Function<X1 extends X>(Y);
 
 test(G source) {
-  void Function<X extends A<dynamic>>(A<Never>) target1 = source;
+  void Function<X extends A<dynamic>>(Never) target1 = source;
 
   void Function<X extends A<dynamic>>(A<dynamic>) target2 = source;
 //                                                          ^^^^^^
@@ -70,6 +70,28 @@ test(G source) {
 
   void Function<X extends A<Never>>(A<Never>) target4 = source;
 //                                                      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>>(A<Never>) target5 = source;
+
+  void Function<X extends A<dynamic>>(dynamic) target6 = source;
+//                                                       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>>(Null) target7 = source;
+//                                                    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends dynamic>(Never) target8 = source;
+//                                                  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends Never>(Never) target9 = source;
+//                                                ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

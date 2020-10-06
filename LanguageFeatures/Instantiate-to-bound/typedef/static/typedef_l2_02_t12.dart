@@ -46,9 +46,9 @@
  * with two related parameters: [typedef G<X extends A<X>, Y extends X> = void
  * Function<Y1 extends Y>(X)]
  *
- * Let's consider [void Function<X extends A<dynamic>>(A<Null>) target1 =
- * source]:  The type of [source] is raw [G] which is [G<A<Null>, A<Null>>]
- * which is unaliased to [void Function<Y1 extends A<Null>>(A<Null>)].  It
+ * Let's consider [void Function<X extends A<dynamic>>(A<Never>) target1 =
+ * source]:  The type of [source] is raw [G] which is [G<A<Never>, A<Never>>]
+ * which is unaliased to [void Function<Y1 extends A<Never>>(A<Never>)]. It
  * explains why [source] can't be assigned to [target1]:  their types are
  * incomparable because the type parameters of these generic function types are
  * different ([A<dynamic>] vs [A<Never>]).
@@ -80,6 +80,9 @@ void test(G source) {
 // [cfe] unspecified
 
   void Function<X extends A<Never>>(A<dynamic>) target4 = source;
+//                                                        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   void Function<X extends A<Null>>(A<dynamic>) target5 = source;
 //                                                       ^^^^^^
@@ -92,6 +95,9 @@ void test(G source) {
 // [cfe] unspecified
 
   void Function<X extends A<Never>>(dynamic) target7 = source;
+//                                                     ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   void Function<X extends A<Null>>(dynamic) target8 = source;
 //                                                    ^^^^^^
