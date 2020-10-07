@@ -55,59 +55,38 @@ import "../../../../Utils/expect.dart";
 class A<X> {}
 typedef G<X extends Y, Y extends A<Y>> = X Function(Y);
 
-main() {
-  G? source;
+test(G source) {
   var fsource = toF(source);
-  F<G<A<Never>, A<Never>>?>? target = fsource;
 
-/*  F<G<A<Null>, A<Null>>?>? target1 = fsource;
-//                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<Null>, A<Never>>?>? target2 = fsource;
+  F<G<A<dynamic>, A<Never>>> target = fsource;
 //                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<Never>, A<Null>>?>? target3 = fsource;
-//                                    ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<dynamic>, dynamic>?>? target4 = fsource;
-//                                      ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<dynamic>, A<dynamic>>?>? target5 = fsource;
-//                                         ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<Never>, A<dynamic>>?>? target6 = fsource;
+  F<G<A<dynamic>, A<dynamic>>> target1 = fsource;
 //                                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<Null>, A<dynamic>>?>? target7 = fsource;
-//                                      ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<dynamic>, A<Never>>?>? target8 = fsource;
+  F<G<A<Never>,   A<dynamic>>> target2 = fsource;
 //                                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<dynamic>, A<Null>>?>? target9 = fsource;
-//                                      ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  F<G<A<Never>,   A<Never>>>   target3 = fsource;
 
-  F<G<dynamic, A<dynamic>>?>? target10 = fsource;
+  F<G<A<dynamic>, A<Null>>>    target4 = fsource;
 //                                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-*/
+
+  F<G<A<Null>,    A<dynamic>>> target5 = fsource;
+//                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Null>,   A<Null>>>     target6 = fsource;
+//                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
