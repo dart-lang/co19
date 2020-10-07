@@ -14,7 +14,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 43551
  */
-void main(List<String> args, var i, {required List<String> more}) {
+void main(List<String> args, var i, {required var more}) {
 //   ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
