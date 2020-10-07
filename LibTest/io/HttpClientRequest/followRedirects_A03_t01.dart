@@ -69,10 +69,12 @@ main() {
   test("get", HttpStatus.movedTemporarily);
   test("get", HttpStatus.seeOther);
   test("get", HttpStatus.temporaryRedirect);
+  test("get", HttpStatus.permanentRedirect);
 
   test("head", HttpStatus.movedPermanently);
   test("head", HttpStatus.found);
   test("head", HttpStatus.movedTemporarily);
   test("head", HttpStatus.seeOther);
   test("head", HttpStatus.temporaryRedirect);
+  test("head", HttpStatus.permanentRedirect);
 }

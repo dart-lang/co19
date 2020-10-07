@@ -67,21 +67,25 @@ main() {
   test("DELETE", HttpStatus.movedTemporarily);
   test("DELETE", HttpStatus.seeOther);
   test("DELETE", HttpStatus.temporaryRedirect);
+  test("DELETE", HttpStatus.permanentRedirect);
 
   test("PUT", HttpStatus.movedPermanently);
   test("PUT", HttpStatus.found);
   test("PUT", HttpStatus.movedTemporarily);
   test("PUT", HttpStatus.seeOther);
   test("PUT", HttpStatus.temporaryRedirect);
+  test("PUT", HttpStatus.permanentRedirect);
 
   test("POST", HttpStatus.movedPermanently);
   test("POST", HttpStatus.found);
   test("POST", HttpStatus.movedTemporarily);
   test("POST", HttpStatus.temporaryRedirect);
+  test("POST", HttpStatus.permanentRedirect);
 
   test("PATCH", HttpStatus.movedPermanently);
   test("PATCH", HttpStatus.found);
   test("PATCH", HttpStatus.movedTemporarily);
   test("PATCH", HttpStatus.seeOther);
   test("PATCH", HttpStatus.temporaryRedirect);
+  test("PATCH", HttpStatus.permanentRedirect);
 }

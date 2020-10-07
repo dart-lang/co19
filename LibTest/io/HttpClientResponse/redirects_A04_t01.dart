@@ -60,22 +60,26 @@ main() {
   test("get", 3, HttpStatus.movedPermanently);
   test("get", 3, HttpStatus.seeOther);
   test("get", 3, HttpStatus.temporaryRedirect);
+  test("get", 3, HttpStatus.permanentRedirect);
 
   test("head", 3, HttpStatus.movedTemporarily);
   test("head", 3, HttpStatus.found);
   test("head", 3, HttpStatus.movedPermanently);
   test("head", 3, HttpStatus.seeOther);
   test("head", 3, HttpStatus.temporaryRedirect);
+  test("head", 3, HttpStatus.permanentRedirect);
 
   test("get", 6, HttpStatus.movedTemporarily);
   test("get", 6, HttpStatus.found);
   test("get", 6, HttpStatus.movedPermanently);
   test("get", 6, HttpStatus.seeOther);
   test("get", 6, HttpStatus.temporaryRedirect);
+  test("get", 6, HttpStatus.permanentRedirect);
 
   test("head", 6, HttpStatus.movedTemporarily);
   test("head", 6, HttpStatus.found);
   test("head", 6, HttpStatus.movedPermanently);
   test("head", 6, HttpStatus.seeOther);
   test("head", 6, HttpStatus.temporaryRedirect);
+  test("head", 6, HttpStatus.permanentRedirect);
 }

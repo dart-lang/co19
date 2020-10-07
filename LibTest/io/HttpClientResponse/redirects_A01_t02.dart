@@ -58,6 +58,7 @@ main() {
   test("get", HttpStatus.movedTemporarily);
   test("get", HttpStatus.seeOther);
   test("get", HttpStatus.temporaryRedirect);
+  test("get", HttpStatus.permanentRedirect);
 
   test("head", HttpStatus.movedPermanently);
   test("head", HttpStatus.found);
