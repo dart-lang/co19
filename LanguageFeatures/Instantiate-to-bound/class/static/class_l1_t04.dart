@@ -43,7 +43,7 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works as expected for
- * [class A<X extends A<X>>], [class B<X extends A<A<X>>>]
+ * class A<X extends A<X>>; class B<X extends A<A<X>>>
  * @Issue 34726, 34948, 43687
  * @author iarkh@unipro.ru
  */
@@ -54,57 +54,58 @@ import "../../../../Utils/expect.dart";
 class A<X extends A<A<X>>> {}
 class B<X extends A<A<X>>> {}
 
-main() {
-  B? source;
+test(B source) {
   var fsource = toF(source);
 
   F<B<A<A<dynamic>>>> target = fsource;
 
-  F<B<dynamic>?>? target1 = fsource;
-//                          ^^^^^^^
+  F<B<dynamic>> target1 = fsource;
+//                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<A<dynamic>>?>? target2 = fsource;
-//                             ^^^^^^^
+  F<B<A<dynamic>>> target2 = fsource;
+//                           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<A<A<A<dynamic>>>>?>? target3 = fsource;
-//                                   ^^^^^^^
+  F<B<A<A<A<dynamic>>>>> target3 = fsource;
+//                                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<A<A<A<A<dynamic>>>>>?>? target4 = fsource;
-//                                      ^^^^^^^
+  F<B<A<A<A<A<dynamic>>>>>> target4 = fsource;
+//                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<Null>?>? target5 = fsource;
-//                          ^^^^^^^
+  F<B<Null>> target5 = fsource;
+//                     ^^^^^^^
+// [analyzer] unspecifie
+// [cfe] unspecified
+
+  F<B<A<Null>>> target6 = fsource;
+//                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<A<Null>>?>? target6 = fsource;
-//                          ^^^^^^^
+  F<B<A<A<Null>>>> target7 = fsource;
+//                           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<A<A<Null>>>?>? target7 = fsource;
-//                             ^^^^^^^
+  F<B<A<A<A<Null>>>>> target8 = fsource;
+//                              ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<B<A<A<A<Null>>>>?>? target8 = fsource;
-//                                ^^^^^^^
+  F<B<A<A<A<A<Null>>>>>> target9 = fsource;
+//                                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
-  F<B<A<A<A<A<Null>>>>>?>? target9 = fsource;
-//                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
+main() {
   B();
 //^
 // [analyzer] unspecified
