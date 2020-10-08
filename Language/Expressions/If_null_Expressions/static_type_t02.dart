@@ -19,22 +19,22 @@ import 'dart:collection';
 import '../../../Utils/expect.dart';
 
 main() {
-  double? d = 1.0;
+  var d = 1.0 as double?;
   var x1 = d ?? 2.0;
   Expect.isTrue(x1 is double);
 
   var x2 = null ?? 2.0;
   Expect.isTrue(x2 is double);
 
-  String? s = 'aaa';
+  var s = 'aaa' as String?;
   var x3 = s ?? 'bbb';
   Expect.isTrue(x3 is String);
 
-  bool? b = true;
+  var b = true as bool?;
   var x4 = b ?? false;
   Expect.isTrue(x4 is bool);
 
-  LinkedHashMap? v = new LinkedHashMap();
+  var v = new LinkedHashMap() as LinkedHashMap?;
   var x5 = v ?? new SplayTreeMap();
   Expect.isTrue(x5 is LinkedHashMap);
 
