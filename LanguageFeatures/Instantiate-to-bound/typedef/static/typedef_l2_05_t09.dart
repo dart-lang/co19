@@ -53,8 +53,7 @@
 // SharedOptions=--enable-experiment=non-nullable
 
 class A<X> {}
-typedef G<X extends Y, Y extends A<X>> =
-    void Function<X1 extends X, Y1 extends Y>(Y);
+typedef G<X extends Y, Y extends A<X>> = void Function<X1 extends X, Y1 extends Y>(Y);
 
 test(G source) {
   void Function<X extends A<dynamic>, Y extends A<dynamic>>(A<dynamic>) target1 = source;

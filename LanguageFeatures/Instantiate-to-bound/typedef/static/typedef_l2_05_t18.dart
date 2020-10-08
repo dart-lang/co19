@@ -46,19 +46,16 @@
  * with two related parameters: [typedef G<X extends Y, Y extends A<X>> =
  * void Function()]
  *
- * @Issue 41963, 41964
+ * @Issue 41963, 41964, 43724
  *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
 
-class A<X> {}
-typedef G<X extends Y, Y extends A<X>> = void Function();
-
 import "../../../../Utils/expect.dart";
 
 class A<X> {}
-typedef G<X extends A<Y>, Y extends X> = void Function();
+typedef G<X extends Y, Y extends A<X>> = void Function();
 
 test(G source) {
   var fsource = toF(source);

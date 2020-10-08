@@ -55,6 +55,33 @@
 class A<X> {}
 typedef G<X extends A<Y>, Y extends A<X>> = void Function<Y1 extends Y>();
 
-main() {
-  G? source;   //# 01: compile-time error
+test(G source) {
+  void Function<X extends A<dynamic>>() target1 = source;
+
+  void Function<X extends A<Never>>() target2 = source;
+//                                              ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<Null>>() target3 = source;
+//                                             ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends dynamic>() target4 = source;
+//                                             ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends Never>() target5 = source;
+//                                           ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends Null>() target6 = source;
+//                                          ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
+
+main() {}

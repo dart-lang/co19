@@ -55,9 +55,48 @@ class A<X> {}
 typedef G<X extends A<Y>, Y extends A<X>> =
     void Function<X1 extends X, Y1 extends Y>(Y);
 
-main() {
-  G? source;
-//   ^^^^^^
+test(G source) {
+  void Function<X extends A<dynamic>, Y extends A<dynamic>>(A<dynamic>) target1 = source;
+
+  void Function<X extends A<dynamic>, Y extends A<Never>>(A<Never>) target2 = source;
+//                                                                            ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<Never>, Y extends A<dynamic>>(A<dynamic>) target3 = source;
+//                                                                              ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<Never>, Y extends A<Never>>(A<Never>) target4 = source;
+//                                                                          ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>, Y extends dynamic>(dynamic) target5 = source;
+//                                                                          ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>, Y extends Never>(Never) target6 = source;
+//                                                                      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends dynamic, Y extends A<dynamic>>(A<dynamic>) target7 = source;
+//                                                                             ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>, Y extends dynamic>(dynamic) target8 = source;
+//                                                                          ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends dynamic, Y extends A<Never>>(A<Never>) target7 = source;
+//                                                                         ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+main() {}
