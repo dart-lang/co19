@@ -25,7 +25,8 @@ main() {
 
   s.handleError((e, st) {
     Expect.identical(error, e);
-    Expect.isNull(st);
+    Expect.isNotNull(st);
+    Expect.equals("", st.toString());
     asyncEnd();
   }).listen((_) {});
 }

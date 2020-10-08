@@ -29,7 +29,8 @@ main() {
     Expect.fail('unexpected call to onData');
   }, onError: (e, st) {
     Expect.identical(error, e);
-    Expect.isNull(st);
+    Expect.isNotNull(st);
+    Expect.equals("", st.toString());
     asyncEnd();
   });
 }

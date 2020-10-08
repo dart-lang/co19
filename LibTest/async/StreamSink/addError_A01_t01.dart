@@ -31,7 +31,8 @@ main() {
   c.stream.listen(null, onError:(e,st) {
     if (first) {
       Expect.identical(1, e);
-      Expect.identical(null, st);
+      Expect.isNotNull(st);
+      Expect.equals("", st.toString());
       first = false;
     } else { 
       Expect.identical(2, e);

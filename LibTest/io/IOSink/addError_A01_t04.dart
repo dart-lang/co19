@@ -22,7 +22,8 @@ class MyStreamConsumer extends StreamConsumer<List<int>> {
       Expect.fail("Should not be here!");
     }, onError: (error, StackTrace st) {
       called++;
-      Expect.isNull(st);
+      Expect.isNotNull(st);
+      Expect.equals("", st.toString());
     });
     return new Future(() {});
   }
