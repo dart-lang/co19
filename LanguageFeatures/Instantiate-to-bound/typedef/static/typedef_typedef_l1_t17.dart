@@ -43,8 +43,8 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for
- * [typedef typedef A<X> = X Function();
- * typedef G<X extends A<X>> = void Function<Y extends X>()]
+ * typedef typedef A<X> = X Function();
+ * typedef G<X extends A<X>> = void Function<Y extends X>()
  * @Issue 41963, 41964
  * @author iarkh@unipro.ru
  */
@@ -53,9 +53,18 @@
 typedef A<X> = X Function();
 typedef G<X extends A<X>> = void Function<Y extends X>();
 
-main() {
-  G? source;
-//   ^^^^^^
+void test(G source) {
+  void Function<X extends dynamic Function()>() target1 = source;
+
+  void Function<X extends Never Function()>() target2 = source;
+//                                                      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends Null Function()>() target3 = source;
+//                                                     ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+main() {}
