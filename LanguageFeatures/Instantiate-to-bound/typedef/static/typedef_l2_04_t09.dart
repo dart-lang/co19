@@ -60,13 +60,13 @@ test(G source) {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void Function<X extends A<dynamic>, Y extends A<dynamic>>(A<Never>) target2 = source;
-//                                                                              ^^^^^^
+  void Function<X extends A<dynamic>, Y extends A<Never>>(A<Never>) target2 = source;
+//                                                                            ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void Function<X extends A<Never>, Y extends A<Never>>(A<dynamic>) target3 = source;
-//                                                                            ^^^^^^
+  void Function<X extends A<Never>, Y extends A<dynamic>>(A<dynamic>) target3 = source;
+//                                                                              ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

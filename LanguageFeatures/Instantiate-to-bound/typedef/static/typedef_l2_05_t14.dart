@@ -52,12 +52,58 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "../../../../Utils/expect.dart";
+
 class A<X> {}
 typedef G<X extends Y, Y extends A<X>> = void Function(X);
 
-main() {
-  G? source;
-//   ^^^^^^
+test(G source) {
+  var fsource = toF(source);
+
+  F<G<Never, A<dynamic>>> target1 = fsource;
+
+  F<G<Never, A<Never>>> target2 = fsource;
+
+  F<G<Never,   A<Null>>> target3 = fsource;
+
+  F<G<Never, Never>> target4 = fsource;
+
+  F<G<Never, dynamic>> target5 = fsource;
+
+  F<G<A<Never>, A<dynamic>>> target6 = fsource;
+//                                     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>, A<dynamic>>> target7 = fsource;
+//                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>, A<Never>>> target8 = fsource;
+//                                     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Never>, A<Never>>> target9 = fsource;
+//                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>, A<Null>>> target10 = fsource;
+//                                     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Null>, A<dynamic>>> target11 = fsource;
+//                                     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Null>, A<Null>>> target12 = fsource;
+//                                  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+main() {}
