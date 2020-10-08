@@ -43,7 +43,7 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for [typedef]
- * with two related parameters: [typedef G<X extends A<Y>, Y extends A<Y>> =
+ * with two related parameters: [typedef G<X extends A<Y>, Y extends X> =
  * Y Function()]
  *
  * @Issue 41963, 41964
@@ -52,12 +52,106 @@
  */
 // SharedOptions=--enable-experiment=non-nullable
 
+import "../../../../Utils/expect.dart";
+
 class A<X> {}
 typedef G<X extends A<Y>, Y extends X> = Y Function();
 
-main() {
-  G? source;
-//   ^^^^^^
+test(G source) {
+  var fsource = toF(source);
+
+  F<G<Never, A<dynamic>>> target1 = fsource;
+//                                  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  F<G<Never, A<Never>>> target2 = fsource;
+//                                ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<Never,   A<Null>>> target3 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<Never, Never>> target4 = fsource;
+//                             ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<Never, dynamic>> target5 = fsource;
+
+  F<G<A<Never>, A<dynamic>>> target6 = fsource;
+//                                     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>, A<dynamic>>> target7 = fsource;
+//                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>, A<Never>>> target8 = fsource;
+//                                     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Never>, A<Never>>> target9 = fsource;
+//                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>, A<Null>>> target10 = fsource;
+//                                     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Null>, A<dynamic>>> target11 = fsource;
+//                                     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Null>, A<Null>>> target12 = fsource;
+//                                  ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<dynamic, Never>> target13 = fsource;
+//                                ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<Null, Null>> target14 = fsource;
+//                            ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<dynamic, Null>> target15 = fsource;
+//                               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<dynamic, dynamic>> target16 = fsource;
+
+  F<G<A<dynamic>, Never>> target17 = fsource;
+//                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Never>, Never>> target18 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<Null>, Never>> target19 = fsource;
+//                                ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>, dynamic>> target20 = fsource;
+
+  F<G<A<Never>, dynamic>> target21 = fsource;
 }
+
+main() {}

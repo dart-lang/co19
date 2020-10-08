@@ -55,9 +55,108 @@ class A<X> {}
 typedef G<X extends A<Y>, Y extends X> =
     void Function<X1 extends X, Y1 extends Y>();
 
-main() {
-  G? source;
-//   ^^^^^^
+test(G source) {
+  void Function<X extends A<dynamic>, Y extends A<dynamic>>() target1 = source;
+//                                                                      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>, Y extends A<Never>>() target2 = source;
+//                                                                    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<Never>, Y extends A<dynamic>>() target3 = source;
+//                                                                    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<Never>, Y extends A<Never>>() target4 = source;
+//                                                                  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>, Y extends A<Null>>() target5 = source;
+//                                                                   ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<Null>, Y extends A<dynamic>>() target6 = source;
+//                                                                   ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<Null>, Y extends A<Null>>() target7 = source;
+//                                                                ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>, Y extends dynamic>() target8 = source;
+
+  void Function<X extends A<dynamic>, Y extends Never>() target9 = source;
+//                                                                 ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<Never>, Y extends dynamic>() target10 = source;
+//                                                                  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<Never>, Y extends Never>() target11 = source;
+//                                                                ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>, Y extends Null>() target12 = source;
+//                                                                 ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<Null>, Y extends dynamic>() target13 = source;
+//                                                                 ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<Null>, Y extends Null>() target14 = source;
+//                                                              ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends dynamic, Y extends A<dynamic>>() target15 = source;
+//                                                                    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends dynamic, Y extends A<Never>>() target16 = source;
+//                                                                  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends Never, Y extends A<dynamic>>() target17 = source;
+//                                                                  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends Never, Y extends A<Never>>() target18 = source;
+//                                                                ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends dynamic, Y extends A<Null>>() target19 = source;
+//                                                                 ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends Null, Y extends A<dynamic>>() target20 = source;
+//                                                                 ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends Null, Y extends A<Null>>() target21 = source;
+//                                                              ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+main() {}
