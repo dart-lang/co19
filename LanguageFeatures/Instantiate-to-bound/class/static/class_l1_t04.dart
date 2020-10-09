@@ -81,7 +81,7 @@ test(B source) {
 
   F<B<Null>> target5 = fsource;
 //                     ^^^^^^^
-// [analyzer] unspecifie
+// [analyzer] unspecified
 // [cfe] unspecified
 
   F<B<A<Null>>> target6 = fsource;
