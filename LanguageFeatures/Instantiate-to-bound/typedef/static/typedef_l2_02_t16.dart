@@ -46,7 +46,7 @@
  * with two related parameters: [typedef G<X extends A<X>, Y extends A<Y>> =
  * X Function()]
  *
- * @Issue 41963, 41964
+ * @Issue 41963, 41964, 43724, 43734
  *
  * @author iarkh@unipro.ru
  */

@@ -81,7 +81,7 @@ test(G source) {
 //                                                                ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-/*
+
   void Function<X extends A<dynamic>>(A<dynamic>, A<Null>) target7 = source;
 //                                                                   ^^^^^^
 // [analyzer] unspecified
@@ -136,7 +136,6 @@ test(G source) {
 //                                                        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-*/
 }
 
 main() {}

@@ -62,6 +62,9 @@ test(G source) {
   var fsource = toF(source);
 
   F<G<A<dynamic>, dynamic>>    target1  = fsource;
+//                                        ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   F<G<A<Never>,   dynamic>>    target2  = fsource;
 //                                        ^^^^^^^
@@ -89,14 +92,8 @@ test(G source) {
 // [cfe] unspecified
 
   F<G<A<dynamic>, A<dynamic>>> target7  = fsource;
-//                                        ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
   F<G<A<Never>,   A<dynamic>>> target8  = fsource;
-//                                        ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
   F<G<A<Never>,   A<Never>>>   target9 =  fsource;
 //                                        ^^^^^^^

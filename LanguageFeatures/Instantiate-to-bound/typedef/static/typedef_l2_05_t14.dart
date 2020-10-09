@@ -46,7 +46,7 @@
  * with two related parameters: [typedef G<X extends Y, Y extends A<X>> =
  * void Function(X)]
  *
- * @Issue 41963, 41964
+ * @Issue 41963, 41964, 43723, 43734, 43735
  *
  * @author iarkh@unipro.ru
  */
@@ -65,6 +65,9 @@ test(G source) {
   F<G<Never, A<Never>>> target2 = fsource;
 
   F<G<Never,   A<Null>>> target3 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   F<G<Never, Never>> target4 = fsource;
 

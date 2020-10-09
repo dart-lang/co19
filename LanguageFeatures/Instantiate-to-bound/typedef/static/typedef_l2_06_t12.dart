@@ -107,7 +107,7 @@ void test(G source) {
 //                                                  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-*/
+
   void Function<X extends A<Null>>(Null) target10 = source;
 //                                                  ^^^^^^
 // [analyzer] unspecified

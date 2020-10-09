@@ -59,6 +59,8 @@ typedef G<X extends A<Y>, Y extends X> = X Function(Y);
 test(G source) {
   var fsource = toF(source);
 
+  F<G<A<dynamic>,   Never>>       target = fsource;
+
   F<G<A<dynamic>, A<Never>>> target0 = fsource;
 //                                     ^^^^^^^
 // [analyzer] unspecified
@@ -95,6 +97,9 @@ test(G source) {
 // [cfe] unspecified
 
   F<G<dynamic,   Never>>       target7 = fsource;
+//                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   F<G<dynamic,   dynamic>>     target8 = fsource;
 //                                       ^^^^^^^
