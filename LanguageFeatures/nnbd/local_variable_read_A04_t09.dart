@@ -18,5 +18,5 @@ import "../../Utils/expect.dart";
 
 main() {
   int? x1;
-  Expect.isNull(42, x1);
+  Expect.isNull(x1);
 }

@@ -26,7 +26,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  final var x2;
+  final x2;
   if (b) {
     x2 = 42;
   }
