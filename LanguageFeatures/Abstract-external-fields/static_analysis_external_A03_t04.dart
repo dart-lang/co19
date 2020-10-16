@@ -14,19 +14,26 @@
  * on external instance variables).
  *
  * @description Checks that declaration
- *   external final i;
+ *  class A {
+ *    external final int i1;
+ *    external final i2;
  * desugared as
- *   external dynamic get i;
+ *  class A {
+ *    external int get i1;
+ *    external dynamic get i2;
  * @author sgrekhov@unipro.ru
  */
-external final i;
+class A {
+  external final int i1;
+  external final i2;
 
-test() {
-  i = '';
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  test() {
+    int j = i1;
+    int k = i2;
+    String s = i2;
+  }
 }
 
 main() {
+  new A();
 }

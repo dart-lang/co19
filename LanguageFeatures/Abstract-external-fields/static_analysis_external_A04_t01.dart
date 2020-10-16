@@ -14,19 +14,31 @@
  * on external instance variables).
  *
  * @description Checks that declaration
- *   external final i;
+ *  class A {
+ *    external covariant int i1;
+ *    external covariant var i2;
  * desugared as
- *   external dynamic get i;
+ *  class A {
+ *    external int get i1;
+ *    external void set i1(covariant int _);
+ *    external int get i2;
+ *    external void set i2(covariant int _);
  * @author sgrekhov@unipro.ru
  */
-external final i;
+class A {
+  external covariant int i1;
+  external covariant var i2;
 
-test() {
-  i = '';
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  test() {
+    int j = i1;
+    i1 = 42;
+    int k = i2;
+    String s = i2;
+    i2 = 42;
+    i2 = "Lily was here";
+  }
 }
 
 main() {
+  new A();
 }

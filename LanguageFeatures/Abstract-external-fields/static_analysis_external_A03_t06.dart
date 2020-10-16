@@ -14,19 +14,27 @@
  * on external instance variables).
  *
  * @description Checks that declaration
- *   external final i;
+ *  class A {
+ *    external final int i1;
+ *    external final i2;
  * desugared as
- *   external dynamic get i;
+ *  class A {
+ *    external int get i1;
+ *    external dynamic get i2;
  * @author sgrekhov@unipro.ru
  */
-external final i;
+import "../../Utils/expect.dart";
 
-test() {
-  i = '';
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+class A {
+  external final int i1;
+  external final i2;
+
+  test() {
+    Expect.throws(() { i1;}, (e) => e is NoSuchMethodError);
+    Expect.throws(() { i2;}, (e) => e is NoSuchMethodError);
+  }
 }
 
 main() {
+  new A().test();
 }

@@ -14,19 +14,28 @@
  * on external instance variables).
  *
  * @description Checks that declaration
- *   external final i;
+ *  class A {
+ *    external static var i1;
  * desugared as
- *   external dynamic get i;
+ *  class A {
+ *    external static dynamic get i1;
+ *    external static void set i1(dynamic _);
  * @author sgrekhov@unipro.ru
  */
-external final i;
+import "../../Utils/expect.dart";
 
-test() {
-  i = '';
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+class A {
+  external static int i1;
+  external static var i2;
+
+  static test() {
+    Expect.throws(() { i1;}, (e) => e is NoSuchMethodError);
+    Expect.throws(() { i2;}, (e) => e is NoSuchMethodError);
+    Expect.throws(() { i1 = 42;}, (e) => e is NoSuchMethodError);
+    Expect.throws(() { i2 = 42;}, (e) => e is NoSuchMethodError);
+  }
 }
 
 main() {
+  A.test();
 }
