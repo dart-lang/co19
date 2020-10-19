@@ -11,8 +11,20 @@
 import "dart:math";
 
 main() {
-  new Point(0, 0) + new Point(1, null); //# 01: compile-time error
-  new Point(0, 0) + new Point(null, 1); //# 02: compile-time error
-  new Point(0, null) + new Point(1, 1); //# 03: compile-time error
-  new Point(null, 0) + new Point(1, 1); //# 04: compile-time error
+  new Point(0, 0) + new Point(1, null);
+  //                             ^^^^
+  // [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
+  // [cfe] The argument type 'Null' can't be assigned to the parameter type 'int'.
+  new Point(0, 0) + new Point(null, 1);
+  //                          ^^^^
+  // [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
+  // [cfe] The argument type 'Null' can't be assigned to the parameter type 'int'.
+  new Point(0, null) + new Point(1, 1);
+// [error line 22, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  new Point(null, 0) + new Point(1, 1);
+// [error line 26, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

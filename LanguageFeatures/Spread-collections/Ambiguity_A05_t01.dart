@@ -23,27 +23,81 @@ main() {
   List? aList = [1, 2, 3];
   Map? aMap   = {1: 1, 2: 2, 3: 3};
 
-  var res1  = <int, int, int>{...aList};            //# 01: compile-time error
-  var res2  = <int, int, int, int>{...aList};       //# 02: compile-time error
-  var res3  = <int, int, int, int, int>{...aList};  //# 03: compile-time error
+  var res1  = <int, int, int>{...aList};
+// [error line 26, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var res2  = <int, int, int, int>{...aList};
+// [error line 30, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var res3  = <int, int, int, int, int>{...aList};
+// [error line 34, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  var res4  = <int, int, int>{...?aList};           //# 04: compile-time error
-  var res5  = <int, int, int, int>{...?aList};      //# 05: compile-time error
-  var res6  = <int, int, int, int, int>{...?aList}; //# 06: compile-time error
+  var res4  = <int, int, int>{...?aList};
+// [error line 39, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var res5  = <int, int, int, int>{...?aList};
+// [error line 43, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var res6  = <int, int, int, int, int>{...?aList};
+// [error line 47, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  var res7  = <int, int, int>{...aSet};             //# 07: compile-time error
-  var res8  = <int, int, int, int>{...aSet};        //# 08: compile-time error
-  var res9  = <int, int, int, int, int>{...aSet};   //# 09: compile-time error
+  var res7  = <int, int, int>{...aSet};
+// [error line 52, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var res8  = <int, int, int, int>{...aSet};
+// [error line 56, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var res9  = <int, int, int, int, int>{...aSet};
+// [error line 60, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  var res10 = <int, int, int>{...?aSet};            //# 10: compile-time error
-  var res11 = <int, int, int, int>{...?aSet};       //# 11: compile-time error
-  var res12 = <int, int, int, int, int>{...?aSet};  //# 12: compile-time error
+  var res10 = <int, int, int>{...?aSet};
+// [error line 65, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var res11 = <int, int, int, int>{...?aSet};
+// [error line 69, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var res12 = <int, int, int, int, int>{...?aSet};
+// [error line 73, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  var res13 = <int, int, int>{...aMap};             //# 13: compile-time error
-  var res14 = <int, int, int, int>{...aMap};        //# 14: compile-time error
-  var res15 = <int, int, int, int, int>{...aMap};   //# 15: compile-time error
+  var res13 = <int, int, int>{...aMap};
+// [error line 78, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var res14 = <int, int, int, int>{...aMap};
+// [error line 82, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var res15 = <int, int, int, int, int>{...aMap};
+// [error line 86, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  var res16 = <int, int, int>{...?aMap};            //# 16: compile-time error
-  var res17 = <int, int, int, int>{...?aMap};       //# 17: compile-time error
-  var res18 = <int, int, int, int, int>{...?aMap};  //# 18: compile-time error
+  var res16 = <int, int, int>{...?aMap};
+  //          ^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
+  // [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+  var res17 = <int, int, int, int>{...?aMap};
+  //          ^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
+  // [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+  var res18 = <int, int, int, int, int>{...?aMap};
+  //          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
+  // [cfe] A set or map literal requires exactly one or two type arguments, respectively.
 }

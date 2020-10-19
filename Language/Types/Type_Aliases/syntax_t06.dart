@@ -22,18 +22,30 @@ class A {}
 
 class C {
   static void s() {
-    typedef Alias1 = A;                     //# 01: compile-time error
+    typedef Alias1 = A;
+// [error line 25, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   void m() {
-    typedef Alias2 = A;                     //# 02: compile-time error
+    typedef Alias2 = A;
+// [error line 32, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 test() {
-  @meta typedef Alias3 = A;                 //# 03: compile-time error
+  @meta typedef Alias3 = A;
+// [error line 40, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  @meta typedef Alias4 = A;                 //# 04: compile-time error
+  @meta typedef Alias4 = A;
+// [error line 47, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

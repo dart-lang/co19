@@ -22,9 +22,18 @@ class C extends A {
 }
 
 extension ExtendedC on C {
-  String m() => super.a;          //# 01: compile-time error
-  String get getter => super.a;   //# 02: compile-time error
-  String operator-() => super.a;  //# 03: compile-time error
+  String m() => super.a;
+  //            ^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.SUPER_IN_EXTENSION
+  // [cfe] Expected identifier, but got 'super'.
+  String get getter => super.a;
+  //                   ^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.SUPER_IN_EXTENSION
+  // [cfe] Expected identifier, but got 'super'.
+  String operator-() => super.a;
+  //                    ^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.SUPER_IN_EXTENSION
+  // [cfe] Expected identifier, but got 'super'.
 }
 
 main() {

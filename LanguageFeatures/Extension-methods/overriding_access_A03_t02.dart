@@ -17,9 +17,25 @@
 import "extension_conflict_resolution_lib.dart" as testlib;
 
 main() {
-  bool res1 = testlib.MySimpleExt("testme") == true; //# 01: compile-time error
-  var  res2 = testlib.MySimpleExt("testme") == 14;   //# 02: compile-time error
+  bool res1 = testlib.MySimpleExt("testme") == true;
+  //                  ^
+  // [cfe] Explicit extension application cannot be used as an expression.
+  //                                        ^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_OPERATOR
+  var  res2 = testlib.MySimpleExt("testme") == 14;
+  //                  ^
+  // [cfe] Explicit extension application cannot be used as an expression.
+  //                                        ^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_OPERATOR
 
-  bool res3 = testlib.MySimpleExt("testme") != true; //# 03: compile-time error
-  var  res4 = testlib.MySimpleExt("testme") != 128;  //# 04: compile-time error
+  bool res3 = testlib.MySimpleExt("testme") != true;
+  //                  ^
+  // [cfe] Explicit extension application cannot be used as an expression.
+  //                                        ^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_OPERATOR
+  var  res4 = testlib.MySimpleExt("testme") != 128;
+  //                  ^
+  // [cfe] Explicit extension application cannot be used as an expression.
+  //                                        ^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_OPERATOR
 }

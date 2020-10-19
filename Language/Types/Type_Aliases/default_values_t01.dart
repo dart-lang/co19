@@ -11,10 +11,22 @@
  * @author sgrekhov@unipro.ru
  */
 
-typedef void F1(String s = "");               //# 01: compile-time error
-typedef String F2(String s, int i = -1);      //# 02: compile-time error
-typedef int F3(String s, [int i = -1]);       //# 03: compile-time error
-typedef F4(String s, {int i = -1});           //# 04: compile-time error
+typedef void F1(String s = "");
+//                       ^
+// [analyzer] SYNTACTIC_ERROR.NAMED_PARAMETER_OUTSIDE_GROUP
+// [cfe] Non-optional parameters can't have a default value.
+typedef String F2(String s, int i = -1);
+//                                ^
+// [analyzer] SYNTACTIC_ERROR.NAMED_PARAMETER_OUTSIDE_GROUP
+// [cfe] Non-optional parameters can't have a default value.
+typedef int F3(String s, [int i = -1]);
+//                              ^
+// [analyzer] SYNTACTIC_ERROR.DEFAULT_VALUE_IN_FUNCTION_TYPE
+// [cfe] Can't have a default value in a function type.
+typedef F4(String s, {int i = -1});
+//                          ^
+// [analyzer] SYNTACTIC_ERROR.DEFAULT_VALUE_IN_FUNCTION_TYPE
+// [cfe] Can't have a default value in a function type.
 
 main() {
 }

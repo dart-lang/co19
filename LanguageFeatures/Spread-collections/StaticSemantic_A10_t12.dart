@@ -18,7 +18,16 @@ main() {
   const x2 = 100;
   const x3 = "check";
 
-  const Set s1 = {...?x1}; //# 01: compile-time error
-  const Set s2 = {...?x2}; //# 02: compile-time error
-  const Set s3 = {...?x3}; //# 03: compile-time error
+  const Set s1 = {...?x1};
+// [error line 21, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set s2 = {...?x2};
+// [error line 25, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set s3 = {...?x3};
+// [error line 29, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

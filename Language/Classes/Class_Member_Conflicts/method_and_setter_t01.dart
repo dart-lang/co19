@@ -14,8 +14,14 @@ class C {
   void s() {}
   void _s() {}
 
-  set s(var value) {}    //# 01: compile-time error
-  set _s(var value) {}   //# 02: compile-time error
+  set s(var value) {}
+  //  ^
+  // [analyzer] COMPILE_TIME_ERROR.DUPLICATE_DEFINITION
+  // [cfe] 's' is already declared in this scope.
+  set _s(var value) {}
+  //  ^^
+  // [analyzer] COMPILE_TIME_ERROR.DUPLICATE_DEFINITION
+  // [cfe] '_s' is already declared in this scope.
 }
 
 main() {

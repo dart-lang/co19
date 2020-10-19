@@ -22,10 +22,28 @@ main() {
   Future? x5;
   FutureOr x6;
 
-  Set s1 = {...?x1}; //# 01: compile-time error
-  Set s2 = {...?x2}; //# 02: compile-time error
-  Set s3 = {...?x3}; //# 03: compile-time error
-  Set s4 = {...?x4}; //# 04: compile-time error
-  Set s5 = {...?x5}; //# 05: compile-time error
-  Set s6 = {...?x6}; //# 06: compile-time error
+  Set s1 = {...?x1};
+// [error line 25, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Set s2 = {...?x2};
+  //       ^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+  Set s3 = {...?x3};
+// [error line 33, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Set s4 = {...?x4};
+// [error line 37, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Set s5 = {...?x5};
+// [error line 41, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Set s6 = {...?x6};
+// [error line 45, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

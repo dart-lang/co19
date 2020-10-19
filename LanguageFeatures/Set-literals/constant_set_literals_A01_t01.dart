@@ -24,8 +24,20 @@ class C extends B {
 
 main() {
   var x;
-  var v1 = const {1, 2, '3', new A()};                  //# 01: compile-time error
-  var v2 = const [const B(), const C(), const A(), x];  //# 02: compile-time error
-  const v3 = {1, 2, '3', new A()};                      //# 03: compile-time error
-  const v4 = [const B(), const C(), const A(), x];      //# 04: compile-time error
+  var v1 = const {1, 2, '3', new A()};
+  //                         ^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
+  // [cfe] New expression is not a constant expression.
+  var v2 = const [const B(), const C(), const A(), x];
+  //                                               ^
+  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
+  // [cfe] Not a constant expression.
+  const v3 = {1, 2, '3', new A()};
+// [error line 35, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const v4 = [const B(), const C(), const A(), x];
+// [error line 39, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -45,15 +45,42 @@ main() {
   int i = 0;
 
   Map a;
-  a = const {...map2};          //# 01: compile-time error
-  a = const {...map1, ...map2}; //# 02: compile-time error
-  a = const {...map2, ...map1}; //# 03: compile-time error
+  a = const {...map2};
+// [error line 48, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  a = const {...map1, ...map2};
+// [error line 52, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  a = const {...map2, ...map1};
+// [error line 56, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  a = const {...map2, 10: 2};   //# 04: compile-time error
-  a = const {10: 2, ...map2};   //# 05: compile-time error
+  a = const {...map2, 10: 2};
+// [error line 61, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  a = const {10: 2, ...map2};
+// [error line 65, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  a = const {...map1, i: 10};   //# 06: compile-time error
-  a = const {...map1, 10: i};   //# 07: compile-time error
-  a = const {i: 10, ...map1};   //# 08: compile-time error
-  a = const {10: i, map1};      //# 09: compile-time error
+  a = const {...map1, i: 10};
+// [error line 70, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  a = const {...map1, 10: i};
+// [error line 74, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  a = const {i: 10, ...map1};
+// [error line 78, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  a = const {10: i, map1};
+// [error line 82, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

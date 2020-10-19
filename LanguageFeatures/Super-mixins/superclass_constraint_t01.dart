@@ -12,20 +12,45 @@
  *
  * @description Checks that class types that cannot be subclassed, cannot be
  * used as super-class constraints.
- * @compile-error
  * @author ngl@unipro.ru
  */
 typedef F = void Function(int);
 
 abstract class I {}
 
-mixin M1 on void implements I {}    //# 01: compile-time error
-mixin M2 on dynamic implements I {}   //# 02: compile-time error
-mixin M3 on FutureOr<num> implements I {} //# 03: compile-time error
-mixin M4 on F implements I {}  //# 04: compile-time error
-mixin M5 on int implements I {}   //# 05: compile-time error
-mixin M6 on bool implements I {}  //# 06: compile-time error
-mixin M7 on Null implements I {}  //# 07: compile-time error
+mixin M1 on void implements I {}
+// [error line 21, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+mixin M2 on dynamic implements I {}
+//    ^
+// [cfe] The type 'dynamic' can't be used as supertype.
+//          ^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.MIXIN_SUPER_CLASS_CONSTRAINT_NON_INTERFACE
+mixin M3 on FutureOr<num> implements I {}
+// [error line 30, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+mixin M4 on F implements I {}
+//    ^
+// [cfe] The type 'F' can't be used as supertype.
+//          ^
+// [analyzer] COMPILE_TIME_ERROR.MIXIN_SUPER_CLASS_CONSTRAINT_NON_INTERFACE
+mixin M5 on int implements I {}
+//    ^
+// [cfe] 'int' is restricted and can't be extended or implemented.
+//          ^^^
+// [analyzer] COMPILE_TIME_ERROR.SUBTYPE_OF_DISALLOWED_TYPE
+mixin M6 on bool implements I {}
+//    ^
+// [cfe] 'bool' is restricted and can't be extended or implemented.
+//          ^^^^
+// [analyzer] COMPILE_TIME_ERROR.SUBTYPE_OF_DISALLOWED_TYPE
+mixin M7 on Null implements I {}
+//    ^
+// [cfe] 'Null' is restricted and can't be extended or implemented.
+//          ^^^^
+// [analyzer] COMPILE_TIME_ERROR.SUBTYPE_OF_DISALLOWED_TYPE
 
 main() {
 }

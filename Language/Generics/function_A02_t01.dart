@@ -21,18 +21,50 @@ main() {
   testme1();
   testme1<int>();
   testme1<dynamic>();
-  testme1<int, dynamic>();              //# 01: compile-time error
-  testme1<dynamic, int, int>();         //# 02: compile-time error
+  testme1<int, dynamic>();
+//^
+// [cfe] Expected 1 type arguments.
+  //     ^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS_METHOD
+  testme1<dynamic, int, int>();
+//^
+// [cfe] Expected 1 type arguments.
+  //     ^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS_METHOD
 
   testme2(1);
-  testme2<int>(12);                     //# 03: compile-time error
-  testme2<dynamic>(333);                //# 04: compile-time error
+  testme2<int>(12);
+//^
+// [cfe] Expected 2 type arguments.
+  //     ^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS_METHOD
+  testme2<dynamic>(333);
+//^
+// [cfe] Expected 2 type arguments.
+  //     ^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS_METHOD
   testme2<int, dynamic>(289);
-  testme2<dynamic, int, int>(1);        //# 05: compile-time error
+  testme2<dynamic, int, int>(1);
+//^
+// [cfe] Expected 2 type arguments.
+  //     ^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS_METHOD
 
   testme3();
-  testme3<int>();                       //# 06: compile-time error
-  testme3<int, dynamic>();              //# 07: compile-time error
+  testme3<int>();
+//^
+// [cfe] Expected 3 type arguments.
+  //     ^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS_METHOD
+  testme3<int, dynamic>();
+//^
+// [cfe] Expected 3 type arguments.
+  //     ^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS_METHOD
   testme3<dynamic, int, int>();
-  testme3<dynamic, int, int, String>(); //# 08: compile-time error
+  testme3<dynamic, int, int, String>();
+//^
+// [cfe] Expected 3 type arguments.
+  //     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS_METHOD
 }

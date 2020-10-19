@@ -21,9 +21,15 @@ class C {
 }
 
 extension ExtendedC on C {
-  static String st = cStaticMember;     //# 01: compile-time error
+  static String st = cStaticMember;
+  //                 ^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.UNQUALIFIED_REFERENCE_TO_STATIC_MEMBER_OF_EXTENDED_TYPE
+  // [cfe] Getter not found: 'cStaticMember'.
   void test() {
-    cStaticMember;                      //# 02: compile-time error
+    cStaticMember;
+//  ^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.UNQUALIFIED_REFERENCE_TO_STATIC_MEMBER_OF_EXTENDED_TYPE
+// [cfe] The getter 'cStaticMember' isn't defined for the class 'C'.
   }
 }
 

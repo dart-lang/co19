@@ -15,7 +15,19 @@ void testme() {}
 
 main() {
   testme();
-  testme<dynamic>();     //# 01: compile-time error
-  testme<int, String>(); //# 02: compile-time error
-  testme<Null>();        //# 03: compile-time error
+  testme<dynamic>();
+//^
+// [cfe] Expected 0 type arguments.
+  //    ^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS_METHOD
+  testme<int, String>();
+//^
+// [cfe] Expected 0 type arguments.
+  //    ^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS_METHOD
+  testme<Null>();
+//^
+// [cfe] Expected 0 type arguments.
+  //    ^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS_METHOD
 }

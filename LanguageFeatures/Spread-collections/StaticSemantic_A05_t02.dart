@@ -42,12 +42,30 @@ void test1() {
   Iterable<int> i1 = new MyIterable<int>();
   Iterable<bool> i2 = new MyIterable<bool>();
 
-  List list1  = <String>[...l1];  //# 01: compile-time error
-  List list2  = <String>[...l2];  //# 02: compile-time error
-  List list3  = <String>[...l3];  //# 03: compile-time error
-  List list4  = <String>[...l4];  //# 04: compile-time error
-  List list5  = <String>[...i1];  //# 05: compile-time error
-  List list6  = <String>[...i2];  //# 06: compile-time error
+  List list1  = <String>[...l1];
+  //                        ^^
+  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+  // [cfe] Can't assign spread elements of type 'int' to collection elements of type 'String'.
+  List list2  = <String>[...l2];
+  //                        ^^
+  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+  // [cfe] Can't assign spread elements of type 'bool' to collection elements of type 'String'.
+  List list3  = <String>[...l3];
+  //                        ^^
+  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+  // [cfe] Can't assign spread elements of type 'int' to collection elements of type 'String'.
+  List list4  = <String>[...l4];
+  //                        ^^
+  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+  // [cfe] Can't assign spread elements of type 'bool' to collection elements of type 'String'.
+  List list5  = <String>[...i1];
+  //                        ^^
+  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+  // [cfe] Can't assign spread elements of type 'int' to collection elements of type 'String'.
+  List list6  = <String>[...i2];
+  //                        ^^
+  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+  // [cfe] Can't assign spread elements of type 'bool' to collection elements of type 'String'.
 }
 
 void test2() {
@@ -59,10 +77,28 @@ void test2() {
   Iterable<int>? i1 = new MyIterable<int>();
   Iterable<bool>? i2 = new MyIterable<bool>();
 
-  List list7  = <String>[...?l1]; //# 07: compile-time error
-  List list8  = <String>[...?l2]; //# 08: compile-time error
-  List list9  = <String>[...?l3]; //# 09: compile-time error
-  List list10 = <String>[...?l4]; //# 10: compile-time error
-  List list11 = <String>[...?i1]; //# 11: compile-time error
-  List list12 = <String>[...?i2]; //# 12: compile-time error
+  List list7  = <String>[...?l1];
+  //                         ^^
+  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+  // [cfe] Can't assign spread elements of type 'int' to collection elements of type 'String'.
+  List list8  = <String>[...?l2];
+  //                         ^^
+  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+  // [cfe] Can't assign spread elements of type 'bool' to collection elements of type 'String'.
+  List list9  = <String>[...?l3];
+  //                         ^^
+  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+  // [cfe] Can't assign spread elements of type 'int' to collection elements of type 'String'.
+  List list10 = <String>[...?l4];
+  //                         ^^
+  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+  // [cfe] Can't assign spread elements of type 'bool' to collection elements of type 'String'.
+  List list11 = <String>[...?i1];
+  //                         ^^
+  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+  // [cfe] Can't assign spread elements of type 'int' to collection elements of type 'String'.
+  List list12 = <String>[...?i2];
+  //                         ^^
+  // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
+  // [cfe] Can't assign spread elements of type 'bool' to collection elements of type 'String'.
 }

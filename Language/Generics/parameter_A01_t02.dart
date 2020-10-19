@@ -31,12 +31,24 @@ main() {
   Alias1<C> a4;
 
   Alias2 a5;
-  Alias2<A> a6;  //# 01: compile-time error
+  Alias2<A> a6;
+  //     ^
+  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+  //        ^
+  // [cfe] Type argument 'A' doesn't conform to the bound 'B' of the type variable 'T' on 'Alias2'.
   Alias2<B> a7;
   Alias2<C> a8;
 
   Alias3 a9;
-  Alias3<A> a10; //# 02: compile-time error
-  Alias3<B> a11; //# 03: compile-time error
+  Alias3<A> a10;
+  //     ^
+  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+  //        ^
+  // [cfe] Type argument 'A' doesn't conform to the bound 'C' of the type variable 'T' on 'Alias3'.
+  Alias3<B> a11;
+  //     ^
+  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+  //        ^
+  // [cfe] Type argument 'B' doesn't conform to the bound 'C' of the type variable 'T' on 'Alias3'.
   Alias3<C> a12;
 }

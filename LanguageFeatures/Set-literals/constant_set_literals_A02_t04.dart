@@ -16,10 +16,34 @@
  * @author sgrekhov@unipro.ru
  */
 main() {
-  var v1 = const {1, 2, 1};               //# 01: compile-time error
-  const v2 = const {1, 2, 1};             //# 02: compile-time error
-  const v3 = {1, 2, 1};                   //# 03: compile-time error
-  var v4 = const {1, null, null};         //# 04: compile-time error
-  const v5 = const {'a', 'b', 'c', 'a'};  //# 05: compile-time error
-  const v6 = {'a', 'b', 'c', 'a'};        //# 06: compile-time error
+  var v1 = const {1, 2, 1};
+  //       ^
+  // [cfe] Constant evaluation error:
+  //                    ^
+  // [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
+  const v2 = const {1, 2, 1};
+  //         ^
+  // [cfe] Constant evaluation error:
+  //                      ^
+  // [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
+  const v3 = {1, 2, 1};
+  //         ^
+  // [cfe] Constant evaluation error:
+  //                ^
+  // [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
+  var v4 = const {1, null, null};
+  //       ^
+  // [cfe] Constant evaluation error:
+  //                       ^^^^
+  // [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
+  const v5 = const {'a', 'b', 'c', 'a'};
+  //         ^
+  // [cfe] Constant evaluation error:
+  //                               ^^^
+  // [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
+  const v6 = {'a', 'b', 'c', 'a'};
+  //         ^
+  // [cfe] Constant evaluation error:
+  //                         ^^^
+  // [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
 }

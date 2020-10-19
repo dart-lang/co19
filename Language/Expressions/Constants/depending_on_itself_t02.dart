@@ -11,16 +11,37 @@
  * @author iefremov
  */
 
-const a1 = a10; //# 01: compile-time error
-const a2 = a1;  //# 01: continued
-const a3 = a2;  //# 01: continued
-const a4 = a3;  //# 01: continued
-const a5 = a4;  //# 01: continued
-const a6 = a5;  //# 01: continued
-const a7 = a6;  //# 01: continued
-const a8 = a7;  //# 01: continued
-const a9 = a8;  //# 01: continued
-const a10 = a9; //# 01: continued
+const a1 = a10;
+// [error line 14, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+const a2 = a1;
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.RECURSIVE_COMPILE_TIME_CONSTANT
+const a3 = a2;
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.RECURSIVE_COMPILE_TIME_CONSTANT
+const a4 = a3;
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.RECURSIVE_COMPILE_TIME_CONSTANT
+const a5 = a4;
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.RECURSIVE_COMPILE_TIME_CONSTANT
+const a6 = a5;
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.RECURSIVE_COMPILE_TIME_CONSTANT
+const a7 = a6;
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.RECURSIVE_COMPILE_TIME_CONSTANT
+const a8 = a7;
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.RECURSIVE_COMPILE_TIME_CONSTANT
+const a9 = a8;
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.RECURSIVE_COMPILE_TIME_CONSTANT
+const a10 = a9;
+//    ^^^
+// [analyzer] COMPILE_TIME_ERROR.RECURSIVE_COMPILE_TIME_CONSTANT
 
 main() {
 }

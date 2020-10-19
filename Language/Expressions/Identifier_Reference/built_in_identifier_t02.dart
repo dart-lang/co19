@@ -16,20 +16,62 @@
 
 class A {
   test() {
-    abstract();          //# 01: compile-time error
-    1 + as;              //# 02: compile-time error
-    1 << export;         //# 03: compile-time error
-    external ^ 0;        //# 04: compile-time error
-    1 * factory;         //# 05: compile-time error
-    1 >= get;            //# 06: compile-time error
-    var x = implements;  //# 07: compile-time error
-    1 == import;         //# 08: compile-time error
-    1 == library;        //# 09: compile-time error
-    operator.x;          //# 10: compile-time error
-    1 == part;           //# 11: compile-time error
-    --set;               //# 12: compile-time error
-    true && static;      //# 13: compile-time error
-    ++typedef;           //# 14: compile-time error
+    abstract();
+//  ^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_METHOD
+// [cfe] The method 'abstract' isn't defined for the class 'A'.
+    1 + as;
+    //  ^^
+    // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
+    // [cfe] The getter 'as' isn't defined for the class 'A'.
+    1 << export;
+    //   ^^^^^^
+    // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
+    // [cfe] The getter 'export' isn't defined for the class 'A'.
+    external ^ 0;
+//  ^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
+// [cfe] The getter 'external' isn't defined for the class 'A'.
+    1 * factory;
+    //  ^^^^^^^
+    // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
+    // [cfe] The getter 'factory' isn't defined for the class 'A'.
+    1 >= get;
+    //   ^^^
+    // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
+    // [cfe] The getter 'get' isn't defined for the class 'A'.
+    var x = implements;
+    //      ^^^^^^^^^^
+    // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
+    // [cfe] The getter 'implements' isn't defined for the class 'A'.
+    1 == import;
+    //   ^^^^^^
+    // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
+    // [cfe] The getter 'import' isn't defined for the class 'A'.
+    1 == library;
+    //   ^^^^^^^
+    // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
+    // [cfe] The getter 'library' isn't defined for the class 'A'.
+    operator.x;
+//  ^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
+// [cfe] The getter 'operator' isn't defined for the class 'A'.
+    1 == part;
+    //   ^^^^
+    // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
+    // [cfe] The getter 'part' isn't defined for the class 'A'.
+    --set;
+// [error line 63, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+    true && static;
+    //      ^^^^^^
+    // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
+    // [cfe] The getter 'static' isn't defined for the class 'A'.
+    ++typedef;
+// [error line 71, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

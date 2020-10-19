@@ -14,9 +14,24 @@
  */
 
 main() {
-  <int, int>{if (true) 1: "not int"};                  //# 01: compile-time error
-  Map<int, int> m1 = {if (true) 1: "not int"};         //# 02: compile-time error
-  const <int, int>{if (true) 1: "not int"};            //# 03: compile-time error
-  <int, int>{for (var i in []) 1: "not int"};          //# 04: compile-time error
-  Map<int, int> m2 = {for (var i in []) 1: "not int"}; //# 05: compile-time error
+  <int, int>{if (true) 1: "not int"};
+  //                      ^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
+  // [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+  Map<int, int> m1 = {if (true) 1: "not int"};
+  //                               ^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
+  // [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+  const <int, int>{if (true) 1: "not int"};
+  //                            ^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
+  // [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+  <int, int>{for (var i in []) 1: "not int"};
+  //                              ^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
+  // [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
+  Map<int, int> m2 = {for (var i in []) 1: "not int"};
+  //                                       ^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
+  // [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
 }

@@ -16,11 +16,29 @@
 const Null n = null;
 
 main() {
-  const res1 = [...n];           //# 01: compile-time error
-  const Map res2 = {...n};       //# 02: compile-time error
-  const Set res3 = {...n};       //# 03: compile-time error
+  const res1 = [...n];
+// [error line 19, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map res2 = {...n};
+// [error line 23, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set res3 = {...n};
+// [error line 27, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  const res4 = <int>[...n];      //# 04: compile-time error
-  const res5 = <int>{...n};      //# 05: compile-time error
-  const res6 = <int, int>{...n}; //# 06: compile-time error
+  const res4 = <int>[...n];
+// [error line 32, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const res5 = <int>{...n};
+// [error line 36, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const res6 = <int, int>{...n};
+// [error line 40, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

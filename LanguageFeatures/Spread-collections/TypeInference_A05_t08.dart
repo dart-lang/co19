@@ -23,19 +23,55 @@ main() {
   Iterable l = [];
   Map m = {};
 
-  var res1   = {...?l, ...m}; //# 01: compile-time error
-  var res2   = {...m, ...?l}; //# 02: compile-time error
-  List res3  = {...?l, ...m}; //# 03: compile-time error
-  Map res4   = {...?l, ...m}; //# 04: compile-time error
+  var res1   = {...?l, ...m};
+// [error line 26, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var res2   = {...m, ...?l};
+// [error line 30, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  List res3  = {...?l, ...m};
+// [error line 34, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Map res4   = {...?l, ...m};
+// [error line 38, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  var res5   = {...l, ...?m}; //# 05: compile-time error
-  var res6   = {...?m, ...l}; //# 06: compile-time error
-  List res7  = {...l, ...?m}; //# 07: compile-time error
-  Map res8   = {...l, ...?m}; //# 08: compile-time error
+  var res5   = {...l, ...?m};
+// [error line 43, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var res6   = {...?m, ...l};
+// [error line 47, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  List res7  = {...l, ...?m};
+// [error line 51, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Map res8   = {...l, ...?m};
+// [error line 55, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  var res9   = {...?l, ...?m}; //# 09: compile-time error
-  var res10  = {...?m, ...?l}; //# 10: compile-time error
-  List res11 = {...?l, ...?m}; //# 11: compile-time error
-  Map res12  = {...?l, ...?m}; //# 12: compile-time error
+  var res9   = {...?l, ...?m};
+// [error line 60, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var res10  = {...?m, ...?l};
+// [error line 64, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  List res11 = {...?l, ...?m};
+// [error line 68, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Map res12  = {...?l, ...?m};
+// [error line 72, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
 }

@@ -10,11 +10,29 @@
  */
 
 main() {
-  Map m1 = {...m1};       //# 01: compile-time error
-  Map m2 = {...{...m2}};  //# 02: compile-time error
-  Map m3 = {...{m3}};     //# 03: compile-time error
+  Map m1 = {...m1};
+// [error line 13, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Map m2 = {...{...m2}};
+// [error line 17, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Map m3 = {...{m3}};
+// [error line 21, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  Map m4 = {...?m4};      //# 04: compile-time error
-  Map m5 = {...{...?m5}}; //# 05: compile-time error
-  Map m6 = {...{?m6}};    //# 06: compile-time error
+  Map m4 = {...?m4};
+// [error line 26, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Map m5 = {...{...?m5}};
+// [error line 30, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Map m6 = {...{?m6}};
+// [error line 34, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

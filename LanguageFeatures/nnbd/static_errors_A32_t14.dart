@@ -23,9 +23,25 @@ main() {
   A? a = A();
   C c = C();
   if (a != null) {
-    a?.toString();              //# 01: static type warning
-    a?..toString();             //# 02: static type warning
-    a ?? c;                     //# 03: static type warning
-    a ??= c;                    //# 04: static type warning
+    a?.toString();
+//  ^
+// [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
+//   ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+    a?..toString();
+//  ^
+// [cfe] Operand of null-aware operation '?..' has type 'A' which excludes null.
+//   ^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+    a ?? c;
+//  ^
+// [cfe] Operand of null-aware operation '??' has type 'A' which excludes null.
+    //   ^
+    // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+    a ??= c;
+//  ^
+// [cfe] Operand of null-aware operation '??=' has type 'A' which excludes null.
+    //    ^
+    // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   }
 }

@@ -18,6 +18,12 @@
 
 main() {
   String? s = "Let it be";
-  var x1 = <int, String>{...s};    //# 01: compile-time error
-  var x2 = <int, String>{...?s};   //# 02: compile-time error
+  var x1 = <int, String>{...s};
+// [error line 21, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var x2 = <int, String>{...?s};
+  //                         ^
+  // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
+  // [cfe] Unexpected type 'String?' of a map spread entry.  Expected 'dynamic' or a Map.
 }

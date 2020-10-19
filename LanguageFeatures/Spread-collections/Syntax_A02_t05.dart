@@ -46,18 +46,47 @@ main() {
   int i = 0;
 
   List a;
-  a = const {...set2};                                            //# 01: compile-time error
-  a = const {"testme", ...set2};                                  //# 02: compile-time error
-  a = const {...set2, "testme"};                                  //# 03: compile-time error
+  a = const {...set2};
+// [error line 49, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  a = const {"testme", ...set2};
+// [error line 53, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  a = const {...set2, "testme"};
+// [error line 57, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  a = const {...list};                                            //# 04: compile-time error
-  a = const {"testme", ...list};                                  //# 05: compile-time error
-  a = const {...list, "testme"};                                  //# 06: compile-time error
+  a = const {...list};
+// [error line 62, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  a = const {"testme", ...list};
+// [error line 66, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  a = const {...list, "testme"};
+// [error line 70, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  a = const {"abc", ...set1, "int", "hello", 1, ...list, 2, 12}; //# 07: compile-time error
-  a = const {"abc", ...set1, "int", "hello", 1, ...set2, 2, 12}; //# 08: compile-time error
+  a = const {"abc", ...set1, "int", "hello", 1, ...list, 2, 12};
+// [error line 75, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  a = const {"abc", ...set1, "int", "hello", 1, ...set2, 2, 12};
+// [error line 79, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  a = const {...set1, i};                                         //# 09: compile-time error
-  a = const {...list, i};                                         //# 10: compile-time error
+  a = const {...set1, i};
+// [error line 84, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  a = const {...list, i};
+// [error line 88, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }
-

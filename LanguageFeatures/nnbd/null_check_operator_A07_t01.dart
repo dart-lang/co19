@@ -16,8 +16,23 @@
 // Requirements=nnbd-strong
 
 main() {
-  true!;                //# 01: static type warning
-  true!.toString();     //# 02: static type warning
-  true!?.toString();    //# 03: static type warning
-  true.toString()!;     //# 04: static type warning
+  true!;
+//^
+// [cfe] Operand of null-aware operation '!' has type 'bool' which excludes null.
+  //  ^
+  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+  true!.toString();
+//^
+// [cfe] Operand of null-aware operation '!' has type 'bool' which excludes null.
+  //  ^
+  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+  true!?.toString();
+// [error line 29, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  true.toString()!;
+  //   ^
+  // [cfe] Operand of null-aware operation '!' has type 'String' which excludes null.
+  //             ^
+  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 }

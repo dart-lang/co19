@@ -19,9 +19,25 @@ main() {
   const x4 = "check";
   const x5 = null;
 
-  const Map m1 = {...x1}; //# 01: compile-time error
-  const Map m2 = {...x2}; //# 02: compile-time error
-  const Map m3 = {...x3}; //# 03: compile-time error
-  const Map m4 = {...x4}; //# 04: compile-time error
-  const Map m5 = {...x5}; //# 05: compile-time error
+  const Map m1 = {...x1};
+  //             ^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+  const Map m2 = {...x2};
+// [error line 26, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map m3 = {...x3};
+// [error line 30, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map m4 = {...x4};
+// [error line 34, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map m5 = {...x5};
+  //        ^
+  // [cfe] Constant evaluation error:
+  //                 ^^
+  // [analyzer] COMPILE_TIME_ERROR.CONST_SPREAD_EXPECTED_MAP
 }

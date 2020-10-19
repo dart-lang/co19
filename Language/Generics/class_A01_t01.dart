@@ -27,9 +27,20 @@ main() {
   C<Null>?      c5;
   C<C>?         c6;
 
-  C<int, int>?                 c7;  //# 01: compile-time error
-  C<dynamic, dynamic>?         c8;  //# 02: compile-time error
-  C<int, String, long>?        c9;  //# 03: compile-time error
-  C<int, int, int, int, int>? c10;  //# 04: compile-time error
+  C<int, int>?                 c7;
+//^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 1 type arguments.
+  C<dynamic, dynamic>?         c8;
+//^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 1 type arguments.
+  C<int, String, long>?        c9;
+// [error line 38, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  C<int, int, int, int, int>? c10;
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 1 type arguments.
 }
-

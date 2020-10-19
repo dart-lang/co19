@@ -27,15 +27,47 @@ class A {
   }
 
   test() {
-    this!;          //# 01: static type warning
-    this!.foo();    //# 02: static type warning
-    this![42];      //# 03: static type warning
-    this!?.foo();   //# 04: static type warning
-    this!?[42];     //# 05: static type warning
-    this!.s = "Lily was here";    //# 06: static type warning
-    this!?.s = "Lily was here";   //# 07: static type warning
-    this![0] = "Lily was here";   //# 08: static type warning
-    this!?[0] = "Lily was here";  //# 09: static type warning
+    this!;
+//  ^
+// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
+    //  ^
+    // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+    this!.foo();
+//  ^
+// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
+    //  ^
+    // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+    this![42];
+//  ^
+// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
+    //  ^
+    // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+    this!?.foo();
+// [error line 45, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+    this!?[42];
+// [error line 49, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+    this!.s = "Lily was here";
+//  ^
+// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
+    //  ^
+    // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+    this!?.s = "Lily was here";
+// [error line 58, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+    this![0] = "Lily was here";
+//  ^
+// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
+    //  ^
+    // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+    this!?[0] = "Lily was here";
+// [error line 67, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
     this.getValue!;
     this[42]!;
   }

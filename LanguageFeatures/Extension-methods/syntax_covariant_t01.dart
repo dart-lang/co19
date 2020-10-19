@@ -24,11 +24,26 @@ class C extends A {
 }
 
 extension on C {
-  addChild(covariant A child) {}              //# 01: compile-time error
-  addChild2(A c, [covariant A child]) {}      //# 02: compile-time error
-  addChild3(A c, {covariant A child}) {}      //# 03: compile-time error
-  void set setter (covariant A value) {}      //# 04: compile-time error
-  C operator+(covariant A other) => this;     //# 05: compile-time error
+  addChild(covariant A child) {}
+  //       ^^^^^^^^^
+  // [analyzer] SYNTACTIC_ERROR.INVALID_USE_OF_COVARIANT_IN_EXTENSION
+  // [cfe] Can't have modifier 'covariant' in an extension.
+  addChild2(A c, [covariant A child]) {}
+// [error line 31, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  addChild3(A c, {covariant A child}) {}
+// [error line 35, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  void set setter (covariant A value) {}
+  //               ^^^^^^^^^
+  // [analyzer] SYNTACTIC_ERROR.INVALID_USE_OF_COVARIANT_IN_EXTENSION
+  // [cfe] Can't have modifier 'covariant' in an extension.
+  C operator+(covariant A other) => this;
+  //          ^^^^^^^^^
+  // [analyzer] SYNTACTIC_ERROR.INVALID_USE_OF_COVARIANT_IN_EXTENSION
+  // [cfe] Can't have modifier 'covariant' in an extension.
 }
 
 main() {

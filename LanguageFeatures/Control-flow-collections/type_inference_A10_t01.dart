@@ -15,11 +15,21 @@
 
 main() {
   var i = 1;
-  var v1 = {if (i > 0) "" else "": "",};        //# 01: compile-time error
+  var v1 = {if (i > 0) "" else "": "",};
+  //       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
+  //                   ^
+  // [cfe] Expected ':' after this.
 
   List? x = [1, 2, 3];
   Map? y = {1: "1", 2: "2", 3: "3"};
-  var v2 = {"", if (i < 0) ...x else ...y,};    //# 02: compile-time error
+  var v2 = {"", if (i < 0) ...x else ...y,};
+// [error line 26, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  var v3 = {"", if (i < 0) ...?x else ...?y,};  //# 03: compile-time error
+  var v3 = {"", if (i < 0) ...?x else ...?y,};
+  //                                      ^
+  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+  // [cfe] Unexpected type 'Map<dynamic, dynamic>?' of a spread.  Expected 'dynamic' or an Iterable.
 }

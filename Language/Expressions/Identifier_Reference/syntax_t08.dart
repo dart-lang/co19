@@ -41,8 +41,20 @@
  */
 
 main() {
-  int? aç;                      //# 01: compile-time error
-  String çb = "It's wrong!";    //# 02: compile-time error
-  var wrong_ç;                  //# 03: compile-time error
-  ç;                            //# 04: compile-time error
+  int? aç;
+  //    ^
+  // [analyzer] SYNTACTIC_ERROR.ILLEGAL_CHARACTER
+  // [cfe] The non-ASCII character 'ç' (U+00E7) can't be used in identifiers, only in strings and comments.
+  String çb = "It's wrong!";
+  //     ^
+  // [analyzer] SYNTACTIC_ERROR.ILLEGAL_CHARACTER
+  // [cfe] The non-ASCII character 'ç' (U+00E7) can't be used in identifiers, only in strings and comments.
+  var wrong_ç;
+  //        ^
+  // [analyzer] SYNTACTIC_ERROR.ILLEGAL_CHARACTER
+  // [cfe] The non-ASCII character 'ç' (U+00E7) can't be used in identifiers, only in strings and comments.
+  ç;
+// [error line 56, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

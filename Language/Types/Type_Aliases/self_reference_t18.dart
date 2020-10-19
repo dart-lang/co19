@@ -12,9 +12,18 @@
  */
 class C<T> {}
 
-typedef CAlias1<T> = C<CAlias1>;                //# 01: compile-time error
-typedef CAlias2<T extends CAlias2> = C<T>;      //# 02: compile-time error
-typedef CAlias3 = CAlias3;                      //# 03: compile-time error
+typedef CAlias1<T> = C<CAlias1>;
+//                 ^
+// [analyzer] SYNTACTIC_ERROR.INVALID_GENERIC_FUNCTION_TYPE
+// [cfe] Can't create typedef from non-function type.
+typedef CAlias2<T extends CAlias2> = C<T>;
+// [error line 19, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+typedef CAlias3 = CAlias3;
+//              ^
+// [analyzer] SYNTACTIC_ERROR.INVALID_GENERIC_FUNCTION_TYPE
+// [cfe] Can't create typedef from non-function type.
 
 main() {
 }

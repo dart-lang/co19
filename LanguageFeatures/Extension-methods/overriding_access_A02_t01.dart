@@ -23,7 +23,16 @@ main() {
   int i = MySimpleExt("testme").getANum();
   MySimpleExt("testme").tryme();
 
-  bool res1 = MySimpleExt("testme").test1;          //# 01: compile-time error
-  dynamic res2 = MySimpleExt("testme").getAString;  //# 02: compile-time error
-  MySimpleExt("testme").put(11);                    //# 03: compile-time error
+  bool res1 = MySimpleExt("testme").test1;
+  //                                ^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_GETTER
+  // [cfe] Getter not found: 'test1'.
+  dynamic res2 = MySimpleExt("testme").getAString;
+  //                                   ^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_GETTER
+  // [cfe] Getter not found: 'getAString'.
+  MySimpleExt("testme").put(11);
+  //                    ^^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_METHOD
+  // [cfe] Method not found: 'put'.
 }

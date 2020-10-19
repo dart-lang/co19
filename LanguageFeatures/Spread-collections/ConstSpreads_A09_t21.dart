@@ -15,9 +15,24 @@
  */
 
 main() {
-  const Map res1 = const {...{1, 3}};   //# 01: compile-time error
-  const Map res2 = const {...[]};       //# 02: compile-time error
-  const Map res3 = const {...44};       //# 03: compile-time error
-  const Map res4 = const {...<int>{}};  //# 04: compile-time error
-  const Map res5 = const {...null};     //# 05: compile-time error
+  const Map res1 = const {...{1, 3}};
+// [error line 18, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map res2 = const {...[]};
+  //               ^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+  const Map res3 = const {...44};
+// [error line 26, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map res4 = const {...<int>{}};
+// [error line 30, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map res5 = const {...null};
+// [error line 34, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

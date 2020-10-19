@@ -18,13 +18,41 @@ main() {
   var map = {1: 1, 2: 2};
   var list = [1, 2, 3, 4, 5];
 
-  List l1 = [...number];   //# 01: compile-time error
-  List l2 = [...str];      //# 02: compile-time error
-  List l3 = [...map];      //# 03: compile-time error
-  List l4 = [...list[0]];  //# 04: compile-time error
+  List l1 = [...number];
+  //            ^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+  // [cfe] Unexpected type 'int' of a spread.  Expected 'dynamic' or an Iterable.
+  List l2 = [...str];
+  //            ^^^
+  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+  // [cfe] Unexpected type 'String' of a spread.  Expected 'dynamic' or an Iterable.
+  List l3 = [...map];
+  //            ^^^
+  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+  // [cfe] Unexpected type 'Map<int, int>' of a spread.  Expected 'dynamic' or an Iterable.
+  List l4 = [...list[0]];
+  //            ^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+  //                ^
+  // [cfe] Unexpected type 'int' of a spread.  Expected 'dynamic' or an Iterable.
 
-  List l5 = [...?(number as int?)]; //# 05: compile-time error
-  List l6 = [...?(str as String?)]; //# 06: compile-time error
-  List l7 = [...?(map as Map?)];    //# 07: compile-time error
-  List l8 = [...?list[0]];          //# 08: compile-time error
+  List l5 = [...?(number as int?)];
+  //             ^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+  //                     ^
+  // [cfe] Unexpected type 'int?' of a spread.  Expected 'dynamic' or an Iterable.
+  List l6 = [...?(str as String?)];
+  //             ^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+  //                  ^
+  // [cfe] Unexpected type 'String?' of a spread.  Expected 'dynamic' or an Iterable.
+  List l7 = [...?(map as Map?)];
+  //             ^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+  //                  ^
+  // [cfe] Unexpected type 'Map<dynamic, dynamic>?' of a spread.  Expected 'dynamic' or an Iterable.
+  List l8 = [...?list[0]];
+// [error line 54, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

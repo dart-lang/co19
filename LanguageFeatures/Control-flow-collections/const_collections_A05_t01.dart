@@ -16,21 +16,66 @@
 main() {
   const t = true;
   var x = 1;
-  List<int> list1 = const [if (t) x];           //# 01: compile-time error
-  const List<int> list2 = [if (t) x + 1];       //# 02: compile-time error
-  var list3 = const [if (t) x];                 //# 03: compile-time error
-  var list4 = const <int>[if (t) x];            //# 04: compile-time error
-  const list5 = [if (t) x];                     //# 05: compile-time error
+  List<int> list1 = const [if (t) x];
+  //                              ^
+  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
+  // [cfe] Not a constant expression.
+  const List<int> list2 = [if (t) x + 1];
+// [error line 23, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var list3 = const [if (t) x];
+  //                        ^
+  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
+  // [cfe] Not a constant expression.
+  var list4 = const <int>[if (t) x];
+  //                             ^
+  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
+  // [cfe] Not a constant expression.
+  const list5 = [if (t) x];
+// [error line 35, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  Set<int> set1 = const {if (t) x, -1};         //# 06: compile-time error
-  const Set<int> set2 = {if (t) x - 1, -1};     //# 07: compile-time error
-  var set3 = const {if (t) x, -1};              //# 08: compile-time error
-  var set4 = const <int>{if (t) x + 1, -1};     //# 09: compile-time error
-  const set5 = {if (t) x, -1};                  //# 10: compile-time error
+  Set<int> set1 = const {if (t) x, -1};
+  //                            ^
+  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
+  // [cfe] Not a constant expression.
+  const Set<int> set2 = {if (t) x - 1, -1};
+// [error line 44, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var set3 = const {if (t) x, -1};
+  //                       ^
+  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
+  // [cfe] Not a constant expression.
+  var set4 = const <int>{if (t) x + 1, -1};
+  //                            ^
+  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
+  // [cfe] Not a constant expression.
+  const set5 = {if (t) x, -1};
+// [error line 56, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  Map<int, String> map1 = const {if (t) x - 1: "0"};    //# 11: compile-time error
-  const Map<int, String> map2 = {if (t) x: "1"};        //# 12: compile-time error
-  var map3 = const {if (t) x + 1: "2"};                 //# 13: compile-time error
-  var map4 = const <int, String>{if (t) x: "x"};        //# 14: compile-time error
-  const map5 = {if (t) x + 2: "3"};                     //# 15: compile-time error
+  Map<int, String> map1 = const {if (t) x - 1: "0"};
+  //                                    ^
+  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_MAP_KEY
+  // [cfe] Not a constant expression.
+  const Map<int, String> map2 = {if (t) x: "1"};
+// [error line 65, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var map3 = const {if (t) x + 1: "2"};
+  //                       ^
+  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_MAP_KEY
+  // [cfe] Not a constant expression.
+  var map4 = const <int, String>{if (t) x: "x"};
+  //                                    ^
+  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_MAP_KEY
+  // [cfe] Not a constant expression.
+  const map5 = {if (t) x + 2: "3"};
+// [error line 77, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

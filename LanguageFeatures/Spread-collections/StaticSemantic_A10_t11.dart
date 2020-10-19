@@ -18,8 +18,21 @@ main() {
   const x3 = "check";
   const x4 = null;
 
-  const Set s1 = {...x1}; //# 01: compile-time error
-  const Set s2 = {...x2}; //# 02: compile-time error
-  const Set s3 = {...x3}; //# 03: compile-time error
-  const Set s4 = {...x4}; //# 04: compile-time error
+  const Set s1 = {...x1};
+// [error line 21, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set s2 = {...x2};
+// [error line 25, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set s3 = {...x3};
+// [error line 29, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set s4 = {...x4};
+  //             ^
+  // [cfe] Constant evaluation error:
+  //                 ^^
+  // [analyzer] COMPILE_TIME_ERROR.CONST_SPREAD_EXPECTED_LIST_OR_SET
 }

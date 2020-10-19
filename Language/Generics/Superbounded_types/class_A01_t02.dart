@@ -14,7 +14,17 @@
 class A<T extends A<T>> {}
 
 main() {
-  A<int> a1;       //# 01: compile-time error
-  A<A<int>> a2;    //# 02: compile-time error
-  A<A<A<int>>> a3; //# 03: compile-time error
+  A<int> a1;
+  //^^^
+  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+  //     ^
+  // [cfe] Type argument 'int' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+  A<A<int>> a2;
+// [error line 22, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  A<A<A<int>>> a3;
+// [error line 26, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

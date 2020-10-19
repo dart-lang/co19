@@ -20,13 +20,43 @@ const List list2 = [2, 12, 33];
 const List list3 = [2, 12, 4, 12, 11, 0, 3];
 
 main() {
-  const res1 = {...list1, ...list2};                             //# 01: compile-time error
-  const res2 = {1, 14, ...?list1, 99, ...list2};                 //# 02: compile-time error
-  const res3 = {...list2, ...list1};                             //# 03: compile-time error
-  const res4 = {...?list3};                                      //# 04: compile-time error
-  const res5 = {...list3};                                       //# 05: compile-time error
-  const res6 = {2, 4, ...?list1, 14};                            //# 06: compile-time error
-  const res7 = {...?list2, 12, 33};                              //# 07: compile-time error
-  const res8 = {1, 10, ...list1, 6, 9, 2};                       //# 08: compile-time error
-  const res9 = {1, ...list1, ...list2, ...list3, ...?list4, 18}; //# 09: compile-time error
+  const res1 = {...list1, ...list2};
+  //           ^
+  // [cfe] Constant evaluation error:
+  //                         ^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
+  const res2 = {1, 14, ...?list1, 99, ...list2};
+// [error line 28, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const res3 = {...list2, ...list1};
+  //           ^
+  // [cfe] Constant evaluation error:
+  //                         ^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
+  const res4 = {...?list3};
+// [error line 37, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const res5 = {...list3};
+  //           ^
+  // [cfe] Constant evaluation error:
+  //               ^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
+  const res6 = {2, 4, ...?list1, 14};
+// [error line 46, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const res7 = {...?list2, 12, 33};
+// [error line 50, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const res8 = {1, 10, ...list1, 6, 9, 2};
+// [error line 54, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const res9 = {1, ...list1, ...list2, ...list3, ...?list4, 18};
+// [error line 58, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

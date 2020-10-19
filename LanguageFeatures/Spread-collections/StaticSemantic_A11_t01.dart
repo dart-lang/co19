@@ -24,13 +24,40 @@ main() {
   Future x8;
   FutureOr x9 = 4;
 
-  Map m1 = {...x1}; //# 01: compile-time error
-  Map m2 = {...x2}; //# 02: compile-time error
-  Map m3 = {...x3}; //# 03: compile-time error
-  Map m4 = {...x4}; //# 04: compile-time error
-  Map m5 = {...x5}; //# 05: compile-time error
-  Map m6 = {...x6}; //# 06: compile-time error
-  Map m7 = {...x7}; //# 07: compile-time error
-  Map m8 = {...x8}; //# 08: compile-time error
-  Map m9 = {...x9}; //# 09: compile-time error
+  Map m1 = {...x1};
+  //           ^^
+  // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
+  // [cfe] Unexpected type 'Object' of a map spread entry.  Expected 'dynamic' or a Map.
+  Map m2 = {...x2};
+  //       ^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+  Map m3 = {...x3};
+  //       ^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+  Map m4 = {...x4};
+  //           ^^
+  // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
+  // [cfe] Unexpected type 'int' of a map spread entry.  Expected 'dynamic' or a Map.
+  Map m5 = {...x5};
+// [error line 43, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Map m6 = {...x6};
+// [error line 47, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Map m7 = {...x7};
+// [error line 51, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Map m8 = {...x8};
+// [error line 55, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Map m9 = {...x9};
+// [error line 59, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

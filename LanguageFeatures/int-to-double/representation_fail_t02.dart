@@ -15,16 +15,32 @@
  * @author ngl@unipro.ru
  */
 
-double d1 = 0x2fffffffffffff; //# 01: compile-time error
+double d1 = 0x2fffffffffffff;
+// [error line 18, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+// [web] unspecified
 
 class C {
-  static double d2 = 0x2fffffffffffff; //# 02: compile-time error
+  static double d2 = 0x2fffffffffffff;
+// [error line 25, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+// [web] unspecified
 
-  double d3 = 0x2fffffffffffff; //# 03: compile-time error
+  double d3 = 0x2fffffffffffff;
+// [error line 31, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+// [web] unspecified
 }
 
 main() {
-  double d4 = 0x2fffffffffffff; //# 04: compile-time error
+  double d4 = 0x2fffffffffffff;
+// [error line 39, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+// [web] unspecified
 
   new C();
 }

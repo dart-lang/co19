@@ -18,6 +18,9 @@
 class C<T> { const C(); }
 
 @C() typedef G = void Function();
-@C<int>() typedef K = void Function();  //# 01: compile-time error
+@C<int>() typedef K = void Function();
+//^
+// [analyzer] SYNTACTIC_ERROR.ANNOTATION_WITH_TYPE_ARGUMENTS
+// [cfe] An annotation (metadata) can't use type arguments.
 
 main() {}

@@ -16,6 +16,10 @@ typedef G = Function<X extends num>();
 typedef G1<X> = Function();
 
 main() {
-  typeOf<G>();  //# 01: compile-time error
+  typeOf<G>();
+//^
+// [cfe] A generic function type can't be used as a type argument.
+  //     ^
+  // [analyzer] COMPILE_TIME_ERROR.GENERIC_FUNCTION_TYPE_CANNOT_BE_TYPE_ARGUMENT
   typeOf<G1>();
 }

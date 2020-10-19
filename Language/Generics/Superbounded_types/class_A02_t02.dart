@@ -18,15 +18,45 @@ class A<T extends A<T>> {
 }
 
 main() {
-  const a1 = A<dynamic>();    //# 01: compile-time error
-  const a2 = A<Object?>();    //# 02: compile-time error
-  const a3 = A<void>();       //# 03: compile-time error
-  const a4 = A<Null>();       //# 04: compile-time error
+  const a1 = A<dynamic>();
+  //         ^
+  // [cfe] Type argument 'dynamic' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+  //           ^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+  const a2 = A<Object?>();
+  //         ^
+  // [cfe] Type argument 'Object?' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+  //           ^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+  const a3 = A<void>();
+  //         ^
+  // [cfe] Type argument 'void' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+  //           ^^^^
+  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+  const a4 = A<Null>();
+// [error line 36, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
   const a5 = A<Never>();
 
-  const a6 = A<A<dynamic>>(); //# 05: compile-time error
-  const a7 = A<A<Object?>>(); //# 06: compile-time error
-  const a8 = A<A<void>>();    //# 07: compile-time error
-  const a9 = A<A<Null>>();    //# 08: compile-time error
+  const a6 = A<A<dynamic>>();
+  //         ^
+  // [cfe] Type argument 'A<dynamic>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+  //           ^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+  const a7 = A<A<Object?>>();
+  //         ^
+  // [cfe] Type argument 'A<Object?>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+  //           ^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+  const a8 = A<A<void>>();
+  //         ^
+  // [cfe] Type argument 'A<void>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+  //           ^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+  const a9 = A<A<Null>>();
+// [error line 57, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
   const a0 = A<A<Never>>();
 }

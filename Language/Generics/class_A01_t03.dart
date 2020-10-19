@@ -26,9 +26,18 @@ main() {
   C1<int?, Null>? c3;
   C1<num, int>? c4;
 
-  C1<dynamic>? c5; //# 01: compile-time error
-  C1<Null>?    c6; //# 02: compile-time error
-  C1<int>?     c7; //# 03: compile-time error
+  C1<dynamic>? c5;
+//^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 2 type arguments.
+  C1<Null>?    c6;
+//^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 2 type arguments.
+  C1<int>?     c7;
+//^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 2 type arguments.
 
   C2? c8;
   C2<int, Function, num, List>?  c9;
@@ -36,20 +45,52 @@ main() {
   C2<int, Function, int, Null>? c11;
   C2<Null, Null, Null, Null>?   c12;
 
-  C2<int>? c13;                                                  //# 04: compile-time error
-  C2<int, Function>? c14;                                        //# 05: compile-time error
-  C2<int, Function, num>? c15;                                   //# 06: compile-time error
-  C2<int, Function, num, List, Null>? c16;                       //# 07: compile-time error
-  C2<int, Function, num, List, Object>? c17;                     //# 08: compile-time error
-  C2<int, Function, num, List, int>? c18;                        //# 09: compile-time error
-  C2<Null, Null, Null, Null, Null>? c19;                         //# 10: compile-time error
-  C2<Null, Null, Null, Null, Null, Null, Null, Null, Null>? c20; //# 11: compile-time error
+  C2<int>? c13;
+//^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 4 type arguments.
+  C2<int, Function>? c14;
+//^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 4 type arguments.
+  C2<int, Function, num>? c15;
+//^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 4 type arguments.
+  C2<int, Function, num, List, Null>? c16;
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 4 type arguments.
+  C2<int, Function, num, List, Object>? c17;
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 4 type arguments.
+  C2<int, Function, num, List, int>? c18;
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 4 type arguments.
+  C2<Null, Null, Null, Null, Null>? c19;
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 4 type arguments.
+  C2<Null, Null, Null, Null, Null, Null, Null, Null, Null>? c20;
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 4 type arguments.
 
   C3? c21;
   C3<int, int, int>? c22;
   C3<dynamic, dynamic, dynamic>? c23;
-  C3<dynamic, dynamic>? c24;                   //# 12: compile-time error
-  C3<dynamic, dynamic, dynamic, dynamic>? c25; //# 13: compile-time error
-  C3<dynamic, dynamic, dynamic, dynamic, dynamic, dynamic, dynamic, dynamic>? c26; //# 14: compile-time error
+  C3<dynamic, dynamic>? c24;
+//^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 3 type arguments.
+  C3<dynamic, dynamic, dynamic, dynamic>? c25;
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 3 type arguments.
+  C3<dynamic, dynamic, dynamic, dynamic, dynamic, dynamic, dynamic, dynamic>? c26;
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 3 type arguments.
 }
-

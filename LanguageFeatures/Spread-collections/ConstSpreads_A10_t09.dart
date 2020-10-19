@@ -25,10 +25,28 @@ const int? i1 = 25;
 int? i2 = 25;
 
 main() {
-  const Set res1 = const {...?l};  //# 01: compile-time error
-  const Set res2 = const {...?s};  //# 02: compile-time error
-  const Set res3 = const {...?m1}; //# 03: compile-time error
-  const Set res4 = const {...?m2}; //# 04: compile-time error
-  const Set res5 = const {...?i1}; //# 05: compile-time error
-  const Set res6 = const {...?i2}; //# 06: compile-time error
+  const Set res1 = const {...?l};
+// [error line 28, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set res2 = const {...?s};
+// [error line 32, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set res3 = const {...?m1};
+// [error line 36, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set res4 = const {...?m2};
+// [error line 40, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set res5 = const {...?i1};
+// [error line 44, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set res6 = const {...?i2};
+// [error line 48, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

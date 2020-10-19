@@ -18,8 +18,21 @@ main() {
   const x3 = "check";
   const x4 = null;
 
-  const List l1 = [...x1]; //# 01: compile-time error
-  const List l2 = [...x2]; //# 02: compile-time error
-  const List l3 = [...x3]; //# 03: compile-time error
-  const List l4 = [...x4]; //# 04: compile-time error
+  const List l1 = [...x1];
+// [error line 21, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const List l2 = [...x2];
+// [error line 25, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const List l3 = [...x3];
+// [error line 29, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const List l4 = [...x4];
+  //              ^
+  // [cfe] Constant evaluation error:
+  //                  ^^
+  // [analyzer] COMPILE_TIME_ERROR.CONST_SPREAD_EXPECTED_LIST_OR_SET
 }

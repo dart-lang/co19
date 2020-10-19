@@ -16,7 +16,19 @@
  * @author sgrekhov@unipro.ru
  */
 main() {
-  var v1 = const {1, 2, 3.14};    //# 01: compile-time error
-  const v2 = const {1, 2, 3.14};  //# 02: compile-time error
-  const v3 = {1, 2, 3.14};        //# 03: compile-time error
+  var v1 = const {1, 2, 3.14};
+  //       ^
+  // [cfe] Constant evaluation error:
+  //                    ^^^^
+  // [analyzer] COMPILE_TIME_ERROR.CONST_SET_ELEMENT_TYPE_IMPLEMENTS_EQUALS
+  const v2 = const {1, 2, 3.14};
+  //         ^
+  // [cfe] Constant evaluation error:
+  //                      ^^^^
+  // [analyzer] COMPILE_TIME_ERROR.CONST_SET_ELEMENT_TYPE_IMPLEMENTS_EQUALS
+  const v3 = {1, 2, 3.14};
+  //         ^
+  // [cfe] Constant evaluation error:
+  //                ^^^^
+  // [analyzer] COMPILE_TIME_ERROR.CONST_SET_ELEMENT_TYPE_IMPLEMENTS_EQUALS
 }

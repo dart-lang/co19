@@ -13,6 +13,8 @@
  * @author a.semenov@unipro.ru
  */
 import 'dart:mirrors';
+//     ^
+// [web] Not found: 'dart:mirrors'
 
 class A {
   static int a() {
@@ -20,10 +22,16 @@ class A {
   }
 }
 
-@A.a()      //# 01: compile-time error
+@A.a()
+// [error line 25, column 1, length 6]
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ANNOTATION
+// ^
+// [cfe] Method not found: 'A.a'.
 class B {}
 
 main() {
   // have to retrieve metadata to get compile error
   reflectClass(B).metadata.map( (e) => e.reflectee ).join(' ');
+//^
+// [web] Method not found: 'reflectClass'.
 }

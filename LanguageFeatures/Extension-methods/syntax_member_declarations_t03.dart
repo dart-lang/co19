@@ -24,11 +24,26 @@
 
 
 extension ExtendedList<T> on List<T> {
-  dynamic noSuchMethod (Invocation invocation) => null; //# 01: compile-time error
-  bool operator == (dynamic other) => true;             //# 02: compile-time error
-  int get hashCode => 42;                               //# 03: compile-time error
-  Type get runtimeType => this.runtimeType;             //# 04: compile-time error
-  String toString() => "Run, Forrest, run";             //# 05: compile-time error
+  dynamic noSuchMethod (Invocation invocation) => null;
+  //      ^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.EXTENSION_DECLARES_MEMBER_OF_OBJECT
+  // [cfe] This extension member conflicts with Object member 'noSuchMethod'.
+  bool operator == (dynamic other) => true;
+  //            ^^
+  // [analyzer] COMPILE_TIME_ERROR.EXTENSION_DECLARES_MEMBER_OF_OBJECT
+  // [cfe] This extension member conflicts with Object member '=='.
+  int get hashCode => 42;
+  //      ^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.EXTENSION_DECLARES_MEMBER_OF_OBJECT
+  // [cfe] This extension member conflicts with Object member 'hashCode'.
+  Type get runtimeType => this.runtimeType;
+  //       ^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.EXTENSION_DECLARES_MEMBER_OF_OBJECT
+  // [cfe] This extension member conflicts with Object member 'runtimeType'.
+  String toString() => "Run, Forrest, run";
+  //     ^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.EXTENSION_DECLARES_MEMBER_OF_OBJECT
+  // [cfe] This extension member conflicts with Object member 'toString'.
 }
 
 main() {

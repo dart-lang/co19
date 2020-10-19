@@ -14,11 +14,29 @@
  */
 
 main() {
-  const res1 = [...null];           //# 01: compile-time error
-  const Map res2 = {...null};       //# 02: compile-time error
-  const Set res3 = {...null};       //# 03: compile-time error
+  const res1 = [...null];
+// [error line 17, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map res2 = {...null};
+// [error line 21, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set res3 = {...null};
+// [error line 25, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  const res4 = <int>[...null];      //# 04: compile-time error
-  const res5 = <int>{...null};      //# 05: compile-time error
-  const res6 = <int, int>{...null}; //# 06: compile-time error
+  const res4 = <int>[...null];
+// [error line 30, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const res5 = <int>{...null};
+// [error line 34, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const res6 = <int, int>{...null};
+// [error line 38, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

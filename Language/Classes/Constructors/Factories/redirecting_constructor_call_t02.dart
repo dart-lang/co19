@@ -11,7 +11,6 @@
  * as an instance creation expression using new.
  * @description Checks that compile error occurs when referenced type is not
  * defined or refers to non class or non constructor.
- * @compile-error
  * @author ilya
  */
 
@@ -19,10 +18,22 @@ function() {}
 var variable;
 
 class F {
-  factory F() = C;            //# 01: compile-time error
-  factory F.foo() = function; //# 02: compile-time error
-  factory F.bar() = variable; //# 03: compile-time error
-  factory F.baz() = D.baz;    //# 04: compile-time error
+  factory F() = C;
+// [error line 21, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory F.foo() = function;
+// [error line 25, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory F.bar() = variable;
+// [error line 29, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory F.baz() = D.baz;
+  //                ^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.REDIRECT_TO_MISSING_CONSTRUCTOR
+  // [cfe] Redirection constructor target not found: 'D.baz'
 }
 
 class D {

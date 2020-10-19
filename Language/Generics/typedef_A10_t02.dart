@@ -16,12 +16,27 @@ typedef Alias2 = void Function<String>(int);
 
 main() {
   Alias1 a1;
-  Alias1<int> a2;     //# 01: compile-time error
-  Alias1<dynamic> a3; //# 02: compile-time error
+  Alias1<int> a2;
+//^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 0 type arguments.
+  Alias1<dynamic> a3;
+//^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 0 type arguments.
 
   Alias2 a4;
-  Alias2<int> a5;     //# 03: compile-time error
-  Alias2<String> a6;  //# 04: compile-time error
-  Alias2<dynamic> a7; //# 05: compile-time error
+  Alias2<int> a5;
+//^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 0 type arguments.
+  Alias2<String> a6;
+//^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 0 type arguments.
+  Alias2<dynamic> a7;
+//^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 0 type arguments.
 
 }

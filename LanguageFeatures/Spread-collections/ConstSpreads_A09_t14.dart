@@ -15,8 +15,20 @@
  */
 
 main() {
-  const Set res1 = const {...{1: 2, 3: 4}};  //# 01: compile-time error
-  const Set res2 = const {...44};            //# 02: compile-time error
-  const Set res3 = const {...null};          //# 03: compile-time error
-  const Set res4 = const {..."abcde"};       //# 04: compile-time error
+  const Set res1 = const {...{1: 2, 3: 4}};
+// [error line 18, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set res2 = const {...44};
+// [error line 22, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set res3 = const {...null};
+// [error line 26, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set res4 = const {..."abcde"};
+// [error line 30, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

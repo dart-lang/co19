@@ -19,14 +19,42 @@ typedef void Foo<T>();
 
 main() {
   Function f1 = foo;
-  f1!;          //# 01: static type warning
+  f1!;
+//^
+// [cfe] Operand of null-aware operation '!' has type 'Function' which excludes null.
+  //^
+  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 
   Foo f2 = foo;
-  f2!;          //# 02: static type warning
+  f2!;
+//^
+// [cfe] Operand of null-aware operation '!' has type 'void Function()' which excludes null.
+  //^
+  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 
-  foo!<int>();  //# 03: static type warning
-  foo!();        //# 04: static type warning
-  f1!<int>();   //# 05: static type warning
-  f1!();        //# 06: static type warning
-  f2!();        //# 07: static type warning
+  foo!<int>();
+//^
+// [cfe] Operand of null-aware operation '!' has type 'void Function<T>()' which excludes null.
+  // ^
+  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+  foo!();
+//^
+// [cfe] Operand of null-aware operation '!' has type 'void Function<T>()' which excludes null.
+  // ^
+  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+  f1!<int>();
+//^
+// [cfe] Operand of null-aware operation '!' has type 'Function' which excludes null.
+  //^
+  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+  f1!();
+//^
+// [cfe] Operand of null-aware operation '!' has type 'Function' which excludes null.
+  //^
+  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+  f2!();
+//^
+// [cfe] Operand of null-aware operation '!' has type 'void Function()' which excludes null.
+  //^
+  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 }

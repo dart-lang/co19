@@ -18,7 +18,16 @@
 import "dart:math";
 
 main() {
-  new Point(0, 0) * null; //# 01: compile-time error
-  new Point(null, 0) * 1; //# 02: compile-time error
-  new Point(0, null) * 1; //# 03: compile-time error
+  new Point(0, 0) * null;
+  //                ^^^^
+  // [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
+  // [cfe] A value of type 'Null' can't be assigned to a variable of type 'num'.
+  new Point(null, 0) * 1;
+// [error line 25, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  new Point(0, null) * 1;
+// [error line 29, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }
