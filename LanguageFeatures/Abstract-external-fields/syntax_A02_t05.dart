@@ -26,11 +26,13 @@
  * @description Checks topLevelDefinition syntax
  * @author sgrekhov@unipro.ru
  */
-
-  final external int i1;
-//^^^^^
+class C {
+  var external i2;
+//    ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
 main() {
+  new C();
 }
