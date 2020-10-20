@@ -25,6 +25,7 @@
  *
  * @description Checks topLevelDefinition syntax
  * @author sgrekhov@unipro.ru
+ * @issue 43851
  */
 
   final external int i1;

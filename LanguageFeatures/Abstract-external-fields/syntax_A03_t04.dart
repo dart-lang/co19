@@ -25,15 +25,13 @@
  *
  * @description Checks topLevelDefinition syntax
  * @author sgrekhov@unipro.ru
- * @issue 43851
+ * @compile-error
  */
-class C {
-  var external i2;
-//    ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+abstract class C {
+  covariant int? abstract i1;
+  covariant var abstract i2;
 }
 
 main() {
-  new C();
+  C? c;
 }

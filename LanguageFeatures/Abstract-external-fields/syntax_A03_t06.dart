@@ -25,15 +25,19 @@
  *
  * @description Checks topLevelDefinition syntax
  * @author sgrekhov@unipro.ru
- * @issue 43851
  */
-class C {
-  var external i2;
-//    ^^^^^^^^
+abstract class C {
+  static abstract num? i1;
+//       ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  abstract static var i2;
+//^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  new C();
+  C? c;
 }
