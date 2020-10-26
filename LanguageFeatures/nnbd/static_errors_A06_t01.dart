@@ -29,11 +29,12 @@ class C {
 
 class D implements C {
   Never n;
+//      ^
+// [cfe] unspecified
 
   D();
 //^
 // [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {

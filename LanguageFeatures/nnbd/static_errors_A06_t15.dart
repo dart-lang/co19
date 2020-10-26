@@ -30,11 +30,12 @@ class C {
 
 class D implements C {
   FutureOr<Never> n;
+//                ^
+// [cfe] unspecified
 
   D();
 //^
 // [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {
