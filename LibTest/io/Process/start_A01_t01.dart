@@ -36,13 +36,13 @@ main() {
   final executable = getProcessTestFileName();
   asyncStart();
   Process.start(executable, ["0", "1", "0", "0"]).then((Process process) {
-    List<int> data = "Lily was here\n".codeUnits;
-    process.stdin.add(data);
+    final input = "Lily was here\n";
+    process.stdin.add(input.codeUnits);
     process.stdin.flush().then((_) => process.stdin.close());
     process.stdout.toList().then((List outList) {
       Utf8Decoder decoder = new Utf8Decoder();
       String decoded = decoder.convert(outList[0]);
-      Expect.equals(data, decoded);
+      Expect.equals(input, decoded);
     }).then((_) {
       process.stderr.toList().then((List errList) {
         Expect.equals(0, errList.length);

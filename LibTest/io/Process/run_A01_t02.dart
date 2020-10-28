@@ -35,7 +35,7 @@ import "../process_utils.dart";
 
 main() {
   final executable = getProcessTestFileName();
-
+  asyncStart();
   Process.run(executable, ["0", "1", "0", "0"]).then((ProcessResult results) {
     Expect.equals(0, results.exitCode);
     Expect.equals("", results.stdout);
