@@ -31,14 +31,14 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../process_utils.dart";
 
 main() {
-  String executable = Platform.resolvedExecutable;
-  File file = new File.fromUri(Platform.script.resolve("start_A01_t01_lib.dart"));
-  asyncStart();
-  Process.run(executable, [file.absolute.path]).then((ProcessResult results) {
+  final executable = getProcessTestFileName();
+
+  Process.run(executable, ["0", "1", "0", "0"]).then((ProcessResult results) {
     Expect.equals(0, results.exitCode);
-    Expect.equals("start_A01_t01_lib.dart run", results.stdout);
+    Expect.equals("", results.stdout);
     Expect.equals("", results.stderr);
     asyncEnd();
   });

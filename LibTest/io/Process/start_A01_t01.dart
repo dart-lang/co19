@@ -30,16 +30,19 @@
 import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
+import "../process_utils.dart";
 
 main() {
-  String executable = Platform.resolvedExecutable;
-  File file = new File.fromUri(Platform.script.resolve("start_A01_t01_lib.dart"));
+  final executable = getProcessTestFileName();
   asyncStart();
-  Process.start(executable, [file.path]).then((Process process) {
+  Process.start(executable, ["0", "1", "0", "0"]).then((Process process) {
+    List<int> data = "Lily was here\n".codeUnits;
+    process.stdin.add(data);
+    process.stdin.flush().then((_) => process.stdin.close());
     process.stdout.toList().then((List outList) {
       Utf8Decoder decoder = new Utf8Decoder();
       String decoded = decoder.convert(outList[0]);
-      Expect.equals("start_A01_t01_lib.dart run", decoded);
+      Expect.equals(data, decoded);
     }).then((_) {
       process.stderr.toList().then((List errList) {
         Expect.equals(0, errList.length);
