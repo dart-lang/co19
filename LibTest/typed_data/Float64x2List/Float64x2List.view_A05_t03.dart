@@ -14,7 +14,7 @@
  * offsetInBytes + (length * elementSizeInBytes) is greater than the length of
  * buffer.
  * @description Checks that if offsetInBytes + (length * elementSizeInBytes)
- * is greater than the length of buffer then RangeError is thrown.
+ * is greater than the length of buffer then an error is thrown.
  * @author ngl@unipro.ru
  * @issue 43196
  */
@@ -29,8 +29,7 @@ void check(List<Float64x2> list, int offsetInEl, length) {
   Float64x2List tmp = new Float64x2List.fromList(list);
   var byteBuffer = tmp.buffer;
   Expect.throws(
-          () { Float64x2List.view(byteBuffer, offsetInEl * el_size, length); },
-          (e) => e is RangeError);
+          () { Float64x2List.view(byteBuffer, offsetInEl * el_size, length); });
 }
 
 main() {

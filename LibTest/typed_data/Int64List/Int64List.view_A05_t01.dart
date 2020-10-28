@@ -14,7 +14,7 @@
  * Throws [RangeError] if [offsetInBytes] or [length] are negative, or if
  * [offsetInBytes] + ([length] * elementSizeInBytes) is greater than the length
  * of [buffer].
- * @description Checks that [RangeError] is thrown if [offsetInBytes] is
+ * @description Checks that an error is thrown if [offsetInBytes] is
  * negative.
  * @author msyabro
  */
@@ -25,8 +25,7 @@ import "../../../Utils/expect.dart";
 void check(List<int> array, int offset) {
   var tmp = new Int64List.fromList(array);
   var byteBuffer = tmp.buffer;
-  Expect.throws(
-          () { Int64List.view(byteBuffer, offset); }, (e) => e is RangeError);
+  Expect.throws(() { Int64List.view(byteBuffer, offset); });
 }
 
 main() {
