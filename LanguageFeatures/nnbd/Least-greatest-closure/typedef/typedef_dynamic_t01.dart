@@ -24,6 +24,6 @@ typedef check = void Function();
 
 void main() {
   void f(check Function() g) => g();
-  try { f(() => captureTypeArgument()); } catch (_) {}
+  Expect.throws(() { f(() => captureTypeArgument()); });
   Expect.equals(typeOf<void Function()>(), capturedTypeArgument);
 }

@@ -20,10 +20,10 @@
 
 import "../../../../Utils/expect.dart";
 
-typedef check = void Function({bool x});
+typedef check = void Function(bool x);
 
 void main() {
   void f(check Function() g) => g();
-  try { f(() => captureTypeArgument()); } catch (_) {}
+  Expect.throws(() { f(() => captureTypeArgument()); });
   Expect.equals(typeOf<check>(), capturedTypeArgument);
 }

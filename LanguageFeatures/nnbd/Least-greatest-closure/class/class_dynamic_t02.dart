@@ -8,8 +8,7 @@
  * safe libraries to substitute [Never] in positions where previously [Null
  * would have been substituted, and [Object?] in positions where previously
  * [Object] or [dynamic] would have been substituted.
- * @description Check that correct type is substituted for [void
- * Function({required bool x})] typedef.
+ * @description Check that [Object?] type is substituted for [Map<int, List<X>].
  * @note Read more about the least and greatest closure test template:
  * https://github.com/dart-lang/co19/issues/575#issuecomment-613542349
  *
@@ -20,10 +19,8 @@
 
 import "../../../../Utils/expect.dart";
 
-typedef check = void Function({required bool x});
-
 void main() {
-  void f(check Function() g) => g();
+  void f<X>(Map<int, List<X>> Function() g) => g();
   Expect.throws(() { f(() => captureTypeArgument()); });
-  Expect.equals(typeOf<check>(), capturedTypeArgument);
+  Expect.equals(typeOf<Map<int, List<Object?>>>(), capturedTypeArgument);
 }

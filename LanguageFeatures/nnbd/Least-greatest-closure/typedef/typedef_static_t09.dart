@@ -51,8 +51,8 @@ void main() {
 
   // Verify that the return type is `void`: Returned value not usable,
   // not even to access a member of `Object`.
-  f(() => captureTypeArgument()..call(true).toString);
-  //                                        ^
+  f(() => captureTypeArgument()..call(true).toString());
+  //                           ^
   // [analyzer] unspecified
   // [cfe] unspecified
 }
