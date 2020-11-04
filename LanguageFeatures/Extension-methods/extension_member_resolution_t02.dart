@@ -48,5 +48,5 @@ extension on dynamic {
 main() {
   dynamic c = new C();
   c.method(42, "-42");
-  Expect.equals("Extension on dynamic: 42 -42", c.log);
+  Expect.equals("C NSM invoked. Number of arguments 2", c.log);
 }
