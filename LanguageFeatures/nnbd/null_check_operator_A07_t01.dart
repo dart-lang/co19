@@ -19,13 +19,13 @@ main() {
   true!;
 //^
 // [cfe] Operand of null-aware operation '!' has type 'bool' which excludes null.
-  //  ^
-  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//    ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   true!.toString();
 //^
 // [cfe] Operand of null-aware operation '!' has type 'bool' which excludes null.
-  //  ^
-  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//    ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   true!?.toString();
 // [error line 29, column 0]
 // [analyzer] unspecified

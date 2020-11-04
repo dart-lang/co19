@@ -40,7 +40,7 @@ main() {
   var c5 = {for (var i in [1, 2, 3]) if (1 > 2) x else if (2 > 1) i: i};
   //       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
-  //                                 ^
+  //                                            ^
   // [cfe] Expected ':' after this.
   var c6 = {if (1 > 2) for (var i in [1, 2, 3]) i else if (2 > 1) for (var i = 0; i < 3; i++) i: i};
   //       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

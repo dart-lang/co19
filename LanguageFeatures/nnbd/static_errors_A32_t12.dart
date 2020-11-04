@@ -34,13 +34,13 @@ main() {
   a ?? a;
 //^
 // [cfe] Operand of null-aware operation '??' has type 'FutureOr<FutureOr<A>>' which excludes null.
-  //   ^
-  // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//     ^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   a ??= a;
 //^
 // [cfe] Operand of null-aware operation '??=' has type 'FutureOr<FutureOr<A>>' which excludes null.
-  //    ^
-  // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//      ^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   List<FutureOr<FutureOr<A>>> clist = [a, a];
   List<FutureOr<FutureOr<A>>> alist = [a, a, ...? clist];
   //                                         ^^^^

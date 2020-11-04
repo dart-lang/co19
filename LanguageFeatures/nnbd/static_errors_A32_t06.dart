@@ -34,13 +34,13 @@ main() {
   a ?? bar;
 //^
 // [cfe] Operand of null-aware operation '??' has type 'void Function()' which excludes null.
-  //   ^^^
-  // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//     ^^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   a ??= bar;
 //^
 // [cfe] Operand of null-aware operation '??=' has type 'void Function()' which excludes null.
-  //    ^^^
-  // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//      ^^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   List<Foo> clist = [foo, bar];
   List<Foo> alist = [foo, bar, ...? clist];
   //                           ^^^^

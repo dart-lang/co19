@@ -30,8 +30,8 @@ main() {
   testlib.MySimpleExt("testme");
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] COMPILE_TIME_ERROR.EXTENSION_OVERRIDE_WITHOUT_ACCESS
-  //      ^
-  // [cfe] Explicit extension application cannot be used as an expression.
+//        ^
+// [cfe] Explicit extension application cannot be used as an expression.
   Ext1("testme");
 //^^^^^^^^^^^^^^
 // [analyzer] COMPILE_TIME_ERROR.EXTENSION_OVERRIDE_WITHOUT_ACCESS

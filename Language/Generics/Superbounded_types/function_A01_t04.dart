@@ -18,21 +18,21 @@ main() {
   testme<String>();
 //^
 // [cfe] Type argument 'String' doesn't conform to the bound 'num' of the type variable 'X' on 'testme'.
-  //     ^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//       ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   testme<dynamic>();
 //^
 // [cfe] Type argument 'dynamic' doesn't conform to the bound 'num' of the type variable 'X' on 'testme'.
-  //     ^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//       ^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   testme<void>();
 //^
 // [cfe] Type argument 'void' doesn't conform to the bound 'num' of the type variable 'X' on 'testme'.
-  //     ^^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//       ^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   testme<Object>();
 //^
 // [cfe] Type argument 'Object' doesn't conform to the bound 'num' of the type variable 'X' on 'testme'.
-  //     ^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+//       ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
 }

@@ -30,9 +30,9 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
   // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
   C?.s = foo();
-  //     ^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+// [error line 32, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
   C.s ??= foo();
 // [error line 36, column 0]
 // [analyzer] unspecified
@@ -46,9 +46,9 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
   // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
   C?.staticSetter = foo();
-  //                ^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
-  // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+// [error line 48, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
   C? c = null;
   c?.m1 = foo();

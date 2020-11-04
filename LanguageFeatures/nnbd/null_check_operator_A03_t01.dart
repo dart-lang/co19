@@ -30,18 +30,18 @@ class A {
     this!;
 //  ^
 // [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
-    //  ^
-    // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//      ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this!.foo();
 //  ^
 // [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
-    //  ^
-    // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//      ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this![42];
 //  ^
 // [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
-    //  ^
-    // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//      ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this!?.foo();
 // [error line 45, column 0]
 // [analyzer] unspecified
@@ -53,8 +53,8 @@ class A {
     this!.s = "Lily was here";
 //  ^
 // [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
-    //  ^
-    // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//      ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this!?.s = "Lily was here";
 // [error line 58, column 0]
 // [analyzer] unspecified
@@ -62,8 +62,8 @@ class A {
     this![0] = "Lily was here";
 //  ^
 // [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
-    //  ^
-    // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//      ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this!?[0] = "Lily was here";
 // [error line 67, column 0]
 // [analyzer] unspecified

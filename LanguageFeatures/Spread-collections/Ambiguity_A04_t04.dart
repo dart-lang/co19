@@ -24,11 +24,11 @@ main() {
   List? aList = [1, 2, 3];
 
   var res1 = <int, int>{...?aList};
-  //                        ^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
-  // [cfe] Unexpected type 'List<dynamic>?' of a map spread entry.  Expected 'dynamic' or a Map.
+// [error line 26, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
   var res2 = <int, int>{...?aSet};
-  //                        ^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
-  // [cfe] Unexpected type 'Set<dynamic>?' of a map spread entry.  Expected 'dynamic' or a Map.
+// [error line 30, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

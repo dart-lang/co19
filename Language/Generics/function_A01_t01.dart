@@ -18,16 +18,16 @@ main() {
   testme<dynamic>();
 //^
 // [cfe] Expected 0 type arguments.
-  //    ^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS_METHOD
+//      ^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS_METHOD
   testme<int, String>();
 //^
 // [cfe] Expected 0 type arguments.
-  //    ^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS_METHOD
+//      ^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS_METHOD
   testme<Null>();
 //^
 // [cfe] Expected 0 type arguments.
-  //    ^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS_METHOD
+//      ^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS_METHOD
 }

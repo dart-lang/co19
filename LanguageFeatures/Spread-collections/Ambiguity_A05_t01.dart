@@ -76,28 +76,28 @@ main() {
 // [cfe] unspecified
 
   var res13 = <int, int, int>{...aMap};
-// [error line 78, column 0]
-// [analyzer] unspecified
-// [cfe] unspecified
+//            ^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
+// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
   var res14 = <int, int, int, int>{...aMap};
-// [error line 82, column 0]
-// [analyzer] unspecified
-// [cfe] unspecified
+//            ^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
+// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
   var res15 = <int, int, int, int, int>{...aMap};
-// [error line 86, column 0]
-// [analyzer] unspecified
-// [cfe] unspecified
+//            ^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
+// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
 
   var res16 = <int, int, int>{...?aMap};
-  //          ^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
-  // [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+// [error line 91, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
   var res17 = <int, int, int, int>{...?aMap};
-  //          ^^^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
-  // [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+// [error line 95, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
   var res18 = <int, int, int, int, int>{...?aMap};
-  //          ^^^^^^^^^^^^^^^^^^^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
-  // [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+// [error line 99, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -22,13 +22,13 @@ main() {
   f1!;
 //^
 // [cfe] Operand of null-aware operation '!' has type 'Function' which excludes null.
-  //^
-  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//  ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 
   Foo f2 = foo;
   f2!;
 //^
 // [cfe] Operand of null-aware operation '!' has type 'void Function()' which excludes null.
-  //^
-  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//  ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 }

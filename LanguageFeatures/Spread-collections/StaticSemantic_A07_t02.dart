@@ -77,13 +77,13 @@ void test2() {
 // [analyzer] unspecified
 // [cfe] unspecified
   Map map10 = <int, String>{...?m2};
-  //                            ^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-  // [cfe] Can't assign spread entry values of type 'int' to map entry values of type 'String'.
+// [error line 79, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
   Map map11 = <int, String>{...?m3};
-  //                            ^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
-  // [cfe] Can't assign spread entry keys of type 'String' to map entry keys of type 'int'.
+// [error line 83, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
   Map map12 = <int, String>{...?m4};
 // [error line 87, column 0]
 // [analyzer] unspecified
@@ -97,11 +97,11 @@ void test2() {
 // [analyzer] unspecified
 // [cfe] unspecified
   Map map15 = <int, String>{...?m7};
-  //                            ^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
-  // [cfe] Can't assign spread entry values of type 'int' to map entry values of type 'String'.
+// [error line 99, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
   Map map16 = <int, String>{...?m8};
-  //                            ^^
-  // [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
-  // [cfe] Can't assign spread entry keys of type 'String' to map entry keys of type 'int'.
+// [error line 103, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

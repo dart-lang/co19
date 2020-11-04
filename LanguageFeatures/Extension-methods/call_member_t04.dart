@@ -47,13 +47,13 @@ main() {
   1.0(10);
 //^^^
 // [analyzer] COMPILE_TIME_ERROR.INVOCATION_OF_NON_FUNCTION_EXPRESSION
-  // ^
-  // [cfe] 'call' isn't a function or method and can't be invoked.
+//   ^
+// [cfe] 'call' isn't a function or method and can't be invoked.
   1.0("10");
 //^^^
 // [analyzer] COMPILE_TIME_ERROR.INVOCATION_OF_NON_FUNCTION_EXPRESSION
-  // ^
-  // [cfe] 'call' isn't a function or method and can't be invoked.
+//   ^
+// [cfe] 'call' isn't a function or method and can't be invoked.
   A a = new A();
   a(2);
 // [error line 58, column 0]

@@ -20,11 +20,11 @@ main() {
   List? s = [1, 2, 3];
   Map? m = {1:1, 2: 2};
   var x1 = <int>{...s, ...m};
-// [error line 22, column 0]
+//                        ^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+// [cfe] Unexpected type 'Map<dynamic, dynamic>' of a spread.  Expected 'dynamic' or an Iterable.
+  var x2 = <int>{...?s, ...?m};
+// [error line 26, column 0]
 // [analyzer] unspecified
 // [cfe] unspecified
-  var x2 = <int>{...?s, ...?m};
-  //                        ^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  // [cfe] Unexpected type 'Map<dynamic, dynamic>?' of a spread.  Expected 'dynamic' or an Iterable.
 }

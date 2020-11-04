@@ -24,12 +24,12 @@ main() {
   List? x = [1, 2, 3];
   Map? y = {1: "1", 2: "2", 3: "3"};
   var v2 = {"", if (i < 0) ...x else ...y,};
-// [error line 26, column 0]
-// [analyzer] unspecified
-// [cfe] unspecified
+//                                      ^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+// [cfe] Unexpected type 'Map<dynamic, dynamic>' of a spread.  Expected 'dynamic' or an Iterable.
 
   var v3 = {"", if (i < 0) ...?x else ...?y,};
-  //                                      ^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  // [cfe] Unexpected type 'Map<dynamic, dynamic>?' of a spread.  Expected 'dynamic' or an Iterable.
+// [error line 31, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

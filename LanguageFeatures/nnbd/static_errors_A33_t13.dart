@@ -22,39 +22,39 @@ main() {
   f1!;
 //^
 // [cfe] Operand of null-aware operation '!' has type 'Function' which excludes null.
-  //^
-  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//  ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 
   Foo f2 = foo;
   f2!;
 //^
 // [cfe] Operand of null-aware operation '!' has type 'void Function()' which excludes null.
-  //^
-  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//  ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 
   foo!<int>();
 //^
 // [cfe] Operand of null-aware operation '!' has type 'void Function<T>()' which excludes null.
-  // ^
-  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//   ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   foo!();
 //^
 // [cfe] Operand of null-aware operation '!' has type 'void Function<T>()' which excludes null.
-  // ^
-  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//   ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   f1!<int>();
 //^
 // [cfe] Operand of null-aware operation '!' has type 'Function' which excludes null.
-  //^
-  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//  ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   f1!();
 //^
 // [cfe] Operand of null-aware operation '!' has type 'Function' which excludes null.
-  //^
-  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//  ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   f2!();
 //^
 // [cfe] Operand of null-aware operation '!' has type 'void Function()' which excludes null.
-  //^
-  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//  ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 }

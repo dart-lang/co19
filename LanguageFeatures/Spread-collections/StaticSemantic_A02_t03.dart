@@ -35,11 +35,11 @@ main() {
   //                      ^
   // [cfe] Unexpected type 'Map<dynamic, dynamic>?' of a spread.  Expected 'dynamic' or an Iterable.
   List l5 = [1, 2, ...?i1];
-  //                   ^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  // [cfe] Unexpected type 'int?' of a spread.  Expected 'dynamic' or an Iterable.
+// [error line 37, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
   List l6 = [14, ...?str1, 28];
-  //                 ^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
-  // [cfe] Unexpected type 'String?' of a spread.  Expected 'dynamic' or an Iterable.
+// [error line 41, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

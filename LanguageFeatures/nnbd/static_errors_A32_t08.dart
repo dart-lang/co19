@@ -31,13 +31,13 @@ test(FutureOr<Never> t) {
   t ?? t;
 //^
 // [cfe] Operand of null-aware operation '??' has type 'FutureOr<Never>' which excludes null.
-  //   ^
-  // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//     ^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   t ??= t;
 //^
 // [cfe] Operand of null-aware operation '??=' has type 'FutureOr<Never>' which excludes null.
-  //    ^
-  // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//      ^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   List<FutureOr<Never>> clist = [t, t];
   List<FutureOr<Never>> alist = [t, t, ...? clist];
   //                                   ^^^^

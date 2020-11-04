@@ -32,13 +32,13 @@ test<T extends Object>(FutureOr<T> t) {
   t ?? t;
 //^
 // [cfe] Operand of null-aware operation '??' has type 'FutureOr<T>' which excludes null.
-  //   ^
-  // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//     ^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   t ??= t;
 //^
 // [cfe] Operand of null-aware operation '??=' has type 'FutureOr<T>' which excludes null.
-  //    ^
-  // [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//      ^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   List<FutureOr<T>> clist = [t, t];
   List<FutureOr<T>> alist = [t, t, ...? clist];
   //                               ^^^^
