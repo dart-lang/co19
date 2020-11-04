@@ -21,9 +21,25 @@ extension MySimpleExt on String {
 }
 
 main() {
-  bool res1 = MySimpleExt("testme") == true; //# 01: compile-time error
-  var  res2 = MySimpleExt("testme") == 14;   //# 02: compile-time error
+  bool res1 = MySimpleExt("testme") == true;
+  //          ^
+  // [cfe] Explicit extension application cannot be used as an expression.
+  //                                ^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_OPERATOR
+  var  res2 = MySimpleExt("testme") == 14;
+  //          ^
+  // [cfe] Explicit extension application cannot be used as an expression.
+  //                                ^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_OPERATOR
 
-  bool res3 = MySimpleExt("testme") != true; //# 03: compile-time error
-  var  res4 = MySimpleExt("testme") != 128;  //# 04: compile-time error
+  bool res3 = MySimpleExt("testme") != true;
+  //          ^
+  // [cfe] Explicit extension application cannot be used as an expression.
+  //                                ^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_OPERATOR
+  var  res4 = MySimpleExt("testme") != 128;
+  //          ^
+  // [cfe] Explicit extension application cannot be used as an expression.
+  //                                ^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_OPERATOR
 }

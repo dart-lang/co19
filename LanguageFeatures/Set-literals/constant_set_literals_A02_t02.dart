@@ -25,8 +25,24 @@ class C {
 }
 
 main() {
-  var v1 = const {1, '2', const Duration(seconds: 1)};          //# 01: compile-time error
-  var v2 = const <Object> {1, '2', const Duration(seconds: 1)}; //# 02: compile-time error
-  var v3 = const {1, '2', const C(1, "x")};                     //# 03: compile-time error
-  var v4 = const {1, '2', const C(1, "x")};                     //# 04: compile-time error
+  var v1 = const {1, '2', const Duration(seconds: 1)};
+  //       ^
+  // [cfe] Constant evaluation error:
+  //                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.CONST_SET_ELEMENT_TYPE_IMPLEMENTS_EQUALS
+  var v2 = const <Object> {1, '2', const Duration(seconds: 1)};
+  //       ^
+  // [cfe] Constant evaluation error:
+  //                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.CONST_SET_ELEMENT_TYPE_IMPLEMENTS_EQUALS
+  var v3 = const {1, '2', const C(1, "x")};
+  //       ^
+  // [cfe] Constant evaluation error:
+  //                      ^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.CONST_SET_ELEMENT_TYPE_IMPLEMENTS_EQUALS
+  var v4 = const {1, '2', const C(1, "x")};
+  //       ^
+  // [cfe] Constant evaluation error:
+  //                      ^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.CONST_SET_ELEMENT_TYPE_IMPLEMENTS_EQUALS
 }

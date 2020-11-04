@@ -37,8 +37,19 @@ main() {
   AAlias<A<Never>>    a3;
   AAlias<A<dynamic>> a4;
   AAlias<A<Object?>> a5;
-  AAlias<A<int>>     a6; //# 01: compile-time error
-  AAlias<int>        a7; //# 02: compile-time error
-  AAlias<Null>       a8; //# 03: compile-time error
+  AAlias<A<int>>     a6;
+// [error line 40, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  AAlias<int>        a7;
+  //     ^^^
+  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+  //                 ^
+  // [cfe] Type argument 'int' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'AAlias'.
+  AAlias<Null>       a8;
+  //     ^^^^
+  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+  //                 ^
+  // [cfe] Type argument 'Null' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'AAlias'.
   AAlias<dynamic>    a9;
 }

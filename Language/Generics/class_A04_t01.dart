@@ -16,9 +16,21 @@ class A {}
 main() {
   A a = A();
 
-  A<int> a1;               //# 01: compile-time error
-  A a2 = A<int>();         //# 02: compile-time error
+  A<int> a1;
+//^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 0 type arguments.
+  A a2 = A<int>();
+  //     ^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+  // [cfe] Expected 0 type arguments.
 
-  A<dynamic> a3;           //# 03: compile-time error
-  A a4 = new A<dynamic>(); //# 04: compile-time error
+  A<dynamic> a3;
+//^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 0 type arguments.
+  A a4 = new A<dynamic>();
+  //         ^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+  // [cfe] Expected 0 type arguments.
 }

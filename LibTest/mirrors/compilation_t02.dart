@@ -12,14 +12,22 @@
  * @author a.semenov@unipro.ru
  */
 import 'dart:mirrors';
+//     ^
+// [web] Not found: 'dart:mirrors'
 
 void metadata() {
 }
 
-@metadata()     //# 01: compile-time error
+@metadata()
+// [error line 21, column 1, length 11]
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ANNOTATION
+// [error line 21, column 2]
+// [cfe] Method not found: 'metadata'.
 class A {}
 
 main() {
   // have to retrieve metadata to get the compile error
  reflectClass(A).metadata.map( (e) => e.reflectee ).join(' ');
+// [error line 30, column 2]
+// [web] Method not found: 'reflectClass'.
 }

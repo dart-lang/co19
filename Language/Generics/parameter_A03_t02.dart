@@ -17,8 +17,17 @@
  * @author iarkh@unipro.ru
  */
 
-typedef Alias1<X extends X> = void Function(X);                                 //# 01: compile-time error
-typedef Alias2<X extends Y, Y extends X> = void Function(X, Y);                 //# 02: compile-time error
-typedef Alias3<X extends Y, Y extends Z, Z extends X> = void Function(X, Y, Z); //# 03: compile-time error
+typedef Alias1<X extends X> = void Function(X);
+//             ^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
+// [cfe] Type 'X' can't use itself as a bound.
+typedef Alias2<X extends Y, Y extends X> = void Function(X, Y);
+// [error line 24, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+typedef Alias3<X extends Y, Y extends Z, Z extends X> = void Function(X, Y, Z);
+// [error line 28, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {}

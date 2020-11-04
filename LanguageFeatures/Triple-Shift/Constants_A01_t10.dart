@@ -25,10 +25,28 @@ main() {
   const d4 = -1;
   const d5 = -99999;
 
-  const c1 = d1 >>> d4;   //# 01: compile-time error
-  const c2 = d2 >>> d5;   //# 02: compile-time error
-  const c3 = d3 >>> -11;  //# 03: compile-time error
-  const c4 = 1 >>> -9999; //# 04: compile-time error
-  const c5 = d4 >>> -2;   //# 05: compile-time error
-  const c6 = -24 >>> d5;  //# 06: compile-time error
+  const c1 = d1 >>> d4;
+// [error line 28, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const c2 = d2 >>> d5;
+// [error line 32, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const c3 = d3 >>> -11;
+// [error line 36, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const c4 = 1 >>> -9999;
+// [error line 40, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const c5 = d4 >>> -2;
+// [error line 44, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const c6 = -24 >>> d5;
+// [error line 48, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

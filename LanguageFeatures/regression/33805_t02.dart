@@ -19,8 +19,16 @@ A<A> a1 = new A<A>();
 A<A<A>> a2 = new A<A<A>>();
 
 main() {
-  testme(a);  //# 01: compile-time error
-  testme(a1); //# 02: compile-time error
-  testme(a2); //# 03: compile-time error
+  testme(a);
+//^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.COULD_NOT_INFER
+// [cfe] Inferred type argument 'A<Object?>' doesn't conform to the bound 'A<X>' of the type variable 'X' on 'testme'.
+  testme(a1);
+//^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.COULD_NOT_INFER
+// [cfe] Inferred type argument 'A<Object?>' doesn't conform to the bound 'A<X>' of the type variable 'X' on 'testme'.
+  testme(a2);
+//^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.COULD_NOT_INFER
+// [cfe] Inferred type argument 'A<Object?>' doesn't conform to the bound 'A<X>' of the type variable 'X' on 'testme'.
 }
-

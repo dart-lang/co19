@@ -40,8 +40,20 @@
  */
 
 main() {
-  int? a`;                      //# 01: compile-time error
-  String b` = "It's wrong!";    //# 02: compile-time error
-  var c`;                       //# 03: compile-time error
-  d`;                           //# 04: compile-time error
+  int? a`;
+// [error line 43, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  String b` = "It's wrong!";
+// [error line 47, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var c`;
+// [error line 51, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  d`;
+// [error line 55, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

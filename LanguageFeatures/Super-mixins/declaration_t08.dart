@@ -15,7 +15,6 @@
  *
  * @description Checks that it is a compile-time error for the mixin declaration
  * if classes from on clause and implements clause are not compatible.
- * @compile-error
  * @author ngl@unipro.ru
  */
 
@@ -42,16 +41,28 @@ abstract class C3<Y extends List<double>> {
 }
 
 // The same name getters with different return types
-mixin M1 on B, C1 implements I1, J {}  //# 01: compile-time error
+mixin M1 on B, C1 implements I1, J {}
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.INCONSISTENT_INHERITANCE
+// [cfe] Class 'M1' inherits multiple members named 'n' with incompatible signatures.
 
 // The same name getter and method with the same return types
-mixin M2 on B, C2 implements I1, J {} //# 02: compile-time error
+mixin M2 on B, C2 implements I1, J {}
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.INCONSISTENT_INHERITANCE_GETTER_AND_METHOD
+// [cfe] Can't inherit members that conflict with each other.
 
 // The same name methods with different return types
-mixin M3 on B, C2 implements I2, J {} //# 03: compile-time error
+mixin M3 on B, C2 implements I2, J {}
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.INCONSISTENT_INHERITANCE
+// [cfe] Class 'M3' inherits multiple members named 'n' with incompatible signatures.
 
 // The methods with the same return types and different parameters number
-mixin M4 on B, C3 implements I3, J {} //# 04: compile-time error
+mixin M4 on B, C3 implements I3, J {}
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.INCONSISTENT_INHERITANCE
+// [cfe] Class 'M4' inherits multiple members named 'n' with incompatible signatures.
 
 main() {
 }

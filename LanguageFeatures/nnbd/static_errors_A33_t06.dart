@@ -19,7 +19,11 @@ class A {}
 
 test(var a) {
   if (a is Object) {
-    a!;     //# 01: static type warning
+    a!;
+//  ^
+// [cfe] Operand of null-aware operation '!' has type 'Object' which excludes null.
+//   ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   }
 }
 

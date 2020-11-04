@@ -15,7 +15,6 @@
  *
  * @description Checks that it is a compile-time error for the mixin declaration
  * if classes from implements clause are not compatible.
- * @compile-error
  * @author ngl@unipro.ru
  */
 
@@ -44,16 +43,28 @@ class B {}
 class C {}
 
 // The same name getters with different return types
-mixin M1 on B, C implements I1, J1 {}  //# 01: compile-time error
+mixin M1 on B, C implements I1, J1 {}
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.INCONSISTENT_INHERITANCE
+// [cfe] Class 'M1' inherits multiple members named 'n' with incompatible signatures.
 
 // The same name getter and method with the same return types
-mixin M2 on B, C implements I1, J2 {} //# 02: compile-time error
+mixin M2 on B, C implements I1, J2 {}
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.INCONSISTENT_INHERITANCE_GETTER_AND_METHOD
+// [cfe] Can't inherit members that conflict with each other.
 
 // The same name methods with different return types
-mixin M3 on B, C implements I2, J2 {} //# 03: compile-time error
+mixin M3 on B, C implements I2, J2 {}
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.INCONSISTENT_INHERITANCE
+// [cfe] Class 'M3' inherits multiple members named 'n' with incompatible signatures.
 
 // The methods with the same return types and different parameters number
-mixin M4 on B, C implements I3, J3 {} //# 04: compile-time error
+mixin M4 on B, C implements I3, J3 {}
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.INCONSISTENT_INHERITANCE
+// [cfe] Class 'M4' inherits multiple members named 'n' with incompatible signatures.
 
 main() {
 }

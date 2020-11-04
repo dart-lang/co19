@@ -27,8 +27,20 @@ class MyClass {
 }
 
 main() {
-  const MyClass c1 = MyClass("12345"); //# 01: compile-time error
-  const MyClass c2 = MyClass(12345);   //# 02: compile-time error
-  const MyClass c3 = MyClass(B());     //# 03: compile-time error
-  const MyClass c4 = MyClass([]);      //# 04: compile-time error
+  const MyClass c1 = MyClass("12345");
+  //                 ^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
+  // [cfe] Constant evaluation error:
+  const MyClass c2 = MyClass(12345);
+  //                 ^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
+  // [cfe] Constant evaluation error:
+  const MyClass c3 = MyClass(B());
+  //                 ^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
+  // [cfe] Constant evaluation error:
+  const MyClass c4 = MyClass([]);
+  //                 ^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
+  // [cfe] Constant evaluation error:
 }

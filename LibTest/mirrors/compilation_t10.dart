@@ -14,15 +14,23 @@
  * @author a.semenov@unipro.ru
  */
 import 'dart:mirrors';
+//     ^
+// [web] Not found: 'dart:mirrors'
 
 class A {
     const A(int x);
 }
 
-@A              //# 01: compile-time error
+@A
+// [error line 24, column 1, length 2]
+// [analyzer] COMPILE_TIME_ERROR.NO_ANNOTATION_CONSTRUCTOR_ARGUMENTS
+// [error line 24, column 2]
+// [cfe] This can't be used as metadata; metadata should be a reference to a compile-time constant variable, or a call to a constant constructor.
 class B {}
 
 main() {
     // have to retrieve metadata to get the compile error
     reflectClass(B).metadata.map( (e) => e.reflectee ).join(' ');
+//  ^
+// [web] Method not found: 'reflectClass'.
 }

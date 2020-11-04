@@ -23,6 +23,12 @@ import "my_fancy_list_lib.dart";
 
 main() {
   List<String> list = ["Lily", "was", "here"];
-  list.nnDoubleLength;    //# 01: compile-time error
-  List.nnClassName;       //# 02: compile-time error
+  list.nnDoubleLength;
+  //   ^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
+  // [cfe] The getter 'nnDoubleLength' isn't defined for the class 'List<String>'.
+  List.nnClassName;
+  //   ^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
+  // [cfe] Getter not found: 'nnClassName'.
 }

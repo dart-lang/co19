@@ -15,8 +15,20 @@ typedef void MyTypedef(int);
 
 main() {
   MyTypedef a1;
-  MyTypedef<int> a2;     //# 01: compile-time error
-  MyTypedef<dynamic> a3; //# 02: compile-time error
-  MyTypedef<String> a4;  //# 03: compile-time error
-  MyTypedef<void> a5;    //# 04: compile-time error
+  MyTypedef<int> a2;
+//^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 0 type arguments.
+  MyTypedef<dynamic> a3;
+//^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 0 type arguments.
+  MyTypedef<String> a4;
+//^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 0 type arguments.
+  MyTypedef<void> a5;
+//^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 0 type arguments.
 }

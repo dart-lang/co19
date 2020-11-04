@@ -18,13 +18,38 @@ main() {
   var map = {1: 1, 2: 2};
   var list = [1, 2, 3, 4, 5];
 
-  Set l1 = <dynamic>{...number};   //# 01: compile-time error
-  Set l2 = <dynamic>{...str};      //# 02: compile-time error
-  Set l3 = <dynamic>{...map};      //# 03: compile-time error
-  Set l4 = <dynamic>{...list[0]};  //# 04: compile-time error
+  Set l1 = <dynamic>{...number};
+  //                    ^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+  // [cfe] Unexpected type 'int' of a spread.  Expected 'dynamic' or an Iterable.
+  Set l2 = <dynamic>{...str};
+  //                    ^^^
+  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+  // [cfe] Unexpected type 'String' of a spread.  Expected 'dynamic' or an Iterable.
+  Set l3 = <dynamic>{...map};
+  //                    ^^^
+  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+  // [cfe] Unexpected type 'Map<int, int>' of a spread.  Expected 'dynamic' or an Iterable.
+  Set l4 = <dynamic>{...list[0]};
+  //                    ^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+  //                        ^
+  // [cfe] Unexpected type 'int' of a spread.  Expected 'dynamic' or an Iterable.
 
-  Set l5 = <dynamic>{...?number};  //# 05: compile-time error
-  Set l6 = <dynamic>{...?str};     //# 06: compile-time error
-  Set l7 = <dynamic>{...?map};     //# 07: compile-time error
-  Set l8 = <dynamic>{...?list[0]}; //# 08: compile-time error
+  Set l5 = <dynamic>{...?number};
+// [error line 39, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Set l6 = <dynamic>{...?str};
+// [error line 43, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Set l7 = <dynamic>{...?map};
+// [error line 47, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Set l8 = <dynamic>{...?list[0]};
+// [error line 51, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -26,11 +26,30 @@ main() {
   C1<Null>? c4;
   C1<int?>?  c5;
 
-  C1<int, int>?                                                   c6; //# 01: compile-time error
-  C1<int, int, int>?                                              c7; //# 02: compile-time error
-  C1<int, int, int, int, int>?                                    c8; //# 03: compile-time error
-  C1<int, int, int, int, int, int, int, int, int, int, int, int>? c9; //# 04: compile-time error
-  C1<List<num>>?                                                 c10; //# 05: compile-time error
-  C1<C1>?                                                        c11; //# 06: compile-time error
+  C1<int, int>?                                                   c6;
+//^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 1 type arguments.
+  C1<int, int, int>?                                              c7;
+//^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 1 type arguments.
+  C1<int, int, int, int, int>?                                    c8;
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 1 type arguments.
+  C1<int, int, int, int, int, int, int, int, int, int, int, int>? c9;
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 1 type arguments.
+  C1<List<num>>?                                                 c10;
+  // ^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+  //                                                             ^
+  // [cfe] Type argument 'List<num>' doesn't conform to the bound 'num?' of the type variable 'T' on 'C1'.
+  C1<C1>?                                                        c11;
+  // ^^
+  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+  //                                                             ^
+  // [cfe] Type argument 'C1<num?>' doesn't conform to the bound 'num?' of the type variable 'T' on 'C1'.
 }
-

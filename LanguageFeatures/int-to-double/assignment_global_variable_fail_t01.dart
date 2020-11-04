@@ -11,9 +11,15 @@
  */
 int foo() => 42;
 
-double d1 = foo();    //# 01: compile-time error
+double d1 = foo();
+//          ^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+// [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
 double? d2 = null;
 
 main() {
-  d2 ??= foo();     //# 02: compile-time error
+  d2 ??= foo();
+  //     ^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+  // [cfe] A value of type 'int' can't be assigned to a variable of type 'double?'.
 }

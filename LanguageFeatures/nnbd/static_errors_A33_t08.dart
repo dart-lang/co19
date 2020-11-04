@@ -17,7 +17,11 @@
 import "dart:async";
 
 test(FutureOr<Never> n) {
-  n!;     //# 01: static type warning
+  n!;
+//^
+// [cfe] Operand of null-aware operation '!' has type 'FutureOr<Never>' which excludes null.
+// ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 }
 
 main() {

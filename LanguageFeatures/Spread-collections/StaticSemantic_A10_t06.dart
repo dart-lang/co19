@@ -17,7 +17,16 @@ main() {
   const x2 = 100;
   const x3 = "check";
 
-  const List l1 = [...?x1]; //# 01: compile-time error
-  const List l2 = [...?x2]; //# 02: compile-time error
-  const List l3 = [...?x3]; //# 03: compile-time error
+  const List l1 = [...?x1];
+// [error line 20, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const List l2 = [...?x2];
+// [error line 24, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const List l3 = [...?x3];
+// [error line 28, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

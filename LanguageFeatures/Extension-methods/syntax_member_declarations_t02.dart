@@ -23,11 +23,26 @@
 
 
 extension ExtendedList<T> on List<T> {
-  int instanceVar;                  //# 01: compile-time error
-  String _privateInstanceVar;       //# 02: compile-time error
-  ExtendedList() {}                 //# 03: compile-time error
-  ExtendedList.named(int i) {}      //# 04: compile-time error
-  void abstractMethod(String v);    //# 05: compile-time error
+  int instanceVar;
+// [error line 26, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  String _privateInstanceVar;
+// [error line 30, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  ExtendedList() {}
+//^^^^^^^^^^^^
+// [analyzer] SYNTACTIC_ERROR.EXTENSION_DECLARES_CONSTRUCTOR
+// [cfe] Extensions can't declare constructors.
+  ExtendedList.named(int i) {}
+//^^^^^^^^^^^^
+// [analyzer] SYNTACTIC_ERROR.EXTENSION_DECLARES_CONSTRUCTOR
+// [cfe] Extensions can't declare constructors.
+  void abstractMethod(String v);
+  //   ^^^^^^^^^^^^^^
+  // [analyzer] SYNTACTIC_ERROR.EXTENSION_DECLARES_ABSTRACT_MEMBER
+  // [cfe] Extensions can't declare abstract members.
 }
 
 main() {

@@ -16,13 +16,40 @@ Map map3 = {};
 Map? map4 = null;
 
 main() {
-  const Map res1 = {...map1};                           //# 01: compile-time error
-  const Map res2 = <int, int>{...?map1};                //# 02: compile-time error
-  const Map res3 = <int, String>{...map2};              //# 03: compile-time error
-  const Map res4 = {...?map2};                          //# 04: compile-time error
-  const Map res5 = {...map3};                           //# 05: compile-time error
-  const Map res6 = {...?map3};                          //# 06: compile-time error
-  const Map res7 = {...?map4};                          //# 07: compile-time error
-  const Map res8 = {100: null, 10: 14, ...map1, 6: 16}; //# 08: compile-time error
-  const Map res9 = {15: 15, ...map1, "stop": null, ...map2, ...map3, "a": "a", "b": "b", "c": "c", ...?map4, 208: 18};  //# 09: compile-time error
+  const Map res1 = {...map1};
+// [error line 19, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map res2 = <int, int>{...?map1};
+// [error line 23, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map res3 = <int, String>{...map2};
+// [error line 27, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map res4 = {...?map2};
+// [error line 31, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map res5 = {...map3};
+// [error line 35, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map res6 = {...?map3};
+// [error line 39, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map res7 = {...?map4};
+// [error line 43, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map res8 = {100: null, 10: 14, ...map1, 6: 16};
+// [error line 47, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map res9 = {15: 15, ...map1, "stop": null, ...map2, ...map3, "a": "a", "b": "b", "c": "c", ...?map4, 208: 18};
+// [error line 51, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

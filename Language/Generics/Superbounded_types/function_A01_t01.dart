@@ -13,9 +13,21 @@
 
 class A<T extends A<T>> {}
 
-void testme1<X extends A>() {}      //# 01: compile-time error
-void testme2<X extends A<A>>() {}   //# 02: compile-time error
-void testme3<X extends A<int>>() {} //# 03: compile-time error
+void testme1<X extends A>() {}
+//           ^
+// [cfe] Generic type 'A' can't be used without type arguments in a type variable bound.
+//                     ^
+// [analyzer] COMPILE_TIME_ERROR.NOT_INSTANTIATED_BOUND
+void testme2<X extends A<A>>() {}
+//           ^
+// [cfe] Generic type 'A' can't be used without type arguments in a type variable bound.
+//                       ^
+// [analyzer] COMPILE_TIME_ERROR.NOT_INSTANTIATED_BOUND
+void testme3<X extends A<int>>() {}
+//           ^
+// [cfe] Type argument 'int' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
+//                       ^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
 
 main() {
 }

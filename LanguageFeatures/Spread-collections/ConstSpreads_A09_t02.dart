@@ -27,11 +27,33 @@ int i2 = 25;
 const n = null;
 
 main() {
-  const List res1  = const [...l];   //# 01: compile-time error
-  const List res2  = const [...s];   //# 02: compile-time error
-  const List res3  = const [...m1];  //# 03: compile-time error
-  const List res4  = const [...m2];  //# 04: compile-time error
-  const List res5  = const [...i1];  //# 05: compile-time error
-  const List res6  = const [...i2];  //# 06: compile-time error
-  const List res7  = const [...n];   //# 07: compile-time error
+  const List res1  = const [...l];
+// [error line 30, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const List res2  = const [...s];
+// [error line 34, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const List res3  = const [...m1];
+// [error line 38, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const List res4  = const [...m2];
+// [error line 42, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const List res5  = const [...i1];
+// [error line 46, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const List res6  = const [...i2];
+// [error line 50, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const List res7  = const [...n];
+  //                 ^
+  // [cfe] Constant evaluation error:
+  //                           ^
+  // [analyzer] COMPILE_TIME_ERROR.CONST_SPREAD_EXPECTED_LIST_OR_SET
 }

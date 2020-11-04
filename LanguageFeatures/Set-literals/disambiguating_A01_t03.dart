@@ -18,10 +18,22 @@
  * @author sgrekhov@unipro.ru
  */
 
-var v1 = <int, String, Object> {};        //# 01: compile-time error
-var v2 = const <int, String, Object> {};  //# 02: compile-time error
+var v1 = <int, String, Object> {};
+//       ^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
+// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+var v2 = const <int, String, Object> {};
+//             ^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
+// [cfe] A set or map literal requires exactly one or two type arguments, respectively.
 
 main() {
-  var x1 = <int, String, Object> {};        //# 03: compile-time error
-  var x2 = const <int, String, Object> {};  //# 04: compile-time error
+  var x1 = <int, String, Object> {};
+  //       ^^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
+  // [cfe] A set or map literal requires exactly one or two type arguments, respectively.
+  var x2 = const <int, String, Object> {};
+  //             ^^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
+  // [cfe] A set or map literal requires exactly one or two type arguments, respectively.
 }

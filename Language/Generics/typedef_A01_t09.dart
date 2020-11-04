@@ -31,15 +31,39 @@ class C3<T1, T2> {
   C3({T1? i, T2? j}) {}
 }
 
-typedef Alias1<T> = my_function;            //# 01: compile-time error
-typedef Alias2<T> = my_function<T>;         //# 02: compile-time error
-typedef Alias3<T> = my_function();          //# 03: compile-time error
-typedef Alias4<T> = my_function<T>();       //# 04: compile-time error
+typedef Alias1<T> = my_function;
+// [error line 34, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+typedef Alias2<T> = my_function<T>;
+// [error line 38, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+typedef Alias3<T> = my_function();
+// [error line 42, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+typedef Alias4<T> = my_function<T>();
+// [error line 46, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-typedef CAlias1<T> = C1<T>(T);              //# 05: compile-time error
-typedef CAlias2<T> = C2<T>(int, [T]);       //# 06: compile-time error
-typedef CAlias3<T1, T2> = C3<T>({T1, T2});  //# 07: compile-time error
+typedef CAlias1<T> = C1<T>(T);
+//                        ^
+// [analyzer] SYNTACTIC_ERROR.EXPECTED_TOKEN
+// [cfe] Expected 'Function' before this.
+typedef CAlias2<T> = C2<T>(int, [T]);
+//                        ^
+// [analyzer] SYNTACTIC_ERROR.EXPECTED_TOKEN
+// [cfe] Expected 'Function' before this.
+typedef CAlias3<T1, T2> = C3<T>({T1, T2});
+// [error line 59, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-typedef CAlias4<T extends int> = C1<T>(24); //# 08: compile-time error
+typedef CAlias4<T extends int> = C1<T>(24);
+// [error line 64, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {}

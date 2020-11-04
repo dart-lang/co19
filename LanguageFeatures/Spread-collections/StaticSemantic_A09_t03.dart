@@ -16,11 +16,29 @@
 Null n = null;
 
 main() {
-  var res1 = [...n];           //# 01: compile-time error
-  Map res2 = {...n};           //# 02: compile-time error
-  Set res3 = {...n};           //# 03: compile-time error
+  var res1 = [...n];
+// [error line 19, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Map res2 = {...n};
+// [error line 23, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Set res3 = {...n};
+// [error line 27, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  var res4 = <int>[...n];      //# 04: compile-time error
-  var res5 = <int>{...n};      //# 05: compile-time error
-  var res6 = <int, int>{...n}; //# 06: compile-time error
+  var res4 = <int>[...n];
+// [error line 32, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var res5 = <int>{...n};
+// [error line 36, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var res6 = <int, int>{...n};
+// [error line 40, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

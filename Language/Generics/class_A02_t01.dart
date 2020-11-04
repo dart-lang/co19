@@ -27,13 +27,31 @@ main() {
   A<C<Never>>? a3;
   A<C<dynamic>>? a4;
 
-  A<C<int>>? a5;                //# 01: compile-time error
-  A<C<C<int>>>? a6;             //# 02: compile-time error
-  A<C<C<C<C<C<C<int>>>>>>>? a7; //# 03: compile-time error
+  A<C<int>>? a5;
+  //  ^^^
+  // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+  //         ^
+  // [cfe] Type argument 'int' doesn't conform to the bound 'C<T>' of the type variable 'T' on 'C'.
+  A<C<C<int>>>? a6;
+// [error line 35, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  A<C<C<C<C<C<C<int>>>>>>>? a7;
+// [error line 39, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  C<C<int>>? c1;                //# 04: compile-time error
-  C<C<C<int>>>? c2;             //# 05: compile-time error
-  C<C<C<C<C<C<C<int>>>>>>>? c3; //# 06: compile-time error
+  C<C<int>>? c1;
+// [error line 44, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  C<C<C<int>>>? c2;
+// [error line 48, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  C<C<C<C<C<C<C<int>>>>>>>? c3;
+// [error line 52, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
 }
-

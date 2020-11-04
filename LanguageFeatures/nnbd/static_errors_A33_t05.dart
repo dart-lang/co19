@@ -15,7 +15,11 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 test<T extends Object>(T t) {
-  t!;     //# 01: static type warning
+  t!;
+//^
+// [cfe] Operand of null-aware operation '!' has type 'T' which excludes null.
+// ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 }
 
 main() {

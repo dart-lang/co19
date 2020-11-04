@@ -14,37 +14,127 @@
  */
 
 main() {
-  List<int> list1 = const [for (var i = 1; i < 4; i++) i]; //# 01: compile-time error
-  const List<int> list2 = [for (var i = 1; i < 4; i++) i]; //# 02: compile-time error
-  var list3 = const [for (var i = 1; i < 4; i++) i];       //# 03: compile-time error
-  var list4 = const <int>[for (var i = 1; i < 4; i++) i];  //# 04: compile-time error
-  const list5 = [for (var i = 1; i < 4; i++) i];           //# 05: compile-time error
-  List<int> list6 = const [for (var i in [1, 2, 3]) i];    //# 06: compile-time error
-  const List<int> list7 = [for (var i in [1, 2, 3]) i];    //# 07: compile-time error
-  var list8 = const [for (var i in [1, 2, 3]) i];          //# 08: compile-time error
-  var list9 = const <int>[for (var i in [1, 2, 3]) i];     //# 09: compile-time error
-  const list10 = [for (var i in [1, 2, 3]) i];             //# 10: compile-time error
+  List<int> list1 = const [for (var i = 1; i < 4; i++) i];
+// [error line 17, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const List<int> list2 = [for (var i = 1; i < 4; i++) i];
+// [error line 21, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var list3 = const [for (var i = 1; i < 4; i++) i];
+// [error line 25, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var list4 = const <int>[for (var i = 1; i < 4; i++) i];
+// [error line 29, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const list5 = [for (var i = 1; i < 4; i++) i];
+// [error line 33, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  List<int> list6 = const [for (var i in [1, 2, 3]) i];
+  //                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
+  // [cfe] 'for' is not supported in constant expressions.
+  const List<int> list7 = [for (var i in [1, 2, 3]) i];
+// [error line 41, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var list8 = const [for (var i in [1, 2, 3]) i];
+  //                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
+  // [cfe] 'for' is not supported in constant expressions.
+  var list9 = const <int>[for (var i in [1, 2, 3]) i];
+  //                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
+  // [cfe] 'for' is not supported in constant expressions.
+  const list10 = [for (var i in [1, 2, 3]) i];
+// [error line 53, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  Set<int> set1 = const {for (var i = 1; i < 4; i++) i};   //# 11: compile-time error
-  const Set<int> set2 = {for (var i = 1; i < 4; i++) i};   //# 12: compile-time error
-  var set3 = const {for (var i = 1; i < 4; i++) i};        //# 13: compile-time error
-  var set4 = const <int>{for (var i = 1; i < 4; i++) i};   //# 14: compile-time error
-  const set5 = {for (var i = 1; i < 4; i++) i};            //# 15: compile-time error
-  Set<int> set6 = const {for (var i in [1, 2, 3]) i};      //# 16: compile-time error
-  const Set<int> set7 = {for (for (var i in [1, 2, 3]) i}; //# 17: compile-time error
-  var set8 = const {for (for (var i in [1, 2, 3]) i};      //# 18: compile-time error
-  var set9 = const <int>{for (for (var i in [1, 2, 3]) i}; //# 19: compile-time error
-  const set10 = {for (for (var i in [1, 2, 3]) i};         //# 20: compile-time error
+  Set<int> set1 = const {for (var i = 1; i < 4; i++) i};
+// [error line 58, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Set<int> set2 = {for (var i = 1; i < 4; i++) i};
+// [error line 62, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var set3 = const {for (var i = 1; i < 4; i++) i};
+// [error line 66, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var set4 = const <int>{for (var i = 1; i < 4; i++) i};
+// [error line 70, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const set5 = {for (var i = 1; i < 4; i++) i};
+// [error line 74, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Set<int> set6 = const {for (var i in [1, 2, 3]) i};
+  //                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
+  // [cfe] 'for' is not supported in constant expressions.
+  const Set<int> set7 = {for (for (var i in [1, 2, 3]) i};
+// [error line 82, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var set8 = const {for (for (var i in [1, 2, 3]) i};
+// [error line 86, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var set9 = const <int>{for (for (var i in [1, 2, 3]) i};
+// [error line 90, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const set10 = {for (for (var i in [1, 2, 3]) i};
+// [error line 94, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  Map<int, String> map1 = const {for (var i = 1; i < 4; i++) i: "x"}; //# 21: compile-time error
-  const Map<int, String> map2 = {for (var i = 1; i < 4; i++) i: "x"}; //# 22: compile-time error
-  var map3 = const {for (var i = 1; i < 4; i++) i: i};                //# 23: compile-time error
-  var map4 = const <int, String>{for (var i = 1; i < 4; i++) i: "x"}; //# 24: compile-time error
-  const map5 = {for (var i = 1; i < 4; i++) i: i};                    //# 25: compile-time error
-  Map<int, String> map6 = const {for (var i in [1, 2, 3]) i: "x"};    //# 26: compile-time error
-  const Map<int, String> map7 = {for (var i in [1, 2, 3]) i: "x"};    //# 27: compile-time error
-  var map8 = const {for (var i in [1, 2, 3]) i: i};                   //# 28: compile-time error
-  var map9 = const <int, String>{for (var i in [1, 2, 3]) i: "x"};    //# 29: compile-time error
-  const map10 = {for (var i in [1, 2, 3]) i: i};                      //# 30: compile-time error
+  Map<int, String> map1 = const {for (var i = 1; i < 4; i++) i: "x"};
+// [error line 99, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map<int, String> map2 = {for (var i = 1; i < 4; i++) i: "x"};
+// [error line 103, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var map3 = const {for (var i = 1; i < 4; i++) i: i};
+// [error line 107, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var map4 = const <int, String>{for (var i = 1; i < 4; i++) i: "x"};
+// [error line 111, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const map5 = {for (var i = 1; i < 4; i++) i: i};
+// [error line 115, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Map<int, String> map6 = const {for (var i in [1, 2, 3]) i: "x"};
+// [error line 119, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const Map<int, String> map7 = {for (var i in [1, 2, 3]) i: "x"};
+// [error line 123, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var map8 = const {for (var i in [1, 2, 3]) i: i};
+// [error line 127, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var map9 = const <int, String>{for (var i in [1, 2, 3]) i: "x"};
+// [error line 131, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const map10 = {for (var i in [1, 2, 3]) i: i};
+// [error line 135, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
 }

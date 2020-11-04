@@ -14,11 +14,29 @@
  */
 
 main() {
-  var res1 = [...null];           //# 01: compile-time error
-  Map res2 = {...null};           //# 02: compile-time error
-  Set res3 = {...null};           //# 03: compile-time error
+  var res1 = [...null];
+// [error line 17, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Map res2 = {...null};
+// [error line 21, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Set res3 = {...null};
+// [error line 25, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  var res4 = <int>[...null];      //# 04: compile-time error
-  var res5 = <int>{...null};      //# 05: compile-time error
-  var res6 = <int, int>{...null}; //# 06: compile-time error
+  var res4 = <int>[...null];
+// [error line 30, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var res5 = <int>{...null};
+// [error line 34, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var res6 = <int, int>{...null};
+// [error line 38, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

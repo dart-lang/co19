@@ -22,8 +22,21 @@
 main() {
   Iterable l = [];
   Map m = {};
-  var res1   = {...l, ...m};  //# 01: compile-time error
-  var res2   = {...m, ...l};  //# 02: compile-time error
-  List res3  = {...l, ...m};  //# 03: compile-time error
-  Map res4   = {...l, ...m};  //# 04: compile-time error
+  var res1   = {...l, ...m};
+  //           ^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
+  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+  var res2   = {...m, ...l};
+  //           ^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
+  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+  List res3  = {...l, ...m};
+// [error line 33, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Map res4   = {...l, ...m};
+  //           ^
+  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+  //               ^
+  // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
 }

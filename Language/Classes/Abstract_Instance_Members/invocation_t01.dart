@@ -10,14 +10,21 @@
  * invoked.
  * @description Checks that invoking an abstract method, getter or setter
  * results in a compile error.
- * @compile-error
  * @author kaigorodov, sgrekhov@unipro.ru
  */
 
 class C {
-  void m();       //# 01: compile-time error
-  int get g;      //# 02: compile-time error
-  set g(int v);   //# 03: compile-time error
+//    ^
+// [cfe] The non-abstract class 'C' is missing implementations for these members:
+  void m();
+//^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.CONCRETE_CLASS_WITH_ABSTRACT_MEMBER
+  int get g;
+//^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.CONCRETE_CLASS_WITH_ABSTRACT_MEMBER
+  set g(int v);
+//^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.CONCRETE_CLASS_WITH_ABSTRACT_MEMBER
 }
 
 main() {

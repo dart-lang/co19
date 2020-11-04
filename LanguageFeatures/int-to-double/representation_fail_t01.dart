@@ -17,16 +17,28 @@
  * @author ngl@unipro.ru
  */
 
-double d1 = 18446744073709551615; //# 01: compile-time error
+double d1 = 18446744073709551615;
+//          ^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INTEGER_LITERAL_IMPRECISE_AS_DOUBLE
+// [cfe] The integer literal 18446744073709551615 can't be represented in 64 bits.
 
 class C {
-  static double d2 = 18446744073709551615; //# 02: compile-time error
+  static double d2 = 18446744073709551615;
+  //                 ^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.INTEGER_LITERAL_IMPRECISE_AS_DOUBLE
+  // [cfe] The integer literal 18446744073709551615 can't be represented in 64 bits.
 
-  double d3 = 18446744073709551615; //# 03: compile-time error
+  double d3 = 18446744073709551615;
+  //          ^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.INTEGER_LITERAL_IMPRECISE_AS_DOUBLE
+  // [cfe] The integer literal 18446744073709551615 can't be represented in 64 bits.
 }
 
 main() {
-  double d4 = 18446744073709551615; //# 04: compile-time error
+  double d4 = 18446744073709551615;
+  //          ^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.INTEGER_LITERAL_IMPRECISE_AS_DOUBLE
+  // [cfe] The integer literal 18446744073709551615 can't be represented in 64 bits.
 
   new C();
 }

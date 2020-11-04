@@ -29,14 +29,42 @@ class A {
 main() {
   var a = new A() as A?;
   a!;
-  a!.foo();                       //# 01: static type warning
-  a![42];                         //# 02: static type warning
-  a!?.foo();                      //# 03: static type warning
-  a!?[42];                        //# 04: static type warning
-  a!.s = "Lily was here";         //# 05: static type warning
-  a!?.s = "Let it be";            //# 06: static type warning
-  a![0] = "Lily was here";        //# 07: static type warning
-  a!?[0] = "Lily was here";       //# 08: static type warning
+  a!.foo();
+//^
+// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
+// ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+  a![42];
+//^
+// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
+// ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+  a!?.foo();
+// [error line 42, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  a!?[42];
+// [error line 46, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  a!.s = "Lily was here";
+//^
+// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
+// ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+  a!?.s = "Let it be";
+// [error line 55, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  a![0] = "Lily was here";
+//^
+// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
+// ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+  a!?[0] = "Lily was here";
+// [error line 64, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
   if (a != null) {
     a.getValue!;
     a[42]!;

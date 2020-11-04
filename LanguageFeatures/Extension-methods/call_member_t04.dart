@@ -16,7 +16,6 @@
  *
  * @description Check that it is a compile error if there is e1 is an interface
  * with 'call' getter
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 
@@ -35,11 +34,33 @@ extension on num {
 
 
 main() {
-  1(10);          //# 01: compile-time error
-  1("10");        //# 02: compile-time error
-  1.0(10);        //# 03: compile-time error
-  1.0("10");      //# 04: compile-time error
+  1(10);
+//^
+// [analyzer] COMPILE_TIME_ERROR.INVOCATION_OF_NON_FUNCTION_EXPRESSION
+// ^
+// [cfe] 'call' isn't a function or method and can't be invoked.
+  1("10");
+//^
+// [analyzer] COMPILE_TIME_ERROR.INVOCATION_OF_NON_FUNCTION_EXPRESSION
+// ^
+// [cfe] 'call' isn't a function or method and can't be invoked.
+  1.0(10);
+//^^^
+// [analyzer] COMPILE_TIME_ERROR.INVOCATION_OF_NON_FUNCTION_EXPRESSION
+//   ^
+// [cfe] 'call' isn't a function or method and can't be invoked.
+  1.0("10");
+//^^^
+// [analyzer] COMPILE_TIME_ERROR.INVOCATION_OF_NON_FUNCTION_EXPRESSION
+//   ^
+// [cfe] 'call' isn't a function or method and can't be invoked.
   A a = new A();
-  a(2);           //# 05: compile-time error
-  a(2, "3");      //# 06: compile-time error
+  a(2);
+// [error line 58, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  a(2, "3");
+// [error line 62, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

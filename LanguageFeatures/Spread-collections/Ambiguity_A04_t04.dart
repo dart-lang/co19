@@ -23,6 +23,12 @@ main() {
   Set? aSet = {1, 2, 3};
   List? aList = [1, 2, 3];
 
-  var res1 = <int, int>{...?aList}; //# 01: compile-time error
-  var res2 = <int, int>{...?aSet};  //# 02: compile-time error
+  var res1 = <int, int>{...?aList};
+// [error line 26, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var res2 = <int, int>{...?aSet};
+// [error line 30, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

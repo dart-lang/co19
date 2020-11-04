@@ -10,7 +10,6 @@
  *
  * @description Checks that a mixin declaration doesn't contain the static
  * members declared by the mixin
- * @compile-error
  * @author ngl@unipro.ru
  * @author sgrekhov@unipro.ru
  */
@@ -41,21 +40,51 @@ mixin M on A, B implements I, J {
 
 class MA extends C with M {
   test() {
-    i1 == 1; //# 01: compile-time error
-    j1 == 2; //# 02: compile-time error
-    b1 == 3; //# 03: compile-time error
-    c1 == 4; //# 04: compile-time error
-    m1 == 5; //# 05: compile-time error
+    i1 == 1;
+//  ^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
+// [cfe] The getter 'i1' isn't defined for the class 'MA'.
+    j1 == 2;
+//  ^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
+// [cfe] The getter 'j1' isn't defined for the class 'MA'.
+    b1 == 3;
+//  ^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
+// [cfe] The getter 'b1' isn't defined for the class 'MA'.
+    c1 == 4;
+//  ^^
+// [analyzer] COMPILE_TIME_ERROR.UNQUALIFIED_REFERENCE_TO_NON_LOCAL_STATIC_MEMBER
+// [cfe] The getter 'c1' isn't defined for the class 'MA'.
+    m1 == 5;
+//  ^^
+// [analyzer] COMPILE_TIME_ERROR.UNQUALIFIED_REFERENCE_TO_NON_LOCAL_STATIC_MEMBER
+// [cfe] The getter 'm1' isn't defined for the class 'MA'.
   }
 }
 
 main() {
   MA ma = new MA();
-  MA.i1 == 1; //# 06: compile-time error
-  MA.j1 == 2; //# 07: compile-time error
-  MA.b1 == 3; //# 08: compile-time error
-  MA.c1 == 4; //# 09: compile-time error
-  MA.m1 == 5; //# 10: compile-time error
+  MA.i1 == 1;
+  // ^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
+  // [cfe] Getter not found: 'i1'.
+  MA.j1 == 2;
+  // ^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
+  // [cfe] Getter not found: 'j1'.
+  MA.b1 == 3;
+  // ^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
+  // [cfe] Getter not found: 'b1'.
+  MA.c1 == 4;
+  // ^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
+  // [cfe] Getter not found: 'c1'.
+  MA.m1 == 5;
+  // ^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
+  // [cfe] Getter not found: 'm1'.
 
   ma.test();
 }

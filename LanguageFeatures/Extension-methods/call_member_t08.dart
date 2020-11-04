@@ -16,7 +16,6 @@
  *
  * @description Check that it is a compile error if there is e1 is an interface
  * with 'call' getter
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 
@@ -27,6 +26,14 @@ class A {
 
 main() {
   A a = new A();
-  a(2);           //# 01: compile-time error
-  a(2, "3");      //# 02: compile-time error
+  a(2);
+//^
+// [analyzer] COMPILE_TIME_ERROR.INVOCATION_OF_NON_FUNCTION_EXPRESSION
+// ^
+// [cfe] Cannot invoke an instance of 'A' because it declares 'call' to be something other than a method.
+  a(2, "3");
+//^
+// [analyzer] COMPILE_TIME_ERROR.INVOCATION_OF_NON_FUNCTION_EXPRESSION
+// ^
+// [cfe] Cannot invoke an instance of 'A' because it declares 'call' to be something other than a method.
 }

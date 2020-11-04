@@ -7,6 +7,8 @@
  * @assertion It is a warning to use the null check operator (!) on an
  * expression of type T if T is strictly non-nullable
  *
+// [error line 9, column 1]
+// [web] A library can't opt out of null safety by default, when using sound null safety.
  * @description It is a warning to use the null check operator (!) on an
  * expression of type T if T is strictly non-nullable. Test some class A*
  * @author sgrekhov@unipro.ru
@@ -18,5 +20,9 @@ import "legacy_lib.dart";
 
 main() {
   A a = new A();
-  a!;             //# 01: static type warning
+  a!;
+//^
+// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
+// ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 }

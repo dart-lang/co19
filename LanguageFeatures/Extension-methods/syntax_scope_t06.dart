@@ -28,6 +28,12 @@ import "syntax_scope_t05_lib.dart";
 
 main() {
   List<String> list = ["Lily", "was", "here"];
-  list.split(1);              //# 01: compile-time error
-  MyFancyList.className;      //# 02: compile-time error
+  list.split(1);
+  //   ^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_METHOD
+  // [cfe] The method 'split' isn't defined for the class 'List<String>'.
+  MyFancyList.className;
+  //          ^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_GETTER
+  // [cfe] Getter not found: 'className'.
 }

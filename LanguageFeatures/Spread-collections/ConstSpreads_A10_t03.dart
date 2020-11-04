@@ -21,8 +21,21 @@ class MyClass {
 }
 
 main() {
-  const List l1 = [...?(MyClass(12345) is MyClass ? [12] : [])];   //# 01: compile-time error
-  const List l2 = [...?(MyClass(12345) is MyClass ? {12} : {2})];  //# 02: compile-time error
-  const List l3 = [...?(MyClass(12345) is MyClass ? {12} : null)]; //# 03: compile-time error
-  const List l4 = [...?(MyClass(12345) is MyClass ? {null} : 1)];  //# 04: compile-time error
+  const List l1 = [...?(MyClass(12345) is MyClass ? [12] : [])];
+// [error line 24, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const List l2 = [...?(MyClass(12345) is MyClass ? {12} : {2})];
+// [error line 28, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const List l3 = [...?(MyClass(12345) is MyClass ? {12} : null)];
+  //              ^
+  // [cfe] Constant evaluation error:
+  //                    ^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
+  const List l4 = [...?(MyClass(12345) is MyClass ? {null} : 1)];
+// [error line 37, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

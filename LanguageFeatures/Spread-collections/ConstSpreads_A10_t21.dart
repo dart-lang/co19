@@ -29,14 +29,45 @@ int? i2 = 25;
 const n = null;
 
 main() {
-  const res1  = {...?l2};              //# 01: compile-time error
-  const res2  = {...?s2};              //# 02: compile-time error
-  const res3  = {...?l1, 123: 2};      //# 03: compile-time error
-  const res4  = {14: 3, ...?s1};       //# 04: compile-time error
-  const res5  = {...?m1, 13};          //# 05: compile-time error
-  const res6  = {...?m2};              //# 06: compile-time error
-  const res7  = {...?i1};              //# 07: compile-time error
-  const res8  = {...?i2};              //# 08: compile-time error
-  const res9  = {...?n};               //# 09: compile-time error
-  const res10 = {...?null};            //# 10: compile-time error
+  const res1  = {...?l2};
+// [error line 32, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const res2  = {...?s2};
+// [error line 36, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const res3  = {...?l1, 123: 2};
+  //            ^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
+  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+  const res4  = {14: 3, ...?s1};
+  //            ^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
+  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+  const res5  = {...?m1, 13};
+  //            ^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
+  //                 ^
+  // [cfe] Unexpected type 'Map<dynamic, dynamic>?' of a spread.  Expected 'dynamic' or an Iterable.
+  const res6  = {...?m2};
+// [error line 53, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const res7  = {...?i1};
+// [error line 57, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const res8  = {...?i2};
+// [error line 61, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const res9  = {...?n};
+  //            ^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
+  // [cfe] Not enough type information to disambiguate between literal set and literal map.
+  const res10 = {...?null};
+  //            ^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
+  // [cfe] Not enough type information to disambiguate between literal set and literal map.
 }

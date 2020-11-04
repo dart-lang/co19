@@ -27,16 +27,47 @@ extension Ext1 on String {
 }
 
 main() {
-  testlib.MySimpleExt("testme");        //# 01: compile-time error
-  Ext1("testme");                       //# 02: compile-time error
+  testlib.MySimpleExt("testme");
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.EXTENSION_OVERRIDE_WITHOUT_ACCESS
+//        ^
+// [cfe] Explicit extension application cannot be used as an expression.
+  Ext1("testme");
+//^^^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.EXTENSION_OVERRIDE_WITHOUT_ACCESS
+// [cfe] Explicit extension application cannot be used as an expression.
 
-  testlib.MySimpleExt("testme")++;      //# 03: compile-time error
-  Ext1("testme") += 14;                 //# 04: compile-time error
-  testlib.MySimpleExt("testme")--;      //# 05: compile-time error
-  Ext1("testme") *= 10;                 //# 06: compile-time error
+  testlib.MySimpleExt("testme")++;
+// [error line 40, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Ext1("testme") += 14;
+// [error line 44, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  testlib.MySimpleExt("testme")--;
+// [error line 48, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Ext1("testme") *= 10;
+// [error line 52, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  Ext1("testme") = 12;                  //# 07: compile-time error
-  testlib.MySimpleExt("testme") = -33;  //# 08: compile-time error
-  Ext1("testme") = null;                //# 09: compile-time error
-  testlib.MySimpleExt("testme") = null; //# 10: compile-time error
+  Ext1("testme") = 12;
+// [error line 57, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  testlib.MySimpleExt("testme") = -33;
+// [error line 61, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  Ext1("testme") = null;
+// [error line 65, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  testlib.MySimpleExt("testme") = null;
+// [error line 69, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

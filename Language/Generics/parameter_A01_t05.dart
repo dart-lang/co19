@@ -29,12 +29,24 @@ main() {
   func1<C>();
 
   func2();
-  func2<A>(); //# 01: compile-time error
+  func2<A>();
+//^
+// [cfe] Type argument 'A' doesn't conform to the bound 'B' of the type variable 'T' on 'func2'.
+//      ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   func2<B>();
   func2<C>();
 
   func3();
-  func3<A>(); //# 02: compile-time error
-  func3<B>(); //# 03: compile-time error
+  func3<A>();
+//^
+// [cfe] Type argument 'A' doesn't conform to the bound 'C' of the type variable 'T' on 'func3'.
+//      ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+  func3<B>();
+//^
+// [cfe] Type argument 'B' doesn't conform to the bound 'C' of the type variable 'T' on 'func3'.
+//      ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   func3<C>();
 }

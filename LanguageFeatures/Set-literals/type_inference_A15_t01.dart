@@ -18,6 +18,12 @@
 
 main() {
   String? s = "Let it be";
-  var x1 = <String >{...s};    //# 01: compile-time error
-  var x2 = <String?>{...?s};   //# 02: compile-time error
+  var x1 = <String >{...s};
+//                      ^
+// [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
+// [cfe] Unexpected type 'String' of a spread.  Expected 'dynamic' or an Iterable.
+  var x2 = <String?>{...?s};
+// [error line 25, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

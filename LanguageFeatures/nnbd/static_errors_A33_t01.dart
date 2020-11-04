@@ -15,7 +15,11 @@
 // SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 test (Never n) {
-  n!;             //# 01: static type warning
+  n!;
+//^
+// [cfe] Operand of null-aware operation '!' has type 'Never' which excludes null.
+// ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 }
 
 main() {

@@ -20,11 +20,17 @@ class C {
   noSuchMethod(Invocation _) { times++; }
 
   test() {
-    undeclared;         //# 01: compile-time error
+    undeclared;
+//  ^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
+// [cfe] The getter 'undeclared' isn't defined for the class 'C'.
   }
 
   C() {
-    undeclared;         //# 02: compile-time error
+    undeclared;
+//  ^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
+// [cfe] The getter 'undeclared' isn't defined for the class 'C'.
   }
 
   static int times = 0;

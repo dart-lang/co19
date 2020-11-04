@@ -16,8 +16,23 @@
 // Requirements=nnbd-strong
 
 main() {
-  42!;            //# 01: static type warning
-  42!.abs();      //# 02: static type warning
-  42!?.abs();     //# 03: static type warning
-  42.abs()!;      //# 04: static type warning
+  42!;
+//^
+// [cfe] Operand of null-aware operation '!' has type 'int' which excludes null.
+//  ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+  42!.abs();
+//^
+// [cfe] Operand of null-aware operation '!' has type 'int' which excludes null.
+//  ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+  42!?.abs();
+// [error line 29, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  42.abs()!;
+  // ^
+  // [cfe] Operand of null-aware operation '!' has type 'int' which excludes null.
+  //      ^
+  // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
 }

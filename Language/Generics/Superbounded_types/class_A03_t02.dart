@@ -17,9 +17,18 @@
 class A<X> {
   A() {}
   factory A.foo1() = C;
-  factory A.foo2() = C<A>;       //# 01: compile-time error
-  factory A.foo3() = C<A<A>>;    //# 02: compile-time error
-  factory A.foo4() = C<A<A<A>>>; //# 03: compile-time error
+  factory A.foo2() = C<A>;
+  //                 ^^^^
+  // [analyzer] COMPILE_TIME_ERROR.REDIRECT_TO_INVALID_RETURN_TYPE
+  // [cfe] The constructor function type 'C<A<dynamic>> Function()' isn't a subtype of 'A<X> Function()'.
+  factory A.foo3() = C<A<A>>;
+  //                 ^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.REDIRECT_TO_INVALID_RETURN_TYPE
+  // [cfe] The constructor function type 'C<A<A<dynamic>>> Function()' isn't a subtype of 'A<X> Function()'.
+  factory A.foo4() = C<A<A<A>>>;
+  //                 ^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.REDIRECT_TO_INVALID_RETURN_TYPE
+  // [cfe] The constructor function type 'C<A<A<A<dynamic>>>> Function()' isn't a subtype of 'A<X> Function()'.
 }
 
 class C<X> extends A<X> {

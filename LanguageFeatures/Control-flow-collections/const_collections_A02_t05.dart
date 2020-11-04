@@ -22,10 +22,22 @@
  * @author sgrekhov@unipro.ru
  */
 test<T> (T t) {
-  var v1 = const <T, String>{ if (1 > 0) t: "1" };  //# 01: compile-time error
-  var v2 = const <String, T>{ if (1 > 0) "2": t };  //# 02: compile-time error
-  const v3 = <T, String>{ if (1 > 0) t: "1" };      //# 03: compile-time error
-  const v4 = <String, T>{ if (1 > 0) "2": t };      //# 04: compile-time error
+  var v1 = const <T, String>{ if (1 > 0) t: "1" };
+// [error line 25, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  var v2 = const <String, T>{ if (1 > 0) "2": t };
+// [error line 29, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const v3 = <T, String>{ if (1 > 0) t: "1" };
+// [error line 33, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const v4 = <String, T>{ if (1 > 0) "2": t };
+// [error line 37, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
 }
 

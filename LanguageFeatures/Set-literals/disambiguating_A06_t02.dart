@@ -20,11 +20,32 @@ main() {
   var map = {1: "Let", 2: "it", 3: "be"};
   var set = {"Let", "it", "be"};
 
-  var c1 = {if (2 > 1) ...map, if (1 < 2) ...set};    //# 01: compile-time error
-  var c2 = {if (2 > 1) ...set else ...map};           //# 02: compile-time error
-  var c3 = {if (2 > 1) ...set else ...set, if (2 > 1) ...map};                          //# 03: compile-time error
-  var c4 = {for (var i = 0; i < 3; i++) if (2 > 1) ...set else if (2 > 1) ...map};      //# 04: compile-time error
-  var c5 = {for (var i in [1, 2, 3]) if (1 > 2) ...map else if (2 > 1) ...set};         //# 05: compile-time error
-  var c6 = {if (1 > 2) for (var i in [1, 2, 3]) ...set else if (2 > 1) for (var i = 0; i < 3; i++) ...map};   //# 06: compile-time error
-  var c7 = {if (2 > 1) for (var i in [1, 2, 3]) ...map else if (2 > 1) for (var i = 0; i < 3; i++) ...set};   //# 07: compile-time error
+  var c1 = {if (2 > 1) ...map, if (1 < 2) ...set};
+  //       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
+  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+  var c2 = {if (2 > 1) ...set else ...map};
+  //       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
+  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+  var c3 = {if (2 > 1) ...set else ...set, if (2 > 1) ...map};
+  //       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
+  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+  var c4 = {for (var i = 0; i < 3; i++) if (2 > 1) ...set else if (2 > 1) ...map};
+  //       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
+  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+  var c5 = {for (var i in [1, 2, 3]) if (1 > 2) ...map else if (2 > 1) ...set};
+  //       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
+  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+  var c6 = {if (1 > 2) for (var i in [1, 2, 3]) ...set else if (2 > 1) for (var i = 0; i < 3; i++) ...map};
+  //       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
+  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
+  var c7 = {if (2 > 1) for (var i in [1, 2, 3]) ...map else if (2 > 1) for (var i = 0; i < 3; i++) ...set};
+  //       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
+  // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
 }

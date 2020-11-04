@@ -13,8 +13,20 @@
  */
 
 main() {
-  [if ("not bool") 1];                  //# 01: compile-time error
-  <int>[if ("not bool") 1];             //# 02: compile-time error
-  const [if ("not bool") 1];            //# 03: compile-time error
-  const <int>[if ("not bool") 1];       //# 04: compile-time error
+  [if ("not bool") 1];
+  //   ^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
+  // [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
+  <int>[if ("not bool") 1];
+  //        ^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
+  // [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
+  const [if ("not bool") 1];
+  //         ^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
+  // [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
+  const <int>[if ("not bool") 1];
+  //              ^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
+  // [cfe] A value of type 'String' can't be assigned to a variable of type 'bool'.
 }

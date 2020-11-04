@@ -21,10 +21,30 @@ void foo() {}
 
 main() {
   FutureOr<Function> f = foo;
-  f?.toString();                                  //# 01: static type warning
-  f?..toString();                                 //# 02: static type warning
-  f ?? f;                                         //# 03: static type warning
-  f ??= f;                                        //# 04: static type warning
+  f?.toString();
+//^
+// [cfe] Operand of null-aware operation '?.' has type 'FutureOr<Function>' which excludes null.
+// ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+  f?..toString();
+//^
+// [cfe] Operand of null-aware operation '?..' has type 'FutureOr<Function>' which excludes null.
+// ^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+  f ?? f;
+//^
+// [cfe] Operand of null-aware operation '??' has type 'FutureOr<Function>' which excludes null.
+//     ^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+  f ??= f;
+//^
+// [cfe] Operand of null-aware operation '??=' has type 'FutureOr<Function>' which excludes null.
+//      ^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   List<FutureOr<Function>> clist = [f, f];
-  List<FutureOr<Function>> alist = [f, f, ...? clist]; //# 05: static type warning
+  List<FutureOr<Function>> alist = [f, f, ...? clist];
+  //                                      ^^^^
+  // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+  //                                           ^
+  // [cfe] Operand of null-aware operation '...?' has type 'List<FutureOr<Function>>' which excludes null.
 }

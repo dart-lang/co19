@@ -15,15 +15,42 @@
 
 class A<X> {
   A() {}
-  factory A.foo1() = C<dynamic>;       //# 01: compile-time error
-  factory A.foo2() = C<Object?>;       //# 02: compile-time error
-  factory A.foo3() = C<void>;          //# 03: compile-time error
-  factory A.foo4() = C<A<dynamic>>;    //# 04: compile-time error
-  factory A.foo5() = C<A<Object?>>;    //# 05: compile-time error
-  factory A.foo6() = C<A<void>>;       //# 06: compile-time error
-  factory A.foo7() = C<A<A<dynamic>>>; //# 07: compile-time error
-  factory A.foo8() = C<A<A<Object?>>>; //# 08: compile-time error
-  factory A.foo9() = C<A<A<void>>>;    //# 09: compile-time error
+  factory A.foo1() = C<dynamic>;
+// [error line 18, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory A.foo2() = C<Object?>;
+// [error line 22, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory A.foo3() = C<void>;
+// [error line 26, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory A.foo4() = C<A<dynamic>>;
+// [error line 30, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory A.foo5() = C<A<Object?>>;
+// [error line 34, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory A.foo6() = C<A<void>>;
+// [error line 38, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory A.foo7() = C<A<A<dynamic>>>;
+// [error line 42, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory A.foo8() = C<A<A<Object?>>>;
+// [error line 46, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory A.foo9() = C<A<A<void>>>;
+// [error line 50, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class C<X extends A<X>> extends A<X> {

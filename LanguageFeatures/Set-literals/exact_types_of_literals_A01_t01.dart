@@ -46,9 +46,22 @@ class C<T> with SetMixin<T> implements LinkedHashSet<T> {
 }
 
 main() {
-  C<int> c1 = <int> {};                        //# 01: compile-time error
-  C<int> c2 = {3, 1, 4,};                      //# 02: compile-time error
-  C c3 = {3, 1, 4,};                           //# 03: compile-time error
+  C<int> c1 = <int> {};
+  //          ^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+  //                ^
+  // [cfe] A value of type 'Set<int>' can't be assigned to a variable of type 'C<int>'.
+  C<int> c2 = {3, 1, 4,};
+  //          ^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+  // [cfe] A value of type 'Set<int>' can't be assigned to a variable of type 'C<int>'.
+  C c3 = {3, 1, 4,};
+  //     ^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+  // [cfe] A value of type 'Set<int>' can't be assigned to a variable of type 'C<dynamic>'.
   dynamic d;
-  C c4 = {3, 1, 4, null, d};                    //# 04: compile-time error
+  C c4 = {3, 1, 4, null, d};
+  //     ^^^^^^^^^^^^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+  // [cfe] A value of type 'Set<dynamic>' can't be assigned to a variable of type 'C<dynamic>'.
 }

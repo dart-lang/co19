@@ -17,20 +17,61 @@
 
 class A<T extends A<T>> {}
 
-class B1 implements A {}             //# 01: compile-time error
+class B1 implements A {}
+//    ^
+// [cfe] Inferred type argument 'A<dynamic>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A' in the supertype 'A' of class 'B1'.
+//                  ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
 class B2<X extends A<X>> implements A<X> {}
 
-class B3 implements A<dynamic> {}    //# 02: compile-time error
-class B4 implements A<Object?> {}    //# 03: compile-time error
-class B5 implements A<void> {}       //# 04: compile-time error
-class B6 implements A<Null> {}       //# 05: compile-time error
+class B3 implements A<dynamic> {}
+//    ^
+// [cfe] Type argument 'dynamic' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A' in the supertype 'A' of class 'B3'.
+//                    ^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+class B4 implements A<Object?> {}
+//    ^
+// [cfe] Type argument 'Object?' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A' in the supertype 'A' of class 'B4'.
+//                    ^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+class B5 implements A<void> {}
+//    ^
+// [cfe] Type argument 'void' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A' in the supertype 'A' of class 'B5'.
+//                    ^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+class B6 implements A<Null> {}
+//    ^
+// [cfe] Type argument 'Null' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A' in the supertype 'A' of class 'B6'.
+//                    ^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
 
-class B7 implements A<A<dynamic>> {} //# 06: compile-time error
-class B8 implements A<A<Object?>> {} //# 07: compile-time error
-class B9 implements A<A<void>> {}    //# 08: compile-time error
-class B10 implements A<A<Null>> {}   //# 09: compile-time error
+class B7 implements A<A<dynamic>> {}
+//    ^
+// [cfe] Type argument 'A<dynamic>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A' in the supertype 'A' of class 'B7'.
+//                    ^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+class B8 implements A<A<Object?>> {}
+//    ^
+// [cfe] Type argument 'A<Object?>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A' in the supertype 'A' of class 'B8'.
+//                    ^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+class B9 implements A<A<void>> {}
+//    ^
+// [cfe] Type argument 'A<void>' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A' in the supertype 'A' of class 'B9'.
+//                    ^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
+class B10 implements A<A<Null>> {}
+// [error line 63, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class B6 implements A<Never> {}
+//    ^^
+// [analyzer] COMPILE_TIME_ERROR.DUPLICATE_DEFINITION
+// [cfe] 'B6' is already declared in this scope.
 class B10 implements A<A<Never>> {}
+//    ^^^
+// [analyzer] COMPILE_TIME_ERROR.DUPLICATE_DEFINITION
+// [cfe] 'B10' is already declared in this scope.
 
 main() {}

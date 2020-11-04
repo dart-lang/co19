@@ -25,21 +25,63 @@ class C {
 }
 
 main() {
-  C.s = foo();                  //# 01: compile-time error
-  C?.s = foo();                 //# 02: compile-time error
-  C.s ??= foo();                //# 03: compile-time error
-  C?.s ??= foo();               //# 04: compile-time error
-  C.staticSetter = foo();       //# 05: compile-time error
-  C?.staticSetter = foo();      //# 06: compile-time error
+  C.s = foo();
+  //    ^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+  // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+  C?.s = foo();
+// [error line 32, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  C.s ??= foo();
+// [error line 36, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  C?.s ??= foo();
+// [error line 40, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  C.staticSetter = foo();
+  //               ^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+  // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+  C?.staticSetter = foo();
+// [error line 48, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
   C? c = null;
-  c?.m1 = foo();                //# 07: compile-time error
-  c?.instanceSetter = foo();    //# 08: compile-time error
+  c?.m1 = foo();
+  // ^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_SETTER
+  // [cfe] The setter 'm1' isn't defined for the class 'C'.
+  c?.instanceSetter = foo();
+  //                  ^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+  // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
   c = new C();
-  c.m1 = foo();                 //# 09: compile-time error
-  c.instanceSetter = foo();     //# 10: compile-time error
-  c?.m1 = foo();                //# 11: compile-time error
-  c?.instanceSetter = foo();    //# 12: compile-time error
-  c.m1 ??= foo();               //# 13: compile-time error
-  c?.m1 ??= foo();              //# 14: compile-time error
+  c.m1 = foo();
+  //^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_SETTER
+  // [cfe] The setter 'm1' isn't defined for the class 'C'.
+  c.instanceSetter = foo();
+  //                 ^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
+  // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
+  c?.m1 = foo();
+// [error line 71, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  c?.instanceSetter = foo();
+// [error line 75, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  c.m1 ??= foo();
+// [error line 79, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  c?.m1 ??= foo();
+// [error line 83, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

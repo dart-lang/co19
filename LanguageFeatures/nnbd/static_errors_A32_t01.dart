@@ -23,10 +23,30 @@ class C extends A {}
 main() {
   A a = A();
   C c = C();
-  a?.test();                              //# 01: static type warning
-  a?..test();                             //# 02: static type warning
-  a ?? c;                                 //# 03: static type warning
-  a ??= c;                                //# 04: static type warning
+  a?.test();
+//^
+// [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
+// ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+  a?..test();
+//^
+// [cfe] Operand of null-aware operation '?..' has type 'A' which excludes null.
+// ^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+  a ?? c;
+//^
+// [cfe] Operand of null-aware operation '??' has type 'A' which excludes null.
+//     ^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+  a ??= c;
+//^
+// [cfe] Operand of null-aware operation '??=' has type 'A' which excludes null.
+//      ^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
   List<C> clist = [C(), C()];
-  List<A> alist = [A(), C(), ...? clist]; //# 05: static type warning
+  List<A> alist = [A(), C(), ...? clist];
+  //                         ^^^^
+  // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+  //                              ^
+  // [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
 }

@@ -19,10 +19,28 @@
 // SharedOptions=--enable-experiment=triple-shift
 
 main() {
-  const c1 = -2 >>> 1.79;                                       //# 01: compile-time error
-  const c2 = 188.0 >>> 2;                                       //# 02: compile-time error
-  const c3 = "abcd" >>> 11;                                     //# 03: compile-time error
-  const c4 = 1 >>> "abcd";                                      //# 04: compile-time error
-  const c5 = 1880000000000000000000000000000000000000000 >>> 2; //# 05: compile-time error
-  const c6 = 24 >>> 1000000000000000000000000000000000;         //# 06: compile-time error
+  const c1 = -2 >>> 1.79;
+// [error line 22, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const c2 = 188.0 >>> 2;
+// [error line 26, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const c3 = "abcd" >>> 11;
+// [error line 30, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const c4 = 1 >>> "abcd";
+// [error line 34, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const c5 = 1880000000000000000000000000000000000000000 >>> 2;
+// [error line 38, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  const c6 = 24 >>> 1000000000000000000000000000000000;
+// [error line 42, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

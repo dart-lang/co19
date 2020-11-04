@@ -17,18 +17,30 @@
 
 class C {
   static void s() {
-    typedef void F1(String s);                     //# 01: compile-time error
+    typedef void F1(String s);
+// [error line 20, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   void m() {
-    typedef void F2(String s);                     //# 02: compile-time error
+    typedef void F2(String s);
+// [error line 27, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 test() {
-  typedef void F3(String s);                       //# 03: compile-time error
+  typedef void F3(String s);
+// [error line 35, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  typedef void F4(String s);                       //# 04: compile-time error
+  typedef void F4(String s);
+// [error line 42, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 }

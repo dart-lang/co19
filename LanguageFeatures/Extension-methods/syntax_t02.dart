@@ -20,13 +20,28 @@
 
 
 class C {
-  extension MyFancyList<T> on List<T> {       //# 01: compile-time error
-    int get doubleLength => this.length * 2;  //# 01: compile-time error
-  }                                           //# 01: compile-time error
+  extension MyFancyList<T> on List<T> {
+// [error line 23, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+    int get doubleLength => this.length * 2;
+// [error line 27, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
 }
 
 main() {
-  extension MyFancyList<T> on List<T> {       //# 02: compile-time error
-    int get doubleLength => this.length * 2;  //# 02: compile-time error
-  }                                           //# 02: compile-time error
+  extension MyFancyList<T> on List<T> {
+// [error line 35, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+    int get doubleLength => this.length * 2;
+// [error line 39, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+//^
+// [analyzer] SYNTACTIC_ERROR.EXPECTED_TOKEN
+// [cfe] Expected ';' after this.
 }

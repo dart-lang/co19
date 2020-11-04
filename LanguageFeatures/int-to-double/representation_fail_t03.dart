@@ -17,8 +17,24 @@
  */
 
 main() {
-  double d1 = 0x20000000000001;   //# 01: compile-time error
-  double d2 = 0x20000000000003;   //# 02: compile-time error
-  double d3 = 0x20000000000005;   //# 03: compile-time error
-  double d4 = 0x20000000000007;   //# 04: compile-time error
+  double d1 = 0x20000000000001;
+// [error line 20, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+// [web] unspecified
+  double d2 = 0x20000000000003;
+// [error line 25, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+// [web] unspecified
+  double d3 = 0x20000000000005;
+// [error line 30, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+// [web] unspecified
+  double d4 = 0x20000000000007;
+// [error line 35, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+// [web] unspecified
 }

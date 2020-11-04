@@ -25,8 +25,20 @@ main() {
   dynamic x3 = [1, 2, 3];
   dynamic x4 = 14;
 
-  var y1 = {...x1};   //# 01: compile-time error
-  var y2 = {...x2};   //# 02: compile-time error
-  var y3 = {...x3};   //# 03: compile-time error
-  var y4 = {...x4};   //# 04: compile-time error
+  var y1 = {...x1};
+  //       ^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
+  // [cfe] Not enough type information to disambiguate between literal set and literal map.
+  var y2 = {...x2};
+  //       ^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
+  // [cfe] Not enough type information to disambiguate between literal set and literal map.
+  var y3 = {...x3};
+  //       ^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
+  // [cfe] Not enough type information to disambiguate between literal set and literal map.
+  var y4 = {...x4};
+  //       ^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
+  // [cfe] Not enough type information to disambiguate between literal set and literal map.
 }

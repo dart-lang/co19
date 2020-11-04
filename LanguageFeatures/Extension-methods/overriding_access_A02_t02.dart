@@ -19,7 +19,16 @@ main() {
   int i = testlib.MySimpleExt("testme").getANum();
   testlib.MySimpleExt("testme").test();
 
-  bool res1 = testlib.MySimpleExt("testme").isInt;    //# 01: compile-time error
-  var res2 = testlib.MySimpleExt("testme").getTest(); //# 02: compile-time error
-  testlib.MySimpleExt("testme").put(11);              //# 03: compile-time error
+  bool res1 = testlib.MySimpleExt("testme").isInt;
+  //                                        ^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_GETTER
+  // [cfe] Getter not found: 'isInt'.
+  var res2 = testlib.MySimpleExt("testme").getTest();
+  //                                       ^^^^^^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_METHOD
+  // [cfe] Method not found: 'getTest'.
+  testlib.MySimpleExt("testme").put(11);
+  //                            ^^^
+  // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_METHOD
+  // [cfe] Method not found: 'put'.
 }
