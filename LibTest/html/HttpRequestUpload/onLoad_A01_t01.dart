@@ -11,9 +11,23 @@
 import "dart:html";
 import "../../../Utils/expect.dart";
 
+int get crossOriginPort {
+  var searchUrl = window.location.search!;
+  print("SearchURL=" + searchUrl);
+  var crossOriginStr = 'crossOriginPort=';
+  var index = searchUrl.indexOf(crossOriginStr);
+  var nextArg = searchUrl.indexOf('&', index);
+  return int.parse(searchUrl.substring(index + crossOriginStr.length,
+      nextArg == -1 ? searchUrl.length : nextArg));
+}
+
+var port = crossOriginPort;
+var host = '${window.location.protocol}//${window.location.hostname}:$port';
+
 main() {
   HttpRequest request = new HttpRequest();
-  request.open('GET', "test.dart");
+  var url = '$host/root_dart/tests/co19/LibTest/html/xhr_cross_origin_data.txt';
+  request.open('GET', url);
   Expect.equals(HttpRequest.OPENED, request.readyState, "after open");
   HttpRequestUpload upload = request.upload;
   asyncStart();
