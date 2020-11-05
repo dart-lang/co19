@@ -28,12 +28,12 @@ void main() {
   f(() => captureTypeArgument()..call().call());
 
   f(() => captureTypeArgument()..call().call().toString());
-  //                           ^
+  //                                    ^
   // [analyzer] unspecified
   // [cfe] unspecified
 
   f(() => captureTypeArgument()..call.call('Hello'));
-  //                                       ^
+  //                                      ^
   // [analyzer] unspecified
   // [cfe] unspecified
 }

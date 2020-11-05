@@ -8,12 +8,12 @@
  * safe libraries to substitute [Never] in positions where previously [Null
  * would have been substituted, and [Object?] in positions where previously
  * [Object] or [dynamic] would have been substituted.
- * @description Check that [Object?] type is substituted for [typedef check =
- * void Function<X extends int?>()] typedef.
+ * @description Check that correct type is substituted for [typedef check<X> =
+ * void Function(X x)].
+    .
  * @note Read more about the least and greatest closure test template:
  * https://github.com/dart-lang/co19/issues/575#issuecomment-613542349
  *
- * @Issue 44029
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
@@ -21,19 +21,25 @@
 
 import "../../../../Utils/expect.dart";
 
-typedef check = void Function<X extends int?>() Function();
+typedef check<X> = X Function(X x);
 
 void main() {
   void f(check Function() g) => g();
-  f(() => captureTypeArgument()..call().call());
+  // Verify that we can call the function with the specified arguments
+  f(() => captureTypeArgument()..call(true));
+  f(() => captureTypeArgument()..call(null));
+  f(() => captureTypeArgument()..call(throw 1));
+  f(() => captureTypeArgument()..call('Hello'));
 
-  f(() => captureTypeArgument()..call().call().toString());
-  //                                    ^
+  f(() => captureTypeArgument()..call());
+  //                                 ^
   // [analyzer] unspecified
   // [cfe] unspecified
 
-  f(() => captureTypeArgument()..call.call('Hello'));
-  //                                      ^
+  f(() => captureTypeArgument()..call(x: 'Hello'));
+  //                                 ^
   // [analyzer] unspecified
   // [cfe] unspecified
+
+  f(() => captureTypeArgument()..call(false).toString());
 }
