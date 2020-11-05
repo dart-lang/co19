@@ -31,21 +31,33 @@ import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-main() {
+runMain() {
   String executable = Platform.resolvedExecutable;
-  File file = new File.fromUri(Platform.script.resolve("start_A01_t02_lib.dart"));
+  String eScript = Platform.script.toString();
 
   asyncStart();
-  Process.start(executable, [file.path]).then((process) {
+  Process.start(executable, [eScript, "run"]).then((process) {
     process.stdout.toList().then((List outList) {
       Expect.equals(0, outList.length);
     }).then((_) {
       process.stderr.toList().then((List errList) {
         Utf8Decoder decoder = new Utf8Decoder();
         String decoded = decoder.convert(errList[0]);
-        Expect.isTrue(decoded.contains("'main'")); // Unable to find 'main' or The binary program does not contain 'main'
+        Expect.isTrue(decoded.contains("Test exception start_A01_t02"));
         asyncEnd();
       });
     });
   });
+}
+
+runProcess() {
+  throw new Exception("Test exception start_A01_t02");
+}
+
+main(List<String> args) {
+  if(args.length > 0)
+    runProcess();
+  else {
+    runMain();
+  }
 }
