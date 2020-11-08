@@ -8,23 +8,25 @@
  * safe libraries to substitute [Never] in positions where previously [Null
  * would have been substituted, and [Object?] in positions where previously
  * [Object] or [dynamic] would have been substituted.
- * @description Check that [Object?] type is substituted for [typedef C<X> =
- * FutureOr<X>].
+ * @description Check the [class C<X extends C<X>>] case: it is not true that
+ * [Object?] <: [C<Object?>], and this means that the inferred type does not
+ * satisfy the declared bound. A generic function invocation cannot be
+ * super-bounded, so the choice must be rejected. So, compiler error should be
+ * thrown for [f<X>(C<X> Function() g) => g()].
  * @note Read more about the least and greatest closure test template:
  * https://github.com/dart-lang/co19/issues/575#issuecomment-613542349
  *
+ * @Issue 44092, 44073
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
+// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
-import "../../../../Utils/expect.dart";
-import "dart:async";
-
-typedef C<X> = FutureOr<X>;
+abstract class C<X extends C<X>> {}
 
 void main() {
   void f<X>(C<X> Function() g) => g();
-  Expect.throws(() { f(() => captureTypeArgument()); });
-  Expect.equals(typeOf<FutureOr<Object?>>(), capturedTypeArgument);
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
