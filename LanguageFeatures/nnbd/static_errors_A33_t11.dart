@@ -7,8 +7,6 @@
  * @assertion It is a warning to use the null check operator (!) on an
  * expression of type T if T is strictly non-nullable
  *
-// [error line 9, column 1]
-// [web] A library can't opt out of null safety by default, when using sound null safety.
  * @description It is a warning to use the null check operator (!) on an
  * expression of type T if T is strictly non-nullable. Test FutureOr<A*>
  * @author sgrekhov@unipro.ru
