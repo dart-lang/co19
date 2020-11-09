@@ -21,7 +21,7 @@ main() {
   new Point(0, 0) * null;
   //                ^^^^
   // [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
-  // [cfe] A value of type 'Null' can't be assigned to a variable of type 'num' because 'Null' is nullable and 'num' isn't.
+  // [cfe] The value 'null' can't be assigned to a variable of type 'num' because 'num' is not nullable.
   new Point(null, 0) * 1;
 // [error line 25, column 0]
 // [analyzer] unspecified
