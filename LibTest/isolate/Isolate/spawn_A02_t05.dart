@@ -21,9 +21,7 @@
  * the spawning succeeded. It will complete with an error otherwise.
  *
  * @description Checks that if entryPoint is top level function without
- * arguments, then type error is arisen in checked mode or returned
- * Future instance completes with error otherwise. Compile error arises in
- * strong mode
+ * arguments, then compile error is arisen
  * @issue #26588
  * @author a.semenov@unipro.ru
  */

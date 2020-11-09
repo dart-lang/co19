@@ -24,7 +24,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 f() {
-    // In strong mode, registering incompatible callback is synchronous error,
+    // With sound null safety, registering incompatible callback is synchronous error,
     // future ends up with no error handler that will lead to async exception
     // with error object equal to 1.
     Expect.throws(() => new Future.error(1).catchError((x, y, z) {}));

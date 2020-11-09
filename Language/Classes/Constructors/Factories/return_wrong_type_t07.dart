@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion In checked mode, it is a dynamic type error if a factory returns
- * a non-null object whose type is not a subtype of its actual return type.
+ * @assertion It is a compile error if a factory returns a non-null object whose
+ * type is not a subtype of its actual return type.
  *
  * @description Checks that returning null from factory constructor M produces
  * an error.

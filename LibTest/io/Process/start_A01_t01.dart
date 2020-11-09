@@ -34,6 +34,7 @@ import "../process_utils.dart";
 
 main() {
   final executable = getProcessTestFileName();
+  print(executable);
   asyncStart();
   Process.start(executable, ["0", "1", "0", "0"]).then((Process process) {
     final input = "Lily was here\n";

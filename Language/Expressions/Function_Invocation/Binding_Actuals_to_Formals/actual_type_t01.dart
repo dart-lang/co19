@@ -4,8 +4,8 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion In checked mode, it is a dynamic type error if oi is not null and
- * the actual type of pi is not a supertype of the type of oi, i ∈ 1..m.
+ * @assertion It is a dynamic type error if oi is not null and the actual type
+ * of pi is not a supertype of the type of oi, i ∈ 1..m.
  * @description Checks that it is a dynamic type error when an actual argument
  * is not null and its actual type (bool) is not a subtype of the corresponding
  * positional parameter's type (int).

@@ -11,11 +11,11 @@
  * loaded, a dynamic error occurs.
  * Then, if q is a non-factory constructor of an abstract class then an
  * AbstractClassInstantiationError is thrown.
- * If T is malformed or if T is a type variable a dynamic error occurs.
- * In checked mode, if T or any of its superclasses is malbounded a dynamic
- * error occurs. Otherwise, if q is not defined or not accessible, a
- * NoSuchMethodError is thrown. If q has less than n positional parameters or
- * more than n required parameters, or if q lacks any of the keyword parameters
+ * If T is malformed or if T is a type variable a compile error occurs.
+ * If T or any of its superclasses is malbounded a compile error occurs.
+ * Otherwise, if q is not defined or not accessible, a NoSuchMethodError is
+ * thrown. If q has less than n positional parameters or more than n required
+ * parameters, or if q lacks any of the keyword parameters
  * {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
  * @description  Checks that it is a compile error if q is a named non-factory
  * constructor of an abstract class.

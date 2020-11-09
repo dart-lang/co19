@@ -34,7 +34,7 @@ main() {
 
   Expect.isFalse(checkme1 is Func2);
   Expect.isFalse(checkme2 is Func2);
-  if (isStrongMode) {
+  if (hasSoundNullSafety) {
     Expect.isFalse(checkme3 is Func2);
     Expect.isFalse(checkme4 is Func2);
   }

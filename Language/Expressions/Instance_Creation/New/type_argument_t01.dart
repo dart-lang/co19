@@ -15,10 +15,9 @@
  * Vi = dynamic. In any other case, let Vi = Ui for i ∈ 1..m.
  * Evaluation of e proceeds as follows:
  * . . .
- * In checked mode, if T or any of its superclasses is malbounded a dynamic
- * error occurs.
- * @description  Checks that it is a compile error in checked mode if a
- * type argument of a class in a new expression is not a subtype of its bound.
+ * If T or any of its superclasses is malbounded a dynamic error occurs.
+ * @description  Checks that it is a compile error if a type argument of a class
+ * in a new expression is not a subtype of its bound.
  * @compile-error
  * @author msyabro
  */

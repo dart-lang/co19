@@ -25,9 +25,9 @@
  * Then I has a method named n, with r required parameters of type dynamic,
  * h positional parameters of type dynamic, named parameters s of type dynamic
  * and return type dynamic.
- * @description Checks there is a compile error in a strong mode if non-abstract
- * class implements several interfaces with same named methods that have
- * different number of required and optional positional formal parameters.
+ * @description Checks there is a compile error if non-abstract class implements
+ * several interfaces with same named methods that have different number of
+ * required and optional positional formal parameters.
  * @compile-error
  * @author ngl@unipro.ru
  */

@@ -7,8 +7,8 @@
  * @assertion Evaluation of an assignment of the form super.v = e2 proceeds as
  * follows:
  * ...
- * In checked mode, it is a dynamic type error if o is not null and the
- * interface of the class of o is not a subtype of the actual type of S.v.
+ * It is a dynamic type error if o is not null and the interface of the class of
+ * o is not a subtype of the actual type of S.v.
  * @description Checks that it is a dynamic type error if the interface of
  * the class of o is not a subtype of the actual type of S.v
  * @author sgrekhov@unipro.ru

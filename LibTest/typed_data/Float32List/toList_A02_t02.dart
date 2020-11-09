@@ -20,7 +20,7 @@ main() {
   var resList = list.toList(growable: true);
 
   // Cannot change length here as list type parameter is not nullable
-  if (isStrongMode) {
+  if (hasSoundNullSafety) {
     Expect.throws(() {
       resList.length = 2;
     }, (e) => e is TypeError);

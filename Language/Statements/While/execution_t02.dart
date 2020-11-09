@@ -10,8 +10,7 @@
  * boolean conversion, producing an object r. If r is true, then the statement
  * {s} is executed and then the while statement is re-executed recursively.
  * If r is false, execution of the while statement is complete.
- * @description Checks that dynamic type error is produced in checked mode
- * if o is null.
+ * @description Checks that dynamic type error is produced if o is null.
  * @author vasya
  */
 import '../../../Utils/expect.dart';

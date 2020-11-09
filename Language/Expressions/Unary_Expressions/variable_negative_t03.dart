@@ -7,8 +7,8 @@
  * @assertion The expression !e is equivalent to the expression
  * e ? false : true.
  * @description Checks that, just like with conditional expressions, it is
- * a dynamic type error in checked mode when e is not a boolean and it is
- * subjected to a boolean conversion in scripting mode.
+ * a dynamic type error when e is not a boolean and it is subjected to a boolean
+ * conversion
  * @author rodionov
  */
 // Requirements=nnbd-strong

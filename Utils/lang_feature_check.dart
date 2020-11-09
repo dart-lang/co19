@@ -28,6 +28,6 @@ Type? get capturedTypeArgument {
   return result;
 }
 
-// Weak/strong mode flags
-bool get isWeakMode => const <Null>[] is List<Object>;
-bool get isStrongMode => !isWeakMode;
+// Sound/Unsound null safety flags (formerly known as weak/strong mode)
+bool get hasUnsoundNullSafety => const <Null>[] is List<Object>;
+bool get hasSoundNullSafety => !hasUnsoundNullSafety;

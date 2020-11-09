@@ -10,9 +10,9 @@
  * can scale Point<double> objects by an int factor.
  * Because the star operator always returns the same type of Point that
  * originally called it, passing in a double factor on a Point<int> causes a
- * runtime error in checked mode.
- * @description Checks that if at least one of coordinates is null, an
- * Exception is thrown.
+ * compile time error
+ * @description Checks that if at least one of coordinates is null, a compile
+ * time error occurs
  * @author kaigorodov, sgrekhov@unipro.ru
  */
 import "dart:math";

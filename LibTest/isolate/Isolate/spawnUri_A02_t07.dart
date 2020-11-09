@@ -31,8 +31,7 @@
  *  present, the parameter message is set to the initial message.
  *
  * @description Checks that if uri is List instance, then spawnUri throws an
- * exception in checked mode or returned Future instance is completed with
- * error.
+ * exception
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";

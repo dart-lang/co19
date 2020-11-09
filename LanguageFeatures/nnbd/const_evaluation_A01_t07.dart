@@ -4,10 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion In strong checking mode, all generic const constructors and
+ * @assertion With sound null safety, all generic const constructors and
  * generic const literals are evaluated using the actual type arguments
- * provided, whether legacy or non-legacy. This ensures that in strong checking
- * mode, the final consistent semantics are obeyed.
+ * provided, whether legacy or non-legacy. This ensures that with sound null
+ * safety, the final consistent semantics are obeyed.
  *
  * @description Checks statically that actual generic class type parameter is
  * evaluated correctly for [FutureOr] type argument.

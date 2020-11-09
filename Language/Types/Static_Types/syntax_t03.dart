@@ -7,8 +7,7 @@
  * @assertion Static type annotations are used in variable declarations
  * (including formal parameters), in the return types of functions and in the
  * bounds of type variables. Static type annotations are used during static
- * checking and when running programs in checked mode. They have no effect
- * whatsoever in production mode.
+ * checking
  * type:
  *   typeName typeArguments?
  * ;

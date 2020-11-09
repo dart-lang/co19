@@ -10,9 +10,8 @@
  * Returns the value in the map.
  * @description Checks that isAbsent is indeed called before putting the new key 
  * in the map if it's not already associated to a value, resulting in a
- * NoSuchMethodError (Type error in checked mode) or NoSuchMethodError if the
- * argument is null or can't be called like a function (according to general
- * language rules).
+ * NoSuchMethodError if the argument is null or can't be called like a function
+ * (according to general language rules).
  * @author msyabro
  */
 library putIfAbsent_A01_t08;
