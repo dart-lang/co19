@@ -24,14 +24,15 @@
  */
 import 'dart:convert';
 import "dart:io";
+import "dart:async";
 import "../../../Utils/expect.dart";
 
 check(ProcessSignal signal) {
+  String executable = Platform.resolvedExecutable;
+  String eScript = Platform.script.toString();
+
   asyncStart();
-  Process.start(Platform.executable, [
-    Platform.script.resolve('watch_A01_t01_lib.dart').toFilePath(),
-    signal.toString()
-  ]).then((process) {
+  Process.start(executable, [eScript, signal.toString()]).then((process) {
     process.stdin.close();
     process.stderr.drain();
     var output = "";
@@ -50,7 +51,7 @@ check(ProcessSignal signal) {
   });
 }
 
-main() {
+runMain() {
   if (!Platform.isWindows) {
     check(ProcessSignal.sighup);
     check(ProcessSignal.sigint);
@@ -58,5 +59,48 @@ main() {
     check(ProcessSignal.sigusr1);
     check(ProcessSignal.sigusr2);
     check(ProcessSignal.sigwinch);
+  }
+}
+
+runProcess(List<String> args) {
+  // This process should die if it never receives a signal.
+  var timeout = new Timer(new Duration(seconds: 5), () => exit(1));
+  for (var arg in args) {
+    var signal;
+    switch (arg) {
+      case 'SIGHUP':
+        signal = ProcessSignal.sighup;
+        break;
+      case 'SIGINT':
+        signal = ProcessSignal.sigint;
+        break;
+      case 'SIGTERM':
+        signal = ProcessSignal.sigterm;
+        break;
+      case 'SIGUSR1':
+        signal = ProcessSignal.sigusr1;
+        break;
+      case 'SIGUSR2':
+        signal = ProcessSignal.sigusr2;
+        break;
+      case 'SIGWINCH':
+        signal = ProcessSignal.sigwinch;
+        break;
+    }
+    signal.watch().first.then((s) {
+      if (signal != s) exit(1);
+      if (signal.toString() != arg) exit(1);
+      print(signal);
+      exit(0);
+    });
+  }
+  print("done");
+}
+
+main(List<String> args) {
+  if (args.length > 0)
+    runProcess(args);
+  else {
+    runMain();
   }
 }
