@@ -31,15 +31,28 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../process_utils.dart";
 
-main() {
-  final executable = getProcessTestFileName();
+runMain() {
+  String executable = Platform.resolvedExecutable;
+  String eScript = Platform.script.toString();
+
   asyncStart();
-  Process.run(executable, ["0", "1", "0", "0"]).then((ProcessResult results) {
+  Process.run(executable, [eScript, "run"]).then((ProcessResult results) {
     Expect.equals(0, results.exitCode);
-    Expect.equals("", results.stdout);
+    Expect.equals("Lily was here", results.stdout);
     Expect.equals("", results.stderr);
     asyncEnd();
   });
+}
+
+runProcess() {
+  stdout.write("Lily was here");
+}
+
+main(List<String> args) {
+  if(args.length > 0)
+    runProcess();
+  else {
+    runMain();
+  }
 }

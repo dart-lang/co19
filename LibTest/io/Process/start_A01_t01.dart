@@ -30,20 +30,17 @@
 import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../process_utils.dart";
 
-main() {
-  final executable = getProcessTestFileName();
-  print(executable);
+runMain() {
+  String executable = Platform.resolvedExecutable;
+  String eScript = Platform.script.toString();
+
   asyncStart();
-  Process.start(executable, ["0", "1", "0", "0"]).then((Process process) {
-    final input = "Lily was here\n";
-    process.stdin.add(input.codeUnits);
-    process.stdin.flush().then((_) => process.stdin.close());
+  Process.start(executable, [eScript, "run"]).then((Process process) {
     process.stdout.toList().then((List outList) {
       Utf8Decoder decoder = new Utf8Decoder();
       String decoded = decoder.convert(outList[0]);
-      Expect.equals(input, decoded);
+      Expect.equals("Lily was here", decoded);
     }).then((_) {
       process.stderr.toList().then((List errList) {
         Expect.equals(0, errList.length);
@@ -51,4 +48,16 @@ main() {
       });
     });
   });
+}
+
+runProcess() {
+  stdout.write("Lily was here");
+}
+
+main(List<String> args) {
+  if(args.length > 0)
+    runProcess();
+  else {
+    runMain();
+  }
 }
