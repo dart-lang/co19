@@ -28,16 +28,16 @@ import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-main() {
+runMain() {
   Map<String, String> m = new Map<String, String>();
   m["a"] = "aa";
 
   String envString = Platform.environment.toString();
   String executable = Platform.resolvedExecutable;
-  File file = new File.fromUri(Platform.script.resolve("checkEnvironment_lib.dart"));
+  String eScript = Platform.script.toString();
 
   asyncStart();
-  Process.start(executable, [file.path], environment: m,
+  Process.start(executable, [eScript, "run"], environment: m,
       includeParentEnvironment: true).then((Process process) {
     process.stdout.toList().then((List outList) {
       Utf8Decoder decoder = new Utf8Decoder();
@@ -51,4 +51,16 @@ main() {
       });
     });
   });
+}
+
+runProcess() {
+  stdout.write(Platform.environment);
+}
+
+main(List<String> args) {
+  if (args.length > 0)
+    runProcess();
+  else {
+    runMain();
+  }
 }
