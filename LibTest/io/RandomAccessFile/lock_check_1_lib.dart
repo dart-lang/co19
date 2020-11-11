@@ -13,12 +13,11 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 // Check whether the file is locked or not.
-checkLock(String path, int start, int end, FileLock mode, {bool locked = false}) {
+checkLock(String script, String path, int start, int end, FileLock mode, {bool locked = false}) {
   // Client process returns either 'LOCK FAILED' or 'LOCK SUCCEEDED'.
   var expected = locked ? 'LOCK FAILED' : 'LOCK SUCCEEDED';
   var arguments = new List<String>.empty(growable: true)
-    ..add("--enable-experiment=non-nullable")
-    ..add(Platform.script.resolve('lock_check_1_lib.dart').toFilePath())
+    ..add(script)
     ..add(path)
     ..add(mode == FileLock.exclusive ? 'EXCLUSIVE' : 'SHARED')
     ..add('$start')
@@ -26,7 +25,7 @@ checkLock(String path, int start, int end, FileLock mode, {bool locked = false})
 
 
   return Process
-      .run(Platform.executable, arguments)
+      .run(Platform.resolvedExecutable, arguments)
       .then((ProcessResult result) {
     if (result.exitCode != 0 || !result.stdout.contains(expected)) {
       print("Client failed, exit code ${result.exitCode}");
@@ -41,15 +40,15 @@ checkLock(String path, int start, int end, FileLock mode, {bool locked = false})
   });
 }
 
-checkLocked(String path,
+checkLocked(String script, String path,
     [int start = 0, int end = -1, FileLock mode = FileLock.exclusive]) =>
-    checkLock(path, start, end, mode, locked: true);
+    checkLock(script, path, start, end, mode, locked: true);
 
-checkUnlocked(String path,
+checkUnlocked(String script, String path,
     [int start = 0, int end = -1, FileLock mode = FileLock.exclusive]) =>
-    checkLock(path, start, end, mode, locked: false);
+    checkLock(script, path, start, end, mode, locked: false);
 
-main(List<String> args) {
+runProcess(List<String> args) {
   if (args.length == 0) {
     return 0;
   }

@@ -35,7 +35,7 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 import "lock_check_1_lib.dart";
 
-main() {
+runMain() {
   int fLen = 10;
   File file = getTempFileSync();
   asyncStart();
@@ -46,28 +46,29 @@ main() {
   }
   rf1.lockSync(FileLock.exclusive, 4, 6);
   rf2.lockSync(FileLock.exclusive, 7, 8);
+  String eScript = Platform.script.toString();
   var tests = [
-    () => checkLocked(rf1.path, 4),
-    () => checkUnlocked(rf1.path, 0, 4),
-    () => checkUnlocked(rf1.path, 6, 7),
-    () => checkUnlocked(rf2.path, 8),
-    () => checkLocked(rf2.path, 7)
+    () => checkLocked(eScript, rf1.path, 4),
+    () => checkUnlocked(eScript, rf1.path, 0, 4),
+    () => checkUnlocked(eScript, rf1.path, 6, 7),
+    () => checkUnlocked(eScript, rf2.path, 8),
+    () => checkLocked(eScript, rf2.path, 7)
   ];
   if (Platform.isWindows) {
     tests.addAll([
           () => rf1.unlockSync(4, 6),
           () => rf2.unlock(7, 8),
-          () => checkUnlocked(file.path)
+          () => checkUnlocked(eScript, file.path)
     ]);
   } else {
     tests.addAll([
       () => rf1.unlockSync(4, 5),
       () => rf1.unlock(7, 8),
-      () => checkUnlocked(file.path, 0, 5),
-      () => checkLocked(file.path, 5),
-      () => checkUnlocked(file.path, 6),
+      () => checkUnlocked(eScript, file.path, 0, 5),
+      () => checkLocked(eScript, file.path, 5),
+      () => checkUnlocked(eScript, file.path, 6),
       () => rf2.unlockSync(5, 6),
-      () => checkUnlocked(file.path)
+      () => checkUnlocked(eScript, file.path)
     ]);
   }
   Future.forEach(tests, (Function f) => f()).whenComplete(() {
@@ -76,4 +77,12 @@ main() {
     rf2.closeSync();
     file.deleteSync();
   });
+}
+
+main(List<String> args) {
+  if(args.length > 0)
+    runProcess(args);
+  else {
+    runMain();
+  }
 }

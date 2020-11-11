@@ -38,10 +38,11 @@ void check(int fLen) {
     rf.writeFromSync([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
     var rfLen = f.lengthSync();
     Expect.equals(fLen + 10, rfLen);
+    String eScript = Platform.script.toString();
     var tests = [
-      () => checkLocked(f.path, start, rfLen),
-      () => checkUnlocked(f.path, 0, start),
-      () => checkLocked(f.path, rfLen + 1)
+      () => checkLocked(eScript, f.path, start, rfLen),
+      () => checkUnlocked(eScript, f.path, 0, start),
+      () => checkLocked(eScript, f.path, rfLen + 1)
     ];
     Future.forEach(tests, (Function f) => f()).whenComplete(() {
       asyncEnd();
@@ -56,7 +57,15 @@ void check(int fLen) {
   });
 }
 
-main() {
+runMain() {
   check(10);
   check(1000);
+}
+
+main(List<String> args) {
+  if(args.length > 0)
+    runProcess(args);
+  else {
+    runMain();
+  }
 }
