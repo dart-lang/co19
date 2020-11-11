@@ -23,7 +23,7 @@ import "../../../../Utils/expect.dart";
 typedef check<X> = void Function();
 
 void main() {
-  void f(check Function() g) => g();
+  void f<X>(check<X> Function() g) => g();
 
   // Verify that we can call the function with the specified arguments.
   f(() => captureTypeArgument()..call());

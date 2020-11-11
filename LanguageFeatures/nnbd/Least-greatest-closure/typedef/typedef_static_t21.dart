@@ -24,7 +24,7 @@ import "../../../../Utils/expect.dart";
 typedef check<X> = void Function<X1 extends X>() Function();
 
 void main() {
-  void f(check Function() g) => g();
+  void f<X>(check<X> Function() g) => g();
   f(() => captureTypeArgument()..call().call());
 
   f(() => captureTypeArgument()..call().call().toString());
