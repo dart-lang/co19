@@ -20,6 +20,7 @@
  *   external int get i1;
  *   external dynamic get i2;
  * @author sgrekhov@unipro.ru
+ * @issue 44148
  */
 import "../../Utils/expect.dart";
 external final int i1;

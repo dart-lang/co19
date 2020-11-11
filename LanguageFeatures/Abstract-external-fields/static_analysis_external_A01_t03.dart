@@ -19,6 +19,7 @@
  *   external int get i;
  *   external void set i(int _);
  * @author sgrekhov@unipro.ru
+ * @issue 44148
  */
 import "../../Utils/expect.dart";
 

@@ -21,6 +21,7 @@
  *    external static dynamic get i1;
  *    external static void set i1(dynamic _);
  * @author sgrekhov@unipro.ru
+ * @issue 44148
  */
 import "../../Utils/expect.dart";
 
