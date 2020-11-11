@@ -12,6 +12,7 @@
  * standard output stream of the process as a Stream.
  * @author ngl@unipro.ru
  */
+// OtherResources=stream_lib.dart
 import 'dart:convert';
 import "dart:io";
 import "dart:async";
@@ -22,7 +23,11 @@ List<String> args;
 
 void setCommand() {
   command = Platform.resolvedExecutable;
-  args = ['stream_lib.dart', 'Hi, stdout', 'Hi, stderr'];
+  args = [
+    Platform.script.resolve('stream_lib.dart').toFilePath(),
+    'Hi, stdout',
+    'Hi, stderr'
+  ];
 }
 
 main() {
