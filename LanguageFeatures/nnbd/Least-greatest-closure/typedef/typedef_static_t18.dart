@@ -13,7 +13,7 @@
  * @note Read more about the least and greatest closure test template:
  * https://github.com/dart-lang/co19/issues/575#issuecomment-613542349
  *
- * @Issue 42788
+ * @Issue 42788, 44161, 44165
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=non-nullable
