@@ -13,6 +13,9 @@
  * @description Checks that the [first] is equivalent to this.elementAt(0).
  * @author ngl@unipro.ru
  */
+// OtherResources=../certificates/server_chain.pem
+// OtherResources=../certificates/server_key.pem
+// OtherResources=../certificates/trusted_certs.pem
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

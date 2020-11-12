@@ -38,7 +38,7 @@ run_main(String mode) async {
   String eScript = Platform.script.toString();
   int called = 0;
   await Process.run(
-          executable, ["--enable-experiment=non-nullable", eScript, mode])
+          executable, [eScript, mode])
       .then((ProcessResult results) {
     Expect.equals(expected, mode == "err" ? results.stderr : results.stdout);
     called++;

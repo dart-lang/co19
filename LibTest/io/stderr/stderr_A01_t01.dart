@@ -22,7 +22,7 @@ run_process() { stderr.write('Test'); }
 run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
-  await Process.run(executable, ["--enable-experiment=non-nullable", eScript, 'run']).then((ProcessResult results) {
+  await Process.run(executable, [eScript, 'run']).then((ProcessResult results) {
     Expect.equals("Test", results.stderr);
     called = true;
   });

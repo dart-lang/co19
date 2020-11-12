@@ -14,6 +14,9 @@
  * ends, the returned future is completed with the number of elements.
  * @author ngl@unipro.ru
  */
+// OtherResources=../certificates/server_chain.pem
+// OtherResources=../certificates/server_key.pem
+// OtherResources=../certificates/trusted_certs.pem
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

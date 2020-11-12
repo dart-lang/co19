@@ -28,7 +28,7 @@ run_main(String mode, Encoding? enc) async {
   int called = 0;
 
   await Process.run(
-          executable, ["--enable-experiment=non-nullable", eScript, mode],
+          executable, [eScript, mode],
           stdoutEncoding: enc, stderrEncoding: enc)
       .then((ProcessResult results) {
     Expect.listEquals(aList, mode == "err" ? results.stderr : results.stdout);

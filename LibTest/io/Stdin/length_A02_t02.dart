@@ -24,7 +24,7 @@ run_main() async {
   int called = 0;
 
   await Process.start(
-          executable, ["--enable-experiment=non-nullable", eScript, "test"],
+          executable, [eScript, "test"],
           runInShell: true)
       .then((Process process) async {
     process.stdin.close();

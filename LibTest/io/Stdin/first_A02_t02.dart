@@ -36,7 +36,7 @@ run_main() async {
   String eScript = Platform.script.toString();
 
   Process process = await Process.start(
-      executable, ["--enable-experiment=non-nullable", eScript, "test"],
+      executable, [eScript, "test"],
       runInShell: true);
 
   process.stdin.writeln("1");

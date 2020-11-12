@@ -22,7 +22,7 @@ run_main(FutureOr<void> run(Process _), String expected) async {
 
   try {
     final process = await Process.start(
-        executable, ["--enable-experiment=non-nullable", eScript, filename],
+        executable, [eScript, filename],
         runInShell: true);
     await run(process);
     await process.exitCode;

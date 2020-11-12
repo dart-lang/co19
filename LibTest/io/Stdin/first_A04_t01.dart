@@ -36,7 +36,7 @@ run_main() async {
   String res_first = "", res_elementAt = "";
 
   await Process.start(
-          executable, ["--enable-experiment=non-nullable", eScript, "first"],
+          executable, [eScript, "first"],
           runInShell: true)
       .then((Process process) async {
     process.stdin.writeln("12345");
@@ -44,7 +44,7 @@ run_main() async {
   });
 
   await Process.start(executable,
-          ["--enable-experiment=non-nullable", eScript, "elementAt"],
+          [eScript, "elementAt"],
           runInShell: true)
       .then((Process process) async {
     process.stdin.writeln("12345");

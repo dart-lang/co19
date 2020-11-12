@@ -29,13 +29,13 @@ run_process() { exit (stdin.readByteSync()); }
 
 run_main() async {
   String executable = Platform.resolvedExecutable;
-  String eScript = "--enable-experiment=non-nullable " + Platform.script.toString();
+  String eScript = Platform.script.toString();
   int called = -1;
   await (Platform.isWindows ? run_Windows(executable, eScript) :
       run_Linux(executable, eScript)).then((ProcessResult results) {
     called = results.exitCode;
   });
-  if (Platform.isWindows) {
+  if (!Platform.isWindows) {
     Expect.equals(64, called);
   } else {
     Expect.equals(97, called);

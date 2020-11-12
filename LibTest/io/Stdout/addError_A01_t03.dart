@@ -24,7 +24,7 @@ run_main(String mode) async {
   String eScript = Platform.script.toString();
   int called = 0;
   await Process.run(
-          executable, ["--enable-experiment=non-nullable", eScript, mode])
+          executable, [eScript, mode])
       .then((ProcessResult results) {
     Expect.isTrue(results.stderr.contains("added error"));
     Expect.isFalse(results.stderr.contains("Should not be added"));

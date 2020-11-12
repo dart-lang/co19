@@ -10,6 +10,9 @@
  * @description Checks that [last] returns the last element of this.
  * @author ngl@unipro.ru
  */
+// OtherResources=../certificates/server_chain.pem
+// OtherResources=../certificates/server_key.pem
+// OtherResources=../certificates/trusted_certs.pem
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

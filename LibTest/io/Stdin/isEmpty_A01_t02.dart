@@ -23,7 +23,7 @@ run_main() async {
   String eScript = Platform.script.toString();
   int called = 0;
   await Process.start(
-          executable, ["--enable-experiment=non-nullable", eScript, "test"],
+          executable, [eScript, "test"],
           runInShell: true)
       .then((Process process) async {
     process.stdin.close();

@@ -22,11 +22,13 @@ run_main() async {
   String eScript = Platform.script.toString();
   int called = -1;
   await Process.run(
-          executable, ["--enable-experiment=non-nullable", eScript, "test"],
+          executable, [eScript, "test"],
           runInShell: true)
       .then((ProcessResult results) {
     called = results.exitCode;
-    if (called != 0 && called != 1) print(results.stderr);
+    if (called != 0 && called != 1) {
+      print(results.stderr);
+    }
   });
   Expect.isTrue(called == 0 || called == 1);
 }
