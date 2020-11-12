@@ -5,18 +5,18 @@
  */
 /**
  * @description Used in lock and unlock tests.
- * @author ngl@unipro.ru */
+ * @author ngl@unipro.ru
+ */
 library lock_check_2_lib;
 
 import "dart:io";
 import "../../../Utils/expect.dart";
 
 // Check whether the file is may be locked with an exclusive lock.
-checkLock(String path, int start, int end, FileLock mode, {bool locked = false}) {
+checkLock(String script, String path, int start, int end, FileLock mode, {bool locked = false}) {
   var expected = 'OS Error:';
   var arguments = new List<String>.empty(growable: true)
-    ..add("--enable-experiment=non-nullable")
-    ..add(Platform.script.resolve('lock_check_2_lib.dart').toFilePath())
+    ..add(script)
     ..add(path)
     ..add(mode == FileLock.exclusive ? 'EXCLUSIVE' : 'SHARED')
     ..add('$start')
@@ -37,7 +37,7 @@ checkLock(String path, int start, int end, FileLock mode, {bool locked = false})
   });
 }
 
-main(List<String> args) {
+runProcess(List<String> args) {
   if (args.length == 0) {
     return 0;
   }

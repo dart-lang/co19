@@ -13,7 +13,8 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 // Check whether the file is locked or not.
-checkLock(String path, int start, int end, FileLock mode, {bool locked = false}) {
+checkLock(String script, String path, int start, int end, FileLock mode,
+    {bool locked = false}) {
   // Client process returns either 'LOCK FAILED' or 'LOCK SUCCEEDED'.
   var expected = locked ? 'LOCK FAILED' : 'LOCK SUCCEEDED';
   var loc_mode;
@@ -33,14 +34,12 @@ checkLock(String path, int start, int end, FileLock mode, {bool locked = false})
       loc_mode = 'BLOCKING_EXCLUSIVE';
   }
   var arguments = new List<String>.empty(growable: true)
-    ..add("--enable-experiment=non-nullable")
-    ..add(Platform.script.resolve('lock_check_3_lib.dart').toFilePath())
+    ..add(script)
     ..add(path)
     ..add(loc_mode)
     ..add('$start')
     ..add('$end');
-  return Process
-      .run(Platform.executable, arguments)
+  return Process.run(Platform.executable, arguments)
       .then((ProcessResult result) {
     if (result.exitCode != 0 || !result.stdout.contains(expected)) {
       print("Client failed, exit code ${result.exitCode}");
@@ -55,15 +54,15 @@ checkLock(String path, int start, int end, FileLock mode, {bool locked = false})
   });
 }
 
-checkLocked(String path,
-    [int start = 0, int end = -1, FileLock mode = FileLock.exclusive]) =>
-    checkLock(path, start, end, mode, locked: true);
+checkLocked(String script, String path,
+        [int start = 0, int end = -1, FileLock mode = FileLock.exclusive]) =>
+    checkLock(script, path, start, end, mode, locked: true);
 
-checkUnlocked(String path,
-    [int start = 0, int end = -1, FileLock mode = FileLock.exclusive]) =>
-    checkLock(path, start, end, mode, locked: false);
+checkUnlocked(String script, String path,
+        [int start = 0, int end = -1, FileLock mode = FileLock.exclusive]) =>
+    checkLock(script, path, start, end, mode, locked: false);
 
-main(List<String> args) {
+runProcess(List<String> args) {
   if (args.length == 0) {
     return 0;
   }
@@ -72,9 +71,14 @@ main(List<String> args) {
   int end = 0;
   var mode = FileLock.exclusive;
   switch (args[1]) {
-    case 'SHARED' : mode = FileLock.shared; break;
-    case 'BLOCKING_SHARED' : mode = FileLock.blockingShared; break;
-    case 'BLOCKING_EXCLUSIVE' : mode = FileLock.blockingExclusive;
+    case 'SHARED':
+      mode = FileLock.shared;
+      break;
+    case 'BLOCKING_SHARED':
+      mode = FileLock.blockingShared;
+      break;
+    case 'BLOCKING_EXCLUSIVE':
+      mode = FileLock.blockingExclusive;
   }
   if (args[2] != 'null') {
     start = int.parse(args[2]);

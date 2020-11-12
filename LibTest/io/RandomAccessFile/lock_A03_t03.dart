@@ -24,18 +24,28 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 import "lock_check_2_lib.dart";
 
-main() {
+runMain() {
   int fLen = 10;
   File file = getTempFileSync();
   file.writeAsBytesSync(new List.filled(fLen, 1));
   var rf = file.openSync(mode: FileMode.read);
   asyncStart();
   var tests = [
-    () => checkLock(rf.path, 0, fLen, FileLock.exclusive, locked: false)
+    () => checkLock(
+        Platform.script.toString(), rf.path, 0, fLen, FileLock.exclusive,
+        locked: false)
   ];
   Future.forEach(tests, (Function f) => f()).whenComplete(() {
     asyncEnd();
     rf.closeSync();
     file.deleteSync();
   });
+}
+
+main(List<String> args) {
+  if (args.length > 0)
+    runProcess(args);
+  else {
+    runMain();
+  }
 }
