@@ -47,16 +47,18 @@ main() {
   asyncStart();
   Process.start(command, args).then((Process process) {
     bool pKill = process.kill();
-    Expect.isFalse(pKill);
 
     process.exitCode.then((int value) {
-      Expect.equals(0, value);
       if (Platform.isWindows) {
+        Expect.equals(-1, value);
         asyncEnd();
+      } else {
+        Expect.equals(0, value);
       }
     });
 
     if (!Platform.isWindows) {
+      Expect.isFalse(pKill);
       process.stdout.toList().then((List outList) {
         Utf8Decoder decode = new Utf8Decoder();
         String decoded = decode.convert(outList[0]);
@@ -67,6 +69,8 @@ main() {
           asyncEnd();
         });
       });
+    } else {
+      Expect.isTrue(pKill);
     }
   });
 }
