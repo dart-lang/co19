@@ -10,7 +10,6 @@
  *
  * @description Checks that it's a compile time error to read a local variable
  * when the variable is definitely unassigned
- * @static-warning
  * @author sgrekhov@unipro.ru
  */
 // Requirements=nnbd-strong
