@@ -6,7 +6,8 @@
 /**
  * @assertion Stream<ProgressEvent> get onReadyStateChange
  * Stream of readystatechange events handled by this HttpRequest.
- * Event listeners to be notified every time the HttpRequest object's readyState changes values.
+ * Event listeners to be notified every time the HttpRequest object's readyState
+ * changes values.
  * @description Checks that readyState is changed every time an event is fired.
  */
 import "dart:html";

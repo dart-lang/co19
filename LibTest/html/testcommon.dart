@@ -36,3 +36,13 @@ var XlinkNamespace = "http://www.w3.org/1999/xlink";
 class NullTreeSanitizer implements NodeTreeSanitizer {
   void sanitizeTree(Node node) {}
 }
+
+int get crossOriginPort {
+  var searchUrl = window.location.search!;
+  print("SearchURL=" + searchUrl);
+  var crossOriginStr = 'crossOriginPort=';
+  var index = searchUrl.indexOf(crossOriginStr);
+  var nextArg = searchUrl.indexOf('&', index);
+  return int.parse(searchUrl.substring(index + crossOriginStr.length,
+      nextArg == -1 ? searchUrl.length : nextArg));
+}

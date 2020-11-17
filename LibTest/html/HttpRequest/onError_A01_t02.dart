@@ -6,16 +6,20 @@
 /**
  * @assertion Stream<ProgressEvent> get onError
  * Stream of error events handled by this HttpRequestEventTarget.
- * @description Checks that an error events issued when attemt to FET unexistent
- * resourse is made and error 404 returned.
+ * @description Checks that an error events issued when attempt to FET unexistent
+ * resource is made and error 404 returned.
  * @needsreview issue #16757
  */
 import "dart:html";
 import "../../../UtilsHtml/expect.dart";
+import "../testcommon.dart";
 
 main() {
   var request = new HttpRequest();
-  request.open('GET', "IntentionallyMissingFile");
+  var port = crossOriginPort;
+  var host = '${window.location.protocol}//${window.location.hostname}:$port';
+  var url = '$host/root_dart/tests/co19/src/IntentionallyMissingFile';
+  request.open('GET', url);
   asyncStart();
   request.onError.listen((event) {
     UtilsHtml.show("request.onError.listen: $event");

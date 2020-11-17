@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Stream<ProgressEvent> get onLoadEnd
- * Stream of loadend events handled by this HttpRequestEventTarget.
+ * Stream of loaded events handled by this HttpRequestEventTarget.
  * @description Checks that only single event is fired.
  */
 import "dart:html";

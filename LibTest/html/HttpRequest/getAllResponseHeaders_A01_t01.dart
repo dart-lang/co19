@@ -7,18 +7,20 @@
  * @assertion String getAllResponseHeaders()
  * Retrieve all the response headers from a request.
  * null if no headers have been received. For multipart requests,
- * getAllResponseHeaders will return the response headers for the current part of the request.
+ * getAllResponseHeaders will return the response headers for the current part
+ * of the request.
  * @description Checks that response headers are retrieved.
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
+import "../testcommon.dart";
 
 void check(String allHeaders) {
   List<String> headers = allHeaders.split('\n');
   for (String header in headers) {
     List<String> entry = header.split(':');
     if (entry[0] == "content-type") {
-      Expect.equals("application/dart", entry[1].trim());
+      Expect.isTrue(entry[1].trim().startsWith("text/plain"));
       return;
     }
   }
@@ -27,7 +29,10 @@ void check(String allHeaders) {
 
 main() {
   var request = new HttpRequest();
-  request.open('GET', "http://localhost");
+  var port = crossOriginPort;
+  var host = '${window.location.protocol}//${window.location.hostname}:$port';
+  var url = '$host/root_dart/tests/co19/src/LibTest/html/xhr_cross_origin_data.txt';
+  request.open('GET', url);
   asyncStart();
   request.onLoad.listen((event) {
     switch (request.readyState) {

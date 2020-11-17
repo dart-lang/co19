@@ -10,10 +10,14 @@
  */
 import "dart:html";
 import "../../../UtilsHtml/expect.dart";
+import "../testcommon.dart";
 
 main() {
   var request = new HttpRequest();
-  request.open('GET', "test.dart");
+  var port = crossOriginPort;
+  var host = '${window.location.protocol}//${window.location.hostname}:$port';
+  var url = '$host/root_dart/tests/co19/src/LibTest/html/xhr_cross_origin_data.txt';
+  request.open('GET', url);
   request.onAbort.listen((event) {
     UtilsHtml.show("request.onAbort.listen: $event");
     asyncEnd();

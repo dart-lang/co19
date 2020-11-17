@@ -6,7 +6,7 @@
 /**
  * @assertion final Stream<ProgressEvent> onLoad
  * Stream of load events handled by this HttpRequestEventTarget.
- * @description Checks the state of request at variuos moments of time.
+ * @description Checks the state of request at various moments of time.
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -17,6 +17,7 @@ main() {
   Expect.equals(HttpRequest.OPENED, request.readyState, "after open");
   asyncStart();
   request.onLoad.listen((event) {
+    print(event);
     switch (request.readyState) {
       case HttpRequest.DONE:
         asyncEnd();

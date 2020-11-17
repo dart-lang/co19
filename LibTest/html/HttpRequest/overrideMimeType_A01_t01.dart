@@ -7,16 +7,20 @@
  * @assertion void overrideMimeType(String override)
  * Specify a particular MIME type (such as text/xml) desired for the response.
  * This value must be set before the request has been sent.
- * @description Checks that MIME type is overriden.
+ * @description Checks that MIME type is overridden.
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
+import "../testcommon.dart";
 
-const desired = "text/plain";
+const desired = "text/plain; charset=utf-8";
 
 main() {
   var request = new HttpRequest();
-  request.open('GET', "test.dart");
+  var port = crossOriginPort;
+  var host = '${window.location.protocol}//${window.location.hostname}:$port';
+  var url = '$host/root_dart/tests/co19/src/LibTest/html/xhr_cross_origin_data.txt';
+  request.open('GET', url);
   request.overrideMimeType(desired);
   asyncStart();
   request.onLoad.listen((event) {

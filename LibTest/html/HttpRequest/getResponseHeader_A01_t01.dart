@@ -10,16 +10,20 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
+import "../testcommon.dart";
 
 main() {
   var request = new HttpRequest();
-  request.open('GET', "test.dart");
+  var port = crossOriginPort;
+  var host = '${window.location.protocol}//${window.location.hostname}:$port';
+  var url = '$host/root_dart/tests/co19/src/LibTest/html/xhr_cross_origin_data.txt';
+  request.open('GET', url);
   asyncStart();
   request.onLoad.listen((event) {
     switch (request.readyState) {
       case HttpRequest.DONE:
-        Expect.equals(
-            "application/dart", request.getResponseHeader("content-type"));
+        Expect.isTrue(
+            request.getResponseHeader("content-type")?.startsWith("text/plain"));
         asyncEnd();
         break;
       case HttpRequest.HEADERS_RECEIVED:
