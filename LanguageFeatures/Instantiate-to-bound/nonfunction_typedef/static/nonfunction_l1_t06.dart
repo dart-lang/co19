@@ -44,6 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for [typedef
  * O<X extends M<M<M<M<M<M<X>>>>>>> = M<M<X>>].
+ * @Issue 42446, 44223
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
@@ -53,8 +54,7 @@ import "../../../../Utils/expect.dart";
 class M<X> {}
 typedef O<X extends M<M<M<M<M<M<X>>>>>>> = M<M<X>>;
 
-main() {
-  O source;
+void test(O source) {
   var fsource = toF(source);
 
   F<O<M<M<M<M<M<M<dynamic>>>>>>>> target = fsource;
@@ -120,7 +120,9 @@ main() {
 //                                   ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+void main() {
   O();
 //^
 // [analyzer] unspecified

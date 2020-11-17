@@ -51,7 +51,8 @@
  * actually possible to prove that, and even easy: [X1 <: B<X1, X2>] because
  * [X2 <: B<X1, X2>], per rule 'Left Variable Bound', and [X2 <: B<X1, X2>]
  * holds by rule 'Left Variable Bound' and 'Reflexivity'.
- * 
+ *
+ * @Issue 44223
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable

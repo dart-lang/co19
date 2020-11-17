@@ -45,6 +45,7 @@
  * @description Checks that instantiation to bounds works OK for [class C<X,Y>;
  * typedef G<X> = X Function(); typedef A<X extends G<A<Y, X>>, Y extends G<A<X,
  * Y>>> = C<X, Y>].
+ * @Issue 44223
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable

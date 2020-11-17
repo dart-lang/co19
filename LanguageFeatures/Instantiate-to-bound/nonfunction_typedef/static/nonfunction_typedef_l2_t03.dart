@@ -45,17 +45,63 @@
  * @description Checks that instantiation to bounds works OK for [class C<X, Y>;
  * typedef G<X> = X Function(X); typedef A<X extends G<A<X, Y>>, Y extends X> =
  * C<X, Y>].
+ * @Issue 44223
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
+
+import "../../../../Utils/expect.dart";
 
 class C<X, Y> {}
 typedef G<X> = X Function(X);
 typedef A<X extends G<C<X, Y>>, Y extends X> = C<X, Y>;
 
-main() {
-  A? source;
-  A();
+test(A source) {
+  var fsource = toF(source);
+  F<A<G<A<dynamic, dynamic>>, dynamic>> target = fsource;
+
+  F<A<dynamic, dynamic>> target1 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<dynamic>, dynamic>> target2 = fsource;
+//                                    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<A<G<dynamic>, dynamic>>, dynamic>> target3 = fsource;
+//                                                   ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<A<Never, Never>>, Never>> target4 = fsource;
+//                                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<Never, Never>> target5 = fsource;
+//                             ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<Never>, Never>> target6 = fsource;
+//                                ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<A<Never, Never>>, Never>> target7 = fsource;
+//                                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<G<A<dynamic, Never>>, Never>> target8 = fsource;
+//                                            ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+main() {  A();
 //^
 // [analyzer] unspecified
 // [cfe] unspecified

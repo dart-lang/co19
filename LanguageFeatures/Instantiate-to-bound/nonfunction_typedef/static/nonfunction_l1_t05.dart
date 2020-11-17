@@ -44,6 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for [class
  * M<X>; class N<X extends M<N<X>>>; typedef O<X extends M<N<X>>> = M<N<X>>].
+ * @Issue 42446, 44223
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable

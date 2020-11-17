@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -42,47 +42,23 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected for [typedef
- * [A<X1 extends C<X1, X2>, X2 extends X1>]
- * @Issue 44223
+ * @description Checks that instantiation to bounds works OK for [class C<X, Y>;
+ * typedef G<X> = X Function(X); typedef A<X extends G<C<Y, X>>, Y extends
+ * G<C<X, Y>>> = C<X, Y>].
+ *
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
 
 import "../../../../Utils/expect.dart";
 
-class C<X1, X2> {}
-typedef A<X1 extends C<X1, X2>, X2 extends X1> = C<X1, X2>;
+class C<X, Y> {}
+typedef G<X> = X Function(X);
+typedef A<X extends G<C<Y, X>>, Y extends G<C<X, Y>>> = C<X, Y>;
 
 main() {
-  A? source;
-  var fsource = toF(source);
-
-  F<A<C<dynamic, dynamic>, dynamic>?>? target = fsource;
-  F<C<C<dynamic, dynamic>, dynamic>?>? target0 = fsource;
-
-  F<A<dynamic, dynamic>?>? target1 = fsource;
-//                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<dynamic, C<dynamic, dynamic>>?>? target2 = fsource;
-//                                               ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<C<dynamic, dynamic>?>? target3 = fsource;
-//                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<C<dynamic, C<dynamic, dynamic>>?>? target4 = fsource;
-//                                               ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  A();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.equals(
+      typeOf<C<G<C<dynamic, dynamic>>, G<C<dynamic, dynamic>>>>(),
+      typeOf<A>()
+  );
 }

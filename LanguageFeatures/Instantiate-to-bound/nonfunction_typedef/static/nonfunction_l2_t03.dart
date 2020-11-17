@@ -45,6 +45,7 @@
  * @description Checks that instantiate-to-bounds works as expected for [class
  * C<X1, X2>; typedef A<Y extends String, X extends C<String, C<String, X>>> =
  * C<Y, X>].
+ * @Issue 44223
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable

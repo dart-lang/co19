@@ -58,7 +58,7 @@ typedef O<X extends M<N<X>>> = M<N<X>>;
 
 main() {
   Expect.equals(
-    typeOf<M<N<M<dynamic>>>>(),
+    typeOf<M<N<M<N<dynamic>>>>>(),
     typeOf<O>()
   );
 }
