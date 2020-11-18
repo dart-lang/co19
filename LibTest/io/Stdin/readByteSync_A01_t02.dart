@@ -38,7 +38,7 @@ run_main() async {
   await (Platform.isWindows ? run_Windows(executable, eScript) :
       run_Linux(executable, eScript)).then((ProcessResult results) {
     called++;
-    Expect.equals(!Platform.isWindows ? "" : "979899", results.stdout);
+    Expect.equals("979899", results.stdout);
   });
   Expect.equals(1, called);
 }

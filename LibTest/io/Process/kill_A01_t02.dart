@@ -47,6 +47,7 @@ main() {
   asyncStart();
   Process.start(command, args).then((Process process) {
     bool pKill = process.kill();
+    Expect.isTrue(pKill);
 
     process.exitCode.then((int value) {
       if (Platform.isWindows) {
@@ -58,7 +59,6 @@ main() {
     });
 
     if (!Platform.isWindows) {
-      Expect.isFalse(pKill);
       process.stdout.toList().then((List outList) {
         Utf8Decoder decode = new Utf8Decoder();
         String decoded = decode.convert(outList[0]);
@@ -69,8 +69,6 @@ main() {
           asyncEnd();
         });
       });
-    } else {
-      Expect.isTrue(pKill);
     }
   });
 }

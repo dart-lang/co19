@@ -35,11 +35,7 @@ run_main() async {
       run_Linux(executable, eScript)).then((ProcessResult results) {
     called = results.exitCode;
   });
-  if (!Platform.isWindows) {
-    Expect.equals(64, called);
-  } else {
-    Expect.equals(97, called);
-  }
+  Expect.equals(97, called);
 }
 
 main(List<String> args) {

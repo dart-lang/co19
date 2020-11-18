@@ -17,20 +17,14 @@ import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-String command = "";
-List<String> args = new List<String>.empty(growable: true);
-
-void setCommand() {
-  command = Platform.resolvedExecutable;
-  args = [
-    Platform.script.resolve('stream_lib.dart').toFilePath(),
+runMain() {
+  String command = Platform.resolvedExecutable;
+  String eScript = Platform.script.toString();
+  List<String> args = [
+    eScript,
     'Hi stdout',
     'Hi, stderr'
   ];
-}
-
-main() {
-  setCommand();
   asyncStart();
   Process.start(command, args).then((Process process) {
     Expect.isTrue(process.stderr is Stream<List<int>>);
@@ -41,4 +35,28 @@ main() {
       asyncEnd();
     });
   });
+}
+
+runProcess(List<String> arguments) {
+  if (arguments.length > 0) {
+    stdout.write(arguments[0]);
+  }
+  if (arguments.length > 1) {
+    stderr.write(arguments[1]);
+  }
+  if (arguments.length > 2) {
+    stdin.listen((List<int> event){
+      Utf8Decoder decoder = new Utf8Decoder();
+      String decoded = decoder.convert(event);
+      stdout.write(decoded);
+    });
+  }
+}
+
+main(List<String> args) {
+  if(args.length > 0)
+    runProcess(args);
+  else {
+    runMain();
+  }
 }
