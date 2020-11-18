@@ -11,9 +11,9 @@
  * the single element of this socket.
  * @author ngl@unipro.ru
  */
-// OtherResources=../certificates/server_chain.pem
-// OtherResources=../certificates/server_key.pem
-// OtherResources=../certificates/trusted_certs.pem
+// OtherResources=server_chain.pem
+// OtherResources=server_key.pem
+// OtherResources=trusted_certs.pem
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";
@@ -21,12 +21,12 @@ import "../../../Utils/expect.dart";
 String localFile(path) => Platform.script.resolve(path).toFilePath();
 
 SecurityContext serverContext = new SecurityContext()
-  ..useCertificateChain(localFile('../certificates/server_chain.pem'))
-  ..usePrivateKey(localFile('../certificates/server_key.pem'),
+  ..useCertificateChain(localFile('server_chain.pem'))
+  ..usePrivateKey(localFile('server_key.pem'),
       password: 'co19test');
 
 SecurityContext clientContext = new SecurityContext()
-  ..setTrustedCertificates(localFile('../certificates/trusted_certs.pem'));
+  ..setTrustedCertificates(localFile('trusted_certs.pem'));
 
 check(InternetAddress address) {
   const messageSize = 10;
