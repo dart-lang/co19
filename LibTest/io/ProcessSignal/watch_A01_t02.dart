@@ -30,12 +30,16 @@ check(ProcessSignal signal, int ec) {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   asyncStart();
-  Process.start(executable, [eScript, signal.toString()]).then((process) {
+  Process.start(executable, [
+    ...Platform.executableArguments,
+    eScript,
+    signal.toString()
+  ]).then((process) {
     process.stdin.close();
     process.stderr.drain();
     int dokill = 0;
     process.stdout.listen((out) {
-      if (dokill < 2 ) {
+      if (dokill < 2) {
         process.kill(signal);
         dokill++;
       }

@@ -23,8 +23,10 @@ run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
-  await Process.run(executable, [eScript, "run"]).then((ProcessResult results) {
-     Expect.equals(123, results.exitCode);
+  await Process.run(
+          executable, [...Platform.executableArguments, eScript, "run"])
+      .then((ProcessResult results) {
+    Expect.equals(123, results.exitCode);
     called++;
   });
   Expect.equals(1, called);

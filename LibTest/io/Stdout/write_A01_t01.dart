@@ -22,7 +22,7 @@ run_main(String mode) async {
   String eScript = Platform.script.toString();
   int called = 0;
   await Process.run(
-          executable, [eScript, mode])
+          executable, [...Platform.executableArguments, eScript, mode])
       .then((ProcessResult results) {
     Expect.equals("I am here", mode == "err" ? results.stderr : results.stdout);
     called++;

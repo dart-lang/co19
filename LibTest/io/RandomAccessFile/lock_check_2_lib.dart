@@ -16,6 +16,7 @@ import "../../../Utils/expect.dart";
 checkLock(String script, String path, int start, int end, FileLock mode, {bool locked = false}) {
   var expected = 'OS Error:';
   var arguments = new List<String>.empty(growable: true)
+    ..addAll(Platform.executableArguments)
     ..add(script)
     ..add(path)
     ..add(mode == FileLock.exclusive ? 'EXCLUSIVE' : 'SHARED')

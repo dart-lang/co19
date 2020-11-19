@@ -20,7 +20,7 @@ import "../../../Utils/expect.dart";
 runMain() {
   String command = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
-  List<String> args = [
+  List<String> args = [...Platform.executableArguments,
     eScript,
     '1',
     '2',

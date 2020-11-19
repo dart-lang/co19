@@ -34,6 +34,7 @@ checkLock(String script, String path, int start, int end, FileLock mode,
       loc_mode = 'BLOCKING_EXCLUSIVE';
   }
   var arguments = new List<String>.empty(growable: true)
+    ..addAll(Platform.executableArguments)
     ..add(script)
     ..add(path)
     ..add(loc_mode)

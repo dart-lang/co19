@@ -31,7 +31,7 @@ run_main(String mode) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   await Process.run(
-          executable, [eScript, mode])
+          executable, [...Platform.executableArguments, eScript, mode])
       .then((ProcessResult results) {
     List<int> result =
         (mode == "err" ? results.stderr : results.stdout).codeUnits;

@@ -17,6 +17,7 @@ checkLock(String script, String path, int start, int end, FileLock mode, {bool l
   // Client process returns either 'LOCK FAILED' or 'LOCK SUCCEEDED'.
   var expected = locked ? 'LOCK FAILED' : 'LOCK SUCCEEDED';
   var arguments = new List<String>.empty(growable: true)
+    ..addAll(Platform.executableArguments)
     ..add(script)
     ..add(path)
     ..add(mode == FileLock.exclusive ? 'EXCLUSIVE' : 'SHARED')

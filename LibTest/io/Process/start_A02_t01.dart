@@ -37,7 +37,9 @@ runMain() {
   String eScript = Platform.script.toString();
 
   asyncStart();
-  Process.start(executable, [eScript, "run"], environment: m).then((Process process) {
+  Process.start(executable, [...Platform.executableArguments, eScript, "run"],
+          environment: m)
+      .then((Process process) {
     process.stdout.toList().then((List outList) {
       Utf8Decoder decode = new Utf8Decoder();
       String decoded = decode.convert(outList[0]);
@@ -56,7 +58,7 @@ runProcess() {
 }
 
 main(List<String> args) {
-  if(args.length > 0)
+  if (args.length > 0)
     runProcess();
   else {
     runMain();

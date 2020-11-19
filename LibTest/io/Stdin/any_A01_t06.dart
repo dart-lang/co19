@@ -24,7 +24,7 @@ run_main() async {
   int called = 0;
 
   await Process.start(
-          executable, [eScript, "test"],
+          executable, [...Platform.executableArguments, eScript, "test"],
           runInShell: true)
       .then((Process process) async {
     process.stdin.writeln("Testme");

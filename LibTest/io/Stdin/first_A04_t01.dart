@@ -36,7 +36,7 @@ run_main() async {
   String res_first = "", res_elementAt = "";
 
   await Process.start(
-          executable, [eScript, "first"],
+          executable, [...Platform.executableArguments, eScript, "first"],
           runInShell: true)
       .then((Process process) async {
     process.stdin.writeln("12345");

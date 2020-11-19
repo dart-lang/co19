@@ -35,7 +35,8 @@ runMain() {
   String eScript = Platform.script.toString();
 
   asyncStart();
-  Process.start(executable, [eScript, "run"]).then((Process process) {
+  Process.start(executable, [...Platform.executableArguments, eScript, "run"])
+      .then((Process process) {
     process.stdout.toList().then((List outList) {
       Utf8Decoder decoder = new Utf8Decoder();
       String decoded = decoder.convert(outList[0]);

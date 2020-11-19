@@ -22,7 +22,7 @@ run_main(FutureOr<void> run(Process _), String expected) async {
 
   try {
     final process = await Process.start(
-        executable, [eScript, filename],
+        executable, [...Platform.executableArguments, eScript, filename],
         runInShell: true);
     await run(process);
     await process.exitCode;
@@ -41,7 +41,9 @@ run_main_invalid(String run(Process process)) async {
   String eScript = Platform.script.toString();
   int called = 0;
 
-  await Process.start(executable, [eScript, "test"], runInShell: true)
+  await Process.start(
+          executable, [...Platform.executableArguments, eScript, "test"],
+          runInShell: true)
       .then((Process process) async {
     await run(process);
     await process.exitCode.then((int code) async {

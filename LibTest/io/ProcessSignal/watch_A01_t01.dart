@@ -32,7 +32,11 @@ check(ProcessSignal signal) {
   String eScript = Platform.script.toString();
 
   asyncStart();
-  Process.start(executable, [eScript, signal.toString()]).then((process) {
+  Process.start(executable, [
+    ...Platform.executableArguments,
+    eScript,
+    signal.toString()
+  ]).then((process) {
     process.stdin.close();
     process.stderr.drain();
     var output = "";

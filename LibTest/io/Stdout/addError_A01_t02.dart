@@ -24,7 +24,7 @@ run_main(String mode) async {
   String eScript = Platform.script.toString();
   int called = 0;
   await Process.run(
-          executable, [eScript, mode])
+          executable, [...Platform.executableArguments, eScript, mode])
       .then((ProcessResult results) {
     Expect.isTrue(results.stderr.contains("my test error"));
     Expect.isTrue(results.stderr.contains("my test stack trace"));

@@ -12,31 +12,32 @@ import "dart:async";
 import "dart:convert";
 import "dart:io";
 
-Future<ProcessResult> run_Windows(
-    String executable, String script, String filename, Encoding? enc) {
+Future<ProcessResult> run_Windows(String executable, String executableArgs,
+    String script, String filename, Encoding? enc) {
   return Process.run(executable, [script, "test", ">", filename],
       runInShell: true, stdoutEncoding: enc);
 }
 
-Future<ProcessResult> run_Linux(
-    String executable, String script, String filename, Encoding? enc) {
-  return Process.run("bash",
-      ["-c", executable + " " + script + " test > " + filename],
+Future<ProcessResult> run_Linux(String executable, String executableArgs,
+    String script, String filename, Encoding? enc) {
+  return Process.run(
+      "bash", ["-c", executable + " " + script + " test > " + filename],
       runInShell: true, stdoutEncoding: enc);
 }
 
 run_main(Encoding? enc, List<int> expected) async {
   String executable = Platform.resolvedExecutable;
   String script = Platform.script.toString();
+  String executableArgs = Platform.executableArguments.join(" ");
   int called = 0;
 
   Directory sandbox = getTempDirectorySync();
   String filename = getTempFilePath(parent: sandbox);
 
-  await (Platform.isWindows ?
-      run_Windows(executable, script, filename, enc) :
-      run_Linux(executable, script, filename, enc)).
-      then((ProcessResult results) async {
+  await (Platform.isWindows
+          ? run_Windows(executable, executableArgs, script, filename, enc)
+          : run_Linux(executable, executableArgs, script, filename, enc))
+      .then((ProcessResult results) async {
     final file = new File(filename);
     final contents = await file.readAsBytes();
     await file.delete();

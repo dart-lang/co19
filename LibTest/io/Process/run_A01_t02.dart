@@ -37,7 +37,8 @@ runMain() {
   String eScript = Platform.script.toString();
 
   asyncStart();
-  Process.run(executable, [eScript, "run"]).then((ProcessResult results) {
+  Process.run(executable, [...Platform.executableArguments, eScript, "run"])
+      .then((ProcessResult results) {
     Expect.equals(0, results.exitCode);
     Expect.equals("Lily was here", results.stdout);
     Expect.equals("", results.stderr);
@@ -50,7 +51,7 @@ runProcess() {
 }
 
 main(List<String> args) {
-  if(args.length > 0)
+  if (args.length > 0)
     runProcess();
   else {
     runMain();

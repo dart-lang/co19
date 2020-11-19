@@ -36,7 +36,8 @@ runMain() {
   String eScript = Platform.script.toString();
 
   asyncStart();
-  Process.start(executable, [eScript, "run"]).then((process) {
+  Process.start(executable, [...Platform.executableArguments, eScript, "run"])
+      .then((process) {
     process.stdout.toList().then((List outList) {
       Expect.equals(0, outList.length);
     }).then((_) {
@@ -55,7 +56,7 @@ runProcess() {
 }
 
 main(List<String> args) {
-  if(args.length > 0)
+  if (args.length > 0)
     runProcess();
   else {
     runMain();
