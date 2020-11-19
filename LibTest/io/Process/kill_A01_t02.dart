@@ -35,10 +35,10 @@ List<String> args = new List<String>.empty(growable: true);
 void setCommand() {
   if (Platform.isWindows) {
     command = Platform.resolvedExecutable;
-    args = ['--version'];
+    args = [...Platform.executableArguments, '--version'];
   } else {
     command = 'echo';
-    args = ['-start'];
+    args = [...Platform.executableArguments, '-start'];
   }
 }
 
