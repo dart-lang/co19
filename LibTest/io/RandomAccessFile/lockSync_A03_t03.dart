@@ -32,7 +32,9 @@ runMain() {
   var rf = file.openSync(mode: FileMode.read);
   asyncStart();
   var tests = [
-        () => checkLock(Platform.script.toString(), rf.path, 0, fLen, FileLock.exclusive, locked: false)
+    () => checkLock(
+        Platform.script.toString(), rf.path, 0, fLen, FileLock.exclusive,
+        locked: false)
   ];
   Future.forEach(tests, (Function f) => f()).whenComplete(() {
     asyncEnd();

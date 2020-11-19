@@ -14,14 +14,14 @@ import "dart:io";
 
 Future<ProcessResult> run_Windows(String executable, String executableArgs,
     String script, String filename, Encoding? enc) {
-  return Process.run(executable, [script, "test", ">", filename],
+  return Process.run(executable, [executableArgs, script, "test", ">", filename],
       runInShell: true, stdoutEncoding: enc);
 }
 
 Future<ProcessResult> run_Linux(String executable, String executableArgs,
     String script, String filename, Encoding? enc) {
   return Process.run(
-      "bash", ["-c", executable + " " + script + " test > " + filename],
+      "bash", ["-c", executable + " " + executableArgs + " " + script + " test > " + filename],
       runInShell: true, stdoutEncoding: enc);
 }
 
