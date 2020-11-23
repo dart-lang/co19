@@ -10,14 +10,13 @@
  * 'json', 'text'.
  * Some newer browsers will throw NSERRORDOMINVALIDACCESS_ERR if responseType
  * is set while performing a synchronous request.
- * @description Checks that uther values are not supported.
+ * @description Checks that other values are not supported.
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
   var request = new HttpRequest();
-  Expect.throws(() {
-    request.responseType = "undefined";
-  });
+  request.responseType = "undefined";
+  Expect.equals("", request.responseType);
 }

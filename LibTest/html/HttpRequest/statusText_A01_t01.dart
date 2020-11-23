@@ -11,12 +11,16 @@
 import "dart:html";
 import "dart:async";
 import "../../../Utils/expect.dart";
+import "../testcommon.dart";
 
 main() {
   asyncStart();
-  Future<HttpRequest> f = HttpRequest.request("test.dart");
+  var port = crossOriginPort;
+  var host = '${window.location.protocol}//${window.location.hostname}:$port';
+  var url = '$host/root_dart/tests/co19/src/LibTest/html/xhr_cross_origin_data.txt';
+  Future<HttpRequest> f = HttpRequest.request(url);
   f.then((HttpRequest r) {
-    Expect.equals("200 OK", r.statusText);
+    Expect.equals("OK", r.statusText);
     asyncEnd();
   });
 }

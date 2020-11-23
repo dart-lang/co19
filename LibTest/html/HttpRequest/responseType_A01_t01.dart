@@ -10,12 +10,12 @@
  * 'json', 'text'.
  * Some newer browsers will throw NSERRORDOMINVALIDACCESS_ERR if responseType
  * is set while performing a synchronous request.
- * @description Checks that default value is String.
+ * @description Checks that default value is an empty string.
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
 
 main() {
   var request = new HttpRequest();
-  Expect.equals("String", request.responseType);
+  Expect.equals("", request.responseType);
 }

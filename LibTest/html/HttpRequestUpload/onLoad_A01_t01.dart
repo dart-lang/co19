@@ -6,7 +6,7 @@
 /**
  * @assertion final Stream<ProgressEvent> onLoad
  * Stream of load events handled by this HttpRequestEventTarget.
- * @description Checks the state of request at variuos moments of time.
+ * @description Checks the state of request at various moments of time.
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
@@ -26,12 +26,15 @@ var host = '${window.location.protocol}//${window.location.hostname}:$port';
 
 main() {
   HttpRequest request = new HttpRequest();
-  var url = '$host/root_dart/tests/co19/LibTest/html/xhr_cross_origin_data.txt';
+  var url = '$host/root_dart/tests/co19/src/LibTest/html/xhr_cross_origin_data.txt';
   request.open('GET', url);
   Expect.equals(HttpRequest.OPENED, request.readyState, "after open");
+  print("Log 1");
   HttpRequestUpload upload = request.upload;
   asyncStart();
+  print("Log 2");
   upload.onLoad.listen((event) {
+    print("Log 5");
     switch (request.readyState) {
       case HttpRequest.DONE:
         asyncEnd();
@@ -45,8 +48,11 @@ main() {
             "request.onLoad.listen: unexpected readyState:${request.readyState}");
     }
   }, onError: (Object error) {
+    print("Log 6");
     Expect.fail("request.onLoad.listen:onError($error)");
   });
+  print("Log 3");
   request.send();
+  print("Log 4");
   Expect.equals(HttpRequest.OPENED, request.readyState, "after send");
 }

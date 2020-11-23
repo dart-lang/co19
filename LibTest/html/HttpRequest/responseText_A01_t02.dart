@@ -11,12 +11,20 @@
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
+import "../testcommon.dart";
 
 main() {
   var request = new HttpRequest();
-  request.open('GET', "IntentionallyMissingFile");
+  var port = crossOriginPort;
+  var host = '${window.location.protocol}//${window.location.hostname}:$port';
+  var url = '$host/root_dart/tests/co19/src/LibTest/html/IntentionallyMissingFile';
+  request.open('GET', url);
   asyncStart();
   request.onError.listen((event) {
+    print(event);
+    print("Request status: ${request.status}");
+    print("Request response: ${request.response}");
+    print("Request responseText: ${request.responseText}");
     Expect.equals(404, request.status);
     Expect.isNull(request.response);
     Expect.equals(0, request.responseText?.length);
