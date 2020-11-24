@@ -17,7 +17,6 @@
  * some S where S is nullable. Test pre-NNBD legacy classes
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "legacy_lib.dart";
 

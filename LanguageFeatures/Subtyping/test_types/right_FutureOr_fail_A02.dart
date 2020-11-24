@@ -16,7 +16,6 @@
  * is not a subtype of a type T1.
  * @author ngl@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
 class S1 {

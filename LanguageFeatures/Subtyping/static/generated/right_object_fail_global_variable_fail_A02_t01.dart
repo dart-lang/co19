@@ -35,7 +35,6 @@
  */
 
 
-// SharedOptions=--enable-experiment=non-nullable
 class X {}
 class S extends X {}
 

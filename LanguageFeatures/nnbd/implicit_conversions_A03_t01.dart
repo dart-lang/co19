@@ -11,7 +11,6 @@
  * objects of nullable type, regardless of the context type.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 typedef int Foo();

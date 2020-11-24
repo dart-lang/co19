@@ -18,7 +18,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 40951
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "dart:async";
 

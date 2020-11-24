@@ -14,7 +14,6 @@
  * when an instance of T0 is an instance of Future<S0> type.
  * @author ngl@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
 class C {

@@ -24,7 +24,6 @@
  */
 
 
-// SharedOptions=--enable-experiment=non-nullable
 class C {}
 
 typedef X T0<X>(X x);

@@ -12,7 +12,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 40949
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
 class A {}
 class B {}

@@ -11,7 +11,6 @@
  *  SHORT[EXP(e1), fn[x] => x.f = EXP(e2)]. Test type aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
 import "../../../Utils/expect.dart";
 

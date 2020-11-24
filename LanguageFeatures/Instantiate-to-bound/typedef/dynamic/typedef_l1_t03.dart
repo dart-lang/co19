@@ -46,7 +46,6 @@
  * X extends A<X>> = X Function(X)] (invariant)
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import "../../../../Utils/expect.dart";
 

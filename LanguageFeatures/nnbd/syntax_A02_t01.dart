@@ -10,7 +10,6 @@
  * @description Check new primitive type Never
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 Never fail() {
   throw new Exception();

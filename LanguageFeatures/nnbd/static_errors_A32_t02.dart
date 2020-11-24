@@ -11,7 +11,6 @@
  * ??=, or ...?) are used on a nullable receiver.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 class A {
   test() {}

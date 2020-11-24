@@ -9,7 +9,6 @@
  * opted to legacy library can be casted correctly in opted-in code.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-weak
 
 import "../../../Utils/expect.dart";

@@ -12,7 +12,6 @@
  * code, its type parameter can be a type which is not [Null].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 
 import "../../Utils/expect.dart";

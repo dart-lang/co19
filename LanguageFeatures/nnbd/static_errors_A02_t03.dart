@@ -12,7 +12,6 @@
  * off a method from an expression whose type is dynamic
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 class A {
   final String s = "Lily was here";

@@ -15,7 +15,6 @@
  * @description Check that all fields of legacy type T* are nullable. Test mixin
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "legacy_lib.dart";
 

@@ -13,7 +13,6 @@
  * @issue 40374
  * @issue 39896
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 dynamic? foo(dynamic? d) => d;
 

@@ -15,7 +15,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 40940
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "dart:async";
 import "legacy_lib.dart";

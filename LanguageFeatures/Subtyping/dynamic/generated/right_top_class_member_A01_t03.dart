@@ -25,7 +25,6 @@
 
 
 import '../../utils/common.dart';
-// SharedOptions=--enable-experiment=non-nullable
 class T0 {}
 
 T0 t0Instance = new T0();

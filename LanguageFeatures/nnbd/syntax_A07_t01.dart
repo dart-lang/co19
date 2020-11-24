@@ -15,7 +15,6 @@
  * successive ? operators on a type
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 class A {}
 

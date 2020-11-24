@@ -12,7 +12,6 @@
  * retains its status.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-weak
 
 import "../../../Utils/expect.dart";

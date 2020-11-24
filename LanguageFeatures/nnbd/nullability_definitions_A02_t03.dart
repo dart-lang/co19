@@ -18,7 +18,6 @@
  * assigned to non-nullable type. Test interface type
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 abstract class A {

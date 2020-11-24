@@ -14,7 +14,6 @@
  * Object are allowed for the type <T extends F?>, where F is a function type
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 

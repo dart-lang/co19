@@ -14,7 +14,6 @@
  * a type T1.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
 FutureOr t0Instance = 42;

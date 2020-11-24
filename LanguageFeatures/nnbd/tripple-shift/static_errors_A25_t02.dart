@@ -13,7 +13,6 @@
  * local variable marked late and final when the variable is definitely assigned
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,triple-shift
 // Requirements=nnbd-strong
 
 main() {

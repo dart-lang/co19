@@ -16,7 +16,6 @@
  * @issue 40333
  * @issue 40945
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 class C {
   void set test(int v) {}

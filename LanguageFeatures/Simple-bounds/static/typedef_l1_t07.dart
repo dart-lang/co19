@@ -19,7 +19,6 @@
  * value for [X] during i2b.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import "../../../Utils/expect.dart";
 

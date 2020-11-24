@@ -14,7 +14,6 @@
  * that methods of Object are allowed for the class FutureOr
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "dart:async";
 import "../../Utils/expect.dart";

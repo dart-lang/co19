@@ -12,7 +12,6 @@
  * S0,...Sn and and Si <: T1 for some i then T0 is a subtype of a type T1
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 class T1 {
   const T1();
 }

@@ -17,7 +17,6 @@
  *
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import 'opted_out_lib.dart';
 

@@ -13,7 +13,6 @@
  * @author iarkh@unipro.ru
  * @issue 41494
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-weak
 import "legacy_library_aliases_lib.dart" as legacy;
 

@@ -22,7 +22,6 @@
  * @author sgrekhov@unipro.ru
  * @author ngl@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 class U0 extends U1 {}
 class U1 {}
 class V0 {}

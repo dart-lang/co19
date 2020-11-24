@@ -35,7 +35,6 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-// SharedOptions=--enable-experiment=non-nullable
 class U0 {} // U0 is not subtype of U1
 class U1 {}
 class V0 {}

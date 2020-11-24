@@ -20,7 +20,6 @@
  * for any i in 0...k, then T0 is not a subtype of T1. Test generic types
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 class A {}
 
 class C extends A {}

@@ -10,7 +10,6 @@
  * @description Check that Never is a valid super-bounded type argument
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class C<X extends C<X>> {}
 

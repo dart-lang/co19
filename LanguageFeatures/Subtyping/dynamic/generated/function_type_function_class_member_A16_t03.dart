@@ -26,7 +26,6 @@
 
 
 import '../../utils/common.dart';
-// SharedOptions=--enable-experiment=non-nullable
 class C {}
 
 typedef C T0<X>(C c, [X? d]);

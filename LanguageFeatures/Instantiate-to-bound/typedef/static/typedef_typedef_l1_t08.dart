@@ -45,7 +45,6 @@
  * typedef A<X> = void Function(); typedef G<X extends A<X>> = void Function(X)
  * @author iarkh@unipro.ru
  */
- // SharedOptions=--enable-experiment=non-nullable
 
 import "../../../../Utils/expect.dart";
 

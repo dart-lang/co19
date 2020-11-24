@@ -16,7 +16,6 @@
  * Check that '?..' operator must be the first in the cascade sequence
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 class C {

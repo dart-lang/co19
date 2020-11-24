@@ -13,7 +13,6 @@
  *  SHORT[EXP(e1), fn[x] => x[EXP(e2)] %= EXP(e3)]
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 

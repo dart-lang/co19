@@ -24,7 +24,6 @@
  */
 
 
-// SharedOptions=--enable-experiment=non-nullable
 Null t0Instance = null;
 Null t1Instance = null;
 

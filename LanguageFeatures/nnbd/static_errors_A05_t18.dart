@@ -17,7 +17,6 @@
  * unless the variable is marked with the late modifier. Test FutureOr
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "dart:async";
 import "legacy_lib.dart";

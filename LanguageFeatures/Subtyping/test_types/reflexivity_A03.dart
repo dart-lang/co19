@@ -11,7 +11,6 @@
  * subtype of a type T1
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 Object t0Instance = new Object();
 Object t1Instance = new Object();
 

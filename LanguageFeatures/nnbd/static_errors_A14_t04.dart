@@ -17,7 +17,6 @@
  * Language @issue https://github.com/dart-lang/language/issues/711
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 typedef void Foo();
 

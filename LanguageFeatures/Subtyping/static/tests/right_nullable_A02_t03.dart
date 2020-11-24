@@ -17,7 +17,6 @@
  * of T0 can be be used as an argument of type T1
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class S1 {
   const S1();

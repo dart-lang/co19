@@ -13,7 +13,6 @@
  * before it is definitely assigned. Test some type <X extends Object?>
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 class C<X extends Object?> {

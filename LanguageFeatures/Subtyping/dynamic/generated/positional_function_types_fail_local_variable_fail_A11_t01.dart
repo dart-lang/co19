@@ -37,7 +37,6 @@
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
-// SharedOptions=--enable-experiment=non-nullable
 class U0 extends U1 {}
 class U1 {}
 class V0 {}

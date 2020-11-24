@@ -46,7 +46,7 @@
  * B<X extends B<X>>; typedef class A<X1, X2 extends B<X2>>].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 import "../../../../Utils/expect.dart";
 

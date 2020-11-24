@@ -12,7 +12,6 @@
  * but returning some value
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 class C {}
 
 typedef void T0<X>();

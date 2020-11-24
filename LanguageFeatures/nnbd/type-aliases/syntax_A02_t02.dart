@@ -10,7 +10,6 @@
  * @description Check new primitive type Never. Test type alias
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
 typedef Neverland = Never;
 

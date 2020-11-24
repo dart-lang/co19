@@ -50,7 +50,6 @@
  *
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class A<X> {}
 typedef G<X extends A<X>, Y extends X> = void Function<X1 extends X>(X, Y);

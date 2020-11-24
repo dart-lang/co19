@@ -17,7 +17,6 @@
  * extends num] parameter (not used)
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 import "../../../Utils/expect.dart";
 
 typedef G<X extends num> = void Function();

@@ -11,7 +11,6 @@
  * expression throw e is not assignable to Object
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 class A {
 }

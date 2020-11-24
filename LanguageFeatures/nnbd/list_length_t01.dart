@@ -13,7 +13,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 39777
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "dart:async";
 import "../../Utils/expect.dart";

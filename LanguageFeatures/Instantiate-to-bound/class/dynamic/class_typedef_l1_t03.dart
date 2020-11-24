@@ -46,7 +46,6 @@
  * [typedef G<X> = X Function(X)] parameter (invariant case).
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import "../../../../Utils/expect.dart";
 

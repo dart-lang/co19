@@ -12,7 +12,6 @@
  * its status, i.e. its value is [null].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 
 import "../../Utils/expect.dart";

@@ -46,7 +46,6 @@
  * X Function(X)], [class A<X extends G<A<X, Y>>, Y extends X>]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import "../../../../Utils/expect.dart";
 

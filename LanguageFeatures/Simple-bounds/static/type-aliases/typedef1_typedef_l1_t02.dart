@@ -17,7 +17,6 @@
  * non-function alias with function parameter (contravariant)
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 
 import "../../../../Utils/expect.dart";
 

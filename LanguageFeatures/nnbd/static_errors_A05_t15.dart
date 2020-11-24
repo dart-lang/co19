@@ -16,7 +16,6 @@
  * list entry. Test Function types
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 typedef void Foo();
 

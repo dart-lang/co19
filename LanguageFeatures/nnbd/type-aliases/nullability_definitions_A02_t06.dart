@@ -19,7 +19,6 @@
  * Test type alias
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-weak
 import "../legacy_lib.dart";
 

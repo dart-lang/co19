@@ -12,7 +12,6 @@
  * [e] is a compile-time constant
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import "../../../Utils/expect.dart";
 

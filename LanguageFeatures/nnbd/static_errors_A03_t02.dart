@@ -12,7 +12,6 @@
  * method
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,extension-methods
 // Requirements=nnbd-strong
 extension on int {
   int call(int v) => this + v;

@@ -17,7 +17,6 @@
  * parameters: [A<X extends List>], [B<X extends Map>]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 import "../../../Utils/expect.dart";
 
 class A<X extends List> {}

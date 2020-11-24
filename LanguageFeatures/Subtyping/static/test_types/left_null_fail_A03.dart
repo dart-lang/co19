@@ -14,7 +14,6 @@
  * @description Check that otherwise, the query is false. Test some class S
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 Null t0Instance = null;
 Object t1Instance = new Object();

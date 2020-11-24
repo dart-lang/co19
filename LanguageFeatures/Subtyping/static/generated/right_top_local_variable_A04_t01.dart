@@ -24,7 +24,6 @@
  */
 
 
-// SharedOptions=--enable-experiment=non-nullable
 Object t0Instance = new Object();
 dynamic t1Instance = 2018;
 

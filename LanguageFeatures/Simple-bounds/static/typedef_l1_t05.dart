@@ -9,7 +9,6 @@
  * extends num] parameter (covariant)
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 typedef G<X extends num> = void Function<Y extends X>();
 

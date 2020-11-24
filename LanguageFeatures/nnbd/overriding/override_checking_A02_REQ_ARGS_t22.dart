@@ -14,7 +14,6 @@
  * method with named parameter (which is nullable) with default value.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 
 import "../../../Utils/expect.dart";

@@ -19,7 +19,6 @@
  * T0 is subtype of T1
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
 class S {}

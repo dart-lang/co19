@@ -13,7 +13,6 @@
  * variable binding section of a c-style for loop
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 main() {
   for (late int i = 0; i < 3; i++) {

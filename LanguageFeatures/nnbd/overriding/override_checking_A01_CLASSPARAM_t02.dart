@@ -18,7 +18,6 @@
  * @OIssue 40398
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 // @dart=2.6
 

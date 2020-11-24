@@ -18,7 +18,6 @@
  * assigned to non-nullable type. Test interface type. Test type aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
 abstract class A {
   void foo(int i);

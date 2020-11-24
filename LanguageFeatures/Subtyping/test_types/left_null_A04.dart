@@ -15,7 +15,6 @@
  * subtype of T1
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 Null t0Instance = null;
 Null? t1Instance = null;

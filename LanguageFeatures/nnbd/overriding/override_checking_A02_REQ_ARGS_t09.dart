@@ -16,7 +16,6 @@
  * @Issue 41527
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "override_checking_A02_opted_out_lib.dart";
 import "../../../Utils/expect.dart";

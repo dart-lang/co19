@@ -19,7 +19,6 @@
  * legacy pre-NNBD types
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "dart:async";
 import "legacy_lib.dart";

@@ -17,7 +17,6 @@
  * FutureOr<S> for some S where S is nullable
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
 import "dart:async";
 

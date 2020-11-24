@@ -12,7 +12,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 39681
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 class C {
   late final int i = 42;

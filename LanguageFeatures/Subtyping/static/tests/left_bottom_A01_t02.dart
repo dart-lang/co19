@@ -11,7 +11,6 @@
  * type aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 
 class T1 {}
 

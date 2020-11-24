@@ -11,7 +11,6 @@
  * nullable version of that type. Test function types
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 typedef void foo();
 

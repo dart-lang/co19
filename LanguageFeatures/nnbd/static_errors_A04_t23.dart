@@ -13,7 +13,6 @@
  * but marked with a 'late' modifier. Test function type
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 typedef void Foo();
 

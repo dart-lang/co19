@@ -20,7 +20,6 @@
  * subtype of T1. Test generic types when p == n and m > q.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 class A {}
 
 class C extends A {}

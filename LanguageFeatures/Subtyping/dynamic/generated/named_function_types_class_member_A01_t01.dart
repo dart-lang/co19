@@ -34,7 +34,6 @@
 
 
 import '../../utils/common.dart';
-// SharedOptions=--enable-experiment=non-nullable
 
 class U0 extends U1 {}
 class U1 {}

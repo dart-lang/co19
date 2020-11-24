@@ -14,7 +14,6 @@
  * @issue 40949
  * @issue 41501
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-weak
 import "../legacy_lib.dart";
 

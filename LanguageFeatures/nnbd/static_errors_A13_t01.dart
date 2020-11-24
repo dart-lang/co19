@@ -9,7 +9,6 @@
  * @description Check that it is an error to call the default List constructor.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 main() {

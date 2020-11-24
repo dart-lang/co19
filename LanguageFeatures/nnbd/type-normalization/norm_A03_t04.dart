@@ -21,7 +21,6 @@
  *
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 class A<X> {}
 class B1<X> implements A<X> {}

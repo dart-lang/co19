@@ -28,7 +28,6 @@
  */
 
 
-// SharedOptions=--enable-experiment=non-nullable
 
 class S {
   const S();

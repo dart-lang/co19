@@ -13,7 +13,6 @@
  * loop
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 main() {
   var list = [3, 1, 4, 1, 5];

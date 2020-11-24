@@ -24,7 +24,6 @@
  */
 
 
-// SharedOptions=--enable-experiment=non-nullable
 
 dynamic t0Instance = "Show must go on";
 Object? t1Instance = new Object();

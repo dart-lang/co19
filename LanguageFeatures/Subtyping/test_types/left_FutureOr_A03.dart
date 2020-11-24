@@ -14,7 +14,6 @@
  * when an instance of T0 is an instance of S0 type and S0 is a generic type
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
 class A {}

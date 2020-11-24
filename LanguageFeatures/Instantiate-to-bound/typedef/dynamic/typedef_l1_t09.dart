@@ -46,7 +46,6 @@
  * extends A<X>>], [typedef G<X extends A<X>> = void Function()] (unused)
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import "../../../../Utils/expect.dart";
 

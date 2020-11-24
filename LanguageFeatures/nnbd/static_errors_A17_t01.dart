@@ -14,7 +14,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 39866
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 void test(var x) {
   if (x is Never) {

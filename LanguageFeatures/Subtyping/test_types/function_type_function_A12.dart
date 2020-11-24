@@ -12,7 +12,6 @@
  * returning some value
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 class C {}
 
 typedef C T0<X extends C>();

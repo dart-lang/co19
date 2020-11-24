@@ -16,7 +16,6 @@
  * @issue 39866
  * @static-warning
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
 typedef Neverland = Never;
 

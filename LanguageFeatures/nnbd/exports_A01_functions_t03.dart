@@ -12,7 +12,6 @@
  * it retains its status and can accept non-null arguments.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 
 import "dart:async";

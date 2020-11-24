@@ -22,7 +22,6 @@
  * whose static type is not a subtype of T
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 void foo() {}
 

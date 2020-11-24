@@ -13,7 +13,6 @@
  * @issue 39598
  * @issue 39714
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 test<T extends Object>(T t) {
   t?.toString();

@@ -12,7 +12,6 @@
  * T1.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "../../utils/common.dart";
 import "../../utils/legacy_lib.dart";

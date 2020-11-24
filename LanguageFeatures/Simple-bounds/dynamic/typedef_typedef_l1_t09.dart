@@ -12,7 +12,6 @@
  * [typedef] parameter (unused)
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 import "../../../Utils/expect.dart";
 
 typedef G1<X> = X Function();

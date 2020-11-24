@@ -22,7 +22,6 @@
  * not handle null either explicitly or via a default.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "legacy_lib.dart";
 

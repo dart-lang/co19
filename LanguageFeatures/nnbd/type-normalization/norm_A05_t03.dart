@@ -14,7 +14,6 @@
  *
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 class T {}
 class T1 extends T {}

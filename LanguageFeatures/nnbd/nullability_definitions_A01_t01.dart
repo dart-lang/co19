@@ -16,7 +16,6 @@
  * @description Check that null can be assigned to nullable type. Test Null
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 main() {
   Null v = null;

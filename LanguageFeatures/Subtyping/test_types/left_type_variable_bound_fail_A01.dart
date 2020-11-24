@@ -12,7 +12,6 @@
  * B0 is not a subtype of T1 then T0 is not a subtype of a type T1.
  * @author ngl@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 class T1 {
   const T1();
 }

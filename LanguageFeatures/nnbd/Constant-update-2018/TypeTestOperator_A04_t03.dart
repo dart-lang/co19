@@ -11,7 +11,6 @@
  * if [T] is a potential constant type.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import "../../../Utils/expect.dart";
 

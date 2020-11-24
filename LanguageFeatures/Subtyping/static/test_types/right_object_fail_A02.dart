@@ -20,7 +20,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 42089
  */
-// SharedOptions=--enable-experiment=non-nullable
 class X {}
 class S extends X {}
 

@@ -20,7 +20,6 @@
  * subtype of T1. Test generic types with high-level types
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 class A {}
 
 class C extends A {}

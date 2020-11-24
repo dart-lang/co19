@@ -11,7 +11,6 @@
  * expression throw e is not assignable to Object. Test type aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
 class A {
 }

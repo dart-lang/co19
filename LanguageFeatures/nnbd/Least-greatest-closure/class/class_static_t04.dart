@@ -19,7 +19,6 @@
  * @Issue 44092, 44073
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 abstract class C<X extends C<X>> {}

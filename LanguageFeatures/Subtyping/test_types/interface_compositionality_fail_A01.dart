@@ -13,7 +13,6 @@
  * not a subtype of T1
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 abstract class U0 {}
 abstract class U1 {}
 abstract class U2 {}

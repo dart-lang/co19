@@ -18,7 +18,6 @@
  * a function type
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "dart:async";
 typedef void Foo();

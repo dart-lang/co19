@@ -15,7 +15,6 @@
  * @issue 39866
  * @static-warning
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 void test(var x) {
   if (x is Never) {

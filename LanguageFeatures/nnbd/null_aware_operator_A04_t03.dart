@@ -11,7 +11,6 @@
  *  PASSTHRU[F, fn[x] => x.m(ARGS(args))]. Test legacy pre-NNBD types
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "../../Utils/expect.dart";
 import "legacy_lib.dart";

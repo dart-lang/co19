@@ -47,7 +47,6 @@
  * @Issue 34726, 34948, 43687
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import "../../../../Utils/expect.dart";
 

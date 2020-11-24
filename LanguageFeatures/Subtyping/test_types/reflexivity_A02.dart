@@ -11,7 +11,6 @@
  * subtype of a type T1
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 dynamic t0Instance = 3.14;
 dynamic t1Instance = "";
 

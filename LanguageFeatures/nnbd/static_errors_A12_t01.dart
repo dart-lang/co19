@@ -11,7 +11,6 @@
  * required group is not bound to an argument at a call site
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 class C {
   static void test1({required int x}) {}

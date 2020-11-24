@@ -12,7 +12,6 @@
  * non-function type alias [A<X extends num>]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 
 import "../../../../Utils/expect.dart";
 

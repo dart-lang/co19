@@ -9,7 +9,6 @@
  * legacy library is a legacy type.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 
 import "../../Utils/expect.dart";

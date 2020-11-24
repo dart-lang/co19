@@ -16,7 +16,6 @@
  * @issue 40557
  * @static-warning
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 

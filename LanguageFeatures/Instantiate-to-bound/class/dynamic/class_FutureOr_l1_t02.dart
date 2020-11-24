@@ -47,7 +47,6 @@
  * @Issue 34264, 34948
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import "dart:async";
 import "../../../../Utils/expect.dart";

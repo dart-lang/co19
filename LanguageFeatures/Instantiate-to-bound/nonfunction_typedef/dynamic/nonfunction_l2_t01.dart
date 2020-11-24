@@ -46,7 +46,7 @@
  * [A<X1 extends X2, X2 extends C<X1, X2>>]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 import "../../../../Utils/expect.dart";
 

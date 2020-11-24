@@ -19,7 +19,6 @@
  * S <: Object then T0 is subtype of Object even is X is not subtype of Object
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
 class S extends X {}

@@ -10,7 +10,6 @@
  * default value. Test both covariant and required modifiers
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 class A {
   const A();

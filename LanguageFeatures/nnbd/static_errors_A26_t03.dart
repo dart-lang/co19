@@ -17,7 +17,6 @@
  * @issue 39876
  * @issue 40943
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 main() {

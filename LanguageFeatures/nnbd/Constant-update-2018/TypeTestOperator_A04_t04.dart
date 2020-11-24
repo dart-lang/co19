@@ -13,7 +13,6 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class A<E> {
   static const bool res = String is! E;

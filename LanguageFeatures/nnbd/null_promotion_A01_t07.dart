@@ -12,7 +12,6 @@
  * condition. Test [e is Null] expression.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 class A {

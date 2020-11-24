@@ -17,7 +17,7 @@
  * non-function type alias parameter is [FutureOr]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases,non-nullable
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-strong
 
 import "dart:async";

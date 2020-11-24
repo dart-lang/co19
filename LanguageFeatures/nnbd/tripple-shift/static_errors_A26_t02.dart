@@ -16,7 +16,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 39876
  */
-// SharedOptions=--enable-experiment=non-nullable,triple-shift
 // Requirements=nnbd-strong
 
 main() {

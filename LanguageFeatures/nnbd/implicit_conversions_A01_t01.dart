@@ -11,7 +11,6 @@
  * literals is performed when the context type is double or double?
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 test1(double d) {

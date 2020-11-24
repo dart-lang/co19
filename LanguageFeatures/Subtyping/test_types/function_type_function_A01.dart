@@ -11,7 +11,6 @@
  * T0 is a subtype of T1. Test void function without actual arguments
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 typedef void T0();
 
 void t0Instance() {}

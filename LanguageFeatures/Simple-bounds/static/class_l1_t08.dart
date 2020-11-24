@@ -17,7 +17,6 @@
  * List<List?>?>], [B<X extends Map<Map?, Map?>?>]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import "../../../Utils/expect.dart";
 

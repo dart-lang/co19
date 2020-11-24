@@ -17,7 +17,6 @@
  * extends FutureOr] parameter (invariant)
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import "dart:async";
 import "../../../Utils/expect.dart";

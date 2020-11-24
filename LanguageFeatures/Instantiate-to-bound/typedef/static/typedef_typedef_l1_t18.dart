@@ -48,7 +48,6 @@
  * @Issue 41963, 41964
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 typedef A<X> = void Function(X);
 typedef G<X extends A<X>> = void Function<Y extends X>();

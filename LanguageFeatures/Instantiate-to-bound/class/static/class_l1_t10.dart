@@ -46,7 +46,6 @@
  * A1<X extends A1<A1<X>>?>], [class A2<X extends A2<A2<X>?>>]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 class A1<X extends A1<A1<X>>?> {}
 //       ^

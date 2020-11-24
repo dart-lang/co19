@@ -13,7 +13,6 @@
  * e1 evaluates to null and otherwise evaluates as e1[e2]. Test type aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
 import "../../../Utils/expect.dart";
 

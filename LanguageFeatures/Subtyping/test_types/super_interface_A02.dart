@@ -13,7 +13,6 @@
  * the case when S1 extends T1
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 class T1 {
   const T1();
 }

@@ -22,7 +22,6 @@
  * does handle all enum cases via a default.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 enum E {

@@ -15,7 +15,6 @@
  * has bound S0 and S0 <: Future<S1>, then a type T0 is a subtype of a type T1.
  * @author ngl@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 import "dart:async";
 
 class S1 {

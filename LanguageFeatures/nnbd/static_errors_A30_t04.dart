@@ -24,7 +24,6 @@
  * @issue 40395
  * @static-warning
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 enum E {

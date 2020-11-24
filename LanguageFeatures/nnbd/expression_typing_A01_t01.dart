@@ -21,7 +21,6 @@
  * @issue 41282
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 class T extends Type {}

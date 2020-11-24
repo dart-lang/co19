@@ -12,7 +12,6 @@
  * getter or operator on an expression whose type is dynamic
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 class A {

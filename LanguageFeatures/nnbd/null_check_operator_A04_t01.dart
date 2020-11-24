@@ -13,7 +13,6 @@
  * @issue 39598
  * @issue 40372
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 class A {

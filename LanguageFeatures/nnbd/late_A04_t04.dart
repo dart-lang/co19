@@ -21,7 +21,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 40390
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 

@@ -12,7 +12,6 @@
  * runtime error if E is subtype of Null
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "legacy_lib.dart";
 import "dart:async";

@@ -12,7 +12,6 @@
  * @author sgrekhov@unipro.ru
  */
 // @dart=2.6
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 
 class C {

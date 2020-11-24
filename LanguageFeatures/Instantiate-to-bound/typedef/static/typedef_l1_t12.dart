@@ -46,7 +46,6 @@
  *  G<X extends A<X>> = X? Function()] (covariant)
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import "../../../../Utils/expect.dart";
 

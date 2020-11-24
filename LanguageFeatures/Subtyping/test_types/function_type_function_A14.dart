@@ -11,7 +11,6 @@
  * T0 is a subtype of T1. Test non-void generic function with required arguments
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 class C {}
 
 typedef X T0<X>(X x);

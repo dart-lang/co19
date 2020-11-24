@@ -15,7 +15,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 40940
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 typedef void Foo();
 

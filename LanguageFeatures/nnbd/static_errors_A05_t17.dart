@@ -17,7 +17,6 @@
  * unless the variable is marked with the late modifier. Test <T extends Object>
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 class A {}
 

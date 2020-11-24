@@ -28,7 +28,6 @@
  * @Issue 40978
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 
 import "override_checking_A03_opted_out_lib.dart";

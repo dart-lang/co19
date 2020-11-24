@@ -11,7 +11,6 @@
  *  PASSTHRU[F, fn[x] => x(ARGS(args))]. Test extension
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,extension-methods
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 

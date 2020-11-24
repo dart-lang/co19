@@ -12,7 +12,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 40941
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 class C {

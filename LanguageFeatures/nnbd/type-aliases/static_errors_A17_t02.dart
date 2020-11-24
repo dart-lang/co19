@@ -14,7 +14,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 39866
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
 typedef Neverland = Never;
 

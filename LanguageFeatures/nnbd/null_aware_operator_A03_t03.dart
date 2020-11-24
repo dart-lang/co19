@@ -11,7 +11,6 @@
  *  SHORT[EXP(e), fn[x] => x.m(ARGS(args))]
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "../../Utils/expect.dart";
 import "legacy_lib.dart";

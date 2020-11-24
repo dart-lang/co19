@@ -11,7 +11,6 @@
  * to legacy library and then back to the opted in code, it is still [Never].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 
 import "../../Utils/expect.dart";

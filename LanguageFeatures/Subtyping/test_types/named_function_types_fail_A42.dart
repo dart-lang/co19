@@ -20,7 +20,6 @@
  * U1[Z0/Y0, ..., Zk/Yk], then T0 is not a subtype of T1. Test generic types
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 class A {}
 
 class C extends A {}

@@ -23,7 +23,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 40394
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 enum E {

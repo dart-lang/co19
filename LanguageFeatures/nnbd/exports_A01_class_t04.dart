@@ -12,7 +12,6 @@
  * code, it retains its status i.e. cannot have any type parameter but [Never].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 
 import "exports_A01_opted_out_lib.dart";

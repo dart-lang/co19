@@ -13,7 +13,6 @@
  * the case <T extends A?>
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 class A {
   final String s = "Lily was here";

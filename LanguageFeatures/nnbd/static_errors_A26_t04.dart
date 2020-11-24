@@ -16,7 +16,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 39876
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 test1() {
   late int x;

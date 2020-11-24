@@ -12,7 +12,6 @@
  * code, its type parameter cannot be [Null] or any other nullable type.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 
 import "exports_A01_opted_out_lib.dart";

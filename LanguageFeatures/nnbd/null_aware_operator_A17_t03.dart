@@ -18,7 +18,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 40959
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "../../Utils/expect.dart";
 import "legacy_lib.dart";

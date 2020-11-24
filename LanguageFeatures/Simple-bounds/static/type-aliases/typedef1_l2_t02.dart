@@ -17,7 +17,6 @@
  * non-nullable non-function type alias with two depending type parameters.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 
 import "../../../../Utils/expect.dart";
 

@@ -14,7 +14,6 @@
  * except the last case (the default case if present) may complete normally
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 void foo() {}

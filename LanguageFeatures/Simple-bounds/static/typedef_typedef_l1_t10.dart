@@ -18,7 +18,6 @@
  * Issue 41437
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 typedef G1<X extends int> = X Function();
 typedef G2<X extends G1> = void Function<Y extends X>(X);

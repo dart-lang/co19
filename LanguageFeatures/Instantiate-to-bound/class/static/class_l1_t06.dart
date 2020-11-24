@@ -46,7 +46,6 @@
  * class [class O<X extends M<O<M<O<M<O<X>>>>>>>].
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 
 import "../../../../Utils/expect.dart";
 

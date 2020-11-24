@@ -13,7 +13,6 @@
  * variable is marked with the `late` modifier. Test some class A
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 class A {}
 

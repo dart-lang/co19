@@ -14,7 +14,6 @@
  * @description Check that otherwise, the query is false. Test some legacy class
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
 

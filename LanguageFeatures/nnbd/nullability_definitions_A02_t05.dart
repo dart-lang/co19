@@ -18,7 +18,6 @@
  * assigned to non-nullable type. Test S* for some S where S is non-nullable
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "legacy_lib.dart";
 

@@ -20,7 +20,6 @@
  * for any i in 0...k, then T0 is not a subtype of T1
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 class U0 extends U1 {}
 class U1 {}
 class B0 {}

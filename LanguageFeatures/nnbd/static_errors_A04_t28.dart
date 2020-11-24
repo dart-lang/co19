@@ -13,7 +13,6 @@
  * but marked with a 'late' modifier. Test FutureOr<Never>
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 import "dart:async";
 late FutureOr<Never> x;

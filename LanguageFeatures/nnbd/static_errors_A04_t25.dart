@@ -13,7 +13,6 @@
  * but marked with a 'late' modifier. Test some class A*
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "legacy_lib.dart";
 

@@ -12,7 +12,6 @@
  * T0 <: X1 and T0 <: S1 then T0 is a subtype of T1.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 class X1 {
   const X1();
 }

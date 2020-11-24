@@ -14,7 +14,6 @@
  * that methods of Object are allowed for the type <T* extends int?>
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-weak
 import "legacy_lib.dart";
 import "../../Utils/expect.dart";

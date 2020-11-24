@@ -18,7 +18,6 @@
  * assigned to non-nullable type. Test X & S where S is non-nullable
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable
 // Requirements=nnbd-strong
 
 class A {}

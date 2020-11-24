@@ -19,7 +19,6 @@
  * @Issue 44092, 44073
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=non-nullable,nonfunction-type-aliases
 // Requirements=nnbd-strong
 
 abstract class A<X extends A<X>> {}
