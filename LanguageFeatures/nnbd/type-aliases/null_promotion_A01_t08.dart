@@ -12,6 +12,7 @@
  * condition. Test type aliases.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-strong
 
 class A {

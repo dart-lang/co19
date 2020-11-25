@@ -13,6 +13,7 @@
  *  PASSTHRU[F, fn[x] => x.f >>>= EXP(e2)]
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=triple-shift
 // Requirements=nnbd-strong
 import "../../../Utils/expect.dart";
 

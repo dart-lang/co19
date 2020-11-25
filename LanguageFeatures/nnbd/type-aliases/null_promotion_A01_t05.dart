@@ -12,6 +12,7 @@
  * Test pre-NNBD legacy types and type aliases
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-weak
 import "legacy_library_aliases_lib.dart" as legacy;
 

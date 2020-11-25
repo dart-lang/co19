@@ -14,6 +14,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 41494
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-weak
 import "legacy_library_aliases_lib.dart" as aliases;
 
