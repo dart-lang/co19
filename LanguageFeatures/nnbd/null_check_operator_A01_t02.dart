@@ -39,11 +39,11 @@ main() {
 // ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   a!?.foo();
-// [error line 42, column 0]
+// [error line 41, column 0]
 // [analyzer] unspecified
 // [cfe] unspecified
   a!?[42];
-// [error line 46, column 0]
+// [error line 45, column 0]
 // [analyzer] unspecified
 // [cfe] unspecified
   a!.s = "Lily was here";
@@ -52,7 +52,7 @@ main() {
 // ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   a!?.s = "Let it be";
-// [error line 55, column 0]
+// [error line 54, column 0]
 // [analyzer] unspecified
 // [cfe] unspecified
   a![0] = "Lily was here";
@@ -61,7 +61,7 @@ main() {
 // ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   a!?[0] = "Lily was here";
-// [error line 64, column 0]
+// [error line 63, column 0]
 // [analyzer] unspecified
 // [cfe] unspecified
   if (a != null) {

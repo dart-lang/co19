@@ -42,11 +42,11 @@ class A {
 //      ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this!?.foo();
-// [error line 45, column 0]
+// [error line 44, column 0]
 // [analyzer] unspecified
 // [cfe] unspecified
     this!?[42];
-// [error line 49, column 0]
+// [error line 48, column 0]
 // [analyzer] unspecified
 // [cfe] unspecified
     this!.s = "Lily was here";
@@ -55,7 +55,7 @@ class A {
 //      ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this!?.s = "Lily was here";
-// [error line 58, column 0]
+// [error line 57, column 0]
 // [analyzer] unspecified
 // [cfe] unspecified
     this![0] = "Lily was here";
@@ -64,7 +64,7 @@ class A {
 //      ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this!?[0] = "Lily was here";
-// [error line 67, column 0]
+// [error line 66, column 0]
 // [analyzer] unspecified
 // [cfe] unspecified
     this.getValue!;
