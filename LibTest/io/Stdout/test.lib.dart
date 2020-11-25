@@ -12,9 +12,9 @@ import "dart:async";
 import "dart:convert";
 import "dart:io";
 
-Future<ProcessResult> run_Windows(String executable, String executableArgs,
-    String script, String filename, Encoding? enc) {
-  return Process.run(executable, [executableArgs, script, "test", ">", filename],
+Future<ProcessResult> run_Windows(String executable, String script,
+    String filename, Encoding? enc) {
+  return Process.run(executable, [script, "test", ">", filename],
       runInShell: true, stdoutEncoding: enc);
 }
 
@@ -35,13 +35,13 @@ run_main(Encoding? enc, List<int> expected) async {
   String filename = getTempFilePath(parent: sandbox);
 
   await (Platform.isWindows
-          ? run_Windows(executable, executableArgs, script, filename, enc)
+          ? run_Windows(executable, script, filename, enc)
           : run_Linux(executable, executableArgs, script, filename, enc))
       .then((ProcessResult results) async {
     final file = new File(filename);
     final contents = await file.readAsBytes();
     await file.delete();
-    Expect.listEquals(expected, contents);
+    Expect.listEquals(expected, contents, results.stderr);
     called++;
   }).whenComplete(() {
     sandbox.delete(recursive: true);
