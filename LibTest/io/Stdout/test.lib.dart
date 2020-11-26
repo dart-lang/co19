@@ -14,12 +14,13 @@ import "dart:io";
 
 Future<ProcessResult> run_Windows(String executable, String script,
     String filename, Encoding? enc) {
-  return Process.run(executable, [script, "test", ">", filename],
-      runInShell: true, stdoutEncoding: enc);
+  var args = [...Platform.executableArguments, script, "test", ">", filename];
+  return Process.run(executable, args, runInShell: true, stdoutEncoding: enc);
 }
 
-Future<ProcessResult> run_Linux(String executable, String executableArgs,
-    String script, String filename, Encoding? enc) {
+Future<ProcessResult> run_Linux(String executable, String script,
+    String filename, Encoding? enc) {
+  String executableArgs = Platform.executableArguments.join(" ");
   return Process.run(
       "bash", ["-c", executable + " " + executableArgs + " " + script + " test > " + filename],
       runInShell: true, stdoutEncoding: enc);
@@ -28,15 +29,15 @@ Future<ProcessResult> run_Linux(String executable, String executableArgs,
 run_main(Encoding? enc, List<int> expected) async {
   String executable = Platform.resolvedExecutable;
   String script = Platform.script.toString();
-  String executableArgs = Platform.executableArguments.join(" ");
   int called = 0;
 
   Directory sandbox = getTempDirectorySync();
-  String filename = getTempFilePath(parent: sandbox);
+  File f = getTempFileSync(parent: sandbox);
+  String filename = f.path;
 
   await (Platform.isWindows
           ? run_Windows(executable, script, filename, enc)
-          : run_Linux(executable, executableArgs, script, filename, enc))
+          : run_Linux(executable, script, filename, enc))
       .then((ProcessResult results) async {
     final file = new File(filename);
     final contents = await file.readAsBytes();
