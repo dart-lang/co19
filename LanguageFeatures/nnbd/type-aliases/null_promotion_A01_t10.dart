@@ -25,13 +25,13 @@ main() {
   AAlias a1 = init(legacy.A());
   if (a1 is Null) {
   } else {
-    a1.foo();
+    a1.bar();
     AAlias a11 = a1;
   }
 
   if (a1 == null) {
   } else {
-    a1.foo();
+    a1.bar();
     AAlias a11 = a1;
   }
 
