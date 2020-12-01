@@ -13,8 +13,9 @@
  *
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=triple-shift
 // Requirements=nnbd-strong
-import "../../Utils/expect.dart";
+import '../../../Utils/expect.dart';
 
 main() {
   bool b = true;
