@@ -21,11 +21,7 @@ main() {
   request.open('GET', url);
   asyncStart();
   request.onError.listen((event) {
-    print(event);
-    print("Request status: ${request.status}");
-    print("Request response: ${request.response}");
-    print("Request responseText: ${request.responseText}");
-    Expect.equals(404, request.status);
+    Expect.equals(0, request.status);
     Expect.isNull(request.response);
     Expect.equals(0, request.responseText?.length);
     asyncEnd();

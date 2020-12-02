@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion ffinal String statusText
- * The request response string (such as \"200 OK\").
- * @description Checks that status text is "200 OK" for successful request.
+ * @assertion final String statusText
+ * The request response string (such as \"OK\").
+ * @description Checks that status text is "OK" for successful request.
  */
 import "dart:html";
 import "dart:async";

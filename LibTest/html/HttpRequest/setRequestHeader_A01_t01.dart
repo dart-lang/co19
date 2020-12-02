@@ -5,9 +5,11 @@
  */
 /**
  * @assertion void setRequestHeader(String header, String value)
- * Sets the value of an HTTP requst header.
- * This method should be called after the request is opened, but before the request is sent.
- * Multiple calls with the same header will combine all their values into a single header.
+ * Sets the value of an HTTP request header.
+ * This method should be called after the request is opened, but before the
+ * request is sent.
+ * Multiple calls with the same header will combine all their values into a
+ * single header.
  * @description Checks that desired response header is retrieved.
  */
 import "dart:html";
