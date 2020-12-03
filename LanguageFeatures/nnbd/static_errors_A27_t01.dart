@@ -13,7 +13,6 @@
  * Iterable<dynamic>
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 void init() {}
 main() {

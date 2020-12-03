@@ -17,7 +17,7 @@
  * @issue 40677
  * @issue 40940
  */
-// Requirements=nnbd-strong
+
 import "dart:async";
 
 class C<T extends Object> {

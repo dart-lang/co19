@@ -25,8 +25,6 @@
  */
 // Requirements=nnbd-strong
 
-//import "../../Utils/expect.dart";
-
 class G<T> {
   void foo() {
     const List<T> l1 = [];

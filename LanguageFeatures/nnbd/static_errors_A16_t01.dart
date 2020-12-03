@@ -11,7 +11,7 @@
  * or mixin the type Never
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 class A {}
 class B {}
 

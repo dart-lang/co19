@@ -14,7 +14,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 40954
  */
-// Requirements=nnbd-strong
 
 class C {
   static void test1(var v, [Never n]) {}

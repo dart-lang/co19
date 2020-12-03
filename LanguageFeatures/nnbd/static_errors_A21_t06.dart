@@ -13,7 +13,7 @@
  * loop
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 import "dart:async";
 
 main() async {

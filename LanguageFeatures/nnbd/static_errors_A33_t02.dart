@@ -12,7 +12,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 39598
  */
-// Requirements=nnbd-strong
+
 void foo() {}
 typedef void Foo();
 

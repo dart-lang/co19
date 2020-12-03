@@ -13,7 +13,7 @@
  * variable is marked with the `late` modifier. Test function type
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 typedef void Foo();
 
 Foo f;

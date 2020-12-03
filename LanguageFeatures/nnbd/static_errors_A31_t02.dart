@@ -16,7 +16,7 @@
  * @issue 40333
  * @issue 40945
  */
-// Requirements=nnbd-strong
+
 class C {
   void set test(int v) {}
   dynamic get test => 3.14;

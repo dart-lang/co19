@@ -13,7 +13,7 @@
  * clause
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 void test() {}
 
 main() {

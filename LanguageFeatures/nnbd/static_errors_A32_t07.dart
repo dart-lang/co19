@@ -13,7 +13,7 @@
  * @issue 39598
  * @issue 39714
  */
-// Requirements=nnbd-strong
+
 test<T extends Object>(T t) {
   t?.toString();
 //^

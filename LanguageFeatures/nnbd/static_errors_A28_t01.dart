@@ -14,7 +14,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 39712
  */
-// Requirements=nnbd-strong
+
 class A {
   A() {}
 

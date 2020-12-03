@@ -13,7 +13,7 @@
  *
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 
 main() {
   late final x1 = 42;

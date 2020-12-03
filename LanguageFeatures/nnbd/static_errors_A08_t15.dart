@@ -14,7 +14,7 @@
  * class
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 import "dart:async";
 
 class A {}

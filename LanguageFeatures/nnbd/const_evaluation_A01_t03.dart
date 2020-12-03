@@ -14,7 +14,6 @@
  *
  * @author iarkh@unipro.ru
  */
-// Requirements=nnbd-strong
 
 import "dart:async";
 

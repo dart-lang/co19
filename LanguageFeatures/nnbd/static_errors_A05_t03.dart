@@ -18,7 +18,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 40951
  */
-// Requirements=nnbd-strong
+
 typedef void Foo();
 
 class C1 {

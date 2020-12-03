@@ -16,7 +16,6 @@
  * Check that '?..' operator must be the first in the cascade sequence
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 class C {
   String test1 = "Let it be";

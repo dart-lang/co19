@@ -15,7 +15,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 40940
  */
-// Requirements=nnbd-strong
+
 typedef void Foo();
 
 class A {}

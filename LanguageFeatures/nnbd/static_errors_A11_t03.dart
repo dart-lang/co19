@@ -10,7 +10,7 @@
  * default value. Test both covariant and required modifiers
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 class A {
   const A();
 }

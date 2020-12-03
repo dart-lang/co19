@@ -11,7 +11,7 @@
  * expression throw e is not assignable to Object
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 class A {
 }
 

@@ -13,7 +13,6 @@
  * the case <T extends num?>
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 class C<T extends num?> {
   T t;

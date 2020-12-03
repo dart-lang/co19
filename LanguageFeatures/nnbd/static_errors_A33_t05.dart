@@ -12,7 +12,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 39598
  */
-// Requirements=nnbd-strong
+
 test<T extends Object>(T t) {
   t!;
 //^

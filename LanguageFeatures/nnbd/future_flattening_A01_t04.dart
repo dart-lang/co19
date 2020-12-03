@@ -21,10 +21,8 @@
  *
  * @author iarkh@unipro.ru
  */
-// Requirements=nnbd-strong
 
 import "dart:async";
-import "../../Utils/expect.dart";
 
 Future<bool> test() async {
   bool b = await null;
@@ -55,7 +53,4 @@ Future<bool> test() async {
   throw "Should not reach here!";
 }
 
-main() {
-  asyncStart();
-  test().then((value) => asyncEnd());
-}
+main() {}

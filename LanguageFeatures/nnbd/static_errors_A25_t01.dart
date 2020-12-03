@@ -13,7 +13,6 @@
  * local variable marked late and final when the variable is definitely assigned
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 main() {
   late final int x = 42;

@@ -12,7 +12,6 @@
  * Test [e is Null] expression
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 class A {
   foo() {}

@@ -15,7 +15,6 @@
  * @issue 40396
  * @issue 40948
  */
-// Requirements=nnbd-strong
 
 class C {
   static Never sTest() {}

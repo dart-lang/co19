@@ -22,7 +22,6 @@
  * for which equality is not primitive.
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 class C {
   const C();

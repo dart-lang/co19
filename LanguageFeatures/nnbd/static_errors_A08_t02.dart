@@ -14,7 +14,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 40946
  */
-// Requirements=nnbd-strong
 
 class C {
   static void test() {

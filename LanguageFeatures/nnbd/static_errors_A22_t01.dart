@@ -13,7 +13,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 39661
  */
-// Requirements=nnbd-strong
+
 import "dart:async";
 
 class C {

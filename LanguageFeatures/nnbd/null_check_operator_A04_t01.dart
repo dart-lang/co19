@@ -13,7 +13,6 @@
  * @issue 39598
  * @issue 40372
  */
-// Requirements=nnbd-strong
 
 class A {
   String s = "Show must go on";

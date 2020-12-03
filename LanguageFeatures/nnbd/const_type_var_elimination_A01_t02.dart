@@ -22,7 +22,6 @@
  *
  * @author iarkh@unipro.ru
  */
-// Requirements=nnbd-strong
 
 class G<T> {
   void foo() {

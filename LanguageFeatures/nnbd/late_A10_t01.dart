@@ -12,7 +12,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 40941
  */
-// Requirements=nnbd-strong
 
 class C {
   covariant late final int v1 = 42;

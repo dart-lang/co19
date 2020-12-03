@@ -17,7 +17,6 @@
  * @issue 40677
  * @issue 40940
  */
-// Requirements=nnbd-strong
 
 class C<X extends Object?> {
   X x;

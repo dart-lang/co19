@@ -18,7 +18,6 @@
  * assigned to non-nullable type. Test X extends S where S is non-nullable
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 class S {}
 
 class C<T extends S> {

@@ -12,7 +12,7 @@
  * F is a function type
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 test1<X extends Function?>(X x) {
   x();
 //^

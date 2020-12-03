@@ -17,7 +17,6 @@
  * @issue 39876
  * @issue 40943
  */
-// Requirements=nnbd-strong
 
 main() {
   late num x;

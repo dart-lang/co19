@@ -16,7 +16,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 40940
  */
-// Requirements=nnbd-strong
+
 import "dart:async";
 
 typedef void Foo();

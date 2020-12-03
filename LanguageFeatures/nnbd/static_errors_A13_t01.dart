@@ -9,7 +9,6 @@
  * @description Check that it is an error to call the default List constructor.
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 main() {
   new List(42);

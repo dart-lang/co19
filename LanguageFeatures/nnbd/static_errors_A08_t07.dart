@@ -13,7 +13,6 @@
  * before it is definitely assigned. Test some type <X extends Object?>
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 class C<X extends Object?> {
   void test() {

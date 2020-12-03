@@ -11,7 +11,7 @@
  * required group is not bound to an argument at a call site
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 class C {
   static void test1({required int x, String y = ""}) {}
   void test2({required int x, String y = ""}) {}

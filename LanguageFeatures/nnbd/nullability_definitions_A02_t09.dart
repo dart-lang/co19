@@ -18,7 +18,6 @@
  * assigned to non-nullable type. Test FutureOr<S> where S is non-nullable
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 import "dart:async";
 
 class C {

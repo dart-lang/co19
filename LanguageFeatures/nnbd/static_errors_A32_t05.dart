@@ -13,7 +13,7 @@
  * @issue 39598
  * @issue 39714
  */
-// Requirements=nnbd-strong
+
 void foo() {}
 void bar() {}
 

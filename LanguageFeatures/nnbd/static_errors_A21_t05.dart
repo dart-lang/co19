@@ -13,7 +13,7 @@
  * loop
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 main() {
   var list = [3, 1, 4, 1, 5];
   for (late int i in list) {

@@ -13,7 +13,7 @@
  * variable is marked with the `late` modifier. Test Never
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 Never n;
 //    ^
 // [analyzer] unspecified

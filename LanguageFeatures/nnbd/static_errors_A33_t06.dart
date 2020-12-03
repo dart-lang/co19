@@ -13,7 +13,7 @@
  * @issue 39598
  * @issue 39867
  */
-// Requirements=nnbd-strong
+
 class A {}
 
 test(var a) {

@@ -12,8 +12,6 @@
  *
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
-import "../../Utils/expect.dart";
 class A {}
 class B extends A {}
 class C extends A {}
@@ -32,6 +30,7 @@ main() {
 //        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
   B? b4 = new C();
 //        ^^^^^^^
 // [analyzer] unspecified

@@ -16,7 +16,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 40940
  */
-// Requirements=nnbd-strong
+
 class X {}
 
 mixin M<T extends Object> on X {

@@ -12,7 +12,7 @@
  * type
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 void foo<T>() {}
 typedef void Foo<T>();
 

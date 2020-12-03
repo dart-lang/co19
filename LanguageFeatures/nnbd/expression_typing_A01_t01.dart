@@ -21,7 +21,6 @@
  * @issue 41282
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 class T extends Type {}
 

@@ -13,7 +13,7 @@
  * late.
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 class C {
   C(late int x) {}                                //# 01: compile-time error
   C(int x, [late String y]) {}                    //# 02: compile-time error

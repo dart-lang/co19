@@ -12,7 +12,7 @@
  * when the variable is definitely unassigned
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 
 main() {
   int x1;

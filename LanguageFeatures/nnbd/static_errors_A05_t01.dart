@@ -18,7 +18,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 40951
  */
-// Requirements=nnbd-strong
 
 class C1 {
   Never n;

@@ -14,7 +14,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 40954
  */
-// Requirements=nnbd-strong
+
 class C {
   static void test1<T extends Object?>(var v, [T t]) {}
 //                                               ^

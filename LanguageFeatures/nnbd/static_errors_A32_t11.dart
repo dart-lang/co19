@@ -14,7 +14,7 @@
  * @issue 39598
  * @issue 39714
  */
-// Requirements=nnbd-strong
+
 import "dart:async";
 
 test<T extends Object>(FutureOr<T> t) {

@@ -22,7 +22,7 @@
  * whose static type is not a subtype of T
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 void foo() {}
 
 main() {

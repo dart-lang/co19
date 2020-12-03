@@ -13,7 +13,7 @@
  * variable is marked with the `late` modifier. Test FutureOr<Never>
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 import "dart:async";
 
 FutureOr<Never> n;

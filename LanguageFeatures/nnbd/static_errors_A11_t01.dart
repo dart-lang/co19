@@ -10,7 +10,6 @@
  * default value.
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 class C {
   static void test1({required int x = 0}) {}

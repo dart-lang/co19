@@ -13,7 +13,6 @@
  *
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 main() {
   bool b = true;

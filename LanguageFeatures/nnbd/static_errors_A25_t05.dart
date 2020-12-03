@@ -13,7 +13,6 @@
  * local variable marked late and final when the variable is definitely assigned
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 class C {
   C operator +(int val) {
@@ -27,10 +26,12 @@ class C {
 
 main() {
   late final C x = new C();
+
   x++;
 // ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
   ++x;
 //^^
 // [analyzer] unspecified

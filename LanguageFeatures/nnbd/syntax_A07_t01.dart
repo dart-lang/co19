@@ -15,7 +15,7 @@
  * successive ? operators on a type
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 class A {}
 
 class C<X extends A??> {}

@@ -16,7 +16,7 @@
  * @issue 40677
  * @issue 40940
  */
-// Requirements=nnbd-strong
+
 typedef void Foo();
 
 void foo() {}

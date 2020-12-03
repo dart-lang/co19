@@ -12,7 +12,6 @@
  * variable when the variable is definitely unassigned
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 main() {
   late int x1;

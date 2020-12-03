@@ -14,7 +14,6 @@
  * @issue 39598
  * @issue 41193
  */
-// Requirements=nnbd-strong
 
 class A {
   String s = "Show must go on";
@@ -42,11 +41,11 @@ class A {
 //      ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this!?.foo();
-// [error line 44, column 0]
+// [error line 43, column 0]
 // [analyzer] unspecified
 // [cfe] unspecified
     this!?[42];
-// [error line 48, column 0]
+// [error line 47, column 0]
 // [analyzer] unspecified
 // [cfe] unspecified
     this!.s = "Lily was here";
@@ -55,7 +54,7 @@ class A {
 //      ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this!?.s = "Lily was here";
-// [error line 57, column 0]
+// [error line 56, column 0]
 // [analyzer] unspecified
 // [cfe] unspecified
     this![0] = "Lily was here";
@@ -64,7 +63,7 @@ class A {
 //      ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this!?[0] = "Lily was here";
-// [error line 66, column 0]
+// [error line 65, column 0]
 // [analyzer] unspecified
 // [cfe] unspecified
     this.getValue!;

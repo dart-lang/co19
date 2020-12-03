@@ -13,7 +13,7 @@
  * dynamic. Test some class A?
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 
 class A {
   final String s = "Lily was here";

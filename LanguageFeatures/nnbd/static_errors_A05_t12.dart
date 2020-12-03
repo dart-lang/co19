@@ -19,7 +19,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 40951
  */
-// Requirements=nnbd-strong
+
 import "dart:async";
 
 class C1<T extends Object> {

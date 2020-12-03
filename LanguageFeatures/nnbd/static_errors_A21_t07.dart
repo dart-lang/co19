@@ -13,7 +13,7 @@
  * element in a collection literal
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 main() async {
   List list = [1, 2, 3, 4];
   <int> [

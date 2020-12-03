@@ -18,8 +18,6 @@
  * assigned to non-nullable type. Test X & S where S is non-nullable
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
-//import "legacy_lib.dart";
 
 class A {}
 class S extends A {}

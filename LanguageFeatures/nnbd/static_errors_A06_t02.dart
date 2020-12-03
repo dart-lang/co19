@@ -15,7 +15,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 40940
  */
-// Requirements=nnbd-strong
+
 class A {}
 
 mixin M on A {

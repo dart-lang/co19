@@ -12,7 +12,7 @@
  * @author sgrekhov@unipro.ru
  * @issue 39681
  */
-// Requirements=nnbd-strong
+
 class C {
   late final int i = 42;
 //^^^^

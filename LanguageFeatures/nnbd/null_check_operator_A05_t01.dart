@@ -12,7 +12,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 39723
  */
-// Requirements=nnbd-strong
 
 main() {
   42!;
@@ -26,7 +25,7 @@ main() {
 //  ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   42!?.abs();
-// [error line 28, column 0]
+// [error line 27, column 0]
 // [analyzer] unspecified
 // [cfe] unspecified
   42.abs()!;

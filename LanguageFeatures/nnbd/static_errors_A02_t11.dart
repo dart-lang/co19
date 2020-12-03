@@ -13,7 +13,7 @@
  * the case <T extends A?>
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 class A {
   final String s = "Lily was here";
   void foo() {}
