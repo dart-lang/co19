@@ -17,7 +17,6 @@
  * @issue 39876
  */
 // SharedOptions=--enable-experiment=triple-shift
-// Requirements=nnbd-strong
 
 main() {
   late int x;

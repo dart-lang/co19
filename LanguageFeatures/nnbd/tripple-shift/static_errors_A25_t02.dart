@@ -14,7 +14,6 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=triple-shift
-// Requirements=nnbd-strong
 
 main() {
   late final int x = 42;

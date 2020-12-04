@@ -14,7 +14,7 @@
  *
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 class T {}
 class T1 extends T {}
 class T2 extends T {}

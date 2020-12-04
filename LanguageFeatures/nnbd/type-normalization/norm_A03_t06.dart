@@ -22,7 +22,7 @@
  *
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 import 'dart:async';
 class A<X> {}
 class B1<X> implements A<X> {}

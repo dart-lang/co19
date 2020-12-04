@@ -20,7 +20,7 @@
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
-// Requirements=nnbd-strong
+
 import "dart:async";
 
 class C {
