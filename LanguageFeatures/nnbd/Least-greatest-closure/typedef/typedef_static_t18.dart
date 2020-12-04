@@ -16,7 +16,6 @@
  * @Issue 42788, 44161, 44165
  * @author iarkh@unipro.ru
  */
-// Requirements=nnbd-strong
 
 import "../../../../Utils/expect.dart";
 

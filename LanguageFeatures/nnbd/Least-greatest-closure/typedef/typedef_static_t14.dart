@@ -16,7 +16,7 @@
  * @Issue 44029
  * @author iarkh@unipro.ru
  */
-// Requirements=nnbd-strong
+
 import "../../../../Utils/expect.dart";
 
 typedef check = void Function<X>() Function();
