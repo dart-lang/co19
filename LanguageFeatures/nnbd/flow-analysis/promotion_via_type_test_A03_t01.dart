@@ -18,7 +18,7 @@
  *
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 class T {
   int foo() => 42;
 }

@@ -13,7 +13,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 42021
  */
-// Requirements=nnbd-strong
 
 main () {
   int i;

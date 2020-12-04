@@ -13,9 +13,6 @@
  *
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
-
-
 
 main() {
   test() {

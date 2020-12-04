@@ -13,7 +13,6 @@
  *
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 test() {
   late int i;

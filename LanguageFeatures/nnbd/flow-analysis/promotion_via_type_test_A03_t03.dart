@@ -18,7 +18,6 @@
  *
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 class X {}
 class R extends X {}

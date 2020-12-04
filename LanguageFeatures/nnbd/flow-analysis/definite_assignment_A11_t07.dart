@@ -12,7 +12,6 @@
  *
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 main() {
   int n;

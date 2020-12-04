@@ -28,7 +28,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 41985
  */
-// Requirements=nnbd-strong
 
 class C {
   String m1() => "Lily was here";

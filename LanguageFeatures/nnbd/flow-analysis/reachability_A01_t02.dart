@@ -22,7 +22,6 @@
  *
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 Never get n => throw "Lily was here";
 

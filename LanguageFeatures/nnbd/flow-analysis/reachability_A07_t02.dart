@@ -27,7 +27,6 @@
  *
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 class C {
   static Never m1() => throw "Exception";

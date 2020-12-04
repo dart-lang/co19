@@ -23,7 +23,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 41981
  */
-// Requirements=nnbd-strong
 
 main() {
   late int i;

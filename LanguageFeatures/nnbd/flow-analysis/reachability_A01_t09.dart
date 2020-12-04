@@ -23,7 +23,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 41985
  */
-// Requirements=nnbd-strong
 
 String get s => "Lily was here";
 

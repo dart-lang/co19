@@ -28,7 +28,6 @@
  * @author sgrekhov@unipro.ru
  * @issue 41981
  */
-// Requirements=nnbd-strong
 
 class C {
   static Null m1() => null;

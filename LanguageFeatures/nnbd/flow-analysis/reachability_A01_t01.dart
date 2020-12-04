@@ -22,7 +22,6 @@
  *
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
 
 void test(Never n) {
   late int i;
