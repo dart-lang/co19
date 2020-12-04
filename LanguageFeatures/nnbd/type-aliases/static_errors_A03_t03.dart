@@ -11,7 +11,7 @@
  * whose type is potentially nullable and not dynamic. Test type aliases
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 extension on int {
   int call(int v) => this + v;

@@ -13,8 +13,8 @@
  * @static-warning
  * @issue 39723
  */
-// SharedOptions=--enable-experiment=extension-methods
 // Requirements=nnbd-strong
+
 import "../../Utils/expect.dart";
 
 extension on int {

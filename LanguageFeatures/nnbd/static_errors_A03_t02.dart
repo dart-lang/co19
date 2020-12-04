@@ -12,7 +12,6 @@
  * method
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
 
 extension on int {
   int call(int v) => this + v;

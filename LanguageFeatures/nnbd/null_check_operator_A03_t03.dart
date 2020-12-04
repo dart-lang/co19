@@ -14,8 +14,8 @@
  * @issue 39723
  * @issue 39598
  */
-// SharedOptions=--enable-experiment=extension-methods
 // Requirements=nnbd-strong
+
 import "../../Utils/expect.dart";
 
 class C {
