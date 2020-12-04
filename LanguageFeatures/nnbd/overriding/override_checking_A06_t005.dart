@@ -16,7 +16,6 @@
  *
  * @author iarkh@unipro.ru
  */
-// Requirements=nnbd-strong
 
 class A<T> {}
 class B implements A<Object> {}
