@@ -12,6 +12,7 @@
  * [e] is a compile-time constant
  * @author iarkh@unipro.ru
  */
+// Requirements=nnbd-strong
 
 import "../../../Utils/expect.dart";
 
