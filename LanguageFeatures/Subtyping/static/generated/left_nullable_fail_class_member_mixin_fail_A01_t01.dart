@@ -27,7 +27,6 @@
  */
 
 
-// Requirements=nnbd-strong
 
 class T1 {
   const T1();

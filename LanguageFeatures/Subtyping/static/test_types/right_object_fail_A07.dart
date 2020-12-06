@@ -19,21 +19,6 @@
  * of Object then T0 is not subtype of T1
  * @author sgrekhov@unipro.ru
  */
-/**
- * @description Check that if type T0 is not a subtype of a type T1, then
- * instance of T0 cannot be be assigned to the to local variable of type T1.
- * Assignment to local variable is tested.
- * @author sgrekhov@unipro.ru
- * @author ngl@unipro.ru
- */
-/*
- * This test is generated from right_object_fail_A07.dart and 
- * local_variable_fail_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
-
-
 import "dart:async";
 
 class S {}
@@ -43,42 +28,5 @@ Object t1Instance = new Object();
 
 const t1Default = const Object();
 
-
-
-
-class LocalVariableTest {
-  LocalVariableTest() {
-    Object t1 = t0Instance;
-//           ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-
-  test() {
-    Object t1 = t0Instance;
-//           ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-
-  static staticTest() {
-    Object t1 = t0Instance;
-//           ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-}
-
-main() {
-  Object t1 = t0Instance;
-//         ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  bar () {
-    Object t1 = t0Instance;
-//           ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  }
-}
+//# @T0 = FutureOr<S?>
+//# @T1 = Object
