@@ -15,7 +15,7 @@
  * @issue 40396
  * @issue 40948
  */
-
+// Requirements=nnbd-weak
 import "dart:async";
 import "legacy_lib.dart";
 
