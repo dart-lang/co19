@@ -10,20 +10,21 @@
  * error. Test direct reference
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 class C<T> {}
 
 typedef CAlias1<T> = C<CAlias1>;
-//                 ^
-// [analyzer] SYNTACTIC_ERROR.INVALID_GENERIC_FUNCTION_TYPE
-// [cfe] Can't create typedef from non-function type.
+// [error line 16, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 typedef CAlias2<T extends CAlias2> = C<T>;
-// [error line 19, column 0]
+// [error line 20, column 0]
 // [analyzer] unspecified
 // [cfe] unspecified
 typedef CAlias3 = CAlias3;
-//              ^
-// [analyzer] SYNTACTIC_ERROR.INVALID_GENERIC_FUNCTION_TYPE
-// [cfe] Can't create typedef from non-function type.
+// [error line 24, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }
