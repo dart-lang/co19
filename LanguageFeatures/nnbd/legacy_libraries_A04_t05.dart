@@ -14,17 +14,11 @@
 // @dart=2.6
 // Requirements=nnbd-weak
 
-foo({required String
+foo({required String named}) {}
 //   ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-                     named}) {}
-//                   ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+
 main() {
   foo(named: "Lily was here");
-//    ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
