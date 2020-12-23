@@ -11,7 +11,7 @@
  * @needsreview issue #16757
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
@@ -22,7 +22,6 @@ main() {
   request.open('GET', url);
   asyncStart();
   request.onError.listen((event) {
-    UtilsHtml.show("request.onError.listen: $event");
     asyncEnd();
   });
   request.send();

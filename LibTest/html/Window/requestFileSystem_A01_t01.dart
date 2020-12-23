@@ -17,7 +17,7 @@
  * File can be created.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   Window nw = window;

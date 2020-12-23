@@ -15,7 +15,7 @@
  */
 // OtherResources=iframe.html
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {

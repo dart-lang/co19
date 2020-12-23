@@ -14,7 +14,7 @@
  * @issue #16930
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   var text = 'text';

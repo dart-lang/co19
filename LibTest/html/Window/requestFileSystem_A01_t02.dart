@@ -17,7 +17,7 @@
  * todo is it in other page?
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   Window nw = window;

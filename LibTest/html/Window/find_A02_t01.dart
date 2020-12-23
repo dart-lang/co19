@@ -13,7 +13,7 @@
  * @description Checks that caseSensitive parameter works.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   var text = 'text';

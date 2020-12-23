@@ -30,7 +30,6 @@ main() {
   request.onLoad.listen((event) {
     switch (request.readyState) {
       case HttpRequest.DONE:
-//          UtilsHtml.show(request.responseText);
         asyncEnd();
         break;
       case HttpRequest.HEADERS_RECEIVED:

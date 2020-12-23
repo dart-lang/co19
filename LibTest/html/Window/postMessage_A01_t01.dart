@@ -9,7 +9,7 @@
  * @description Checks that the message can be sent to the main window.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 const text = "Hi there!";
 

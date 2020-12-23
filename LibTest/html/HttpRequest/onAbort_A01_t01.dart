@@ -9,7 +9,7 @@
  * @description Checks the state an event is fired when the request is aborted.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 import "../testcommon.dart";
 
 main() {
@@ -19,7 +19,6 @@ main() {
   var url = '$host/root_dart/tests/co19/src/LibTest/html/xhr_cross_origin_data.txt';
   request.open('GET', url);
   request.onAbort.listen((event) {
-    UtilsHtml.show("request.onAbort.listen: $event");
     asyncEnd();
   });
   asyncStart();

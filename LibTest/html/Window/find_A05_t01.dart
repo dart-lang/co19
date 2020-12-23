@@ -13,7 +13,7 @@
  * @description Checks that wholeWord parameter works.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   var text = 'textext';

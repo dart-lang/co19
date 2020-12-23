@@ -9,7 +9,7 @@
  * @description Checks that a new window is opened.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   WindowBase nw = window.open("about:blank", "_blank");

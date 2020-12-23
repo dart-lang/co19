@@ -11,7 +11,7 @@
  * @needsreview issue #16757
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   HttpRequest request = new HttpRequest();
@@ -19,7 +19,6 @@ main() {
   request.open('GET', "IntentionallyMissingFile");
   asyncStart();
   upload.onError.listen((event) {
-    UtilsHtml.show("request.onError.listen: $event");
     asyncEnd();
   });
   request.send();

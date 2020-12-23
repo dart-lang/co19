@@ -9,7 +9,7 @@
  * @description Checks that the newest document in this window returned.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   Expect.identical(document, window.document);

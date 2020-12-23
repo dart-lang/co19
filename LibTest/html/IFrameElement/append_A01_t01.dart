@@ -9,7 +9,7 @@
  * @description Checks expected lastChild after append
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   IFrameElement x = new IFrameElement();

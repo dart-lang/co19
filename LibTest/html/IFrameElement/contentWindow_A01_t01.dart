@@ -9,7 +9,7 @@
  * @issue #16937
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   IFrameElement ife = new IFrameElement();

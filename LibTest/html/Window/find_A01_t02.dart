@@ -12,7 +12,7 @@
  * @description Checks that the string is found when present.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   var text = 'text';

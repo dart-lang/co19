@@ -12,7 +12,7 @@
  * @description Checks that subsequent search with the same parameters works.
  */
 import "dart:html";
-import "../../../UtilsHtml/expect.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   var text = 'text';
