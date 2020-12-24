@@ -16,23 +16,29 @@
  *       [flatten(T) = S]
  *   otherwise [flatten(T) = T]
  *
- * @description Check that type of await expression match with expected
- * non-nullable legacy [FutureOr] and the expression can be non-null.
+ * @description Check that type of [await] expression match with expected
+ * [FutureOr<Never>] type dynamically and the expression cannot be non-null.
+ * Check that compile error is not thrown if synchronous function with
+ * [Future<FutureOr<Never>>] return value type returns a value of the type
+ * [dynamic].
+ *
+ * @Issue https://github.com/dart-lang/language/pull/941
+ * @Issue https://github.com/dart-lang/co19/issues/703
+ * @Issue 41266,41437,42236,42237
  *
  * @author iarkh@unipro.ru
  */
 // Requirements=nnbd-weak
 
 import "dart:async";
-import "../../Utils/expect.dart";
-import "future_flattening_legacy_lib.dart";
+import "../../../Utils/expect.dart";
 
-Future<FutureOr<A>> test() async {
-  FutureOr<A> a = await A();
-  return a;
-}
+dynamic getInt() => 1;
+
+Future<FutureOr<Never>> test() async => await getInt();
 
 main() {
   asyncStart();
-  test().then((value) => asyncEnd());
+  test().then((value) { Expect.fail("Should not reach here!"); },
+      onError:(e) => asyncEnd());
 }

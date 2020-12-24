@@ -17,22 +17,24 @@
  *   otherwise [flatten(T) = T]
  *
  * @description Check that type of await expression match with expected
- * nullable legacy types and the expression can be null.
+ * non-nullable types dynamically and the expression cannot be null.
  *
  * @author iarkh@unipro.ru
  */
 // Requirements=nnbd-weak
 
 import "dart:async";
-import "../../Utils/expect.dart";
-import "future_flattening_legacy_lib.dart";
+import "../../../Utils/expect.dart";
 
-Future<A?> test() async {
-  A? a = await null;
-  return a;
+dynamic getNull() => null;
+
+Future<int> test() async {
+  int i = await getNull();
+  return i;
 }
 
 main() {
   asyncStart();
-  test().then((value) => asyncEnd());
+  test().then((value) { Expect.fail("Should not reach here!"); },
+      onError:(e) => asyncEnd());
 }

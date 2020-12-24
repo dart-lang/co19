@@ -17,7 +17,7 @@
  */
 // Requirements=nnbd-weak
 import "legacy_lib.dart";
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 extension on A? {
   String get text => "Lily was here";

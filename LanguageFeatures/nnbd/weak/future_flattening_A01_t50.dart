@@ -17,19 +17,17 @@
  *   otherwise [flatten(T) = T]
  *
  * @description Check that type of await expression match with expected
- * nullable legacy [FutureOr] and the expression can be null.
+ * [FutureOr<void>] type and the expression can be non-null.
  *
  * @author iarkh@unipro.ru
  */
 // Requirements=nnbd-weak
 
 import "dart:async";
-import "../../Utils/expect.dart";
-import "future_flattening_legacy_lib.dart";
+import "../../../Utils/expect.dart";
 
-Future<FutureOr<A?>> test() async {
-  FutureOr<A?> a = await null;
-  return a;
+Future<FutureOr<void>> test() async {
+  FutureOr<void> d = await 1;
 }
 
 main() {

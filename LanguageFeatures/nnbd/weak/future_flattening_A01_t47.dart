@@ -16,25 +16,26 @@
  *       [flatten(T) = S]
  *   otherwise [flatten(T) = T]
  *
- * @description Check that type of await expression match with expected legacy
- * [FutureOr] dynamically and the expression can be null in weak mode.
+ * @description Check that type of await expression match with expected
+ * [FutureOr<Null>] type dynamically and the expression cannot be non-null.
  *
+ * Issue 41437
  * @author iarkh@unipro.ru
  */
 // Requirements=nnbd-weak
 
 import "dart:async";
-import "../../Utils/expect.dart";
-import "future_flattening_legacy_lib.dart";
+import "../../../Utils/expect.dart";
 
-dynamic getNull() => null;
+dynamic getInt() => 1;
 
-Future<FutureOr<A>> test() async {
-  FutureOr<A> a = await getNull();
-  return a;
+Future<FutureOr<Null>> test() async {
+  FutureOr<Null> i = await getInt();
+  return i;
 }
 
 main() {
   asyncStart();
-  test().then((value) => asyncEnd());
+  test().then((value) {  Expect.fail("Should not reach here!"); },
+      onError:(e) => asyncEnd());
 }

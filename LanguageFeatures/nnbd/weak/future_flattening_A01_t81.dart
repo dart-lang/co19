@@ -16,23 +16,19 @@
  *       [flatten(T) = S]
  *   otherwise [flatten(T) = T]
  *
- * @description Check that type of await expression match with expected
- * non-nullable legacy types and the expression can be non-null.
+ * @description Check that future flattening works correctly for [Future<void>]
+ * type and the expression can be [Future<void>].
  *
  * @author iarkh@unipro.ru
  */
 // Requirements=nnbd-weak
 
 import "dart:async";
-import "../../Utils/expect.dart";
-import "future_flattening_legacy_lib.dart";
-
-Future<A> test() async {
-  A a = await A();
-  return a;
-}
+import "../../../Utils/expect.dart";
 
 main() {
   asyncStart();
-  test().then((value) => asyncEnd());
+  Future<Future<void>>(() => Future<void>((){})).then((value) {
+    value.then((value1) => asyncEnd());
+  });
 }

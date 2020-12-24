@@ -31,7 +31,7 @@
 // Requirements=nnbd-weak
 
 import "dart:async";
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 import "future_flattening_legacy_lib.dart";
 
 dynamic getNull() => null;

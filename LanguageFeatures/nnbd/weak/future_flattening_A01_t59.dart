@@ -16,23 +16,31 @@
  *       [flatten(T) = S]
  *   otherwise [flatten(T) = T]
  *
- * @description Check that type of await expression match with expected
- * nullable legacy [FutureOr] and the expression can be non-null.
+ * @description Check that future flattening works correctly for non-nullable
+ * [Future<int>] and Future<Object> types and the expression can be non-null.
  *
+ * Issue 41437
  * @author iarkh@unipro.ru
  */
 // Requirements=nnbd-weak
 
 import "dart:async";
-import "../../Utils/expect.dart";
-import "future_flattening_legacy_lib.dart";
-
-Future<FutureOr<A?>> test() async {
-  FutureOr<A?> a = await A();
-  return a;
-}
+import "../../../Utils/expect.dart";
 
 main() {
   asyncStart();
-  test().then((value) => asyncEnd());
+  Future<int>(() => 1).then((value) => asyncEnd());
+
+  asyncStart();
+  Future<Future<int>>(() => Future<int>(() => 1)).then((value) {
+    value.then((value1) => asyncEnd());
+  });
+
+  asyncStart();
+  Future<Object>(() => 1).then((value) => asyncEnd());
+
+  asyncStart();
+  Future<Future<Object>>(() => Future<Object>(() => 1)).then((value) {
+    value.then((value1) => asyncEnd());
+  });
 }
