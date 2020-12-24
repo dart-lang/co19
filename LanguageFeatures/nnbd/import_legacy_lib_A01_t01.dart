@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -12,18 +12,15 @@
  * programmers for the purposes of error messages that the type originates in
  * unmigrated code.
  *
- * @description Check that all fields of legacy type T* are nullable
+ * @description Checks that compile error appears if legacy library is imported
+ * in the strong mode.
+ * @compile-error
+ * @Issue 44545
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-weak
-import "legacy_lib.dart";
+// Requirements=nnbd-strong
 
-main() {
-  A? a1 = new A();
-  if (a1 != null) {
-    a1.text = null;
-  }
+import "weak/legacy_lib.dart";
 
-  A a2 = new A();
-  a2.text = null;
-}
+main() {}
+

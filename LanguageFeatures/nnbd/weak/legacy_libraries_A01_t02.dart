@@ -11,15 +11,22 @@
  *  - All required named parameters are treated as optional named parameters.
  *  - The type Never is treated as the type Null
  *
- * @description Check that the type Never is treated as the type Null
+ * @description Check that all types of the form T? in the opted-in API are
+ * treated as T
  * @author sgrekhov@unipro.ru
  */
 // @dart=2.6
 // Requirements=nnbd-weak
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
+import "opted_in_lib.dart";
 
 main() {
-  Never n = null;
-  String s = n;
-  Expect.isTrue(s == null);
+  Expect.isTrue(aVar2 is A);
+  Expect.isTrue(cVar2 is C<A>);
+  Expect.isTrue(sVar2 is String);
+  Expect.isTrue(iVar2 is int);
+  aVar2 = null;
+  cVar2 = null;
+  sVar2 = null;
+  iVar2 = null;
 }

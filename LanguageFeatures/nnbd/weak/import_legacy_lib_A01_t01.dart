@@ -12,23 +12,19 @@
  * programmers for the purposes of error messages that the type originates in
  * unmigrated code.
  *
- * @description Check that all fields of legacy type T* are nullable.
+ * @description Check that all fields of legacy type T* are nullable
  * @author sgrekhov@unipro.ru
  */
 // Requirements=nnbd-weak
+
 import "legacy_lib.dart";
 
-class B extends A with Mx {
-  String bStr = "Lily was here";
-}
-
 main() {
-  B b = new B();
-  C<B> c = new C(b);
-  c.x.text = null;
-  c.x.iMx = null;
-  c.x.bStr = null;
-//           ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  A? a1 = new A();
+  if (a1 != null) {
+    a1.text = null;
+  }
+
+  A a2 = new A();
+  a2.text = null;
 }
