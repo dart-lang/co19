@@ -23,7 +23,7 @@ main() async {
 _main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   DateTime oldDate = file.lastAccessedSync();
-  DateTime newDate = oldDate.add(new Duration(days: -1));
+  DateTime newDate = oldDate.add(new Duration(seconds: -1));
 
   asyncStart();
   await file.setLastAccessed(newDate).then((_) {

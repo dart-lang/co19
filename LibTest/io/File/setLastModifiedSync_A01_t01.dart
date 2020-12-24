@@ -23,7 +23,7 @@ main() async {
 _main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
   DateTime oldDate = file.lastModifiedSync();
-  DateTime newDate = oldDate.add(new Duration(days: -1));
+  DateTime newDate = oldDate.add(new Duration(seconds: -1));
 
   file.setLastModifiedSync(newDate);
   Expect.equals(newDate, file.lastModifiedSync());
