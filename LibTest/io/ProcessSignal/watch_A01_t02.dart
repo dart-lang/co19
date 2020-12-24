@@ -26,7 +26,7 @@ import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-check(ProcessSignal signal, int ec) {
+check(ProcessSignal signal, int ec, [int? ec2]) {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   asyncStart();
@@ -45,7 +45,12 @@ check(ProcessSignal signal, int ec) {
       }
     });
     process.exitCode.then((exitCode) {
-      Expect.equals(ec, exitCode);
+      if (ec2 == null) {
+        Expect.equals(ec, exitCode);
+      } else {
+        Expect.isTrue(
+            exitCode == ec || exitCode == ec2, "exitCode is $exitCode");
+      }
       asyncEnd();
     });
   });
@@ -56,8 +61,8 @@ runMain() {
     check(ProcessSignal.sighup, -1);
     check(ProcessSignal.sigint, -2);
     check(ProcessSignal.sigterm, -15);
-    check(ProcessSignal.sigusr1, -10);
-    check(ProcessSignal.sigusr2, -12);
+    check(ProcessSignal.sigusr1, -10, -30);
+    check(ProcessSignal.sigusr2, -12, -31);
     // ProcessSignal.sigwinch does not kill process
     check(ProcessSignal.sigwinch, 0);
   }
