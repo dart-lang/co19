@@ -13,8 +13,8 @@
  *
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
-import "../../Utils/expect.dart";
+// Requirements=nnbd-weak
+import "../../../Utils/expect.dart";
 
 main() {
   var x1;

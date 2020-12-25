@@ -12,7 +12,7 @@
  * @Issue 44545
  * @author iarkh@unipro.ru
  */
-// Requirements=nnbd-weak
+// Requirements=nnbd-strong
 
 export "weak/exports_A02_opted_out_lib.dart";
 
