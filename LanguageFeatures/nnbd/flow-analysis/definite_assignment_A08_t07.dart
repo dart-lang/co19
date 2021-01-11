@@ -20,7 +20,7 @@ main() {
   } on String catch (_) {
     n = 42;
   } on int catch (_) {
-    bool b = true;
+    bool b = (() => true)();
     if (b) {
       n = 42;
     }

@@ -15,7 +15,7 @@
  */
 
 main() {
-  bool b = true;
+  bool b = (() => true)();
   final int? x1;
   if (b) {
     x1 = 42;

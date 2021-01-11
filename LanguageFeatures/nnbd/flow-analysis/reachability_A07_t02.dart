@@ -35,7 +35,7 @@ class C {
 main() {
   try {
     late int i;
-    bool b = true;
+    bool b = (() => true)();
     if (b) {
       C.m1();     // The code after this point is unreachable
       i = 42;     // Variable is initialized in a dead code. This leaves it definitely unassigned

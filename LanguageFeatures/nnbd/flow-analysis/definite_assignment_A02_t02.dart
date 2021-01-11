@@ -15,7 +15,7 @@
 
 main() {
   int n;
-  bool b = true;
+  bool b = (() => true)();
   if (b) {
     n = 42;
   }

@@ -15,7 +15,7 @@
 
 main() {
   int n;
-  bool b = true;
+  bool b = (() => true)();
   int i = b ? (n = 42) : -42;
   n;  // It's an error to read local non-nullable variable when it is not definitely assigned
 //^
