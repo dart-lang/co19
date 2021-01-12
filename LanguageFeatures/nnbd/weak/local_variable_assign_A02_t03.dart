@@ -17,7 +17,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  bool b = false;
+  bool b = (() => false)();
   late final x1;
   if (b) {
     x1 = 42;
