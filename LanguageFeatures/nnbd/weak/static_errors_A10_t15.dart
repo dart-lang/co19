@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -15,7 +15,8 @@
  * @issue 40287
  * @issue 40954
  */
-// Requirements=nnbd-strong
+// Requirements=nnbd-weak
+import "legacy_lib.dart";
 import "dart:async";
 
 typedef void Foo();
@@ -35,6 +36,9 @@ abstract class C {
   void test7(var v, [X x]);
   void test8(var v, {X x});
 
+  void test9(var v, [A a]);
+  void test10(var v, {A a});
+
   void test11<T extends Object>(var v, [T t]);
   void test12<T extends Object>(var v, {T t});
 
@@ -53,8 +57,15 @@ abstract class C {
   void test21(var v, [FutureOr<X> x]);
   void test22(var v, {FutureOr<X> x});
 
+  void test23(var v, [FutureOr<A> a]);
+  void test24(var v, {FutureOr<A> a});
+
   void test25(var v, [FutureOr<FutureOr<X>> x]);
   void test26(var v, {FutureOr<FutureOr<X>> x});
+
+  void test27(var v, [LegacyFoo f]);
+  void test28(var v, {LegacyFoo f});
 }
 
-main() {}
+main() {
+}

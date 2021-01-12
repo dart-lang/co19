@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -11,17 +11,31 @@
  * @description  Check that it is no compile-time error to call a method, setter,
  * getter or operator on an expression whose type is potentially nullable if
  * they are  methods, setters, getters, and operators on Object. Test
- * that methods of Object are allowed for the type <T* extends int?>
+ * that methods of Object are allowed for the type <T extends F?>, where F is a
+ * function type
  * @author sgrekhov@unipro.ru
  */
 // Requirements=nnbd-weak
-import "legacy_lib.dart";
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
+
+typedef void Foo();
+
+void foo() {}
+void bar() {}
+
+class C<T extends Foo?> {
+  T a;
+  C(this.a);
+
+  test() {
+    Expect.isNotNull(a.hashCode);
+    Expect.isNotNull(a.toString());
+    Expect.isNotNull(a.runtimeType);
+    Expect.isFalse(a == bar);
+  }
+}
 
 main() {
-  B<int?> b = new B<int?>(42);
-  Expect.isNotNull(b.x.hashCode);
-  Expect.isNotNull(b.x.toString());
-  Expect.isNotNull(b.x.runtimeType);
-  Expect.isFalse(b.x == new Object());
+  C<Foo?> c = new C<Foo?>(foo);
+  c.test();
 }

@@ -16,7 +16,7 @@
  * @author sgrekhov@unipro.ru
  */
 // Requirements=nnbd-weak
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 import "legacy_lib.dart";
 
 main() {

@@ -10,23 +10,19 @@
  *
  * @description Check that the grammar of selectors is extended to allow
  * null-aware subscripting using the syntax e1?[e2] which evaluates to null if
- * e1 evaluates to null and otherwise evaluates as e1[e2].
+ * e1 evaluates to null and otherwise evaluates as e1[e2]. Test legacy pre-NNBD
+ * types
  * @static-warning
  * @author sgrekhov@unipro.ru
  * @issue 39865
  */
-
-// Requirements=nnbd-strong
-
-import "../../Utils/expect.dart";
-
-class C {
-  int operator[](int index) => index * 2;
-}
+// Requirements=nnbd-weak
+import "../../../Utils/expect.dart";
+import "legacy_lib.dart";
 
 main() {
-  C? c = null;
-  Expect.isNull(c?[42]);
-  c = new C();
-  Expect.equals(4, c?[2]);   /// static type warning
+  A? a = null;
+  Expect.isNull(a?[42]);
+  a = new A();
+  Expect.equals(42, a?[42]);   /// static type warning
 }

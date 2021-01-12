@@ -13,7 +13,7 @@
  * before it is definitely assigned. Test FutureOr<T>, where <T extends Object>
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+
 import "dart:async";
 
 class C<T extends Object> {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -13,9 +13,10 @@
  * FutureOr
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
+// Requirements=nnbd-weak
 import "dart:async";
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
+import "legacy_lib.dart";
 
 class C {}
 
@@ -31,6 +32,9 @@ main() {
 
   FutureOr<C?> x4 = new C();
   Expect.isNotNull(x4.toString);
+
+  FutureOr<A?> x5 = new A();
+  Expect.isNotNull(x5.toString);
 
   var x6 = new C();
   Expect.isNotNull(x6.toString);

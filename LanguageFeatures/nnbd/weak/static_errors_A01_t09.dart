@@ -11,41 +11,46 @@
  * @description Check that it is no compile-time error to call a method, setter,
  * getter or operator on an expression whose type is potentially nullable if
  * they are  methods, setters, getters, and operators on Object. Test
- * that methods of Object are allowed for the class FutureOr
+ * that methods of Object are allowed for the classes Null*`, `dynamic*`, `S?*`,
+ * `FutureOr<Null*>`, `FutureOr<dynamic*>`, `FutureOr<FutureOr<S*>>`
  * @author sgrekhov@unipro.ru
  */
-// Requirements=nnbd-strong
-import "dart:async";
-import "../../Utils/expect.dart";
-
-class C {}
+// Requirements=nnbd-weak
+import "../../../Utils/expect.dart";
+import "legacy_lib.dart";
 
 main() {
-  FutureOr x1 = new Object();
+  var x1 = getLegacyNull();
   Expect.isNotNull(x1.hashCode);
   Expect.isNotNull(x1.toString());
   Expect.isNotNull(x1.runtimeType);
   Expect.isFalse(x1 == new Object());
 
-  FutureOr<void> x2 = new Object();
+  var x2 = legacyDynamic;
   Expect.isNotNull(x2.hashCode);
   Expect.isNotNull(x2.toString());
   Expect.isNotNull(x2.runtimeType);
   Expect.isFalse(x2 == new Object());
 
-  FutureOr<Null> x3 = null;
+  var x3 = aLegacy;
   Expect.isNotNull(x3.hashCode);
   Expect.isNotNull(x3.toString());
   Expect.isNotNull(x3.runtimeType);
   Expect.isFalse(x3 == new Object());
 
-  FutureOr<C?> x4 = new C();
+  var x4 = futureOrNull;
   Expect.isNotNull(x4.hashCode);
   Expect.isNotNull(x4.toString());
   Expect.isNotNull(x4.runtimeType);
   Expect.isFalse(x4 == new Object());
 
-  var x6 = new C();
+  var x5 = futureOrDynamic;
+  Expect.isNotNull(x5.hashCode);
+  Expect.isNotNull(x5.toString());
+  Expect.isNotNull(x5.runtimeType);
+  Expect.isFalse(x5 == new Object());
+
+  var x6 = futureOrfutureOrS;
   Expect.isNotNull(x6.hashCode);
   Expect.isNotNull(x6.toString());
   Expect.isNotNull(x6.runtimeType);
