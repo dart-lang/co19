@@ -12,7 +12,6 @@
  * explicitly specifies a default non-null value for its optional parameter and 
  * overriding method does not.
  * @issue 27476
- * @static-warning
  * @author msyabro
  */
 
@@ -21,7 +20,7 @@ class A {
 }
 
 class C extends A {
-  foo([x]) { /// static type warning
+  foo([x]) {
   }
 }
 

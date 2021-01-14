@@ -17,7 +17,6 @@
  * See https://github.com/dart-lang/sdk/issues/34437#issuecomment-432093691
  *
  * @issue 27476
- * @static-warning
  * @author msyabro
  */
 
@@ -26,7 +25,7 @@ abstract class A {
 }
 
 class C extends A {
-  foo([x = '']) { /// static type warning
+  foo([x = '']) {
   }
 }
 
