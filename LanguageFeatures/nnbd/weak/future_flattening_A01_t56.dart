@@ -16,15 +16,20 @@
  *       [flatten(T) = S]
  *   otherwise [flatten(T) = T]
  *
- * @description Check that type of [await] expression matches with expected
- * [FutureOr<Never>] type dynamically and the expression cannot be [null]. Check
- * that compile error is not thrown if synchronous function with
- * [Future<FutureOr<Never>>] return value type returns a value of the type
- * [dynamic].
+ * @description Check that type of `await` expression matches with expected
+ * `Future<FutureOr<Never>>` type dynamically and the expression cannot be
+ * `null` in the weak mode.
+ *
+ * We'll have to keep this one on a waiting list, blocked by
+ * https://github.com/dart-lang/language/issues/1346 (or some issue that can be
+ * found looking at 1346, if the discussion is taken somewhere else, say
+ * https://github.com/dart-lang/sdk/issues/44246).
+
  *
  * @Issue https://github.com/dart-lang/language/pull/941
  * @Issue https://github.com/dart-lang/co19/issues/703
  * @Issue 41266,41437,42236,42237
+ * @Issue https://github.com/dart-lang/language/issues/1346
  *
  * @author iarkh@unipro.ru
  */

@@ -17,7 +17,13 @@
  *   otherwise [flatten(T) = T]
  *
  * @description Check that future flattening works correctly for non-nullable
- * [Future<int>] type dynamically and the expression cannot be null.
+ * `Future<int>` type dynamically and the expression can be null in the weak
+ * mode.
+ *
+ * Here is a situation where sound and non-sound null checking produce different
+ * results. The `null` value is a result of `getNull()`, it's tested using `null
+ * as int`, and such a cast succeeds. So, no dynamic error here and
+ * `Future<int>` is returned.
  *
  * @Issue 41340,41437
  * @author iarkh@unipro.ru
@@ -32,11 +38,9 @@ dynamic getNull() => null;
 main() {
   asyncStart();
   Future f = Future<int>(() => getNull());
-  f.then((value) { Expect.fail("Should not reach here"); },
-      onError:(e) => asyncEnd());
+  f.then((value) => asyncEnd());
 
   asyncStart();
   f = Future<Future<int>>(() => getNull());
-  f.then((value) { Expect.fail("Should not reach here"); },
-      onError:(e) => asyncEnd());
+  f.then((value) => asyncEnd());
 }

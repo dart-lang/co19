@@ -16,10 +16,16 @@
  *       [flatten(T) = S]
  *   otherwise [flatten(T) = T]
  *
- * @description Check that type of await expression match with expected
- * [FutureOr<Never>] type dynamically and the expression cannot be null.
+ * @description Checks that async function with `Future<FutureOr<Never>>` return
+ * type cannot return null in the weak mode.
+ *
+ * We'll have to keep this one on a waiting list, blocked by
+ * https://github.com/dart-lang/language/issues/1346 (or some issue that can be
+ * found looking at 1346, if the discussion is taken somewhere else, say
+ * https://github.com/dart-lang/sdk/issues/44246).
  *
  * @Issue 41324, 41437
+ * @Issue https://github.com/dart-lang/language/issues/1346
  * @author iarkh@unipro.ru
  */
 // Requirements=nnbd-weak

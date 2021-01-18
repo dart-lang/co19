@@ -16,10 +16,14 @@
  *       [flatten(T) = S]
  *   otherwise [flatten(T) = T]
  *
- * @description Check that type of [await] expression matches with expected
- * [FutureOr<Object>] type dynamically and the expression cannot be [null].
- * Check that compile error is not thrown if synchronous function with
- * [FutureOr<Object>] return value type returns a value of the type [dynamic].
+ * @description Check that async function with `Future<FutureOr<Object>>` return
+ * type can return `null` in the weak mode.
+ *
+ * Here is a situation where sound and non-sound null checking produce different
+ * results. The `null` value is a result of `getNull()`, it's tested using `null
+ * as FutureOr<Object>`, and such a cast succeeds. So `test()` does not throw
+ * error  and returns `Future<FutureOr<Object>>` that will be completed with
+ * `null`. No dynamic error here.
  *
  * @Issue https://github.com/dart-lang/language/pull/941
  * @Issue https://github.com/dart-lang/co19/issues/703
@@ -38,6 +42,5 @@ Future<FutureOr<Object>> test() async => await getNull();
 
 main() {
   asyncStart();
-  test().then((value) {  Expect.fail("Should not reach here!"); },
-      onError:(e) => asyncEnd());
+  test().then((value) => asyncEnd());
 }

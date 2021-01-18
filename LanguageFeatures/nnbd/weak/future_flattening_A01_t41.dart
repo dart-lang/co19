@@ -16,8 +16,14 @@
  *       [flatten(T) = S]
  *   otherwise [flatten(T) = T]
  *
- * @description Check that type of await expression match with expected
- * [FutureOr<Object>] type dynamically and the expression cannot be null.
+ * @description Check that async function with `Future<FutureOr<Object>>` return
+ * type can return `null` in the weak mode.
+ *
+ * Here is a situation where sound and non-sound null checking produce different
+ * results. The `null` value is a result of `getNull()`, it's tested using `null
+ * as FutureOr<Object>`, and such a cast succeeds. So `test()` does not throw
+ * error  and returns `Future<FutureOr<Object>>` that will be completed with
+ * `null`. No dynamic error here.
  *
  * @Issue 41272,41437
  * @author iarkh@unipro.ru
@@ -36,6 +42,5 @@ Future<FutureOr<Object>> test() async {
 
 main() {
   asyncStart();
-  test().then((value) {  Expect.fail("Should not reach here!"); },
-      onError:(e) => asyncEnd());
+  test().then((value) => asyncEnd());
 }

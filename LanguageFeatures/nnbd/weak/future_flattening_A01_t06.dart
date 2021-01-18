@@ -16,8 +16,15 @@
  *       [flatten(T) = S]
  *   otherwise [flatten(T) = T]
  *
- * @description Checks that type of [await] expression match with the expected
- * non-nullable types dynamically and the expression cannot be [null].
+ * @description Check that type of `await` expression match with expected type
+ * dynamically for `bool` type parameter and the expression can be `null` in
+ * weak mode.
+ *
+ * Here is a situation where sound and non-sound null checking produce different
+ * results. The `null` value is a result of `getNull()`, it's tested using `null
+ * as bool`, and such a cast succeeds. So `test()` does not throw error  and
+ * returns `Future<bool>` that will be completed with `null`. No dynamic error
+ * here.
  *
  * @Issue https://github.com/dart-lang/language/pull/941
  * @Issue https://github.com/dart-lang/co19/issues/703
@@ -35,6 +42,5 @@ Future<bool> test() async => await getNull();
 
 main() {
   asyncStart();
-  test().then((value) { Expect.fail("Should not reach here!"); },
-      onError:(e) => asyncEnd());
+  test().then((value) => asyncEnd());
 }

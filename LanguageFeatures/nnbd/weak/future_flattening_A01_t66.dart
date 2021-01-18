@@ -36,6 +36,5 @@ main() {
 
   asyncStart();
   Future f1 = Future<Object?>(() => Future<Object>(() => getNull()));
-  f1.then((value) { Expect.fail("Should not reach here!"); },
-      onError:(e) => asyncEnd());
+  f1.then((value) => asyncEnd());
 }
