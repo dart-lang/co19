@@ -18,7 +18,7 @@
 // @dart=2.6
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-weak
-import "../../../Utils/expect.dart";
+import "../../../../Utils/expect.dart";
 import "../opted_in_lib.dart";
 
 typedef AAlias = A;

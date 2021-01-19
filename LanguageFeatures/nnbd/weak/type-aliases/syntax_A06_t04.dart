@@ -16,7 +16,7 @@
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-weak
-import "../../../Utils/expect.dart";
+import "../../../../Utils/expect.dart";
 import "legacy_library_aliases_lib.dart";
 
 typedef AAlias2 = A?;

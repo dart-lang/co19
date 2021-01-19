@@ -11,35 +11,17 @@
  *  - All required named parameters are treated as optional named parameters.
  *  - The type Never is treated as the type Null
  *
- * @description Check that all types of the form T? in the opted-in API are
- * treated as T
+ * @description Check that the type Never is treated as the type Null
  * @author sgrekhov@unipro.ru
  */
 // @dart=2.6
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-weak
-import "../../../Utils/expect.dart";
+import "../../../../Utils/expect.dart";
 import "opted_in_aliases_lib.dart";
 
 main() {
-  AAliasNonNullable a1 = null;
-  AAliasNullable a2 = null;
-  StringAliasNonNullable s1 = null;
-  StringAliasNullable s2 = null;
-  IntAliasNonNullable i1 = null;
-  IntAliasNullable i2 = null;
-
-  a1 = new A();
-  a2 = new A();
-  s1 = "Lily was here";
-  s2 = "Show must go on";
-  i1 = 42;
-  i2 = 13;
-
-  Expect.isTrue(a1 is A);
-  Expect.isTrue(s1 is String);
-  Expect.isTrue(i1 is int);
-  Expect.isTrue(a2 is A);
-  Expect.isTrue(s2 is String);
-  Expect.isTrue(i2 is int);
+  NeverAlias n = null;
+  String s = n;
+  Expect.isTrue(s == null);
 }

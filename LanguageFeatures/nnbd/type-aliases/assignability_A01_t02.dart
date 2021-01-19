@@ -14,7 +14,6 @@
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
-import "../../../Utils/expect.dart";
 class A {}
 class B extends A {}
 class C extends A {}

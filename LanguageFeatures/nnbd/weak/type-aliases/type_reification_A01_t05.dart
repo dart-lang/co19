@@ -6,19 +6,21 @@
 /**
  * @assertion All types reified in legacy libraries are reified as legacy types.
  * @description Check that runtime type of the object of the class imported from
- * opted to legacy library can be casted correctly in opted-in code.
+ * opted to legacy library is a legacy type.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-weak
 
-import "../../../Utils/expect.dart";
+import "../../../../Utils/expect.dart";
 import "type_reification_legacy_aliases_lib.dart";
 
 main() {
-  Object? a1 = A1() as Object;
-  var a2 = a1 as AliasA;
-  A1 a3 = a2 as A1;
-  Expect.throws(() { a2 as B; });
-  Expect.throws(() { B() as AliasA; });
+  var a = AliasA();
+  Expect.isTrue(a is AliasA);
+  Expect.isTrue(a is AliasA?);
+  Expect.isTrue(a is A);
+  Expect.isTrue(a is A?);
+  Expect.isFalse(a is A1);
+  Expect.isFalse(a is A1?);
 }
