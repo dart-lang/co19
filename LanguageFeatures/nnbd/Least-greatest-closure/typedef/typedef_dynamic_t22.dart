@@ -21,6 +21,7 @@
 import "../../../../Utils/expect.dart";
 
 typedef check<X> = X Function(X x);
+typedef expected = Object Function(Never x);
 
 void main() {
   void f<X>(check<X> Function() g) => g();
