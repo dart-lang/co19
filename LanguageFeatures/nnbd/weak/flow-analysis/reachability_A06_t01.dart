@@ -25,8 +25,8 @@ main () {
   }
   try {
     i;
-    Expect.fail("LateInitializationError expected");
-  } on LateInitializationError catch(e) {
+    Expect.fail("Error expected");
+  } on Error catch(e) {
     // Ok
   }
 }

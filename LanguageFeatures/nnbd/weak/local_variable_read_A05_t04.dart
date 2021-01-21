@@ -29,7 +29,7 @@ main() {
   if (b) {
     x2 = 42;
   }
-  Expect.throws(() {x2;}, (e) => e is LateInitializationError);
+  Expect.throws(() {x2;});
 
   b = true;
   late int? x3;
@@ -43,7 +43,7 @@ main() {
   if (b) {
     x4 = 42;
   }
-  Expect.throws(() {x4;}, (e) => e is LateInitializationError);
+  Expect.throws(() {x4;});
 
   b = true;
   late final int x5;
@@ -57,7 +57,7 @@ main() {
   if (b) {
     x6 = 42;
   }
-  Expect.throws(() {x6;}, (e) => e is LateInitializationError);
+  Expect.throws(() {x6;});
 
   b = true;
   late final int? x7;
@@ -71,7 +71,7 @@ main() {
   if (b) {
     x8 = 42;
   }
-  Expect.throws(() {x8;}, (e) => e is LateInitializationError);
+  Expect.throws(() {x8;});
 
   b = true;
   late var x9;
@@ -85,7 +85,7 @@ main() {
   if (b) {
     x10 = 42;
   }
-  Expect.throws(() {x10;}, (e) => e is LateInitializationError);
+  Expect.throws(() {x10;});
 
   b = true;
   late final x11;
@@ -99,5 +99,5 @@ main() {
   if (b) {
     x12 = 42;
   }
-  Expect.throws(() {x12;}, (e) => e is LateInitializationError);
+  Expect.throws(() {x12;});
 }

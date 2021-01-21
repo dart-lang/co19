@@ -25,14 +25,14 @@ main() {
   x1 = 0;
   Expect.equals(0, x1);
 
-  b = true;
+  b = (() => true)();
   late final x2;
   if (b) {
     x2 = 42;
   }
-  Expect.throws(() {x2 = 0;}, (e) => e is LateInitializationError);
+  Expect.throws(() {x2 = 0;});
 
-  b = false;
+  b = (() => false)();
   late final int x3;
   if (b) {
     x3 = 42;
@@ -40,14 +40,14 @@ main() {
   x3 = 0;
   Expect.equals(0, x3);
 
-  b = true;
+  b = (() => true)();
   late final int x4;
   if (b) {
     x4 = 42;
   }
-  Expect.throws(() {x4 = 0;}, (e) => e is LateInitializationError);
+  Expect.throws(() {x4 = 0;});
 
-  b = false;
+  b = (() => false)();
   late final int? x5;
   if (b) {
     x5 = 42;
@@ -55,10 +55,10 @@ main() {
   x5 = 0;
   Expect.equals(0, x5);
 
-  b = true;
+  b = (() => true)();
   late final int? x6;
   if (b) {
     x6 = 42;
   }
-  Expect.throws(() {x6 = 0;}, (e) => e is LateInitializationError);
+  Expect.throws(() {x6 = 0;});
 }

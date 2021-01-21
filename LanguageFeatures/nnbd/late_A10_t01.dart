@@ -15,12 +15,12 @@
 
 class C {
   covariant late final int v1 = 42;
-//                         ^^
+//^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   covariant final int v2 = 42;
-//                    ^^
+//^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

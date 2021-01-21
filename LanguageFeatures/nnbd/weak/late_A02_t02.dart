@@ -10,7 +10,7 @@
  * the value of the read.
  *
  * If there is no initializer expression, the read causes a runtime error to be
- * thrown which is an instance of LateInitializationError
+ * thrown
  *
  * @description Check that it is a runtime error to read late variable without
  * initializer expression
@@ -32,13 +32,13 @@ late final String? g1;
 late String? g2;
 
 main() {
-  Expect.throws(() {C.s1;}, (e) => e is LateInitializationError);
-  Expect.throws(() {C.s2;}, (e) => e is LateInitializationError);
+  Expect.throws(() {C.s1;});
+  Expect.throws(() {C.s2;});
   C c = new C();
-  Expect.throws(() {c.v1;}, (e) => e is LateInitializationError);
-  Expect.throws(() {c.v2;}, (e) => e is LateInitializationError);
-  Expect.throws(() {c.v3;}, (e) => e is LateInitializationError);
+  Expect.throws(() {c.v1;});
+  Expect.throws(() {c.v2;});
+  Expect.throws(() {c.v3;});
 
-  Expect.throws(() {g1;}, (e) => e is LateInitializationError);
-  Expect.throws(() {g2;}, (e) => e is LateInitializationError);
+  Expect.throws(() {g1;});
+  Expect.throws(() {g2;});
 }

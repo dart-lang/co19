@@ -14,7 +14,6 @@
  * @author sgrekhov@unipro.ru
  */
 
-
 main() {
   late final x1 = 42;
   var f1 = () {

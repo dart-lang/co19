@@ -23,14 +23,14 @@ main() {
   };
   x1 = 0;
   Expect.equals(0, x1);
-  Expect.throws(() {f1();}, (e) => e is LateInitializationError);
+  Expect.throws(() {f1();});
 
   late final x2;
   var f2 = () {
     x2 = 42;
   };
   f2();
-  Expect.throws(() {x2 = 0;}, (e) => e is LateInitializationError);
+  Expect.throws(() {x2 = 0;});
 
   late final int x3;
   var f3 = () {
@@ -38,14 +38,14 @@ main() {
   };
   x3 = 0;
   Expect.equals(0, x3);
-  Expect.throws(() {f3();}, (e) => e is LateInitializationError);
+  Expect.throws(() {f3();});
 
   late final int x4;
   var f4 = () {
     x4 = 42;
   };
   f4();
-  Expect.throws(() {x4 = 0;}, (e) => e is LateInitializationError);
+  Expect.throws(() {x4 = 0;});
 
   late final int? x5;
   var f5 = () {
@@ -53,12 +53,12 @@ main() {
   };
   x5 = 0;
   Expect.equals(0, x5);
-  Expect.throws(() {f5();}, (e) => e is LateInitializationError);
+  Expect.throws(() {f5();});
 
   late final int? x6;
   var f6 = () {
     x6 = 42;
   };
   f6();
-  Expect.throws(() {x6 = 0;}, (e) => e is LateInitializationError);
+  Expect.throws(() {x6 = 0;});
 }

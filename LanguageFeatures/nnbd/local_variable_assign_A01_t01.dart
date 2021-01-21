@@ -25,7 +25,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  b = false;
+  b = (() => false)();
   final x2;
   if (b) {
     x2 = 42;
@@ -35,7 +35,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  b = true;
+  b = (() => true)();
   final int x3;
   if (b) {
     x3 = 42;
@@ -45,7 +45,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  b = false;
+  b = (() => false)();
   final int x4;
   if (b) {
     x4 = 42;
@@ -55,7 +55,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  b = true;
+  b = (() => true)();
   final int? x5;
   if (b) {
     x5 = 42;
@@ -65,7 +65,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  b = false;
+  b = (() => false)();
   final int? x6;
   if (b) {
     x6 = 42;

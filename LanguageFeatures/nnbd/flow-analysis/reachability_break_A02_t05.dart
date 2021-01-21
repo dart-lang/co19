@@ -36,8 +36,8 @@ main() {
     // 'i' is treated here by flow analysis as possibly assigned, so it is a
     // runtime (not compile time) error to read it
     i;
-    Expect.fail("LateInitializationError expected");
-  } on LateInitializationError {
+    Expect.fail("Error expected");
+  } on Error {
     // Ok, expected
   }
 }

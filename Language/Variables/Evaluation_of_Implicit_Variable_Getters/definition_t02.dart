@@ -77,8 +77,8 @@ main() {
   Expect.equals(null, C.sTyped);
 
   () => C.sFinal;
-  Expect.throws(() { C.sFinal; }, (e) => e is LateInitializationError);
+  Expect.throws(() { C.sFinal; };
 
   () => C.sFinalTyped;
-  Expect.throws(() { C.sFinalTyped; }, (e) => e is LateInitializationError);
+  Expect.throws(() { C.sFinalTyped; });
 }

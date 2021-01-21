@@ -25,15 +25,13 @@ class C {
   static late final String s;
   static void initS(String val) {
     s = val;
-    Expect.throws(() {s = "Show must go on";},
-            (e) => e is LateInitializationError);
+    Expect.throws(() {s = "Show must go on";});
   }
 
   late final String v;
   void initV(String val) {
     v = val;
-    Expect.throws(() {v = "Show must go on";},
-            (e) => e is LateInitializationError);
+    Expect.throws(() {v = "Show must go on";});
   }
 }
 
@@ -41,8 +39,7 @@ late final String g;
 
 void initG(String val) {
   g = val;
-  Expect.throws(() {g = "Show must go on";},
-          (e) => e is LateInitializationError);
+  Expect.throws(() {g = "Show must go on";});
 }
 
 main() {

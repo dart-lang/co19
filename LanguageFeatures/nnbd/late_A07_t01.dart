@@ -33,14 +33,14 @@ class C extends A {
 void main() {
   B b = new B();
   b.x = 3;
-  Expect.throws(() => b.x = 14, (e) => e is LateInitializationError);
+  Expect.throws(() => b.x = 14);
 
   C c = new C();
   c.x = 1;
-  Expect.throws(() => c.x = 3, (e) => e is LateInitializationError);
+  Expect.throws(() => c.x = 3);
 
   b.y = 3;
-  Expect.throws(() => b.y = 14, (e) => e is LateInitializationError);
+  Expect.throws(() => b.y = 14);
   c.y = 1;
-  Expect.throws(() => c.y = 3, (e) => e is LateInitializationError);
+  Expect.throws(() => c.y = 3);
 }
