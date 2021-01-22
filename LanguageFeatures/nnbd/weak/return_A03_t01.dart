@@ -44,7 +44,7 @@
  * @author sgrekhov@unipro.ru
  */
 // Requirements=nnbd-weak
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 int f1() {
   dynamic x = 3.14;

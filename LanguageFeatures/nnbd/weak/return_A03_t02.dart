@@ -45,7 +45,7 @@
  * @author sgrekhov@unipro.ru
  */
 // Requirements=nnbd-weak
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 Future<int> f1() async {
   dynamic x = 3.14;
