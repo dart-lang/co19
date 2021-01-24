@@ -22,10 +22,10 @@ class C {
 }
 
 typedef CAlias = C?;
+CAlias c = null;
+CAlias c1 = C();
 
 main() {
-  CAlias c = null;
   Expect.isNull(c?[42]);
-  c = new C();
-  Expect.equals(4, c?[2]);
+  Expect.equals(4, c1?[2]);
 }

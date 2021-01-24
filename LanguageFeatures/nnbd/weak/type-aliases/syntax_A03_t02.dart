@@ -16,10 +16,10 @@
 class C {}
 
 typedef CAlias = C?;
+CAlias c = C();
 
 test(C c) {}
 
 main() {
-  CAlias c = new C();
   test(c!);
 }
