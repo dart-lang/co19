@@ -85,20 +85,20 @@ main() {
   Expect.equals("test1 called 2 times, test2() called 2 times", c2?.log);   /// static type warning
 
   CAlias2 c3 = new C();
-  var actual10 = c3 ?.. test1;
+  var actual10 = c3 ?.. test1;    /// static type warning
   var expected3 = c3;
   Expect.equals(expected3, actual10);
   if (c3 != null) {
     Expect.equals("test1 called 1 times, test2() called 0 times", c3.log);
   }
 
-  var actual11 = c3 ?.. test2();
+  var actual11 = c3 ?.. test2();  /// static type warning
   Expect.equals(expected3, actual11);
   if (c3 != null) {
     Expect.equals("test1 called 1 times, test2() called 1 times", c3.log);
   }
 
-  var actual12 = c3
+  var actual12 = c3         /// static type warning
       ?.. test1
   .. test2();
   Expect.equals(expected3, actual12);

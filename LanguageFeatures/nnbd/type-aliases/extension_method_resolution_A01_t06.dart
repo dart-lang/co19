@@ -20,11 +20,11 @@
 import "../../../Utils/expect.dart";
 
 typedef IntAlias = int;
+IntAlias? i = 42;
 
 extension on IntAlias {
   bool get isEven => false;
 }
 main() {
-  IntAlias? i = 42;
   Expect.isTrue(i?.isEven);
 }

@@ -19,7 +19,8 @@ typedef CAlias = C?;
 
 test(C c) {}
 
+CAlias c = C();
+
 main() {
-  CAlias c = new C();
   test(c!);
 }
