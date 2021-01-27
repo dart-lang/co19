@@ -104,3 +104,6 @@ class F2<X extends LegacyFoo> {
 
 F1<Function> funcLegacy1 = F1<Function>(legacyFoo);
 F2<LegacyFoo> funcLegacy2 = F2<LegacyFoo>(legacyFoo);
+
+int getInt() => 42;
+T getType<T>(T t) => t;
