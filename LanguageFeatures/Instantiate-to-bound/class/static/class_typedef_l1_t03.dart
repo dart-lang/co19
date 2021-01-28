@@ -44,7 +44,10 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works OK for [typedef G<X> =
  * Function(X)], [class A<X extends G<A<X, Y>>, Y extends X>] (covariant)
- * @Issue 41963, 41964
+ *
+ * @Issue 41963, 41964, 44786
+ * @Issue dart-lang/language#1133
+ *
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
@@ -52,68 +55,9 @@ import "../../../../Utils/expect.dart";
 typedef G<X> = X Function(X);
 class A<X extends G<A<X>>> {}
 
-void test(A source) {
-  var fsource = toF(source);
-
-  F<A<G<A<dynamic>>>> target = fsource;
-
-  F<A<G<A<Never>>>> target0 = fsource;
-//                            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<A<Null>>>> target1 = fsource;
-//                           ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<dynamic>> target2 = fsource;
-//                        ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<dynamic>>> target3 = fsource;
-//                           ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<A<G<dynamic>>>>> target4 = fsource;
-//                                 ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<A<G<A<dynamic>>>>>> target5 = fsource;
-//                                    ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<Never>> target6 = fsource;
-//                      ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<Never>>> target7 = fsource;
-//                         ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<A<G<Never>>>>> target8 = fsource;
-//                               ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<A<G<A<Never>>>>>> target9 = fsource;
-//                                  ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<Null>> targe10 = fsource;
-//                      ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<Null>>> target11 = fsource;
-//                         ^^^^^^^
+main() {
+  A? source;
+//   ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -121,6 +65,5 @@ void test(A source) {
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
-main() {}
+}

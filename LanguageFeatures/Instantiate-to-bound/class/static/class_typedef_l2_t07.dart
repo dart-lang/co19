@@ -44,7 +44,10 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works OK for [typedef G<X> =
  * X Function(X)], [class A<X extends G<A<Y, X>>, Y extends G<A<X, Y>>>]
- * @Issue 41963, 41964
+ *
+ * @Issue 41963, 41964, 44786
+ * @Issue dart-lang/language#1133
+ *
  * @author iarkh@unipro.ru
  */
 
@@ -53,83 +56,16 @@ import "../../../../Utils/expect.dart";
 typedef G<X> = X Function(X);
 class A<X extends G<A<Y, X>>, Y extends G<A<X, Y>>> {}
 
-void test(A source) {
-  var fsource = toF(source);
-  F<A<G<A<dynamic, dynamic>>, G<A<dynamic, dynamic>>>> target = fsource;
-
-  F<A<dynamic, G<A<dynamic, dynamic>>>> target1 = fsource;
-//                                                ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<dynamic>, G<A<dynamic, dynamic>>>> target2 = fsource;
-//                                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<A<G<dynamic>, dynamic>>, G<A<dynamic, dynamic>>>> target3 = fsource;
-//                                                                  ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<A<dynamic, dynamic>>, dynamic>> target4 = fsource;
-//                                                ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<A<dynamic, dynamic>>, G<dynamic>>> target5 = fsource;
-//                                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<A<Never, Never>>, G<A<Never, Never>>>> target6 = fsource;
-//                                                       ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<dynamic, G<A<Never, Never>>>> target7 = fsource;
-//                                            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<dynamic>, G<A<Never, Never>>>> target8 = fsource;
-//                                               ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  F<A<G<A<G<Never>, Never>>, G<A<Never, Never>>>> target9 = fsource;
-//                                                          ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<A<Never, Never>>, Never>> target10 = fsource;
-//                                           ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<A<Never, Never>>, G<Never>>> target11 = fsource;
-//                                              ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<A<Null, Null>>, G<A<Null, Null>>>> target12 = fsource;
-//                                                    ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<A<dynamic, Never>>, G<A<dynamic, Never>>>> target13 = fsource;
-//                                                            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<A<Never, dynamic>>, G<A<Never, dynamic>>>> target14 = fsource;
-//                                                            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
 
 main() {
+  A? source;
+//   ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   A();
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
+
 }

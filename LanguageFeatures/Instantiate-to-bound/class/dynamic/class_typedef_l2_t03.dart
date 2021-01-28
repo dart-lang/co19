@@ -44,6 +44,8 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works OK for [typedef G<X> =
  * Function(X)], [class A<X extends G<A<X, Y>>, Y extends X>] (covariant)
+ * @Issue 44786
+ * @Issue dart-lang/language#1133
  * @author iarkh@unipro.ru
  */
 
@@ -52,9 +54,8 @@ import "../../../../Utils/expect.dart";
 typedef G<X> = X Function(X);
 class A<X extends G<A<X, Y>>, Y extends X> {}
 
+typedef expected = A<A<dynamic, dynamic> Function(A<dynamic, dynamic>), dynamic>;
+
 main() {
-  Expect.equals(
-      typeOf<A<G<A<dynamic, dynamic>>, dynamic>>(),
-      typeOf<A>()
-  );
+  Expect.equals(expected, A);
 }

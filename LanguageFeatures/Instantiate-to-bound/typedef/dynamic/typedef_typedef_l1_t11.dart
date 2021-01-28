@@ -44,6 +44,10 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for
  * [typedef A<X> = X Function(X); typedef G<X extends A<X>> = X Function(X)]
+ *
+ * @Issue 44786
+ * @Issue dart-lang/language#1133
+ *
  * @author iarkh@unipro.ru
  */
 
@@ -52,9 +56,8 @@ import "../../../../Utils/expect.dart";
 typedef A<X> = X Function(X);
 typedef G<X extends A<X>> = X Function(X);
 
+typedef expected = dynamic Function(dynamic) Function(dynamic Function(dynamic));
+
 main() {
-  Expect.equals(
-      typeOf<G<A<dynamic>>>(),
-      typeOf<G>()
-  );
+  Expect.equals(expected, G);
 }
