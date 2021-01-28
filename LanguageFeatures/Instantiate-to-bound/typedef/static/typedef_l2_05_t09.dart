@@ -92,7 +92,7 @@ test(G source) {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void Function<X extends dynamic, Y extends A<Never>>(A<Never>) target7 = source;
+  void Function<X extends dynamic, Y extends A<Never>>(A<Never>) target9 = source;
 //                                                                         ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

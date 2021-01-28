@@ -46,47 +46,19 @@
  * with two related parameters: [typedef G<X extends A<X>, Y extends A<Y>> =
  * void Function(Y)]
  *
- * @Issue 41963, 41964
+ * @Issue 41963, 41964, 44786
+ * @Issue dart-lang/language#1133
  *
  * @author iarkh@unipro.ru
  */
 
-import "../../../../Utils/expect.dart";
-
 class A<X> {}
 typedef G<X extends A<X>, Y extends A<Y>> = void Function(Y);
 
-test(G source) {
-  var fsource = toF(source);
-
-  F<G<A<dynamic>, A<Never>>> target1 = fsource;
-
-  F<G<A<dynamic>, A<dynamic>>> target2 = fsource;
-//                                       ^^^^^^^
+main() {
+  G? source;
+//   ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<Never>,   A<dynamic>>> target3 = fsource;
-//                                       ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<Never>,   A<Never>>>   target4 = fsource;
-
-  F<G<A<dynamic>, A<Null>>>    target5 = fsource;
-//                                       ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<Null>,    A<dynamic>>> target6 = fsource;
-//                                       ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<Null>,   A<Null>>>     target7 = fsource;
-//                                       ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
-
-main() {}

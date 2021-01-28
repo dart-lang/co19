@@ -46,7 +46,8 @@
  * with two related parameters: [typedef G<X extends Y, Y extends A<X>> = void
  * Function<Y1 extends Y>(X, Y)]
  *
- * @Issue 41963, 41964
+ * @Issue 41963, 41964, 44786
+ * @Issue dart-lang/language#1133
  *
  * @author iarkh@unipro.ru
  */
@@ -54,93 +55,10 @@
 class A<X> {}
 typedef G<X extends Y, Y extends A<X>> = void Function<Y1 extends Y>(X, Y);
 
-test(G source) {
-  void Function<X extends dynamic>(A<Never>, dynamic) target = source;
-//                                                             ^^^^^^
+main() {
+  G? source;
+//   ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void Function<X extends A<dynamic>>(Never, A<dynamic>) target1 = source;
-
-  void Function<X extends A<dynamic>>(dynamic, A<dynamic>) target2 = source;
-//                                                                   ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends A<dynamic>>(A<Never>, A<dynamic>) target3 = source;
-//                                                                    ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends A<dynamic>>(A<Never>, A<Never>) target4 = source;
-//                                                                  ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends A<dynamic>>(A<dynamic>, A<Never>) target5 = source;
-//                                                                    ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends A<dynamic>>(A<Null>, A<Null>) target6 = source;
-//                                                                ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends A<dynamic>>(A<dynamic>, A<Null>) target7 = source;
-//                                                                   ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends A<Never>>(A<dynamic>, A<Never>) target8 = source;
-//                                                                  ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends A<Never>>(A<Never>, A<Never>) target9 = source;
-//                                                                ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends A<Never>>(A<Never>, A<dynamic>) target10 = source;
-//                                                                   ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends A<Null>>(A<Null>, A<Null>) target11 = source;
-//                                                              ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends dynamic>(A<Null>, dynamic) target12 = source;
-//                                                              ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends dynamic>(A<dynamic>, dynamic) target13 = source;
-//                                                                 ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends dynamic>(dynamic, dynamic) target14 = source;
-//                                                              ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends dynamic>(Never, dynamic) target15 = source;
-//                                                            ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends Never>(dynamic, Never) target16 = source;
-//                                                          ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends Never>(Never, Never) target17 = source;
-//                                                        ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
-
-main() {}

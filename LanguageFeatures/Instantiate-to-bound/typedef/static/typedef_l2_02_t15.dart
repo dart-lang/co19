@@ -46,129 +46,19 @@
  * with two related parameters: [typedef G<X extends A<X>, Y extends X> =
  * void Function(Y)]
  *
- * @Issue 41963, 41964
+ * @Issue 41963, 41964, 44786
+ * @Issue dart-lang/language#1133
  *
  * @author iarkh@unipro.ru
  */
 
-import "../../../../Utils/expect.dart";
-
 class A<X> {}
 typedef G<X extends A<X>, Y extends X> = void Function(Y);
 
-test(G source) {
-  var fsource = toF(source);
-
-  F<G<A<dynamic>, Never>> target1 = fsource;
-  F<G<A<Never>, Never>> target2 = fsource;
-
-  F<G<A<Null>, Never>> target3 = fsource;
-//                               ^^^^^^^
+main() {
+  G? source;
+//   ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<dynamic, Never>> target4 = fsource;
-  F<G<Never, Never>> target5 = fsource;
-
-  F<G<Null, Never>> target6 = fsource;
-//                            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<dynamic>, dynamic>> target7 = fsource;
-//                                    ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<Never>, dynamic>> target8 = fsource;
-//                                  ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<Null>, dynamic>> target9 = fsource;
-//                                 ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<dynamic, dynamic>> target10 = fsource;
-//                                  ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<Never, dynamic>> target11 = fsource;
-//                                ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<Null, dynamic>> target12 = fsource;
-//                               ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<dynamic>, Null>> target13 = fsource;
-//                                  ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<Never>, Null>> target14 = fsource;
-//                                ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<Null>, Null>> target15 = fsource;
-//                               ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<dynamic, Null>> target16 = fsource;
-//                               ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<Never, Null>> target17 = fsource;
-//                             ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<Null, Null>> target18 = fsource;
-//                            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<Never>, A<dynamic>>> target19 = fsource;
-//                                      ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<dynamic>, A<dynamic>>> target20 = fsource;
-//                                       ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<dynamic>, A<Never>>> target21 = fsource;
-//                                      ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<Never>, A<Never>>> target22 = fsource;
-//                                    ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<dynamic>, A<Null>>> target23 = fsource;
-//                                     ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<Null>, A<dynamic>>> target24 = fsource;
-//                                     ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<Null>,  A<Null>>> target25 = fsource;
-//                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
-
-main() {}

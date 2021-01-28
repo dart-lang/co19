@@ -45,25 +45,20 @@
  * @description Checks that instantiate-to-bounds works correctly for
  * typedef typedef A<X> = X Function(X);
  * typedef G<X extends A<X>> = void Function<Y extends X>()
- * @Issue 41963, 41964
+ *
+ * @Issue 41963, 41964, 44786
+ * @Issue dart-lang/language#1133
+ *
  * @author iarkh@unipro.ru
  */
 
 typedef A<X> = X Function(X);
 typedef G<X extends A<X>> = void Function<Y extends X>();
 
-void test(G source) {
-  void Function<X extends dynamic Function(dynamic)>() target1 = source;
-
-  void Function<X extends Never Function()>(Never) target2 = source;
-//                                                           ^^^^^^
+main() {
+  G? source;
+//   ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  void Function<X extends Null Function(Null)>() target3 = source;
-//                                                         ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
-
-main() {}

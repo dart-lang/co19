@@ -45,71 +45,20 @@
  * @description Checks that instantiate-to-bounds works correctly for [typedef]
  * with two related parameters: [typedef G<X extends A<Y>, Y extends A<Y>> =
  * void Function(X)]
- * @Issue 34689, 34699, 41963, 41964
+ *
+ * @Issue 34689, 34699, 41963, 41964, 44786
+ * @Issue dart-lang/language#1133
  *
  * @author iarkh@unipro.ru
  */
-import "../../../../Utils/expect.dart";
 
 class A<X> {}
 typedef G<X extends A<Y>, Y extends X> = void Function(X);
 
-test(G source) {
-  var fsource = toF(source);
-
-  F<G<Never, A<dynamic>>> target1 = fsource;
-//                                  ^^^^^^^
+main() {
+  G? source;
+//   ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<Never, A<Never>>> target2 = fsource;
-//                                ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<Never,   A<Null>>> target3 = fsource;
-//                                 ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<Never, Never>> target4 = fsource;
-//                             ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<Never, dynamic>> target5 = fsource;
-//                               ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<Never>, A<dynamic>>> target6 = fsource;
-
-  F<G<A<dynamic>, A<dynamic>>> target7 = fsource;
-//                                       ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<dynamic>, A<Never>>> target8 = fsource;
-//                                     ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<Never>, A<Never>>> target9 = fsource;
-
-  F<G<A<dynamic>, A<Null>>> target10 = fsource;
-//                                     ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<Null>, A<dynamic>>> target11 = fsource;
-//                                     ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<Null>, A<Null>>> target12 = fsource;
-//                                  ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
-
-main() {}

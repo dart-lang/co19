@@ -44,73 +44,19 @@
  * @description Checks that instantiate-to-bounds works correctly for
  * [typedef A<X> = X Function(X);
  *   typedef G<X extends A<X>> = void Function(X)]
- * @Issue 41963, 41964
+ *
+ * @Issue 41963, 41964, 44786
+ * @Issue dart-lang/language#1133
+ *
  * @author iarkh@unipro.ru
  */
-
-import "../../../../Utils/expect.dart";
 
 typedef A<X> = X Function(X);
 typedef G<X extends A<X>> = void Function(X);
 
-void test(G source) {
-  var fsource = toF(source);
-
-  F<G<A<dynamic>>> target = fsource;
-
-  F<G<A<Never>>> target1 = fsource;
-//                         ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<Null>>> target2 = fsource;
-//                        ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<A<dynamic>>>> target3 = fsource;
-//                              ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<A<A<dynamic>>>>> target4 = fsource;
-//                                 ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<A<A<A<dynamic>>>>>> target5 = fsource;
-//                                    ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<A<Never>>>> target6 = fsource;
-//                            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<A<A<Never>>>>> target7 = fsource;
-//                               ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<A<A<A<Never>>>>>> target8 = fsource;
-//                                  ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<A<Null>>>> target9 = fsource;
-//                           ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<A<A<Null>>>>> target10 = fsource;
-//                               ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<A<A<A<Null>>>>>> target11 = fsource;
-//                                  ^^^^^^^
+main() {
+  G? source;
+//   ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
-  main() {}

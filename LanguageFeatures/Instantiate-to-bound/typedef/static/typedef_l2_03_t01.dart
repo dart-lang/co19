@@ -89,3 +89,7 @@ test(G source) {
 // [analyzer] unspecified
 // [cfe] unspecified
 }
+
+main() {
+
+}

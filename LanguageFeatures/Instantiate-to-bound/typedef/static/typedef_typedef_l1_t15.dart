@@ -44,47 +44,20 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for
  * typedef A<X> = X Function(X); typedef G<X extends A<X>> = void Function()
- * @Issue 41963, 41964
+ *
+ * @Issue 41963, 41964, 44786
+ * @Issue dart-lang/language#1133
+ *
  * @author iarkh@unipro.ru
  */
-
-import "../../../../Utils/expect.dart";
 
 typedef A<X> = X Function(X);
 typedef G<X extends A<X>> = void Function();
 
-void testme(G source) {
-  var fsource = toF(source);
-
-  F<G<A<Never>>> target = fsource;
-
-  F<G<A<Null>>> target0 = fsource;
-//                        ^^^^^^^
+main() {
+  G? source;
+//   ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<dynamic>>> target1 = fsource;
-  F<G<A<A<dynamic>>>> target2 = fsource;
-  F<G<A<A<A<dynamic>>>>> target3 = fsource;
-  F<G<A<A<A<A<dynamic>>>>>> target4 = fsource;
-  F<G<A<A<Never>>>> target5 = fsource;
-  F<G<A<A<A<Never>>>>> target6 = fsource;
-  F<G<A<A<A<A<Never>>>>>> target7 = fsource;
-
-  F<G<A<A<Null>>>> target8 = fsource;
-//                           ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<A<A<Null>>>>> target9 = fsource;
-//                              ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<G<A<A<A<A<Null>>>>>> target10 = fsource;
-//                                  ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
-
-main() {}
