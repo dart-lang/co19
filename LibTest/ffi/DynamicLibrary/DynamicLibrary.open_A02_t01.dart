@@ -13,8 +13,8 @@
  *  objects which are equal but not identical. The underlying library is only
  *  loaded once into the DartVM by the OS.
  *
- * @description Checks that this constructor loads a dynamic library file with
- * local visibility
+ * @description Checks that an ArgumentError if loading the dynamic library
+ * fails
  * @author sgrekhov@unipro.ru
  */
 import "dart:ffi";
@@ -22,7 +22,7 @@ import "../ffi_utils.dart";
 import "../../../Utils/expect.dart";
 
 void main() {
-  final path = libPath("ffi_test_dynamic_library");
-  DynamicLibrary dl = new DynamicLibrary.open(path);
-  Expect.isNotNull(dl);
+  Expect.throws(() {
+    new DynamicLibrary.open("Wrong path");
+  }, (e) => e is ArgumentError);
 }

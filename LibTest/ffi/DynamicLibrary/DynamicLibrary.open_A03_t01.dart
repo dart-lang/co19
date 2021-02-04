@@ -13,8 +13,8 @@
  *  objects which are equal but not identical. The underlying library is only
  *  loaded once into the DartVM by the OS.
  *
- * @description Checks that this constructor loads a dynamic library file with
- * local visibility
+ * @description Checks that calling this function multiple times, even in
+ * different isolates, returns objects which are equal but not identical
  * @author sgrekhov@unipro.ru
  */
 import "dart:ffi";
@@ -23,6 +23,9 @@ import "../../../Utils/expect.dart";
 
 void main() {
   final path = libPath("ffi_test_dynamic_library");
-  DynamicLibrary dl = new DynamicLibrary.open(path);
-  Expect.isNotNull(dl);
+  DynamicLibrary dl1 = new DynamicLibrary.open(path);
+  DynamicLibrary dl2 = new DynamicLibrary.open(path);
+  Expect.equals(dl1, dl2);
+  Expect.isTrue(dl1 == dl2);
+  Expect.isFalse(identical(dl1, dl2));
 }
