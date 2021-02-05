@@ -22,7 +22,7 @@ import "../ffi_utils.dart";
 import "../../../Utils/expect.dart";
 
 void main() {
-  final path = libPath("ffi_test_dynamic_library");
+  final path = libPath(TEST_DYNAMIC_LIB);
   DynamicLibrary dl = new DynamicLibrary.open(path);
   Expect.isNotNull(dl);
 }

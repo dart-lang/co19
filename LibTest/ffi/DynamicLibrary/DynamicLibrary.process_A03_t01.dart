@@ -17,14 +17,25 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:ffi";
-import 'dart:io' show Platform;
+import 'dart:io';
 import "../../../Utils/expect.dart";
 
 void main() {
   if (!Platform.isWindows) {
     DynamicLibrary dl = new DynamicLibrary.process();
-    Expect.isNotNull(dl);
-    dl.lookup("Dart_Invoke");
-    dl.lookup("printf");
+    String executable = Platform.resolvedExecutable;
+    asyncStart();
+    Process.run("nm", ["-gD", executable], runInShell: true)
+        .then((ProcessResult res) {
+      Expect.equals("", res.stderr);
+      List<String> symbols = new List<String>.empty(growable: true);
+      res.stdout.split("\n").forEach((element) {
+        symbols.add(element.split(" ").last.trim());
+      });
+      for (String s in symbols) {
+        dl.lookup(s);
+      }
+      asyncEnd();
+    });
   }
 }

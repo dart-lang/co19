@@ -17,5 +17,5 @@ import "../../../Utils/expect.dart";
 void main() {
   DynamicLibrary dl = new DynamicLibrary.executable();
   Expect.isNotNull(dl);
-  Expect.isNotNull(dl.lookup("Dart_Invoke"));
+  dl.lookup("Dart_Invoke");
 }
