@@ -17,7 +17,7 @@ void main() {
   DartRepresentationOf o1 = new DartRepresentationOf("");
   Expect.isTrue(o1 is DartRepresentationOf);
 
-  DartRepresentationOf o2 = new DartRepresentationOf("double");
+  DartRepresentationOf o2 = new DartRepresentationOf("Double");
   Expect.isTrue(o2 is DartRepresentationOf);
   Expect.equals("DartRepresentationOf", o2.runtimeType.toString());
 }

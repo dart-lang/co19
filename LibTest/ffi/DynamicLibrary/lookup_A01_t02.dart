@@ -24,7 +24,7 @@ void main() {
     final path = libPathAbsolute(TEST_FUNCTIONS_LIB);
     DynamicLibrary dl = new DynamicLibrary.open(path);
     asyncStart();
-    Process.run("nm", ["-gD", path], runInShell: true)
+    Process.run("nm", ["-gDC", path], runInShell: true)
         .then((ProcessResult res) {
       Expect.equals("", res.stderr);
       List<String> symbols = new List<String>.empty(growable: true);

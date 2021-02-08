@@ -20,7 +20,7 @@ void main() {
     DynamicLibrary dl = new DynamicLibrary.executable();
     String executable = Platform.resolvedExecutable;
     asyncStart();
-    Process.run("nm", ["-gD", executable], runInShell: true)
+    Process.run("nm", ["-gDC", executable], runInShell: true)
         .then((ProcessResult res) {
       Expect.equals("", res.stderr);
       List<String> symbols = new List<String>.empty(growable: true);
