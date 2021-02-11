@@ -28,14 +28,9 @@
 
 class A<T extends A<T>> {}
 typedef AAlias<T> = A<T>;
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-    AAlias?             a1;
-    AAlias<A>?          a2;
-    AAlias<A<Never>>?   a3;
-    AAlias<A<dynamic>>? a4;
-    AAlias<A<Object?>>? a5;
-    AAlias<A<int>>?     a6; //# 01: compile-time error
-    AAlias<int>?        a7; //# 02: compile-time error
-    AAlias<Null>?       a8; //# 03: compile-time error
 }

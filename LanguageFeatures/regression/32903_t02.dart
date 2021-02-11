@@ -17,7 +17,8 @@ class C<X extends C<X>> {}
 class D extends C<D> {}
 
 typedef A<X> = C<X>;
+ //             ^
+ // [analyzer] unspecified
+ // [cfe] unspecified
 
-main() {
- A<dynamic> c = new D();
-}
+main() {}

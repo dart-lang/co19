@@ -55,6 +55,9 @@ typedef G<X> = X Function(X);
 class A<X extends G<A<X>>> {}
 
 typedef expected = A<A<dynamic> Function(A<dynamic>)>;
+//^^^^^^^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
+// [cfe] Expected 1 type arguments.
 
 main() {
   Expect.equals(expected, A);

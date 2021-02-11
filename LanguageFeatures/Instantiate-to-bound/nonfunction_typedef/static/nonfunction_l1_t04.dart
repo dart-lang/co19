@@ -49,8 +49,6 @@
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
-import "../../../../Utils/expect.dart";
-
 class A<X extends A<X>> {}
 typedef B<X extends A<A<X>>> = A<X>;
 //                    ^^^
