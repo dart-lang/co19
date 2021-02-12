@@ -11,6 +11,7 @@
  * @description Checks that it is a compile error if any of the field in Struct
  * subclass is not 'int', 'double' or 'Pointer' or subtype of 'Struct'
  * @author sgrekhov@unipro.ru
+ * @issue 44986
  */
 import "dart:ffi";
 
@@ -51,5 +52,4 @@ void main() {
   S2? s2;
   S3? s3;
   S4? s4;
-  S5? s5;
 }
