@@ -11,8 +11,7 @@
  * A class may override instance members that would otherwise have been
  * inherited from its superclass.
  * @description Checks that static members are not inherited. Test type aliases
- * @compile-error
- * @author sgrekhov@unipro.ru
+Some of type aliases tests fixed * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
