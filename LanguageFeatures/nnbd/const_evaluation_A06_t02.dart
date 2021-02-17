@@ -4,9 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion CONST_CANONICAL_TYPE(T) = T if T is dynamic, void, Null
+ * @assertion CONST_CANONICAL_TYPE(T*) = CONST_CANONICAL_TYPE(T)
  *
- * @description Checks that CONST_CANONICAL_TYPE(Null) = Null
+ * @description Checks that CONST_CANONICAL_TYPE(int) = int
  *
  * @author iarkh@unipro.ru
  */
@@ -15,19 +15,20 @@
 import "../../Utils/expect.dart";
 import "const_evaluation_lib.dart";
 
-dynamic d1 = null;
-dynamic d2 = 2;
+dynamic d = null;
+Never n = throw "Should not reach here";
 
-const c1 = C<Null>(null);
-void test1() => c1.test(null);
-void test2() => c1.test(1);
-void test3() => c1.test(int);
-void test4() => c1.test(d1);
-void test5() => c1.test(d2);
+const c1 = C1<int?>();
+
+void test1() => c1.test(1);
+void test2() => c1.test(null);
+void test3() => c1.test("It's wrong!");
+void test4() => c1.test(d);
+void test5() => c1.test(n);
 
 main() {
   test1();
-  Expect.throws(() => test2());
+  test2();
   Expect.throws(() => test3());
   test4();
   Expect.throws(() => test5());
