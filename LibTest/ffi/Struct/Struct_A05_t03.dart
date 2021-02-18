@@ -33,11 +33,11 @@ class S3 extends Struct {
 void main() {
   Pointer<S1> s1 = calloc<S1>();
   try {
-    s1.ref.x = 0x1122334455667788;
-    Expect.equals(0x1122334455667788, s1.ref.x);
+    s1.ref.x = 0x1122334455667712;
+    Expect.equals(0x1122334455667712, s1.ref.x);
 
     Pointer<S2> s2 = new Pointer.fromAddress(s1.address);
-    Expect.equals(0x88, s2.ref.x);
+    Expect.equals(0x12, s2.ref.x);
     Expect.equals(0x77, s2.elementAt(1).ref.x);
     Expect.equals(0x66, s2.elementAt(2).ref.x);
     Expect.equals(0x55, s2.elementAt(3).ref.x);
@@ -47,7 +47,7 @@ void main() {
     Expect.equals(0x11, s2.elementAt(7).ref.x);
 
     Pointer<S3> s3 = new Pointer.fromAddress(s1.address);
-    Expect.equals(0x88, s3.ref.x);
+    Expect.equals(0x12, s3.ref.x);
     Expect.equals(0x77, s3.elementAt(1).ref.x);
     Expect.equals(0x66, s3.elementAt(2).ref.x);
     Expect.equals(0x55, s3.elementAt(3).ref.x);
