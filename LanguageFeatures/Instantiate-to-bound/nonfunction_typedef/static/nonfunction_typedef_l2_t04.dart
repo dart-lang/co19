@@ -54,20 +54,21 @@ class C<X, Y> {}
 typedef G<X> = void Function();
 typedef A<X extends G<C<X,Y>>, Y extends X> = C<X, Y>;
 
-main() {
-  A? source;
+test(A source) {
   var fsource = toF(source);
 
-  F<A<G<C<dynamic, dynamic>>, dynamic>?>? target = fsource;
-  F<C<G<C<dynamic, dynamic>>, dynamic>?>? target0 = fsource;
+  F<A<G<C<dynamic, dynamic>>, dynamic>> target = fsource;
+  F<C<G<C<dynamic, dynamic>>, dynamic>> target0 = fsource;
 
-  F<A<dynamic, dynamic>?>? target1 = fsource;
-//                                   ^^^^^^^
+  F<A<dynamic, dynamic>> target1 = fsource;
+//                                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<dynamic>, dynamic>?>? target2 = fsource;
-  F<A<G<C<G<dynamic>, dynamic>>, dynamic>?>? target3 = fsource;
+  F<A<G<dynamic>, dynamic>> target2 = fsource;
+  F<A<G<C<G<dynamic>, dynamic>>, dynamic>> target3 = fsource;
+}
 
+main() {
   A();
 }

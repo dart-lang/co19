@@ -56,40 +56,38 @@ class C<X, Y> {}
 typedef G<X> = X Function();
 typedef A<X extends G<C<Y, X>>, Y extends G<C<X, Y>>> = C<X, Y>;
 
-main() {
-  A? source;
+test(A source) {
   var fsource = toF(source);
 
-  F<A<G<C<dynamic, dynamic>>, G<C<dynamic, dynamic>>>?>? target = fsource;
-  F<C<G<C<dynamic, dynamic>>, G<C<dynamic, dynamic>>>?>? target0 = fsource;
+  F<A<G<C<dynamic, dynamic>>, G<C<dynamic, dynamic>>>> target = fsource;
+  F<C<G<C<dynamic, dynamic>>, G<C<dynamic, dynamic>>>> target0 = fsource;
 
-  F<A<dynamic, G<C<dynamic, dynamic>>>?>? target1 = fsource;
-//                                                  ^^^^^^^
+  F<A<dynamic, G<C<dynamic, dynamic>>>> target1 = fsource;
+//                                                ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<dynamic>, G<C<dynamic, dynamic>>>?>? target2 = fsource;
-//                                                     ^^^^^^^
+  F<A<G<dynamic>, G<C<dynamic, dynamic>>>> target2 = fsource;
+//                                                   ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<C<G<dynamic>, dynamic>>, G<C<dynamic, dynamic>>>?>? target3 = fsource;
-//                                                                    ^^^^^^^
+  F<A<G<C<G<dynamic>, dynamic>>, G<C<dynamic, dynamic>>>> target3 = fsource;
+//                                                                  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<C<dynamic, dynamic>>, dynamic>?>? target4 = fsource;
-//                                                  ^^^^^^^
+  F<A<G<C<dynamic, dynamic>>, dynamic>> target4 = fsource;
+//                                                ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<G<C<dynamic, dynamic>>, G<dynamic>>?>? target5 = fsource;
-//                                                     ^^^^^^^
+  F<A<G<C<dynamic, dynamic>>, G<dynamic>>> target5 = fsource;
+//                                                   ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+main() {
   A();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

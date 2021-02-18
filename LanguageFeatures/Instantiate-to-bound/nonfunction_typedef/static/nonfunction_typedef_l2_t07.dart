@@ -132,7 +132,4 @@ void test(A source) {
 
 main() {
   A();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

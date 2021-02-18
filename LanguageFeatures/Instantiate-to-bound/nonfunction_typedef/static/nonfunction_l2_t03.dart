@@ -55,36 +55,33 @@ import "../../../../Utils/expect.dart";
 class C<X1, X2> {}
 typedef A<Y extends String, X extends C<String, C<String, X>>> = C<Y, X>;
 
-main() {
-  A? source;
+testme(A source) {
   var fsource = toF(source);
 
-  F<A<String, C<String, C<String, dynamic>>>?>? target = fsource;
-  F<C<String, C<String, C<String, dynamic>>>?>? target0 = fsource;
+  F<A<String, C<String, C<String, dynamic>>>> target = fsource;
+  F<C<String, C<String, C<String, dynamic>>>> target0 = fsource;
 
-  F<A<dynamic, dynamic>?>? target1 = fsource;
-//                                   ^^^^^^^
+  F<A<dynamic, dynamic>> target1 = fsource;
+//                                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<dynamic, C<dynamic, C<dynamic, dynamic>>>?>? target2 = fsource;
-//                                                           ^^^^^^^
+  F<A<dynamic, C<dynamic, C<dynamic, dynamic>>>> target2 = fsource;
+//                                                         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<C<dynamic, dynamic>?>? target3 = fsource;
-//                                   ^^^^^^^
+  F<C<dynamic, dynamic>> target3 = fsource;
+//                                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<C<dynamic, C<dynamic, C<dynamic, dynamic>>>?>? target4 = fsource;
-//                                                           ^^^^^^^
+  F<C<dynamic, C<dynamic, C<dynamic, dynamic>>>> target4 = fsource;
+//                                                         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+main() {
   A();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 }

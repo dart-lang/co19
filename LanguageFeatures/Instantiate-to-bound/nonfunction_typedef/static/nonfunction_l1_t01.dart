@@ -104,7 +104,4 @@ void test(A source) {
 
 void main() {
   A();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

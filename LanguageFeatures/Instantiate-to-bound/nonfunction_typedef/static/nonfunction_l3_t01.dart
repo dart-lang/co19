@@ -55,19 +55,17 @@ import "../../../../Utils/expect.dart";
 class A<X, Y, Z> {}
 typedef G<X1 extends X2, X2 extends X3, X3 extends A<X1, X2, X3>> = A<X1, X2, X3>;
 
-main() {
-  G? source;
+test(G source) {
   var fsource = toF(source);
 
-  F<G<dynamic, dynamic, A<dynamic, dynamic, dynamic>>?>? target = fsource;
+  F<G<dynamic, dynamic, A<dynamic, dynamic, dynamic>>> target = fsource;
 
-  F<G<dynamic, dynamic, dynamic>?>? target1 = fsource;
-//                                            ^^^^^^^
+  F<G<dynamic, dynamic, dynamic>> target1 = fsource;
+//                                          ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+main() {
   A();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

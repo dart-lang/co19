@@ -101,8 +101,6 @@ test(A source) {
 // [cfe] unspecified
 }
 
-main() {  A();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+main() {
+  A();
 }

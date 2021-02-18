@@ -124,7 +124,4 @@ void test(O source) {
 
 void main() {
   O();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

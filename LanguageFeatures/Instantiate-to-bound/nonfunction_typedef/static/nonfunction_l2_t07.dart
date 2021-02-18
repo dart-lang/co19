@@ -51,7 +51,7 @@
 
 class B<X extends B<X, Y>, Y> {}
 typedef A<X1, X2 extends B<X2, X1>> = B<X1, X2>;
-//                                      ^^
+//                                    ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

@@ -54,55 +54,53 @@ import "../../../../Utils/expect.dart";
 class C<X> {}
 typedef A<X extends C<X>> = C<X?>;
 
-main() {
-  A? source;
+test(A source) {
   var fsource = toF(source);
 
-  F<A<C<dynamic>?>?>? target  = fsource;
-  F<C<C<dynamic>?>?>? target0 = fsource;
+  F<A<C<dynamic>?>> target  = fsource;
+  F<C<C<dynamic>?>> target0 = fsource;
 
-  F<A<dynamic>?>? target1 = fsource;
-//                          ^^^^^^^
+  F<A<dynamic>> target1 = fsource;
+//                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<C<C<dynamic>?>?>?>? target2 = fsource;
-//                                  ^^^^^^^
+  F<A<C<C<dynamic>?>?>> target2 = fsource;
+//                                ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<C<C<C<dynamic>?>?>?>?>? target3 = fsource;
-//                                      ^^^^^^^
+  F<A<C<C<C<dynamic>?>?>?>> target3 = fsource;
+//                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<C<C<C<C<dynamic>?>?>?>?>?>? target4 = fsource;
-//                                          ^^^^^^^
+  F<A<C<C<C<C<dynamic>?>?>?>?>> target4 = fsource;
+//                                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<C<dynamic>?>? target5 = fsource;
-//                          ^^^^^^^
+  F<C<dynamic>> target5 = fsource;
+//                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<C<C<C<dynamic>?>?>?>? target6 = fsource;
-//                                  ^^^^^^^
+  F<C<C<C<dynamic>?>?>> target6 = fsource;
+//                                ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<C<C<C<C<dynamic>?>?>?>?>? target7 = fsource;
-//                                      ^^^^^^^
+  F<C<C<C<C<dynamic>?>?>?>> target7 = fsource;
+//                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<C<C<C<C<C<dynamic>?>?>?>?>?>? target8 = fsource;
-//                                          ^^^^^^^
+  F<C<C<C<C<C<dynamic>?>?>?>?>> target8 = fsource;
+//                                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+main() {
   A();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

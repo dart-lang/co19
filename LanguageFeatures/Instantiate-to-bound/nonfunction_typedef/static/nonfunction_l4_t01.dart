@@ -59,26 +59,24 @@ class C<X1, X2, X3, X4> {}
 typedef G<X1 extends A<X1>, X2 extends A<X1>, X3 extends B, X4 extends X2> =
     C<X1, X2, X3, X4>;
 
-main() {
-  G? source;
+test(G source) {
   var fsource = toF(source);
 
-  F<G<A<dynamic>, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>?>? target = fsource;
+  F<G<A<dynamic>, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>> target = fsource;
 
-  F<G<dynamic, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>?>? target1 = fsource;
+  F<G<dynamic, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>> target1 = fsource;
 
-  F<G<A<dynamic>, A<dynamic>, B<dynamic>, A<dynamic>>?>? target2 = fsource;
-//                                                                 ^^^^^^^
+  F<G<A<dynamic>, A<dynamic>, B<dynamic>, A<dynamic>>> target2 = fsource;
+//                                                               ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<dynamic>, A<A<dynamic>>, B<dynamic>, A<dynamic>>?>? target3 = fsource;
-//                                                                    ^^^^^^^
+  F<G<A<dynamic>, A<A<dynamic>>, B<dynamic>, A<dynamic>>> target3 = fsource;
+//                                                                  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+main() {
   G();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

@@ -55,46 +55,44 @@ import "dart:async";
 class C<X> {}
 typedef A<X extends FutureOr<C<X>>> = C<X?>;
 
-main() {
-  A? source;
+void test(A source) {
   var fsource = toF(source);
 
-  F<C<FutureOr<C<dynamic>>?>?>? target = fsource;
+  F<C<FutureOr<C<dynamic>>?>> target = fsource;
 
-  F<C<FutureOr<C<dynamic>>?>?>? target0 = fsource;
+  F<C<FutureOr<C<dynamic>>?>> target0 = fsource;
 
-  F<A<dynamic>?>? target1 = fsource;
-//                          ^^^^^^^
+  F<A<dynamic>> target1 = fsource;
+//                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<FutureOr<dynamic>?>?>? target2 = fsource;
-//                                    ^^^^^^^
+  F<A<FutureOr<dynamic>?>> target2 = fsource;
+//                                  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<FutureOr<C<FutureOr<C<dynamic>>?>>?>?>? target3 = fsource;
-//                                                      ^^^^^^^
+  F<A<FutureOr<C<FutureOr<C<dynamic>>?>>?>> target3 = fsource;
+//                                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<C<dynamic>?>? target4 = fsource;
-//                          ^^^^^^^
+  F<C<dynamic>> target4 = fsource;
+//                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<C<FutureOr<dynamic>?>?>? target5 = fsource;
-//                                     ^^^^^^^
+  F<C<FutureOr<dynamic>?>> target5 = fsource;
+//                                   ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<C<FutureOr<C<FutureOr<C<dynamic>>?>>>?>? target6 = fsource;
-//                                                     ^^^^^^^
+  F<C<FutureOr<C<FutureOr<C<dynamic>>?>>>> target6 = fsource;
+//                                                   ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+main() {
   A();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

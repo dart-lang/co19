@@ -56,45 +56,43 @@ class B<X extends B<X>> {}
 class C<X, Y> {}
 typedef A<X1 extends B<X2>, X2 extends B<X2>> = C<X1, X2>;
 
-main() {
-  A? source;
+test(A source) {
   var fsource = toF(source);
 
-  F<A<B<B<dynamic>>, B<dynamic>>?>? target = fsource;
-  F<C<B<B<dynamic>>, B<dynamic>>?>? target0 = fsource;
+  F<A<B<B<dynamic>>, B<dynamic>>> target = fsource;
+  F<C<B<B<dynamic>>, B<dynamic>>> target0 = fsource;
 
-  F<A<dynamic, dynamic>?>? target1 = fsource;
-//                                   ^^^^^^^
+  F<A<dynamic, dynamic>> target1 = fsource;
+//                                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<dynamic, B<dynamic>>?>? target2 = fsource;
-//                                      ^^^^^^^
+  F<A<dynamic, B<dynamic>>> target2 = fsource;
+//                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<A<B<dynamic>, dynamic>?>? target3 = fsource;
-//                                      ^^^^^^^
+  F<A<B<dynamic>, dynamic>> target3 = fsource;
+//                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<C<dynamic, dynamic>?>? target4 = fsource;
-//                                   ^^^^^^^
+  F<C<dynamic, dynamic>> target4 = fsource;
+//                                 ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<C<dynamic, B<dynamic>>?>? target5 = fsource;
-//                                      ^^^^^^^
+  F<C<dynamic, B<dynamic>>> target5 = fsource;
+//                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<C<B<dynamic>, dynamic>?>? target6 = fsource;
-//                                      ^^^^^^^
+  F<C<B<dynamic>, dynamic>> target6 = fsource;
+//                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
+main() {
   A();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

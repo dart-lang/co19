@@ -112,7 +112,7 @@ void test(A source) {
 // [cfe] unspecified
 
   F<A<Null>> targe10 = fsource;
-//                      ^^^^^^^
+//                     ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
