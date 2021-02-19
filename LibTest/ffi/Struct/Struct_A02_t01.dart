@@ -5,15 +5,16 @@
  */
 /**
  * @assertion Struct()
- *  Construct a reference to the nullptr.
+ * Instances of a subclass of Struct have reference semantics and are backed by
+ * native memory. The may allocated via allocation or loaded from a Pointer, but
+ * cannot be created by a generative constructor.
  *
- * @description Checks that this constructor constructs a reference to the
- * nullptr.
+ * @description Checks that it is a compile time error if 'Struct' subclasses
+ * are created by generative constructor
  * @author sgrekhov@unipro.ru
  * @issue 44987
  */
 import "dart:ffi";
-import "../../../Utils/expect.dart";
 
 class S1 extends Struct {
   S1() : super();
@@ -21,5 +22,7 @@ class S1 extends Struct {
 
 void main() {
   S1 s1 = new S1();
-  Expect.equals(nullptr.address, s1.addressOf.address);
+//            ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
