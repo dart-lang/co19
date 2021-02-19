@@ -19,10 +19,4 @@ void main() {
   Expect.throws(() {
     sizeOf<Void>();
   });
-  Expect.throws(() {
-    sizeOf<NativeType>();
-  });
-  Expect.throws(() {
-    sizeOf<NativeFunction>();
-  });
 }

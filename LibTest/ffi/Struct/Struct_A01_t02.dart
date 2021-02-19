@@ -15,6 +15,9 @@
 import "dart:ffi";
 
 class S1 extends Struct {
+  @Int8()
+  external int i;
+
   @Double()
   external List<double> x;
 //         ^^^^^^^^^^^^
@@ -28,6 +31,9 @@ class S1 extends Struct {
 }
 
 class S2 extends Struct {
+  @Int8()
+  external int i;
+
   NativeType p;
 //^^^^^^^^^^
 // [analyzer] unspecified
@@ -35,6 +41,9 @@ class S2 extends Struct {
 }
 
 class S3 extends Struct {
+  @Int8()
+  external int i;
+
   external NativeType p;
 //         ^^^^^^^^^^
 // [analyzer] unspecified
@@ -42,6 +51,9 @@ class S3 extends Struct {
 }
 
 class S4 extends Struct {
+  @Int8()
+  external int i;
+
   @Int8()
   external NativeType p;
 //         ^^^^^^^^^^

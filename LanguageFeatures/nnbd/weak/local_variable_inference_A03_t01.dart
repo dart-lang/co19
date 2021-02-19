@@ -24,7 +24,7 @@ test<T extends num>(T t) {
   }
   if (t is double) {
     var x = t;
-    x.isEven;
+    x.round();
   }
 }
 

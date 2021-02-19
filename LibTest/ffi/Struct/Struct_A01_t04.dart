@@ -16,6 +16,9 @@ import "dart:ffi";
 import "dart:async";
 
 class S1 extends Struct {
+  @Int8()
+  external int i;
+
   @Double()
   external FutureOr<double> x;
 //         ^^^^^^^^^^^^^^^^
@@ -30,7 +33,7 @@ class S1 extends Struct {
 
 class S2 extends Struct {
   Pointer<FutureOr<Int8>> x;
-//         ^^^^^^^
+//         ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

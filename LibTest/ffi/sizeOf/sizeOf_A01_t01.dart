@@ -27,8 +27,4 @@ void main() {
   Expect.equals(2, sizeOf<Uint16>());
   Expect.equals(4, sizeOf<Uint32>());
   Expect.equals(8, sizeOf<Uint64>());
-
-  Expect.equals(8, sizeOf<IntPtr>());
-  Expect.equals(8, sizeOf<Pointer>());
-  Expect.equals(0, sizeOf<Struct>());
 }

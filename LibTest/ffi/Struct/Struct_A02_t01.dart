@@ -17,6 +17,9 @@
 import "dart:ffi";
 
 class S1 extends Struct {
+  @Int8()
+  external int i;
+
   S1() : super();
 }
 

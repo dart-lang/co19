@@ -7,16 +7,26 @@
  * @assertion int sizeOf <T extends NativeType>()
  *  Number of bytes used by native type T.
  *
- *  Includes padding and alignment of structs.
+ *  This function must be invoked with a compile-time constant T.
  *
- * @description Checks that this function throws an exception if T is unsized
+ * @description Checks that it is a compile error if T is not a constant
  * @author sgrekhov@unipro.ru
  */
 import "dart:ffi";
-import '../../../Utils/expect.dart';
 
 void main() {
-  // TODO Support of non-constant type arguments of 'sizeOf' will be removed.
-  // TODO Rewrite this test to expect a failure
   sizeOf<Handle>();
+//^^^^^^^^^^^^^^^^
+// [unspecified]
+// [unspecified]
+
+  sizeOf<NativeType>();
+//^^^^^^^^^^^^^^^^^^^^
+// [unspecified]
+// [unspecified]
+
+  sizeOf<NativeFunction>();
+//^^^^^^^^^^^^^^^^^^^^^^^^
+// [unspecified]
+// [unspecified]
 }

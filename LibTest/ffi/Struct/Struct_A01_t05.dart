@@ -16,6 +16,9 @@
 import "dart:ffi";
 
 class S1 extends Struct {
+  @Int8()
+  external int i;
+
   @Double()
   external Double x;
 //         ^^^^^^
@@ -29,6 +32,9 @@ class S1 extends Struct {
 }
 
 class S2 extends Struct {
+  @Int8()
+  external int i;
+
   Struct? s;
 //^^^^^^
 // [analyzer] unspecified

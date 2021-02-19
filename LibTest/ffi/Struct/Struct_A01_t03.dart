@@ -17,6 +17,8 @@ import "dart:ffi";
 
 class S1 extends Struct {
   @Int8()
+  external int i;
+  @Int8()
   external Object? o;
 //         ^^^^^^
 // [analyzer] unspecified
@@ -24,6 +26,8 @@ class S1 extends Struct {
 }
 
 class S2 extends Struct {
+  @Int8()
+  external int i;
   @Int8()
   external void v;
 //         ^^^^
@@ -33,6 +37,8 @@ class S2 extends Struct {
 
 class S3 extends Struct {
   @Int8()
+  external int i;
+  @Int8()
   external Null n;
 //         ^^^^
 // [analyzer] unspecified
@@ -40,6 +46,8 @@ class S3 extends Struct {
 }
 
 class S4 extends Struct {
+  @Int8()
+  external int i;
   @Double()
   external dynamic x;
 //         ^^^^^^^
