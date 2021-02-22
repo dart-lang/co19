@@ -17,16 +17,16 @@ import "dart:ffi";
 void main() {
   sizeOf<Handle>();
 //^^^^^^^^^^^^^^^^
-// [unspecified]
-// [unspecified]
+// [analyzer] unspecified
+// [cfe] unspecified
 
   sizeOf<NativeType>();
 //^^^^^^^^^^^^^^^^^^^^
-// [unspecified]
-// [unspecified]
+// [analyzer] unspecified
+// [cfe] unspecified
 
   sizeOf<NativeFunction>();
 //^^^^^^^^^^^^^^^^^^^^^^^^
-// [unspecified]
-// [unspecified]
+// [analyzer] unspecified
+// [cfe] unspecified
 }
