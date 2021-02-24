@@ -11,6 +11,7 @@
  *
  * @description Checks that it is a compile error if T is not a constant
  * @author sgrekhov@unipro.ru
+ * @issue 45100
  */
 import "dart:ffi";
 
