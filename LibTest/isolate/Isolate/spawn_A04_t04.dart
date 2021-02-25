@@ -20,6 +20,7 @@ import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
 void entryPoint(SendPort sendPort) {
+  final rp = new ReceivePort();
   dynamic i1 = 1, i2 = 2, i3 = 3, i4 = 4;
 
   new Future.delayed(ONE_SECOND).then(
