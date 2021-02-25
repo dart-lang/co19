@@ -44,7 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works as expected for
  * [class A<X extends A<X>>; typedef B<X extends A<A<X>>> = A<X>].
- * @Issue 42446
+ * @Issue 42446, 45117
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

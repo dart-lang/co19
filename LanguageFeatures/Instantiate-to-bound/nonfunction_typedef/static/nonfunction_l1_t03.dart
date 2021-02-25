@@ -153,4 +153,7 @@ test(B source) {
 
 main() {
   B();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
