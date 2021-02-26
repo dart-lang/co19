@@ -30,4 +30,14 @@ void main() {
 //^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  sizeOf<Opaque>();
+//^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  sizeOf<Array>();
+//^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
