@@ -40,10 +40,9 @@ runMain() {
   Process.start(executable, [...Platform.executableArguments, eScript, "run"],
           environment: m)
       .then((Process process) {
-    process.stdout.toList().then((List outList) {
-      Utf8Decoder decode = new Utf8Decoder();
-      String decoded = decode.convert(outList[0]);
-      Expect.isTrue(decoded.toLowerCase().contains('a: aa'));
+    process.stdout.transform(utf8.decoder).transform(const LineSplitter()).
+        toList().then((List outList) {
+      Expect.isTrue(outList[0].toLowerCase().contains('a: aa'));
     }).then((_) {
       process.stderr.toList().then((List errList) {
         Expect.equals(0, errList.length);

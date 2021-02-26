@@ -37,10 +37,9 @@ runMain() {
   asyncStart();
   Process.start(executable, [...Platform.executableArguments, eScript, "run"])
       .then((Process process) {
-    process.stdout.toList().then((List outList) {
-      Utf8Decoder decoder = new Utf8Decoder();
-      String decoded = decoder.convert(outList[0]);
-      Expect.isTrue(decoded.contains(envString));
+    process.stdout.transform(utf8.decoder).transform(const LineSplitter()).
+        toList().then((List outList) {
+      Expect.isTrue(outList[0].contains(envString));
     }).then((_) {
       process.stderr.toList().then((List errList) {
         Expect.equals(0, errList.length);

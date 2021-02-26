@@ -29,14 +29,14 @@ runMain() {
   asyncStart();
   Process.start(command, args).then((Process process) {
     Expect.isTrue(process.stderr is Stream<List<int>>);
-    Utf8Decoder decoder = new Utf8Decoder();
-    process.stdout.toList().then((List outList) async {
+    process.stdout.transform(utf8.decoder).transform(const LineSplitter()).
+      toList().then((List outList) async {
       if (outList.isEmpty) {
-        List stderr = await process.stderr.toList();
+        List stderr = await process.stderr.transform(utf8.decoder)
+          .transform(const LineSplitter()).toList();
         Expect.fail("Stdout is empty. Stderr: $stderr");
       }
-      String decoded = decoder.convert(outList[0]);
-      Expect.isTrue(decoded.contains("Hi, stdout"), "Actual value: $decoded");
+      Expect.isTrue(outList[0].contains("Hi, stdout"), "Actual value: $outList[0]");
       asyncEnd();
     });
   });
@@ -51,8 +51,7 @@ runProcess(List<String> arguments) {
   }
   if (arguments.length > 2) {
     stdin.listen((List<int> event){
-      Utf8Decoder decoder = new Utf8Decoder();
-      String decoded = decoder.convert(event);
+      String decoded = utf8.decoder.convert(event);
       stdout.write(decoded);
     });
   }

@@ -30,11 +30,10 @@ runMain() {
   bool found = false;
   asyncStart();
   Process.start(command, args).then((Process process) {
-    process.stdout.toList().then((List event) {
-      Utf8Decoder decoder = new Utf8Decoder();
+    process.stdout.transform(utf8.decoder).transform(const LineSplitter()).
+      toList().then((List event) {
       for (int i = 0; i < event.length; i++) {
-        String decoded = decoder.convert(event[i]);
-        if (decoded.contains("Hello, world!Hello, galaxy!Hello, universe!")) {
+        if (event[i].contains("Hello, world!Hello, galaxy!Hello, universe!")) {
           found = true;
         }
       }

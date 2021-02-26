@@ -41,10 +41,10 @@ runMain() {
     process.stdout.toList().then((List outList) {
       Expect.equals(0, outList.length);
     }).then((_) {
-      process.stderr.toList().then((List errList) {
-        Utf8Decoder decoder = new Utf8Decoder();
-        String decoded = decoder.convert(errList[0]);
-        Expect.isTrue(decoded.contains("Test exception start_A01_t02"));
+      process.stderr.transform(utf8.decoder)
+          .transform(const LineSplitter()).toList().then((List<String> errList) {
+        Expect.isTrue(errList[0].contains("Unhandled exception") &&
+            errList[1].contains("Test exception start_A01_t02"));
         asyncEnd();
       });
     });
