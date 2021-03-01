@@ -37,8 +37,8 @@ typedef void Test2<T extends X>(dynamic, [T? t]);
 
 main() {
   Test1 t1 = checkme1;
-  t1(dynamic, dynamic);
-  t1(dynamic);
+  t1(Object, dynamic);
+  t1(Object);
 
   Test1<X> t2 = checkme2;
   t2(X, X());
