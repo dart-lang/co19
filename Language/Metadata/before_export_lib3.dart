@@ -3,11 +3,10 @@
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
+library before_export_lib3;
 
-library before_part_directive_lib;
-@Deprecated("") @X<int>(42)
-part "before_part_directive_lib_part.dart";
+@A<String>() export 'before_export_lib2.dart';
 
-class X<T> {
-  const X(T t);
+class A<T> {
+  const A();
 }

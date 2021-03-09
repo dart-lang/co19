@@ -4,7 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 
-@Deprecated('before_lib2_p01')
+@Deprecated('before_lib2_p01') @A<int>(42)
 part of before_lib2;
 
 int i = 0;
+
+class A<T> {
+  const A(T t);
+}

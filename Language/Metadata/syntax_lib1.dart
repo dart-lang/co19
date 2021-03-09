@@ -21,4 +21,12 @@ class Foo {
   const Foo(int x, int y);
 }
 
+class Y<T extends num> {
+  const Y();
+}
+
+class Z<T extends num> {
+  const Z(T t);
+}
+
 enum E {a, b, c}

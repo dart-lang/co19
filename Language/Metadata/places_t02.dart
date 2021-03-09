@@ -1,9 +1,8 @@
 /*
- * Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
-// ignore: deprecated_member_use_from_same_package
 /**
  * @assertion
  *  Metadata can appear before a library, part header, class, typedef, type
@@ -12,47 +11,47 @@
  *
  * @description Check that metadata can appear before a library, class, typedef,
  * type parameter, constructor, factory, function, parameter, or variable
- * declaration
+ * declaration. Test generic metadata
  * @author sgekhov@unipro.ru
  */
-import "places_lib.dart";
+//--enable-experiment=generic-metadata
 
-class A {
-    const A();
+class A<T> {
+    const A(T t);
 }
 
 void foo() {}
 
 // class
-@A()
+@A<int>(42)
 class C1 {}
 
 // typedef
-@A()
+@A<int>(42)
 typedef void Foo();
 
 // type parameter
-class C2<@A() T> {}
-void bar<@A() T>() {}
+class C2<@A<int>(42) T> {}
+void bar<@A<int>(42) T>() {}
 
 // constructor
 class C3 {
-  @A() C3() {}
+  @A<int>(42) C3() {}
 }
 
 // factory
 class C4 {
-  @A() factory C4() => new C4();
+  @A<int>(42) factory C4() => new C4();
 }
 
 // function
-@A() int test1() => 42;
+@A<int>(42) int test1() => 42;
 
 // parameter
-int test2(@A() int x) => x;
+int test2(@A<int>(42) int x) => x;
 
 // variable declaration
-@A() int x = 42;
+@A<int>(42) int x = 42;
 
 main() {
   new C1();
