@@ -6,25 +6,20 @@
 /**
  * @assertion CONST_CANONICAL_TYPE(T*) = CONST_CANONICAL_TYPE(T)
  *
- * @description Checks that CONST_CANONICAL_TYPE(int) = int
+ * @description Checks that CONST_CANONICAL_TYPE(int) = int? in weak mode
  * @Issue 45067
  *
  * @author iarkh@unipro.ru
  */
+// Requirements=nnbd-weak
 
-import "const_evaluation_lib.dart";
+import "../../const_evaluation_lib.dart";
 
 const dynamic d = null;
 Never n = throw "Should not reach here";
 
 const c1 = C<int>(null);
-//         ^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 const c2 = C<int>(d);
-//         ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 main() {}

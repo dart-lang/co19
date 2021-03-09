@@ -13,8 +13,7 @@
  * @Issue 44545
  * @author iarkh@unipro.ru
  */
-// Requirements=nnbd-strong
 
-import "weak/exports_A01_opted_out_lib.dart";
+import "../../weak/exports_A01_opted_out_lib.dart";
 
 main() {}

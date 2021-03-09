@@ -12,9 +12,10 @@
  *
  * @author iarkh@unipro.ru
  */
+// Requirements=nnbd-strong
 
 import"dart:async";
-import "const_evaluation_lib.dart";
+import "../../const_evaluation_lib.dart";
 
 const dynamic d = null;
 Never n = throw "Should not reach here";
