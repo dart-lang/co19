@@ -11,17 +11,18 @@
  */
 // SharedOptions=--enable-experiment=triple-shift
 
+import "../../../Utils/expect.dart";
+
 main() {
   int i1 = 12345;
   int i2 = -11;
   int i3 = -12345;
 
-  var res1 = i1 >>> i2;    //# 01: compile-time error
-  var res2 = i1 >>> i3;    //# 02: compile-time error
-  var res3 = i2 >>> i3;    //# 03: compile-time error
-  var res4 = i3 >>> i2;    //# 04: compile-time error
-
-  var res5 = i1 >>> -2;    //# 05: compile-time error
-  var res6 = 2000 >>> i3;  //# 06: compile-time error
-  var res7 = 2000 >>> -14; //# 07: compile-time error
+  Expect.throws(() { i1 >>> i2; });
+  Expect.throws(() { i1 >>> i3; });
+  Expect.throws(() { i2 >>> i3; });
+  Expect.throws(() { i3 >>> i2; });
+  Expect.throws(() { i1 >>> -2; });
+  Expect.throws(() { 2000 >>> i3; });
+  Expect.throws(() { 150 >>> -14; });
 }

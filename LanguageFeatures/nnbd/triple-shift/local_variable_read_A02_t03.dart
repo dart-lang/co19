@@ -23,7 +23,7 @@ main() {
   if (b) {
     x = 42;
   }
-  x >>>= 2;
+  x  >>>= 2;
   Expect.equals(42 >>> 2, x);
 
   var y;
@@ -31,5 +31,5 @@ main() {
   if (b) {
     y = 42;
   }
-  Expect.throws(() {x >>>= 2;});
+  Expect.throws(() {y >>>= 2;});
 }
