@@ -13,7 +13,7 @@
  * @issue 45198, 45200
  */
 import "dart:ffi";
-import "../ffi_utils.dart";
+import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
 class MyStruct extends Struct {

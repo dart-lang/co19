@@ -14,7 +14,7 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:ffi";
-import '../ffi_utils.dart';
+import "package:ffi/ffi.dart";
 
 void main() {
   Pointer p1 = calloc<Int64>(3);

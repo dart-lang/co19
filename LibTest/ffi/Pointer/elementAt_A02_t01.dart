@@ -15,7 +15,7 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:ffi";
-import '../ffi_utils.dart';
+import "package:ffi/ffi.dart";
 import '../../../Utils/expect.dart';
 
 void main() {
