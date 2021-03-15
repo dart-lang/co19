@@ -38,6 +38,7 @@
  * @Issue 44073, 44092
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 import "../../../../Utils/expect.dart";
 
