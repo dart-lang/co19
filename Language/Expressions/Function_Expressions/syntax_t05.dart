@@ -12,7 +12,6 @@
  * @description Checks that various valid function literal invocation
  * expressions don't produce compile-time errors.
  * @author kaigorodov
- * @reviewer rodionov
  */
 
 abstract class I {}
@@ -27,8 +26,8 @@ main() {
   ((C p1, tf p2, [tf p3]) => null)(null, null);
   ((C p1, tf p2, {tf p3}) => null)(null, null);
 
-  (tf p1, tf p2, [tf p3]) => null();
+  (tf p1, tf p2, [tf p3]) => null;
   try {
-    ((tf p1, tf p2, [tf p3]) => null())(null, null); //null() is parsed as a closure invocation
+    ((tf p1, tf p2, [tf p3]) => null)(null, null);
   } catch (x) {}
 }
