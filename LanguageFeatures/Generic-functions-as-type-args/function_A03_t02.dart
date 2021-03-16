@@ -29,39 +29,17 @@
  * type inference. After all, it's already possible to have a generic function
  * type occurring covariantly in a type argument, like List<T Function<T>(T)
  * Function()>.
- * @description Checks that generic function can be a function type argument and
- * bound.
+ * @description Checks incorrect cyclic case.
+ * @Issue 45329
  * @author iarkh@unipro.ru
  */
 //--enable-experiment=generic-metadata
 
-import "../../Utils/expect.dart";
-
-typedef exp1 = int Function<int>(int);
-typedef exp2 = void Function<int>();
-typedef exp3 = int Function<int>();
-typedef exp4 = void Function<int>(int);
-
-void func1<T extends T Function<T>(T)>(expected) {
-  Expect.equals(expected, T);
-}
-
-void func2<T extends void Function<T>()>(expected) {
-  Expect.equals(expected, T);
-  Expect.equals(expected, T);
-}
-
-void func3<T extends T Function<T>()>(expected) {
-  Expect.equals(expected, T);
-}
-
-void func4<T extends void Function<T>(T)>(expected) {
-  Expect.equals(expected, T);
-}
+void testme<T>() {}
 
 main() {
-  func1(exp1);
-  func2(exp2);
-  func3(exp3);
-  func4(exp4);
+  testme<void Function<T extends testme>()>() {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

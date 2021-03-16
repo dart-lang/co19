@@ -29,7 +29,7 @@
  * type inference. After all, it's already possible to have a generic function
  * type occurring covariantly in a type argument, like List<T Function<T>(T)
  * Function()>.
- * @description Checks that generic function can be a class type argument and
+ * @description Checks that generic function can be a function type argument and
  * bound.
  * @author iarkh@unipro.ru
  */
@@ -37,30 +37,30 @@
 
 import "../../Utils/expect.dart";
 
-typedef exp1 = int Function<int>(int);
-typedef exp2 = void Function<int>();
-typedef exp3 = int Function<int>();
-typedef exp4 = void Function<int>(int);
+typedef exp1 = T Function<T extends num>(T);
+typedef exp2 = void Function<T extends num>();
+typedef exp3 = T Function<T extends num>();
+typedef exp4 = void Function<T extends num>(T);
 
-class C1<T extends T Function<T>(T)> {
-  C1(expected) { Expect.equals(expected, T); }
+void func1<T extends T Function<T extends num>(T)>(expected) {
+  Expect.equals(expected, T);
 }
 
-class C2<T extends void Function<T>()> {
-  C2(expected) { Expect.equals(expected, T); }
+void func2<T extends void Function<T extends num>()>(expected) {
+  Expect.equals(expected, T);
 }
 
-class C3<T extends T Function<T>()> {
-  C3(expected) { Expect.equals(expected, T); }
+void func3<T extends T Function<T extends num>()>(expected) {
+  Expect.equals(expected, T);
 }
 
-class C4<T extends void Function<T>(T)> {
-  C4(expected) { Expect.equals(expected, T); }
+void func4<T extends void Function<T extends num>(T)>(expected) {
+  Expect.equals(expected, T);
 }
 
 main() {
-  C1 c1 = C1(exp1);
-  C2 c2 = C2(exp2);
-  C3 c3 = C3(exp3);
-  C4 c4 = C4(exp4);
+  func1(exp1);
+  func2(exp2);
+  func3(exp3);
+  func4(exp4);
 }

@@ -29,37 +29,15 @@
  * type inference. After all, it's already possible to have a generic function
  * type occurring covariantly in a type argument, like List<T Function<T>(T)
  * Function()>.
- * @description Checks statically that generic invariant function can be a type
- * argument and bound for List.
+ * @description Checks incorrect cyclic case.
+ * @Issue 45317
  * @author iarkh@unipro.ru
  */
 //--enable-experiment=generic-metadata
 
-T test1<T>(T i) => i;
-void test2<T>() {}
-T test3<T>() => 0 as T;
-void test4<T>(T i) {}
-
-main() {
-  List<T Function<T>(T)> l1 = <T Function<T>(T)>[];
-  l1.add(test1);
-  l1.add(1);
-//       ^
+void testme<T extends Function<TT extends T>()>() {}
+//                                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  l1.add(test2);
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  l1.add(test3);
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  l1.add(test4);
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
+main() {}
