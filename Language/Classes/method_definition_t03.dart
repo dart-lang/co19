@@ -22,8 +22,8 @@
  *   static? setterSignature |
  *   operatorSignature
  * ;
- * @description Checks that there is a compile-time error if a function
- * method definition in a concrete class does not include a body
+ * @description Checks that there is a compile-time error if a concrete class
+ * has a function without an implementation
  * @compile-error
  * @author msyabro
  */

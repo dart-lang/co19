@@ -22,10 +22,10 @@
  *   static? setterSignature |
  *   operatorSignature
  * ;
- * @description Checks that there is a compile-time error if an operator
- * method definition in a concrete class does not include a body
+ * @description Checks that there is no compile-time error if a concrete class
+ * has an operator == without an implementation because class Object contains
+ * the one
  * @issue 27508
- * @compile-error
  * @author msyabro
  */
 

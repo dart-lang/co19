@@ -23,8 +23,8 @@
  *   operatorSignature
  * ;
  * ;
- * @description Checks that there is a compile-time error if a getter
- * method definition in a concrete class does not include a body
+ * @description Checks that there is a compile-time error if a concrete class
+ * has a getter without an implementation
  * @compile-error
  * @author msyabro
  */
