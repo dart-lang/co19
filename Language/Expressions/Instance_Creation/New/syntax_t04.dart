@@ -8,11 +8,9 @@
  * newExpression:
  *   new type ('.' identifier)? arguments
  * ;
- * @description Checks that if a constructor is invoked without new (or const)
- * keyword, it is considered as a (malformed) method invocation.
- * @compile-error
+ * @description Checks that it is allowed to invoke a constructor new (or const)
+ * keyword
  * @author msyabro
- * @reviewer rodionov
  */
 
 class A {
@@ -20,5 +18,6 @@ class A {
 }
 
 main() {
-  A();
+  var a = A();
+  A b = a;
 }
