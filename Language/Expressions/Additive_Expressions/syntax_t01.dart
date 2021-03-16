@@ -25,15 +25,19 @@ topLevelFunction() {}
 
 class S {
   const S();
-  operator +(var x) {}
-  operator -(var x) {}
-  operator [](var idx) {}
+  operator +(var x) => this;
+  operator -(var x) => this;
+  operator ~() => this;
+  operator -() => this;
+  operator [](var idx) => this;
+  call([arg1, arg2]) => this;
   final foo = 1;
+  final x = 1;
 }
 
 class A extends S {
-  method() {}
-  get id {}
+  method() => A();
+  get id => A();
   set id(var v) {}
 
   test() {
@@ -50,7 +54,6 @@ class A extends S {
     //invocations
     method() + topLevelFunction();
     this.method()(1)(1, 2) - id[0]().x;
-
 
     //unary expressions
     --id - id++;
