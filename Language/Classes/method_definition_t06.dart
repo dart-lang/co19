@@ -22,15 +22,18 @@
  *   static? setterSignature |
  *   operatorSignature
  * ;
- * @description Checks that there is a compile-time error if an operator
- * method definition in a concrete class does not include a body
+ * @description Checks that there is a compile-time error if a concrete class
+ * has an abstract operator definition without an implementation
+ *
  * @issue 27508
  * @issue 42199
- * @compile-error
  * @author msyabro
  */
 
 class A {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   operator ==(dynamic other);
 }
 

@@ -22,7 +22,7 @@
  *   static? setterSignature |
  *   operatorSignature
  * ;
- * @description Checks that various class member method definitions wich are 
+ * @description Checks that various class member method definitions which are
  * valid according to this syntax do not cause any errors and such class can 
  * be instantiated. 
  * @author msyabro
