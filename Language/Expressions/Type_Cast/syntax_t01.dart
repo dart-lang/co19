@@ -16,7 +16,6 @@
  * function types).
  * @static-clean
  * @author rodionov
- * @reviewer iefremov
  */
 
 abstract class I {}
@@ -25,8 +24,8 @@ class C implements I {}
 class G<Q, R> {}
 class GG<S, T> extends G<S, T> {}
 
-typedef int func(num n, Pattern p);
-num f(double d, Pattern p) {return double.nan;}
+typedef Object func(num n, String p);
+num f(num d, String p) {return double.nan;}
 
 main() {
   1 as int;
@@ -36,7 +35,7 @@ main() {
   "bar" as Pattern;
   new C() as I;
   new GG<int, bool>() as G<int, bool>;
-  ((int x, String y) => "$x$y") as func;
+  ((num x, String y) => "$x$y") as func;
   f as func;
   f as Function;
   f as Object;
