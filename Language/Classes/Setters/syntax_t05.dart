@@ -10,12 +10,14 @@
  * ;
  * @description Checks if setter returns value other than void,
  * then compile-time error occurs
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 
 class C {
-  String set s1(int value) {return "1";}
+  String set s1(int value) => "42";
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

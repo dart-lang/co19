@@ -15,7 +15,10 @@
  */
 
 class C {
-  static int set s2(int value) {return 2;} /// static type warning
+  static int set s2(int value) => 42;
+//       ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
