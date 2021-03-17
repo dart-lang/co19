@@ -15,12 +15,10 @@
  */
 
 class C {
-  static int set s2(int value) {
+  static int set s2(int value) => 42;
 //       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    return 42;
-  }
 }
 
 main() {

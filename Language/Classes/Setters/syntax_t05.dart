@@ -15,12 +15,10 @@
  */
 
 class C {
-  String set s1(int value) {
+  String set s1(int value) => "42";
 //^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    return "1";
-  }
 }
 
 main() {
