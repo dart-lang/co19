@@ -34,7 +34,7 @@
  * case.
  * @author iarkh@unipro.ru
  */
-//--enable-experiment=generic-metadata
+// SharedOptions=--enable-experiment=generic-metadata
 
 class C<X extends void Function<T>(T)> {}
 

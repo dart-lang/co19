@@ -33,7 +33,7 @@
  * @author iarkh@unipro.ru
  * @Issue 45317
  */
-//--enable-experiment=generic-metadata
+// SharedOptions=--enable-experiment=generic-metadata
 
 class C1<T extends void Function<TT extends T>()> {}
 //                               ^

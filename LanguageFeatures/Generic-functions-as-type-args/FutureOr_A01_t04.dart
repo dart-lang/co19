@@ -33,7 +33,7 @@
  * and bound of FutureOr.
  * @author iarkh@unipro.ru
  */
-//--enable-experiment=generic-metadata
+// SharedOptions=--enable-experiment=generic-metadata
 
 import "dart:async";
 import "../../Utils/expect.dart";

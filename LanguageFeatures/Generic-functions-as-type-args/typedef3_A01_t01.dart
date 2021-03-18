@@ -29,37 +29,35 @@
  * type inference. After all, it's already possible to have a generic function
  * type occurring covariantly in a type argument, like List<T Function<T>(T)
  * Function()>.
- * @description Checks statically that generic function can be a function type
- * argument and bound.
+ * @description Checks that generic function can be a non-function typedef type
+ * argument and  bound: test extends clause in the typedef declaration
+ * dynamically.
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=generic-metadata
 
-typedef exp1 = T Function<T extends num>(T);
-typedef exp2 = void Function<T extends num>();
-typedef exp3 = T Function<T extends num>();
-typedef exp4 = void Function<T extends num>(T);
+import "../../Utils/expect.dart";
 
-void func1<T extends T Function<T extends num>(T)>() {}
+typedef exp1 = T Function<T>(T);
+typedef exp2 = void Function<T>();
+typedef exp3 = T Function<T>();
+typedef exp4 = void Function<T>(T);
 
-void func2<T extends void Function<T extends num>()>() {}
+class C<T> {
+  C(expected) { Expect.equals(expected, T); }
+}
 
-void func3<T extends T Function<T extends num>()>() {}
+typedef C1<X extends T Function<T>(T)> = C<X>;
 
-void func4<T extends void Function<T extends num>(T)>() {}
+typedef C2<X extends void Function<T>()> = C<X>;
+
+typedef C3<X extends T Function<T>()> = C<X>;
+
+typedef C4<X extends void Function<T>(T)> = C<X>;
 
 main() {
-  func2<exp1>();
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  func2<exp2>();
-
-  func2<exp3>();
-
-  func2<exp4>();
-//       ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  C1 c1 = C1(exp1);
+  C2 c3 = C2(exp2);
+  C3 c5 = C3(exp3);
+  C4 c7 = C4(exp4);
 }

@@ -29,37 +29,40 @@
  * type inference. After all, it's already possible to have a generic function
  * type occurring covariantly in a type argument, like List<T Function<T>(T)
  * Function()>.
- * @description Checks statically that generic function can be a function type
- * argument and bound.
+ * @description Checks incorrect cyclic case of the old-style function typedef.
  * @author iarkh@unipro.ru
+ * @Issue 45317
  */
 // SharedOptions=--enable-experiment=generic-metadata
 
-typedef exp1 = T Function<T extends num>(T);
-typedef exp2 = void Function<T extends num>();
-typedef exp3 = T Function<T extends num>();
-typedef exp4 = void Function<T extends num>(T);
-
-void func1<T extends T Function<T extends num>(T)>() {}
-
-void func2<T extends void Function<T extends num>()>() {}
-
-void func3<T extends T Function<T extends num>()>() {}
-
-void func4<T extends void Function<T extends num>(T)>() {}
-
-main() {
-  func2<exp1>();
-//      ^
+typedef T TEST1<T extends void Function<TT extends T>(TT)>(T);
+//            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  func2<exp2>();
-
-  func2<exp3>();
-
-  func2<exp4>();
-//       ^
+typedef void TEST2<T extends void Function<TT extends T>(TT)>(T);
+//            ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
+
+typedef T TEST3<T extends void Function<TT extends T>(TT)>();
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef void TEST4<T extends void Function<TT extends T>(TT)>();
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef T TEST1<T extends void Function<TT extends T>(TT)>(T);
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef void TEST1<T extends void Function<TT extends T>(TT)>();
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+main() {}

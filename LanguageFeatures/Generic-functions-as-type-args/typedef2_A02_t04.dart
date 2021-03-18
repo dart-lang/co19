@@ -34,7 +34,7 @@
  * @Issue 45322
  * @author iarkh@unipro.ru
  */
-//--enable-experiment=generic-metadata
+// SharedOptions=--enable-experiment=generic-metadata
 
 import "../../Utils/expect.dart";
 
