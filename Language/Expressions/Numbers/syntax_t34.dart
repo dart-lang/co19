@@ -36,18 +36,14 @@
 main() {
   9223372036854775807;
 //^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+// [web] unspecified
   -9223372036854775808;
 //^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+// [web] unspecified
   0x8000000000000000;
 //^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+// [web] unspecified
   0x7FFFFFFFFFFFFFFF;
 //^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+// [web] unspecified
 }
