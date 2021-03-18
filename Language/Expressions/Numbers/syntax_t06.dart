@@ -28,7 +28,7 @@
  *   DIGIT
  * ;
  * @description Checks various large positive decimal and hexadecimal integer
- * numbers.
+ * numbers. This test must be skipped on JS configurations
  * @author iefremov
  */
 import '../../../Utils/expect.dart';
