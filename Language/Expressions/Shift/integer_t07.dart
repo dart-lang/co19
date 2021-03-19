@@ -5,7 +5,8 @@
  */
 /**
  * @assertion N/A
- * @description Checks that right shift works with integers as expected
+ * @description Checks that right shift works with big size integers as expected
+ * This test must be skipped on JavaScript
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';
@@ -17,10 +18,10 @@ main() {
   Expect.equals(0, i >> 64);
   Expect.equals(0, i >> 100);
 
-  int j = 0x7FFFFFFFFFFFF000;
-  Expect.equals(4611686018427385856, j >> 1);
-  Expect.equals(2305843009213692928, j >> 2);
-  Expect.equals(1152921504606846464, j >> 3);
+  int j = 0x7FFFFFFFFFFFFFFF;
+  Expect.equals(4611686018427387903, j >> 1);
+  Expect.equals(2305843009213693951, j >> 2);
+  Expect.equals(1152921504606846975, j >> 3);
   Expect.equals(3, j >> 61);
   Expect.equals(1, j >> 62);
   Expect.equals(0, j >> 63);
