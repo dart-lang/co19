@@ -36,23 +36,11 @@
 // SharedOptions=--enable-experiment=generic-metadata
 
 class C1<T extends void Function<TT extends T>()> {}
-//                               ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 class C2<T extends TT Function<TT extends T>()> {}
-//                            ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 class C3<T extends void Function<TT extends T>(TT)> {}
-//                               ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 class C4<T extends TT Function<TT extends T>(TT)> {}
-//                             ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 main() {}

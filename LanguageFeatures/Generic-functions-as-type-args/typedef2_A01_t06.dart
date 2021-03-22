@@ -39,9 +39,12 @@
 import "../../Utils/expect.dart";
 
 typedef T TEST<T extends TT Function<TT>()>();
+
 T testme<T extends TT Function<TT>()>() => throw "Hello!";
+T Function<T>() testme1() => throw "Hello";
 
 main() {
   TEST t = testme;
-  Expect.isTrue(testme is TEST);
+  Expect.isFalse(testme is TEST);
+  Expect.isTrue(testme1 is TEST);
 }

@@ -39,9 +39,12 @@
 import "../../Utils/expect.dart";
 
 typedef void TEST<T extends void Function<TT>(TT t)>(T t);
+
 void testme<T extends void Function<TT>(TT t)>(T t) {}
+void testme1(void Function<T>(T t)) {}
 
 main() {
   TEST t = testme;
-  Expect.isTrue(testme is TEST);
+  Expect.isFalse(testme is TEST);
+  Expect.isTrue(testme1 is TEST);
 }

@@ -38,12 +38,12 @@
 
 import "../../Utils/expect.dart";
 
-typedef void TEST1<T extends void Function<TT>(TT)>(T);
+typedef void TEST1<T extends void Function<TT>()>(T);
 typedef void TEST2<T extends TT Function<TT>()>(T);
 typedef void TEST3<T extends void Function<TT>(TT)>(T);
 typedef void TEST4<T extends TT Function<TT>(TT)>(T);
 
-typedef exp1 = void Function(void Function<T>(T));
+typedef exp1 = void Function(void Function<T>());
 typedef exp2 = void Function(T Function<T>());
 typedef exp3 = void Function(void Function<T>(T));
 typedef exp4 = void Function(T Function<T>(T));

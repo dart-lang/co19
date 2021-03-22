@@ -36,8 +36,5 @@
 // SharedOptions=--enable-experiment=generic-metadata
 
 void testme<T extends Function<TT extends T>()>() {}
-//                                        ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 main() {}

@@ -36,33 +36,15 @@
 // SharedOptions=--enable-experiment=generic-metadata
 
 typedef T TEST1<T extends void Function<TT extends T>(TT)>(T);
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 typedef void TEST2<T extends void Function<TT extends T>(TT)>(T);
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 typedef T TEST3<T extends void Function<TT extends T>(TT)>();
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 typedef void TEST4<T extends void Function<TT extends T>(TT)>();
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
-typedef T TEST1<T extends void Function<TT extends T>(TT)>(T);
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
+typedef T TEST5<T extends void Function<TT extends T>(TT)>(T);
 
-typedef void TEST1<T extends void Function<TT extends T>(TT)>();
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
+typedef void TEST6<T extends void Function<TT extends T>(TT)>();
 
 main() {}

@@ -31,6 +31,7 @@
  * Function()>.
  * @description Checks that generic function can be a class type argument and
  * bound: test extends clause in the class declaration dynamically.
+ * @Issue 45415
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=generic-metadata

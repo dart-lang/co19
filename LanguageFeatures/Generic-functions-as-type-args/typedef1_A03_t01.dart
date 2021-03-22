@@ -36,23 +36,11 @@
 // SharedOptions=--enable-experiment=generic-metadata
 
 typedef T1<TT extends void Function<T extends TT>()> = TT Function();
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
 
-typedef T1<TT extends T Function<T extends TT>()> = TT Function();
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
+typedef T2<TT extends T Function<T extends TT>()> = TT Function();
 
-typedef T1<TT extends void Function<T extends TT>(T)> = TT Function();
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
+typedef T3<TT extends void Function<T extends TT>(T)> = TT Function();
 
-typedef T1<TT extends T Function<T extends TT>(T)> = TT Function();
-//            ^
-// [analyzer] unspecified
-// [cfe] unspecified
+typedef T4<TT extends T Function<T extends TT>(T)> = TT Function();
 
 main() {}
