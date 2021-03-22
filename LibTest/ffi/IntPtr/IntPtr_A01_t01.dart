@@ -25,18 +25,17 @@ void main() {
     Expect.equals(256, p1.value);
     p1.value = 32767;
     Expect.equals(32767, p1.value);
+    p1.value = 32768;
+    Expect.equals(32768, p1.value);
+    p1.value = -32769;
+    Expect.equals(-32769, p1.value);
     if (sizeOf<IntPtr>() == 4) {
-      p1.value = 32768;
-      Expect.equals(-32768, p1.value);
-      p1.value = -32768;
-      Expect.equals(-32768, p1.value);
-      p1.value = -32769;
-      Expect.equals(32767, p1.value);
-    } else {
-      p1.value = 32768;
-      Expect.equals(32768, p1.value);
-      p1.value = -32769;
-      Expect.equals(-32769, p1.value);
+      p1.value = 2147483647;
+      Expect.equals(2147483647, p1.value);
+      p1.value = 2147483648;
+      Expect.equals(-2147483648, p1.value);
+      p1.value = -2147483649;
+      Expect.equals(2147483647, p1.value);
     }
   } finally {
     calloc.free(p1);
