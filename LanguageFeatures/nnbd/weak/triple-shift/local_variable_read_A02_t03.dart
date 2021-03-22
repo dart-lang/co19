@@ -31,5 +31,5 @@ main() {
   if (b) {
     y = 42;
   }
-  Expect.throws(() {x >>>= 2;});
+  Expect.throws(() {y >>>= 2;});
 }
