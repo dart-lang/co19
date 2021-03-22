@@ -73,13 +73,11 @@ void test2() {
   // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
   // [cfe] Unexpected type 'String?' of a map spread entry.  Expected 'dynamic' or a Map.
   var m7  = <dynamic, dynamic>{...?list[0]};
-  //                               ^^^^
-  // [analyzer] COMPILE_TIME_ERROR.UNCHECKED_USE_OF_NULLABLE_VALUE
   //                                   ^
+  // [analyzer] COMPILE_TIME_ERROR.UNCHECKED_USE_OF_NULLABLE_VALUE
   // [cfe] Operator '[]' cannot be called on 'List<dynamic>?' because it is potentially null.
   var m8 = <dynamic, dynamic>{...?itr[0]};
-  //                              ^^^
-  // [analyzer] COMPILE_TIME_ERROR.UNCHECKED_USE_OF_NULLABLE_VALUE
   //                                 ^
+  // [analyzer] COMPILE_TIME_ERROR.UNCHECKED_USE_OF_NULLABLE_VALUE
   // [cfe] The operator '[]' isn't defined for the class 'Iterator<dynamic>?'.
 }
