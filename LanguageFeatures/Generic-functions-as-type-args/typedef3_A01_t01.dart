@@ -34,7 +34,7 @@
  * dynamically.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=generic-metadata
+// SharedOptions=--enable-experiment=generic-metadata,nonfunction-type-aliases
 
 import "../../Utils/expect.dart";
 
