@@ -8,7 +8,7 @@
  * @description Check that metadata is allowed before part directive
  * @author sgrekhov@unipro.ru
  */
-
+// SharedOptions=---enable-experiment=generic-metadata
 import 'before_part_directive_lib.dart';
 
 main() {

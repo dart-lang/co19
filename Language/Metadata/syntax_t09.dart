@@ -11,7 +11,7 @@
  * @description Check that type arguments are allowed on annotations
  * @author sgrekhov@unipro.ru
  */
-//--enable-experiment=generic-metadata
+// SharedOptions=---enable-experiment=generic-metadata
 import 'syntax_lib1.dart';
 
 @B<int>.b(10)
