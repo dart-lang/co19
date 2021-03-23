@@ -124,7 +124,6 @@ main() {
   Expect.equals(2, (c1 & c2));
   Expect.equals(28, (c1 << c2));
   Expect.equals(1, (c1 >> c2));
-  Expect.equals(1, (c1 >>> c2));
   Expect.equals(~7, ~c1);
   Expect.equals(-2, -c2);
   Expect.equals(true, c1 == c1);
