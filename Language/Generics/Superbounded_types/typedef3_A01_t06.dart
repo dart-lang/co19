@@ -19,5 +19,5 @@ typedef B<X extends A<X>> = A<X>;
 
 main() {
   B<A<int>> b1;     //# 01: compile-time error
-  B<A<A<A<B>>>> b2; //# 02: compile-time error
+  B<A<A<A<B>>>> b2;
 }
