@@ -16,7 +16,6 @@
  * therefore, constant expressions.
  * @author iefremov
  */
-// SharedOptions=--enable-experiment=triple-shift
 
 class C {
   final a, b, c, d, e, f, g, h;
@@ -29,7 +28,6 @@ class C {
     e = 1 >> 100,
     f = 100 << 1,
     g = ~(((1 + 2) ~/ 2) & (100500 >> 2))  | (~1 ^ (1 << 2)),
-    h = 12345 >>> 123;
 }
 
 main() {

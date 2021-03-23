@@ -10,7 +10,6 @@
  * user class.
  * @author vasya
  */
-// SharedOptions=--enable-experiment=triple-shift
 
 import "../../../../Utils/expect.dart";
 
@@ -82,10 +81,6 @@ class C {
 
   operator >>(C other) {
     return value >> other.value;
-  }
-
-  operator >>>(C other) {
-    return value >>> other.value;
   }
 
   operator ~/(C other) {

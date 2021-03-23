@@ -13,8 +13,6 @@
  * errors.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=triple-shift
-
 topFunc() {}
 
 class S {
@@ -56,8 +54,6 @@ class Test  {
     [const S(), const {}, const [1]];
 
     [1 << 1, 10 >> 2];
-
-    [1 >>> 1, 10 >>> 2, 367 >>> 14];
 
     [ -1, !true, ~id];
 

@@ -23,11 +23,7 @@
  * of a function of the form [functionSignature '=>' expression ';']
  *
  * @author msyabro
- * @reviewer kaigorodov
- * @reviewer iefremov
  */
-// SharedOptions=--enable-experiment=triple-shift
-
 import "syntax_t03_lib.dart" as prfx;
 
 class A {
@@ -128,9 +124,6 @@ main() {
   //Shift
   f_shift() => x << 1;
   g_shift() => y >> 2;
-
-  //Triple shift
-  triple_shift() => y >>> 2;
 
   //Additive expressions
   f_additive() => x + y;

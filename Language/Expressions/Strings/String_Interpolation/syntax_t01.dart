@@ -16,7 +16,6 @@
  * the specification don't produce compile-time errors.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=triple-shift
 
 import 'String_Interpolation_lib.dart';
 
@@ -100,9 +99,6 @@ class Test {
     //shift expressions
     '${1 >> 2}';
     "${7 << 3}";
-
-    //triple shift expressions
-    '${10 >>> 1}';
 
     //unary expressions
     "${-id}";

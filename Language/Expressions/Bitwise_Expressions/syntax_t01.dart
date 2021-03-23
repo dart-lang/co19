@@ -28,7 +28,6 @@
  * according to this grammar don't cause compile-time errors.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=triple-shift
 
 topLevelFunction() {}
 
@@ -64,7 +63,7 @@ class A extends S {
     try {1 << 2 ^ null >> null;} catch (e) {}
 
     // bitwise shift expressions
-    try {144 >>> 2 ^ null >> null;} catch (e) {}
+    try {144 >> 2 ^ null >> null;} catch (e) {}
 
     // bitwise expressions
     1 | -1 | 1 | -1 | 1;

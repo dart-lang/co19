@@ -18,7 +18,6 @@
  * errors.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=triple-shift
 
 topFunc() {}
 
@@ -62,8 +61,6 @@ class Test  {
     x = {"class": const S(), "map": const {}, "list": const [1]};
 
     x = {"<<": 1 << 1, ">>": 10 >> 2};
-
-    x = {">>>": 1 >>> 1, 1222 >>> 10: 14};
 
     x = {"-": -1, "!": !true, "~": ~id};
 

@@ -20,23 +20,21 @@
  * as one likes.
  * @author rodionov
  */
-// SharedOptions=--enable-experiment=triple-shift
-
+import "../../../Utils/expect.dart";
 class A {
   operator <<(other) => other;
   operator >>(other) => other;
-  operator >>>(other) => other;
 }
 
 class B extends A {
   void test() {
-    super >> 1 << 1 << -1000 << 100 >> 124 >>> 1123 << 10 >>> 111;
+    super >> 1 << 1 << -1000 << 100 >> 124 << 10;
   }
 }
 
 main() {
-  try {
-    1 >> 1 << 1 >>> -12 << -1000 << 100 >> 124 >>> 3;
+  Expect.throws(() {
+    1 >> 1 << 1 >> -12 << -1000 << 100 >> 124 >> 3;
     new B().test();
-  } catch (e) {}
+  });
 }

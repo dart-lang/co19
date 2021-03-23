@@ -9,7 +9,6 @@
  * @description Checks that any expression can be enclosed in parentheses.
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=triple-shift
 
 class C {
   method() {}
@@ -80,9 +79,6 @@ class C {
     //shift expressions
     (1 << 1);
     (2 >> 1);
-
-    //triple shift expressions
-    (25 >>> 1);
 
     //additive expressions
     (1 + 2);

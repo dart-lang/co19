@@ -17,7 +17,6 @@
  * statement.
  * @author iefremov
  */
-// SharedOptions=--enable-experiment=triple-shift
 
 var v;
 get g {}
@@ -105,9 +104,6 @@ main() {
   //shift
   i << 1;
   i >> 0;
-
-  //triple shift
-  i >>> 0;
 
   //relational
   i < 0;

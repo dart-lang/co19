@@ -23,8 +23,6 @@
  * @Issue #36343
  * @author msyabro
  */
-// SharedOptions=--enable-experiment=triple-shift
-
 import '../../../Utils/expect.dart';
 
 topLevelFunction() {}
@@ -55,10 +53,6 @@ class A extends S {
     // additive and multiplicative expressions are allowed arguments
     // for a shift expression
     try {super >= 1 + 1 >> 2 * 2;} catch (e) {}
-
-    // additive and multiplicative expressions are allowed arguments
-    // for a triple shift expression
-    try {super >= 1 + 1 >>> 2 * 2;} catch (e) {}
 
     //literal is primary is postfix expr. is shift expr.
     try {this <= 0.25;} catch (e) {}
