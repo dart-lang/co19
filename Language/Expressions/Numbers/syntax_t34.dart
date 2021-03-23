@@ -28,21 +28,16 @@
  *   DIGIT
  * ;
  * @description Check that various large positive decimal and hexadecimal
- * integer numbers produce compile error on JS configurations. This test must be
- * skipped on non-JS configurations
- * @author sgrekhov
+ * integer numbers produce compile error on JavaScript and no errors on
+ * non-JavaScript configurations
+ * @author sgrekhov@unipro.ru
  */
 
 main() {
   9223372036854775807;
 //^^^^^^^^^^^^^^^^^^^
 // [web] unspecified
-  -9223372036854775808;
-//^^^^^^^^^^^^^^^^^^^^
-// [web] unspecified
-  0x8000000000000000;
-//^^^^^^^^^^^^^^^^^^
-// [web] unspecified
+
   0x7FFFFFFFFFFFFFFF;
 //^^^^^^^^^^^^^^^^^^
 // [web] unspecified
