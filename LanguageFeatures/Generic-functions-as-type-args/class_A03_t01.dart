@@ -31,7 +31,7 @@
  * Function()>.
  * @description Checks incorrect cyclic case.
  * @author iarkh@unipro.ru
- * @Issue 45317
+ * @Issue 45317,45443
  */
 // SharedOptions=--enable-experiment=generic-metadata
 
