@@ -20,6 +20,5 @@ class C {}
 
 main() {
   SplayTreeSet set = new SplayTreeSet();
-  set.add(new C());
   Expect.throws(() {set.add(new C());});
 }

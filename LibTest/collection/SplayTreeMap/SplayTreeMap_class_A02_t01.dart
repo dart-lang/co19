@@ -35,10 +35,12 @@ main() {
 
   compared = false;
   map.containsKey(c1);
-  Expect.isFalse(compared);
+  Expect.isTrue(compared);
 
+  compared = false;
   map[c1] = 1;
-  Expect.isFalse(compared);
+  Expect.isTrue(compared);
+  compared = false;
   map.containsKey(c1);
   Expect.isTrue(compared);
 
