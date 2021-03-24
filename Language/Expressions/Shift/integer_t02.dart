@@ -18,9 +18,11 @@ main() {
   Expect.equals(0, i >> 100);
 
   int j = 0x7FFFFFFFFFFFF000;
-  Expect.equals(4611686018427385856, j >> 1);
-  Expect.equals(2305843009213692928, j >> 2);
-  Expect.equals(1152921504606846464, j >> 3);
+  if (!isJS) {
+    Expect.equals(4611686018427385856, j >> 1);
+    Expect.equals(2305843009213692928, j >> 2);
+    Expect.equals(1152921504606846464, j >> 3);
+  }
   Expect.equals(3, j >> 61);
   Expect.equals(1, j >> 62);
   Expect.equals(0, j >> 63);

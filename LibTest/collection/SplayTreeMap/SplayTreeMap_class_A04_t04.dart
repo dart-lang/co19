@@ -22,6 +22,5 @@ class C {
 main() {
   SplayTreeMap map = new SplayTreeMap();
 
-  map[new C()] = null;
   Expect.throws(() { map[new C()] = null; });
 }

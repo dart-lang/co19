@@ -26,6 +26,5 @@ int compare(String key1, String key2) {
 
 main() {
   SplayTreeSet<String> set = new SplayTreeSet<String>(compare);
-  set.add("");
   Expect.throws(() {set.add("You are not paid to think");});
 }

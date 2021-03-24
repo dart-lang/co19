@@ -20,10 +20,11 @@ main() {
   Expect.equals(0, i >>> 100);
 
   int j = 0x7FFFFFFFFFFFF000;
-  Expect.equals(4611686018427385856, j >>> 1);
-  Expect.equals(2305843009213692928, j >>> 2);
-  Expect.equals(1152921504606846464, j >>> 3);
-
+  if (!isJS) {
+    Expect.equals(4611686018427385856, j >>> 1);
+    Expect.equals(2305843009213692928, j >>> 2);
+    Expect.equals(1152921504606846464, j >>> 3);
+  }
   int k = 129;
   Expect.equals(0, k >>> 261);
 

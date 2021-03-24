@@ -9,7 +9,7 @@
  * @issue 24313
  * @author a.semenov@unipro.ru
  */
-
+// SharedOptions=---enable-experiment=generic-metadata
 import 'before_part_header_lib1.dart';
 
 main() {

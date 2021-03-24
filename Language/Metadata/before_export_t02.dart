@@ -8,6 +8,7 @@
  * @description Check that metadata is allowed before export directive
  * @author sgrekhov@unipro.ru
  */
+// SharedOptions=---enable-experiment=generic-metadata
 import 'before_export_lib3.dart';
 
 main() {
