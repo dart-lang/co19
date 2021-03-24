@@ -27,8 +27,6 @@
  * Object and there is implicit downcast.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 import "../../Utils/expect.dart";
 
 Object getObject() => new Object();

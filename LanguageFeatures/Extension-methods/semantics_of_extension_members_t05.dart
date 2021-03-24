@@ -17,7 +17,6 @@
  * the surrounding extension
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
 import "../../Utils/expect.dart";
 
 extension MyUnaryNumber on List<Object> {

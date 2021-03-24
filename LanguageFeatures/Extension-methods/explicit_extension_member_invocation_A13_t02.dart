@@ -11,8 +11,6 @@
  * @description Check explicit extension member invocation in form of X(args)
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 class C {
   String call(int index) => "Lily was here:" + index.toString();
 }

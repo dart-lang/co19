@@ -12,8 +12,6 @@
  * X.id<types>(args)
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 class C {
   String id2<T, Y extends num>(T t, Y val) =>
       "C: t=" + t.toString() + ", i=$val";

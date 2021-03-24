@@ -24,7 +24,6 @@
  * (library one) is hidden by other (declared in the current scope)
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
 import "my_fancy_list_lib.dart";
 export "my_fancy_list_lib.dart";
 

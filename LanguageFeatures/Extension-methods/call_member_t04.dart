@@ -19,8 +19,6 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 class A {
   String get call => "My name is A";
 }

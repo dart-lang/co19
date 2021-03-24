@@ -13,7 +13,7 @@
  * extension invocation
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 class C {
 }

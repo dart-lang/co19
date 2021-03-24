@@ -10,7 +10,7 @@
  * with the prefix does not declare a member with the given name
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 import "extension_conflict_resolution_lib.dart" as testlib;
 

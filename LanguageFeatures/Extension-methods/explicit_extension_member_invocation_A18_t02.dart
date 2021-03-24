@@ -13,7 +13,7 @@
  * @issue 39254
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 class C {
   int value;

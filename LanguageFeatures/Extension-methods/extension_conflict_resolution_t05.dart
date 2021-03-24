@@ -26,7 +26,7 @@
  * receiver of type [dynamic], no matter which extensions are in scope.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 import "../../Utils/expect.dart";
 import "extension_conflict_resolution_lib.dart";

@@ -20,7 +20,7 @@
  * static or instance member
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 import "../../Utils/expect.dart";
 
 extension ExtendedList<T> on List<T> {

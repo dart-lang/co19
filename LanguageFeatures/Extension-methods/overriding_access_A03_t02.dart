@@ -12,8 +12,6 @@
  * the library extensions.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 import "extension_conflict_resolution_lib.dart" as testlib;
 
 main() {

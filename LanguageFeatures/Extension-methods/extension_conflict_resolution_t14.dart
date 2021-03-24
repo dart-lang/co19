@@ -27,8 +27,6 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 class A {}
 class B {}
 class C extends A {}

@@ -27,7 +27,6 @@
  * type of [T1] is a subtype if instantiated type of [T2]
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
 import "../../Utils/expect.dart";
 
 class A {}

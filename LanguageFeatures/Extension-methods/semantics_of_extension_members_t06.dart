@@ -17,7 +17,6 @@
  * the surrounding extension
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
 import "../../Utils/expect.dart";
 import "semantics_of_extension_members_lib.dart";
 

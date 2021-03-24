@@ -20,7 +20,7 @@
  * instance variable, constructor or abstract method
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 extension ExtendedList<T> on List<T> {
   int instanceVar;                  //# 01: compile-time error

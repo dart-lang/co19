@@ -13,8 +13,6 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 int count(String string, int length) => length + string.length;
 
 extension SuperList<T> on List<T> {

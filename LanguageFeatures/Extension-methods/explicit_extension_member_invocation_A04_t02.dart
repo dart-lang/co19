@@ -11,7 +11,7 @@
  * @description Check explicit extension member invocation in form of X.id
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 class C {
   String id2 = "No woman no cry";

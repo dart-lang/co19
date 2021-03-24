@@ -10,7 +10,7 @@
  * instance method.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 import "../../Utils/expect.dart";
 import "tearoffs2.lib.dart";
 

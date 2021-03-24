@@ -11,8 +11,6 @@
  * extension method
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 class A {
   String get a => "a";
 }

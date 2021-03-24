@@ -12,8 +12,6 @@
  * the extensions.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 extension MySimpleExt on String {
   bool get test => false;
   int getANum() => 12345;

@@ -13,8 +13,6 @@
  * inference if extended class has several type parameters.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 import "../../Utils/expect.dart";
 
 class A<T1, T2, T3> {}

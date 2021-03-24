@@ -6,7 +6,6 @@
 /**
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
 library scope_all_lib;
 
 extension Foo<T> on List<T> {

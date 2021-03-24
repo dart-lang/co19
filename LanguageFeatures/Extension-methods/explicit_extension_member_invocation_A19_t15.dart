@@ -14,8 +14,6 @@
  * simple or composite member invocation.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 class C {
 }
 

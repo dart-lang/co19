@@ -17,7 +17,7 @@
  * @description Check ++e1.id and e1.id++ values
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 import "../../Utils/expect.dart";
 
 class C {

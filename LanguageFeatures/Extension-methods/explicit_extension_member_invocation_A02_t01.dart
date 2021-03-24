@@ -11,8 +11,6 @@
  * constructor invocation would be a compile-time error.
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 class A {
   String name = "My name is A";
 }

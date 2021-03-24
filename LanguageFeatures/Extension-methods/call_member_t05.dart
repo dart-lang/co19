@@ -18,7 +18,7 @@
  * it is called. Test type arguments
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 import "../../Utils/expect.dart";
 
 class C<T extends num> {

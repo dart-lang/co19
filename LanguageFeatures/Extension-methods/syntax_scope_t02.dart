@@ -24,7 +24,6 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
 import "my_fancy_list_lib.dart";
 
 main() {

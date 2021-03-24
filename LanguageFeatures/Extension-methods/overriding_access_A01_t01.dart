@@ -30,7 +30,7 @@
  * member access, it's possible to force an extension member invocation
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 import "../../Utils/expect.dart";
 

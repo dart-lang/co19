@@ -25,7 +25,7 @@
  * @description Check that correct extension is choosen for the generic type
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 import "extension_conflict_resolution_lib.dart";
 import "../../Utils/expect.dart";

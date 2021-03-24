@@ -13,8 +13,6 @@
  * but with the different arguments
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 import "../../Utils/expect.dart";
 
 extension ExtendedList<T> on List<T> {

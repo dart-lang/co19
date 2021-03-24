@@ -28,8 +28,6 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 extension SmartIterable on Iterable<int> {
   void checkme() {}
 }

@@ -19,8 +19,6 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 extension on int {
   String call(num v) => "My name is int($v)";
 }

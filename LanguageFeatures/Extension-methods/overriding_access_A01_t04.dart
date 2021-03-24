@@ -31,8 +31,6 @@
  * member of the receiver type takes precedence over an extension method
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 import "../../Utils/expect.dart";
 
 class C<T> {}

@@ -23,8 +23,6 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 class C {
   String method(int i) => "$i";
 }

@@ -16,8 +16,6 @@
  * @description Check correct syntax of top-level extension declaration
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 import "../../Utils/expect.dart";
 
 extension MyFancyList<T> on List<T> {

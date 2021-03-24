@@ -17,7 +17,6 @@
  * @description Check the case when 'call()' method is called via 'this()'
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
 import "../../Utils/expect.dart";
 class C {}
 

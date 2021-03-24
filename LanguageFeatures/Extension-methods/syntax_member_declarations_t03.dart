@@ -21,8 +21,6 @@
  * runtimeType or noSuchMethod)
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 extension ExtendedList<T> on List<T> {
   dynamic noSuchMethod (Invocation invocation) => null; //# 01: compile-time error
   bool operator == (dynamic other) => true;             //# 02: compile-time error

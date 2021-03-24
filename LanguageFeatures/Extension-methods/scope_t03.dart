@@ -11,7 +11,6 @@
  * scope
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
 import "../../Utils/expect.dart";
 import "scope_all_lib.dart";
 import "scope_bar_lib.dart";

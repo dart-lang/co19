@@ -18,7 +18,6 @@
  * single type variable. Test built-in types
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
 import "dart:async";
 
 extension MyInt on int {}

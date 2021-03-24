@@ -12,8 +12,6 @@
  * can yield SuperList<Object>(list).checkme<int>(42) without an error.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 import "../../Utils/expect.dart";
 
 extension SuperList<T> on List<T> {

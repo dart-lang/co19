@@ -19,7 +19,6 @@
  * @issue https://github.com/dart-lang/language/issues/734
  * @issue 41782
  */
-// SharedOptions=--enable-experiment=extension-methods
 class A {}
 
 extension on A {

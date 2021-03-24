@@ -17,7 +17,6 @@
  * https://github.com/dart-lang/language/issues/677
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
 import "../../Utils/expect.dart";
 
 class C {

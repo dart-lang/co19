@@ -6,7 +6,7 @@
 /**
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 library scope_bar_lib;
 
 extension Bar<T> on List<T> {

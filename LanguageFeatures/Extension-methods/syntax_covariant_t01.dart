@@ -16,8 +16,6 @@
  * marked covariant
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 class A {}
 
 class C extends A {

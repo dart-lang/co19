@@ -19,7 +19,7 @@
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 
 extension MyFancyList<T> on List<T> {
   int get doubleLength => this.length * 2;

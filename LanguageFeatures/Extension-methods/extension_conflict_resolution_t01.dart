@@ -27,8 +27,6 @@
  * @compile-error
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
-
 extension TypedEquals1 on Object {
   bool equals(Object value) => this == value;
 }

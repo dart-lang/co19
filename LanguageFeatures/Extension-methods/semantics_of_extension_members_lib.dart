@@ -6,7 +6,7 @@
 /**
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=--enable-experiment=extension-methods
+
 library my_unary_number;
 
 extension MyUnaryNumber on List<Object> {
