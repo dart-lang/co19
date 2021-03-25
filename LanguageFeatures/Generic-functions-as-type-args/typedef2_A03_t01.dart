@@ -35,15 +35,15 @@
  */
 // SharedOptions=--enable-experiment=generic-metadata
 
-typedef T TEST1<T extends void Function<TT extends T>(TT)>(T);
+typedef T TEST1<T extends void Function<TT extends T>(TT)>(T t);
 
-typedef void TEST2<T extends void Function<TT extends T>(TT)>(T);
+typedef void TEST2<T extends void Function<TT extends T>(TT)>(T t);
 
-typedef T TEST3<T extends void Function<TT extends T>(TT)>();
+typedef T TEST3<T extends void Function<TT extends T>(TT t)>();
 
-typedef void TEST4<T extends void Function<TT extends T>(TT)>();
+typedef void TEST4<T extends void Function<TT extends T>(TT t)>();
 
-typedef T TEST5<T extends void Function<TT extends T>(TT)>(T);
+typedef T TEST5<T extends void Function<TT extends T>(TT)>(T t);
 
 typedef void TEST6<T extends void Function<TT extends T>(TT)>();
 
