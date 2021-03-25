@@ -11,9 +11,10 @@
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-weak
-
 import "../../../../Utils/expect.dart";
 import "type_reification_legacy_aliases_lib.dart";
+
+typedef AliasA = A;
 
 main() {
   Object? a1 = A1() as Object;
