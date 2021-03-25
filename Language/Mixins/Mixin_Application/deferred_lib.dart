@@ -7,5 +7,3 @@ library deferred_lib;
 
 class A {
 }
-
-typedef AAlias = A;
