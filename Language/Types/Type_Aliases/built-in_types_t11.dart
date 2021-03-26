@@ -31,4 +31,7 @@ main() {
 
   int l = 1295555555;
   Expect.equals(l, l >>> 0);
+
+  i = 0x8000000000000000;
+  Expect.equals(0x4000000000000000, i >>> 1);
 }
