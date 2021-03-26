@@ -18,16 +18,16 @@ main() {
 
   Expect.equals(0, i >>> 1);
   Expect.equals(0, i >>> 2);
-  Expect.equals(1, i >>> 64);
+  Expect.equals(0, i >>> 64);
   Expect.equals(0, i >>> 100);
 
   int j = 0x7FFFFFFFFFFFFFFF;
-  Expect.equals(0, j >>> 1);
-  Expect.equals(0, j >>> 2);
-  Expect.equals(0, j >>> 3);
+  Expect.equals(4611686018427387903, j >>> 1);
+  Expect.equals(2305843009213693951, j >>> 2);
+  Expect.equals(1152921504606846975, j >>> 3);
 
   int k = 129;
-  Expect.equals(4, k >>> 261);
+  Expect.equals(0, k >>> 261);
 
   int l = 1295555555;
   Expect.equals(l, l >>> 0);
