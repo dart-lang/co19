@@ -21,10 +21,16 @@ main() {
   Expect.equals(0, i >>> 64);
   Expect.equals(0, i >>> 100);
 
-  int j = 0x7FFFFFFFFFFFFFFF;
-  Expect.equals(4611686018427387903, j >>> 1);
-  Expect.equals(2305843009213693951, j >>> 2);
-  Expect.equals(1152921504606846975, j >>> 3);
+  int j = 0x7FFFFFFFFFFFF000;
+  if (isJS) {
+    Expect.equals(2147481600, j >>> 1);
+    Expect.equals(1073740800, j >>> 2);
+    Expect.equals(536870400, j >>> 3);
+  } else {
+    Expect.equals(4611686018427385856, j >>> 1);
+    Expect.equals(2305843009213692928, j >>> 2);
+    Expect.equals(1152921504606846464, j >>> 3);
+  }
 
   int k = 129;
   Expect.equals(0, k >>> 261);
@@ -33,5 +39,9 @@ main() {
   Expect.equals(l, l >>> 0);
 
   i = 0x8000000000000000;
-  Expect.equals(0x4000000000000000, i >>> 1);
+  if (isJS) {
+    Expect.equals(0, i >>> 1);
+  } else {
+    Expect.equals(0x4000000000000000, i >>> 1);
+  }
 }
