@@ -231,9 +231,6 @@ main() {
   f_shift();
   g_shift();
 
-  //Triple shift
-  triple_shift();
-
   //Additive expressions
   f_additive();
   g_additive();
