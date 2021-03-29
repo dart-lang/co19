@@ -11,10 +11,11 @@
  * where [m] is derived from metadata, [T] is a type, and [S?] is a type or the
  * empty string.
  * @description Checks that constant generic class constructor can be used as
- * metadata, but generic metadata type argument cannot be used in metadata.
+ * metadata with type parameter set or not set when generic metadata feature
+ * gets enabled.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
+// SharedOptions=--enable-experiment=nonfunction-type-aliases,generic-metadata
 
 class A<X> { const A(); }
 class C<T> { const C(); }
@@ -22,6 +23,6 @@ class C<T> { const C(); }
 typedef CAlias<X> = C<X>;
 
 @CAlias() typedef G = void Function();
-@CAlias<int>() typedef K = void Function();  //# 01: compile-time error
+@CAlias<int>() typedef K = void Function();
 
 main() {}
