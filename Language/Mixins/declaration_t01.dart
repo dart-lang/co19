@@ -4,18 +4,22 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Any self reference in a type alias, either directly or recursively
- * via another type declaration, is a compile-time error
- * @description Checks that any self reference in a type alias is a compile-time
- * error.
+ * @assertion It is a compile-time error for the mixin declaration if the MS
+ * class declaration would cause a compile-time error
+ * @description Checks that it is a compile-time error for the mixin declaration
+ * if the MS class declaration would cause a compile-time error
  * @compile-error
  * @author sgrekhov@unipro.ru
+ * @issue 45505
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 class C {}
 typedef CAlias = C;
 
 mixin CM on C, CAlias {}
+//             ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }
