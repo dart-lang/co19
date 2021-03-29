@@ -35,13 +35,14 @@ class A extends S {
   set id(var v) {}
 
   test() {
+    var nil = null;
     //super
     super << 1;
 
     super << (super >> []);
 
     //literal with selector is a postfix expr. is an additive expr.
-    try {null >> false;} catch (e) {}
+    try {nil >> false;} catch (e) {}
 
     //invocation is a postfix expr. is an additive expr.
     try {method() >> topLevelFunction();} catch (e) {}
@@ -50,7 +51,7 @@ class A extends S {
 
     //additive expressions
     try { 1 + 2 << 2;} catch (e) {}
-    try { 0 - 0 >> null + null;} catch (e) {}
+    try { 0 - 0 >> nil + null;} catch (e) {}
 
     //unary expressions
     try {--id << id++;} catch (e) {}

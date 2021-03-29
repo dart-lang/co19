@@ -30,6 +30,7 @@ class A extends S {
   var id;
 
   test() {
+    var nil = null;
     //super - issue 1242
     super == this;
     super != 1;
@@ -54,11 +55,11 @@ class A extends S {
 
     //shift expressions
     try {1 >> -1 != () {};} catch (e) {}
-    try {1 << 2 != null >> null;} catch (e) {}
+    try {1 << 2 != nil >> null;} catch (e) {}
 
     //additive expressions
     try { 1 + 2 == 2;} catch (e) {}
-    try { 0 - 0 != null + null;} catch (e) {}
+    try { 0 - 0 != nil + null;} catch (e) {}
 
     //multiplicative expressions
     try {0 ~/ 1 != 1 - -1;} catch (e) {}

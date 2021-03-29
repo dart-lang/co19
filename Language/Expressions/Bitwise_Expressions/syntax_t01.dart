@@ -43,6 +43,7 @@ class A extends S {
   var id;
 
   test() {
+    var nil = null;
     //super
     super | this;
     try {super ^ 1 | 3; } catch (e) {}
@@ -60,10 +61,10 @@ class A extends S {
     try {1 + 3 & 0;} catch (e) {}
 
     // shift expressions
-    try {1 << 2 ^ null >> null;} catch (e) {}
+    try {1 << 2 ^ nil >> null;} catch (e) {}
 
     // bitwise shift expressions
-    try {144 >> 2 ^ null >> null;} catch (e) {}
+    try {144 >> 2 ^ nil >> null;} catch (e) {}
 
     // bitwise expressions
     1 | -1 | 1 | -1 | 1;
@@ -73,7 +74,7 @@ class A extends S {
 
     //additive expressions
     try { 1 + 2 ^ 2;} catch (e) {}
-    try { 0 - 0 | null + null;} catch (e) {}
+    try { 0 - 0 | nil + null;} catch (e) {}
 
     //multiplicative expressions
     try {0 ~/ 1 | 1 - -1;} catch (e) {}
