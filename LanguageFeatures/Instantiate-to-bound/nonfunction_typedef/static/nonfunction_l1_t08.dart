@@ -57,8 +57,12 @@ typedef A<X extends C<X>> = C<X?>;
 test(A source) {
   var fsource = toF(source);
 
-  F<A<C<dynamic>?>> target  = fsource;
-  F<C<C<dynamic>?>> target0 = fsource;
+  F<C<C<dynamic>?>> target = fsource;
+
+  F<A<C<dynamic>?>> target0  = fsource;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   F<A<dynamic>> target1 = fsource;
 //                        ^^^^^^^
