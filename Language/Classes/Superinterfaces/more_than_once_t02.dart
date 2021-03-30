@@ -9,6 +9,7 @@
  * @description Checks that it is a compile-time error if the same type appears
  * more than once in the implements clause. Test type aliases
  * @compile-error
+ * @Issue 45526
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

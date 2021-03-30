@@ -11,10 +11,8 @@
  * Under the assumption that X1, . . . , Xs are types such that Xj <: Bj, for
  * all j ∈ 1..s, it is a compile-time error if [T] is not regular-bounded, and
  * it is a compile-time error if any type occurring in [T] is not well-bounded.
- * @description Checks that it is a compile time error if [T] is not
- * well-bounded
+ * @description Checks that it is a compile time error if [T] is well-bounded
  * @Issue 42436
- * @compile-error
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
