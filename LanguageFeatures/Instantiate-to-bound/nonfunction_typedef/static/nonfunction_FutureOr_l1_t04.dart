@@ -44,7 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for [typedef
  * A<X extends FutureOr<C<X>> = C<X?>]
- * @Issue 44223
+ * @Issue 44223, 45514
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -56,11 +56,21 @@ class C<X> {}
 typedef A<X extends FutureOr<C<X>>> = C<X?>;
 
 void test(A source) {
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   var fsource = toF(source);
 
   F<C<FutureOr<C<dynamic>>?>> target = fsource;
+//                                     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   F<C<FutureOr<C<dynamic>>?>> target0 = fsource;
+//                                      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   F<A<dynamic>> target1 = fsource;
 //                        ^^^^^^^
@@ -95,4 +105,12 @@ void test(A source) {
 
 main() {
   A();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A a = throw "Should not reach here!";
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
