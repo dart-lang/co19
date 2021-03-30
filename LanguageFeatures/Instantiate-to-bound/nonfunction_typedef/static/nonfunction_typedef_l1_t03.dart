@@ -44,7 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works OK for [typedef G<X> =
  * X Function(X); class C<X>; typedef A<X extends G<C<X>>>].
- * @Issue 41963, 41964, 44223, 45519
+ * @Issue 41963, 41964, 44223, 45519, 45522
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -57,9 +57,16 @@ class C<X> {}
 typedef A<X extends G<C<X>>> = C<X>;
 
 void test(A source) {
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   var fsource = toF(source);
 
   F<A<G<A<dynamic>>>> target = fsource;
+//                             ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   F<A<G<A<Never>>>> target0 = fsource;
 //                            ^^^^^^^
@@ -124,6 +131,9 @@ void test(A source) {
 
 main() {
   A a = A();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   A a = throw "Should not reach here";
 //^
