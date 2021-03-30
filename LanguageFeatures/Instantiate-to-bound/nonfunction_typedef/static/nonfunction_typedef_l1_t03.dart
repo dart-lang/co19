@@ -44,7 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works OK for [typedef G<X> =
  * X Function(X); class C<X>; typedef A<X extends G<C<X>>>].
- * @Issue 41963, 41964, 44223
+ * @Issue 41963, 41964, 44223, 45519
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -123,5 +123,10 @@ void test(A source) {
 }
 
 main() {
-  A();
+  A a = A();
+
+  A a = throw "Should not reach here";
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
