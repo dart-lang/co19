@@ -23,34 +23,32 @@
  *  }
  *  Do not invoke in normal code.
  *
- * @description Checks that this class controls array boundaries
+ * @description Checks that Array(1, 2, 3) is the same as Array.multi([1, 2, 3])
  * @author sgrekhov@unipro.ru
  */
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
-class MyStruct extends Struct {
-  @Array(8)
-  external Array<Uint8> a0;
+class MyStruct1 extends Struct {
+  @Array(1, 2, 3)
+  external Array<Array<Array<Uint8>>> a0;
+}
+class MyStruct2 extends Struct {
+  @Array.multi([1, 2, 3])
+  external Array<Array<Array<Uint8>>> a0;
 }
 
 void main() {
-  final pointer = calloc<MyStruct>();
+  final pointer1 = calloc<MyStruct1>();
+  final pointer2 = calloc<MyStruct2>();
   try {
-    final array = pointer.ref.a0;
-
-    for (int i = 0; i < 8; i++) {
-      array[i] = i + 1;
-      Expect.equals(i + 1, array[i]);
-    }
-    Expect.throws(() {
-      array[-1];
-    });
-    Expect.throws(() {
-      array[8];
-    });
+    var array1 = pointer1.ref.a0;
+    var array2 = pointer2.ref.a0;
+    pointer2.ref.a0 = array1;
+    pointer1.ref.a0 = array2;
   } finally {
-    calloc.free(pointer);
+    calloc.free(pointer1);
+    calloc.free(pointer2);
   }
 }

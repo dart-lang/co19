@@ -5,34 +5,32 @@
  */
 /**
  * @assertion
- * const Array<T extends NativeType>(
- * int dimension1,
- *  [int dimension2,
- *  int dimension3,
- *  int dimension4,
- *  int dimension5]
- *  )
+ * const Array<T extends NativeType>.multi(List<int> dimensions)
  *  Const constructor to specify Array dimensions in Structs.
  *
  *  class MyStruct extends Struct {
- *  @Array(8)
- *  external Array<Uint8> inlineArray;
- *
- *  @Array(2, 2, 2)
+ *  @Array.multi([2, 2, 2])
  *  external Array<Array<Array<Uint8>>> threeDimensionalInlineArray;
+ *
+ * @Array.multi([2, 2, 2, 2, 2, 2, 2, 2])
+ *  external Array<Array<Array<Array<Array<Array<Array<Array<Uint8>>>>>>>> eightDimensionalInlineArray;
  *  }
  *  Do not invoke in normal code.
  *
- * @description Checks that this class controls array boundaries
+ * @description Checks multidimentional array created by Array.multi(). Check
+ * not literal argument
  * @author sgrekhov@unipro.ru
+ * @issue 45537
  */
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
+const arr = [3, 1];
+
 class MyStruct extends Struct {
-  @Array(8)
-  external Array<Uint8> a0;
+  @Array.multi(arr)
+  external Array<Array<Int8>> a0;
 }
 
 void main() {
@@ -40,16 +38,13 @@ void main() {
   try {
     final array = pointer.ref.a0;
 
-    for (int i = 0; i < 8; i++) {
-      array[i] = i + 1;
-      Expect.equals(i + 1, array[i]);
+    for (int i1 = 0; i1 < 3; i1++) {
+      for (int i2 = 0; i2 < 1; i2++) {
+        Expect.equals(0, array[i1][i2]);
+        array[i1][i2] = i1 + i2;
+        Expect.equals(i1 + i2, array[i1][i2]);
+      }
     }
-    Expect.throws(() {
-      array[-1];
-    });
-    Expect.throws(() {
-      array[8];
-    });
   } finally {
     calloc.free(pointer);
   }

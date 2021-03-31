@@ -23,34 +23,21 @@
  *  }
  *  Do not invoke in normal code.
  *
- * @description Checks that this class controls array boundaries
+ * @description Checks that it is a compile time error if Array argument is
+ * negative
  * @author sgrekhov@unipro.ru
+ * @issue 45538
  */
 import "dart:ffi";
-import "package:ffi/ffi.dart";
-import "../../../Utils/expect.dart";
 
 class MyStruct extends Struct {
-  @Array(8)
+  @Array(-1)
+//^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   external Array<Uint8> a0;
 }
 
 void main() {
-  final pointer = calloc<MyStruct>();
-  try {
-    final array = pointer.ref.a0;
-
-    for (int i = 0; i < 8; i++) {
-      array[i] = i + 1;
-      Expect.equals(i + 1, array[i]);
-    }
-    Expect.throws(() {
-      array[-1];
-    });
-    Expect.throws(() {
-      array[8];
-    });
-  } finally {
-    calloc.free(pointer);
-  }
+  MyStruct? ms = null;
 }

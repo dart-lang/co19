@@ -5,44 +5,33 @@
  */
 /**
  * @assertion
- * const Array<T extends NativeType>(
- * int dimension1,
- *  [int dimension2,
- *  int dimension3,
- *  int dimension4,
- *  int dimension5]
- *  )
+ * const Array<T extends NativeType>.multi(List<int> dimensions)
  *  Const constructor to specify Array dimensions in Structs.
  *
  *  class MyStruct extends Struct {
- *  @Array(8)
- *  external Array<Uint8> inlineArray;
- *
- *  @Array(2, 2, 2)
+ *  @Array.multi([2, 2, 2])
  *  external Array<Array<Array<Uint8>>> threeDimensionalInlineArray;
+ *
+ * @Array.multi([2, 2, 2, 2, 2, 2, 2, 2])
+ *  external Array<Array<Array<Array<Array<Array<Array<Array<Uint8>>>>>>>> eightDimensionalInlineArray;
  *  }
  *  Do not invoke in normal code.
  *
- * @description Checks that this class represents a fixed-size array of T
+ * @description Checks multidimentional array created by Array.multi(). Check
+ * negative array size
  * @author sgrekhov@unipro.ru
+ * @issue 45538
  */
 import "dart:ffi";
-import "package:ffi/ffi.dart";
-import "../../../Utils/expect.dart";
 
 class MyStruct extends Struct {
-  @Array(8)
+  @Array.multi([-1])
+//^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   external Array<Uint8> a0;
 }
 
 void main() {
-  final pointer = calloc<MyStruct>();
-  try {
-    final array = pointer.ref.a0;
-    for (int i = 0; i < 8; i++) {
-      Expect.equals(0, array[i]);
-    }
-  } finally {
-    calloc.free(pointer);
-  }
+  MyStruct? ms = null;
 }
