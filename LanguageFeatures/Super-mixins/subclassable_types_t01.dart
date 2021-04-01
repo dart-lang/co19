@@ -38,7 +38,7 @@ mixin M3 on B, C implements FutureOr<List> {}
 // [cfe] unspecified
 mixin M4 on B, C implements F {}
 //    ^
-// [cfe] The type 'F' can't be used as supertype.
+// [cfe] The type 'F' which is an alias of 'void Function(num)' can't be used as supertype.
 //                          ^
 // [analyzer] COMPILE_TIME_ERROR.IMPLEMENTS_NON_CLASS
 mixin M5 on B, C implements int {}

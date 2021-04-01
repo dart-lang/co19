@@ -33,7 +33,7 @@ mixin M3 on FutureOr<num> implements I {}
 // [cfe] unspecified
 mixin M4 on F implements I {}
 //    ^
-// [cfe] The type 'F' can't be used as supertype.
+// [cfe] The type 'F' which is an alias of 'void Function(int)' can't be used as supertype.
 //          ^
 // [analyzer] COMPILE_TIME_ERROR.MIXIN_SUPER_CLASS_CONSTRAINT_NON_INTERFACE
 mixin M5 on int implements I {}
