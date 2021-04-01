@@ -5,8 +5,23 @@
  */
 /**
  * @assertion
- * const Array<T extends NativeType>(int dimension1)
+ * const Array<T extends NativeType>(
+ * int dimension1,
+ *  [int dimension2,
+ *  int dimension3,
+ *  int dimension4,
+ *  int dimension5]
+ *  )
  *  Const constructor to specify Array dimensions in Structs.
+ *
+ *  class MyStruct extends Struct {
+ *  @Array(8)
+ *  external Array<Uint8> inlineArray;
+ *
+ *  @Array(2, 2, 2)
+ *  external Array<Array<Array<Uint8>>> threeDimensionalInlineArray;
+ *  }
+ *  Do not invoke in normal code.
  *
  * @description Checks that this class represents a fixed-size array of IntPtr
  * @author sgrekhov@unipro.ru

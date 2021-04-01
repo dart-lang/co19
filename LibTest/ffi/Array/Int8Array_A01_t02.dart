@@ -31,23 +31,25 @@ import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
 class MyStruct extends Struct {
-  @Array(2)
-  external Array<Int8> a0;
+  @Array.multi([1, 2])
+  external Array<Array<Int8>> a0;
 }
 
 void main() {
   final pointer = calloc<MyStruct>();
   try {
     final array = pointer.ref.a0;
-    for (int i = 0; i < 2; i++) {
-      array[i] = i + 1;
-      Expect.equals(i + 1, array[i]);
-      array[i] = 127;
-      Expect.equals(127, array[i]);
-      array[i] = 128;
-      Expect.equals(-128, array[i]);
-      array[i] = -129;
-      Expect.equals(127, array[i]);
+    for (int i = 0; i < 1; i++) {
+      for (int j = 0; j < 2; j++) {
+        array[i][j] = i + j + 1;
+        Expect.equals(i + j + 1, array[i][j]);
+        array[i][j] = 127;
+        Expect.equals(127, array[i][j]);
+        array[i][j] = 128;
+        Expect.equals(-128, array[i][j]);
+        array[i][j] = -129;
+        Expect.equals(127, array[i][j]);
+      }
     }
   } finally {
     calloc.free(pointer);

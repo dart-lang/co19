@@ -23,7 +23,7 @@
  *  }
  *  Do not invoke in normal code.
  *
- * @description Checks that this class represents a fixed-size array of Int8
+ * @description Checks that this class controls array boundaries
  * @author sgrekhov@unipro.ru
  */
 import "dart:ffi";
@@ -31,24 +31,25 @@ import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
 class MyStruct extends Struct {
-  @Array(2)
-  external Array<Int8> a0;
+  @Array(8)
+  external Array<Uint8> a0;
 }
 
 void main() {
   final pointer = calloc<MyStruct>();
   try {
     final array = pointer.ref.a0;
-    for (int i = 0; i < 2; i++) {
+
+    for (int i = 0; i < 8; i++) {
       array[i] = i + 1;
       Expect.equals(i + 1, array[i]);
-      array[i] = 127;
-      Expect.equals(127, array[i]);
-      array[i] = 128;
-      Expect.equals(-128, array[i]);
-      array[i] = -129;
-      Expect.equals(127, array[i]);
     }
+    Expect.throws(() {
+      array[-1];
+    });
+    Expect.throws(() {
+      array[8];
+    });
   } finally {
     calloc.free(pointer);
   }

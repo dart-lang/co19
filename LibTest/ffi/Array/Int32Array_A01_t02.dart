@@ -23,7 +23,7 @@
  *  }
  *  Do not invoke in normal code.
  *
- * @description Checks that this class represents a fixed-size array of Int8
+ * @description Checks that this class represents a fixed-size array of Int32
  * @author sgrekhov@unipro.ru
  */
 import "dart:ffi";
@@ -31,23 +31,31 @@ import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";
 
 class MyStruct extends Struct {
-  @Array(2)
-  external Array<Int8> a0;
+  @Array.multi([1, 2])
+  external Array<Array<Int32>> a0;
 }
 
 void main() {
   final pointer = calloc<MyStruct>();
   try {
     final array = pointer.ref.a0;
-    for (int i = 0; i < 2; i++) {
-      array[i] = i + 1;
-      Expect.equals(i + 1, array[i]);
-      array[i] = 127;
-      Expect.equals(127, array[i]);
-      array[i] = 128;
-      Expect.equals(-128, array[i]);
-      array[i] = -129;
-      Expect.equals(127, array[i]);
+    for (int i = 0; i < 1; i++) {
+      for (int j = 0; j < 2; j++) {
+        array[i][j] = 42;
+        Expect.equals(42, array[i][j]);
+        array[i][j] = -42;
+        Expect.equals(-42, array[i][j]);
+        array[i][j] = 32768;
+        Expect.equals(32768, array[i][j]);
+        array[i][j] = -32768;
+        Expect.equals(-32768, array[i][j]);
+        array[i][j] = 2147483647;
+        Expect.equals(2147483647, array[i][j]);
+        array[i][j] = 2147483648;
+        Expect.equals(-2147483648, array[i][j]);
+        array[i][j] = -2147483649;
+        Expect.equals(2147483647, array[i][j]);
+      }
     }
   } finally {
     calloc.free(pointer);
