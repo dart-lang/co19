@@ -46,7 +46,7 @@ run_main() async {
       .then((ProcessResult results) {
     called = results.exitCode;
   });
-  Expect.equals(Platform.isWindows ? 64 : 97, called);
+  Expect.equals(Platform.isWindows ? 254 : 97, called);
 }
 
 main(List<String> args) {
