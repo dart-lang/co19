@@ -139,4 +139,5 @@ void test(A source) {
 
 void main() {
   A();
+  A a = throw "This is OK!";
 }

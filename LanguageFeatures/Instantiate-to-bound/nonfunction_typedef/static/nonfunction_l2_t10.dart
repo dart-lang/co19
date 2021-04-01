@@ -55,11 +55,21 @@ class B<X, Y> {}
 typedef A<X1 extends B<X1, X2>, X2 extends B<X1, X2>> = B<X1, X2>;
 
 test(A source) {
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   var fsource = toF(source);
 
   F<A<B<dynamic, dynamic>, B<dynamic, dynamic>>> target = fsource;
-  F<B<B<dynamic, dynamic>, B<dynamic, dynamic>>> target0 = fsource;
+//                                                        ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
+  F<B<B<dynamic, dynamic>, B<dynamic, dynamic>>> target0 = fsource;
+//                                                         ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   F<A<dynamic, dynamic>> target1 = fsource;
 //                                 ^^^^^^^
@@ -74,4 +84,12 @@ test(A source) {
 
 main() {
   A();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A a = throw "Should not reach here!";
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

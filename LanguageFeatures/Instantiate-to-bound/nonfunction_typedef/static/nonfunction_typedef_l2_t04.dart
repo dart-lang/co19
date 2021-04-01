@@ -71,4 +71,6 @@ test(A source) {
 
 main() {
   A();
+
+  A a = throw "This is OK!";
 }

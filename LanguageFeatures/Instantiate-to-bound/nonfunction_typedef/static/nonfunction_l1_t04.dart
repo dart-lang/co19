@@ -55,5 +55,4 @@ typedef B<X extends A<A<X>>> = A<X>;
 // [analyzer] unspecified
 // [cfe] unspecified
 
-main() {
-}
+main() {}

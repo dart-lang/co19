@@ -57,10 +57,21 @@ typedef G<X> = Function(X);
 typedef A<X extends G<C<Y, X>>, Y extends G<C<X, Y>>> = C<X, Y>;
 
 test(A source) {
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   var fsource = toF(source);
 
   F<A<G<C<Never, Never>>, G<C<Never, Never>>>> target = fsource;
+//                                                      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   F<C<G<C<Never, Never>>, G<C<Never, Never>>>> target0 = fsource;
+//                                                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   F<A<G<C<dynamic, dynamic>>, G<C<dynamic, dynamic>>>> target1 = fsource;
 //                                                               ^^^^^^^
@@ -94,5 +105,13 @@ test(A source) {
 }
 
 main() {
-  A();
+  A a = A();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A a = throw "Should not reach here";
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
