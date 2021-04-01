@@ -57,7 +57,7 @@ class A<X extends G<A<Y, X>>, Y extends G<A<X, Y>>> {}
 main() {
   main() {
     Expect.equals(typeOf<A<G<A<dynamic, dynamic>>,G<A<dynamic, dynamic>>>>(), typeOf<A>());
-//                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^             ^
+//                ^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
