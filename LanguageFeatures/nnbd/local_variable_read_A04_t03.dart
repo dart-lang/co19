@@ -16,7 +16,6 @@
 
 main() {
   int x;
-  x = 42;
   x >>>= 2;
 //^
 // [analyzer] unspecified
