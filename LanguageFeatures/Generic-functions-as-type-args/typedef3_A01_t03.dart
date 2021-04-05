@@ -30,34 +30,68 @@
  * type occurring covariantly in a type argument, like List<T Function<T>(T)
  * Function()>.
  * @description Checks that generic function can be a non-function typedef type
- * argument and  bound: test extends clause in the typedef declaration
- * dynamically.
+ * argument and bound: test extends clause in the typedef declaration
+ * statically.
+ * @Issue 45065
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=generic-metadata,nonfunction-type-aliases
-
-import "../../Utils/expect.dart";
+// SharedOptions=--enable-experiment=generic-metadata
 
 typedef exp1 = T Function<T>(T);
 typedef exp2 = void Function<T>();
 typedef exp3 = T Function<T>();
 typedef exp4 = void Function<T>(T);
 
-class C<T> {
-  C(expected) { Expect.equals(expected, T); }
+class C<T> {}
+
+typedef C1<X extends exp1> = C<X>;
+
+test1() {
+  C1 c = C1<int>();
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C1 c1 = C1<exp1>();
+
+  C1 c2 = C1<exp2>();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C1 c3 = C1<exp3>();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C1 c4 = C1<exp4>();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-typedef C1<X extends int> = C<X>;
+test2() {
+  C1<int>();
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-typedef C2<X extends void Function<T>()> = C<X>;
+  C1<exp1>();
 
-typedef C3<X extends T Function<T>()> = C<X>;
+  C1<exp2>();
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-typedef C4<X extends void Function<T>(T)> = C<X>;
+  C1<exp3>();
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-main() {
-  C1 c1 = C1(exp1);
-  C2 c3 = C2(exp2);
-  C3 c5 = C3(exp3);
-  C4 c7 = C4(exp4);
+  C1<exp4>();
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
+
+main() {}

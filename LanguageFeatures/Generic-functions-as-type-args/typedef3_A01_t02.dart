@@ -34,7 +34,7 @@
  * dynamically.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=generic-metadata,nonfunction-type-aliases
+// SharedOptions=--enable-experiment=generic-metadata
 
 import "../../Utils/expect.dart";
 
@@ -47,7 +47,7 @@ class C<T> {
   C(expected) { Expect.equals(expected, T); }
 }
 
-typedef C1<X extends int> = C<X>;
+typedef C1<X extends T Function<T>(T)> = C<X>;
 
 typedef C2<X extends void Function<T>()> = C<X>;
 
@@ -56,8 +56,8 @@ typedef C3<X extends T Function<T>()> = C<X>;
 typedef C4<X extends void Function<T>(T)> = C<X>;
 
 main() {
-  C1 c1 = C1(exp1);
-  C2 c3 = C2(exp2);
-  C3 c5 = C3(exp3);
-  C4 c7 = C4(exp4);
+  C1 c1 = C1<exp1>(exp1);
+  C2 c3 = C2<exp2>(exp2);
+  C3 c5 = C3<exp3>(exp3);
+  C4 c7 = C4<exp4>(exp4);
 }
