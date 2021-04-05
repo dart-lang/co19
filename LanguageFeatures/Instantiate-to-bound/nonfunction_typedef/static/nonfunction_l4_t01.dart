@@ -60,10 +60,6 @@ typedef G<X1 extends A<X1>, X2 extends A<X1>, X3 extends B, X4 extends X2> =
     C<X1, X2, X3, X4>;
 
 test(G source) {
-//   ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   var fsource = toF(source);
 
   F<G<A<dynamic>, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>> target = fsource;
@@ -94,7 +90,4 @@ main() {
 // [cfe] unspecified
 
   G g = throw "Should not reach here!";
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

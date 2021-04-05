@@ -55,9 +55,6 @@ class A<X extends A<X>> {}
 typedef B<X extends A<X>> = A<X>;
 
 test(B source) {
-//   ^
-// [analyzer] unspecified
-// [cfe] unspecified
   var fsource = toF(source);
 
   F<B<A<dynamic>>> target  = fsource;
@@ -168,7 +165,4 @@ main() {
 // [cfe] unspecified
 
   B b = throw "Should not reach here!";
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

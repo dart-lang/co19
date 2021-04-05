@@ -55,10 +55,6 @@ class C<X> {}
 typedef A<X extends C<C<X>>> = C<X>;
 
 void test(A source) {
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   var fsource = toF(source);
 
   F<A<C<C<dynamic>>>> target  = fsource;
@@ -159,7 +155,4 @@ main() {
 // [cfe] unspecified
 
   A a = throw "Should not reach here!";
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

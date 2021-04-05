@@ -55,10 +55,6 @@ class M<X> {}
 typedef O<X extends M<M<M<M<M<M<X>>>>>>> = M<M<X>>;
 
 void test(O source) {
-//        ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   var fsource = toF(source);
 
   F<O<M<M<M<M<M<M<dynamic>>>>>>>> target = fsource;
@@ -139,7 +135,4 @@ main() {
 // [cfe] unspecified
 
   O o = throw "Should not reach here!";
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

@@ -56,9 +56,6 @@ class C<X> {}
 typedef A<X extends FutureOr<C<X?>>> = C<X>;
 
 testme(A source) {
-//     ^
-// [analyzer] unspecified
-// [cfe] unspecified
   var fsource = toF(source);
 
   F<A<FutureOr<C<dynamic>>>> target = fsource;
@@ -109,7 +106,4 @@ main() {
 // [cfe] unspecified
 
   A a = throw "Should not reach here!";
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

@@ -57,10 +57,6 @@ class C<X, Y> {}
 typedef A<X extends G<C<X,Y>>, Y extends X> = C<X, Y>;
 
 test(A source) {
-//   ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   var fsource = toF(source);
 
   F<A<G<C<Never, Never>>, dynamic>> target = fsource;
@@ -96,7 +92,4 @@ main() {
 // [cfe] unspecified
 
   A a = throw "Should not reach here!";
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
 }

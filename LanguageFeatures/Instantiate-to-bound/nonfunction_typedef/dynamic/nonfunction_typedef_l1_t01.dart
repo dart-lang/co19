@@ -42,69 +42,23 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiation to bounds works OK for [class C<X, Y>;
- * typedef G<X> = Function(X); typedef A<X extends G<C<Y, X>>, Y extends G<C<X,
- * Y>>> = C<X, Y>].
- * @Issue 44223
+ * @description Checks that instantiation to bounds works OK for non-function
+ * typedef with [X Function()] type parameter: [typedef G<X> = X Function();
+ * class C<X>; typedef A<X extends G<С<X>>> = C<X>].
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 import "../../../../Utils/expect.dart";
 
-class C<X, Y> {}
-typedef G<X> = Function(X);
-typedef A<X extends G<C<Y, X>>, Y extends G<C<X, Y>>> = C<X, Y>;
+typedef G<X> = X Function();
+class C<X> {}
 
-test(A source) {
-  var fsource = toF(source);
-
-  F<A<G<C<Never, Never>>, G<C<Never, Never>>>> target = fsource;
-//                                                      ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<C<G<C<Never, Never>>, G<C<Never, Never>>>> target0 = fsource;
-//                                                       ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<C<dynamic, dynamic>>, G<C<dynamic, dynamic>>>> target1 = fsource;
-//                                                               ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<dynamic, G<C<dynamic, dynamic>>>> target2 = fsource;
-//                                                ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<dynamic>, G<C<dynamic, dynamic>>>> target3 = fsource;
-//                                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<C<G<dynamic>, dynamic>>, G<C<dynamic, dynamic>>>> target4 = fsource;
-//                                                                  ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<C<dynamic, dynamic>>, dynamic>> target5 = fsource;
-//                                                ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  F<A<G<C<dynamic, dynamic>>, G<dynamic>>> target6 = fsource;
-//                                                   ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-}
+typedef A<X extends G<C<X>>> = C<X>;
 
 main() {
-  A a = A();
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  A a = throw "Should not reach here";
+  Expect.equals(
+    typeOf<C<G<C<dynamic>>>>(),
+    typeOf<A>()
+  );
 }
