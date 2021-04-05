@@ -9,8 +9,8 @@
  *
  * @description Checks that CONST_CANONICAL_TYPE(FutureOr<int>) = FutureOr<int?>
  * in weak mode.
+ * Please note that this test should not be executed with analyzer.
  * @Issue 45067
- *
  * @author iarkh@unipro.ru
  */
 // Requirements=nnbd-weak
@@ -22,13 +22,6 @@ const dynamic d = null;
 Never n = throw "Should not reach here";
 
 const c1 = C<FutureOr<int>>(null);
-//         ^^^^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
 const c2 = C<FutureOr<int>>(d);
-//         ^^^^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 main() {}

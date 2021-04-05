@@ -13,15 +13,19 @@
 
 import "const_evaluation_lib.dart";
 
+class D<T> extends C<T> {
+  const D(Object? o) : super(o);
+}
+
 const dynamic d = null;
 Never n = throw "Should not reach here";
 
-const c1 = C<int>(null);
+const d1 = D<int>(null);
 //         ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-const c2 = C<int>(d);
+const d2 = D<int>(d);
 //         ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

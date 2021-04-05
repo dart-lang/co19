@@ -11,7 +11,7 @@
  * @author iarkh@unipro.ru
  */
 
-import "../../const_evaluation_lib.dart";
+import "const_evaluation_lib.dart";
 
 const c = C<Never>(null);
 //        ^^^^^^^^^^^^^^
