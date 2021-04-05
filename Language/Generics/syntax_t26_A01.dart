@@ -11,9 +11,11 @@
  * where [m] is derived from metadata, [T] is a type, and [S?] is a type or the
  * empty string.
  * @description Checks that constant generic class constructor can be used as
- * metadata, but generic metadata type argument cannot be used in metadata.
+ * metadata, but generic metadata type argument cannot be used in metadata in
+ * the dart versions less than 2.13.
  * @author iarkh@unipro.ru
  */
+// @dart=2.12
 
 class C<T> { const C(); }
 
