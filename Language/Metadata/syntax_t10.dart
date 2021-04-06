@@ -12,7 +12,7 @@
  * default type argument
  * @author sgrekhov@unipro.ru
  */
-// SharedOptions=---enable-experiment=generic-metadata
+// SharedOptions=--enable-experiment=generic-metadata
 import 'dart:mirrors';
 import 'syntax_lib1.dart';
 import '../../Utils/expect.dart';
