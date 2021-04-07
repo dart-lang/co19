@@ -12,6 +12,7 @@
  *
  * @author iarkh@unipro.ru
  */
+// Requirements=nnbd-strong
 
 import"dart:async";
 import "const_evaluation_lib.dart";

@@ -17,7 +17,7 @@
  * constant expressions have different semantics in an execution with sound and
  * unsound null checking. Hence we may be able to observe a different behavior.
  * The analyzer assumes sound null checking during constant evaluation. So, the
- * test should be skipped by analyzer
+ * test should be skipped by analyzer.
  * @author iarkh@unipro.ru
  */
 // Requirements=nnbd-weak

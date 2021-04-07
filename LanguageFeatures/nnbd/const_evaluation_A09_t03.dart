@@ -15,6 +15,7 @@
  *
  * @author iarkh@unipro.ru
  */
+// Requirements=nnbd-strong
 // SharedOptions=--enable-experiment=generic-metadata
 
 import "const_evaluation_lib.dart";
@@ -23,6 +24,9 @@ typedef FUNC = int Function<X extends String>(double);
 
 int testme<X extends String>(double d) => throw "Should not reach here";
 
-const c = C<FUNC>(testme);
+const c1 = C<FUNC>(null);
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {}

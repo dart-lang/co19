@@ -10,6 +10,7 @@
  * @Issue 45067
  * @author iarkh@unipro.ru
  */
+// Requirements=nnbd-strong
 
 import "const_evaluation_lib.dart";
 

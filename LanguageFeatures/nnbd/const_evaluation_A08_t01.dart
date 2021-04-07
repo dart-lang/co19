@@ -13,15 +13,18 @@
  *
  * @author iarkh@unipro.ru
  */
+// Requirements=nnbd-strong
 
 import "const_evaluation_lib.dart";
+
+class N<X, Y, Z> { const N(); }
 
 const c = C<List<int>>(null);
 //        ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-const c1 = C<List<int, String, Never>>(null);
+const c1 = C<N<int, String, Never>>(null);
 //         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
