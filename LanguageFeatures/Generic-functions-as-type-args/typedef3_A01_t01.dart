@@ -47,13 +47,10 @@ class C<T> {
   C(expected) { Expect.equals(expected, T); }
 }
 
-typedef C1<X extends int> = C<X>;
-
-typedef C2<X extends void Function<T>()> = C<X>;
-
-typedef C3<X extends T Function<T>()> = C<X>;
-
-typedef C4<X extends void Function<T>(T)> = C<X>;
+typedef C1<X extends exp1> = C<X>;
+typedef C2<X extends exp2> = C<X>;
+typedef C3<X extends exp3> = C<X>;
+typedef C4<X extends exp4> = C<X>;
 
 main() {
   C1 c1 = C1(exp1);
