@@ -8,7 +8,6 @@
  * class declaration would cause a compile-time error
  * @description Checks that it is a compile-time error for the mixin declaration
  * if the MS class declaration would cause a compile-time error
- * @compile-error
  * @author sgrekhov@unipro.ru
  * @issue 45505
  */
