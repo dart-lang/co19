@@ -19,4 +19,8 @@
 
 class A<X extends A<X>> {}
 typedef AAlias<X> = A;
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {}
