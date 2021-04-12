@@ -44,7 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for [typedef
  * O<X extends M<M<M<M<M<M<X>>>>>>> = M<M<X>>].
- * @Issue 42446, 44223
+ * @Issue 42446, 44223, 45658
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

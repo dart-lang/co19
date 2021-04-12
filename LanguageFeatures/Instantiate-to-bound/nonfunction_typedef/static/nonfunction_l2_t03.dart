@@ -59,14 +59,7 @@ testme(A source) {
   var fsource = toF(source);
 
   F<A<String, C<String, C<String, dynamic>>>> target = fsource;
-//                                                     ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   F<C<String, C<String, C<String, dynamic>>>> target0 = fsource;
-//                                                      ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
   F<A<dynamic, dynamic>> target1 = fsource;
 //                                 ^^^^^^^

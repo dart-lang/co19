@@ -45,7 +45,7 @@
  * @description Checks that instantiation to bounds works OK for non-function
  * typedef with [X Function()] type parameter: [typedef G<X> = X Function();
  * class C<X>; typedef A<X extends G<С<X>>> = C<X>].
- * @Issue 44223
+ * @Issue 44223, 45658
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -61,14 +61,7 @@ testme(A source) {
   var fsource = toF(source);
 
   F<A<G<C<dynamic>>>> target1 = fsource;
-//                              ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   F<C<G<C<dynamic>>>> target2 = fsource;
-//                              ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
   F<A<G<C<Never>>>> target3 = fsource;
 //                            ^^^^^^^

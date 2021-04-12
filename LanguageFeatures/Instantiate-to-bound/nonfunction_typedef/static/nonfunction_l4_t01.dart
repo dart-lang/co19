@@ -45,7 +45,7 @@
  * @description Checks that instantiate-to-bounds works as expected for [class
  * A<X>; class B<X> extends A<X>; class C<X1, X2, X3, X4>; typedef G<X1 extends
  * A<X1>, X2 extends A<X1>, X3 extends B, X4 extends X2> = C<X1, X2, X3, X4>].
- * @Issue 44223, 45118
+ * @Issue 44223, 45118, 45658
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -63,9 +63,6 @@ test(G source) {
   var fsource = toF(source);
 
   F<G<A<dynamic>, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>> target = fsource;
-//                                                                    ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
   F<G<dynamic, A<A<dynamic>>, B<dynamic>, A<A<dynamic>>>> target1 = fsource;
 //                                                                  ^^^^^^^

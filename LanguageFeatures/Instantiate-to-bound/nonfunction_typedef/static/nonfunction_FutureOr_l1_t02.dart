@@ -44,7 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for [typedef
  * A<X extends FutureOr<C<X>>]
- * @Issue 44223, 45514
+ * @Issue 44223, 45514, 45658
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -59,14 +59,7 @@ testme(A source) {
   var fsource = toF(source);
 
   F<A<FutureOr<C<dynamic>>>> target = fsource;
-//                                    ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   F<C<FutureOr<C<dynamic>>>> target0 = fsource;
-//                                     ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
   F<A<dynamic>> target1 = fsource;
 //                        ^^^^^^^

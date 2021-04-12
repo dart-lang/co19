@@ -44,7 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiation to bounds works as expected for
  * [class A<X extends A<X>>; typedef B<X extends A<X>>].
- * @Issue 42446
+ * @Issue 42446, 45658
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -58,14 +58,7 @@ test(B source) {
   var fsource = toF(source);
 
   F<B<A<dynamic>>> target  = fsource;
-//                           ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   F<A<A<dynamic>>> target0 = fsource;
-//                           ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
   F<B<dynamic>> target1 = fsource;
 //                        ^^^^^^^

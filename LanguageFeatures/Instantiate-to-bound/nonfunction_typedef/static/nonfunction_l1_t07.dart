@@ -44,7 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for
  * [typedef A<X extends C<X>?> = C<X>]
- * @Issue 42446, 44223
+ * @Issue 42446, 44223, 45658
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -58,14 +58,7 @@ void testme(A source) {
   var fsource = toF(source);
 
   F<A<C<dynamic>?>> target  = fsource;
-//                            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   F<C<C<dynamic>?>> target0 = fsource;
-//                            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
   F<A<dynamic>> target1 = fsource;
 //                        ^^^^^^^

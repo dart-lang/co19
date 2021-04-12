@@ -52,7 +52,7 @@
  * [X2 <: B<X1, X2>], per rule 'Left Variable Bound', and [X2 <: B<X1, X2>]
  * holds by rule 'Left Variable Bound' and 'Reflexivity'.
  *
- * @Issue 44223
+ * @Issue 44223, 45658
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -66,9 +66,6 @@ test(A source) {
   var fsource = toF(source);
 
   F<B<dynamic, B<dynamic, dynamic>>> target = fsource;
-//                                            ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
   F<B<dynamic, dynamic>> target1 = fsource;
 //                                 ^^^^^^^

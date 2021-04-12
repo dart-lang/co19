@@ -45,7 +45,7 @@
  * @description Checks that instantiation to bounds works OK for [class C<X,Y>;
  * typedef G<X> = X Function(); typedef A<X extends G<A<Y, X>>, Y extends G<A<X,
  * Y>>> = C<X, Y>].
- * @Issue 44223
+ * @Issue 44223, 45658
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -60,14 +60,7 @@ test(A source) {
   var fsource = toF(source);
 
   F<A<G<C<dynamic, dynamic>>, G<C<dynamic, dynamic>>>> target = fsource;
-//                                                              ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   F<C<G<C<dynamic, dynamic>>, G<C<dynamic, dynamic>>>> target0 = fsource;
-//                                                               ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
   F<A<dynamic, G<C<dynamic, dynamic>>>> target1 = fsource;
 //                                                ^^^^^^^
