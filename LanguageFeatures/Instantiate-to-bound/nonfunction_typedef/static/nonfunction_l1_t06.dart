@@ -58,14 +58,7 @@ void test(O source) {
   var fsource = toF(source);
 
   F<O<M<M<M<M<M<M<dynamic>>>>>>>> target = fsource;
-//                                         ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
   F<M<M<M<M<M<M<M<M<dynamic>>>>>>>>> target0 = fsource;
-//                                             ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
   F<O<dynamic>> target1 = fsource;
 //                        ^^^^^^^
