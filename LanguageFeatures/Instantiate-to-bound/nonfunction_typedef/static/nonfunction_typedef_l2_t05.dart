@@ -89,7 +89,7 @@ test(A source) {
 }
 
 main() {
-  A a = A();
+  A();
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
