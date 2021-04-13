@@ -13,55 +13,46 @@
  * response to, e.g., timers or receive-port messages. When the isolate is
  * resumed, it handles the already enqueued events.
  *
- * @description Check that pause(new Capability()) call stops processing events
- * from event loop queue
+ * @description Check that pause() with given capability does not stop the
+ * isolate to execute code.
  *
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
-import "dart:async";
+import "dart:math";
 import "../../../Utils/expect.dart";
 
-const Duration pauseTime = const Duration(seconds: 10);
-
-entryPoint(SendPort port) async {
-  final sw = Stopwatch()..start();
-  bool notified = false;
+// indefinitely running isolate
+entryPoint(List<SendPort> sendPorts) {
+  sendPorts[0].send(42);
+  Random random = new Random();
+  int s = 0;
   while (true) {
-    if (!notified) {
-      port.send('in-loop');
-      notified = true;
-    }
-    if (sw.elapsed.inSeconds >= pauseTime.inSeconds) {
-      // We were probably paused, otherwise this loop would not stop executing
-      // for 10 seconds.
-      port.send('detected-pause');
-      break;
-    } else {
-      sw..reset()..start();
-      await Future.delayed(Duration(seconds: 1));
-    }
+    s = -s + random.nextInt(100);
+    sendPorts[1].send(s);
   }
 }
 
 test() async {
-  final onExit = ReceivePort();
-
-  final rp = ReceivePort();
-  final si = StreamIterator(rp);
-
-  final isolate = await Isolate.spawn(entryPoint, rp.sendPort, onExit: onExit.sendPort);
-  Expect.equals(true, await si.moveNext());
-  Expect.equals('in-loop', si.current);
-
-  final cap = isolate.pause(new Capability());
-  await Future.delayed(pauseTime);
-  isolate.resume(cap);
-  Expect.equals(true, await si.moveNext());
-  Expect.equals('detected-pause', si.current);
-
-  si.cancel();
-  rp.close();
+  ReceivePort receivePort1 = new ReceivePort();
+  ReceivePort receivePort2 = new ReceivePort();
+  ReceivePort onExit = new ReceivePort();
+  Isolate isolate =
+      await Isolate.spawn(entryPoint,
+          [receivePort1.sendPort, receivePort2.sendPort],
+          onExit: onExit.sendPort,
+          errorsAreFatal: true);
+  // make sure that isolate started its work
+  await receivePort1.first;
+  isolate.pause(new Capability());
+  // check that messages are received from paused isolate
+  int count = 0;
+  await for (var _ in receivePort2) {
+    if (count++ == 1000000) {
+      break;
+    }
+  }
+  // clean up
   isolate.kill(priority: Isolate.immediate);
   await onExit.first;
   asyncEnd();
