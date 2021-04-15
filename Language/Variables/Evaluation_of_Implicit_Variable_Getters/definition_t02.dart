@@ -54,7 +54,7 @@ int count = 0;
 f(func) {
   try {
     throw 1; // caugth exceptions do not matter
-  } on int catch (e) {
+  } on int catch (_) {
     count++;
     if (count < 20) func();
   }
@@ -77,7 +77,7 @@ main() {
   Expect.equals(null, C.sTyped);
 
   () => C.sFinal;
-  Expect.throws(() { C.sFinal; };
+  Expect.throws(() { C.sFinal; });
 
   () => C.sFinalTyped;
   Expect.throws(() { C.sFinalTyped; });
