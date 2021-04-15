@@ -31,7 +31,7 @@
  * Function()>.
  * @description Checks that generic function can be a function type alias
  * argument and bound.
- * @Issue 45313
+ * @Issue 45313, 45718
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=generic-metadata

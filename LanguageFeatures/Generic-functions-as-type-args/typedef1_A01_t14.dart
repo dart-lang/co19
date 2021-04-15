@@ -44,7 +44,7 @@ typedef T4<TT extends void Function<T>(T)> = void Function<TTT extends TT>();
 typedef T5<TT extends void Function<T>(T)> = TTT Function<TTT extends TT>(TTT);
 typedef T6<TT extends void Function<T>(T)> = void Function();
 
-void testme(void Function<T>(T t)) {}
+void testme(void Function<T>(T t) tt) {}
 
 main() {
   T2 t = testme;

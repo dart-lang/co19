@@ -31,7 +31,7 @@
  * Function()>.
  * @description Checks that generic function can be a function type alias
  * argument and bound.
- * @Issue 45313, 45322
+ * @Issue 45313, 45322, 45718
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=generic-metadata
@@ -41,7 +41,7 @@ import "../../Utils/expect.dart";
 typedef T TEST<T extends void Function<TT>(TT t)>(T t);
 
 T testme<T extends void Function<TT>(TT t)>(T t) => throw "Hello!";
-void Function<T>(T t) testme1(void Function<T>(T t)) => throw "Hello";
+void Function<T>(T t) testme1(void Function<T>(T t) ttt) => throw "Hello";
 
 main() {
   TEST t = testme;
