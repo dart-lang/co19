@@ -17,14 +17,15 @@ import "const_evaluation_lib.dart";
 const dynamic d = null;
 Never n = throw "Should not reach here";
 
-const c1 = C<Object>(null);
-//         ^^^^^^^^^^^^^^
+main() {
+  const c1 = C<Object>(null);
+//           ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-const c2 = C<Object>(d);
-//         ^^^^^^^^^^^^
+  const c2 = C<Object>(d);
+//           ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-main() {}
+}

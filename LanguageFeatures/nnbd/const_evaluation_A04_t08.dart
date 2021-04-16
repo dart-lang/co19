@@ -18,14 +18,15 @@
 import"dart:async";
 import "const_evaluation_lib.dart";
 
-const c = C<FutureOr<Never>>(null);
-//        ^^^^^^^^^^^^^^^^^^^^^^^
+main() {
+  const c = C<FutureOr<Never>>(null);
+//          ^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-const c1 = C<FutureOr<Never>>(1);
-//         ^^^^^^^^^^^^^^^^^^^^^
+  const c1 = C<FutureOr<Never>>(1);
+//           ^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-main() {}
+}

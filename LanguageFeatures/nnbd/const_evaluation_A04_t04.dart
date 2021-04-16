@@ -20,14 +20,14 @@ import "const_evaluation_lib.dart";
 const dynamic d = null;
 Never n = throw "Should not reach here";
 
-const c1 = C<FutureOr<int>>(null);
-//         ^^^^^^^^^^^^^^^^^^^^^^
+main() {
+  const c1 = C<FutureOr<int>>(null);
+//           ^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-const c2 = C<FutureOr<int>>(d);
-//         ^^^^^^^^^^^^^^^^^^^
+  const c2 = C<FutureOr<int>>(d);
+//           ^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-main() {}
+}

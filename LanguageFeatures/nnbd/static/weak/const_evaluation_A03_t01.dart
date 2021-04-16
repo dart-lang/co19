@@ -23,6 +23,6 @@
 
 import "../../const_evaluation_lib.dart";
 
-const c = C<Never>(null);
-
-main() {}
+main() {
+  const c = C<Never>(null);
+}

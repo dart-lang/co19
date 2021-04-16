@@ -23,6 +23,6 @@ typedef FUNC = int Function<X extends String>(double);
 
 int testme<X extends String>(double d) => throw "Should not reach here";
 
-const c = C<FUNC>(testme);
-
-main() {}
+main() {
+  const c = C<FUNC>(testme);
+}

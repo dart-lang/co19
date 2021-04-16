@@ -24,9 +24,10 @@ typedef FUNC = int Function<X extends String>(double);
 
 int testme<X extends String>(double d) => throw "Should not reach here";
 
-const c1 = C<FUNC>(null);
-//                 ^
+main() {
+  const c1 = C<FUNC>(null);
+//                   ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-main() {}
+}

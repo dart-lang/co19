@@ -18,9 +18,10 @@ import "const_evaluation_lib.dart";
 const dynamic d = null;
 Never n = throw "Should not reach here";
 
-const c1 = C<FutureOr<Null>>(1);
-//         ^^^^^^^^^^^^^^^^^^^^
+main() {
+  const c1 = C<FutureOr<Null>>(1);
+//           ^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-main() {}
+}

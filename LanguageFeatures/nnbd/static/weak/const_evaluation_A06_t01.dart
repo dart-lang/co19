@@ -25,8 +25,7 @@ import "../../const_evaluation_lib.dart";
 const dynamic d = null;
 Never n = throw "Should not reach here";
 
-const c1 = C<int>(null);
-
-const c2 = C<int>(d);
-
-main() {}
+main() {
+  const c1 = C<int>(null);
+  const c2 = C<int>(d);
+}

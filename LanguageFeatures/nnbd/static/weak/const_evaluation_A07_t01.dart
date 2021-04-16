@@ -29,8 +29,7 @@ class D<T> extends C<T> {
 const dynamic d = null;
 Never n = throw "Should not reach here";
 
-const d1 = D<int>(null);
-
-const d2 = D<int>(d);
-
-main() {}
+main() {
+  const d1 = D<int>(null);
+  const d2 = D<int>(d);
+}

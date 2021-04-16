@@ -14,9 +14,9 @@
 
 import "const_evaluation_lib.dart";
 
-const c = C<Never>(null);
-//        ^^^^^^^^^^^^^^
+main() {
+  const c = C<Never>(null);
+//          ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-main() {}
+}
