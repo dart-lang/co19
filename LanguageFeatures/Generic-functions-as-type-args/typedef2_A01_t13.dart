@@ -44,7 +44,13 @@ T testme<T extends void Function<TT>()>(T t) => throw "Hello";
 void Function<T>() testme1(void Function<T>() ttt) => throw "Hello";
 
 main() {
+  // See https://github.com/dart-lang/sdk/issues/45718 evaluation for more details
+
   TEST t = testme;
+  TEST t1 = testme1;
+
   Expect.isFalse(testme is TEST);
   Expect.isTrue(testme1 is TEST);
+  Expect.isTrue(t is TEST);
+  Expect.isTrue(t1 is TEST);
 }

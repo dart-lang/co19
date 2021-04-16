@@ -29,8 +29,9 @@
  * type inference. After all, it's already possible to have a generic function
  * type occurring covariantly in a type argument, like List<T Function<T>(T)
  * Function()>.
- * @description Checks that generic function can be a function type alias
- * argument and bound.
+ * @description Checks that generic function can be an old-style function type
+ * alias argument and bound.
+ *
  * @Issue 45313, 45718
  * @author iarkh@unipro.ru
  */
@@ -45,6 +46,12 @@ void testme1(void Function<T>()) {}
 
 main() {
   TEST t = testme;
+  TEST t1 = testme1;
+
+  // See https://github.com/dart-lang/sdk/issues/45718 evaluation for more details
   Expect.isFalse(testme is TEST);
   Expect.isTrue(testme1 is TEST);
+
+  Expect.isTrue(t is TEST);
+  Expect.isTrue(t1 is TEST);
 }
