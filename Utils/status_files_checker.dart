@@ -17,19 +17,27 @@ Future<int> main(List<String> args) async {
     return 1;
   }
 
-  Map<String,List<String>> map = findAndReadStatusFiles(options.sdk);
-  List<String> arguments = ['log', '--pretty=format:"%h"', '--after=${options.after}'];
+  Map<String, List<String>> map = findAndReadStatusFiles(options.sdk);
+  List<String> arguments = [
+    'log',
+    '--pretty=format:"%h"',
+    '--after=${options.after}',
+    if (options.before != null) '--before=${options.before}'
+  ];
   ProcessResult res = await Process.run('git', arguments);
   if (res.exitCode != 0) {
     print(res.stderr);
     return 2;
   }
+  int foundCount = 0;
   List<String> commits = (res.stdout as String).split("\n");
-  //print(commits);
   for (var c in commits) {
+    if (c.isEmpty) {
+      continue;
+    }
     c = c.replaceAll('"', '');
-    //print("git show --pretty=format:\"\" --name-only $c");
-    ProcessResult r = await Process.run('git', ['show', '--pretty=format:""', '--name-only', c]);
+    ProcessResult r = await Process.run(
+        'git', ['show', '--pretty=format:""', '--name-only', c]);
     if (r.exitCode != 0) {
       print(r.stderr);
       return 3;
@@ -43,12 +51,15 @@ Future<int> main(List<String> args) async {
         String testName = f.substring(0, f.indexOf(".dart"));
         var found = map[testName];
         if (found != null) {
-          print("Test $testName was changed in commit $c and presents in the followins status files");
+          print(
+              "Test $testName was changed in commit $c and presents in the following status files");
           print(found);
+          foundCount++;
         }
       }
     }
   }
+  print("$foundCount status files entries was found in ${commits.length} commits");
   return 0;
 }
 
@@ -56,7 +67,7 @@ class Options {
   String? after = null;
   String? before = null;
   String sdk = '.';
-  int days = 3;
+  int days = 30;
 
   static Options read(List<String> args) {
     Options options = new Options();
@@ -66,18 +77,19 @@ class Options {
           throw OptionsException("Unknown argument: '$arg'");
         }
         List<String> pair = arg.substring(1).split("=");
-        switch(pair[0]) {
+        switch (pair[0]) {
           case "after":
-          // TODO implement
+            options.after = pair[1];
             break;
           case "before":
-          // TODO implement
+            options.before = pair[1];
             break;
           case "days":
             try {
               options.days = int.parse(pair[1]);
             } on FormatException catch (_) {
-              throw new OptionsException("Unable to parse 'days' value: '${pair[0]}'");
+              throw new OptionsException(
+                  "Unable to parse 'days' value: '${pair[0]}'");
             }
             DateTime da = DateTime.now().add(Duration(days: -options.days));
             options.after = _formatDate(da);
@@ -99,8 +111,8 @@ class Options {
       This tool checks if recent commits contain tests mentioned in .status files. Usage:
       dart status_files_checker.dart <options>
       Options:
-      -after=dd-MM-yyyy - by default current date minus ${options.days} days
-      -before=dd-MM-yyy - current date by default
+      -after=yyyy-MM-dd - by default current date minus ${options.days} days
+      -before=yyyy-MM-dd - current date by default
       -days=N - check commits for N latest days (${options.days} by default)
       -sdk=path_to_sdk - path to Dart SDK (by default it's the current directory)
     ''');
@@ -114,16 +126,16 @@ class Options {
   }
 
   static String _formatDate(DateTime date) {
-    return "${date.day}-${date.month < 10 ? "0" + date.month.toString() : date.month}-${date.year}";
+    return "${date.year}-${date.month < 10 ? "0" + date.month.toString() : date.month}-${date.day < 01 ? "0" + date.day.toString() : date.day}";
   }
 }
 
-Map<String,List<String>> findAndReadStatusFiles(String sdk) {
+Map<String, List<String>> findAndReadStatusFiles(String sdk) {
   Directory testsDir = new Directory(sdk + Platform.pathSeparator + "tests");
   if (!testsDir.existsSync()) {
     throw StatusFilesException("Directory ${testsDir.path} doesn't exist");
   }
-  Map<String,List<String>> map = new Map<String,List<String>>();
+  Map<String, List<String>> map = new Map<String, List<String>>();
   List<FileSystemEntity> list = testsDir.listSync(recursive: true);
   for (FileSystemEntity fse in list) {
     if (fse is File && fse.path.endsWith(".status")) {
@@ -133,34 +145,37 @@ Map<String,List<String>> findAndReadStatusFiles(String sdk) {
   return map;
 }
 
-Map<String,List<String>> readStatusFile(File f) {
+Map<String, List<String>> readStatusFile(File f) {
   // get test suite prefix
-  //print(f.path);
   String prefix = "";
   final test = Platform.pathSeparator + "tests" + Platform.pathSeparator;
   final ind = f.path.indexOf(test);
-  final suite = f.path.substring(ind + test.length, f.path.indexOf(Platform.pathSeparator, ind + test.length + 1));
+  final suite = f.path.substring(ind + test.length,
+      f.path.indexOf(Platform.pathSeparator, ind + test.length + 1));
   if (suite != "co19" && suite != "co19_2") {
     prefix = "tests/" + suite + "/";
   }
   // now read the file
-  final regExp = new RegExp(".*:[ \t]+(Skip|Crash|RuntimeError){1}[^BS]"); // FIXME there must be something like (\s) instead of [^BS] but it doesn't work
+  final regExp = new RegExp(".*:(\\s)*(Skip|Crash|RuntimeError){1}(\\s|#)");
   List<String> strings = f.readAsLinesSync();
-  Map<String,List<String>> map = new Map<String,List<String>>();
+  Map<String, List<String>> map = new Map<String, List<String>>();
   for (String s in strings) {
     RegExpMatch? match = regExp.firstMatch(s);
     if (match != null) {
-      String testAndStatus = prefix + s.substring(match.start, match.end); // LibTest/ffi/Array/PointerArray_A01_t01: Skip
-      //print(s.substring(match.start, match.end));
+      String testAndStatus = prefix +
+          s.substring(match.start,
+              match.end); // LibTest/ffi/Array/PointerArray_A01_t01: Skip
+      // Now process multitests like io/platform_resolved_executable_test/06: RuntimeError
+      testAndStatus =
+          testAndStatus.replaceFirst(new RegExp(r"\/([0-9]{2,3}|none):"), ":");
       List<String> parts = testAndStatus.split(":");
       map[parts[0]] = [f.path + parts[1]];
     }
   }
-  //print(map);
   return map;
 }
 
-void addAll(Map<String,List<String>> map1, Map<String,List<String>> map2) {
+void addAll(Map<String, List<String>> map1, Map<String, List<String>> map2) {
   for (String k in map2.keys) {
     if (map1.containsKey(k)) {
       map1[k]?.addAll(map2[k]!);
@@ -170,8 +185,7 @@ void addAll(Map<String,List<String>> map1, Map<String,List<String>> map2) {
   }
 }
 
-class EmptyOptionsException implements Exception {
-}
+class EmptyOptionsException implements Exception {}
 
 class OptionsException implements Exception {
   final String text;
