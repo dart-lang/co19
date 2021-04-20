@@ -42,27 +42,31 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiation to bounds works OK for [typedef G<X> =
- * Function(X)], [class A<X extends G<A<X, Y>>, Y extends X>] (covariant)
- *
- * @Issue 41963, 41964, 44786
- * @Issue dart-lang/language#1133
- *
+ * @description Checks that instantiate-to-bounds works as expected for  class
+ * with generic function type argument.
  * @author iarkh@unipro.ru
  */
+// SharedOptions=--enable-experiment=generic-metadata
 
-typedef G<X> = X Function(X);
-class A<X extends G<A<X>>> {}
+typedef FUNC<T> = void Function<T1 extends T>();
+class A<X extends FUNC<X>> {}
 
-main() {
-  A? source;
-//   ^^^^^^
+typedef exp = void Function<T>();
+
+testme(A a) {
+//       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  A<exp> a1 = a;
+//       ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+main() {
   A();
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
-
 }
