@@ -17,7 +17,13 @@ Future<int> main(List<String> args) async {
     return 1;
   }
 
-  Map<String, List<String>> map = findAndReadStatusFiles(options.sdk);
+  Map<String, List<String>> map;
+  try {
+    map = findAndReadStatusFiles(options.sdk);
+  } on StatusFilesException catch (e) {
+    print(e.text);
+    return -1;
+  }
   List<String> arguments = [
     'log',
     '--pretty=format:"%h"',
