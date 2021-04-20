@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
@@ -27,7 +27,7 @@
  * @note NNBD Spec now reads: If a variable or field is read from during the
  * process of evaluating its own initializer expression, and no write to the
  * variable has occurred, the read is treated as a first read and the
- * nitializer expression is evaluated again.
+ * initializer expression is evaluated again.
  *
  * A toplevel or static variable with an initializer is evaluated as if it was
  * marked [late]. Note that this is a change from pre-NNBD semantics in that:
@@ -39,38 +39,22 @@
  * and does not cause an error.
  *
  * @description Checks that if during the evaluation of [e], the getter for [v]
- * is invoked, a [CyclicInitializationError] is not thrown. Confirms that [func]
- * gets recursively called by incrementing a counter and stopping the infinite
- * recursion after 20 cycles. This avoids relying on particulars of the behavior
- * on stack overflow and makes the test cheaper to run.
- * @author msyabro
- * @Issue 42470
- * @issue 42642
+ * is invoked, a [CyclicInitializationError] is thrown
+ * @author sgrekhov@unipro.ru
  */
-import "../../../Utils/expect.dart";
-
-int count = 0;
-
-f(func) {
-  try {
-    throw 1; // caught exceptions do not matter
-  } on int catch (_) {
-    count++;
-    if (count < 20) func();
-  }
-  count = 0;
-}
+f(func) {}
 
 class C {
-  static int? sTyped = f(() => sTyped);
-  static final int? sFinalTyped = f(() => sFinalTyped);
+  static var sVar = f(() => sVar);
+//           ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  static final sFinal = f(() => sFinal);
+//             ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified}
 }
 
-
 main() {
-  () => C.sTyped;
-  Expect.equals(null, C.sTyped);
-
-  () => C.sFinalTyped;
-  Expect.throws(() { C.sFinalTyped; });
+  C? c;
 }

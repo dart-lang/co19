@@ -14,14 +14,13 @@
  *   top-level setter, then e is equivalent to the getter invocation id.
  * @description  Checks that references to a library variables is evaluated
  * correctly and that initializer expression is evaluated only once.
- * @static-warning
  * @author msyabro
  */
 import '../../../Utils/expect.dart';
 
-var tlVar = new C(1).id;          /// static type warning
+var tlVar = new C(1).id;
 int tlTyped = new C(2).id;
-final tlFinal = new C(3).id;      /// static type warning
+final tlFinal = new C(3).id;
 final int tlFinalTyped = new C(4).id;
 
 class C {
