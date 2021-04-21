@@ -44,6 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for  class
  * with generic function type argument.
+ * @Issue 45788
  * @author iarkh@unipro.ru
  */
 // SharedOptions=--enable-experiment=generic-metadata

@@ -44,8 +44,10 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that function type argument cannot have reference to
  * itself.
+ * @Issue 45786
  * @author iarkh@unipro.ru
  */
+
 // SharedOptions=--enable-experiment=generic-metadata
 
 typedef FUNC1<T> = void Function<T1 extends FUNC1<T>>();
