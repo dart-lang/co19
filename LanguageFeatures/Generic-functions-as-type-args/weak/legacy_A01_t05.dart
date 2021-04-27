@@ -29,32 +29,55 @@
  * type inference. After all, it's already possible to have a generic function
  * type occurring covariantly in a type argument, like List<T Function<T>(T)
  * Function()>.
- * @description Checks that generic function can be a non-function typedef type
- * argument and  bound: test extends clause in the typedef declaration
- * dynamically.
+ * @description Checks that generic function cannot be a class type argument and
+ * bound if source is marked with "@dart=2.6" tag.
  * @author iarkh@unipro.ru
  */
-// SharedOptions=--enable-experiment=generic-metadata,nonfunction-type-aliases
+// @dart=2.9
+// Requirements=nnbd-weak
+// SharedOptions=--enable-experiment=generic-metadata
 
-import "../../Utils/expect.dart";
-
-typedef exp1 = T Function<T>(T);
-typedef exp2 = void Function<T>();
-typedef exp3 = T Function<T>();
-typedef exp4 = void Function<T>(T);
-
-class C<T> {
-  C(expected) { Expect.equals(expected, T); }
-}
-
-typedef C1<X extends exp1> = C<X>;
-typedef C2<X extends exp2> = C<X>;
-typedef C3<X extends exp3> = C<X>;
-typedef C4<X extends exp4> = C<X>;
+class C<T> {}
 
 main() {
-  C1 c1 = C1<exp1>(exp1);
-  C2 c3 = C2<exp2>(exp2);
-  C3 c5 = C3<exp3>(exp3);
-  C4 c7 = C4<exp4>(exp4);
+  C<T Function<T>(T)> c1 = throw "Should not reach here";
+//                    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C<T Function<T>(T)>();
+//  ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C<T Function<T>()> c2 = throw "Should not reach here";
+//                   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C<T Function<T>()>();
+//  ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C<void Function<T>(T)> c3 = throw "Should not reach here";
+//                       ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C<void Function<T>(T)>();
+//  ^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C<void Function<T>()> c4 = throw "Should not reach here";
+//                      ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C<void Function<T>()>();
+//  ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
+

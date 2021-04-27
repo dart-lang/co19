@@ -29,32 +29,41 @@
  * type inference. After all, it's already possible to have a generic function
  * type occurring covariantly in a type argument, like List<T Function<T>(T)
  * Function()>.
- * @description Checks that generic function can be a non-function typedef type
- * argument and  bound: test extends clause in the typedef declaration
- * dynamically.
+ * @description Checks that legacy code cannot import and call a function type
+ * alias with generic function as type parameter or bound.
+ * @Issue 45834
  * @author iarkh@unipro.ru
  */
+// @dart=2.9
+// Requirements=nnbd-weak
 // SharedOptions=--enable-experiment=generic-metadata,nonfunction-type-aliases
 
-import "../../Utils/expect.dart";
+import "opted_out_lib.dart";
 
-typedef exp1 = T Function<T>(T);
-typedef exp2 = void Function<T>();
-typedef exp3 = T Function<T>();
-typedef exp4 = void Function<T>(T);
-
-class C<T> {
-  C(expected) { Expect.equals(expected, T); }
-}
-
-typedef C1<X extends exp1> = C<X>;
-typedef C2<X extends exp2> = C<X>;
-typedef C3<X extends exp3> = C<X>;
-typedef C4<X extends exp4> = C<X>;
+typedef F1 = void Function<X extends void Function<T>()>();
+typedef F2 = X Function<X extends T Function<T>()>();
+typedef F3 = void Function<X extends void Function<T>(T)>(X);
+typedef F4 = void Function<X extends T Function<T>(T)>(X);
 
 main() {
-  C1 c1 = C1<exp1>(exp1);
-  C2 c3 = C2<exp2>(exp2);
-  C3 c5 = C3<exp3>(exp3);
-  C4 c7 = C4<exp4>(exp4);
+  F1 f1 = throw "Should not reach here!";
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F2 f2 = throw "Should not reach here!";
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F3 f3 = throw "Should not reach here!";
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F4 f4 = throw "Should not reach here!";
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

@@ -29,32 +29,54 @@
  * type inference. After all, it's already possible to have a generic function
  * type occurring covariantly in a type argument, like List<T Function<T>(T)
  * Function()>.
- * @description Checks that generic function can be a non-function typedef type
- * argument and  bound: test extends clause in the typedef declaration
- * dynamically.
+ * @description Checks that legacy code cannot import and call a class with
+ * generic function as type parameter or bound.
  * @author iarkh@unipro.ru
  */
+// @dart=2.9
+// Requirements=nnbd-weak
 // SharedOptions=--enable-experiment=generic-metadata,nonfunction-type-aliases
 
-import "../../Utils/expect.dart";
-
-typedef exp1 = T Function<T>(T);
-typedef exp2 = void Function<T>();
-typedef exp3 = T Function<T>();
-typedef exp4 = void Function<T>(T);
-
-class C<T> {
-  C(expected) { Expect.equals(expected, T); }
-}
-
-typedef C1<X extends exp1> = C<X>;
-typedef C2<X extends exp2> = C<X>;
-typedef C3<X extends exp3> = C<X>;
-typedef C4<X extends exp4> = C<X>;
+import "opted_out_lib.dart";
 
 main() {
-  C1 c1 = C1<exp1>(exp1);
-  C2 c3 = C2<exp2>(exp2);
-  C3 c5 = C3<exp3>(exp3);
-  C4 c7 = C4<exp4>(exp4);
+  C1();
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C2();
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C3();
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C4();
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C1 c1 = throw "Error";
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C2 c2 = throw "Error";
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C3 c3 = throw "Error";
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C4 c4 = throw "Error";
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
