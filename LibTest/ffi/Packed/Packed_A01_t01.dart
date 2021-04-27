@@ -11,6 +11,7 @@
  *
  * @description Checks that valid values for memberAlignment are 1, 2, 4, 8,
  * and 16 only
+ * @Issue 45838
  * @author sgrekhov@unipro.ru
  */
 import "dart:ffi";
