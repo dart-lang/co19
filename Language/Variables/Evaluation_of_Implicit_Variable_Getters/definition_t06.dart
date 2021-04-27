@@ -24,35 +24,33 @@
  *   can occur. Otherwise
  * - Variable declaration without initializer. The result of executing the
  *   getter method is the value stored in v.
- * @note NNBD Spec now reads: If a variable or field is read from during the
- * process of evaluating its own initializer expression, and no write to the
- * variable has occurred, the read is treated as a first read and the
- * initializer expression is evaluated again.
  *
- * A toplevel or static variable with an initializer is evaluated as if it was
- * marked [late]. Note that this is a change from pre-NNBD semantics in that:
+ * @note The language specification says 'If, during the evaluation of [e]
+ * (which is the initializing expression for [v]), the getter for [v] is invoked,
+ * a [CyclicInitializationError] is thrown', but this is overridden by the
+ * following text in the nnbd feature specification: 'If a variable or field is
+ * read from during the process of evaluating its own initializer expression,
+ * and no write to the variable has occurred, the read is treated as a first
+ * read and the initializer expression is evaluated again.'
+ * So CyclicInitializationErrors are gone here when null safety is enabled.
+ * In the test, [f] returns [null] (typed as [dynamic]), and the evaluation of
+ * the initializing expression for [sVar] as well as [sFinal] discards the
+ * function literal (() => sVar respectively () => sFinal) without ever
+ * executing it. So we do not have a situation where the getter for
+ * [sVar]/[sFinal] is invoked during the evaluation of its initializing
+ * expression, and both variables just get initialized to the value [null]. No
+ * recursion and no errors.
  *
- * Throwing an exception during initializer evaluation no longer sets the
- * variable to [null]
+ * @description Checks that [CyclicInitializationError] is not thrown with null
+ * safety turned on.
  *
- * Reading the variable during initializer evaluation is no longer checked for,
- * and does not cause an error.
- *
- * @description Checks that if during the evaluation of [e], the getter for [v]
- * is invoked, a [CyclicInitializationError] is thrown
  * @author sgrekhov@unipro.ru
  */
 f(func) {}
 
 class C {
   static var sVar = f(() => sVar);
-//           ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   static final sFinal = f(() => sFinal);
-//             ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified}
 }
 
 main() {
