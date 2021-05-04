@@ -40,11 +40,6 @@
 
 import "opted_out_lib.dart";
 
-typedef F1 = void Function<X extends void Function<T>()>();
-typedef F2 = X Function<X extends T Function<T>()>();
-typedef F3 = void Function<X extends void Function<T>(T)>(X);
-typedef F4 = void Function<X extends T Function<T>(T)>(X);
-
 main() {
   F1 f1 = throw "Should not reach here!";
 //^^
