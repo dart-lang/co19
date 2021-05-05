@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future pipe(StreamConsumer<RawSocketEvent> streamConsumer)
 /// . . .
 /// All events of this stream are added to streamConsumer using

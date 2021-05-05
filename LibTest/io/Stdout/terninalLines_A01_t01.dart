@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// int terminalLines
 /// Get the number of Lines of the terminal.
 /// @description Checks that [terminalLines] is a positive number if output is

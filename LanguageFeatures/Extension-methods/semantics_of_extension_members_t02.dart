@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Inside an extension method body, this does not refer to an
 /// instance of a surrounding type. Instead it is bound to the original receiver,
 /// and the static type of this is the declared on type of the surrounding

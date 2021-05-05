@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Attempting to mutate a constant list literal will result in a
 /// dynamic error.
 /// @description Checks that it is a run-time error to attempt to modify

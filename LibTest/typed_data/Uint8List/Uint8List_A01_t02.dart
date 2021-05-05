@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Uint8List(int length)
 /// Creates an [Uint8List] of the specified length (in elements), all of whose
 /// elements are initially zero.

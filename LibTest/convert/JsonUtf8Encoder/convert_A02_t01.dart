@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion List<int> convert(Object object)
 /// Convert object into UTF-8 encoded JSON.
 /// @description Checks that if the object does not support "toJson()" method,

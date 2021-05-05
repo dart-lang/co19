@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion abstract E removeAt(int index)
 /// Throws an RangeError if the index does not point inside the list.
 /// @description Checks that an RangeError is thrown if the index does not point

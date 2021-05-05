@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Int32x4 equal(Float32x4 other)
 /// Relational equal.
 /// @description Checks that the returned [Int32x4] contains correct values.

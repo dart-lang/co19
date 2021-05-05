@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion int microsecondsSinceEpoch
 /// The number of microseconds since the "Unix epoch" 1970-01-01T00:00:00Z (UTC).
 ///

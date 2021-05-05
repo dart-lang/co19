@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Evaluation of an identifier expression e of the form id proceeds
 /// as follows:
 /// Let d be the innermost declaration in the enclosing lexical scope whose name

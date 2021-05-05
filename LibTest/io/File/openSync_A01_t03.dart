@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion RandomAccessFile openSync({FileMode mode: FileMode.read})
 /// Synchronously open the file for random access operations. The result is a
 /// RandomAccessFile on which random access operations can be performed. Opened

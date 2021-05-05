@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @description Regression test for the Issue 33786 (Dartanalyzer does not
 /// report error about illegal recursive type in class declaration). Checks that
 /// [class A<X extends A<X>> extends M<A<A<A<A<X>>>>>] can be declared in runtime

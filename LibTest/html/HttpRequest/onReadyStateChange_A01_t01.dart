@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Stream<ProgressEvent> get onReadyStateChange
 /// Stream of readystatechange events handled by this HttpRequest.
 /// Event listeners to be notified every time the HttpRequest object's readyState changes values.

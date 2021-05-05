@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion int readByteSync()
 /// Synchronously reads a single byte from the file. If end-of-file has been
 /// reached -1 is returned.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let map1 = const< K, V >{k11: e11 ... k1n: e1n } and map2 =
 /// const< J, U >{k21: e21 ... k2n: e2n } be two constant map literals. Let the
 /// keys of map1 and map2 evaluate to s11 ... s1n and s21 ... s2n respectively,

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion 15.10.2.5: An Atom followed by a Quantifier is repeated the
 ///            number of times specified by the Quantifier. A Quantifier can be
 ///            non-greedy, in which case the Atom pattern is repeated as few

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Stream<RawSocketEvent> where (bool test(T event))
 /// Creates a new stream from this stream that discards some elements.
 ///

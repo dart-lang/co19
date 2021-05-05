@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
 /// when:
 /// Function Type/Function: T0 is a function type and T1 is Function

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Execution of a do statement of the form do s while (e); proceeds
 /// as follows:
 ///   The statement {s} is executed. Then, the expression e is evaluated to an

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Evaluation of an assignment a of the form e1?.v = e2 is ...
 /// The static type of a is the static type of e2
 /// @description Checks that the static type of e1?.v = e2 is the static type

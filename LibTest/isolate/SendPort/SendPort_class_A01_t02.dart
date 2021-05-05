@@ -2,6 +2,8 @@
 // file for details. All rights reserved. Use of this source code is governed
 // by a BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Sends messages to its ReceivePorts.
 ///    SendPorts are created from ReceivePorts. Any message sent through
 /// a SendPort is delivered to its corresponding ReceivePort. There might

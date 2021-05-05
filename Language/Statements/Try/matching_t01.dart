@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion An on-catch clause of the form on T catch (p1 , p2 ) s matches an
 /// object o if the type of o is a subtype of T.
 /// @description Checks that a catch clause with an explicitly specified type T

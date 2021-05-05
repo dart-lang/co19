@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion An assignment of the form super[e1] = e2 is equivalent to the
 /// expression super.[e1] = e2
 /// @description Checks that an assignment of the form super[e1] = e2 is

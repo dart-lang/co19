@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion dynamic firstWhere(bool test(E element), {Object orElse()})
 /// Returns the first element that satisfies the given predicate [test].
 /// Iterates through elements and returns the first to satisfy test.

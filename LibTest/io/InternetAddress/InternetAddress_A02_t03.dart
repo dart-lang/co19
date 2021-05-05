@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion InternetAddress(String address)
 /// If the [address] in address is not a numeric IPv4 (dotted-decimal notation)
 /// or IPv6 (hexadecimal representation) address [ArgumentError] is thrown.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let T be the declared type of a declaration d, as it appears in
 /// the program source. The actual type of d is
 ///  • [A1,...,An/U1,...,Un]T if d depends on type parameters U1,...,Un, and

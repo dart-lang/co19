@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @description Regression test for the issues 33599 (Analyzer produces
 /// StackOverflow error in some cases when typedef references itself directly)
 /// and 34700 (Analyzer does not reject typedef which has a reference to itself).

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Evaluation of an await expression a of the form await e
 /// proceeds as follows: First, the expression e is evaluated. Next:
 /// If e raises an exception x, then an instance f of class Future is allocated

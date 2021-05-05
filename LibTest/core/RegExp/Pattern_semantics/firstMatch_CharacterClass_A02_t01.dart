@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion 15.10.2.13: The production CharacterClass :: [ ^ ClassRanges ]
 ///            evaluates by evaluating ClassRanges to obtain a CharSet and
 ///            returning that CharSet and the Boolean true. <br/> The production

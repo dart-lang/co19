@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion void attributeChanged(String name, String oldValue, String newValue)
 /// Called by the DOM whenever an attribute on this has been changed.
 /// @description Checks that attributeChanged is called and called with correct

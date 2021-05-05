@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion factory ListQueue.from(Iterable elements)
 /// All elements should be assignable to [E].
 /// @description Checks that elements can be only of [E] type.

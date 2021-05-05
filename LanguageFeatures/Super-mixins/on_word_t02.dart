@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The on word is not reserved in any way, it is a context-specific
 /// keyword that has a specific meaning when occuring after the type name of a
 /// mixin declaration.

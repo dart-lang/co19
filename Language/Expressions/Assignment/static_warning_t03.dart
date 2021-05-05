@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion It is a static warning if an assignment of the form v = e occurs
 /// inside a top level or static function (be it function, method, getter, or
 /// setter) or variable initializer and there is neither a local variable

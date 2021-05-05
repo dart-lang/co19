@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion abstract void replaceRange(int start, int end, Iterable<E> iterable)
 /// It is an error if start.. end is not a valid range pointing into the this.
 /// @description Checks that an error is thrown when the range is invalid.

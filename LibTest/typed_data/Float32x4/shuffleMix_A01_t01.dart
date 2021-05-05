@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Float32x4 shuffleMix(Float32x4 other, int mask)
 /// Shuffle the lane values in this and other.
 /// The returned Float32x4 will have XY lanes from this and ZW lanes from other.

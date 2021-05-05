@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Float32x4List.fromList(List<Float32x4> elements)
 /// Creates a [Float32x4List] with the same length as the [elements] list and
 /// copies over the elements.

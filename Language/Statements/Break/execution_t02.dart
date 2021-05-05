@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let s1, ..., sn be those try statements that are both enclosed in
 /// sE and that enclose sb, and that have a finally clause. Lastly, let fj be the
 /// finally clause of sj, 1 <= j <= n. Executing sb first executes f1, ..., fn

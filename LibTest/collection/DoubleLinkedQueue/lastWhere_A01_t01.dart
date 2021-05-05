@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion dynamic lastWhere(bool test(E value), {Object orElse()})
 /// Returns the last element that satisfies the given predicate [test].
 /// An iterable that can access its elements directly may check its elements in

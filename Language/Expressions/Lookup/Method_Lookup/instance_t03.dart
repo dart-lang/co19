@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The result of a lookup of a method m in object o with respect
 /// to library L is the result of a lookup of method m in class C with respect
 /// to library L, where C is the class of o.

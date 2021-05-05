@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion void exit(int code)
 /// On Windows the exit code can be set to any 32-bit value.
 /// @description Checks that on Windows any exit code is returned as is.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion final int millisecondsSinceEpoch
 /// The milliseconds since 1970-01-01T00:00:00Z (UTC).
 /// This value is independent of the time zone.

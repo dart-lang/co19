@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @description Regression test for the issues 35114 (Analyzer does not allow
 /// declare a class with typed function parameter if it's parametrized
 /// contravariant or invariant) and 35115 (Dart runtime does not allow declare a

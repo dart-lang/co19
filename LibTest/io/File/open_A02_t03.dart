@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<RandomAccessFile> open({FileMode mode: FileMode.read})
 /// Open the file for random access operations. Returns a
 /// Future<RandomAccessFile> that completes with the opened random access file.

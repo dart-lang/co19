@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Evaluating a hexadecimal integer literal with numeric value i is a
 /// compile-time error unless -2^63 <= i <= 2^64
 /// @description Checks that it no error if a hexadecimal integer literal with

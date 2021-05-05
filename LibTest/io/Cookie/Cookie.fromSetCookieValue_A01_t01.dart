@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Cookie.fromSetCookieValue(String value)
 /// Creates a new cookie by parsing a header value from a 'set-cookie' header.
 /// @description Checks that this constructor creates a new cookie by parsing a

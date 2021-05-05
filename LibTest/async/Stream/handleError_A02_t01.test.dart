@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Stream<T> handleError(Function onError, {bool test(error)})
 /// If test is omitted, every error is considered matching.
 /// @description Checks that if [test] is omitted, every error is intercepted

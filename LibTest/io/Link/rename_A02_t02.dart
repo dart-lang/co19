@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<Link> rename(String newPath)
 /// Renames this link. Returns a Future<Link> that completes with a Link instance
 /// for the renamed link.

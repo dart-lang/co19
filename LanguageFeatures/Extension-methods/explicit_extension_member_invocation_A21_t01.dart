@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion This means that you cannot do cascade invocations on explicit
 /// extension applications: E(e)..foo()..bar() is a compile-time error. This is
 /// necessary because that expression evaluates to the value of E(e), and an

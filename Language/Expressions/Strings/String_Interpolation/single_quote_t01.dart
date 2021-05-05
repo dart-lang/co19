@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion  An interpolated string 's1${e}s2' is equivalent to the
 /// concatenation of the strings 's1', e.toString() and 's2'.
 /// @description Checks that an interpolated string ‘s1${e}s2’ is equivalent to

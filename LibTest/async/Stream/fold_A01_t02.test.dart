@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<S> fold<S>(S initialValue, S combine(S previous, T element))
 /// Reduces a sequence of values by repeatedly applying combine.
 /// @description Checks that if the stream contains no elements, the combine

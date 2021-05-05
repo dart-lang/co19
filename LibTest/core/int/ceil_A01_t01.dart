@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Returns x, rounded upwards to the nearest integer.
 /// @description Checks that the method returns correct value. For integers, it
 /// should be the same as input value.

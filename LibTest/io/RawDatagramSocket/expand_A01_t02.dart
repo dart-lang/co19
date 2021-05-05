@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Stream<S> expand<S>(Iterable<S> convert(T value))
 /// Transforms each element of this stream into a sequence of elements.
 ///

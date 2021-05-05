@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion String iterableToFullString(Iterable iterable,
 /// [String leftDelimiter = '(', String rightDelimiter = ')'])
 /// Unlike [iterableToShortString], this conversion doesn't omit any elements or

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Likewise, if a type annotation is omitted on a formal parameter
 /// in typedef declaration, it is taken to be dynamic.
 /// @description Checks that function types with various types of formal

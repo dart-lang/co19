@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion final Duration elapsed
 /// Returns the elapsedTicks counter converted to a Duration.
 /// @description Checks that this method returns 0 if the stopwatch has never

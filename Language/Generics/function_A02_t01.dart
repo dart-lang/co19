@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A generic function declaration introduces a generic function into
 /// the enclosing scope. Consider a function invocation expression of the form
 /// [f<T1, . . . , Tl>(...)], where the static type of [f] is a generic function

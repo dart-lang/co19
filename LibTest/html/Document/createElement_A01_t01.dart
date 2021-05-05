@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Element createElement(String tagName, [String typeExtension])
 /// Creates a new element with the given tag name.
 /// @description Checks that newly created element belongs to this document.

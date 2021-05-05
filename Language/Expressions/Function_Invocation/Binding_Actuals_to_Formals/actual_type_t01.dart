@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion In checked mode, it is a dynamic type error if oi is not null and
 /// the actual type of pi is not a supertype of the type of oi, i ∈ 1..m.
 /// @description Checks that it is a dynamic type error when an actual argument

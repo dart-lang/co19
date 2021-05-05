@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion final String currentAsString
 /// For runes outside the basic multilingual plane,
 /// this will be a [String] of length 2, containing two code units.

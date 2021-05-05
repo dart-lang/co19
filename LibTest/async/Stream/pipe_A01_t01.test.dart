@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future pipe(StreamConsumer<T> streamConsumer)
 /// Pipe the events of this stream into streamConsumer.
 /// @description Checks that this stream is piped through streamConsumer

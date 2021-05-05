@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion In an expression of the form e1 = e2 where e1 is an
 /// assignableExpression denoting a variable or parameter of type void, e2 may
 /// have the type void.

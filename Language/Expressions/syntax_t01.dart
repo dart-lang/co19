@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion An expression is a fragment of Dart code that can be evaluated
 /// at run time to yield a value, which is always an object.
 /// . . .

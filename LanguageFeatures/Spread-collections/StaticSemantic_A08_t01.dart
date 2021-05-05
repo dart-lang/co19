@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Note that you can spread any [Iterable] into a set literal, not
 /// just other sets
 /// @description Checks that list and custom [Iterable] cannot be assigned to

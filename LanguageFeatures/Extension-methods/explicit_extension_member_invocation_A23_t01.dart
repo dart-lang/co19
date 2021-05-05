@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A pre-increment expression of the form ++e1.id is generally
 /// equivalent to e1.id += 1. Similarly for --e1.id, ++e1[e2] and --e1[e2]. This
 /// applies when e1 is an extension application too, reducing it to the former

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion final Symbol memberName
 /// The name of the invoked expect.
 /// @description Checks that memberName returns expected results on getters,

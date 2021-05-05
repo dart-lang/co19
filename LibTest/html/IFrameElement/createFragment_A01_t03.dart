@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion DocumentFragment createFragment(String html,
 /// {NodeValidator validator, NodeTreeSanitizer treeSanitizer})
 /// Create a DocumentFragment from the HTML fragment and ensure that it

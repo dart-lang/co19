@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future.microtask(dynamic computation())
 ///    If calling computation returns a Future, completion of the created future
 /// will wait until the returned future completes, and will then complete with

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion ElementStream<Event> get onError
 /// Stream of error events handled by this Element.
 /// @description Checks that correct events are delivered via the stream

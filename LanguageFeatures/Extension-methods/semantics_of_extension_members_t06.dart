@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If an unqualified identifier lexically resolves to an extension
 /// method of the surrounding extension, then that identifier is not equivalent
 /// to this.id, rather the invocation is equivalent to an explicit invocation of

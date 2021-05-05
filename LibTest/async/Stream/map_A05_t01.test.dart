@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Stream<S> map<S>(S convert(T event))
 /// The convert function is called once per data event per listener.
 /// If a broadcast stream is listened to more than once, each subscription

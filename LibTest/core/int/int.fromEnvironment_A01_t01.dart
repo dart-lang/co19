@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion const int.fromEnvironment(String name, {int defaultValue})
 /// Returns the integer value of the given environment declaration name.
 /// The result is the same as would be returned by:

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Iterable<T> expand <T>(Iterable<T> f(E element))
 /// Expands each element of this [Iterable[ into zero or more elements.
 /// @description Checks that all the elements from the iterable are expanded into

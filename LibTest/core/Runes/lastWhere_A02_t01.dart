@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion dynamic lastWhere(bool test(E element), {Object orElse()})
 /// If none matches, the result of invoking the orElse function is returned.
 /// @description Checks that the [orElse] function is invoked and

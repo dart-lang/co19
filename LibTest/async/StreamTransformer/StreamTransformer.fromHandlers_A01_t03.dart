@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion factory StreamTransformer.fromHandlers({void handleData(S data,
 ///   EventSink<T> sink), void handleError(Object error, StackTrace stackTrace,
 ///   EventSink<T> sink), void handleDone(EventSink<T> sink)})

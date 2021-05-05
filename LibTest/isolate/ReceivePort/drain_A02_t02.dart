@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future drain([futureValue])
 /// In case of a done event the future completes with the given futureValue.
 /// @description Checks that the future completes with null if futureValue is omitted.

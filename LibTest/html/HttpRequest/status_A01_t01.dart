@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion final int status
 /// The http result code from the request (200, 404, etc).
 /// @description Checks that status is 200 for successful request.

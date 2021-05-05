@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If the mixin application declares support for interfaces, the
 /// resulting class implements those interfaces.
 /// @description Checks that if the mixin application declares support for

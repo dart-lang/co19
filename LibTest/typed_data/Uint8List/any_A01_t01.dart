@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion bool any(bool test(E element))
 /// Checks whether any element of this iterable satisfies test.
 /// Checks every element in iteration order, and returns true if any of them make

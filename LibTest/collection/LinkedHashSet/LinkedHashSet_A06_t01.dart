@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion LinkedHashMap({bool equals(K key1, K key2), int hashCode(K key),
 /// bool isValidKey(potentialKey)})
 /// If [isValidKey] is omitted, it defaults to testing if the object is an [E]

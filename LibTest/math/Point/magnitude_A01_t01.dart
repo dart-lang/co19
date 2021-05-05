@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion double magnitude
 /// Get the straight line (Euclidean) distance between the origin (0, 0) and
 /// this point.

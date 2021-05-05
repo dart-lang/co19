@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion factory Uri.file(String path, {bool windows})
 /// Creates a new file URI from an absolute or relative file path.
 /// With Windows semantics, backslash ("\") and forward-slash ("/") are used to

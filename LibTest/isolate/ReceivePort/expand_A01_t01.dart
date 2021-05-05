@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Stream expand(Iterable convert(T value))
 /// Creates a new stream from this stream that converts each element into zero or more events.
 /// Each incoming event is converted to an Iterable of new events, and each of these new events

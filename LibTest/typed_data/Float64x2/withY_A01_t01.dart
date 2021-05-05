@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Float64x2 withY(double y)
 /// Returns a new Float64x2 copied from this with a new y value.
 /// @description Checks that the returned Float64x2 contains x value from this

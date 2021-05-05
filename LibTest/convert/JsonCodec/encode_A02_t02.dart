@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Object encode(Object value, {toEncodable(object)})
 /// If the object does not support "toJson()" method, throws, or returns a value
 /// that is not directly serializable,

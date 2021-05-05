@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion ZLibDecoder decoder
 /// Get a ZLibDecoder for decoding ZLib compressed data.
 /// @description Checks that the returned value is a ZLibDecoder for decoding

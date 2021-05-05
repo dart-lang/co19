@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion  abstract bool contains(Pattern other, [int startIndex = 0])
 /// Passing null in place of a pattern results in Error
 /// @description Tries to pass null as [other] and expects an Error

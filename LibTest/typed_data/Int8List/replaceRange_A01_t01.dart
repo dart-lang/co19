@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion void replaceRange(int start, int end, Iterable<E> replacement)
 /// Removes the objects in the range start inclusive to end exclusive and inserts
 /// the contents of replacement in its place.

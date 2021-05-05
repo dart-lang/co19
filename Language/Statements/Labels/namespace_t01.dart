@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The namespace of labels is distinct from the one used for types,
 /// functions and variables.
 /// @description Checks that it is not an error if there's a label that uses the

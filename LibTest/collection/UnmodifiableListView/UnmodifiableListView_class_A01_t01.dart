@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion class UnmodifiableListView<E>
 /// An unmodifiable [List] view of another [List].
 /// The source of the elements may be a [List] or any [Iterable] with efficient

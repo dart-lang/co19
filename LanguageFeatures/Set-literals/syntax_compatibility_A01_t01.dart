@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion That could make it ambiguous whether { … ? … : … } is a
 /// one-element set or a one-entry map. Luckily, the current grammar does not
 /// allow for an ambiguous parsing. The token following a question mark dictates

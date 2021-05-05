@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion class WebSocket
 /// A two-way HTTP communication object for client or server applications.
 /// The stream exposes the messages received. A text message will be of

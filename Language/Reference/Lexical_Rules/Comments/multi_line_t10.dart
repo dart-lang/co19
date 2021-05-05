@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A multi-line comment begins with the token '/*' and ends with the
 /// token '*/'. Everything between '/*' and '*/' must be ignored by the Dart
 /// compiler unless the comment is a documentation comment. Comments may nest.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Dart supports two levels of privacy: public and private.
 /// A declaration is private iff its name is private, otherwise it is public.
 /// A name q is private iff any one of the identifiers that comprise q is

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let u be the stream associated with the immediately enclosing
 /// asynchronous for loop or generator function, if any. If another event Eu
 /// of u occurs before execution of s is complete, handling of Eu must wait

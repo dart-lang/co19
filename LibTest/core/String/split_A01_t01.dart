@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Splits the string around matches of [pattern]. Returns a list of
 /// substrings.
 /// @description Checks the length of resulting list

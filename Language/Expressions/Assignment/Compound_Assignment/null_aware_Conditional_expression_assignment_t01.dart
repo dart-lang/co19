@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Evaluation of a compound assignment of the form e1?.v ??= e2 is
 /// equivalent to the evaluation of the expression
 /// ((x) => x == null ? null: x.v?? = e2)(e1) where x is a variable that is not

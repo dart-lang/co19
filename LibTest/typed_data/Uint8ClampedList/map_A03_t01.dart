@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Iterable<T> map<T>(T f(E e))
 /// The transformed elements will not be cached. Iterating multiple times over
 /// the the returned [Iterable] will invoke the supplied function [f] multiple

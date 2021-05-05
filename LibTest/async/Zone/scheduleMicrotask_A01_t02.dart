@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion abstract void scheduleMicrotask(void f())
 /// Runs f asynchronously.
 /// @description Checks that f is run in this zone.

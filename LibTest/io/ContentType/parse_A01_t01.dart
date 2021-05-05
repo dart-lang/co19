@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion ContentType parse(String value)
 /// Creates a new content type object from parsing a Content-Type header value.
 /// As primary type, sub type and parameter names and values are not case

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let [G] be a generic class or parameterized type alias with formal
 /// type parameter declarations [F1] .. [Fk] containing formal type parameters
 /// [X1] .. [Xk] and bounds [B1] .. [Bk]. We say that the formal type parameter

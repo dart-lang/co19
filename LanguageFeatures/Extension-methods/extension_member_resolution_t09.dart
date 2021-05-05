@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion For any member access, x.foo, x.bar(), x.baz = 42, x(42), x[0] = 1
 /// or x + y, including null-aware and cascade accesses which effectively desugar
 /// to one of those direct accesses, and including implicit member accesses on

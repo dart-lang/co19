@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Error thrown by the runtime system when a cast operation fails.
 /// @description Checks that CastError is thrown by runtime when cast operation
 /// fails

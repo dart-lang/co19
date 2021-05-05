@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion bool operator ==(other)
 /// The equality operator.
 /// This Rectangle is equal to other if, and only if, other is a Rectangle with

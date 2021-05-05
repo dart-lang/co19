@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Returns the strings matched by [groups]. The order in the returned
 /// string follows the order in [groups].
 /// @description Checks that the correct groups are returned and their order is

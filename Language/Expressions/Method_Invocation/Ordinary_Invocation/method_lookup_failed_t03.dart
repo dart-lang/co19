@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If the method lookup has failed, then let g be the result of
 /// looking up getter m in vo with respect to L. If vo is an instance of Type
 /// but o is not a constant type literal, then if g is a getter that forwards

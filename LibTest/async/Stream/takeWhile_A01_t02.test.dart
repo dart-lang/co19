@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Stream<T> takeWhile(bool test(T element))
 /// Forwards data events while test is successful.
 /// The returned stream provides the same events as this stream as long as test

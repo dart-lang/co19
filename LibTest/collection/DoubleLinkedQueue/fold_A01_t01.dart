@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion T fold <T>(T initialValue, T combine(T previousValue, E element))
 ///
 /// dynamic fold(initialValue, combine(previousValue, E element))

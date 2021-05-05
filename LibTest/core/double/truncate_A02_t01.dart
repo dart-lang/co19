@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion  abstract int truncate()
 /// If this is not finite (NaN or infinity), throws an UnsupportedError.
 /// @description Checks truncation of NaN.

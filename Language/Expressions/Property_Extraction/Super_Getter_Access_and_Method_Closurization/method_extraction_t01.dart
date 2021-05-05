@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Evaluation of a property extraction i of the form super.m
 /// proceeds as follows:
 /// Let g be the method currently executing, and let C be the class in which g

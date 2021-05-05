@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion int errorCode
 /// Error code supplied by the operating system. Will have the value noErrorCode
 /// if there is no error code associated with the error.

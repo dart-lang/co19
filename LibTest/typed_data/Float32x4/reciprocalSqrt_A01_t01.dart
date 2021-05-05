@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Float32x4 reciprocalSqrt()
 /// Returns the square root of the reciprocal of [this].
 /// @description Checks that the returned value contains square roots of

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion void add(data)
 /// Sends data on the WebSocket connection. The data in data must be either a
 /// String, or a List<int> holding bytes.

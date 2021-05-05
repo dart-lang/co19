@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A type parameter T may be suffixed with an extends clause that
 /// specifies the upper bound for T. If no extends clause is present, the upper
 /// bound is Object.

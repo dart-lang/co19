@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Stream<T> skipWhile(bool test(T element))
 /// Skip data events from this stream while they are matched by test.
 /// Error and done events are provided by the returned stream unmodified.

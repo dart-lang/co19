@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Double is contagious.
 /// @description Checks that arithmetic operations (except those that specify int
 /// as return type) on a double and an int yield double.

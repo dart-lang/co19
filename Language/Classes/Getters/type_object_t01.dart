@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Otherwise, i is a getter invocation. Let f be the result of looking
 /// up getter m in o with respect to L. If o is an instance of Type but e is not
 /// a constant type literal, then if f is a getter that forwards to a static

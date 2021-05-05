@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A Dart implementation must support execution in both production
 /// mode and checked mode. Those dynamic checks specified as occurring
 /// specifically in checked mode must be performed iff the code is executed in

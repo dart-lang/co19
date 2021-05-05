@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If s has no typeArgument, then one is inferred in exactly the same
 /// way as for list literals. (Either infer it from the context type, or if there
 /// is no context type, or the context type does not constrain the element type,

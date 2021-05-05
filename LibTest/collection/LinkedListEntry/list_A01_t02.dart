@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion LinkedList<E> list
 /// Get the linked list containing this element.
 /// Returns [null] if this entry is not currently in any list.

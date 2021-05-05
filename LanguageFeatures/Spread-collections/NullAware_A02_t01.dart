@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Note that neither the regular spread nor the null-aware spread
 /// have any affect on [null] values inside the sequence being spread. As far as
 /// the language is concerned, [null] is a perfectly valid value for a sequence

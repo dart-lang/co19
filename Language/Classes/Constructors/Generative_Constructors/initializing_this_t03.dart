@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Using an initializing formal this.id in a formal parameter list
 /// does not introduce a formal parameter name into the scope of the constructor.
 /// However, the initializing formal does effect the type of the constructor

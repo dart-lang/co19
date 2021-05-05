@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let o be an object, and let u be a fresh final variable bound
 /// to o. The closurization of method f on object o is defined to be equivalent
 /// to:

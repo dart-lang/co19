@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion dynamic firstWhere(bool test(E value), {Object orElse()})
 /// If [orElse] is omitted, it defaults to throwing a [StateError].
 /// @description Checks that a [StateError] is thrown when [orElse] is [null] and

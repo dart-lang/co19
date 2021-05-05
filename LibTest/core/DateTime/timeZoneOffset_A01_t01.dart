@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion final Duration timeZoneOffset
 /// The time-zone offset is the difference between local time and UTC.
 /// That is, the offset is positive for time zones west of UTC.

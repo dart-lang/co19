@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<T> whenComplete(action())
 /// If the call to action returns a Future, f2, then completion of f is delayed
 /// until f2 completes. If f2 completes with an error, that will be the result

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion String listToString(List list)
 /// Convert a [List] to a string as [each, element, as, string].
 /// @description Checks that this method converts each element to a string,

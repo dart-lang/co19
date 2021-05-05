@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The superinitializer that appears, explicitly or implicitly,
 /// in the initializer list of a constant constructor must specify a constant
 /// constructor of the superclass of the immediately enclosing class or a

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Any use of a type [T] which is not well-bounded is a
 /// compile-time error.
 /// @description Checks that compile error is thrown if variable type is not well

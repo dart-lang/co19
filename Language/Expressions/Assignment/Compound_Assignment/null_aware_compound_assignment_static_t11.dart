@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A compound assignment of the form C?.v op= e2 is equivalent to
 /// the expression C.v op= e2.
 /// @description Checks that an expression of the of the form C?.v |= e2 is

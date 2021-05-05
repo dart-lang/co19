@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @description Regression test for the issue 34803 (Dart crashes when tries to
 /// compile a class with generic function parameter).
 /// @compile-error

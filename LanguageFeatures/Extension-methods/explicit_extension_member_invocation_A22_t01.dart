@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The static type of a member invocation on an extension application
 /// is the return type of the extension member with the corresponding member name
 /// of the invocation, with the explicit or inferred type arguments of the

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion bool isEmpty
 /// Returns true if there is at least one element in this collection.
 /// @description Checks that true is returned if an instance of Int32x4List

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion void setInt8(int byteOffset, int value)
 /// ...
 /// Throws [RangeError] if [byteOffset] is negative, or greater than or equal to

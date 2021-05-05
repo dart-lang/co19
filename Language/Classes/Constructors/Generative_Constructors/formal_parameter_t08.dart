@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A formal constructor parameter is either a formal parameter or
 /// an initializing formal. An initializing formal has the form this.id, where
 /// id is the name of an instance variable of the immediately enclosing class.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @description Check that if type T0 not a subtype of a type T1, then it cannot
 /// be used as a class member of type T1
 /// @author sgrekhov@unipro.ru

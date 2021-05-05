@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If a for element declares a variable, then a new namespace is
 /// created on each iteration where that variable is defined. The body of the for
 /// element is resolved and evaluated in that namespace. The variable goes out of

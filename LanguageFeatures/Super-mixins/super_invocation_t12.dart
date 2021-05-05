@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion In a mixin declaration like mixin A<X extends S, Y extends T>
 /// on B, C implements D, E { body } the on clause declares the interfaces B and
 /// C as super-class constraints of the mixin. Having a super-class constraint

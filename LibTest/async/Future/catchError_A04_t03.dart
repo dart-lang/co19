@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future catchError(Function onError, {bool test(Object error)})
 ///    If test is omitted, it defaults to a function that always returns true.
 /// @description Checks that [onError] is called if [test] is omitted and the

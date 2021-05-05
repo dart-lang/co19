@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion 15.10.2.8: The form (?= Disjunction ) specifies a zero-width
 ///            positive lookahead. In order for it to succeed, the pattern inside
 ///            Disjunction must match at the current position, but the current

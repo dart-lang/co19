@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<int> readInto(List<int> buffer, [int start = 0, int end])
 /// Reads into an existing List<int> from the file. If start is present, the
 /// bytes will be filled into buffer from at index start, otherwise index 0. If

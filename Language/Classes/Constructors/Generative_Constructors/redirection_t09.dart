@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A generative constructor may be redirecting, in which case its
 /// only action is to invoke another generative constructor. A redirecting
 /// constructor has no body; instead, it has a redirect clause that specifies

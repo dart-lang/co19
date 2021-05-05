@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Stream<List<int>> bind(Stream<List<int>> stream)
 /// Transforms the provided stream.
 /// Returns a new stream with events that are computed from events of the

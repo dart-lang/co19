@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion bool every(bool f(E element))
 /// Checks every [element] in iteration order
 /// @description Checks that elements get checked in the iteration order.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion ZoneBinaryCallback<R, T1, T2> bindBinaryCallback<R, T1, T2>(
 ///            R callback(T1 argument1, T2 argument2)
 /// )

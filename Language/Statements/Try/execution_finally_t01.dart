@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Execution of a finally clause finally s of a try statement
 /// proceeds as follows:
 ///   Let x be the current exception and let t be the active stack trace.Then

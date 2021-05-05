@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<InternetAddress> reverse()
 /// Perform a reverse dns lookup on the address, creating a new [InternetAddress]
 /// where the host field set to the result.

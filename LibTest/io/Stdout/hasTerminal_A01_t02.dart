@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion bool hasTerminal
 /// Returns true if there is a terminal attached to stdout.
 /// @description Checks [hasTerminal] property correctness for [stderr].

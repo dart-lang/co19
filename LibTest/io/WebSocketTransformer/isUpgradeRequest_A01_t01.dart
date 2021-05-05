@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion bool isUpgradeRequest(HttpRequest request)
 /// Checks whether the request is a valid WebSocket upgrade request.
 /// @description Checks that he method [isUpgradeRequest] return true if a

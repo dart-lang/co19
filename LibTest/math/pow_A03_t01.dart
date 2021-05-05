@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion num pow(num x, num exponent)
 /// For doubles, pow(x, y) handles edge cases as follows:
 ///  - if [y] is zero (0.0 or -0.0), the result is always 1.0.

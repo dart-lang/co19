@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Type dynamic has methods for every possible identifier and arity,
 /// with every possible combination of named parameters. These methods all have
 /// dynamic as their return type, and their formal parameters all have type

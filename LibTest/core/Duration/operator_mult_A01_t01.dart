@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Duration operator *(num factor)
 /// Multiplies this Duration by the given factor and returns the result as a new Duration.
 /// Note that when factor is a double, and the duration is greater than 53 bits,

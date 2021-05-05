@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Execution of a generative constructor k is always done with
 /// respect to a set of bindings for its formal parameters and with this bound
 /// to a fresh instance i and the type parameters of the immediately enclosing

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion bool flagY
 /// Extracted [y] value. Returns false for 0, true for any other value.
 /// @description Checks that [flagY] is read-only and can't be set.

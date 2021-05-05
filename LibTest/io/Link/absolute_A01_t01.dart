@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Link absolute
 /// Returns a Link instance whose path is the absolute path to this.
 /// The absolute path is computed by prefixing a relative path with the current

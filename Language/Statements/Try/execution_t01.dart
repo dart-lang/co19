@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Execution of a try statement of the form try s1 on−catch1 ...
 /// on−catchn finally sf; proceeds as follows:
 ///   The statement s1 is executed in the dynamic scope of the exception handler

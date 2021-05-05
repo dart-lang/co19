@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Returns an ordered collection of matches of the regular expression
 /// in [str]. The order in the collection is the order of the matches found
 /// in [str].

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion LinkedHashMap.fromIterable(Iterable iterable,
 /// {K key(element), V value(element)})
 /// Creates a [LinkedHashMap] where the keys and values are computed from the

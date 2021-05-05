@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If the method lookup has failed, then let g be the result of
 /// looking up getter m in Sdynamic with respect to L. If the getter lookup
 /// succeeded, let vg be the value of the getter invocation super.m. Then the

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Spawning an isolate is accomplished via what is syntactically
 /// an ordinary library call, invoking one of the functions spawnUri() or
 /// spawn() defined in the dart:isolate library.

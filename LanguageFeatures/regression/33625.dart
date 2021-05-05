@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @description Regression test for the issue 33625 (No error when run dart
 /// class with incorrect instantiation to bound for functions). Checks that
 ///    [typedef F<X> = X Function();

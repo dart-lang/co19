@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @description Regression test for the Issue 34636 (Analyzer does not throw
 /// compile error for incorrect class (whereas dart does it)). Checks that
 /// compile error appears when compile the following classes: [A<X extends B>],

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The current library is the library currently being compiled. The
 /// import modifies the import namespace of the current library in a manner that
 /// is determined by the imported library and by the optional elements of the

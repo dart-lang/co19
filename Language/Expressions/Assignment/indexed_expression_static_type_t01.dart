@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The static type of the expression e1[e2] = e3 is the static
 /// type of e3.
 /// @description Checks that static type of e1[e2] = e3 is static type of e3.

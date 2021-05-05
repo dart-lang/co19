@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @It is a compile-time error to use a spread element in a constant map unless
 /// the spread object was created by from a constant map literal expression.
 /// @description Checks that only constant map literal can be a spread element in

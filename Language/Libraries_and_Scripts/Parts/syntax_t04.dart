@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A library may be divided into parts, each of which can be stored
 /// in a separate location. A library identifies its parts by listing them via
 /// part directives.

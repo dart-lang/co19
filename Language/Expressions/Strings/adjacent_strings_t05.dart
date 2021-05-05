@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Adjacent strings are implicitly concatenated to form a single
 /// string literal.
 /// @description Checks expected values of adjacent single and multi line

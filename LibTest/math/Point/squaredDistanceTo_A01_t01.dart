@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion T squaredDistanceTo(Point<T> other)
 /// Returns the squared distance between this and other.
 /// Squared distances can be used for comparisons when the actual value is not

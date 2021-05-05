@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Uri parse(String uri, [int start = 0, int end])
 /// Creates a new Uri object by parsing a URI string.
 /// @description Checks that this method works for data schemas

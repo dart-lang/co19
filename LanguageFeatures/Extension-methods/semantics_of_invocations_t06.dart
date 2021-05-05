@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If an extension is found to be the one applying to a member
 /// invocation, then at run-time, the invocation will perform a method invocation
 /// of the corresponding instance member of the extension, with [this] bound to

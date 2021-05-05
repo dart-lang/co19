@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Object convert(String input)
 /// Converts the given JSON-string input to its corresponding object.
 /// @description Checks that this method works for non-ASCII values

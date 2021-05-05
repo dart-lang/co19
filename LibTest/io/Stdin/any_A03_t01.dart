@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<bool> any(bool test(T element))
 /// If this stream reports an error, the [Future] reports that error.
 /// @description Checks that [any] throws error if [stdin] does so.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion It is a compile-time error if qi = qj for any i != j.
 /// @description Checks that it is a compile-time error if there are two
 /// named arguments with the same name in a function invocation expression.

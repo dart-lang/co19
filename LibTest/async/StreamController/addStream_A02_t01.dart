@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future addStream(Stream<T> source, {bool cancelOnError: true})
 /// Events must not be added directly to this controller using add, addError,
 /// close or addStream, until the returned future is complete.

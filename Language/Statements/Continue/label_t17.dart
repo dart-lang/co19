@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let sc be a continue statement. If sc is of the form continue L;,
 /// then let sE be the the innermost labeled do, for or while statement or case
 /// clause with label L enclosing sc. If sc is of the form continue; then let sE

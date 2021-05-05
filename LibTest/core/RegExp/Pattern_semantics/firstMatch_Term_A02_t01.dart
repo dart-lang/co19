@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion 15.10.2.5: If the Atom and the sequel of the regular
 ///            expression all have choice points, the Atom is first matched as
 ///            many (or as few, if non-greedy) times as possible. All choices in

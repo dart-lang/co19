@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Node clone(bool deep)
 /// Returns a copy of this node.
 /// If deep is true, then all of this node's children and decendents are copied

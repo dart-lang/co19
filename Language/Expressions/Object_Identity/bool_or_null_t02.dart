@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The predefined Dart function identical() is defined such that
 /// identical(c1, c2) iff:
 ///  • c1 evaluates to either null or an instance of bool and c1 == c2.

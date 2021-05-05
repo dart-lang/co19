@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion static void equals(var expected, var actual, [String reason = null])
 /// Checks whether the expected and actual values are equal (using [:==:]).
 /// @description Checks that using non-equal arguments results in ExpectException

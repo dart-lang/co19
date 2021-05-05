@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion DateTime.parse(String formattedString)
 /// Constructs a new [DateTime] instance based on [formattedString]
 /// @description Checks that from the correct string the correct data is created.

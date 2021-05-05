@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion  A type T is malformed iff:
 /// • T has the form id or the form prefix.id, and in the enclosing lexical
 ///   scope, the name id (respectively prefix.id) does not denote a type.

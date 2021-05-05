@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion E lookup(Object object)
 /// If an object equal to object is in the set, return it.
 /// Checks if there is an object in the set that is equal to object. If so, that

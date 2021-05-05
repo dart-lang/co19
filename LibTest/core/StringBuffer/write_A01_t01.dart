@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion void write(Object obj)
 /// Adds the contents of obj, converted to a string, to the buffer.
 /// @description Checks that the String argument is appended to the buffer

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The implicit interface of class I is a direct supertype of the
 /// implicit interface of class J iff:
 /// • If I is Object, and J has no extends clause

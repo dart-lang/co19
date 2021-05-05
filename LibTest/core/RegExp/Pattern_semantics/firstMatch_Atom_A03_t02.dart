@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion 15.10.2.8: Parentheses of the form ( Disjunction ) serve both to
 ///            group the components of the Disjunction pattern together and to
 ///            save the result of the match. The result can be used either in a

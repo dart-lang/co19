@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let F be a function with required formal parameters
 /// T1 p1, ..., Tn pn, return type T0 and no optional parameters. Then the type
 /// of F is (T1 , ..., Tn ) → T0.

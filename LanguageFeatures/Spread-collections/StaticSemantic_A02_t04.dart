@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion This is true even if the object being spread is a user-defined
 /// class that implements [Iterable] but isn't even a subtype of List.
 /// @description Checks that compile error appears if set spread element does not

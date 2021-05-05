@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let f be the function immediately enclosing a return statement of
 /// the form return; It is a static warning f is neither a generator nor a
 /// generative constructor and either:

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Iterable<T> map<T>(T f(E e))
 /// ...
 /// As long as the returned Iterable is not iterated over, the supplied function

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion E firstWhere(bool test(E element), {E orElse()})
 /// ...
 /// Iterates through elements and returns the first to satisfy test.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion K lastKeyBefore(K key)
 /// Get the last key in the map that is strictly smaller than [key].
 /// @description Checks that the last key that is strictly smaller than [key] is

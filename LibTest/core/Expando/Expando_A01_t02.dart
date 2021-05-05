@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion new Expando([String name])
 /// Creates a new Expando. The optional name is only used for debugging purposes
 /// and creating two different Expandos with the same name yields two Expandos

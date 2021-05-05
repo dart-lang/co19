@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Execution of a postfix expression of the form e1.v-- is equivalent
 /// to executing (x){var r = x.v; x.v = r - 1; return r}(e1).
 /// The static type of such an expression is the static type of e1.v.

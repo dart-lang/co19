@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The [&&] operator is now short-circuit in constant and potentially
 /// constant expressions. It only attempts to evaluate the second operand if the
 /// first operand evaluates to [true]. This makes [false && (null as

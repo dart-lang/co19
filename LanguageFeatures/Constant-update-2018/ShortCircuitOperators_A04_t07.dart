@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Finally, the conditional [?]/[:] operator only evaluates one of
 /// its branches, depending on whether the condition expression evaluates to
 /// [true] or [false]. The other branch must also be a potentially constant

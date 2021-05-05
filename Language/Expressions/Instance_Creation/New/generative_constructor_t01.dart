@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion . . . if q is a generative constructor, then:
 /// A fresh instance i, of class R is allocated. For each instance variable
 /// f of i, if the variable declaration of f has an initializer expression ef,

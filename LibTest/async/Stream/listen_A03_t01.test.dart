@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion StreamSubscription<T> listen(void onData(T event),
 ///   {Function onError, void onDone(), bool cancelOnError})
 /// On errors from this stream, the onError handler is given a object describing

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<bool> every(bool test(T element))
 /// If this stream reports an error, the Future will report that error.
 /// @description Checks that if [test] throws error, then returned future

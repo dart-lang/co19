@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion factory StreamController.broadcast({void onListen(), void onCancel(), bool sync: false})
 /// It is not allowed to call add, addError, or close before a previous call has returned.
 /// @description Checks that it is not allowed to call add, addError or close

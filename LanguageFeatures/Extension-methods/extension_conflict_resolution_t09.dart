@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If more than one extension applies to a specific member
 /// invocation, then we resort to a heuristic to choose one of the extensions to
 /// apply. If exactly one of them is "more specific" than all the others, that

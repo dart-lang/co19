@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion double cos(num radians)
 /// Converts [radians] to a double and returns the sine of the value.
 /// @description Checks that an argument of sin should be a number (a decimal

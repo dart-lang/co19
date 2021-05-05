@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The static type of null is ⊥.
 /// The decision to use ⊥ instead of Null allows null to be be assigned
 /// everywhere without complaint by the static checker.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<FileStat> stat(String path)
 /// Asynchronously calls the operating system's stat() function on path. Returns
 /// a Future which completes with a FileStat object containing the data returned

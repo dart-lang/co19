@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The static type of a function literal of the form
 /// (T1 a1,...,Tn an, {Tn+1 xn+1: d1,...,Tn+k xn+k: dk}) sync* {s} is
 /// (T1,...,Tn, {Tn+1 xn+1,...,Tn+k xn+k}) -> Iterable.

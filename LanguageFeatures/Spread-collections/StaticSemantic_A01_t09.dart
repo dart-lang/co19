@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Since the spread is unpacked and its individual elements added to
 /// the containing collection, we don't require the spread expression itself to
 /// be assignable to the collection's type. For example, this is allowed:

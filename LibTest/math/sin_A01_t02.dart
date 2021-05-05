@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion double sin(num radians)
 /// Converts [radians] to a double and returns the sine of the value.
 /// @description Checks result when argument ranges from 1E-52 to 1E-16.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion double atan(num x)
 /// Returns a value in the range -PI/2..PI/2, or NaN if [x] is NaN.
 /// @description Checks that [atan] returns NaN if [x] is NaN.

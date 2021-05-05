@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The value of a constant map literal const <K, V>{k1: e1...kn: en}
 /// is an object m whose class implements the built-in class Map < K, V >. The
 /// entries of m are ui : vi; i ∈ 1..n, where ui is the value of the

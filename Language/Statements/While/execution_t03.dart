@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Execution of a while statement of the form while (e) s; proceeds
 /// as follows:
 ///   The expression e is evaluated to an object o. Then, o is subjected to

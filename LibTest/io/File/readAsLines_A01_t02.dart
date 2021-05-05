@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<List<String>> readAsLines({Encoding encoding: utf8})
 /// Read the entire file contents as lines of text using the given Encoding.
 ///

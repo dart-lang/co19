@@ -2,6 +2,8 @@
 // file for details. All rights reserved. Use of this source code is governed
 // by a BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If the paused parameter is set to true, the isolate will start up
 /// in a paused state, as if by an initial call of
 /// isolate.pause(isolate.pauseCapability). To resume the isolate,

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion final Map<String, String> queryParameters
 /// Returns the URI query split into a map according to the rules specified
 /// for FORM post in the HTML 4.01 specification section 17.13.4. Each key

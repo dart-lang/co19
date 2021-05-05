@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<int> readByte()
 /// Reads a byte from the file. Returns a Future<int> that completes with the
 /// byte, or with -1 if end-of-file has been reached.

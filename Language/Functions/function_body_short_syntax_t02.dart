@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A function body of the form => e is equivalent to a body of
 /// the form {return e;} or the form async => e which is equivalent to a body
 /// of the form async {return e;}.

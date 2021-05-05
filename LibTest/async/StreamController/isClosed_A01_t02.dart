@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion bool isClosed
 /// Whether the stream is closed for adding more events.
 /// If the controller is closed, the "done" event might not have been delivered

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion An extension application is an expression of the form E(expr) or
 /// E<typeArgs>(expr) where E denotes an extension declaration (that is, E a
 /// simple or qualified identifier which refers to the extension declaration).

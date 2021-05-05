@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The yield-each statement adds a series of values to the result
 /// of a generator function.
 ///  yieldEachStatement:

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let k be a generative constructor. It is a compile-time error if
 /// more than one initializer corresponding to a given instance variable appears
 /// in k's initializer list.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future.value([value])
 /// A future whose value is available in the next event-loop iteration.
 /// If value is not a Future, using this constructor is equivalent to

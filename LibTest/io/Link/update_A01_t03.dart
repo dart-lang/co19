@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<Link> update(String target)
 /// Updates the link. Returns a Future<Link> that completes with the link when it
 /// has been updated. Calling update on a non-existing link will complete its

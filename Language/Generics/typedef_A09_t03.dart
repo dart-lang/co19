@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The requirement that satisfaction of the bounds on the formal type
 /// parameters of a generic type alias [D] must imply satisfaction of all bounds
 /// pertaining to every type that occurs in the body of [D] limits the expressive

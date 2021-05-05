@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Evaluation of a compound assignment of the form C.v ??= e,
 /// where C is a type literal, is equivalent to the evaluation of the expression
 /// ((x) => x == null? C.v = e : x)(C.v) where x is a fresh variable that is not

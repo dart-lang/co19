@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion abstract int lastIndexOf(E element, [int start])
 /// There is no restriction on the value of [start]. 
 /// If it is negative, it has the same effect as if it were zero: -1 is returned.

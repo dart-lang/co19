@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion
 /// HashMap.fromIterable(Iterable iterable, {K key(element), V value(element)})
 /// The keys of the key/value pairs do not need to be unique. The last occurrence

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If a map literal has a downwards inference type of Map<K, V> for
 /// some K and V, then the downwards inference context type of the keys in the
 /// body elements is K and the values is V.

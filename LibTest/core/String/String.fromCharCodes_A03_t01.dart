@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Throws Error if [charCodes] is null.
 /// @description Checks that an Error is thrown when the argument is null.
 /// @author msyabro

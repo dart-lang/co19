@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion abstract Timer createPeriodicTimer(Duration period,
 ///    void callback(Timer timer))
 /// Creates a periodic Timer where the callback is executed in this zone.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let T be a parameterized type G < S1 , ..., Sn >. If G is not a
 /// generic type, the type arguments Si, 1 ≤ i ≤ n are discarded. If G has
 /// m <> n type parameters, T is treated as as a parameterized type with m

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If f is marked async, then a fresh instance o implementing the
 /// built-in class Future is associated with the invocation and immediately
 /// returned to the caller. The body of f is scheduled for execution at some

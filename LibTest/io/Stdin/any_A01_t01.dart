@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<bool> any(bool test(T element))
 /// Checks whether [test] accepts any element provided by this stream.
 /// @description Checks that [any] returns [true] if [test] returns [true]

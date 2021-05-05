@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion It is a static warning if the static type of ai, 1 <= i <= n + k
 /// may not be assigned to the type of the corresponding formal parameter of the
 /// constructor T.id (respectively T).

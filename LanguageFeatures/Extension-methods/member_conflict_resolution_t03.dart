@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion An extension can declare a member with the same (base-)name as a
 /// member of the type it is declared on. This does not cause a compile-time
 /// conflict, even if the member does not have a compatible signature.

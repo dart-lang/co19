@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Rectangle<T> boundingBox(Rectangle<T> other)
 /// Returns a new rectangle which completely contains this and other.
 /// @description Checks that boundingBox(this) == this.

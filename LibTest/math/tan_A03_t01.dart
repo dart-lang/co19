@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion double tan(num radians)
 /// Converts [radians] to a double and returns the tangent of the value.
 /// @description Checks that an error is thrown when passed argument is a null

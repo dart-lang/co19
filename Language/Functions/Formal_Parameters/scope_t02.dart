@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The formal parameter list of a function introduces a new scope
 /// known as the function's formal parameter scope. The formal parameter scope
 /// of a function f is enclosed in the scope where f is declared. Every formal

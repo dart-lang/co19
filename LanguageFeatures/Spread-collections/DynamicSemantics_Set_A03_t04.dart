@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion From the Unified collections Specification:
 /// If the literal is constant, canonicalize it make the set immutable.
 /// @description Checks that non-constant set is not cannonicalized and mutable.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion LinkedHashSet<E> class implements Set<E>
 /// A [LinkedHashSet] is a hash-table based [Set] implementation.
 /// @description Checks that all members of [Set] are implemented.

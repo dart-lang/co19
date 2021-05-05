@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion int sign
 /// Returns the sign of this integer.
 /// Returns 0 for zero, -1 for values less than zero and +1 for values greater

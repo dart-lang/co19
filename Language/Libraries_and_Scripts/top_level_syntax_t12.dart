@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A library consists of (a possibly empty) set of imports, a set
 /// of exports, and a set of top level declarations. A top level declaration
 /// is either a class, a type alias declaration, a function or a variable

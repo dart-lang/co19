@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future.delayed(Duration duration, [dynamic computation()])
 ///    Creates a future that runs its computation after a delay.
 ///    The computation will be executed after the given duration has passed, and

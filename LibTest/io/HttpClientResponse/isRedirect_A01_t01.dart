@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion bool isRedirect
 /// Returns whether the status code is one of the normal redirect codes
 /// HttpStatus.movedPermanently, HttpStatus.found, HttpStatus.movedTemporarily,

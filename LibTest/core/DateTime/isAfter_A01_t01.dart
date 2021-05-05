@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion bool isAfter(DateTime other)
 /// Returns true if this occurs after other.
 /// The comparison is independent of whether the time is in UTC or in the local time zone.

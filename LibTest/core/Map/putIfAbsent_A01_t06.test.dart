@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion  abstract V putIfAbsent(K key, V ifAbsent())
 /// If [key] is not associated to a value, calls [ifAbsent] and
 /// updates the map by mapping [key] to the value returned by [ifAbsent].

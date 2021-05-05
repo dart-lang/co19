@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Float64x2 operator *(Float64x2 other)
 /// Multiplication operator.
 /// @description Checks that every lane of the new [Float64x2] equals the

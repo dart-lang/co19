@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Completer<T> A way to produce Future objects and to complete
 /// them later with a value or error.
 /// @description Check methods and properties, inherited from Object

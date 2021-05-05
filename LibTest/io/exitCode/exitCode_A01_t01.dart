@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion int exitCode
 /// Get the global exit code for the Dart VM.
 /// The exit code is global for the Dart VM and the last assignment to [exitCode]

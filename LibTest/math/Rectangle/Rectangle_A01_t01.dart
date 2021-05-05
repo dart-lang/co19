@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion const Rectangle(T left, T top, T width, T height)
 /// Create a rectangle spanned by (left, top) and (left+width, top+height).
 /// @description Checks that coordinate properties of the created object

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion InternetAddress address
 /// Returns the address that the server is listening on. This can be used to get
 /// the actual address used, when the address is fetched by a lookup from a

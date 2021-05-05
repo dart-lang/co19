@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Evaluation of a compound assignment of the form e1[e2] ??= e3 is
 /// equivalent to the evaluation of the expression
 /// ((a, i) => ((x) => x == null ? a[i] = e3 : x)(a[i]))(e1, e2) where x, a and i

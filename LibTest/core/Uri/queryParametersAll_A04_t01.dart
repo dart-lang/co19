@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Map<String, List<String>> queryParametersAll
 /// ...
 /// If a key occurs with no value, the empty string is used as the value for that

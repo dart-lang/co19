@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion void add(List<int> data)
 /// Adds byte data to the target consumer.
 /// @description Checks that several [List<int>] targets can be added to the

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion List<Node> getElementsByClassName(String name)
 /// Returns a list of nodes with the given class name inside this element.
 /// W3C: The classes argument is interpreted as a space-separated list of classes.

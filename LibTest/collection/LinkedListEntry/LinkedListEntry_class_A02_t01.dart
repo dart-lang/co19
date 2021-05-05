@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion abstract class LinkedListEntry<E extends LinkedListEntry>
 /// The class provides the internal links that link elements together in the
 /// LinkedList, and a reference to the linked list itself that an element is

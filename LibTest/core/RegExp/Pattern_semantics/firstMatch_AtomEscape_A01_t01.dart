@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion 15.10.2.9: An escape sequence of the form \ followed by a nonzero
 ///            decimal number n matches the result of the Nth set of capturing
 ///            parentheses (see 15.10.2.11). It is an error if the regular

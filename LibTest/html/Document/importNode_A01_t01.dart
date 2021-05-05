@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Node importNode(Node importedNode, [bool deep])
 /// Returns a clone of a node from an external document.
 /// from MDN: The new node's parentNode is null, since it has not yet been

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion int pid
 /// Returns the [PID] of the current process.
 /// @description Checks that [pid] is [PID} of the current Dart process.

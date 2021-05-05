@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion abstract Iterable<E> takeWhile(bool test(E value))
 /// The elements can be computed by stepping through iterator until an element is
 /// found where [test(element)] is [false]. At that point, the returned iterable

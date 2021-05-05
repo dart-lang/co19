@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion An unconditional ordinary method invocation i has the form
 /// o.m(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k).
 /// @description Checks that argument list may have comma on the end.

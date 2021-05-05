@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion String convert(Object o)
 /// Converts the given object o to its JSON representation.
 /// Directly serializable values are num, String, bool, and Null, as well as some

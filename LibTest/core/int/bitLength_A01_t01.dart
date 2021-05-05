@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion int bitLength
 /// Returns the minimum number of bits required to store this integer.
 /// The number of bits excludes the sign bit, which gives the natural length for

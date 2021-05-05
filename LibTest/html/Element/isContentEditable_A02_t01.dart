@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion final bool isContentEditable
 /// Indicates whether or not the content of the element can be edited. Read only.
 /// WHATWG: The inherit state indicates that the element is editable if its

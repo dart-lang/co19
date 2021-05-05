@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If a constant set literals is created which has the same type
 /// argument and contains the same values in the same order, as the value of a
 /// previously evaluated constant set literal, then the constant set literal

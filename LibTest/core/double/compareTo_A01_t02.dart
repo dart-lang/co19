@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion int compareTo(Comparable other)
 /// @description Checks that [:compareTo:] returns a value less than 0 if 'this'
 /// is less than the passed value and a value greater than 0 if 'this' is greater

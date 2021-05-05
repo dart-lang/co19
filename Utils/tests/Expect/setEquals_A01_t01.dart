@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion static void setEquals(Iterable expected, Iterable actual, [String reason = null])
 /// Checks that every element of [expected] is also in [actual], and that every element of [actual] is also in [expected].  
 /// @description Checks that no exception is thrown when the compared Iterables have equal contents,

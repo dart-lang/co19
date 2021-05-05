@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future forEach(Iterable input, Future f(element))
 ///    Perform an async operation for each element of the iterable, in turn.
 ///    Runs f for each element in input in order, moving to the next element

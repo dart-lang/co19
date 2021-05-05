@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If the object being thrown is an instance of class Error or a
 /// subclass thereof, its stackTrace getter will return the stack trace current
 /// at the point where the the object was first thrown.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion int compareTo(Duration other)
 /// Compares this object to another Comparable
 /// Returns a value like a Comparator when comparing this to other.

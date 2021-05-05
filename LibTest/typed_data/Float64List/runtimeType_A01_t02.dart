@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Type runtimeType
 /// A representation of the runtime type of the object.
 /// @description Checks that [runtimeType] is read-only and can not be set.

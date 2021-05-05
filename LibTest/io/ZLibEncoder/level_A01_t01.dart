@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion int level
 /// The compression-level can be set in the range of -1..9, with 6 being the
 /// default compression level. Levels above 6 will have higher compression rates

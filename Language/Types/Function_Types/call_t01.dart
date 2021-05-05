@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If a type I includes an instance method named call, and the type
 /// of call is the function type F, then I is considered to be more specific than
 /// F. It is a static warning if a concrete class implements Function and does

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If both the extension and the method is generic, then inference
 /// must infer the extension type parameters first, to figure out whether the
 /// extension applies, and only then start inferring method type parameters. As

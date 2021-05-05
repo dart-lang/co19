@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion StreamController.broadcast({void onListen(), void onCancel(),
 ///                                       bool sync: false})
 /// If sync is true, events may be fired directly by the stream's subscriptions

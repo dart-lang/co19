@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let S be the runtime type of o. In checked mode:
 ///    • If the body of f is marked async it is a dynamic type error if o is not
 /// null and Future<S> is not a subtype of the actual return type of f.

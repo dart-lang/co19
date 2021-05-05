@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Error occurring when a collection is modified during iteration.
 /// @description Checks that ConcurrentModificationError is thrown if a
 /// collection is modified during iteration.

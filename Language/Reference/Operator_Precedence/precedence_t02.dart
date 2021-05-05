@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Operator precedence is given implicitly by the grammar.
 /// @description Checks that operator precedence given implicitly by the grammar
 /// holds true (multiplicative operators have higher precedence than additive

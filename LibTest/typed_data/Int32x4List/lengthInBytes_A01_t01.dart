@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion int lengthInBytes
 /// Returns the length of this view, in bytes.
 /// @description Checks that returned lengthInBytes is correct.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Point<T> operator *(num factor)
 /// This function accepts a num as its argument only so that you can scale
 /// Point<double> objects by an int factor.

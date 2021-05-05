@@ -1,3 +1,5 @@
+
+// @dart = 2.9
 import "library1.dart";
 #! scripts tag    // error
 

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion DateTime lastModifiedSync()
 /// Get the last-modified time of the file.
 /// Returns the date and time when the file was last modified, if the information

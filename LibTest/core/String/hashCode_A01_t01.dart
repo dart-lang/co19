@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Returns hash code of the string
 /// @description Check that the returned hash code fulfills the requirements
 /// (equal objects have equal hash codes, different objects don't)

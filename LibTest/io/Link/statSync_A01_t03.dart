@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion FileStat statSync()
 /// Synchronously calls the operating system's stat() function on the path of
 /// this FileSystemEntity. Identical to FileStat.statSync(this.path).

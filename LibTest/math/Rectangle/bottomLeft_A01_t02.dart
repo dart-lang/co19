@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Point<T> bottomLeft
 /// Point<T> get bottomLeft => new Point<T>(this.left, this.top + this.height);
 /// @description Checks that bottomLeft is read-only and cannot be set.

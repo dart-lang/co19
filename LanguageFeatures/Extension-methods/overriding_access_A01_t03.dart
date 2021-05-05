@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If two or more extensions apply to the same member access, or if a
 /// member of the receiver type takes precedence over an extension method, or if
 /// the extension is imported with a prefix, then it is possible to force an

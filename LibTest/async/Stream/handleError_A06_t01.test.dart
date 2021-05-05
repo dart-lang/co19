@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Stream<T> handleError(Function onError, {bool test(error)})
 /// The returned stream is a broadcast stream if this stream is.
 /// @description Checks that broadcast stream is returned if original stream is

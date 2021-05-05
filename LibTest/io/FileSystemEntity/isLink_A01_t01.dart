@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<bool> isLink(String path)
 /// Checks if type(path, followLinks: false) returns FileSystemEntityType.link.
 /// @description Checks that this property returns true if

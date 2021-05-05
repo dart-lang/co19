@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The interface of class C is an implicit interface that declares 
 /// instance members that correspond to the instance members declared by C, and 
 /// whose direct superinterfaces are the direct superinterfaces of C. When a 

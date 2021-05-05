@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let K be a class declaration with the same constructors,
 /// superclass and interfaces as C, and the instance members declared by M
 /// (respectively M1,...,Mk).

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion abstract class MapMixin<K, V>
 /// Mixin implementing a Map.
 /// This mixin has a basic implementation of all but five of the members of Map.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion void completeError(Object exception, [Object stackTrace])
 /// Complete future with an error. Completing a future with an error indicates
 /// that an exception was thrown while trying to produce a value.

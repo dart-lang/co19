@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion 15.10.2.5: Atom's captures are cleared each time Atom is repeated.
 /// @description Checks that the assertion is true.
 /// @3rdparty sputnik-v1:S15.10.2.5_A1_T4.js

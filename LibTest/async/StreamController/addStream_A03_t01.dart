@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future addStream(Stream<T> source, {bool cancelOnError: true})
 /// If cancelOnError is true, only the first error on source is forwarded to
 /// the controller's stream, and the addStream ends after this.

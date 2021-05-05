@@ -2,6 +2,8 @@
 // file for details. All rights reserved. Use of this source code is governed
 // by a BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Isolate current
 ///   Return an Isolate object representing the current isolate.
 ///   The current isolate for code using current is the isolate running the code.

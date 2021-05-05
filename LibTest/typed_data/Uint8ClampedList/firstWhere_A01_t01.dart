@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion E firstWhere(bool test(E element), {Object orElse()})
 /// Returns the first element that satisfies the given predicate [test].
 /// @description Checks that the first element that satisfies the given predicate

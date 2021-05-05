@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Given an instance creation expression of the form
 /// const q(a1, ..., an) it is a static warning if q is a constructor of an
 /// abstract class but q is not a factory constructor.

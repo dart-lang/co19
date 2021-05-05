@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion  abstract Set<E> intersection(Set<Object> other)
 /// Passing null as argument results in Error. 
 /// @description Checks that either an Error is thrown or empty Set is returned

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A logical boolean expression b of the form e1 && e2 shows that a
 /// variable v has type T if all of the following conditions hold:
 /// • Either e1 shows that v has type T or e2 shows that v has type T.

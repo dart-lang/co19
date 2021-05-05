@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion bool operator ==(other)
 /// Returns true if other is a DateTime at the same moment and in the same timezone (UTC or local).
 /// @description Checks that true is returned only if this occurs at the same time

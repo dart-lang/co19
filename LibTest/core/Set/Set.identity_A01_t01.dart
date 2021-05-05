@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Set.identity()
 /// Creates an empty identity Set.
 /// The created Set is a LinkedHashSet that uses identity as equality relation.

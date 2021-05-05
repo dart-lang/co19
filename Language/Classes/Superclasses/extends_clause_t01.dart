@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The superclass of a class C that has a with clause with
 /// M1,...,Mk and an extends clause extends S is the application of mixin
 /// Mk*...*M1 to S. If no with clause is specified then the extends clause of a

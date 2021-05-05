@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Iterator<E> iterator
 /// ...
 /// The iterators of the same iterable can be stepped through independently, but

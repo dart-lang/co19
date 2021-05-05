@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion String address
 /// For IPv4 addresses this is using the dotted-decimal notation.
 /// @description Checks that [address] string is correct for IPv4 addresses in

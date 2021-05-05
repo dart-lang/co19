@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion final Element previousElementSibling
 /// The element immediately preceding the given one in the tree, or null if
 /// there is no sibling element.

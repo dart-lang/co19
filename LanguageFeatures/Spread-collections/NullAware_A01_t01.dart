@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion To handle these gracefully, we support a [...?] "null-aware
 /// spread" operator. In cases where the spread expression evaluates to [null],
 /// that expands to an empty collection instead of throwing a runtime expression.

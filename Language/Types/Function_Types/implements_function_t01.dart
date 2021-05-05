@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A function is always an instance of some class that implements the
 /// class Function and implements a call method with the same signature as the
 /// function. All function types are subtypes of Function.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Float32List asFloat32List([int offsetInBytes = 0, int length ])
 /// Creates a Float32List view of a region of this byte buffer.
 /// The view is backed by the bytes of this byte buffer. Any changes made to the

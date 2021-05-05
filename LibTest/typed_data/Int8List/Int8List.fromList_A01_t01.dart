@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Int8List.fromList(List<int> elements)
 /// Creates a [Int8List] with the same length as the [elements] list and copies
 /// over the elements.

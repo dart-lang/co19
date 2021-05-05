@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion void unlockSync([int start = 0, int end = -1])
 /// Synchronously unlocks the file or part of the file.
 ///

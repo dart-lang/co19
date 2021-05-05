@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion bool every(bool f(E element))
 /// @description Checks that [f] is not called if list is empty
 /// @author kaigorodov

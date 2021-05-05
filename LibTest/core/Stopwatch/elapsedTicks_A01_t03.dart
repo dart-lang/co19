@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion final int elapsedTicks
 /// Returns the elapsed number of clock ticks since calling [start]
 /// while the [Stopwatch] is running.

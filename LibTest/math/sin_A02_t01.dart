@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion double sin(num radians)
 /// If [radians] is not a finite number, the result is NaN.
 /// @description Checks that [sin] returns NaN if x is not a finite number.

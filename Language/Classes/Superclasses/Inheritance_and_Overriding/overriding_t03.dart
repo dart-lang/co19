@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let C = S0 be a class declared in library L, and let
 /// {S1 ... Sk} be the set of all superclasses of C, where Si is the superclass
 /// of Si-1 for i in 1..k. Let C declare a member m, and let m' be a member

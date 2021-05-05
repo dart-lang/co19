@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion if e evaluates to an object o that is not an instance of Future,
 /// then let f be the result of calling Future.value() with o as its argument;
 /// otherwise let f be the result of evaluating e.

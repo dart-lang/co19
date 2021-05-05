@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion static void identical(var expected, var actual, [String reason = null]) 
 /// Checks whether the expected and actual values are identical.
 /// @description Checks that no exception is thrown when the arguments are identical,

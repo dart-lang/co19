@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion 15.10.2.8: In case-insignificant matches all characters are
 ///            implicitly converted to upper case immediately before they are
 ///            compared. However, if converting a character to upper case would

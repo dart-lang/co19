@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Base64Encoder encoder
 /// @description Checks that this property returns Base64Encoder which works as
 /// expected. Test URL safe codec

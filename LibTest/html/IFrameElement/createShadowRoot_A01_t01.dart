@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion ShadowRoot createShadowRoot()
 /// Creates a new shadow root for this shadow host.
 /// from W3C: The nodeType attribute of a ShadowRoot instance must return

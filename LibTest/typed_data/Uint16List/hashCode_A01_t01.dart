@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion int hashCode
 /// Get a hash code for this object. All objects have hash codes. Hash codes are
 /// guaranteed to be the same for objects that are equal when compared using the

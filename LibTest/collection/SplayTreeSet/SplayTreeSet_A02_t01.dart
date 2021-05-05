@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion SplayTreeSet([int compare(E key1, E key2),
 /// bool isValidKey(potentialKey)])
 /// Create a new SplayTreeSet with the given compare function.

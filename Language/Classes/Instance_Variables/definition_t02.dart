@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Instance variables are variables whose declarations are
 /// immediately contained within a class declaration and that are not declared
 /// static. The instance variables of a class C are those instance variables

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Stream<S> map<S>(S convert(T event))
 /// Error and done events are passed through unchanged to the returned stream.
 ///

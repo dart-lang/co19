@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A generic class declaration introduces a generic class into the 
 /// enclosing library scope. A generic class is a mapping that accepts a list of
 /// actual type arguments and maps them to a class. Consider a generic class

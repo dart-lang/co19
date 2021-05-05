@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion void reset([int rawIndex = 0])
 /// Setting [rawIndex] in the middle of a surrogate pair is an error.
 /// @description Checks that it is an error if the index is in the

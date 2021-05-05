@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Returns a new string where the first occurrence of [from] in this
 /// string is replaced with [to].
 /// @description Checks that this function replace only the first pattern

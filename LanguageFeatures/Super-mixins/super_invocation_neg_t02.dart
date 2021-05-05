@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion It's a compile-time error if an instance method in a mixin body
 /// has a super-access (super.foo, super.foo(), super + bar, etc.) which would
 /// not be a valid invocation if super was replaced by an expression with static

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion String decode(List<int> bytes, {bool allowInvalid})
 /// Decodes the ASCII bytes (a list of unsigned 7-bit integers) to the
 /// corresponding string.

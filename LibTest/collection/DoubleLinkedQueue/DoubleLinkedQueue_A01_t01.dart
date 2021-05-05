@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion new DoubleLinkedQueue()
 /// Creates a queue.
 /// @description Checks that empty queue is created.

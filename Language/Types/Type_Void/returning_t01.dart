@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion On the other hand, it is possible to return the result of a void
 /// method from within a void method. One can also return null; or a value of
 /// type Dynamic. Returning any other result will cause a type warning. In

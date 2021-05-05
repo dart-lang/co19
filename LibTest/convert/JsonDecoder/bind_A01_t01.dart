@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Stream bind(Stream stream)
 /// Transform the incoming stream's events.
 /// Creates a new stream. When this stream is listened to, it will start

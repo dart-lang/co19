@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion void set rawIndex(int rawIndex)
 /// Setting a negative [rawIndex], or one greater than or equal
 /// to [string].length, is an error.

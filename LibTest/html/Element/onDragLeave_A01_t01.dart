@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion ElementStream<MouseEvent> get onDragLeave
 /// A stream of dragleave events fired when an object being dragged over this
 /// element leaves this element's target area.

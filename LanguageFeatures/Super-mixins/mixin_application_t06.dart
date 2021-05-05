@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Mixin application semantics is mostly unchanged, except that it's
 /// a compile-time error to apply a mixin to a class that doesn't implement all
 /// the 'on' type requirements of the mixin declaration, or apply a mixin

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The active stack trace is an object whose toString() method
 /// produces a string that is a record of exactly those function activations
 /// within the current isolate that had not completed execution at the point

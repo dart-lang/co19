@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion An interface I inherits any members of its superinterfaces that
 /// are not overridden by members declared in I.
 /// @description Checks that an interface does not inherit static members of

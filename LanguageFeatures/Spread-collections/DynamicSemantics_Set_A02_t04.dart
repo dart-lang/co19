@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A [set] literal [<E>{elem_1 ... elem_n}] is evaluated as follows:
 ///   2. For each element in the [set] literal:
 ///      i. Evaluate the element's expression to a value value.

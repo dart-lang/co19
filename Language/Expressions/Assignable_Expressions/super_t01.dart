@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion An assignable expression of the form super.id is evaluated as
 /// a property extraction.
 /// @description Checks that an assignable expression of the form super.id is

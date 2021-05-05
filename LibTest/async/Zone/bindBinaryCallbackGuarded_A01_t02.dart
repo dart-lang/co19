@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion void Function(T1, T2) bindBinaryCallbackGuarded<T1, T2>(
 ///                void callback(T1 argument1,T2 argument2)
 ///            )

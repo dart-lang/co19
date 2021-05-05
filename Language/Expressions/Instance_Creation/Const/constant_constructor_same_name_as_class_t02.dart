@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If e of the form
 /// const T(a1, ..., an, xn+1: an+1, ..., xn+k: an+k) it is a compile-time
 /// error if the type T does not declare a constant constructor with the same

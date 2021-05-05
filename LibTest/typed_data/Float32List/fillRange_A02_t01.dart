@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion void fillRange(int start, int end, [E fill])
 /// Sets the objects in the range start inclusive to end exclusive to the given
 /// fillValue.

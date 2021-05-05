@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion final bool hasAuthority
 /// Returns whether the URI has an authority component.
 /// @description Checks that this property returns true if the URI has an

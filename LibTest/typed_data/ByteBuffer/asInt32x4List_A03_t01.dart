@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Int32x4List asInt32x4List([int offsetInBytes = 0, int length ])
 /// Creates a Int32x4List view of a region of this byte buffer.
 /// ...

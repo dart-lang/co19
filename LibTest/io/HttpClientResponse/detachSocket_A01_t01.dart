@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<Socket> detachSocket()
 /// Detach the underlying socket from the HTTP client. When the socket is
 /// detached the HTTP client will no longer perform any operations on it.

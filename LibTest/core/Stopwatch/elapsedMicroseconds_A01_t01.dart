@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion final int elapsedMicroseconds #
 /// Returns the [elapsed] counter converted to microseconds.
 /// @description Checks that the proportion between values returned by elapsed()

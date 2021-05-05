@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The static type of an integer literal is int.
 /// @description Checks that no static warnings are produced when assigning an
 /// integer literal to a typed int variable.

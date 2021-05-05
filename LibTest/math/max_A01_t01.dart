@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion T max<T extends num>(T a, T b)
 /// Returns the larger of two numbers.
 /// @description Checks set of values.

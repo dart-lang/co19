@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion abstract E operator [](int index)
 /// Returns the element at the given index in the list.
 /// @description Checks fixed size arrays.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion  void removeWhere(bool test(E element))
 /// Removes all elements matched by [test] from the queue.
 /// @description Checks that all elements that satisfy [test] are removed, and

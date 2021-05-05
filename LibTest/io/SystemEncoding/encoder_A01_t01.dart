@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Converter<String, List<int>> encoder
 ///  Returns the encoder from S to T.
 ///  It may be stateful and should not be reused.

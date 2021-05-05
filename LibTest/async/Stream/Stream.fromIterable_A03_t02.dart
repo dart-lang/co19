@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Stream.fromIterable(Iterable<T> data)
 /// Creates a single-subscription stream that gets its data from data.
 /// The iterable is iterated when the stream receives a listener, and stops

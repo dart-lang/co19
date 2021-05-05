@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion void enteredView()
 /// Called by the DOM when this element has been inserted into the live document.
 /// @description Checks that enteredView() is called when element is inserted

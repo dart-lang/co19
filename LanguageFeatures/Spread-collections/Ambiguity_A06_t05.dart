@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion From the Unified collections spec:
 /// In other words, at least one key-value pair anywhere in the collection forces
 /// it to be a map, and a bare expression forces it to be a set. Having both is

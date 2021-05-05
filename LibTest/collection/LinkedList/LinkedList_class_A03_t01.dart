@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion class LinkedList<E extends LinkedListEntry>
 /// Because the elements themselves contain the links of this linked list, each
 /// element can be in only one list at a time. To add an element to another list,

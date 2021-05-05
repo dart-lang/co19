@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Duration abs()
 /// Returns a new Duration representing the absolute value of this Duration.
 /// The returned Duration has the same length as this one, but is always positive

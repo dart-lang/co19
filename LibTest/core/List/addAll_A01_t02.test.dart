@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion abstract void addAll(Iterable<E> iterable)
 /// Appends all elements of the iterable to the end of this list.
 /// Extends the length of the list by the number of elements in iterable.

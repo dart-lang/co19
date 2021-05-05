@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion As with the if statement, the condition expression of an if
 /// element induces type promotion in the "then" element of the if when the
 /// condition expression shows that a variable has some type and promotion isn't

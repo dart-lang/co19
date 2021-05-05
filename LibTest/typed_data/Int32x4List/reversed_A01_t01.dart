@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Iterable<E> reversed
 /// Returns an Iterable of the objects in this list in reverse order.
 /// @description Checks that returned iterable contains the elements of this list

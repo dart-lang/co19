@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion List<int> rawAddress
 /// The result is either a [4] or [16] byte long list.
 /// @description Checks that for IPv6 addresses 16-byte [List] is returned.

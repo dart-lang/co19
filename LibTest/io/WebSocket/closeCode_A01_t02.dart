@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion int closeCode
 /// The close code set when the WebSocket connection is closed. If there is no
 /// close code available this property will be null.

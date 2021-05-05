@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The base class for all Dart objects.
 ///    Because Object is the root of the Dart class hierarchy, every other Dart
 /// class is a subclass of Object.

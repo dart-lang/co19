@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion String operator +(String other)
 /// Creates a new string by concatenating this string with other.
 /// @description Checks that this operator creates a new string by concatenating

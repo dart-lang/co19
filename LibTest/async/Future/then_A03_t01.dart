@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future then(dynamic onValue(T value), {Function onError})
 ///    If the callback returns a Future, the future returned by then will be
 /// completed with the same result as the future returned by the callback.

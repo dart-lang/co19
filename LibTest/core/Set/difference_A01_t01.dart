@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Set<E> difference(Set<E> other)
 /// Returns a new set with the the elements of this that are not in other.
 /// That is, the returned set contains all the elements of this Set that are not

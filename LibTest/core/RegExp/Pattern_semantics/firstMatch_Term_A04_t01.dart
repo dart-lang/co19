@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion 15.10.2.5: Once the minimum number of repetitions has been
 ///            satisfied, any more expansions of Atom that match the empty String
 ///            are not considered for further repetitions. This prevents the

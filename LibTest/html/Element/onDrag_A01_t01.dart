@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion ElementStream<MouseEvent> get onDrag
 /// A stream of drag events fired when this element currently being dragged.
 /// A drag event is added to this stream as soon as the drag begins.

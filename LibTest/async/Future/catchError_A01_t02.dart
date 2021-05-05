@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future catchError(Function onError, {bool test(Object error)})
 ///    Handles errors emitted by this Future.
 ///    This is the asynchronous equivalent of a "catch" block.

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<T> elementAt(int index)
 /// Returns the value of the indexth data event of this stream.
 /// @description Checks that the future returns the value of the indexth data event of this stream.

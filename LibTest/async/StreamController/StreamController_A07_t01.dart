@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion StreamController({void onListen(), void onPause(),
 ///                  void onResume(), dynamic onCancel(), bool sync: false})
 /// If onCancel needs to perform an asynchronous operation, onCancel should

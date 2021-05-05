@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Stream<T> handleError(Function onError, {bool test(error)})
 /// If the error is intercepted, the handle function can decide what to do with
 /// it. It can throw if it wants to raise a new (or the same) error, or simply

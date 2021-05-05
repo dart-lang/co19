@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion num pow(num x, num exponent)
 /// Returns x to the power of exponent.
 /// @description Checks that this method throws an Error if either [x] or

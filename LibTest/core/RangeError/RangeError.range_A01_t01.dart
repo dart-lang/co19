@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion RangeError.range(num invalidValue, int minValue, int maxValue,
 ///    [String name, String message])
 /// Create a new RangeError with for an invalid value being outside a range.

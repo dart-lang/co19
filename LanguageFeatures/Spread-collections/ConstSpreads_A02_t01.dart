@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion In a constant map, a spread element expands to the series of
 /// entries contained in the spread object map.
 /// @author iarkh@unipro.ru

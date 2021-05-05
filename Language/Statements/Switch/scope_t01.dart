@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A case clause introduces a new scope, nested in the lexically
 /// surrounding scope. The scope of a case clause ends immediately after the case
 /// clause’s statement list.

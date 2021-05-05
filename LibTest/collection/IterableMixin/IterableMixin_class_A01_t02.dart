@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion IterableMixin<E> abstract class
 /// This [Iterable] mixin implements all [Iterable] members except [iterator].
 /// All other methods are implemented in terms of [iterator].

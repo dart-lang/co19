@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion abstract double roundToDouble()
 /// Returns the integer value, as a double, closest to this.
 /// Rounds away from zero when there is no closest integer:

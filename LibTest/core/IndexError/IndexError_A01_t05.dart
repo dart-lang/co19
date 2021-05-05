@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion IndexError(int invalidValue,  indexable,
 ///                                    [String name, String message, int length])
 /// Creates a new IndexError stating that invalidValue is not a valid index into

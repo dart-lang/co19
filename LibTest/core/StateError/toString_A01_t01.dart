@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Undocumented
 /// @description Checks that this method causes no error and the result is not
 /// null and is indeed a String.

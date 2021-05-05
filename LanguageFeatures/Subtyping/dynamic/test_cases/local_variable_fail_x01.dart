@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @description Check that if type T0 is not a subtype of a type T1, then
 /// instance of T0 cannot be be assigned to the to local variable of type T1
 /// @author sgrekhov@unipro.ru

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Executing a variable declaration statement of one of the forms
 /// var v = e;, T v = e;, const v = e;, const T v = e;, final v = e; or
 /// final T v = e; proceeds as follows:

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion bool isTagSupported(String tag)
 /// Checks to see if the tag name is supported by the current platform.
 /// The tag should be a valid HTML tag name.

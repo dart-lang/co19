@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Evaluation of a logical boolean expression b of the form e1 && e2
 /// causes the evaluation of e1 which is then subjected to boolean conversion,
 /// yielding an object o1; if o1 is not true, the result of evaluating b is

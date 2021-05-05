@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion It is a compile-time error if the extension does not declare a
 /// member with the provided name.
 /// @description Check that compile time error is thrown if the extension called

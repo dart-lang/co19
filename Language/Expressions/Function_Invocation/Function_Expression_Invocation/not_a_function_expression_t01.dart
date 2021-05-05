@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A function expression invocation i has the form
 /// ef(a1, ..., an, xn+1: an+1, ..., xn+k: an+k), where ef is an expression. If
 /// ef is an identifier id, then id must necessarily denote a local function,

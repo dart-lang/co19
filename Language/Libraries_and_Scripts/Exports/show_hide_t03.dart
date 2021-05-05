@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let E be an export directive that refers to a URI via the string
 /// s1. Evaluation of E proceeds as follows:
 /// First,

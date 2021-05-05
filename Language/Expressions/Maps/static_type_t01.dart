@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The static type of a map literal of the form
 /// const <K, V>{k1: e1...kn: en} or the form <K, V>{k1: e1...kn: en} is
 /// Map<K, V>.

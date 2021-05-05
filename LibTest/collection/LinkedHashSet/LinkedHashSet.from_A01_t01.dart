@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion factory LinkedHashSet.from(Iterable elements)
 /// Create a linked hash set containing all [elements]
 /// Creates a linked hash set as by [new LinkedHashSet<E>()] and adds each

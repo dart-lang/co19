@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion  InternetAddress ANY_IP_V6
 /// read-only
 /// @description Checks that [ANY_IP_V6] is read-only

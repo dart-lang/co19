@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion ZLibEncoder encoder
 /// Get a ZLibEncoder for encoding ZLib compressed data.
 /// @description Checks that the returned value is a ZLibEncoder for encoding

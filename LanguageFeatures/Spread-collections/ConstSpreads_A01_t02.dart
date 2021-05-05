@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion In a constant list or set, a spread element expands at compile
 /// time to the series of elements contained in the spread object list.
 /// @description Checks that a spread set element expands at compile time to the

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion ZoneCallback<R> registerCallback<R>(R callback())
 /// Registers the given callback in this zone.
 /// @description Checks that ZoneCallback is returned and that

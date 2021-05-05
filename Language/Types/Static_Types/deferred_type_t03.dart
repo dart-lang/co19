@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A type T is deferred iff it is of the form p.T where p is a
 /// deferred prefix. It is a static warning to use a deferred type in a type
 /// annotation, type test, type cast or as a type parameter. However, all other

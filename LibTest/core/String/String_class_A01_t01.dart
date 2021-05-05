@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The String class represents character strings. Strings are
 /// immutable.
 /// @description Checks that invoking various methods of String class doesn't

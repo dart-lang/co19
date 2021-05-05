@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let C be a class, let A be a superclass of C, and let S1...Sk
 /// be superclasses of C that are also subclasses of A. C inherits all
 /// accessible instance members of A that have not been overridden by a

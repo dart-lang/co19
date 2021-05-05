@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion List<Node> getElementsByClassName(String tagname)
 /// Returns a list of elements with the given class name.
 /// @description Checks that a list of elements with the given class name is returned.

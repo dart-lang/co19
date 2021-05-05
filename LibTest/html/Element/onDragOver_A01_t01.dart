@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion ElementStream<MouseEvent> get onDragOver
 /// A stream of dragover events fired when a dragged object is currently being
 /// dragged over this element.

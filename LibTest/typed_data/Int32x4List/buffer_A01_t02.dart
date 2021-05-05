@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion ByteBuffer buffer
 /// Returns the byte buffer associated with this object.
 /// @description Checks that [buffer] is read-only and can't be set.

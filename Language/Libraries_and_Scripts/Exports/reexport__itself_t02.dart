@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion For each entry mapping key k to declaration d in N Sn an entry
 /// mapping k to d is added to the exported namespace of L unless a top-level
 /// declaration with the name k exists in L.

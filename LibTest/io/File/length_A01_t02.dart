@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<int> length()
 /// Get the length of the file. Returns a Future<int> that completes with the
 /// length in bytes.

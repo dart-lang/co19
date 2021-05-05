@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Float32x4.fromFloat64x2(Float64x2 v)
 /// Sets the x and y lanes to their respective values in v and sets the z and w
 /// lanes to 0.0.

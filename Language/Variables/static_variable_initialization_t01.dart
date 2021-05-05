@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Static variable declarations are initialized lazily. When a 
 /// static variable v is read, iff it has not yet been assigned, it is set to 
 /// the result of evaluating its initializer.

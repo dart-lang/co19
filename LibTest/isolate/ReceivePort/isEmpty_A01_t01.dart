@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion final Future<bool> isEmpty
 /// Reports whether this stream contains any elements.
 /// @description Checks that the method returns whether this stream contains any elements.

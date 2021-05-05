@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion bool operator ==(Object other)
 /// An URI is equal to another URI with the same normalized representation.
 /// @description Checks that an URI is not equal to another URI with not the same

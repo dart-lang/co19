@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion X509Certificate certificate
 /// Returns the certificate of the HTTPS server providing the response. Returns
 /// null if the connection is not a secure TLS or SSL connection.

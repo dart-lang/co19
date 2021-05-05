@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If element is an ifElement with two elements, e1 and e2:
 /// ...
 /// It is a compile error if e1 must be a set and e2 must be a map or vice versa.

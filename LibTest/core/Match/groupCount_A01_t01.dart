@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Returns the number of groups in the regular expression. 
 /// @description Checks that method returns correct value.
 /// @author rodionov

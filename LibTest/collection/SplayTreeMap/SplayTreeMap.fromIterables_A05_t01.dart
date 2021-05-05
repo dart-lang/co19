@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion SplayTreeMap.fromIterables(Iterable<K> keys, Iterable<V> values,
 /// [int compare(K key1, K key2), bool isValidKey(potentialKey)])
 /// @description Checks that if [isValidKey] function is specified, then it is

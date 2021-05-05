@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion R runBinary<R, T1, T2>(
 ///                                    R action(T1 argument1, T2 argument2),
 ///                                    T1 argument1,

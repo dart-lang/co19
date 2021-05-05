@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The mixin introduced by a mixin declaration contains all the
 /// non-static members declared by the mixin, just as the mixin derived from a
 /// class declaration currently does.

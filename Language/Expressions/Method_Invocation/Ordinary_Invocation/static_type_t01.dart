@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let T be the static type of o.
 /// ...
 /// If T.m does not exist, or if F is not a function type, the static type of i

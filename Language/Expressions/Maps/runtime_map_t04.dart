@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A runtime map literal <K, V>{k1: e1...kn: en} is evaluated as
 /// follows:
 /// • First, the expression ki is evaluated yielding object ui, the ei is

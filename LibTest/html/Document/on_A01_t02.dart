@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion final Events on
 /// This is an ease-of-use accessor for event streams which should only be used
 /// when an explicit accessor is not available.

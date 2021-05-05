@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion factory DateTime.now()
 /// Constructs a new DateTime instance with current date time value in the local time zone.
 /// @description Checks that the constructed date uses the local time zone.

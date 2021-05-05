@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion LinkedHashSet({bool equals(E e1, E e2), int hashCode(E e),
 /// bool isValidKey(potentialKey)})
 /// If the [equals] or [hashCode] methods won't work on all objects, but only on

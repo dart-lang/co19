@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Dart source text is represented as a sequence of Unicode code
 /// points.
 /// @description Checks that the Russian capital letters are represented as a

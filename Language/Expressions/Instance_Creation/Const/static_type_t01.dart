@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The static type of a constant object expression of either the
 /// form const T.id(a1, ..., an, xn+1: an+1, ..., xn+k: an+k)or the form
 /// const T(a1, .., an, xn+1: an+1, ..., xn+k: an+k) is T.

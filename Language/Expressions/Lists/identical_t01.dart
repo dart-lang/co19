@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let list1 = const <V>[e11...e1n] and list2 = const <U>[e21...e2n]
 /// be two constant list literals and let the  elements of list1 and list2
 /// evaluate to  o11... o1n and o21... o2n respectively. Iff identical(o1i, o2i)

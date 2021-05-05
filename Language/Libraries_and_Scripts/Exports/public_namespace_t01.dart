@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion A library always exports all names and all declarations in its
 /// public namespace. In addition, a library may choose to re-export additional
 /// libraries via export directives, often referred to simply as exports.

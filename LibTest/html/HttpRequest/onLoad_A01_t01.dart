@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion final Stream<ProgressEvent> onLoad
 /// Stream of load events handled by this HttpRequestEventTarget.
 /// @description Checks the state of request at variuos moments of time.

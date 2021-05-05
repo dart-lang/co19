@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The dart core library dart:core is implicitly imported into
 /// every dart library other than itself via an import clause of the form
 /// import `dart:core';

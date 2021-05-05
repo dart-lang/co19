@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Further, the interfaces B and C must be compatible. The on clause
 /// introduces a synthetic interface combining B and C, call it A$super, which is
 /// equivalent to the interface of a class declaration of the form:

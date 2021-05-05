@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion IOSink(StreamConsumer<List<int>> target,
 ///   { Encoding encoding: utf8 })
 /// Create an [IOSink] that outputs to a target [StreamConsumer] of bytes.

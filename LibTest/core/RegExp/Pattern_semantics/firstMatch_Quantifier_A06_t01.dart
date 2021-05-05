@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion 15.10.2.7: The production QuantifierPrefix :: {DecimalDigits,
 ///            DecimalDigits}
 ///            evaluates by returning MVs of the first and second DecimalDigits,

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion 15.10.2.12: The production CharacterClassEscape :: d evaluates by
 ///            returning the ten-element set of characters containing the
 ///            characters 0 through 9 inclusive.

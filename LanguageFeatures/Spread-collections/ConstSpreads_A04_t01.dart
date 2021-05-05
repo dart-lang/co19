@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion It is a compile-time error if any of the elements being spread in
 /// a const set are equal to other elements in the set literal, in the spread, or
 /// in other spreads in the same set, as in:

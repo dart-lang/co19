@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion An assignable expression of the form e1[e2] is evaluated as a
 /// method invocation of the operator method [] on e1 with argument e2.
 /// @description Checks that an assignable expression of the form e1[e2] is

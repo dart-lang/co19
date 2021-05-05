@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion InternetAddressType type
 /// The type of the [InternetAddress] specified what IP protocol.
 /// @description Checks that type is set to [IPv4] for IPv4 addresses

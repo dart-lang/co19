@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion String toStringAsFixed(int fractionDigits)
 /// @description Checks that 0.0123456789 and -0.0123456789 are properly rounded
 /// and converted to string with 'fractionDigits' ranging from 0 to 10.

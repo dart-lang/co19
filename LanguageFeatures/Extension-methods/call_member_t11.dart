@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Any expression of the form e1(args) or e1<types>(args) where e1
 /// does not denote a method, and where the static type of e1 is not a function
 /// type, an interface type declaring a call method, or dynamic, will currently

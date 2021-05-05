@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Stream<T> skip(int count)
 ///    Skips the first count data events from this stream.
 ///    Returns a stream that emits the same events as this stream would

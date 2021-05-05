@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The [==] operator in constant expressions was defined such that
 /// [e1 != null] was only allowed if [e1] had one of the "primitive" system
 /// types. Users had to rewrite their code to [!identical(e1, null)]. This was

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let e1 … en be the constant element expressions of s in source
 /// order, and let v1 … vn be their respective constant values. Evaluation of s
 /// creates an unmodifiable object implementing Set<T> with v1 … vn as elements.

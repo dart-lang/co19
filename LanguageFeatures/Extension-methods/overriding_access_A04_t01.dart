@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion An expression of the form [MyList(object)] or
 /// [MyList<String>(object)] must only be used for extension member access. It is
 /// a compile-time error to use it in any other way, similarly to how it is a

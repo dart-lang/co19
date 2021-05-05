@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion double NEGATIVE_INFINITY
 /// @description Checks that double.negativeInfinity equals -double.infinity.
 /// @author pagolubev

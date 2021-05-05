@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion int toInt()
 /// Returns the int value represented by this object.
 /// @description Checks that this method returns correct value.

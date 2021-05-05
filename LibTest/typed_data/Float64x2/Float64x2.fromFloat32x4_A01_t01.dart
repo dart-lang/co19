@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Float64x2.fromFloat32x4(Float32x4 v)
 /// Creates a new [Float64x2] instance.
 /// Uses the "x" and "y" lanes from v.

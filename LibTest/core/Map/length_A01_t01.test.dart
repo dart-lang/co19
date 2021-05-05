@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion final int length
 /// The number of {key, value} pairs in the map.
 /// @description Checks that in length stored correct size of the map.

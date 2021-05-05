@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Labels are not included in the induced namespace of a scope; 
 /// instead they have their own dedicated namespace.
 /// @description Checks that labels and variables do not hide each other and no 

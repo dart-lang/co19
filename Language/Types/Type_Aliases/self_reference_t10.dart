@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Any self reference in a typedef, either directly, or recursively
 /// via another typedef, is a compile time error.
 /// @description Checks that it is compile error to reference type alias as a

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion It is a run time error if S does not declare or export either:
 /// • A top-level function named main, or
 /// • A top-level getter named main that returns a function.

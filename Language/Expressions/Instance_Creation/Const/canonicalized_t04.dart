@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Evaluation of e proceeds as follows:
 /// First, if e is of the form
 /// const T.id(a1, ..., an, xn+1: an+1, ..., xn+k: an+k) then let i be the

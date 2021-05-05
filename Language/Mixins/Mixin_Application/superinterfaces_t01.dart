@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Let S be a class, M be a mixin with required superinterfaces
 /// T1, . . . , Tn, combined superinterface MS, implemented interfaces
 /// I1, . . . , Ik and members as mixin member declarations, and let N be a name. 

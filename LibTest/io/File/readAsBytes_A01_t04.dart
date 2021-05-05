@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<List<int>> readAsBytes()
 /// Read the entire file contents as a list of bytes. Returns a Future<List<int>>
 /// that completes with the list of bytes that is the contents of the file.

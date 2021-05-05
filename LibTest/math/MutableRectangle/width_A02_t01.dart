@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion void width=(T width)
 /// Sets the width of the rectangle.
 /// @description Checks that the width is set correctly.

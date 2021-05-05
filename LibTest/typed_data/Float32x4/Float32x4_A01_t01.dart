@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Float32x4(double x, double y, double z, double w)
 /// Creates a new [Float32x4] instance.
 /// @description Checks that an instance of [Float32x4] is created and all fields

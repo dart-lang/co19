@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If s does not start with const and it does not occur in a constant
 /// context, then it evaluates to a mutable set object as follows:
 ///

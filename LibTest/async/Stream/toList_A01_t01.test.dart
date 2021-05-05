@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Future<List<T>> toList()
 /// Collects the data of this stream in a List.
 /// @description Checks that returned list contains all elements of the stream in

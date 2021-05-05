@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion An external function is a function whose body is provided
 /// separately from its declaration. An external function may be a top-level
 /// function, a method, a getter, a setter or a non-redirecting constructor.

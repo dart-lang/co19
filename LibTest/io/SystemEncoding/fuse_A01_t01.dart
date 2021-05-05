@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 import 'dart:convert';
 /// @assertion Codec<S, R> fuse<R>(Codec<T, R> other)
 ///  Fuses this with other.

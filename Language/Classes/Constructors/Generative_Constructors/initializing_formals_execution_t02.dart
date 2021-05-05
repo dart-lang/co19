@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Initializing formals are executed during the execution of
 /// generative constructors detailed below. Executing an initializing formal
 /// this.id causes the field id of the immediately surrounding class to be

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion If a generic type is used but type arguments are not provided,
 /// then the type arguments default to the unknown type.
 /// @description Indirectly verifies the assertion: checks that various unrelated

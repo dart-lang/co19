@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The scope of a label that labels a statement s is s. The scope of
 /// a label that labels a case clause of a switch statement s is s.
 /// @description Checks that a label can't be referenced outside of its statement.

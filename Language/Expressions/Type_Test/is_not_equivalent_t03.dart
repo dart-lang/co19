@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion The is-expression e is! T is equivalent to !(e is T).
 /// @description Checks that the is-expressions 'e is! T' and '!(e is T)' are
 /// equivalent.

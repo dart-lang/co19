@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Calling a redirecting factory constructor k causes the
 /// constructor k' denoted by type (respectively, type.identifier) to be called
 /// with the actual arguments passed to k, and returns the result of k' as the

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Iterable.generate(int count, [E generator(int index)])
 /// Creates an Iterable that generates its elements dynamically.
 /// An Iterator created by iterator will count from zero to count - 1, and call

@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion abstract void forEach(void f(E element))
 /// Throws an exception or error if the argument 
 /// is null or is not a function and doesn't have a call() method with an

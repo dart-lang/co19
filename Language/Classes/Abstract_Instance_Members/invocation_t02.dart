@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion Invoking an abstract method, getter or setter results in an
 /// invocation of noSuchMethod exactly as if the declaration did not exist,
 /// unless a suitable member a is available in a superclass, in which case a is

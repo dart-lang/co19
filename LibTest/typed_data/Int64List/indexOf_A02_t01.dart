@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion int indexOf(Object element, [int start = 0])
 /// Returns -1 if element is not found.
 /// @description Checks that the -1 is returned, if the element is not present.

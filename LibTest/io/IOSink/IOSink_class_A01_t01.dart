@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// @dart = 2.9
+
 /// @assertion ABSTRACT CLASS IOSink
 /// A combined byte and text output.
 /// An [IOSink] combines a [StreamSink] of bytes with a [StringSink], and allows
