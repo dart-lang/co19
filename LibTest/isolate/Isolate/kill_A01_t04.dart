@@ -44,7 +44,7 @@ test() async {
   Isolate isolate = await Isolate.spawn(entryPoint, null,
       onExit: onExit.sendPort, errorsAreFatal: true);
   isolate.kill(priority: Isolate.beforeNextEvent);
-  onExit.first.timeout(Duration(seconds: 5), onTimeout: () {
+  onExit.first.timeout(Duration(seconds: 3), onTimeout: () {
     // This is expected. Isolate shouldn't get killed
     isolate.kill(priority: Isolate.immediate);
     asyncEnd();
@@ -52,7 +52,7 @@ test() async {
   }).then((v) {
     // It there were no timeout then fail
     if (v != "Timeout") {
-      Expect.fail("Isolate shouldn't get killed");
+      Expect.fail("Isolate shouldn't get killed! Actual value ${v}");
     }
   });
 }
