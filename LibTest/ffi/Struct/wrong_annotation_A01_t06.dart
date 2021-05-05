@@ -18,6 +18,7 @@ class S1 extends Struct {
   @NativeType()
 //^^^^^^^^^^^^^
 // [analyzer] unspecified
+// [cfe] unspecified
   external double x;
 //                ^
 // [cfe] unspecified
@@ -27,6 +28,7 @@ class S2 extends Struct {
   @NativeType()
 //^^^^^^^^^^^^^
 // [analyzer] unspecified
+// [cfe] unspecified
   external int x;
 //             ^
 // [cfe] unspecified
