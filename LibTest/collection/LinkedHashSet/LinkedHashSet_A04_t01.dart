@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion LinkedHashSet({bool equals(E e1, E e2), int hashCode(E e),
- * bool isValidKey(potentialKey)})
- * If [equals] or [hashCode] are omitted, the set uses the elements' intrinsic
- * [Object.operator==] and [Object.hashCode].
- * @description Checks that if [equals] and [hashCode] are omitted then
- * [Object.operator==] and [Object.hashCode] are used
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion LinkedHashSet({bool equals(E e1, E e2), int hashCode(E e),
+/// bool isValidKey(potentialKey)})
+/// If [equals] or [hashCode] are omitted, the set uses the elements' intrinsic
+/// [Object.operator==] and [Object.hashCode].
+/// @description Checks that if [equals] and [hashCode] are omitted then
+/// [Object.operator==] and [Object.hashCode] are used
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

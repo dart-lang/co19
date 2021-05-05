@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion HashMap({bool equals(K key1, K key2), int hashCode(K key),
- * bool isValidKey(potentialKey) })
- * If [equals] ... is omitted, the key's own [Object.operator==] is used
- * instead. Similar, if [hashCode] is ... omitted, the key's own
- * [Object.hashCode] is used.
- * @description Checks that if equals and hashCode methods are not provided,
- * [Object.operator==] and [Object.hashCode] are used when adding or updating
- * elements of [HashMap]
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion HashMap({bool equals(K key1, K key2), int hashCode(K key),
+/// bool isValidKey(potentialKey) })
+/// If [equals] ... is omitted, the key's own [Object.operator==] is used
+/// instead. Similar, if [hashCode] is ... omitted, the key's own
+/// [Object.hashCode] is used.
+/// @description Checks that if equals and hashCode methods are not provided,
+/// [Object.operator==] and [Object.hashCode] are used when adding or updating
+/// elements of [HashMap]
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion int closeCode
- * The close code set when the WebSocket connection is closed. If there is no
- * close code available this property will be null.
- * @description Checks that the [closeCode] is null when connection is not
- * closed and is set to int value if the WebSocket connection is closed.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion int closeCode
+/// The close code set when the WebSocket connection is closed. If there is no
+/// close code available this property will be null.
+/// @description Checks that the [closeCode] is null when connection is not
+/// closed and is set to int value if the WebSocket connection is closed.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

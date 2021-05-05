@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Iterator<E> iterator
- * ...
- * Each time iterator is read, it returns a new iterator, which can be used to
- * iterate through all the elements again.
- * @description Checks that each new iterator can be used to iterate this list
- * through all the elements again.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Iterator<E> iterator
+/// ...
+/// Each time iterator is read, it returns a new iterator, which can be used to
+/// iterate through all the elements again.
+/// @description Checks that each new iterator can be used to iterate this list
+/// through all the elements again.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

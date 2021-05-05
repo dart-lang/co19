@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion An interface has a set of direct superinterfaces.
- * An interface J is a superinterface of an interface I iff either J is a
- * direct superinterface of I or J is a superinterface of a direct
- * superinterface of I.
- * @description Checks that an interface can declare generic and non-generic
- * direct superinterfaces or not declare any.
- * @author vasya
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion An interface has a set of direct superinterfaces.
+/// An interface J is a superinterface of an interface I iff either J is a
+/// direct superinterface of I or J is a superinterface of a direct
+/// superinterface of I.
+/// @description Checks that an interface can declare generic and non-generic
+/// direct superinterfaces or not declare any.
+/// @author vasya
+
 
 abstract class J {}
 abstract class I implements J {}

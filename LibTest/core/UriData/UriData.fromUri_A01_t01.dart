@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion UriData.fromUri(Uri uri)
- * Creates a DataUri from a Uri which must have data as Uri.scheme.
- *
- * The uri must have scheme data and no authority or fragment, and the path
- * (concatenated with the query, if there is one) must be valid as data URI
- * content with the same rules as parse.
- * @description Checks that this constructor creates an expected UriData. Test
- * valid Uri
- * @issue 28700
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion UriData.fromUri(Uri uri)
+/// Creates a DataUri from a Uri which must have data as Uri.scheme.
+///
+/// The uri must have scheme data and no authority or fragment, and the path
+/// (concatenated with the query, if there is one) must be valid as data URI
+/// content with the same rules as parse.
+/// @description Checks that this constructor creates an expected UriData. Test
+/// valid Uri
+/// @issue 28700
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 check(Uri uri, String expected) {

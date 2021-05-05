@@ -1,21 +1,19 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion const Utf8Codec({bool allowMalformed: false})
- * Instantiates a new Utf8Codec.
- *
- * The optional allowMalformed argument defines how decoder (and decode) deal
- * with invalid or unterminated character sequences.
- *
- * If it is true (and not overridden at the method invocation) decode and the
- * decoder replace invalid (or unterminated) octet sequences with the Unicode
- * Replacement character U+FFFD (�). Otherwise they throw a FormatException.
- * @description Checks that this constructor creates valid Utf8Codec
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion const Utf8Codec({bool allowMalformed: false})
+/// Instantiates a new Utf8Codec.
+///
+/// The optional allowMalformed argument defines how decoder (and decode) deal
+/// with invalid or unterminated character sequences.
+///
+/// If it is true (and not overridden at the method invocation) decode and the
+/// decoder replace invalid (or unterminated) octet sequences with the Unicode
+/// Replacement character U+FFFD (�). Otherwise they throw a FormatException.
+/// @description Checks that this constructor creates valid Utf8Codec
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

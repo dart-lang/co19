@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion SplayTreeMap.fromIterables(Iterable<K> keys, Iterable<V> values,
- * [int compare(K key1, K key2), bool isValidKey(potentialKey)])
- * Creates a [SplayTreeMap] associating the given [keys] to [values].
- * @description Checks that created SplayTreeMap contains all elements of the
- * given [keys] and [values].
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion SplayTreeMap.fromIterables(Iterable<K> keys, Iterable<V> values,
+/// [int compare(K key1, K key2), bool isValidKey(potentialKey)])
+/// Creates a [SplayTreeMap] associating the given [keys] to [values].
+/// @description Checks that created SplayTreeMap contains all elements of the
+/// given [keys] and [values].
+/// @author sgrekhov@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

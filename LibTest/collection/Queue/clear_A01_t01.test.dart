@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion  void clear()
- * Removes all elements in the queue. The size of the queue becomes zero.
- * @description Check that all elements of the queue removed.
- * @author msyabro
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion  void clear()
+/// Removes all elements in the queue. The size of the queue becomes zero.
+/// @description Check that all elements of the queue removed.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

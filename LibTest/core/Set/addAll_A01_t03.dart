@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion  abstract void addAll(Iterable<E> elements)
- * Adds all of elements to this Set.
- * @description Checks that hash code collisions do not prevent addition of
- * different objects (not equal with regards to == operator) to the set.
- * @author pagolubev
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion  abstract void addAll(Iterable<E> elements)
+/// Adds all of elements to this Set.
+/// @description Checks that hash code collisions do not prevent addition of
+/// different objects (not equal with regards to == operator) to the set.
+/// @author pagolubev
+
 library addAll_A01_t03;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";

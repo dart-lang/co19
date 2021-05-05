@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Int32x4List.fromList(List<Int32x4> elements)
- * Creates a Int32x4List with the same length as the elements list and copies
- * over the elements.
- * @description Checks that an instance of Int32x4List of the same length as the
- * length of List<Int32x4> is created.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Int32x4List.fromList(List<Int32x4> elements)
+/// Creates a Int32x4List with the same length as the elements list and copies
+/// over the elements.
+/// @description Checks that an instance of Int32x4List of the same length as the
+/// length of List<Int32x4> is created.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion abstract class MapMixin<K, V>
- * Mixin implementing a Map.
- * This mixin has a basic implementation of all but five of the members of Map.
- * A basic Map class can be implemented by mixin in this class and implementing
- * keys, operator[], operator[]=, remove and clear. The remaining operations are
- * implemented in terms of these five.
- * @description Implementation of keys, operator[], operator[]=, remove and
- * clear
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion abstract class MapMixin<K, V>
+/// Mixin implementing a Map.
+/// This mixin has a basic implementation of all but five of the members of Map.
+/// A basic Map class can be implemented by mixin in this class and implementing
+/// keys, operator[], operator[]=, remove and clear. The remaining operations are
+/// implemented in terms of these five.
+/// @description Implementation of keys, operator[], operator[]=, remove and
+/// clear
+/// @author sgrekhov@unipro.ru
+
 library map_mixin_lib;
 import "dart:collection";
 

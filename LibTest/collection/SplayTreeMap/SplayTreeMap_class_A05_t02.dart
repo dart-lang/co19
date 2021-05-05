@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion SplayTreeMap([int compare(K key1, K key2),
- * bool isValidKey(potentialKey)])
- * To allow calling operator[], [remove] or [containsKey] with objects that are
- * not supported by the [compare] function, an extra [isValidKey] predicate
- * function can be supplied. This function is tested before using the [compare]
- * function on an argument value that may not be a [K] value.
- * @description Checks that if [isValidKey] supplied and returns [false] then
- * element is assumed not to be in a map
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion SplayTreeMap([int compare(K key1, K key2),
+/// bool isValidKey(potentialKey)])
+/// To allow calling operator[], [remove] or [containsKey] with objects that are
+/// not supported by the [compare] function, an extra [isValidKey] predicate
+/// function can be supplied. This function is tested before using the [compare]
+/// function on an argument value that may not be a [K] value.
+/// @description Checks that if [isValidKey] supplied and returns [false] then
+/// element is assumed not to be in a map
+/// @author sgrekhov@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

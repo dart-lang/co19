@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream<T> where(bool test(T event))
- * Creates a new stream from this stream that discards some data events.
- * The new stream sends the same error and done events as this stream, but it only
- * sends the data events that satisfy the test. 
- * @description Checks that the new stream sends the same error and done events as this stream.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream<T> where(bool test(T event))
+/// Creates a new stream from this stream that discards some data events.
+/// The new stream sends the same error and done events as this stream, but it only
+/// sends the data events that satisfy the test. 
+/// @description Checks that the new stream sends the same error and done events as this stream.
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;

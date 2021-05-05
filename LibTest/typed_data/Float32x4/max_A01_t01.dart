@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Float32x4 max(Float32x4 other)
- * Returns the lane-wise maximum value in [this] or [other].
- * @description Checks that the returned value contains maximums of
- * corresponding lane values from [this] and [other].
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Float32x4 max(Float32x4 other)
+/// Returns the lane-wise maximum value in [this] or [other].
+/// @description Checks that the returned value contains maximums of
+/// corresponding lane values from [this] and [other].
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "dart:math";

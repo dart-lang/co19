@@ -26,14 +26,13 @@ Future runAfter(Future f, void action()) {
   });
 }
 
-/*----------------------------*/
 
-/**
- * Let the test driver know the test is asynchronous and
- * continues after the method main() exits.
- * see co19 issue #423
- * http://code.google.com/p/co19/issues/detail?id=423
- */
+
+/// Let the test driver know the test is asynchronous and
+/// continues after the method main() exits.
+/// see co19 issue #423
+/// http://code.google.com/p/co19/issues/detail?id=423
+
 Completer _completer = new Completer();
 Future asyncCompleted = _completer.future;
 
@@ -64,8 +63,6 @@ void  asyncEnd() {
   }
 }
 
-/*----------------------------*/
-
 abstract class StreamListener<T> {
   void onData(T event);
 
@@ -86,8 +83,6 @@ abstract class StreamListener<T> {
     return subscription;
   }
 }
-
-/*----------------------------*/
 
 class Sync2<T> {
   Function fire;
@@ -113,20 +108,18 @@ class Sync2<T> {
   }
 
 }
-/*----------------------------*/
-/**
- *  asyncTest is intended for executing tests with asynchronous nature.
- *  If [setup] is provided, it will be executed first in order to prepare
- * necessary environment for the test (i.e. create some files, start some
- * services, etc). The [setup] may return some value, which will be passed to
- * [test] and to [cleanup].
- *  [test] is main test code. It should return Future instance, which completes
- * when test is over. The future may complete with error, in this case the whole
- * test will fail.
- *   If [cleanup] is provided it will be executed after Future returned by [test]
- * is completed. [cleanup] is always called, regardless of test's status.
- *
- */
+
+///  asyncTest is intended for executing tests with asynchronous nature.
+///  If [setup] is provided, it will be executed first in order to prepare
+/// necessary environment for the test (i.e. create some files, start some
+/// services, etc). The [setup] may return some value, which will be passed to
+/// [test] and to [cleanup].
+///  [test] is main test code. It should return Future instance, which completes
+/// when test is over. The future may complete with error, in this case the whole
+/// test will fail.
+///   If [cleanup] is provided it will be executed after Future returned by [test]
+/// is completed. [cleanup] is always called, regardless of test's status.
+
 void asyncTest<T>(Future test(T value), {Future<T> setup(), void cleanup(T value)}) {
   asyncStart();
   Future<T> setupFuture = (setup != null) ? setup() : new Future.value(null);
@@ -141,20 +134,17 @@ void asyncTest<T>(Future test(T value), {Future<T> setup(), void cleanup(T value
   });
 }
 
-/*----------------------------*/
-/**
- * AsyncExpect is intended for async test to ease checking
- * Future completion value and checking Stream content.
- */
+/// AsyncExpect is intended for async test to ease checking
+/// Future completion value and checking Stream content.
+
 class AsyncExpect {
 
-  /**
-   * Checks whether the given future completes with expected value.
-   * Returns the Future, that may be used for test cleanup via method
-   * whenComplete(). If checks are passed, the returned future completes
-   * the same way as supplied one. Otherwise, the returned future completes
-   * with error.
-   */
+/// Checks whether the given future completes with expected value.
+/// Returns the Future, that may be used for test cleanup via method
+/// whenComplete(). If checks are passed, the returned future completes
+/// the same way as supplied one. Otherwise, the returned future completes
+/// with error.
+
   static Future<T> value<T>(T expected, Future<T> future, [String reason = null]) {
     if (reason==null){
       reason = StackTrace.current.toString();
@@ -173,13 +163,13 @@ class AsyncExpect {
     });
   }
 
-  /**
-   * Checks whether the given future completes with expected error.
-   * Returns the Future, that may be used for test cleanup via method
-   * whenComplete(). If checks are passed, the returned future completes
-   * the same way as supplied one. Otherwise, the returned future completes
-   * with error.
-   */
+
+/// Checks whether the given future completes with expected error.
+/// Returns the Future, that may be used for test cleanup via method
+/// whenComplete(). If checks are passed, the returned future completes
+/// the same way as supplied one. Otherwise, the returned future completes
+/// with error.
+
   static Future<T> error<T>(Object error, Future<T> future, [String reason = null]) {
     if (reason==null){
       reason = StackTrace.current.toString();
@@ -202,10 +192,9 @@ class AsyncExpect {
     );
   }
 
-  /**
-   * Checks whether the given stream contains expected data events.
-   * Any error in the stream is unexpected and wil fail the test.
-   */
+/// Checks whether the given stream contains expected data events.
+/// Any error in the stream is unexpected and wil fail the test.
+
   static Future<bool> data<T>(List<T> data, Stream<T> stream, [String reason = null]) {
     if (reason==null){
       reason = StackTrace.current.toString();
@@ -226,9 +215,9 @@ class AsyncExpect {
     return completer.future;
   }
 
-  /**
-   * Checks whether the given stream contains expected data and error events.
-   */
+
+/// Checks whether the given stream contains expected data and error events.
+
   static Future<bool> events<T>(List<T> data, List errors, Stream<T> stream, [String reason = null]) {
     if (reason==null){
       reason = StackTrace.current.toString();

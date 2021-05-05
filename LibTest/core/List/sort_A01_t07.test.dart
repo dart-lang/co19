@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion abstract void sort([int compare(E a, E b)])
- * Sorts the list according to the order specified by the compare function.
- * The compare function must act as a Comparator.
- * The default List implementations use Comparable.compare if compare is omitted.
- * @description Checks sorting long integer arrays (length: 32768).
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion abstract void sort([int compare(E a, E b)])
+/// Sorts the list according to the order specified by the compare function.
+/// The compare function must act as a Comparator.
+/// The default List implementations use Comparable.compare if compare is omitted.
+/// @description Checks sorting long integer arrays (length: 32768).
+/// @author sgrekhov@unipro.ru
+
 library sort_A01_t07;
 
 import "../../../Utils/expect.dart";

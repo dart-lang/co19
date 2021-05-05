@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion double atan2(num a, num b)
- * Returns the angle in radians between the positive x-axis and the vector
- * ([b], [a]).
- * @description Checks set of values.
- * @author msyabro
- * @reviewer pagolubev
- * @3rdparty sputnik-v1:S15.8.2.2_A5.js
- * @needsreview Returned value precision is not specified.
- * Checks exact match with values calculated with LibC.
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion double atan2(num a, num b)
+/// Returns the angle in radians between the positive x-axis and the vector
+/// ([b], [a]).
+/// @description Checks set of values.
+/// @author msyabro
+/// @reviewer pagolubev
+/// @3rdparty sputnik-v1:S15.8.2.2_A5.js
+/// @needsreview Returned value precision is not specified.
+/// Checks exact match with values calculated with LibC.
+
 
 import "dart:math" as Math;
 import "../../Utils/expect.dart";

@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion DateTime.parse(String formattedString)
- * Constructs a new [DateTime] instance based on [formattedString]
- * @description Checks that from the correct string the correct data is created.
- * @author msyabro
- * @reviewer pagolubev
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion DateTime.parse(String formattedString)
+/// Constructs a new [DateTime] instance based on [formattedString]
+/// @description Checks that from the correct string the correct data is created.
+/// @author msyabro
+/// @reviewer pagolubev
+
 import "../../../Utils/expect.dart";
 
 check(String str, int year, int month, int day, int hours, int minutes,

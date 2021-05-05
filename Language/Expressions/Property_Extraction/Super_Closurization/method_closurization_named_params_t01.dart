@@ -1,26 +1,24 @@
-/*
- * Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion The closurization of method f with respect to superclass S is
- * defined to be equivalent to:
- * ...
- * • (r1, . . . , rn , {p1 : d1, . . . , pk : dk }) {
- * return super.m(r1, . . . , rn, p1 : p1, . . . , pk : pk );
- * }
- * if f is named m and has required parameters r1, . . . , rn , and named
- * parameters p1 , . . . , pk with defaults d1, . . . , dk.
- *
- * @description Check that closurization of method
- * m(r1, . . . , rn, p1 : p1, . . . , pk : pk ) on the superclass is
- * equivalent to (r1, . . . , rn , {p1 : d1, . . . , pk : dk }) {
- * return u.m(r1, . . . , rn, p1 : p1, . . . , pk : pk );
- * }
- *
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion The closurization of method f with respect to superclass S is
+/// defined to be equivalent to:
+/// ...
+/// • (r1, . . . , rn , {p1 : d1, . . . , pk : dk }) {
+/// return super.m(r1, . . . , rn, p1 : p1, . . . , pk : pk );
+/// }
+/// if f is named m and has required parameters r1, . . . , rn , and named
+/// parameters p1 , . . . , pk with defaults d1, . . . , dk.
+///
+/// @description Check that closurization of method
+/// m(r1, . . . , rn, p1 : p1, . . . , pk : pk ) on the superclass is
+/// equivalent to (r1, . . . , rn , {p1 : d1, . . . , pk : dk }) {
+/// return u.m(r1, . . . , rn, p1 : p1, . . . , pk : pk );
+/// }
+///
+/// @author sgrekhov@unipro.ru
+
 import '../../../../Utils/expect.dart';
 
 class A {

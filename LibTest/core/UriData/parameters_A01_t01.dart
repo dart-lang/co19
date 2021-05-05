@@ -1,24 +1,22 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Map<String, String> parameters
- * A map representing the parameters of the media type.
- *
- * A data URI may contain parameters between the MIME type and the data. This
- * converts these parameters to a map from parameter name to parameter value.
- * The map only contains parameters that actually occur in the URI. The charset
- * parameter has a default value even if it doesn't occur in the URI, which is
- * reflected by the charset getter. This means that charset may return a value
- * even if parameters["charset"] is null.
- *
- * If the values contain non-ASCII values or percent escapes, they default to
- * being decoded as UTF-8.
- * @description Checks that this property returns decoded parameters map
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Map<String, String> parameters
+/// A map representing the parameters of the media type.
+///
+/// A data URI may contain parameters between the MIME type and the data. This
+/// converts these parameters to a map from parameter name to parameter value.
+/// The map only contains parameters that actually occur in the URI. The charset
+/// parameter has a default value even if it doesn't occur in the URI, which is
+/// reflected by the charset getter. This means that charset may return a value
+/// even if parameters["charset"] is null.
+///
+/// If the values contain non-ASCII values or percent escapes, they default to
+/// being decoded as UTF-8.
+/// @description Checks that this property returns decoded parameters map
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

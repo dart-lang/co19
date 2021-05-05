@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion ABSTRACT CLASS IOSink
- * A combined byte and text output.
- * An [IOSink] combines a [StreamSink] of bytes with a [StringSink], and allows
- * easy output of both bytes and text.
- * Writing text ([write]) and adding bytes ([add]) may be interleaved freely.
- * @description Checks that the different targets can be added and written
- * frequently to the consumer.
- * method call
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion ABSTRACT CLASS IOSink
+/// A combined byte and text output.
+/// An [IOSink] combines a [StreamSink] of bytes with a [StringSink], and allows
+/// easy output of both bytes and text.
+/// Writing text ([write]) and adding bytes ([add]) may be interleaved freely.
+/// @description Checks that the different targets can be added and written
+/// frequently to the consumer.
+/// method call
+/// @author iarkh@unipro.ru
+
 
 import "../../../Utils/expect.dart";
 import "dart:async";

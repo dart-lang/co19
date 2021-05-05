@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void writeAll(Iterable objects, [String separator = ""])
- * Iterates over the given [objects] and writes them in sequence.
- * @description Check that all the objects are written in the result stream.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void writeAll(Iterable objects, [String separator = ""])
+/// Iterates over the given [objects] and writes them in sequence.
+/// @description Check that all the objects are written in the result stream.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:convert";
 import "dart:io";

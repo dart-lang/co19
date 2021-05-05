@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion IFrameElement.created()
- * Constructor instantiated by the DOM when a custom element has been created.
- * This can only be called by subclasses from their created constructor.
- * @description Checks that this constructor can be called only by subclasses
- */
+// Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion IFrameElement.created()
+/// Constructor instantiated by the DOM when a custom element has been created.
+/// This can only be called by subclasses from their created constructor.
+/// @description Checks that this constructor can be called only by subclasses
+
 import "dart:html";
 import "../../../UtilsHtml/expect.dart";
 

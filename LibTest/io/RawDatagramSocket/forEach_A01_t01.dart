@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future forEach(void action(T element))
- * Executes action on each data event of the stream.
- *
- * Completes the returned Future when all events of the stream have been
- * processed.
- *
- * @description Checks that method [forEach] executes action on each data event
- * of the stream, and the returned Future is completed when all events of the
- * stream have been processed.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future forEach(void action(T element))
+/// Executes action on each data event of the stream.
+///
+/// Completes the returned Future when all events of the stream have been
+/// processed.
+///
+/// @description Checks that method [forEach] executes action on each data event
+/// of the stream, and the returned Future is completed when all events of the
+/// stream have been processed.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

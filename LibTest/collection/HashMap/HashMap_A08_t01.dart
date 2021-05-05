@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion HashMap({bool equals(K key1, K key2), int hashCode(K key),
- * bool isValidKey(potentialKey) })
- * Likewise, if [equals] is [identical], [hashCode] is [identityHashCode] and
- * [isValidKey] is omitted, the resulting map is identity based, and the
- * [isValidKey] defaults to accepting all keys. Such a map can be created
- * directly using [HashMap.identity].
- * @description Checks that default [isValidKey] function accepts all the keys
- * if [equals] and [hashCode] functions are not provided for [HashMap.identity].
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion HashMap({bool equals(K key1, K key2), int hashCode(K key),
+/// bool isValidKey(potentialKey) })
+/// Likewise, if [equals] is [identical], [hashCode] is [identityHashCode] and
+/// [isValidKey] is omitted, the resulting map is identity based, and the
+/// [isValidKey] defaults to accepting all keys. Such a map can be created
+/// directly using [HashMap.identity].
+/// @description Checks that default [isValidKey] function accepts all the keys
+/// if [equals] and [hashCode] functions are not provided for [HashMap.identity].
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

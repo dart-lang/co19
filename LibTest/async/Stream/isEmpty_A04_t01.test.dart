@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<bool> isEmpty
- * This operation listens to the stream, and a non-broadcast stream cannot
- * be reused after checking whether it is empty.
- * @description Checks that stream subscription is canceled after result
- * is known.
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<bool> isEmpty
+/// This operation listens to the stream, and a non-broadcast stream cannot
+/// be reused after checking whether it is empty.
+/// @description Checks that stream subscription is canceled after result
+/// is known.
+/// @author a.semenov@unipro.ru
+
 library isEmpty_A04_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

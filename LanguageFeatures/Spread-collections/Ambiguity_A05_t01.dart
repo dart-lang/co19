@@ -1,22 +1,20 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion (Unified collections) Let [e] be a [setOrMapLiteral].
- *
- * If [e] has a context [C], and the base type of [C] is [Cbase] (that is,
- * [Cbase] is [C] with all wrapping [FutureOrs] removed), and [Cbase] is not
- * [?], then let [S] be the greatest closure.
- *
- * If [e] has [typeArguments] then:
- * ...
- * Otherwise (three or more type arguments), report a compile-time error.
- *
- * @description Checks that [setOrMapLiteral] has one type argument, it's a set.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion (Unified collections) Let [e] be a [setOrMapLiteral].
+///
+/// If [e] has a context [C], and the base type of [C] is [Cbase] (that is,
+/// [Cbase] is [C] with all wrapping [FutureOrs] removed), and [Cbase] is not
+/// [?], then let [S] be the greatest closure.
+///
+/// If [e] has [typeArguments] then:
+/// ...
+/// Otherwise (three or more type arguments), report a compile-time error.
+///
+/// @description Checks that [setOrMapLiteral] has one type argument, it's a set.
+/// @author iarkh@unipro.ru
+
 
 main() {
   Set aSet   = {1, 2, 3};

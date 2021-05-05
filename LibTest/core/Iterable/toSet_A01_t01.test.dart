@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Set<E> toSet()
- * Creates a Set containing the elements of this Iterable.
- * @description Checks that proper Set is created.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Set<E> toSet()
+/// Creates a Set containing the elements of this Iterable.
+/// @description Checks that proper Set is created.
+/// @author kaigorodov
+
 library toSet_A01_t01;
 import "../../../Utils/expect.dart";
 

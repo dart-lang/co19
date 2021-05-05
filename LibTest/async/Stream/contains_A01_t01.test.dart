@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<bool> contains(Object needle)
- * Checks whether needle occurs in the elements provided by this stream.
- * @description Checks that the method correctly checks whether match
- * occurs in the elements provided by this stream.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<bool> contains(Object needle)
+/// Checks whether needle occurs in the elements provided by this stream.
+/// @description Checks that the method correctly checks whether match
+/// occurs in the elements provided by this stream.
+/// @author kaigorodov
+
 library contains_A01_t01;
 import "../../../Utils/expect.dart";
 

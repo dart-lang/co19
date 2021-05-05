@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion int lastIndexOf(E element, [ int start ])
- * Returns the last index of element in this list.
- * ...
- * Returns -1 if element is not found.
- * @description Checks that -1 is returned for Int32x4List.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion int lastIndexOf(E element, [ int start ])
+/// Returns the last index of element in this list.
+/// ...
+/// Returns -1 if element is not found.
+/// @description Checks that -1 is returned for Int32x4List.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

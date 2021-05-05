@@ -1,24 +1,22 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- * void lockSync([
- *     FileLock mode = FileLock.exclusive,
- *     int start = 0,
- *     int end = -1
- *     ])
- * Synchronously locks the file or part of the file.
- *
- * By default an exclusive lock will be obtained, but that can be overridden by
- * the mode argument.
- *
- * @description Checks that method lockSync synchronously locks the whole file
- * (in a specified mode).
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion
+/// void lockSync([
+///     FileLock mode = FileLock.exclusive,
+///     int start = 0,
+///     int end = -1
+///     ])
+/// Synchronously locks the file or part of the file.
+///
+/// By default an exclusive lock will be obtained, but that can be overridden by
+/// the mode argument.
+///
+/// @description Checks that method lockSync synchronously locks the whole file
+/// (in a specified mode).
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

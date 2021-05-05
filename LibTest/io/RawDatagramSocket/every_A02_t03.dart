@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<bool> every(bool test(T element))
- * Checks whether test accepts all elements provided by this stream.
- * . . .
- * If this stream contains an error, or if the call to test throws, the returned
- * future is completed with that error, and processing stops.
- *
- * @description Checks that if [test] throws, the future is completed with that
- * error, and processing stops.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<bool> every(bool test(T element))
+/// Checks whether test accepts all elements provided by this stream.
+/// . . .
+/// If this stream contains an error, or if the call to test throws, the returned
+/// future is completed with that error, and processing stops.
+///
+/// @description Checks that if [test] throws, the future is completed with that
+/// error, and processing stops.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../http_utils.dart";

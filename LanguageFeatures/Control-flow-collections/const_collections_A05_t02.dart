@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion An if element:
- * ...
- * It is a compile-time error if the condition evaluates to true and the then
- * expression is not a constant expression.
- *
- * @description Checks that it is not a compile-time error if the condition
- * evaluates to true and the then expression is a constant expression while
- * the else expression a potentially constant expression.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion An if element:
+/// ...
+/// It is a compile-time error if the condition evaluates to true and the then
+/// expression is not a constant expression.
+///
+/// @description Checks that it is not a compile-time error if the condition
+/// evaluates to true and the then expression is a constant expression while
+/// the else expression a potentially constant expression.
+/// @author ngl@unipro.ru
+
 import "../../Utils/expect.dart";
 
 main() {

@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion double log(num x)
- * Converts [x] to a double and returns the natural logarithm of the value.
- * @description Checks set of values.
- * @author msyabro
- * @3rdparty sputnik-v1: S15.8.2.10_A6.js
- * @reviewer pagolubev
- * @needsreview Returned value precision is not specified.
- * Checks exact match with values calculated with LibC.
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion double log(num x)
+/// Converts [x] to a double and returns the natural logarithm of the value.
+/// @description Checks set of values.
+/// @author msyabro
+/// @3rdparty sputnik-v1: S15.8.2.10_A6.js
+/// @reviewer pagolubev
+/// @needsreview Returned value precision is not specified.
+/// Checks exact match with values calculated with LibC.
+
 
 import "dart:math" as Math;
 import "../../Utils/expect.dart";

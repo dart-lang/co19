@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion List<int> rawAddress
- * Get the raw address of this [InternetAddress].
- * @description Checks that result list for IPv6 unspecified address is 16 byte
- * long and contains expected values (all zeros)
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion List<int> rawAddress
+/// Get the raw address of this [InternetAddress].
+/// @description Checks that result list for IPv6 unspecified address is 16 byte
+/// long and contains expected values (all zeros)
+/// @author iarkh@unipro.ru
+
 
 import "../../../Utils/expect.dart";
 import "dart:io";

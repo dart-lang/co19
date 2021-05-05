@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream<S> map<S>(S convert(T event))
- * The convert function is called once per data event per listener.
- * If a broadcast stream is listened to more than once, each subscription
- * will individually call convert on each data event.
- *
- * @description Checks that convert function is called once per data event
- * per listener.
- *
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream<S> map<S>(S convert(T event))
+/// The convert function is called once per data event per listener.
+/// If a broadcast stream is listened to more than once, each subscription
+/// will individually call convert on each data event.
+///
+/// @description Checks that convert function is called once per data event
+/// per listener.
+///
+/// @author a.semenov@unipro.ru
+
 library map_A05_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion E lastWhere(bool test(E value), {E orElse()})
- * If none matches, the result of invoking the orElse function is returned.
- * @description Checks that If none matches, the result of invoking the orElse
- * function is returned.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion E lastWhere(bool test(E value), {E orElse()})
+/// If none matches, the result of invoking the orElse function is returned.
+/// @description Checks that If none matches, the result of invoking the orElse
+/// function is returned.
+/// @author kaigorodov
+
 library lastWhere_A02_t01;
 
 import "../../../Utils/expect.dart";

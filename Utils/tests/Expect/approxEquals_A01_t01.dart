@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion static void approxEquals(num expected, num actual, [num tolerance = null, String reason = null])
- * Failure if the difference between expected and actual is greater than the given tolerance. 
- * @description Checks that no exception is thrown when the difference between arguments is equal 
- * to specified non-negative, non-NAN tolerance, regardless of reason (the last argument). Also
- * checks the case when the specified tolerance is negative zero (0.0 == -0.0).
- * @author rodionov
- * @reviewer varlax
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion static void approxEquals(num expected, num actual, [num tolerance = null, String reason = null])
+/// Failure if the difference between expected and actual is greater than the given tolerance. 
+/// @description Checks that no exception is thrown when the difference between arguments is equal 
+/// to specified non-negative, non-NAN tolerance, regardless of reason (the last argument). Also
+/// checks the case when the specified tolerance is negative zero (0.0 == -0.0).
+/// @author rodionov
+/// @reviewer varlax
+
 import "../../../Utils/expect.dart";
 import "dart:math" as Math;
 

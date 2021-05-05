@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<bool> isEmpty
- * Whether this stream contains any elements.
- * Waits for the first element of this stream, then completes the returned
- * future with `true`.
- * If the stream ends without emitting any elements, the returned future is
- * completed with `false`.
- * @description Checks that only first element of the stream is examined
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<bool> isEmpty
+/// Whether this stream contains any elements.
+/// Waits for the first element of this stream, then completes the returned
+/// future with `true`.
+/// If the stream ends without emitting any elements, the returned future is
+/// completed with `false`.
+/// @description Checks that only first element of the stream is examined
+/// @author a.semenov@unipro.ru
+
 library isEmpty_A02_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

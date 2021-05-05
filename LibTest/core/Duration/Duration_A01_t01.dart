@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion const Duration({int days: 0, int hours: 0, int minutes: 0,
- * int seconds: 0, int milliseconds: 0, int microseconds: 0})
- * The duration is the sum of all individual parts.
- * This means that individual parts don't need to be less than the next-bigger
- * unit.
- * For example hours is allowed to have a value greater than 23.
- * @description Checks that a Duration instance can be created without error
- * using various non-negative integer arguments.
- * @author akuznecov, sgrekhov@unipro.ru
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion const Duration({int days: 0, int hours: 0, int minutes: 0,
+/// int seconds: 0, int milliseconds: 0, int microseconds: 0})
+/// The duration is the sum of all individual parts.
+/// This means that individual parts don't need to be less than the next-bigger
+/// unit.
+/// For example hours is allowed to have a value greater than 23.
+/// @description Checks that a Duration instance can be created without error
+/// using various non-negative integer arguments.
+/// @author akuznecov, sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void writeStringSync(String string, {Encoding encoding: utf8})
- * Synchronously writes a single string to the file using the given Encoding.
- *
- * @description Checks that method writeStringSync synchronously writes a single
- * string to the file using the given default Encoding utf8.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void writeStringSync(String string, {Encoding encoding: utf8})
+/// Synchronously writes a single string to the file using the given Encoding.
+///
+/// @description Checks that method writeStringSync synchronously writes a single
+/// string to the file using the given default Encoding utf8.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "dart:convert";

@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Iterable map(f(E element))
- * Returns a lazy [Iterable] where each element e of this is
- * replaced by the result of f(e).
- * @description Checks that the correct [Iterable] is returned.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Iterable map(f(E element))
+/// Returns a lazy [Iterable] where each element e of this is
+/// replaced by the result of f(e).
+/// @description Checks that the correct [Iterable] is returned.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 main() {

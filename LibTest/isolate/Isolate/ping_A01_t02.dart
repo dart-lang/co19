@@ -1,23 +1,21 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS
- * file for details. All rights reserved. Use of this source code is governed
- * by a BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void ping(
- *      SendPort responsePort, {
- *      Object response,
- *      int priority: IMMEDIATE
- * })
- *    Request that the isolate send response on the responsePort.
- *    If the isolate is alive, it will eventually send response (defaulting
- * to null) on the response port.
- *
- * @description Check various values for response argument in ping().
- * The isolate is continuously running. Priority is default.
- *
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS
+// file for details. All rights reserved. Use of this source code is governed
+// by a BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void ping(
+///      SendPort responsePort, {
+///      Object response,
+///      int priority: IMMEDIATE
+/// })
+///    Request that the isolate send response on the responsePort.
+///    If the isolate is alive, it will eventually send response (defaulting
+/// to null) on the response port.
+///
+/// @description Check various values for response argument in ping().
+/// The isolate is continuously running. Priority is default.
+///
+/// @author a.semenov@unipro.ru
+
 import "dart:isolate";
 import "dart:math";
 import "dart:async";

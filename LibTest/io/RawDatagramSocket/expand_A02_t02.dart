@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream<S> expand<S>(Iterable<S> convert(T value))
- * . . .
- * If calling convert throws, or if the iteration of the returned values throws,
- * the error is emitted on the returned stream and iteration ends for that
- * element of this stream.
- *
- * @description Checks that if the iteration of the returned values throws,
- * the error is emitted on the returned stream and iteration ends for that
- * element of this stream.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream<S> expand<S>(Iterable<S> convert(T value))
+/// . . .
+/// If calling convert throws, or if the iteration of the returned values throws,
+/// the error is emitted on the returned stream and iteration ends for that
+/// element of this stream.
+///
+/// @description Checks that if the iteration of the returned values throws,
+/// the error is emitted on the returned stream and iteration ends for that
+/// element of this stream.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../http_utils.dart";

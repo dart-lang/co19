@@ -1,13 +1,11 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be used as an argument of type T1
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be be used as an argument of type T1
+/// @author sgrekhov@unipro.ru
+
 
 namedArgumentsFunc1(@T1 t1, {@T1 t2}) {}
 positionalArgumentsFunc1(@T1 t1, [@T1 t2]) {}

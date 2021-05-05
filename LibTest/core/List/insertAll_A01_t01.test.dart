@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion abstract void insertAll(int index, Iterable<E> iterable)
- * Inserts all elements of iterable at position index in the list.
- * This increases the length of the list by the length of iterable and shifts
- * all later elements towards the end of the list.
- * @description Checks that the elements from iterable are inserted.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion abstract void insertAll(int index, Iterable<E> iterable)
+/// Inserts all elements of iterable at position index in the list.
+/// This increases the length of the list by the length of iterable and shifts
+/// all later elements towards the end of the list.
+/// @description Checks that the elements from iterable are inserted.
+/// @author kaigorodov
+
 library insertAll_A01_t01;
 
 import "../../../Utils/expect.dart";

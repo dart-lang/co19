@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A for element:
- *
- * These are disallowed in constant collections
- *
- * @description Checks that a 'for' element is disallowed in a constant
- * collections
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A for element:
+///
+/// These are disallowed in constant collections
+///
+/// @description Checks that a 'for' element is disallowed in a constant
+/// collections
+/// @author sgrekhov@unipro.ru
+
 
 main() {
   List<int> list1 = const [for (var i = 1; i < 4; i++) i]; //# 01: compile-time error

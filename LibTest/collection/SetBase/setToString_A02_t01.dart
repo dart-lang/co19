@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion String setToString(Set set)
- * ...
- * Handles circular references where converting one of the elements to a string
- * ends up converting set to a string again.
- * @description Checks that this method converts each element to a string,
- * separates results by ", " and wraps in "{" and "}"
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion String setToString(Set set)
+/// ...
+/// Handles circular references where converting one of the elements to a string
+/// ends up converting set to a string again.
+/// @description Checks that this method converts each element to a string,
+/// separates results by ", " and wraps in "{" and "}"
+/// @author sgrekhov@unipro.ru
+
 import "dart:collection";
 import "SetBase.lib.dart";
 import "../../../Utils/expect.dart";

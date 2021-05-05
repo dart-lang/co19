@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void retainWhere(bool test(E element))
- * Removes all elements not matched by [test] from the queue.
- * @description Checks that all elements that satisfy [test] are left, and
- * elements that do not are removed.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void retainWhere(bool test(E element))
+/// Removes all elements not matched by [test] from the queue.
+/// @description Checks that all elements that satisfy [test] are left, and
+/// elements that do not are removed.
+/// @author sgrekhov@unipro.ru
+
 library retainWhere_A01_t01;
  
 import "../../../Utils/expect.dart";

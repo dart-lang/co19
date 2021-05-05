@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<List> wait(Iterable<Future> futures,
- *                {bool eagerError: false, void cleanUp(successValue)})
- * If cleanUp is provided, in the case of an error, any non-null result of a
- * successful future is passed to cleanUp, which can then release any resources
- * that the successful operation allocated.
- * @description Checks if cleanUp is provided, in the case of an error, any
- * non-null result of a successful future is passed to cleanUp (eagerError is
- * false).
- * @author ngl@unipro.ru
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<List> wait(Iterable<Future> futures,
+///                {bool eagerError: false, void cleanUp(successValue)})
+/// If cleanUp is provided, in the case of an error, any non-null result of a
+/// successful future is passed to cleanUp, which can then release any resources
+/// that the successful operation allocated.
+/// @description Checks if cleanUp is provided, in the case of an error, any
+/// non-null result of a successful future is passed to cleanUp (eagerError is
+/// false).
+/// @author ngl@unipro.ru
+/// @author a.semenov@unipro.ru
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

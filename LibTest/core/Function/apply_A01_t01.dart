@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion dynamic apply(Function function, List positionalArguments,
- * [Map<Symbol, dynamic> namedArguments])
- * Dynamically call function with the specified arguments.
- * Acts the same as calling function with positional arguments corresponding
- * to the elements of positionalArguments and named arguments corresponding
- * to the elements of namedArguments.
- * @description Checks that invoking a Function object via Function.apply
- * produces expected results.
- * @author rodionov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion dynamic apply(Function function, List positionalArguments,
+/// [Map<Symbol, dynamic> namedArguments])
+/// Dynamically call function with the specified arguments.
+/// Acts the same as calling function with positional arguments corresponding
+/// to the elements of positionalArguments and named arguments corresponding
+/// to the elements of namedArguments.
+/// @description Checks that invoking a Function object via Function.apply
+/// produces expected results.
+/// @author rodionov
+
 import "../../../Utils/expect.dart";
 
 class A {

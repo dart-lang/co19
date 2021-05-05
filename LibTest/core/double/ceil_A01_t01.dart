@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion abstract int ceil()
- * Returns the least integer no smaller than this.
- * @description Checks that positive values less then one are rounded to one.
- * @author pagolubev
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion abstract int ceil()
+/// Returns the least integer no smaller than this.
+/// @description Checks that positive values less then one are rounded to one.
+/// @author pagolubev
+
 import "dart:math" as Math;
 import "../../../Utils/expect.dart";
 

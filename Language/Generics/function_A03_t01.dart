@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A generic function declaration introduces a generic function into
- * the enclosing scope. Consider a function invocation expression of the form
- * [f<T1, . . . , Tl>(...)], where the static type of [f] is a generic function
- * type with formal type parameters [X1 extends B1], . . . , [Xm extends Bm].
- * ...
- * It is a compile-time error if there exists a [j] such that [Tj] is not a
- * subtype of [T1/X1, . . . , Tm/Xm]Bj.
- * @description checks that error appears if some parameter type is incorrect.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A generic function declaration introduces a generic function into
+/// the enclosing scope. Consider a function invocation expression of the form
+/// [f<T1, . . . , Tl>(...)], where the static type of [f] is a generic function
+/// type with formal type parameters [X1 extends B1], . . . , [Xm extends Bm].
+/// ...
+/// It is a compile-time error if there exists a [j] such that [Tj] is not a
+/// subtype of [T1/X1, . . . , Tm/Xm]Bj.
+/// @description checks that error appears if some parameter type is incorrect.
+/// @author iarkh@unipro.ru
+
 
 class A {}
 class B extends A {}

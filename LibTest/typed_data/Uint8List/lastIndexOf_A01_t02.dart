@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion int lastIndexOf(Object element, [int start])
- * ...
- * If start is not provided, this method searches from the end of the list.
- * @description Checks that if not specified, [start] is set to the value of
- * length of this list.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion int lastIndexOf(Object element, [int start])
+/// ...
+/// If start is not provided, this method searches from the end of the list.
+/// @description Checks that if not specified, [start] is set to the value of
+/// length of this list.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

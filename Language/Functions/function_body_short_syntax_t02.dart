@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A function body of the form => e is equivalent to a body of
- * the form {return e;} or the form async => e which is equivalent to a body
- * of the form async {return e;}.
- *
- * @description Checks that the function body of the form async => e is
- * equivalent to a body of the form async {return e;}.
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A function body of the form => e is equivalent to a body of
+/// the form {return e;} or the form async => e which is equivalent to a body
+/// of the form async {return e;}.
+///
+/// @description Checks that the function body of the form async => e is
+/// equivalent to a body of the form async {return e;}.
+/// @author a.semenov@unipro.ru
+
 import 'dart:async';
 import '../../Utils/expect.dart';
 

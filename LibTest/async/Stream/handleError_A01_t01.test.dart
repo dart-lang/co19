@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream<T> handleError(Function onError, {bool test(error)})
- * Creates a wrapper Stream that intercepts some errors from this stream.
- * If this stream sends an error that matches test, then it is intercepted by
- * the onError function.
- * An asynchronous error e is matched by a test function if test(e) returns true.
- * @description Checks that an error e intercepted by [onError] function
- * if test(e) returns true.
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream<T> handleError(Function onError, {bool test(error)})
+/// Creates a wrapper Stream that intercepts some errors from this stream.
+/// If this stream sends an error that matches test, then it is intercepted by
+/// the onError function.
+/// An asynchronous error e is matched by a test function if test(e) returns true.
+/// @description Checks that an error e intercepted by [onError] function
+/// if test(e) returns true.
+/// @author a.semenov@unipro.ru
+
 library handleError_A01_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion bool persistentConnection
- * Gets the persistent connection state returned by the server.
- *
- * If the persistent connection state needs to be set, it must be set before the
- * body is written to. Setting the reason phrase after writing to the body will
- * throw a StateError.
- * @description Checks that it is an error if persistent connection state after
- * the body is written to
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion bool persistentConnection
+/// Gets the persistent connection state returned by the server.
+///
+/// If the persistent connection state needs to be set, it must be set before the
+/// body is written to. Setting the reason phrase after writing to the body will
+/// throw a StateError.
+/// @description Checks that it is an error if persistent connection state after
+/// the body is written to
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";

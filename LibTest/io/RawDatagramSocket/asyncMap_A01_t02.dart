@@ -1,21 +1,19 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream<E> asyncMap<E>(FutureOr convert(T event))
- * Creates a new stream with each data event of this stream asynchronously
- * mapped to a new event.
- *
- * This acts like map, except that convert may return a Future, and in that
- * case, the stream waits for that future to complete before continuing with its
- * result.
- *
- * @description Checks that for each event received with RawDatagramSocket
- * method asyncMap returns specified value.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream<E> asyncMap<E>(FutureOr convert(T event))
+/// Creates a new stream with each data event of this stream asynchronously
+/// mapped to a new event.
+///
+/// This acts like map, except that convert may return a Future, and in that
+/// case, the stream waits for that future to complete before continuing with its
+/// result.
+///
+/// @description Checks that for each event received with RawDatagramSocket
+/// method asyncMap returns specified value.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../http_utils.dart";

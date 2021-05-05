@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Iterable<E> where(bool test(E element))
- * Returns a lazy [Iterable] with all elements that satisfy the predicate [test].
- * @description Checks that the returned [Iterable] contains all elements
- * from [this] that satisfy [test], and all other elements are skipped.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Iterable<E> where(bool test(E element))
+/// Returns a lazy [Iterable] with all elements that satisfy the predicate [test].
+/// @description Checks that the returned [Iterable] contains all elements
+/// from [this] that satisfy [test], and all other elements are skipped.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 void check(string, bool test (int element)) {

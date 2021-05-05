@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void forEach(void f(T element))
- * Applies the function [f] to each element of the collection.
- * @description Passes a function that modifies the set as argument to forEach().
- * @author pagolubev
- * @needsreview Set behaviour when elements are modified while iterating
- * with forEach() is not specified. Currently element modification does
- * not change its position in the hash table.
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void forEach(void f(T element))
+/// Applies the function [f] to each element of the collection.
+/// @description Passes a function that modifies the set as argument to forEach().
+/// @author pagolubev
+/// @needsreview Set behaviour when elements are modified while iterating
+/// with forEach() is not specified. Currently element modification does
+/// not change its position in the hash table.
+
 library forEach_A01_t03;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";

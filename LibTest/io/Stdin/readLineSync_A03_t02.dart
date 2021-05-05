@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion String readLineSync({
- *   Encoding encoding: systemEncoding,
- *   bool retainNewlines: false
- *   })
- * The argument [encoding] can be used to changed how the input should be
- * decoded.
- * @description Checks that Latin-1 encoding can be used correctly.
- * correctly.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion String readLineSync({
+///   Encoding encoding: systemEncoding,
+///   bool retainNewlines: false
+///   })
+/// The argument [encoding] can be used to changed how the input should be
+/// decoded.
+/// @description Checks that Latin-1 encoding can be used correctly.
+/// correctly.
+/// @author iarkh@unipro.ru
+
 import "dart:convert";
 import "dart:io";
 import "test.lib.dart";

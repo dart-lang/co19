@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<bool> any(bool test(T element))
- * Checks whether test accepts any element provided by this stream.
- * . . .
- * If the stream ends without finding an element that test accepts, the returned
- * future is completed with false.
- *
- * @description Checks that if the stream ends without finding an element that
- * test accepts, the returned future is completed with false.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<bool> any(bool test(T element))
+/// Checks whether test accepts any element provided by this stream.
+/// . . .
+/// If the stream ends without finding an element that test accepts, the returned
+/// future is completed with false.
+///
+/// @description Checks that if the stream ends without finding an element that
+/// test accepts, the returned future is completed with false.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../http_utils.dart";

@@ -1,22 +1,20 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS
- * file for details. All rights reserved. Use of this source code is governed
- * by a BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream errors
- *   Returns a broadcast stream of uncaught errors from the isolate.
- *   Each error is provided as an error event on the stream.
- *   The actual error object and stackTraces will not necessarily be the same
- * object types as in the actual isolate, but they will always have the same
- * Object.toString result.
- *   This stream is based on addErrorListener and removeErrorListener.
- *
- * @description check that several subscriptions to the errors stream is
- * possible.
- *
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS
+// file for details. All rights reserved. Use of this source code is governed
+// by a BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream errors
+///   Returns a broadcast stream of uncaught errors from the isolate.
+///   Each error is provided as an error event on the stream.
+///   The actual error object and stackTraces will not necessarily be the same
+/// object types as in the actual isolate, but they will always have the same
+/// Object.toString result.
+///   This stream is based on addErrorListener and removeErrorListener.
+///
+/// @description check that several subscriptions to the errors stream is
+/// possible.
+///
+/// @author a.semenov@unipro.ru
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";

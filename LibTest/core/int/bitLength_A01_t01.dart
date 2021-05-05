@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion int bitLength
- * Returns the minimum number of bits required to store this integer.
- * The number of bits excludes the sign bit, which gives the natural length for
- * non-negative (unsigned) values. Negative values are complemented to return
- * the bit position of the first bit that differs from the sign bit.
- * To find the number of bits needed to store the value as a signed value,
- * add one, i.e. use x.bitLength + 1.
- * @description Checks that this method returns the minimum number of bits
- * required to store this integer
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion int bitLength
+/// Returns the minimum number of bits required to store this integer.
+/// The number of bits excludes the sign bit, which gives the natural length for
+/// non-negative (unsigned) values. Negative values are complemented to return
+/// the bit position of the first bit that differs from the sign bit.
+/// To find the number of bits needed to store the value as a signed value,
+/// add one, i.e. use x.bitLength + 1.
+/// @description Checks that this method returns the minimum number of bits
+/// required to store this integer
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

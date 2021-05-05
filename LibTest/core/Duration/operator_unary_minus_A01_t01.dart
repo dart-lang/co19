@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Duration operator unary-()
- * Returns a new Duration representing this Duration negated.
- * The returned Duration has the same length as this one, but will have the
- * opposite sign of this one.
- * @description Checks that this operator returns a new Duration representing
- * this Duration negated.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Duration operator unary-()
+/// Returns a new Duration representing this Duration negated.
+/// The returned Duration has the same length as this one, but will have the
+/// opposite sign of this one.
+/// @description Checks that this operator returns a new Duration representing
+/// this Duration negated.
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

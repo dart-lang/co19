@@ -1,25 +1,23 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS
- * file for details. All rights reserved. Use of this source code is governed
- * by a BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void addErrorListener(
- *                      SendPort port
- *            )
- * Requests that uncaught errors of the isolate are sent back to port.
- *
- * The errors are sent back as two elements lists. The first element is
- * a String representation of the error, usually created by calling toString
- * on the error. The second element is a String representation of
- * an accompanying stack trace, or null if no stack trace was provided.
- * To convert this back to a StackTrace object, use StackTrace.fromString.
- *
- * @description Check that StackTrace.fromString() accepts a String
- * representation of an accompanying stack trace
- *
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS
+// file for details. All rights reserved. Use of this source code is governed
+// by a BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void addErrorListener(
+///                      SendPort port
+///            )
+/// Requests that uncaught errors of the isolate are sent back to port.
+///
+/// The errors are sent back as two elements lists. The first element is
+/// a String representation of the error, usually created by calling toString
+/// on the error. The second element is a String representation of
+/// an accompanying stack trace, or null if no stack trace was provided.
+/// To convert this back to a StackTrace object, use StackTrace.fromString.
+///
+/// @description Check that StackTrace.fromString() accepts a String
+/// representation of an accompanying stack trace
+///
+/// @author a.semenov@unipro.ru
+
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";

@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Iterable<E> where(bool f(E element))
- * Iterating will not cache results, and thus iterating multiple times over the
- * returned [Iterable] may invoke the supplied function [test] multiple times on
- * the same element.
- * @description Checks that iterating multiple time over the returned [Iterable]
- * can invoke the [test] function several times.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Iterable<E> where(bool f(E element))
+/// Iterating will not cache results, and thus iterating multiple times over the
+/// returned [Iterable] may invoke the supplied function [test] multiple times on
+/// the same element.
+/// @description Checks that iterating multiple time over the returned [Iterable]
+/// can invoke the [test] function several times.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";

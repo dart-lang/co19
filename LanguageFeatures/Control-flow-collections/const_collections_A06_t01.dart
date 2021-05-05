@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion An if element:
- * ...
- * It is a compile-time error if the condition evaluates to false and the else
- * expression, if it exists, is not a constant expression.
- *
- * @description Checks that it is a compile-time error if the condition
- * evaluates to false and the else expression is not a constant expression.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion An if element:
+/// ...
+/// It is a compile-time error if the condition evaluates to false and the else
+/// expression, if it exists, is not a constant expression.
+///
+/// @description Checks that it is a compile-time error if the condition
+/// evaluates to false and the else expression is not a constant expression.
+/// @author ngl@unipro.ru
+
 main() {
   const t = false;
   var x = 1;

@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion  abstract V operator [](Object key)
- * Returns the value for the given [key] or null if [key] is not in the map.
- * @description Checks that the method returns the value to which the specified
- * key is mapped, or null if this map contains no mapping for the key.
- * @author msyabro
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion  abstract V operator [](Object key)
+/// Returns the value for the given [key] or null if [key] is not in the map.
+/// @description Checks that the method returns the value to which the specified
+/// key is mapped, or null if this map contains no mapping for the key.
+/// @author msyabro
+
 library operator_subscript_A01_t01;
  
 import "../../../Utils/expect.dart";

@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream<T> distinct([bool equals(T previous, T next)])
- *    If a broadcast stream is listened to more than once, each subscription
- * will individually perform the equals test.
- * @description Checks that [equals] is called for each subscription.
- * @issue #29638
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream<T> distinct([bool equals(T previous, T next)])
+///    If a broadcast stream is listened to more than once, each subscription
+/// will individually perform the equals test.
+/// @description Checks that [equals] is called for each subscription.
+/// @issue #29638
+/// @author a.semenov@unipro.ru
+
 library distinct_A03_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

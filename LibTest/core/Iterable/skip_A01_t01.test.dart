@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Iterable<E> skip(int count)
- * Returns an Iterable that provides all but the first count elements.
- * @description checks that an Iterable that skips the first n elements is
- * returned.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Iterable<E> skip(int count)
+/// Returns an Iterable that provides all but the first count elements.
+/// @description checks that an Iterable that skips the first n elements is
+/// returned.
+/// @author kaigorodov
+
 library skip_A01_t01;
 import "../../../Utils/expect.dart";
 

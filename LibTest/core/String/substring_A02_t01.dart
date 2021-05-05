@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Throws RangeError if [startIndex] or [endIndex] is
- * out of bounds.
- * @description Checks that the correct exception is thrown when the arguments
- * are out of bounds or in incorrect order.
- * @author msyabro
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Throws RangeError if [startIndex] or [endIndex] is
+/// out of bounds.
+/// @description Checks that the correct exception is thrown when the arguments
+/// are out of bounds or in incorrect order.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 main() {

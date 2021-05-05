@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<int> length
- *    If the stream contains an error, the returned future is completed with
- * that error, and processing stops.
- * @description Checks that If the stream contains an error, the returned
- * future is completed with that error, and processing stops
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<int> length
+///    If the stream contains an error, the returned future is completed with
+/// that error, and processing stops.
+/// @description Checks that If the stream contains an error, the returned
+/// future is completed with that error, and processing stops
+/// @author a.semenov@unipro.ru
+
 library length_A02_t01;
 import "../../../Utils/expect.dart";
 

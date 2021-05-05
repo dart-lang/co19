@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion If a map literal has a downwards inference type of [Map<K, V>] for
- * some [K] and [V], then the downwards inference context type of a spread
- * element in that map is [Map<K, V>].
- * @description Checks statically that a spread element inference context type
- * is [K, V] in the map literal
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion If a map literal has a downwards inference type of [Map<K, V>] for
+/// some [K] and [V], then the downwards inference context type of a spread
+/// element in that map is [Map<K, V>].
+/// @description Checks statically that a spread element inference context type
+/// is [K, V] in the map literal
+/// @author iarkh@unipro.ru
+
 
 class A1 {}
 class B1 extends A1 {}

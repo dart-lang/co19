@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * abstract int floor()
- * Returns the greatest integer no greater than this.
- * @description Checks [:floor():] on a bunch of adjacent values.
- * @author pagolubev
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// abstract int floor()
+/// Returns the greatest integer no greater than this.
+/// @description Checks [:floor():] on a bunch of adjacent values.
+/// @author pagolubev
+
 import "../../../Utils/expect.dart";
 
 check(int expected, double arg) {

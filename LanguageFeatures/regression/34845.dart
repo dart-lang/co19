@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @description Regression test for the Issue 34845 (see comments there: With
- * that, we have [dynamic] == [FutureOr<dynamic>] ==
- * [FutureOr<FutureOr<dynamic>>] == ..., which makes cases 1–3 OK. So I think
- * the analyzer is right here. Checks that [dynamic] == [FutureOr<dynamic>] ==
- * [FutureOr<FutureOr<dynamic>>] == ...
- * @Issue 34845
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @description Regression test for the Issue 34845 (see comments there: With
+/// that, we have [dynamic] == [FutureOr<dynamic>] ==
+/// [FutureOr<FutureOr<dynamic>>] == ..., which makes cases 1–3 OK. So I think
+/// the analyzer is right here. Checks that [dynamic] == [FutureOr<dynamic>] ==
+/// [FutureOr<FutureOr<dynamic>>] == ...
+/// @Issue 34845
+/// @author iarkh@unipro.ru
+
 
 import "dart:async";
 

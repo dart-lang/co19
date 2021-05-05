@@ -1,36 +1,34 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- * ProcessResult runSync(
- *     String executable,
- *     List<String> arguments, {
- *     String workingDirectory,
- *     Map<String, String> environment,
- *     bool includeParentEnvironment: true,
- *     bool runInShell: false,
- *     Encoding stdoutEncoding: systemEncoding,
- *     Encoding stderrEncoding: systemEncoding
- * })
- *
- * Starts a process and runs it to completion. This is a synchronous call and
- * will block until the child process terminates.
- *
- * The arguments are the same as for Process.run.
- *
- * Returns a ProcessResult with the result of running the process, i.e., exit
- * code, standard out and standard in.
- *
- * @description Checks that static method [runSync] starts a process and runs it
- * to completion. This is a synchronous call and will block until the child
- * process terminates. Returns a ProcessResult with the result of running the
- * process, i.e., exit code, standard out and standard in.
- * @author ngl@unipro.ru
- * @issue 30945
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion
+/// ProcessResult runSync(
+///     String executable,
+///     List<String> arguments, {
+///     String workingDirectory,
+///     Map<String, String> environment,
+///     bool includeParentEnvironment: true,
+///     bool runInShell: false,
+///     Encoding stdoutEncoding: systemEncoding,
+///     Encoding stderrEncoding: systemEncoding
+/// })
+///
+/// Starts a process and runs it to completion. This is a synchronous call and
+/// will block until the child process terminates.
+///
+/// The arguments are the same as for Process.run.
+///
+/// Returns a ProcessResult with the result of running the process, i.e., exit
+/// code, standard out and standard in.
+///
+/// @description Checks that static method [runSync] starts a process and runs it
+/// to completion. This is a synchronous call and will block until the child
+/// process terminates. Returns a ProcessResult with the result of running the
+/// process, i.e., exit code, standard out and standard in.
+/// @author ngl@unipro.ru
+/// @issue 30945
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

@@ -1,28 +1,26 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- * StreamSubscription<RawSocketEvent> listen(
- *     void onData(
- *         T event
- *     ), {
- *     Function onError,
- *     void onDone(),
- *     bool cancelOnError
- * })
- * Adds a subscription to this stream.
- * . . .
- * If onData is null, nothing happens.
- *
- * If this stream closes and sends a done event, the onDone handler is called.
- *
- * @description Checks that onData can be null, and if this stream closes and
- * sends a done event, the onDone handler is called.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion
+/// StreamSubscription<RawSocketEvent> listen(
+///     void onData(
+///         T event
+///     ), {
+///     Function onError,
+///     void onDone(),
+///     bool cancelOnError
+/// })
+/// Adds a subscription to this stream.
+/// . . .
+/// If onData is null, nothing happens.
+///
+/// If this stream closes and sends a done event, the onDone handler is called.
+///
+/// @description Checks that onData can be null, and if this stream closes and
+/// sends a done event, the onDone handler is called.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion The upwards inference element type of a for list element is the
- * type of the body element.
- *
- * @description Checks that the upwards inference element type of a for list
- * element is the type of the body element.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion The upwards inference element type of a for list element is the
+/// type of the body element.
+///
+/// @description Checks that the upwards inference element type of a for list
+/// element is the type of the body element.
+/// @author sgrekhov@unipro.ru
+
 import "../../Utils/expect.dart";
 
 class A {}

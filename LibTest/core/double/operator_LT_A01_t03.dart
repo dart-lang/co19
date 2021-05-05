@@ -1,13 +1,11 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion bool operator <(num other)
- * @description Checks that if one of the operands is NaN the result is false.
- * @author pagolubev
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion bool operator <(num other)
+/// @description Checks that if one of the operands is NaN the result is false.
+/// @author pagolubev
+
 import "../../../Utils/expect.dart";
 
 final List<double> sample_doubles = const [

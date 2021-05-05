@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<T> last
- * If an error event occurs before the last data event, the resulting future
- * is completed with that error.
- * @description Checks that if error event occurs before the last data
- * event, the future completes with that error.
- * @author a.semenov@unipro.ru
- * @issue #30920
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<T> last
+/// If an error event occurs before the last data event, the resulting future
+/// is completed with that error.
+/// @description Checks that if error event occurs before the last data
+/// event, the future completes with that error.
+/// @author a.semenov@unipro.ru
+/// @issue #30920
+
 library last_A03_t01;
 import "../../../Utils/expect.dart";
 

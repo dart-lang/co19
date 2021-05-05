@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion A function is always an instance of some class that implements the
- * class Function and implements a call method with the same signature as the
- * function. All function types are subtypes of Function.
- * @description Checks that both instance and static methods of classes also
- * implement Function.
- * @author iefremov
- * @reviewer rodionov
- * @needsreview looks like it is impossible to check constructors, operators and
- * getters/setters because they can't be referenced like methods.
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion A function is always an instance of some class that implements the
+/// class Function and implements a call method with the same signature as the
+/// function. All function types are subtypes of Function.
+/// @description Checks that both instance and static methods of classes also
+/// implement Function.
+/// @author iefremov
+/// @reviewer rodionov
+/// @needsreview looks like it is impossible to check constructors, operators and
+/// getters/setters because they can't be referenced like methods.
+
 import "../../../Utils/expect.dart";
 
 class C {

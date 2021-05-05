@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion   abstract Map<int, E> asMap()
- * Returns an unmodifiable Map view of this.
- * The map uses the indices of this list as keys and the corresponding objects
- * as values.
- * @description Checks that the method returns Map.
- * Checks that the returned Map is unmodifiable.
- * Checks that the returned Map has the indices of this list as keys.
- * Checks that the returned Map has the corresponding objects as values.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion   abstract Map<int, E> asMap()
+/// Returns an unmodifiable Map view of this.
+/// The map uses the indices of this list as keys and the corresponding objects
+/// as values.
+/// @description Checks that the method returns Map.
+/// Checks that the returned Map is unmodifiable.
+/// Checks that the returned Map has the indices of this list as keys.
+/// Checks that the returned Map has the corresponding objects as values.
+/// @author kaigorodov
+
 library asMap_A01_t01;
 
 import "../../../Utils/expect.dart";

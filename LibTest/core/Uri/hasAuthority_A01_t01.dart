@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion final bool hasAuthority
- * Returns whether the URI has an authority component.
- * @description Checks that this property returns true if the URI has an
- * authority component
- * @author ilya
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion final bool hasAuthority
+/// Returns whether the URI has an authority component.
+/// @description Checks that this property returns true if the URI has an
+/// authority component
+/// @author ilya
+
 import "../../../Utils/expect.dart";
 
 main() {

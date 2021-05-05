@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE  eventfile.
- */
-/**
- * @assertion Stream<E> asyncExpand<E>(Stream<E> convert(T event))
- * Transforms each element into a sequence of asynchronous events.
- * . . .
- * The returned stream is a broadcast stream if this stream is.
- *
- * @description Checks that the returned stream is a broadcast stream if this
- * stream is.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream<E> asyncExpand<E>(Stream<E> convert(T event))
+/// Transforms each element into a sequence of asynchronous events.
+/// . . .
+/// The returned stream is a broadcast stream if this stream is.
+///
+/// @description Checks that the returned stream is a broadcast stream if this
+/// stream is.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

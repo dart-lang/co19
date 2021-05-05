@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion It is a static error if:
- *    A spread element in a map literal has a static type that is not assignable
- *    to [Map<Object, Object>].
- * @description Checks that compile error is thrown if spread element in map
- * literal is not assignable to [Map<Object, Object>]
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion It is a static error if:
+///    A spread element in a map literal has a static type that is not assignable
+///    to [Map<Object, Object>].
+/// @description Checks that compile error is thrown if spread element in map
+/// literal is not assignable to [Map<Object, Object>]
+/// @author iarkh@unipro.ru
+
 
 import "dart:collection";
 

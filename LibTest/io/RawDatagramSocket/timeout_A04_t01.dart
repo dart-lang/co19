@@ -1,25 +1,23 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- * Stream<RawSocketEvent> timeout (
- *     Duration timeLimit, {
- *     void onTimeout(
- *         EventSink<T> sink
- *     )
- * })
- * . . .
- * If onTimeout is omitted, a timeout will just put a TimeoutException into the
- * error channel of the returned stream. If the call to onTimeout throws, the
- * error is emitted on the returned stream.
- *
- * @description Checks that if onTimeout is omitted, a timeout will just put a
- * TimeoutException into the error channel of the returned stream.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion
+/// Stream<RawSocketEvent> timeout (
+///     Duration timeLimit, {
+///     void onTimeout(
+///         EventSink<T> sink
+///     )
+/// })
+/// . . .
+/// If onTimeout is omitted, a timeout will just put a TimeoutException into the
+/// error channel of the returned stream. If the call to onTimeout throws, the
+/// error is emitted on the returned stream.
+///
+/// @description Checks that if onTimeout is omitted, a timeout will just put a
+/// TimeoutException into the error channel of the returned stream.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

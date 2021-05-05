@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion final Iterable<E> reversed
- * Returns an Iterable of the elements of this List in reverse order.
- * @description Checks that the returned [Iterator] iterates all elements of the
- * list.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion final Iterable<E> reversed
+/// Returns an Iterable of the elements of this List in reverse order.
+/// @description Checks that the returned [Iterator] iterates all elements of the
+/// list.
+/// @author kaigorodov
+
 library reversed_A01_t01;
 
 import "../../../Utils/expect.dart";

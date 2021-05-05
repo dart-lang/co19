@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Iterable<E> skipWhile(bool test(E value))
- * Returns an [Iterable] that skips leading elements while [test] is satisfied.
- * @description Checks that all first elements that satisfy test are
- * removed, and elements after that are retained.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Iterable<E> skipWhile(bool test(E value))
+/// Returns an [Iterable] that skips leading elements while [test] is satisfied.
+/// @description Checks that all first elements that satisfy test are
+/// removed, and elements after that are retained.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

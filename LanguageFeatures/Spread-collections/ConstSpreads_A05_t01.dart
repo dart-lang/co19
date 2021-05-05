@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @It is a compile-time error to use a spread element in a constant map unless
- * the spread object was created by from a constant map literal expression.
- * @description Checks that only constant map literal can be a spread element in
- * the constant spread map
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @It is a compile-time error to use a spread element in a constant map unless
+/// the spread object was created by from a constant map literal expression.
+/// @description Checks that only constant map literal can be a spread element in
+/// the constant spread map
+/// @author iarkh@unipro.ru
+
 
 main() {
   Map map1 = {2: 2, 7: 18, 9: 3};

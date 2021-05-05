@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void shuffle([Random random])
- * Shuffles the elements of this list randomly.
- * @description Checks that this method shuffles the elements of this list
- * randomly.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void shuffle([Random random])
+/// Shuffles the elements of this list randomly.
+/// @description Checks that this method shuffles the elements of this list
+/// randomly.
+/// @author sgrekhov@unipro.ru
+
 library shuffle_A01_t01;
 
 import "../../../Utils/expect.dart";

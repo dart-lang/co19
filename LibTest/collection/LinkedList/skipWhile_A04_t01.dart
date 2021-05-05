@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Iterable<E> skipWhile(bool test(E value))
- * The returned iterable provides elements by iterating this iterable, but
- * skipping over all initial elements where [test(element)] returns [true].
- * @description Checks that once an element does not satisfy the [test],
- * the iterator stops testing and uses every element unconditionally.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Iterable<E> skipWhile(bool test(E value))
+/// The returned iterable provides elements by iterating this iterable, but
+/// skipping over all initial elements where [test(element)] returns [true].
+/// @description Checks that once an element does not satisfy the [test],
+/// the iterator stops testing and uses every element unconditionally.
+/// @author kaigorodov
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";

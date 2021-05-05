@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Float32x4 select(Float32x4 trueValue, Float32x4 falseValue)
- * Merge [trueValue] and [falseValue] based on [this]' bit mask:
- * Select bit from [trueValue] when bit in [this] is on.
- * Select bit from [falseValue] when bit in [this] is off.
- * @description Checks that lanes in the returned [Float32x4] are correct.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Float32x4 select(Float32x4 trueValue, Float32x4 falseValue)
+/// Merge [trueValue] and [falseValue] based on [this]' bit mask:
+/// Select bit from [trueValue] when bit in [this] is on.
+/// Select bit from [falseValue] when bit in [this] is off.
+/// @description Checks that lanes in the returned [Float32x4] are correct.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

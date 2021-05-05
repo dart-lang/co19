@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future addStream(Stream<List<int>> stream)
- *  Adds all elements of the given stream to this.
- *
- * Returns a Future that completes when all elements of the given stream are
- * added to this.
- * @description Checks that this method adds all elements of the given stream to
- * this.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future addStream(Stream<List<int>> stream)
+///  Adds all elements of the given stream to this.
+///
+/// Returns a Future that completes when all elements of the given stream are
+/// added to this.
+/// @description Checks that this method adds all elements of the given stream to
+/// this.
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "dart:convert";

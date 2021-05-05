@@ -1,21 +1,19 @@
-/*
- * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion bool operator ==(other)
- * The equality operator.
- * The default behavior for all Objects is to return true if and only if this
- * and other are the same object.
- * ...
- * A MutableRectangle is only equal to another MutableRectangle with the same
- * coordinates.
- * @description Checks that this operator uses value comparison rather than
- * identity comparison.
- * @needsreview #16170
- * @author kaigorodov
- */
+// Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion bool operator ==(other)
+/// The equality operator.
+/// The default behavior for all Objects is to return true if and only if this
+/// and other are the same object.
+/// ...
+/// A MutableRectangle is only equal to another MutableRectangle with the same
+/// coordinates.
+/// @description Checks that this operator uses value comparison rather than
+/// identity comparison.
+/// @needsreview #16170
+/// @author kaigorodov
+
 
 import "dart:math";
 import "../../../Utils/expect.dart";

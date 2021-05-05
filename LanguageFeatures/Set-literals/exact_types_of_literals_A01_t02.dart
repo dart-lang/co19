@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion  For set literals with element type T, the static type is always
- * Set<T>, but static analysis will reject an assignment of a non-constant set
- * literal to a type that is not a super-type of LinkedHashSet<T> (an implicit
- * down-cast below the type LinkedHashSet<T>), and of a constant set literal to
- * a type that is not a super-type of Set<T> (that is, any implicit down-cast).
- *
- * @description Check that static analysis will reject an assignment of a
- * constant set literal to a type that is not a super-type of Set<T>
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion  For set literals with element type T, the static type is always
+/// Set<T>, but static analysis will reject an assignment of a non-constant set
+/// literal to a type that is not a super-type of LinkedHashSet<T> (an implicit
+/// down-cast below the type LinkedHashSet<T>), and of a constant set literal to
+/// a type that is not a super-type of Set<T> (that is, any implicit down-cast).
+///
+/// @description Check that static analysis will reject an assignment of a
+/// constant set literal to a type that is not a super-type of Set<T>
+/// @author sgrekhov@unipro.ru
+
 import "dart:collection";
 
 class C<T> with SetMixin<T> implements Set<T> {

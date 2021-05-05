@@ -1,23 +1,21 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Uint16List asUint16List([int offsetInBytes = 0, int length ])
- * Creates a Uint16List view of a region of this byte buffer.
- * ...
- * The viewed region start at offsetInBytes, which must be 16-bit aligned, and
- * contains length 16-bit integers. If length is omitted, the range extends as
- * far towards the end of the buffer as possible - if lengthInBytes is not even,
- * the last byte can't be part of the view.
- * @description Checks that the viewed region begins with offsetInBytes byte,
- * which must be 16-bit aligned, and contains length 16-bit integers. If length
- * is omitted, the range extends to the end of the buffer (if buffer length in
- * bytes is divisible by two), otherwise, the last bytes can't be part of the
- * view.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Uint16List asUint16List([int offsetInBytes = 0, int length ])
+/// Creates a Uint16List view of a region of this byte buffer.
+/// ...
+/// The viewed region start at offsetInBytes, which must be 16-bit aligned, and
+/// contains length 16-bit integers. If length is omitted, the range extends as
+/// far towards the end of the buffer as possible - if lengthInBytes is not even,
+/// the last byte can't be part of the view.
+/// @description Checks that the viewed region begins with offsetInBytes byte,
+/// which must be 16-bit aligned, and contains length 16-bit integers. If length
+/// is omitted, the range extends to the end of the buffer (if buffer length in
+/// bytes is divisible by two), otherwise, the last bytes can't be part of the
+/// view.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

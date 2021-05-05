@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Iterator<E> iterator
- * ...
- * The iterators of the same iterable can be stepped through independently, but
- * should return the same elements in the same order, as long as the underlying
- * collection isn't changed.
- * @description Checks that the iterators of the same iterable return the same
- * elements in the same order, as long as the underlying collection isn't
- * changed.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Iterator<E> iterator
+/// ...
+/// The iterators of the same iterable can be stepped through independently, but
+/// should return the same elements in the same order, as long as the underlying
+/// collection isn't changed.
+/// @description Checks that the iterators of the same iterable return the same
+/// elements in the same order, as long as the underlying collection isn't
+/// changed.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

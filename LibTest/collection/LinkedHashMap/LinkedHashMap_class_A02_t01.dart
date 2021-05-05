@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion @assertion LinkedHashMap<K, V> abstract class
- * implements HashMap<K, V>
- * The insertion order of keys is remembered, and keys are iterated in the order
- * they were inserted into the map.
- * @description Checks that [LinkedHashMap] preserves insertion order for keys.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion @assertion LinkedHashMap<K, V> abstract class
+/// implements HashMap<K, V>
+/// The insertion order of keys is remembered, and keys are iterated in the order
+/// they were inserted into the map.
+/// @description Checks that [LinkedHashMap] preserves insertion order for keys.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

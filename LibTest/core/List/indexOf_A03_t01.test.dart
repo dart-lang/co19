@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion abstract int indexOf(E element, [int start = 0])
- * Returns -1 if given element is not found. 
- * @description Checks that -1 is returned, if the element is not present.
- * @author iefremov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion abstract int indexOf(E element, [int start = 0])
+/// Returns -1 if given element is not found. 
+/// @description Checks that -1 is returned, if the element is not present.
+/// @author iefremov
+
 library indexOf_A03_t01;
 
 import "../../../Utils/expect.dart";

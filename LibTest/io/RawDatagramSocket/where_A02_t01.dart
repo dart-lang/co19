@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream<RawSocketEvent> where (bool test(T event))
- * . . .
- * If the test function throws, the data event is dropped and the error is
- * emitted on the returned stream instead.
- *
- * @description Checks that if the test function throws, the data event is
- * dropped and the error is emitted on the returned stream instead.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream<RawSocketEvent> where (bool test(T event))
+/// . . .
+/// If the test function throws, the data event is dropped and the error is
+/// emitted on the returned stream instead.
+///
+/// @description Checks that if the test function throws, the data event is
+/// dropped and the error is emitted on the returned stream instead.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

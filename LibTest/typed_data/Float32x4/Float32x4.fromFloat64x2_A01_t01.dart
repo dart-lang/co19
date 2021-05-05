@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Float32x4.fromFloat64x2(Float64x2 v)
- * Sets the x and y lanes to their respective values in v and sets the z and w
- * lanes to 0.0.
- * @description Checks that lanes are converted correctly. Note, some values may
- * be truncated when double value is stored to float.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Float32x4.fromFloat64x2(Float64x2 v)
+/// Sets the x and y lanes to their respective values in v and sets the z and w
+/// lanes to 0.0.
+/// @description Checks that lanes are converted correctly. Note, some values may
+/// be truncated when double value is stored to float.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream timeout(Duration timeLimit,
- *                           {void onTimeout(EventSink sink)})
- * Creates a new stream with the same events as this stream.
- *
- * If onTimeout is omitted, a timeout will just put a TimeoutException into the
- * error channel of the returned stream.
- *
- * @description Check that if onTimeout is omitted, then [timeout] will just
- * put a TimeoutException into the error channel of the returned stream.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream timeout(Duration timeLimit,
+///                           {void onTimeout(EventSink sink)})
+/// Creates a new stream with the same events as this stream.
+///
+/// If onTimeout is omitted, a timeout will just put a TimeoutException into the
+/// error channel of the returned stream.
+///
+/// @description Check that if onTimeout is omitted, then [timeout] will just
+/// put a TimeoutException into the error channel of the returned stream.
+/// @author ngl@unipro.ru
+
 library timeout_A03_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

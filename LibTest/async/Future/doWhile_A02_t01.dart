@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion  Future doWhile(FutureOr<bool> f())
- *    Perform an async operation repeatedly until it returns false.
- * . . .
- *    If a future returned by f completes with an error, iteration ends and
- * the future returned by doWhile completes with the same error.
- *
- * @description Checks that if [f] throws error, then returned future is
- * completed with this error.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion  Future doWhile(FutureOr<bool> f())
+///    Perform an async operation repeatedly until it returns false.
+/// . . .
+///    If a future returned by f completes with an error, iteration ends and
+/// the future returned by doWhile completes with the same error.
+///
+/// @description Checks that if [f] throws error, then returned future is
+/// completed with this error.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

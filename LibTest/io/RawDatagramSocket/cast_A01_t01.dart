@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream<R> cast <R>()
- * Adapt this stream to be a Stream<R>.
- *
- * If this stream already has the desired type, its returned directly. Otherwise
- * it is wrapped as a Stream<R> which checks at run-time that each data event
- * emitted by this stream is also an instance of R.
- *
- * @description Checks that if this stream already has the desired type, its
- * returned directly.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream<R> cast <R>()
+/// Adapt this stream to be a Stream<R>.
+///
+/// If this stream already has the desired type, its returned directly. Otherwise
+/// it is wrapped as a Stream<R> which checks at run-time that each data event
+/// emitted by this stream is also an instance of R.
+///
+/// @description Checks that if this stream already has the desired type, its
+/// returned directly.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../http_utils.dart";

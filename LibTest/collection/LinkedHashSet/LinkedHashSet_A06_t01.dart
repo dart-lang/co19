@@ -1,21 +1,19 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion LinkedHashMap({bool equals(K key1, K key2), int hashCode(K key),
- * bool isValidKey(potentialKey)})
- * If [isValidKey] is omitted, it defaults to testing if the object is an [E]
- * instance. That means that:
- *   new LinkedHashSet<int>(equals: (int e1, int e2) => (e1 - e2) % 5 == 0,
- *   hashCode: (int e) => e % 5)
- * does not need an [isValidKey] argument, because it defaults to only accepting
- * [int] values which are accepted by both [equals] and [hashCode].
- * @description Checks that [isValidKey] is not specified, it defaults to test
- * if the object is of [K] type or not.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion LinkedHashMap({bool equals(K key1, K key2), int hashCode(K key),
+/// bool isValidKey(potentialKey)})
+/// If [isValidKey] is omitted, it defaults to testing if the object is an [E]
+/// instance. That means that:
+///   new LinkedHashSet<int>(equals: (int e1, int e2) => (e1 - e2) % 5 == 0,
+///   hashCode: (int e) => e % 5)
+/// does not need an [isValidKey] argument, because it defaults to only accepting
+/// [int] values which are accepted by both [equals] and [hashCode].
+/// @description Checks that [isValidKey] is not specified, it defaults to test
+/// if the object is of [K] type or not.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Iterable<E> take(int count)
- * The returned Iterable may contain fewer than count elements, if this contains
- * fewer than count elements.
- * @description Checks that if Iterable contains fewer than count elements then
- * resulting Iterable contain fever than n elements
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Iterable<E> take(int count)
+/// The returned Iterable may contain fewer than count elements, if this contains
+/// fewer than count elements.
+/// @description Checks that if Iterable contains fewer than count elements then
+/// resulting Iterable contain fever than n elements
+/// @author sgrekhov@unipro.ru
+
 library take_A03_t01;
 import "../../../Utils/expect.dart";
 

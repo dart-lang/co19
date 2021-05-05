@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion  It is a compile-time error to reference a local function
- * before its declaration.
- * @description Checks that it is no a compile-error if at first define a pair
- * of variables and then assigning them appropriate closures.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion  It is a compile-time error to reference a local function
+/// before its declaration.
+/// @description Checks that it is no a compile-error if at first define a pair
+/// of variables and then assigning them appropriate closures.
+/// @author ngl@unipro.ru
+
 import '../../../Utils/expect.dart';
 
 f() {

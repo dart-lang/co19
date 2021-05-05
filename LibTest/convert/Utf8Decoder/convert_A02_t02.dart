@@ -1,28 +1,26 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion String convert(
- *  List<int> codeUnits, [
- *  int start = 0,
- *  int end
- *  ])
- * Converts the UTF-8 codeUnits (a list of unsigned 8-bit integers) to the
- * corresponding string.
- *
- * Uses the code units from start to, but no including, end. If end is omitted,
- * it defaults to codeUnits.length.
- *
- * If the codeUnits start with the encoding of a unicodeBomCharacterRune this
- * character is discarded.
- * @description Checks that if the [codeUnits] start with the encoding of a
- * [unicodeBomCharacterRune], that character is discarded. Test
- * allowMalformed = true
- * @issue 28834
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion String convert(
+///  List<int> codeUnits, [
+///  int start = 0,
+///  int end
+///  ])
+/// Converts the UTF-8 codeUnits (a list of unsigned 8-bit integers) to the
+/// corresponding string.
+///
+/// Uses the code units from start to, but no including, end. If end is omitted,
+/// it defaults to codeUnits.length.
+///
+/// If the codeUnits start with the encoding of a unicodeBomCharacterRune this
+/// character is discarded.
+/// @description Checks that if the [codeUnits] start with the encoding of a
+/// [unicodeBomCharacterRune], that character is discarded. Test
+/// allowMalformed = true
+/// @issue 28834
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

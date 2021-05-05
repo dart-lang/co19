@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void stopPropagation()
- * Stops the propagation of events further along in the DOM.
- * @description Checks that stopPropagation() prevents an event from bubbling.
- * called.
- */
+// Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void stopPropagation()
+/// Stops the propagation of events further along in the DOM.
+/// @description Checks that stopPropagation() prevents an event from bubbling.
+/// called.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

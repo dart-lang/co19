@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<List> wait(Iterable<Future> futures,
- *                {bool eagerError: false, void cleanUp(successValue)})
- * If any of the futures in the list completes with an error, the resulting
- * future also completes with an error. Otherwise the value of the returned
- * future will be a list of all the values that were produced.
- * @description Checks that the returned future is completed with error if all
- * of the futures in the list are completed with error.
- * @author iefremov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<List> wait(Iterable<Future> futures,
+///                {bool eagerError: false, void cleanUp(successValue)})
+/// If any of the futures in the list completes with an error, the resulting
+/// future also completes with an error. Otherwise the value of the returned
+/// future will be a list of all the values that were produced.
+/// @description Checks that the returned future is completed with error if all
+/// of the futures in the list are completed with error.
+/// @author iefremov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion static void approxEquals(num expected, num actual, [num tolerance = null, String reason = null])
- * Descriptive error message is provided in case of failure.
- * @description Checks that message of thrown ExpectException includes 
- *              representation of the expected, actual and tolerance values, as well as the reason.
- * @author varlax
- * @reviewer msyabro
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion static void approxEquals(num expected, num actual, [num tolerance = null, String reason = null])
+/// Descriptive error message is provided in case of failure.
+/// @description Checks that message of thrown ExpectException includes 
+///              representation of the expected, actual and tolerance values, as well as the reason.
+/// @author varlax
+/// @reviewer msyabro
+
 import "../../../Utils/expect.dart";
 
 import "dart:math" as Math;

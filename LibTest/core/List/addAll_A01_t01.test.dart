@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion abstract void addAll(Iterable<E> iterable)
- * Appends all elements of the iterable to the end of this list.
- * Extends the length of the list by the number of elements in iterable.
- * @description Checks that all elements of the [collection] are added to the
- * end of list.
- * @author vasya
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion abstract void addAll(Iterable<E> iterable)
+/// Appends all elements of the iterable to the end of this list.
+/// Extends the length of the list by the number of elements in iterable.
+/// @description Checks that all elements of the [collection] are added to the
+/// end of list.
+/// @author vasya
+
 library addAll_A01_t01;
 
 import "../../../Utils/expect.dart";

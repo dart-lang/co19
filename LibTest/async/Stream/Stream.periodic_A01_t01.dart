@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Stream.periodic(Duration period,
- *     [T computation(int computationCount)])
- * Creates a stream that repeatedly emits events at period intervals.
- * If computation is omitted the event values will all be null.
- * @description Checks that created stream emits events at period intervals.
- * Checks that if computation is omitted the event value is null.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Stream.periodic(Duration period,
+///     [T computation(int computationCount)])
+/// Creates a stream that repeatedly emits events at period intervals.
+/// If computation is omitted the event values will all be null.
+/// @description Checks that created stream emits events at period intervals.
+/// Checks that if computation is omitted the event value is null.
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

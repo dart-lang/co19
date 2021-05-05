@@ -1,24 +1,22 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future
- * Future<RawSocketEvent> firstWhere (
- *     bool test(T element), {
- *     dynamic defaultValue(),
- *     T orElse()
- * })
- * Finds the first element of this stream matching test.
- * . . .
- * If an error occurs, or if this stream ends without finding a match and with
- * no orElse function provided, the future will receive an error.
- *
- * @description Checks that if an error occurs in [orElse] method, the future
- * will receive an error.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future
+/// Future<RawSocketEvent> firstWhere (
+///     bool test(T element), {
+///     dynamic defaultValue(),
+///     T orElse()
+/// })
+/// Finds the first element of this stream matching test.
+/// . . .
+/// If an error occurs, or if this stream ends without finding a match and with
+/// no orElse function provided, the future will receive an error.
+///
+/// @description Checks that if an error occurs in [orElse] method, the future
+/// will receive an error.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

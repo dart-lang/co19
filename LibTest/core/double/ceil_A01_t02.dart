@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion abstract int ceil()
- * Returns the least integer no smaller than this.
- * @description Checks [:ceil():] on a bunch of adjacent values.
- * @author pagolubev
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion abstract int ceil()
+/// Returns the least integer no smaller than this.
+/// @description Checks [:ceil():] on a bunch of adjacent values.
+/// @author pagolubev
+
 import "../../../Utils/expect.dart";
 
 check(int expected, double argument) {

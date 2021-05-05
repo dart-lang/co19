@@ -1,29 +1,27 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion S
- * Future<Process> start(
- *     String executable,
- *     List<String> arguments, {
- *     String workingDirectory,
- *     Map<String, String> environment,
- *     bool includeParentEnvironment: true,
- *     bool runInShell: false,
- *     ProcessStartMode mode: ProcessStartMode.normal
- * })
- * ...
- * If includeParentEnvironment is true, the process's environment will include
- * the parent process's environment, with environment taking precedence. Default
- * is true.
- *
- * @description Checks that if includeParentEnvironment is true, the process's
- * environment will include the parent process's environment, with environment
- * taking precedence. Default is true.
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion S
+/// Future<Process> start(
+///     String executable,
+///     List<String> arguments, {
+///     String workingDirectory,
+///     Map<String, String> environment,
+///     bool includeParentEnvironment: true,
+///     bool runInShell: false,
+///     ProcessStartMode mode: ProcessStartMode.normal
+/// })
+/// ...
+/// If includeParentEnvironment is true, the process's environment will include
+/// the parent process's environment, with environment taking precedence. Default
+/// is true.
+///
+/// @description Checks that if includeParentEnvironment is true, the process's
+/// environment will include the parent process's environment, with environment
+/// taking precedence. Default is true.
+/// @author ngl@unipro.ru
+
 import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";

@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion int toUnsigned(int width)
- * Returns the least significant width bits of this integer as a non-negative
- * number (i.e. unsigned representation). The returned value has zeros in all
- * bit positions higher than width.
- *
- * (-1).toUnsigned(5) == 31   // 11111111  ->  00011111
- * ...
- * @description Checks that this method returns the least significant width bits
- * of this integer as a non-negative number
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion int toUnsigned(int width)
+/// Returns the least significant width bits of this integer as a non-negative
+/// number (i.e. unsigned representation). The returned value has zeros in all
+/// bit positions higher than width.
+///
+/// (-1).toUnsigned(5) == 31   // 11111111  ->  00011111
+/// ...
+/// @description Checks that this method returns the least significant width bits
+/// of this integer as a non-negative number
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

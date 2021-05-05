@@ -1,20 +1,18 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- * Future<RandomAccessFile> writeString(
- *     String string, {
- *     Encoding encoding: utf8
- * })
- * Writes a string to the file using the given Encoding.
- *
- * @description Checks that method writeString writes a string to the file using
- * the given Encoding latin1.
- * @author ngl@unipro.ru
-*/
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion
+/// Future<RandomAccessFile> writeString(
+///     String string, {
+///     Encoding encoding: utf8
+/// })
+/// Writes a string to the file using the given Encoding.
+///
+/// @description Checks that method writeString writes a string to the file using
+/// the given Encoding latin1.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "dart:convert";

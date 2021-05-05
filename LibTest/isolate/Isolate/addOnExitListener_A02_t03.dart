@@ -1,24 +1,22 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS
- * file for details. All rights reserved. Use of this source code is governed
- * by a BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void addOnExitListener(
- *                    SendPort responsePort, {
- *                    Object response
- *            })
- * ...
- *   Adding the same port more than once will only cause it to receive one
- * message, using the last response value that was added.
- *
- * @description Check that isolate sends single event on responsePort,
- * which is supplied several times to addOnExitListener() of the same isolate.
- * Different values for parameter response are specified. Check that only last
- * used value is used.
- *
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS
+// file for details. All rights reserved. Use of this source code is governed
+// by a BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void addOnExitListener(
+///                    SendPort responsePort, {
+///                    Object response
+///            })
+/// ...
+///   Adding the same port more than once will only cause it to receive one
+/// message, using the last response value that was added.
+///
+/// @description Check that isolate sends single event on responsePort,
+/// which is supplied several times to addOnExitListener() of the same isolate.
+/// Different values for parameter response are specified. Check that only last
+/// used value is used.
+///
+/// @author a.semenov@unipro.ru
+
 import "dart:isolate";
 import "dart:async";
 import "dart:math";

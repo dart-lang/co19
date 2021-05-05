@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion List<E> sublist(int start, [int end])
- * ...
- * If [end] is omitted, the [length] of [this] is used.
- * @description Checks that if [end] is omitted, the [length] of [this] is used.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion List<E> sublist(int start, [int end])
+/// ...
+/// If [end] is omitted, the [length] of [this] is used.
+/// @description Checks that if [end] is omitted, the [length] of [this] is used.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

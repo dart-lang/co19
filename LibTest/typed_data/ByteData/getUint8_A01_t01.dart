@@ -1,16 +1,14 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion int getUint8(int byteOffset)
- * Returns the positive integer represented by the byte at the specified
- * [byteOffset] in this object, in unsigned binary form.
- * The return value will be between 0 and 255, inclusive.
- * @description Checks that the correct value is returned.
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion int getUint8(int byteOffset)
+/// Returns the positive integer represented by the byte at the specified
+/// [byteOffset] in this object, in unsigned binary form.
+/// The return value will be between 0 and 255, inclusive.
+/// @description Checks that the correct value is returned.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

@@ -1,21 +1,19 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- * Stream<S> transform <S>(
- *     StreamTransformer<RawSocketEvent, S> streamTransformer
- * )
- * . . .
- * Returns the result of the stream transformation, that is, the result of
- * streamTransformer.bind(this).
- *
- * @description Checks that method [transform] returns the result of the stream
- * transformation, that is, the result of streamTransformer.bind(this).
- * @author ngl@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion
+/// Stream<S> transform <S>(
+///     StreamTransformer<RawSocketEvent, S> streamTransformer
+/// )
+/// . . .
+/// Returns the result of the stream transformation, that is, the result of
+/// streamTransformer.bind(this).
+///
+/// @description Checks that method [transform] returns the result of the stream
+/// transformation, that is, the result of streamTransformer.bind(this).
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

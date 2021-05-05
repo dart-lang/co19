@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<bool> every(bool test(T element))
- * Checks whether test accepts all elements provided by this stream.
- * Completes the Future when the answer is known.
- * @description Checks that correct answer is passed to the future.
- * @author kaigorodov
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<bool> every(bool test(T element))
+/// Checks whether test accepts all elements provided by this stream.
+/// Completes the Future when the answer is known.
+/// @description Checks that correct answer is passed to the future.
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;

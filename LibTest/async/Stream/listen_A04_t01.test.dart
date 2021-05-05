@@ -1,19 +1,17 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion StreamSubscription<T> listen(void onData(T event),
- *   {Function onError, void onDone(), bool cancelOnError})
- * If cancelOnError is true, the subscription is ended when the first error is
- * reported. The default is false.
- * @description Checks that if cancelOnError is true, the subscription is ended
- * when the first error is reported.
- * @issue #25967
- * @author kaigorodov
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion StreamSubscription<T> listen(void onData(T event),
+///   {Function onError, void onDone(), bool cancelOnError})
+/// If cancelOnError is true, the subscription is ended when the first error is
+/// reported. The default is false.
+/// @description Checks that if cancelOnError is true, the subscription is ended
+/// when the first error is reported.
+/// @issue #25967
+/// @author kaigorodov
+/// @author a.semenov@unipro.ru
+
 library listen_A04_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

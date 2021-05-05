@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Uri resolve(String reference)
- * Resolve reference as an URI relative to this.
- * @description Checks that this method works correctly if schema is specified
- * (see https://tools.ietf.org/html/rfc3986#section-5.2.2)
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Uri resolve(String reference)
+/// Resolve reference as an URI relative to this.
+/// @description Checks that this method works correctly if schema is specified
+/// (see https://tools.ietf.org/html/rfc3986#section-5.2.2)
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

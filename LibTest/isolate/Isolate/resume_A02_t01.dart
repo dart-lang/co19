@@ -1,23 +1,21 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS
- * file for details. All rights reserved. Use of this source code is governed
- * by a BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion void resume(
- *                    Capability resumeCapability
- *                    )
- *    Resumes a paused isolate.
- *    Sends a message to an isolate requesting that it ends a pause that was
- * requested using the resumeCapability.
- *    When all active pause requests have been cancelled, the isolate will
- * continue processing events and handling normal messages.
- *
- * @description Check that isolate continue processing events only after
- * all pause requests are canceled by call to resume()
- *
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS
+// file for details. All rights reserved. Use of this source code is governed
+// by a BSD-style license that can be found in the LICENSE file.
+
+/// @assertion void resume(
+///                    Capability resumeCapability
+///                    )
+///    Resumes a paused isolate.
+///    Sends a message to an isolate requesting that it ends a pause that was
+/// requested using the resumeCapability.
+///    When all active pause requests have been cancelled, the isolate will
+/// continue processing events and handling normal messages.
+///
+/// @description Check that isolate continue processing events only after
+/// all pause requests are canceled by call to resume()
+///
+/// @author a.semenov@unipro.ru
+
 import "dart:isolate";
 import "dart:async";
 import "../../../Utils/expect.dart";

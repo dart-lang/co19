@@ -1,22 +1,20 @@
-/*
- * Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion
- * void setUint16(
- *     int byteOffset,
- *     int value, [
- *     Endian endian = Endian.big
- * ])
- * Sets the two bytes starting at the specified [byteOffset] in this object to
- * the unsigned binary representation of the specified [value], which must fit
- * in two bytes.
- * In other words, [value] must be between 0 and pow(2, 16) - 1, inclusive.
- * @description Checks that the value at the [byteOffset] is set to [value].
- * @author msyabro
- */
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion
+/// void setUint16(
+///     int byteOffset,
+///     int value, [
+///     Endian endian = Endian.big
+/// ])
+/// Sets the two bytes starting at the specified [byteOffset] in this object to
+/// the unsigned binary representation of the specified [value], which must fit
+/// in two bytes.
+/// In other words, [value] must be between 0 and pow(2, 16) - 1, inclusive.
+/// @description Checks that the value at the [byteOffset] is set to [value].
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion abstract int indexOf(E element, [int start = 0])
- * The first time an object o is encountered so that o == element,
- * the index of o is returned.
- * @description Checks searching custom objects.
- * @author varlax
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion abstract int indexOf(E element, [int start = 0])
+/// The first time an object o is encountered so that o == element,
+/// the index of o is returned.
+/// @description Checks searching custom objects.
+/// @author varlax
+
 library indexOf_A05_t01;
 
 import "../../../Utils/expect.dart";

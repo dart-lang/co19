@@ -1,18 +1,16 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion RangeError.range(num invalidValue, int minValue, int maxValue,
- *    [String name, String message])
- * ...
- * An optional name can specify the argument name that has the invalid value,
- * and the message can override the default error description.
- * @description Checks that if name or message is specified then it overrides
- * the default value.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion RangeError.range(num invalidValue, int minValue, int maxValue,
+///    [String name, String message])
+/// ...
+/// An optional name can specify the argument name that has the invalid value,
+/// and the message can override the default error description.
+/// @description Checks that if name or message is specified then it overrides
+/// the default value.
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

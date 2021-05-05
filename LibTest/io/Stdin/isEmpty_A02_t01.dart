@@ -1,15 +1,13 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion Future<bool> isEmpty
- * Stops listening to the stream after the first element has been received.
- * @description Checks that listening to [stdin] is stopped after the [isEmpty]
- * call.
- * @author iarkh@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion Future<bool> isEmpty
+/// Stops listening to the stream after the first element has been received.
+/// @description Checks that listening to [stdin] is stopped after the [isEmpty]
+/// call.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:io";
 

@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion It is a static error when the collection is a map and the key type
- * of any of the body elements may not be assigned to the map's key type.
- *
- * @description Checks that it is a static error when the collection is a map
- * and the key type of any of the body elements may not be assigned to the map's
- * key type.
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion It is a static error when the collection is a map and the key type
+/// of any of the body elements may not be assigned to the map's key type.
+///
+/// @description Checks that it is a static error when the collection is a map
+/// and the key type of any of the body elements may not be assigned to the map's
+/// key type.
+/// @author sgrekhov@unipro.ru
+
 
 main() {
   <int, int>{if (true) "not int": 1};                 //# 01: compile-time error

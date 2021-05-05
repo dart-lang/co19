@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion If sE is an asynchronous for loop, its associated
- * stream subscription is canceled.
- *
- * @description Check that break cancels subscription to the stream associated
- * with the asynchronous loop
- *
- * @author a.semenov@unipro.ru
- */
+// Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion If sE is an asynchronous for loop, its associated
+/// stream subscription is canceled.
+///
+/// @description Check that break cancels subscription to the stream associated
+/// with the asynchronous loop
+///
+/// @author a.semenov@unipro.ru
+
 import 'dart:async';
 import '../../../Utils/expect.dart';
 

@@ -1,17 +1,15 @@
-/*
- * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-/**
- * @assertion HttpServer.listenOn(ServerSocket serverSocket)
- * Attaches the HTTP server to an existing ServerSocket. When the HttpServer is
- * closed, the HttpServer will just detach itself, closing current connections
- * but not closing serverSocket.
- * @description Checks that this constructor attaches the HTTP server to an
- * existing ServerSocket
- * @author sgrekhov@unipro.ru
- */
+// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// @assertion HttpServer.listenOn(ServerSocket serverSocket)
+/// Attaches the HTTP server to an existing ServerSocket. When the HttpServer is
+/// closed, the HttpServer will just detach itself, closing current connections
+/// but not closing serverSocket.
+/// @description Checks that this constructor attaches the HTTP server to an
+/// existing ServerSocket
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";
