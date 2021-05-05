@@ -2,12 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
- /**
- * @assertion String toStringAsExponential(int fractionDigits)
- * @description Checks that if [fractionDigits] is [:null:]
- * a string representation has as much digital places as a number literal.
- * @author msyabro
- */
+/// @assertion String toStringAsExponential(int fractionDigits)
+/// @description Checks that if [fractionDigits] is [:null:]
+/// a string representation has as much digital places as a number literal.
+/// @author msyabro
 import "../../../Utils/expect.dart";
 
 main() {
