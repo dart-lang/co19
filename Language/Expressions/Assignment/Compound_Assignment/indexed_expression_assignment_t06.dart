@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion A compound assignment of the form e1[e2] op=e3 is equivalent to
  * ((a, i) => a[i] = a[i] op e3)(e1, e2) where a and i are a variables that are
