@@ -370,19 +370,16 @@ String getFileName(File file) =>
 bool isFail(File file) => getFileName(file).contains("_fail_");
 
 List<String> addImport(List<String> testTypeTextStrings, bool addExpect) {
-  int counter = 0;
+  int ind = 0;
   for (int i = 0; i < testTypeTextStrings.length; i++) {
-    if (testTypeTextStrings[i].contains("*/")) {
-      counter++;
-    }
-    if (counter == 2) {
-      if (addExpect) {
-        testTypeTextStrings.insert(i + 1, IMPORT_EXPECT);
-      }
-      testTypeTextStrings.insert(i + 1, IMPORT_COMMON);
-      break;
+    if (testTypeTextStrings[i].startsWith("///")) {
+      ind = i;
     }
   }
+  if (addExpect) {
+    testTypeTextStrings.insert(ind + 1, IMPORT_EXPECT);
+  }
+  testTypeTextStrings.insert(ind + 1, IMPORT_COMMON);
   return testTypeTextStrings;
 }
 
