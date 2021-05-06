@@ -11,21 +11,19 @@
 /// @description Check that if type T0 is an interface type with super-interfaces
 /// S0,...Sn and and Si <: T1 for some i then T0 is a subtype of a type T1
 /// @author sgrekhov@unipro.ru
-
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be assigned to the class member of type T1
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from super_interface_A01.dart and 
- * class_member_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+///
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be be assigned to the class member of type T1
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from super_interface_A01.dart and 
+/// class_member_x01.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
 
-import '../../utils/common.dart';
+
+
 
 class T1 {}
 
@@ -39,6 +37,7 @@ class T implements T0 {}
 
 T0 t0Instance = new T();
 T1 t1Instance = new T1();
+
 
 
 

@@ -10,24 +10,23 @@
 /// @description Check that if type T1 and T0 are both Null then T0 is a subtype
 /// of a type T1
 /// @author sgrekhov@unipro.ru
-
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be assigned to the class member of type T1
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from reflexivity_A04.dart and 
- * class_member_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+///
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be be assigned to the class member of type T1
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from reflexivity_A04.dart and 
+/// class_member_x01.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
 
-import '../../utils/common.dart';
+
+
 
 Null t0Instance = null;
 Null t1Instance = null;
+
 
 
 

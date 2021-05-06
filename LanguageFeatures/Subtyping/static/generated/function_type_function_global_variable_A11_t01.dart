@@ -11,18 +11,17 @@
 /// T0 is a subtype of T1. Test void generic function without actual arguments
 /// but returning some value
 /// @author sgrekhov@unipro.ru
+///
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be be assigned to the to global variable of type T1
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from function_type_function_A11.dart and 
+/// global_variable_x01.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be assigned to the to global variable of type T1
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from function_type_function_A11.dart and 
- * global_variable_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+
 
 
 
@@ -33,6 +32,7 @@ void t0Func<X>() => new C();
 
 T0<C> t0Instance = t0Func;
 Function t1Instance = null;
+
 
 
 

@@ -15,21 +15,20 @@
 /// a subtype of types Future<S1> or S1, then a type T0 is not a subtype of a
 /// type T1.
 /// @author ngl@unipro.ru
+///
+/// @description Check that if type T0 is not a subtype of a type T1, then
+/// instance of T0 cannot be be assigned to the mixin member of type T1.
+/// Assignment to instance variable of super class is tested.
+/// @compile-error
+/// @author sgrekhov@unipro.ru
+/// @author ngl@unipro.ru
+///
+/// This test is generated from right_FutureOr_fail_A01.dart and 
+/// class_member_mixin_fail_x01.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
-/**
- * @description Check that if type T0 is not a subtype of a type T1, then
- * instance of T0 cannot be be assigned to the mixin member of type T1.
- * Assignment to instance variable of super class is tested.
- * @compile-error
- * @author sgrekhov@unipro.ru
- * @author ngl@unipro.ru
- */
-/*
- * This test is generated from right_FutureOr_fail_A01.dart and 
- * class_member_mixin_fail_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+
 
 
 
@@ -40,6 +39,7 @@ class T0 {}
 
 T0 t0Instance = new T0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
+
 
 
 

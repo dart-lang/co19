@@ -21,21 +21,20 @@
 /// isn't a subtype of U1[Z0/Y0, ..., Zk/Yk]. Test generic types.
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
+///
+/// @description Check that if type T0 is not a subtype of a type T1, then
+/// instance of T0 cannot be be assigned to the to global variable of type T1.
+/// Assignment to global variable is tested.
+/// @compile-error
+/// @author sgrekhov@unipro.ru
+/// @author ngl@unipro.ru
+///
+/// This test is generated from positional_function_types_fail_A22.dart and 
+/// global_variable_fail_x01.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
-/**
- * @description Check that if type T0 is not a subtype of a type T1, then
- * instance of T0 cannot be be assigned to the to global variable of type T1.
- * Assignment to global variable is tested.
- * @compile-error
- * @author sgrekhov@unipro.ru
- * @author ngl@unipro.ru
- */
-/*
- * This test is generated from positional_function_types_fail_A22.dart and 
- * global_variable_fail_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+
 
 
 
@@ -86,6 +85,7 @@ U1<A, List, num> t1Func<X extends B0, Y extends B1>(
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 bool isGenericFunctionType = true;
+
 
 
 

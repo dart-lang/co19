@@ -15,22 +15,19 @@
 /// X0 has bound S0 and S0 is not a subtype of Future<S1> or S1, then a type T0
 /// is not a subtype of a type T1.
 /// @author ngl@unipro.ru
-
-/**
- * @description Check that if type T0 not a subtype of a type T1, then it cannot
- * be used as a class member of type T1
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from right_FutureOr_fail_A02.dart and 
- * class_member_fail_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+///
+/// @description Check that if type T0 not a subtype of a type T1, then it cannot
+/// be used as a class member of type T1
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from right_FutureOr_fail_A02.dart and 
+/// class_member_fail_x01.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
 
-import '../../utils/common.dart';
-import '../../../../Utils/expect.dart';
+
+
 
 import "dart:async";
 
@@ -41,6 +38,7 @@ class X0 extends S0 {
 
 X0 t0Instance = new X0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
+
 
 
 

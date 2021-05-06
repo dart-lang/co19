@@ -21,22 +21,19 @@
 /// B0i[Z0/X0, ..., Zk/Xk] !== B1i[Z0/Y0, ..., Zk/Yk] for i in 0...k.
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
-
-/**
- * @description Check that if type T0 is not a subtype of a type T1, then
- * instance of T0 cannot be be assigned to the mixin member of type T1
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from positional_function_types_fail_A31.dart and 
- * class_member_fail_x03.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+///
+/// @description Check that if type T0 is not a subtype of a type T1, then
+/// instance of T0 cannot be be assigned to the mixin member of type T1
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from positional_function_types_fail_A31.dart and 
+/// class_member_fail_x03.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
 
-import '../../utils/common.dart';
-import '../../../../Utils/expect.dart';
+
+
 
 class U0 extends U1 {}
 
@@ -75,6 +72,7 @@ U1 t1Func<X extends B0, Y extends B0>(S0 y0, S1 y1, [S2 x2, S3 x3]) => null;
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
+
 
 
 

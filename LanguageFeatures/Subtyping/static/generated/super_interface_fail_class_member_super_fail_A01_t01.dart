@@ -11,27 +11,25 @@
 /// @description Check that if there is no i, such that Si <: T1, then T0 is not
 /// subtype of T1
 /// @author sgrekhov@unipro.ru
+///
+/// @description Check that if type T0 is not a subtype of a type T1, then
+/// instance of T0 cannot be be assigned to the superclass member of type T1.
+/// Assignment to variable of super class is tested.
+/// @compile-error
+/// @author sgrekhov@unipro.ru
+/// @author ngl@unipro.ru
+///
+/// This test is generated from super_interface_fail_A01.dart and 
+/// class_member_super_fail_x01.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
-/**
- * @description Check that if type T0 is not a subtype of a type T1, then
- * instance of T0 cannot be be assigned to the superclass member of type T1.
- * Assignment to variable of super class is tested.
- * @compile-error
- * @author sgrekhov@unipro.ru
- * @author ngl@unipro.ru
- */
-/*
- * This test is generated from super_interface_fail_A01.dart and 
- * class_member_super_fail_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+
 
 
 
 class T1 {}
 
-// Missing subtype relation to T1
 abstract class S0 {}
 abstract class S1 {}
 abstract class S2 {}
@@ -42,6 +40,7 @@ class T implements T0 {}
 
 T0 t0Instance = new T();
 T1 t1Instance = new T1();
+
 
 
 

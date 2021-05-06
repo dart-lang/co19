@@ -19,20 +19,19 @@
 /// @description Check that if {yn+1, ... , yq} is not subsetof {xn+1, ... , xm},
 /// then T0 is not a subtype of T1
 /// @author sgrekhov@unipro.ru
+///
+/// @description Check that if type T0 not a subtype of a type T1, then it cannot
+/// be used as an argument of type T1. Global function required argument is
+/// tested.
+/// @compile-error
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from named_function_types_fail_A11.dart and 
+/// arguments_binding_fail_x01.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
-/**
- * @description Check that if type T0 not a subtype of a type T1, then it cannot
- * be used as an argument of type T1. Global function required argument is
- * tested.
- * @compile-error
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from named_function_types_fail_A11.dart and 
- * arguments_binding_fail_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+
 
 
 
@@ -56,6 +55,7 @@ U1 t1Func(S0 y0, S1 y1, {S2 x2, S3 y3}) => null;
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
+
 
 
 

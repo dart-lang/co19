@@ -21,22 +21,19 @@
 /// isn't a subtype of Vi[Z0/X0, ..., Zk/Xk] for any i in 0...q.
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
-
-/**
- * @description Check that if type T0 is not a subtype of a type T1, then
- * instance of T0 cannot be be assigned to the mixin member of type T1
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from positional_function_types_fail_A11.dart and 
- * class_member_fail_x03.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+///
+/// @description Check that if type T0 is not a subtype of a type T1, then
+/// instance of T0 cannot be be assigned to the mixin member of type T1
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from positional_function_types_fail_A11.dart and 
+/// class_member_fail_x03.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
 
-import '../../utils/common.dart';
-import '../../../../Utils/expect.dart';
+
+
 
 class U0 extends U1 {}
 class U1 {}
@@ -57,6 +54,7 @@ U1 t1Func(S0 y0, S1 y1, [S2 y2, S3 y3]) => null;
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
+
 
 
 

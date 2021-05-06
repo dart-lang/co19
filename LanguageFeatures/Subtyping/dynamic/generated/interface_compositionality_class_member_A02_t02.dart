@@ -12,21 +12,19 @@
 /// C0<S0, ..., Sk> and T1 is C0<U0, ..., Uk> and each Si <: Ui then T0 is a
 /// subtype of T1
 /// @author sgrekhov@unipro.ru
-
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be assigned to the superclass member of type T1
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from interface_compositionality_A02.dart and 
- * class_member_x02.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+///
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be be assigned to the superclass member of type T1
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from interface_compositionality_A02.dart and 
+/// class_member_x02.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
 
-import '../../utils/common.dart';
+
+
 
 abstract class U0 {}
 abstract class U1 {}
@@ -40,6 +38,7 @@ class C0<X, Y, Z> {}
 
 C0<S0, S1, S2> t0Instance = new C0<S0, S1, S2>();
 C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
+
 
 
 

@@ -10,18 +10,17 @@
 /// @description Check that if type T0 is a function type and T1 is Function then
 /// T0 is a subtype of T1. Test non-void function with positional arguments
 /// @author sgrekhov@unipro.ru
+///
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be be used as a return value of type T1
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from function_type_function_A07.dart and 
+/// return_value_x01.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be used as a return value of type T1
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from function_type_function_A07.dart and 
- * return_value_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+
 
 
 
@@ -31,6 +30,7 @@ typedef C T0(C c, [dynamic d]);
 
 C t0Instance(C c, [dynamic d]) => c;
 Function t1Instance = null;
+
 
 
 

@@ -10,24 +10,23 @@
 /// @description Check that if type T1 and T0 are both Object then T0 is a
 /// subtype of a type T1
 /// @author sgrekhov@unipro.ru
-
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be used as an argument of type T1. Test superclass members
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from reflexivity_A03.dart and 
- * arguments_binding_x02.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+///
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be be used as an argument of type T1. Test superclass members
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from reflexivity_A03.dart and 
+/// arguments_binding_x02.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
 
-import '../../utils/common.dart';
+
+
 
 Object t0Instance = new Object();
 Object t1Instance = new Object();
+
 
 
 

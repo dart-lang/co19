@@ -11,21 +11,19 @@
 /// @description Check that if T0 is a type variable X0 with bound B0 and
 /// B0 <: T1 then T0 is a subtype of a type T1
 /// @author ngl@unipro.ru
-
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be used as a return value of type T1
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from left_type_variable_bound_A01.dart and 
- * return_value_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+///
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be be used as a return value of type T1
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from left_type_variable_bound_A01.dart and 
+/// return_value_x01.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
 
-import '../../utils/common.dart';
+
+
 
 class T1 {}
 class B0 extends T1 {}
@@ -33,6 +31,7 @@ class X0 extends B0 {}
 
 X0 t0Instance = new X0();
 T1 t1Instance = new T1();
+
 
 
 

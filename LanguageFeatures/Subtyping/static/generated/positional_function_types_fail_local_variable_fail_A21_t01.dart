@@ -21,21 +21,20 @@
 /// isn't a subtype of U1[Z0/Y0, ..., Zk/Yk].
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
+///
+/// @description Check that if type T0 is not a subtype of a type T1, then
+/// instance of T0 cannot be be assigned to the to local variable of type T1.
+/// Assignment to local variable is tested.
+/// @compile-error
+/// @author sgrekhov@unipro.ru
+/// @author ngl@unipro.ru
+///
+/// This test is generated from positional_function_types_fail_A21.dart and 
+/// local_variable_fail_x01.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
-/**
- * @description Check that if type T0 is not a subtype of a type T1, then
- * instance of T0 cannot be be assigned to the to local variable of type T1.
- * Assignment to local variable is tested.
- * @compile-error
- * @author sgrekhov@unipro.ru
- * @author ngl@unipro.ru
- */
-/*
- * This test is generated from positional_function_types_fail_A21.dart and 
- * local_variable_fail_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+
 
 
 
@@ -58,6 +57,7 @@ U1 t1Func(S0 y0, S1 y1, [S2 y2, S3 y3]) => null;
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
+
 
 
 

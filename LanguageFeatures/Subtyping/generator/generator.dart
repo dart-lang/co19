@@ -65,6 +65,14 @@ const TEST_CASES_DIR = "test_cases";
 const TEST_TYPES_DIR = "test_types";
 const OUTPUT_DIR = "generated";
 
+const COPYRIGHT = '''// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+''';
+
+const LANG_VERSION = "// @dart = 2.9";
+
 const IMPORT_COMMON = "import '../../utils/common.dart';";
 const IMPORT_EXPECT = "import '../../../../Utils/expect.dart';";
 
@@ -179,12 +187,13 @@ void generateTests(Directory testCasesDir, Directory testTypesDir,
 String getGeneratedFileComment(File testType, File testCase) {
   String testTypeFileName = getFileName(testType);
   String testCaseFileName = getFileName(testCase);
-  return '''/*
- * This test is generated from $testTypeFileName and 
- * $testCaseFileName.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */''';
+  return '''
+///
+/// This test is generated from $testTypeFileName and 
+/// $testCaseFileName.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
+''';
 }
 
 bool findIsGenericFunctionType(List<String> strings) {
@@ -226,41 +235,43 @@ Map<String, String> findReplacements(List<String> strings) {
 }
 
 String removeHeader(String text) {
-  // If file begins with /* - remove this comment
-  int start = text.indexOf("/*");
-  int end = text.indexOf("*/");
-  if (start > -1 && end > -1) {
-    text = text.replaceRange(start, end + 2, "");
-    // If there is one more comment - remove it as well
-    start = text.indexOf("/*");
-    end = text.indexOf("*/");
-    if (start > -1 && end > -1) {
-      text = text.replaceRange(start, end + 2, "");
-    }
-  }
-  return text;
+  List<String> strings = text.split("\n");
+  strings.removeWhere((s) => s.startsWith("///") || s.startsWith("// "));
+  return strings.join("\n");
 }
 
-String getComment(String text, int index) {
-  int start = text.indexOf("/*");
-  int end = text.indexOf("*/");
-  if (index > 0) {
-    start = text.indexOf("/*", start + 1);
-    end = text.indexOf("*/", end + 1);
+String getHeaderComment(String text) {
+  List<String> strings = text.split("\n");
+  // find last bunch of strings starting with ///
+  int start = -1, end = -1;
+  bool wasComment = false;
+  for (int i = 0; i < strings.length; i++) {
+    if (strings[i].startsWith('///')) {
+      if (!wasComment) {
+        start = i;
+        end = i;
+        wasComment = true;
+      }
+    } else {
+      if (wasComment) {
+        end = i;
+        wasComment = false;
+      }
+    }
   }
   if (start > -1 && end > -1) {
-    return text.substring(start, end + 2);
+    return strings.getRange(start, end).join("\n");
   }
-  return null;
+  return "";
 }
 
 String getGeneratedTestHeader(String testTypeText, String testCaseText, String text) {
-  String copyright = getComment(testTypeText, 0);
-  String testTypeComment = getComment(testTypeText, 1);
-  String testCaseComment = getComment(testCaseText, 1);
-  return copyright + "\n"
-      + testTypeComment + "\n"
-      + testCaseComment + "\n"
+  String testTypeHeader = getHeaderComment(testTypeText);
+  String testCaseHeader = getHeaderComment(testCaseText);
+  return COPYRIGHT + LANG_VERSION + "\n\n"
+      + testTypeHeader + "\n"
+      + "///\n"
+      + testCaseHeader + "\n"
       + text + "\n";
 }
 

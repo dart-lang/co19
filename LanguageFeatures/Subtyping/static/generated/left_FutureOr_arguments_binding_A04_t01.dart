@@ -14,18 +14,17 @@
 /// when an instance of T0 is an instance of Future<S0> type and S0 is a generic
 /// type
 /// @author sgrekhov@unipro.ru
+///
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be be used as an argument of type T1
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from left_FutureOr_A04.dart and 
+/// arguments_binding_x01.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be used as an argument of type T1
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from left_FutureOr_A04.dart and 
- * arguments_binding_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+
 
 
 
@@ -38,6 +37,7 @@ class S0<X> extends C<X> {}
 
 FutureOr<S0<B>> t0Instance = new Future<S0<B>>.value(new S0<B>());
 FutureOr<C<A>> t1Instance = new Future<C<A>>.value(new C<A>());
+
 
 
 

@@ -14,21 +14,19 @@
 /// @description Check that if a type T1 is Future<S1> and a type T0 is X0 and X0
 /// has bound S0 and S0 <: Future<S1>, then a type T0 is a subtype of a type T1.
 /// @author ngl@unipro.ru
-
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be assigned to the to local variable of type T1
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from right_FutureOr_A03.dart and 
- * local_variable_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+///
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be be assigned to the to local variable of type T1
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from right_FutureOr_A03.dart and 
+/// local_variable_x01.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
 
-import '../../utils/common.dart';
+
+
 
 import "dart:async";
 
@@ -45,6 +43,7 @@ class X0 extends S0 {
 
 X0 t0Instance = new X0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
+
 
 
 

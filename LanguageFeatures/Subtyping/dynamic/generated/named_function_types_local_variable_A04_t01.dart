@@ -19,21 +19,19 @@
 /// @description Check that if T0 and T1 satisfies the rules above, then T0 is
 /// subtype of T1. Test generic types with Null type
 /// @author sgrekhov@unipro.ru
-
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be assigned to the to local variable of type T1
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from named_function_types_A04.dart and 
- * local_variable_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+///
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be be assigned to the to local variable of type T1
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from named_function_types_A04.dart and 
+/// local_variable_x01.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
 
-import '../../utils/common.dart';
+
+
 
 class A {}
 
@@ -91,6 +89,7 @@ U1<A, List, num> t1Func<X extends B0, Y extends B1>(
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
+
 
 
 

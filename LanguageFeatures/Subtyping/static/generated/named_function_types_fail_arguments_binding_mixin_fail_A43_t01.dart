@@ -19,21 +19,20 @@
 /// @description Check that if U0[Z0/X0, ..., Zk/Xk] is not a subtype of
 /// U1[Z0/Y0, ..., Zk/Yk], then T0 is not a subtype of T1. Test generic types
 /// @author sgrekhov@unipro.ru
+///
+/// @description Check that if type T0 not a subtype of a type T1, then it cannot
+/// be used as an argument of type T1. Test mixin members. Super method required
+/// argument is tested.
+/// @compile-error
+/// @author sgrekhov@unipro.ru
+/// @author ngl@unipro.ru
+///
+/// This test is generated from named_function_types_fail_A43.dart and 
+/// arguments_binding_mixin_fail_x01.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
-/**
- * @description Check that if type T0 not a subtype of a type T1, then it cannot
- * be used as an argument of type T1. Test mixin members. Super method required
- * argument is tested.
- * @compile-error
- * @author sgrekhov@unipro.ru
- * @author ngl@unipro.ru
- */
-/*
- * This test is generated from named_function_types_fail_A43.dart and 
- * arguments_binding_mixin_fail_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+
 
 
 
@@ -75,6 +74,7 @@ U<A, List, double> t1Func<X extends B0, Y extends B1>(
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
+
 
 
 

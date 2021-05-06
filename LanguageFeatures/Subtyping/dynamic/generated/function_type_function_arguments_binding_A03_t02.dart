@@ -11,21 +11,19 @@
 /// T0 is a subtype of T1. Test function without actual arguments but returning
 /// some value
 /// @author sgrekhov@unipro.ru
-
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be used as an argument of type T1. Test superclass members
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from function_type_function_A03.dart and 
- * arguments_binding_x02.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+///
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be be used as an argument of type T1. Test superclass members
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from function_type_function_A03.dart and 
+/// arguments_binding_x02.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
 
-import '../../utils/common.dart';
+
+
 
 class C {}
 
@@ -33,6 +31,7 @@ typedef C T0();
 
 C t0Instance() => new C();
 Function t1Instance = null;
+
 
 
 

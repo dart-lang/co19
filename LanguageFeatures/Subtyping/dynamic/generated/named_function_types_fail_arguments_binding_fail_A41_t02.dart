@@ -19,22 +19,19 @@
 /// @description Check that if U0[Z0/X0, ..., Zk/Xk] is not a subtype of
 /// U1[Z0/Y0, ..., Zk/Yk], then T0 is not a subtype of T1
 /// @author sgrekhov@unipro.ru
-
-/**
- * @description Check that if type T0 not a subtype of a type T1, then it cannot
- * be used as an argument of type T1. Test superclass members
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from named_function_types_fail_A41.dart and 
- * arguments_binding_fail_x02.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+///
+/// @description Check that if type T0 not a subtype of a type T1, then it cannot
+/// be used as an argument of type T1. Test superclass members
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from named_function_types_fail_A41.dart and 
+/// arguments_binding_fail_x02.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
 
-import '../../utils/common.dart';
-import '../../../../Utils/expect.dart';
+
+
 
 class U0 {} // U0 is not subtype of U1
 class U1 {}
@@ -56,6 +53,7 @@ U1 t1Func(S0 y0, S1 y1, {S2 x2, S3 x3}) => null;
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
+
 
 
 
