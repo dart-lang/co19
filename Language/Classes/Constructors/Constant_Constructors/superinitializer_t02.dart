@@ -10,7 +10,6 @@
  * compile-time error occurs.
  * @description Checks that compile error is produced if explicit
  * superinitializer is a call to non const constructor
- * @compile-error
  * @author ilya
  */
 
@@ -21,6 +20,9 @@ class C {
 
 class A extends C {
   const A() : super.nonConst();
+//                  ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

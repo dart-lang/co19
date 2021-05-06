@@ -11,7 +11,6 @@
  * @description Checks that it is a compile error if an instance method m1
  * overrides an abstract instance member m2 and m1 has fewer positional
  * parameters than m2. Test type aliases
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -19,10 +18,13 @@
 abstract class A {
   foo(var a, [x, y]);
 }
-typedef AAlais = A;
+typedef AAlias = A;
 
 class C extends AAlias {
   foo(var a, [x]) {}
+//^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

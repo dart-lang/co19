@@ -8,12 +8,11 @@
  * by a class C if any instance variable declared in C is initialized with an
  * expression that is not a constant expression.
  * A superclass of C cannot declare such an initializer either, because it must
- * necessarily declare constant constructor as well (unless it is Object, which declares
- * no instance variables)
+ * necessarily declare constant constructor as well (unless it is Object, which
+ * declares no instance variables)
  * @description Checks that compile error is produced if class declares a
  * constant constructor and its superclass has instance variable initialized
  * by non-constant expression
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 class A {
@@ -26,6 +25,9 @@ class B {
 class C extends B {
   final y = 1;
   const C();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

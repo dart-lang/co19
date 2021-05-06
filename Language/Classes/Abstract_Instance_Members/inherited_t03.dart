@@ -11,12 +11,14 @@
  *    Object.
  * @description Checks that it is a compile error if an abstract getter is
  * declared in a concrete class.
- * @compile-error
  * @author kaigorodov
  */
 
 class A {
   int get foo;
+//^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

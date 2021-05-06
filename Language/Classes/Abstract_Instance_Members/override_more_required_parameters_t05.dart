@@ -11,7 +11,6 @@
  * @description Checks that a compile error is produced when an abstract
  * method overrides a non-abstract instance method with the same name and
  * greater number of required parameters. Test type aliases
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -23,6 +22,9 @@ typedef AAlias = A;
 
 abstract class C extends AAlias {
   f(var x, var y);
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 typedef CAlias = C;
 

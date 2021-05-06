@@ -11,7 +11,6 @@
  * @description Checks that compile-time error is produced if actual parameters
  * passed to the constructor make the constant initializer invalid. Note: this
  * mechanism is described in Classes.Constructors.Constant_Constructors.
- * @compile-error
  * @author iefremov
  */
 
@@ -23,4 +22,7 @@ class A {
 main() {
   DateTime d = new DateTime.now();
   var a = const A(d.millisecond);
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

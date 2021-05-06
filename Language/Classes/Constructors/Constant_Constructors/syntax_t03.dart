@@ -8,16 +8,21 @@
  * constantConstructorSignature:
  *   const qualified formalParameterList
  * ;
- * @description Checks that it is a compile-time error if the constructor
- * formal parameters are missing.
- * @compile-error
+ * @description Checks that it is a compile-time error if the constructor formal
+ * parameters are missing.
  * @author iefremov
  */
 
 class A {
   const A;
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   const A();
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

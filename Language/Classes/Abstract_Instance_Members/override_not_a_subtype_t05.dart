@@ -11,7 +11,6 @@
  * @description Checks that a compile error is produced when the return type of
  * an abstract method m1 is not assignable to the return type of non-abstract m2
  * (parameters of both methods being completely identical). Test type aliases
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -23,6 +22,9 @@ typedef AAlias = A;
 
 abstract class B extends AAlias {
   String foo(var x);
+//       ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 typedef BAlias = B;
 

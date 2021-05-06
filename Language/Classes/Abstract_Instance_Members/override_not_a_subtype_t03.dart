@@ -11,7 +11,6 @@
  * @description Checks that a compile error is produced when the type of an
  * abstract m1 is not a subtype of the non-abstract m2's type because their
  * respective optional positional parameter types are not mutually assignable.
- * @compile-error
  * @author rodionov
  */
 
@@ -21,11 +20,13 @@ class A {
 
 abstract class B extends A {
   foo([String? x]);
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class C extends B {
-  foo([String? x]) {
-  }
+  foo([String? x]) {}
 }
 
 main() {

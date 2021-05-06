@@ -11,7 +11,6 @@
  * @description Checks that a compile error is produced when the overriding
  * instance method has almost the same set of named parameters as the abstract
  * method being overriden, except for one that has a different name.
- * @compile-error
  * @author rodionov
  */
 
@@ -21,6 +20,9 @@ abstract class A {
 
 class C extends A {
   f({var x, var yy, var z}) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

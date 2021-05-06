@@ -11,12 +11,14 @@
  *    Object.
  * @description Checks that it is a compile error if an abstract setter is
  * declared in a concrete class.
- * @compile-error
  * @author kaigorodov
  */
 
 class A {
   set foo(int v);
+//^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

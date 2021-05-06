@@ -11,7 +11,6 @@
  * @description Checks that a compile error is produced when the overriding
  * non-abstract instance method has fewer named parameters than the abstract
  * method being overridden.
- * @compile-error
  * @author rodionov
  */
 
@@ -21,6 +20,9 @@ abstract class A {
 
 class C extends A {
   f({var x, var z}) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

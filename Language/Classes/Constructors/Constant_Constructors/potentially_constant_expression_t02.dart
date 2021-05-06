@@ -15,7 +15,6 @@
  * by their immediately enclosing superexpression.
  * @description Checks that it is a compile-time error when a constant
  * constructor's initializer list contains a function call.
- * @compile-error
  * @author iefremov
  */
 
@@ -24,8 +23,13 @@ f() {}
 class A {
   final x;
   const A() : x = f();
+//                ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   const A();
+//      ^
+// [analyzer] unspecified
 }

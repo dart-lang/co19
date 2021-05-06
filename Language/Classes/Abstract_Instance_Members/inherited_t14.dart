@@ -11,7 +11,6 @@
  *    Object.
  * @description Checks that it is a compile error if an abstract method is
  * inherited in a concrete class. Test type aliases
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -21,6 +20,9 @@ abstract class A {
 typedef AAlias = A;
 
 class C extends AAlias {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

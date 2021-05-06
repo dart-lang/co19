@@ -11,7 +11,6 @@
  * @description Checks that compile-time error is produced if actual parameters
  * passed to the constructor make the constant initializer invalid. Note: this
  * mechanism is described in Classes.Constructors.Constant_Constructors.
- * @compile-error
  * @author iefremov
  */
 
@@ -29,4 +28,7 @@ class IntPair {
 
 main() {
   var a = const A(const IntPair(1, 2)); // parameter does not evaluate to int/bool/String, despite implementing the plus operator
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

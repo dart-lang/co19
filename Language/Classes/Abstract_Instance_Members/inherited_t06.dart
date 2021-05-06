@@ -11,7 +11,6 @@
  *    Object.
  * @description Checks that it is a compile error if an abstract setter is
  * inherited in a concrete class.
- * @compile-error
  * @author kaigorodov
  */
 
@@ -20,6 +19,9 @@ abstract class A {
 }
 
 class C extends A {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

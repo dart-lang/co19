@@ -10,13 +10,17 @@
  * ;
  * @description Checks that it is a compile-time error if the semicolon at the
  * end of constructor declaration is missing.
- * @compile-error
  * @author iefremov
  */
 
 class A {
   const A()
-}
+//^^^^^
+// [cfe] unspecified
+  }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   const A();

@@ -11,7 +11,6 @@
  * @description Checks that a compile error is produced if m1 has fewer
  * optional positional parameters than abstract method m2 (2 vs 3) and neither
  * have any required parameters.
- * @compile-error
  * @author iefremov
  */
 
@@ -21,6 +20,9 @@ abstract class A {
 
 class C extends A {
   f([var x, var y]) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

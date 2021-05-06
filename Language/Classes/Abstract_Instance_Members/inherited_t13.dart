@@ -11,13 +11,15 @@
  *    Object.
  * @description Checks that it is a compile error if an abstract method is
  * declared in a concrete class. Test type aliases
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A {
   foo([x]);
+//^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 typedef AAlias = A;
 

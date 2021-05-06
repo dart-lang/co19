@@ -11,7 +11,6 @@
  * @description Checks that it is a compile error if an instance method m1
  * overrides an abstract instance member m2 and m1 has fewer positional
  * parameters than m2.
- * @compile-error
  * @author iefremov
  */
 
@@ -21,6 +20,9 @@ abstract class A {
 
 class C extends A {
   foo(var a, [x]) {}
+//^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -12,7 +12,6 @@
  * method overrides another abstract method with the same name and greater
  * number of required parameters even if the class declaring the second method
  * is not a direct superclass of the other.
- * @compile-error
  * @author rodionov
  */
 
@@ -24,6 +23,9 @@ abstract class Foo extends A {}
 
 abstract class C extends Foo {
   f(var x, var y);
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class D extends C {
@@ -32,6 +34,9 @@ class D extends C {
 
 main() {
   new D().f(2);
+//         ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   new D().f(2, 2);
 }

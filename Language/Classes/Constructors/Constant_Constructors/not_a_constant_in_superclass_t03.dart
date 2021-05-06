@@ -13,7 +13,6 @@
  * @description Checks that compile error is produced if class declares a
  * constant constructor and its superclass has instance variable initialized
  * by non-constant expression. Test type alias
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -28,6 +27,9 @@ typedef BAlias = B;
 class C extends BAlias {
   final y = 1;
   const C();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

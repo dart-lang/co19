@@ -8,10 +8,9 @@
  * to methods apply to abstract methods.
  * It is a compile error if an instance method m1 overrides an instance member
  * m2 and m1 has a greater number of required parameters than m2.
- * @description Checks that a compile error is produced when an abstract
- * method overrides a non-abstract instance method with the same name and
- * greater number of required parameters.
- * @compile-error
+ * @description Checks that a compile error is produced when an abstract method
+ * overrides a non-abstract instance method with the same name and greater
+ * number of required parameters.
  * @author rodionov
  */
 
@@ -21,6 +20,9 @@ class A {
 
 abstract class C extends A {
   f(var x, var y);
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class D extends C {

@@ -10,7 +10,6 @@
  * compile-time error occurs.
  * @description Checks that compile error is produced if implicit
  * superinitializer is a call to non const constructor. Test type alias
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -21,6 +20,9 @@ typedef CAlias = C;
 
 class A extends CAlias {
   const A();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
