@@ -29,7 +29,7 @@ main() {
 
   C2 c21 = C2();
   C2 c22 = C2<A>();
-// [error line 32, column 0]
+//         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C2 c23 = C2<B>();
@@ -37,11 +37,11 @@ main() {
 
   C3 c31 = C3();
   C3 c32 = C3<A>();
-// [error line 40, column 0]
+//         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C3 c33 = C3<B>();
-// [error line 44, column 0]
+//         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C3 c34 = C3<C>();

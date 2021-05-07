@@ -100,7 +100,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.EXPECTED_TWO_MAP_TYPE_ARGUMENTS
   // [cfe] A set or map literal requires exactly one or two type arguments, respectively.
   var x9 = <String, int, int> {...map};
-// [error line 103, column 0]
+//         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   var x10 = <String, int, int> {...map2};

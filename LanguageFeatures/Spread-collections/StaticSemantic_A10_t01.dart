@@ -35,19 +35,19 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
   // [cfe] Unexpected type 'int' of a spread.  Expected 'dynamic' or an Iterable.
   List l4 = [...x4];
-// [error line 38, column 0]
+//              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   List l5 = [...x5];
-// [error line 42, column 0]
+//              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   List l6 = [...x6];
-// [error line 46, column 0]
+//              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   List l7 = [...x7];
-// [error line 50, column 0]
+//              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -22,14 +22,14 @@ class A {}
 class C {
   static void s() {
     typedef Alias1 = A;
-// [error line 25, column 0]
+//  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
   void m() {
     typedef Alias2 = A;
-// [error line 32, column 0]
+//  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -37,14 +37,14 @@ class C {
 
 test() {
   @meta typedef Alias3 = A;
-// [error line 40, column 0]
+//      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
   @meta typedef Alias4 = A;
-// [error line 47, column 0]
+//      ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

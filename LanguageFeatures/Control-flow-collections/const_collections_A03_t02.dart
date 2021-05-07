@@ -72,7 +72,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
   // [cfe] A value of type 'int' can't be assigned to a variable of type 'bool'.
   const map5 = {if (0.0) 1: "x" };
-// [error line 75, column 0]
+//                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -11,7 +11,7 @@
  */
 
 const a1 = a10;
-// [error line 14, column 0]
+//    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 const a2 = a1;

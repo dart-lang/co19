@@ -20,7 +20,7 @@
 class C<T> {
   test(T t) {
     var v = {...t};
-// [error line 23, column 0]
+//          ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }

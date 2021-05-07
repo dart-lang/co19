@@ -27,27 +27,27 @@ const n = null;
 
 main() {
   const List res1  = const [...l];
-// [error line 30, column 0]
+//                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
   const List res2  = const [...s];
-// [error line 34, column 0]
+//                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
   const List res3  = const [...m1];
-// [error line 38, column 0]
+//                             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const List res4  = const [...m2];
-// [error line 42, column 0]
+//                             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const List res5  = const [...i1];
-// [error line 46, column 0]
+//                             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const List res6  = const [...i2];
-// [error line 50, column 0]
+//                             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const List res7  = const [...n];

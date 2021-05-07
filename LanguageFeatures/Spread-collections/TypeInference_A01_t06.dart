@@ -44,7 +44,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.SET_ELEMENT_TYPE_NOT_ASSIGNABLE
   // [cfe] Can't assign spread elements of type 'int' to collection elements of type 'A'.
   Set set5 = <A>{...?str_list};
-// [error line 47, column 0]
+//                   ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

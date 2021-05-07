@@ -16,19 +16,19 @@
 
 main() {
   const Map res1 = const {...?{1, 3}};
-// [error line 19, column 0]
+//                 ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map res2 = const {...?[]};
-// [error line 23, column 0]
+//                 ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map res3 = const {...?44};
-// [error line 27, column 0]
+//                            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map res4 = const {...?<int>{}};
-// [error line 31, column 0]
+//                 ^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -45,7 +45,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
   // [cfe] Can't assign spread elements of type 'int' to collection elements of type 'A'.
   List list5 = <A>[...?str_list];
-// [error line 48, column 0]
+//                     ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

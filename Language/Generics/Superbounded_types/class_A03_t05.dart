@@ -17,15 +17,15 @@ class A<X extends A<X>> {
   A() {}
   factory A.foo1() = C;
   factory A.foo2() = C<A>;
-// [error line 20, column 0]
+//                   ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory A.foo3() = C<A<A>>;
-// [error line 24, column 0]
+//                   ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory A.foo4() = C<A<A<A>>>;
-// [error line 28, column 0]
+//                   ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

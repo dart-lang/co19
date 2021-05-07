@@ -17,47 +17,47 @@
 
 main() {
   double d1 = 0x40000000000001;
-// [error line 20, column 0]
+//            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 // [web] unspecified
   double d2 = 0x40000000000002;
-// [error line 25, column 0]
+//            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 // [web] unspecified
   double d3 = 0x40000000000003;
-// [error line 30, column 0]
+//            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 // [web] unspecified
   double d4 = 0x40000000000005;
-// [error line 35, column 0]
+//            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 // [web] unspecified
   double d5 = 0x40000000000006;
-// [error line 40, column 0]
+//            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 // [web] unspecified
   double d6 = 0x40000000000007;
-// [error line 45, column 0]
+//            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 // [web] unspecified
   double d7 = 0x40000000000009;
-// [error line 50, column 0]
+//            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 // [web] unspecified
   double d8 = 0x4000000000000A;
-// [error line 55, column 0]
+//            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 // [web] unspecified
   double d9 = 0x4000000000000B;
-// [error line 60, column 0]
+//            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 // [web] unspecified

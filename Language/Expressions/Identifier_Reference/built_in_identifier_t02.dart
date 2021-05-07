@@ -60,7 +60,7 @@ class A {
     // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
     // [cfe] The getter 'part' isn't defined for the class 'A'.
     --set;
-// [error line 63, column 0]
+//    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     true && static;
@@ -68,7 +68,7 @@ class A {
     // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
     // [cfe] The getter 'static' isn't defined for the class 'A'.
     ++typedef;
-// [error line 71, column 0]
+//    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }

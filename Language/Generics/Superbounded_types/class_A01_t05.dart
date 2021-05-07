@@ -22,7 +22,7 @@ main() {
   //               ^^^
   // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   bool b2 = 1 is A<A<int>>;
-// [error line 25, column 0]
+//                 ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

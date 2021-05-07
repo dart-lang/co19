@@ -36,19 +36,19 @@ main() {
   // [cfe] Unexpected type 'int' of a spread.  Expected 'dynamic' or an Iterable.
 
   Set l5 = <dynamic>{...?number};
-// [error line 39, column 0]
+//                       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Set l6 = <dynamic>{...?str};
-// [error line 43, column 0]
+//                       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Set l7 = <dynamic>{...?map};
-// [error line 47, column 0]
+//                       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Set l8 = <dynamic>{...?list[0]};
-// [error line 51, column 0]
+//                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -35,11 +35,11 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
   // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
   Set s5 = {1, 2, ...?i1};
-// [error line 38, column 0]
+//                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Set s6 = {14, ...?str1, 28};
-// [error line 42, column 0]
+//                  ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

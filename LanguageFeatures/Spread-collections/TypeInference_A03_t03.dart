@@ -46,7 +46,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.MAP_VALUE_TYPE_NOT_ASSIGNABLE
   // [cfe] Can't assign spread entry values of type 'int' to map entry values of type 'A2'.
   Map map5 = <A1, String>{...?str_map};
-// [error line 49, column 0]
+//                            ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

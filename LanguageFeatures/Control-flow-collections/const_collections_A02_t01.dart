@@ -33,11 +33,11 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_MAP_VALUE
   // [cfe] Not a constant expression.
   const Map<int, String> map3 = {if (1 > 0) x: "x"};
-// [error line 36, column 0]
+//                                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map<int, String> map4 = {if (1 > 0) 1: y};
-// [error line 40, column 0]
+//                                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
   var map5 = const {if (1 > 0) x: "x"};
@@ -57,11 +57,11 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_MAP_VALUE
   // [cfe] Not a constant expression.
   const map9 = {if (1 > 0) x: "x" };
-// [error line 60, column 0]
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
   const map10 = {if (1 > 0) -1: y };
-// [error line 64, column 0]
+//                              ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

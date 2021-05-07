@@ -17,11 +17,11 @@ class A<T extends A<T>> {}
 
 main() {
   var b1 = null as A<int>?;
-// [error line 20, column 0]
+//                   ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   var b2 = null as A<A<int>>?;
-// [error line 24, column 0]
+//                   ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

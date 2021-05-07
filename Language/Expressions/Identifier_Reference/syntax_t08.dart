@@ -53,7 +53,7 @@ main() {
   // [analyzer] SYNTACTIC_ERROR.ILLEGAL_CHARACTER
   // [cfe] The non-ASCII character 'ç' (U+00E7) can't be used in identifiers, only in strings and comments.
   ç;
-// [error line 56, column 0]
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

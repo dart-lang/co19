@@ -28,7 +28,7 @@ main() {
 // [cfe] Unexpected type 'Map<dynamic, dynamic>' of a spread.  Expected 'dynamic' or an Iterable.
 
   var v3 = {"", if (i < 0) ...?x else ...?y,};
-// [error line 31, column 0]
+//                                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

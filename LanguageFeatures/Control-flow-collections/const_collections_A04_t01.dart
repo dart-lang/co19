@@ -21,7 +21,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
   // [cfe] Not a constant expression.
   const List<int> list2 = [if (!t) 1 else x ];
-// [error line 24, column 0]
+//                                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
   var list3 = const [if (t) x else 1, ];
@@ -42,7 +42,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
   // [cfe] Not a constant expression.
   const Set<int> set2 = {if (!t) 1 else x, -1 };
-// [error line 45, column 0]
+//                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
   var set3 = const {if (t) x else 1, -1, };
@@ -54,7 +54,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
   // [cfe] Not a constant expression.
   const set5 = {if (!t) 1 else x, -1 };
-// [error line 57, column 0]
+//                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -63,7 +63,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_MAP_KEY
   // [cfe] Not a constant expression.
   const Map<int, String> map2 = {if (t) x: "x" else 1: "x"};
-// [error line 66, column 0]
+//                                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
   var map3 = const {if (!t) 1: "x" else x: "x"};
@@ -75,7 +75,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_MAP_KEY
   // [cfe] Not a constant expression.
   const map5 = {if (!t) 1: "x" else x: "x"};
-// [error line 78, column 0]
+//                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

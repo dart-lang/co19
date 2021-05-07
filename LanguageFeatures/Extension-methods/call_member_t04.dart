@@ -55,11 +55,11 @@ main() {
 // [cfe] 'call' isn't a function or method and can't be invoked.
   A a = new A();
   a(2);
-// [error line 58, column 0]
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
   a(2, "3");
-// [error line 62, column 0]
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

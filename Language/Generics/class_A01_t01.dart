@@ -35,7 +35,7 @@ main() {
 // [analyzer] COMPILE_TIME_ERROR.WRONG_NUMBER_OF_TYPE_ARGUMENTS
 // [cfe] Expected 1 type arguments.
   C<int, String, long>?        c9;
-// [error line 38, column 0]
+//^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C<int, int, int, int, int>? c10;

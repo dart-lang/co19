@@ -52,11 +52,11 @@ void foo<X extends num, Y extends double>() {
   // [cfe] The argument type 'int' can't be assigned to the parameter type 'Y'.
 
   bar2<X>(42);
-// [error line 55, column 0]
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
   bar2<X>(0x42);
-// [error line 59, column 0]
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
   bar2<Y>(42);

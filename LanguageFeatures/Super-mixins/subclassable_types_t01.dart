@@ -23,7 +23,7 @@ class B {}
 class C {}
 
 mixin M1 on B, C implements void {}
-// [error line 26, column 0]
+//                          ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 mixin M2 on B, C implements dynamic {}
@@ -32,7 +32,7 @@ mixin M2 on B, C implements dynamic {}
 //                          ^^^^^^^
 // [analyzer] COMPILE_TIME_ERROR.IMPLEMENTS_NON_CLASS
 mixin M3 on B, C implements FutureOr<List> {}
-// [error line 35, column 0]
+//                          ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 mixin M4 on B, C implements F {}

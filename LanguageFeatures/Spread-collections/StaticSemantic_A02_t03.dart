@@ -34,11 +34,11 @@ main() {
   //                      ^
   // [cfe] Unexpected type 'Map<dynamic, dynamic>?' of a spread.  Expected 'dynamic' or an Iterable.
   List l5 = [1, 2, ...?i1];
-// [error line 37, column 0]
+//                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   List l6 = [14, ...?str1, 28];
-// [error line 41, column 0]
+//                   ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -22,11 +22,11 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
   // [cfe] The value 'null' can't be assigned to a variable of type 'num' because 'num' is not nullable.
   new Point(null, 0) * 1;
-// [error line 25, column 0]
+//    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   new Point(0, null) * 1;
-// [error line 29, column 0]
+//    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

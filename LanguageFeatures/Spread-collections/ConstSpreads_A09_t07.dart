@@ -15,15 +15,15 @@
 
 main() {
   const List res1 = const [...{1: 2, 3: 4}];
-// [error line 18, column 0]
+//                            ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const List res2 = const [...44];
-// [error line 22, column 0]
+//                            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const List res3 = const [...null];
-// [error line 26, column 0]
+//                            ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

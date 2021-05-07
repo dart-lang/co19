@@ -18,7 +18,7 @@ typedef F = void Function(int);
 abstract class I {}
 
 mixin M1 on void implements I {}
-// [error line 21, column 0]
+//          ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 mixin M2 on dynamic implements I {}
@@ -27,7 +27,7 @@ mixin M2 on dynamic implements I {}
 //          ^^^^^^^
 // [analyzer] COMPILE_TIME_ERROR.MIXIN_SUPER_CLASS_CONSTRAINT_NON_INTERFACE
 mixin M3 on FutureOr<num> implements I {}
-// [error line 30, column 0]
+//          ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 mixin M4 on F implements I {}

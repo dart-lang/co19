@@ -23,7 +23,7 @@ main() {
   FutureOr x7 = 1;
 
   Set s1 = {...x1};
-// [error line 26, column 0]
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Set s2 = {...x2};
@@ -31,23 +31,23 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
   // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
   Set s3 = {...x3};
-// [error line 34, column 0]
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Set s4 = {...x4};
-// [error line 38, column 0]
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Set s5 = {...x5};
-// [error line 42, column 0]
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Set s6 = {...x6};
-// [error line 46, column 0]
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Set s7 = {...x7};
-// [error line 50, column 0]
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

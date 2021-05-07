@@ -12,16 +12,16 @@
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 class C<T> {}
 
-typedef CAlias1<T> = C<CAlias1>;
-// [error line 16, column 0]
+  typedef CAlias1<T> = C<CAlias1>;
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-typedef CAlias2<T extends CAlias2> = C<T>;
-// [error line 20, column 0]
+  typedef CAlias2<T extends CAlias2> = C<T>;
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-typedef CAlias3 = CAlias3;
-// [error line 24, column 0]
+  typedef CAlias3 = CAlias3;
+//^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

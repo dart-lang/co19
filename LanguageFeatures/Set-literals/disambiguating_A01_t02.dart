@@ -20,19 +20,19 @@ Set set1 = {1, 2};
 Set set2 = {};
 
 var v1 = <int, String> {1};
-// [error line 23, column 0]
+//                      ^
 // [analyzer] unspecified
 // [cfe] unspecified
 var v2 = const <String, int> {1, 2};
-// [error line 27, column 0]
+//                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
 var v3 = <String, int> {'1', '2'};
-// [error line 31, column 0]
+//                      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 var v4 = const <int?, String?> {'s', null};
-// [error line 35, column 0]
+//                              ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 var v5 = <String, int> {...set1};
@@ -40,25 +40,25 @@ var v5 = <String, int> {...set1};
 // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
 // [cfe] Unexpected type 'Set<dynamic>' of a map spread entry.  Expected 'dynamic' or a Map.
 var v6 = const <int, String> {...set2};
-// [error line 43, column 0]
+//                               ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 main() {
   var x1 = <int, String> {1};
-// [error line 49, column 0]
+//                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
   var x2 = const <String, int> {1, 2};
-// [error line 53, column 0]
+//                              ^
 // [analyzer] unspecified
 // [cfe] unspecified
   var x3 = <String, int> {'1', '2'};
-// [error line 57, column 0]
+//                        ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   var x4 = const <int?, String?> {'s', null};
-// [error line 61, column 0]
+//                                ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   var x5 = <String, int> {...set1};
@@ -66,7 +66,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
   // [cfe] Unexpected type 'Set<dynamic>' of a map spread entry.  Expected 'dynamic' or a Map.
   var x6 = const <int, String> {...set2};
-// [error line 69, column 0]
+//                                 ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

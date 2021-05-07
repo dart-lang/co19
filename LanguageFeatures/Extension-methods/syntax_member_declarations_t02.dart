@@ -23,11 +23,11 @@
 
 extension ExtendedList<T> on List<T> {
   int instanceVar;
-// [error line 26, column 0]
+//    ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   String _privateInstanceVar;
-// [error line 30, column 0]
+//       ^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   ExtendedList() {}

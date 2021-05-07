@@ -15,8 +15,8 @@ import 'dart:mirrors';
 //     ^
 // [web] Not found: 'dart:mirrors'
 
-@true
-// [error line 19, column 0]
+  @true
+//^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 class A {}

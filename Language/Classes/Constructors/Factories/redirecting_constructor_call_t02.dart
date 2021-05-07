@@ -18,15 +18,15 @@ var variable;
 
 class F {
   factory F() = C;
-// [error line 21, column 0]
+//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory F.foo() = function;
-// [error line 25, column 0]
+//                  ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory F.bar() = variable;
-// [error line 29, column 0]
+//                  ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory F.baz() = D.baz;

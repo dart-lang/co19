@@ -37,7 +37,7 @@ main() {
   AAlias<A<dynamic>> a4;
   AAlias<A<Object?>> a5;
   AAlias<A<int>>     a6;
-// [error line 40, column 0]
+//       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   AAlias<int>        a7;
@@ -47,7 +47,7 @@ main() {
   // [cfe] Type argument 'int' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'AAlias'.
   AAlias<dynamic>    a8;
   AAlias<A<Null>>    a9;
-// [error line 50, column 0]
+//       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

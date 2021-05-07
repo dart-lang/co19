@@ -18,15 +18,15 @@ main() {
   const x4 = null;
 
   const List l1 = [...x1];
-// [error line 21, column 0]
+//                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const List l2 = [...x2];
-// [error line 25, column 0]
+//                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const List l3 = [...x3];
-// [error line 29, column 0]
+//                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const List l4 = [...x4];

@@ -20,7 +20,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
   // [cfe] Not a constant expression.
   const List<int> list2 = [if (1 > 0) x, 1 ];
-// [error line 23, column 0]
+//                                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
   var list3 = const [if (1 > 0) x, 1, ];
@@ -32,7 +32,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
   // [cfe] Not a constant expression.
   const list5 = [if (1 > 0) x, 1 ];
-// [error line 35, column 0]
+//                          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -41,7 +41,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
   // [cfe] Not a constant expression.
   const Set<int> set2 = {if (1 > 0) x, -1 };
-// [error line 44, column 0]
+//                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
   var set3 = const {if (1 > 0) x, -1, };
@@ -53,7 +53,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
   // [cfe] Not a constant expression.
   const set5 = {if (1 > 0) x, -1 };
-// [error line 56, column 0]
+//                         ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

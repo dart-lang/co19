@@ -20,10 +20,10 @@ class A {
     A(int x);
 }
 
-@A(10)
-// [error line 24, column 1, length 6]
+  @A(10)
+//^^^^^^
 // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_ANNOTATION_CONSTRUCTOR
-// [error line 24, column 2]
+// ^
 // [cfe] Cannot invoke a non-'const' constructor where a const expression is expected.
 class B {}
 

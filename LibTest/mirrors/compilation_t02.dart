@@ -17,16 +17,16 @@ import 'dart:mirrors';
 void metadata() {
 }
 
-@metadata()
-// [error line 21, column 1, length 11]
+  @metadata()
+//^^^^^^^^^^^
 // [analyzer] COMPILE_TIME_ERROR.INVALID_ANNOTATION
-// [error line 21, column 2]
+// ^
 // [cfe] Method not found: 'metadata'.
 class A {}
 
 main() {
   // have to retrieve metadata to get the compile error
- reflectClass(A).metadata.map( (e) => e.reflectee ).join(' ');
-// [error line 30, column 2]
+  reflectClass(A).metadata.map( (e) => e.reflectee ).join(' ');
+//^
 // [web] Method not found: 'reflectClass'.
 }

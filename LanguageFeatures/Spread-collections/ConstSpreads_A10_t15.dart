@@ -31,27 +31,27 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
   // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
   const Map res2 = const {...?l2};
-// [error line 34, column 0]
+//                 ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map res3 = const {...?s1};
-// [error line 38, column 0]
+//                 ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map res4 = const {...?s2};
-// [error line 42, column 0]
+//                 ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map res5 = const {...?m};
-// [error line 46, column 0]
+//                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map res6 = const {...?i1};
-// [error line 50, column 0]
+//                            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map res7 = const {...?i2};
-// [error line 54, column 0]
+//                            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

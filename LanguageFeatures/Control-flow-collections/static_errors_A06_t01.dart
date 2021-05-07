@@ -14,11 +14,11 @@
 
 main() {
   [for (int i in ["not", "int"]) i];
-// [error line 17, column 0]
+//                ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   [for (int i in [3.14, 1.0]) i];
-// [error line 21, column 0]
+//                ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

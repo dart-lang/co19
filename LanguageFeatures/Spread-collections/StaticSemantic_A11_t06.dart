@@ -18,19 +18,19 @@ main() {
   const x4 = "check";
 
   const Map m1 = {...?x1};
-// [error line 21, column 0]
+//               ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map m2 = {...?x2};
-// [error line 25, column 0]
+//               ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map m3 = {...?x3};
-// [error line 29, column 0]
+//                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map m4 = {...?x4};
-// [error line 33, column 0]
+//                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

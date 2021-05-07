@@ -23,7 +23,7 @@ main() {
 // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
 // [cfe] Unexpected type 'List<dynamic>' of a map spread entry.  Expected 'dynamic' or a Map.
   var x2 = <int, int>{...?s, ...?m};
-// [error line 26, column 0]
+//                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

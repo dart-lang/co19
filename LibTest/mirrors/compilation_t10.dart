@@ -20,10 +20,10 @@ class A {
     const A(int x);
 }
 
-@A
-// [error line 24, column 1, length 2]
+  @A
+//^^
 // [analyzer] COMPILE_TIME_ERROR.NO_ANNOTATION_CONSTRUCTOR_ARGUMENTS
-// [error line 24, column 2]
+// ^
 // [cfe] Error: This can't be used as an annotation; an annotation should be a reference to a compile-time constant variable, or a call to a constant constructor.
 class B {}
 

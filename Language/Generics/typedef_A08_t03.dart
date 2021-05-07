@@ -37,7 +37,7 @@ main() {
   AAlias<A<dynamic>> a4;
   AAlias<A<Object?>> a5;
   AAlias<A<int>>     a6;
-// [error line 40, column 0]
+//       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   AAlias<int>        a7;

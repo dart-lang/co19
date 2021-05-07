@@ -21,15 +21,15 @@ class B<T1, T2> {}
 class C<T1, T2, T3> {}
 
 typedef G1<X extends X> = A<X>;
-// [error line 24, column 0]
+//         ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 typedef G2<X extends Y, Y extends X> = B<X, Y>;
-// [error line 28, column 0]
+//         ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 typedef G3<X extends Y, Y extends Z, Z extends X> = C<X, Y, Z>;
-// [error line 32, column 0]
+//         ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

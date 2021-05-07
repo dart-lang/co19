@@ -25,7 +25,7 @@ main() {
   //                         ^^^^^
   // [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
   const res2 = {1, 14, ...?list1, 99, ...list2};
-// [error line 28, column 0]
+//                                       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res3 = {...list2, ...list1};
@@ -34,7 +34,7 @@ main() {
   //                         ^^^^^
   // [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
   const res4 = {...?list3};
-// [error line 37, column 0]
+//                  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res5 = {...list3};
@@ -43,19 +43,19 @@ main() {
   //               ^^^^^
   // [analyzer] COMPILE_TIME_ERROR.EQUAL_ELEMENTS_IN_CONST_SET
   const res6 = {2, 4, ...?list1, 14};
-// [error line 46, column 0]
+//                        ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res7 = {...?list2, 12, 33};
-// [error line 50, column 0]
+//                         ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res8 = {1, 10, ...list1, 6, 9, 2};
-// [error line 54, column 0]
+//                                  ^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res9 = {1, ...list1, ...list2, ...list3, ...?list4, 18};
-// [error line 58, column 0]
+//                              ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

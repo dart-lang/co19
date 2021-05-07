@@ -47,7 +47,7 @@ mixin M3 on B, C implements I, J {
 
 mixin M4 on B, C implements I, J {
   int M4();
-// [error line 50, column 0]
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

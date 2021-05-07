@@ -23,19 +23,19 @@ main() {
   const d4 = null;
 
   const c1 = d1 >>> d2;
-// [error line 26, column 0]
+//           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const c2 = d2 >>> d1;
-// [error line 30, column 0]
+//           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const c3 = d3 >>> 11;
-// [error line 34, column 0]
+//           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const c4 = 1 >>> d3;
-// [error line 38, column 0]
+//           ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const c5 = d4 >>> 2;
@@ -44,7 +44,7 @@ main() {
   //            ^
   // [cfe] Constant evaluation error:
   const c6 = 24 >>> d4;
-// [error line 47, column 0]
+//           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

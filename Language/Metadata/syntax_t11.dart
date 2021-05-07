@@ -14,13 +14,13 @@
 import 'syntax_lib1.dart';
 
 @Y<String>()
-// [error line 17, column 0]
+// ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 class Test1 {}
 
 @Z<String>(42)
-// [error line 23, column 0]
+// ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 class Test2 {}

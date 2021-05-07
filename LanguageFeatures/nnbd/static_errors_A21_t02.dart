@@ -21,11 +21,11 @@ class C {
   // [analyzer] SYNTACTIC_ERROR.EXTRANEOUS_MODIFIER
   // [cfe] Can't have modifier 'late' here.
   void m2(A x, [covariant late A y]) {}
-// [error line 24, column 0]
+//                        ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   void m3(A x, {covariant late A y}) {}
-// [error line 28, column 0]
+//                        ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

@@ -19,11 +19,11 @@
 
 void test<T>(T t) {
   var s1 = {...t };
-// [error line 22, column 0]
+//         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   var s2 = {...?t};
-// [error line 26, column 0]
+//         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

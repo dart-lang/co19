@@ -53,7 +53,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
   // [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
   <int>["123", list1];
-// [error line 56, column 0]
+//      ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   <int>[...list1, ...list2, ...list3];

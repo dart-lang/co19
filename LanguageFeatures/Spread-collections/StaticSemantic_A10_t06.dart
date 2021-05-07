@@ -17,15 +17,15 @@ main() {
   const x3 = "check";
 
   const List l1 = [...?x1];
-// [error line 20, column 0]
+//                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const List l2 = [...?x2];
-// [error line 24, column 0]
+//                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const List l3 = [...?x3];
-// [error line 28, column 0]
+//                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

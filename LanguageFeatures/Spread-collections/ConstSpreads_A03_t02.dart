@@ -19,56 +19,55 @@ int i = 7;
 
 main() {
   const res1 =  {...list1};
-// [error line 22, column 0]
+//                  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res2 =  {...?list1};
-// [error line 26, column 0]
+//                   ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res3 =  {...list2};
-// [error line 30, column 0]
+//                  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res4 =  {...?list2};
-// [error line 34, column 0]
+//                   ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res5 =  {...list3};
-// [error line 38, column 0]
+//                  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res6 =  {...?list3};
-// [error line 42, column 0]
+//                   ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res7 =  {...?list4};
-// [error line 46, column 0]
+//                   ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res8 =  {1, 2, ...list1, 6};
-// [error line 50, column 0]
+//                        ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res9 =  {1, ...list1, ...list2, ...list3, ...?list4, 18};
-// [error line 54, column 0]
+//                     ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res10 = {...list1, ...[2]};
-// [error line 58, column 0]
+//                  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res11 = {1, ...list1, ...[1, 4]};
-// [error line 62, column 0]
+//                     ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res12 = {...[2, 3, 2], i};
-// [error line 66, column 0]
+//                  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res13 = {1, ...list1, 1};
-// [error line 70, column 0]
+//                     ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
 }

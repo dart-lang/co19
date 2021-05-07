@@ -20,11 +20,11 @@
 
 class C {
   extension MyFancyList<T> on List<T> {
-// [error line 23, column 0]
+//^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     int get doubleLength => this.length * 2;
-// [error line 27, column 0]
+//      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -32,11 +32,11 @@ class C {
 
 main() {
   extension MyFancyList<T> on List<T> {
-// [error line 35, column 0]
+//^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     int get doubleLength => this.length * 2;
-// [error line 39, column 0]
+//      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }

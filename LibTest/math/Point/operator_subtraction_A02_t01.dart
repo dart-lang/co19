@@ -20,11 +20,11 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
   // [cfe] The value 'null' can't be assigned to the parameter type 'int' because 'int' is not nullable.
   new Point(0, null) - new Point(1, 1);
-// [error line 23, column 0]
+//    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   new Point(null, 0) - new Point(1, 1);
-// [error line 27, column 0]
+//    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

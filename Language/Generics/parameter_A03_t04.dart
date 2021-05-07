@@ -21,11 +21,11 @@ typedef void Alias1<X extends X>(X);
 // [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
 // [cfe] Type 'X' can't use itself as a bound.
 typedef void Alias2<X extends Y, Y extends X>(X, Y);
-// [error line 24, column 0]
+//                  ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 typedef void Alias3<X extends Y, Y extends Z, Z extends X>(X, Y, Z);
-// [error line 28, column 0]
+//                  ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

@@ -21,7 +21,7 @@ class MyClass {
 
 main() {
   const Map l1 = {...?(MyClass(12345) is MyClass ? {1: 1} : {2: 2})};
-// [error line 24, column 0]
+//                     ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map m2 = {...?(MyClass(12345) is MyClass ? {11: 124} : null)};
@@ -30,7 +30,7 @@ main() {
   //                   ^^^^^^^^^^^^^^
   // [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
   const Map m3 = {...?(MyClass(12345) is MyClass ? {null} : {9: -13})};
-// [error line 33, column 0]
+//                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

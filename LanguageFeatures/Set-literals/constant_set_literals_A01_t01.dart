@@ -32,11 +32,11 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
   // [cfe] Not a constant expression.
   const v3 = {1, 2, '3', new A()};
-// [error line 35, column 0]
+//                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const v4 = [const B(), const C(), const A(), x];
-// [error line 39, column 0]
+//                                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

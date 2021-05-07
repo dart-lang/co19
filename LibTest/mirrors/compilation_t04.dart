@@ -21,10 +21,10 @@ class A {
   }
 }
 
-@A.a()
-// [error line 25, column 1, length 6]
+  @A.a()
+//^^^^^^
 // [analyzer] COMPILE_TIME_ERROR.INVALID_ANNOTATION
-// ^
+//   ^
 // [cfe] Method not found: 'A.a'.
 class B {}
 

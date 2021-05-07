@@ -32,24 +32,24 @@ main() {
   //         ^
   // [cfe] Type argument 'int' doesn't conform to the bound 'C<T>' of the type variable 'T' on 'C'.
   A<C<C<int>>>? a6;
-// [error line 35, column 0]
+//    ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   A<C<C<C<C<C<C<int>>>>>>>? a7;
-// [error line 39, column 0]
+//    ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   C<C<int>>? c1;
-// [error line 44, column 0]
+//  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C<C<C<int>>>? c2;
-// [error line 48, column 0]
+//  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C<C<C<C<C<C<C<int>>>>>>>? c3;
-// [error line 52, column 0]
+//  ^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

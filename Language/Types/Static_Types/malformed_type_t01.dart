@@ -34,7 +34,7 @@ main() {
   // C<int,double,dynamic>
 
   C<int, double, UnknownType> x = new C();
-// [error line 37, column 0]
+//               ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   null is C<int, double, UnknownType>;
@@ -52,7 +52,7 @@ main() {
   //              ^
   // [cfe] Type argument 'num' doesn't conform to the bound 'int' of the type variable 'T' on 'BoundedInt'.
   C<Bounded<String>, C, C> x4 = new C();
-// [error line 55, column 0]
+//          ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C<C<UnknownType, int, int>, C, C> x5 = new C();

@@ -16,19 +16,19 @@ class A<T extends A<T>> {}
 
 main() {
   A a1 = new A<dynamic>();
-// [error line 19, column 0]
+//       ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   A a2 = new A<Object?>();
-// [error line 23, column 0]
+//       ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   A a3 = new A<void>();
-// [error line 27, column 0]
+//       ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   A a4 = new A<Null>();
-// [error line 31, column 0]
+//       ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   A a5 = new A<Never>();
@@ -49,7 +49,7 @@ main() {
   //            ^^^^^^^
   // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   A a9  = new A<A<Null>>();
-// [error line 52, column 0]
+//              ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   A a10 = new A<A<Never>>();

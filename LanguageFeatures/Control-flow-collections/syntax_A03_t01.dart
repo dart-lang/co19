@@ -19,7 +19,7 @@ main() {
   bool b = true;
   List<int> listInt = [
     if (b) {1;},
-// [error line 22, column 0]
+//         ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     if (!b) {1},

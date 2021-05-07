@@ -37,7 +37,7 @@ main() {
   //                   ^^^^^^^^^^^^^^
   // [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
   const Set s4 = {...?(MyClass(12345) is MyClass ? {null} : 1)};
-// [error line 40, column 0]
+//                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -19,11 +19,11 @@ main() {
   //     ^
   // [cfe] Type argument 'int' doesn't conform to the bound 'A<T>' of the type variable 'T' on 'A'.
   A<A<int>> a2;
-// [error line 22, column 0]
+//  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   A<A<A<int>>> a3;
-// [error line 26, column 0]
+//  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

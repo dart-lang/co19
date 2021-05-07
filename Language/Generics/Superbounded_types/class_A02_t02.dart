@@ -33,7 +33,7 @@ main() {
   //           ^^^^
   // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   const a4 = A<Null>();
-// [error line 36, column 0]
+//             ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const a5 = A<Never>();
@@ -54,7 +54,7 @@ main() {
   //           ^^^^^^^
   // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
   const a9 = A<A<Null>>();
-// [error line 57, column 0]
+//             ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const a0 = A<A<Never>>();

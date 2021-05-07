@@ -24,7 +24,7 @@ main() {
 //    ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   true!?.toString();
-// [error line 27, column 0]
+//    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   true.toString()!;

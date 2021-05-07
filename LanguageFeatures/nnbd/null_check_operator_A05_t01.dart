@@ -24,7 +24,7 @@ main() {
 //  ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   42!?.abs();
-// [error line 27, column 0]
+//^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   42.abs()!;

@@ -23,11 +23,11 @@ main() {
   List? aList = [1, 2, 3];
 
   var res1 = <int, int>{...?aList};
-// [error line 26, column 0]
+//                          ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   var res2 = <int, int>{...?aSet};
-// [error line 30, column 0]
+//                          ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

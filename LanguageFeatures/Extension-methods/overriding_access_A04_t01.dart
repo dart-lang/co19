@@ -37,36 +37,36 @@ main() {
 // [cfe] Explicit extension application cannot be used as an expression.
 
   testlib.MySimpleExt("testme")++;
-// [error line 40, column 0]
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Ext1("testme") += 14;
-// [error line 44, column 0]
+//^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   testlib.MySimpleExt("testme")--;
-// [error line 48, column 0]
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Ext1("testme") *= 10;
-// [error line 52, column 0]
+//^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   Ext1("testme") = 12;
-// [error line 57, column 0]
+//^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   testlib.MySimpleExt("testme") = -33;
-// [error line 61, column 0]
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Ext1("testme") = null;
-// [error line 65, column 0]
+//^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   testlib.MySimpleExt("testme") = null;
-// [error line 69, column 0]
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

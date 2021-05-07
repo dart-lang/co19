@@ -28,7 +28,7 @@ void test1() {
   Map<String, String> m8 = <String, String>{"1": "22", "2": "13", "3": "4"};
 
   Map map1  = <int, String>{...m1};
-// [error line 31, column 0]
+//                             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Map map2  = <int, String>{...m2};
@@ -40,15 +40,15 @@ void test1() {
   // [analyzer] COMPILE_TIME_ERROR.MAP_KEY_TYPE_NOT_ASSIGNABLE
   // [cfe] Can't assign spread entry keys of type 'String' to map entry keys of type 'int'.
   Map map4  = <int, String>{...m4};
-// [error line 43, column 0]
+//                             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Map map5  = <int, String>{...m5};
-// [error line 47, column 0]
+//                             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Map map6  = <int, String>{...m6};
-// [error line 51, column 0]
+//                             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Map map7  = <int, String>{...m7};
@@ -72,35 +72,35 @@ void test2() {
   Map<String, String>? m8 = <String, String>{"1": "22", "2": "13", "3": "4"};
 
   Map map9  = <int, String>{...?m1};
-// [error line 75, column 0]
+//                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Map map10 = <int, String>{...?m2};
-// [error line 79, column 0]
+//                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Map map11 = <int, String>{...?m3};
-// [error line 83, column 0]
+//                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Map map12 = <int, String>{...?m4};
-// [error line 87, column 0]
+//                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Map map13 = <int, String>{...?m5};
-// [error line 91, column 0]
+//                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Map map14 = <int, String>{...?m6};
-// [error line 95, column 0]
+//                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Map map15 = <int, String>{...?m7};
-// [error line 99, column 0]
+//                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Map map16 = <int, String>{...?m8};
-// [error line 103, column 0]
+//                              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -17,14 +17,14 @@
 class C {
   static void s() {
     typedef void F1(String s);
-// [error line 20, column 0]
+//  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
 
   void m() {
     typedef void F2(String s);
-// [error line 27, column 0]
+//  ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }
@@ -32,14 +32,14 @@ class C {
 
 test() {
   typedef void F3(String s);
-// [error line 35, column 0]
+//^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
   typedef void F4(String s);
-// [error line 42, column 0]
+//^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

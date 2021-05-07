@@ -15,20 +15,20 @@
  */
 
 double d1 = 0x2fffffffffffff;
-// [error line 18, column 0]
+//          ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 // [web] unspecified
 
 class C {
   static double d2 = 0x2fffffffffffff;
-// [error line 25, column 0]
+//                   ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 // [web] unspecified
 
   double d3 = 0x2fffffffffffff;
-// [error line 31, column 0]
+//            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 // [web] unspecified
@@ -36,7 +36,7 @@ class C {
 
 main() {
   double d4 = 0x2fffffffffffff;
-// [error line 39, column 0]
+//            ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 // [web] unspecified

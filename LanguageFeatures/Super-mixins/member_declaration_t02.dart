@@ -51,7 +51,7 @@ mixin M3<X extends S, Y extends T>  on B<X>, C<Y> implements I, J {
 
 mixin M4<X extends S, Y extends T>  on B<X>, C<Y> implements I, J {
   int M4();
-// [error line 54, column 0]
+//^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -37,7 +37,7 @@ main() {
   //                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
   // [analyzer] COMPILE_TIME_ERROR.CONST_MAP_KEY_EXPRESSION_TYPE_IMPLEMENTS_EQUALS
   var v2 = const <Object?, String?> {if (1 > 0) const Duration(seconds: 1), "x"};
-// [error line 40, column 0]
+//                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   var v3 = const {if (2 > 0) const C(1, "x"): "c"};
