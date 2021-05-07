@@ -11,12 +11,14 @@
  * ;
  * @description Checks that it is a compile-time error if a factory constructor
  * declaration is missing the formal parameter list.
- * @compile-error
  * @author iefremov
  */
 
 class C {
   factory C{}
+//        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class A implements C{}

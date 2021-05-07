@@ -14,7 +14,7 @@
 
 abstract class A {
   A() {}
-  factory A.foo() { return new CAlias.foo(); }
+  factory A.foo() => CAlias.foo();
 }
 
 class C extends A {
@@ -23,5 +23,5 @@ class C extends A {
 typedef CAlias = C;
 
 main() {
-  new A.foo();
+  A.foo();
 }

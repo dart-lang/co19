@@ -10,7 +10,6 @@
  * redirects to a constructor whose type is not a subtype of factory
  * constructor function type. Checks the case when constructor parameter types
  * are not assignable.
- * @compile-error
  * @author ilya
  */
 
@@ -19,7 +18,10 @@ class F {
 }
 
 class C implements F {
-  C(x,[int y]);
+  C(x,[int? y]);
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

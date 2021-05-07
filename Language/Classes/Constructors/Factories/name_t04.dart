@@ -8,16 +8,20 @@
  * immediately enclosing class.
  * @description Checks that it's a compile-time error when M is the name of a
  * function type alias available in the same scope.
- * @compile-error
  * @author rodionov
  */
 
 typedef foo();
 
 class C {
-  factory foo() {}
+  factory foo() => throw "Should not reach here";
+//        ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   new C();
+//    ^
+// [cfe] unspecified
 }

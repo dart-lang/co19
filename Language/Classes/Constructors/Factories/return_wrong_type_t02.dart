@@ -8,16 +8,18 @@
  * type is not a subtype of its actual return type.
  * @description Checks that returning an object whose type is not subtype of M
  * from factory M.id produces a compile error.
- * @compile-error
  * @author pagolubev
  */
 
 class C {}
 
 class A {
-  factory A.foo() { return new C(); }
+  factory A.foo() => C();
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  new A.foo();
+  A.foo();
 }

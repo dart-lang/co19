@@ -11,11 +11,8 @@
  * @description Checks that assigning the result of invoking a factory
  * constructor to a variable whose type is not assignable to M<T1,...,Tn>
  * produces a compile error.
- * @compile-error
  * @author rodionov
  */
-
-import "../../../../Utils/dynamic_check.dart";
 
 class S1 {}
 class S2 extends S1 {}
@@ -28,10 +25,11 @@ abstract class I<T, U, V> {
 class M<T, U, V> implements I<T, U, V> {
 }
 
-I<S3, int, int> m1;
+I<S3, int, int>? m1;
 
 main() {
-  checkTypeError(() {
-    m1 = new I<S2, num, Function>();
-  });
+  m1 = I<S2, num, Function>();
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

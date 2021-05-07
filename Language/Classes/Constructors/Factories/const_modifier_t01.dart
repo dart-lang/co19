@@ -8,12 +8,14 @@
  * modifier but k' is not a constant constructor.
  * @description Checks that it is a compile-error if const redirecting
  * factory constructor redirects to non-const generative constructor
- * @compile-error
  * @author ilya
  */
 
 class F {
   const factory F() = C;
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class C implements F {

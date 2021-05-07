@@ -9,22 +9,30 @@
  * redirections.
  * @description Checks that compile-error occurs when factory constructor
  * redirects to itself through a cycle.
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class F1 {
   factory F1() = F2;
+//               ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 typedef F1Alias = F1;
 
 class F2 {
   factory F2() = F3;
+//               ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class F3 {
   factory F3() = FAlias1;
+//               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

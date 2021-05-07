@@ -13,7 +13,7 @@
 
 abstract class A {
   A();
-  factory A.f() { return new C(); }
+  factory A.f() => new C();
 }
 
 class C extends A {}

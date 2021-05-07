@@ -8,16 +8,20 @@
  * immediately enclosing class.
  * @description Checks that it's a compile-time error when M is a name of an
  * unrelated class available in the same scope.
- * @compile-error
  * @author iefremov
  */
 
 class Z {}
 
 class C {
-  factory Z() {}
+  factory Z() => throw "Should not reach here";
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   new C();
+//    ^
+// [cfe] unspecified
 }

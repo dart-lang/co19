@@ -9,14 +9,19 @@
  * redirections.
  * @description Checks that compile-error occurs when named factory constructor
  * redirects to non-named and vice versa. Test type aliases
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class F {
   factory F() = FAlias.id;
+//              ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   factory F.id() = FAlias;
+//                 ^^^^^^
+// [analyzer] unspecified
 }
 typedef FAlias = F;
 

@@ -9,14 +9,17 @@
  * redirections.
  * @description Checks that compile-error occurs when factory constructor
  * redirects to itself. Test type alias
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class F {
   factory F() = FAlias;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
+
 typedef FAlias = F;
 
 main() {

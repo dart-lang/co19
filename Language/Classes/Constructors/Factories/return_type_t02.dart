@@ -11,7 +11,6 @@
  * @description Checks that a compile error is produced when assigning the
  * result of invoking factory constructor M to the variable whose type is not
  * assignable to M.
- * @compile-error
  * @author iefremov
  */
 
@@ -23,5 +22,8 @@ class C implements A {
 }
 
 main() {
-  int a = new A();
+  int a = A();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

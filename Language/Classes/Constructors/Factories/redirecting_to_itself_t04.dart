@@ -9,20 +9,28 @@
  * redirections.
  * @description Checks that compile-error occurs when factory constructor
  * redirects to itself through a cycle.
- * @compile-error
  * @author ilya
  */
 
 class F1 {
   factory F1() = F2;
+//               ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class F2 {
   factory F2() = F3;
+//               ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class F3 {
   factory F3() = F1;
+//               ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

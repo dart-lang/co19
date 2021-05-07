@@ -10,7 +10,6 @@
  * not a constructor of C.
  * @description Checks that a compile error is produced if referenced type in
  * redirecting constructor is a variable.
- * @compile-error
  * @author ilya
  */
 
@@ -18,6 +17,9 @@ var variable;
 
 class F {
   factory F() = variable;
+//              ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

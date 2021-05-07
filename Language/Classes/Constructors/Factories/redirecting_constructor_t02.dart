@@ -13,13 +13,15 @@
  * ;
  * @description Checks that formal parameters list of redirecting factory
  * constructor can not be omitted
- * @compile-error
  * @author ilya
  */
 
 class A {
   A() {}
   factory A.foo = C;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class C extends A {

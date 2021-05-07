@@ -4,11 +4,10 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion It is a compile-time error if M is not the name of the
- * immediately enclosing class.
- * @description Checks that it's a compile-time error when M is the name of
- * the type alias.
- * @compile-error
+ * @assertion It is a compile-time error if M is not the name of the immediately
+ * enclosing class.
+ * @description Checks that it's a compile-time error when M is the name of the
+ * type alias.
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -17,10 +16,15 @@ class S {}
 typedef SAlias = S;
 
 class C extends S {
-  factory SAlias() {}
+  factory SAlias() => throw "Should not reach here";
+//        ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 
 main() {
   new C();
+//    ^
+// [cfe] unspecified
 }

@@ -9,12 +9,15 @@
  * redirections.
  * @description Checks that compile-error occurs when named factory constructor
  * redirects to non-named and vice versa.
- * @compile-error
  * @author ilya
  */
 
 class F {
   factory F() = F.id;
+//              ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   factory F.id() = F;
 }
 

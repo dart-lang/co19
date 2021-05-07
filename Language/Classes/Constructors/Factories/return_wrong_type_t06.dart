@@ -13,7 +13,7 @@
 
 abstract class A {
   A() {}
-  factory A.foo() { return new C.foo(); }
+  factory A.foo() => new C.foo();
 }
 
 class C extends A {
@@ -21,5 +21,5 @@ class C extends A {
 }
 
 main() {
-  new A.foo();
+  A.foo();
 }

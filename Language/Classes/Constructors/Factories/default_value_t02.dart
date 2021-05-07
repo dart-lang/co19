@@ -8,12 +8,14 @@
  * value for an optional parameter.
  * @description Checks that it is a compile-error if redirecting factory
  * constructor specifies a default value for its optional named parameter.
- * @compile-error
  * @author ilya
  */
 
 class F {
   factory F(int x, {int y: 0}) = C;
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class C implements F {

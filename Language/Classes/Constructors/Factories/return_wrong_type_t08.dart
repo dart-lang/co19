@@ -8,7 +8,6 @@
  * type is not a subtype of its actual return type.
  * @description Checks that returning an object whose type is not subtype of M
  * from factory constructor M produces a compile error. Test type alias
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -17,9 +16,12 @@ class C {}
 typedef CAlias = C;
 
 class A extends C {
-  factory A() { return new CAlias(); }
+  factory A() => CAlias();
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  new A();
+  A();
 }
