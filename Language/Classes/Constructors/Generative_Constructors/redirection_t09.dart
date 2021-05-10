@@ -12,14 +12,17 @@
  * ;
  * @description Checks that it is a compile error when a redirecting
  * constructor references a method rather than another constructor.
- * @compile-error
  * @author iefremov
  */
 
 
 class C {
   C() : f();
-  f() {throw "Should not be thrown!";}
+//      ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  f() { throw "Should not be thrown!"; }
 }
 
 main() {

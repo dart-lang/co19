@@ -8,16 +8,21 @@
  * identifier id.  .  .  .   It is a compile-time error if the name of a
  * constructor is not a constructor name.
  * @description Checks that type alias cannot be used as a named constructor
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class C {
   CAlias.named() {}
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 typedef CAlias = C;
 
 main() {
   new C();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

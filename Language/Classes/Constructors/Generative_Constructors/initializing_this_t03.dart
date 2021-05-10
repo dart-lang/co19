@@ -10,7 +10,6 @@
  * introduced in the same position.
  * @description Checks that an initializing formal 'this.id' is accessible by
  * the name 'id' and has type int.
- * @compile-error
  * @author kaigorodov
  */
 
@@ -21,4 +20,7 @@ class C<T> {
 
 main() {
   new C(id: "3");
+//          ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

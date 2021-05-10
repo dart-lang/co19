@@ -10,7 +10,6 @@
  * the immediately enclosing class.
  * @description Checks that it is a compile-time error if id is the name of a
  * variable of the superinterface. Test type alias
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -21,7 +20,14 @@ abstract class I {
 typedef IAlias = I;
 
 class C implements IAlias {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   C(this.x) {}
+//  ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -7,17 +7,20 @@
  * function other than a non-redirecting generative constructor.
  * @description Checks that it is a compile-time error when the initializing
  * formal syntax is used by a factory constructor.
- * @compile-error
  * @author rodionov
  */
 
 class C {
-  int x;
+  int? x;
+
   factory C.i(this.x) => new A();
+//            ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class A implements C {
-  int x = 42;
+  int? x = 42;
 }
 
 main() {

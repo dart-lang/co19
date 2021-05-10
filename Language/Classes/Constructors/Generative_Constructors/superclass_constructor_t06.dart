@@ -10,7 +10,6 @@
  * @description Checks that it is a compile-time error when the superclass S
  * declares a named factory constructor referenced by a superinitializer in its
  * subclass's initializer list.
- * @compile-error
  * @author rodionov
  */
 
@@ -21,6 +20,9 @@ class S {
 
 class C extends S {
   C() : super.ctor() {}
+//      ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -7,13 +7,15 @@
  * function other than a non-redirecting generative constructor.
  * @description Checks that it is a compile-time error when the initializing
  * formal syntax is used by a setter.
- * @compile-error
  * @author msyabro
  */
 
 class C {
   var _x;
   set x(this.x) {}
+//      ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

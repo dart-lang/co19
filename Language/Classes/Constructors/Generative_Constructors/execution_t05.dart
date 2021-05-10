@@ -27,7 +27,6 @@
  * argument list of the superinitializer of k.
  * @description Checks that 'this' is not accessible in initializers: it is a
  * compile-error if 'this' is passed to an external function as a parameter.
- * @compile-error
  * @author iefremov
  */
 
@@ -37,6 +36,10 @@ f(var x) {
 
 class C {
   C() : v = f(this) {}
+//            ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   var v;
 }
 

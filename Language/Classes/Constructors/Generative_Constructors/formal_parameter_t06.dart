@@ -10,7 +10,6 @@
  * the immediately enclosing class.
  * @description Checks that it is a compile-time error if id is the name of a
  * variable of the superinterface.
- * @compile-error
  * @author msyabro
  */
 
@@ -19,7 +18,14 @@ abstract class I {
 }
 
 class C implements I {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   C(this.x) {}
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

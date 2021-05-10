@@ -15,12 +15,15 @@
  * ;
  * @description Checks that it is a compile-time error when there's just the
  * right-side expression in place of a field initializer.
- * @compile-error
  * @author rodionov
  */
 
 class C {
   C() : 2 + 2 {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   var x;
 }
 

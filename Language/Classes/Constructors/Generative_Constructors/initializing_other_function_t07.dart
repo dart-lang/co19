@@ -7,14 +7,17 @@
  * function other than a non-redirecting generative constructor.
  * @description Checks that it is a compile-time error when the initializing
  * formal syntax is used by a redirecting generative constructor.
- * @compile-error
  * @author msyabro
  */
 
 class C {
   var x;
   C() {}
+
   C.redirect(this.x): this();
+//           ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

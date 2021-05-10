@@ -10,7 +10,6 @@
  * the immediately enclosing class.
  * @description Checks that it is a compile-time error if id is the name of an
  * instance variable of the superclass. Test type aliases
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -22,6 +21,9 @@ typedef SAlias = S;
 
 class C extends SAlias {
   C(this.x) {}
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

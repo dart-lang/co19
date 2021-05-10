@@ -15,7 +15,6 @@
  * @description Checks that it is a compile error if o is not null and the
  * interface of the class of o is not a subtype of the actual type of the
  * field v.
- * @compile-error
  * @author ilya
  */
 
@@ -24,7 +23,11 @@ class B {}
 
 class C<T> {
   T a;
-  C() : a = new B() {}
+
+  C() : a = B() {}
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

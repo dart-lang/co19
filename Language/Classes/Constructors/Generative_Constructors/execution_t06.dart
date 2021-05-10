@@ -28,12 +28,14 @@
  * @description Checks that 'this' is not accessible in initializers: it is a
  * compile-error when a constructor's initializer refers to a previously
  * initialized instance variable.
- * @compile-error
  * @author rodionov
  */
 
 class C {
   C() : v = f {}
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   var v;
   final f = 1;

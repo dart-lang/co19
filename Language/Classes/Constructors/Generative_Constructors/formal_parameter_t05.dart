@@ -10,7 +10,6 @@
  * the immediately enclosing class.
  * @description Checks that it is a compile-time error if id is the name of an
  * instance variable of the superclass.
- * @compile-error
  * @author msyabro
  */
 
@@ -20,6 +19,9 @@ class S {
 
 class C extends S {
   C(this.x) {}
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

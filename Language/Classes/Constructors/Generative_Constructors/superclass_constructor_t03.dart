@@ -10,7 +10,6 @@
  * @description Checks that it is a compile-time error when the superclass S
  * does not declare any named constructors referenced by a superinitializer in
  * its subclass's initializer list.
- * @compile-error
  * @author iefremov
  */
 
@@ -18,6 +17,9 @@ class S {}
 
 class C extends S {
   C() : super.smth() {}
+//      ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

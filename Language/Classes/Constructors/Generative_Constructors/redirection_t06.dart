@@ -12,7 +12,6 @@
  * ;
  * @description Checks that constructor redirection cannot be combined with a
  * superinitializer.
- * @compile-error
  * @author pagolubev
  */
 
@@ -20,6 +19,10 @@ class A {}
 
 class C extends A {
   C() : super(), this.init();
+//      ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   C.init();
 }
 

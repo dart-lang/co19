@@ -7,12 +7,14 @@
  *   identifier (‘.’ identifier)? formalParameterList
  * ;
  * @description Checks that constructor name cannot contain 3 identifiers.
- * @compile-error
  * @author kaigorodov
  */
 
 class C {
   C.c1.c2();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
   C.c3() {}
 }
 

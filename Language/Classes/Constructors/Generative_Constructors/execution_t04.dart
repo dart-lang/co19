@@ -31,15 +31,15 @@
  * Invocation), such unqualified invocation in the presence of an appropriately
  * named instance method is interpreted as ordinary method invocation and
  * attempts to access this.
- * @compile-error
  * @author iefremov
  */
 
 class C {
   C() : v = f() {}
-  f() {
-    throw new C();
-  }
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  f() => throw C();
   var v;
 }
 

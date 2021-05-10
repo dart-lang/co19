@@ -7,7 +7,6 @@
  * superinitializer in its initializer list or a compile-time error occurs.
  * @description Checks that it is a a compile-time error if a generative
  * constructor includes two identical superinitializers in its initializer list.
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -20,6 +19,9 @@ typedef AAlias = A;
 
 class B extends AAlias {
   B() : super.foo(), super.foo();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

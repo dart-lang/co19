@@ -7,17 +7,27 @@
  * immediately enclosing class.
  * @description Checks that it's a compile-time error when M is the name of
  * the type alias.
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class C {
+//    ^
+// [cfe] unspecified
+
   int i = 0;
+
   CAlias(this.i);
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
+
 typedef CAlias = C;
 
 main() {
   new CAlias(42);
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

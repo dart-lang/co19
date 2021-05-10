@@ -28,15 +28,20 @@
  * @description Checks that 'this' is not accessible in the right-hand side of
  * an initialized instance variable declaration (e.g. a variable can't be
  * initialized using another variable).
- * @compile-error
  * @author msyabro
  */
 
 class C {
   const C();
+//^^^^^
+// [analyzer] unspecified
 
   final x = 1;
+
   final y = x;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

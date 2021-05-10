@@ -14,13 +14,18 @@
  *
  * @description Checks that a compile-error is produced when a constructor's id
  * coincides with the name of a static field declared in the same class.
- * @compile-error
  * @author kaigorodov
  */
 
 class C {
   C.foo() {}
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   static var foo;
+//           ^^^
+// [cfe] unspecified
 }
 
 main() {

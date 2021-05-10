@@ -8,13 +8,15 @@
  * in k's initializer list.
  * @description Checks that a compile-time error is produced if two identical
  * initializers appear in an initializer list.
- * @compile-error
  * @author vasya
  * @issue 41965
  */
 
 class C {
   C(x, y) : this.x = x, this.x = y;
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   var x;
 }
 

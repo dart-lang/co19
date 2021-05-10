@@ -15,12 +15,15 @@
  * ;
  * @description Checks that an invalid cascaded invocation in a field
  * initializer results in a compile-time error.
- * @compile-error
  * @author rodionov
  */
 
 class C {
   C() : this.foo = null..("arguments without a selector not allowed") {}
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   var foo;
 }
 

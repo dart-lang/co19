@@ -12,12 +12,14 @@
  * ;
  * @description Checks that the constructor redirection clause cannot reference
  * the same constructor it is a part of.
- * @compile-error
  * @author iefremov
  */
 
 class C {
   C() : this();
+//      ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

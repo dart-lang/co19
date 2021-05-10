@@ -13,14 +13,16 @@
  * fieldInitializer:
  *   (this '.')? identifier '=' conditionalExpression cascadeSection*
  * ;
- * @description Checks that it is a compile-time error when the
- * superconstructor call does not include the constructor parameters in braces.
- * @compile-error
+ * @description Checks that it is a compile-time error when the superconstructor
+ * call does not include the constructor parameters in braces.
  * @author iefremov
  */
 
 class C {
   C() : super {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -8,7 +8,6 @@
  * the immediately surrounding class.
  * @description Checks that error is produced if the initializer list contains
  * an initializer for a superclass instance variable.
- * @compile-error
  * @author vasya
  */
 
@@ -18,6 +17,9 @@ class A {
 
 class C extends A {
   C() : x = 5 {}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

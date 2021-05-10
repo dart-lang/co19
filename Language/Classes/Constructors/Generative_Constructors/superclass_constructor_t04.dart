@@ -10,7 +10,6 @@
  * @description Checks that it is a compile-time error when the superclass S
  * declares a factory constructor named S and its subclass's constructor
  * contains an implicit super() superinitializer.
- * @compile-error
  * @author rodionov
  */
 
@@ -19,8 +18,10 @@ class S {
   S.ctor() {}
 }
 
-class C extends S {
-}
+class C extends S {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new C();

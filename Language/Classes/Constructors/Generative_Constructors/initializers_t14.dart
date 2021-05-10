@@ -15,7 +15,6 @@
  * ;
  * @description Checks that it is a compile-time error when identifier in an
  * initializer references an instance method rather than a variable.
- * @compile-error
  * @author rodionov
  */
 
@@ -23,6 +22,9 @@ typedef void Foo();
 
 class C {
   C() : bar = null {}
+//      ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   void bar() {}
 }

@@ -15,12 +15,14 @@
  * ;
  * @description Checks that it is a compile-time error when the initializer
  * list is empty (a lone colon).
- * @compile-error
  * @author iefremov
  */
 
 class C {
   C() : {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

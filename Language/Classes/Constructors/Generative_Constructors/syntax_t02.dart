@@ -8,12 +8,14 @@
  * ;
  * @description Checks that constructor declaration without a formal parameter
  * list produces a compile-time error.
- * @compile-error
  * @author pagolubev
  */
 
 class C {
   C;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

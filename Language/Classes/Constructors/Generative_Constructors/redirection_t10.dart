@@ -12,13 +12,16 @@
  * ;
  * @description Checks that a redirecting constructor can't be followed by
  * the initializer list.
- * @compile-error
  * @author iefremov
  */
 
 
 class C {
   C() : this.redirect(1, 2), a(0);
+//                           ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   C.redirect(p1, p2) {}
   var a;
 }

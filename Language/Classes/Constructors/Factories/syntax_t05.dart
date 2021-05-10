@@ -14,7 +14,7 @@
  */
 
 class C {
-  const factory C();
+  const factory C() => C();
 //^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

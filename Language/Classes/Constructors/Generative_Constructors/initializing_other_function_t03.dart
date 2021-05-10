@@ -7,13 +7,16 @@
  * function other than a non-redirecting generative constructor.
  * @description Checks that it is a compile-time error when the initializing
  * formal syntax is used by an instance method.
- * @compile-error
  * @author rodionov
  */
 
 class C {
   int x = 0;
+
   foo(this.x) {}
+//    ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

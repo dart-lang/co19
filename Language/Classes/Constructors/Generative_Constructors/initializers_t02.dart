@@ -15,12 +15,14 @@
  * ;
  * @description Checks that it is a compile-time error when the initializer
  * list terminates with a comma.
- * @compile-error
  * @author iefremov
  */
 
 class C {
   C() : super(), {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

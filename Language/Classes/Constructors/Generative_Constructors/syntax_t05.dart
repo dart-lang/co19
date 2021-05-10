@@ -8,12 +8,14 @@
  * ;
  * @description Checks that it is a compile-time error if a named constructor
  * declares a return type
- * @compile-error
  * @author msyabro
  */
 
 class C {
   C C.name();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
