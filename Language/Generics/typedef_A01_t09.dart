@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion A generic type alias is a declaration [D] of one of the following
  * forms:
@@ -32,19 +31,19 @@ class C3<T1, T2> {
 }
 
 typedef Alias1<T> = my_function;
-// [error line 34, column 0]
+//                  ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 typedef Alias2<T> = my_function<T>;
-// [error line 38, column 0]
+//                  ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 typedef Alias3<T> = my_function();
-// [error line 42, column 0]
+//                  ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 typedef Alias4<T> = my_function<T>();
-// [error line 46, column 0]
+//                  ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -57,12 +56,12 @@ typedef CAlias2<T> = C2<T>(int, [T]);
 // [analyzer] SYNTACTIC_ERROR.EXPECTED_TOKEN
 // [cfe] Expected 'Function' before this.
 typedef CAlias3<T1, T2> = C3<T>({T1, T2});
-// [error line 59, column 0]
+//                        ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
 typedef CAlias4<T extends int> = C1<T>(24);
-// [error line 64, column 0]
+//                                    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

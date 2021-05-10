@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion The static type of a double valued integer literal is [double]
  * @description Checks that the static type of a double valued integer literal
@@ -53,11 +52,11 @@ void foo<X extends num, Y extends double>() {
   // [cfe] The argument type 'int' can't be assigned to the parameter type 'Y'.
 
   bar2<X>(42);
-// [error line 55, column 0]
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
   bar2<X>(0x42);
-// [error line 59, column 0]
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
   bar2<Y>(42);

@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2014, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion Point<T> operator *(num factor)
  * Scale this point by factor as if it were a vector.
@@ -23,11 +22,11 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.ARGUMENT_TYPE_NOT_ASSIGNABLE
   // [cfe] The value 'null' can't be assigned to a variable of type 'num' because 'num' is not nullable.
   new Point(null, 0) * 1;
-// [error line 25, column 0]
+//    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   new Point(0, null) * 1;
-// [error line 29, column 0]
+//    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

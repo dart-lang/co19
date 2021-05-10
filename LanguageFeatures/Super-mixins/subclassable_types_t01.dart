@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion A mixin declaration defines an interface. The interface for this
  * mixin declaration is equivalent to the interface of the class declared as:
@@ -24,7 +23,7 @@ class B {}
 class C {}
 
 mixin M1 on B, C implements void {}
-// [error line 26, column 0]
+//                          ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 mixin M2 on B, C implements dynamic {}
@@ -33,7 +32,7 @@ mixin M2 on B, C implements dynamic {}
 //                          ^^^^^^^
 // [analyzer] COMPILE_TIME_ERROR.IMPLEMENTS_NON_CLASS
 mixin M3 on B, C implements FutureOr<List> {}
-// [error line 35, column 0]
+//                          ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 mixin M4 on B, C implements F {}

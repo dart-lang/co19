@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion From the Unified collection Spec:
  * A [spreadElement] starting with [...?] is a constant element if its
@@ -32,27 +31,27 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
   // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
   const Map res2 = const {...?l2};
-// [error line 34, column 0]
+//                 ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map res3 = const {...?s1};
-// [error line 38, column 0]
+//                 ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map res4 = const {...?s2};
-// [error line 42, column 0]
+//                 ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map res5 = const {...?m};
-// [error line 46, column 0]
+//                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map res6 = const {...?i1};
-// [error line 50, column 0]
+//                            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map res7 = const {...?i2};
-// [error line 54, column 0]
+//                            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

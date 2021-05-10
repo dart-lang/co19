@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion an extension declaration is a top-level declaration with a grammar
  * similar to:
@@ -29,11 +28,11 @@ extension on C {
   // [analyzer] SYNTACTIC_ERROR.INVALID_USE_OF_COVARIANT_IN_EXTENSION
   // [cfe] Can't have modifier 'covariant' in an extension.
   addChild2(A c, [covariant A child]) {}
-// [error line 31, column 0]
+//                ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   addChild3(A c, {covariant A child}) {}
-// [error line 35, column 0]
+//                ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   void set setter (covariant A value) {}

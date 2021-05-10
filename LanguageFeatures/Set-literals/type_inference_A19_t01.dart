@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion To infer the type of element:
  * ...
@@ -23,7 +22,7 @@ main() {
 // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
 // [cfe] Unexpected type 'String' of a map spread entry.  Expected 'dynamic' or a Map.
   var x2 = <int, String>{...?s};
-// [error line 25, column 0]
+//                           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

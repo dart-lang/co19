@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by list
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by list
+//BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion  void addAll(Iterable<E> iterable)
  * Adds all elements of [iterable] at the end of the queue. The length of the

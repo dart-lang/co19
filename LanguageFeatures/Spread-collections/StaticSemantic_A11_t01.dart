@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion It is a compile-time error if:
  * A spread element in a map literal has a static type that is not [dynamic] and
@@ -41,23 +40,23 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NOT_MAP_SPREAD
   // [cfe] Unexpected type 'int' of a map spread entry.  Expected 'dynamic' or a Map.
   Map m5 = {...x5};
-// [error line 43, column 0]
+//         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Map m6 = {...x6};
-// [error line 47, column 0]
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Map m7 = {...x7};
-// [error line 51, column 0]
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Map m8 = {...x8};
-// [error line 55, column 0]
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Map m9 = {...x9};
-// [error line 59, column 0]
+//             ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

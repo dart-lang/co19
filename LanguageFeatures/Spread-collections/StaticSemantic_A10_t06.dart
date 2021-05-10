@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion It is a compile-time error if:
  * A spread element in a list or set literal has a static type that is not
@@ -18,15 +17,15 @@ main() {
   const x3 = "check";
 
   const List l1 = [...?x1];
-// [error line 20, column 0]
+//                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const List l2 = [...?x2];
-// [error line 24, column 0]
+//                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const List l3 = [...?x3];
-// [error line 28, column 0]
+//                     ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

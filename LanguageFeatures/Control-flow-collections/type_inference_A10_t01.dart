@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion If element is an ifElement with two elements, e1 and e2:
  * ...
@@ -29,7 +28,7 @@ main() {
 // [cfe] Unexpected type 'Map<dynamic, dynamic>' of a spread.  Expected 'dynamic' or an Iterable.
 
   var v3 = {"", if (i < 0) ...?x else ...?y,};
-// [error line 31, column 0]
+//                                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

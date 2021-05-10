@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion From the Unified collection Spec:
  * A spreadElement starting with [...] is a constant element if its expression
@@ -27,27 +26,27 @@ const n = null;
 
 main() {
   const Set res1  = const {...l};
-// [error line 29, column 0]
+//                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Set res2  = const {...s};
-// [error line 33, column 0]
+//                            ^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Set res3  = const {...m1};
-// [error line 37, column 0]
+//                  ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Set res4  = const {...m2};
-// [error line 41, column 0]
+//                  ^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Set res5  = const {...i1};
-// [error line 45, column 0]
+//                            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Set res6  = const {...i2};
-// [error line 49, column 0]
+//                            ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Set res7  = const {...n};

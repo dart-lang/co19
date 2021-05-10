@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion From the Unified collection Spec:
  * A [spreadElement] starting with [...?] is a constant element if its
@@ -22,11 +21,11 @@ class MyClass {
 
 main() {
   const List l1 = [...?(MyClass(12345) is MyClass ? [12] : [])];
-// [error line 24, column 0]
+//                      ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const List l2 = [...?(MyClass(12345) is MyClass ? {12} : {2})];
-// [error line 28, column 0]
+//                      ^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const List l3 = [...?(MyClass(12345) is MyClass ? {12} : null)];
@@ -35,7 +34,7 @@ main() {
   //                    ^^^^^^^^^^^^^^
   // [analyzer] COMPILE_TIME_ERROR.CONST_EVAL_THROWS_EXCEPTION
   const List l4 = [...?(MyClass(12345) is MyClass ? {null} : 1)];
-// [error line 37, column 0]
+//                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

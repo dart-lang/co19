@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion It is a compile-time error if:
  * A spread element in a list or set literal has a static type that is not
@@ -36,19 +35,19 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NOT_ITERABLE_SPREAD
   // [cfe] Unexpected type 'int' of a spread.  Expected 'dynamic' or an Iterable.
   List l4 = [...x4];
-// [error line 38, column 0]
+//              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   List l5 = [...x5];
-// [error line 42, column 0]
+//              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   List l6 = [...x6];
-// [error line 46, column 0]
+//              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   List l7 = [...x7];
-// [error line 50, column 0]
+//              ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

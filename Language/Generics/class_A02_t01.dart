@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion A generic class declaration introduces a generic class into the 
  * enclosing library scope. A generic class is a mapping that accepts a list of
@@ -33,24 +32,24 @@ main() {
   //         ^
   // [cfe] Type argument 'int' doesn't conform to the bound 'C<T>' of the type variable 'T' on 'C'.
   A<C<C<int>>>? a6;
-// [error line 35, column 0]
+//    ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   A<C<C<C<C<C<C<int>>>>>>>? a7;
-// [error line 39, column 0]
+//    ^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
   C<C<int>>? c1;
-// [error line 44, column 0]
+//  ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C<C<C<int>>>? c2;
-// [error line 48, column 0]
+//  ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C<C<C<C<C<C<C<int>>>>>>>? c3;
-// [error line 52, column 0]
+//  ^^^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

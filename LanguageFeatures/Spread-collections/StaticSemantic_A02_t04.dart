@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion This is true even if the object being spread is a user-defined
  * class that implements [Iterable] but isn't even a subtype of List.
@@ -36,11 +35,11 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
   // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
   Set s5 = {1, 2, ...?i1};
-// [error line 38, column 0]
+//                    ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Set s6 = {14, ...?str1, 28};
-// [error line 42, column 0]
+//                  ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

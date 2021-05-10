@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion From the Constant-update-2018 Spec:
  * The operator [>>>] is now allowed in a potentially constant expression, and
@@ -24,19 +23,19 @@ main() {
   const d4 = null;
 
   const c1 = d1 >>> d2;
-// [error line 26, column 0]
+//           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const c2 = d2 >>> d1;
-// [error line 30, column 0]
+//           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const c3 = d3 >>> 11;
-// [error line 34, column 0]
+//           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const c4 = 1 >>> d3;
-// [error line 38, column 0]
+//           ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const c5 = d4 >>> 2;
@@ -45,7 +44,7 @@ main() {
   //            ^
   // [cfe] Constant evaluation error:
   const c6 = 24 >>> d4;
-// [error line 47, column 0]
+//           ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

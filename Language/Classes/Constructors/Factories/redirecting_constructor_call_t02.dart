@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion Calling a redirecting factory constructor k causes the
  * constructor k' denoted by type (respectively, type.identifier) to be called
@@ -19,15 +18,15 @@ var variable;
 
 class F {
   factory F() = C;
-// [error line 21, column 0]
+//              ^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory F.foo() = function;
-// [error line 25, column 0]
+//                  ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory F.bar() = variable;
-// [error line 29, column 0]
+//                  ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   factory F.baz() = D.baz;

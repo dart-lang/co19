@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion It is a compile-time error if a parameterized type [T] is
  * super-bounded when it is used in any of the following ways:
@@ -62,7 +61,7 @@ class B9 extends C with A<A<void>> {}
 //                        ^^^^^^^
 // [analyzer] COMPILE_TIME_ERROR.TYPE_ARGUMENT_NOT_MATCHING_BOUNDS
 class B10 extends C with A<A<Null>> {}
-// [error line 64, column 0]
+//                         ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

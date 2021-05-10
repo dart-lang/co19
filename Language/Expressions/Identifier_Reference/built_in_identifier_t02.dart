@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion It is a compile-time error if a built-in identifier is used as
  * the declared name of a prefix, class, type parameter or type alias.
@@ -61,7 +60,7 @@ class A {
     // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
     // [cfe] The getter 'part' isn't defined for the class 'A'.
     --set;
-// [error line 63, column 0]
+//    ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     true && static;
@@ -69,7 +68,7 @@ class A {
     // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_IDENTIFIER
     // [cfe] The getter 'static' isn't defined for the class 'A'.
     ++typedef;
-// [error line 71, column 0]
+//    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   }

@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion If s starts with const, then it is a compile-time error if any
  * element expression is not a compile-time constant expression, or if T is not
@@ -33,11 +32,11 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
   // [cfe] Not a constant expression.
   const v3 = {1, 2, '3', new A()};
-// [error line 35, column 0]
+//                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const v4 = [const B(), const C(), const A(), x];
-// [error line 39, column 0]
+//                                             ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

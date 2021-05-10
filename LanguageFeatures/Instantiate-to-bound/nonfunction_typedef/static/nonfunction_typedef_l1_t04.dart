@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion Instantiate to bound then computes an actual type argument list
  * for [G] as follows:
@@ -46,11 +45,6 @@
  * typedef with [typedef G<X> = void Function()] type parameter: [typedef G<X> =
  * void Function(); class C<X>; typedef A<X extends G<C<X>>> = C<X>].
  * @author iarkh@unipro.ru
- */
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
  */
 /**
  * @assertion Instantiate to bound then computes an actual type argument list

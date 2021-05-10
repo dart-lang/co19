@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion It is a static error if:
  *    A spread element in a list or set literal has a static type that is not
@@ -37,19 +36,19 @@ main() {
   // [cfe] Unexpected type 'int' of a spread.  Expected 'dynamic' or an Iterable.
 
   Set l5 = <dynamic>{...?number};
-// [error line 39, column 0]
+//                       ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Set l6 = <dynamic>{...?str};
-// [error line 43, column 0]
+//                       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Set l7 = <dynamic>{...?map};
-// [error line 47, column 0]
+//                       ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Set l8 = <dynamic>{...?list[0]};
-// [error line 51, column 0]
+//                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

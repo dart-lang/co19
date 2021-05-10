@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion An expression of the form e! evaluates e to a value v, throws a
  * runtime error if v is null, and otherwise evaluates to v.
@@ -25,7 +24,7 @@ main() {
 //  ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
   42!?.abs();
-// [error line 27, column 0]
+//^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   42.abs()!;

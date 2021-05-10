@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion An expression of the form e! evaluates e to a value v, throws a
  * runtime error if v is null, and otherwise evaluates to v.
@@ -41,11 +40,11 @@ class A {
 //      ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this!?.foo();
-// [error line 43, column 0]
+//      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     this!?[42];
-// [error line 47, column 0]
+//      ^^
 // [analyzer] unspecified
 // [cfe] unspecified
     this!.s = "Lily was here";
@@ -54,7 +53,7 @@ class A {
 //      ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this!?.s = "Lily was here";
-// [error line 56, column 0]
+//      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     this![0] = "Lily was here";
@@ -63,7 +62,7 @@ class A {
 //      ^
 // [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
     this!?[0] = "Lily was here";
-// [error line 65, column 0]
+//      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     this.getValue!;

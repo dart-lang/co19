@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion We extend the list grammar to allow spread elements in addition to
  * regular elements:
@@ -54,7 +53,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.LIST_ELEMENT_TYPE_NOT_ASSIGNABLE
   // [cfe] A value of type 'String' can't be assigned to a variable of type 'int'.
   <int>["123", list1];
-// [error line 56, column 0]
+//      ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   <int>[...list1, ...list2, ...list3];

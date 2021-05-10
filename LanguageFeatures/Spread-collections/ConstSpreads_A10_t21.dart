@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion From the Unified collection Spec:
  * A [spreadElement] starting with [...?] is a constant element if its
@@ -30,11 +29,11 @@ const n = null;
 
 main() {
   const res1  = {...?l2};
-// [error line 32, column 0]
+//                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res2  = {...?s2};
-// [error line 36, column 0]
+//                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res3  = {...?l1, 123: 2};
@@ -51,15 +50,15 @@ main() {
   //                 ^
   // [cfe] Unexpected type 'Map<dynamic, dynamic>?' of a spread.  Expected 'dynamic' or an Iterable.
   const res6  = {...?m2};
-// [error line 53, column 0]
+//                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res7  = {...?i1};
-// [error line 57, column 0]
+//              ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res8  = {...?i2};
-// [error line 61, column 0]
+//              ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res9  = {...?n};

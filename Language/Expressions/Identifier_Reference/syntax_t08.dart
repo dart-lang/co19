@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion An identifier expression consists of a single identifier; it
  * provides access to an object via an unqualified name.
@@ -54,7 +53,7 @@ main() {
   // [analyzer] SYNTACTIC_ERROR.ILLEGAL_CHARACTER
   // [cfe] The non-ASCII character 'ç' (U+00E7) can't be used in identifiers, only in strings and comments.
   ç;
-// [error line 56, column 0]
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

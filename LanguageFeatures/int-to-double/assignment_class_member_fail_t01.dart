@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion The static type of a double valued integer literal is [double]
  * @description Checks that it is a compile error if integer but not a literal
@@ -30,15 +29,15 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
   // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
   C?.s = foo();
-// [error line 32, column 0]
+//       ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C.s ??= foo();
-// [error line 36, column 0]
+//        ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C?.s ??= foo();
-// [error line 40, column 0]
+//         ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C.staticSetter = foo();
@@ -46,7 +45,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
   // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
   C?.staticSetter = foo();
-// [error line 48, column 0]
+//                  ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -69,19 +68,19 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
   // [cfe] A value of type 'int' can't be assigned to a variable of type 'double'.
   c?.m1 = foo();
-// [error line 71, column 0]
+//   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   c?.instanceSetter = foo();
-// [error line 75, column 0]
+//                    ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   c.m1 ??= foo();
-// [error line 79, column 0]
+//  ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   c?.m1 ??= foo();
-// [error line 83, column 0]
+//   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

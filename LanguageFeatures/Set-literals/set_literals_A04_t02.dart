@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion The static type of s is Set<T>.
  *
@@ -70,7 +69,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.RETURN_OF_INVALID_TYPE
   // [cfe] A value of type 'Set<C>' can't be returned from a function with return type 'LinkedHashSet<C>'.
   LinkedHashSet<C> test13() => <C>{new C()}
-// [error line 72, column 0]
+//                             ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   LinkedHashSet<int> test14() => {new C()};

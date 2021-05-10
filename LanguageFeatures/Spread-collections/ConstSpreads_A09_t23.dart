@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion From the Unified collection Spec:
  * A spreadElement starting with [...] is a constant element if its expression
@@ -29,11 +28,11 @@ const n = null;
 
 main() {
   const res1 = {...l2};
-// [error line 31, column 0]
+//                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res2 = {...s2};
-// [error line 35, column 0]
+//                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res3 = {...l1, 123: 2};
@@ -50,15 +49,15 @@ main() {
   //               ^
   // [cfe] Unexpected type 'Map<int, int>' of a spread.  Expected 'dynamic' or an Iterable.
   const res6 = {...m2};
-// [error line 52, column 0]
+//                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res7 = {...i1};
-// [error line 56, column 0]
+//             ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res8 = {...i2};
-// [error line 60, column 0]
+//             ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const res9 = {...n};
@@ -66,7 +65,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_EITHER
   // [cfe] Not enough type information to disambiguate between literal set and literal map.
   const res10 = {...null};
-// [error line 68, column 0]
+//              ^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

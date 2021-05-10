@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion  A type T is malformed iff:
  * • T has the form id or the form prefix.id, and in the enclosing lexical
@@ -35,7 +34,7 @@ main() {
   // C<int,double,dynamic>
 
   C<int, double, UnknownType> x = new C();
-// [error line 37, column 0]
+//               ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   null is C<int, double, UnknownType>;
@@ -53,7 +52,7 @@ main() {
   //              ^
   // [cfe] Type argument 'num' doesn't conform to the bound 'int' of the type variable 'T' on 'BoundedInt'.
   C<Bounded<String>, C, C> x4 = new C();
-// [error line 55, column 0]
+//          ^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   C<C<UnknownType, int, int>, C, C> x5 = new C();

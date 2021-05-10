@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion From the Unified collections Spec:
  * We require that at least one component unambiguously determine the literal
@@ -31,7 +30,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.AMBIGUOUS_SET_OR_MAP_LITERAL_BOTH
   // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
   List res3  = {...l, ...m};
-// [error line 33, column 0]
+//             ^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   Map res4   = {...l, ...m};

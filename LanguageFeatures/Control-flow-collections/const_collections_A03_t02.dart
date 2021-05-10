@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion An if element:
  * It is a compile-time error if the condition expression is not constant or
@@ -73,7 +72,7 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.NON_BOOL_CONDITION
   // [cfe] A value of type 'int' can't be assigned to a variable of type 'bool'.
   const map5 = {if (0.0) 1: "x" };
-// [error line 75, column 0]
+//                  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion It is a compile-time error if:
  * A spread element in a map literal has a static type that is not [dynamic] and
@@ -24,15 +23,15 @@ main() {
   // [analyzer] COMPILE_TIME_ERROR.INVALID_ASSIGNMENT
   // [cfe] Both Iterable and Map spread elements encountered in ambiguous literal.
   const Map m2 = {...x2};
-// [error line 26, column 0]
+//               ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map m3 = {...x3};
-// [error line 30, column 0]
+//                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map m4 = {...x4};
-// [error line 34, column 0]
+//                   ^^
 // [analyzer] unspecified
 // [cfe] unspecified
   const Map m5 = {...x5};

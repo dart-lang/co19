@@ -1,8 +1,7 @@
-/*
- * Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
+// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /**
  * @assertion Any expression of the form e1(args) or e1<types>(args) where e1
  * does not denote a method, and where the static type of e1 is not a function
@@ -56,11 +55,11 @@ main() {
 // [cfe] 'call' isn't a function or method and can't be invoked.
   A a = new A();
   a(2);
-// [error line 58, column 0]
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
   a(2, "3");
-// [error line 62, column 0]
+//^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
