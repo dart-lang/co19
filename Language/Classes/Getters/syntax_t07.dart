@@ -9,12 +9,14 @@
  * ;
  * @description Checks that a compile-time error is produced if an arbitrary 
  * instance getter specifies a single formal parameter.
- * @compile-error
  * @author vasya
  */
 
 class C {
   get getter(var value) { throw new C(); }
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

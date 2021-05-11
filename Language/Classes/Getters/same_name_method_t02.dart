@@ -9,15 +9,19 @@
  * method are inherited or not.
  * @description Checks that a compile-time error is produced if a class has
  * an implicit getter and a method with the same name.
- * @compile-error
  * @author iefremov
  */
 
 class C {
   var foo;
-  foo() { return "foo()"; }
+  foo() => "foo()";
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  new C().foo();
+  C().foo();
+//    ^
+// [cfe] unspecified
 }

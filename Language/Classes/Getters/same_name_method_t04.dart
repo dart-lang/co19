@@ -10,16 +10,18 @@
  * @description Checks that a compile-time error is produced if a class has 
  * an explicitly declared getter inherited from a superclass and a method with 
  * the same name.
- * @compile-error
  * @author iefremov
  */
 
 class A {
-  get foo {throw new A();}
+  get foo => throw A();
 }
 
 class C extends A {
-  foo() { return "foo()"; }
+  foo() => "foo()";
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

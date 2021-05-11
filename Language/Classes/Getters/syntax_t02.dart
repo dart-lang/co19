@@ -10,11 +10,13 @@
  * @description Checks that it is a compile-time error if the getter identifier
  * is missing.
  * @author iefremov
- * @compile-error
  */
 
 class C {
   get => null;
+//^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

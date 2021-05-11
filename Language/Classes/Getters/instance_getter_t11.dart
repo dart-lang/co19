@@ -15,7 +15,6 @@
  * @description Checks that a compile error is arisen if a class has a declared
  * static variable and an inherited implicitly declared instance getter with the
  * same name.
- * @compile-error
  * @author ngl@unipro.ru
  */
 
@@ -25,6 +24,9 @@ class A {
 
 class C extends A {
   static int v = 0;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

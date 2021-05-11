@@ -9,15 +9,19 @@
  * method are inherited or not.
  * @description Checks that a compile-time error is produced if a class has
  * an explicitly declared getter and a method with the same name.
- * @compile-error
  * @author vasya
  */
 
 class C {
-  get foo { return "foo"; }
-  foo() { return "foo()"; }
+  get foo => "foo";
+  foo() => return "foo()";
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   new C().foo();
+//        ^
+// [cfe] unspecified
 }

@@ -8,7 +8,6 @@
  * @description Checks that a compile error is produced if the overridden
  * getter is implicit as the return types of both getters are not mutually 
  * assignable. Test type aliases
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -20,6 +19,9 @@ typedef AAlias = A;
 
 class C extends AAlias {
   int get n => 42;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

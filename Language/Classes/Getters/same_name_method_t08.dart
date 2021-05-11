@@ -9,15 +9,20 @@
  * method are inherited or not.
  * @description Checks that a compile-time error is produced if a class has
  * an implicit getter and a static method with the same name.
- * @compile-error
  * @author iefremov
  */
 
 class C {
   var foo;
-  static foo() {throw new C();}
+  static foo() { throw C(); }
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   C.foo();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

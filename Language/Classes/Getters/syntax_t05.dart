@@ -9,12 +9,14 @@
  * ;
  * @description Checks that a compile-time error is produced when a static
  * getter  declaration includes an empty formal parameter list.
- * @compile-error
  * @author kaigorodov
  */
 
 class C {
   static get getter() {throw new C();}
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

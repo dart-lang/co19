@@ -8,14 +8,15 @@
  *   returnType? get identifier
  * ;
  * @description Checks that a compile-time error is produced if an arbitrary 
- * static getter specifies
- * a single formal parameter.
- * @compile-error
+ * static getter specifies a single formal parameter.
  * @author vasya
  */
 
 class C {
   static get getter(var value) {throw new C();}
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

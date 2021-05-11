@@ -10,7 +10,6 @@
  * @description Checks that a compile-time error is produced if a class has
  * an implicit getter inherited from a superclass and a method with the same 
  * name. Test type alias
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -18,10 +17,14 @@
 class A {
   var foo;
 }
+
 typedef AAlias = A;
 
 class C extends AAlias {
   foo() => "foo()";
+//^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

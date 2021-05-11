@@ -15,7 +15,6 @@
  * @description Checks that a compile error is arisen if a class has a declared
  * static method and an inherited implicitly declared instance setter with the
  * same name. Test type aliases
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -23,12 +22,18 @@
 class A {
   int v = 5;
 }
+
 typedef AAlias = A;
 
 class C extends AAlias {
   static void v() {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  new C().v;
+  C().v;
+//    ^
+// [cfe] unspecified
 }

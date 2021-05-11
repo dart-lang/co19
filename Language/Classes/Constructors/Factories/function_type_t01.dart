@@ -14,13 +14,13 @@
 
 class F {
   factory F(x,[String y]) = C;
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class C implements F {
   C(x,[int? y]);
-//          ^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {

@@ -8,7 +8,6 @@
  * @description Checks that a compile error is produced if the overriding
  * getter is implicit as the return types of both getters are not mutually 
  * assignable.
- * @compile-error
  * @author iefremov
  */
 
@@ -18,6 +17,9 @@ class A {
 
 class C extends A {
   int n = 42;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
