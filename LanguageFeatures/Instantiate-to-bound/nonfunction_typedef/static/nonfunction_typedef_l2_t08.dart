@@ -41,8 +41,8 @@
 ///   3. Otherwise, (when no dependencies exist) terminate with the result
 ///   [<U1,m ..., Uk,m>].
 /// @description Checks that instantiation to bounds works OK for [class C<X, Y>;
-    typedef G<X> = void Function(); typedef A<X extends G<C<Y, X>>, Y extends
-    G<C<X, Y>>> = C<X, Y>].
+///    typedef G<X> = void Function(); typedef A<X extends G<C<Y, X>>, Y extends
+///    G<C<X, Y>>> = C<X, Y>].
 /// @author iarkh@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
