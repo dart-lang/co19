@@ -22,6 +22,9 @@
 /// Don't modify it. If you want to change this test, change one of the files 
 /// above and then run generator.dart to regenerate the tests.
 
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 
 abstract class U0 {}
@@ -30,6 +33,7 @@ abstract class U2 {}
 
 abstract class S0 extends U0 {}
 abstract class S1 extends U1 {}
+// no subtype relation between S2 and U2
 abstract class S2 {}
 
 class C0<X, Y, Z> {
@@ -41,6 +45,9 @@ C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
 
 const t1Default = const C0<U0, U1, U2>();
 
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 
 
@@ -49,9 +56,15 @@ class ClassMemberSuper1_t02 {
 
   ClassMemberSuper1_t02(C0<S0, S1, S2> value) {
     m = value;
+//      ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   ClassMemberSuper1_t02.named(C0<S0, S1, S2> value) {
     m = value;
+//      ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   ClassMemberSuper1_t02.valid(C0<U0, U1, U2> value) {
     m = value;
@@ -65,13 +78,25 @@ class ClassMember1_t02 extends ClassMemberSuper1_t02 {
   ClassMember1_t02.valid() : super.valid(t1Default);
   test1() {
     m = t0Instance;
+//      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   test2() {
     superSetter = t0Instance;
+//                ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 main() {
   new ClassMember1_t02.valid().m = t0Instance;
+//                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ClassMember1_t02.valid().superSetter = t0Instance;
+//                                           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

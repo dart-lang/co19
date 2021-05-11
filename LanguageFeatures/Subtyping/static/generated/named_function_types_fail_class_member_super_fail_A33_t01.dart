@@ -30,6 +30,9 @@
 /// Don't modify it. If you want to change this test, change one of the files 
 /// above and then run generator.dart to regenerate the tests.
 
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 
 class A {}
@@ -73,6 +76,9 @@ T1 t1Instance = t1Func;
 
 const t1Default = t1Func;
 
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 
 
@@ -81,9 +87,15 @@ class ClassMemberSuper1_t02 {
 
   ClassMemberSuper1_t02(T0 value) {
     m = value;
+//      ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   ClassMemberSuper1_t02.named(T0 value) {
     m = value;
+//      ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   ClassMemberSuper1_t02.valid(T1 value) {
     m = value;
@@ -97,14 +109,26 @@ class ClassMember1_t02 extends ClassMemberSuper1_t02 {
   ClassMember1_t02.valid() : super.valid(t1Default);
   test1() {
     m = t0Instance;
+//      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   test2() {
     superSetter = t0Instance;
+//                ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 main() {
   new ClassMember1_t02.valid().m = t0Instance;
+//                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ClassMember1_t02.valid().superSetter = t0Instance;
+//                                           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

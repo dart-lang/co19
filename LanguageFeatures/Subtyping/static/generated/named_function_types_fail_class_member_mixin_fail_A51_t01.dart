@@ -29,6 +29,9 @@
 /// Don't modify it. If you want to change this test, change one of the files 
 /// above and then run generator.dart to regenerate the tests.
 
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 
 class U0 extends U1 {}
@@ -61,6 +64,9 @@ T1 t1Instance = t1Func;
 
 const t1Default = t1Func;
 
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 
 
@@ -72,14 +78,26 @@ class ClassMemberSuper1_t03 {
 class ClassMember1_t03 extends Object with ClassMemberSuper1_t03 {
   test1() {
     m = t0Instance;
+//      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   test2() {
     superSetter = t0Instance;
+//                ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 main() {
   new ClassMember1_t03().m = t0Instance;
+//                           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ClassMember1_t03().superSetter = t0Instance;
+//                                     ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

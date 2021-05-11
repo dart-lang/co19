@@ -28,6 +28,9 @@
 /// Don't modify it. If you want to change this test, change one of the files 
 /// above and then run generator.dart to regenerate the tests.
 
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 
 class B {}
@@ -39,6 +42,9 @@ Object t1Instance = new Object();
 const t1Default = const Object();
 
 
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 
 
@@ -47,17 +53,29 @@ class ClassMemberTestStatic {
 
   ClassMemberTestStatic(T0? val) {
     s = val;
+//      ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   static staticTest() {
     s = t0Instance;
+//      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   static set staticSetter(T0? val) {
     s = val;
+//      ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   static Object get staticGetter => t0Instance;
+//                               ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class ClassMemberTestPublic {
@@ -65,6 +83,9 @@ class ClassMemberTestPublic {
 
   ClassMemberTestPublic(T0? val) {
     m = val;
+//      ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   ClassMemberTestPublic.short(this.m);
@@ -73,13 +94,22 @@ class ClassMemberTestPublic {
 
   test(T0? val) {
     m = val;
+//      ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   set setter(T0? val) {
     m = val;
+//      ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   Object get getter => t0Instance;
+//                  ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class ClassMemberTestPrivate {
@@ -87,6 +117,9 @@ class ClassMemberTestPrivate {
 
   ClassMemberTestPrivate(T0? val) {
     _m = val;
+//       ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   ClassMemberTestPrivate.short(this._m);
@@ -95,16 +128,28 @@ class ClassMemberTestPrivate {
 
   test(T0? val) {
     _m = val;
+//       ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   set setter(T0? val) {
     _m = val;
+//       ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 class ClassMemberTestInitFail {
   static Object s = t0Instance;
+//               ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   Object m = t0Instance;
+//        ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 
@@ -112,6 +157,9 @@ class ClassMemberTestInitFail {
 test<T extends B?>(T t0Instance) {
   
   new ClassMemberTestPublic.validConstructor().m = t0Instance;
+//                                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 }
 

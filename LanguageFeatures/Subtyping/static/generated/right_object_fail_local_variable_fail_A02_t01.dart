@@ -29,6 +29,9 @@
 /// Don't modify it. If you want to change this test, change one of the files 
 /// above and then run generator.dart to regenerate the tests.
 
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 
 class X {}
@@ -40,20 +43,32 @@ Object t1Instance = new Object();
 const t1Default = const Object();
 
 
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 
 
 class LocalVariableTest {
   LocalVariableTest() {
     Object t1 = t0Instance;
+//           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   test() {
     Object t1 = t0Instance;
+//           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   static staticTest() {
     Object t1 = t0Instance;
+//           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
@@ -63,9 +78,15 @@ test<T>(T? t0Instance) {
   if (t0Instance is S?) {
     
   Object t1 = t0Instance;
+//         ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   bar () {
     Object t1 = t0Instance;
+//           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   }

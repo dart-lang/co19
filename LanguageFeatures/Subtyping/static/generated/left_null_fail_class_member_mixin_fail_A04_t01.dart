@@ -23,8 +23,12 @@
 /// Don't modify it. If you want to change this test, change one of the files 
 /// above and then run generator.dart to regenerate the tests.
 
+// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 
+// Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
 
 Null t0Instance = null;
@@ -32,6 +36,9 @@ X t1Instance = new X();
 
 const t1Default = const X();
 
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 
 
@@ -43,13 +50,25 @@ class ClassMemberSuper1_t03 {
 class ClassMember1_t03 extends Object with ClassMemberSuper1_t03 {
   test1() {
     m = t0Instance;
+//      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   test2() {
     superSetter = t0Instance;
+//                ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 main() {
   new ClassMember1_t03().m = t0Instance;
+//                           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ClassMember1_t03().superSetter = t0Instance;
+//                                     ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

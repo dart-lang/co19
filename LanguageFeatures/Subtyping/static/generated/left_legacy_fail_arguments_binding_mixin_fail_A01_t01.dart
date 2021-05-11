@@ -21,8 +21,12 @@
 /// Don't modify it. If you want to change this test, change one of the files 
 /// above and then run generator.dart to regenerate the tests.
 
+// Copyright (c) 2020, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 
+// Requirements=nnbd-weak
 import "../../utils/legacy_lib.dart";
 
 X t0Instance = new X();
@@ -30,6 +34,9 @@ String t1Instance = "Show must go on";
 
 const t1Default = "Lily was here";
 
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 
 
@@ -38,6 +45,9 @@ class ArgumentsBindingSuper1_t03 {
   void superTestPositioned(String val, [String val2 = t1Default]) {}
   void superTestNamed(String val, {String val2 = t1Default}) {}
   String get superGetter => t0Instance;
+//                       ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   void set superSetter(String val) {}
 }
 
@@ -45,49 +55,121 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingSuper1_t03 {
 
   test() {
     superTest(t0Instance);
+//            ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     this.superTest(t0Instance);
+//                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     super.superTest(t0Instance);
+//                  ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     superTestPositioned(t0Instance);
+//                      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     this.superTestPositioned(t0Instance);
+//                           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     super.superTestPositioned(t0Instance);
+//                            ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     superTestPositioned(t1Instance, t0Instance);
+//                                  ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     this.superTestPositioned(t1Instance, t0Instance);
+//                                       ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     super.superTestPositioned(t1Instance, t0Instance);
+//                                        ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     superTestNamed(t0Instance);
+//                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     this.superTestNamed(t0Instance);
+//                      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     super.superTestNamed(t0Instance);
+//                       ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     superTestNamed(t1Instance, val2: t0Instance);
+//                                   ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     this.superTestNamed(t1Instance, val2: t0Instance);
+//                                        ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     super.superTestNamed(t1Instance, val2: t0Instance);
+//                                         ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     superSetter = t0Instance;
+//                ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     this.superSetter = t0Instance;
+//                     ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     super.superSetter = t0Instance;
+//                      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 main() {
   new ArgumentsBinding1_t03().superTest(t0Instance);
+//                                      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBinding1_t03().superTestPositioned(t0Instance);
+//                                                ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBinding1_t03().superTestPositioned(t1Instance, t0Instance);
+//                                                            ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBinding1_t03().superTestNamed(t0Instance);
+//                                           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBinding1_t03().superTestNamed(t1Instance, val2: t0Instance);
+//                                                             ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBinding1_t03().superSetter = t0Instance;
+//                                          ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBinding1_t03().test();
 }

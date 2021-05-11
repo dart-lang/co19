@@ -232,7 +232,7 @@ Map<String, String> findReplacements(List<String> strings) {
 
 String removeHeader(String text) {
   List<String> strings = text.split("\n");
-  strings.removeWhere((s) => s.startsWith("///") || s.startsWith("// "));
+  strings.removeWhere((s) => s.startsWith("///"));// || s.startsWith("// "));
   return strings.join("\n");
 }
 

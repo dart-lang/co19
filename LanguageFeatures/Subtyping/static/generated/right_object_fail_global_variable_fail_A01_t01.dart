@@ -28,6 +28,9 @@
 /// Don't modify it. If you want to change this test, change one of the files 
 /// above and then run generator.dart to regenerate the tests.
 
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 
 class B {}
@@ -39,19 +42,31 @@ Object t1Instance = new Object();
 const t1Default = const Object();
 
 
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 
 
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = t0Instance;
+//               ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   foo() {
     t1Instance = t0Instance;
+//               ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   static test() {
     t1Instance = t0Instance;
+//               ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
@@ -60,9 +75,15 @@ class GlobalVariableTest {
 test<T extends B?>(T t0Instance) {
   
   t1Instance = t0Instance;
+//             ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   bar () {
     t1Instance = t0Instance;
+//               ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
 }

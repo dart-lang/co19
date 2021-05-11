@@ -30,6 +30,9 @@
 /// Don't modify it. If you want to change this test, change one of the files 
 /// above and then run generator.dart to regenerate the tests.
 
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 
 class U0 extends U1 {}
@@ -70,6 +73,9 @@ U1 t1Func<X extends B0, Y extends B0>(S0 y0, S1 y1, [S2? x2, S3? x3]) => new U1(
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 const t1Default = t1Func;
+// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 
 
@@ -104,30 +110,99 @@ class ArgumentsBindingClassSuper {
 
 class ArgumentsBindingDesc extends ArgumentsBindingClassSuper {
   ArgumentsBindingDesc(T0 t0) : super (t0) {}
+//                                      ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   namedArgumentsFunc1(t0Instance);
+//                    ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   namedArgumentsFunc1(t1Instance, t2: t0Instance);
+//                                    ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   positionalArgumentsFunc1(t0Instance);
+//                         ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   positionalArgumentsFunc1(t1Instance, t0Instance);
+//                                     ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBindingClass(t0Instance);
+//                          ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBindingClass(t1Instance).namedArgumentsMethod(t0Instance);
+//                                                           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBindingClass(t1Instance).namedArgumentsMethod(t1Instance, t2: t0Instance);
+//                                                                           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBindingClass(t1Instance).positionalArgumentsMethod(t0Instance);
+//                                                                ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBindingClass(t1Instance).positionalArgumentsMethod(t1Instance, t0Instance);
+//                                                                            ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBindingClass(t1Instance).testSetter = t0Instance;
+//                                                   ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   ArgumentsBindingClass.namedArgumentsStaticMethod(t0Instance);
+//                                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   ArgumentsBindingClass.namedArgumentsStaticMethod(t1Instance, t2: t0Instance);
+//                                                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   ArgumentsBindingClass.positionalArgumentsStaticMethod(t0Instance);
+//                                                      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   ArgumentsBindingClass.positionalArgumentsStaticMethod(t1Instance, t0Instance);
+//                                                                  ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBindingClass.named(t0Instance);
+//                                ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBindingClass.named(t1Instance, t2: t0Instance);
+//                                                ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBindingClass.positional(t0Instance);
+//                                     ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBindingClass.positional(t1Instance, t0Instance);
+//                                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBindingClass.fNamed(t0Instance);
+//                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBindingClass.fNamed(t1Instance, t2: t0Instance);
+//                                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBindingClass.fPositional(t0Instance);
+//                                      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   new ArgumentsBindingClass.fPositional(t1Instance, t0Instance);
+//                                                  ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
