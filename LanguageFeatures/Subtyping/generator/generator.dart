@@ -232,7 +232,8 @@ Map<String, String> findReplacements(List<String> strings) {
 
 String removeHeader(String text) {
   List<String> strings = text.split("\n");
-  strings.removeWhere((s) => s.startsWith("///"));// || s.startsWith("// "));
+  strings.removeWhere((s) => s.startsWith("///") || s.startsWith("// Copyright")
+      || s.startsWith("// for details") || s.startsWith("// BSD-style"));
   return strings.join("\n");
 }
 

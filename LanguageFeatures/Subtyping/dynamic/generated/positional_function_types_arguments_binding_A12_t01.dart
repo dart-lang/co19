@@ -27,9 +27,6 @@
 /// Don't modify it. If you want to change this test, change one of the files 
 /// above and then run generator.dart to regenerate the tests.
 
-// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
-// for details. All rights reserved. Use of this source code is governed by a
-// BSD-style license that can be found in the LICENSE file.
 
 import '../../utils/common.dart';
 
@@ -90,9 +87,6 @@ U1<A, List, num> t1Func<X extends B0, Y extends B1>(
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 const t1Default = t1Func;
-// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
-// for details. All rights reserved. Use of this source code is governed by a
-// BSD-style license that can be found in the LICENSE file.
 
 
 namedArgumentsFunc1(T1 t1, {T1 t2 = t1Default}) {}

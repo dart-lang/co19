@@ -21,9 +21,6 @@
 /// Don't modify it. If you want to change this test, change one of the files 
 /// above and then run generator.dart to regenerate the tests.
 
-// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
-// for details. All rights reserved. Use of this source code is governed by a
-// BSD-style license that can be found in the LICENSE file.
 
 import '../../utils/common.dart';
 
@@ -41,9 +38,6 @@ FutureOr<C<A>> t1Instance = new Future<C<A>>.value(new C());
 
 const t1Default = const C<A>();
 
-// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
-// for details. All rights reserved. Use of this source code is governed by a
-// BSD-style license that can be found in the LICENSE file.
 
 
 namedArgumentsFunc1(FutureOr<C<A>> t1, {FutureOr<C<A>> t2 = t1Default}) {}

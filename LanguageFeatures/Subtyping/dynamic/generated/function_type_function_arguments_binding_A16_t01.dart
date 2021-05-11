@@ -19,9 +19,6 @@
 /// Don't modify it. If you want to change this test, change one of the files 
 /// above and then run generator.dart to regenerate the tests.
 
-// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
-// for details. All rights reserved. Use of this source code is governed by a
-// BSD-style license that can be found in the LICENSE file.
 
 import '../../utils/common.dart';
 
@@ -36,9 +33,6 @@ Function t1Instance = () {};
 void foo() {}
 const t1Default = foo;
 
-// Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
-// for details. All rights reserved. Use of this source code is governed by a
-// BSD-style license that can be found in the LICENSE file.
 
 
 namedArgumentsFunc1(Function t1, {Function t2 = t1Default}) {}
