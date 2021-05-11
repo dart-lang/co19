@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion class Stream
- * @description Aggregates tests for Stream interface (errors processing)
- * @author a.semenov@unipro.ru
- */
+/// @assertion class Stream
+/// @description Aggregates tests for Stream interface (errors processing)
+/// @author a.semenov@unipro.ru
+
 library allTests_A02;
 import "../../../Utils/expect.dart";
 

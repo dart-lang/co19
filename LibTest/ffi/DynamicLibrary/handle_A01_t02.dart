@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Pointer<Void> handle
- *  The handle to the dynamic library.
- *
- * @description Checks that this property returns different handles for the
- * different dynamic libraries
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Pointer<Void> handle
+///  The handle to the dynamic library.
+///
+/// @description Checks that this property returns different handles for the
+/// different dynamic libraries
+/// @author sgrekhov@unipro.ru
+
 import "dart:ffi";
 import "../ffi_utils.dart";
 import "../../../Utils/expect.dart";

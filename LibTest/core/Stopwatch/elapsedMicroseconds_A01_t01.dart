@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final int elapsedMicroseconds #
- * Returns the [elapsed] counter converted to microseconds.
- * @description Checks that the proportion between values returned by elapsed()
- * and this method is correct and that this value is never negative. Checks
- * several successive different values returned by elapsedInUs().
- * @author kaigorodov
- */
+/// @assertion final int elapsedMicroseconds #
+/// Returns the [elapsed] counter converted to microseconds.
+/// @description Checks that the proportion between values returned by elapsed()
+/// and this method is correct and that this value is never negative. Checks
+/// several successive different values returned by elapsedInUs().
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

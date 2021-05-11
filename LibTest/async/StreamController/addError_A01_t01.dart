@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void addError(Object error, [StackTrace stackTrace])
- * Send or enqueue an error event.
- *
- * @description Checks that an error event is created.
- * @author kaigorodov
- */
+/// @assertion void addError(Object error, [StackTrace stackTrace])
+/// Send or enqueue an error event.
+///
+/// @description Checks that an error event is created.
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

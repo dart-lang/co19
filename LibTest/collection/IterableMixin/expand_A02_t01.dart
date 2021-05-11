@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<T> expand <T>(Iterable<T> f(E element))
- * The resulting [Iterable] runs through the elements returned by [f] for each
- * element of this, in iteration order.
- * The returned [Iterable] is lazy, and calls [f] for each element of this
- * every time it's iterated.
- * @description Checks that all the elements are lazily processed in iteration
- * order.
- * @author iarkh@unipro.ru
- */
+/// @assertion Iterable<T> expand <T>(Iterable<T> f(E element))
+/// The resulting [Iterable] runs through the elements returned by [f] for each
+/// element of this, in iteration order.
+/// The returned [Iterable] is lazy, and calls [f] for each element of this
+/// every time it's iterated.
+/// @description Checks that all the elements are lazily processed in iteration
+/// order.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

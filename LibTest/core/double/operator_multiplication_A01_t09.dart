@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion double operator *(num other)
- * @description Checks on a various values witch neither an infinity, nor a NaN,
- * nor a zero.
- * @author msyabro
- */
+/// @assertion double operator *(num other)
+/// @description Checks on a various values witch neither an infinity, nor a NaN,
+/// nor a zero.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 main() {

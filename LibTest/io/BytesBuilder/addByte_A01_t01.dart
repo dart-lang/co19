@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void addByte(int byte)
- * Append byte to the current contents of the builder.
- *
- * The byte will be bit-representation truncated to the range 0 .. 255.
- * @description Checks that this method byte to the current contents of the
- * builder
- * @author sgrekhov@unipro.ru
- */
+/// @assertion void addByte(int byte)
+/// Append byte to the current contents of the builder.
+///
+/// The byte will be bit-representation truncated to the range 0 .. 255.
+/// @description Checks that this method byte to the current contents of the
+/// builder
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

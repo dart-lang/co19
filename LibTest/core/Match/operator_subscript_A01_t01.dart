@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Returns the string matched by the given [group]. If [group] is 0,
- * returns the match of the regular expression.
- * @description Checks that the correct group is returned when valid index is used.
- * @author rodionov
- * @issue 1290
- */
+/// @assertion Returns the string matched by the given [group]. If [group] is 0,
+/// returns the match of the regular expression.
+/// @description Checks that the correct group is returned when valid index is used.
+/// @author rodionov
+/// @issue 1290
+
 import "../../../Utils/expect.dart";
  
 main() {

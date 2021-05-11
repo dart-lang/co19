@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract class Iterable<E>
- * @description Checks all methods of Iterable
- * @author sgrekhov@unipro.ru
- */
+/// @assertion abstract class Iterable<E>
+/// @description Checks all methods of Iterable
+/// @author sgrekhov@unipro.ru
+
 library allTests_A01_t01;
 
 import "any_A01_t01.test.dart" as any_A01_t01;

@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion ElementStream<Event> get onSubmit
- * Stream of submit events handled by this Element.
- * @description Checks that correct events are delivered via the stream
- */
+/// @assertion ElementStream<Event> get onSubmit
+/// Stream of submit events handled by this Element.
+/// @description Checks that correct events are delivered via the stream
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

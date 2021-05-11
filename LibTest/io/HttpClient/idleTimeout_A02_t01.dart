@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Duration idleTimeout
- *  read / write
- * Get and set the idle timeout of non-active persistent (keep-alive)
- * connections. The default value is 15 seconds.
- * @description Checks idle timeout and keep alive connection
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Duration idleTimeout
+///  read / write
+/// Get and set the idle timeout of non-active persistent (keep-alive)
+/// connections. The default value is 15 seconds.
+/// @description Checks idle timeout and keep alive connection
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "dart:convert";

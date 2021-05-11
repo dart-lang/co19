@@ -2,21 +2,20 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A map literal denotes a map object.
- * mapLiteral:
- *   const? typeArguments? '{' (mapLiteralEntry (',' mapLiteralEntry)* ','?)?
- *   '}'
- * ;
- * mapLiteralEntry:
- *   expression ':' expression
- * ;
- * A map literal consists of zero or more entries. Each entry has a key and a
- * value. Each key and each value is denoted by an expression.
- * @description Checks that various map keys don't produce a compile-time
- * errors.
- * @author msyabro
- */
+/// @assertion A map literal denotes a map object.
+/// mapLiteral:
+///   const? typeArguments? '{' (mapLiteralEntry (',' mapLiteralEntry)* ','?)?
+///   '}'
+/// ;
+/// mapLiteralEntry:
+///   expression ':' expression
+/// ;
+/// A map literal consists of zero or more entries. Each entry has a key and a
+/// value. Each key and each value is denoted by an expression.
+/// @description Checks that various map keys don't produce a compile-time
+/// errors.
+/// @author msyabro
+
 // SharedOptions=--enable-experiment=triple-shift
 
 topFunc() {}

@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It is a compile time error to read a local variable when the
- * variable is definitely unassigned unless the variable is non-final, and
- * non-late, and has nullable type.
- *
- * @description Checks that it's a compile time error to read a local late
- * variable when the variable is definitely unassigned
- * @author sgrekhov@unipro.ru
- */
+/// @assertion It is a compile time error to read a local variable when the
+/// variable is definitely unassigned unless the variable is non-final, and
+/// non-late, and has nullable type.
+///
+/// @description Checks that it's a compile time error to read a local late
+/// variable when the variable is definitely unassigned
+/// @author sgrekhov@unipro.ru
+
 
 main() {
   late int x1;

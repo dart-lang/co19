@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String encodeQueryComponent(String component)
- * Encode the string component according to the HTML 4.01 rules for encoding
- * the posting of a HTML form as a query string component.
- * Spaces will be replaced with plus and all characters except
- * for uppercase and lowercase letters, decimal digits and the characters -._~.
- * @description Compare library result with manually encoded string on
- * characters from Unicode Basic Multilingual Plane
- * @author ilya
- */
+/// @assertion String encodeQueryComponent(String component)
+/// Encode the string component according to the HTML 4.01 rules for encoding
+/// the posting of a HTML form as a query string component.
+/// Spaces will be replaced with plus and all characters except
+/// for uppercase and lowercase letters, decimal digits and the characters -._~.
+/// @description Compare library result with manually encoded string on
+/// characters from Unicode Basic Multilingual Plane
+/// @author ilya
+
 import 'dart:convert';
 import "../../../Utils/expect.dart";
 

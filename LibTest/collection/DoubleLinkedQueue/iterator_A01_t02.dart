@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final bool iterator
- * @description Checks that iterator is read-only property and cannot be changed
- * @author iarkh@unipro.ru
- */
+/// @assertion final bool iterator
+/// @description Checks that iterator is read-only property and cannot be changed
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

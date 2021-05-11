@@ -2,30 +2,29 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Postfix expressions invoke the postfix operators on objects.
- * postfixExpression:
- *   assignableExpression postfixOperator |
- *   primary (selector* | (‘#’ ( (identifier ‘=’?) | operator)))
- * ;
- * postfixOperator:
- *   incrementOperator
- * ;
- * selector:
- *   assignableSelector |
- *   arguments
- * ;
- * incrementOperator:
- *   '++' |
- *   '--'
- * ;
- * A postfix expression is either a primary expression, a function, method or
- * getter invocation, or an invocation of a postfix operator on an expression e.
- * @description Checks that a statement can't be used with postfixOperator.
- * This test is using a block statement.
- * @compile-error
- * @author msyabro
- */
+/// @assertion Postfix expressions invoke the postfix operators on objects.
+/// postfixExpression:
+///   assignableExpression postfixOperator |
+///   primary (selector* | (‘#’ ( (identifier ‘=’?) | operator)))
+/// ;
+/// postfixOperator:
+///   incrementOperator
+/// ;
+/// selector:
+///   assignableSelector |
+///   arguments
+/// ;
+/// incrementOperator:
+///   '++' |
+///   '--'
+/// ;
+/// A postfix expression is either a primary expression, a function, method or
+/// getter invocation, or an invocation of a postfix operator on an expression e.
+/// @description Checks that a statement can't be used with postfixOperator.
+/// This test is using a block statement.
+/// @compile-error
+/// @author msyabro
+
 
 main() {
   var x = 1;

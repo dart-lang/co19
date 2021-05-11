@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion double remainder(num other)
- * @description Checks that if 'other' is zero the result is NaN.
- * @author pagolubev
- */
+/// @assertion double remainder(num other)
+/// @description Checks that if 'other' is zero the result is NaN.
+/// @author pagolubev
+
 import "../../../Utils/expect.dart";
 
 final List values = const [

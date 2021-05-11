@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion LinkedHashMap.fromIterable(Iterable iterable,
- * {K key(element), V value(element)})
- * ...
- * The keys of the key/value pairs do not need to be unique. The last occurrence
- * of a key will simply overwrite any previous value.
- * @description Checks that the key/value pairs do not need to be unique
- * @author sgrekhov@unipro.ru
- */
+/// @assertion LinkedHashMap.fromIterable(Iterable iterable,
+/// {K key(element), V value(element)})
+/// ...
+/// The keys of the key/value pairs do not need to be unique. The last occurrence
+/// of a key will simply overwrite any previous value.
+/// @description Checks that the key/value pairs do not need to be unique
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

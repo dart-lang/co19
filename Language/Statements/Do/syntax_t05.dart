@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The do statement supports conditional iteration, where the
- * condition is evaluated after the loop.
- * doStatement:
- *   do statement while '(' expression ')' ';'
- * ;
- * @description Checks that it is a compile-time error if the while keyword is
- * missing.
- * @compile-error
- * @author vasya
- */
+/// @assertion The do statement supports conditional iteration, where the
+/// condition is evaluated after the loop.
+/// doStatement:
+///   do statement while '(' expression ')' ';'
+/// ;
+/// @description Checks that it is a compile-time error if the while keyword is
+/// missing.
+/// @compile-error
+/// @author vasya
+
 
 main() {
   do {

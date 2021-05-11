@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion element → E
- * read / write
- * The element in the queue.
- * @description Checks that element property is read/write
- * @author sgrekhov@unipro.ru
- */
+/// @assertion element → E
+/// read / write
+/// The element in the queue.
+/// @description Checks that element property is read/write
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

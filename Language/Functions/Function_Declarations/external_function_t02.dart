@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The body is empty for functions that are external.
- * @description Checks it is a compile error if external function declaration
- * is followed by a function body.
- * @compile-error
- * @author ilya
- */
+/// @assertion The body is empty for functions that are external.
+/// @description Checks it is a compile error if external function declaration
+/// is followed by a function body.
+/// @compile-error
+/// @author ilya
+
 
 external foo(String x) { return x.length; }
 

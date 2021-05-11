@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It is a compile time error if a deferred, malformed or
- * malbounded type is used in a subtype test
- * @description Checks that a compile error occurs if deferred type is used
- * in an explicit subtype test.
- * @compile-error
- * @author ngl@unipro.ru
- */
+/// @assertion It is a compile time error if a deferred, malformed or
+/// malbounded type is used in a subtype test
+/// @description Checks that a compile error occurs if deferred type is used
+/// in an explicit subtype test.
+/// @compile-error
+/// @author ngl@unipro.ru
+
 
 import "../somelib1.dart" deferred as p;
 

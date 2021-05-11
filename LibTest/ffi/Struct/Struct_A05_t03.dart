@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion All field declarations in a Struct subclass declaration must
- * either have type int or double and be annotated with a NativeType
- * representing the native type, or must be of type Pointer or subtype of Struct.
- *
- * @description Checks that 'Struct' subtype value depends on annotation
- * @author sgrekhov@unipro.ru
- * @issue 45025
- */
+/// @assertion All field declarations in a Struct subclass declaration must
+/// either have type int or double and be annotated with a NativeType
+/// representing the native type, or must be of type Pointer or subtype of Struct.
+///
+/// @description Checks that 'Struct' subtype value depends on annotation
+/// @author sgrekhov@unipro.ru
+/// @issue 45025
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import "../../../Utils/expect.dart";

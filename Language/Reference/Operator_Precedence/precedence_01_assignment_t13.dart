@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Description    Operator                          Associativity Precedence
- * Assignment       ??=                                 Right          1
- * @description Test that '??=' assignment operator has lowest precedence.
- * Compare with cascade '..' (precedence 2) and conditional 'e1 ? e2 : e3'
- * (precedence 3) operators
- * @author sgrekhov@unipro.ru
- * @issue 40945
- */
+/// @assertion
+/// Description    Operator                          Associativity Precedence
+/// Assignment       ??=                                 Right          1
+/// @description Test that '??=' assignment operator has lowest precedence.
+/// Compare with cascade '..' (precedence 2) and conditional 'e1 ? e2 : e3'
+/// (precedence 3) operators
+/// @author sgrekhov@unipro.ru
+/// @issue 40945
+
 import "../../../Utils/expect.dart";
 
 String log = "";

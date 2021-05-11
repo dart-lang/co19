@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion T left
- * Setting the value will move the rectangle without changing its width.
- * @description Checks that setting the value will not change width of the
- * rectangle.
- * @author ngl@unipro.ru
- */
+/// @assertion T left
+/// Setting the value will move the rectangle without changing its width.
+/// @description Checks that setting the value will not change width of the
+/// rectangle.
+/// @author ngl@unipro.ru
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 

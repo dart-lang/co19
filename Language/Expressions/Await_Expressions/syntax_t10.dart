@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- *  awaitExpression:
- *      await unaryExpression
- *
- * @description Verify several kinds of valid await expressions inside
- * a method with async modifier
- * @author sgrekhov@unipro.ru
- */
+/// @assertion
+///  awaitExpression:
+///      await unaryExpression
+///
+/// @description Verify several kinds of valid await expressions inside
+/// a method with async modifier
+/// @author sgrekhov@unipro.ru
+
 
 import 'dart:async';
 import '../../../Utils/expect.dart';

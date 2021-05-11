@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String path
- * Gets the path of the file underlying this RandomAccessFile.
- *
- * @description Checks that path property returns the path of the file
- * underlying this RandomAccessFile.
- * @author ngl@unipro.ru
- */
+/// @assertion String path
+/// Gets the path of the file underlying this RandomAccessFile.
+///
+/// @description Checks that path property returns the path of the file
+/// underlying this RandomAccessFile.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

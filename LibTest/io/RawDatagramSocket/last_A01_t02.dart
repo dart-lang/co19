@@ -2,20 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<RawSocketEvent> last
- * The last element of this stream.
- *
- * If an error event occurs before the first data event, the resulting future
- * is completed with that error.
- *
- * If this stream is empty (a done event occurs before the first data event),
- * the resulting future completes with a StateError.
- *
- * @description Checks that property last returns the last element of the
- * stream when all sent events were received and RawDatagramSocket was closed.
- * @author ngl@unipro.ru
- */
+/// @assertion Future<RawSocketEvent> last
+/// The last element of this stream.
+///
+/// If an error event occurs before the first data event, the resulting future
+/// is completed with that error.
+///
+/// If this stream is empty (a done event occurs before the first data event),
+/// the resulting future completes with a StateError.
+///
+/// @description Checks that property last returns the last element of the
+/// stream when all sent events were received and RawDatagramSocket was closed.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

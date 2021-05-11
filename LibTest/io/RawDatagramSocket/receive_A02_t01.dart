@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Datagram receive()
- * Receive a datagram.
- * . . .
- * The maximum length of the datagram that can be received is 65503 bytes.
- *
- * @description Checks that the 65503 bytes datagram can be received.
- * @issue 31733
- * @author ngl@unipro.ru
- */
+/// @assertion Datagram receive()
+/// Receive a datagram.
+/// . . .
+/// The maximum length of the datagram that can be received is 65503 bytes.
+///
+/// @description Checks that the 65503 bytes datagram can be received.
+/// @issue 31733
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "../http_utils.dart";
 import "../../../Utils/expect.dart";

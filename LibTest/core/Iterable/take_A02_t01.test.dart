@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<E> take(int count)
- * The count must not be negative.
- * @description Checks that an error is thrown if n is negative.
- * @author kaigorodov
- */
+/// @assertion Iterable<E> take(int count)
+/// The count must not be negative.
+/// @description Checks that an error is thrown if n is negative.
+/// @author kaigorodov
+
 library take_A02_t01;
 import "../../../Utils/expect.dart";
 

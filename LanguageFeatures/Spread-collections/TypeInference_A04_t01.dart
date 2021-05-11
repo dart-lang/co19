@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion If a spread element in a map literal has static type [Map<K, V>]
- * for some [K] and [V], then the upwards inference key type is [K] and the
- * value type is [V].
- * @description Checks that spread element upwards inference key type is [K] and
- * the value type is [V] in the map literal
- * @static-warning
- * @author iarkh@unipro.ru
- */
+/// @assertion If a spread element in a map literal has static type [Map<K, V>]
+/// for some [K] and [V], then the upwards inference key type is [K] and the
+/// value type is [V].
+/// @description Checks that spread element upwards inference key type is [K] and
+/// the value type is [V] in the map literal
+/// @static-warning
+/// @author iarkh@unipro.ru
+
 
 import "../../Utils/expect.dart";
 

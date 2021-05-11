@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void clear()
- * Removes all elements of the collection.
- * @description Checks that clear() indeed removes all elements from the set.
- * @author pagolubev
- */
+/// @assertion void clear()
+/// Removes all elements of the collection.
+/// @description Checks that clear() indeed removes all elements from the set.
+/// @author pagolubev
+
 library clear_A01_t01;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";

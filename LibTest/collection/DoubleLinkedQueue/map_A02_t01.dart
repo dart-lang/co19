@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract Iterable map(f(E element))
- * As long as the returned Iterable is not iterated over, the supplied function
- * f will not be invoked.
- * @description Checks that the supplied function [f] will not be invoked if the
- * returned [Iterable] is not iterated over.
- * @author kaigorodov
- */
+/// @assertion abstract Iterable map(f(E element))
+/// As long as the returned Iterable is not iterated over, the supplied function
+/// f will not be invoked.
+/// @description Checks that the supplied function [f] will not be invoked if the
+/// returned [Iterable] is not iterated over.
+/// @author kaigorodov
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

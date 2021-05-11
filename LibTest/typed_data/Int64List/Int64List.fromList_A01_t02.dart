@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Int64List.fromList(List<int> list)
- * Creates a [Int64List] with the same size as the [elements] list
- * and copies over the elements.
- * @description Checks that a new [Int64List] has the same size and elements as
- * the [elements].
- * @author msyabro
- */
+/// @assertion Int64List.fromList(List<int> list)
+/// Creates a [Int64List] with the same size as the [elements] list
+/// and copies over the elements.
+/// @description Checks that a new [Int64List] has the same size and elements as
+/// the [elements].
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

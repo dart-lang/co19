@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract int ceil()
- * Returns the least integer no smaller than this.
- * @description Checks that if [:ceil():] is called on a value already equal
- * to a mathematical integer, then the result is the same value.
- * @author pagolubev
- */
+/// @assertion abstract int ceil()
+/// Returns the least integer no smaller than this.
+/// @description Checks that if [:ceil():] is called on a value already equal
+/// to a mathematical integer, then the result is the same value.
+/// @author pagolubev
+
 import "dart:math" as Math;
 import "../../../Utils/expect.dart";
 

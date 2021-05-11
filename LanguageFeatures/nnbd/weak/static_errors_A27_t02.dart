@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It is an error if the object being iterated over by a for-in loop
- * has a static type which is not dynamic, and is not a subtype of
- * Iterable<dynamic>
- *
- * @description Check that it is no error if the object being iterated over by a
- * for-in loop has a static type which is dynamic, or a subtype of
- * Iterable<dynamic>
- * @author sgrekhov@unipro.ru
- */
+/// @assertion It is an error if the object being iterated over by a for-in loop
+/// has a static type which is not dynamic, and is not a subtype of
+/// Iterable<dynamic>
+///
+/// @description Check that it is no error if the object being iterated over by a
+/// for-in loop has a static type which is dynamic, or a subtype of
+/// Iterable<dynamic>
+/// @author sgrekhov@unipro.ru
+
 // Requirements=nnbd-weak
 
 class C {

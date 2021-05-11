@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<E> skipWhile(bool test(E value))
- * Every new [Iterator] of the returned [Iterable[ iterates over all elements of
- * this.
- * @description Checks that for every new iterator, all elements either are
- * tested and satisfy the test, or are returned by the iterator.
- * @author iarkh@unipro.ru
- */
+/// @assertion Iterable<E> skipWhile(bool test(E value))
+/// Every new [Iterator] of the returned [Iterable[ iterates over all elements of
+/// this.
+/// @description Checks that for every new iterator, all elements either are
+/// tested and satisfy the test, or are returned by the iterator.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

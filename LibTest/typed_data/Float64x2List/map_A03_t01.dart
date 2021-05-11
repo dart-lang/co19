@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<T> map<T>(T f(E e))
- * ...
- * The transformed elements will not be cached. Iterating multiple times over
- * the returned Iterable will invoke the supplied function f multiple times on
- * the same element.
- * @description Checks that iterating multiple times over the returned Iterable
- * will invoke the supplied function f multiple times on the same element.
- * @author ngl@unipro.ru
- */
+/// @assertion Iterable<T> map<T>(T f(E e))
+/// ...
+/// The transformed elements will not be cached. Iterating multiple times over
+/// the returned Iterable will invoke the supplied function f multiple times on
+/// the same element.
+/// @description Checks that iterating multiple times over the returned Iterable
+/// will invoke the supplied function f multiple times on the same element.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

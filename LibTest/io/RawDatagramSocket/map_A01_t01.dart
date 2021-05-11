@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Stream<S> map<S>(S convert(T event))
- * Creates a new stream that converts each element of this stream to a new value
- * using the convert function.
- *
- * For each data event, o, in this stream, the returned stream provides a data
- * event with the value convert(o).
- *
- * @description Checks that a new stream contains expected events.
- * @author ngl@unipro.ru
- */
+/// @assertion Stream<S> map<S>(S convert(T event))
+/// Creates a new stream that converts each element of this stream to a new value
+/// using the convert function.
+///
+/// For each data event, o, in this stream, the returned stream provides a data
+/// event with the value convert(o).
+///
+/// @description Checks that a new stream contains expected events.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Returns whether the regular expression has a match in the string
- * [str].
- * @description Tests this method with various patterns, flags and input strings.
- * @author rodionov
- * @Issue 1297
- */
+/// @assertion Returns whether the regular expression has a match in the string
+/// [str].
+/// @description Tests this method with various patterns, flags and input strings.
+/// @author rodionov
+/// @Issue 1297
+
 import "../../../Utils/expect.dart";
 
 main() {

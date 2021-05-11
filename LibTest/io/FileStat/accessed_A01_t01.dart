@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion DateTime accessed
- * final
- * The time of the last access to the data of the file system object. On Windows
- * platforms, this may have 1 day granularity, and be out of date by an hour.
- * @description Checks that this property returns the time of the last access to
- * the data of the file system object
- * @author sgrekhov@unipro.ru
- */
+/// @assertion DateTime accessed
+/// final
+/// The time of the last access to the data of the file system object. On Windows
+/// platforms, this may have 1 day granularity, and be out of date by an hour.
+/// @description Checks that this property returns the time of the last access to
+/// the data of the file system object
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";

@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void overrideMimeType(String override)
- * Specify a particular MIME type (such as text/xml) desired for the response.
- * This value must be set before the request has been sent.
- * @description Checks that MIME type is overridden.
- */
+/// @assertion void overrideMimeType(String override)
+/// Specify a particular MIME type (such as text/xml) desired for the response.
+/// This value must be set before the request has been sent.
+/// @description Checks that MIME type is overridden.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../testcommon.dart";

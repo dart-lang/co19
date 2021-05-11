@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion An if element:
- * It is a compile-time error if the condition expression is not constant or
- * does not evaluate to true or false.
- *
- * @description Checks that it is a compile-time error if the condition
- * expression does not evaluate to true or false
- * @author sgrekhov@unipro.ru
- */
+/// @assertion An if element:
+/// It is a compile-time error if the condition expression is not constant or
+/// does not evaluate to true or false.
+///
+/// @description Checks that it is a compile-time error if the condition
+/// expression does not evaluate to true or false
+/// @author sgrekhov@unipro.ru
+
 main() {
   var x = 1;
   List<int> list1 = const [if (1) 1, 1 ];

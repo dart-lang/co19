@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It is a static error if:
- *    A spread element in a list or set literal has a static type that is not
- *    assignable to Iterable<Object>.
- * @description Checks that compile error is thrown if spread element in list
- * literal is not assignable to [Iterate<Object>]
- * @author iarkh@unipro.ru
- */
+/// @assertion It is a static error if:
+///    A spread element in a list or set literal has a static type that is not
+///    assignable to Iterable<Object>.
+/// @description Checks that compile error is thrown if spread element in list
+/// literal is not assignable to [Iterate<Object>]
+/// @author iarkh@unipro.ru
+
 
 main() {
   var number = 1;

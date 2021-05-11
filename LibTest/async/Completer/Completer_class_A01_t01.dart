@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Completer<T> A way to produce Future objects and to complete
- * them later with a value or error.
- * @description Check methods and properties, inherited from Object
- * @author a.semenov@unipro.ru
- */
+/// @assertion Completer<T> A way to produce Future objects and to complete
+/// them later with a value or error.
+/// @description Check methods and properties, inherited from Object
+/// @author a.semenov@unipro.ru
+
 import "../../core/Object/allTests.lib.dart" as object;
 import "dart:async";
 

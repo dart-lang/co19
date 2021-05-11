@@ -2,19 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion R runBinary<R, T1, T2>(
- *                                    R action(T1 argument1, T2 argument2),
- *                                    T1 argument1,
- *                                    T2 argument2
- *                                   )
- *    Executes the given action with argument1 and argument2 in this zone.
- *    As run except that action is called with two arguments instead of none.
- * Executes the given callback f with argument arg1 and arg2 in this zone.
- * @description Checks that synchronous [action] exceptions are not caught
- * in zone.
- * @author a.semenov@unipro.ru
- */
+/// @assertion R runBinary<R, T1, T2>(
+///                                    R action(T1 argument1, T2 argument2),
+///                                    T1 argument1,
+///                                    T2 argument2
+///                                   )
+///    Executes the given action with argument1 and argument2 in this zone.
+///    As run except that action is called with two arguments instead of none.
+/// Executes the given callback f with argument arg1 and arg2 in this zone.
+/// @description Checks that synchronous [action] exceptions are not caught
+/// in zone.
+/// @author a.semenov@unipro.ru
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

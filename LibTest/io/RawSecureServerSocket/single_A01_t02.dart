@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<RawSecureSocket> single
- * The single element of this stream.
- * . . .
- * If this is empty or has more than one element, the returned future completes
- * with an error.
- *
- * @description Checks that if the returned future completes with an error, this
- * may be empty.
- * @author ngl@unipro.ru
- */
+/// @assertion Future<RawSecureSocket> single
+/// The single element of this stream.
+/// . . .
+/// If this is empty or has more than one element, the returned future completes
+/// with an error.
+///
+/// @description Checks that if the returned future completes with an error, this
+/// may be empty.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

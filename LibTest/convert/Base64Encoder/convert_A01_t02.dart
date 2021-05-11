@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String convert(List<int> input)
- * Converts input and returns the result of the conversion.
- * @description Checks that this method converts input and returns the result of
- * the conversion. Test URL safe encoder
- * @author sgrekhov@unipro.ru
- */
+/// @assertion String convert(List<int> input)
+/// Converts input and returns the result of the conversion.
+/// @description Checks that this method converts input and returns the result of
+/// the conversion. Test URL safe encoder
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

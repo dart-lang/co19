@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion DoubleLinkedQueueEntry<E> lastEntry()
- * @description Checks that null is returned if this queue is empty.
- * @note undocumented
- * @author kaigorodov
- */
+/// @assertion DoubleLinkedQueueEntry<E> lastEntry()
+/// @description Checks that null is returned if this queue is empty.
+/// @note undocumented
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

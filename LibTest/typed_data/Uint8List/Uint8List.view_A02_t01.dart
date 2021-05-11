@@ -2,19 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Uint8List.view(
- *     ByteBuffer buffer, [
- *     int byteOffset = 0,
- *     int length
- * ])
- * ...
- * Changes in the [Uint8List] will be visible in the byte buffer and vice versa.
- * @description Checks that changes in the [Uint8List] will be visible in the
- * byte buffer and vice versa.
- * @author msyabro
- */
+/// @assertion
+/// Uint8List.view(
+///     ByteBuffer buffer, [
+///     int byteOffset = 0,
+///     int length
+/// ])
+/// ...
+/// Changes in the [Uint8List] will be visible in the byte buffer and vice versa.
+/// @description Checks that changes in the [Uint8List] will be visible in the
+/// byte buffer and vice versa.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

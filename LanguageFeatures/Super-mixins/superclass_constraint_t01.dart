@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Only class types that can be subclassed, can be used as
- * super-class constraints. Types like void, dynamic, FutureOr<X> or
- * void Function(X) are not class types, and some platform types, including
- * int, bool and Null, cannot be subclassed, so none of these types can be used
- * as super-class constraints.
- *
- * @description Checks that class types that cannot be subclassed, cannot be
- * used as super-class constraints.
- * @author ngl@unipro.ru
- */
+/// @assertion Only class types that can be subclassed, can be used as
+/// super-class constraints. Types like void, dynamic, FutureOr<X> or
+/// void Function(X) are not class types, and some platform types, including
+/// int, bool and Null, cannot be subclassed, so none of these types can be used
+/// as super-class constraints.
+///
+/// @description Checks that class types that cannot be subclassed, cannot be
+/// used as super-class constraints.
+/// @author ngl@unipro.ru
+
 typedef F = void Function(int);
 
 abstract class I {}

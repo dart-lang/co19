@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract Iterable<E> skip(int count)
- * If this has fewer than [count] elements, then the resulting [Iterable] will
- * be empty.
- * @description Checks that if given [Iterable] has fewer than [count] elements,
- * then the resulting [Iterable] is empty.
- * @author iarkh@unipro.ru
- */
+/// @assertion abstract Iterable<E> skip(int count)
+/// If this has fewer than [count] elements, then the resulting [Iterable] will
+/// be empty.
+/// @description Checks that if given [Iterable] has fewer than [count] elements,
+/// then the resulting [Iterable] is empty.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

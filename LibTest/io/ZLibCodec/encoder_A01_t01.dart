@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion ZLibEncoder encoder
- * Get a ZLibEncoder for encoding ZLib compressed data.
- * @description Checks that the returned value is a ZLibEncoder for encoding
- * ZLib compressed data.
- * @author ngl@unipro.ru
- */
+/// @assertion ZLibEncoder encoder
+/// Get a ZLibEncoder for encoding ZLib compressed data.
+/// @description Checks that the returned value is a ZLibEncoder for encoding
+/// ZLib compressed data.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

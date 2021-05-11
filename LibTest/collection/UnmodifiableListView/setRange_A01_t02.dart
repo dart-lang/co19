@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void setRange(int start, int end, Iterable<E> iterable,
- * [ int skipCount = 0 ])
- * This operation is not supported by an unmodifiable list.
- * @description Checks that [setRange] method is not supported if SkipCount is
- * clearly set.
- * @author iarkh@unipro.ru
- */
+/// @assertion void setRange(int start, int end, Iterable<E> iterable,
+/// [ int skipCount = 0 ])
+/// This operation is not supported by an unmodifiable list.
+/// @description Checks that [setRange] method is not supported if SkipCount is
+/// clearly set.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

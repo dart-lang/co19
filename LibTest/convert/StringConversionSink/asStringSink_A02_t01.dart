@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion ClosableStringSink asStringSink()
- * ...
- * If used, this method must be the first and only call to this. It invalidates
- * this. All further operations must be performed on the result.
- * @description Checks that this method invalidates this and all further
- * operations must be performed on the result.
- * @issue 29353
- * @author sgrekhov@unipro.ru
- */
+/// @assertion ClosableStringSink asStringSink()
+/// ...
+/// If used, this method must be the first and only call to this. It invalidates
+/// this. All further operations must be performed on the result.
+/// @description Checks that this method invalidates this and all further
+/// operations must be performed on the result.
+/// @issue 29353
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

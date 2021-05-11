@@ -2,19 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The cast expression ensures that an object is a member of a type.
- * typeCast:
- *   asOperator type
- * ;
- * asOperator:
- *   as
- * ;
- * @description Checks that it is a compile-time error when the type cast
- * operator is missing the second argument.
- * @compile-error
- * @author rodionov
- */
+/// @assertion The cast expression ensures that an object is a member of a type.
+/// typeCast:
+///   asOperator type
+/// ;
+/// asOperator:
+///   as
+/// ;
+/// @description Checks that it is a compile-time error when the type cast
+/// operator is missing the second argument.
+/// @compile-error
+/// @author rodionov
+
 
 main() {
   1 as;

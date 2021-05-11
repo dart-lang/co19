@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Point<T> operator *(num factor)
- * Scale this point by factor as if it were a vector.
- * @description Checks that the returned value equals to the scaled vector.
- * Coordinate values are not Inf or NaN.
- * @author kaigorodov
- */
+/// @assertion Point<T> operator *(num factor)
+/// Scale this point by factor as if it were a vector.
+/// @description Checks that the returned value equals to the scaled vector.
+/// Coordinate values are not Inf or NaN.
+/// @author kaigorodov
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 

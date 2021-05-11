@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Uint64List(int length)
- * Creates an [Uint64List] of the specified length (in elements), all of whose
- * elements are initially zero.
- * @description Checks that all elements of the new [Uint64List] are zero.
- * @author msyabro
- */
+/// @assertion Uint64List(int length)
+/// Creates an [Uint64List] of the specified length (in elements), all of whose
+/// elements are initially zero.
+/// @description Checks that all elements of the new [Uint64List] are zero.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

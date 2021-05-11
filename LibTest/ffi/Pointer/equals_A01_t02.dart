@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool operator == (Object other)
- *  override
- *  Equality for Pointers only depends on their address.
- *
- * @description Checks that equality for Pointers only depends on their address.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion bool operator == (Object other)
+///  override
+///  Equality for Pointers only depends on their address.
+///
+/// @description Checks that equality for Pointers only depends on their address.
+/// @author sgrekhov@unipro.ru
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import '../../../Utils/expect.dart';

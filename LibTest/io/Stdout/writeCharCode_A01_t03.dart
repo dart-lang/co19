@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void writeCharCode(int charCode)
- * Writes the character of [charCode].
- * This method is equivalent to [write(new String.fromCharCode(charCode))].
- * @description Checks that correct char code is written for the [128...1114111]
- * range.
- * @author iarkh@unipro.ru
- */
+/// @assertion void writeCharCode(int charCode)
+/// Writes the character of [charCode].
+/// This method is equivalent to [write(new String.fromCharCode(charCode))].
+/// @description Checks that correct char code is written for the [128...1114111]
+/// range.
+/// @author iarkh@unipro.ru
+
 import "dart:convert";
 import "dart:io";
 import "test.lib.dart";

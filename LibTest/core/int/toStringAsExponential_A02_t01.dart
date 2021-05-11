@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String toStringAsExponential([int fractionDigits]) 
- * If fractionDigits is given then it must be an integer satisfying:
- * 0 <= fractionDigits <= 20.
- * @description Tries to pass an argument that is null or out of range, expects
- * an exception.
- * @author msyabro
- */
+/// @assertion String toStringAsExponential([int fractionDigits]) 
+/// If fractionDigits is given then it must be an integer satisfying:
+/// 0 <= fractionDigits <= 20.
+/// @description Tries to pass an argument that is null or out of range, expects
+/// an exception.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 main() {

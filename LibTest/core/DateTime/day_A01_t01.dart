@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final int day
- * Returns the day into the month 1..31.
- * @description Creates a new DateTime with various integer day values (1..31)
- * and reads the value back.
- * @author rodionov
- */
+/// @assertion final int day
+/// Returns the day into the month 1..31.
+/// @description Creates a new DateTime with various integer day values (1..31)
+/// and reads the value back.
+/// @author rodionov
+
 import "../../../Utils/expect.dart";
 
 

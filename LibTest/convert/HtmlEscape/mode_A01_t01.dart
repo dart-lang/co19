@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion HtmlEscapeMode mode
- * The HtmlEscapeMode used by the converter.
- * @description Checks that this property returns HtmlEscapeMode used by the
- * converter
- * @author sgrekhov@unipro.ru
- */
+/// @assertion HtmlEscapeMode mode
+/// The HtmlEscapeMode used by the converter.
+/// @description Checks that this property returns HtmlEscapeMode used by the
+/// converter
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

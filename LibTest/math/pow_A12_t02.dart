@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion pow(x, exponent)
- * For doubles, pow(x, y) handles edge cases as follows:
- * ...
- *  - if x is -Infinity or -0.0 and y is not an odd integer, then the result
- *    is the same as pow(-x , y).
- * @description Checks the result when [x] is -Infinity or -0.0 and [y] is
- * not an odd integer, the result is the same as pow(-x , y).
- * @author ngl@unipro.ru
- */
+/// @assertion pow(x, exponent)
+/// For doubles, pow(x, y) handles edge cases as follows:
+/// ...
+///  - if x is -Infinity or -0.0 and y is not an odd integer, then the result
+///    is the same as pow(-x , y).
+/// @description Checks the result when [x] is -Infinity or -0.0 and [y] is
+/// not an odd integer, the result is the same as pow(-x , y).
+/// @author ngl@unipro.ru
+
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion constructorSignature:
- *   identifier (‘.’ identifier)? formalParameterList
- * ;
- * @description Checks that omitting a named constructor's identifier results
- * in a compile-time error.
- * @author pagolubev
- */
+/// @assertion constructorSignature:
+///   identifier (‘.’ identifier)? formalParameterList
+/// ;
+/// @description Checks that omitting a named constructor's identifier results
+/// in a compile-time error.
+/// @author pagolubev
+
 
 class C {
   C.();

@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Stream<T> asBroadcastStream (
- *   {void onListen(StreamSubscription<T> subscription),
- *    void onCancel(StreamSubscription<T> subscription)})
- * Returns a multi-subscription stream that produces the same events as this.
- *
- * @description Checks Stream interface methods (errors processing)
- * @author a.semenov@unipro.ru
- */
+/// @assertion Stream<T> asBroadcastStream (
+///   {void onListen(StreamSubscription<T> subscription),
+///    void onCancel(StreamSubscription<T> subscription)})
+/// Returns a multi-subscription stream that produces the same events as this.
+///
+/// @description Checks Stream interface methods (errors processing)
+/// @author a.semenov@unipro.ru
+
 library asBroadcastStream_A05_t02;
 import "dart:async";
 import "../../../Utils/expect.dart";

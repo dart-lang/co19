@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  int lastIndexOf(Object element, [ int startIndex ])
- * Returns the last index in the list a of the given [element], starting the
- * search at index [startIndex] to 0.
- * @description Checks that [startIndex] can be out of bounds.
- * @author iarkh@unipro.ru
- */
+/// @assertion  int lastIndexOf(Object element, [ int startIndex ])
+/// Returns the last index in the list a of the given [element], starting the
+/// search at index [startIndex] to 0.
+/// @description Checks that [startIndex] can be out of bounds.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

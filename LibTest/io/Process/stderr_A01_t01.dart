@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Stream<List<int>> stderr
- *
- * Returns the standard error stream of the process as a Stream.
- *
- * @description Checks that [stderr] returns Stream<List<int>> value that is the
- * standard error stream of the process as a Stream.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Stream<List<int>> stderr
+///
+/// Returns the standard error stream of the process as a Stream.
+///
+/// @description Checks that [stderr] returns Stream<List<int>> value that is the
+/// standard error stream of the process as a Stream.
+/// @author sgrekhov@unipro.ru
+
 
 import 'dart:convert';
 import "dart:io";

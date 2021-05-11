@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future forEach(Iterable input, dynamic f(element))
- * Returns a Future that completes when all elements have been processed.
- * @description Checks that returned future completes when all elements have
- * been processed.
- * @author a.semenov@unipro.ru
- */
+/// @assertion Future forEach(Iterable input, dynamic f(element))
+/// Returns a Future that completes when all elements have been processed.
+/// @description Checks that returned future completes when all elements have
+/// been processed.
+/// @author a.semenov@unipro.ru
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

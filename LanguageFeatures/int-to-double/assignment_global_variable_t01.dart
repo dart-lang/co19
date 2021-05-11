@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The static type of a double valued integer literal is [double]
- * @description Checks that the static type of a double valued integer literal
- * is [double]. Test global variable assignment
- * @author sgrekhov@unipro.ru
- */
+/// @assertion The static type of a double valued integer literal is [double]
+/// @description Checks that the static type of a double valued integer literal
+/// is [double]. Test global variable assignment
+/// @author sgrekhov@unipro.ru
+
 double? g1 = 42;
 double g2 = (1 > 0 ? 42 : 3.14);
 double g3 = (null ?? 42);

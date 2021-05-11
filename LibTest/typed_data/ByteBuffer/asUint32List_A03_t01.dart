@@ -2,22 +2,21 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Uint32List asUint32List([int offsetInBytes = 0, int length ])
- * Creates a Uint32List view of a region of this byte buffer.
- * ...
- * The start index and length must describe a valid 32-bit aligned range of the
- * buffer:
- * - offsetInBytes must not be negative,
- * - offsetInBytes must be divisible by four,
- * - length must not be negative, and
- * - offsetInBytes + length * 4 must not be greater than lengthInBytes.
- * @description Checks that creating Uint32List view with negative offset,
- * with offset not divisible by four, with negative length, or with
- * 'offsetInBytes + length * 4' greater then buffer length causes throwing
- * error at runtime.
- * @author ngl@unipro.ru
- */
+/// @assertion Uint32List asUint32List([int offsetInBytes = 0, int length ])
+/// Creates a Uint32List view of a region of this byte buffer.
+/// ...
+/// The start index and length must describe a valid 32-bit aligned range of the
+/// buffer:
+/// - offsetInBytes must not be negative,
+/// - offsetInBytes must be divisible by four,
+/// - length must not be negative, and
+/// - offsetInBytes + length * 4 must not be greater than lengthInBytes.
+/// @description Checks that creating Uint32List view with negative offset,
+/// with offset not divisible by four, with negative length, or with
+/// 'offsetInBytes + length * 4' greater then buffer length causes throwing
+/// error at runtime.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

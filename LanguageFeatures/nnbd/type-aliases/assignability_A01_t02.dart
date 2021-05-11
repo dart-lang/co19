@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A type T is assignable to a type S if T is dynamic, or if T is a
- * subtype of S.
- *
- * @description Checks that if type T is not dynamic and T is a subtype of S
- * then a type T is not assignable to a type S. Test type aliases
- *
- * @author sgrekhov@unipro.ru
- */
+/// @assertion A type T is assignable to a type S if T is dynamic, or if T is a
+/// subtype of S.
+///
+/// @description Checks that if type T is not dynamic and T is a subtype of S
+/// then a type T is not assignable to a type S. Test type aliases
+///
+/// @author sgrekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A {}

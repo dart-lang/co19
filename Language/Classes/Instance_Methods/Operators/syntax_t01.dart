@@ -2,29 +2,28 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * operatorSignature: 
- *   returnType? operator operator formalParameterList 
- * ;
- * operator: 
- *   ‘˜’ |
- *   binaryOperator | 
- *   ‘[’ ‘]’ |
- *   ‘[’ ‘]’ ‘=’
- * ;
- * binaryOperator: 
- *   multiplicativeOperator | 
- *   additiveOperator | 
- *   shiftOperator |
- *   relationalOperator | 
- *   ‘==’ |
- *   bitwiseOperator 
- * ;
- * @description Checks that any return type (including function type, type 
- * parameter, void or no return type at all) can be specified for any operator.
- * @author iefremov
- */
+/// @assertion
+/// operatorSignature: 
+///   returnType? operator operator formalParameterList 
+/// ;
+/// operator: 
+///   ‘˜’ |
+///   binaryOperator | 
+///   ‘[’ ‘]’ |
+///   ‘[’ ‘]’ ‘=’
+/// ;
+/// binaryOperator: 
+///   multiplicativeOperator | 
+///   additiveOperator | 
+///   shiftOperator |
+///   relationalOperator | 
+///   ‘==’ |
+///   bitwiseOperator 
+/// ;
+/// @description Checks that any return type (including function type, type 
+/// parameter, void or no return type at all) can be specified for any operator.
+/// @author iefremov
+
 
 typedef int foo(double d);
 

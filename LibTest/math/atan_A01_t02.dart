@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion double atan(num x)
- * Converts [x] to a dobule and returns its arc tangent in radians.
- * @description Checks special values.
- * @author msyabro
- */
+/// @assertion double atan(num x)
+/// Converts [x] to a dobule and returns its arc tangent in radians.
+/// @description Checks special values.
+/// @author msyabro
+
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

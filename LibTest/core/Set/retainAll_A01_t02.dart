@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  abstract void removeAll(Iterable<Object> elements)
- * Removes each element of elements from this set.
- * @description Passes a list containing null as argument to removeAll(),
- * expects no errors.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion  abstract void removeAll(Iterable<Object> elements)
+/// Removes each element of elements from this set.
+/// @description Passes a list containing null as argument to removeAll(),
+/// expects no errors.
+/// @author sgrekhov@unipro.ru
+
 library retainAll_A01_t02;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";

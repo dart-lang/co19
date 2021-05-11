@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool hasScheme
- * Returns whether the URI has a scheme component.
- *
- * @description Checks that this property returns true if the URI has a scheme
- * component.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion bool hasScheme
+/// Returns whether the URI has a scheme component.
+///
+/// @description Checks that this property returns true if the URI has a scheme
+/// component.
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

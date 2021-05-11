@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It is an error for the initializer expression of a late local
- * variable to use a prefix await expression that is not nested inside of
- * another function expression.
- *
- * @description Check that it is an error for the initializer expression of a
- * late local variable to use a prefix await expression.
- * @author sgrekhov@unipro.ru
- * @issue 39661
- */
+/// @assertion It is an error for the initializer expression of a late local
+/// variable to use a prefix await expression that is not nested inside of
+/// another function expression.
+///
+/// @description Check that it is an error for the initializer expression of a
+/// late local variable to use a prefix await expression.
+/// @author sgrekhov@unipro.ru
+/// @issue 39661
+
 
 import "dart:async";
 

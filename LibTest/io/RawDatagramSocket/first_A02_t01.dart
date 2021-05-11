@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<RawSocketEvent> first
- * The first element of the stream.
- * . . .
- * Except for the type of the error, this method is equivalent to
- * this.elementAt(0).
- *
- * @description Checks that getting first is equivalent to this.elementAt(0).
- * @author ngl@unipro.ru
- */
+/// @assertion Future<RawSocketEvent> first
+/// The first element of the stream.
+/// . . .
+/// Except for the type of the error, this method is equivalent to
+/// this.elementAt(0).
+///
+/// @description Checks that getting first is equivalent to this.elementAt(0).
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

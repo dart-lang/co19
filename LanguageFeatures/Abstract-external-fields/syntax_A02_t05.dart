@@ -2,30 +2,29 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The grammar is modified as follows:
- *
- * <topLevelDefinition> ::=
- *  ... |
- *  // New alternative.
- *  'external' <finalVarOrType> <identifierList> ';'
- *
- *  <finalVarOrType> ::= // New rule.
- *  'final' <type>? |
- *  <varOrType>
- *
- *  <declaration> ::=
- *  ... |
- *  // New alternative.
- *  'external' ('static'? <finalVarOrType> | 'covariant' <varOrType>)
- *  <identifierList> |
- * // New alternative.
- *  'abstract' (<finalVarOrType> | 'covariant' <varOrType>) <identifierList>
- *
- * @description Checks topLevelDefinition syntax
- * @author sgrekhov@unipro.ru
- * @issue 43851
- */
+/// @assertion The grammar is modified as follows:
+///
+/// <topLevelDefinition> ::=
+///  ... |
+///  // New alternative.
+///  'external' <finalVarOrType> <identifierList> ';'
+///
+///  <finalVarOrType> ::= // New rule.
+///  'final' <type>? |
+///  <varOrType>
+///
+///  <declaration> ::=
+///  ... |
+///  // New alternative.
+///  'external' ('static'? <finalVarOrType> | 'covariant' <varOrType>)
+///  <identifierList> |
+/// // New alternative.
+///  'abstract' (<finalVarOrType> | 'covariant' <varOrType>) <identifierList>
+///
+/// @description Checks topLevelDefinition syntax
+/// @author sgrekhov@unipro.ru
+/// @issue 43851
+
 class C {
   var external i2;
 //    ^^^^^^^^

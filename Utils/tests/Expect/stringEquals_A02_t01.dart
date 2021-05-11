@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion static void stringEquals(String expected, String actual, [String reason = null])
- * When the strings don't match,
- * this method shows where the mismatch starts and ends. 
- * @description Checks that message of thrown ExpectException includes 
- * representation of the mismatched region, as well as the reason.
- * @author varlax
- */
+/// @assertion static void stringEquals(String expected, String actual, [String reason = null])
+/// When the strings don't match,
+/// this method shows where the mismatch starts and ends. 
+/// @description Checks that message of thrown ExpectException includes 
+/// representation of the mismatched region, as well as the reason.
+/// @author varlax
+
 import "../../../Utils/expect.dart";
 
 main() {

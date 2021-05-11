@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<bool> any(bool test(T element))
- * Checks whether test accepts any element provided by this stream.
- * Completes the Future when the answer is known.
- * @description Checks that correct answer is passed to the future.
- * @author kaigorodov
- */
+/// @assertion Future<bool> any(bool test(T element))
+/// Checks whether test accepts any element provided by this stream.
+/// Completes the Future when the answer is known.
+/// @description Checks that correct answer is passed to the future.
+/// @author kaigorodov
+
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;

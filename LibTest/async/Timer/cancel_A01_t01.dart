@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  abstract void cancel()
- * Cancels the timer.
- * @description Checks that periodic Timer can be cancelled.
- * @author kaigorodov
- */
+/// @assertion  abstract void cancel()
+/// Cancels the timer.
+/// @description Checks that periodic Timer can be cancelled.
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

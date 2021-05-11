@@ -2,19 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<HttpServer> bind(
- *  address,
- *  int port, {
- *  int backlog: 0,
- *  bool v6Only: false,
- *  bool shared: false
- * }).
- * Starts listening for HTTP requests on the specified address and port.
- * @description Checks that this method starts listening for HTTP requests on
- * the specified address and port
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Future<HttpServer> bind(
+///  address,
+///  int port, {
+///  int backlog: 0,
+///  bool v6Only: false,
+///  bool shared: false
+/// }).
+/// Starts listening for HTTP requests on the specified address and port.
+/// @description Checks that this method starts listening for HTTP requests on
+/// the specified address and port
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";

@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void addLast(E value)
- * Adds [value] at the end of the queue.
- * @description Checks that [value] is added to the end of the queue.
- * @author msyabro
- */
+/// @assertion void addLast(E value)
+/// Adds [value] at the end of the queue.
+/// @description Checks that [value] is added to the end of the queue.
+/// @author msyabro
+
 library addLast_A01_t01;
 
 import "../../../Utils/expect.dart";

@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Returns this [Duration] in minutes. 
- * @description Checks that duration calculation is correct
- * @author rodionov
- */
+/// @assertion Returns this [Duration] in minutes. 
+/// @description Checks that duration calculation is correct
+/// @author rodionov
+
 import "../../../Utils/expect.dart";
 
 main() {

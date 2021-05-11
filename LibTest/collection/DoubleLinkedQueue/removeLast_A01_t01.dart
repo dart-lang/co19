@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion E removeLast()
- * Removes and returns the last element of the queue.
- * @description Checks that exactly the last element is removed and returned.
- * @author kaigorodov
- */
+/// @assertion E removeLast()
+/// Removes and returns the last element of the queue.
+/// @description Checks that exactly the last element is removed and returned.
+/// @author kaigorodov
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

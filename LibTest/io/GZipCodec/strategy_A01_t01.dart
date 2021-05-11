@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int strategy
- *  final
- * Tunes the compression algorithm. Use the value ZLibOption.strategyDefault
- * for normal data, ZLibOption.strategyFiltered for data produced by a filter
- * (or predictor), ZLibOption.strategyHuffmanOnly to force Huffman encoding
- * only (no string match), or ZLibOption.strategyRle to limit match distances
- * to one (run-length encoding).
- * @description Checks that this property returns constructor's strategy
- * argument and data, compressed with different strategy has different size
- * @author sgrekhov@unipro.ru
- */
+/// @assertion int strategy
+///  final
+/// Tunes the compression algorithm. Use the value ZLibOption.strategyDefault
+/// for normal data, ZLibOption.strategyFiltered for data produced by a filter
+/// (or predictor), ZLibOption.strategyHuffmanOnly to force Huffman encoding
+/// only (no string match), or ZLibOption.strategyRle to limit match distances
+/// to one (run-length encoding).
+/// @description Checks that this property returns constructor's strategy
+/// argument and data, compressed with different strategy has different size
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

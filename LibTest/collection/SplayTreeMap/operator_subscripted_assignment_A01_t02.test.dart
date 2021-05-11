@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Associates the [key] with the given [value].
- * @description Checks that [null] key is not allowed.
- * @author msyabro
- */
+/// @assertion Associates the [key] with the given [value].
+/// @description Checks that [null] key is not allowed.
+/// @author msyabro
+
 library operator_subscripted_assignment_A01_t01;
  
 import "../../../Utils/expect.dart";

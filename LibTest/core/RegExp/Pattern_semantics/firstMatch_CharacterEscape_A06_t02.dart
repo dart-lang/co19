@@ -2,26 +2,25 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The production CharacterEscape :: c ControlLetter evaluates as
- * follows:
- * <ol>
- * <li>Let ch be the character represented by ControlLetter.</li>
- * <li>Let i be ch's code unit value.</li>
- * <li>Let j be the remainder of dividing i by 32.</li>
- * <li>Return the character whose code unit value is j.</li>
- * </ol>
- * <br/>ControlLetter :: one of
- * <ul>
- * <li>a-z</li>
- * <li>A-Z</li>
- * </ul>
- * @description Checks that the specified algorithm does not extend to
- * unsupported control letters (using ranges between and around the supported
- * ones).
- * @author rodionov
- * @Issue 1293
- */
+/// @assertion The production CharacterEscape :: c ControlLetter evaluates as
+/// follows:
+/// <ol>
+/// <li>Let ch be the character represented by ControlLetter.</li>
+/// <li>Let i be ch's code unit value.</li>
+/// <li>Let j be the remainder of dividing i by 32.</li>
+/// <li>Return the character whose code unit value is j.</li>
+/// </ol>
+/// <br/>ControlLetter :: one of
+/// <ul>
+/// <li>a-z</li>
+/// <li>A-Z</li>
+/// </ul>
+/// @description Checks that the specified algorithm does not extend to
+/// unsupported control letters (using ranges between and around the supported
+/// ones).
+/// @author rodionov
+/// @Issue 1293
+
 import "../../../../Utils/expect.dart";
  
 

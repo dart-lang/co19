@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion An if element:
- * ...
- * It is a compile-time error if the condition evaluates to false and the else
- * expression, if it exists, is not a constant expression.
- *
- * @description Checks that it is not a compile-time error if the condition
- * evaluates to false and the else expression is a constant expression while
- * the if expression is a potentially constant expression.
- * @author ngl@unipro.ru
- */
+/// @assertion An if element:
+/// ...
+/// It is a compile-time error if the condition evaluates to false and the else
+/// expression, if it exists, is not a constant expression.
+///
+/// @description Checks that it is not a compile-time error if the condition
+/// evaluates to false and the else expression is a constant expression while
+/// the if expression is a potentially constant expression.
+/// @author ngl@unipro.ru
+
 import "../../Utils/expect.dart";
 
 main() {

@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion UnmodifiableListView(Iterable<E> source)
- * Creates an unmodifiable list backed by [source].
- * The [source] of the elements may be a [List] or any [Iterable] with efficient
- * [Iterable.length] and [Iterable.elementAt].
- * @description Checks that proper unmodifiable list with correct element order
- * is created from the custom iterable [source]
- * @author iarkh@unipro.ru
- */
+/// @assertion UnmodifiableListView(Iterable<E> source)
+/// Creates an unmodifiable list backed by [source].
+/// The [source] of the elements may be a [List] or any [Iterable] with efficient
+/// [Iterable.length] and [Iterable.elementAt].
+/// @description Checks that proper unmodifiable list with correct element order
+/// is created from the custom iterable [source]
+/// @author iarkh@unipro.ru
+
 
 import "dart:collection";
 import "../../../Utils/expect.dart";

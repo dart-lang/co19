@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion LinkedList<E extends LinkedListEntry<E>>()
- * Construct a new empty linked list.
- * @description Checks that created list is empty and resizable.
- * @author kaigorodov
- */
+/// @assertion LinkedList<E extends LinkedListEntry<E>>()
+/// Construct a new empty linked list.
+/// @description Checks that created list is empty and resizable.
+/// @author kaigorodov
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";

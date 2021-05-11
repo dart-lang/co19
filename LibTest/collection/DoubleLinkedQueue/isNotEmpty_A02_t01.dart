@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final bool isNotEmpty
- * May be computed by checking if [iterator.moveNext()] returns [true].
- * @description Checks that method returns true only if queue is not empty.
- * @author iarkh@unipro.ru
- */
+/// @assertion final bool isNotEmpty
+/// May be computed by checking if [iterator.moveNext()] returns [true].
+/// @description Checks that method returns true only if queue is not empty.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

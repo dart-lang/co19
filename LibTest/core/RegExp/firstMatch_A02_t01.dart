@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Returns [null] if there is no match.
- * @description Checks that null is returned when appropriate.
- * @author rodionov
- */
+/// @assertion Returns [null] if there is no match.
+/// @description Checks that null is returned when appropriate.
+/// @author rodionov
+
 import "../../../Utils/expect.dart";
  
 main() {

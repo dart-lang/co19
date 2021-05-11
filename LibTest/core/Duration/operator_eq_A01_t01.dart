@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool operator <=(Duration other) 
- * @description Checks that duration calculation is correct
- * @author kaigorodov
- */
+/// @assertion bool operator <=(Duration other) 
+/// @description Checks that duration calculation is correct
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 
 int expected(int d, int h, int m, int s, int ms) {

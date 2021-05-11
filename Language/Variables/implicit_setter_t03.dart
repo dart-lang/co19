@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A non-final variable declaration of the form var v;
- * or the form var v = e; always induces an implicit setter function 
- * with signature
- *   set v = (x)
- * whose execution sets the value of v to the incoming argument x.
- * @description For all types of forms checks that setter execution sets the
- * value of the variable and that parameter type is dynamic.
- * @static-clean
- * @author ilya
- */
+/// @assertion A non-final variable declaration of the form var v;
+/// or the form var v = e; always induces an implicit setter function 
+/// with signature
+///   set v = (x)
+/// whose execution sets the value of v to the incoming argument x.
+/// @description For all types of forms checks that setter execution sets the
+/// value of the variable and that parameter type is dynamic.
+/// @static-clean
+/// @author ilya
+
 import "../../Utils/expect.dart";
 
 class A {}

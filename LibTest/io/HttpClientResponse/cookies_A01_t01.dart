@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion List<Cookie> cookies
- * Cookies set by the server (from the 'set-cookie' header).
- * @description Checks that this property returns cookies set by the server
- * (from the 'set-cookie' header)
- * @author sgrekhov@unipro.ru
- */
+/// @assertion List<Cookie> cookies
+/// Cookies set by the server (from the 'set-cookie' header).
+/// @description Checks that this property returns cookies set by the server
+/// (from the 'set-cookie' header)
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

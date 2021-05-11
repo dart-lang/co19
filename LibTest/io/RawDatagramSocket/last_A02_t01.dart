@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<RawSocketEvent> last
- * . . .
- * If this stream emits an error event, the returned future is completed with
- * that error and processing stops.
- *
- * @description Checks that if this stream emits an error event, the returned
- * future is completed with that error and processing stops.
- * @author ngl@unipro.ru
- */
+/// @assertion Future<RawSocketEvent> last
+/// . . .
+/// If this stream emits an error event, the returned future is completed with
+/// that error and processing stops.
+///
+/// @description Checks that if this stream emits an error event, the returned
+/// future is completed with that error and processing stops.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

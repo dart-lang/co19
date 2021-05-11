@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Converter<String, List<int>> encoder
- *  Returns the encoder from S to T.
- *  It may be stateful and should not be reused.
- * @description Checks that system encoding encoder encodes to UTF-8
- * on Linux and Mac
- * @author a.semenov@unipro.ru
- */
+/// @assertion Converter<String, List<int>> encoder
+///  Returns the encoder from S to T.
+///  It may be stateful and should not be reused.
+/// @description Checks that system encoding encoder encodes to UTF-8
+/// on Linux and Mac
+/// @author a.semenov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

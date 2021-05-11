@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Boolean conversion is defined by the function
- *   (bool v){
- *      assert(v != null);
- *      return identical(v, true);
- *    }(o)
- * @description Checks that error is thrown if not boolean values are converted
- * to boolean
- * @author kaigorodov
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Boolean conversion is defined by the function
+///   (bool v){
+///      assert(v != null);
+///      return identical(v, true);
+///    }(o)
+/// @description Checks that error is thrown if not boolean values are converted
+/// to boolean
+/// @author kaigorodov
+/// @author sgrekhov@unipro.ru
+
 
 import '../../../../Utils/expect.dart';
 

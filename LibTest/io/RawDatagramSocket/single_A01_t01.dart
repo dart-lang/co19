@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<RawSocketEvent> single
- * The single element of this stream.
- *
- * @description Checks that property single returns the single element of the
- * stream.
- * @author ngl@unipro.ru
- */
+/// @assertion Future<RawSocketEvent> single
+/// The single element of this stream.
+///
+/// @description Checks that property single returns the single element of the
+/// stream.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

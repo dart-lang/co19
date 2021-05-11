@@ -2,19 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Evaluation of an assignment of the form e1.v = e2 proceeds as
- * follows:
- * The expression e1 is evaluated to an object o1. Then, the expression e2 is
- * evaluated to an object o2.
- * ...
- * It is a dynamic type error if o2 is not null and the interface of the class
- * of o2 is not a subtype of the actual type of e1.v
- * @description Checks that it is a dynamic type error if o2 is not null and the
- * interface of the class of o2 is not a subtype of the actual type of e1.v.
- * Test the case when e1 is a constant type literal
- * @author msyabro
- */
+/// @assertion Evaluation of an assignment of the form e1.v = e2 proceeds as
+/// follows:
+/// The expression e1 is evaluated to an object o1. Then, the expression e2 is
+/// evaluated to an object o2.
+/// ...
+/// It is a dynamic type error if o2 is not null and the interface of the class
+/// of o2 is not a subtype of the actual type of e1.v
+/// @description Checks that it is a dynamic type error if o2 is not null and the
+/// interface of the class of o2 is not a subtype of the actual type of e1.v.
+/// Test the case when e1 is a constant type literal
+/// @author msyabro
+
 
 import '../../../Utils/dynamic_check.dart';
 

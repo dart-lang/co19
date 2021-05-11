@@ -2,25 +2,24 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The for statement supports iteration.
- * forStatement:
- *   await? for '(' forLoopParts ')' statement
- * ;
- * forLoopParts:
- *   forInitializerStatement expression? ';' expressionList? |
- *   declaredIdentifier in expression |
- *   identifier in expression
- * ;
- * forInitializerStatement:
- *   initializedVariableDeclaration |
- *   expression? ';'
- * ;
- * @description Checks that it is a compile-time error if the 'forLoopParts'
- * in a 'id in expression' loop variety ends with a semicolon.
- * @compile-error
- * @author vasya
- */
+/// @assertion The for statement supports iteration.
+/// forStatement:
+///   await? for '(' forLoopParts ')' statement
+/// ;
+/// forLoopParts:
+///   forInitializerStatement expression? ';' expressionList? |
+///   declaredIdentifier in expression |
+///   identifier in expression
+/// ;
+/// forInitializerStatement:
+///   initializedVariableDeclaration |
+///   expression? ';'
+/// ;
+/// @description Checks that it is a compile-time error if the 'forLoopParts'
+/// in a 'id in expression' loop variety ends with a semicolon.
+/// @compile-error
+/// @author vasya
+
 
 main() {
   for ( var l in new List(100); ) break;

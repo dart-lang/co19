@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A property access e?.f translates to:
- *  SHORT[EXP(e), fn[x] => x.f]
- *
- * @description Check that a property access e?.f translates to:
- *  SHORT[EXP(e), fn[x] => x.f]. Test type aliases
- * @author sgrekhov@unipro.ru
- */
+/// @assertion A property access e?.f translates to:
+///  SHORT[EXP(e), fn[x] => x.f]
+///
+/// @description Check that a property access e?.f translates to:
+///  SHORT[EXP(e), fn[x] => x.f]. Test type aliases
+/// @author sgrekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-strong
 import "../../../Utils/expect.dart";

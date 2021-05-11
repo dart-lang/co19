@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- *    typeParameter ::= metadata identifier (extends typeNotVoid)?
- *    typeParameters ::= ‘<’ typeParameter (‘,’ typeParameter)* ‘>’
- * ...
- * Type parameters are declared in the type parameter scope of a class or
- * function. The type parameters of a generic [G] are in scope in the bounds of
- * all of the type parameters of [G].
- * @description Checks that non-function typedef type parameter is in the type
- * parameter scope.
- * @author iarkh@unipro.ru
- */
+/// @assertion
+///    typeParameter ::= metadata identifier (extends typeNotVoid)?
+///    typeParameters ::= ‘<’ typeParameter (‘,’ typeParameter)* ‘>’
+/// ...
+/// Type parameters are declared in the type parameter scope of a class or
+/// function. The type parameters of a generic [G] are in scope in the bounds of
+/// all of the type parameters of [G].
+/// @description Checks that non-function typedef type parameter is in the type
+/// parameter scope.
+/// @author iarkh@unipro.ru
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 import "../../Utils/expect.dart";

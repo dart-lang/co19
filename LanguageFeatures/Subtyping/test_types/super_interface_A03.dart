@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
- * when:
- * Super-Interface: T0 is an interface type with super-interfaces S0,...Sn
- * - and Si <: T1 for some i
- * @description Check that if type T0 is an interface type with super-interfaces
- * S0,...Sn and and Si <: T1 for some i then T0 is a subtype of a type T1. Test
- * the case when Si is not direct child of T1
- * @author sgrekhov@unipro.ru
- */
+/// @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
+/// when:
+/// Super-Interface: T0 is an interface type with super-interfaces S0,...Sn
+/// - and Si <: T1 for some i
+/// @description Check that if type T0 is an interface type with super-interfaces
+/// S0,...Sn and and Si <: T1 for some i then T0 is a subtype of a type T1. Test
+/// the case when Si is not direct child of T1
+/// @author sgrekhov@unipro.ru
+
 class T1 {
   const T1();
 }

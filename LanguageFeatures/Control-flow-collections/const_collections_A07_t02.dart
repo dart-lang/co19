@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion An if element:
- * ...
- * The expansion is:
- * - The then element if the condition expression evaluates to true.
- * - The else element if the condition is false and there is one.
- * - Otherwise, the if element expands to nothing.
- *
- * @description Checks that the expansion is the else element if the condition
- * expression evaluates to false and there is the else element.
- * @author ngl@unipro.ru
- */
+/// @assertion An if element:
+/// ...
+/// The expansion is:
+/// - The then element if the condition expression evaluates to true.
+/// - The else element if the condition is false and there is one.
+/// - Otherwise, the if element expands to nothing.
+///
+/// @description Checks that the expansion is the else element if the condition
+/// expression evaluates to false and there is the else element.
+/// @author ngl@unipro.ru
+
 import "../../Utils/expect.dart";
 
 main() {

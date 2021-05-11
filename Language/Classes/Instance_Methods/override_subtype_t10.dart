@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It is a compile error if an instance method m1 overrides an
- * instance member m2 and the type of m1 is not a subtype of the type of m2.
- * @description Checks that a compile error is produced when the type of the
- * overriding method is not a subtype of the method being overridden even if 
- * the class declaring m1 is not a direct subtype of the class declaring m2.
- * @compile-error
- * @author sgrekhov@unipro.ru
- */
+/// @assertion It is a compile error if an instance method m1 overrides an
+/// instance member m2 and the type of m1 is not a subtype of the type of m2.
+/// @description Checks that a compile error is produced when the type of the
+/// overriding method is not a subtype of the method being overridden even if 
+/// the class declaring m1 is not a direct subtype of the class declaring m2.
+/// @compile-error
+/// @author sgrekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A {

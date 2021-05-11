@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int checkValidRange(int start, int end, int length,
- * [String startName, String endName, String message])
- * ...
- *  Returns the actual end value, which is length if end is null, and end
- *  otherwise.
- *  ...
- * @description Checks that this method returns the actual end value, which is
- * length if end is null, and end otherwise
- * @author sgrekhov@unipro.ru
- */
+/// @assertion int checkValidRange(int start, int end, int length,
+/// [String startName, String endName, String message])
+/// ...
+///  Returns the actual end value, which is length if end is null, and end
+///  otherwise.
+///  ...
+/// @description Checks that this method returns the actual end value, which is
+/// length if end is null, and end otherwise
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 check(int start, int length) {

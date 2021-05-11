@@ -2,32 +2,29 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
- * when:
- * Left FutureOr: T0 is FutureOr<S0>
- *   and Future<S0> <: T1
- *   and S0 <: T1
- * @description Check that if a type T0 is FutureOr<S0> and S0 is a subtype of
- * T1 but Future<S0> is not a subtype of T1 , then a type T0 is not a subtype of
- * a type T1.
- * @author sgrekhov@unipro.ru
- */
-/**
- * @description Check that if type T0 not a subtype of a type T1, then it cannot
- * be used as an argument of type T1. Test superclass members
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from left_FutureOr_fail_A02.dart and 
- * arguments_binding_fail_x02.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+/// @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
+/// when:
+/// Left FutureOr: T0 is FutureOr<S0>
+///   and Future<S0> <: T1
+///   and S0 <: T1
+/// @description Check that if a type T0 is FutureOr<S0> and S0 is a subtype of
+/// T1 but Future<S0> is not a subtype of T1 , then a type T0 is not a subtype of
+/// a type T1.
+/// @author sgrekhov@unipro.ru
+///
+/// @description Check that if type T0 not a subtype of a type T1, then it cannot
+/// be used as an argument of type T1. Test superclass members
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from left_FutureOr_fail_A02.dart and 
+/// arguments_binding_fail_x02.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
 
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
+
 import "dart:async";
 
 class T1 {

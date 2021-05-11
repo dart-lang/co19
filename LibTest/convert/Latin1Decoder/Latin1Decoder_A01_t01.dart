@@ -2,19 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion const Latin1Decoder({bool allowInvalid: false})
- * Instantiates a new Latin1Decoder.
- *
- * The optional allowInvalid argument defines how convert deals with invalid
- * bytes.
- *
- * If it is true, convert replaces invalid bytes with the Unicode Replacement
- * character U+FFFD (�). Otherwise it throws a FormatException.
- *
- * @description Checks that this constructor creates valid Latin1Decoder
- * @author sgrekhov@unipro.ru
- */
+/// @assertion const Latin1Decoder({bool allowInvalid: false})
+/// Instantiates a new Latin1Decoder.
+///
+/// The optional allowInvalid argument defines how convert deals with invalid
+/// bytes.
+///
+/// If it is true, convert replaces invalid bytes with the Unicode Replacement
+/// character U+FFFD (�). Otherwise it throws a FormatException.
+///
+/// @description Checks that this constructor creates valid Latin1Decoder
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

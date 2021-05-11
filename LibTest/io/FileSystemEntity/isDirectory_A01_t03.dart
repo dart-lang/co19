@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<bool> isDirectory(String path)
- * Checks if type(path) returns FileSystemEntityType.directory.
- *
- * @description Checks that this property returns true if type(path) returns
- * FileSystemEntityType.directory. Test Link
- * @issue 30410
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Future<bool> isDirectory(String path)
+/// Checks if type(path) returns FileSystemEntityType.directory.
+///
+/// @description Checks that this property returns true if type(path) returns
+/// FileSystemEntityType.directory. Test Link
+/// @issue 30410
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";

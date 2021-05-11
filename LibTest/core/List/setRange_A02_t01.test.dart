@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract void setRange(int start, int end, Iterable<E> iterable,
- * [int skipCount = 0])
- * It is an error if start.. end is not a valid range pointing into the this.
- * @description Checks that RangeError is thrown if there is lack of space in
- * dst.
- * @author iefremov
- */
+/// @assertion abstract void setRange(int start, int end, Iterable<E> iterable,
+/// [int skipCount = 0])
+/// It is an error if start.. end is not a valid range pointing into the this.
+/// @description Checks that RangeError is thrown if there is lack of space in
+/// dst.
+/// @author iefremov
+
 library setRange_A02_t01;
 
 import "../../../Utils/expect.dart";

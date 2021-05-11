@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Float64x2List asFloat64x2List([int offsetInBytes = 0, int length])
- * Creates a Float64x2List view of a region of this byte buffer.
- * The view is backed by the bytes of this byte buffer. Any changes made to the
- * Float64x2List will also change the buffer, and vice versa.
- * @description Checks that method asFloat64x2List creates a Float64x2List view
- * of a region of this byte buffer, and any changes made to Float64x2List will
- * also change the buffer, and vice versa.
- * @author ngl@unipro.ru
- * @issue 43204
- */
+/// @assertion Float64x2List asFloat64x2List([int offsetInBytes = 0, int length])
+/// Creates a Float64x2List view of a region of this byte buffer.
+/// The view is backed by the bytes of this byte buffer. Any changes made to the
+/// Float64x2List will also change the buffer, and vice versa.
+/// @description Checks that method asFloat64x2List creates a Float64x2List view
+/// of a region of this byte buffer, and any changes made to Float64x2List will
+/// also change the buffer, and vice versa.
+/// @author ngl@unipro.ru
+/// @issue 43204
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

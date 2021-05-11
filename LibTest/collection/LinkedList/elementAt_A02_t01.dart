@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion E elementAt(int index)
- * The [index] must be non-negative and less than length.
- * @description Checks that a [RangeError] is thrown if this list has fewer than
- * [index] elements.
- * @author kaigorodov
- */
+/// @assertion E elementAt(int index)
+/// The [index] must be non-negative and less than length.
+/// @description Checks that a [RangeError] is thrown if this list has fewer than
+/// [index] elements.
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 import "LinkedList.lib.dart";

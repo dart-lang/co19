@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int index
- * Get the index of the NetworkInterface.
- *
- * @description Checks that [index] gets the int value that is the index of
- * the NetworkInterface.
- * @author ngl@unipro.ru
- */
+/// @assertion int index
+/// Get the index of the NetworkInterface.
+///
+/// @description Checks that [index] gets the int value that is the index of
+/// the NetworkInterface.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

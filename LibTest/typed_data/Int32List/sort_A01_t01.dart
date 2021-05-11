@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void sort([int compare(E a, E b)])
- * Sorts this list according to the order specified by the compare function.
- * The compare function must act as a Comparator.
- * @description Checks sorting various integer arrays.
- * @author msyabro
- */
+/// @assertion void sort([int compare(E a, E b)])
+/// Sorts this list according to the order specified by the compare function.
+/// The compare function must act as a Comparator.
+/// @description Checks sorting various integer arrays.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

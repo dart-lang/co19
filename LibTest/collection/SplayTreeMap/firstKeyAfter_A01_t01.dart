@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion K firstKeyAfter(K key)
- * Get the first key in the map that is strictly larger than [key].
- * @description Checks that the first key that is strictly larger than [key] is
- * returned
- * @author sgrekhov@unipro.ru
- */
+/// @assertion K firstKeyAfter(K key)
+/// Get the first key in the map that is strictly larger than [key].
+/// @description Checks that the first key that is strictly larger than [key] is
+/// returned
+/// @author sgrekhov@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool hasTerminal
- * Returns true if there is a terminal attached to stdout.
- * @description Checks [hasTerminal] property correctness for [stdout].
- * @author iarkh@unipro.ru
- */
+/// @assertion bool hasTerminal
+/// Returns true if there is a terminal attached to stdout.
+/// @description Checks [hasTerminal] property correctness for [stdout].
+/// @author iarkh@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

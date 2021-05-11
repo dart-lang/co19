@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion static void equals(var expected, var actual, [String reason = null])
- * Checks whether the expected and actual values are equal (using [:==:]).
- * @description Checks that object equality is checked with == operator (on expected value).
- * @author varlax
- */
+/// @assertion static void equals(var expected, var actual, [String reason = null])
+/// Checks whether the expected and actual values are equal (using [:==:]).
+/// @description Checks that object equality is checked with == operator (on expected value).
+/// @author varlax
+
 import "../../../Utils/expect.dart";
 
 class A {

@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future addStream(Stream<S> stream)
- * Consumes the elements of stream.
- *
- * Listens on stream and does something for each event.
- *
- * Returns a future which is completed when the stream is done being added, and
- * the consumer is ready to accept a new stream.
- *
- * @description Checks the addStresm method.
- * @author ngl@unipro.ru
- */
+/// @assertion Future addStream(Stream<S> stream)
+/// Consumes the elements of stream.
+///
+/// Listens on stream and does something for each event.
+///
+/// Returns a future which is completed when the stream is done being added, and
+/// the consumer is ready to accept a new stream.
+///
+/// @description Checks the addStresm method.
+/// @author ngl@unipro.ru
+
 library addStream_A01_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

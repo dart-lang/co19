@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool contains(Object element)
- * The equality used to determine whether [element] is equal to an element of
- * the iterable defaults to the [Object.operator==] of the element. The equality
- * used to determine whether [element] is equal to an element of the iterable
- * defaults to the [Object.operator==] of the element.
- * @description Checks that [true] is returned if collection contains [element]
- * and [false] is returned otherwise for integer numbers.
- * @author iarkh@unipro.ru
- */
+/// @assertion bool contains(Object element)
+/// The equality used to determine whether [element] is equal to an element of
+/// the iterable defaults to the [Object.operator==] of the element. The equality
+/// used to determine whether [element] is equal to an element of the iterable
+/// defaults to the [Object.operator==] of the element.
+/// @description Checks that [true] is returned if collection contains [element]
+/// and [false] is returned otherwise for integer numbers.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

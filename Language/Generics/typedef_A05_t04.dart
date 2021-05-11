@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A generic type alias is a declaration [D] of one of the following
- * forms:
- *   S0 Function(T1, . . . , Tn, [Tn+1, . . . , Tn+k])
- *   S0 Function(T1, . . . , Tn, {Tn+1 xn+1, . . . , Tn+k xn+k})
- *   ...
- * [D] introduces a mapping from actual type argument lists to types.
- * @description Checks that [D] maps argument list to correct types
- * @Issue 41939, 42433
- * @author iarkh@unipro.ru
- */
+/// @assertion A generic type alias is a declaration [D] of one of the following
+/// forms:
+///   S0 Function(T1, . . . , Tn, [Tn+1, . . . , Tn+k])
+///   S0 Function(T1, . . . , Tn, {Tn+1 xn+1, . . . , Tn+k xn+k})
+///   ...
+/// [D] introduces a mapping from actual type argument lists to types.
+/// @description Checks that [D] maps argument list to correct types
+/// @Issue 41939, 42433
+/// @author iarkh@unipro.ru
+
 
 import "../../Utils/expect.dart";
 

@@ -2,19 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<bool> any(bool test(T element))
- * Checks whether test accepts any element provided by this stream.
- *
- * Calls test on each element of the stream. If the call returns true, the
- * returned future is completed with true and processing stops.
- *
- * @description Checks that method any returns true when RawSocketEvent.closed
- * is searched and writeEventsEnabled is false. In this case the listening to
- * the stream is stopped after the last received event.
- * @issue 31881
- * @author ngl@unipro.ru
- */
+/// @assertion Future<bool> any(bool test(T element))
+/// Checks whether test accepts any element provided by this stream.
+///
+/// Calls test on each element of the stream. If the call returns true, the
+/// returned future is completed with true and processing stops.
+///
+/// @description Checks that method any returns true when RawSocketEvent.closed
+/// is searched and writeEventsEnabled is false. In this case the listening to
+/// the stream is stopped after the last received event.
+/// @issue 31881
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "../http_utils.dart";
 import "../../../Utils/expect.dart";

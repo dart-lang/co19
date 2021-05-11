@@ -2,10 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/*
- * File and Directory utils
- * @author sgrekhov@unipro.ru
- */
+/// File and Directory utils
+/// @author sgrekhov@unipro.ru
+
 library file_utils;
 
 import "dart:io";

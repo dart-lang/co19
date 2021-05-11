@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
- * when:
- * Left Type Variable Bound: T0 is a type variable X0 with bound B0
- *   and B0 <: T1
- * @description Check that if T0 is a type variable X0 with bound B0 and
- * B0 is not a subtype of T1 then T0 is not a subtype of a type T1.
- * @author ngl@unipro.ru
- */
+/// @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
+/// when:
+/// Left Type Variable Bound: T0 is a type variable X0 with bound B0
+///   and B0 <: T1
+/// @description Check that if T0 is a type variable X0 with bound B0 and
+/// B0 is not a subtype of T1 then T0 is not a subtype of a type T1.
+/// @author ngl@unipro.ru
+
 class T1 {
   const T1();
 }

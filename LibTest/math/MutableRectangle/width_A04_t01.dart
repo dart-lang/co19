@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void width=(T width)
- * Setting the value will change the right edge of the rectangle, but will not
- * change left.
- * @description Checks that setting the value will change the right edge of the
- * rectangle, but will not change left.
- * @author ngl@unipro.ru
- */
+/// @assertion void width=(T width)
+/// Setting the value will change the right edge of the rectangle, but will not
+/// change left.
+/// @description Checks that setting the value will change the right edge of the
+/// rectangle, but will not change left.
+/// @author ngl@unipro.ru
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 

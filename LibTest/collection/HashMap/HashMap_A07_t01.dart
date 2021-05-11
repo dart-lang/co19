@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion HashMap({bool equals(K key1, K key2), int hashCode(K key),
- * bool isValidKey(potentialKey) })
- * If neither [equals], [hashCode], nor [isValidKey] is provided, the default
- * [isValidKey] instead accepts all keys. The default equality and hashcode
- * operations are assumed to work on all objects.
- * @description Checks that default [isValidKey] function accepts all the keys
- * if [equals] and [hashCode] functions are not provided.
- * @author iarkh@unipro.ru
- */
+/// @assertion HashMap({bool equals(K key1, K key2), int hashCode(K key),
+/// bool isValidKey(potentialKey) })
+/// If neither [equals], [hashCode], nor [isValidKey] is provided, the default
+/// [isValidKey] instead accepts all keys. The default equality and hashcode
+/// operations are assumed to work on all objects.
+/// @description Checks that default [isValidKey] function accepts all the keys
+/// if [equals] and [hashCode] functions are not provided.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

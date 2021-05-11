@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The predeﬁned Dart function identical() is deﬁned such that
- * identical(c1, c2) iff:
- *  • c1 and c2 are the same object.
- * @description Checks that an object is identical() to itself.
- * @author kaigorodov
- */
+/// @assertion The predeﬁned Dart function identical() is deﬁned such that
+/// identical(c1, c2) iff:
+///  • c1 and c2 are the same object.
+/// @description Checks that an object is identical() to itself.
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 
 List o1 = [1, 2, 3, 4, 5];

@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<E> take(int count)
- * Returns a lazy [Iterable] of the [count] first elements of this iterable.
- * @description Checks that the returned [Iterable] has the length [count] and
- * contains first [count] elements from [this].
- * @author msyabro
- */
+/// @assertion Iterable<E> take(int count)
+/// Returns a lazy [Iterable] of the [count] first elements of this iterable.
+/// @description Checks that the returned [Iterable] has the length [count] and
+/// contains first [count] elements from [this].
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

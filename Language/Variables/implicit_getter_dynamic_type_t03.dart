@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A variable declaration of one of the forms
- * var v;, var v = e; , const v = e;, final v; or final v = e;
- * always induces an implicit getter function with signature
- *   get v
- * @description For all types of forms checks that return type of getter is
- * dynamic by expecting no static warnings.
- * @static-clean
- * @author ilya
- */
+/// @assertion A variable declaration of one of the forms
+/// var v;, var v = e; , const v = e;, final v; or final v = e;
+/// always induces an implicit getter function with signature
+///   get v
+/// @description For all types of forms checks that return type of getter is
+/// dynamic by expecting no static warnings.
+/// @static-clean
+/// @author ilya
+
 import "../../Utils/expect.dart";
 
 //--library static variables

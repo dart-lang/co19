@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Optional parameters may be specified and provided with default
- * values.
- * defaultFormalParameter:
- *   normalFormalParameter ('=' expression)?
- * ;
- * defaultNamedParameter:
- *   normalFormalParameter (':' expression)?
- * ;
- * @description Checks using optional parameters together with required ones
- * @author kaigorodov
- */
+/// @assertion Optional parameters may be specified and provided with default
+/// values.
+/// defaultFormalParameter:
+///   normalFormalParameter ('=' expression)?
+/// ;
+/// defaultNamedParameter:
+///   normalFormalParameter (':' expression)?
+/// ;
+/// @description Checks using optional parameters together with required ones
+/// @author kaigorodov
+
 import "../../../../Utils/expect.dart";
 
 void func(int z, [var x = 1, var y = 2]) {

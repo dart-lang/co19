@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool escapeQuot
- *  read-only
- * Whether to escape '"' (quote).
- * @description Checks that this property shows if quote is escaped
- * Test default constructor values
- * @author sgrekhov@unipro.ru
- */
+/// @assertion bool escapeQuot
+///  read-only
+/// Whether to escape '"' (quote).
+/// @description Checks that this property shows if quote is escaped
+/// Test default constructor values
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

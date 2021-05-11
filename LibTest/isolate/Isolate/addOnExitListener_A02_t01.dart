@@ -2,21 +2,20 @@
 // file for details. All rights reserved. Use of this source code is governed
 // by a BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void addOnExitListener(
- *                    SendPort responsePort, {
- *                    Object response
- *            })
- * ...
- *   Adding the same port more than once will only cause it to receive one
- * message, using the last response value that was added.
- *
- * @description Check that isolate sends single event on responsePort,
- * which is supplied several times to addOnExitListener() of the same isolate.
- * Parameter response is not specified.
- *
- * @author a.semenov@unipro.ru
- */
+/// @assertion void addOnExitListener(
+///                    SendPort responsePort, {
+///                    Object response
+///            })
+/// ...
+///   Adding the same port more than once will only cause it to receive one
+/// message, using the last response value that was added.
+///
+/// @description Check that isolate sends single event on responsePort,
+/// which is supplied several times to addOnExitListener() of the same isolate.
+/// Parameter response is not specified.
+///
+/// @author a.semenov@unipro.ru
+
 import "dart:isolate";
 import "dart:async";
 import "../../../Utils/expect.dart";

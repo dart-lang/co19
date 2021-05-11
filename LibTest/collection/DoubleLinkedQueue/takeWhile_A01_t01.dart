@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<E> takeWhile(bool test(E value))
- * Returns a lazy iterable of the leading elements satisfying [test].
- * @description Checks that all first elements that satisfy [test] are retained,
- * and elements after are skipped.
- * @author kaigorodov
- */
+/// @assertion Iterable<E> takeWhile(bool test(E value))
+/// Returns a lazy iterable of the leading elements satisfying [test].
+/// @description Checks that all first elements that satisfy [test] are retained,
+/// and elements after are skipped.
+/// @author kaigorodov
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

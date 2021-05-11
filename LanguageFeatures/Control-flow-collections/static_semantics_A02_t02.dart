@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Let the key type and value type of a map literal be the
- * corresponding static types of the type arguments for a map literal.
- * So <int, String>{} and {1: "s"} both have a key type of int and a value type
- * of String
- *
- * @description Checks that element type of the map literals is the static type
- * of the type argument used to create the map
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Let the key type and value type of a map literal be the
+/// corresponding static types of the type arguments for a map literal.
+/// So <int, String>{} and {1: "s"} both have a key type of int and a value type
+/// of String
+///
+/// @description Checks that element type of the map literals is the static type
+/// of the type argument used to create the map
+/// @author sgrekhov@unipro.ru
+
 
 main() {
   bool b = true;

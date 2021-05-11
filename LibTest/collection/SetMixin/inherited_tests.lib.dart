@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract class SetMixin<K, V>
- * Mixin implementation of [Set].
- * @description Checks that all members of [Set] are implemented.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion abstract class SetMixin<K, V>
+/// Mixin implementation of [Set].
+/// @description Checks that all members of [Set] are implemented.
+/// @author sgrekhov@unipro.ru
+
 library inherited_tests_setmixin;
 
 import "../../core/Set/all_tests.lib.dart" as set_tests;

@@ -2,19 +2,18 @@
 // file for details. All rights reserved. Use of this source code is governed
 // by a BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void setErrorsFatal(
- *                                bool errorsAreFatal
- *                               )
- *    Set whether uncaught errors will terminate the isolate.
- *    If errors are fatal, any uncaught error will terminate the isolate event
- * loop and shut down the isolate.
- *
- * @description Check that after call to setErrorsFatal(false) uncaught error
- * will not terminate the isolate.
- *
- * @author a.semenov@unipro.ru
- */
+/// @assertion void setErrorsFatal(
+///                                bool errorsAreFatal
+///                               )
+///    Set whether uncaught errors will terminate the isolate.
+///    If errors are fatal, any uncaught error will terminate the isolate event
+/// loop and shut down the isolate.
+///
+/// @description Check that after call to setErrorsFatal(false) uncaught error
+/// will not terminate the isolate.
+///
+/// @author a.semenov@unipro.ru
+
 import "dart:isolate";
 import "dart:async";
 import "../../../Utils/expect.dart";

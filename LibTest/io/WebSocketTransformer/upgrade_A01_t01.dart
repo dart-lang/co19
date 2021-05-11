@@ -2,20 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Future<WebSocket> upgrade(
- *     HttpRequest request, {
- *     dynamic protocolSelector(List<String> protocols),
- *     CompressionOptions compression: CompressionOptions.compressionDefault
- * })
- * Upgrades a HttpRequest to a WebSocket connection. If the request is not a
- * valid WebSocket upgrade request an HTTP response with status code 500 will
- * be returned. Otherwise the returned future will complete with the WebSocket
- * when the upgrade process is complete.
- * @description Checks that the method [upgrate] returns Future<WebSocket>.
- * @author ngl@unipro.ru
- */
+/// @assertion
+/// Future<WebSocket> upgrade(
+///     HttpRequest request, {
+///     dynamic protocolSelector(List<String> protocols),
+///     CompressionOptions compression: CompressionOptions.compressionDefault
+/// })
+/// Upgrades a HttpRequest to a WebSocket connection. If the request is not a
+/// valid WebSocket upgrade request an HTTP response with status code 500 will
+/// be returned. Otherwise the returned future will complete with the WebSocket
+/// when the upgrade process is complete.
+/// @description Checks that the method [upgrate] returns Future<WebSocket>.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

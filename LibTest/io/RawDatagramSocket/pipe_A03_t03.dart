@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future pipe(StreamConsumer<RawSocketEvent> streamConsumer)
- * . . .
- * The returned future completes with the same result as the future returned by
- * StreamConsumer.close. If the call to StreamConsumer.addStream fails in some
- * way, this method fails in the same way.
- *
- * @description Checks that the returned future completes with the same result
- * as the future returned by StreamConsumer.close. StreamConsumer.close returns
- * error.
- * @author ngl@unipro.ru
- */
+/// @assertion Future pipe(StreamConsumer<RawSocketEvent> streamConsumer)
+/// . . .
+/// The returned future completes with the same result as the future returned by
+/// StreamConsumer.close. If the call to StreamConsumer.addStream fails in some
+/// way, this method fails in the same way.
+///
+/// @description Checks that the returned future completes with the same result
+/// as the future returned by StreamConsumer.close. StreamConsumer.close returns
+/// error.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

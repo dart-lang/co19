@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion dynamic lastWhere(bool test(E value), {Object orElse()})
- * If no element satisfies [test], the result of invoking the [orElse] function
- * is returned.
- * @description Checks that if none matches, the result of invoking the [orElse]
- * function is returned.
- * @author kaigorodov
- */
+/// @assertion dynamic lastWhere(bool test(E value), {Object orElse()})
+/// If no element satisfies [test], the result of invoking the [orElse] function
+/// is returned.
+/// @description Checks that if none matches, the result of invoking the [orElse]
+/// function is returned.
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 import "LinkedList.lib.dart";

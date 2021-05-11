@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion factory Element.html(String html, {NodeValidator validator,
- *  NodeTreeSanitizer treeSanitizer})
- * The HTML fragment should contain only one single root element, any leading
- * or trailing text nodes will be removed.
- * @description Checks that leading and trailing nodes are removed.
- */
+/// @assertion factory Element.html(String html, {NodeValidator validator,
+///  NodeTreeSanitizer treeSanitizer})
+/// The HTML fragment should contain only one single root element, any leading
+/// or trailing text nodes will be removed.
+/// @description Checks that leading and trailing nodes are removed.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

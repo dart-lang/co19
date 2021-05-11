@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Tests whether [other] is a SendPort 
- * pointing to the same ReceivePort as this one.
- *
- * @description Checks SendPort instance sent to another isolate and received
- * back is equal to itself, because it implements Capability
- *
- * @author a.semenov@unipro.ru
- */
+/// @assertion Tests whether [other] is a SendPort 
+/// pointing to the same ReceivePort as this one.
+///
+/// @description Checks SendPort instance sent to another isolate and received
+/// back is equal to itself, because it implements Capability
+///
+/// @author a.semenov@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:isolate";

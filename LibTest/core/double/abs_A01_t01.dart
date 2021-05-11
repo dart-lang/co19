@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion double abs()
- * @description Checks that if value is not negative, the same value is returned.
- * @author pagolubev
- */
+/// @assertion double abs()
+/// @description Checks that if value is not negative, the same value is returned.
+/// @author pagolubev
+
 import "../../../Utils/expect.dart";
 
 

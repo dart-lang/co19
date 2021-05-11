@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void removeRange(int start, int end)
- * Removes the elements in the range start inclusive to end exclusive.
- * Throws an [UnsupportedError] if [this] is a fixed-length list. In that case
- * the list is not modified.
- * @description Checks that [UnsupportedError] is thrown since [Uint16List] is
- * a fixed-length list.
- * @author msyabro
- */
+/// @assertion void removeRange(int start, int end)
+/// Removes the elements in the range start inclusive to end exclusive.
+/// Throws an [UnsupportedError] if [this] is a fixed-length list. In that case
+/// the list is not modified.
+/// @description Checks that [UnsupportedError] is thrown since [Uint16List] is
+/// a fixed-length list.
+/// @author msyabro
+
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
 

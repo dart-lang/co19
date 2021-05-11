@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A variable declaration statement declares a new local variable.
- *   localVariableDeclaration:
- *     initializedVariableDeclaration ’;’
- *   ;
- * @description Checks that a newly introduced variable may shadow the one
- * declared in an enclosing scope but doesn't replace it.
- * @author rodionov
- * @reviewer iefremov
- */
+/// @assertion A variable declaration statement declares a new local variable.
+///   localVariableDeclaration:
+///     initializedVariableDeclaration ’;’
+///   ;
+/// @description Checks that a newly introduced variable may shadow the one
+/// declared in an enclosing scope but doesn't replace it.
+/// @author rodionov
+/// @reviewer iefremov
+
 import '../../../Utils/expect.dart';
 
 main() {

@@ -2,21 +2,20 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future pipe(StreamConsumer<RawSocketEvent> streamConsumer)
- * . . .
- * All events of this stream are added to streamConsumer using
- * StreamConsumer.addStream. The streamConsumer is closed when this stream has
- * been successfully added to it - when the future returned by addStream
- * completes without an error.
- *
- * Returns a future which completes when the stream has been consumed and the
- * consumer has been closed.
- *
- * @description Checks that the streamConsumer is closed when the future
- * returned by pipe completes without an error.
- * @author ngl@unipro.ru
- */
+/// @assertion Future pipe(StreamConsumer<RawSocketEvent> streamConsumer)
+/// . . .
+/// All events of this stream are added to streamConsumer using
+/// StreamConsumer.addStream. The streamConsumer is closed when this stream has
+/// been successfully added to it - when the future returned by addStream
+/// completes without an error.
+///
+/// Returns a future which completes when the stream has been consumed and the
+/// consumer has been closed.
+///
+/// @description Checks that the streamConsumer is closed when the future
+/// returned by pipe completes without an error.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

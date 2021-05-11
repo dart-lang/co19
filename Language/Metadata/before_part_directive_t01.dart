@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Metadata can appear before  ...  part directive ...
- * @description Check that metadata is allowed before part directive
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Metadata can appear before  ...  part directive ...
+/// @description Check that metadata is allowed before part directive
+/// @author sgrekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=generic-metadata
 import 'before_part_directive_lib.dart';
 

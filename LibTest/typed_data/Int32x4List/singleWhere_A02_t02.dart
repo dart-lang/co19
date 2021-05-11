@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion E singleWhere(bool test(E element))
- * ...
- * Otherwise, if there are no matching elements, or if there is more than one
- * matching element, a StateError is thrown.
- * @description Checks that a StateError is thrown if there is no element that
- * satisfies test.
- * @author ngl@unipro.ru
- */
+/// @assertion E singleWhere(bool test(E element))
+/// ...
+/// Otherwise, if there are no matching elements, or if there is more than one
+/// matching element, a StateError is thrown.
+/// @description Checks that a StateError is thrown if there is no element that
+/// satisfies test.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

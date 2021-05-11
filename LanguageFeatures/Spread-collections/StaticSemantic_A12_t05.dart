@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion n/a
- * @description: Checks that map with spread element cannot reference itself
- * @author iarkh@unipro.ru
- */
+/// @assertion n/a
+/// @description: Checks that map with spread element cannot reference itself
+/// @author iarkh@unipro.ru
+
 
 main() {
   Map m1 = {...m1};

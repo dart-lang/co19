@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion All types reified in legacy libraries are reified as legacy types.
- * @description Check that runtime type of the object of the class imported from
- * opted to legacy library can be casted correctly in opted-in code.
- * @author iarkh@unipro.ru
- */
+/// @assertion All types reified in legacy libraries are reified as legacy types.
+/// @description Check that runtime type of the object of the class imported from
+/// opted to legacy library can be casted correctly in opted-in code.
+/// @author iarkh@unipro.ru
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-weak
 import "../../../../Utils/expect.dart";

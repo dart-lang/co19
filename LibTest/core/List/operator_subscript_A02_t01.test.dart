@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract E operator [](int index)
- * Throws an RangeError if index is out of bounds.
- * @description Checks that the exception is thrown.
- * @author iefremov
- * @author varlax
- */
+/// @assertion abstract E operator [](int index)
+/// Throws an RangeError if index is out of bounds.
+/// @description Checks that the exception is thrown.
+/// @author iefremov
+/// @author varlax
+
 library operator_subscript_A02_t01;
 
 import "../../../Utils/expect.dart";

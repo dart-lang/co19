@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<RandomAccessFile> truncate(int length)
- * Truncates (or extends) the file to length bytes. Returns a
- * Future<RandomAccessFile> that completes with this RandomAccessFile when the
- * truncation has been performed.
- *
- * @description Checks that method truncate extends the file to length bytes
- * if length is grater then the file length.
- * @author ngl@unipro.ru
- */
+/// @assertion Future<RandomAccessFile> truncate(int length)
+/// Truncates (or extends) the file to length bytes. Returns a
+/// Future<RandomAccessFile> that completes with this RandomAccessFile when the
+/// truncation has been performed.
+///
+/// @description Checks that method truncate extends the file to length bytes
+/// if length is grater then the file length.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

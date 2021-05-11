@@ -2,20 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<String> target()
- * Gets the target of the link. Returns a future that completes with the path to
- * the target.
- *
- * If the returned target is a relative path, it is relative to the directory
- * containing the link.
- *
- * If the link does not exist, or is not a link, the future completes with a
- * FileSystemException.
- * @description Check that this method returns the target of the link. Test
- * file as a target with relative path
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Future<String> target()
+/// Gets the target of the link. Returns a future that completes with the path to
+/// the target.
+///
+/// If the returned target is a relative path, it is relative to the directory
+/// containing the link.
+///
+/// If the link does not exist, or is not a link, the future completes with a
+/// FileSystemException.
+/// @description Check that this method returns the target of the link. Test
+/// file as a target with relative path
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";

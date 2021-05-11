@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<HttpClientResponse> close()
- * Close the request for input. Returns the value of done.
- * @description Checks that this method returns the value of done
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Future<HttpClientResponse> close()
+/// Close the request for input. Returns the value of done.
+/// @description Checks that this method returns the value of done
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";

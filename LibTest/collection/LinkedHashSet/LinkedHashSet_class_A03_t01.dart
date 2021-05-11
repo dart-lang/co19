@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion LinkedHashSet<E> class implements Set<E>
- * The set allows [null] as a element.
- * @description Checks that it's possible to have [null] as a set element.
- * @author iarkh@unipro.ru
- */
+/// @assertion LinkedHashSet<E> class implements Set<E>
+/// The set allows [null] as a element.
+/// @description Checks that it's possible to have [null] as a set element.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

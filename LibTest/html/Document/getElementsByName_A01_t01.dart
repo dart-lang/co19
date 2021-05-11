@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion List<Node> getElementsByName(String elementName)
- * Returns a list of elements with the given name.
- * @description Checks that a list of elements with the given name is returned.
- */
+/// @assertion List<Node> getElementsByName(String elementName)
+/// Returns a list of elements with the given name.
+/// @description Checks that a list of elements with the given name is returned.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

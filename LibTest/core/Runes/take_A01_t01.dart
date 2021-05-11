@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<E> take(int count)
- * Returns an [Iterable] with at most [n] elements.
- * @description Checks that the returned [Iterable] has
- * the length [n] and contains first [n] elements from [this].
- * @author msyabro
- */
+/// @assertion Iterable<E> take(int count)
+/// Returns an [Iterable] with at most [n] elements.
+/// @description Checks that the returned [Iterable] has
+/// the length [n] and contains first [n] elements from [this].
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 void check(string, n) {

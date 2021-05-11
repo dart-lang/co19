@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String text
- * All text within this node and its decendents.
- * MDN: If the node is a CDATA section, a comment, a processing instruction,
- * or a text node, textContent returns the text inside this node (the nodeValue).
- * @description Checks expected attribute values.
- */
+/// @assertion String text
+/// All text within this node and its decendents.
+/// MDN: If the node is a CDATA section, a comment, a processing instruction,
+/// or a text node, textContent returns the text inside this node (the nodeValue).
+/// @description Checks expected attribute values.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The static type of a throw e expression is Never.
- *
- * @description Checks that the static type of a throw e expression is Never.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion The static type of a throw e expression is Never.
+///
+/// @description Checks that the static type of a throw e expression is Never.
+/// @author sgrekhov@unipro.ru
+
 // Requirements=nnbd-weak
 import "../../../Utils/expect.dart";
 

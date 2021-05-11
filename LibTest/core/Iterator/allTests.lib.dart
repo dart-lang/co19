@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool any(bool f(E element))
- * Returns true if one element of the collection satisfies the predicate [f].
- * Returns false otherwise.
- * @description Checks that this method works as specified.
- * @author pagolubev
- */
+/// @assertion bool any(bool f(E element))
+/// Returns true if one element of the collection satisfies the predicate [f].
+/// Returns false otherwise.
+/// @description Checks that this method works as specified.
+/// @author pagolubev
+
 library allTests_A01_t01;
 
 import "current_A01_t01.test.dart" as libCurrentNext;

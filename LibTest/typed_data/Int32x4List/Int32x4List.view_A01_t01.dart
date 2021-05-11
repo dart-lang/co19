@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Int32x4List.view(
- *    ByteBuffer buffer, [
- *    int offsetInBytes = 0,
- *    int length
- * ])
- * Creates a Int32x4List view of the specified region in buffer.
- * @description Checks that an instance of Int32x4List of specified length with
- * correct elements is created.
- * @author ngl@unipro.ru
- */
+/// @assertion
+/// Int32x4List.view(
+///    ByteBuffer buffer, [
+///    int offsetInBytes = 0,
+///    int length
+/// ])
+/// Creates a Int32x4List view of the specified region in buffer.
+/// @description Checks that an instance of Int32x4List of specified length with
+/// correct elements is created.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

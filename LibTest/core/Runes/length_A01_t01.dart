@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final int length
- * Returns the number of elements in this.
- * @description Checks that the number of elements is returned.
- * @author msyabro
- */
+/// @assertion final int length
+/// Returns the number of elements in this.
+/// @description Checks that the number of elements is returned.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 void check(string, length) {

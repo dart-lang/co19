@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Point<T> operator +(Point<T> other)
- * @description Checks that arguments cannot be null
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Point<T> operator +(Point<T> other)
+/// @description Checks that arguments cannot be null
+/// @author sgrekhov@unipro.ru
+
 import "dart:math";
 
 main() {

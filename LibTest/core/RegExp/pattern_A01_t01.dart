@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final String pattern
- * The pattern of this regular expression. 
- * @description Checks that this property holds the correct string.
- * @author rodionov
- */
+/// @assertion final String pattern
+/// The pattern of this regular expression. 
+/// @description Checks that this property holds the correct string.
+/// @author rodionov
+
 import "../../../Utils/expect.dart";
  
 main() {

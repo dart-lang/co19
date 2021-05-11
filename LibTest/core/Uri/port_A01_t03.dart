@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int port
- * Returns the port part of the authority component.
- * Returns the default port if there is no port number in the authority
- * component. That's 80 for http, 443 for https, and 0 for everything else.
- * @description Checks default port numbers for different schemas
- * @author sgrekhov@unipro.ru
- */
+/// @assertion int port
+/// Returns the port part of the authority component.
+/// Returns the default port if there is no port number in the authority
+/// component. That's 80 for http, 443 for https, and 0 for everything else.
+/// @description Checks default port numbers for different schemas
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

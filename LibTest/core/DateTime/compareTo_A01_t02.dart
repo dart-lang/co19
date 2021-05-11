@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int compareTo(DateTime other)
- * Compares this object to another Comparable
- * Returns a value like a Comparator when comparing this to other.
- * @description Checks DateTime.compareTo() implementation.
- * @author hlodvig
- */
+/// @assertion int compareTo(DateTime other)
+/// Compares this object to another Comparable
+/// Returns a value like a Comparator when comparing this to other.
+/// @description Checks DateTime.compareTo() implementation.
+/// @author hlodvig
+
 import "../../../Utils/expect.dart";
 
 

@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<int> length
- * The number of elements in this stream.
- *
- * Waits for all elements of this stream. When the stream ends, the returned
- * future is completed with the number of elements.
- *
- * @description Checks that property length returns the number of elements in
- * the socket when this RawDatagramSocket is regarded as a broadcast stream.
- * @author ngl@unipro.ru
- */
+/// @assertion Future<int> length
+/// The number of elements in this stream.
+///
+/// Waits for all elements of this stream. When the stream ends, the returned
+/// future is completed with the number of elements.
+///
+/// @description Checks that property length returns the number of elements in
+/// the socket when this RawDatagramSocket is regarded as a broadcast stream.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

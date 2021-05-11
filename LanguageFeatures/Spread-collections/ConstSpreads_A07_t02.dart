@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It also enables const expressions that refer to constant
- * collections defined elsewhere, which is useful:
- *
- *   const list = [2, 3];
- *   const another = [1, ...list, 4]; // [1, 2, 3, 4].
- * @description: Checks that spread element in the set can refer to constant
- * collections defined elsewhere
- * @static-warning
- * @author iarkh@unipro.ru
- */
+/// @assertion It also enables const expressions that refer to constant
+/// collections defined elsewhere, which is useful:
+///
+///   const list = [2, 3];
+///   const another = [1, ...list, 4]; // [1, 2, 3, 4].
+/// @description: Checks that spread element in the set can refer to constant
+/// collections defined elsewhere
+/// @static-warning
+/// @author iarkh@unipro.ru
+
 
 import "../../Utils/expect.dart";
 

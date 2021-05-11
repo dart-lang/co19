@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<E> skipWhile(bool test(E value))
- * The filtering happens lazily.
- * @description Checks that the [test] method is not called when [skipWhile] is
- * executed.
- * @author kaigorodov
- */
+/// @assertion Iterable<E> skipWhile(bool test(E value))
+/// The filtering happens lazily.
+/// @description Checks that the [test] method is not called when [skipWhile] is
+/// executed.
+/// @author kaigorodov
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

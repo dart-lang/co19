@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract Stream<T> asStream()
- * The stream will produce single data or error event containing the completion
- * result of this future, and then it will close with a done event.
- * @description Checks that the stream is closed after the completion value is
- * send.
- * @author kaigorodov
- */
+/// @assertion abstract Stream<T> asStream()
+/// The stream will produce single data or error event containing the completion
+/// result of this future, and then it will close with a done event.
+/// @description Checks that the stream is closed after the completion value is
+/// send.
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

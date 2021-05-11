@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final int current
- * The rune (integer Unicode code point) starting at the current position in the
- * string.
- * @description Checks that the -1 is returned when it is no current rune
- * @author sgrekhov@unipro.ru
- */
+/// @assertion final int current
+/// The rune (integer Unicode code point) starting at the current position in the
+/// string.
+/// @description Checks that the -1 is returned when it is no current rune
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

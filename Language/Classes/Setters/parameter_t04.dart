@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It is a compile-time error if a setter's formal parameter list
- * does not consist of exactly one required formal parameter p.
- * @description Checks that a compile-time error is produced if a setter's
- * formal parameter list contains a single optional parameter with a default
- * value.
- * @compile-error
- * @author iefremov
- */
+/// @assertion It is a compile-time error if a setter's formal parameter list
+/// does not consist of exactly one required formal parameter p.
+/// @description Checks that a compile-time error is produced if a setter's
+/// formal parameter list contains a single optional parameter with a default
+/// value.
+/// @compile-error
+/// @author iefremov
+
 
 class C {
   void set setter([var x = null]) { }

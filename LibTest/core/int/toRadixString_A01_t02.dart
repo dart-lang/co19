@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String toRadixString(int radix)
- * ...
- * The radix argument must be an integer in the range 2 to 36.
- * @description Checks that radix argument must be an integer
- * in the range 2 to 36.
- * @author msyabro
- */
+/// @assertion String toRadixString(int radix)
+/// ...
+/// The radix argument must be an integer in the range 2 to 36.
+/// @description Checks that radix argument must be an integer
+/// in the range 2 to 36.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 main() {

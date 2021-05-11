@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract void close()
- * If the stream has already been canceled this method has no effect.
- * @description Checks multiple invocation of [close].
- * @author kaigorodov
- * @author a.semenov@unipro.ru
- */
+/// @assertion abstract void close()
+/// If the stream has already been canceled this method has no effect.
+/// @description Checks multiple invocation of [close].
+/// @author kaigorodov
+/// @author a.semenov@unipro.ru
+
 import 'dart:async';
 import "dart:isolate";
 import "../../../Utils/expect.dart";

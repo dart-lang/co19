@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String trimLeft()
- * Returns the string without any leading whitespace.
- * As trim, but only removes leading whitespace.
- * @description Checks that all possible whitespaces are trimmed from left side
- * @author sgrekhov@unipro.ru
- */
+/// @assertion String trimLeft()
+/// Returns the string without any leading whitespace.
+/// As trim, but only removes leading whitespace.
+/// @description Checks that all possible whitespaces are trimmed from left side
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

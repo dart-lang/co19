@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Stream<ProgressEvent> get onAbort
- * Stream of abort events handled by this HttpRequestEventTarget.
- * @description Checks the state an event is fired when the request is aborted.
- */
+/// @assertion Stream<ProgressEvent> get onAbort
+/// Stream of abort events handled by this HttpRequestEventTarget.
+/// @description Checks the state an event is fired when the request is aborted.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../testcommon.dart";

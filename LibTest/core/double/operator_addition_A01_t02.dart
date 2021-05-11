@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion double operator +(num other)
- * @description Checks that if one operand is a finite double and other is a
- * positive or negative infinity the result is a positive or negative infinity
- * respectively.
- * @author pagolubev
- */
+/// @assertion double operator +(num other)
+/// @description Checks that if one operand is a finite double and other is a
+/// positive or negative infinity the result is a positive or negative infinity
+/// respectively.
+/// @author pagolubev
+
 import "../../../Utils/expect.dart";
 
 final List<double> values = const [

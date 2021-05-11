@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterator<E> iterator
- * ...
- * Modifying the collection may cause new iterators to produce different
- * elements, and may change the order of existing elements. A List specifies its
- * iteration order precisely, so modifying the list changes the iteration
- * order predictably.
- * @description Checks that the iterators of the same iterable can return the
- * different values for the same element if the underlying collection is
- * changed.
- * @author ngl@unipro.ru
- */
+/// @assertion Iterator<E> iterator
+/// ...
+/// Modifying the collection may cause new iterators to produce different
+/// elements, and may change the order of existing elements. A List specifies its
+/// iteration order precisely, so modifying the list changes the iteration
+/// order predictably.
+/// @description Checks that the iterators of the same iterable can return the
+/// different values for the same element if the underlying collection is
+/// changed.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

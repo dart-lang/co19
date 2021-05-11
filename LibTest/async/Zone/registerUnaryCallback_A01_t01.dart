@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion ZoneUnaryCallback<R, T> registerUnaryCallback<R, T>(
- *                                                    R callback(T arg)
- *                                    )
- * Registers the given callback in this zone.
- * @description Checks that ZoneUnaryCallback is returned and that
- * registerUnaryCallback can be overridden by ZoneSpecification.
- * @author ilya
- */
+/// @assertion ZoneUnaryCallback<R, T> registerUnaryCallback<R, T>(
+///                                                    R callback(T arg)
+///                                    )
+/// Registers the given callback in this zone.
+/// @description Checks that ZoneUnaryCallback is returned and that
+/// registerUnaryCallback can be overridden by ZoneSpecification.
+/// @author ilya
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

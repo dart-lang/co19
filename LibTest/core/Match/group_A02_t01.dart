@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Throws RangeError if [group] is out of bounds
- * @description Check that exception is thrown.
- * @author rodionov
- */
+/// @assertion Throws RangeError if [group] is out of bounds
+/// @description Check that exception is thrown.
+/// @author rodionov
+
 import "../../../Utils/expect.dart";
 
 void check(String str, String pattern, int index) {

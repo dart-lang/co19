@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion E lastWhere(bool test(E value), {E orElse()})
- * By default, when orElse is null, a StateError is thrown.
- * @description Checks that If none matches and orElse is null,
- * a StateError is thrown.
- * @author kaigorodov
- */
+/// @assertion E lastWhere(bool test(E value), {E orElse()})
+/// By default, when orElse is null, a StateError is thrown.
+/// @description Checks that If none matches and orElse is null,
+/// a StateError is thrown.
+/// @author kaigorodov
+
 library lastWhere_A03_t01;
 
 import "../../../Utils/expect.dart";

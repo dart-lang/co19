@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool every(bool f(E element))
- * Checks whether every element of this iterable satisfies test.
- * Checks every element in iteration order, and returns false if any of them
- * make test return false, otherwise returns true.
- * @description Checks that the predicate method is called for each element
- * until the first false result.
- * @author vasya
- * @author msyabro
- */
+/// @assertion bool every(bool f(E element))
+/// Checks whether every element of this iterable satisfies test.
+/// Checks every element in iteration order, and returns false if any of them
+/// make test return false, otherwise returns true.
+/// @description Checks that the predicate method is called for each element
+/// until the first false result.
+/// @author vasya
+/// @author msyabro
+
 library every_A01_t02;
 
 import "../../../Utils/expect.dart";

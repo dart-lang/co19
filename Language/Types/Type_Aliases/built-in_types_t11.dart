@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Test for type aliases for built-in types
- * @description Checks triple shift via type alias for int
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Test for type aliases for built-in types
+/// @description Checks triple shift via type alias for int
+/// @author sgrekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases,triple-shift
 import '../../../Utils/expect.dart';
 

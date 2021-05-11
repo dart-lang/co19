@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion double operator %(num other)
- * @description Checks that if the divisor is infinite and the dividend is a
- * finite positive double the result equals the dividend, the result is infinity
- * if dividend is negative.
- * @author pagolubev
- */
+/// @assertion double operator %(num other)
+/// @description Checks that if the divisor is infinite and the dividend is a
+/// finite positive double the result equals the dividend, the result is infinity
+/// if dividend is negative.
+/// @author pagolubev
+
 import "../../../Utils/expect.dart";
 
 final inf = double.infinity;

@@ -2,23 +2,21 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  Float64List asFloat64List([int offsetInBytes = 0, int length ])
- * Creates a Float64List view of a region of this byte buffer.
- * ...
- * The viewed region start at offsetInBytes, which must be 64-bit aligned, and
- * contains length 64-bit integers. If length is omitted, the range extends as
- * far towards the end of the buffer as possible - if lengthInBytes is not
- * divisible by eight, the last bytes can't be part of the view.
-
- * @description Checks that the viewed region begins with offsetInBytes byte,
- * which must be 64-bit aligned, and contains length 64-bit integers. If length
- * is omitted, the range extends to the end of the buffer (if buffer length in
- * bytes is divisible by eight), otherwise, the last bytes can't be part of the
- * view.
- * @author ngl@unipro.ru
- * @issue 43204
- */
+/// @assertion  Float64List asFloat64List([int offsetInBytes = 0, int length ])
+/// Creates a Float64List view of a region of this byte buffer.
+/// ...
+/// The viewed region start at offsetInBytes, which must be 64-bit aligned, and
+/// contains length 64-bit integers. If length is omitted, the range extends as
+/// far towards the end of the buffer as possible - if lengthInBytes is not
+/// divisible by eight, the last bytes can't be part of the view.
+///
+/// @description Checks that the viewed region begins with offsetInBytes byte,
+/// which must be 64-bit aligned, and contains length 64-bit integers. If length
+/// is omitted, the range extends to the end of the buffer (if buffer length in
+/// bytes is divisible by eight), otherwise, the last bytes can't be part of the
+/// view.
+/// @author ngl@unipro.ru
+/// @issue 43204
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

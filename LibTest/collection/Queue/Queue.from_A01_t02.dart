@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Queue.from(Iterable elements)
- * Creates a queue containing all elements.
- * The element order in the queue is as if the elements were added using
- * [addLast] in the order provided by [elements.iterator].
- * @description Checks constructor with custom [Iterable].
- * @author msyabro
- */
+/// @assertion Queue.from(Iterable elements)
+/// Creates a queue containing all elements.
+/// The element order in the queue is as if the elements were added using
+/// [addLast] in the order provided by [elements.iterator].
+/// @description Checks constructor with custom [Iterable].
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterator<E> iterator
- * ...
- * Each time iterator is read, it returns a new iterator, which can be used to
- * iterate through all the elements again. The iterators of the same iterable
- * can be stepped through independently, but should return the same elements in
- * the same order, as long as the underlying collection isn't changed.
- * @description Checks that every iterator of the same iterable should return
- * the same element in the same order.
- * @author ngl@unipro.ru
- */
+/// @assertion Iterator<E> iterator
+/// ...
+/// Each time iterator is read, it returns a new iterator, which can be used to
+/// iterate through all the elements again. The iterators of the same iterable
+/// can be stepped through independently, but should return the same elements in
+/// the same order, as long as the underlying collection isn't changed.
+/// @description Checks that every iterator of the same iterable should return
+/// the same element in the same order.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

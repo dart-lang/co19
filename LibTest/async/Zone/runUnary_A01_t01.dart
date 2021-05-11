@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion aR runUnary<R, T>(R action(T argument), T argument)
- *    Executes the given action with argument in this zone.
- *    As run except that action is called with one argument instead of none.
- * @description Checks that [action] is run in this zone with provided arg.
- * @author ilya
- */
+/// @assertion aR runUnary<R, T>(R action(T argument), T argument)
+///    Executes the given action with argument in this zone.
+///    As run except that action is called with one argument instead of none.
+/// @description Checks that [action] is run in this zone with provided arg.
+/// @author ilya
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

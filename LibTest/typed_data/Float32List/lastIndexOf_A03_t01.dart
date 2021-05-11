@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int lastIndexOf(Object element, [int startIndex])
- * Returns the last index of element in this list.
- * @description Checks that if [startIndex] is out of bounds, it doesn't cause
- * any errors.
- * @note undocumented
- * @author msyabro
- */
+/// @assertion int lastIndexOf(Object element, [int startIndex])
+/// Returns the last index of element in this list.
+/// @description Checks that if [startIndex] is out of bounds, it doesn't cause
+/// any errors.
+/// @note undocumented
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

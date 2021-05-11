@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final int offsetLeft
- * The distance from this element's left border to its offsetParent's left
- * border.
- * @description Checks expected offset value
- */
+/// @assertion final int offsetLeft
+/// The distance from this element's left border to its offsetParent's left
+/// border.
+/// @description Checks expected offset value
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../testcommon.dart";

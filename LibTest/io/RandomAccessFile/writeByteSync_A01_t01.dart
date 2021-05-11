@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int writeByteSync(int value)
- * Synchronously writes a single byte to the file. Returns the number of bytes
- * successfully written.
- *
- * Throws a FileSystemException if the operation fails.
- *
- * @description Checks that method writeByteSync synchronously writes a single
- * byte to the file and returns the number of bytes successfully written.
- * @author ngl@unipro.ru
- */
+/// @assertion int writeByteSync(int value)
+/// Synchronously writes a single byte to the file. Returns the number of bytes
+/// successfully written.
+///
+/// Throws a FileSystemException if the operation fails.
+///
+/// @description Checks that method writeByteSync synchronously writes a single
+/// byte to the file and returns the number of bytes successfully written.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

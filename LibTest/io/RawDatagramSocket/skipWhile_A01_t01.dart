@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Stream<RawSocketEvent> skipWhile(bool test(T element))
- * Skip data events from this stream while they are matched by test.
- *
- * Returns a stream that emits the same events as this stream, except that data
- * events are not emitted until a data event fails test.
- *
- * @description Checks that the returned stream contains all events starting
- * with the first data event where [test] returns false for the event data.
- * @author ngl@unipro.ru
- */
+/// @assertion Stream<RawSocketEvent> skipWhile(bool test(T element))
+/// Skip data events from this stream while they are matched by test.
+///
+/// Returns a stream that emits the same events as this stream, except that data
+/// events are not emitted until a data event fails test.
+///
+/// @description Checks that the returned stream contains all events starting
+/// with the first data event where [test] returns false for the event data.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

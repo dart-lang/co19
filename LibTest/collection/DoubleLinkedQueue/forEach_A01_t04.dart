@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void forEach(void f(E element))
- * Applies the function [f] to each element of this collection.
- * @description Checks that exception thrown in [f] breaks the iteration.
- * @author iarkh@unipro.ru
- */
+/// @assertion void forEach(void f(E element))
+/// Applies the function [f] to each element of this collection.
+/// @description Checks that exception thrown in [f] breaks the iteration.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

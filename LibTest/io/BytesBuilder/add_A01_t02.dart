@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void add(List<int> bytes)
- * Appends bytes to the current contents of the builder.
- * Each value of bytes will be bit-representation truncated to the range
- * 0 .. 255.
- * @description Checks that each int value in the [bytes] list is truncated
- * to range 0 .. 255
- * @author a.semenov@unipro.ru
- */
+/// @assertion void add(List<int> bytes)
+/// Appends bytes to the current contents of the builder.
+/// Each value of bytes will be bit-representation truncated to the range
+/// 0 .. 255.
+/// @description Checks that each int value in the [bytes] list is truncated
+/// to range 0 .. 255
+/// @author a.semenov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

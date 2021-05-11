@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion E single
- * Checks that this iterable has only one element, and returns that element.
- * @description Checks that correct element is returned, if this list has only
- * one element.
- * @author ngl@unipro.ru
- */
+/// @assertion E single
+/// Checks that this iterable has only one element, and returns that element.
+/// @description Checks that correct element is returned, if this list has only
+/// one element.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

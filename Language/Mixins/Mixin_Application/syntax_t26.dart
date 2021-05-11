@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Let S be a class, M be a mixin with required superinterfaces
- * T1, . . . , Tn, combined superinterface MS, implemented interfaces
- * I1, . . . , Ik and members as mixin member declarations, and let N be a name.
- * ...
- * The mixin application of M to S with name N introduces a new class, C,
- * with name N, superclass S, implemented interface I1, . . . , Ik and members
- * as instance members.
- * @description Checks that instance class has the same instance getters as
- * its mixins. Test type aliases
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Let S be a class, M be a mixin with required superinterfaces
+/// T1, . . . , Tn, combined superinterface MS, implemented interfaces
+/// I1, . . . , Ik and members as mixin member declarations, and let N be a name.
+/// ...
+/// The mixin application of M to S with name N introduces a new class, C,
+/// with name N, superclass S, implemented interface I1, . . . , Ik and members
+/// as instance members.
+/// @description Checks that instance class has the same instance getters as
+/// its mixins. Test type aliases
+/// @author sgrekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 import "../../../Utils/expect.dart";
 

@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool isNaN
- * @description Checks the method on special values.
- * @author pagolubev
- */
+/// @assertion bool isNaN
+/// @description Checks the method on special values.
+/// @author pagolubev
+
 import "../../../Utils/expect.dart";
 
 check_not_nan(double d) {

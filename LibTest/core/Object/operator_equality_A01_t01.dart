@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool operator ==(other)
- * The equality operator.
- *
- * The default behavior for all Objects is to return true if and only if this
- * and other are the same object.
- * @description Checks that the method returns true for references to the same
- * canonicalized Object and false for non-constant Objects.
- * @author rodionov
- */
+/// @assertion bool operator ==(other)
+/// The equality operator.
+///
+/// The default behavior for all Objects is to return true if and only if this
+/// and other are the same object.
+/// @description Checks that the method returns true for references to the same
+/// canonicalized Object and false for non-constant Objects.
+/// @author rodionov
+
 import "../../../Utils/expect.dart";
 
 main() {

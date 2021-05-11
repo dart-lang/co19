@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  abstract void forEach(void f(K key, V value))
- * Applies f to each {key, value} pair of the map.
- * @description Checks that keys and values can be changed in [f].
- * @author msyabro
- */
+/// @assertion  abstract void forEach(void f(K key, V value))
+/// Applies f to each {key, value} pair of the map.
+/// @description Checks that keys and values can be changed in [f].
+/// @author msyabro
+
 library forEach_A01_t06;
 
 import "../../../Utils/expect.dart";

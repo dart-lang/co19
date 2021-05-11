@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Otherwise, control is transferred to the nearest innermost
- * enclosing exception handler.
- * @description Checks that the statement of the form "rethrow;" indeed
- * transfers control to the nearest enclosing exception handler if there is one,
- * leaving the current exception unchanged.
- * @note Can not test if the stack trace is unchanged because stack trace
- * equality is unspecified in spec (co19 issue 719)
- * @author rodionov
- */
+/// @assertion Otherwise, control is transferred to the nearest innermost
+/// enclosing exception handler.
+/// @description Checks that the statement of the form "rethrow;" indeed
+/// transfers control to the nearest enclosing exception handler if there is one,
+/// leaving the current exception unchanged.
+/// @note Can not test if the stack trace is unchanged because stack trace
+/// equality is unspecified in spec (co19 issue 719)
+/// @author rodionov
+
 import '../../../Utils/expect.dart';
 
 main() {

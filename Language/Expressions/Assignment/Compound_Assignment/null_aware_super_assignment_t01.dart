@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Evaluation of a compound assignment of the form super.v ??= e is
- * equivalent to the evaluation of the expression
- * ((x) => x == null ? super.v = e : x)(super.v) where x is a fresh variable
- * that is not used in e.
- * @description Checks that in expression of the form super.v ??= e value is set
- * only if super.v == null
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Evaluation of a compound assignment of the form super.v ??= e is
+/// equivalent to the evaluation of the expression
+/// ((x) => x == null ? super.v = e : x)(super.v) where x is a fresh variable
+/// that is not used in e.
+/// @description Checks that in expression of the form super.v ??= e value is set
+/// only if super.v == null
+/// @author sgrekhov@unipro.ru
+
 
 import '../../../../Utils/expect.dart';
 

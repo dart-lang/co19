@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<Set<T>> toSet()
- * Collects the data of this stream in a Set.
- * @description Checks that returned set contains all elements of the stream.
- * @author kaigorodov
- */
+/// @assertion Future<Set<T>> toSet()
+/// Collects the data of this stream in a Set.
+/// @description Checks that returned set contains all elements of the stream.
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;

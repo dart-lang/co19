@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  Float64x2 sqrt()
- * Returns the lane-wise square root of this.
- * @description Checks that the returned value is correct.
- * @author ngl@unipro.ru
- */
+/// @assertion  Float64x2 sqrt()
+/// Returns the lane-wise square root of this.
+/// @description Checks that the returned value is correct.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "dart:math";

@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  Stream asyncMap(dynamic convert(T event))
- * The returned stream is a broadcast stream if this stream is.
- *
- * @description Checks that the returned stream is a broadcast stream
- * if source stream is.
- * @author a.semenov@unipro.ru
- */
+/// @assertion  Stream asyncMap(dynamic convert(T event))
+/// The returned stream is a broadcast stream if this stream is.
+///
+/// @description Checks that the returned stream is a broadcast stream
+/// if source stream is.
+/// @author a.semenov@unipro.ru
+
 library asyncMap_A02_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

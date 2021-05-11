@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Float32x4(double x, double y, double z, double w)
- * Creates a new [Float32x4] instance.
- * @description Checks special cases.
- * @author msyabro
- */
+/// @assertion Float32x4(double x, double y, double z, double w)
+/// Creates a new [Float32x4] instance.
+/// @description Checks special cases.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

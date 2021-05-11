@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion factory Element.html(String html, {NodeValidator validator,
- *  NodeTreeSanitizer treeSanitizer})
- * Creates an HTML element from a valid fragment of HTML.
- * @description Checks expected element type
- */
+/// @assertion factory Element.html(String html, {NodeValidator validator,
+///  NodeTreeSanitizer treeSanitizer})
+/// Creates an HTML element from a valid fragment of HTML.
+/// @description Checks expected element type
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Stream.periodic(Duration period,
- *     [T computation(int computationCount)])
- * The event values are computed by invoking computation.
- * @description Checks that event values are computed by invoking computation.
- * @author kaigorodov
- */
+/// @assertion Stream.periodic(Duration period,
+///     [T computation(int computationCount)])
+/// The event values are computed by invoking computation.
+/// @description Checks that event values are computed by invoking computation.
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

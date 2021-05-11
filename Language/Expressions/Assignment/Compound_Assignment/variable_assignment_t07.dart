@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion For any other valid operator op, a compound assignment of the
- * form v op =e is equivalent to v=v op e
- * @description Checks that an expression of the form v <<= e is equivalent
- * to v = v << e.
- * @author msyabro
- */
+/// @assertion For any other valid operator op, a compound assignment of the
+/// form v op =e is equivalent to v=v op e
+/// @description Checks that an expression of the form v <<= e is equivalent
+/// to v = v << e.
+/// @author msyabro
+
 
 import '../../../../Utils/expect.dart';
 

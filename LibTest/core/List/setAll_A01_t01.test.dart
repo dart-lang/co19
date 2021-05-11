@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void setAll(int index, Iterable<E> iterable)
- * Overwrites objects of this with the objects of iterable, starting at position
- * index in this list.
- * @description Checks that this method overwrites objects of this with the
- * objects of iterable, starting at position index in this list.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion void setAll(int index, Iterable<E> iterable)
+/// Overwrites objects of this with the objects of iterable, starting at position
+/// index in this list.
+/// @description Checks that this method overwrites objects of this with the
+/// objects of iterable, starting at position index in this list.
+/// @author sgrekhov@unipro.ru
+
 library setAll_A01_t01;
 
 import "../../../Utils/expect.dart";

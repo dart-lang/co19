@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool every(bool f(E element))
- * Checks every element in iteration order, and returns [false] if any of them
- * make [test] return [false], otherwise returns [true].
- * @description Checks that the predicate method is called for each element
- * until the first [false] result.
- * @author kaigorodov
- */
+/// @assertion bool every(bool f(E element))
+/// Checks every element in iteration order, and returns [false] if any of them
+/// make [test] return [false], otherwise returns [true].
+/// @description Checks that the predicate method is called for each element
+/// until the first [false] result.
+/// @author kaigorodov
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";

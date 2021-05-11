@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Stream.fromIterable(Iterable<T> data)
- * Creates a single-subscription stream that gets its data from data.
- * @description Checks that created stream is single-subscription.
- * @author kaigorodov
- */
+/// @assertion Stream.fromIterable(Iterable<T> data)
+/// Creates a single-subscription stream that gets its data from data.
+/// @description Checks that created stream is single-subscription.
+/// @author kaigorodov
+
 
 import "dart:async";
 import "../../../Utils/expect.dart";

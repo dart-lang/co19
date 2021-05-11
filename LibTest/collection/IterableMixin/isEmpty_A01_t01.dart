@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool isEmpty
- * @description Checks that [isEmpty] is a getter and can not be changed
- * @author iarkh@unipro.ru
- */
+/// @assertion bool isEmpty
+/// @description Checks that [isEmpty] is a getter and can not be changed
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

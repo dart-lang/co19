@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion In a constant list or set, a spread element expands at compile
- * time to the series of elements contained in the spread object list.
- * @description Checks that a spread set element expands at compile time to the
- * series of elements contained in the spread object list.
- * @static-warning
- * @author iarkh@unipro.ru
- */
+/// @assertion In a constant list or set, a spread element expands at compile
+/// time to the series of elements contained in the spread object list.
+/// @description Checks that a spread set element expands at compile time to the
+/// series of elements contained in the spread object list.
+/// @static-warning
+/// @author iarkh@unipro.ru
+
 
 import "../../Utils/expect.dart";
 

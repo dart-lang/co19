@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future close()
- * Tells the stream sink that no further streams will be added.
- *
- * Returns a future which is completed when the stream sink has shut down.
- *
- * @description Checks that the stream is closed.
- * @author kaigorodov
- */
+/// @assertion Future close()
+/// Tells the stream sink that no further streams will be added.
+///
+/// Returns a future which is completed when the stream sink has shut down.
+///
+/// @description Checks that the stream is closed.
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

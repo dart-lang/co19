@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<T> singleWhere(bool test(T element))
- * Like lastMatch, except that it is an error if more than one matching element occurs in the stream.
- * @description Checks that it is an error if more than one matching element occurs in the stream.
- * @author kaigorodov
- */
+/// @assertion Future<T> singleWhere(bool test(T element))
+/// Like lastMatch, except that it is an error if more than one matching element occurs in the stream.
+/// @description Checks that it is an error if more than one matching element occurs in the stream.
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;

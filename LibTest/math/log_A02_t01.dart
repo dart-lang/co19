@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion double log(num x)
- * Returns negative infinity if [x] is equal to zero.
- * @description Checks that [log] returns negative infinity
- * if [x] is equal to zero.
- * @author msyabro
- */
+/// @assertion double log(num x)
+/// Returns negative infinity if [x] is equal to zero.
+/// @description Checks that [log] returns negative infinity
+/// if [x] is equal to zero.
+/// @author msyabro
+
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion zlib = const ZLibCodec._default()
- * @description Checks that [zlib] is an instance of [ZLibCodec].
- * @author iarkh@unipro.ru
- */
+/// @assertion zlib = const ZLibCodec._default()
+/// @description Checks that [zlib] is an instance of [ZLibCodec].
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:io";
 

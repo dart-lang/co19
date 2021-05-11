@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The is-expression e is! T is equivalent to !(e is T).
- * @description Checks that type annotations does not affect the result of the
- * is!-expression
- * @author msyabro
- */
+/// @assertion The is-expression e is! T is equivalent to !(e is T).
+/// @description Checks that type annotations does not affect the result of the
+/// is!-expression
+/// @author msyabro
+
 import '../../../Utils/expect.dart';
 
 main() {

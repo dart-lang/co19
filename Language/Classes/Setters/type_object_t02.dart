@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Static setter declaration doesn't add instance setter
- * with the same name to the Type object of the class
- * @description Check that the instance setter, added to the Type object by
- * static setter declaration, is not added to Type object of this class
- * and not added to the Type of the ancestor
- * @author sgrekhov@unipro.ru
- * @issue 23721
- */
+/// @assertion Static setter declaration doesn't add instance setter
+/// with the same name to the Type object of the class
+/// @description Check that the instance setter, added to the Type object by
+/// static setter declaration, is not added to Type object of this class
+/// and not added to the Type of the ancestor
+/// @author sgrekhov@unipro.ru
+/// @issue 23721
+
 
 import "../../../Utils/expect.dart";
 

@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  abstract void addAll(Map<K, V> other)
- * Adds all key-value pairs of other to this map.
- * @description Checks that all key-value pairs of other map are added to this
- * map.
- * @author kaigorodov
- */
+/// @assertion  abstract void addAll(Map<K, V> other)
+/// Adds all key-value pairs of other to this map.
+/// @description Checks that all key-value pairs of other map are added to this
+/// map.
+/// @author kaigorodov
+
 library addAll_A01_t01;
 
 import "../../../Utils/expect.dart";

@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Evaluating a hexadecimal integer literal with numeric value i is a
- * compile-time error unless -2^63 <= i <= 2^64
- * @description Checks that it no error if a hexadecimal integer literal with
- * numeric value -2^63 <= i < 2^63
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Evaluating a hexadecimal integer literal with numeric value i is a
+/// compile-time error unless -2^63 <= i <= 2^64
+/// @description Checks that it no error if a hexadecimal integer literal with
+/// numeric value -2^63 <= i < 2^63
+/// @author sgrekhov@unipro.ru
+
 import "dart:math";
 import '../../../Utils/expect.dart';
 

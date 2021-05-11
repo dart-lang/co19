@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool operator ==(other)
- * The equality operator.
- * The default behavior for all Objects is to return true
- * if and only if [this] and [other] are the same object.
- * @description Checks that only identical objects are equal.
- * @author msyabro
- */
+/// @assertion bool operator ==(other)
+/// The equality operator.
+/// The default behavior for all Objects is to return true
+/// if and only if [this] and [other] are the same object.
+/// @description Checks that only identical objects are equal.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

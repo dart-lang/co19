@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Stream transform(StreamTransformer<T, dynamic> streamTransformer)
- * Chains this stream as the input of the provided StreamTransformer.
- * Returns the result of streamTransformer.bind itself.
- * @description Checks that the data and error events are produced according
- * to transform.
- * @author a.semenov@unipro.ru
- */
+/// @assertion Stream transform(StreamTransformer<T, dynamic> streamTransformer)
+/// Chains this stream as the input of the provided StreamTransformer.
+/// Returns the result of streamTransformer.bind itself.
+/// @description Checks that the data and error events are produced according
+/// to transform.
+/// @author a.semenov@unipro.ru
+
 library transform_A01_t01;
 
 import "dart:async";

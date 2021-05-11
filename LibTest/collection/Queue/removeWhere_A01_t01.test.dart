@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  void removeWhere(bool test(E element))
- * Removes all elements matched by [test] from the queue.
- * @description Checks that all elements that satisfy [test] are removed, and
- * elements that does not are left.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion  void removeWhere(bool test(E element))
+/// Removes all elements matched by [test] from the queue.
+/// @description Checks that all elements that satisfy [test] are removed, and
+/// elements that does not are left.
+/// @author sgrekhov@unipro.ru
+
 library removeWhere_A01_t01;
  
 import "../../../Utils/expect.dart";

@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion K firstKey()
- * Get the first key in the map.
- * @description Checks that the first key in a map is returned
- * @author sgrekhov@unipro.ru
- */
+/// @assertion K firstKey()
+/// Get the first key in the map.
+/// @description Checks that the first key in a map is returned
+/// @author sgrekhov@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

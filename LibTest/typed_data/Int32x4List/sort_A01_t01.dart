@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void sort([int compare(E a, E b)])
- * Sorts the list according to the order specified by the compare function.
- * @description Checks sorting various Int32x4List.
- * @author ngl@unipro.ru
- */
+/// @assertion void sort([int compare(E a, E b)])
+/// Sorts the list according to the order specified by the compare function.
+/// @description Checks sorting various Int32x4List.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

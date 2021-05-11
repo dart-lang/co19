@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Int16List.fromList(List<int> elements)
- * Creates a [Int16List] with the same length as the [elements] list and copies
- * over the elements.
- * @description Checks that an instance of Int16List is created.
- * @author msyabro
- */
+/// @assertion Int16List.fromList(List<int> elements)
+/// Creates a [Int16List] with the same length as the [elements] list and copies
+/// over the elements.
+/// @description Checks that an instance of Int16List is created.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

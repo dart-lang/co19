@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion 15.10.2.7: The production QuantifierPrefix :: {DecimalDigits, }
- * evaluates by returning MV of DecimalDigits and infinity.
- * @description Checks that this quantifier is applied correctly in various
- * scenarios.
- * @3rdparty sputnik-v1:S15.10.2.7_A6_T1.js-S15.10.2.7_A6_T6.js
- * @author rodionov
- */
+/// @assertion 15.10.2.7: The production QuantifierPrefix :: {DecimalDigits, }
+/// evaluates by returning MV of DecimalDigits and infinity.
+/// @description Checks that this quantifier is applied correctly in various
+/// scenarios.
+/// @3rdparty sputnik-v1:S15.10.2.7_A6_T1.js-S15.10.2.7_A6_T6.js
+/// @author rodionov
+
 import "../../../../Utils/expect.dart";
  
 main() {

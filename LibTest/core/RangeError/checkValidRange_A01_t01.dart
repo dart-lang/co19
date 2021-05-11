@@ -2,20 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int checkValidRange(int start, int end, int length,
- * [String startName, String endName, String message])
- * Check that a range represents a slice of an indexable object.
- *
- * Throws if the range is not valid for an indexable object with the given
- * length. A range is valid for an indexable object with a given length
- *
- * if 0 <= [start] <= [end] <= [length]
- * @description Checks that a RangeError is thrown if condition
- * 0 <= [start] <= [end] <= [length] is not true
- * @issue 28116
- * @author sgrekhov@unipro.ru
- */
+/// @assertion int checkValidRange(int start, int end, int length,
+/// [String startName, String endName, String message])
+/// Check that a range represents a slice of an indexable object.
+///
+/// Throws if the range is not valid for an indexable object with the given
+/// length. A range is valid for an indexable object with a given length
+///
+/// if 0 <= [start] <= [end] <= [length]
+/// @description Checks that a RangeError is thrown if condition
+/// 0 <= [start] <= [end] <= [length] is not true
+/// @issue 28116
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 check(int start, int? end, int length) {

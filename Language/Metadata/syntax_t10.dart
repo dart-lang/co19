@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- *  metadata:
- *   (‘@’ qualified (‘.’ identifier)? (arguments)?)*
- *   ;
- * @description Check that the bound type is used for annotation with the
- * default type argument
- * @author sgrekhov@unipro.ru
- */
+/// @assertion
+///  metadata:
+///   (‘@’ qualified (‘.’ identifier)? (arguments)?)*
+///   ;
+/// @description Check that the bound type is used for annotation with the
+/// default type argument
+/// @author sgrekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=generic-metadata
 import 'dart:mirrors';
 import 'syntax_lib1.dart';

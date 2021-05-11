@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion LinkedHashMap.fromIterables(Iterable<K> keys, Iterable<V> values)
- * ...
- * It is an error if the two [Iterables] don't have the same length.
- * @description Checks that it is an error if the two [Iterables] don't have
- * the same length.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion LinkedHashMap.fromIterables(Iterable<K> keys, Iterable<V> values)
+/// ...
+/// It is an error if the two [Iterables] don't have the same length.
+/// @description Checks that it is an error if the two [Iterables] don't have
+/// the same length.
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

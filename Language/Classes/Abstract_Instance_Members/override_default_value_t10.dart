@@ -2,23 +2,22 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Unless explicitly stated otherwise, all ordinary rules that apply
- * to methods apply to abstract methods.
- * It there is no static warning if an instance method m1 overrides an instance
- * member m2, the signature of m2 explicitly specifies a default value for a
- * formal parameter p and the signature of m1 specifies a different default
- * value for p
- *
- * @description Checks that it is no static warning if an abstract method
- * overrides an instance method and has a different default value for its
- * optional parameter. Test type aliases
- *
- * See https://github.com/dart-lang/language/commit/6df1612f667f7fdd28dd3b66a89e06b75ea98d2a
- *
- * @issue 27476
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Unless explicitly stated otherwise, all ordinary rules that apply
+/// to methods apply to abstract methods.
+/// It there is no static warning if an instance method m1 overrides an instance
+/// member m2, the signature of m2 explicitly specifies a default value for a
+/// formal parameter p and the signature of m1 specifies a different default
+/// value for p
+///
+/// @description Checks that it is no static warning if an abstract method
+/// overrides an instance method and has a different default value for its
+/// optional parameter. Test type aliases
+///
+/// See https://github.com/dart-lang/language/commit/6df1612f667f7fdd28dd3b66a89e06b75ea98d2a
+///
+/// @issue 27476
+/// @author sgrekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 class A {
   foo([x = 1]) {}

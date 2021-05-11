@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  abstract void operator []=(int index, E value)
- * Throws an [Error] if [index] is [:null:] or invalid.
- * @description Checks that the exception is thrown, for fixed size and growable
- * arrays.
- * @author kaigorodov
- */
+/// @assertion  abstract void operator []=(int index, E value)
+/// Throws an [Error] if [index] is [:null:] or invalid.
+/// @description Checks that the exception is thrown, for fixed size and growable
+/// arrays.
+/// @author kaigorodov
+
 library operator_subscripted_assignment_A03_t01;
 
 import "../../../Utils/expect.dart";

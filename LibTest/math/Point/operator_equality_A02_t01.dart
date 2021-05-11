@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool operator ==(other)
- * A Point is only equal to another Point with the same coordinates.
- * This point is equal to other if, and only if, other is a Point with x equal
- * to other.x and y equal to other.y.
- * The equality operator.
- * It must return a boolean for all arguments. It should never throw or return
- * null.
- * @description Checks that operator == returns a boolean and never throws or
- * return null.
- * @author kaigorodov
- */
+/// @assertion bool operator ==(other)
+/// A Point is only equal to another Point with the same coordinates.
+/// This point is equal to other if, and only if, other is a Point with x equal
+/// to other.x and y equal to other.y.
+/// The equality operator.
+/// It must return a boolean for all arguments. It should never throw or return
+/// null.
+/// @description Checks that operator == returns a boolean and never throws or
+/// return null.
+/// @author kaigorodov
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 

@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion E lastWhere(bool test(E element), {E orElse()})
- * ...
- * If orElse is omitted, it defaults to throwing a StateError.
- * @description Checks that if orElse is omitted and no elements satisfy test,
- * a StateError is thrown.
- * @author ngl@unipro.ru
- */
+/// @assertion E lastWhere(bool test(E element), {E orElse()})
+/// ...
+/// If orElse is omitted, it defaults to throwing a StateError.
+/// @description Checks that if orElse is omitted and no elements satisfy test,
+/// a StateError is thrown.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

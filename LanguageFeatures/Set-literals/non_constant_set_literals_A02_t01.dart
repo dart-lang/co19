@@ -2,25 +2,24 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion If s does not start with const and it does not occur in a constant
- * context, then it evaluates to a mutable set object as follows:
- *
- * Let e1 … en be the constant element expressions of s in source order.
- * Evaluation of s proceeds as follows:
- *
- * First evaluate e1 … en, in source order, to values v1 … vn.
- * Create a new LinkedHashSet<T> instance, o.
- * For each i in 1 … n in numeric order, invoke the add method on o with vi as
- * argument. Then s evaluates to an object implementing LinkedHashSet which has
- * the same elements as o, and in the same iteration order. (Iteration order is
- * insertion order, where adding an element equal to one already in the set does
- * not change the set in any way).
- *
- * @description Check that evaluation of non-constant element expression is
- * performed as expected
- * @author sgrekhov@unipro.ru
- */
+/// @assertion If s does not start with const and it does not occur in a constant
+/// context, then it evaluates to a mutable set object as follows:
+///
+/// Let e1 … en be the constant element expressions of s in source order.
+/// Evaluation of s proceeds as follows:
+///
+/// First evaluate e1 … en, in source order, to values v1 … vn.
+/// Create a new LinkedHashSet<T> instance, o.
+/// For each i in 1 … n in numeric order, invoke the add method on o with vi as
+/// argument. Then s evaluates to an object implementing LinkedHashSet which has
+/// the same elements as o, and in the same iteration order. (Iteration order is
+/// insertion order, where adding an element equal to one already in the set does
+/// not change the set in any way).
+///
+/// @description Check that evaluation of non-constant element expression is
+/// performed as expected
+/// @author sgrekhov@unipro.ru
+
 import "dart:collection";
 import "../../Utils/expect.dart";
 

@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion dynamic invalidValue
- * read-only
- * The invalid value.
- * @description Checks that invalidValue property returns the invalid value
- * @author sgrekhov@unipro.ru
- */
+/// @assertion dynamic invalidValue
+/// read-only
+/// The invalid value.
+/// @description Checks that invalidValue property returns the invalid value
+/// @author sgrekhov@unipro.ru
+
 
 import "../../../Utils/expect.dart";
  

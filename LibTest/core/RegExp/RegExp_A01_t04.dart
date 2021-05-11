@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Constructs a regular expression.
- * @description Checks that using a null pattern argument results in Error.
- * @author rodionov
- */
+/// @assertion Constructs a regular expression.
+/// @description Checks that using a null pattern argument results in Error.
+/// @author rodionov
+
 
 main() {
   new RegExp(null);

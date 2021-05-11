@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion In either case, iff no return type is specified, it is taken to
- * be dynamic.
- * @description checks that function types with various return types
- * are all subtypes of given type t1 that declares no return type, therefore
- * the return type of t1 should be dynamic.
- * @static-clean
- * @author iefremov, sgrekhov@unipro.ru
- */
+/// @assertion In either case, iff no return type is specified, it is taken to
+/// be dynamic.
+/// @description checks that function types with various return types
+/// are all subtypes of given type t1 that declares no return type, therefore
+/// the return type of t1 should be dynamic.
+/// @static-clean
+/// @author iefremov, sgrekhov@unipro.ru
+
 import '../../../Utils/expect.dart';
 
 typedef F1();

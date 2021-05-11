@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion @assertion LinkedHashMap<K, V> abstract class
- * implements HashMap<K, V>
- * Changing a key's value, when the key is already in the map, does not change
- * the iteration order
- * @description Checks that iteration order does not change if key was updated.
- * @author iarkh@unipro.ru
- */
+/// @assertion @assertion LinkedHashMap<K, V> abstract class
+/// implements HashMap<K, V>
+/// Changing a key's value, when the key is already in the map, does not change
+/// the iteration order
+/// @description Checks that iteration order does not change if key was updated.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<RawSecureSocket> single
- * The single element of this stream.
- *
- * @description Checks that [single] returns the future that completes with
- * the single element of this socket.
- * @author ngl@unipro.ru
- */
+/// @assertion Future<RawSecureSocket> single
+/// The single element of this stream.
+///
+/// @description Checks that [single] returns the future that completes with
+/// the single element of this socket.
+/// @author ngl@unipro.ru
+
 // OtherResources=server_chain.pem
 // OtherResources=server_key.pem
 // OtherResources=trusted_certs.pem

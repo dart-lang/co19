@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion E reduce(E combine(E value, E element))
- * ...
- * If iterable has only one element, that element is returned.
- * @description Checks that if iterable has only one element, that element is
- * returned
- * @author ngl@unipro.ru
- */
+/// @assertion E reduce(E combine(E value, E element))
+/// ...
+/// If iterable has only one element, that element is returned.
+/// @description Checks that if iterable has only one element, that element is
+/// returned
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

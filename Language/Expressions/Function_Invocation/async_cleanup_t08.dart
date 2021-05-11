@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion If f is asynchronous then, when f terminates, any open stream
- * subscriptions associated with any asynchronous for loops or yield-each
- * statements executing within f are canceled, in the order of their nesting,
- * innermost first.
- *
- * @description Check that stream subscriptions, associated with
- * asynchronous for loops, are cancelled in innermost first order, when f is
- * terminated by throwing an exception. f is asynchronous generator.
- * @author a.semenov@unipro.ru
- * @issue 42220
- */
+/// @assertion If f is asynchronous then, when f terminates, any open stream
+/// subscriptions associated with any asynchronous for loops or yield-each
+/// statements executing within f are canceled, in the order of their nesting,
+/// innermost first.
+///
+/// @description Check that stream subscriptions, associated with
+/// asynchronous for loops, are cancelled in innermost first order, when f is
+/// terminated by throwing an exception. f is asynchronous generator.
+/// @author a.semenov@unipro.ru
+/// @issue 42220
+
 import 'dart:async';
 import '../../../Utils/expect.dart';
 import 'stream_utils.dart' as StreamUtils;

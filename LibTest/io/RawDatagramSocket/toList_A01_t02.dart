@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<List<RawSocketEvent>> toList ()
- * Collects all elements of this stream in a List.
- *
- * Creates a List<T> and adds all elements of the stream to the list in the
- * order they arrive. When the stream ends, the returned future is completed
- * with that list.
- *
- * @description Checks that method [toList] collects all elements of this stream
- * in a List and returns future completed with that list when the stream ends.
- * @author ngl@unipro.ru
- */
+/// @assertion Future<List<RawSocketEvent>> toList ()
+/// Collects all elements of this stream in a List.
+///
+/// Creates a List<T> and adds all elements of the stream to the list in the
+/// order they arrive. When the stream ends, the returned future is completed
+/// with that list.
+///
+/// @description Checks that method [toList] collects all elements of this stream
+/// in a List and returns future completed with that list when the stream ends.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

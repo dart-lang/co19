@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion constructorSignature:
- *   identifier (‘.’ identifier)? formalParameterList
- * ;
- * @description Checks that constructor name cannot contain 3 identifiers.
- * @author kaigorodov
- */
+/// @assertion constructorSignature:
+///   identifier (‘.’ identifier)? formalParameterList
+/// ;
+/// @description Checks that constructor name cannot contain 3 identifiers.
+/// @author kaigorodov
+
 
 class C {
   C.c1.c2();

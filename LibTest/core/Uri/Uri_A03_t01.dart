@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion new Uri({scheme, String userInfo: "", String host: "", port: 0,
- * String path, Iterable<String> pathSegments, String query, Map<String,
- * String> queryParameters, fragment: ""})
- * Creates a new URI from its components.
- * The host part of the authority component is set through host.
- * The host can either be a hostname, a IPv4 address or an IPv6 address,
- * contained in '[' and ']'. If the host contains a ':' character, the
- * '[' and ']'  are added if not already provided.
- * @description Checks listed assertions
- * @author ilya
- */
+/// @assertion new Uri({scheme, String userInfo: "", String host: "", port: 0,
+/// String path, Iterable<String> pathSegments, String query, Map<String,
+/// String> queryParameters, fragment: ""})
+/// Creates a new URI from its components.
+/// The host part of the authority component is set through host.
+/// The host can either be a hostname, a IPv4 address or an IPv6 address,
+/// contained in '[' and ']'. If the host contains a ':' character, the
+/// '[' and ']'  are added if not already provided.
+/// @description Checks listed assertions
+/// @author ilya
+
 import "../../../Utils/expect.dart";
 
 main() {

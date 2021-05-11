@@ -2,19 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int multicastHops
- * Set or get, the maximum network hops for multicast packages originating from
- * this socket.
- *
- * For IPv4 this is referred to as TTL (time to live).
- *
- * By default this value is 1 causing multicast traffic to stay on the local
- * network.
- *
- * @description Checks that multicastHops value by default is 1.
- * @author ngl@unipro.ru
- */
+/// @assertion int multicastHops
+/// Set or get, the maximum network hops for multicast packages originating from
+/// this socket.
+///
+/// For IPv4 this is referred to as TTL (time to live).
+///
+/// By default this value is 1 causing multicast traffic to stay on the local
+/// network.
+///
+/// @description Checks that multicastHops value by default is 1.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

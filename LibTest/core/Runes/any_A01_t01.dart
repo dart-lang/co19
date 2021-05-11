@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool any(bool f(E element))
- * Returns true if one element of this collection satisfies
- * the predicate [test]. Returns false otherwise.
- * @description Checks that true is returned if one or more
- * elements satisfies the predicate f, false otherwise.
- * @author msyabro
- */
+/// @assertion bool any(bool f(E element))
+/// Returns true if one element of this collection satisfies
+/// the predicate [test]. Returns false otherwise.
+/// @description Checks that true is returned if one or more
+/// elements satisfies the predicate f, false otherwise.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 bool pred(element) => element > 5;

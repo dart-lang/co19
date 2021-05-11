@@ -2,19 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Uint16List.view(
- *     ByteBuffer buffer, [
- *     int offsetInBytes = 0,
- *     int length
- * ])
- * Creates an [Uint16List] view of the specified region in the specified byte
- * buffer.
- * @description Checks that a new instance has the same elements as the
- * specified region.
- * @author msyabro
- */
+/// @assertion
+/// Uint16List.view(
+///     ByteBuffer buffer, [
+///     int offsetInBytes = 0,
+///     int length
+/// ])
+/// Creates an [Uint16List] view of the specified region in the specified byte
+/// buffer.
+/// @description Checks that a new instance has the same elements as the
+/// specified region.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

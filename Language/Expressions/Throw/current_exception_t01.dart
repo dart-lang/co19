@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The current exception is the last unhandled exception thrown.
- * @description Checks the current exception is the last unhandled exception
- * thrown.
- * @author kaigorodov
- */
+/// @assertion The current exception is the last unhandled exception thrown.
+/// @description Checks the current exception is the last unhandled exception
+/// thrown.
+/// @author kaigorodov
+
 import '../../../Utils/expect.dart';
 
 main() {

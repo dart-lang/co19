@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int readIntoSync(List<int> buffer, [int start = 0, int end])
- * . . .
- * Throws a FileSystemException if the operation fails.
- *
- * @description Checks that method readIntoSync throws a FileSystemException if
- * the operation fails.
- * @author ngl@unipro.ru
- */
+/// @assertion int readIntoSync(List<int> buffer, [int start = 0, int end])
+/// . . .
+/// Throws a FileSystemException if the operation fails.
+///
+/// @description Checks that method readIntoSync throws a FileSystemException if
+/// the operation fails.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

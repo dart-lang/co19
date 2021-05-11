@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String iterableToFullString(Iterable iterable,
- * [String leftDelimiter = '(', String rightDelimiter = ')'])
- * Handles circular references where converting one of the elements to a string
- * ends up converting iterable to a string again.
- * @description Checks that IterableBase.iterableToFullString() replaces the
- * circular references with '[...]' substrings.
- * @author iarkh@unipro.ru
- */
+/// @assertion String iterableToFullString(Iterable iterable,
+/// [String leftDelimiter = '(', String rightDelimiter = ')'])
+/// Handles circular references where converting one of the elements to a string
+/// ends up converting iterable to a string again.
+/// @description Checks that IterableBase.iterableToFullString() replaces the
+/// circular references with '[...]' substrings.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

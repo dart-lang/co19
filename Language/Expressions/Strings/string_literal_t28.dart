@@ -2,36 +2,35 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * stringLiteral:
- *   (multilineString | singleLineString)+
- * ;
- * singleLineString:
- *   '"' stringContentDQ* '"' |
- *   ''' stringContentSQ* ''' |
- *   'r' ''' (~( ''' | NEWLINE ))* ''' |
- *   'r' '"' (~( '"' | NEWLINE ))* '"'
- * ;
- * stringContentDQ:
- *   ~( '\' | '"' | '$' | NEWLINE ) |
- *   '\' ~( NEWLINE ) |
- *   stringInterpolation
- * ;
- * stringContentSQ:
- *   ~( '\' | ''' | '$' | NEWLINE ) |
- *   '\' ~( NEWLINE ) |
- *   stringInterpolation
- * ;
- * NEWLINE:
- *   '\n' |
- *   '\r'
- * ;
- * @description Checks that it is a compile-time error when a backtick
- * character is used as a string delimiter.
- * @compile-error
- * @author kaigorodov
- */
+/// @assertion
+/// stringLiteral:
+///   (multilineString | singleLineString)+
+/// ;
+/// singleLineString:
+///   '"' stringContentDQ* '"' |
+///   ''' stringContentSQ* ''' |
+///   'r' ''' (~( ''' | NEWLINE ))* ''' |
+///   'r' '"' (~( '"' | NEWLINE ))* '"'
+/// ;
+/// stringContentDQ:
+///   ~( '\' | '"' | '$' | NEWLINE ) |
+///   '\' ~( NEWLINE ) |
+///   stringInterpolation
+/// ;
+/// stringContentSQ:
+///   ~( '\' | ''' | '$' | NEWLINE ) |
+///   '\' ~( NEWLINE ) |
+///   stringInterpolation
+/// ;
+/// NEWLINE:
+///   '\n' |
+///   '\r'
+/// ;
+/// @description Checks that it is a compile-time error when a backtick
+/// character is used as a string delimiter.
+/// @compile-error
+/// @author kaigorodov
+
 
 main() {
   `string`;

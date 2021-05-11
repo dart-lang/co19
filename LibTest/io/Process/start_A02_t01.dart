@@ -2,28 +2,27 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Future<Process> start(
- *     String executable,
- *     List<String> arguments, {
- *     String workingDirectory,
- *     Map<String, String> environment,
- *     bool includeParentEnvironment: true,
- *     bool runInShell: false,
- *     ProcessStartMode mode: ProcessStartMode.normal
- * })
- * ...
- * Use environment to set the environment variables for the process. If not set
- * the environment of the parent process is inherited. Currently, only US-ASCII
- * environment variables are supported and errors are likely to occur if an
- * environment variable with code-points outside the US-ASCII range is passed
- * in.
- *
- * @description Checks that environment is used to set the environment variables
- * for the process.
- * @author ngl@unipro.ru
- */
+/// @assertion
+/// Future<Process> start(
+///     String executable,
+///     List<String> arguments, {
+///     String workingDirectory,
+///     Map<String, String> environment,
+///     bool includeParentEnvironment: true,
+///     bool runInShell: false,
+///     ProcessStartMode mode: ProcessStartMode.normal
+/// })
+/// ...
+/// Use environment to set the environment variables for the process. If not set
+/// the environment of the parent process is inherited. Currently, only US-ASCII
+/// environment variables are supported and errors are likely to occur if an
+/// environment variable with code-points outside the US-ASCII range is passed
+/// in.
+///
+/// @description Checks that environment is used to set the environment variables
+/// for the process.
+/// @author ngl@unipro.ru
+
 import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";

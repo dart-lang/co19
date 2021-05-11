@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract class MapBase<K, V>
- * Base class for implementing a [Map].
- * @description Checks that all members of [Map] are implemented.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion abstract class MapBase<K, V>
+/// Base class for implementing a [Map].
+/// @description Checks that all members of [Map] are implemented.
+/// @author sgrekhov@unipro.ru
+
 import "dart:collection";
 import "mapbase.lib.dart";
 import "inherited_tests.lib.dart" as map_tests;

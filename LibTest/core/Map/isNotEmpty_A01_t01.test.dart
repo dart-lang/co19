@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final bool isNotEmpty
- * Returns true if there is at least one {key, value} pair in the map.
- * @description Check that true is returned only if the map is not empty.
- * @author msyabro
- */
+/// @assertion final bool isNotEmpty
+/// Returns true if there is at least one {key, value} pair in the map.
+/// @description Check that true is returned only if the map is not empty.
+/// @author msyabro
+
 library isNotEmpty_A01_t01;
 
 import "../../../Utils/expect.dart";

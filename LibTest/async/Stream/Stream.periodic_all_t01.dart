@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Stream.periodic(Duration period,
- *     [T computation(int computationCount)])
- * Creates a stream that repeatedly emits events at period intervals.
- * If computation is omitted the event values will all be null.
- * @description Checks Stream interface methods
- * @author a.semenov@unipro.ru
- */
+/// @assertion Stream.periodic(Duration period,
+///     [T computation(int computationCount)])
+/// Creates a stream that repeatedly emits events at period intervals.
+/// If computation is omitted the event values will all be null.
+/// @description Checks Stream interface methods
+/// @author a.semenov@unipro.ru
+
 import "dart:async";
 import "allTests_A01.lib.dart" as all;
 

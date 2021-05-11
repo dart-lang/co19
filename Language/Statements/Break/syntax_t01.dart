@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The break statement consists of the reserved word break and an
- * optional label.
- * breakStatement:
- *   break identifier? ';'
- * ;
- * @description Checks that it is a compile-time error if the break statement
- * does not end with a semicolon.
- * @compile-error
- * @author vasya
- */
+/// @assertion The break statement consists of the reserved word break and an
+/// optional label.
+/// breakStatement:
+///   break identifier? ';'
+/// ;
+/// @description Checks that it is a compile-time error if the break statement
+/// does not end with a semicolon.
+/// @compile-error
+/// @author vasya
+
 
 
 main() {

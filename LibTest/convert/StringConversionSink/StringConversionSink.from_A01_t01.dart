@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion StringConversionSink.from(Sink<String> sink)
- * @description Checks that this constructor creates StringConversionSink
- * @author sgrekhov@unipro.ru
- */
+/// @assertion StringConversionSink.from(Sink<String> sink)
+/// @description Checks that this constructor creates StringConversionSink
+/// @author sgrekhov@unipro.ru
+
 import "dart:async";
 import "dart:convert";
 import "../../../Utils/expect.dart";

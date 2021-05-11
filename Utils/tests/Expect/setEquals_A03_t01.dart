@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion static void setEquals(Iterable expected, Iterable actual, [String reason = null])
- * Descriptive error message is provided in case of failure.
- * @description Checks that message of thrown ExpectException includes 
- * representation of extra and missing elements, as well as the reason.
- * @author varlax
- */
+/// @assertion static void setEquals(Iterable expected, Iterable actual, [String reason = null])
+/// Descriptive error message is provided in case of failure.
+/// @description Checks that message of thrown ExpectException includes 
+/// representation of extra and missing elements, as well as the reason.
+/// @author varlax
+
 import "../../../Utils/expect.dart";
 
 main() {

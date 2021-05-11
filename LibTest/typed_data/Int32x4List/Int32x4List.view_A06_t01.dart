@@ -2,20 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Int32x4List.view(
- *    ByteBuffer buffer, [
- *    int offsetInBytes = 0,
- *    int length
- * ])
- * ...
- * Throws ArgumentError if offsetInBytes is not a multiple of BYTES_PER_ELEMENT.
- * @description Checks that ArgumentError is thrown if offsetInBytes is not a
- * multiple of BYTES_PER_ELEMENT.
- * @author ngl@unipro.ru
- * @issue 43210
- */
+/// @assertion
+/// Int32x4List.view(
+///    ByteBuffer buffer, [
+///    int offsetInBytes = 0,
+///    int length
+/// ])
+/// ...
+/// Throws ArgumentError if offsetInBytes is not a multiple of BYTES_PER_ELEMENT.
+/// @description Checks that ArgumentError is thrown if offsetInBytes is not a
+/// multiple of BYTES_PER_ELEMENT.
+/// @author ngl@unipro.ru
+/// @issue 43210
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

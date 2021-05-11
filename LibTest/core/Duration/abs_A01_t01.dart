@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Duration abs()
- * Returns a new Duration representing the absolute value of this Duration.
- * The returned Duration has the same length as this one, but is always positive
- * @description Checks that a Duration instance really is Comparable
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Duration abs()
+/// Returns a new Duration representing the absolute value of this Duration.
+/// The returned Duration has the same length as this one, but is always positive
+/// @description Checks that a Duration instance really is Comparable
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

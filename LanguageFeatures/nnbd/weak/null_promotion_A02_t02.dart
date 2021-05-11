@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A check of the form [e != null] or of the form [e is T] where [e]
- * has static type [T?] promotes the type of [e] to [T] in the [true]
- * continuation, and to [Null] in the [false] continuation.
- *
- * @description Check that type of [e] is promoted to [T] in the [true]
- * condition. Test [e is T] expression
- * @author iarkh@unipro.ru
- * @author sgrekhov@unipro.ru
- */
+/// @assertion A check of the form [e != null] or of the form [e is T] where [e]
+/// has static type [T?] promotes the type of [e] to [T] in the [true]
+/// continuation, and to [Null] in the [false] continuation.
+///
+/// @description Check that type of [e] is promoted to [T] in the [true]
+/// condition. Test [e is T] expression
+/// @author iarkh@unipro.ru
+/// @author sgrekhov@unipro.ru
+
 // Requirements=nnbd-weak
 
 class A {

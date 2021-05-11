@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion double toDouble()
- * Returns the double value represented by this object.
- * @description Checks that this method returns correct value (rounded to the
- * nearest finite double for very large integers).
- * @author vasya
- */
+/// @assertion double toDouble()
+/// Returns the double value represented by this object.
+/// @description Checks that this method returns correct value (rounded to the
+/// nearest finite double for very large integers).
+/// @author vasya
+
 import "../../../Utils/expect.dart";
 import "dart:math" as Math;
 

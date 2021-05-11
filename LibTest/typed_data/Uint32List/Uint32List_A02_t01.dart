@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Uint32List(int length)
- * It is an error if [length] is not a non-negative integer.
- * @description Checks that it is an error if [length] is not a non-negative
- * integer.
- * @author msyabro
- */
+/// @assertion Uint32List(int length)
+/// It is an error if [length] is not a non-negative integer.
+/// @description Checks that it is an error if [length] is not a non-negative
+/// integer.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

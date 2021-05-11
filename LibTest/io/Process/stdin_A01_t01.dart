@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion IOSink stdin
- *
- * Returns the standard input stream of the process as an IOSink.
- *
- * @description Checks that [stdin] returns the standard input stream of the
- * process as an IOSink.
- * @author ngl@unipro.ru
- */
+/// @assertion IOSink stdin
+///
+/// Returns the standard input stream of the process as an IOSink.
+///
+/// @description Checks that [stdin] returns the standard input stream of the
+/// process as an IOSink.
+/// @author ngl@unipro.ru
+
 import 'dart:convert';
 import "dart:io";
 import "dart:async";

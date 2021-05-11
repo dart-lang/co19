@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Stream<T> stream
- * The stream that this controller is controlling.
- * @description Checks Stream interface implementation
- * @author a.semenov@unipro.ru
- */
+/// @assertion Stream<T> stream
+/// The stream that this controller is controlling.
+/// @description Checks Stream interface implementation
+/// @author a.semenov@unipro.ru
+
 import "dart:async";
 import "../Stream/allTests_A03.lib.dart";
 

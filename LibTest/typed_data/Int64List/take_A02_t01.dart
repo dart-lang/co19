@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<E> take(int count)
- * ...
- * The returned [Iterable] may contain fewer than [count] elements, if [this]
- * contains fewer than [count] elements.
- * @description Checks that the returned [Iterable] contains fewer then [count]
- * elements if [this] contains fewer then [count] elements.
- * @author msyabro
- */
+/// @assertion Iterable<E> take(int count)
+/// ...
+/// The returned [Iterable] may contain fewer than [count] elements, if [this]
+/// contains fewer than [count] elements.
+/// @description Checks that the returned [Iterable] contains fewer then [count]
+/// elements if [this] contains fewer then [count] elements.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

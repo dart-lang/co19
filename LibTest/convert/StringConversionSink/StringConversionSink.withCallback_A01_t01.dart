@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion StringConversionSink.withCallback(
- *  void callback(String accumulated)
- * )
- * @description Checks that this constructor creates StringConversionSink
- * @author sgrekhov@unipro.ru
- */
+/// @assertion StringConversionSink.withCallback(
+///  void callback(String accumulated)
+/// )
+/// @description Checks that this constructor creates StringConversionSink
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

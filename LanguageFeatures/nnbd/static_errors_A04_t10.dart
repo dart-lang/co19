@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It is an error if a top level variable or static variable with a
- * non-nullable type has no initializer expression unless the variable is marked
- * with the `late` modifier.
- *
- * @description Check that it is an error if a top level variable or static
- * variable with a non-nullable type has no initializer expression unless the
- * variable is marked with the `late` modifier. Test FutureOr<A> where A is
- * some class
- * @author sgrekhov@unipro.ru
- */
+/// @assertion It is an error if a top level variable or static variable with a
+/// non-nullable type has no initializer expression unless the variable is marked
+/// with the `late` modifier.
+///
+/// @description Check that it is an error if a top level variable or static
+/// variable with a non-nullable type has no initializer expression unless the
+/// variable is marked with the `late` modifier. Test FutureOr<A> where A is
+/// some class
+/// @author sgrekhov@unipro.ru
+
 
 import "dart:async";
 

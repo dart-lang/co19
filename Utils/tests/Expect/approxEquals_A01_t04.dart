@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion static void approxEquals(num expected, num actual, [num tolerance = null, String reason = null])
- * Failure if the difference between expected and actual is greater than the
- * given tolerance.
- * @description Checks that no exception is thrown when the absolute difference
- * between arguments is strictly less than specified non-negative, non-NAN
- * tolerance, regardless of reason (the last argument).
- * @author rodionov
- * @author varlax
- */
+/// @assertion static void approxEquals(num expected, num actual, [num tolerance = null, String reason = null])
+/// Failure if the difference between expected and actual is greater than the
+/// given tolerance.
+/// @description Checks that no exception is thrown when the absolute difference
+/// between arguments is strictly less than specified non-negative, non-NAN
+/// tolerance, regardless of reason (the last argument).
+/// @author rodionov
+/// @author varlax
+
 import "../../../Utils/expect.dart";
 
 import "dart:math" as Math;

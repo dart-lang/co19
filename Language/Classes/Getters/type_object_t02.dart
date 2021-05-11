@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The effect of a static getter declaration in class C is to add 
- * an instance getter with the same name and signature to the Type object for 
- * class C that forwards to the static getter.
- * @description Check that the instance getter, added to the Type object by 
- * static getter declaration, is not added to the Type object of the current
- * class and not added to the Type object of the ancestor
- * @author sgrekhov@unipro.ru
- * @issue 23721
- */
+/// @assertion The effect of a static getter declaration in class C is to add 
+/// an instance getter with the same name and signature to the Type object for 
+/// class C that forwards to the static getter.
+/// @description Check that the instance getter, added to the Type object by 
+/// static getter declaration, is not added to the Type object of the current
+/// class and not added to the Type object of the ancestor
+/// @author sgrekhov@unipro.ru
+/// @issue 23721
+
 import "dart:core";
 import "../../../Utils/expect.dart";
 

@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A function type (T1,...Tk,[Tk+1,...,Tn+m]) -> T is a subtype of
- * the function type (S1,...,Sk+j,[Sk+j+1,...,Sn]) -> S, if all of the following
- * conditions are met:
- * 1. Either
- *    • S is void, or
- *    • T <=> S.
- * 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
- * @description Checks that this statement is true for function types with no
- * arguments: S is some generic, T is some other type assignable to S.
- * @author iefremov
- */
+/// @assertion A function type (T1,...Tk,[Tk+1,...,Tn+m]) -> T is a subtype of
+/// the function type (S1,...,Sk+j,[Sk+j+1,...,Sn]) -> S, if all of the following
+/// conditions are met:
+/// 1. Either
+///    • S is void, or
+///    • T <=> S.
+/// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
+/// @description Checks that this statement is true for function types with no
+/// arguments: S is some generic, T is some other type assignable to S.
+/// @author iefremov
+
 import "../../../Utils/expect.dart";
 
 typedef t1();

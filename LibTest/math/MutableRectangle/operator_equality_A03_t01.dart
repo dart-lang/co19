@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool operator ==(other)
- * The equality operator.
- * ...
- * Reflexive: For all objects o, o == o must be true.
- * @description Checks that MutableRectangle with a coordinate equal to NaN is
- * not equal to itself.
- * @author kaigorodov
- */
+/// @assertion bool operator ==(other)
+/// The equality operator.
+/// ...
+/// Reflexive: For all objects o, o == o must be true.
+/// @description Checks that MutableRectangle with a coordinate equal to NaN is
+/// not equal to itself.
+/// @author kaigorodov
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 

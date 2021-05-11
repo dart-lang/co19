@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  void forEach(void action(K key, V value))
- * Applies [f] to each key-value pair of the map.
- * @description Checks that all mappings are iterated exactly once.
- * @author iarkh@unipro.ru
- */
+/// @assertion  void forEach(void action(K key, V value))
+/// Applies [f] to each key-value pair of the map.
+/// @description Checks that all mappings are iterated exactly once.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

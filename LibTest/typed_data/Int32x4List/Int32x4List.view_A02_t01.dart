@@ -2,19 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Int32x4List.view(
- *    ByteBuffer buffer, [
- *    int offsetInBytes = 0,
- *    int length
- * ])
- * ...
- * Changes in the Int32x4List will be visible in the byte buffer and vice versa.
- * @description Checks that changes in the Int32x4List will be visible in the
- * byte buffer and vice versa.
- * @author ngl@unipro.ru
- */
+/// @assertion
+/// Int32x4List.view(
+///    ByteBuffer buffer, [
+///    int offsetInBytes = 0,
+///    int length
+/// ])
+/// ...
+/// Changes in the Int32x4List will be visible in the byte buffer and vice versa.
+/// @description Checks that changes in the Int32x4List will be visible in the
+/// byte buffer and vice versa.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

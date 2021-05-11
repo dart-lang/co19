@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Datagram(List<int> data, InternetAddress address, int port)
- * @description Checks that this constructor creates a new Datagram object.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Datagram(List<int> data, InternetAddress address, int port)
+/// @description Checks that this constructor creates a new Datagram object.
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final String currentAsString
- * For runes outside the basic multilingual plane,
- * this will be a [String] of length 2, containing two code units.
- * @description Checks that for runes outside the basic multilingual plane
- * [currentAsString] returns a [String] of length 2, containing two code units.
- * @author msyabro
- */
+/// @assertion final String currentAsString
+/// For runes outside the basic multilingual plane,
+/// this will be a [String] of length 2, containing two code units.
+/// @description Checks that for runes outside the basic multilingual plane
+/// [currentAsString] returns a [String] of length 2, containing two code units.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 void check(string) {

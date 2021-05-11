@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion E lastWhere(bool test(E value), { E orElse() })
- * If no element satisfies [test], the result of invoking the [orElse] function
- * is returned.
- * @description Checks that result of [orElse] is returned if there is no any
- * element meets tha [test] conditions.
- * @author iarkh@unipro.ru
- */
+/// @assertion E lastWhere(bool test(E value), { E orElse() })
+/// If no element satisfies [test], the result of invoking the [orElse] function
+/// is returned.
+/// @description Checks that result of [orElse] is returned if there is no any
+/// element meets tha [test] conditions.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

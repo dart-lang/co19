@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future pipe(StreamConsumer<T> streamConsumer)
- *    If the adding of the stream itself fails in some way, then the consumer
- * is expected to be closed, and won't be closed again. In that case
- * the returned future completes with the error from calling addStream.
- * @description Checks that returned future is completed with error from
- * calling addStream. Also check that StreamConsumer.close is not called.
- * @author a.semenov@unipro.ru
- */
+/// @assertion Future pipe(StreamConsumer<T> streamConsumer)
+///    If the adding of the stream itself fails in some way, then the consumer
+/// is expected to be closed, and won't be closed again. In that case
+/// the returned future completes with the error from calling addStream.
+/// @description Checks that returned future is completed with error from
+/// calling addStream. Also check that StreamConsumer.close is not called.
+/// @author a.semenov@unipro.ru
+
 library pipe_A04_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

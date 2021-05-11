@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool every(bool f(T element))
- * Returns true if every element of the collection satisfies the predicate [f].
- * Returns false otherwise.
- * @description Checks that this method works as specified with a collection of
- * integers and a simple predicate (numerical comparison).
- * @author pagolubev
- */
+/// @assertion bool every(bool f(T element))
+/// Returns true if every element of the collection satisfies the predicate [f].
+/// Returns false otherwise.
+/// @description Checks that this method works as specified with a collection of
+/// integers and a simple predicate (numerical comparison).
+/// @author pagolubev
+
 library every_A01_t01;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";

@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion E lastWhere(bool test(E element), {E orElse()})
- * Returns the last element that satisfies the given predicate test
- * @description Checks that the last element that satisfies the given predicate
- * test is returned
- * @author sgrekhov@unipro.ru
- */
+/// @assertion E lastWhere(bool test(E element), {E orElse()})
+/// Returns the last element that satisfies the given predicate test
+/// @description Checks that the last element that satisfies the given predicate
+/// test is returned
+/// @author sgrekhov@unipro.ru
+
 library lastWhere_A04_t01;
 
 import "../../../Utils/expect.dart";

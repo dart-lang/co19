@@ -2,21 +2,20 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<bool> every(bool test(T element))
- * Checks whether test accepts all elements provided by this stream.
- *
- * Calls test on each element of the stream. If the call returns false, the
- * returned future is completed with false and processing stops.
- *
- * If the stream ends without finding an element that test rejects, the returned
- * future is completed with true.
- *
- * @description Checks that [test] accepts the single element provided by this
- * RawDatagramSocket, and if the call returns false, the returned future is
- * completed with false, otherwise the returned future is completed with true.
- * @author ngl@unipro.ru
- */
+/// @assertion Future<bool> every(bool test(T element))
+/// Checks whether test accepts all elements provided by this stream.
+///
+/// Calls test on each element of the stream. If the call returns false, the
+/// returned future is completed with false and processing stops.
+///
+/// If the stream ends without finding an element that test rejects, the returned
+/// future is completed with true.
+///
+/// @description Checks that [test] accepts the single element provided by this
+/// RawDatagramSocket, and if the call returns false, the returned future is
+/// completed with false, otherwise the returned future is completed with true.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../http_utils.dart";

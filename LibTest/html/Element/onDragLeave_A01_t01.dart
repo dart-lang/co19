@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion ElementStream<MouseEvent> get onDragLeave
- * A stream of dragleave events fired when an object being dragged over this
- * element leaves this element's target area.
- * @description Checks that correct events are delivered via the stream
- */
+/// @assertion ElementStream<MouseEvent> get onDragLeave
+/// A stream of dragleave events fired when an object being dragged over this
+/// element leaves this element's target area.
+/// @description Checks that correct events are delivered via the stream
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

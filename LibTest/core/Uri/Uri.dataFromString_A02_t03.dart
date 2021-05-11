@@ -2,26 +2,25 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Uri.dataFromString(
- *  String content, {
- *  String mimeType,
- *  Encoding encoding,
- *  Map<String, String> parameters,
- *  bool base64: false
- *  })
- * Creates a data: URI containing the content string.
- * ...
- * If encoding is not provided and parameters has a charset entry, that name is
- * looked up using Encoding.getByName, and if the lookup returns an encoding,
- * that encoding is used to convert content to bytes. If providing both an
- * encoding and a charset parameter, they should agree, otherwise decoding
- * won't be able to use the charset parameter to determine the encoding.
- * ...
- * @description Checks that if both an encoding and a charset parameter are
- * specified and they disagree, then encoding parameter is used
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Uri.dataFromString(
+///  String content, {
+///  String mimeType,
+///  Encoding encoding,
+///  Map<String, String> parameters,
+///  bool base64: false
+///  })
+/// Creates a data: URI containing the content string.
+/// ...
+/// If encoding is not provided and parameters has a charset entry, that name is
+/// looked up using Encoding.getByName, and if the lookup returns an encoding,
+/// that encoding is used to convert content to bytes. If providing both an
+/// encoding and a charset parameter, they should agree, otherwise decoding
+/// won't be able to use the charset parameter to determine the encoding.
+/// ...
+/// @description Checks that if both an encoding and a charset parameter are
+/// specified and they disagree, then encoding parameter is used
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 import "UriDataEncoder.lib.dart";

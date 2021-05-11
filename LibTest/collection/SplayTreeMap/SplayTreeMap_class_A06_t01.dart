@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion SplayTreeMap([int compare(K key1, K key2),
- * bool isValidKey(potentialKey)])
- * If omitted, the [isValidKey] function defaults to testing if the value is a
- * [K].
- * @description Checks that [isValidKey] defaults to test that the [key] is a
- * [K] object
- * @author iarkh@unipro.ru
- */
+/// @assertion SplayTreeMap([int compare(K key1, K key2),
+/// bool isValidKey(potentialKey)])
+/// If omitted, the [isValidKey] function defaults to testing if the value is a
+/// [K].
+/// @description Checks that [isValidKey] defaults to test that the [key] is a
+/// [K] object
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

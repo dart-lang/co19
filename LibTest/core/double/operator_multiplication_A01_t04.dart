@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion double operator *(num other)
- * @description Checks that if both operands are infinite the result is infinity
- * @author pagolubev
- */
+/// @assertion double operator *(num other)
+/// @description Checks that if both operands are infinite the result is infinity
+/// @author pagolubev
+
 import "../../../Utils/expect.dart";
 
 main() {

@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion double cos(num radians)
- * Converts [radians] to a double and returns the cosine of the value.
- *
- * @description Checks values from [0, 2pi].
- *
- * @issue 26261
- * @author msyabro
- */
+/// @assertion double cos(num radians)
+/// Converts [radians] to a double and returns the cosine of the value.
+///
+/// @description Checks values from [0, 2pi].
+///
+/// @issue 26261
+/// @author msyabro
+
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Implicit tear-off conversion is not performed on objects of
- * nullable type, regardless of the context type.
- *
- * @description Check that the implicit tear-off conversion is not performed on
- * objects of nullable type, regardless of the context type.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Implicit tear-off conversion is not performed on objects of
+/// nullable type, regardless of the context type.
+///
+/// @description Check that the implicit tear-off conversion is not performed on
+/// objects of nullable type, regardless of the context type.
+/// @author sgrekhov@unipro.ru
+
 
 typedef int Foo();
 

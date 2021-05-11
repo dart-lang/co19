@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final List positionalArguments
- * An unmodifiable view of the positional arguments of the call.
- * If the member is a getter, the positional arguments is empty.
- * @description Checks that positionalArguments is unmodifiable and returns
- * expected results on getters, setters and instance methods invocations.
- * @author ilya
- * @issue 13714
- */
+/// @assertion final List positionalArguments
+/// An unmodifiable view of the positional arguments of the call.
+/// If the member is a getter, the positional arguments is empty.
+/// @description Checks that positionalArguments is unmodifiable and returns
+/// expected results on getters, setters and instance methods invocations.
+/// @author ilya
+/// @issue 13714
+
 import "../../../Utils/expect.dart";
 
 List? expect;

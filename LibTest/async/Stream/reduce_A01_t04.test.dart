@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<T> reduce(T combine(T previous, T element))
- * Reduces a sequence of values by repeatedly applying combine.
- * @description Checks that the combine method is not called for the first
- * element in stream.
- * @author a.semenov@unipro.ru
- */
+/// @assertion Future<T> reduce(T combine(T previous, T element))
+/// Reduces a sequence of values by repeatedly applying combine.
+/// @description Checks that the combine method is not called for the first
+/// element in stream.
+/// @author a.semenov@unipro.ru
+
 library reduce_A01_t04;
 import "dart:async";
 import "../../../Utils/expect.dart";

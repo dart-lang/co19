@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future setLastAccessed(DateTime time)
- * Modifies the time the file was last accessed.
- *
- * Throws a FileSystemException if the time cannot be set.
- * @descriptionChecks that a FileSystemException is thrown if the time cannot
- * be set
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Future setLastAccessed(DateTime time)
+/// Modifies the time the file was last accessed.
+///
+/// Throws a FileSystemException if the time cannot be set.
+/// @descriptionChecks that a FileSystemException is thrown if the time cannot
+/// be set
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";

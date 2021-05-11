@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion ZoneCallback<R> registerCallback<R>(R callback())
- * Registers the given callback in this zone.
- * @description Checks that ZoneCallback is returned and that
- * registerCallback can be overridden by ZoneSpecification.
- * @author ilya
- */
+/// @assertion ZoneCallback<R> registerCallback<R>(R callback())
+/// Registers the given callback in this zone.
+/// @description Checks that ZoneCallback is returned and that
+/// registerCallback can be overridden by ZoneSpecification.
+/// @author ilya
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

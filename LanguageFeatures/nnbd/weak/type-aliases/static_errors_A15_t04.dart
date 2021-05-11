@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It is an error for a class to extend, implement, or mixin a type
- * of the form T? for any T.
- *
- * @description Check that it is an error for a class to extend, implement,
- * or mixin a type of the form T? for any T. Test legacy pre-NNBD types and type
- * aliases
- * @author sgrekhov@unipro.ru
- * @issue 40949
- * @issue 41501
- */
+/// @assertion It is an error for a class to extend, implement, or mixin a type
+/// of the form T? for any T.
+///
+/// @description Check that it is an error for a class to extend, implement,
+/// or mixin a type of the form T? for any T. Test legacy pre-NNBD types and type
+/// aliases
+/// @author sgrekhov@unipro.ru
+/// @issue 40949
+/// @issue 41501
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-weak
 import "../legacy_lib.dart";

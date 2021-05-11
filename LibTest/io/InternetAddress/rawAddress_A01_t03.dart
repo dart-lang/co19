@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion List<int> rawAddress
- * Get the raw address of this [InternetAddress].
- * @description Checks that result list for IPv6 localhost is 16 byte long and
- * contains expected values (all zeroes but the last value which 0s [1]).
- * @author iarkh@unipro.ru
- */
+/// @assertion List<int> rawAddress
+/// Get the raw address of this [InternetAddress].
+/// @description Checks that result list for IPv6 localhost is 16 byte long and
+/// contains expected values (all zeroes but the last value which 0s [1]).
+/// @author iarkh@unipro.ru
+
 
 import "../../../Utils/expect.dart";
 import "dart:io";

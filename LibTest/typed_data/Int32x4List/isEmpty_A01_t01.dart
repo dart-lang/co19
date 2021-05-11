@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool isEmpty
- * Returns true if there are no elements in this collection.
- * @description Checks that true is returned if an instance of Int32x4List is
- * empty, false otherwise.
- * @author ngl@unipro.ru
- */
+/// @assertion bool isEmpty
+/// Returns true if there are no elements in this collection.
+/// @description Checks that true is returned if an instance of Int32x4List is
+/// empty, false otherwise.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

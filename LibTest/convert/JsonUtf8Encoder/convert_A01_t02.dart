@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion List<int> convert(Object object)
- * Convert object into UTF-8 encoded JSON.
- * @description Checks that objects are converted into UTF-8 encoded JSON by
- * calling their toJson() method
- * @author sgrekhov@unipro.ru
- */
+/// @assertion List<int> convert(Object object)
+/// Convert object into UTF-8 encoded JSON.
+/// @description Checks that objects are converted into UTF-8 encoded JSON by
+/// calling their toJson() method
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 import "../JsonDecoder/table1.lib.dart";

@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Returns the string matched by the given [group]. If [group] is 0,
- * returns the match of the regular expression.
- * @description Checks that correct group is returned.
- * @author rodionov
- */
+/// @assertion Returns the string matched by the given [group]. If [group] is 0,
+/// returns the match of the regular expression.
+/// @description Checks that correct group is returned.
+/// @author rodionov
+
 import "../../../Utils/expect.dart";
 
 void check(String str, String pattern, List<String?> expected,

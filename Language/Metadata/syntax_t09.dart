@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- *  metadata:
- *   (‘@’ qualified (‘.’ identifier)? (arguments)?)*
- *   ;
- * @description Check that type arguments are allowed on annotations
- * @author sgrekhov@unipro.ru
- */
+/// @assertion
+///  metadata:
+///   (‘@’ qualified (‘.’ identifier)? (arguments)?)*
+///   ;
+/// @description Check that type arguments are allowed on annotations
+/// @author sgrekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=generic-metadata
 import 'syntax_lib1.dart';
 

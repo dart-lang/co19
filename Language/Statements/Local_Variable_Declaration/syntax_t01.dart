@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A variable declaration statement declares a new local variable.
- *   localVariableDeclaration:
- *     initializedVariableDeclaration ’;’
- *   ;
- * @description Checks several assignments of variables declared as "T id;"
- * that are correct and do not produce static warnings.
- * @author vasya
- */
+/// @assertion A variable declaration statement declares a new local variable.
+///   localVariableDeclaration:
+///     initializedVariableDeclaration ’;’
+///   ;
+/// @description Checks several assignments of variables declared as "T id;"
+/// that are correct and do not produce static warnings.
+/// @author vasya
+
 
 class S {}
 class T extends S {}

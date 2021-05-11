@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion SplayTreeSet([int compare(E key1, E key2),
- * bool isValidKey(potentialKey)])
- * ...
- * If the isValidKey function returns false for an object, it is assumed to not
- * be in the set.
- * @description Checks that if the isValidKey function returns false for an
- * object, it is assumed to not be in the set
- * @author sgrekhov@unipro.ru
- */
+/// @assertion SplayTreeSet([int compare(E key1, E key2),
+/// bool isValidKey(potentialKey)])
+/// ...
+/// If the isValidKey function returns false for an object, it is assumed to not
+/// be in the set.
+/// @description Checks that if the isValidKey function returns false for an
+/// object, it is assumed to not be in the set
+/// @author sgrekhov@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

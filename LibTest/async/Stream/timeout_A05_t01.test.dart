@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Stream timeout(Duration timeLimit,
- *                           {void onTimeout(EventSink sink)})
- * The returned stream is a broadcast stream if this stream is.
- * @description Checks that the returned stream is a broadcast stream if this
- * stream is.
- * @author a.semenov@unipro.ru
- */
+/// @assertion Stream timeout(Duration timeLimit,
+///                           {void onTimeout(EventSink sink)})
+/// The returned stream is a broadcast stream if this stream is.
+/// @description Checks that the returned stream is a broadcast stream if this
+/// stream is.
+/// @author a.semenov@unipro.ru
+
 library timeout_A05_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

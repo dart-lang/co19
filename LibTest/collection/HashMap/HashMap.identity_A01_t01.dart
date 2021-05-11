@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion HashMap.identity()
- * Creates an unordered identity-based map.
- * Effectively a shorthand for:
- * new HashMap(equals: identical,  hashCode: identityHashCode)
- * @description Checks that created hash map is equivalent of
- * new HashMap(equals: identical,  hashCode: identityHashCode)
- * @author sgrekhov@unipro.ru
- */
+/// @assertion HashMap.identity()
+/// Creates an unordered identity-based map.
+/// Effectively a shorthand for:
+/// new HashMap(equals: identical,  hashCode: identityHashCode)
+/// @description Checks that created hash map is equivalent of
+/// new HashMap(equals: identical,  hashCode: identityHashCode)
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

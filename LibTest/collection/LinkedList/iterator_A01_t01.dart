@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final Iterator<E> iterator
- * Returns an [Iterator] that iterates over this [Iterable] object.
- * @description Checks that the returned [Iterator] iterates all elements of the
- * list.
- * @author kaigorodov
- */
+/// @assertion final Iterator<E> iterator
+/// Returns an [Iterator] that iterates over this [Iterable] object.
+/// @description Checks that the returned [Iterator] iterates all elements of the
+/// list.
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 import "LinkedList.lib.dart";

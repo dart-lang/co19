@@ -2,25 +2,24 @@
 // file for details. All rights reserved. Use of this source code is governed
 // by a BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void removeErrorListener(
- *                    SendPort port
- *                 )
- *    Stop listening for uncaught errors through port.
- *    The port should be a port that is listening for errors through
- * addErrorListener. This call requests that the isolate stops sending errors
- * on the port.
- *    If the same port has been passed via addErrorListener more than once,
- * only one call to removeErrorListener is needed to stop it from receiving
- * errors.
- *    Closing the receive port at the end of the send port will not stop
- * the isolate from sending errors, they are just going to be lost.
- *
- * @description Check that closing receive port does not affect the isolate and
- * other error listeners.
- *
- * @author a.semenov@unipro.ru
- */
+/// @assertion void removeErrorListener(
+///                    SendPort port
+///                 )
+///    Stop listening for uncaught errors through port.
+///    The port should be a port that is listening for errors through
+/// addErrorListener. This call requests that the isolate stops sending errors
+/// on the port.
+///    If the same port has been passed via addErrorListener more than once,
+/// only one call to removeErrorListener is needed to stop it from receiving
+/// errors.
+///    Closing the receive port at the end of the send port will not stop
+/// the isolate from sending errors, they are just going to be lost.
+///
+/// @description Check that closing receive port does not affect the isolate and
+/// other error listeners.
+///
+/// @author a.semenov@unipro.ru
+
 import "dart:isolate";
 import "dart:async";
 import "../../../Utils/expect.dart";

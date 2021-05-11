@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int noErrorCode = -1
- * Constant used to indicate that no OS error code is available.
- *
- * @description Checks that noErrorCode used to indicate that no OS error code
- * is available and its value is -1.
- * @author ngl@unipro.ru
- */
+/// @assertion int noErrorCode = -1
+/// Constant used to indicate that no OS error code is available.
+///
+/// @description Checks that noErrorCode used to indicate that no OS error code
+/// is available and its value is -1.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

@@ -2,21 +2,20 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int maxConnectionsPerHost
- * read / write
- * Get and set the maximum number of live connections, to a single host.
- *
- * Increasing this number may lower performance and take up unwanted system
- * resources.
- *
- * To disable, set to null.
- *
- * Default is null.
- * @description Checks that this property get and set the maximum number of live
- * connections, to a single host
- * @author sgrekhov@unipro.ru
- */
+/// @assertion int maxConnectionsPerHost
+/// read / write
+/// Get and set the maximum number of live connections, to a single host.
+///
+/// Increasing this number may lower performance and take up unwanted system
+/// resources.
+///
+/// To disable, set to null.
+///
+/// Default is null.
+/// @description Checks that this property get and set the maximum number of live
+/// connections, to a single host
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

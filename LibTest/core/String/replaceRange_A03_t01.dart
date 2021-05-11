@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String replaceRange(int start, int end, String replacement)
- * ...
- * If end is null, it defaults to length.
- * @description Checks that if end is null, it defaults to length.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion String replaceRange(int start, int end, String replacement)
+/// ...
+/// If end is null, it defaults to length.
+/// @description Checks that if end is null, it defaults to length.
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

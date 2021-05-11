@@ -2,25 +2,24 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A mixin application of the form S with M1,...,Mk; defines a
- * class C whose superclass is the application of the mixin composition
- * Mk−1 ∗ ... ∗ M1 to S.
- * ...
- * The composition of two mixins, M1< T1...TkM1 > and M2< U1...UkM2 >,
- * written M1< T1...TkM1 > ∗ M2< U1...UkM2 > defines an anonymous mixin
- * such that for any class S< V1...VkS >, the application of
- * M1< T1...TkM1 > ∗ M2< U1...UkM2 >
- * to S< V1...VkS > is equivalent to
- * abstract class Id1< T1...TkM1, U1...UkM2, V1...VkS > =
- * Id2< U1...UkM2, V1...VkS > with M1< T1...TkM1 >;
- * where Id2 denotes
- * abstract class Id2< U1...UkM2, V1...VkS > =
- * S< V1...VkS > with M2< U1...UkM2 >;
- * @description Checks that mixin composition applies mixins in the right
- * order
- * @author sgrekhov@unipro.ru
- */
+/// @assertion A mixin application of the form S with M1,...,Mk; defines a
+/// class C whose superclass is the application of the mixin composition
+/// Mk−1 ∗ ... ∗ M1 to S.
+/// ...
+/// The composition of two mixins, M1< T1...TkM1 > and M2< U1...UkM2 >,
+/// written M1< T1...TkM1 > ∗ M2< U1...UkM2 > defines an anonymous mixin
+/// such that for any class S< V1...VkS >, the application of
+/// M1< T1...TkM1 > ∗ M2< U1...UkM2 >
+/// to S< V1...VkS > is equivalent to
+/// abstract class Id1< T1...TkM1, U1...UkM2, V1...VkS > =
+/// Id2< U1...UkM2, V1...VkS > with M1< T1...TkM1 >;
+/// where Id2 denotes
+/// abstract class Id2< U1...UkM2, V1...VkS > =
+/// S< V1...VkS > with M2< U1...UkM2 >;
+/// @description Checks that mixin composition applies mixins in the right
+/// order
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 class A {

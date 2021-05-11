@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion CONST_CANONICAL_TYPE(T?) =
- *     let S be CONST_CANONICAL_TYPE(T)
- *     if S is R* then R?
- *     else S?
- *
- * @description Checks that CONST_CANONICAL_TYPE(Object?) = Object?
- *
- * @author iarkh@unipro.ru
- */
+/// @assertion CONST_CANONICAL_TYPE(T?) =
+///     let S be CONST_CANONICAL_TYPE(T)
+///     if S is R* then R?
+///     else S?
+///
+/// @description Checks that CONST_CANONICAL_TYPE(Object?) = Object?
+///
+/// @author iarkh@unipro.ru
+
 // Requirements=nnbd-strong
 
 import "../../Utils/expect.dart";

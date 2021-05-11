@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion E first
- * ...
- * Otherwise returns the first element in the iteration order, equivalent to
- * this.elementAt(0).
- * @description Checks that if Int32x4List is not empty the first element in the
- * iteration order is returned (equivalent to this.elementAt(0)).
- * @author ngl@unipro.ru
- */
+/// @assertion E first
+/// ...
+/// Otherwise returns the first element in the iteration order, equivalent to
+/// this.elementAt(0).
+/// @description Checks that if Int32x4List is not empty the first element in the
+/// iteration order is returned (equivalent to this.elementAt(0)).
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

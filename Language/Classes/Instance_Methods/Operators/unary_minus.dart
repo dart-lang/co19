@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The name of the unary operator - is unary-.
- * @description Checks that the name of unary operator - is 'unary-'
- * @author ilya
- * @author sgrekhov@unipro.ru
- */
+/// @assertion The name of the unary operator - is unary-.
+/// @description Checks that the name of unary operator - is 'unary-'
+/// @author ilya
+/// @author sgrekhov@unipro.ru
+
 
 import 'dart:mirrors';
 import '../../../../Utils/expect.dart';

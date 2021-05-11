@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract int indexOf(E element, [int start = 0])
- * Returns the first index of element in the list.
- * Searches the list from index start to the length of the list.
- * The first time an element e is encountered so that e == element,
- * the index of e is returned. Returns -1 if element is not found.
- * @description Checks that the correct index is returned, if the element
- * is present.
- * @author iefremov
- * @author varlax
- */
+/// @assertion abstract int indexOf(E element, [int start = 0])
+/// Returns the first index of element in the list.
+/// Searches the list from index start to the length of the list.
+/// The first time an element e is encountered so that e == element,
+/// the index of e is returned. Returns -1 if element is not found.
+/// @description Checks that the correct index is returned, if the element
+/// is present.
+/// @author iefremov
+/// @author varlax
+
 library indexOf_A01_t01;
 
 import "../../../Utils/expect.dart";

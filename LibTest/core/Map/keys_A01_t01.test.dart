@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final Iterable<K> keys
- * The keys of this.
- * @description Checks that an Iterable containing all keys is returned.
- * @author msyabro
- */
+/// @assertion final Iterable<K> keys
+/// The keys of this.
+/// @description Checks that an Iterable containing all keys is returned.
+/// @author msyabro
+
 library keys_A01_t01;
  
 import "../../../Utils/expect.dart";

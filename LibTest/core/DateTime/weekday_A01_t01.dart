@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final int weekday
- * Returns the week day MON..SUN. In accordance with ISO 8601 a week starts with
- * Monday which has the value 1.
- * @description Checks property value when date is valid.
- * @author hlodvig
- */
+/// @assertion final int weekday
+/// Returns the week day MON..SUN. In accordance with ISO 8601 a week starts with
+/// Monday which has the value 1.
+/// @description Checks property value when date is valid.
+/// @author hlodvig
+
 import "../../../Utils/expect.dart";
 
 void check(year, m, d){

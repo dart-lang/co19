@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int indexOf(Object element, [int start = 0])
- * Returns -1 if element is not found.
- * @description Checks that the -1 is returned, if the element is not present.
- * @author msyabro
- */
+/// @assertion int indexOf(Object element, [int start = 0])
+/// Returns -1 if element is not found.
+/// @description Checks that the -1 is returned, if the element is not present.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

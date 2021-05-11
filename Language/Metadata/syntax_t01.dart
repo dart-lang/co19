@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- *  metadata:
- *   (‘@’ qualified (‘.’ identifier)? (arguments)?)*
- *   ;
- * @description Verify several kinds of valid metadata declarations.
- * Metadata refers to local constants and classes.
- * @author a.semenov@unipro.ru
- */
+/// @assertion
+///  metadata:
+///   (‘@’ qualified (‘.’ identifier)? (arguments)?)*
+///   ;
+/// @description Verify several kinds of valid metadata declarations.
+/// Metadata refers to local constants and classes.
+/// @author a.semenov@unipro.ru
+
 
 const Z = 'Zombie';
 

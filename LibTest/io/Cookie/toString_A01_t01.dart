@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String toString()
- * Returns the formatted string representation of the cookie. The string
- * representation can be used for for setting the Cookie or 'set-cookie' headers
- * @description Checks that this method returns the formatted string
- * representation of the cookie
- * @author sgrekhov@unipro.ru
- */
+/// @assertion String toString()
+/// Returns the formatted string representation of the cookie. The string
+/// representation can be used for for setting the Cookie or 'set-cookie' headers
+/// @description Checks that this method returns the formatted string
+/// representation of the cookie
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

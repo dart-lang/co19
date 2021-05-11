@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final bool isMethod
- * Whether the invocation was a method call.
- * @description Checks that isMethod returns false for getters and setters
- * invocations.
- * @author ilya
- */
+/// @assertion final bool isMethod
+/// Whether the invocation was a method call.
+/// @description Checks that isMethod returns false for getters and setters
+/// invocations.
+/// @author ilya
+
 import "../../../Utils/expect.dart";
 
 @proxy

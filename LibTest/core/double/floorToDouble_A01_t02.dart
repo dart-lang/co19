@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * abstract abstract double floorToDouble()
- * Returns the greatest integer value no greater than this.
- * The result is a double.
- * @description Checks [:floorToDouble():] on a bunch of adjacent values.
- * @author kaigorodov
- */
+/// abstract abstract double floorToDouble()
+/// Returns the greatest integer value no greater than this.
+/// The result is a double.
+/// @description Checks [:floorToDouble():] on a bunch of adjacent values.
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 
 check(double expected, double arg) {

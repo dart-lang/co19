@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<E> getRange(int start, int end)
- * The result of this function is backed by [this].
- * @description Checks that the result of [getRange] is
- * backed by [this].
- * @author msyabro
- */
+/// @assertion Iterable<E> getRange(int start, int end)
+/// The result of this function is backed by [this].
+/// @description Checks that the result of [getRange] is
+/// backed by [this].
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

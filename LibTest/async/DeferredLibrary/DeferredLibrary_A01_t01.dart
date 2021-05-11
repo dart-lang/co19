@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion const DeferredLibrary(String libraryName, {String uri})
- * (from #11507: Lazy library loading is a hint to deployment tools.
- *  The VM is free to ignore this metadata.)
- * @description Checks that DeferredLibrary loads in lazy way.
- * @author kaigorodov
- * @todo move from LibTest to Language
- */
+/// @assertion const DeferredLibrary(String libraryName, {String uri})
+/// (from #11507: Lazy library loading is a hint to deployment tools.
+///  The VM is free to ignore this metadata.)
+/// @description Checks that DeferredLibrary loads in lazy way.
+/// @author kaigorodov
+/// @todo move from LibTest to Language
+
 
 import "../../../Utils/expect.dart";
 

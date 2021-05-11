@@ -2,19 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Future<RawSocketEvent> reduce(
- *     RawSocketEvent combine(T previous, T element)
- * )
- * . . .
- * If this stream emits an error, or the call to combine throws, the returned
- * future is completed with that error, and processing is stopped.
- *
- * @description Checks that if method combine throws an error, the returned
- * future is completed with that error, and processing is stopped.
- * @author ngl@unipro.ru
- */
+/// @assertion
+/// Future<RawSocketEvent> reduce(
+///     RawSocketEvent combine(T previous, T element)
+/// )
+/// . . .
+/// If this stream emits an error, or the call to combine throws, the returned
+/// future is completed with that error, and processing is stopped.
+///
+/// @description Checks that if method combine throws an error, the returned
+/// future is completed with that error, and processing is stopped.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

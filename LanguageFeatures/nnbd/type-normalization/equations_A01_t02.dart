@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The NORM relation defines the canonical representative of classes
- * of equivalent types...
- * This is based on the following equations:
- *   T?? == T?
- *
- * @description Checks that T1?? != T? for some T1 <: T
- *
- * @author sgrekhov@unipro.ru
- */
+/// @assertion The NORM relation defines the canonical representative of classes
+/// of equivalent types...
+/// This is based on the following equations:
+///   T?? == T?
+///
+/// @description Checks that T1?? != T? for some T1 <: T
+///
+/// @author sgrekhov@unipro.ru
+
 
 class T {}
 class T1 extends T {}

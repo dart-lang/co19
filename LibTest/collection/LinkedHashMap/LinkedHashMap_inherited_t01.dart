@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion LinkedHashMap<K, V> abstract class implements HashMap<K, V>
- * A hash-table based implementation of [Map].
- * @description Checks that [LinkedHashMap] implements [HashMap].
- * @author kaigorodov
- */
+/// @assertion LinkedHashMap<K, V> abstract class implements HashMap<K, V>
+/// A hash-table based implementation of [Map].
+/// @description Checks that [LinkedHashMap] implements [HashMap].
+/// @author kaigorodov
+
 import "dart:collection";
 import "../../core/Map/allTests_A01_t01.lib.dart";
 

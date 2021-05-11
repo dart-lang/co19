@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Event.eventType(String type, String name, {bool canBubble: true,
- * bool cancelable: true})
- * Creates a new Event object of the specified type.
- * @description Checks that event of specified type is created.
- */
+/// @assertion Event.eventType(String type, String name, {bool canBubble: true,
+/// bool cancelable: true})
+/// Creates a new Event object of the specified type.
+/// @description Checks that event of specified type is created.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

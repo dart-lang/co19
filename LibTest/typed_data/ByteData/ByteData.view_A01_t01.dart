@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * ByteData.view(
- *     ByteBuffer buffer, [
- *     int offsetInBytes = 0, int length
- * ])
- * Creates an [ByteData] view of the specified region in buffer.
- * @description Checks that an instance of [ByteData] is created.
- * @author msyabro
- */
+/// @assertion
+/// ByteData.view(
+///     ByteBuffer buffer, [
+///     int offsetInBytes = 0, int length
+/// ])
+/// Creates an [ByteData] view of the specified region in buffer.
+/// @description Checks that an instance of [ByteData] is created.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

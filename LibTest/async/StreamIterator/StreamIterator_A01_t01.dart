@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion StreamIterator(Stream<T> stream)
- * Create a StreamIterator on stream.
- * @description Checks that instance of StreamIterator is created.
- * @author kaigorodov
- */
+/// @assertion StreamIterator(Stream<T> stream)
+/// Create a StreamIterator on stream.
+/// @description Checks that instance of StreamIterator is created.
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

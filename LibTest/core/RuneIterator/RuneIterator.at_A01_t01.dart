@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion RuneIterator.at(String string, int index)
- * Create an iterator positioned before the indexth code unit of the string.
- * @description Checks that [RuneIterator] is created with correct position.
- * @author msyabro
- */
+/// @assertion RuneIterator.at(String string, int index)
+/// Create an iterator positioned before the indexth code unit of the string.
+/// @description Checks that [RuneIterator] is created with correct position.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 check(string, pos, firstCodePoint) {

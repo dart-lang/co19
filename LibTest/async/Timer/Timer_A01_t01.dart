@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion factory Timer(Duration duration, void callback())
- * Creates a new timer.
- * The callback callback is invoked after the given duration.
- * @description Checks that callback function is called after the given duration.
- * @author kaigorodov
- */
+/// @assertion factory Timer(Duration duration, void callback())
+/// Creates a new timer.
+/// The callback callback is invoked after the given duration.
+/// @description Checks that callback function is called after the given duration.
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

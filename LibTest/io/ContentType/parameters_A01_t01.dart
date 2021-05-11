@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Map<String, String> parameters
- * Gets the map of parameters.
- *
- * This map cannot be modified. Invoking any operation which would modify the
- * map will throw UnsupportedError.
- * @description Checks that this property returns the map of parameters.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Map<String, String> parameters
+/// Gets the map of parameters.
+///
+/// This map cannot be modified. Invoking any operation which would modify the
+/// map will throw UnsupportedError.
+/// @description Checks that this property returns the map of parameters.
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

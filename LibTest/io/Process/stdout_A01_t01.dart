@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  Stream<List<int>> stdout
- *
- * Returns the standard output stream of the process as a Stream.
- *
- * @description Checks that [stdout] returns Stream<List<int>> value that is the
- * standard output stream of the process as a Stream.
- * @author ngl@unipro.ru
- */
+/// @assertion  Stream<List<int>> stdout
+///
+/// Returns the standard output stream of the process as a Stream.
+///
+/// @description Checks that [stdout] returns Stream<List<int>> value that is the
+/// standard output stream of the process as a Stream.
+/// @author ngl@unipro.ru
+
 import 'dart:convert';
 import "dart:io";
 import "dart:async";

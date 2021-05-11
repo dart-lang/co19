@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final int length
- * @description Checks that length property contains correct size of the map.
- * @author iarkh@unipro.ru
- */
+/// @assertion final int length
+/// @description Checks that length property contains correct size of the map.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 import "unmodifiablemapbase.lib.dart";

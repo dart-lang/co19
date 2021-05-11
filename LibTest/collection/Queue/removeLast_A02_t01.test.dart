@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  abstract E removeLast()
- * The queue must not be empty when this method is called.
- * @description Checks that exception is thrown if this queue is empty.
- * @author msyabro
- */
+/// @assertion  abstract E removeLast()
+/// The queue must not be empty when this method is called.
+/// @description Checks that exception is thrown if this queue is empty.
+/// @author msyabro
+
 library removeLast_A02_t01;
 
 import "../../../Utils/expect.dart";

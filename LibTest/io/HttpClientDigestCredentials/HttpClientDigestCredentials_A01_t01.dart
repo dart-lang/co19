@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Represents credentials for digest authentication. Digest
- * authentication is only supported for servers using the MD5 algorithm and
- * quality of protection (qop) of either "none" or "auth".
- * @description Checks that this class represents credentials for digest
- * authentication
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Represents credentials for digest authentication. Digest
+/// authentication is only supported for servers using the MD5 algorithm and
+/// quality of protection (qop) of either "none" or "auth".
+/// @description Checks that this class represents credentials for digest
+/// authentication
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import 'dart:async';
 import "dart:convert";

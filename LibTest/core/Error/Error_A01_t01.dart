@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Error()
- * @description Checks that this constructor can be called without any issues
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Error()
+/// @description Checks that this constructor can be called without any issues
+/// @author sgrekhov@unipro.ru
+
  
 main() {
   new Error();

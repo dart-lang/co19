@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The predeﬁned Dart function identical() is deﬁned such that
- * identical(c1, c2) iff:
- * . . .
- *  • c1 and c2 are constant lists that are deﬁned to be identical in the
- *    speciﬁcation of literal list expressions.
- * @description Checks that constatnt lists are identical() if they have both
- * identical types and content.
- * @author kaigorodov
- */
+/// @assertion The predeﬁned Dart function identical() is deﬁned such that
+/// identical(c1, c2) iff:
+/// . . .
+///  • c1 and c2 are constant lists that are deﬁned to be identical in the
+///    speciﬁcation of literal list expressions.
+/// @description Checks that constatnt lists are identical() if they have both
+/// identical types and content.
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 
 const nums1 = const <num>[];

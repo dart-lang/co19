@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String decodeComponent(String encodedComponent)
- * Decodes the percent-encoding in encodedComponent.
- * @description Checks expected results on unreserved characters and
- * basic and extended unicode characters on manually and library
- * encoded strings.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion String decodeComponent(String encodedComponent)
+/// Decodes the percent-encoding in encodedComponent.
+/// @description Checks expected results on unreserved characters and
+/// basic and extended unicode characters on manually and library
+/// encoded strings.
+/// @author sgrekhov@unipro.ru
+
 import 'dart:convert';
 import "../../../Utils/expect.dart";
 

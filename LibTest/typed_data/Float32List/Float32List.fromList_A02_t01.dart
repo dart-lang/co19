@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Float32List.fromList(List<double> elements)
- * Creates a [Float32List] with the same length as the [elements] list
- * and copies over the elements.
- * Values are truncated to fit in the list when they are copied, the same way
- * storing values truncates them.
- * @description Checks that a new [Float32List] has the same size and some
- * elements may be truncated.
- * @author ngl@unipro.ru
- */
+/// @assertion Float32List.fromList(List<double> elements)
+/// Creates a [Float32List] with the same length as the [elements] list
+/// and copies over the elements.
+/// Values are truncated to fit in the list when they are copied, the same way
+/// storing values truncates them.
+/// @description Checks that a new [Float32List] has the same size and some
+/// elements may be truncated.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The assignment e1?.f = e2 translates to:
- *  SHORT[EXP(e1), fn[x] => x.f = EXP(e2)]
- *
- * @description Check that the assignment e1?.f = e2 translates to:
- *  SHORT[EXP(e1), fn[x] => x.f = EXP(e2)]. Test type aliases
- * @author sgrekhov@unipro.ru
- */
+/// @assertion The assignment e1?.f = e2 translates to:
+///  SHORT[EXP(e1), fn[x] => x.f = EXP(e2)]
+///
+/// @description Check that the assignment e1?.f = e2 translates to:
+///  SHORT[EXP(e1), fn[x] => x.f = EXP(e2)]. Test type aliases
+/// @author sgrekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-strong
 import "../../../Utils/expect.dart";

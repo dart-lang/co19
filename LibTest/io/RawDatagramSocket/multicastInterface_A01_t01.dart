@@ -2,19 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion NetworkInterface multicastInterface
- * Set or get, the network interface used for outgoing multicast packages.
- *
- * A value of null indicate that the system chooses the network interface to
- * use.
- *
- * By default this value is null
- *
- * @description Checks the multicastInterface property.
- * @issue 17057
- * @author ngl@unipro.ru
- */
+/// @assertion NetworkInterface multicastInterface
+/// Set or get, the network interface used for outgoing multicast packages.
+///
+/// A value of null indicate that the system chooses the network interface to
+/// use.
+///
+/// By default this value is null
+///
+/// @description Checks the multicastInterface property.
+/// @issue 17057
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

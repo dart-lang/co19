@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract E removeLast()
- * Pops and returns the last element of the list.
- * @description Checks that the last element of the list is returned.
- * @author vasya
- */
+/// @assertion abstract E removeLast()
+/// Pops and returns the last element of the list.
+/// @description Checks that the last element of the list is returned.
+/// @author vasya
+
 library removeLast_A01_t01;
 
 import "../../../Utils/expect.dart";

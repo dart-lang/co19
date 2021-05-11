@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<E> where(bool test(E element))
- * Returns a new lazy [Iterable] with all elements that satisfy the predicate
- * [test].
- * The matching elements have the same order in the returned iterable as they
- * have in iterator.
- * @description Checks that the returned [Iterable] contains all elements
- * from [this] that satisfy [test] in the same order as the matched element in
- * this, and all other elements are skipped.
- * @author msyabro
- */
+/// @assertion Iterable<E> where(bool test(E element))
+/// Returns a new lazy [Iterable] with all elements that satisfy the predicate
+/// [test].
+/// The matching elements have the same order in the returned iterable as they
+/// have in iterator.
+/// @description Checks that the returned [Iterable] contains all elements
+/// from [this] that satisfy [test] in the same order as the matched element in
+/// this, and all other elements are skipped.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

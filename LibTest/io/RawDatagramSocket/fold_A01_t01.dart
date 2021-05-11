@@ -2,21 +2,20 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion @assertion
- * Future<S> fold<S>(
- *     S initialValue,
- *     S combine(
- *         S previous,
- *         T element
- *     )
- * )
- * Reduces a sequence of values by repeatedly applying combine.
- *
- * @description Checks that method [fold] reduces a sequence of values by
- * repeatedly applying combine.
- * @author ngl@unipro.ru
- */
+/// @assertion @assertion
+/// Future<S> fold<S>(
+///     S initialValue,
+///     S combine(
+///         S previous,
+///         T element
+///     )
+/// )
+/// Reduces a sequence of values by repeatedly applying combine.
+///
+/// @description Checks that method [fold] reduces a sequence of values by
+/// repeatedly applying combine.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

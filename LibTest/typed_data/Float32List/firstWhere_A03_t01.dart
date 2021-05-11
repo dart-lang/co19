@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion dynamic firstWhere(bool test(E element), {Object orElse()})
- * If orElse is omitted, it defaults to throwing a StateError.
- * @description Checks that a [StateError] is thrown if orElse is omitted.
- * @author msyabro
- */
+/// @assertion dynamic firstWhere(bool test(E element), {Object orElse()})
+/// If orElse is omitted, it defaults to throwing a StateError.
+/// @description Checks that a [StateError] is thrown if orElse is omitted.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

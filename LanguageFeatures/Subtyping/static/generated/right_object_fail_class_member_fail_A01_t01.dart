@@ -2,35 +2,32 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
- * when:
- * Right Object: if T1 is Object then:
- *  - if T0 is an unpromoted type variable with bound B then T0 <: T1 iff
- *      B <: Object
- *  - if T0 is a promoted type variable X & S then T0 <: T1 iff S <: Object
- *  - if T0 is FutureOr<S> for some S, then T0 <: T1 iff S <: Object.
- *  - if T0 is S* for any S, then T0 <: T1 iff S <: T1
- *  - if T0 is Null, dynamic, void, or S? for any S, then the subtyping does not
- *      hold (per above, the result of the subtyping query is false).
- *  - Otherwise T0 <: T1 is true.
- * @description Check that if T0 is an unpromoted type variable with bound B
- * but B is not subtype of Object then T0 is not subtype of T1
- * @author sgrekhov@unipro.ru
- */
-/**
- * @description Check that if type T0 not a subtype of a type T1, then it cannot
- * be used as a class member of type T1. Assignment to static and instance class
- * variables is tested.
- * @author sgrekhov@unipro.ru
- * @author ngl@unipro.ru
- */
-/*
- * This test is generated from right_object_fail_A01.dart and 
- * class_member_fail_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+/// @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
+/// when:
+/// Right Object: if T1 is Object then:
+///  - if T0 is an unpromoted type variable with bound B then T0 <: T1 iff
+///      B <: Object
+///  - if T0 is a promoted type variable X & S then T0 <: T1 iff S <: Object
+///  - if T0 is FutureOr<S> for some S, then T0 <: T1 iff S <: Object.
+///  - if T0 is S* for any S, then T0 <: T1 iff S <: T1
+///  - if T0 is Null, dynamic, void, or S? for any S, then the subtyping does not
+///      hold (per above, the result of the subtyping query is false).
+///  - Otherwise T0 <: T1 is true.
+/// @description Check that if T0 is an unpromoted type variable with bound B
+/// but B is not subtype of Object then T0 is not subtype of T1
+/// @author sgrekhov@unipro.ru
+///
+/// @description Check that if type T0 not a subtype of a type T1, then it cannot
+/// be used as a class member of type T1. Assignment to static and instance class
+/// variables is tested.
+/// @author sgrekhov@unipro.ru
+/// @author ngl@unipro.ru
+///
+/// This test is generated from right_object_fail_A01.dart and 
+/// class_member_fail_x01.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
+
 
 
 class B {}
@@ -50,29 +47,17 @@ class ClassMemberTestStatic {
 
   ClassMemberTestStatic(T0? val) {
     s = val;
-//      ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   }
 
   static staticTest() {
     s = t0Instance;
-//      ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   }
 
   static set staticSetter(T0? val) {
     s = val;
-//      ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   }
 
   static Object get staticGetter => t0Instance;
-//                               ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 class ClassMemberTestPublic {
@@ -80,9 +65,6 @@ class ClassMemberTestPublic {
 
   ClassMemberTestPublic(T0? val) {
     m = val;
-//      ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   }
 
   ClassMemberTestPublic.short(this.m);
@@ -91,22 +73,13 @@ class ClassMemberTestPublic {
 
   test(T0? val) {
     m = val;
-//      ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   }
 
   set setter(T0? val) {
     m = val;
-//      ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   }
 
   Object get getter => t0Instance;
-//                  ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 class ClassMemberTestPrivate {
@@ -114,9 +87,6 @@ class ClassMemberTestPrivate {
 
   ClassMemberTestPrivate(T0? val) {
     _m = val;
-//       ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   }
 
   ClassMemberTestPrivate.short(this._m);
@@ -125,28 +95,16 @@ class ClassMemberTestPrivate {
 
   test(T0? val) {
     _m = val;
-//       ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   }
 
   set setter(T0? val) {
     _m = val;
-//       ^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   }
 }
 
 class ClassMemberTestInitFail {
   static Object s = t0Instance;
-//               ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
   Object m = t0Instance;
-//        ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 
@@ -154,9 +112,6 @@ class ClassMemberTestInitFail {
 test<T extends B?>(T t0Instance) {
   
   new ClassMemberTestPublic.validConstructor().m = t0Instance;
-//                                                 ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 }
 

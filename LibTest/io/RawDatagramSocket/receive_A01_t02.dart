@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Datagram receive()
- * Receive a datagram. If there are no datagrams available null is returned.
- *
- * @description Checks that RawSocketEvent.closed event does not have datagram
- * and method receive returns null in this case.
- * @author ngl@unipro.ru
- */
+/// @assertion Datagram receive()
+/// Receive a datagram. If there are no datagrams available null is returned.
+///
+/// @description Checks that RawSocketEvent.closed event does not have datagram
+/// and method receive returns null in this case.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../http_utils.dart";

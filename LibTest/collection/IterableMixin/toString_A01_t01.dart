@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String toString()
- * Returns a string representation of this object.
- * @description Checks that result string is correct.
- * @author iarkh@unipro.ru
- */
+/// @assertion String toString()
+/// Returns a string representation of this object.
+/// @description Checks that result string is correct.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

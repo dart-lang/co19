@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool every(bool test(E element))
- * Returns true if every elements of this collection satisfy
- * the predicate [test]. Returns false otherwise.
- * @descriptionCheck that true is returned only if every element
- * of the list satisfies the predicate [f].
- * @author msyabro
- */
+/// @assertion bool every(bool test(E element))
+/// Returns true if every elements of this collection satisfy
+/// the predicate [test]. Returns false otherwise.
+/// @descriptionCheck that true is returned only if every element
+/// of the list satisfies the predicate [f].
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 bool pred(element) => element > 5;

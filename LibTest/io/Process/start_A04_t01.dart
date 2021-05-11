@@ -2,27 +2,26 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Future<Process> start(
- *     String executable,
- *     List<String> arguments, {
- *     String workingDirectory,
- *     Map<String, String> environment,
- *     bool includeParentEnvironment: true,
- *     bool runInShell: false,
- *     ProcessStartMode mode: ProcessStartMode.normal
- * })
- * ...
- * If mode is ProcessStartMode.normal (the default) a child process will be
- * started with stdin, stdout and stderr connected.
- *
- * @description Checks that if mode is ProcessStartMode.normal (the default) a
- * child process will be started with stdin, stdout and stderr connected. Also
- * process pid and exitCode are available.
- * @author ngl@unipro.ru
- * @issue 30945
- */
+/// @assertion
+/// Future<Process> start(
+///     String executable,
+///     List<String> arguments, {
+///     String workingDirectory,
+///     Map<String, String> environment,
+///     bool includeParentEnvironment: true,
+///     bool runInShell: false,
+///     ProcessStartMode mode: ProcessStartMode.normal
+/// })
+/// ...
+/// If mode is ProcessStartMode.normal (the default) a child process will be
+/// started with stdin, stdout and stderr connected.
+///
+/// @description Checks that if mode is ProcessStartMode.normal (the default) a
+/// child process will be started with stdin, stdout and stderr connected. Also
+/// process pid and exitCode are available.
+/// @author ngl@unipro.ru
+/// @issue 30945
+
 import "dart:convert";
 import "dart:io";
 import "dart:async";

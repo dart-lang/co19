@@ -2,21 +2,20 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<E> drain<E>([E futureValue ])
- * Discards all data on the stream, but signals when it's done or an error
- * occurred.
- *
- * When subscribing using drain, cancelOnError will be true. This means that the
- * future will complete with the first error on the stream and then cancel the
- * subscription.
- *
- * In case of a done event the future completes with the given futureValue.
- *
- * @description Checks that future is completed with null, when futureValue is
- * not specified.
- * @author ngl@unipro.ru
- */
+/// @assertion Future<E> drain<E>([E futureValue ])
+/// Discards all data on the stream, but signals when it's done or an error
+/// occurred.
+///
+/// When subscribing using drain, cancelOnError will be true. This means that the
+/// future will complete with the first error on the stream and then cancel the
+/// subscription.
+///
+/// In case of a done event the future completes with the given futureValue.
+///
+/// @description Checks that future is completed with null, when futureValue is
+/// not specified.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../http_utils.dart";

@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion dynamic firstWhere(bool test(E value), {Object orElse()})
- * By default, when [orElse] is [null], a StateError is thrown.
- * @description Checks that a StateError is thrown when orElse is null and none
- * matches.
- * @author kaigorodov
- */
+/// @assertion dynamic firstWhere(bool test(E value), {Object orElse()})
+/// By default, when [orElse] is [null], a StateError is thrown.
+/// @description Checks that a StateError is thrown when orElse is null and none
+/// matches.
+/// @author kaigorodov
+
 
 import "dart:collection";
 import "../../../Utils/expect.dart";

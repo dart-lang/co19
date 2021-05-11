@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion double asin(num x)
- * Converts [x] to a double and returns its arc sine in radians.
- *
- * @description Checks returned values on various arguments.
- *
- * @issue 26261
- * @author msyabro
- */
+/// @assertion double asin(num x)
+/// Converts [x] to a double and returns its arc sine in radians.
+///
+/// @description Checks returned values on various arguments.
+///
+/// @issue 26261
+/// @author msyabro
+
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

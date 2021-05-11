@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The effect of a type alias of the form typedef id = T; declared in
- * a library L is to introduce the name id into the scope of L, bound to the
- * type T .
- * @description Checks that type alias of the form typedef id = T; introduces
- * the name id, bound to the type T .
- * @author sgrekhov@unipro.ru
- */
+/// @assertion The effect of a type alias of the form typedef id = T; declared in
+/// a library L is to introduce the name id into the scope of L, bound to the
+/// type T .
+/// @description Checks that type alias of the form typedef id = T; introduces
+/// the name id, bound to the type T .
+/// @author sgrekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 import "../../../Utils/expect.dart";
 

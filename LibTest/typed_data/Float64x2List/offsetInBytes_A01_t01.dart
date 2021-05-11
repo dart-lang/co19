@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int offsetInBytes
- * Returns the offset in bytes into the underlying byte buffer of this view.
- * @description Checks that the offset in bytes into the underlying byte buffer
- * of this view is returned.
- * @author ngl@unipro.ru
- */
+/// @assertion int offsetInBytes
+/// Returns the offset in bytes into the underlying byte buffer of this view.
+/// @description Checks that the offset in bytes into the underlying byte buffer
+/// of this view is returned.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

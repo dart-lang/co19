@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The static type of a double valued integer literal is [double]
- * @description Checks that the static type of a double valued integer literal
- * is [double]. Test that it is a compile error if expected type is not
- * precisely `double`
- * @compile-error
- * @author sgrekhov@unipro.ru
- */
+/// @assertion The static type of a double valued integer literal is [double]
+/// @description Checks that the static type of a double valued integer literal
+/// is [double]. Test that it is a compile error if expected type is not
+/// precisely `double`
+/// @compile-error
+/// @author sgrekhov@unipro.ru
+
 
 class C<X extends double> {
   X get instanceGetter => 42;       //# 01: compile-time error

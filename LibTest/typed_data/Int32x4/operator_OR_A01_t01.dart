@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Int32x4 operator |(Int32x4 other)
- * The bit-wise or operator.
- * @description Checks that every lane of the new [Int32x4] equals the result
- * of applying bit-wise or operator to corresponding lanes of operands.
- * @note undocumented
- * @author msyabro
- */
+/// @assertion Int32x4 operator |(Int32x4 other)
+/// The bit-wise or operator.
+/// @description Checks that every lane of the new [Int32x4] equals the result
+/// of applying bit-wise or operator to corresponding lanes of operands.
+/// @note undocumented
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

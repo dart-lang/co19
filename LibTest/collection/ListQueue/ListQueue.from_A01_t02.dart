@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion factory ListQueue.from(Iterable elements)
- * Create a [ListQueue] containing all [elements].
- * The elements are added to the queue, as by [addLast], in the order given by
- * [elements.iterator].
- * @description Checks constructor with a custom [Iterable].
- * @author kaigorodov
- */
+/// @assertion factory ListQueue.from(Iterable elements)
+/// Create a [ListQueue] containing all [elements].
+/// The elements are added to the queue, as by [addLast], in the order given by
+/// [elements.iterator].
+/// @description Checks constructor with a custom [Iterable].
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

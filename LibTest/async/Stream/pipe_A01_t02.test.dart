@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future pipe(StreamConsumer<T> streamConsumer)
- * Pipe the events of this stream into streamConsumer.
- * @description Checks that all events (including errors) of this stream are
- * piped through streamConsumer
- * @author a.semenov@unipro.ru
- */
+/// @assertion Future pipe(StreamConsumer<T> streamConsumer)
+/// Pipe the events of this stream into streamConsumer.
+/// @description Checks that all events (including errors) of this stream are
+/// piped through streamConsumer
+/// @author a.semenov@unipro.ru
+
 library pipe_A01_t02;
 import "dart:async";
 import "../../../Utils/expect.dart";

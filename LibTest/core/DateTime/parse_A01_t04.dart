@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion DateTime.parse(String formattedString)
- * Constructs a new [DateTime] instance based on [formattedString]
- * @description Checks that the output of toIso8601String is parsed back into
- * a DateTime object with the same time as the original.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion DateTime.parse(String formattedString)
+/// Constructs a new [DateTime] instance based on [formattedString]
+/// @description Checks that the output of toIso8601String is parsed back into
+/// a DateTime object with the same time as the original.
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

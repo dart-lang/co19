@@ -2,9 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @author iarkh@unipro.ru
- */
+/// @author iarkh@unipro.ru
+
 library opted_out_lib;
 
 class C1<X extends void Function<T>()> {}

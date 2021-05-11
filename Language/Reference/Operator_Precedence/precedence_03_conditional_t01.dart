@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Description    Operator                          Associativity Precedence
- * Conditional      e1? e2: e3                         Right          3
- * @description Test that 'e1? e2: e3' conditional operator has right
- * associativity.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion
+/// Description    Operator                          Associativity Precedence
+/// Conditional      e1? e2: e3                         Right          3
+/// @description Test that 'e1? e2: e3' conditional operator has right
+/// associativity.
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 String log = "";

@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion LinkedHashMap.fromIterable(Iterable iterable,
- * {K key(element), V value(element)})
- * Creates a [LinkedHashMap] where the keys and values are computed from the
- * [iterable].
- * @description Checks that if [key] and [value] functions specified then they
- * are used for computing elements of this [iterable].
- * @author sgrekhov@unipro.ru
- */
+/// @assertion LinkedHashMap.fromIterable(Iterable iterable,
+/// {K key(element), V value(element)})
+/// Creates a [LinkedHashMap] where the keys and values are computed from the
+/// [iterable].
+/// @description Checks that if [key] and [value] functions specified then they
+/// are used for computing elements of this [iterable].
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

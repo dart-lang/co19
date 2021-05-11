@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String convert(
- *  List<int> bytes, [
- *  int start = 0,
- *  int end
- *  ])
- * Converts the bytes (a list of unsigned 7- or 8-bit integers) to the
- * corresponding string.
- * ...
- * @description Checks that this method decodes data to ASCII string
- * @author sgrekhov@unipro.ru
- */
+/// @assertion String convert(
+///  List<int> bytes, [
+///  int start = 0,
+///  int end
+///  ])
+/// Converts the bytes (a list of unsigned 7- or 8-bit integers) to the
+/// corresponding string.
+/// ...
+/// @description Checks that this method decodes data to ASCII string
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

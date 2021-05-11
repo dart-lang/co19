@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion StreamConsumer()
- *
- * @description Checks that an instance of StreamConsumer may be created.
- * @author ngl@unipro.ru
- */
+/// @assertion StreamConsumer()
+///
+/// @description Checks that an instance of StreamConsumer may be created.
+/// @author ngl@unipro.ru
+
 library StreamConsumer_A01_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

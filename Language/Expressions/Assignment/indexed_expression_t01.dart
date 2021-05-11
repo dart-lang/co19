@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Evaluation of an assignment of the form e1[e2] = e3 is equivalent
- * to the evaluation of the expression
- * (a, i, e){a.[]=(i, e); return e;} (e1, e2, e3).
- * @description Checks that an assignment of the form e1[e2] = e3  is equivalent
- * to (a, i, e){a.[]=(i, e); return e;} (e1, e2, e3).
- * @author rodionov
- */
+/// @assertion Evaluation of an assignment of the form e1[e2] = e3 is equivalent
+/// to the evaluation of the expression
+/// (a, i, e){a.[]=(i, e); return e;} (e1, e2, e3).
+/// @description Checks that an assignment of the form e1[e2] = e3  is equivalent
+/// to (a, i, e){a.[]=(i, e); return e;} (e1, e2, e3).
+/// @author rodionov
+
 
 import '../../../Utils/expect.dart';
 

@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String decode(List<int> bytes, {bool allowInvalid})
- * Decodes the Latin-1 bytes (a list of unsigned 8-bit integers) to the
- * corresponding string.
- * ...
- * @description Checks that this method decodes the Latin-1 bytes (a list of
- * unsigned 8-bit integers) to the corresponding string.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion String decode(List<int> bytes, {bool allowInvalid})
+/// Decodes the Latin-1 bytes (a list of unsigned 8-bit integers) to the
+/// corresponding string.
+/// ...
+/// @description Checks that this method decodes the Latin-1 bytes (a list of
+/// unsigned 8-bit integers) to the corresponding string.
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

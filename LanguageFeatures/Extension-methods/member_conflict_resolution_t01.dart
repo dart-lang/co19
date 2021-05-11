@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion An extension can declare a member with the same (base-)name as a
- * member of the type it is declared on. This does not cause a compile-time
- * conflict, even if the member does not have a compatible signature.
- *
- * @description Check that an extension can declare a member with the same
- * (base-)name as a member of the type it is declared on
- * @author sgrekhov@unipro.ru
- */
+/// @assertion An extension can declare a member with the same (base-)name as a
+/// member of the type it is declared on. This does not cause a compile-time
+/// conflict, even if the member does not have a compatible signature.
+///
+/// @description Check that an extension can declare a member with the same
+/// (base-)name as a member of the type it is declared on
+/// @author sgrekhov@unipro.ru
+
 
 
 import "../../Utils/expect.dart";

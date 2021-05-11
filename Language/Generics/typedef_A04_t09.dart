@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A generic type alias is a declaration [D] of one of the following
- * forms:
- *   m typedef id<X1 extends B1, . . . , Xs extends Bs> = T;
- *   ...
- * [D] introduces a mapping from actual type argument lists to types.
- * @description Checks that [D] maps argument list to types when [T] represents
- * some function
- * @author iarkh@unipro.ru
- */
+/// @assertion A generic type alias is a declaration [D] of one of the following
+/// forms:
+///   m typedef id<X1 extends B1, . . . , Xs extends Bs> = T;
+///   ...
+/// [D] introduces a mapping from actual type argument lists to types.
+/// @description Checks that [D] maps argument list to types when [T] represents
+/// some function
+/// @author iarkh@unipro.ru
+
 
 import "../../Utils/expect.dart";
 

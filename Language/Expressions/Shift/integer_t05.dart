@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion N/A
- * @description Checks that triple right shift argument cannot be negative and
- * cause compile time error if this is a constant expression (see co19 Issue
- * #355 for more details)
- * @author iarkh@unipro.ru
- */
+/// @assertion N/A
+/// @description Checks that triple right shift argument cannot be negative and
+/// cause compile time error if this is a constant expression (see co19 Issue
+/// #355 for more details)
+/// @author iarkh@unipro.ru
+
 // SharedOptions=--enable-experiment=triple-shift
 
 main() {

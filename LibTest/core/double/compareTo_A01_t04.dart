@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int compareTo(Comparable other)
- * ...
- * Positive infinity is greater than any finite value (any value apart from
- * itself and NaN), and negative infinity is less than any other value.
- * @description Checks that Infinity is greater than any other value (but NaN)
- * and less than any other value
- * @author sgrekhov@unipro.ru
- */
+/// @assertion int compareTo(Comparable other)
+/// ...
+/// Positive infinity is greater than any finite value (any value apart from
+/// itself and NaN), and negative infinity is less than any other value.
+/// @description Checks that Infinity is greater than any other value (but NaN)
+/// and less than any other value
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

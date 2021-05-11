@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void addError(error, [StackTrace stackTrace])
- * This function must not be called when a stream is currently being added using
- * [addStream].
- * @description Checks that adding [error] after another stream has already been
- * added does not cause [StateError].
- * @author iarkh@unipro.ru
- */
+/// @assertion void addError(error, [StackTrace stackTrace])
+/// This function must not be called when a stream is currently being added using
+/// [addStream].
+/// @description Checks that adding [error] after another stream has already been
+/// added does not cause [StateError].
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";

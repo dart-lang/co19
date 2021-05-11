@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Let u be the stream associated with the immediately enclosing
- * asynchronous for loop or generator function, if any. If another event Eu
- * of u occurs before execution of s is complete, handling of Eu must wait
- * until s is complete.
- *
- * @description Check that all iterations of inner loop are complete before
- * outer loop proceed with its new event.
- * @author a.semenov@unipro.ru
- */
+/// @assertion Let u be the stream associated with the immediately enclosing
+/// asynchronous for loop or generator function, if any. If another event Eu
+/// of u occurs before execution of s is complete, handling of Eu must wait
+/// until s is complete.
+///
+/// @description Check that all iterations of inner loop are complete before
+/// outer loop proceed with its new event.
+/// @author a.semenov@unipro.ru
+
 import 'dart:async';
 import '../../../../Utils/expect.dart';
 

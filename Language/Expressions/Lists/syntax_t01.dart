@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A list literal denotes a list, which is an integer indexed
- * collection of objects.
- * listLiteral:
- *   const? typeArguments? '[' (expressionList ','?)? ']'
- * ;
- * @description Checks that various list literals don't produce a compile-time
- * errors.
- * @author msyabro
- */
+/// @assertion A list literal denotes a list, which is an integer indexed
+/// collection of objects.
+/// listLiteral:
+///   const? typeArguments? '[' (expressionList ','?)? ']'
+/// ;
+/// @description Checks that various list literals don't produce a compile-time
+/// errors.
+/// @author msyabro
+
 // SharedOptions=--enable-experiment=triple-shift
 
 topFunc() {}

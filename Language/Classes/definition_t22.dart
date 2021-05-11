@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion classDefinition:
- *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
- * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
- *   metadata abstract? class mixinApplicationClass
- * ;
- * @description Checks that it is a compile-time error if mixin has incorrect 
- * declaration in a class definition.
- * @compile-error
- * @author hlodvig
- */
+/// @assertion classDefinition:
+///   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+/// interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+///   metadata abstract? class mixinApplicationClass
+/// ;
+/// @description Checks that it is a compile-time error if mixin has incorrect 
+/// declaration in a class definition.
+/// @compile-error
+/// @author hlodvig
+
 
 class A {}
 class B1 {}

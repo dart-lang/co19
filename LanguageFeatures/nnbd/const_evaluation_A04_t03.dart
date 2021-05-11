@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion CONST_CANONICAL_TYPE(FutureOr<T>) = FutureOr<S>* where S is
- * CONST_CANONICAL_TYPE(T)
- *
- * @description Checks that CONST_CANONICAL_TYPE(FutureOr<int>) = FutureOr<int>
- *
- * @author iarkh@unipro.ru
- */
+/// @assertion CONST_CANONICAL_TYPE(FutureOr<T>) = FutureOr<S>* where S is
+/// CONST_CANONICAL_TYPE(T)
+///
+/// @description Checks that CONST_CANONICAL_TYPE(FutureOr<int>) = FutureOr<int>
+///
+/// @author iarkh@unipro.ru
+
 // Requirements=nnbd-strong
 
 import"dart:async";

@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract Stream<T> bind(Stream<S> stream)
- * @description Checks that transformer.bind(stream) is equivalent to
- * stream.transform(transformer)
- * @author ilya
- */
+/// @assertion abstract Stream<T> bind(Stream<S> stream)
+/// @description Checks that transformer.bind(stream) is equivalent to
+/// stream.transform(transformer)
+/// @author ilya
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

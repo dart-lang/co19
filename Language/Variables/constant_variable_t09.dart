@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A constant variable is a variable whose declaration includes the 
- * modifier const. A constant variable is always implicitly final.
- * @description Checks that constant variables are initialized properly.
- * @author msyabro
- */
+/// @assertion A constant variable is a variable whose declaration includes the 
+/// modifier const. A constant variable is always implicitly final.
+/// @description Checks that constant variables are initialized properly.
+/// @author msyabro
+
 import "../../Utils/expect.dart";
 
 import "dart:math" as Math;

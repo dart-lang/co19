@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void add(List<int> data)
- * void addError(error, [StackTrace stackTrace])
- * Passes the [error] to the target consumer as an error event.
- * @description Checks that error message and stack trace appears in [stderr] as
- * a result of the [addError] method call.
- * @author iarkh@unipro.ru
- */
+/// @assertion void add(List<int> data)
+/// void addError(error, [StackTrace stackTrace])
+/// Passes the [error] to the target consumer as an error event.
+/// @description Checks that error message and stack trace appears in [stderr] as
+/// a result of the [addError] method call.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:io";
 

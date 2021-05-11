@@ -2,9 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @author sgrekhov@unipro.ru
- */
+/// @author sgrekhov@unipro.ru
+
 // @dart=2.6
 
 library future_flattening_legacy_lib;

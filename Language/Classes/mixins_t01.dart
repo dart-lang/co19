@@ -2,19 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion classDefinition:
- *   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
- * interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
- *   metadata abstract? class mixinApplicationClass
- * ;
- * mixins:
- *   with typeList
- * ;
- * @description Checks that a correct class declaration with mixins is 
- * accepted.
- * @author kaigorodov
- */
+/// @assertion classDefinition:
+///   metadata abstract? class identifier typeParameters? (superclass mixins?)? 
+/// interfaces? ‘{’ (metadata classMemberDefinition)* ‘}’ |
+///   metadata abstract? class mixinApplicationClass
+/// ;
+/// mixins:
+///   with typeList
+/// ;
+/// @description Checks that a correct class declaration with mixins is 
+/// accepted.
+/// @author kaigorodov
+
 
 class A {
   int a() {return 1;}

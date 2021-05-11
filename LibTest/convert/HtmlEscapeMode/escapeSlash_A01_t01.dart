@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool escapeSlash
- *  read-only
- * Whether to escape "/" (forward slash, solidus).
- * @description Checks that this property shows if slash is escaped
- * Test default constructor values
- * @author sgrekhov@unipro.ru
- */
+/// @assertion bool escapeSlash
+///  read-only
+/// Whether to escape "/" (forward slash, solidus).
+/// @description Checks that this property shows if slash is escaped
+/// Test default constructor values
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

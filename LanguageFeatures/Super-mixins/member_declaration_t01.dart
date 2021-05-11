@@ -2,21 +2,20 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A mixin declaration defines an interface. The interface for this
- * mixin declaration is equivalent to the interface of the class declared as:
- *  abstract class A<X extends S, Y extends T> extends A$super<X, Y>
- *    implements D, E { body' }
- * where body' contains abstract declarations corresponding to the instance
- * members of body of the mixin A.
- * . . .
- * and member declarations are not allowed to have the same name as the mixin
- * declaration.
- *
- * @description Checks that it is a compile error if a mixin member has the same
- * name as a mixin declaration.
- * @author ngl@unipro.ru
- */
+/// @assertion A mixin declaration defines an interface. The interface for this
+/// mixin declaration is equivalent to the interface of the class declared as:
+///  abstract class A<X extends S, Y extends T> extends A$super<X, Y>
+///    implements D, E { body' }
+/// where body' contains abstract declarations corresponding to the instance
+/// members of body of the mixin A.
+/// . . .
+/// and member declarations are not allowed to have the same name as the mixin
+/// declaration.
+///
+/// @description Checks that it is a compile error if a mixin member has the same
+/// name as a mixin declaration.
+/// @author ngl@unipro.ru
+
 
 class I {}
 class J {}

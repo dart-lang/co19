@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Any self reference in a typedef, either directly, or recursively
- * via another typedef, is a compile time error.
- * @description Checks that self-referencing typedef is not allowed (return
- * value type annotation has the same name as the type alias).
- * @compile-error
- * @author msyabro
- */
+/// @assertion Any self reference in a typedef, either directly, or recursively
+/// via another typedef, is a compile time error.
+/// @description Checks that self-referencing typedef is not allowed (return
+/// value type annotation has the same name as the type alias).
+/// @compile-error
+/// @author msyabro
+
 
 typedef F F();
 

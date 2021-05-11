@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion E singleWhere(bool test(E element))
- * If no or more than one element match then a StateError is thrown.
- * @description Checks that a StateError is thrown if no element match.
- * @author kaigorodov
- */
+/// @assertion E singleWhere(bool test(E element))
+/// If no or more than one element match then a StateError is thrown.
+/// @description Checks that a StateError is thrown if no element match.
+/// @author kaigorodov
+
 library singleWhere_A02_t01;
 import "../../../Utils/expect.dart";
 

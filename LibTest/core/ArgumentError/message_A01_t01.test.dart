@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion dynamic message
- * read-only
- * Message describing the problem.
- * @description Checks that message property returns description of the problem
- * @author sgrekhov@unipro.ru
- */
+/// @assertion dynamic message
+/// read-only
+/// Message describing the problem.
+/// @description Checks that message property returns description of the problem
+/// @author sgrekhov@unipro.ru
+
 
 import "../../../Utils/expect.dart";
 

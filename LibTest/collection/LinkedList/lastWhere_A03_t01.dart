@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion dynamic lastWhere(bool test(E value), {Object orElse()})
- * If [orElse] is omitted, it defaults to throwing a [StateError].
- * @description Checks that if none matches and [orElse] is [null], a
- * [StateError] is thrown.
- * @author kaigorodov
- */
+/// @assertion dynamic lastWhere(bool test(E value), {Object orElse()})
+/// If [orElse] is omitted, it defaults to throwing a [StateError].
+/// @description Checks that if none matches and [orElse] is [null], a
+/// [StateError] is thrown.
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 import "LinkedList.lib.dart";

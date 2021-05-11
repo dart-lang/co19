@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int lengthInBytes
- * Returns the length of this view, in bytes.
- * @description Checks that [lengthInBytes] is read-only and can't be set.
- * @author msyabro
- */
+/// @assertion int lengthInBytes
+/// Returns the length of this view, in bytes.
+/// @description Checks that [lengthInBytes] is read-only and can't be set.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  int lastIndexOf(Object element, [ int startIndex ])
- * Returns [-1] if [element] is not found.
- * @description Checks that [-1] is returned if [element] is not present in the
- * list and [start] index is not specified
- * @author iarkh@unipro.ru
- */
+/// @assertion  int lastIndexOf(Object element, [ int startIndex ])
+/// Returns [-1] if [element] is not found.
+/// @description Checks that [-1] is returned if [element] is not present in the
+/// list and [start] index is not specified
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

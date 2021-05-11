@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Element createElement(String tagName, [String typeExtension])
- * Creates a new element with the given tag name.
- * @description Checks that newly created element belongs to this document.
- */
+/// @assertion Element createElement(String tagName, [String typeExtension])
+/// Creates a new element with the given tag name.
+/// @description Checks that newly created element belongs to this document.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Map<String, String> getNamespacedAttributes(String namespace)
- * Gets a map for manipulating the attributes of a particular namespace.
- * @description Checks expected attributes values.
- * @issue 16395
- */
+/// @assertion Map<String, String> getNamespacedAttributes(String namespace)
+/// Gets a map for manipulating the attributes of a particular namespace.
+/// @description Checks expected attributes values.
+/// @issue 16395
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../testcommon.dart";

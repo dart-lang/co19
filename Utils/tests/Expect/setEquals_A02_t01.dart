@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion static void setEquals(Iterable expected, Iterable actual, [String reason = null])
- * Passing null as either expected or actual results in Error. 
- * @description Checks that Error is thrown if any of the required arguments are
- * null.
- * @author rodionov
- */
+/// @assertion static void setEquals(Iterable expected, Iterable actual, [String reason = null])
+/// Passing null as either expected or actual results in Error. 
+/// @description Checks that Error is thrown if any of the required arguments are
+/// null.
+/// @author rodionov
+
 import "../../../Utils/expect.dart";
 
 main() {

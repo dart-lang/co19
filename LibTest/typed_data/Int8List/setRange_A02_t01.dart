@@ -2,19 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * void setRange(
- *   int start,
- *   int end,
- *   Iterable<E> iterable, [
- *   int skipCount = 0
- * ])
- * ...
- * An empty range (with end == start) is valid.
- * @description Checks that the method has no effect if [end] equals [start].
- * @author msyabro
- */
+/// @assertion
+/// void setRange(
+///   int start,
+///   int end,
+///   Iterable<E> iterable, [
+///   int skipCount = 0
+/// ])
+/// ...
+/// An empty range (with end == start) is valid.
+/// @description Checks that the method has no effect if [end] equals [start].
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Strings support escape sequences for special characters. The
- * escapes are:
- * . . .
- * • \xHEX_DIGIT1 HEX_DIGIT2, equivalent to \u{ HEX_DIGIT1 HEX_DIGIT2}.
- * @description Checks that \xHEX_DIGIT1 HEX_DIGIT2 is equivalent to
- * \u{ HEX_DIGIT1 HEX_DIGIT2}.
- * @author msyabro
- */
+/// @assertion Strings support escape sequences for special characters. The
+/// escapes are:
+/// . . .
+/// • \xHEX_DIGIT1 HEX_DIGIT2, equivalent to \u{ HEX_DIGIT1 HEX_DIGIT2}.
+/// @description Checks that \xHEX_DIGIT1 HEX_DIGIT2 is equivalent to
+/// \u{ HEX_DIGIT1 HEX_DIGIT2}.
+/// @author msyabro
+
 import '../../../Utils/expect.dart';
 
 main() {

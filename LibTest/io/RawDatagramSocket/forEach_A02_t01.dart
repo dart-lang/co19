@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future forEach(void action(T element))
- * Executes action on each data event of the stream.
- * . . .
- * Completes the future with an error if the stream has an error event, or if
- * action throws.
- *
- * @description Checks that the returned Future is completed with an error if
- * action throws.
- * @author ngl@unipro.ru
- */
+/// @assertion Future forEach(void action(T element))
+/// Executes action on each data event of the stream.
+/// . . .
+/// Completes the future with an error if the stream has an error event, or if
+/// action throws.
+///
+/// @description Checks that the returned Future is completed with an error if
+/// action throws.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

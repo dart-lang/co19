@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion const JsonDecoder([reviver(key, value)])
- * Constructs a new JsonDecoder.
- * The reviver may be null.
- * @description Checks that this constructor creates decoder which works as
- * expected. Test constructor with reviver parameter
- * @author sgrekhov@unipro.ru
- */
+/// @assertion const JsonDecoder([reviver(key, value)])
+/// Constructs a new JsonDecoder.
+/// The reviver may be null.
+/// @description Checks that this constructor creates decoder which works as
+/// expected. Test constructor with reviver parameter
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

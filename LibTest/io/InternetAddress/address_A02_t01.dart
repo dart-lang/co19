@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String address
- * For IPv6 it is using the hexadecimal representation.
- * @description Checks that [address] string is correct for IPv6 addresses
- * @author iarkh@unipro.ru
- */
+/// @assertion String address
+/// For IPv6 it is using the hexadecimal representation.
+/// @description Checks that [address] string is correct for IPv6 addresses
+/// @author iarkh@unipro.ru
+
 
 import "../../../Utils/expect.dart";
 import "dart:io";

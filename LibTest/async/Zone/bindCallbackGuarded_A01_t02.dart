@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void Function() bindCallbackGuarded(void callback())
- *    Registers the provided callback and returns a function that will execute
- * in this zone.
- *    When the function executes, errors are caught and treated as uncaught
- * errors.
- *    Equivalent to:
- *  ZoneCallback registered = this.registerCallback(callback);
- *  return () => this.runGuarded(registered);
- * @description Checks that synchronous [callback] errors are caught in zone
- * @author a.semenov@unipro.ru
- */
+/// @assertion void Function() bindCallbackGuarded(void callback())
+///    Registers the provided callback and returns a function that will execute
+/// in this zone.
+///    When the function executes, errors are caught and treated as uncaught
+/// errors.
+///    Equivalent to:
+///  ZoneCallback registered = this.registerCallback(callback);
+///  return () => this.runGuarded(registered);
+/// @description Checks that synchronous [callback] errors are caught in zone
+/// @author a.semenov@unipro.ru
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

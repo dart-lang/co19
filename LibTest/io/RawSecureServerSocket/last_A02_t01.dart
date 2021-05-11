@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<RawSecureSocket> last
- * The last element of this stream.
- *
- * @description Checks that [last] returns the last element of this.
- * @author ngl@unipro.ru
- */
+/// @assertion Future<RawSecureSocket> last
+/// The last element of this stream.
+///
+/// @description Checks that [last] returns the last element of this.
+/// @author ngl@unipro.ru
+
 // OtherResources=server_chain.pem
 // OtherResources=server_key.pem
 // OtherResources=trusted_certs.pem

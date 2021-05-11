@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String toString()
- * Returns a string representation of this object.
- *
- * @description Checks that method [toString()] returns a string representation
- * of this object.
- * @author ngl@unipro.ru
- */
+/// @assertion String toString()
+/// Returns a string representation of this object.
+///
+/// @description Checks that method [toString()] returns a string representation
+/// of this object.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

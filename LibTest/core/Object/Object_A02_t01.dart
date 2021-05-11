@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion const Object()
- * Creates a new Object instance.
- * Object instances have no meaningful state, and are only useful through their
- * identity. An Object instance is equal to itself only.
- * @description Checks that a new Object instance is equal to itself only
- * @author sgrekhov@unipro.ru
- */
+/// @assertion const Object()
+/// Creates a new Object instance.
+/// Object instances have no meaningful state, and are only useful through their
+/// identity. An Object instance is equal to itself only.
+/// @description Checks that a new Object instance is equal to itself only
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Float32x4 clamp(Float32x4 lowerLimit, Float32x4 upperLimit)
- * Lane-wise clamp this to be in the range [lowerLimit] - [upperLimit].
- * @description Checks that the returned value is in the correct range.
- * @author msyabro
- */
+/// @assertion Float32x4 clamp(Float32x4 lowerLimit, Float32x4 upperLimit)
+/// Lane-wise clamp this to be in the range [lowerLimit] - [upperLimit].
+/// @description Checks that the returned value is in the correct range.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

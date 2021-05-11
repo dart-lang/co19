@@ -2,19 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A class has a set of direct superinterfaces. This set includes
- * the interface of its superclass and the interfaces specified in the the
- * implements clause of the class.
- * interfaces:
- *   implements typeList
- * ;
- * @description Checks that a class can indeed specify one or more
- * superinterfaces using the implements clause and an instance of this class
- * will also be an instance of those interfaces as well as any and all of its
- * superclasses' superinterfaces.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion A class has a set of direct superinterfaces. This set includes
+/// the interface of its superclass and the interfaces specified in the the
+/// implements clause of the class.
+/// interfaces:
+///   implements typeList
+/// ;
+/// @description Checks that a class can indeed specify one or more
+/// superinterfaces using the implements clause and an instance of this class
+/// will also be an instance of those interfaces as well as any and all of its
+/// superclasses' superinterfaces.
+/// @author sgrekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 import "../../../Utils/expect.dart";

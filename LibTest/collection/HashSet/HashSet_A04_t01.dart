@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion interface HashSet<E>
- * HashSet({bool equals(E e1, E e2), int hashCode(E e),
- * bool isValidKey(potentialKey) })
- * If [isValidKey] is omitted, it defaults to testing if the object is an [E]
- * instance.
- * @description Checks that default [isValidKey] function checks if the object
- * is a [K] instance. This means that equals and hashCode functions will not be
- * called for instances of unsupported types.
- * @author iarkh@unipro.ru
- */
+/// @assertion interface HashSet<E>
+/// HashSet({bool equals(E e1, E e2), int hashCode(E e),
+/// bool isValidKey(potentialKey) })
+/// If [isValidKey] is omitted, it defaults to testing if the object is an [E]
+/// instance.
+/// @description Checks that default [isValidKey] function checks if the object
+/// is a [K] instance. This means that equals and hashCode functions will not be
+/// called for instances of unsupported types.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

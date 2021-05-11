@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void add(List<int> data)
- * ...
- * This function must not be called when a stream is currently being added using
- * [addStream].
- * ...
- * @description Checks that calling the [add] function after [addStream] does
- * not cause error if stream adding is finished before the [add] method call.
- * @author iarkh@unipro.ru
- * @author sgrekhov@unipro.ru
- */
+/// @assertion void add(List<int> data)
+/// ...
+/// This function must not be called when a stream is currently being added using
+/// [addStream].
+/// ...
+/// @description Checks that calling the [add] function after [addStream] does
+/// not cause error if stream adding is finished before the [add] method call.
+/// @author iarkh@unipro.ru
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";

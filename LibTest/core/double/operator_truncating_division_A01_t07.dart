@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int operator ~/(num other)
- * @description Performs returned value checks on a bunch of values.
- * @author pagolubev
- */
+/// @assertion int operator ~/(num other)
+/// @description Performs returned value checks on a bunch of values.
+/// @author pagolubev
+
 import "../../../Utils/expect.dart";
 
 check(int expected, double a, double b) {

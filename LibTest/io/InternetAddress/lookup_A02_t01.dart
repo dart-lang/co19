@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<List<InternetAddress>> lookup(String host,
- *   { InternetAddressType type: InternetAddressType.ANY })
- * If [type] is [InternetAddressType.ANY], it will lookup both IP version 4
- * (IPv4) and IP version 6 (IPv6) addresses.
- * @description Checks that created [Future] can contain both IPv4 and IPv6
- * @author iarkh@unipro.ru
- */
+/// @assertion Future<List<InternetAddress>> lookup(String host,
+///   { InternetAddressType type: InternetAddressType.ANY })
+/// If [type] is [InternetAddressType.ANY], it will lookup both IP version 4
+/// (IPv4) and IP version 6 (IPv6) addresses.
+/// @description Checks that created [Future] can contain both IPv4 and IPv6
+/// @author iarkh@unipro.ru
+
 
 import "../../../Utils/expect.dart";
 import "dart:io";

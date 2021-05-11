@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int port
- * Returns the port that the server is listening on. This can be used to get the
- * actual port used when a value of 0 for port is specified in the bind or
- * bindSecure call.
- * @description Checks that this property returns the port that the server is
- * listening on
- * @author sgrekhov@unipro.ru
- */
+/// @assertion int port
+/// Returns the port that the server is listening on. This can be used to get the
+/// actual port used when a value of 0 for port is specified in the bind or
+/// bindSecure call.
+/// @description Checks that this property returns the port that the server is
+/// listening on
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

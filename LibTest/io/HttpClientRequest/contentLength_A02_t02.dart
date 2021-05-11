@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int contentLength
- *  read / write
- * Gets and sets the content length of the request. If the size of the request
- * is not known in advance set content length to -1, which is also the default.
- * @description Checks that setting of contentLength value to the longer value
- * leads to error.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion int contentLength
+///  read / write
+/// Gets and sets the content length of the request. If the size of the request
+/// is not known in advance set content length to -1, which is also the default.
+/// @description Checks that setting of contentLength value to the longer value
+/// leads to error.
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

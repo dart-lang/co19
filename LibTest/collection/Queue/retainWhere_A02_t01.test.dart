@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void retainWhere(bool test(E element))
- * ...
- * The [test] function must not throw or modify the queue.
- * @description Checks that if [test] function throws an exception then
- * operation stops
- * @author sgrekhov@unipro.ru
- */
+/// @assertion void retainWhere(bool test(E element))
+/// ...
+/// The [test] function must not throw or modify the queue.
+/// @description Checks that if [test] function throws an exception then
+/// operation stops
+/// @author sgrekhov@unipro.ru
+
 library retainWhere_A02_t01;
  
 import "../../../Utils/expect.dart";

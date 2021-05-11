@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It's not an error to read potentially assigned local variable in
- * the form var x;
- *
- * @description Checks that it's not an error to read potentially assigned local
- * variable in the form var x;. Test indirect read via triple shift compound
- * assignment
- *
- * @author sgrekhov@unipro.ru
- */
+/// @assertion It's not an error to read potentially assigned local variable in
+/// the form var x;
+///
+/// @description Checks that it's not an error to read potentially assigned local
+/// variable in the form var x;. Test indirect read via triple shift compound
+/// assignment
+///
+/// @author sgrekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=triple-shift
 // Requirements=nnbd-weak
 import '../../../../Utils/expect.dart';

@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It is a static error when the type of the condition expression in
- * an if element may not be assigned to bool.
- *
- * @description Checks that it is a static error when the type of the condition
- * expression in an if element may not be assigned to bool
- * @author sgrekhov@unipro.ru
- */
+/// @assertion It is a static error when the type of the condition expression in
+/// an if element may not be assigned to bool.
+///
+/// @description Checks that it is a static error when the type of the condition
+/// expression in an if element may not be assigned to bool
+/// @author sgrekhov@unipro.ru
+
 
 main() {
   [if ("not bool") 1];

@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion E firstWhere(bool test(E element), {E orElse()})
- * ...
- * Iterates through elements and returns the first to satisfy test.
- * @description Checks that function test is invoked every time when firstWhere
- * iterates through elements to find first element that satisfies the given
- * predicate test.
- * @author ngl@unipro.ru
- */
+/// @assertion E firstWhere(bool test(E element), {E orElse()})
+/// ...
+/// Iterates through elements and returns the first to satisfy test.
+/// @description Checks that function test is invoked every time when firstWhere
+/// iterates through elements to find first element that satisfies the given
+/// predicate test.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

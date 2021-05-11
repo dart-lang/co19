@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion double operator /(num other)
- * This operator implements the arithmetic division operation.
- * @description Checks that division by zero yields correct results (infinities
- * and NaN).
- * @author msyabro
- */
+/// @assertion double operator /(num other)
+/// This operator implements the arithmetic division operation.
+/// @description Checks that division by zero yields correct results (infinities
+/// and NaN).
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 main() {

@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void writeStringSync(String string, {Encoding encoding: utf8})
- * Synchronously writes a single string to the file using the given Encoding.
- *
- * @description Checks that method writeStringSync synchronously writes a single
- * string to the file using the given Encoding utf8 latin1.
- * @author ngl@unipro.ru
-*/
+/// @assertion void writeStringSync(String string, {Encoding encoding: utf8})
+/// Synchronously writes a single string to the file using the given Encoding.
+///
+/// @description Checks that method writeStringSync synchronously writes a single
+/// string to the file using the given Encoding utf8 latin1.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "dart:convert";

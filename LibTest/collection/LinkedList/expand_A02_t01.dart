@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertionIterable expand(Iterable f(E element))
- * The returned [Iterable] is lazy, and calls [f] for each element of this every
- * time it's iterated.
- * @description Checks that the returned [Iterable] is lazy.
- * @author kaigorodov
- */
+/// @assertionIterable expand(Iterable f(E element))
+/// The returned [Iterable] is lazy, and calls [f] for each element of this every
+/// time it's iterated.
+/// @description Checks that the returned [Iterable] is lazy.
+/// @author kaigorodov
+
 import "dart:collection";
 import "LinkedList.lib.dart";
 

@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract class LinkedListEntry<E extends LinkedListEntry>
- * The class provides the internal links that link elements together in the
- * LinkedList, and a reference to the linked list itself that an element is
- * currently part of.
- * @description Checks that [LinkedListEntry] elements in the list contain links
- * to the neighbour elements and the list itself.
- * @author iarkh@unipro.ru
- */
+/// @assertion abstract class LinkedListEntry<E extends LinkedListEntry>
+/// The class provides the internal links that link elements together in the
+/// LinkedList, and a reference to the linked list itself that an element is
+/// currently part of.
+/// @description Checks that [LinkedListEntry] elements in the list contain links
+/// to the neighbour elements and the list itself.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 import "LinkedListEntry.lib.dart";

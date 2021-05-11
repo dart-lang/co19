@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion SplayTreeMap<K, V> class
- * Implements Map<K, V>
- * @description Checks that all members of [Map] are implemented.
- * @author kaigorodov
- */
+/// @assertion SplayTreeMap<K, V> class
+/// Implements Map<K, V>
+/// @description Checks that all members of [Map] are implemented.
+/// @author kaigorodov
+
 import "dart:collection";
 import "../../core/Map/compKeysTests.lib.dart" as compKeysTests;
 import "nonCompKeysTests.lib.dart" as nonCompKeysTests;

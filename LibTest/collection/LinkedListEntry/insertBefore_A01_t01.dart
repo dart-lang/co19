@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void insertBefore(E entry)
- * Insert an element before this element in this element's linked list.
- * @description Checks that entry is inserted before this element
- * @author sgrekhov@unipro.ru
- */
+/// @assertion void insertBefore(E entry)
+/// Insert an element before this element in this element's linked list.
+/// @description Checks that entry is inserted before this element
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 import "LinkedListEntry.lib.dart";

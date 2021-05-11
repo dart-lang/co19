@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion num pow(num x, num exponent)
- * For doubles, pow(x, y) handles edge cases as follows:
- * ...
- * - otherwise, if either x or y is NaN then the result is NaN.
- * @description Checks the result when [x] or [y] is NaN.
- * @author pagolubev
- */
+/// @assertion num pow(num x, num exponent)
+/// For doubles, pow(x, y) handles edge cases as follows:
+/// ...
+/// - otherwise, if either x or y is NaN then the result is NaN.
+/// @description Checks the result when [x] or [y] is NaN.
+/// @author pagolubev
+
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

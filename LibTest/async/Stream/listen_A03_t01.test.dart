@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion StreamSubscription<T> listen(void onData(T event),
- *   {Function onError, void onDone(), bool cancelOnError})
- * On errors from this stream, the onError handler is given a object describing
- * the error.
- * @description Checks that the onError handler is given an object describing the
- * error.
- * @author kaigorodov
- */
+/// @assertion StreamSubscription<T> listen(void onData(T event),
+///   {Function onError, void onDone(), bool cancelOnError})
+/// On errors from this stream, the onError handler is given a object describing
+/// the error.
+/// @description Checks that the onError handler is given an object describing the
+/// error.
+/// @author kaigorodov
+
 library listen_A03_t01;
 
 import "dart:async";

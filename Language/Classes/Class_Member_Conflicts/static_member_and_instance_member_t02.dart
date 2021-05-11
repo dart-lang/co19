@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Let C be a class. It is a compile-time error if C declares a
- * constructor named C.n and a static member with basename n.
- * @description Check that it is a compile-time error if C declares a
- * constructor named C.n and a static member with basename n. Test instance
- * setter
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Let C be a class. It is a compile-time error if C declares a
+/// constructor named C.n and a static member with basename n.
+/// @description Check that it is a compile-time error if C declares a
+/// constructor named C.n and a static member with basename n. Test instance
+/// setter
+/// @author sgrekhov@unipro.ru
+
 class C {
   set s(int v) {}
   set _s(int v) {}

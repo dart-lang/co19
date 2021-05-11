@@ -2,10 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/*
- * http and web sockets utils
- * @author a.semenov@unipro.ru
- */
+/// http and web sockets utils
+/// @author a.semenov@unipro.ru
+
 library http_utils;
 
 import "dart:io";

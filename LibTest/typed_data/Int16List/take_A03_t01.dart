@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<E> take(int count)
- * It is an error if [count] is negative.
- * @description Checks that it is an error if [count] is negative.
- * @author msyabro
- */
+/// @assertion Iterable<E> take(int count)
+/// It is an error if [count] is negative.
+/// @description Checks that it is an error if [count] is negative.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

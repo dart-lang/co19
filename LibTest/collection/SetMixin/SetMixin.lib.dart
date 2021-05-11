@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract class SetMixin<K, V>
- * Mixin implementation of Set.
- * This class provides a base implementation of a Set that depends only on the
- * abstract members: [add], [contains], [lookup], [remove], [iterator], [length]
- * and [toSet].
- * @description Implementation of [add], [contains], [lookup], [remove],
- * [iterator], [length] and [toSet].
- * @author sgrekhov@unipro.ru
- */
+/// @assertion abstract class SetMixin<K, V>
+/// Mixin implementation of Set.
+/// This class provides a base implementation of a Set that depends only on the
+/// abstract members: [add], [contains], [lookup], [remove], [iterator], [length]
+/// and [toSet].
+/// @description Implementation of [add], [contains], [lookup], [remove],
+/// [iterator], [length] and [toSet].
+/// @author sgrekhov@unipro.ru
+
 library set_mixin_lib;
 import "dart:collection";
 

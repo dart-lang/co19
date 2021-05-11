@@ -2,23 +2,22 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Future<RandomAccessFile> writeFrom(
- *     List<int> buffer, [
- *     int start = 0,
- *     int end
- * ])
- * Writes from a List<int> to the file.
- * . . .
- * Returns a Future<RandomAccessFile> that completes with this RandomAccessFile
- * when the write completes.
- *
- * @description Checks that method writeFrom writes from a List<int> to the file
- * and returns Future<RandomAccessFile> that completes with this
- * RandomAccessFile when the write completes.
- * @author ngl@unipro.ru
- */
+/// @assertion
+/// Future<RandomAccessFile> writeFrom(
+///     List<int> buffer, [
+///     int start = 0,
+///     int end
+/// ])
+/// Writes from a List<int> to the file.
+/// . . .
+/// Returns a Future<RandomAccessFile> that completes with this RandomAccessFile
+/// when the write completes.
+///
+/// @description Checks that method writeFrom writes from a List<int> to the file
+/// and returns Future<RandomAccessFile> that completes with this
+/// RandomAccessFile when the write completes.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Document get document
- * The newest document in this window.
- * @description Checks that the newest document in this window returned.
- */
+/// @assertion Document get document
+/// The newest document in this window.
+/// @description Checks that the newest document in this window returned.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

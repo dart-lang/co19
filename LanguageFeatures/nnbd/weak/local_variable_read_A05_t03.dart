@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It is a compile time error to read a local variable when the
- * variable is potentially unassigned unless the variable is non-final and has
- * nullable type, or is late
- *
- * @description Checks that it's not a compile time error to read a non-late and
- * non-final nullable local variable when the variable is potentially unassigned
- *
- * @author sgrekhov@unipro.ru
- */
+/// @assertion It is a compile time error to read a local variable when the
+/// variable is potentially unassigned unless the variable is non-final and has
+/// nullable type, or is late
+///
+/// @description Checks that it's not a compile time error to read a non-late and
+/// non-final nullable local variable when the variable is potentially unassigned
+///
+/// @author sgrekhov@unipro.ru
+
 // Requirements=nnbd-weak
 import "../../../Utils/expect.dart";
 

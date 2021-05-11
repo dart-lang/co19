@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion That could make it ambiguous whether { … ? … : … } is a
- * one-element set or a one-entry map. Luckily, the current grammar does not
- * allow for an ambiguous parsing. The token following a question mark dictates
- * whether it's part of a null-aware operation or the beginning of a new
- * expression.
- *
- * @description Checks usage of a conditional expression when a set literal is
- * declared.
- * @author ngl@unipro.ru
- */
+/// @assertion That could make it ambiguous whether { … ? … : … } is a
+/// one-element set or a one-entry map. Luckily, the current grammar does not
+/// allow for an ambiguous parsing. The token following a question mark dictates
+/// whether it's part of a null-aware operation or the beginning of a new
+/// expression.
+///
+/// @description Checks usage of a conditional expression when a set literal is
+/// declared.
+/// @author ngl@unipro.ru
+
 import "../../Utils/expect.dart";
 
 main() {

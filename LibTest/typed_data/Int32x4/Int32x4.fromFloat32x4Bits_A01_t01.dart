@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Int32x4.fromFloat32x4Bits(Float32x4 x)
- * Returns a bit-wise copy of x as a Int32x4.
- * @description Checks that lanes are converted correctly.
- * @author msyabro
- */
+/// @assertion Int32x4.fromFloat32x4Bits(Float32x4 x)
+/// Returns a bit-wise copy of x as a Int32x4.
+/// @description Checks that lanes are converted correctly.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

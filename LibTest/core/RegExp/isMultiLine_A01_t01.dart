@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final bool multiLine
- * Whether this regular expression matches multiple lines.  
- * @description Checks that this property holds the correct value.
- * @author rodionov
- */
+/// @assertion final bool multiLine
+/// Whether this regular expression matches multiple lines.  
+/// @description Checks that this property holds the correct value.
+/// @author rodionov
+
 import "../../../Utils/expect.dart";
  
 main() {

@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool operator ==(other)
- * The equality operator.
- * ...
- * It must return a boolean for all arguments. It should never throw or return
- * null.
- * @description Checks that it never throws or return null.
- * @author kaigorodov
- */
+/// @assertion bool operator ==(other)
+/// The equality operator.
+/// ...
+/// It must return a boolean for all arguments. It should never throw or return
+/// null.
+/// @description Checks that it never throws or return null.
+/// @author kaigorodov
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 

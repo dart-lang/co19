@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A null aware method call e?.m(args) translates to:
- *  SHORT[EXP(e), fn[x] => x.m(ARGS(args))]
- *
- * @description Check that a null aware method call e?.m(args) translates to:
- *  SHORT[EXP(e), fn[x] => x.m(ARGS(args))]
- * Test e?.m()?.n()
- * @author sgrekhov@unipro.ru
- */
+/// @assertion A null aware method call e?.m(args) translates to:
+///  SHORT[EXP(e), fn[x] => x.m(ARGS(args))]
+///
+/// @description Check that a null aware method call e?.m(args) translates to:
+///  SHORT[EXP(e), fn[x] => x.m(ARGS(args))]
+/// Test e?.m()?.n()
+/// @author sgrekhov@unipro.ru
+
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 

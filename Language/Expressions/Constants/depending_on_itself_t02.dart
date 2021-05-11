@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It is a compile-time error if the value of a compile-time
- * constant expression depends on itself.
- * @description Checks that it is a compile-time error if there is a circular
- * reference in a constant variable's initialization.
- * @author iefremov
- */
+/// @assertion It is a compile-time error if the value of a compile-time
+/// constant expression depends on itself.
+/// @description Checks that it is a compile-time error if there is a circular
+/// reference in a constant variable's initialization.
+/// @author iefremov
+
 
 const a1 = a10;
 //    ^^

@@ -2,16 +2,15 @@
 // file for details. All rights reserved. Use of this source code is governed
 // by a BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion If the errorAreFatal, onExit and/or onError parameters are
- * provided, the isolate will act as if, respectively, setErrorsFatal,
- * addOnExitListener and addErrorListener were called with the corresponding
- * parameter and was processed before the isolate starts running.
- *
- * @description Check that with errorAreFatal set to false the isolate is
- * only suspended on any error. The isolate is passive.
- * @author a.semenov@unipro.ru
- */
+/// @assertion If the errorAreFatal, onExit and/or onError parameters are
+/// provided, the isolate will act as if, respectively, setErrorsFatal,
+/// addOnExitListener and addErrorListener were called with the corresponding
+/// parameter and was processed before the isolate starts running.
+///
+/// @description Check that with errorAreFatal set to false the isolate is
+/// only suspended on any error. The isolate is passive.
+/// @author a.semenov@unipro.ru
+
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";

@@ -2,24 +2,23 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<RawSocketEvent> elementAt(int index)
- * Returns the value of the indexth data event of this stream.
- *
- * Stops listening to the stream after the indexth data event has been received.
- *
- * Internally the method cancels its subscription after these elements. This
- * means that single-subscription (non-broadcast) streams are closed and cannot
- * be reused after a call to this method.
- *
- * If an error event occurs before the value is found, the future completes with
- * this error.
- *
- * @description Checks that if receiver RawDatagramSocket is closed before
- * method 'elementAt' calling, this stream contains only one element
- * RawSocketEvent.closed.
- * @author ngl@unipro.ru
- */
+/// @assertion Future<RawSocketEvent> elementAt(int index)
+/// Returns the value of the indexth data event of this stream.
+///
+/// Stops listening to the stream after the indexth data event has been received.
+///
+/// Internally the method cancels its subscription after these elements. This
+/// means that single-subscription (non-broadcast) streams are closed and cannot
+/// be reused after a call to this method.
+///
+/// If an error event occurs before the value is found, the future completes with
+/// this error.
+///
+/// @description Checks that if receiver RawDatagramSocket is closed before
+/// method 'elementAt' calling, this stream contains only one element
+/// RawSocketEvent.closed.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../http_utils.dart";

@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String contentEditable
- * Gets/sets whether or not the element is editable.
- * WHATWG: The contenteditable attribute is an enumerated attribute whose
- * keywords are the empty string, true, and false. The empty string and the
- * true keyword map to the true state. The false keyword maps to the false
- * state. In addition, there is a third state, the inherit state, which is the
- * missing value default (and the invalid value default).
- * @description Checks expected attribute settings
- */
+/// @assertion String contentEditable
+/// Gets/sets whether or not the element is editable.
+/// WHATWG: The contenteditable attribute is an enumerated attribute whose
+/// keywords are the empty string, true, and false. The empty string and the
+/// true keyword map to the true state. The false keyword maps to the false
+/// state. In addition, there is a third state, the inherit state, which is the
+/// missing value default (and the invalid value default).
+/// @description Checks expected attribute settings
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../testcommon.dart";

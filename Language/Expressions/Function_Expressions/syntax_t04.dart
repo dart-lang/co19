@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A function literal is an object that encapsulates an executable
- * unit of code.
- * functionExpression:
- *   formalParameterList functionExpressionBody
- * ;
- * @description Checks that the parameter list is required in the form
- * ['=>' expression ';'].
- * @compile-error
- * @author msyabro
- */
+/// @assertion A function literal is an object that encapsulates an executable
+/// unit of code.
+/// functionExpression:
+///   formalParameterList functionExpressionBody
+/// ;
+/// @description Checks that the parameter list is required in the form
+/// ['=>' expression ';'].
+/// @compile-error
+/// @author msyabro
+
 
 main() {
   var func =  => 1;

@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final SendPort sendPort
- * Returns a SendPort that sends to this receive port.
- * @description Checks that a new SendPort that sends to this receive port is returned.
- * @author msyabro
- */
+/// @assertion final SendPort sendPort
+/// Returns a SendPort that sends to this receive port.
+/// @description Checks that a new SendPort that sends to this receive port is returned.
+/// @author msyabro
+
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 

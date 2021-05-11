@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion ElementStream<MouseEvent> get onDragEnter
- * A stream of dragenter events fired when a dragged object is first dragged
- * over this element.
- * @description Checks that correct events are delivered via the stream
- */
+/// @assertion ElementStream<MouseEvent> get onDragEnter
+/// A stream of dragenter events fired when a dragged object is first dragged
+/// over this element.
+/// @description Checks that correct events are delivered via the stream
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

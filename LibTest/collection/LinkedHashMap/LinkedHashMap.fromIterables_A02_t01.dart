@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion LinkedHashMap.fromIterables(Iterable<K> keys, Iterable<V> values)
- * ...
- * If [keys] contains the same object multiple times, the last occurrence
- * overwrites the previous value.
- * @description Checks that if [keys] contains the same object multiple times,
- * the last occurrence overwrites the previous value.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion LinkedHashMap.fromIterables(Iterable<K> keys, Iterable<V> values)
+/// ...
+/// If [keys] contains the same object multiple times, the last occurrence
+/// overwrites the previous value.
+/// @description Checks that if [keys] contains the same object multiple times,
+/// the last occurrence overwrites the previous value.
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

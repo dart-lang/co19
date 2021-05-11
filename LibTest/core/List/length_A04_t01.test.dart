@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  abstract void set length(int newLength)
- * Throws an [UnsupportedError] if the list is not extendable.
- * @description Checks that the exception is thrown.
- * @author kaigorodov
- */
+/// @assertion  abstract void set length(int newLength)
+/// Throws an [UnsupportedError] if the list is not extendable.
+/// @description Checks that the exception is thrown.
+/// @author kaigorodov
+
 library length_A04_t01;
 
 import "../../../Utils/expect.dart";

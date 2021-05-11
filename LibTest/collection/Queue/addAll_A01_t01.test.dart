@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by list
 //BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  void addAll(Iterable<E> iterable)
- * Adds all elements of [iterable] at the end of the queue. The length of the
- * queue is extended by the length of iterable.
- * @description Checks that all elements of the [collection] are added to the
- * empty queue.
- * @author msyabro
- */
+/// @assertion  void addAll(Iterable<E> iterable)
+/// Adds all elements of [iterable] at the end of the queue. The length of the
+/// queue is extended by the length of iterable.
+/// @description Checks that all elements of the [collection] are added to the
+/// empty queue.
+/// @author msyabro
+
 library addAll_A01_t01;
  
 import "../../../Utils/expect.dart";

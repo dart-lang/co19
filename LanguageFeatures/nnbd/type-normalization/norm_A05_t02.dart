@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * NORM(X extends T) =
- *  let S be NORM(T)
- *  if S is Never then Never
- *  else X extends T
- *
- * @description Checks that if NORM(T) is NORM(X extends T)
- *
- * @author sgrekhov@unipro.ru
- */
+/// @assertion
+/// NORM(X extends T) =
+///  let S be NORM(T)
+///  if S is Never then Never
+///  else X extends T
+///
+/// @description Checks that if NORM(T) is NORM(X extends T)
+///
+/// @author sgrekhov@unipro.ru
+
 // Requirements=nnbd-strong
 class T {}
 class T1 extends T {}

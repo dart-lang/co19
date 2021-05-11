@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Let e be a new expression of the form
- * new T.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) or the form
- * new T(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
- * @description Checks that it no compile error if T is a type alias that does
- * denote a class.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Let e be a new expression of the form
+/// new T.id(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k) or the form
+/// new T(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
+/// @description Checks that it no compile error if T is a type alias that does
+/// denote a class.
+/// @author sgrekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 import '../../../../Utils/expect.dart';
 

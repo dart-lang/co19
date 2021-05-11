@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  Future<RawSecureSocket> first
- * The first element of the stream.
- * . . .
- * If this stream is empty (a done event occurs before the first data event),
- * the returned future completes with an error.
- *
- * @description Checks that if this is empty, the returned future completes
- * with an error.
- * @author ngl@unipro.ru
- */
+/// @assertion  Future<RawSecureSocket> first
+/// The first element of the stream.
+/// . . .
+/// If this stream is empty (a done event occurs before the first data event),
+/// the returned future completes with an error.
+///
+/// @description Checks that if this is empty, the returned future completes
+/// with an error.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

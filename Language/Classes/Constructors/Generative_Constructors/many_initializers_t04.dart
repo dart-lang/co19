@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Let k be a generative constructor. It is a compile-time error if
- * more than one initializer corresponding to a given instance variable appears
- * in k's initializer list.
- * @description Checks that a compile-time error is produced if the same
- * instance variable is initialized more than once in an initializer list
- * (referenced as both this.name and just name).
- * @author rodionov
- * @issue 41965
- */
+/// @assertion Let k be a generative constructor. It is a compile-time error if
+/// more than one initializer corresponding to a given instance variable appears
+/// in k's initializer list.
+/// @description Checks that a compile-time error is produced if the same
+/// instance variable is initialized more than once in an initializer list
+/// (referenced as both this.name and just name).
+/// @author rodionov
+/// @issue 41965
+
 
 class C {
   C() : x = 1, y = 2, this.x = 3;

@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void unlink()
- * Unlink the element from its linked list.
- * @description Checks that the element is removed from the list
- * @author sgrekhov@unipro.ru
- */
+/// @assertion void unlink()
+/// Unlink the element from its linked list.
+/// @description Checks that the element is removed from the list
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 import "LinkedListEntry.lib.dart";

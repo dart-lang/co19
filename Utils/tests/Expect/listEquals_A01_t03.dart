@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion static void listEquals(List expected, List actual, [String reason = null])
- * Checks that all elements in [expected] and [actual] are equal [:==:].
- * @description Checks that operator == on elements is used for checking.
- * @author varlax
- */
+/// @assertion static void listEquals(List expected, List actual, [String reason = null])
+/// Checks that all elements in [expected] and [actual] are equal [:==:].
+/// @description Checks that operator == on elements is used for checking.
+/// @author varlax
+
 import "../../../Utils/expect.dart";
 class A {
   operator ==(var b) {

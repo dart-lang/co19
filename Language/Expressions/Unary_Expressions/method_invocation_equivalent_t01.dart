@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion An expression of the form op e is equivalent to the method
- * invocation e.op().
- * @description Checks that an expression of the form ~ e is equivalent to the
- * method invocation e.operator~().
- * @author msyabro
- */
+/// @assertion An expression of the form op e is equivalent to the method
+/// invocation e.op().
+/// @description Checks that an expression of the form ~ e is equivalent to the
+/// method invocation e.operator~().
+/// @author msyabro
+
 import '../../../Utils/expect.dart';
 
 class TestException {}

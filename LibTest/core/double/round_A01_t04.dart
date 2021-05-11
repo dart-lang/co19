@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract int round()
- * Returns the integer closest to this.
- * Rounds away from zero when there is no closest integer:
- * (3.5).round() == 4 and (-3.5).round() == -4.
- * @description Checks that [:round():] does not change the object.
- * @author msyabro
- */
+/// @assertion abstract int round()
+/// Returns the integer closest to this.
+/// Rounds away from zero when there is no closest integer:
+/// (3.5).round() == 4 and (-3.5).round() == -4.
+/// @description Checks that [:round():] does not change the object.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 check(double d) {

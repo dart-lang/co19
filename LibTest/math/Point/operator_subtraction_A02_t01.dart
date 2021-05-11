@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Point<T> operator +(Point<T> other)
- * @description Checks that if at least one of coordinates is null,
- * an Exception is thrown.
- * @author kaigorodov
- */
+/// @assertion Point<T> operator +(Point<T> other)
+/// @description Checks that if at least one of coordinates is null,
+/// an Exception is thrown.
+/// @author kaigorodov
+
 import "dart:math";
 
 main() {

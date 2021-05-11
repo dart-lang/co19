@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<T> map<T>(T f(E e))
- * ...
- * As long as the returned Iterable is not iterated over, the supplied function
- * f will not be invoked.
- * @description Checks that as long as the returned Iterable is not iterated
- * over, the supplied function f will not be invoked.
- * @author ngl@unipro.ru
- */
+/// @assertion Iterable<T> map<T>(T f(E e))
+/// ...
+/// As long as the returned Iterable is not iterated over, the supplied function
+/// f will not be invoked.
+/// @description Checks that as long as the returned Iterable is not iterated
+/// over, the supplied function f will not be invoked.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

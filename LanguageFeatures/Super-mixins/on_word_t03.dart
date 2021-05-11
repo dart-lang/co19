@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The on word is not reserved in any way, it is a context-specific
- * keyword that has a specific meaning when occuring after the type name of a
- * mixin declaration.
- *
- * @description Checks that the 'on' word can be used as a type name after 'on'
- * and after 'implements' in the mixin declaration.
- * @author ngl@unipro.ru
- */
+/// @assertion The on word is not reserved in any way, it is a context-specific
+/// keyword that has a specific meaning when occuring after the type name of a
+/// mixin declaration.
+///
+/// @description Checks that the 'on' word can be used as a type name after 'on'
+/// and after 'implements' in the mixin declaration.
+/// @author ngl@unipro.ru
+
 
 class I {}
 class J {}

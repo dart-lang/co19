@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It is a static error when the collection is a list and the type of
- * any of the body elements may not be assigned to the list's element type
- *
- * @description Checks that it is a static error when the collection is a list
- * and the type of any of the body elements may not be assigned to the list's
- * element type
- * @author sgrekhov@unipro.ru
- */
+/// @assertion It is a static error when the collection is a list and the type of
+/// any of the body elements may not be assigned to the list's element type
+///
+/// @description Checks that it is a static error when the collection is a list
+/// and the type of any of the body elements may not be assigned to the list's
+/// element type
+/// @author sgrekhov@unipro.ru
+
 
 main() {
   <int>[if (true) "not int"];                   //# 01: compile-time error

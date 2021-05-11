@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Undocumented
- * @description Checks that this getter returns a non-null value and throws no
- * exceptions
- * @author vasya
- */
+/// @assertion Undocumented
+/// @description Checks that this getter returns a non-null value and throws no
+/// exceptions
+/// @author vasya
+
 import "../../../Utils/expect.dart";
 
 main() {

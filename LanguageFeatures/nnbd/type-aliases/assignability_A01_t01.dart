@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A type T is assignable to a type S if T is dynamic, or if T is a
- * subtype of S.
- *
- * @description Checks that a type T is assignable to a type S if T is dynamic,
- * or if T is a subtype of S. Test type aliases
- *
- * @author sgrekhov@unipro.ru
- */
+/// @assertion A type T is assignable to a type S if T is dynamic, or if T is a
+/// subtype of S.
+///
+/// @description Checks that a type T is assignable to a type S if T is dynamic,
+/// or if T is a subtype of S. Test type aliases
+///
+/// @author sgrekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-strong
 import "../../../Utils/expect.dart";

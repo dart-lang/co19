@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int lastIndexOf(E element, [int start])
- * Returns the last index of [element] in this list.
- * Searches the list backwards from index start to 0.
- * The first time an object o is encountered so that o == element, the index of
- * o is returned.
- * If [start] is not provided, this method searches from the end of the list.
- * @description Checks that if not specified, the method searches from the end
- * of this list.
- * @author msyabro
- */
+/// @assertion int lastIndexOf(E element, [int start])
+/// Returns the last index of [element] in this list.
+/// Searches the list backwards from index start to 0.
+/// The first time an object o is encountered so that o == element, the index of
+/// o is returned.
+/// If [start] is not provided, this method searches from the end of the list.
+/// @description Checks that if not specified, the method searches from the end
+/// of this list.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion interface HashSet.from(Iterable elements)
- * Create a hash set containing all [elements].
- * @description Checks that created hash set contains all elements of [elements].
- * Both empty and non-empty argument collections are tested.
- * @author rodionov
- */
+/// @assertion interface HashSet.from(Iterable elements)
+/// Create a hash set containing all [elements].
+/// @description Checks that created hash set contains all elements of [elements].
+/// Both empty and non-empty argument collections are tested.
+/// @author rodionov
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

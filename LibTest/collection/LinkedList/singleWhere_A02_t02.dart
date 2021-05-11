@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion E singleWhere(bool test(E value))
- * Otherwise, if there are no matching elements, or if there is more than one
- * matching element, a [StateError] is thrown.
- * @description Checks that a [StateError] is thrown if more than one element
- * match.
- * @author kaigorodov
- */
+/// @assertion E singleWhere(bool test(E value))
+/// Otherwise, if there are no matching elements, or if there is more than one
+/// matching element, a [StateError] is thrown.
+/// @description Checks that a [StateError] is thrown if more than one element
+/// match.
+/// @author kaigorodov
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";

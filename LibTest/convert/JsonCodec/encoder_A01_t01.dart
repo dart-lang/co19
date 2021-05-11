@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion JsonEncoder encoder
- * @description Checks that this property returns JsonEncoder witch works as
- * expected
- * @author sgrekhov@unipro.ru
- */
+/// @assertion JsonEncoder encoder
+/// @description Checks that this property returns JsonEncoder witch works as
+/// expected
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 import "../JsonDecoder/table1.lib.dart" show table;

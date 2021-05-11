@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion List<int> convert(
- *  String string, [
- *  int start = 0,
- *  int end
- *  ])
- * Converts the String into a list of its code units.
- * ...
- * @description Checks that this method Converts the String into a list of its
- * code units.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion List<int> convert(
+///  String string, [
+///  int start = 0,
+///  int end
+///  ])
+/// Converts the String into a list of its code units.
+/// ...
+/// @description Checks that this method Converts the String into a list of its
+/// code units.
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

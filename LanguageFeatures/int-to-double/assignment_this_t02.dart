@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The static type of a double valued integer literal is [double]
- * @description Checks that the static type of a double valued integer literal
- * is [double]. Test this assignment expression and hexadecimal values
- * @static-warning
- * @author sgrekhov@unipro.ru
- * @issue 43461
- */
+/// @assertion The static type of a double valued integer literal is [double]
+/// @description Checks that the static type of a double valued integer literal
+/// is [double]. Test this assignment expression and hexadecimal values
+/// @static-warning
+/// @author sgrekhov@unipro.ru
+/// @issue 43461
+
 
 class C {
   double? m1;

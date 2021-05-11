@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Returns whether the [Iterator] has elements left.
- * @description Checks that [Iterator] has no elements left when the list is
- * cleared.
- * @author kaigorodov
- */
+/// @assertion Returns whether the [Iterator] has elements left.
+/// @description Checks that [Iterator] has no elements left when the list is
+/// cleared.
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

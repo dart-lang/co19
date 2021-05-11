@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion StringConversionSink.fromStringSink(StringSink sink)
- * Creates a new instance wrapping the given sink.
- *
- * Every string that is added to the returned instance is forwarded to the sink.
- * The instance is allowed to buffer and is not required to forward immediately.
- * @description Checks that this constructor creates StringConversionSink
- * @author sgrekhov@unipro.ru
- */
+/// @assertion StringConversionSink.fromStringSink(StringSink sink)
+/// Creates a new instance wrapping the given sink.
+///
+/// Every string that is added to the returned instance is forwarded to the sink.
+/// The instance is allowed to buffer and is not required to forward immediately.
+/// @description Checks that this constructor creates StringConversionSink
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

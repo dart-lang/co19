@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void writeAll(Iterable objects, [String separator = ""])
- * This operation is non-blocking.
- * @description Check that [writeAll] is non-blocking operation.
- * @author iarkh@unipro.ru
- */
+/// @assertion void writeAll(Iterable objects, [String separator = ""])
+/// This operation is non-blocking.
+/// @description Check that [writeAll] is non-blocking operation.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:io";
 

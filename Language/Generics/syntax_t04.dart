@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A class declaration, type alias, or function [G] may be generic,
- * that is, [G] may have formal type parameters declared.
- * @description Checks various correct generic typedefs declarations.
- * @author iefremov
-*/
+/// @assertion A class declaration, type alias, or function [G] may be generic,
+/// that is, [G] may have formal type parameters declared.
+/// @description Checks various correct generic typedefs declarations.
+/// @author iefremov
+
 
 abstract class I{}
 

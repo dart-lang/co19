@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<T> first
- * Returns the first element of the stream.
- * @description Checks that the first element is returned.
- * @author kaigorodov
- */
+/// @assertion Future<T> first
+/// Returns the first element of the stream.
+/// @description Checks that the first element is returned.
+/// @author kaigorodov
+
 library first_A01_t01;
 import "../../../Utils/expect.dart";
 

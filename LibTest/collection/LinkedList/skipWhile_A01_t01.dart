@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<E> skipWhile(bool test(E value))
- * Returns an [Iterable] that skips leading elements while [test] is satisfied.
- * ...
- * It iterates the remaining elements in their original order, starting with the
- * first element for which [test(element)] returns [false].
- * @description Checks that all first elements which satisfy [test] are removed,
- * and elements after that are retained.
- * @author kaigorodov
- */
+/// @assertion Iterable<E> skipWhile(bool test(E value))
+/// Returns an [Iterable] that skips leading elements while [test] is satisfied.
+/// ...
+/// It iterates the remaining elements in their original order, starting with the
+/// first element for which [test(element)] returns [false].
+/// @description Checks that all first elements which satisfy [test] are removed,
+/// and elements after that are retained.
+/// @author kaigorodov
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";

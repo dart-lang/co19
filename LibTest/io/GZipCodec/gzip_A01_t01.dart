@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool gzip
- *  final
- * When true, GZip frames will be added to the compressed data.
- * @description Checks that this property returns constructor's gzip argument
- * @author sgrekhov@unipro.ru
- * @issue 31024
- */
+/// @assertion bool gzip
+///  final
+/// When true, GZip frames will be added to the compressed data.
+/// @description Checks that this property returns constructor's gzip argument
+/// @author sgrekhov@unipro.ru
+/// @issue 31024
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion MutableRectangle.fromPoints(Point<T> a, Point<T> b)
- * ...
- * The rectangle contains the points with x-coordinate between a.x and b.x, and
- * with y-coordinate between a.y and b.y, both inclusive.
- * @description Checks that the rectangle contains the points with x-coordinate
- * between a.x and b.x, and with y-coordinate between a.y and b.y, both
- * inclusive.
- * @author ngl@unipro.ru
- */
+/// @assertion MutableRectangle.fromPoints(Point<T> a, Point<T> b)
+/// ...
+/// The rectangle contains the points with x-coordinate between a.x and b.x, and
+/// with y-coordinate between a.y and b.y, both inclusive.
+/// @description Checks that the rectangle contains the points with x-coordinate
+/// between a.x and b.x, and with y-coordinate between a.y and b.y, both
+/// inclusive.
+/// @author ngl@unipro.ru
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 

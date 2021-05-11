@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool isLoopback
- * Returns [true] if the InternetAddress is a loopback address.
- * @description Checks that [isLoopback] returns [true] for all the addresses
- * which corresponds to localhost.
- * @author iarkh@unipro.ru
- */
+/// @assertion bool isLoopback
+/// Returns [true] if the InternetAddress is a loopback address.
+/// @description Checks that [isLoopback] returns [true] for all the addresses
+/// which corresponds to localhost.
+/// @author iarkh@unipro.ru
+
 
 import "../../../Utils/expect.dart";
 import "dart:io";

@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Int16List.fromList(List<int> elements)
- * ...
- * Values are truncated to fit in the list when they are copied, the same way
- * storing values truncates them.
- * @description Checks that values are truncated to fit in the list when they
- * are copied.
- * @author ngl@unipro.ru
- */
+/// @assertion Int16List.fromList(List<int> elements)
+/// ...
+/// Values are truncated to fit in the list when they are copied, the same way
+/// storing values truncates them.
+/// @description Checks that values are truncated to fit in the list when they
+/// are copied.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

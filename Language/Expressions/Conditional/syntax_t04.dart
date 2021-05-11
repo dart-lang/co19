@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A conditional expression evaluates one of two expressions
- * based on a boolean condition.
- * conditionalExpression:
- *   ifNullExpression ('?' expressionWithoutCascade ':'
- * expressionWithoutCascade)?
- * ;
- * @description Checks that super can't be used in a conditional expression
- * as the second expression.
- * @compile-error
- * @author msyabro
- */
+/// @assertion A conditional expression evaluates one of two expressions
+/// based on a boolean condition.
+/// conditionalExpression:
+///   ifNullExpression ('?' expressionWithoutCascade ':'
+/// expressionWithoutCascade)?
+/// ;
+/// @description Checks that super can't be used in a conditional expression
+/// as the second expression.
+/// @compile-error
+/// @author msyabro
+
 
 class S {}
 

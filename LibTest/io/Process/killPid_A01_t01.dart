@@ -2,23 +2,22 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * bool killPid(
- *     int pid, [
- *     ProcessSignal signal = ProcessSignal.sigterm
- * ])
- *
- * Kills the process with id pid.
- * ...
- * Returns true if the signal is successfully delivered to the process.
- * Otherwise the signal could not be sent, usually meaning that the process is
- * already dead.
- *
- * @description Checks that static method [killPid] return true, if the signal
- * was successfully delivered to the process
- * @author ngl@unipro.ru
- */
+/// @assertion
+/// bool killPid(
+///     int pid, [
+///     ProcessSignal signal = ProcessSignal.sigterm
+/// ])
+///
+/// Kills the process with id pid.
+/// ...
+/// Returns true if the signal is successfully delivered to the process.
+/// Otherwise the signal could not be sent, usually meaning that the process is
+/// already dead.
+///
+/// @description Checks that static method [killPid] return true, if the signal
+/// was successfully delivered to the process
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

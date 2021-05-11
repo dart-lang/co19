@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final int length 
- * Returns the length of the content that has been accumulated so far.
- * This is a constant-time operation.
- * @description Checks that a correct value is returned
- * @author msyabro
- */
+/// @assertion final int length 
+/// Returns the length of the content that has been accumulated so far.
+/// This is a constant-time operation.
+/// @description Checks that a correct value is returned
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 main() {

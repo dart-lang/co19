@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Stream<S> expand<S>(Iterable<S> convert(T value))
- * Creates a new stream from this stream that converts each element into zero
- * or more events.
- * . . .
- * If a broadcast stream is listened to more than once, each subscription will
- * individually call convert and expand the events.
- *
- * @description Checks that if a broadcast stream is listened to more than once,
- * each subscription will individually call convert and expand the events.
- * @author ngl@unipro.ru
- */
+/// @assertion Stream<S> expand<S>(Iterable<S> convert(T value))
+/// Creates a new stream from this stream that converts each element into zero
+/// or more events.
+/// . . .
+/// If a broadcast stream is listened to more than once, each subscription will
+/// individually call convert and expand the events.
+///
+/// @description Checks that if a broadcast stream is listened to more than once,
+/// each subscription will individually call convert and expand the events.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../http_utils.dart";

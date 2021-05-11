@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion T encode(S input)
- * @description Checks that this method encodes strings to Latin1 code units
- * @author sgrekhov@unipro.ru
- */
+/// @assertion T encode(S input)
+/// @description Checks that this method encodes strings to Latin1 code units
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void handleUncaughtError(error, StackTrace stackTrace)
- *  Handles uncaught asynchronous errors.
- * @description Checks that zone's error callback is invoked.
- * @author ilya
- */
+/// @assertion void handleUncaughtError(error, StackTrace stackTrace)
+///  Handles uncaught asynchronous errors.
+/// @description Checks that zone's error callback is invoked.
+/// @author ilya
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

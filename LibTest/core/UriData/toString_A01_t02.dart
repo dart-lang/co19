@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String toString()
- * Returns a string representation of this object.
- * @description Checks that this method returns correct string representation of
- * the data URI. Test data URIs created by fromString() constructor
- * @author sgrekhov@unipro.ru
- */
+/// @assertion String toString()
+/// Returns a string representation of this object.
+/// @description Checks that this method returns correct string representation of
+/// the data URI. Test data URIs created by fromString() constructor
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 import "../Uri/UriDataEncoder.lib.dart";

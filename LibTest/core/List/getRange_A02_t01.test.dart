@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract Iterable<E> getRange(int start, int end)
- * An error occurs if end is before start.
- * @description Checks that an error is thrown if end is before start.
- * @author vasya
- */
+/// @assertion abstract Iterable<E> getRange(int start, int end)
+/// An error occurs if end is before start.
+/// @description Checks that an error is thrown if end is before start.
+/// @author vasya
+
 library getRange_A02_t01;
 
 import "../../../Utils/expect.dart";

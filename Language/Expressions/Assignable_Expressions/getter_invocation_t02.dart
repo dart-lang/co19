@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion An assignable expression of the form e.id or e?.id is evaluated
- * as a property extraction.
- * @description Checks that expression of the form e?.id is evaluated as
- * ((x) => x == null ? null : x.id)(e).
- * @static-warning
- * @author ngl@unipro.ru
- */
+/// @assertion An assignable expression of the form e.id or e?.id is evaluated
+/// as a property extraction.
+/// @description Checks that expression of the form e?.id is evaluated as
+/// ((x) => x == null ? null : x.id)(e).
+/// @static-warning
+/// @author ngl@unipro.ru
+
 
 import '../../../Utils/expect.dart';
 

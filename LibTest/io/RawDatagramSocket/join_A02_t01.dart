@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<String> join([String separator = ""])
- * . . .
- * The returned future is completed with the combined string when the stream is
- * done.
- *
- * @description Checks that the returned future is completed with the combined
- * string when the stream is done.
- * @author ngl@unipro.ru
- */
+/// @assertion Future<String> join([String separator = ""])
+/// . . .
+/// The returned future is completed with the combined string when the stream is
+/// done.
+///
+/// @description Checks that the returned future is completed with the combined
+/// string when the stream is done.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

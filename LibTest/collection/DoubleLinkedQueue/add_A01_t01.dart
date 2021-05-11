@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void add(E value)
- * Adds [value] at the end of the queue.
- * @description Checks that [value] is added to the end of the queue and length
- * is extended by one.
- * @author kaigorodov
- */
+/// @assertion void add(E value)
+/// Adds [value] at the end of the queue.
+/// @description Checks that [value] is added to the end of the queue and length
+/// is extended by one.
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

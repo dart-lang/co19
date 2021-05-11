@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion List<int> convert(List<int> bytes)
- * Convert a list of bytes using the options given to the ZLibEncoder
- * constructor.
- * @description Checks that the the convert method works correctly.
- * @author ngl@unipro.ru
- */
+/// @assertion List<int> convert(List<int> bytes)
+/// Convert a list of bytes using the options given to the ZLibEncoder
+/// constructor.
+/// @description Checks that the the convert method works correctly.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

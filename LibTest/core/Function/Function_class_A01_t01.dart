@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A function value, or an instance of a class with a "call" method, 
- * is a subtype of a function type, and as such, a subtype of Function.
- * @description Checks that function values are indeed subtypes of the
- * [Function] class.
- * @author rodionov
- */
+/// @assertion A function value, or an instance of a class with a "call" method, 
+/// is a subtype of a function type, and as such, a subtype of Function.
+/// @description Checks that function values are indeed subtypes of the
+/// [Function] class.
+/// @author rodionov
+
 import "../../../Utils/expect.dart";
 
 int foo(String s) {

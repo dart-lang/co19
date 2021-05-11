@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void closeSync()
- * Synchronously closes the file.
- *
- * Throws a FileSystemException if the operation fails.
- *
- * @description Checks that method closeSync() closes the file and another
- * attempt to close synchronously already closed file throws a
- * FileSystemException.
- * @author ngl@unipro.ru
- */
+/// @assertion void closeSync()
+/// Synchronously closes the file.
+///
+/// Throws a FileSystemException if the operation fails.
+///
+/// @description Checks that method closeSync() closes the file and another
+/// attempt to close synchronously already closed file throws a
+/// FileSystemException.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

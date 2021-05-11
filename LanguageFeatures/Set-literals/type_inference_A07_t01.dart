@@ -2,24 +2,23 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion To infer the type of element:
- * ...
- * If element is a spreadElement with expression e1:
- *
- * If P is ? then let S be the inferred type of e1 in context ?:
- *
- * If S is a non-Null subtype of Iterable<Object>, then the inferred set element
- * type of element is T where T is the type such that Iterable<T> is a
- * superinterface of S (the result of constraint matching for X using the
- * constraint S <: Iterable<X>).
- *
- * @description Checks that if S is a non-Null subtype of Iterable<Object?>,
- * then the inferred set element type of element is T where T is the type such
- * that Iterable<T> is a superinterface of S
- * @author sgrekhov@unipro.ru
- * @static-warning
- */
+/// @assertion To infer the type of element:
+/// ...
+/// If element is a spreadElement with expression e1:
+///
+/// If P is ? then let S be the inferred type of e1 in context ?:
+///
+/// If S is a non-Null subtype of Iterable<Object>, then the inferred set element
+/// type of element is T where T is the type such that Iterable<T> is a
+/// superinterface of S (the result of constraint matching for X using the
+/// constraint S <: Iterable<X>).
+///
+/// @description Checks that if S is a non-Null subtype of Iterable<Object?>,
+/// then the inferred set element type of element is T where T is the type such
+/// that Iterable<T> is a superinterface of S
+/// @author sgrekhov@unipro.ru
+/// @static-warning
+
 import "../../Utils/expect.dart";
 
 void test1<T extends Iterable<num>>(T t) {

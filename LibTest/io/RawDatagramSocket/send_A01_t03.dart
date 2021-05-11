@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int send(List<int> buffer, InternetAddress address, int port)
- * Send a datagram.
- *
- * Returns the number of bytes written. This will always be either the size of
- * buffer or 0.
- *
- * @description Checks that method send returns 0 if buffer length is 0.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion int send(List<int> buffer, InternetAddress address, int port)
+/// Send a datagram.
+///
+/// Returns the number of bytes written. This will always be either the size of
+/// buffer or 0.
+///
+/// @description Checks that method send returns 0 if buffer length is 0.
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../http_utils.dart";
 import "../../../Utils/expect.dart";

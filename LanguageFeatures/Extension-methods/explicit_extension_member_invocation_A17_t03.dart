@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A composite member invocation on a target expression X is an
- * expression of one of the forms:
- * Composite member invocation on target X	     Corresponding member base name
- *    X.id++, X.id--, ++X.id, --X.id	                        id
- * @description Check explicit extension member invocation in form of ++X.id
- * @author sgrekhov@unipro.ru
- */
+/// @assertion A composite member invocation on a target expression X is an
+/// expression of one of the forms:
+/// Composite member invocation on target X	     Corresponding member base name
+///    X.id++, X.id--, ++X.id, --X.id	                        id
+/// @description Check explicit extension member invocation in form of ++X.id
+/// @author sgrekhov@unipro.ru
+
 
 import "../../Utils/expect.dart";
 

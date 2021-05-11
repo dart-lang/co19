@@ -2,23 +2,22 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  Stream asyncMap(dynamic convert(T event))
- * Creates a new stream with each data event of this stream asynchronously
- * mapped to a new event.
- *
- * This acts like map, except that convert may return a Future, and in that
- * case, the stream waits for that future to complete before continuing with
- * its result.
- *
- * Stream<S> map<S>(S convert(T event))
- * ...
- * Error and done events are passed through unchanged to the returned stream.
- *
- * @description Checks that if future returned by [convert] completes
- * with an error, then this error is passed to returned stream.
- * @author a.semenov@unipro.ru
- */
+/// @assertion  Stream asyncMap(dynamic convert(T event))
+/// Creates a new stream with each data event of this stream asynchronously
+/// mapped to a new event.
+///
+/// This acts like map, except that convert may return a Future, and in that
+/// case, the stream waits for that future to complete before continuing with
+/// its result.
+///
+/// Stream<S> map<S>(S convert(T event))
+/// ...
+/// Error and done events are passed through unchanged to the returned stream.
+///
+/// @description Checks that if future returned by [convert] completes
+/// with an error, then this error is passed to returned stream.
+/// @author a.semenov@unipro.ru
+
 library asyncMap_A03_t03;
 import "dart:async";
 import "../../../Utils/expect.dart";

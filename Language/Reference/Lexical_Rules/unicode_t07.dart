@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Dart source text is represented as a sequence of Unicode code
- * points.
- * @description Checks that unicode escape sequences cause compile errors when
- * used outside of string literals.
- * @compile-error
- * @author hlodvig
- */
+/// @assertion Dart source text is represented as a sequence of Unicode code
+/// points.
+/// @description Checks that unicode escape sequences cause compile errors when
+/// used outside of string literals.
+/// @compile-error
+/// @author hlodvig
+
 import "../../../Utils/expect.dart";
 
 main() {

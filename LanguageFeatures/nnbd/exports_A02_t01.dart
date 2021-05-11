@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion: It is an error for a migrated library to re-export symbols from
- * an unmigrated library.
- * @description Check that error is thrown if migrated library re-exports
- * symbols from migrated one in the strong mode.
- * @compile-error
- * @Issue 44545
- * @author iarkh@unipro.ru
- */
+/// @assertion: It is an error for a migrated library to re-export symbols from
+/// an unmigrated library.
+/// @description Check that error is thrown if migrated library re-exports
+/// symbols from migrated one in the strong mode.
+/// @compile-error
+/// @Issue 44545
+/// @author iarkh@unipro.ru
+
 // Requirements=nnbd-strong
 
 export "weak/exports_A02_opted_out_lib.dart";

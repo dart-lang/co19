@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion List<Element> children
- * List of the direct children of this element.
- * @description Checks that change to children is reflected in the element
- */
+/// @assertion List<Element> children
+/// List of the direct children of this element.
+/// @description Checks that change to children is reflected in the element
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

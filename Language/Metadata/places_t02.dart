@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- *  Metadata can appear before a library, part header, class, typedef, type
- *  parameter, constructor, factory, function, parameter, or variable
- *  declaration, and before an import, export, or part directive.
- *
- * @description Check that metadata can appear before a library, class, typedef,
- * type parameter, constructor, factory, function, parameter, or variable
- * declaration. Test generic metadata
- * @author sgekhov@unipro.ru
- */
+/// @assertion
+///  Metadata can appear before a library, part header, class, typedef, type
+///  parameter, constructor, factory, function, parameter, or variable
+///  declaration, and before an import, export, or part directive.
+///
+/// @description Check that metadata can appear before a library, class, typedef,
+/// type parameter, constructor, factory, function, parameter, or variable
+/// declaration. Test generic metadata
+/// @author sgekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=generic-metadata
 
 class A<T> {

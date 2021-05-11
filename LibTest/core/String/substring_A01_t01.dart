@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Returns a substring of this string in the given range.
- * [startIndex] is inclusive and [endIndex] is exclusive.
- * @description Checks that the returned substring is correct
- * @author msyabro
- */
+/// @assertion Returns a substring of this string in the given range.
+/// [startIndex] is inclusive and [endIndex] is exclusive.
+/// @description Checks that the returned substring is correct
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 main() {

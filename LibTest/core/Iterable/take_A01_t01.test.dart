@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<E> take(int count)
- * Returns a lazy iterable of the count first elements of this iterable.
- * @description Checks that an Iterable that contains the first n elements is
- * returned.
- * @author kaigorodov
- */
+/// @assertion Iterable<E> take(int count)
+/// Returns a lazy iterable of the count first elements of this iterable.
+/// @description Checks that an Iterable that contains the first n elements is
+/// returned.
+/// @author kaigorodov
+
 library take_A01_t01;
 import "dart:math" as Math;
 import "../../../Utils/expect.dart";

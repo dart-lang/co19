@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void operator []=(int index, int value)
- * Sets the value at the given index in the list to value or ... .
- * @description Checks that the entry at the given index is set.
- * @author msyabro
- */
+/// @assertion void operator []=(int index, int value)
+/// Sets the value at the given index in the list to value or ... .
+/// @description Checks that the entry at the given index is set.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

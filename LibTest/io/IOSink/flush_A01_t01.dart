@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future flush()
- * Returns a [Future] that completes once all buffered data is accepted by the
- * underlying [StreamConsumer].
- * @description Checks that data is flushed after the [flush] call.
- * @author iarkh@unipro.ru
- */
+/// @assertion Future flush()
+/// Returns a [Future] that completes once all buffered data is accepted by the
+/// underlying [StreamConsumer].
+/// @description Checks that data is flushed after the [flush] call.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";

@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It is an error if any case of a switch statement except the last
- * case (the default case if present) may complete normally. The previous
- * syntactic restriction requiring the last statement of each case to be one of
- * an enumerated list of statements (break, continue, return, throw, or rethrow)
- * is removed.
- *
- * @description Check that it is an error if any case of a switch statement
- * except the last case (the default case if present) may complete normally
- * @author sgrekhov@unipro.ru
- */
+/// @assertion It is an error if any case of a switch statement except the last
+/// case (the default case if present) may complete normally. The previous
+/// syntactic restriction requiring the last statement of each case to be one of
+/// an enumerated list of statements (break, continue, return, throw, or rethrow)
+/// is removed.
+///
+/// @description Check that it is an error if any case of a switch statement
+/// except the last case (the default case if present) may complete normally
+/// @author sgrekhov@unipro.ru
+
 
 main() {
   int i = 42;

@@ -2,25 +2,24 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * StreamSubscription<RawSocketEvent> listen(
- *     void onData(
- *         T event
- *     ), {
- *     Function onError,
- *     void onDone(),
- *     bool cancelOnError
- * })
- * Adds a subscription to this stream.
- * . . .
- * On each data event from this stream, the subscriber's onData handler is
- * called. If onData is null, nothing happens.
- *
- * @description Checks that on each data event from this stream, the
- * subscriber's onData handler is called.
- * @author ngl@unipro.ru
- */
+/// @assertion
+/// StreamSubscription<RawSocketEvent> listen(
+///     void onData(
+///         T event
+///     ), {
+///     Function onError,
+///     void onDone(),
+///     bool cancelOnError
+/// })
+/// Adds a subscription to this stream.
+/// . . .
+/// On each data event from this stream, the subscriber's onData handler is
+/// called. If onData is null, nothing happens.
+///
+/// @description Checks that on each data event from this stream, the
+/// subscriber's onData handler is called.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The default bound of generic type parameters is treated as
- * [Object?].
- * @description It seems like it is not possible to obtain the value of the
- * default bound at runtime, we can only obtain the result of instantiation to
- * bound. So the test checks that if generic type parameter of non-function
- * typedef is not clearly specified, it is treated as [dynamic] at runtime.
- * See also co19 issue #530.
- * @Issue 40367, 40368
- * @author iarkh@unipro.ru
- */
+/// @assertion The default bound of generic type parameters is treated as
+/// [Object?].
+/// @description It seems like it is not possible to obtain the value of the
+/// default bound at runtime, we can only obtain the result of instantiation to
+/// bound. So the test checks that if generic type parameter of non-function
+/// typedef is not clearly specified, it is treated as [dynamic] at runtime.
+/// See also co19 issue #530.
+/// @Issue 40367, 40368
+/// @author iarkh@unipro.ru
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-weak
 

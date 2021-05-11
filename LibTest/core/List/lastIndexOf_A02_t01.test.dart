@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract int lastIndexOf(E element, [int start])
- * Returns -1 if element is not found.
- * @description Checks that -1 is returned if the element is not present in
- * the list.
- * @author iefremov
- */
+/// @assertion abstract int lastIndexOf(E element, [int start])
+/// Returns -1 if element is not found.
+/// @description Checks that -1 is returned if the element is not present in
+/// the list.
+/// @author iefremov
+
 library lastIndexOf_A02_t01;
 
 import "../../../Utils/expect.dart";

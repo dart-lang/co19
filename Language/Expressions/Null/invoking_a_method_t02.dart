@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The [Null] class extends the [Object] class and declares no
- * methods except those also declared by [Object].
- * @description Checks that invoking a method on [null] yields error if class
- * [Null] does not explicitly implement it.
- * @author hlodvig
- */
+/// @assertion The [Null] class extends the [Object] class and declares no
+/// methods except those also declared by [Object].
+/// @description Checks that invoking a method on [null] yields error if class
+/// [Null] does not explicitly implement it.
+/// @author hlodvig
+
 import '../../../Utils/expect.dart';
 
 class A {

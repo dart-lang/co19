@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool spellcheck
- * Controls spell-checking (present on all HTML elements)
- * @description Checks expected attribute values.
- * @needsreview what's the default?
- */
+/// @assertion bool spellcheck
+/// Controls spell-checking (present on all HTML elements)
+/// @description Checks expected attribute values.
+/// @needsreview what's the default?
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

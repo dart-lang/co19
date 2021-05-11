@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future pipe(StreamConsumer<RawSocketEvent> streamConsumer)
- * Pipe the events of this stream into streamConsumer.
- *
- * @description Checks that all events of this stream are piped through
- * streamConsumer.
- * @author ngl@unipro.ru
- */
+/// @assertion Future pipe(StreamConsumer<RawSocketEvent> streamConsumer)
+/// Pipe the events of this stream into streamConsumer.
+///
+/// @description Checks that all events of this stream are piped through
+/// streamConsumer.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

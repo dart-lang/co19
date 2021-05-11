@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion E single
- * Returns the single element in this.
- * If this is empty or has more than one element throws a StateError.
- * @description Checks that the single element is returned.
- * Checks that StateError is thrown if this list is empty or has more than one
- * element
- * @author kaigorodov
- */
+/// @assertion E single
+/// Returns the single element in this.
+/// If this is empty or has more than one element throws a StateError.
+/// @description Checks that the single element is returned.
+/// Checks that StateError is thrown if this list is empty or has more than one
+/// element
+/// @author kaigorodov
+
 library single_A01_t01;
 
 import "../../../Utils/expect.dart";

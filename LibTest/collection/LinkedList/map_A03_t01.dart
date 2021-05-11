@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable map(f(E element))
- * The transformed elements will not be cached. Iterating multiple times over
- * the returned [Iterable] will invoke the supplied function [f] multiple times
- * on the same element.
- * @description Checks that iterating multiple times over the returned
- * [Iterable] will invoke the supplied function [f] multiple times on the same
- * element.
- * @author kaigorodov
- */
+/// @assertion Iterable map(f(E element))
+/// The transformed elements will not be cached. Iterating multiple times over
+/// the returned [Iterable] will invoke the supplied function [f] multiple times
+/// on the same element.
+/// @description Checks that iterating multiple times over the returned
+/// [Iterable] will invoke the supplied function [f] multiple times on the same
+/// element.
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 import "LinkedList.lib.dart";

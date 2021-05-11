@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final int nodeType
- * The type of node.
- * This value is one of:
- * COMMENT_NODE if this node is a Comment.
- * @description Checks expected attribute values.
- */
+/// @assertion final int nodeType
+/// The type of node.
+/// This value is one of:
+/// COMMENT_NODE if this node is a Comment.
+/// @description Checks expected attribute values.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

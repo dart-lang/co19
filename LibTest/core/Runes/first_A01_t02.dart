@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final int first
- * Returns the first element.
- * @description Checks that [first] is final and can't be set.
- * @author msyabro
- */
+/// @assertion final int first
+/// Returns the first element.
+/// @description Checks that [first] is final and can't be set.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 check(string) {

@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final Element parent
- * The parent element of this node.
- * Returns null if this node either does not have a parent or its parent is
- * not an element.
- * @description Checks that parent of DocumentFragment child is null
- */
+/// @assertion final Element parent
+/// The parent element of this node.
+/// Returns null if this node either does not have a parent or its parent is
+/// not an element.
+/// @description Checks that parent of DocumentFragment child is null
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

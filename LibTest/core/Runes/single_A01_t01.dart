@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final E single
- * Returns the single element in [this].
- * @description Checks that the single element of [this] is returned.
- * @author msyabro
- */
+/// @assertion final E single
+/// Returns the single element in [this].
+/// @description Checks that the single element of [this] is returned.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 check(string, expected) {

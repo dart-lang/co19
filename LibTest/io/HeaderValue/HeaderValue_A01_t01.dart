@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion HeaderValue([
- *  String value = "",
- *  Map<String, String> parameters
- *  ])
- * Creates a new header value object setting the value and parameters.
- * @description Checks that this constructor creates HeaderValue with correct
- * parameters and value
- * @author sgrekhov@unipro.ru
- */
+/// @assertion HeaderValue([
+///  String value = "",
+///  Map<String, String> parameters
+///  ])
+/// Creates a new header value object setting the value and parameters.
+/// @description Checks that this constructor creates HeaderValue with correct
+/// parameters and value
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

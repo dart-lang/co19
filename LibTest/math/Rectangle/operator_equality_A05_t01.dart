@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool operator ==(other)
- * The equality operator.
- * ...
- * Transitive: For all objects o1, o2, and o3, if o1 == o2 and o2 == o3 are
- * true, then o1 == o3 must be true.
- * @description Checks that the equality operator is transitive.
- * @author ngl@unipru.ru
- */
+/// @assertion bool operator ==(other)
+/// The equality operator.
+/// ...
+/// Transitive: For all objects o1, o2, and o3, if o1 == o2 and o2 == o3 are
+/// true, then o1 == o3 must be true.
+/// @description Checks that the equality operator is transitive.
+/// @author ngl@unipru.ru
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 

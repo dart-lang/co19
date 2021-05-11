@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion factory StreamTransformer.fromHandlers({void handleData(S data,
- *   EventSink<T> sink), void handleError(Object error, StackTrace stackTrace,
- *   EventSink<T> sink), void handleDone(EventSink<T> sink)})
- * Creates a StreamTransformer that delegates events to the given functions.
- *
- * @description Checks that handleError() is called on error events and
- * transformed stream gets errors that are written to sink.
- * handleData is not provided, so data events are unchanged.
- * @author ilya
- */
+/// @assertion factory StreamTransformer.fromHandlers({void handleData(S data,
+///   EventSink<T> sink), void handleError(Object error, StackTrace stackTrace,
+///   EventSink<T> sink), void handleDone(EventSink<T> sink)})
+/// Creates a StreamTransformer that delegates events to the given functions.
+///
+/// @description Checks that handleError() is called on error events and
+/// transformed stream gets errors that are written to sink.
+/// handleData is not provided, so data events are unchanged.
+/// @author ilya
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

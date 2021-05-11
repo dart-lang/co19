@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String responseType
- * String telling the server the desired response format.
- * Default is String. Other options are one of 'arraybuffer', 'blob', 'document',
- * 'json', 'text'.
- * Some newer browsers will throw NSERRORDOMINVALIDACCESS_ERR if responseType
- * is set while performing a synchronous request.
- * @description Checks that values 'arraybuffer', 'blob', 'document',
- * 'json', 'text' are allowed.
- */
+/// @assertion String responseType
+/// String telling the server the desired response format.
+/// Default is String. Other options are one of 'arraybuffer', 'blob', 'document',
+/// 'json', 'text'.
+/// Some newer browsers will throw NSERRORDOMINVALIDACCESS_ERR if responseType
+/// is set while performing a synchronous request.
+/// @description Checks that values 'arraybuffer', 'blob', 'document',
+/// 'json', 'text' are allowed.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The modifier late is added as a built-in identifier. The grammar
- * of top level variables, static fields, instance fields, and local variables
- * is extended to allow any declaration to include the modifier late.
- *
- * @description Check that declaration of any top level variables, static
- * fields, instance fields, and local variables cab be extended by 'late'
- * modifier
- * @author sgrekhov@unipro.ru
- */
+/// @assertion The modifier late is added as a built-in identifier. The grammar
+/// of top level variables, static fields, instance fields, and local variables
+/// is extended to allow any declaration to include the modifier late.
+///
+/// @description Check that declaration of any top level variables, static
+/// fields, instance fields, and local variables cab be extended by 'late'
+/// modifier
+/// @author sgrekhov@unipro.ru
+
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 

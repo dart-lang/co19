@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It's not a compile error to read definitely unassigned local
- * variable in the form var x;
- *
- * @description Checks that it's not a compile error to read definitely
- * unassigned local variable in the form var x;. Test indirect read via compound
- * assignment
- *
- * @author sgrekhov@unipro.ru
- */
+/// @assertion It's not a compile error to read definitely unassigned local
+/// variable in the form var x;
+///
+/// @description Checks that it's not a compile error to read definitely
+/// unassigned local variable in the form var x;. Test indirect read via compound
+/// assignment
+///
+/// @author sgrekhov@unipro.ru
+
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 

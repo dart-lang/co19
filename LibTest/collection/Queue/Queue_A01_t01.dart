@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Creates a queue.
- * @description Checks that empty queue is created.
- * @author msyabro
- */
+/// @assertion Creates a queue.
+/// @description Checks that empty queue is created.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

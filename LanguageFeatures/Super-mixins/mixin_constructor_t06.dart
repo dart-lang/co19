@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The mixinMember production allows the same instance or static
- * members that a class would allow, but no constructors (for now).
- *
- * @description Checks that mixin declaration doesn't allow constructors.
- * @issue 24767
- * @issue 34804
- * @compile-error
- * @author sgrekhov@unipro.ru
- */
+/// @assertion The mixinMember production allows the same instance or static
+/// members that a class would allow, but no constructors (for now).
+///
+/// @description Checks that mixin declaration doesn't allow constructors.
+/// @issue 24767
+/// @issue 34804
+/// @compile-error
+/// @author sgrekhov@unipro.ru
+
 
 class S {}
 class T {}

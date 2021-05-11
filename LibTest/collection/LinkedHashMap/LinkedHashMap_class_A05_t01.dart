@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion @assertion LinkedHashMap<K, V> abstract class
- * implements HashMap<K, V>
- * Removing the key and adding it again will make it be last in the iteration
- * order.
- * @description Checks that removing a key and adding it again make it last in
- * the iteration order.
- * @author iarkh@unipro.ru
- */
+/// @assertion @assertion LinkedHashMap<K, V> abstract class
+/// implements HashMap<K, V>
+/// Removing the key and adding it again will make it be last in the iteration
+/// order.
+/// @description Checks that removing a key and adding it again make it last in
+/// the iteration order.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

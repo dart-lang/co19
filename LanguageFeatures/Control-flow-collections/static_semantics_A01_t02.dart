@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Let the element type of a list literal be the static type of the
- * type argument used to create the list. So <int>[] has an element type of int.
- * It may be explicit or filled in by type inference. So [1, 2.0] has an element
- * type of num.
- *
- * @description Checks that element type of the list literals is the static type
- * of the type argument used to create the list
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Let the element type of a list literal be the static type of the
+/// type argument used to create the list. So <int>[] has an element type of int.
+/// It may be explicit or filled in by type inference. So [1, 2.0] has an element
+/// type of num.
+///
+/// @description Checks that element type of the list literals is the static type
+/// of the type argument used to create the list
+/// @author sgrekhov@unipro.ru
+
 
 main() {
   bool b = true;

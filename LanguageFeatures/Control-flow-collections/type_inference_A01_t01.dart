@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion If a list literal has a downwards inference type of List<T> for
- * some T, then the downwards inference context type of the body elements is T.
- *
- * @description Checks that if a list literal has a downwards inference type of
- * List<T> for some T, then the downwards inference context type of the body
- * elements is T.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion If a list literal has a downwards inference type of List<T> for
+/// some T, then the downwards inference context type of the body elements is T.
+///
+/// @description Checks that if a list literal has a downwards inference type of
+/// List<T> for some T, then the downwards inference context type of the body
+/// elements is T.
+/// @author sgrekhov@unipro.ru
+
 import "../../Utils/expect.dart";
 
 class C {}

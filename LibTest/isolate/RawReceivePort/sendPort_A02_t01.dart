@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final SendPort sendPort
- * Returns a SendPort that sends to this raw receive port.
- *
- * @description Checks that same SendPort instance can be used by different
- * isolates.
- *
- * @author a.semenov@unipro.ru
- */
+/// @assertion final SendPort sendPort
+/// Returns a SendPort that sends to this raw receive port.
+///
+/// @description Checks that same SendPort instance can be used by different
+/// isolates.
+///
+/// @author a.semenov@unipro.ru
+
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 

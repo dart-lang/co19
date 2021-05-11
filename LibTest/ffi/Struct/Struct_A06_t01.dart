@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Struct subclasses cannot be empty
- *
- * @description Checks that it is a compile error if Struct subclass is empty
- * @author sgrekhov@unipro.ru
- * @issue 44935
- */
+/// @assertion Struct subclasses cannot be empty
+///
+/// @description Checks that it is a compile error if Struct subclass is empty
+/// @author sgrekhov@unipro.ru
+/// @issue 44935
+
 import "dart:ffi";
 
   class S1 extends Struct {

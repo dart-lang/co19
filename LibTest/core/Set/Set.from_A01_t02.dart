@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Set.from(Iterable<E> other)
- * Creates a [Set] that contains all elements of [other].
- * @description Checks that this constructor works correctly with a custom
- * Iterable implementation
- * @author rodionov
- */
+/// @assertion Set.from(Iterable<E> other)
+/// Creates a [Set] that contains all elements of [other].
+/// @description Checks that this constructor works correctly with a custom
+/// Iterable implementation
+/// @author rodionov
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

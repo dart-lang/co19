@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Evaluation of an assignment a of the form e1?.v = e2 is equivalent
- * to the evaluation of the expression ((x) => x == null?null : x.v = e2)(e1)
- * unless e1 is a type literal, in which case it is equivalent to e1.v = e2.
- * @description Checks that an assignment a of the form e1?.v = e2 is equivalent
- * to the evaluation of the expression ((x) => x == null?null : x.v = e2)(e1).
- * Test the case when e1 != null
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Evaluation of an assignment a of the form e1?.v = e2 is equivalent
+/// to the evaluation of the expression ((x) => x == null?null : x.v = e2)(e1)
+/// unless e1 is a type literal, in which case it is equivalent to e1.v = e2.
+/// @description Checks that an assignment a of the form e1?.v = e2 is equivalent
+/// to the evaluation of the expression ((x) => x == null?null : x.v = e2)(e1).
+/// Test the case when e1 != null
+/// @author sgrekhov@unipro.ru
+
 
 import '../../../Utils/expect.dart';
 

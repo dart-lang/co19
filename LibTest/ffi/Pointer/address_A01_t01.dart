@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int address
- *  Access to the raw pointer value. On 32-bit systems, the upper 32-bits of the
- *  result are 0.
- *
- * @description Checks that this getter returns the raw pointer value
- * @author sgrekhov@unipro.ru
- */
+/// @assertion int address
+///  Access to the raw pointer value. On 32-bit systems, the upper 32-bits of the
+///  result are 0.
+///
+/// @description Checks that this getter returns the raw pointer value
+/// @author sgrekhov@unipro.ru
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import '../../../Utils/expect.dart';

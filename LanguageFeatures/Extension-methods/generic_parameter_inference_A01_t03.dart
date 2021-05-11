@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion If both the extension and the method is generic, then inference
- * must infer the extension type parameters first, to figure out whether the
- * extension applies, and only then start inferring method type parameters. As
- * mentioned above, the inference is similar to other cases of chained inference.
- * @description Check that compile error is thrown if parameter type is
- * statically incorrect.
- * @compile-error
- * @author iarkh@unipro.ru
- */
+/// @assertion If both the extension and the method is generic, then inference
+/// must infer the extension type parameters first, to figure out whether the
+/// extension applies, and only then start inferring method type parameters. As
+/// mentioned above, the inference is similar to other cases of chained inference.
+/// @description Check that compile error is thrown if parameter type is
+/// statically incorrect.
+/// @compile-error
+/// @author iarkh@unipro.ru
+
 
 
 int count(String string, int length) => length + string.length;

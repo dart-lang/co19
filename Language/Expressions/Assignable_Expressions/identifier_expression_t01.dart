@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion An assignable expression of the form id
- * is evaluated as an identifier expression.
- * @description Checks that expression of the form id is evaluated as an
- * identifier expression.
- * @author msyabro
- */
+/// @assertion An assignable expression of the form id
+/// is evaluated as an identifier expression.
+/// @description Checks that expression of the form id is evaluated as an
+/// identifier expression.
+/// @author msyabro
+
 
 import '../../../Utils/expect.dart';
 

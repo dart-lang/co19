@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String decode(List<int> encoded)
- * @description Checks that system encoding decodes from UTF-8 on Linux and Mac
- * @author a.semenov@unipro.ru
- */
+/// @assertion String decode(List<int> encoded)
+/// @description Checks that system encoding decodes from UTF-8 on Linux and Mac
+/// @author a.semenov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

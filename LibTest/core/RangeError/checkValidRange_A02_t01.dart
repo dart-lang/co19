@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int checkValidRange(int start, int end, int length,
- * [String startName, String endName, String message])
- * ...
- * The startName and endName defaults to "start" and "end", respectively.
- * @description Checks that startName and endName defaults to "start" and "end",
- * respectively.
- * @issue 28116
- * @author sgrekhov@unipro.ru
- */
+/// @assertion int checkValidRange(int start, int end, int length,
+/// [String startName, String endName, String message])
+/// ...
+/// The startName and endName defaults to "start" and "end", respectively.
+/// @description Checks that startName and endName defaults to "start" and "end",
+/// respectively.
+/// @issue 28116
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 check(int start, int end, int length) {

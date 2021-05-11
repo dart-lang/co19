@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void set handler=(Function newHandler)
- * Sets the handler that is invoked for every incoming message.
- * The handler is invoked in the root-zone (Zone.root).
- *
- * @description Checks that different handlers can be used sequentially
- *
- * @author a.semenov@unipro.ru
- */
+/// @assertion void set handler=(Function newHandler)
+/// Sets the handler that is invoked for every incoming message.
+/// The handler is invoked in the root-zone (Zone.root).
+///
+/// @description Checks that different handlers can be used sequentially
+///
+/// @author a.semenov@unipro.ru
+
 
 import "dart:isolate";
 import "../../../Utils/expect.dart";

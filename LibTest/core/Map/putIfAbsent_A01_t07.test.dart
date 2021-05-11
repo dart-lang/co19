@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  abstract V putIfAbsent(K key, V ifAbsent())
- * If [key] is not associated to a value, calls [ifAbsent] and
- * updates the map by mapping [key] to the value returned by [ifAbsent].
- * Returns the value in the map.
- * @description Checks that if [key] is already associated to a value,
- * [ifAbsent] is not called and its incorrect value is not detected.
- * @author msyabro
- */
+/// @assertion  abstract V putIfAbsent(K key, V ifAbsent())
+/// If [key] is not associated to a value, calls [ifAbsent] and
+/// updates the map by mapping [key] to the value returned by [ifAbsent].
+/// Returns the value in the map.
+/// @description Checks that if [key] is already associated to a value,
+/// [ifAbsent] is not called and its incorrect value is not detected.
+/// @author msyabro
+
 library putIfAbsent_A01_t07;
 
 import "../../../Utils/expect.dart";

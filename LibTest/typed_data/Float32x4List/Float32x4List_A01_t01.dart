@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Float32x4List(int length)
- * Creates an [Float32x4List] of the specified length (in elements), all of
- * whose elements are initially zero.
- * @description Checks that an instance of Float32x4List of the specified length
- * is created.
- * @author msyabro
- */
+/// @assertion Float32x4List(int length)
+/// Creates an [Float32x4List] of the specified length (in elements), all of
+/// whose elements are initially zero.
+/// @description Checks that an instance of Float32x4List of the specified length
+/// is created.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

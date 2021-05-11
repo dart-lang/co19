@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Duration operator +(Duration other)
- * Returns the sum of this Duration and other as a new Duration.
- * @description Checks that duration calculation is correct
- * @author kaigorodov
- */
+/// @assertion Duration operator +(Duration other)
+/// Returns the sum of this Duration and other as a new Duration.
+/// @description Checks that duration calculation is correct
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 
 void check(int d1, int h1, int m1, int s1, int ms1, int d2, int h2, int m2,

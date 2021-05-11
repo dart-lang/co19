@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Space, tab and line terminators characters are allowed between
- * tokens.
- * @description Checks that different whitespace characters and line
- * terminators are allowed in boolean expressions.
- * @author hlodvig
- * @reviewer rodionov
- */
+/// @assertion Space, tab and line terminators characters are allowed between
+/// tokens.
+/// @description Checks that different whitespace characters and line
+/// terminators are allowed in boolean expressions.
+/// @author hlodvig
+/// @reviewer rodionov
+
 
 main() {
   int i = 1;

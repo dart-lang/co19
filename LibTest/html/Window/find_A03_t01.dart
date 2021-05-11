@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool find(String string, bool caseSensitive, bool backwards,
- *        bool wrap, bool wholeWord, bool searchInFrames, bool showDialog)
- * Finds text in this window.
- * from MDN:
- * aString:  The text string for which to search.
- * aBackwards: Boolean. If true, specifies a backward search.
- * @description Checks that the string is found whith any value of `backwards` parameter.
- * @issue #16930
- */
+/// @assertion bool find(String string, bool caseSensitive, bool backwards,
+///        bool wrap, bool wholeWord, bool searchInFrames, bool showDialog)
+/// Finds text in this window.
+/// from MDN:
+/// aString:  The text string for which to search.
+/// aBackwards: Boolean. If true, specifies a backward search.
+/// @description Checks that the string is found whith any value of `backwards` parameter.
+/// @issue #16930
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

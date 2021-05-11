@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion const DartRepresentationOf(String nativeType)
- *  Represents the Dart type corresponding to a NativeType.
- *
- * @description Checks that DartRepresentationOf can be created
- * @author sgrekhov@unipro.ru
- */
+/// @assertion const DartRepresentationOf(String nativeType)
+///  Represents the Dart type corresponding to a NativeType.
+///
+/// @description Checks that DartRepresentationOf can be created
+/// @author sgrekhov@unipro.ru
+
 import "dart:ffi";
 import "../../../Utils/expect.dart";
 

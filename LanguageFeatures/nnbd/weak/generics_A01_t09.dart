@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The default bound of generic type parameters is treated as
- * [Object?].
- * @description Check that default type parameter of the generic function type
- * alias is treated as [Object?] statically. Typedef is in the form:
- *    [typedef <type> <identifier> <formalParameterPart>].
- *
- * @Issue 40367, 40368
- * @author iarkh@unipro.ru
- */
+/// @assertion The default bound of generic type parameters is treated as
+/// [Object?].
+/// @description Check that default type parameter of the generic function type
+/// alias is treated as [Object?] statically. Typedef is in the form:
+///    [typedef <type> <identifier> <formalParameterPart>].
+///
+/// @Issue 40367, 40368
+/// @author iarkh@unipro.ru
+
  // Requirements=nnbd-weak
 
 import "../../../Utils/expect.dart";

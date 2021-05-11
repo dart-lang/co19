@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The default bound of generic type parameters is treated as
- * [Object?].
- * @description Check that default generic non-function typedef type parameter
- * is treated as [Object?] statically.
- *
- * @Issue 40367, 40368
- * @author iarkh@unipro.ru
- */
+/// @assertion The default bound of generic type parameters is treated as
+/// [Object?].
+/// @description Check that default generic non-function typedef type parameter
+/// is treated as [Object?] statically.
+///
+/// @Issue 40367, 40368
+/// @author iarkh@unipro.ru
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-weak
 

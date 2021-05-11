@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void checkValueInInterval(int value, int minValue, int maxValue,
- * [String name, String message])
- * Check that a value lies in a specific interval.
- *
- * Throws if value is not in the interval. The interval is from minValue
- * to maxValue, both inclusive.
- * @description Checks that RangeError is thrown if value not in interval
- * @author sgrekhov@unipro.ru
- */
+/// @assertion void checkValueInInterval(int value, int minValue, int maxValue,
+/// [String name, String message])
+/// Check that a value lies in a specific interval.
+///
+/// Throws if value is not in the interval. The interval is from minValue
+/// to maxValue, both inclusive.
+/// @description Checks that RangeError is thrown if value not in interval
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 check(int value, int min, int max) {

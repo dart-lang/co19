@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion double operator -(num other)
- * @description Checks that if one of the operands is a NaN the result is a NaN.
- * @author pagolubev
- */
+/// @assertion double operator -(num other)
+/// @description Checks that if one of the operands is a NaN the result is a NaN.
+/// @author pagolubev
+
 import "../../../Utils/expect.dart";
 
 final List<double> values = const [

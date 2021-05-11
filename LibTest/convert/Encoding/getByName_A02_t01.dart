@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Encoding getByName(String name)
- * Gets an Encoding object from the name of the character set name. The names
- * used are the IANA official names for the character set (see
- * http://www.iana.org/assignments/character-sets/character-sets.xml).
- *
- * The name passed is case insensitive.
- * ...
- * @description Checks that this method is case insensitive
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Encoding getByName(String name)
+/// Gets an Encoding object from the name of the character set name. The names
+/// used are the IANA official names for the character set (see
+/// http://www.iana.org/assignments/character-sets/character-sets.xml).
+///
+/// The name passed is case insensitive.
+/// ...
+/// @description Checks that this method is case insensitive
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

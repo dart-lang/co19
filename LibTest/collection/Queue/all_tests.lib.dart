@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Queue<E> abstract class 
- * Implements Iterable<E>
- * @description Checks that all members of [Iterable] are implemented.
- * @author kaigorodov
- */
+/// @assertion Queue<E> abstract class 
+/// Implements Iterable<E>
+/// @description Checks that all members of [Iterable] are implemented.
+/// @author kaigorodov
+
 library allQueueTests;
 
 import "dart:collection";

@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String message
- * Error message supplied by the operating system. null if no message is
- * associated with the error.
- *
- * @description Checks that message gets error message supplied by the operating
- * system. If there is no error message associated with the error returns "".
- * @author ngl@unipro.ru
- * @issue 30698
- */
+/// @assertion String message
+/// Error message supplied by the operating system. null if no message is
+/// associated with the error.
+///
+/// @description Checks that message gets error message supplied by the operating
+/// system. If there is no error message associated with the error returns "".
+/// @author ngl@unipro.ru
+/// @issue 30698
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

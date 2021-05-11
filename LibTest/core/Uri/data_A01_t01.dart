@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion UriData data
- * Access the structure of a data: URI.
- *
- * Returns a UriData object for data: URIs and null for all other URIs. The
- * UriData object can be used to access the media type and data of a data: URI.
- * @description Checks expected authority settings
- * @author sgrekhov@unipro.ru
- */
+/// @assertion UriData data
+/// Access the structure of a data: URI.
+///
+/// Returns a UriData object for data: URIs and null for all other URIs. The
+/// UriData object can be used to access the media type and data of a data: URI.
+/// @description Checks expected authority settings
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

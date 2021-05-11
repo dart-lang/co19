@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool hasNext
- * @description Checks that [hasNext] returns [false] if iterator has no
- * elements to iterate
- * @author sgrekhov@unipro.ru
- */
+/// @assertion bool hasNext
+/// @description Checks that [hasNext] returns [false] if iterator has no
+/// elements to iterate
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

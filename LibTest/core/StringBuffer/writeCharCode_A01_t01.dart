@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void writeCharCode(int charCode)
- * Adds the string representation of charCode to the buffer.
- * @description Checks that the String argument is appended to the buffer
- * @author sgrekhov@unipro.ru
- */
+/// @assertion void writeCharCode(int charCode)
+/// Adds the string representation of charCode to the buffer.
+/// @description Checks that the String argument is appended to the buffer
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

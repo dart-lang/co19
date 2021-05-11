@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A variable declaration statement declares a new local variable.
- *   localVariableDeclaration:
- *     initializedVariableDeclaration ’;’
- *   ;
- * @description Checks that a variable declaration statement var id; introduces
- * a new variable id with dynamic static type into the innermost enclosing scope.
- * @author vasya
- */
+/// @assertion A variable declaration statement declares a new local variable.
+///   localVariableDeclaration:
+///     initializedVariableDeclaration ’;’
+///   ;
+/// @description Checks that a variable declaration statement var id; introduces
+/// a new variable id with dynamic static type into the innermost enclosing scope.
+/// @author vasya
+
 import '../../../Utils/expect.dart';
 
 class C {}

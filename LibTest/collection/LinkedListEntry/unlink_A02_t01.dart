@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void unlink()
- * ...
- * The entry must currently be in a linked list when this method is called.
- * @description Checks that the entry must currently be in a linked list when
- * this method is called.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion void unlink()
+/// ...
+/// The entry must currently be in a linked list when this method is called.
+/// @description Checks that the entry must currently be in a linked list when
+/// this method is called.
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "LinkedListEntry.lib.dart";
 

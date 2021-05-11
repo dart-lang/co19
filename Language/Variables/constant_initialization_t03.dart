@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A constant variable must be initialized to a compile-time 
- * constant or a compile-time error occurs.
- * @description Checks that constant variables should be initialized to
- * a compile-time constant.
- * @author msyabro
- */
+/// @assertion A constant variable must be initialized to a compile-time 
+/// constant or a compile-time error occurs.
+/// @description Checks that constant variables should be initialized to
+/// a compile-time constant.
+/// @author msyabro
+
 import "../../Utils/expect.dart";
 
 import "dart:math" as Math;

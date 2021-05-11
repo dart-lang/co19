@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Future<RandomAccessFile> writeString(
- *     String string, {
- *     Encoding encoding: utf8
- * })
- * Writes a string to the file using the given Encoding.
- *
- * @description Checks that method writeString writes a string to the file using
- * the given Encoding ASCII.
- * @author ngl@unipro.ru
- */
+/// @assertion
+/// Future<RandomAccessFile> writeString(
+///     String string, {
+///     Encoding encoding: utf8
+/// })
+/// Writes a string to the file using the given Encoding.
+///
+/// @description Checks that method writeString writes a string to the file using
+/// the given Encoding ASCII.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "dart:convert";

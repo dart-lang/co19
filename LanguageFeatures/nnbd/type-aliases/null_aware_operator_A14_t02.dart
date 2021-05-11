@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion If e1 translates to F then e1[e2] = e3 translates to:
- *  PASSTHRU[F, fn[x] => x[EXP(e2)] = EXP(e3)]
- *
- * @description Check that if e1 translates to F then e1[e2] = e3 translates to:
- *  PASSTHRU[F, fn[x] => x[EXP(e2)] = EXP(e3)]. Test type aliases
- * @author sgrekhov@unipro.ru
- */
+/// @assertion If e1 translates to F then e1[e2] = e3 translates to:
+///  PASSTHRU[F, fn[x] => x[EXP(e2)] = EXP(e3)]
+///
+/// @description Check that if e1 translates to F then e1[e2] = e3 translates to:
+///  PASSTHRU[F, fn[x] => x[EXP(e2)] = EXP(e3)]. Test type aliases
+/// @author sgrekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-strong
 import "../../../Utils/expect.dart";

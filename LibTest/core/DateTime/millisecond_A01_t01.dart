@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final int millisecond
- * Returns the millisecond into the second 0...999.
- * @description Creates a new DateTime with various integer milliseconds values
- * (0..999),
- * and reads the value back.
- * @author hlodvig
- */
+/// @assertion final int millisecond
+/// Returns the millisecond into the second 0...999.
+/// @description Creates a new DateTime with various integer milliseconds values
+/// (0..999),
+/// and reads the value back.
+/// @author hlodvig
+
 import "../../../Utils/expect.dart";
 
 main() {

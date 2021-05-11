@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Duration difference(DateTime other) 
- * Throws [Error] if [other] is [:null:].
- * @description Checks that compile error appears if [other] is statically
- * [null].
- * @author iarkh
- */
+/// @assertion Duration difference(DateTime other) 
+/// Throws [Error] if [other] is [:null:].
+/// @description Checks that compile error appears if [other] is statically
+/// [null].
+/// @author iarkh
+
 
 main() {
   DateTime.now().difference(null);

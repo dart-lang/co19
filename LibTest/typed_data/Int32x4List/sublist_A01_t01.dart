@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion List<E> sublist(int start, [int end])
- * Returns a new list containing the objects from start inclusive to end
- * exclusive.
- * @description Checks that the returned list contains the objects from start
- * inclusive to end exclusive.
- * @author ngl@unipro.ru
- */
+/// @assertion List<E> sublist(int start, [int end])
+/// Returns a new list containing the objects from start inclusive to end
+/// exclusive.
+/// @description Checks that the returned list contains the objects from start
+/// inclusive to end exclusive.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

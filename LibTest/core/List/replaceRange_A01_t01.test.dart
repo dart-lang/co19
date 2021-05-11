@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract void replaceRange(int start, int end, Iterable<E> iterable)
- * Removes the elements in the range start to end exclusive and replaces them
- * with the contents of the iterable.
- * @description Checks that the elements within the range are replaced with
- * elements of iterable, and elements out of the range are retained.
- * @author kaigorodov
- */
+/// @assertion abstract void replaceRange(int start, int end, Iterable<E> iterable)
+/// Removes the elements in the range start to end exclusive and replaces them
+/// with the contents of the iterable.
+/// @description Checks that the elements within the range are replaced with
+/// elements of iterable, and elements out of the range are retained.
+/// @author kaigorodov
+
 library replaceRange_A01_t01;
 
 import "../../../Utils/expect.dart";

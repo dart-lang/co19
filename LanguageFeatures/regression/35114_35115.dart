@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @description Regression test for the issues 35114 (Analyzer does not allow
- * declare a class with typed function parameter if it's parametrized
- * contravariant or invariant) and 35115 (Dart runtime does not allow declare a
- * class with typed function parameter if it's parametrized contravariant or
- * invariant)
- * @Issue 35114, 35115
- * @author iarkh@unipro.ru
- */
+/// @description Regression test for the issues 35114 (Analyzer does not allow
+/// declare a class with typed function parameter if it's parametrized
+/// contravariant or invariant) and 35115 (Dart runtime does not allow declare a
+/// class with typed function parameter if it's parametrized contravariant or
+/// invariant)
+/// @Issue 35114, 35115
+/// @author iarkh@unipro.ru
+
 
 typedef G<X> = void Function(X);
 class A<X extends G> {}

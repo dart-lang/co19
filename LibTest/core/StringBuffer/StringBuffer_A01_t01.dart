@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion new StringBuffer([Object content = ""])
- * Creates the string buffer with an initial content. 
- * @description Checks that StringBuffer is created with correct content
- * @author msyabro
- */
+/// @assertion new StringBuffer([Object content = ""])
+/// Creates the string buffer with an initial content. 
+/// @description Checks that StringBuffer is created with correct content
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 main() {

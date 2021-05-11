@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void appendText(String text)
- * Adds the specified text after the last child of this element.
- * @description Checks expected nodes after appendText
- */
+/// @assertion void appendText(String text)
+/// Adds the specified text after the last child of this element.
+/// @description Checks expected nodes after appendText
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

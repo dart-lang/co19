@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion num operator -(num other)
- * This operator implements arithmetic subtraction operation.
- * @description Checks that this operator returns correct value for both integer 
- * and double arguments (including special values).
- * @author vasya
- */
+/// @assertion num operator -(num other)
+/// This operator implements arithmetic subtraction operation.
+/// @description Checks that this operator returns correct value for both integer 
+/// and double arguments (including special values).
+/// @author vasya
+
 import "../../../Utils/expect.dart";
 import "dart:math" as Math;
 

@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Evaluation of a compound assignment of the form e1.v ??= e2 is
- * equivalent to the evaluation of the expression
- * ((x) => ((y) => y == null ? x.v = e2 : y)(x.v))(e1) where x and y are
- * distinct fresh variables that are not used in e2.
- * @description Checks that an expression of the form e1.v ??= e2 is equivalent
- * to ((x) => ((y) => y == null ? x.v = e2 : y)(x.v))(e1) where x and y are
- * distinct fresh variables that are not used in e2.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Evaluation of a compound assignment of the form e1.v ??= e2 is
+/// equivalent to the evaluation of the expression
+/// ((x) => ((y) => y == null ? x.v = e2 : y)(x.v))(e1) where x and y are
+/// distinct fresh variables that are not used in e2.
+/// @description Checks that an expression of the form e1.v ??= e2 is equivalent
+/// to ((x) => ((y) => y == null ? x.v = e2 : y)(x.v))(e1) where x and y are
+/// distinct fresh variables that are not used in e2.
+/// @author sgrekhov@unipro.ru
+
 
 import '../../../../Utils/expect.dart';
 

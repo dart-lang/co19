@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion An if element:
- * ...
- * It is a compile-time error if the then and else branches are not potentially
- * const expressions. The "potentially const" is to allow a the unchosen branch
- * to throw an exception. In other words, if elements short-circuit.
- *
- * @description Checks that it is allowed the unchosen branch to throw an
- * exception
- * @author sgrekhov@unipro.ru
- */
+/// @assertion An if element:
+/// ...
+/// It is a compile-time error if the then and else branches are not potentially
+/// const expressions. The "potentially const" is to allow a the unchosen branch
+/// to throw an exception. In other words, if elements short-circuit.
+///
+/// @description Checks that it is allowed the unchosen branch to throw an
+/// exception
+/// @author sgrekhov@unipro.ru
+
 import "../../Utils/expect.dart";
 
 main() {

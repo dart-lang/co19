@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion dynamic firstWhere(bool test(E value), {Object orElse()})
- * If none matches, the result of invoking the [orElse] function is returned.
- * @description Checks that the result of invoking the orElse function is
- * returned when none matches.
- * @author kaigorodov
- */
+/// @assertion dynamic firstWhere(bool test(E value), {Object orElse()})
+/// If none matches, the result of invoking the [orElse] function is returned.
+/// @description Checks that the result of invoking the orElse function is
+/// returned when none matches.
+/// @author kaigorodov
+
 
 import "dart:collection";
 import "../../../Utils/expect.dart";

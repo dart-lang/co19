@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<E> takeWhile(bool test(E value))
- * Every new [Iterator] of the returned [Iterable] starts iterating over the
- * elements of [this].
- * @description Checks that every new iterator starts iterating over the
- * elements of this.
- * @author kaigorodov
- */
+/// @assertion Iterable<E> takeWhile(bool test(E value))
+/// Every new [Iterator] of the returned [Iterable] starts iterating over the
+/// elements of [this].
+/// @description Checks that every new iterator starts iterating over the
+/// elements of this.
+/// @author kaigorodov
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";

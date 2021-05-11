@@ -2,10 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int tabIndex
- * @description Checks expected tabIndex attribute values
- */
+/// @assertion int tabIndex
+/// @description Checks expected tabIndex attribute values
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../testcommon.dart";

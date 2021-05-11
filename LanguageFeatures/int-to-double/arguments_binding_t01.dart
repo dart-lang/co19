@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The static type of a double valued integer literal is [double]
- * @description Checks that the static type of a double valued integer literal
- * is [double]. Test arguments binding
- * @author sgrekhov@unipro.ru
- */
+/// @assertion The static type of a double valued integer literal is [double]
+/// @description Checks that the static type of a double valued integer literal
+/// is [double]. Test arguments binding
+/// @author sgrekhov@unipro.ru
+
 
 class C {
   static void staticMethod(double val) {}

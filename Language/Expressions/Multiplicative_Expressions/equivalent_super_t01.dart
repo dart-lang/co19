@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A multiplicative expression of the form super op e2
- * is equivalent to the method invocation super.op(e2).
- * @description Checks that an expression of the form super op e2
- * is equivalent to the method invocation super.op(e2).
- * @author kaigorodov
- */
+/// @assertion A multiplicative expression of the form super op e2
+/// is equivalent to the method invocation super.op(e2).
+/// @description Checks that an expression of the form super op e2
+/// is equivalent to the method invocation super.op(e2).
+/// @author kaigorodov
+
 import '../../../Utils/expect.dart';
 
 class S {

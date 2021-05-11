@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void replaceRange(int start, int end, Iterable<E> replacement)
- * Removes the objects in the range start inclusive to end exclusive and inserts
- * the contents of replacement in its place.
- * ...
- * This method does not work on fixed-length lists, even when replacement has
- * the same number of elements as the replaced range.
- * @description Checks that an UnsupportedError is thrown as Int32x4List is
- * fixed-length.
- * @author ngl@unipro.ru
- */
+/// @assertion void replaceRange(int start, int end, Iterable<E> replacement)
+/// Removes the objects in the range start inclusive to end exclusive and inserts
+/// the contents of replacement in its place.
+/// ...
+/// This method does not work on fixed-length lists, even when replacement has
+/// the same number of elements as the replaced range.
+/// @description Checks that an UnsupportedError is thrown as Int32x4List is
+/// fixed-length.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

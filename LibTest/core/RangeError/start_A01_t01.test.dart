@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion num start
- * read-only
- * The minimum value that value is allowed to assume.
- * @description Checks that this property returns the minimum value that value
- * is allowed to assume
- * @author sgrekhov@unipro.ru
- */
+/// @assertion num start
+/// read-only
+/// The minimum value that value is allowed to assume.
+/// @description Checks that this property returns the minimum value that value
+/// is allowed to assume
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
  
 test(RangeError create(num invalidValue, int? minValue, int? maxValue)) {

@@ -2,22 +2,21 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Duration idleTimeout
- * read / write
- * Get or set the timeout used for idle keep-alive connections. If no further
- * request is seen within idleTimeout after the previous request was completed,
- * the connection is dropped.
- *
- * Default is 120 seconds.
- *
- * Note that it may take up to 2 * idleTimeout before a idle connection is
- * aborted.
- *
- * To disable, set idleTimeout to null.
- * @description Checks that default value of this property is 120 seconds
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Duration idleTimeout
+/// read / write
+/// Get or set the timeout used for idle keep-alive connections. If no further
+/// request is seen within idleTimeout after the previous request was completed,
+/// the connection is dropped.
+///
+/// Default is 120 seconds.
+///
+/// Note that it may take up to 2 * idleTimeout before a idle connection is
+/// aborted.
+///
+/// To disable, set idleTimeout to null.
+/// @description Checks that default value of this property is 120 seconds
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

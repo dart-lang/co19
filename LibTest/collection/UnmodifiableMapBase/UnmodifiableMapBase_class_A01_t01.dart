@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * Basic implementation of an unmodifiable [Map].
- * This class has a basic implementation of all but two of the members of an
- * unmodifiable [Map]. A simple unmodifiable [Map] class can be implemented by
- * extending this class and implementing [keys] and operator[].
- * @description Checks that unmodifiable map base is created.
- * @author iarkh@unipro.ru
- */
+/// Basic implementation of an unmodifiable [Map].
+/// This class has a basic implementation of all but two of the members of an
+/// unmodifiable [Map]. A simple unmodifiable [Map] class can be implemented by
+/// extending this class and implementing [keys] and operator[].
+/// @description Checks that unmodifiable map base is created.
+/// @author iarkh@unipro.ru
+
 import "unmodifiablemapbase.lib.dart";
 
 main() {

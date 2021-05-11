@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int readIntoSync(List<int> buffer, [int start = 0, int end])
- * Synchronously reads into an existing List<int> from the file. If start is
- * present, the bytes will be filled into buffer from at index start, otherwise
- * index 0. If end is present, the end - start bytes will be read into buffer,
- * otherwise up to buffer.length. If end == start nothing happens.
- *
- * @description Checks that method readIntoSync synchronously reads into an
- * existing List<int> from the file, and if start is not set the bytes are
- * filled into buffer at index 0.
- * @author ngl@unipro.ru
- */
+/// @assertion int readIntoSync(List<int> buffer, [int start = 0, int end])
+/// Synchronously reads into an existing List<int> from the file. If start is
+/// present, the bytes will be filled into buffer from at index start, otherwise
+/// index 0. If end is present, the end - start bytes will be read into buffer,
+/// otherwise up to buffer.length. If end == start nothing happens.
+///
+/// @description Checks that method readIntoSync synchronously reads into an
+/// existing List<int> from the file, and if start is not set the bytes are
+/// filled into buffer at index 0.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertionHttpHeaders headers
- * Returns the client request headers.
- *
- * The client request headers can be modified until the client request body is
- * written to or closed. After that they become immutable.
- * @description Checks that this property returns the client request headers.
- * Test default values
- * @author sgrekhov@unipro.ru
- * @issue 31583
- */
+/// @assertionHttpHeaders headers
+/// Returns the client request headers.
+///
+/// The client request headers can be modified until the client request body is
+/// written to or closed. After that they become immutable.
+/// @description Checks that this property returns the client request headers.
+/// Test default values
+/// @author sgrekhov@unipro.ru
+/// @issue 31583
+
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";

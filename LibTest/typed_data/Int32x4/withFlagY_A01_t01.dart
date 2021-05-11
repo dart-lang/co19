@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Int32x4 withFlagY(bool y)
- * Returns a new [Int32x4] copied from [this] with a new [y] value.
- * @description Checks that a new object is created and all its lanes except
- * [y] equal to corresponding lanes of [this]. Checks that [y] of new [Int32x4]
- * equals the [y] parameter of the method.
- * @author msyabro
- */
+/// @assertion Int32x4 withFlagY(bool y)
+/// Returns a new [Int32x4] copied from [this] with a new [y] value.
+/// @description Checks that a new object is created and all its lanes except
+/// [y] equal to corresponding lanes of [this]. Checks that [y] of new [Int32x4]
+/// equals the [y] parameter of the method.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

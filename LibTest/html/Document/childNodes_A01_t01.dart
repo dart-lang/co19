@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final List<Node> childNodes
- * A list of this node's children.
- * @description Checks the content of childNodes.
- */
+/// @assertion final List<Node> childNodes
+/// A list of this node's children.
+/// @description Checks the content of childNodes.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

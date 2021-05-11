@@ -2,14 +2,13 @@
 // file for details. All rights reserved. Use of this source code is governed
 // by a BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion An unforgeable object that comes back as equal when passed
- * through other isolates.
- *
- * @description Checks hashCode and equality operator for Capability
- *
- * @author a.semenov@unipro.ru
- */
+/// @assertion An unforgeable object that comes back as equal when passed
+/// through other isolates.
+///
+/// @description Checks hashCode and equality operator for Capability
+///
+/// @author a.semenov@unipro.ru
+
 import "dart:isolate";
 import "../../core/Object/allTests.lib.dart" as object;
 

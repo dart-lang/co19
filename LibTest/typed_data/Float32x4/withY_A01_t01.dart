@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Float32x4 withY(double y)
- * Returns a new Float32x4 copied from this with a new y value.
- * @description Checks that a new object is created and all its lanes except [y]
- * equal to corresponding lanes of [this]. Checks that [y] of new [Float32x4]
- * equals the [y] parameter of the method.
- * @note undocumented
- * @author msyabro
- */
+/// @assertion Float32x4 withY(double y)
+/// Returns a new Float32x4 copied from this with a new y value.
+/// @description Checks that a new object is created and all its lanes except [y]
+/// equal to corresponding lanes of [this]. Checks that [y] of new [Float32x4]
+/// equals the [y] parameter of the method.
+/// @note undocumented
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

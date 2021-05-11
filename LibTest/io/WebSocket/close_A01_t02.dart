@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future close([int code, String reason ])
- * Closes the WebSocket connection. Set the optional code and reason arguments
- * to send close information to the remote peer. If they are omitted, the peer
- * will see WebSocketStatus.noStatusReceived code with no reason.
- * @description Checks that the close method works correctly when its parameters
- * code and reason are not set.
- * @author ngl@unipro.ru
- */
+/// @assertion Future close([int code, String reason ])
+/// Closes the WebSocket connection. Set the optional code and reason arguments
+/// to send close information to the remote peer. If they are omitted, the peer
+/// will see WebSocketStatus.noStatusReceived code with no reason.
+/// @description Checks that the close method works correctly when its parameters
+/// code and reason are not set.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

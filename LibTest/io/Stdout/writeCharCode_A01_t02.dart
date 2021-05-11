@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void writeCharCode(int charCode)
- * Writes the character of [charCode].
- * This method is equivalent to [write(new String.fromCharCode(charCode))].
- * @description Checks that [writeCharCode] does not accept negative and too big
- * values.
- * @author iarkh@unipro.ru
- */
+/// @assertion void writeCharCode(int charCode)
+/// Writes the character of [charCode].
+/// This method is equivalent to [write(new String.fromCharCode(charCode))].
+/// @description Checks that [writeCharCode] does not accept negative and too big
+/// values.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:io";
 

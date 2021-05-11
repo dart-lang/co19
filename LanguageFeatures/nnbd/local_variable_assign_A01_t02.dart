@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It is a compile time error to assign a value to a final, non-late
- * local variable which is potentially assigned. Thus, it is not a compile time
- * error to assign to a definitely unassigned final local variable.
- *
- * @description Checks that it's not a compile time error to assign to a
- * definitely unassigned final local variable.
- *
- * @author sgrekhov@unipro.ru
- */
+/// @assertion It is a compile time error to assign a value to a final, non-late
+/// local variable which is potentially assigned. Thus, it is not a compile time
+/// error to assign to a definitely unassigned final local variable.
+///
+/// @description Checks that it's not a compile time error to assign to a
+/// definitely unassigned final local variable.
+///
+/// @author sgrekhov@unipro.ru
+
 // Requirements=nnbd-strong
 import "../../Utils/expect.dart";
 

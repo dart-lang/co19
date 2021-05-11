@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion static void fail(String msg)
- * Unconditional failure. 
- * @description Checks that this method always results in failure, regardless of
- * whether or not the argument is null or empty.
- * @author rodionov
- * @needsreview The exact mechanism of signaling failure is not documented. We
- * know it's ExpectException, though.
- */
+/// @assertion static void fail(String msg)
+/// Unconditional failure. 
+/// @description Checks that this method always results in failure, regardless of
+/// whether or not the argument is null or empty.
+/// @author rodionov
+/// @needsreview The exact mechanism of signaling failure is not documented. We
+/// know it's ExpectException, though.
+
 import "../../../Utils/expect.dart";
 
 main() {

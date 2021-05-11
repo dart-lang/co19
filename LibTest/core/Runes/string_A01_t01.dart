@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final String string
- * @description Checks that the corresponding string is returned.
- * @note undocumented
- * @author msyabro
- */
+/// @assertion final String string
+/// @description Checks that the corresponding string is returned.
+/// @note undocumented
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 check(string) {

@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool raw
- *  final
- * When true, deflate generates raw data with no zlib header or trailer, and
- * will not compute an adler32 check value
- * @description Checks that this property returns constructor's raw argument and
- * data, compressed with raw: true has smaller size
- * @author sgrekhov@unipro.ru
- */
+/// @assertion bool raw
+///  final
+/// When true, deflate generates raw data with no zlib header or trailer, and
+/// will not compute an adler32 check value
+/// @description Checks that this property returns constructor's raw argument and
+/// data, compressed with raw: true has smaller size
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

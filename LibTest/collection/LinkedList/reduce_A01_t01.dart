@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion E reduce(E combine(E value, E element))
- * Reduces a collection to a single value by iteratively combining elements
- * of the collection using the provided function.
- * @description Checks that the result is correct for simple functions.
- * @author kaigorodov
- */
+/// @assertion E reduce(E combine(E value, E element))
+/// Reduces a collection to a single value by iteratively combining elements
+/// of the collection using the provided function.
+/// @description Checks that the result is correct for simple functions.
+/// @author kaigorodov
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 import "dart:collection";

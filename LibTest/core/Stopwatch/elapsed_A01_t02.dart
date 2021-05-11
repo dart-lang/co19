@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final Duration elapsed
- * Returns the elapsedTicks counter converted to a Duration.
- * @description Checks that the elapsed tick count does not change after
- *              invocation of stop().
- * @author kaigorodov
- */
+/// @assertion final Duration elapsed
+/// Returns the elapsedTicks counter converted to a Duration.
+/// @description Checks that the elapsed tick count does not change after
+///              invocation of stop().
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

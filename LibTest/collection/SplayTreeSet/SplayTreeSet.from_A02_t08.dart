@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion SplayTreeSet.from(Iterable elements, [int compare(E key1, E key2),
- * bool isValidKey(potentialKey)])
- * ...
- * The set works as if created by new SplayTreeSet<E>(compare, isValidKey).
- * @description Checks that if the isValidKey function returns false for an
- * object, it is assumed to not be in the set
- * @author sgrekhov@unipro.ru
- */
+/// @assertion SplayTreeSet.from(Iterable elements, [int compare(E key1, E key2),
+/// bool isValidKey(potentialKey)])
+/// ...
+/// The set works as if created by new SplayTreeSet<E>(compare, isValidKey).
+/// @description Checks that if the isValidKey function returns false for an
+/// object, it is assumed to not be in the set
+/// @author sgrekhov@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

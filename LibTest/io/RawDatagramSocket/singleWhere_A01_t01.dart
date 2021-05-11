@@ -2,22 +2,21 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Future<RawSocketEvent> singleWhere (
- *     bool test(T element), {
- *     T orElse()
- * })
- * Finds the single element in this stream matching test.
- *
- * Like lastWhere, except that it is an error if more than one matching element
- * occurs in the stream.
- *
- * @description Checks that method [singleWhere] returns Future that is
- * completed with (1) the event of this stream, if this event is single event
- * that matches the test, or (2) an error otherwise.
- * @author ngl@unipro.ru
- */
+/// @assertion
+/// Future<RawSocketEvent> singleWhere (
+///     bool test(T element), {
+///     T orElse()
+/// })
+/// Finds the single element in this stream matching test.
+///
+/// Like lastWhere, except that it is an error if more than one matching element
+/// occurs in the stream.
+///
+/// @description Checks that method [singleWhere] returns Future that is
+/// completed with (1) the event of this stream, if this event is single event
+/// that matches the test, or (2) an error otherwise.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

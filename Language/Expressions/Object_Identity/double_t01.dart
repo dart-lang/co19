@@ -2,20 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The predeﬁned Dart function identical() is deﬁned such that
- * identical(c1, c2) iff:
- * . . .
- *  • c1 and c2 are instances of double and one of the following holds:
- *      – c1 and c2 are non-zero and c1 == c2.
- *      – Both c1 and c2 are +0.0.
- *      – Both c1 and c2 are −0.0.
- *      – Both c1 and c2 represent a NaN value with the same underlying bit
- *        pattern.
- * @description Checks that two non-zero and non-NaN doubles representing the
- * same value are identical.
- * @author kaigorodov
- */
+/// @assertion The predeﬁned Dart function identical() is deﬁned such that
+/// identical(c1, c2) iff:
+/// . . .
+///  • c1 and c2 are instances of double and one of the following holds:
+///      – c1 and c2 are non-zero and c1 == c2.
+///      – Both c1 and c2 are +0.0.
+///      – Both c1 and c2 are −0.0.
+///      – Both c1 and c2 represent a NaN value with the same underlying bit
+///        pattern.
+/// @description Checks that two non-zero and non-NaN doubles representing the
+/// same value are identical.
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 
 mul(var d1, var d2) {

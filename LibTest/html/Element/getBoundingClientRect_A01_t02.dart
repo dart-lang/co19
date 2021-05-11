@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Rectangle getBoundingClientRect()
- * Returns the smallest bounding rectangle that encompasses this element's
- * padding, scrollbar, and border.
- * @description Checks that padding, scrollbar and border are included in
- * the rectangle.
- */
+/// @assertion Rectangle getBoundingClientRect()
+/// Returns the smallest bounding rectangle that encompasses this element's
+/// padding, scrollbar, and border.
+/// @description Checks that padding, scrollbar and border are included in
+/// the rectangle.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

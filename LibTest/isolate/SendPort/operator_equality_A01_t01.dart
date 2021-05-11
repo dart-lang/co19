@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Tests whether [other] is a SendPort 
- * pointing to the same ReceivePort as this one.
- *
- * @description Checks that two SendPorts equals only if they
- * point to the same ReceivePort even after closing the ReceivePort.
- *
- * @author msyabro
- */
+/// @assertion Tests whether [other] is a SendPort 
+/// pointing to the same ReceivePort as this one.
+///
+/// @description Checks that two SendPorts equals only if they
+/// point to the same ReceivePort even after closing the ReceivePort.
+///
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 import "dart:isolate";

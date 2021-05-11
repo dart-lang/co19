@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<E> skipWhile(bool test(E element))
- * When the iterator encounters an element e that does not satisfy test,
- * it discards e and moves into the finished state.
- * That is, it will not ask or provide any more elements.
- * @description Checks that once an element does not satisfy
- * the [test] every later element is skipped.
- * @author msyabro
- */
+/// @assertion Iterable<E> skipWhile(bool test(E element))
+/// When the iterator encounters an element e that does not satisfy test,
+/// it discards e and moves into the finished state.
+/// That is, it will not ask or provide any more elements.
+/// @description Checks that once an element does not satisfy
+/// the [test] every later element is skipped.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 main() {

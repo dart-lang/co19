@@ -2,19 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Evaluation of a throw expression of the form throw e; proceeds as
- * follows:
- * The expression e is evaluated yielding a value v.
- * If v evaluates to null, then a NullThrownError is thrown. Otherwise, control
- * is transferred to the nearest dynamically enclosing exception handler, with
- * the current exception set to v and the current return value becomes
- * undefined.
- * @description Checks that if exception was raised inside the function and it was
- * not caught in this function, then control is transferred to the nearest
- * dynamically enclosing exception handler and return value becomes undefined.
- * @author ngl@unipro.ru
- */
+/// @assertion Evaluation of a throw expression of the form throw e; proceeds as
+/// follows:
+/// The expression e is evaluated yielding a value v.
+/// If v evaluates to null, then a NullThrownError is thrown. Otherwise, control
+/// is transferred to the nearest dynamically enclosing exception handler, with
+/// the current exception set to v and the current return value becomes
+/// undefined.
+/// @description Checks that if exception was raised inside the function and it was
+/// not caught in this function, then control is transferred to the nearest
+/// dynamically enclosing exception handler and return value becomes undefined.
+/// @author ngl@unipro.ru
+
 import '../../../Utils/expect.dart';
 
 int f(int i) {

@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion This operator implements a bit-wise OR operation.
- * @description Checks that this operator returns correct value.
- * @author vasya
- */
+/// @assertion This operator implements a bit-wise OR operation.
+/// @description Checks that this operator returns correct value.
+/// @author vasya
+
 import "../../../Utils/expect.dart";
 
 void main() {

@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<E> skipWhile(bool test(E value))
- * If all elements satisfy test the resulting iterable is empty
- * @description Checks that if all elements satisfy test the resulting iterable
- * is empty
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Iterable<E> skipWhile(bool test(E value))
+/// If all elements satisfy test the resulting iterable is empty
+/// @description Checks that if all elements satisfy test the resulting iterable
+/// is empty
+/// @author sgrekhov@unipro.ru
+
 library skipWhile_A05_t01;
 import "../../../Utils/expect.dart"	;
 

@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion ChunkedConversionSink<Object> startChunkedConversion(
- *  Sink<List<int>> sink
- *  )
- * Start a chunked conversion.
- * ...
- * @description Checks that this method transforms stream's events
- * @author sgrekhov@unipro.ru
- */
+/// @assertion ChunkedConversionSink<Object> startChunkedConversion(
+///  Sink<List<int>> sink
+///  )
+/// Start a chunked conversion.
+/// ...
+/// @description Checks that this method transforms stream's events
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

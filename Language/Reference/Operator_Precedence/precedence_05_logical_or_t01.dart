@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Description    Operator                          Associativity Precedence
- * Logical OR        ||                                Left           5
- * @description Test that '||' logical OR operator has precedence (5).
- * Compare with if-null '??' operator (precedence 4). Test that '||' has
- * priority higher than '??'
- * @static-warning
- * @author sgrekhov@unipro.ru
- */
+/// @assertion
+/// Description    Operator                          Associativity Precedence
+/// Logical OR        ||                                Left           5
+/// @description Test that '||' logical OR operator has precedence (5).
+/// Compare with if-null '??' operator (precedence 4). Test that '||' has
+/// priority higher than '??'
+/// @static-warning
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 String log = "";

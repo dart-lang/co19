@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String.fromCharCode(int charCode)
- * Allocates a new String for the specified charCode.
- * ...
- * @description Checks that a correct string is created
- * @author sgrekhov@unipro.ru
- */
+/// @assertion String.fromCharCode(int charCode)
+/// Allocates a new String for the specified charCode.
+/// ...
+/// @description Checks that a correct string is created
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

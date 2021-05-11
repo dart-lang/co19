@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion static void approxEquals(num expected, num actual, [num tolerance = null, String reason = null])
- * If no tolerance is given, tolerance is assumed to be the value 4 significant
- * digits smaller than the value given for expected.
- * @description Checks that with no tolerance specified, it is indeed assumed to
- * be 1/10000th of [expected].
- * Zeros and infinities of both signs are tested.
- * @author rodionov
- */
+/// @assertion static void approxEquals(num expected, num actual, [num tolerance = null, String reason = null])
+/// If no tolerance is given, tolerance is assumed to be the value 4 significant
+/// digits smaller than the value given for expected.
+/// @description Checks that with no tolerance specified, it is indeed assumed to
+/// be 1/10000th of [expected].
+/// Zeros and infinities of both signs are tested.
+/// @author rodionov
+
 import "../../../Utils/expect.dart";
 
 import "dart:math" as Math;

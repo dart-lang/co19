@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It is not a compile time error to write to a final variable if
- * that variable is declared late and does not have an initializer.
- *
- * @description Check that it is not a compile time error to write to a final
- * variable if that variable is declared late and does not have an initializer.
- * @author sgrekhov@unipro.ru
- * @issue 39684
- */
+/// @assertion It is not a compile time error to write to a final variable if
+/// that variable is declared late and does not have an initializer.
+///
+/// @description Check that it is not a compile time error to write to a final
+/// variable if that variable is declared late and does not have an initializer.
+/// @author sgrekhov@unipro.ru
+/// @issue 39684
+
 // Requirements=nnbd-weak
   import "../../../Utils/expect.dart";
 

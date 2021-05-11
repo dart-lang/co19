@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- *@assertion Stream<E> asyncMap<E>(FutureOr convert(T event))
- * Creates a new stream with each data event of this stream asynchronously
- * mapped to a new event.
- * . . .
- * The returned stream is a broadcast stream if this stream is.
- *
- * @description Checks that the returned stream is a broadcast stream if this
- * stream is.
- * @author ngl@unipro.ru
- */
+///@assertion Stream<E> asyncMap<E>(FutureOr convert(T event))
+/// Creates a new stream with each data event of this stream asynchronously
+/// mapped to a new event.
+/// . . .
+/// The returned stream is a broadcast stream if this stream is.
+///
+/// @description Checks that the returned stream is a broadcast stream if this
+/// stream is.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

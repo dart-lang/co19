@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion const touchCancelEvent
- * Static factory designed to expose touchcancel events to event handlers
- * that are not necessarily instances of Element.
- * @description Checks that correct events are delivered via the stream
- */
+/// @assertion const touchCancelEvent
+/// Static factory designed to expose touchcancel events to event handlers
+/// that are not necessarily instances of Element.
+/// @description Checks that correct events are delivered via the stream
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

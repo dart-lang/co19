@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion For spreading into map literals, we require the spread object to
- * be a class that implements [Map], but not necessarily a subtype of the map
- * being spread into.
- * @description Checks that [Map] object can be spread into the spreadable map.
- * @author iarkh@unipro.ru
- */
+/// @assertion For spreading into map literals, we require the spread object to
+/// be a class that implements [Map], but not necessarily a subtype of the map
+/// being spread into.
+/// @description Checks that [Map] object can be spread into the spreadable map.
+/// @author iarkh@unipro.ru
+
 
 import "dart:collection";
 import "../../Utils/expect.dart";

@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion This is true even if the object being spread is a user-defined
- * class that implements [Iterable] but isn't even a subtype of List.
- * @description Checks that [Iterable] object can be spread into the spreadable
- * list.
- * @static-warning
- * @author iarkh@unipro.ru
- */
+/// @assertion This is true even if the object being spread is a user-defined
+/// class that implements [Iterable] but isn't even a subtype of List.
+/// @description Checks that [Iterable] object can be spread into the spreadable
+/// list.
+/// @static-warning
+/// @author iarkh@unipro.ru
+
 
 import "dart:collection";
 import "../../Utils/expect.dart";

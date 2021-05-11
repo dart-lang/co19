@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Stream asyncExpand(Stream convert(T event))
- * Creates a new stream with the events of a stream per original event.
- * ...
- * If convert returns null, no value is put on the output stream, just as if it
- * returned an empty stream.
- *
- * @description Checks that if convert returns null, no value is put on the
- * output stream.
- * @author a.semenov@unipro.ru
- */
+/// @assertion Stream asyncExpand(Stream convert(T event))
+/// Creates a new stream with the events of a stream per original event.
+/// ...
+/// If convert returns null, no value is put on the output stream, just as if it
+/// returned an empty stream.
+///
+/// @description Checks that if convert returns null, no value is put on the
+/// output stream.
+/// @author a.semenov@unipro.ru
+
 library asyncExpand_A02_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

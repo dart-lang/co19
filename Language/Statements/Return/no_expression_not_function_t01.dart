@@ -2,21 +2,20 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A return statement with no expression, return; is executed as
- * follows:
- * . . .
- * Otherwise the return statement is executed by executing the statement
- * return null; if it occurs inside a method, getter, setter or factory;
- * otherwise, the return statement necessarily occurs inside a generative
- * constructor, in which case it is executed by executing return this;
- *
- * @description Checks that a return statement of the form "return;" in a
- * method, getter, setter or factory is executed by executing the statement
- * "return null;".
- *
- * @author vasya
- */
+/// @assertion A return statement with no expression, return; is executed as
+/// follows:
+/// . . .
+/// Otherwise the return statement is executed by executing the statement
+/// return null; if it occurs inside a method, getter, setter or factory;
+/// otherwise, the return statement necessarily occurs inside a generative
+/// constructor, in which case it is executed by executing return this;
+///
+/// @description Checks that a return statement of the form "return;" in a
+/// method, getter, setter or factory is executed by executing the statement
+/// "return null;".
+///
+/// @author vasya
+
 import '../../../Utils/expect.dart';
 
 bar() {

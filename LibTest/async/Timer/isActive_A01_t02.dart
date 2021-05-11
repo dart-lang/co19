@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final bool isActive
- * Returns whether the timer is still active.
- * A non-periodic timer is active if the callback has not been executed,
- * and the timer has not been canceled.
- * A periodic timer is active if it has not been canceled.
- * @description Checks that for periodic timer, isActive is true if timer has
- * not been canceled.
- * @author ilya
- */
+/// @assertion final bool isActive
+/// Returns whether the timer is still active.
+/// A non-periodic timer is active if the callback has not been executed,
+/// and the timer has not been canceled.
+/// A periodic timer is active if it has not been canceled.
+/// @description Checks that for periodic timer, isActive is true if timer has
+/// not been canceled.
+/// @author ilya
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

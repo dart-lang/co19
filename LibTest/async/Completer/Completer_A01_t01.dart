@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Completer()
- * Create a new completer.
- * @description Checks that [Completer] creates an object of class Completer.
- * @author msyabro
- */
+/// @assertion Completer()
+/// Create a new completer.
+/// @description Checks that [Completer] creates an object of class Completer.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 import "dart:async";
 

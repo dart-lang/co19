@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract void removeWhere(bool test(E element))
- * Removes all elements of this list that satisfy test.
- * An elements e satisfies test if test(e) is true.
- * @description Checks that all elements that satisfy test are removed, and
- * elements that does not are left.
- * @author kaigorodov
- */
+/// @assertion abstract void removeWhere(bool test(E element))
+/// Removes all elements of this list that satisfy test.
+/// An elements e satisfies test if test(e) is true.
+/// @description Checks that all elements that satisfy test are removed, and
+/// elements that does not are left.
+/// @author kaigorodov
+
 library removeWhere_A01_t01;
 
 import "../../../Utils/expect.dart";

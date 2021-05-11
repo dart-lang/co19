@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  final bool isEmpty
- * Returns [true] if there is no element in this collection.
- * @description Checks various lists, that the method returns [true] if there is
- * no elements in the list, [alse] otherwise.
- * @author kaigorodov
- */
+/// @assertion  final bool isEmpty
+/// Returns [true] if there is no element in this collection.
+/// @description Checks various lists, that the method returns [true] if there is
+/// no elements in the list, [alse] otherwise.
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";
 

@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract Zone fork({ZoneSpecification specification, Map<Symbol,
- *    dynamic> zoneValues})
- * Creates a new zone as a child of this.
- * @description Checks that returned zone is a child of this.
- * @author ilya
- */
+/// @assertion abstract Zone fork({ZoneSpecification specification, Map<Symbol,
+///    dynamic> zoneValues})
+/// Creates a new zone as a child of this.
+/// @description Checks that returned zone is a child of this.
+/// @author ilya
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

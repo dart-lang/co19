@@ -2,20 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Uint64List.view(
- *     ByteBuffer buffer, [
- *     int offsetInBytes = 0,
- *     int length
- * ])
- * ...
- * Throws [RangeError] if [offsetInBytes] or [length] are negative, or if
- * [offsetInBytes] + ([length] * elementSizeInBytes) is greater than the length
- * of [buffer].
- * @description Checks that an error is thrown if [length] is negative.
- * @author msyabro
- */
+/// @assertion
+/// Uint64List.view(
+///     ByteBuffer buffer, [
+///     int offsetInBytes = 0,
+///     int length
+/// ])
+/// ...
+/// Throws [RangeError] if [offsetInBytes] or [length] are negative, or if
+/// [offsetInBytes] + ([length] * elementSizeInBytes) is greater than the length
+/// of [buffer].
+/// @description Checks that an error is thrown if [length] is negative.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

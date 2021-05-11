@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion factory HttpRequest()
- * General constructor for any type of request (GET, POST, etc).
- * @description Checks the state of newly created request.
- */
+/// @assertion factory HttpRequest()
+/// General constructor for any type of request (GET, POST, etc).
+/// @description Checks the state of newly created request.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

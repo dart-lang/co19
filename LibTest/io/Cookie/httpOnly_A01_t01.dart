@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool httpOnly
- * read / write
- * Gets and sets whether this cookie is HTTP only.
- * @description Checks that this property gets and sets whether this cookie is
- * HTTP only
- * @author sgrekhov@unipro.ru
- */
+/// @assertion bool httpOnly
+/// read / write
+/// Gets and sets whether this cookie is HTTP only.
+/// @description Checks that this property gets and sets whether this cookie is
+/// HTTP only
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

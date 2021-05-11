@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion double operator unary-()
- * @description Checks [:unary-():] on a NaN.
- * @author pagolubev
- * @reviewer msyabro
- */
+/// @assertion double operator unary-()
+/// @description Checks [:unary-():] on a NaN.
+/// @author pagolubev
+/// @reviewer msyabro
+
 import "../../../Utils/expect.dart";
 
 main() {

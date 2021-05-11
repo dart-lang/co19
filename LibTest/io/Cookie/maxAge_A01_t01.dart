@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int maxAge
- * read / write
- * Gets and sets the max age. A value of 0 means delete cookie now.
- * @description Checks that this property gets and sets the max age
- * @author sgrekhov@unipro.ru
- */
+/// @assertion int maxAge
+/// read / write
+/// Gets and sets the max age. A value of 0 means delete cookie now.
+/// @description Checks that this property gets and sets the max age
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

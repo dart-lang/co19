@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Strings support escape sequences for special characters. The
- * escapes are:
- * . . .
- * • Otherwise, \k indicates the character k for any k not in
- *   {n, r, f, b, t, v, x, u}.
- * @description Checks that \k indicates the character k for any k not in
- * {n, r, f, b, t, v, x, u}.
- * @author msyabro
- * @reviewer rodionov
- */
+/// @assertion Strings support escape sequences for special characters. The
+/// escapes are:
+/// . . .
+/// • Otherwise, \k indicates the character k for any k not in
+///   {n, r, f, b, t, v, x, u}.
+/// @description Checks that \k indicates the character k for any k not in
+/// {n, r, f, b, t, v, x, u}.
+/// @author msyabro
+/// @reviewer rodionov
+
 import '../../../Utils/expect.dart';
 
 main() {

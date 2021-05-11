@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion ByteConversionSink startChunkedConversion(Sink<String> sink)
- * Starts a chunked conversion.
- *
- * The converter works more efficiently if the given sink is a
- * StringConversionSink.
- * @description Checks that this method transforms stream's events
- * @author sgrekhov@unipro.ru
- */
+/// @assertion ByteConversionSink startChunkedConversion(Sink<String> sink)
+/// Starts a chunked conversion.
+///
+/// The converter works more efficiently if the given sink is a
+/// StringConversionSink.
+/// @description Checks that this method transforms stream's events
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final bool isEmpty
- * @description Check that [isEmpty] is a read-only property.
- * @author iarkh@unipro.ru
- */
+/// @assertion final bool isEmpty
+/// @description Check that [isEmpty] is a read-only property.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

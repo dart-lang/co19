@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int readByteSync()
- * Synchronously read a byte from stdin.
- * @description Checks that bytes are read from [stdin] one-by-one
- * @author iarkh@unipro.ru
- */
+/// @assertion int readByteSync()
+/// Synchronously read a byte from stdin.
+/// @description Checks that bytes are read from [stdin] one-by-one
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:async";
 import "dart:io";

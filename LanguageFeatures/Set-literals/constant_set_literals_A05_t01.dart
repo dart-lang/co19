@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  It is a compile-time error if any two of the values are equal
- * according to ==.
- *
- * @description Checks that it is a compile-time error if any two of the values
- * are equal according to ==.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion  It is a compile-time error if any two of the values are equal
+/// according to ==.
+///
+/// @description Checks that it is a compile-time error if any two of the values
+/// are equal according to ==.
+/// @author sgrekhov@unipro.ru
+
 main() {
   var v1 = const {1, 2 + 1, 3 - 1, 1};
   //       ^

@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion EventTarget get currentTarget
- * A reference to the currently registered target for the event.
- * @description Checks expected attribute values.
- */
+/// @assertion EventTarget get currentTarget
+/// A reference to the currently registered target for the event.
+/// @description Checks expected attribute values.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

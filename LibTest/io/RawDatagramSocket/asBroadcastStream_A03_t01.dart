@@ -2,23 +2,22 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Stream<RawSocketEvent> asBroadcastStream({
- *     void onListen(StreamSubscription<T> subscription),
- *     void onCancel(StreamSubscription<T> subscription)
- * })
- * Returns a multi-subscription stream that produces the same events as this.
- * . . .
- * If onCancel is provided, it is called in a similar way to onListen when the
- * returned stream stops having listener. If it later gets a new listener, the
- * onListen function is called again.
- *
- * @description Checks that if onCancel is provided, it is called in a similar
- * way to onListen when the returned stream stops having listener.
- * @author ngl@unipro.ru
- * @issue 43174
- */
+/// @assertion
+/// Stream<RawSocketEvent> asBroadcastStream({
+///     void onListen(StreamSubscription<T> subscription),
+///     void onCancel(StreamSubscription<T> subscription)
+/// })
+/// Returns a multi-subscription stream that produces the same events as this.
+/// . . .
+/// If onCancel is provided, it is called in a similar way to onListen when the
+/// returned stream stops having listener. If it later gets a new listener, the
+/// onListen function is called again.
+///
+/// @description Checks that if onCancel is provided, it is called in a similar
+/// way to onListen when the returned stream stops having listener.
+/// @author ngl@unipro.ru
+/// @issue 43174
+
 import "dart:async";
 import "dart:io";
 import "../http_utils.dart";

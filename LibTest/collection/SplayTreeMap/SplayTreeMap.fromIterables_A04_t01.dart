@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion SplayTreeMap.fromIterables(Iterable<K> keys, Iterable<V> values,
- * [int compare(K key1, K key2), bool isValidKey(potentialKey)])
- * @description Checks that if [compare] function specified, then it is used for
- * the keys comparison
- * @author sgrekhov@unipro.ru
- */
+/// @assertion SplayTreeMap.fromIterables(Iterable<K> keys, Iterable<V> values,
+/// [int compare(K key1, K key2), bool isValidKey(potentialKey)])
+/// @description Checks that if [compare] function specified, then it is used for
+/// the keys comparison
+/// @author sgrekhov@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

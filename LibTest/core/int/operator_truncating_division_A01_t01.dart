@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int operator ~/(num other)
- * Truncating division operator.
- *
- * If either operand is a double then the result of the truncating division
- * a ~/ b is equivalent to (a / b).truncate().toInt().
- * If both operands are ints then a ~/ b performs the truncating integer
- * division.
- * @description Checks that this operator returns correct value.
- * @author vasya
- */
+/// @assertion int operator ~/(num other)
+/// Truncating division operator.
+///
+/// If either operand is a double then the result of the truncating division
+/// a ~/ b is equivalent to (a / b).truncate().toInt().
+/// If both operands are ints then a ~/ b performs the truncating integer
+/// division.
+/// @description Checks that this operator returns correct value.
+/// @author vasya
+
 import "../../../Utils/expect.dart";
 
 void check(var expected, var actual) {

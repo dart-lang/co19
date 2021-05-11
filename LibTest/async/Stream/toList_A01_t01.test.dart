@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<List<T>> toList()
- * Collects the data of this stream in a List.
- * @description Checks that returned list contains all elements of the stream in
- * the same order.
- * @author kaigorodov
- */
+/// @assertion Future<List<T>> toList()
+/// Collects the data of this stream in a List.
+/// @description Checks that returned list contains all elements of the stream in
+/// the same order.
+/// @author kaigorodov
+
 library toList_A01_t01;
 import "../../../Utils/expect.dart";
 

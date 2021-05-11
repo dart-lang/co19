@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool every(bool f(E element))
- * Checks whether every element of this iterable satisfies test.
- * ... returns [false] if any of them make [test] return [false], otherwise
- * returns [true].
- * @description Checks that [true] is always returned for empty iterable.
- * @author iarkh@unipro.ru
- */
+/// @assertion bool every(bool f(E element))
+/// Checks whether every element of this iterable satisfies test.
+/// ... returns [false] if any of them make [test] return [false], otherwise
+/// returns [true].
+/// @description Checks that [true] is always returned for empty iterable.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

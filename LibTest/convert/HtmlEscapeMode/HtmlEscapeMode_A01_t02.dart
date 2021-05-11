@@ -2,22 +2,21 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion const HtmlEscapeMode({
- *  String name: "custom",
- *  bool escapeLtGt: false,
- *  bool escapeQuot: false,
- *  bool escapeApos: false,
- *  bool escapeSlash: false
- *  })
- *  Create a custom escaping mode.
- *
- * All modes escape &. The mode can further be set to escape < and >
- * (escapeLtGt), " (escapeQuot), ' (escapeApos), and/or / (escapeSlash).
- * @description Checks that this constructor creates a custom escaping mode.
- * Test escapeLtGt true
- * @author sgrekhov@unipro.ru
- */
+/// @assertion const HtmlEscapeMode({
+///  String name: "custom",
+///  bool escapeLtGt: false,
+///  bool escapeQuot: false,
+///  bool escapeApos: false,
+///  bool escapeSlash: false
+///  })
+///  Create a custom escaping mode.
+///
+/// All modes escape &. The mode can further be set to escape < and >
+/// (escapeLtGt), " (escapeQuot), ' (escapeApos), and/or / (escapeSlash).
+/// @description Checks that this constructor creates a custom escaping mode.
+/// Test escapeLtGt true
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

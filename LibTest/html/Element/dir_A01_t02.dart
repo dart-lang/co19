@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String dir
- * Gets/sets the directionality of the element.
- * @description Checks that modification of the attribute is reflected in the
- * element
- */
+/// @assertion String dir
+/// Gets/sets the directionality of the element.
+/// @description Checks that modification of the attribute is reflected in the
+/// element
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

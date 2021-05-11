@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String encodeComponent(String component)
- * Encode the string component using percent-encoding to make it safe for
- * literal use as a URI component.
- * All characters except uppercase and lowercase letters, digits and
- * the characters -_.!~*'() are percent-encoded.
- * @description Checks that unlisted characters from Unicode Basic
- * Multilingual Plane are percent-encoded.
- * @author ilya
- */
+/// @assertion String encodeComponent(String component)
+/// Encode the string component using percent-encoding to make it safe for
+/// literal use as a URI component.
+/// All characters except uppercase and lowercase letters, digits and
+/// the characters -_.!~*'() are percent-encoded.
+/// @description Checks that unlisted characters from Unicode Basic
+/// Multilingual Plane are percent-encoded.
+/// @author ilya
+
 import "../../../Utils/expect.dart";
 
 String canBeNotEncoded = "0123456789"

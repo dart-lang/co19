@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Strings support escape sequences for special characters. The
- * escapes are:
- * . . .
- * • \r for carriage return, equivalent to \x0D.
- * @description Checks that \r is equivalent to \x0D.
- * @author msyabro
- */
+/// @assertion Strings support escape sequences for special characters. The
+/// escapes are:
+/// . . .
+/// • \r for carriage return, equivalent to \x0D.
+/// @description Checks that \r is equivalent to \x0D.
+/// @author msyabro
+
 import '../../../Utils/expect.dart';
 
 main() {

@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Stream<T> handleError(Function onError, {bool test(error)})
- * If test is omitted, every error is considered matching.
- * @description Checks that if [test] is omitted, every error is intercepted
- * @author a.semenov@unipro.ru
- */
+/// @assertion Stream<T> handleError(Function onError, {bool test(error)})
+/// If test is omitted, every error is considered matching.
+/// @description Checks that if [test] is omitted, every error is intercepted
+/// @author a.semenov@unipro.ru
+
 library handleError_A02_t01;
 
 import "dart:async";

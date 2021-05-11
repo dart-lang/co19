@@ -2,30 +2,29 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The grammar is modified as follows:
- *
- * <topLevelDefinition> ::=
- *  ... |
- *  // New alternative.
- *  'external' <finalVarOrType> <identifierList> ';'
- *
- *  <finalVarOrType> ::= // New rule.
- *  'final' <type>? |
- *  <varOrType>
- *
- *  <declaration> ::=
- *  ... |
- *  // New alternative.
- *  'external' ('static'? <finalVarOrType> | 'covariant' <varOrType>)
- *  <identifierList> |
- * // New alternative.
- *  'abstract' (<finalVarOrType> | 'covariant' <varOrType>) <identifierList>
- *
- * @description Checks topLevelDefinition syntax
- * @author sgrekhov@unipro.ru
- * @compile-error
- */
+/// @assertion The grammar is modified as follows:
+///
+/// <topLevelDefinition> ::=
+///  ... |
+///  // New alternative.
+///  'external' <finalVarOrType> <identifierList> ';'
+///
+///  <finalVarOrType> ::= // New rule.
+///  'final' <type>? |
+///  <varOrType>
+///
+///  <declaration> ::=
+///  ... |
+///  // New alternative.
+///  'external' ('static'? <finalVarOrType> | 'covariant' <varOrType>)
+///  <identifierList> |
+/// // New alternative.
+///  'abstract' (<finalVarOrType> | 'covariant' <varOrType>) <identifierList>
+///
+/// @description Checks topLevelDefinition syntax
+/// @author sgrekhov@unipro.ru
+/// @compile-error
+
 abstract class C {
   int? abstract i1;
   var abstract i2;

@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion SplayTreeMap([int compare(K key1, K key2),
- * bool isValidKey(potentialKey)])
- * Keys of the map are compared using the [compare] function passed in the
- * constructor, both for ordering and for equality.
- * @description Checks that [compare] function is really called when comparing
- * or ordering the keys.
- * .
- * @author iarkh@unipro.ru
- */
+/// @assertion SplayTreeMap([int compare(K key1, K key2),
+/// bool isValidKey(potentialKey)])
+/// Keys of the map are compared using the [compare] function passed in the
+/// constructor, both for ordering and for equality.
+/// @description Checks that [compare] function is really called when comparing
+/// or ordering the keys.
+/// .
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

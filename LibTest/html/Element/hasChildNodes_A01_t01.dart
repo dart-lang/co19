@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool hasChildNodes()
- * Returns true if this node has any children.
- * @description Checks expected values.
- */
+/// @assertion bool hasChildNodes()
+/// Returns true if this node has any children.
+/// @description Checks expected values.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

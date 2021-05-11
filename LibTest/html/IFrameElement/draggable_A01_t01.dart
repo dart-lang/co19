@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool draggable
- * Indicates whether the element can be dragged and dropped.
- * @description Checks expected attribute values.
- */
+/// @assertion bool draggable
+/// Indicates whether the element can be dragged and dropped.
+/// @description Checks expected attribute values.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

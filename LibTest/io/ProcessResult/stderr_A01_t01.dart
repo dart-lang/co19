@@ -2,19 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion dynamic stderr
- *
- * Standard error from the process. The value used for the stderrEncoding
- * argument to Process.run determines the type. If null was used this value is
- * of type List<int> otherwise it is of type String.
- *
- * @description Checks that if constructor [ProcessResult] creates a new object
- * of type ProcessResult with the same parameters as ProcessResult received
- * after completion Process.run method and stdoutEncoding was not set to null
- * for completed Process.run method, the [stderr] returns String value.
- * @author ngl@unipro.ru
- */
+/// @assertion dynamic stderr
+///
+/// Standard error from the process. The value used for the stderrEncoding
+/// argument to Process.run determines the type. If null was used this value is
+/// of type List<int> otherwise it is of type String.
+///
+/// @description Checks that if constructor [ProcessResult] creates a new object
+/// of type ProcessResult with the same parameters as ProcessResult received
+/// after completion Process.run method and stdoutEncoding was not set to null
+/// for completed Process.run method, the [stderr] returns String value.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

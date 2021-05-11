@@ -3,18 +3,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A script is a library whose exported namespace includes a
- * top-level function main().
- *
- * libraryDefinition:
- *   scriptTag? libraryName? importOrExport* partDirective* topLevelDefinition*
- * ;
- * @description Checks that it is a compile-time error when a part directive
- * comes before an import directive.
- * @compile-error
- * @author vasya
- */
+/// @assertion A script is a library whose exported namespace includes a
+/// top-level function main().
+///
+/// libraryDefinition:
+///   scriptTag? libraryName? importOrExport* partDirective* topLevelDefinition*
+/// ;
+/// @description Checks that it is a compile-time error when a part directive
+/// comes before an import directive.
+/// @compile-error
+/// @author vasya
+
 
 part "../Parts/part_0.dart";
 import "library1.dart";

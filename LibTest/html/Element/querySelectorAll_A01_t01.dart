@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion ElementList querySelectorAll(String selectors)
- * Finds all descendent elements of this element that match the specified
- * group of selectors.
- *
- * selectors should be a string using CSS selector syntax.
- * @description Checks various selectors (not exhaustive)
- */
+/// @assertion ElementList querySelectorAll(String selectors)
+/// Finds all descendent elements of this element that match the specified
+/// group of selectors.
+///
+/// selectors should be a string using CSS selector syntax.
+/// @description Checks various selectors (not exhaustive)
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../testcommon.dart";

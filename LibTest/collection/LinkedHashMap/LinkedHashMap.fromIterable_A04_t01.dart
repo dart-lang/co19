@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion LinkedHashMap.fromIterable(Iterable iterable,
- * {K key(element), V value(element)})
- * ...
- * If no values are specified for [key] and [value] the default is the identity
- * function
- * @description Checks that if no values are specified for key and value the
- * default is the identity function
- * @author sgrekhov@unipro.ru
- */
+/// @assertion LinkedHashMap.fromIterable(Iterable iterable,
+/// {K key(element), V value(element)})
+/// ...
+/// If no values are specified for [key] and [value] the default is the identity
+/// function
+/// @description Checks that if no values are specified for key and value the
+/// default is the identity function
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * setterSignature:
- *   returnType? set identifier formalParameterList
- * ;
- * @description Checks that various valid setter declarations do not cause any
- * errors. Test type aliases
- * @author sgrekhov@unipro.ru
- */
+/// @assertion
+/// setterSignature:
+///   returnType? set identifier formalParameterList
+/// ;
+/// @description Checks that various valid setter declarations do not cause any
+/// errors. Test type aliases
+/// @author sgrekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 abstract class A<U, V> {

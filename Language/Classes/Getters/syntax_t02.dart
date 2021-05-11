@@ -2,15 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * getterSignature:
- *   returnType? get identifier
- * ;
- * @description Checks that it is a compile-time error if the getter identifier
- * is missing.
- * @author iefremov
- */
+/// @assertion
+/// getterSignature:
+///   returnType? get identifier
+/// ;
+/// @description Checks that it is a compile-time error if the getter identifier
+/// is missing.
+/// @author iefremov
 
 class C {
   get => null;

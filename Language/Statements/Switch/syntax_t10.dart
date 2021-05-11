@@ -2,23 +2,22 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The switch statement supports dispatching control among a large
- * number of cases.
- * switchStatement:
- *   switch '(' expression ')' '{' switchCase* defaultCase? '}'
- * ;
- * switchCase:
- *   label* case expression ':' statements
- * ;
- * defaultCase:
- *   label* default ':' statements
- * ;
- * @description Checks that it is a compile-time error if a case expression is
- * not followed by a colon character.
- * @compile-error
- * @author vasya
-*/
+/// @assertion The switch statement supports dispatching control among a large
+/// number of cases.
+/// switchStatement:
+///   switch '(' expression ')' '{' switchCase* defaultCase? '}'
+/// ;
+/// switchCase:
+///   label* case expression ':' statements
+/// ;
+/// defaultCase:
+///   label* default ':' statements
+/// ;
+/// @description Checks that it is a compile-time error if a case expression is
+/// not followed by a colon character.
+/// @compile-error
+/// @author vasya
+
 
 switchTest(value) {
   var result;

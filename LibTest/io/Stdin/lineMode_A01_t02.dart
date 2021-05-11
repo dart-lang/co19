@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool lineMode
- * Check if line mode is enabled on [stdin].
- * @description Checks that [lineMode] is a valid [boolean] value
- * @author iarkh@unipro.ru
- * @Issue 31932
- */
+/// @assertion bool lineMode
+/// Check if line mode is enabled on [stdin].
+/// @description Checks that [lineMode] is a valid [boolean] value
+/// @author iarkh@unipro.ru
+/// @Issue 31932
+
 import "../../../Utils/expect.dart";
 import "dart:io";
 

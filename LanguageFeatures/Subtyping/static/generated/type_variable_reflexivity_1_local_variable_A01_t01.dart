@@ -2,26 +2,23 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
- * when:
- * Type Variable Reflexivity 1: T0 is a type variable X0 or a promoted type
- * variables X0 & S0 and T1 is X0
- * @description Check that if type T0 a promoted type variables X0 & S0 and T1
- * is X0 then T0 is a subtype of T1.
- * @author sgrekhov@unipro.ru
- */
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be assigned to the to local variable of type T1
- * @author sgrekhov@unipro.ru
- */
-/*
- * This test is generated from type_variable_reflexivity_1_A01.dart and 
- * local_variable_x01.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
+/// @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
+/// when:
+/// Type Variable Reflexivity 1: T0 is a type variable X0 or a promoted type
+/// variables X0 & S0 and T1 is X0
+/// @description Check that if type T0 a promoted type variables X0 & S0 and T1
+/// is X0 then T0 is a subtype of T1.
+/// @author sgrekhov@unipro.ru
+///
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be be assigned to the to local variable of type T1
+/// @author sgrekhov@unipro.ru
+///
+/// This test is generated from type_variable_reflexivity_1_A01.dart and 
+/// local_variable_x01.dart.
+/// Don't modify it. If you want to change this test, change one of the files 
+/// above and then run generator.dart to regenerate the tests.
+
 
 
 class X0 {

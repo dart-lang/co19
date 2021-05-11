@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Struct()
- * Instances of a subclass of Struct have reference semantics and are backed by
- * native memory. The may allocated via allocation or loaded from a Pointer, but
- * cannot be created by a generative constructor.
- *
- * @description Checks that it is a compile time error if 'Struct' subclasses
- * are created by generative constructor
- * @author sgrekhov@unipro.ru
- * @issue 44987
- */
+/// @assertion Struct()
+/// Instances of a subclass of Struct have reference semantics and are backed by
+/// native memory. The may allocated via allocation or loaded from a Pointer, but
+/// cannot be created by a generative constructor.
+///
+/// @description Checks that it is a compile time error if 'Struct' subclasses
+/// are created by generative constructor
+/// @author sgrekhov@unipro.ru
+/// @issue 44987
+
 import "dart:ffi";
 
 class S1 extends Struct {

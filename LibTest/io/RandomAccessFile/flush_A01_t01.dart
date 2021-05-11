@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<RandomAccessFile> flush()
- * Flushes the contents of the file to disk. Returns a Future<RandomAccessFile>
- * that completes with this RandomAccessFile when the flush operation completes.
- *
- * @description Checks that method flush returns Future<RandomAccessFile> that
- * completes with this RandomAccessFile.
- * @author ngl@unipro.ru
- */
+/// @assertion Future<RandomAccessFile> flush()
+/// Flushes the contents of the file to disk. Returns a Future<RandomAccessFile>
+/// that completes with this RandomAccessFile when the flush operation completes.
+///
+/// @description Checks that method flush returns Future<RandomAccessFile> that
+/// completes with this RandomAccessFile.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

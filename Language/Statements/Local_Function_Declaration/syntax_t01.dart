@@ -2,28 +2,27 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A function declaration statement declares a new local function.
- *   localFunctionDeclaration:
- *     functionSignature functionBody
- *   ;
- * functionSignature:
- *   metadata returnType? identifier formalParameterList
- * ;
- * returnType:
- *   void |
- *   type
- * ;
- * functionBody:
- *   async? ‘=>’ expression ‘;’ |
- *   (async | async* | sync*)?  block
- * ;
- * block:
- *   '{' statements '}'
- * ;
- * @description Checks that various correct function definitions are accepted.
- * @author kaigorodov
- */
+/// @assertion A function declaration statement declares a new local function.
+///   localFunctionDeclaration:
+///     functionSignature functionBody
+///   ;
+/// functionSignature:
+///   metadata returnType? identifier formalParameterList
+/// ;
+/// returnType:
+///   void |
+///   type
+/// ;
+/// functionBody:
+///   async? ‘=>’ expression ‘;’ |
+///   (async | async* | sync*)?  block
+/// ;
+/// block:
+///   '{' statements '}'
+/// ;
+/// @description Checks that various correct function definitions are accepted.
+/// @author kaigorodov
+
 
 main() {
   void func() {}

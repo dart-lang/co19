@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion List<RedirectInfo> redirects
- * Returns the series of redirects this connection has been through. The list
- * will be empty if no redirects were followed. redirects will be updated both
- * in the case of an automatic and a manual redirect.
- * @description Checks that this method returns the series of redirects this
- * connection has been through. Test PUT redirect
- * @author sgrekhov@unipro.ru
- */
+/// @assertion List<RedirectInfo> redirects
+/// Returns the series of redirects this connection has been through. The list
+/// will be empty if no redirects were followed. redirects will be updated both
+/// in the case of an automatic and a manual redirect.
+/// @description Checks that this method returns the series of redirects this
+/// connection has been through. Test PUT redirect
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";

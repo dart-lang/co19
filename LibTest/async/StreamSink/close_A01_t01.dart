@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract Future close()
- * Close the StreamSink. It'll return the done Future.
- * @description Checks that close() closes a sink and returns a future that
- * will be completed when sink is closed.
- * @author ilya
- */
+/// @assertion abstract Future close()
+/// Close the StreamSink. It'll return the done Future.
+/// @description Checks that close() closes a sink and returns a future that
+/// will be completed when sink is closed.
+/// @author ilya
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

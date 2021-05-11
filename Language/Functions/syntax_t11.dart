@@ -2,26 +2,25 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Functions include function declarations, methods, getters,
- * setters, constructors and function literals.
- * All functions have a signature and a body.
- * functionSignature:
- *   metadata returnType? identifier formalParameterList
- * ;
- * returnType: void | type
- * ;
- * functionBody:
- *   async? '=>' expression ';' | (async | async* | sync*)? block
- * ;
- * block:
- *   '{' statements '}'
- * ;
- *
- * @description Checks that statements can be empty in the form
- * [functionSignature '{' statements '}']
- *
- * @author msyabro
- */
+/// @assertion Functions include function declarations, methods, getters,
+/// setters, constructors and function literals.
+/// All functions have a signature and a body.
+/// functionSignature:
+///   metadata returnType? identifier formalParameterList
+/// ;
+/// returnType: void | type
+/// ;
+/// functionBody:
+///   async? '=>' expression ';' | (async | async* | sync*)? block
+/// ;
+/// block:
+///   '{' statements '}'
+/// ;
+///
+/// @description Checks that statements can be empty in the form
+/// [functionSignature '{' statements '}']
+///
+/// @author msyabro
+
 
 main() {}

@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion CLASS  Stdout
- * In some situations this blocking behavior is undesirable as it does not
- * provide the same non-blocking behavior as [dart:io] in general exposes. Use
- * the property [nonBlocking] to get an [IOSink] which has the non-blocking
- * behavior.
- * @description Checks that stream is not blocked if [nonBlocking] [IOSink] is
- * used.
- * @author iarkh@unipro.ru
- */
+/// @assertion CLASS  Stdout
+/// In some situations this blocking behavior is undesirable as it does not
+/// provide the same non-blocking behavior as [dart:io] in general exposes. Use
+/// the property [nonBlocking] to get an [IOSink] which has the non-blocking
+/// behavior.
+/// @description Checks that stream is not blocked if [nonBlocking] [IOSink] is
+/// used.
+/// @author iarkh@unipro.ru
+
 import "dart:async";
 import "dart:io";
 

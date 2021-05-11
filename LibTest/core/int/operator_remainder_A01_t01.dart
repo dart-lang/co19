@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion num operator %(num other) 
- * The % operator yields the remainder of its operands from an implied division;
- * the left operand is the dividend and the right operand is the divisor.
- * @description Checks that this operator returns correct value for integer
- * arguments (including 0).
- * @author vasya
- */
+/// @assertion num operator %(num other) 
+/// The % operator yields the remainder of its operands from an implied division;
+/// the left operand is the dividend and the right operand is the divisor.
+/// @description Checks that this operator returns correct value for integer
+/// arguments (including 0).
+/// @author vasya
+
 import "../../../Utils/expect.dart";
 
 main() {

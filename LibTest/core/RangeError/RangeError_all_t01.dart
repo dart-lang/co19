@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion class RangeError
- * Error thrown due to an index being outside a valid range.
- * @description Checks that RangeError-specific methods work as specified.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion class RangeError
+/// Error thrown due to an index being outside a valid range.
+/// @description Checks that RangeError-specific methods work as specified.
+/// @author sgrekhov@unipro.ru
+
 import "allTests.lib.dart" as rangeErrorTests;
 import "inheritedTests.lib.dart" as inherited;
 

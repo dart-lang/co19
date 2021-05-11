@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A getter definition that is prefixed with the static modifier 
- * defines a static getter
- * @description Checks that non-static getter cannot be called as static one.
- * Compile error occurs
- * @author sgrekhov@unipro.ru
- */
+/// @assertion A getter definition that is prefixed with the static modifier 
+/// defines a static getter
+/// @description Checks that non-static getter cannot be called as static one.
+/// Compile error occurs
+/// @author sgrekhov@unipro.ru
+
 
 class C1 {
   int get g1 => 0;

@@ -2,24 +2,23 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Stream<RawSocketEvent> timeout (
- *     Duration timeLimit, {
- *     void onTimeout(
- *         EventSink<T> sink
- *     )
- * })
- * . . .
- * The onTimeout function is called with one argument: an EventSink that allows
- * putting events into the returned stream. This EventSink is only valid during
- * the call to onTimeout. Calling EventSink.close on the sink passed to
- * onTimeout closes the returned stream, and no further events are processed.
- *
- * @description Checks that calling EventSink.close on the sink passed to
- * onTimeout closes the returned stream, and no further events are processed.
- * @author ngl@unipro.ru
- */
+/// @assertion
+/// Stream<RawSocketEvent> timeout (
+///     Duration timeLimit, {
+///     void onTimeout(
+///         EventSink<T> sink
+///     )
+/// })
+/// . . .
+/// The onTimeout function is called with one argument: an EventSink that allows
+/// putting events into the returned stream. This EventSink is only valid during
+/// the call to onTimeout. Calling EventSink.close on the sink passed to
+/// onTimeout closes the returned stream, and no further events are processed.
+///
+/// @description Checks that calling EventSink.close on the sink passed to
+/// onTimeout closes the returned stream, and no further events are processed.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

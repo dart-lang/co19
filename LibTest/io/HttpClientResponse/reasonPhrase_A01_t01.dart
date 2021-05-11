@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String reasonPhrase
- * Returns the reason phrase associated with the status code.
- *
- * The reason phrase must be set before the body is written to. Setting the
- * reason phrase after writing to the body will throw a StateError.
- * @description Checks that this getter returns the reason phrase associated
- * with the status code.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion String reasonPhrase
+/// Returns the reason phrase associated with the status code.
+///
+/// The reason phrase must be set before the body is written to. Setting the
+/// reason phrase after writing to the body will throw a StateError.
+/// @description Checks that this getter returns the reason phrase associated
+/// with the status code.
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";

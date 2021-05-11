@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Datagram receive()
- * Receive a datagram. If there are no datagrams available null is returned.
- *
- * @description Checks that method receive receives datagrams.
- * @author ngl@unipro.ru
- */
+/// @assertion Datagram receive()
+/// Receive a datagram. If there are no datagrams available null is returned.
+///
+/// @description Checks that method receive receives datagrams.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "../http_utils.dart";
 import "../../../Utils/expect.dart";

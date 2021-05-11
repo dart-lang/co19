@@ -2,31 +2,30 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A script is a library whose exported namespace includes a
- * top-level function main().
- *
- * libraryDefinition:
- *   scriptTag? libraryName? importOrImport* partDirective* topLevelDefinition*
- * ;
- * topLevelDefinition:
- *   classDefinition |
- *   enumType |
- *   typeAlias |
- *   external? functionSignature ‘;’ |
- *   external? getterSignature ‘;’ |
- *   external? setterSignature ‘;’ |
- *   functionSignature functionBody |
- *   returnType? get identifier functionBody |
- *   returnType? set identifier formalParameterList functionBody |
- *   (final | const) type? staticFinalDeclarationList ‘;’ |
- *   variableDeclaration ‘;’
- * ;
- * @description Checks that a script with valid top level definitions is parsed
- * without errors.
- * @author msyabro
- * @issue 42392
- */
+/// @assertion A script is a library whose exported namespace includes a
+/// top-level function main().
+///
+/// libraryDefinition:
+///   scriptTag? libraryName? importOrImport* partDirective* topLevelDefinition*
+/// ;
+/// topLevelDefinition:
+///   classDefinition |
+///   enumType |
+///   typeAlias |
+///   external? functionSignature ‘;’ |
+///   external? getterSignature ‘;’ |
+///   external? setterSignature ‘;’ |
+///   functionSignature functionBody |
+///   returnType? get identifier functionBody |
+///   returnType? set identifier formalParameterList functionBody |
+///   (final | const) type? staticFinalDeclarationList ‘;’ |
+///   variableDeclaration ‘;’
+/// ;
+/// @description Checks that a script with valid top level definitions is parsed
+/// without errors.
+/// @author msyabro
+/// @issue 42392
+
 
 abstract class I {}
 abstract class J<T> {}

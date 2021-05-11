@@ -2,19 +2,18 @@
 // file for details. All rights reserved. Use of this source code is governed
 // by a BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Sends messages to its ReceivePorts.
- *    SendPorts are created from ReceivePorts. Any message sent through
- * a SendPort is delivered to its corresponding ReceivePort. There might
- * be many SendPorts for the same ReceivePort.
- *    SendPorts can be transmitted to other isolates, and they preserve
- * equality when sent.
- *
- * @description Checks hashCode and equality operator of SendPort, that is sent
- * from another isolate.
- *
- * @author a.semenov@unipro.ru
- */
+/// @assertion Sends messages to its ReceivePorts.
+///    SendPorts are created from ReceivePorts. Any message sent through
+/// a SendPort is delivered to its corresponding ReceivePort. There might
+/// be many SendPorts for the same ReceivePort.
+///    SendPorts can be transmitted to other isolates, and they preserve
+/// equality when sent.
+///
+/// @description Checks hashCode and equality operator of SendPort, that is sent
+/// from another isolate.
+///
+/// @author a.semenov@unipro.ru
+
 import "dart:isolate";
 import "dart:async";
 import "../../../Utils/expect.dart";

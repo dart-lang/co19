@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void setAll(int index, Iterable<E> iterable)
- * ...
- * If iterable is based on this list, its values may change /during/ the setAll
- * operation.
- * @description Checks that the values of iterable may change, if iterable is
- * based on this list.
- * @author ngl@unipro.ru
- * @issue 43227
- */
+/// @assertion void setAll(int index, Iterable<E> iterable)
+/// ...
+/// If iterable is based on this list, its values may change /during/ the setAll
+/// operation.
+/// @description Checks that the values of iterable may change, if iterable is
+/// based on this list.
+/// @author ngl@unipro.ru
+/// @issue 43227
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

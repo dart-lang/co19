@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Returns the frequency of the elapsed counter in Hz.
- * @description Checks that the value returned by this method is positive and
- *              constant.
- * @author kaigorodov
- */
+/// @assertion Returns the frequency of the elapsed counter in Hz.
+/// @description Checks that the value returned by this method is positive and
+///              constant.
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
  
 main() {

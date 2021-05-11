@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<E> where(bool f(E element))
- * Returns a new lazy [Iterable] with all elements which satisfy the predicate
- * [test].
- * The matching elements have the same order in the returned iterable as they
- * have in iterator.
- * @description Checks that all elements that satisfy test are retained, and
- * elements that do not, are skipped.
- * @author kaigorodov
- */
+/// @assertion Iterable<E> where(bool f(E element))
+/// Returns a new lazy [Iterable] with all elements which satisfy the predicate
+/// [test].
+/// The matching elements have the same order in the returned iterable as they
+/// have in iterator.
+/// @description Checks that all elements that satisfy test are retained, and
+/// elements that do not, are skipped.
+/// @author kaigorodov
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";

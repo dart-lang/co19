@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion E elementAt(int index)
- * ...
- * The index must be non-negative and less than length.
- * If [this] has fewer than [index] elements throws a RangeError.
- * @description Checks that a [RangeError] is thrown if [this] has fewer than
- * [index] elements or [index] is negative.
- * @author msyabro
- */
+/// @assertion E elementAt(int index)
+/// ...
+/// The index must be non-negative and less than length.
+/// If [this] has fewer than [index] elements throws a RangeError.
+/// @description Checks that a [RangeError] is thrown if [this] has fewer than
+/// [index] elements or [index] is negative.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

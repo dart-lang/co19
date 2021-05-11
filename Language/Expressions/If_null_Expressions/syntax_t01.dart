@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- *  ifNullExpression:
- *   logicalOrExpression (‘??’ logicalOrExpression)*
- *
- * @description Verify several kinds of if-null expressions, logicalOrExpression
- * is a constant value.
- * @static-warning
- * @author a.semenov@unipro.ru
- */
+/// @assertion
+///  ifNullExpression:
+///   logicalOrExpression (‘??’ logicalOrExpression)*
+///
+/// @description Verify several kinds of if-null expressions, logicalOrExpression
+/// is a constant value.
+/// @static-warning
+/// @author a.semenov@unipro.ru
+
 import '../../../Utils/expect.dart';
 
 main() {

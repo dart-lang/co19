@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Uint16List asUint16List([int offsetInBytes = 0, int length ])
- * Creates a Uint16List view of a region of this byte buffer.
- * The view is backed by the bytes of this byte buffer. Any changes made to the
- * Uint16List will also change the buffer, and vice versa.
- * @description Checks that method asUint16List creates a Uint16List view of
- * a region of this byte buffer, and any changes made to Uint16List will also
- * change the buffer, and vice versa.
- * @author ngl@unipro.ru
- */
+/// @assertion Uint16List asUint16List([int offsetInBytes = 0, int length ])
+/// Creates a Uint16List view of a region of this byte buffer.
+/// The view is backed by the bytes of this byte buffer. Any changes made to the
+/// Uint16List will also change the buffer, and vice versa.
+/// @description Checks that method asUint16List creates a Uint16List view of
+/// a region of this byte buffer, and any changes made to Uint16List will also
+/// change the buffer, and vice versa.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

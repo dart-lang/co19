@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable expand(Iterable f(E element))
- * Expands each element of this [Iterable] into zero or more elements.
- * The resulting [Iterable] runs through the elements returned by [f] for each
- * element of this, in order.
- * @description Checks that the method expands each element of this Iterable
- * into zero or more elements.
- * @author kaigorodov
- */
+/// @assertion Iterable expand(Iterable f(E element))
+/// Expands each element of this [Iterable] into zero or more elements.
+/// The resulting [Iterable] runs through the elements returned by [f] for each
+/// element of this, in order.
+/// @description Checks that the method expands each element of this Iterable
+/// into zero or more elements.
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

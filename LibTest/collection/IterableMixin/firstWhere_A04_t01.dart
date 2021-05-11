@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion E firstWhere(bool test(E value), { E orElse() })
- * If [orElse] is omitted, it defaults to throwing a StateError.
- * @description Checks that the result of [orElse] is returned if no elements
- * satisfies [test].
- * @author iarkh@unipro.ru
- */
+/// @assertion E firstWhere(bool test(E value), { E orElse() })
+/// If [orElse] is omitted, it defaults to throwing a StateError.
+/// @description Checks that the result of [orElse] is returned if no elements
+/// satisfies [test].
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

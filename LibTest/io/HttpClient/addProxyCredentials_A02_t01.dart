@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void addProxyCredentials(
- *  String host,
- *  int port,
- *  String realm,
- *  HttpClientCredentials credentials
- *  )
- * Add credentials to be used for authorizing HTTP proxies.
- * @description Checks that this method adds credentials to be used for
- * authorizing HTTP proxies. Test wrong url argument
- * @author sgrekhov@unipro.ru
- */
+/// @assertion void addProxyCredentials(
+///  String host,
+///  int port,
+///  String realm,
+///  HttpClientCredentials credentials
+///  )
+/// Add credentials to be used for authorizing HTTP proxies.
+/// @description Checks that this method adds credentials to be used for
+/// authorizing HTTP proxies. Test wrong url argument
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

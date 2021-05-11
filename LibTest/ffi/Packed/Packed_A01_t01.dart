@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Annotation to specify on Struct subtypes to indicate that its
- * members need to be packed.
- *
- * Valid values for memberAlignment are 1, 2, 4, 8, and 16.
- *
- * @description Checks that valid values for memberAlignment are 1, 2, 4, 8,
- * and 16 only
- * @Issue 45838
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Annotation to specify on Struct subtypes to indicate that its
+/// members need to be packed.
+///
+/// Valid values for memberAlignment are 1, 2, 4, 8, and 16.
+///
+/// @description Checks that valid values for memberAlignment are 1, 2, 4, 8,
+/// and 16 only
+/// @Issue 45838
+/// @author sgrekhov@unipro.ru
+
 import "dart:ffi";
 
   @Packed(-1)

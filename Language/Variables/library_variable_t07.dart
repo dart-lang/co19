@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A library variable is implicitly static. It is a compile-time 
- * error to preface a top level variable declaration with the built-in 
- * identifier static.
- * @description Checks that it is a compile-time error if a top level constant 
- * typed variable declaration is prefaced with the built-in identifier static.
- * @compile-error
- * @author msyabro
- */
+/// @assertion A library variable is implicitly static. It is a compile-time 
+/// error to preface a top level variable declaration with the built-in 
+/// identifier static.
+/// @description Checks that it is a compile-time error if a top level constant 
+/// typed variable declaration is prefaced with the built-in identifier static.
+/// @compile-error
+/// @author msyabro
+
 
 static const int foo = 1; // error
 

@@ -2,21 +2,20 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<RawSocketEvent> first
- * The first element of the stream.
- *
- * Stops listening to the stream after the first element has been received.
- *
- * Internally the method cancels its subscription after the first element.
- * This means that single-subscription (non-broadcast) streams are closed and
- * cannot be reused after a call to this getter.
- *
- * @description Checks that property first returns the first element of the
- * stream and stops listening to the stream after the first element has been
- * received.
- * @author ngl@unipro.ru
- */
+/// @assertion Future<RawSocketEvent> first
+/// The first element of the stream.
+///
+/// Stops listening to the stream after the first element has been received.
+///
+/// Internally the method cancels its subscription after the first element.
+/// This means that single-subscription (non-broadcast) streams are closed and
+/// cannot be reused after a call to this getter.
+///
+/// @description Checks that property first returns the first element of the
+/// stream and stops listening to the stream after the first element has been
+/// received.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../http_utils.dart";

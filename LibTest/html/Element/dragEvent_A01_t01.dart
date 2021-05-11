@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion const dragEvent
- * A stream of drag events fired when an element is currently being dragged.
- * @description Checks that correct events are delivered via the stream
- */
+/// @assertion const dragEvent
+/// A stream of drag events fired when an element is currently being dragged.
+/// @description Checks that correct events are delivered via the stream
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

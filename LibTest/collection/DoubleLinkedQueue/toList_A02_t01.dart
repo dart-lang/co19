@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion List<E> toList({bool growable: true})
- * The list is fixed-length if [growable] is [false].
- * @description Checks that the list created with growable == true can change
- * its size.
- * @author kaigorodov
- */
+/// @assertion List<E> toList({bool growable: true})
+/// The list is fixed-length if [growable] is [false].
+/// @description Checks that the list created with growable == true can change
+/// its size.
+/// @author kaigorodov
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

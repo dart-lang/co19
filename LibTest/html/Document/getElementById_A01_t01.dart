@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Element getElementById(String elementId)
- * Returns an object reference to the identified element.
- * @description Checks that a reference to the identified element is returned.
- */
+/// @assertion Element getElementById(String elementId)
+/// Returns an object reference to the identified element.
+/// @description Checks that a reference to the identified element is returned.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

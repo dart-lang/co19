@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final E single
- * Returns the single element in this.
- * @description Checks that the method returns the single element of the queue.
- * Checks that if this is empty or has more than one element throws a StateError.
- * @author kaigorodov
- */
+/// @assertion final E single
+/// Returns the single element in this.
+/// @description Checks that the method returns the single element of the queue.
+/// Checks that if this is empty or has more than one element throws a StateError.
+/// @author kaigorodov
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 

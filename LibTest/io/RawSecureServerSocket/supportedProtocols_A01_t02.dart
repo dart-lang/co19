@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion List<String> supportedProtocols
- * final
- *
- * @description Checks that property supportedProtocols returns the List<String>
- * that was set to corresponding parameter of bind method.
- * @author ngl@unipro.ru
- */
+/// @assertion List<String> supportedProtocols
+/// final
+///
+/// @description Checks that property supportedProtocols returns the List<String>
+/// that was set to corresponding parameter of bind method.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

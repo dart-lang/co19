@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterator<E> iterator
- * Returns a new [Iterator] that allows iterating the elements of this
- * [Iterable].
- * @description Checks that the returned [Iterator] iterates over
- * all elements of this [Iterable] object.
- * @author msyabro
- */
+/// @assertion Iterator<E> iterator
+/// Returns a new [Iterator] that allows iterating the elements of this
+/// [Iterable].
+/// @description Checks that the returned [Iterator] iterates over
+/// all elements of this [Iterable] object.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion LinkedHashMap({bool equals(K key1, K key2), int hashCode(K key),
- * bool isValidKey(potentialKey)})
- * If [equals] is provided, it is used to compare the keys in the table with new
- * keys. If [equals] is omitted, the key's own [Object.operator==] is used
- * instead. Similar, if [hashCode] is provided, it is used to produce a hash
- * alue for keys in order to place them in the hash table. If it is omitted, the
- * key's own [Object.hashCode] is used.
- * @description Checks that if [equals] and [hashCode] are omitted then
- * [Object.operator==] and [Object.hashCode] are used
- * @author sgrekhov@unipro.ru
- */
+/// @assertion LinkedHashMap({bool equals(K key1, K key2), int hashCode(K key),
+/// bool isValidKey(potentialKey)})
+/// If [equals] is provided, it is used to compare the keys in the table with new
+/// keys. If [equals] is omitted, the key's own [Object.operator==] is used
+/// instead. Similar, if [hashCode] is provided, it is used to produce a hash
+/// alue for keys in order to place them in the hash table. If it is omitted, the
+/// key's own [Object.hashCode] is used.
+/// @description Checks that if [equals] and [hashCode] are omitted then
+/// [Object.operator==] and [Object.hashCode] are used
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

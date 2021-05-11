@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Stream<T> skipWhile(bool test(T element))
- * Skip data events from this stream while they are matched by test.
- * Error and done events are provided by the returned stream unmodified.
- * Starting with the first data event where test returns false for the event
- * data, the returned stream will have the same events as this stream.
- * @description Checks that error events in input stream are propagated
- * to the returned stream.
- * @author a.semenov@unipro.ru
- */
+/// @assertion Stream<T> skipWhile(bool test(T element))
+/// Skip data events from this stream while they are matched by test.
+/// Error and done events are provided by the returned stream unmodified.
+/// Starting with the first data event where test returns false for the event
+/// data, the returned stream will have the same events as this stream.
+/// @description Checks that error events in input stream are propagated
+/// to the returned stream.
+/// @author a.semenov@unipro.ru
+
 library skipWhile_A02_t01;
 
 import "dart:async";

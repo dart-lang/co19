@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<int> readInto(List<int> buffer, [int start = 0, int end])
- * . . .
- * Returns a Future<int> that completes with the number of bytes read.
- *
- * @description Checks that method readInto returns Future<int> that completes
- * with the number of bytes read.
- * @author ngl@unipro.ru
- */
+/// @assertion Future<int> readInto(List<int> buffer, [int start = 0, int end])
+/// . . .
+/// Returns a Future<int> that completes with the number of bytes read.
+///
+/// @description Checks that method readInto returns Future<int> that completes
+/// with the number of bytes read.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

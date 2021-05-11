@@ -2,20 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void runGuarded(void action())
- *    Executes the given action in this zone and catches synchronous errors.
- *    This function is equivalent to:
- * try {
- *    this.run(action);
- * } catch (e, s) {
- *    this.handleUncaughtError(e, s);
- * }
- *    See run.
- * @description Checks that synchronous [action] exceptions are caught
- * in zone.
- * @author a.semenov@unipro.ru
- */
+/// @assertion void runGuarded(void action())
+///    Executes the given action in this zone and catches synchronous errors.
+///    This function is equivalent to:
+/// try {
+///    this.run(action);
+/// } catch (e, s) {
+///    this.handleUncaughtError(e, s);
+/// }
+///    See run.
+/// @description Checks that synchronous [action] exceptions are caught
+/// in zone.
+/// @author a.semenov@unipro.ru
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

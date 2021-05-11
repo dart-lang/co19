@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion ByteData asByteData([int offsetInBytes = 0, int length ])
- * Creates a ByteData view of a region of this byte buffer.
- * The view is backed by the bytes of this byte buffer. Any changes made to
- * the ByteData will also change the buffer, and vice versa.
- * @description Checks that method asByteData creates a ByteData view of a
- * region of this byte buffer, and any changes made to ByteData will also change
- * the buffer, and vice versa. The checking is done for buffers of lists with
- * different elements size.
- * @author ngl@unipro.ru
- */
+/// @assertion ByteData asByteData([int offsetInBytes = 0, int length ])
+/// Creates a ByteData view of a region of this byte buffer.
+/// The view is backed by the bytes of this byte buffer. Any changes made to
+/// the ByteData will also change the buffer, and vice versa.
+/// @description Checks that method asByteData creates a ByteData view of a
+/// region of this byte buffer, and any changes made to ByteData will also change
+/// the buffer, and vice versa. The checking is done for buffers of lists with
+/// different elements size.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

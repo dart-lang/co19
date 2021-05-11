@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool isFinite
- * True if the number is finite; otherwise, false.
- * The only non-finite numbers are NaN, positive infinity and negative infinity.
- * @description Checks that this method returns true for integers
- * @author sgrekhov@unipro.ru
- */
+/// @assertion bool isFinite
+/// True if the number is finite; otherwise, false.
+/// The only non-finite numbers are NaN, positive infinity and negative infinity.
+/// @description Checks that this method returns true for integers
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

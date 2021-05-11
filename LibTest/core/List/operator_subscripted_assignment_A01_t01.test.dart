@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  abstract void operator []=(int index, E value)
- * Sets the value at the given index in the list to value.
- * @description Checks that needed element is correctly assigned in fixed size
- * lists.
- * @author kaigorodov
- */
+/// @assertion  abstract void operator []=(int index, E value)
+/// Sets the value at the given index in the list to value.
+/// @description Checks that needed element is correctly assigned in fixed size
+/// lists.
+/// @author kaigorodov
+
 library operator_subscripted_assignment_A01_t01;
 
 import "../../../Utils/expect.dart";

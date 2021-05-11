@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Invoking an abstract method, getter or setter results in an
- * invocation of noSuchMethod exactly as if the declaration did not exist,
- * unless a suitable member a is available in a superclass, in which case a is
- * invoked.
- * @description Checks that it is a compile error when calling an
- * abstract method that is inherited from non-direct superclass. Test type alias
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Invoking an abstract method, getter or setter results in an
+/// invocation of noSuchMethod exactly as if the declaration did not exist,
+/// unless a suitable member a is available in a superclass, in which case a is
+/// invoked.
+/// @description Checks that it is a compile error when calling an
+/// abstract method that is inherited from non-direct superclass. Test type alias
+/// @author sgrekhov@unipro.ru
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 abstract class A {

@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion StreamController.broadcast({void onListen(), void onCancel(),
- *                                       bool sync: false})
- * If a listener is added again later, after the onCancel was called, the
- * onListen will be called again.
- *
- * @description Checks that if a listener is added again later, after the
- * onCancel was called, the onListen will be called again.
- * @author kaigorodov
- */
+/// @assertion StreamController.broadcast({void onListen(), void onCancel(),
+///                                       bool sync: false})
+/// If a listener is added again later, after the onCancel was called, the
+/// onListen will be called again.
+///
+/// @description Checks that if a listener is added again later, after the
+/// onCancel was called, the onListen will be called again.
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

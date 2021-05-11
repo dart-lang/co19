@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<DateTime> lastAccessed()
- * Get the last-accessed time of the file.
- *
- * Returns the date and time when the file was last accessed, if the information
- * is available.
- *
- * Throws a FileSystemException if the operation fails.
- * @description Checks that FileSystemException is thrown if the operation fails
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Future<DateTime> lastAccessed()
+/// Get the last-accessed time of the file.
+///
+/// Returns the date and time when the file was last accessed, if the information
+/// is available.
+///
+/// Throws a FileSystemException if the operation fails.
+/// @description Checks that FileSystemException is thrown if the operation fails
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";

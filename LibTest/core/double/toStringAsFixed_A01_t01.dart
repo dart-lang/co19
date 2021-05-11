@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String toStringAsFixed(int fractionDigits)
- * @description Checks that for a NaN the method returns 'NaN' regardless
- * of the 'fractionDigits' value.
- * @author pagolubev
- */
+/// @assertion String toStringAsFixed(int fractionDigits)
+/// @description Checks that for a NaN the method returns 'NaN' regardless
+/// of the 'fractionDigits' value.
+/// @author pagolubev
+
 import "../../../Utils/expect.dart";
 
 

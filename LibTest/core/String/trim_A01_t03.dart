@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * ...
- * Whitespace is defined by the Unicode White_Space property (as defined in
- * version 6.2 or later) and the BOM character, 0xFEFF.
- * @description Checks that all possible whitespaces are trimmed
- * @author sgrekhov@unipro.ru
- */
+/// @assertion
+/// ...
+/// Whitespace is defined by the Unicode White_Space property (as defined in
+/// version 6.2 or later) and the BOM character, 0xFEFF.
+/// @description Checks that all possible whitespaces are trimmed
+/// @author sgrekhov@unipro.ru
+
 import "../../../Utils/expect.dart";
 
 main() {

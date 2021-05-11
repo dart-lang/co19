@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Let e be a constant object expression of the form
- * const T.id(a1, .., an, xn+1: an+1, …, xn+k: an+k) or the form
- * const T(a1, .., an, xn+1: an+1, …, xn+k: an+k).
- * If T is a parameterized type, it is a compile-time error if T includes
- * a type variable among its type arguments.
- * @description Checks that it is an error if T includes any type parameters as
- * a type argument.
- * @issue 27492
- * @author kaigorodov
- */
+/// @assertion Let e be a constant object expression of the form
+/// const T.id(a1, .., an, xn+1: an+1, …, xn+k: an+k) or the form
+/// const T(a1, .., an, xn+1: an+1, …, xn+k: an+k).
+/// If T is a parameterized type, it is a compile-time error if T includes
+/// a type variable among its type arguments.
+/// @description Checks that it is an error if T includes any type parameters as
+/// a type argument.
+/// @issue 27492
+/// @author kaigorodov
+
 
 class S<U> {
   const S.named();

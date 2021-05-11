@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Evaluation of an assignment of the form e1.v = e2 proceeds as
- * follows:
- * The expression e1 is evaluated to an object o1. Then, the expression e2 is
- * evaluated to an object o2.
- * ...
- * The value of the assignment expression is o2 irrespective of whether setter
- * lookup has failed or succeeded.
- * @description Checks the value of an assignment of the form e1.v = e2 is
- * e2 evaluated to o2.
- * @author msyabro
- */
+/// @assertion Evaluation of an assignment of the form e1.v = e2 proceeds as
+/// follows:
+/// The expression e1 is evaluated to an object o1. Then, the expression e2 is
+/// evaluated to an object o2.
+/// ...
+/// The value of the assignment expression is o2 irrespective of whether setter
+/// lookup has failed or succeeded.
+/// @description Checks the value of an assignment of the form e1.v = e2 is
+/// e2 evaluated to o2.
+/// @author msyabro
+
 
 import '../../../Utils/expect.dart';
 

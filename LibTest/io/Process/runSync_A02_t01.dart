@@ -2,29 +2,28 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * ProcessResult runSync(
- *     String executable,
- *     List<String> arguments, {
- *     String workingDirectory,
- *     Map<String, String> environment,
- *     bool includeParentEnvironment: true,
- *     bool runInShell: false,
- *     Encoding stdoutEncoding: systemEncoding,
- *     Encoding stderrEncoding: systemEncoding
- * })
- * ...
- * The encoding used for decoding stdout and stderr into text is controlled
- * through stdoutEncoding and stderrEncoding. The default encoding is
- * systemEncoding. If null is used no decoding will happen and the
- * ProcessResult will hold binary data.
- *
- * @description Checks that if [stdoutEncoding] is null no decoding is happen
- * and the ProcessResult.stdout holds binary data.
- * @author ngl@unipro.ru
- * @issue 30945
- */
+/// @assertion
+/// ProcessResult runSync(
+///     String executable,
+///     List<String> arguments, {
+///     String workingDirectory,
+///     Map<String, String> environment,
+///     bool includeParentEnvironment: true,
+///     bool runInShell: false,
+///     Encoding stdoutEncoding: systemEncoding,
+///     Encoding stderrEncoding: systemEncoding
+/// })
+/// ...
+/// The encoding used for decoding stdout and stderr into text is controlled
+/// through stdoutEncoding and stderrEncoding. The default encoding is
+/// systemEncoding. If null is used no decoding will happen and the
+/// ProcessResult will hold binary data.
+///
+/// @description Checks that if [stdoutEncoding] is null no decoding is happen
+/// and the ProcessResult.stdout holds binary data.
+/// @author ngl@unipro.ru
+/// @issue 30945
+
 import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";

@@ -2,20 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Optional parameters may be specified and provided with default
- * values.
- * defaultFormalParameter:
- *   normalFormalParameter ('=' expression)?
- * ;
- * defaultNamedParameter:
- *   normalFormalParameter (':' expression)?
- * ;
- * @description Checks that a declaration cannot be used instead of expression
- * in an optional named parameter declaration.
- * @compile-error
- * @author rodionov
- */
+/// @assertion Optional parameters may be specified and provided with default
+/// values.
+/// defaultFormalParameter:
+///   normalFormalParameter ('=' expression)?
+/// ;
+/// defaultNamedParameter:
+///   normalFormalParameter (':' expression)?
+/// ;
+/// @description Checks that a declaration cannot be used instead of expression
+/// in an optional named parameter declaration.
+/// @compile-error
+/// @author rodionov
+
 
 f({var x: var z}) {}
 

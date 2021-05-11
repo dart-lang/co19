@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable map(dynamic f(E e))
- * Returns a new lazy Iterable with elements that are created by calling f on e
- * ach element of this Iterable in iteration order.
- * @description Checks that the resulting Iterable contains all the results of
- * calling f(e).
- * @author kaigorodov
- */
+/// @assertion Iterable map(dynamic f(E e))
+/// Returns a new lazy Iterable with elements that are created by calling f on e
+/// ach element of this Iterable in iteration order.
+/// @description Checks that the resulting Iterable contains all the results of
+/// calling f(e).
+/// @author kaigorodov
+
 library map_A01_t01;
 
 import "../../../Utils/expect.dart";

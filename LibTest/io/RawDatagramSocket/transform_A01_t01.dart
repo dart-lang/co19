@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Stream<S> transform <S>(
- *     StreamTransformer<RawSocketEvent, S> streamTransformer
- * )
- * Applies a StreamTransformer to the current stream.
- *
- * @description Checks that method [transform] applies a StreamTransformer to
- * the current stream.
- * @author ngl@unipro.ru
- */
+/// @assertion
+/// Stream<S> transform <S>(
+///     StreamTransformer<RawSocketEvent, S> streamTransformer
+/// )
+/// Applies a StreamTransformer to the current stream.
+///
+/// @description Checks that method [transform] applies a StreamTransformer to
+/// the current stream.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

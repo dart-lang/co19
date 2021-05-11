@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion double asin(num x)
- * Returns a value in the range -PI/2..PI/2, or NaN if [x] is NaN.
- * @description Checks returned values are in the range -PI/2..PI/2, if an
- * argument is not NaN.
- * @author ngl@unipro.ru
- */
+/// @assertion double asin(num x)
+/// Returns a value in the range -PI/2..PI/2, or NaN if [x] is NaN.
+/// @description Checks returned values are in the range -PI/2..PI/2, if an
+/// argument is not NaN.
+/// @author ngl@unipro.ru
+
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 

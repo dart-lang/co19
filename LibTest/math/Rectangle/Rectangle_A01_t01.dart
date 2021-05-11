@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion const Rectangle(T left, T top, T width, T height)
- * Create a rectangle spanned by (left, top) and (left+width, top+height).
- * @description Checks that coordinate properties of the created object
- * are equal to the constructor arguments.
- * @author kaigorodov
- */
+/// @assertion const Rectangle(T left, T top, T width, T height)
+/// Create a rectangle spanned by (left, top) and (left+width, top+height).
+/// @description Checks that coordinate properties of the created object
+/// are equal to the constructor arguments.
+/// @author kaigorodov
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 

@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void sleep(Duration duration)
- * Sleep for the duration specified in [duration].
- * @description Checks that process sleeps for the [duration] milliseconds.
- * @author iarkh@unipro.ru
- * @issue 25757
- */
+/// @assertion void sleep(Duration duration)
+/// Sleep for the duration specified in [duration].
+/// @description Checks that process sleeps for the [duration] milliseconds.
+/// @author iarkh@unipro.ru
+/// @issue 25757
+
 import "../../../Utils/expect.dart";
 import "dart:io";
 

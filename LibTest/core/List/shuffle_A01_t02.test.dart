@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void shuffle([Random random])
- * Shuffles the elements of this list randomly.
- * @description Checks that this method shuffles the elements of this list
- * randomly. Test Random argument
- * @author sgrekhov@unipro.ru
- */
+/// @assertion void shuffle([Random random])
+/// Shuffles the elements of this list randomly.
+/// @description Checks that this method shuffles the elements of this list
+/// randomly. Test Random argument
+/// @author sgrekhov@unipro.ru
+
 library shuffle_A01_t02;
 
 import "dart:math";

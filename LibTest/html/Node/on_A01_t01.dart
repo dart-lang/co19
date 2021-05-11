@@ -2,10 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion ElementEvents get on
- * @description Checks that on can be used to listen to custom events
- */
+/// @assertion ElementEvents get on
+/// @description Checks that on can be used to listen to custom events
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

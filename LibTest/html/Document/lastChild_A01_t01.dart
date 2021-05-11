@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final Node lastChild
- * The last child of this node.
- * @description Checks the content of lastChild.
- */
+/// @assertion final Node lastChild
+/// The last child of this node.
+/// @description Checks the content of lastChild.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

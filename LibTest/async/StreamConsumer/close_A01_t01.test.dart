@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future close()
- * Tells the consumer that no further streams will be added.
- *
- * @description Checks that if consumer was closed, no streams can be added
- * after closing.
- * @author ngl@unipro.ru
- */
+/// @assertion Future close()
+/// Tells the consumer that no further streams will be added.
+///
+/// @description Checks that if consumer was closed, no streams can be added
+/// after closing.
+/// @author ngl@unipro.ru
+
 library close_A01_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

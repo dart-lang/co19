@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion From the Unified collections spec:
- * In other words, at least one key-value pair anywhere in the collection forces
- * it to be a map, and a bare expression forces it to be a set. Having both is
- * an error.
- * @description Checks that there cannot be bare element and key-value pair in
- * the same collection.
- * @compile-error
- * @author iarkh@unipro.ru
- */
+/// @assertion From the Unified collections spec:
+/// In other words, at least one key-value pair anywhere in the collection forces
+/// it to be a map, and a bare expression forces it to be a set. Having both is
+/// an error.
+/// @description Checks that there cannot be bare element and key-value pair in
+/// the same collection.
+/// @compile-error
+/// @author iarkh@unipro.ru
+
 
 import "../../Utils/expect.dart";
 

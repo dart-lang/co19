@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Encoding encoding
- *  read / write
- * The Encoding used when writing strings. Depending on the underlying consumer
- * this property might be mutable.
- * @description Checks that writing of non Latin1 string to the request leads to
- * error
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Encoding encoding
+///  read / write
+/// The Encoding used when writing strings. Depending on the underlying consumer
+/// this property might be mutable.
+/// @description Checks that writing of non Latin1 string to the request leads to
+/// error
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";

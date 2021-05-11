@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion StackTrace stackTrace
- * @description Checks that this property returns stack trace when thrown and
- * null when not
- * @author sgrekhov@unipro.ru
- * @issue 42896
- * @issue 41763
- */
+/// @assertion StackTrace stackTrace
+/// @description Checks that this property returns stack trace when thrown and
+/// null when not
+/// @author sgrekhov@unipro.ru
+/// @issue 42896
+/// @issue 41763
+
 import "../../../Utils/expect.dart";
 
 main() {

@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  abstract Set<E> intersection(Set<Object> other)
- * Returns a new set which is the intersection between this set and other.
- * @description Checks that new set is returned and [:this:] is not changed.
- * @author msyabro
- */
+/// @assertion  abstract Set<E> intersection(Set<Object> other)
+/// Returns a new set which is the intersection between this set and other.
+/// @description Checks that new set is returned and [:this:] is not changed.
+/// @author msyabro
+
 library intersection_A01_t03;
 import "set.lib.dart";
 import "../../../Utils/expect.dart";

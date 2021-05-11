@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void writeFromSync(List<int> buffer, [int start = 0, int end])
- * Synchronously writes from a List<int> to the file.
- * . . .
- *
- * Throws a FileSystemException if the operation fails.
- *
- * @description Checks that method writeFromSync throws a FileSystemException
- * if the operation fails.
- * @author ngl@unipro.ru
- */
+/// @assertion void writeFromSync(List<int> buffer, [int start = 0, int end])
+/// Synchronously writes from a List<int> to the file.
+/// . . .
+///
+/// Throws a FileSystemException if the operation fails.
+///
+/// @description Checks that method writeFromSync throws a FileSystemException
+/// if the operation fails.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<HttpClientResponse> done
- * A HttpClientResponse future that will complete once the response is
- * available. If an error occurs before the response is available, this future
- * will complete with an error.
- * @description Checks that if an error occurs before the response is available,
- * this future will complete with an error.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Future<HttpClientResponse> done
+/// A HttpClientResponse future that will complete once the response is
+/// available. If an error occurs before the response is available, this future
+/// will complete with an error.
+/// @description Checks that if an error occurs before the response is available,
+/// this future will complete with an error.
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

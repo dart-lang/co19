@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void addFirst(E value)
- * Adds [value] at the beginning of the queue.
- * @description Checks that method does not affect other content of the queue
- * @author kaigorodov
- */
+/// @assertion void addFirst(E value)
+/// Adds [value] at the beginning of the queue.
+/// @description Checks that method does not affect other content of the queue
+/// @author kaigorodov
+
 import "../../../Utils/expect.dart";
 import "dart:collection";
 

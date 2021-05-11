@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @description Regression test for the issue 33805 (Analyzer throws error when
- * try to assign a function result to row variable).
- * @Issue 33805
- * @author iarkh@unipro.ru
- */
+/// @description Regression test for the issue 33805 (Analyzer throws error when
+/// try to assign a function result to row variable).
+/// @Issue 33805
+/// @author iarkh@unipro.ru
+
 class A<X> {}
 X testme<X extends A<X>>(dynamic x) => x;
 

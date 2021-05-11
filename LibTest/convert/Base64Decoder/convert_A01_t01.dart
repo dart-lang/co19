@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion List<int> convert(
- *  String input, [
- *  int start = 0,
- *  int end
- *  ])
- *  Converts input and returns the result of the conversion.
- * @description Checks that this method decodes data to base54 code units
- * @author sgrekhov@unipro.ru
- */
+/// @assertion List<int> convert(
+///  String input, [
+///  int start = 0,
+///  int end
+///  ])
+///  Converts input and returns the result of the conversion.
+/// @description Checks that this method decodes data to base54 code units
+/// @author sgrekhov@unipro.ru
+
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

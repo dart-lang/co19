@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Metadata can appear before  ...  factory ...
- * @description Check that metadata is allowed before class factory
- * @author a.semenov@unipro.ru
- */
+/// @assertion Metadata can appear before  ...  factory ...
+/// @description Check that metadata is allowed before class factory
+/// @author a.semenov@unipro.ru
+
 import 'dart:mirrors';
 import '../../Utils/expect.dart';
 

@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Node insertBefore(Node newChild, Node refChild)
- * Inserts node into this node directly before refChild.
- * @description Checks expected dom after insert
- */
+/// @assertion Node insertBefore(Node newChild, Node refChild)
+/// Inserts node into this node directly before refChild.
+/// @description Checks expected dom after insert
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

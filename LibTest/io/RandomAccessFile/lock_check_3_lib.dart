@@ -2,10 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @description Used in lock and unlock tests.
- * @author ngl@unipro.ru
- */
+/// @description Used in lock and unlock tests.
+/// @author ngl@unipro.ru
+
 library lock_check_3_lib;
 
 import "dart:io";

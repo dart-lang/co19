@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final bool isNotEmpty
- * @description Check that [true] is returned only if the map is not empty.
- * @author iarkh@unipro.ru
- */
+/// @assertion final bool isNotEmpty
+/// @description Check that [true] is returned only if the map is not empty.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 import "unmodifiablemapbase.lib.dart";

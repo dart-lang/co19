@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion It is an error to call the default List constructor.
- *
- * @description Check that it is an error to call the default List constructor.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion It is an error to call the default List constructor.
+///
+/// @description Check that it is an error to call the default List constructor.
+/// @author sgrekhov@unipro.ru
+
 
 main() {
   new List(42);

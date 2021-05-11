@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String setToString(Set set)
- * Convert a [Set] to a string as [{each, element, as, string}].
- * @description Checks that this method converts each element to a string,
- * separates results by ", " and wraps in "{" and "}"
- * @author sgrekhov@unipro.ru
- */
+/// @assertion String setToString(Set set)
+/// Convert a [Set] to a string as [{each, element, as, string}].
+/// @description Checks that this method converts each element to a string,
+/// separates results by ", " and wraps in "{" and "}"
+/// @author sgrekhov@unipro.ru
+
 import "dart:collection";
 import "SetBase.lib.dart";
 import "../../../Utils/expect.dart";

@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final int offsetWidth
- * The width of an element, relative to the layout.
- * @description Checks that it should be equal to the width of client
- * rectangle.  
- */
+/// @assertion final int offsetWidth
+/// The width of an element, relative to the layout.
+/// @description Checks that it should be equal to the width of client
+/// rectangle.  
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

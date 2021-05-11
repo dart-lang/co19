@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future pipe(StreamConsumer<T> streamConsumer)
- *    Pipe the events of this stream into streamConsumer.
- *    The events of this stream are added to streamConsumer using
- * [StreamConsumer.addStream]. The streamConsumer is closed when this stream
- * has been successfully added to it - when the future returned by addStream
- * completes without an error.
- * @description Checks that streamConsumer is closed when the future returned
- * by addStream completes without an error.
- * @author a.semenov@unipro.ru
- */
+/// @assertion Future pipe(StreamConsumer<T> streamConsumer)
+///    Pipe the events of this stream into streamConsumer.
+///    The events of this stream are added to streamConsumer using
+/// [StreamConsumer.addStream]. The streamConsumer is closed when this stream
+/// has been successfully added to it - when the future returned by addStream
+/// completes without an error.
+/// @description Checks that streamConsumer is closed when the future returned
+/// by addStream completes without an error.
+/// @author a.semenov@unipro.ru
+
 library pipe_A02_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

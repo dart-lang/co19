@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @description Check that if type T0 is a subtype of a type T1, then instance
- * of T0 can be be used as a return value of type T1
- * @author sgrekhov@unipro.ru
- */
+/// @description Check that if type T0 is a subtype of a type T1, then instance
+/// of T0 can be be used as a return value of type T1
+/// @author sgrekhov@unipro.ru
+
 
 @T1 returnValueFunc() => t0Instance;
 

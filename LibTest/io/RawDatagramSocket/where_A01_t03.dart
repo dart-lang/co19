@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Stream<RawSocketEvent> where (bool test(T event))
- * Creates a new stream from this stream that discards some elements.
- *
- * The new stream sends the same error and done events as this stream, but it
- * only sends the data events that satisfy the test.
- *
- * @description Checks that method [where] creates a new stream from this stream
- * and returned stream contains elements, that satisfy the test, and errors
- * that test throws.
- * @author ngl@unipro.ru
- */
+/// @assertion Stream<RawSocketEvent> where (bool test(T event))
+/// Creates a new stream from this stream that discards some elements.
+///
+/// The new stream sends the same error and done events as this stream, but it
+/// only sends the data events that satisfy the test.
+///
+/// @description Checks that method [where] creates a new stream from this stream
+/// and returned stream contains elements, that satisfy the test, and errors
+/// that test throws.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

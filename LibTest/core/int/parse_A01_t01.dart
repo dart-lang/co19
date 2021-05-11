@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int parse(String source, {int radix, int onError(String source)})
- * Parse source as a, possibly signed, integer literal and return its value.
- *
- * The source must be a non-empty sequence of base-radix digits, optionally
- * prefixed with a minus or plus sign ('-' or '+').
- * ...
- * @description Checks that correct string can be converted to int.
- * @author msyabro
- */
+/// @assertion int parse(String source, {int radix, int onError(String source)})
+/// Parse source as a, possibly signed, integer literal and return its value.
+///
+/// The source must be a non-empty sequence of base-radix digits, optionally
+/// prefixed with a minus or plus sign ('-' or '+').
+/// ...
+/// @description Checks that correct string can be converted to int.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 main() {

@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion List<E> toList({bool growable: true})
- * Creates a List containing the elements of this Iterable.
- * The elements will be in iteration order. The list is fixed-length if growable
- * is false.
- * @description Checks that the list created with growable==true can change
- * it's size.
- * @author kaigorodov
- */
+/// @assertion List<E> toList({bool growable: true})
+/// Creates a List containing the elements of this Iterable.
+/// The elements will be in iteration order. The list is fixed-length if growable
+/// is false.
+/// @description Checks that the list created with growable==true can change
+/// it's size.
+/// @author kaigorodov
+
 library toList_A01_t02;
 import "../../../Utils/expect.dart";
 

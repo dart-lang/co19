@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  abstract void clear()
- * Removes all objects from this list; the length of the list becomes zero.
- * @description Checks that the length of the list becomes zero.
- * @author vasya
- */
+/// @assertion  abstract void clear()
+/// Removes all objects from this list; the length of the list becomes zero.
+/// @description Checks that the length of the list becomes zero.
+/// @author vasya
+
 library clear_A01_t01;
 
 import "../../../Utils/expect.dart";

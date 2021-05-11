@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void setAll(int index, Iterable<E> iterable)
- * ...
- * The index must be non-negative and no greater than length.
- * @description Checks that an error is thrown if [index]
- * is out of bounds.
- * @author msyabro
- */
+/// @assertion void setAll(int index, Iterable<E> iterable)
+/// ...
+/// The index must be non-negative and no greater than length.
+/// @description Checks that an error is thrown if [index]
+/// is out of bounds.
+/// @author msyabro
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

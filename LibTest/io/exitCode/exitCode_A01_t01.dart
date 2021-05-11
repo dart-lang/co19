@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int exitCode
- * Get the global exit code for the Dart VM.
- * The exit code is global for the Dart VM and the last assignment to [exitCode]
- * from any isolate determines the exit code of the Dart VM on normal
- * termination.
- * @description Checks that process returns [exitCode] when finishes normally.
- * @author iarkh@unipro.ru
- */
+/// @assertion int exitCode
+/// Get the global exit code for the Dart VM.
+/// The exit code is global for the Dart VM and the last assignment to [exitCode]
+/// from any isolate determines the exit code of the Dart VM on normal
+/// termination.
+/// @description Checks that process returns [exitCode] when finishes normally.
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:io";
 

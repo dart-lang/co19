@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion If both the extension and the method is generic, then inference
- * must infer the extension type parameters first, to figure out whether the
- * extension applies, and only then start inferring method type parameters. As
- * mentioned above, the inference is similar to other cases of chained inference.
- * @description Check that if inference is performed in a single step then it
- * can yield SuperList<Object>(list).checkme<int>(42) without an error.
- * @author iarkh@unipro.ru
- */
+/// @assertion If both the extension and the method is generic, then inference
+/// must infer the extension type parameters first, to figure out whether the
+/// extension applies, and only then start inferring method type parameters. As
+/// mentioned above, the inference is similar to other cases of chained inference.
+/// @description Check that if inference is performed in a single step then it
+/// can yield SuperList<Object>(list).checkme<int>(42) without an error.
+/// @author iarkh@unipro.ru
+
 
 
 import "../../Utils/expect.dart";

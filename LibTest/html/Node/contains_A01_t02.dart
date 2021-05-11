@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool contains(Node other)
- * Returns true if this node contains the specified node.
- * @description Checks that node contains its direct and indirect children.
- */
+/// @assertion bool contains(Node other)
+/// Returns true if this node contains the specified node.
+/// @description Checks that node contains its direct and indirect children.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

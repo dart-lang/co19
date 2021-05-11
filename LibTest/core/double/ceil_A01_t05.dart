@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract int ceil()
- * Returns the least integer no smaller than this.
- * @description Checks that if [:ceil():] is called on a value less than zero
- * but greater than -1.0,then the result is zero.
- * @author pagolubev
- */
+/// @assertion abstract int ceil()
+/// Returns the least integer no smaller than this.
+/// @description Checks that if [:ceil():] is called on a value less than zero
+/// but greater than -1.0,then the result is zero.
+/// @author pagolubev
+
 import "../../../Utils/expect.dart";
 
 check(double d) {

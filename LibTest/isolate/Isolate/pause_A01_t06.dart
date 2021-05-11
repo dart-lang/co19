@@ -2,21 +2,20 @@
 // file for details. All rights reserved. Use of this source code is governed
 // by a BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Capability pause([
- *    Capability resumeCapability
- * ])
- *    Requests the isolate to pause.
- *    When the isolate receives the pause command, it stops processing events
- * from the event loop queue. It may still add new events to the queue in
- * response to, e.g., timers or receive-port messages. When the isolate is
- * resumed, it handles the already enqueued events.
- *
- * @description Check that isolate does not process events after pause() call
- * with given capability.
- *
- * @author a.semenov@unipro.ru
- */
+/// @assertion Capability pause([
+///    Capability resumeCapability
+/// ])
+///    Requests the isolate to pause.
+///    When the isolate receives the pause command, it stops processing events
+/// from the event loop queue. It may still add new events to the queue in
+/// response to, e.g., timers or receive-port messages. When the isolate is
+/// resumed, it handles the already enqueued events.
+///
+/// @description Check that isolate does not process events after pause() call
+/// with given capability.
+///
+/// @author a.semenov@unipro.ru
+
 import "dart:async";
 import "dart:isolate";
 import "../../../Utils/expect.dart";

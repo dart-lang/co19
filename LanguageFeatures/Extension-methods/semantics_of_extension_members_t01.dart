@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Even though you can access this, you cannot use super inside an
- * extension method.
- *
- * @description Check that it is a compile error to access super inside an
- * extension method
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Even though you can access this, you cannot use super inside an
+/// extension method.
+///
+/// @description Check that it is a compile error to access super inside an
+/// extension method
+/// @author sgrekhov@unipro.ru
+
 
 
 class A {

@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<List<InternetAddress>> lookup(String host,
- *   { InternetAddressType type: InternetAddressType.ANY })
- * Lookup a host, returning a [Future] of a list of [InternetAddresss].
- * @description Checks that result [internetAddress] list contains addresses for
- * the given host only.
- * @author iarkh@unipro.ru
- */
+/// @assertion Future<List<InternetAddress>> lookup(String host,
+///   { InternetAddressType type: InternetAddressType.ANY })
+/// Lookup a host, returning a [Future] of a list of [InternetAddresss].
+/// @description Checks that result [internetAddress] list contains addresses for
+/// the given host only.
+/// @author iarkh@unipro.ru
+
 
 import "../../../Utils/expect.dart";
 import "dart:io";

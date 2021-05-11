@@ -2,20 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A null-shorting cascade expression e?..s translates as follows,
- * where x and y are fresh object level variables.
- *  fn[k : Exp -> Exp] : Exp =>
- *  let x = EXP(e) in x == null ? null : let y = EXP(x.s) in k(x)
- *
- * @description Check that a null-shorting cascade expression e?..s translates
- * as follows, where x and y are fresh object level variables.
- *  fn[k : Exp -> Exp] : Exp =>
- *  let x = EXP(e) in x == null ? null : let y = EXP(x.s) in k(x)
- * Test type aliases
- * @author sgrekhov@unipro.ru
- * @issue 39141
- */
+/// @assertion A null-shorting cascade expression e?..s translates as follows,
+/// where x and y are fresh object level variables.
+///  fn[k : Exp -> Exp] : Exp =>
+///  let x = EXP(e) in x == null ? null : let y = EXP(x.s) in k(x)
+///
+/// @description Check that a null-shorting cascade expression e?..s translates
+/// as follows, where x and y are fresh object level variables.
+///  fn[k : Exp -> Exp] : Exp =>
+///  let x = EXP(e) in x == null ? null : let y = EXP(x.s) in k(x)
+/// Test type aliases
+/// @author sgrekhov@unipro.ru
+/// @issue 39141
+
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-weak
 import "../../../../Utils/expect.dart";

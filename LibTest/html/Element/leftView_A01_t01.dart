@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void leftView()
- * Called by the DOM when this element has been removed from the live document.
- * @description Checks that leftView() is called when element is removed from
- * the live document.
- * @issue 43293
- */
+/// @assertion void leftView()
+/// Called by the DOM when this element has been removed from the live document.
+/// @description Checks that leftView() is called when element is removed from
+/// the live document.
+/// @issue 43293
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Stream<RawSocketEvent> take(int count)
- * Provides at most the first count data events of this stream.
- * . . .
- * If this is a broadcast stream, the returned stream is a broadcast stream.
- * In that case, the events are only counted from the time the returned stream
- * is listened to.
- *
- * @description Checks that the events are only counted from the time the
- * returned stream is listened to.
- * @author ngl@unipro.ru
- */
+/// @assertion Stream<RawSocketEvent> take(int count)
+/// Provides at most the first count data events of this stream.
+/// . . .
+/// If this is a broadcast stream, the returned stream is a broadcast stream.
+/// In that case, the events are only counted from the time the returned stream
+/// is listened to.
+///
+/// @description Checks that the events are only counted from the time the
+/// returned stream is listened to.
+/// @author ngl@unipro.ru
+
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";

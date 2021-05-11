@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Applying an expression of type Never in the function position of a
- * function call produces a result of type Never.
- *
- * @description Checks that applying an expression of type Never in the function
- * position of a function call produces a result of type Never.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Applying an expression of type Never in the function position of a
+/// function call produces a result of type Never.
+///
+/// @description Checks that applying an expression of type Never in the function
+/// position of a function call produces a result of type Never.
+/// @author sgrekhov@unipro.ru
+
 // Requirements=nnbd-weak
 
 void test(var x) {

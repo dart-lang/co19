@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int statusCode
- * Returns the status code.
- *
- * The status code must be set before the body is written to. Setting the status
- * code after writing to the body will throw a StateError.
- * @description Checks that this getter returns the status code.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion int statusCode
+/// Returns the status code.
+///
+/// The status code must be set before the body is written to. Setting the status
+/// code after writing to the body will throw a StateError.
+/// @description Checks that this getter returns the status code.
+/// @author sgrekhov@unipro.ru
+
 import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";

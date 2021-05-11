@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool hasListener
- * Whether there is a subscriber on the Stream.
- * @description Checks that the property returns correct value.
- * @author kaigorodov
- */
+/// @assertion bool hasListener
+/// Whether there is a subscriber on the Stream.
+/// @description Checks that the property returns correct value.
+/// @author kaigorodov
+
 import "dart:async";
 import "../../../Utils/expect.dart";
 

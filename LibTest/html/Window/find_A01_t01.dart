@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool find(String string, bool caseSensitive, bool backwards,
- *        bool wrap, bool wholeWord, bool searchInFrames, bool showDialog)
- * Finds text in this window.
- * from MDN:
- * aString:  The text string for which to search.
- * @description Checks that subsequent search with the same parameters works.
- */
+/// @assertion bool find(String string, bool caseSensitive, bool backwards,
+///        bool wrap, bool wholeWord, bool searchInFrames, bool showDialog)
+/// Finds text in this window.
+/// from MDN:
+/// aString:  The text string for which to search.
+/// @description Checks that subsequent search with the same parameters works.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

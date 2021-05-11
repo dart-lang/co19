@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract double roundToDouble()
- * Returns the integer value, as a double, closest to this.
- * Rounds away from zero when there is no closest integer:
- * (3.5).roundToDouble() == 4 and (-3.5).roundToDouble() == -4.
- * @description Checks that [:roundToDouble():] does not change the object.
- * @author msyabro
- */
+/// @assertion abstract double roundToDouble()
+/// Returns the integer value, as a double, closest to this.
+/// Rounds away from zero when there is no closest integer:
+/// (3.5).roundToDouble() == 4 and (-3.5).roundToDouble() == -4.
+/// @description Checks that [:roundToDouble():] does not change the object.
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 

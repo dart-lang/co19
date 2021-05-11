@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion E reduce(E combine(E value, E element))
- * If it has only one element, that element is returned.
- * @description Checks that the result is correct for simple functions.
- * @author iarkh
- */
+/// @assertion E reduce(E combine(E value, E element))
+/// If it has only one element, that element is returned.
+/// @description Checks that the result is correct for simple functions.
+/// @author iarkh
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 import "dart:collection";

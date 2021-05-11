@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion abstract void fillRange(int start, int end, [E fillValue])
- * Sets the elements in the range start to end exclusive to the given fillValue.
- * @description Checks that the elements in the range start to end exclusive
- * are set to the given fillValue.
- * @author kaigorodov
- */
+/// @assertion abstract void fillRange(int start, int end, [E fillValue])
+/// Sets the elements in the range start to end exclusive to the given fillValue.
+/// @description Checks that the elements in the range start to end exclusive
+/// are set to the given fillValue.
+/// @author kaigorodov
+
 library fillRange_A01_t01;
 
 import "../../../Utils/expect.dart";

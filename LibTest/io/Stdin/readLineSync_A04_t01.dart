@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String readLineSync({
- *   Encoding encoding: systemEncoding,
- *   bool retainNewlines: false
- *   })
- *  Default is [systemEncoding].
- * @description Checks that default encoding is system encoding
- * @author iarkh@unipro.ru
- */
+/// @assertion String readLineSync({
+///   Encoding encoding: systemEncoding,
+///   bool retainNewlines: false
+///   })
+///  Default is [systemEncoding].
+/// @description Checks that default encoding is system encoding
+/// @author iarkh@unipro.ru
+
 import "dart:io";
 import "test.lib.dart";
 

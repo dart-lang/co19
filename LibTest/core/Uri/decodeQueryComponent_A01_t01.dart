@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String decodeQueryComponent(String encodedComponent,
- * {Encoding encoding: utf8})
- * Decodes the percent-encoding in encodedComponent, converting pluses
- * to spaces
- * @description Checks expected results on unreserved characters and
- * basic and extended unicode characters on manually and library
- * encoded strings.
- * @author ilya
- */
+/// @assertion String decodeQueryComponent(String encodedComponent,
+/// {Encoding encoding: utf8})
+/// Decodes the percent-encoding in encodedComponent, converting pluses
+/// to spaces
+/// @description Checks expected results on unreserved characters and
+/// basic and extended unicode characters on manually and library
+/// encoded strings.
+/// @author ilya
+
 import 'dart:convert';
 import "../../../Utils/expect.dart";
 

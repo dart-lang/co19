@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool containsRectangle(MutableRectangle<num> another)
- * Tests whether this entirely contains another.
- * @description Checks the predicate for some predefined data.
- * @author kaigorodov
- */
+/// @assertion bool containsRectangle(MutableRectangle<num> another)
+/// Tests whether this entirely contains another.
+/// @description Checks the predicate for some predefined data.
+/// @author kaigorodov
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 

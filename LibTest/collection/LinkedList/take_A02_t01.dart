@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Iterable<E> take(int count)
- * The returned [Iterable] may contain fewer than [count] elements, if this
- * contains fewer than [count] elements.
- * @description Checks that if given linked list contains fewer than [count]
- * elements, returned [Iterable] contains all the elements from the list.
- * @author iarkh@unipro.ru
- */
+/// @assertion Iterable<E> take(int count)
+/// The returned [Iterable] may contain fewer than [count] elements, if this
+/// contains fewer than [count] elements.
+/// @description Checks that if given linked list contains fewer than [count]
+/// elements, returned [Iterable] contains all the elements from the list.
+/// @author iarkh@unipro.ru
+
 import "dart:collection";
 import "../../../Utils/expect.dart";
 import "LinkedList.lib.dart";

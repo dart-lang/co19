@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<RandomAccessFile> writeByte(int value)
- * Writes a single byte to the file. Returns a Future<RandomAccessFile> that
- * completes with this RandomAccessFile when the write completes.
- *
- * @description Checks that method writeByte writes a single byte to the file
- * and returns Future<RandomAccessFile> that completes with this
- * RandomAccessFile when the write completes.
- * @author ngl@unipro.ru
- */
+/// @assertion Future<RandomAccessFile> writeByte(int value)
+/// Writes a single byte to the file. Returns a Future<RandomAccessFile> that
+/// completes with this RandomAccessFile when the write completes.
+///
+/// @description Checks that method writeByte writes a single byte to the file
+/// and returns Future<RandomAccessFile> that completes with this
+/// RandomAccessFile when the write completes.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

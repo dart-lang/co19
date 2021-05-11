@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion double NEGATIVE_INFINITY
- * @description Comparing NEGATIVE_INFINITY with 0
- * @author hlodvig
- */
+/// @assertion double NEGATIVE_INFINITY
+/// @description Comparing NEGATIVE_INFINITY with 0
+/// @author hlodvig
+
 import "../../../Utils/expect.dart";
 
 main() {

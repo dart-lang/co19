@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Stream<List<int>> bind(Stream<List<int>> stream)
- * Transforms the provided stream.
- * Returns a new stream with events that are computed from events of the
- * provided stream.
- * @description Checks that the bind method transforms stream's events.
- * @author ngl@unipro.ru
- * @author a.semenov@unipro.ru
- * @issue @30656
- */
+/// @assertion Stream<List<int>> bind(Stream<List<int>> stream)
+/// Transforms the provided stream.
+/// Returns a new stream with events that are computed from events of the
+/// provided stream.
+/// @description Checks that the bind method transforms stream's events.
+/// @author ngl@unipro.ru
+/// @author a.semenov@unipro.ru
+/// @issue @30656
+
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";

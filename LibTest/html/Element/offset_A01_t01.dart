@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Rectangle get offset
- * Gets the offset of this element relative to its offsetParent.
- * @description Checks expected offset value
- */
+/// @assertion Rectangle get offset
+/// Gets the offset of this element relative to its offsetParent.
+/// @description Checks expected offset value
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../testcommon.dart";

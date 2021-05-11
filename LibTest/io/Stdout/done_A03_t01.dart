@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future done
- * read-only
- * @description Checks that [done] is read only
- * @author iarkh@unipro.ru
- */
+/// @assertion Future done
+/// read-only
+/// @description Checks that [done] is read only
+/// @author iarkh@unipro.ru
+
 import "../../../Utils/expect.dart";
 import "dart:io";
 

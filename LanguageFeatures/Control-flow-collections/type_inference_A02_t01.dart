@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The upwards inference element type of an if list element without
- * an else is the type of the "then" element.
- *
- * @description Checks that the upwards inference element type of an if list
- * element without an else is the type of the "then" element.
- * @author sgrekhov@unipro.ru
- */
+/// @assertion The upwards inference element type of an if list element without
+/// an else is the type of the "then" element.
+///
+/// @description Checks that the upwards inference element type of an if list
+/// element without an else is the type of the "then" element.
+/// @author sgrekhov@unipro.ru
+
 import "../../Utils/expect.dart";
 
 class A {}

@@ -2,27 +2,26 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Functions include function declarations, methods, getters,
- * setters, constructors and function literals.
- * All functions have a signature and a body.
- * functionSignature:
- *   metadata returnType? identifier formalParameterList
- * ;
- * returnType: void | type
- * ;
- * functionBody:
- *   async? '=>' expression ';' | (async | async* | sync*)? block
- * ;
- * block:
- *   '{' statements '}'
- * ;
- *
- * @description Checks that any specified expression can be a body
- * of a function of the form [functionSignature '=>' expression ';']
- *
- * @author msyabro
- */
+/// @assertion Functions include function declarations, methods, getters,
+/// setters, constructors and function literals.
+/// All functions have a signature and a body.
+/// functionSignature:
+///   metadata returnType? identifier formalParameterList
+/// ;
+/// returnType: void | type
+/// ;
+/// functionBody:
+///   async? '=>' expression ';' | (async | async* | sync*)? block
+/// ;
+/// block:
+///   '{' statements '}'
+/// ;
+///
+/// @description Checks that any specified expression can be a body
+/// of a function of the form [functionSignature '=>' expression ';']
+///
+/// @author msyabro
+
 // SharedOptions=--enable-experiment=triple-shift
 
 import "syntax_t03_lib.dart" as prfx;

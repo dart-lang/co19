@@ -2,21 +2,20 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Uint8ClampedList asUint8ClampedList([
- *     int offsetInBytes = 0,
- *     int length
- * ])
- * Creates a Uint8ClampedList view of a region of this byte buffer.
- * ...
- * The viewed region start at offsetInBytes and contains length bytes. If length
- * is omitted, the range extends to the end of the buffer.
- * @description Checks that the created viewed region begins with offsetInBytes
- * byte and contains length bytes. When length is omitted, the range extends to
- * the end of the buffer.
- * @author ngl@unipro.ru
- */
+/// @assertion
+/// Uint8ClampedList asUint8ClampedList([
+///     int offsetInBytes = 0,
+///     int length
+/// ])
+/// Creates a Uint8ClampedList view of a region of this byte buffer.
+/// ...
+/// The viewed region start at offsetInBytes and contains length bytes. If length
+/// is omitted, the range extends to the end of the buffer.
+/// @description Checks that the created viewed region begins with offsetInBytes
+/// byte and contains length bytes. When length is omitted, the range extends to
+/// the end of the buffer.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

@@ -2,9 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @author a.semenov@unipro.ru
- */
+/// @author a.semenov@unipro.ru
+
 import 'dart:async';
 
 Stream makeStream(Iterable iterable, {Function? beforeCancel()?: null}) {

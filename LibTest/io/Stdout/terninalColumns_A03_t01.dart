@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * int terminalColumns
- * Read-only
- * @description Checks that [terminalColumns] is a read only field.
- * @author iarkh@unipro.ru
- */
+/// int terminalColumns
+/// Read-only
+/// @description Checks that [terminalColumns] is a read only field.
+/// @author iarkh@unipro.ru
+
 import "dart:io";
 import "../../../Utils/expect.dart";
 

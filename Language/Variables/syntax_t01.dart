@@ -2,34 +2,33 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion variableDeclaration:
- *     declaredIdentifier (‘, ’ identifier)*
- *   ;
- *   declaredIdentifier:
- *     metadata finalConstVarOrType identifier
- *   ;
- *   finalConstVarOrType:
- *     final type? |
- *     const type? |
- *     varOrType
- *   ;
- *   varOrType:
- *     var |
- *     type
- *   ;
- *   initializedVariableDeclaration:
- *     declaredIdentifier (‘=’ expression)? (‘, ’ initializedIdentifier)*
- *   ;
- *   initializedIdentifier:
- *     identifier (‘=’ expression)?
- *   ;
- *   initializedIdentifierList:
- *     initializedIdentifier (‘, ’ initializedIdentifier)*
- *   ;
- * @description Checks various valid variable declarations.
- * @author iefremov
- */
+/// @assertion variableDeclaration:
+///     declaredIdentifier (‘, ’ identifier)*
+///   ;
+///   declaredIdentifier:
+///     metadata finalConstVarOrType identifier
+///   ;
+///   finalConstVarOrType:
+///     final type? |
+///     const type? |
+///     varOrType
+///   ;
+///   varOrType:
+///     var |
+///     type
+///   ;
+///   initializedVariableDeclaration:
+///     declaredIdentifier (‘=’ expression)? (‘, ’ initializedIdentifier)*
+///   ;
+///   initializedIdentifier:
+///     identifier (‘=’ expression)?
+///   ;
+///   initializedIdentifierList:
+///     initializedIdentifier (‘, ’ initializedIdentifier)*
+///   ;
+/// @description Checks various valid variable declarations.
+/// @author iefremov
+
 
 final topLevelFinal = const {};
 final int someConstant = 1;

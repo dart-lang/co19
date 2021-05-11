@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion   abstract double truncateToDouble()
- * Returns this.toDouble().
- * @description Checks that this method same value as this.toDouble();
- * for very large integers.
- * @author vasya
- */
+/// @assertion   abstract double truncateToDouble()
+/// Returns this.toDouble().
+/// @description Checks that this method same value as this.toDouble();
+/// for very large integers.
+/// @author vasya
+
 import "../../../Utils/expect.dart";
 
 import "dart:math" as Math;

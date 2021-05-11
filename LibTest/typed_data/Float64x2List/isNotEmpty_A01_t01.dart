@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool isNotEmpty
- * Returns true if there is at least one element in this collection.
- * @description Checks that isNotEmpty returns true, if at least one element in
- * this collection.
- * @author ngl@unipro.ru
- */
+/// @assertion bool isNotEmpty
+/// Returns true if there is at least one element in this collection.
+/// @description Checks that isNotEmpty returns true, if at least one element in
+/// this collection.
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

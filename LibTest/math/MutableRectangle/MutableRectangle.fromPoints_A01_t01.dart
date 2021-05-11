@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion MutableRectangle.fromPoints(Point<T> a, Point<T> b)
- * Create a mutable rectangle spanned by the points a and b;
- * @description Checks that coordinate properties of the created object are
- * equal to the constructor arguments.
- * @author kaigorodov
- */
+/// @assertion MutableRectangle.fromPoints(Point<T> a, Point<T> b)
+/// Create a mutable rectangle spanned by the points a and b;
+/// @description Checks that coordinate properties of the created object are
+/// equal to the constructor arguments.
+/// @author kaigorodov
+
 import "dart:math";
 import "../../../Utils/expect.dart";
 

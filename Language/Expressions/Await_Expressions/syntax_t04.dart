@@ -2,15 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- *  awaitExpression:
- *      await unaryExpression
- *
- * @description Check that it is a compile error if unaryExpression is missing
- * @compile-error
- * @author a.semenov@unipro.ru
- */
+/// @assertion
+///  awaitExpression:
+///      await unaryExpression
+///
+/// @description Check that it is a compile error if unaryExpression is missing
+/// @compile-error
+/// @author a.semenov@unipro.ru
+
 
 import 'dart:async';
 import '../../../Utils/expect.dart';

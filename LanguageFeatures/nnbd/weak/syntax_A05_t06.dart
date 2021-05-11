@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion The modifier required is added as a built-in identifier. The
- * grammar of function types is extended to allow any named parameter
- * declaration to be prefixed by the required modifier (e.g. int Function(int,
- * {int? y, required int z}).
- *
- * @description Check that any named parameter declaration can be prefixed by
- * the 'required' modifier. Test one named required parameter and nullable
- * argument
- * @author sgrekhov@unipro.ru
- */
+/// @assertion The modifier required is added as a built-in identifier. The
+/// grammar of function types is extended to allow any named parameter
+/// declaration to be prefixed by the required modifier (e.g. int Function(int,
+/// {int? y, required int z}).
+///
+/// @description Check that any named parameter declaration can be prefixed by
+/// the 'required' modifier. Test one named required parameter and nullable
+/// argument
+/// @author sgrekhov@unipro.ru
+
 // Requirements=nnbd-weak
 import "../../../Utils/expect.dart";
 

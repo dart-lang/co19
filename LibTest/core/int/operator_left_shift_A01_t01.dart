@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion int operator <<(int shiftAmount)
- * This operator implements bit-wise left-shift operation.
- * @description Checks that this operator returns correct value for non-negative
- * and not exceedingly large arguments.
- * @author vasya
- * @issue 42892
- */
+/// @assertion int operator <<(int shiftAmount)
+/// This operator implements bit-wise left-shift operation.
+/// @description Checks that this operator returns correct value for non-negative
+/// and not exceedingly large arguments.
+/// @author vasya
+/// @issue 42892
+
 import "../../../Utils/expect.dart";
 
 main() {

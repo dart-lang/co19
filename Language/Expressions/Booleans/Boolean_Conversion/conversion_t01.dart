@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion  Because boolean conversion requires its parameter to be a
- * boolean, any construct that makes use of boolean conversion will cause a
- * compile type error if the value to be converted is not a boolean.
- * @description Checks that it is a compile error to convert int to bool.
- * @compile-error
- * @author msyabro
- */
+/// @assertion  Because boolean conversion requires its parameter to be a
+/// boolean, any construct that makes use of boolean conversion will cause a
+/// compile type error if the value to be converted is not a boolean.
+/// @description Checks that it is a compile error to convert int to bool.
+/// @compile-error
+/// @author msyabro
+
 
 int i = 1;
 

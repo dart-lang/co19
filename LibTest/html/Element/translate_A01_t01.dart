@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion bool translate
- * Specifies whether this element's text content changes when the page is
- * localized.
- * @description Checks expected attribute values.
- */
+/// @assertion bool translate
+/// Specifies whether this element's text content changes when the page is
+/// localized.
+/// @description Checks expected attribute values.
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 

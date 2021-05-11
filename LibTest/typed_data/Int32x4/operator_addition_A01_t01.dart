@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Int32x4 operator +(Int32x4 other)
- * Addition operator.
- * @description Checks that every lane of the new [Int32x4] equals the result
- * of applying addition operator to corresponding lanes of operands.
- * @note undocumented
- * @author ngl@unipro.ru
- */
+/// @assertion Int32x4 operator +(Int32x4 other)
+/// Addition operator.
+/// @description Checks that every lane of the new [Int32x4] equals the result
+/// of applying addition operator to corresponding lanes of operands.
+/// @note undocumented
+/// @author ngl@unipro.ru
+
 
 import "dart:typed_data";
 import "../../../Utils/expect.dart";

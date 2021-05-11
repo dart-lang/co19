@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Operator precedence is given implicitly by the grammar.
- * @description Checks that operator precedence given implicitly by the grammar
- * holds true (additive > shift > bitwise AND > XOR > OR). 
- * @author vasya
- */
+/// @assertion Operator precedence is given implicitly by the grammar.
+/// @description Checks that operator precedence given implicitly by the grammar
+/// holds true (additive > shift > bitwise AND > XOR > OR). 
+/// @author vasya
+
 // SharedOptions=--enable-experiment=triple-shift
 
 import "../../../Utils/expect.dart";

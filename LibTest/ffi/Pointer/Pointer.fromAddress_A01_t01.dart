@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Pointer<T extends NativeType>.fromAddress(int ptr)
- *  Construction from raw integer.
- *
- * @description Checks that this constructor constructs pointer from a raw
- * integer
- * @author sgrekhov@unipro.ru
- */
+/// @assertion Pointer<T extends NativeType>.fromAddress(int ptr)
+///  Construction from raw integer.
+///
+/// @description Checks that this constructor constructs pointer from a raw
+/// integer
+/// @author sgrekhov@unipro.ru
+
 import "dart:ffi";
 import "package:ffi/ffi.dart";
 import '../../../Utils/expect.dart';

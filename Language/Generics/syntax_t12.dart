@@ -2,14 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion A class declaration, type alias, or function [G] may be generic,
- * that is, [G] may have formal type parameters declared.
- * @description Checks that a compile-time error is produced when typeParameter
- * declaration is not complete.
- * @compile-error
- * @author kaigorodov
- */
+/// @assertion A class declaration, type alias, or function [G] may be generic,
+/// that is, [G] may have formal type parameters declared.
+/// @description Checks that a compile-time error is produced when typeParameter
+/// declaration is not complete.
+/// @compile-error
+/// @author kaigorodov
+
 
 class A<T
 class C<T extends Function>{}

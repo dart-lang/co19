@@ -2,19 +2,18 @@
 // file for details. All rights reserved. Use of this source code is governed
 // by a BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion void setErrorsFatal(
- *                                bool errorsAreFatal
- *                               )
- * ...
- *    This call requires the terminateCapability for the isolate. If the
- * capability is not correct, no change is made.
- *
- * @description Check that call to setErrorsFatal(true) on isolate without
- * terminateCapability have no effect
- *
- * @author a.semenov@unipro.ru
- */
+/// @assertion void setErrorsFatal(
+///                                bool errorsAreFatal
+///                               )
+/// ...
+///    This call requires the terminateCapability for the isolate. If the
+/// capability is not correct, no change is made.
+///
+/// @description Check that call to setErrorsFatal(true) on isolate without
+/// terminateCapability have no effect
+///
+/// @author a.semenov@unipro.ru
+
 import "dart:isolate";
 import "dart:async";
 import "../../../Utils/expect.dart";

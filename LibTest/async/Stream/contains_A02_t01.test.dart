@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion Future<bool> contains(Object needle)
- * Completes the Future when the answer is known.
- * @description Checks that the Future is completed when the answer is known.
- * @author kaigorodov
- * @author a.semenov@unipro.ru
- */
+/// @assertion Future<bool> contains(Object needle)
+/// Completes the Future when the answer is known.
+/// @description Checks that the Future is completed when the answer is known.
+/// @author kaigorodov
+/// @author a.semenov@unipro.ru
+
 library contains_A02_t01;
 import "dart:async";
 import "../../../Utils/expect.dart";

@@ -2,22 +2,21 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion
- * Stream<RawSocketEvent> asBroadcastStream({
- *     void onListen(StreamSubscription<T> subscription),
- *     void onCancel(StreamSubscription<T> subscription)
- * })
- * Returns a multi-subscription stream that produces the same events as this.
- *
- * The returned stream will subscribe to this stream when its first subscriber
- * is added, and will stay subscribed until this stream ends, or a callback
- * cancels the subscription.
- *
- * @description Checks that a multi-subscription stream produces the same events
- * as this.
- * @author ngl@unipro.ru
- */
+/// @assertion
+/// Stream<RawSocketEvent> asBroadcastStream({
+///     void onListen(StreamSubscription<T> subscription),
+///     void onCancel(StreamSubscription<T> subscription)
+/// })
+/// Returns a multi-subscription stream that produces the same events as this.
+///
+/// The returned stream will subscribe to this stream when its first subscriber
+/// is added, and will stay subscribed until this stream ends, or a callback
+/// cancels the subscription.
+///
+/// @description Checks that a multi-subscription stream produces the same events
+/// as this.
+/// @author ngl@unipro.ru
+
 import "dart:async";
 import "dart:io";
 import "../http_utils.dart";

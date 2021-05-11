@@ -2,16 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion String readLineSync({
- *   Encoding encoding: systemEncoding,
- *   bool retainNewlines: false
- *   })
- * The argument [encoding] can be used to changed how the input should be
- * decoded.
- * @description Checks that [systemEncoding] string is passed OK
- * @author iarkh@unipro.ru
- */
+/// @assertion String readLineSync({
+///   Encoding encoding: systemEncoding,
+///   bool retainNewlines: false
+///   })
+/// The argument [encoding] can be used to changed how the input should be
+/// decoded.
+/// @description Checks that [systemEncoding] string is passed OK
+/// @author iarkh@unipro.ru
+
 
 import "dart:io";
 import "test.lib.dart";

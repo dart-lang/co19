@@ -2,13 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion double operator /(num other)
- * @description Checks that if the actual result is greater than MAX_DOUBLE or
- * less than -MAX_DOUBLE the operator returns POSITIVE_INFINITY or
- * NEGATIVE_INFINITY
- * @author msyabro
- */
+/// @assertion double operator /(num other)
+/// @description Checks that if the actual result is greater than MAX_DOUBLE or
+/// less than -MAX_DOUBLE the operator returns POSITIVE_INFINITY or
+/// NEGATIVE_INFINITY
+/// @author msyabro
+
 import "../../../Utils/expect.dart";
 
 main() {

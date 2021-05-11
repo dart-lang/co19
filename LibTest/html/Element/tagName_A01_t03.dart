@@ -2,12 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * @assertion final String tagName
- * The name of the tag for the given element.
- * @description Checks tagName of custom element
- * @issue 43293
- */
+/// @assertion final String tagName
+/// The name of the tag for the given element.
+/// @description Checks tagName of custom element
+/// @issue 43293
+
 import "dart:html";
 import "../../../Utils/expect.dart";
 import "../testcommon.dart";
