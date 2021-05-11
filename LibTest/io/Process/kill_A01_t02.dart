@@ -47,11 +47,11 @@ main() {
   setCommand();
   asyncStart();
   Process.start(command, args).then((Process process) {
-    bool pKill = process.kill();
-    Expect.isFalse(pKill);
 
     process.exitCode.then((int value) {
       Expect.equals(0, value);
+      bool pKill = process.kill();
+      Expect.isFalse(pKill);
       if (Platform.isWindows) {
         asyncEnd();
       }
