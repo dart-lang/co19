@@ -7,9 +7,7 @@
 ///
 /// @description Checks that a mixin declaration introduces an interface and
 /// therefore it cannot be extended.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
-
 
 class C {
 }
@@ -18,6 +16,10 @@ mixin M on C {
 }
 
 class MA extends M {}
+//               ^
+// [analyzer] unspecified
+//    ^
+// [cfe] unspecified
 
 main() {
   new MA();

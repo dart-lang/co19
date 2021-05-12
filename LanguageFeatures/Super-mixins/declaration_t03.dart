@@ -14,9 +14,7 @@
 /// @description Checks that it is a compile-time error for the mixin declaration
 /// if its super classes contain getters with the same name and different return
 /// types. Test several interfaces in 'on' and 'implements' clauses
-/// @compile-error
 /// @author ngl@unipro.ru
-
 
 class I {
   int get i1 => 1;

@@ -14,21 +14,26 @@
 /// @description Checks that it is a compile-time error for the mixin declaration
 /// if classes from implements clause contain methods with the same names but
 /// different return types.
-/// @compile-error
 /// @author ngl@unipro.ru
-
 
 class I {
   int i1() => 1;
+//    ^^
+// [cfe] unspecified
 }
 class J {
   double i1() => 2.0;
+//       ^^
+// [cfe] unspecified
 }
 
 class B {}
 class C {}
 
 mixin M on B, C implements I, J {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

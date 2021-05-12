@@ -13,10 +13,8 @@
 /// @description Checks that mixin declaration can only be applied to classes
 /// that implement both B and C. Test the case when mixin declaration is applied
 /// to the class with implements only one of the interfaces
-/// @compile-error
 /// @author ngl@unipro.ru
 /// @author sgrekhov@unipro.ru
-
 
 abstract class B {
   int get gb1;
@@ -33,6 +31,10 @@ class A implements B {
 mixin M on B, C {}
 
 class MA extends A with M {}
+//                      ^
+// [analyzer] unspecified
+//    ^
+// [cfe] unspecified
 
 main() {
   new MA();

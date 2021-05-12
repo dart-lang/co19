@@ -9,9 +9,7 @@
 /// factory constructor
 /// @issue 24767
 /// @issue 34804
-/// @compile-error
 /// @author sgrekhov@unipro.ru
-
 
 class I {}
 class J {}
@@ -21,6 +19,9 @@ class C {}
 
 mixin M on B, C implements I, J {
   factory M() = MA;
+//^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class A implements B, C, I, J {}

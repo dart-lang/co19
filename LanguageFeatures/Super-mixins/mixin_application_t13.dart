@@ -12,9 +12,7 @@
 /// @description Checks that it is a compile error if a mixin is applied to a
 /// class that does not implement all the 'on' type requirements of the mixin
 /// declaration.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
-
 
 class S {}
 class T {}
@@ -32,7 +30,10 @@ mixin M<X extends S, Y extends T> on B<X>, C<Y> implements I<S>, J<T> {
 class A<T1, T2, T3, T4> implements B<T1>, C<T2>, I<T3>, J<T4> {
 }
 
-class MA extends A<X, Y, S, S> with M<X, Y> {
+  class MA extends A<X, Y, S, S> with M<X, Y> {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

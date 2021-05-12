@@ -7,12 +7,16 @@
 /// made a built-in identifier in Dart 2.0
 ///
 /// @description Checks that the mixin word cannot be used as a class name
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
-
 class mixin {}
+//    ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new mixin();
+//    ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

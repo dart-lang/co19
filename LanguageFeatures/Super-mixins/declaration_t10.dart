@@ -16,44 +16,69 @@
 /// is equivalent to the interface of the class declared as
 /// abstract class A<X extends S, Y extends T> extends A$super<X, Y>
 ///   implements D, E { body' }
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
-
 abstract class B {
-  String get b;         //# 01: compile-time error
+  String get b;
+//           ^
+// [cfe] unspecified
 }
 
 class C {
-  String get c => "C";  //# 02: compile-time error
+  String get c => "C";
+//           ^
+// [cfe] unspecified
 }
 
 class D {
-  String get d => "D";  //# 03: compile-time error
+  String get d => "D";
+//           ^
+// [cfe] unspecified
 }
 
 abstract class E {
-  String get e;         //# 04: compile-time error
+  String get e;
+//           ^
+// [cfe] unspecified
 }
 
 mixin A on B, C implements D, E {
 }
 
-class AI implements A {
+class AI1 implements A {
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   // missing b
-  String get c => "AI"; //# 01: compile-time error
-  String get d => "AI"; //# 01: compile-time error
-  String get e => "AI"; //# 01: compile-time error
+  String get c => "AI";
+  String get d => "AI";
+  String get e => "AI";
+}
+class AI2 implements A {
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   // missing c
-  String get b => "AI"; //# 02: compile-time error
-  String get d => "AI"; //# 02: compile-time error
-  String get e => "AI"; //# 02: compile-time error
+  String get b => "AI";
+  String get d => "AI";
+  String get e => "AI";
+}
+class AI3 implements A {
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   // missing d
   String get b => "AI"; //# 03: compile-time error
   String get c => "AI"; //# 03: compile-time error
   String get e => "AI"; //# 03: compile-time error
+}
+class AI4 implements A {
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   // missing e
   String get b => "AI"; //# 04: compile-time error
@@ -62,5 +87,8 @@ class AI implements A {
 }
 
 main() {
-  new AI();
+  new AI1();
+  new AI2();
+  new AI3();
+  new AI4();
 }

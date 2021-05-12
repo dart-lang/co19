@@ -7,12 +7,16 @@
 /// made a built-in identifier in Dart 2.0
 ///
 /// @description Checks that the mixin word cannot be used as a type name
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
-
 typedef mixin = int Function(Object a, Object b);
+//      ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   mixin? m;
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -7,7 +7,6 @@
 ///
 /// @description Checks that a mixin declaration introduces an interface and
 /// therefore it cannot be extended.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 import "../../Utils/expect.dart";
@@ -21,6 +20,10 @@ mixin M on C {
 }
 
 class MA extends M {
+//               ^
+// [analyzer] unspecified
+//    ^
+// [cfe] unspecified
   String get g => "MA.g";
 }
 

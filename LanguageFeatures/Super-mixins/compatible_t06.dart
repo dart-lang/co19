@@ -11,9 +11,7 @@
 ///
 /// @description Checks that it is a compile-time error for the mixin declaration
 /// if the interfaces B and C are not compatible.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
-
 
 class S {}
 class T {}
@@ -28,9 +26,14 @@ class C<T, S> implements A<T>, B<S> {
 }
 
 mixin M<X extends S, Y extends T> on A<Y>, B<X> {
+//      ^
+// [cfe] unspecified
 }
 
 class MA<X, Y> extends C<Y, X> with M<Y, X> {
+//                                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -12,9 +12,7 @@
 /// @description Checks that it is a compile error if a mixin is applied to a
 /// class that does not implement all the 'on' type requirements of the mixin
 /// declaration. Test omitted 'on'
-/// @compile-error
 /// @author sgrekhov@unipro.ru
-
 
 class I {}
 class J {}
@@ -24,6 +22,10 @@ class C {}
 mixin M on B, C implements I, J {}
 
 class MA with M {}
+//            ^
+// [analyzer] unspecified
+//    ^
+// [cfe] unspecified
 
 main() {
   new MA();

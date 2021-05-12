@@ -11,9 +11,7 @@
 ///
 /// @description Checks that it is a compile-time error for the mixin declaration
 /// if the interfaces B and C are not compatible.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
-
 
 class S {}
 class T {}
@@ -32,15 +30,31 @@ abstract class B<T> extends A<T> {
 class C<T, S> extends B<T> implements J<S> {
 }
 
-mixin M<X extends S, Y extends T> on A<X>, B<X> implements I<X>, J<X> {}  //# 01: compile-time error
-class MA extends C<X, Y> with M<X, Y> {}                                  //# 01: compile-time error
+  mixin M1<X extends S, Y extends T> on A<X>, B<X> implements I<X>, J<X> {}
+  class MA1 extends C<X, Y> with M1<X, Y> {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-mixin M<X extends S, Y extends T> on A<X>, B<Y> implements I<X>, J<Y> {}  //# 02: compile-time error
-class MA extends C<X, Y> with M<X, Y> {}                                  //# 02: compile-time error
+  mixin M2<X extends S, Y extends T> on A<X>, B<Y> implements I<X>, J<Y> {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-mixin M<X extends S, Y extends T> on A<Y>, B<X> implements I<X>, J<Y> {}  //# 03: compile-time error
-class MA extends C<X, Y> with M<X, Y> {}                                  //# 03: compile-time error
+  class MA2 extends C<X, Y> with M2<X, Y> {}
+//                               ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  mixin M3<X extends S, Y extends T> on A<Y>, B<X> implements I<X>, J<Y> {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  class MA3 extends C<X, Y> with M3<X, Y> {}
+//                               ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }
-

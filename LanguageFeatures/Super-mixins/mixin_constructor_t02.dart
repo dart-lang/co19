@@ -7,9 +7,7 @@
 ///
 /// @description Checks that mixin declaration doesn't allow constructors. Test
 /// named constructor
-/// @compile-error
 /// @author sgrekhov@unipro.ru
-
 
 class I {}
 class J {}
@@ -19,11 +17,16 @@ class C {}
 
 mixin M on B, C implements I, J {
   M.named() {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class A implements B, C, I, J {}
 
 class MA extends A with M {}
+//    ^
+// [cfe] unspecified
 
 main() {
   new MA();
