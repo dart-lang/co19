@@ -6,23 +6,16 @@
 /// following:
 ///   • A reference to a compile-time constant variable.
 ///   • A call to a constant constructor.
-/// @description Check that if false is used as metadata, then
+/// @description Check that if true is used as metadata, then
 /// a compile time error is raised
 /// @author a.semenov@unipro.ru
 
-import 'dart:mirrors';
-//     ^
-// [web] Not found: 'dart:mirrors'
-
-  @false
-//^^^^^^
+  @true
+//^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 class A {}
 
 main() {
-  // have to retrieve metadata to get the compile error
-  reflectClass(A).metadata.map( (e) => e.reflectee ).join(' ');
-//^
-// [web] Method not found: 'reflectClass'.
+  A? a;
 }

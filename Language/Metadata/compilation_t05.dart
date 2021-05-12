@@ -10,10 +10,6 @@
 /// error is raised
 /// @author a.semenov@unipro.ru
 
-import 'dart:mirrors';
-//     ^
-// [web] Not found: 'dart:mirrors'
-
   @null
 //^^^^^
 // [analyzer] unspecified
@@ -21,8 +17,5 @@ import 'dart:mirrors';
 class A {}
 
 main() {
-  // have to retrieve metadata to get the compile error
-  reflectClass(A).metadata.map( (e) => e.reflectee ).join(' ');
-//^
-// [web] Method not found: 'reflectClass'.
+  A? a;
 }

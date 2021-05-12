@@ -6,26 +6,16 @@
 /// following:
 ///   • A reference to a compile-time constant variable.
 ///   • A call to a constant constructor.
-/// @description Check that function used as metadata cause a compile time error
+/// @description Check that if false is used as metadata, then
+/// a compile time error is raised
 /// @author a.semenov@unipro.ru
 
-import 'dart:mirrors';
-//     ^
-// [web] Not found: 'dart:mirrors'
-
-void metadata() {
-}
-
-  @metadata()
-//^^^^^^^^^^^
-// [analyzer] COMPILE_TIME_ERROR.INVALID_ANNOTATION
-// ^
-// [cfe] Method not found: 'metadata'.
+  @false
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 class A {}
 
 main() {
-  // have to retrieve metadata to get the compile error
-  reflectClass(A).metadata.map( (e) => e.reflectee ).join(' ');
-//^
-// [web] Method not found: 'reflectClass'.
+  A? a;
 }

@@ -6,21 +6,22 @@
 /// following:
 ///   • A reference to a compile-time constant variable.
 ///   • A call to a constant constructor.
-/// @description Check that if static class variable is used as metadata, then a
-/// compile time error is raised.
-/// @compile-error
+/// @description Check that it is a compile time error, if called constructor
+/// is not constant
+/// @Issue #24281
 /// @author a.semenov@unipro.ru
 
-import 'dart:mirrors';
-
 class A {
-  static var a = 10;
+    A(int x);
 }
 
-@A.a
+  @A(10)
+//^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_ANNOTATION_CONSTRUCTOR
+// ^
+// [cfe] Cannot invoke a non-'const' constructor where a const expression is expected.
 class B {}
 
 main() {
-  // have to retrieve metadata to get compile error
-  reflectClass(B).metadata.map( (e) => e.reflectee ).join(' ');
+  B? b;
 }

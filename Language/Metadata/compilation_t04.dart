@@ -6,23 +6,23 @@
 /// following:
 ///   • A reference to a compile-time constant variable.
 ///   • A call to a constant constructor.
-/// @description Check that if true is used as metadata, then
-/// a compile time error is raised
+/// @description Check that if static class method is used as metadata, then a
+/// compile time error is raised.
 /// @author a.semenov@unipro.ru
 
-import 'dart:mirrors';
-//     ^
-// [web] Not found: 'dart:mirrors'
+class A {
+  static int a() {
+    return 10;
+  }
+}
 
-  @true
-//^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-class A {}
+  @A.a()
+//^^^^^^
+// [analyzer] COMPILE_TIME_ERROR.INVALID_ANNOTATION
+//   ^
+// [cfe] Method not found: 'A.a'.
+class B {}
 
 main() {
-  // have to retrieve metadata to get the compile error
-  reflectClass(A).metadata.map( (e) => e.reflectee ).join(' ');
-//^
-// [web] Method not found: 'reflectClass'.
+  B? b;
 }

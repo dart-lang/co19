@@ -6,19 +6,23 @@
 /// following:
 ///   • A reference to a compile-time constant variable.
 ///   • A call to a constant constructor.
-/// @description Check that it is a compile time error, if qualified identifier
-/// is not complete
-/// @compile-error
-/// @issue #24280
+/// @description Check that if static class variable is used as metadata, then a
+/// compile time error is raised.
 /// @author a.semenov@unipro.ru
 
-import 'dart:mirrors';
-import 'syntax_lib2.dart' as syntax_lib2;
+class A {
+  static var a = 10;
+}
 
-@syntax_lib2()
+  @A.a
+//^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 class B {}
+//    ^
+// [cfe] unspecified
 
 main() {
-    // have to retrieve metadata to get the compile error
-    reflectClass(B).metadata.map( (e) => e.reflectee ).join(' ');
+  B? b;
 }

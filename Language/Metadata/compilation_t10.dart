@@ -6,23 +6,22 @@
 /// following:
 ///   • A reference to a compile-time constant variable.
 ///   • A call to a constant constructor.
-/// @description Check that if metadata expression refers to not defined class
-/// or constant, then a compile time error is raised
+/// @description Check that it is a compile time error, if mandatory arguments
+/// are missing
+/// @Issue #24281
 /// @author a.semenov@unipro.ru
 
-import 'dart:mirrors';
-//     ^
-// [web] Not found: 'dart:mirrors'
+class A {
+    const A(int x);
+}
 
-  @Hello
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-class A {}
+  @A
+//^^
+// [analyzer] COMPILE_TIME_ERROR.NO_ANNOTATION_CONSTRUCTOR_ARGUMENTS
+// ^
+// [cfe] Error: This can't be used as an annotation; an annotation should be a reference to a compile-time constant variable, or a call to a constant constructor.
+class B {}
 
 main() {
-  // have to retrieve metadata to get the compile error
-  reflectClass(A).metadata.map( (e) => e.reflectee ).join(' ');
-//^
-// [web] Method not found: 'reflectClass'.
+  B? b;
 }
