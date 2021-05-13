@@ -7,12 +7,13 @@
 /// new T(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
 /// @description Checks that it is compile error if T is a type alias that does
 /// not denote a class.
-/// @compile-error
 /// @author msyabro
-
 
 typedef int f(int x, int y);
 
 main() {
   new f();
+//          ^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

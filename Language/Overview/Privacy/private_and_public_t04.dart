@@ -12,11 +12,13 @@
 /// public.
 /// @description Checks that a private variable declaration is inaccessible 
 /// outside the library.
-/// @compile-error
 /// @author msyabro
 
 import "../lib.dart" as lib;
 
 main() {
   lib._inaccessibleVariable = 1;
+//    ^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

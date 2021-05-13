@@ -12,11 +12,13 @@
 /// public.
 /// @description Checks that access to private static method that
 /// is not accessible to the current script results in a compile error
-/// @compile-error
 /// @author iefremov
 
 import "../lib.dart";
 
 main() {
   ClassWithPrivateMembers._staticfun();
+//                        ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

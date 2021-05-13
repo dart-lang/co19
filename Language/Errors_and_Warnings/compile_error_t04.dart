@@ -7,11 +7,7 @@
 /// erroneous code is executed.
 /// @description Checks that erroneous code is not executed if there is
 /// a compile-time error. Test error in nested function
-/// @compile-error
 /// @author sgrekhov@unipro.ru
-
-
-import '../../Utils/expect.dart';
 
 void f1() {
   f2();
@@ -19,9 +15,11 @@ void f1() {
 
 void f2() {
   var a = ;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   f1();
-  Expect.fail("Erroneous code must not be executed");
 }

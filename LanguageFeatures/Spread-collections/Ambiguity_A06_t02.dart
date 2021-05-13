@@ -8,11 +8,12 @@
 /// an error.
 /// @description Checks that there cannot be bare element and key-value pair in
 /// the same collection.
-/// @compile-error
 /// @author iarkh@unipro.ru
-
 
 main() {
   Map aMap = {1: 2};
   var res = {4, 5, 6, ...aMap, 14};
+//          ^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

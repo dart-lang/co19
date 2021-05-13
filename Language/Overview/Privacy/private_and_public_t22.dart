@@ -13,7 +13,6 @@
 /// @description Checks that access to private instance class members
 /// from a script that imports the library where the class is declared result 
 /// in a compile error
-/// @compile-error
 /// @author iefremov
 
 import "../lib.dart";
@@ -21,4 +20,7 @@ import "../lib.dart";
 main() {
   var c = new ClassWithPrivateMembers();
   c._fun();
+//  ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

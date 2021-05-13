@@ -14,11 +14,12 @@
 /// static type [Set<T>].
 ///
 /// @description Checks that [setOrMapLiteral] has one type argument, it's a set.
-/// @compile-error
 /// @author iarkh@unipro.ru
-
 
 main() {
   Map aMap = {1: 1, 2: 2, 3: 3};
   var res = <int>{...aMap};
+//                   ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -12,12 +12,13 @@
 /// public.
 /// @description Checks that a private function is inaccessible outside the 
 /// library.
-/// @compile-error
 /// @author msyabro
-
 
 import "../lib.dart" as lib;
 
 main() {
   lib._inaccessibleFunction();
+//    ^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

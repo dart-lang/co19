@@ -14,11 +14,16 @@
 /// @description Checks that it is a compile-time error when an expression
 /// statement begins with a non-constant, non-parameterized map literal, but
 /// also it's only a part of the whole expression.
-/// @compile-error
 /// @author rodionov
 
-
 main() {
-  {"1": 1, "2": 2}["1"] = 0;            //# 01: compile-time error
-  {"1": 1, "2": 2}.isEmpty == false; }  //# 02: compile-time error
+  {"1": 1, "2": 2}["1"] = 0;
+// ^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  {"1": 1, "2": 2}.isEmpty == false; }
+// ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

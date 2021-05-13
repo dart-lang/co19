@@ -6,10 +6,11 @@
 /// from spreading into itself:
 ///   const list = [...list]; // Error.
 /// @description: Checks that constant set cannot spread itself
-/// @compile-error
 /// @author iarkh@unipro.ru
-
 
 main() {
   const Set set = {...?set};
+//          ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

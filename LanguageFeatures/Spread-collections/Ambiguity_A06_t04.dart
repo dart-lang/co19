@@ -8,11 +8,12 @@
 /// an error.
 /// @description Checks that there cannot be bare element and key-value pair in
 /// the same collection.
-/// @compile-error
 /// @author iarkh@unipro.ru
-
 
 main() {
   List aList = [8, 9, 10];
   var res = {...aList, 0: 0};
+//          ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

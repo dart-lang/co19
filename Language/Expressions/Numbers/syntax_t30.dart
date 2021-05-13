@@ -27,10 +27,11 @@
 /// ;
 /// @description Checks that a hex numeric literal cannot contain
 /// non-hexadecimal digits.
-/// @compile-error
 /// @author iefremov
-
 
 main() {
   var i = 0xg;
+//        ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
