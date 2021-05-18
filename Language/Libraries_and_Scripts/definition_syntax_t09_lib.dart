@@ -7,4 +7,7 @@ library Definition_Syntax_t09_lib;
 
 class Foo {}
 
-part 'definition_syntax_t09_lib_p1.dart';
+  part 'definition_syntax_t09_lib_p1.dart';
+//^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

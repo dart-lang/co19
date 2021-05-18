@@ -3,3 +3,6 @@
 // BSD-style license that can be found in the LICENSE file.
 
 library Libraries_унд_скриптз_A03_t15_lib;
+//                ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

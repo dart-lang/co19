@@ -9,6 +9,9 @@ f1() {}
 
 f2() {}
 
-12somesymbols###moresymbols346
+  12somesymbols###moresymbols346
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 f3() {}

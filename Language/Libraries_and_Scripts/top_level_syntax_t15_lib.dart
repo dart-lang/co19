@@ -5,4 +5,7 @@
 
 library Libraries_and_Scripts_A01_t15;
 
-label: var x  = 0;
+  label: var x  = 0;
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

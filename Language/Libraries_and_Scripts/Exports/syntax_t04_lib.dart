@@ -5,3 +5,6 @@
 
 library Exports_test_lib;
 export "syntax_lib.dart" show;
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified

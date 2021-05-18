@@ -3,3 +3,6 @@
 // BSD-style license that can be found in the LICENSE file.
 
 library 5 + 12;
+//      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

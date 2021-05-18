@@ -6,5 +6,9 @@ library Exports_A04_lib;
 
 export "reexport_lib_p1.dart";
 export "reexport_lib_p2.dart";
+//     ^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 
 var libVar = 1;

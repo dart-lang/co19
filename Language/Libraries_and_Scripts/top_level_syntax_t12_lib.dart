@@ -5,6 +5,12 @@
 
 library Libraries_and_Scripts_A01_t12;
 
-try {
+  try {
+//^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   var x = 0;
 } catch (e) {}
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

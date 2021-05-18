@@ -4,4 +4,7 @@
 
 
 library Definition_Syntax_t10_lib;
-library Definition_Syntax_t10_lib_too;
+  library Definition_Syntax_t10_lib_too;
+//^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
