@@ -34,13 +34,24 @@
 ///   ‘A’ ..‘Z’
 /// ;
 /// @description Checks that identifier can't contain '@' symbol.
-/// @compile-error
 /// @author msyabro
 
-
 main() {
-  int? a@                      //# 01: compile-time error
-  String b@ = "It's wrong!";    //# 02: compile-time error
-  var c@;                       //# 03: compile-time error
-  d@;                           //# 04: compile-time error
-}
+  int? a@;
+//^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  String b@ = "It's wrong!";
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var c@;
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified

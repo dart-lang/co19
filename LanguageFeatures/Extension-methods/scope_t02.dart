@@ -7,15 +7,20 @@
 ///
 /// @description Check that it is a compile error if extensions have name
 /// conflict
-/// @compile-error
 /// @author sgrekhov@unipro.ru
-
 
 import "scope_all_lib.dart";
 import "scope_bar_lib.dart";
 
 main() {
   List<String> list = ["Lily", "was", "here"];
-  Bar(list).bar();      //# 01: compile-time error
-  Bar.staticBar;        //# 02: compile-time error
+  Bar(list).bar();
+//^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Bar.staticBar;
+//^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
