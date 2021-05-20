@@ -29,10 +29,12 @@
 /// unary operator on either super or an expression e.
 /// @description Checks that a non-expression statement can't be used with
 /// incrementOperator. (Variable declaration statement)
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   ++ var x;
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

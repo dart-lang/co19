@@ -6,11 +6,13 @@
 /// via another typedef, is a compile time error.
 /// @description Checks that it is compile error to reference type alias with a
 /// type parameter as its formal parameter type.
-/// @compile-error
 /// @author ilya
-
+/// @issue 46062
 
 typedef F<T>(F<T> x);
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   F<int>? x;

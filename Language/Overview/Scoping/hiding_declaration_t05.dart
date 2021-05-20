@@ -8,13 +8,15 @@
 /// @description Checks that it is a compile error if a type variable hides
 /// a class name declared in an enclosing scope and it's referenced in a static
 /// context.
-/// @compile-error
 /// @author iefremov
 
 
 class C {}
 class G<C> {
   static f() => new C();
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

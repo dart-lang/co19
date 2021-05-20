@@ -15,7 +15,6 @@
 ///
 /// @description Check that the name  can be hidden or shown in import or export
 /// declarations.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -25,4 +24,7 @@ import "my_fancy_list_lib.dart" hide MyFancyList;
 main() {
     List<String> list = ["Lily", "was", "here"];
     list.doubleLength;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

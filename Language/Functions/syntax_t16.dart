@@ -20,11 +20,13 @@
 /// @description Checks that the foreach statement can't be a body of
 /// a function of the form [functionSignature '=>' expression ';'].
 ///
-/// @compile-error
 /// @author msyabro
 
 
 f() => for (var i in [1,2,3]);
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   f();

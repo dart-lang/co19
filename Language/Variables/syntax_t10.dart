@@ -28,10 +28,12 @@
 ///   ;
 /// @description Checks that a non-expression statement cannot be used instead 
 /// of expression in an initialized variable declaration.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   var x = return 0;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

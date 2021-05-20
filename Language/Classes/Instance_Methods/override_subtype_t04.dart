@@ -7,7 +7,6 @@
 /// @description Checks that a compile error is produced when the type of the
 /// overriding method is not a subtype of the method being overridden even if 
 /// the class declaring m1 is not a direct subtype of the class declaring m2.
-/// @compile-error
 /// @author iefremov
 
 
@@ -21,6 +20,9 @@ class A3 extends A2{}
 
 class C extends A3 {
   foo(int name) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

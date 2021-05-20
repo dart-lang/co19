@@ -11,7 +11,6 @@
 /// ;
 /// @description The grammar does not allow throw with no expression. Checks
 /// that this is a compile-error.
-/// @compile-error
 /// @author ilya
 
 
@@ -19,5 +18,8 @@ main() {
   try {
   } catch (e) {
     throw;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }

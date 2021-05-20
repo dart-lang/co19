@@ -8,7 +8,6 @@
 /// error if T does not denote a class accessible in the current scope.
 /// @description Checks that it is a compile-time error if T is a reference to
 /// a static method.
-/// @compile-error
 /// @author msyabro
 
 
@@ -18,4 +17,7 @@ class A {
 
 main() {
   const A.method();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

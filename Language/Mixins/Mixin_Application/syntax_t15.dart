@@ -21,7 +21,6 @@
 /// In both cases above, C declares the same instance members as M (respec-
 /// tively, Mk).
 /// @description Test that mixin cannot mixed into itself
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -29,6 +28,9 @@ class S {
 }
 
 class C = S with C;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new C();

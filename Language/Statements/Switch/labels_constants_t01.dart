@@ -19,7 +19,6 @@
 /// constants for all k = 1..n.
 /// @description Checks that it is a compile-time error if a case expression
 /// is not a compile-time constant.
-/// @compile-error
 /// @author msyabro
 
 
@@ -30,5 +29,8 @@ main() {
     case 0:
     case 2:
     case f():
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }

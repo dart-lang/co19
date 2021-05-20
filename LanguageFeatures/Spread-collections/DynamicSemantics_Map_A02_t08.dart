@@ -19,7 +19,6 @@
 ///       b. Evaluate [e2] to a value value.
 ///       c. Call map[key] = value.
 /// @description Checks that final map is correct
-/// @static-warning
 /// @author iarkh@unipro.ru
 
 
@@ -42,9 +41,25 @@ main() {
   Expect.mapEquals(
     {-1: 1, -3: 3, 1: 1, 3: 3, 5: 5, 6: 6, 4: 4, 2: 564},
     {-1: 1, 1: 14, -3: 3, ...?map1, 6: 6, ...?map2, 4: 4, 2: 564});
+//                        ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                            ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
+//                                        ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                            ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
 
   Expect.mapEquals(map1, {...map1, ...map3});
   Expect.mapEquals(map1, {...?map1, ...?map3});
+//                        ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                            ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
+//                                  ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                      ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
 
   Expect.mapEquals(
     {"p": "p", 146:149, 100: 218, 13: -24.11, 24: 14, 8: -8, 174: "13", 149:
@@ -64,6 +79,18 @@ main() {
         "d": "d", "e": "e", "y": "y", -6: 6, 14: 20, 1: 1, 2: 2, 3: 3, 4: 4,
         -1000: 241, 5: 7, 121: 14, "b": "c", -7: -7},
       {"c": "d", 2: -2, "y": 14, ...?map2, "p": "p", 3: 112, 1: 10, 146:149,
+//                               ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                   ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
         ...?verylongmap, -6: 6, 14: 20, ...?map1, -1000: 241, 5: 7, 121: 14,
+//      ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//          ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
+//                                      ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                          ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
         "b": "c", -7: -7});
 }

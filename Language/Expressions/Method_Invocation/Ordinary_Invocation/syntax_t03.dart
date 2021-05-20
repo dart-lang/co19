@@ -6,11 +6,13 @@
 /// o.m(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k).
 /// @description Checks that it is a compile-time error if named arguments
 /// placed in between positional arguments.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   var o;
   o.f(1, name: null, 1);
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -8,7 +8,6 @@
 /// @description Checks that it is a compile error if an instance method m1
 /// overrides an instance member m2 and m1 does not declare all the named 
 /// parameters declared by m2. Test type aliases
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -20,6 +19,9 @@ typedef AAlias = A;
 
 class C extends AAlias {
   foo(var a, {x}) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

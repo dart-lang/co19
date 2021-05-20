@@ -15,7 +15,6 @@
 /// @description Checks that there is a compile-time error if identifier
 /// expression in a return statement refers to a type parameter inside a static
 /// method.
-/// @compile-error
 /// @issue 27491
 /// @author ngl@unipro.ru
 
@@ -23,6 +22,9 @@ import '../../../Utils/expect.dart';
 
 class A<T> {
   static Type func() => T;
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

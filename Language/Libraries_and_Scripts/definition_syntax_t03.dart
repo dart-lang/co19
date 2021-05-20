@@ -21,9 +21,8 @@
 /// name of the library.
 /// @description Checks that it is a compile-error if an import declaration
 /// comes before the library name.
-/// @compile-error
 /// @author msyabro
-
+/// @issue 44990
 
 import "definition_syntax_t03_lib.dart";
 

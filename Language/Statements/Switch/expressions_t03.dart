@@ -9,7 +9,6 @@
 /// • instances of a class that implements String, for all k in 1..n.
 /// @description Checks that it is a compile-time error if case expressions
 /// are of mixed types.
-/// @compile-error
 /// @author msyabro
 /// @note renamed from 09_Switch_A02_t02
 
@@ -21,6 +20,9 @@ main() {
       x = 1;
       break;
     case 2.0:
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
       x = 2;
   }
 }

@@ -10,7 +10,6 @@
 /// @description Checks that there is no compile error if an abstract getter
 /// is declared in a concrete class overrides a concrete getter declared in a
 /// superclass.
-/// @static-clean
 /// @author ngl@unipro.ru
 
 

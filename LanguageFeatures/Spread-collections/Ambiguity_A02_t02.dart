@@ -8,10 +8,12 @@
 /// Those have to default to map for backwards compatibility.
 /// @description Checks that actual type of {} is correct according on the
 /// set/map inference rules.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 main() {
   List res3 = {};
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -6,12 +6,14 @@
 /// the declared name of a prefix, class, type parameter or type alias.
 /// @description Checks that it is a compile-time error if a built-in identifier
 /// "set" is used as the declared name of a prefix.
-/// @compile-error
 /// @issue 25733
 /// @author ngl@unipro.ru
 
 
 import "../lib.dart" as set;
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   set.x;

@@ -17,7 +17,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if named arguments are
 /// placed between positional arguments in a function invocation expression.
-/// @compile-error
 /// @author msyabro
 
 
@@ -26,5 +25,8 @@ func(p1, {p2, p3}) {}
 main() {
   try {
     func(1, p2: 1, 2);
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

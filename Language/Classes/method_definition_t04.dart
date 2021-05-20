@@ -23,12 +23,15 @@
 /// ;
 /// @description Checks that there is a compile-time error if a concrete class
 /// has a getter without an implementation
-/// @compile-error
 /// @author msyabro
 
 
 class A {
+//    ^
+// [cfe] unspecified
   get val;
+//^
+// [analyzer] unspecified
   var _val;
 }
 

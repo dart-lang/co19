@@ -9,11 +9,13 @@
 /// ;
 /// @description Checks that it is a compile-time error if type parameters are 
 /// separated with semicolon in a a class definition.
-/// @compile-error
 /// @author kaigorodov
 
 
 class A<T1;T2> {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

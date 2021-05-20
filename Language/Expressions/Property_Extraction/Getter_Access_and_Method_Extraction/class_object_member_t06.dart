@@ -7,10 +7,12 @@
 /// @description Check that it is a compile-time error if in expression e.m
 /// e is a constant type literal and m is Object's runtimeType property
 /// @issue 24332
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 main() {
   var x = int.runtimeType;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

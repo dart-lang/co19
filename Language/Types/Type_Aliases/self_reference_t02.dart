@@ -6,11 +6,13 @@
 /// via another typedef, is a compile time error.
 /// @description Checks that self-referencing typedef is not allowed (positional
 /// formal parameter type annotation has the same name as the type alias).
-/// @compile-error
 /// @author iefremov
-
+/// @issue 46062
 
 typedef F(F x);
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   null is F;

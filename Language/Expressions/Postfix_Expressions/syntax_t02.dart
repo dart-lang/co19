@@ -22,11 +22,13 @@
 /// getter invocation, or an invocation of a postfix operator on an expression e.
 /// @description Checks that a reference to a function type alias name
 /// cannot be used with postfixOperator without a compile error.
-/// @compile-error
 /// @author msyabro
 
 typedef f();
 
 main() {
   f++;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

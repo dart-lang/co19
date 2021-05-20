@@ -6,7 +6,6 @@
 /// constant expression but its evaluation would raise an exception.
 /// @description Checks that using null in a shift constant expression is a
 /// Scompile-time error.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -15,10 +14,15 @@ class C {
 
   const C() :
     m = null >> 2;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   try {
     const C();
+//  ^
+// [analyzer] unspecified
   } catch (ok) {} // NPEs and whatnot
 }

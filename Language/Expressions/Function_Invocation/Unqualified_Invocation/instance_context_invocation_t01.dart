@@ -12,13 +12,15 @@
 /// this.id(a1, ..., an, xn+1: an+1, ..., xn+k: an+k).
 /// @description Checks that if there is no declaration and i occurs inside
 /// a constructor, i is equivalent to this.id() and hence leads to compile error.
-/// @compile-error
 /// @author ilya
 
 
 class C {
   C() {
     undeclared();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

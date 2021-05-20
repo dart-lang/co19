@@ -11,7 +11,6 @@
 /// @description Checks that it is a compile-time error if a 'continue L;'
 /// statement occurs in the body of try statement with label L and there is no
 /// another inclosing statement with label L.
-/// @compile-error
 /// @author vasya
 
 
@@ -19,6 +18,9 @@
 main() {
   L: try {
     continue L;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } finally {
   }
 }

@@ -9,11 +9,13 @@
 /// contents of the URI are not a valid part declaration.
 /// @description Checks that it is a compile-time error when the included part
 /// unit contains an import declaration.
-/// @compile-error
 /// @author rodionov
-
+/// @issue 44990
 
 part "part_9.dart";
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

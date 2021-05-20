@@ -3,7 +3,10 @@
 // BSD-style license that can be found in the LICENSE file.
 
 part of Parts_test_lib;
-part "part_11.dart";
+  part "part_11.dart";
+//^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class A { }
 

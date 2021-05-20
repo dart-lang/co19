@@ -22,10 +22,12 @@
 /// ;
 /// @description Checks that it is a compile-time error if a raw multi-line
 /// single-quoted string opens with one double quote.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   r"s''';
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

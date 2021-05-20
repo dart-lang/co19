@@ -16,7 +16,6 @@
 /// • The type dynamic otherwise.
 /// @description Checks that the static type of a getter invocation expression
 /// of the form C.m is the declared return type of the getter.
-/// @static-clean
 /// @author msyabro
 
 

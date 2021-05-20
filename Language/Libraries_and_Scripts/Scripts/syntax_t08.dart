@@ -11,12 +11,17 @@
 /// ;
 /// @description Checks that it is a compile-time error when a part directive
 /// comes before an import directive.
-/// @compile-error
 /// @author vasya
 
 
 part "../Parts/part_0.dart";
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 import "library1.dart";
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

@@ -6,13 +6,15 @@
 /// a static member with the same name.
 /// @description Checks that it is a compile-time error if a class declares a 
 /// non-abstract instance method and a static method with the same name.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   int func() => 42;
   static int func() => 42;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

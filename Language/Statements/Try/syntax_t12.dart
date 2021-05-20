@@ -24,7 +24,6 @@
 /// 2. A finally clause, which consists of a block statement.
 /// @description Checks that it is a compile-time error if a catch clause
 /// specifies more than 2 exception parameters.
-/// @compile-error
 /// @author vasya
 
 
@@ -32,4 +31,7 @@ main() {
   try {
     throw "foo";
   } on String catch (foo, trace, message) { }
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

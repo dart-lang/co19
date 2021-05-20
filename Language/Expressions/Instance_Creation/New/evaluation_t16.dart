@@ -16,7 +16,6 @@
 /// parameters, or if q lacks any of the keyword parameters
 /// {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
 /// @description  Checks that compile error occurs if T is malbounded.
-/// @compile-error
 /// @author ilya
 
 
@@ -24,4 +23,7 @@ class C<T extends int> {}
 
 main() {
   new C<String>();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

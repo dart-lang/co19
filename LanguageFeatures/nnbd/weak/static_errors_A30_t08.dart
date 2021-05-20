@@ -20,7 +20,6 @@
 /// and the switch does not handle all enum cases and null, either explicitly or
 /// via a default.
 /// @author sgrekhov@unipro.ru
-/// @static-warning
 
 // Requirements=nnbd-weak
 
@@ -32,7 +31,9 @@ enum E {
 
 main() {
   var e = E.three as E?;
-  switch (e) { /// static type warning
+  switch (e) {
+//^
+// [analyzer] STATIC_WARNING.MISSING_ENUM_CONSTANT_IN_SWITCH
     case E.one:
       true;
       break;

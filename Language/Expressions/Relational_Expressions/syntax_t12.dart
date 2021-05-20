@@ -18,10 +18,12 @@
 /// a relational operator on either super or an expression e1, with argument e2.
 /// @description Checks that a relational expression cannot be the operand of
 /// another relational expression.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   1 >= 2 >= 3;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

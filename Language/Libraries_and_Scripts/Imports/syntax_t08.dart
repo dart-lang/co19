@@ -20,12 +20,17 @@
 /// ;
 /// @description Checks that it is a compile-time error when there's an invalid
 /// identifier after the 'as' keyword.
-/// @compile-error
 /// @author rodionov
 
 
 import "syntax_lib.dart" as 28digits;
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   someVar = 0;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

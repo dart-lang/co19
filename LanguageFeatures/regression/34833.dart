@@ -8,13 +8,15 @@
 /// Function()] attempt to declare [class B<X extends A<G<X>>>] causes compile
 /// error
 /// @Issue 34833
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 class A<X> {}
 typedef G<X extends A<X>> = X Function();
 class B<X extends A<G<X>>> {}
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

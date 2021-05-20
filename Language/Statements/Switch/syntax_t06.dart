@@ -15,7 +15,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the switch expression
 /// is missing.
-/// @compile-error
 /// @author vasya
 
 
@@ -23,6 +22,9 @@ switchTest(value) {
   var result;
 
   switch () {
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
     case 0: break;
   }
   return result;

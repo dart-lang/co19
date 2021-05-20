@@ -23,13 +23,9 @@ class J {}
 
 abstract class B<T1> {
   T1 get b1;
-//       ^^
-// [cfe] unspecified
 }
 abstract class C<T1> {
   T1 get b1;
-//       ^^
-// [cfe] unspecified
 }
 
 mixin M<X extends S, Y extends T> on B<X>, C<Y> implements I, J {

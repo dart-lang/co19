@@ -9,7 +9,6 @@
 /// @description Checks that a compile error is not produced when the overriding
 /// non-abstract instance method has more named parameters than the abstract
 /// method being overridden and neither have any required parameters.
-/// @static-clean
 /// @author rodionov
 
 

@@ -8,11 +8,13 @@
 /// @description Checks that class factory constructor with async modifier cause
 /// compiler error.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 class A {
   factory A.a() async {}
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 main() {
   new A.a();

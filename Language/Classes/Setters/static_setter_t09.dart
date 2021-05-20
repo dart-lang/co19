@@ -6,16 +6,21 @@
 /// named v= and also has a non-static member named v.
 /// @description Checks that a compile error is arisen if a class has an
 /// implicitly declared static setter and an instance method with the same name.
-/// @compile-error
 /// @issue 24573
 /// @author ngl@unipro.ru
 
 
 class C {
   static int v = 42;
+//           ^
+// [analyzer] unspecified
   int v() { return 3; }
+//    ^
+// [cfe] unspecified
 }
 
 main() {
   C.v = 2;
+//    ^
+// [cfe] unspecified
 }

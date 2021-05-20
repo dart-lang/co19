@@ -10,7 +10,6 @@
 /// ;
 /// @description Checks that a reference to a type alias declaration can not be
 /// used as the condition in a conditional expression without a compile error.
-/// @compile-error
 /// @author msyabro
 
 
@@ -18,4 +17,7 @@ typedef int fun();
 
 main() {
   fun ? 1 : 2;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

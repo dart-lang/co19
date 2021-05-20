@@ -7,12 +7,17 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "else" is used as a class name.
-/// @compile-error
 /// @author vasya
 
 
 class else { } // error
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   null is else;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

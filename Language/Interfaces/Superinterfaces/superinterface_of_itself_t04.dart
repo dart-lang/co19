@@ -6,15 +6,19 @@
 /// of itself.
 /// @description Checks that it is a compile-time error if a non-generic
 /// interface is a superinterface of itself. Test type alias
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 abstract class I implements IAlias {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 typedef IAlias = I;
 
 class A implements I {}
+//    ^
+// [cfe] unspecified
 
 main() {
   new A();

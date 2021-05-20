@@ -19,10 +19,12 @@
 /// argument e2.
 /// @description Checks that two multiplicative operators / can't be placed
 /// one after another in a multiplicative expression.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
     0 / / 1;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

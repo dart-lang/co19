@@ -7,14 +7,19 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "throw" is used as a class member (field) name.
-/// @compile-error
 /// @author rodionov
 
 
 class C {
   int throw = 42;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   new C().throw is int;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

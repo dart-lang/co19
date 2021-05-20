@@ -8,7 +8,6 @@
 /// @description Checks that compile-time exception is not thrown if the first
 /// operand of [??] operator is not [null] regardless of the actual type of the
 /// second operand.
-/// @static-warning
 /// @author iarkh@unipro.ru
 
 
@@ -18,6 +17,10 @@ const String? d2 = "check me here";
 
 main() {
   const String s1 = "" ?? (124 as String);
+//                        ^^^^^^^^^^^^^^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//                  ^
+// [cfe] Operand of null-aware operation '??' has type 'String' which excludes null.
   const int i1 = i ?? ("" as int);
   const String s2 = d2 ?? d1;
   const int i2 = d1 ?? d2;

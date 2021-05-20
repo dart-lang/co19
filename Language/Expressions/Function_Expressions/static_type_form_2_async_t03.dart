@@ -12,7 +12,6 @@
 /// the form (T1 a1,...,Tn an, {Tn+1 xn+1 = d1,...,Tn+k xn+k = dk}) async => e,
 /// where the type of e is bool is assigned to a variable of a function type
 /// with a Future<int> return type.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
@@ -22,4 +21,7 @@ typedef Future<int> boolFuncParam(bool p1, {bool? p2});
 
 main() {
   boolFuncParam bfp = (bool p1, {bool? p2}) async => false;
+//                                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

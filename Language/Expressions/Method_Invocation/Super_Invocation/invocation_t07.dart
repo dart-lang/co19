@@ -8,12 +8,14 @@
 /// or in a static method or variable initializer.
 /// @description Checks that it is a compile-time error if a super method
 /// invocation occurs in a factory constructor.
-/// @compile-error
 /// @author kaigorodov
 
 
 abstract class I extends A {
   factory I.foo() { return super.make(); }
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class A {
@@ -21,6 +23,9 @@ class A {
 }
 
 class C implements I {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   C() {}
 }
 

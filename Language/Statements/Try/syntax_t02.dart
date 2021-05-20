@@ -24,11 +24,13 @@
 /// 2. A finally clause, which consists of a block statement.
 /// @description Checks that it is a compile-time error if the try statement is
 /// missing try block.
-/// @compile-error
 /// @author vasya
 
 
 main() {
   try catch (ex) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

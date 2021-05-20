@@ -10,12 +10,14 @@
 /// ;
 /// @description Checks that two leading slash characters do not make the next
 /// line a comment as well.
-/// @compile-error
 /// @author vasya
 
 
 // single
   line comment
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

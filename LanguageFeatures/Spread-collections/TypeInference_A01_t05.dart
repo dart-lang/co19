@@ -7,7 +7,6 @@
 /// spread element in that list is [Iterable<T>].
 /// @description Checks statically that a spread element inference context type
 /// is [T] in the set literal
-/// @static-warning
 /// @author iarkh@unipro.ru
 
 
@@ -34,5 +33,13 @@ main() {
   Set set5 = <A>{a, b, c, ...c_list, new B(), ...a_list, ...b_list, new A()};
   Set set6 = <B>{b, ...b_list, c, ...c_list};
   Set set7 = {123, "123", null, a, ...a_list, ...?b_list, c, b, ...?c_list,
+//                                            ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                                ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<B>' which excludes null.
+//                                                              ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                                                  ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
       ...str_list, ...int_list, null, 1499, []};
 }

@@ -6,7 +6,6 @@
 /// via another type declaration, is a compile-time error
 /// @description Checks that any self reference in a type alias is a compile-time
 /// error. Test recursive reference
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -14,8 +13,15 @@ class C<T1, T2> {}
 
 typedef CAlias1<T1, T2> = C<T1, T2>;
 typedef CAlias2<T1, T2> = CAlias1<T1, CAlias4>;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 typedef CAlias3<T1, T2> = CAlias2<T1, T2>;
+//^
+// [analyzer] unspecified
 typedef CAlias4<T1, T2> = CAlias3<T1, T2>;
+//^
+// [analyzer] unspecified
 
 main() {
 }

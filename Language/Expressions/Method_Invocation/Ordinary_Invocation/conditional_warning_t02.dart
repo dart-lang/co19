@@ -7,7 +7,6 @@
 /// in the case of o?.m(a1, . . . , an, xn+1 : an+1, . . . , xn+k : an+k).
 /// @description Check that if o.m() produces no static type warning then o?.m()
 /// produces no warning as well
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

@@ -9,10 +9,12 @@
 /// ;
 /// @description Checks that it is a compile-time error when the assert statement
 /// does not end with a semicolon.
-/// @compile-error
 /// @author vasya
 
 
 main() {
   assert (false)
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

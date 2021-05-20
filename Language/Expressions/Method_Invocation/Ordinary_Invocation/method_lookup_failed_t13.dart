@@ -22,7 +22,6 @@
 /// @description Checks static invocations when class C inherits an instance
 /// method with the name m instead of declaring a static one. It is a compile
 /// error
-/// @compile-error
 /// @author rodionov
 
 class S {
@@ -33,4 +32,7 @@ class C extends S {}
 
 main() {
   C.m();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

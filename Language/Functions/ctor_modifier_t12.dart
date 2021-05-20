@@ -8,11 +8,13 @@
 /// @description Checks that class constant constructor with async* modifier
 /// cause compiler error.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 class A {
   const A.a() async* {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 main() {
   new A.a();

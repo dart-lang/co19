@@ -6,12 +6,14 @@
 /// []= is not 2.
 /// @description Checks that a compile-time error is produced if a user-defined 
 /// operator []= specifies three parameters.
-/// @compile-error
 /// @author vasya
 
 
 class C {
   operator []=(var index, var val, var val2) {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

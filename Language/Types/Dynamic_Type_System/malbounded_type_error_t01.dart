@@ -6,7 +6,6 @@
 /// in a subtype test.
 /// @description Checks that a compile error occurs when malbounded type is used
 /// in a subtype test.
-/// @compile-error
 /// @author ilya
 
 
@@ -14,5 +13,8 @@ class C <T extends int> {}
 
 main() {
   int is C<double>;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

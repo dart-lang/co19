@@ -10,7 +10,6 @@
 /// Please note that this test should not be executed with analyzer.
 /// Dart throws a compile error here whereas analyzer just prints a hint, such a
 /// behavior is expected.
-/// @compile-error
 /// @Issue 44545
 /// @author iarkh@unipro.ru
 

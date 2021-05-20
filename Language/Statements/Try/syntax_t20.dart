@@ -24,10 +24,12 @@
 /// 2. A finally clause, which consists of a block statement.
 /// @description Checks that it is a compile-time error if catchPart ends with
 /// a return statement instead of a block.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   try {} catch (ex) return;
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -6,7 +6,6 @@
 /// explicitly declares a constructor which is not a factory constructor.
 /// @description Checks that it is a compile-time error if a derived mixin
 /// explicitly declares a constant constructor.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -18,6 +17,9 @@ class M {
 }
 
 class C = A with M;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new C();

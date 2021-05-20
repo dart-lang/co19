@@ -7,12 +7,17 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "extends" is used as a function type alias name.
-/// @compile-error
 /// @author rodionov
 
 
 typedef void extends();
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   null is extends;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

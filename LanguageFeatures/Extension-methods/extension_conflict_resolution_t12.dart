@@ -23,7 +23,6 @@
 ///
 /// @description Check that it is a compile error if there is no most specific
 /// extension
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -39,4 +38,7 @@ extension SmartList on List<num> {
 main() {
   List<int> x = [3, 1, 4];
   x.checkme();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

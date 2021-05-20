@@ -8,15 +8,20 @@
 /// assigned to a function type.
 /// @description Checks that it is a compile error if T.m cannot be
 /// assigned to a function type.
-/// @compile-error
 /// @author msyabro
 
 
 class C {
   int m;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   C o;
   o.m();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

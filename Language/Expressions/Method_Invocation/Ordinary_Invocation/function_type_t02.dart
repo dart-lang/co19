@@ -9,14 +9,19 @@
 /// @description Checks static invocations, when T denotes a class C declared
 /// in the current scope. It is a compile error if the type of C.m can not
 /// be assigned to a function type.
-/// @compile-error
 /// @author msyabro
 
 
 class C {
   static int m;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   C.m();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -21,7 +21,6 @@
 /// im, and the result of this invocation is the result of evaluating i.
 /// @description Checks static invocations when interface C does not declare
 /// a static method or getter m. This causes a compile error
-/// @compile-error
 /// @author msyabro
 
 
@@ -31,4 +30,7 @@ abstract class C {
 
 main() {
   C.m();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -28,10 +28,12 @@
 /// ;
 /// @description Checks that a raw single-quotes string can't
 /// contain another single quote.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   r'invalid ' string';
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

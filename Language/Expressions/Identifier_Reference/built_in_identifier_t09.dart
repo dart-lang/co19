@@ -6,11 +6,13 @@
 /// the declared name of a prefix, class, type parameter or type alias.
 /// @description Checks that it is a compile-time error if a built-in identifier
 /// "dynamic" is used as the declared name of a type variable.
-/// @compile-error
 /// @author rodionov
 
 
 class A<dynamic> {
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   bool check(x) => x is dynamic;
 }
 

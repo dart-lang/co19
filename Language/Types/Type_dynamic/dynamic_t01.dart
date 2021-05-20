@@ -8,7 +8,6 @@
 /// @description Checks that a local variable without any type annotation has the
 /// unknown type by expecting no static warnings for assigning it a String value.
 /// Note: all possible declarations are tested in the corresponding chapters.
-/// @static-clean
 /// @author iefremov
 
 

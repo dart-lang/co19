@@ -13,10 +13,12 @@
 /// @description Checks that it is a compile-time error if a string
 /// interpolation construct contains a statement (variable declaration) instead
 /// of an expression.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   "${var x = 1}";
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

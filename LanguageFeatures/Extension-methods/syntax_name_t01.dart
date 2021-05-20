@@ -14,7 +14,6 @@
 /// or export declarations.
 ///
 /// @description Check that the name does not denote a type
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -28,4 +27,7 @@ extension MyFancyList<T> on List<T> {
 
 main() {
   MyFancyList<String> list = ["Lily", "was", "here"];
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

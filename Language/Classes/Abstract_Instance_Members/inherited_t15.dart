@@ -10,7 +10,6 @@
 /// @description Checks that there is no compile error if an abstract
 /// method is declared in a concrete class and it overrides a concrete method.
 /// Test type aliases
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

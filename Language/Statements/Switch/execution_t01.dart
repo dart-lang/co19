@@ -25,18 +25,26 @@
 /// executing sn+1.
 /// @description Checks that if the value of expression e is not an instance of
 /// the same type as the constants of case clauses, then it is a compile error
-/// @compile-error
 /// @author msyabro
 
 
 main() {
    switch (1) {
      case '1': break;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
      case '2': break;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
      default:
    }
 
   switch ('abc') {
     case 1: break;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }

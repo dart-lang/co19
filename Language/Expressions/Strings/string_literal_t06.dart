@@ -29,12 +29,17 @@
 /// @description Checks that it is a compile-time error when a newline character
 /// in a single-line double-quotes string literal is preceded by a backslash
 /// character.
-/// @compile-error
 /// @author msyabro
 /// @note http://code.google.com/p/dart/issues/detail?id=1549
 
 
 main() {
   "new\
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   line";
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

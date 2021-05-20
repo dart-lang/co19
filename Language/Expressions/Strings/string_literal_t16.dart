@@ -28,10 +28,12 @@
 /// ;
 /// @description Checks that it is a compile-time error when a single-quotes
 /// string literal does not have the opening quote.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   string';
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

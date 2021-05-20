@@ -9,10 +9,12 @@
 /// @description Checks that it is a compile-time error when a string literal
 /// contains a character sequence of the form \u that is followed by just 2
 /// hexadecimal digits.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   "\u1a";
+// ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

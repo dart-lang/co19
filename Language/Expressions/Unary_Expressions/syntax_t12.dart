@@ -29,7 +29,6 @@
 /// unary operator on either super or an expression e.
 /// @description Checks that '!' cannot be used with a reference to a class
 /// declaration without a compile error.
-/// @compile-error
 /// @author msyabro
 
 
@@ -37,4 +36,7 @@ class A {}
 
 main() {
   !A;
+// ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

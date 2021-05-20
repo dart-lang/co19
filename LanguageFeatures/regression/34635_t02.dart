@@ -7,10 +7,14 @@
 /// declaring [class A<X extends A> {}] after [class A<X extends C>] causes
 /// compile error.
 /// @Issue 34635
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 class A<X extends C> {}
+//                ^
+// [analyzer] unspecified
 class C<X extends C> {}
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 main() {
 }

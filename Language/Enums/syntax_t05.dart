@@ -8,12 +8,15 @@
 ///  metadata enum id ‘{’ id [‘, ’ id]* [‘, ’] ‘}’
 ///  ;
 /// @description Checks that it is compile-time error if closing brace is missing
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 enum E {a, b, c
+//     ^
+// [cfe] unspecified
 
 main() {
+//^
+// [analyzer] unspecified
   E e;
 }

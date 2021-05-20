@@ -20,12 +20,17 @@
 /// ;
 /// @description Checks that it is a compile-time error when there're two
 /// 'as' clauses in an import directive.
-/// @compile-error
 /// @author rodionov
 
 
 import 'syntax_lib.dart' as lib1 as lib2;
+//                               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   someVar = 0;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

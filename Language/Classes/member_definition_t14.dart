@@ -35,12 +35,14 @@
 /// ;
 /// @description Checks that labels can't be used in place of a class member 
 /// definition.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   label:
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   var x;
 }
 

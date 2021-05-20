@@ -8,7 +8,6 @@
 /// have a method or getter named m
 /// @description Checks that it is a compile error if T does not have a
 /// setter (method named m=) named m.
-/// @compile-error
 /// @author msyabro
 
 
@@ -18,4 +17,7 @@ class C {
 main()  {
   C o = new C();
   o.v = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

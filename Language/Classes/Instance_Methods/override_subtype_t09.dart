@@ -7,7 +7,6 @@
 /// @description Checks that a compile error is produced if m1 is not a subtype
 /// of m2 because their respective optional positional parameter types are not 
 /// mutually assignable.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -19,6 +18,9 @@ typedef AAlias = A;
 
 class C extends AAlias {
   foo([int? name]) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

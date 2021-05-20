@@ -34,15 +34,22 @@
 /// ;
 /// @description Checks that it is a compile-time error if a redirecting 
 /// constant constructor declaration does not end with a semicolon.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   const A(): this.A()
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
   A.A() {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   const A();
+//      ^
+// [cfe] unspecified
 }

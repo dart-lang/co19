@@ -8,7 +8,6 @@
 /// would cause a compile-time error.
 /// @description Checks that it is a compile-time error if Mi declare members
 /// with the same names but conflicting types. Test type aliases
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 /// @issue 23878
 
@@ -28,6 +27,9 @@ typedef MAlias1 = M1;
 typedef MAlias2 = M2;
 
 class C = S with MAlias1, MAlias2;
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new C();

@@ -21,11 +21,13 @@
 /// name of the library.
 /// @description Checks that it is a compile-time error if the library name
 /// is not a valid identifier (starts with a digit).
-/// @compile-error
 /// @author rodionov
 
 
 library 13_Libraries_and_Scripts_A03_t16_lib;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   var someVar = 1;

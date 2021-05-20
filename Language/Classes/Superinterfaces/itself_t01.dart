@@ -8,13 +8,15 @@
 /// denotes the interface of the class.
 /// Test checks that it is a compile-time error when a class's own name is
 /// included in its implements clause.
-/// @compile-error
 /// @author rodionov
 
 
 abstract class I {}
 
 class C implements I, C {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main () {
   new C();

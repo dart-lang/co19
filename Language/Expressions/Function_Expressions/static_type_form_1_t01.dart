@@ -12,7 +12,6 @@
 /// (T1 a1,...,Tn an, [Tn+1 xn+1 = d1,...,Tn+k xn+k = dk]) => e or
 /// id(T1 a1,...,Tn an, [Tn+1 xn+1 = d1,...,Tn+k xn+k = dk]) => e
 /// is (T1,...,Tn, [Tn+1 xn+1,...,Tn+k xn+k]) -> T0.
-/// @static-clean
 /// @author msyabro
 
 

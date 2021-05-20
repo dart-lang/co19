@@ -35,12 +35,16 @@
 /// ;
 /// @description Checks that a static abstract getter can't be used in place 
 /// of a class member definition.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
+//    ^
+// [cfe] unspecified
   static abstract get x;
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

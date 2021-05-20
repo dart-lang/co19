@@ -4,7 +4,6 @@
 
 /// @assertion The static type of a cast expression e as T is T.
 /// @description Checks that the static type of a cast expression e as T is T.
-/// @static-clean
 /// @author rodionov
 
 

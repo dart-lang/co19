@@ -8,11 +8,13 @@
 /// in the lexical scope enclosing the expression.
 /// @description Checks that it is a compile error when an identifier expression
 /// references an undeclared identifier in a library getter.
-/// @compile-error
 /// @author ilya
 
 
 get getter => undeclared;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   getter;

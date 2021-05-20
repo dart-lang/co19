@@ -23,10 +23,12 @@
 /// @description Checks that it is a compile time error if a local function
 /// declared with the function body of a form `=> expession` has `sync*` before
 /// a function body.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
 main() {
   f0() sync* => 3;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

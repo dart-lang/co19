@@ -6,12 +6,14 @@
 /// to be constant.
 /// @description Checks that It is a compile-time error if an instance variable
 /// is declared to be constant.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 class C {
   const v1 = 1;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

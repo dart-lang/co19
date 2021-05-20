@@ -20,11 +20,13 @@
 /// @description Checks that it is a compile error if a function
 /// does not have formalParameterList
 ///
-/// @compile-error
 /// @author msyabro
 
 
 int function1 {}
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   function1();

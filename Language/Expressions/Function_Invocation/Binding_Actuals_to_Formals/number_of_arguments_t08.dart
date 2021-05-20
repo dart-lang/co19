@@ -8,7 +8,6 @@
 /// It is a static warning if m < h or if m > n.
 /// @description Checks that it is a compile error if more actual arguments
 /// than there're formal parameters are provided to a static method invocation.
-/// @compile-error
 /// @author msyabro
 
 
@@ -18,4 +17,7 @@ class C {
 
 main() {
   C.func(1, 2 ,3, 4);
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

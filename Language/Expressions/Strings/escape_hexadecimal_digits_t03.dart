@@ -8,10 +8,12 @@
 /// @description Checks that it is a compile-time error when a string literal
 /// contains a character sequence of the form \x that is not followed by
 /// anything.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   '\x';
+// ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

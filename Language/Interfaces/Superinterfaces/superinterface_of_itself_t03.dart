@@ -6,15 +6,22 @@
 /// of itself.
 /// @description Checks that it is a compile-time error if a non-generic
 /// interface is an indirect superinterface of itself.
-/// @compile-error
 /// @author msyabro
 
 
 abstract class J implements I {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 abstract class I implements J {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class A implements I {}
+//    ^
+// [cfe] unspecified
 
 main() {
   new A();

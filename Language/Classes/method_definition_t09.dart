@@ -22,12 +22,16 @@
 /// ;
 /// @description Checks that it is a compile-time error if a static function
 /// method definition does not include a body.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
+//    ^
+// [cfe] unspecified
   static f();
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

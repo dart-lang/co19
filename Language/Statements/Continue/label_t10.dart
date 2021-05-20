@@ -11,7 +11,6 @@
 /// @description Checks that it is a compile-time error if a 'continue L;'
 /// statement occurs in a finally clause of try statement with label L and there
 /// is no another inclosing statement with label L.
-/// @compile-error
 /// @author rodionov
 
 
@@ -21,5 +20,8 @@ main() {
     var x = 1;
   } finally {
     continue L;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }

@@ -18,7 +18,6 @@
 ///
 /// @description Checks that this is a compile error if local variable is final
 /// and not initialized at its point of reading.
-/// @compile-error
 /// @author ilya
 
 
@@ -26,5 +25,8 @@ main() {
   () {
     final i;
     return i;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } ();
 }

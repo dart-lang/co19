@@ -6,12 +6,14 @@
 /// return e; appears in a generative constructor.
 /// @description Checks that a compile-time error occurs if a return statement
 /// of the form return null; appears in a generative constructor.
-/// @compile-error
 /// @author rodionov
 
 
 class C {
   C() { return null;}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

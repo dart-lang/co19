@@ -19,7 +19,6 @@
 /// methods and their static types are not identical, but there is no method
 /// such that its type is subtype of types of all other methods, then a compile
 /// error occurs. Test type aliases
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -40,6 +39,9 @@ typedef SIAlias2 = SI2;
 typedef SIAlias3 = SI3;
 
 abstract class I implements SIAlias1, SIAlias2, SIAlias3 {
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

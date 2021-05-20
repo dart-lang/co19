@@ -7,10 +7,12 @@
 /// Map<K, V>.
 /// @description Checks that a compile error occurs when assigning a constant
 /// map literal to an int variable.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   int i = const <String, String> {};
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

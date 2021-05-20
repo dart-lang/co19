@@ -7,7 +7,6 @@
 /// corresponding instance member m of type F' if F' is not a subtype of F.
 /// @description Checks that it is a compile error if the type F'
 /// of declared instance member m is not a subtype of F. Test type aliases
-/// @compile-error
 /// @author ilya
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -19,6 +18,9 @@ typedef IAlias = I;
 
 class C implements IAlias {
   foo() {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main () {

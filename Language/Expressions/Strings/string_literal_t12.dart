@@ -28,10 +28,12 @@
 /// ;
 /// @description Checks that a string literal can't begin with a single quote
 /// and end with double.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   'string";
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

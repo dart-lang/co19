@@ -9,11 +9,13 @@
 ///  <functionTypeAlias> ::= <functionPrefix> <formalParameterPart> ‘;’
 ///  <functionPrefix> ::= <type>? <identifier>
 /// @description Checks that identifier must be present.
-/// @compile-error
 /// @author iefremov
 
 
 typedef <T>();
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

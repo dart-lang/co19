@@ -28,10 +28,12 @@
 ///   ;
 /// @description Checks that different variables in a single variable 
 /// declaration must be delimited by commas.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   var x y;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

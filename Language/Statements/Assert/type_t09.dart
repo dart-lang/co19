@@ -6,7 +6,6 @@
 /// to [bool].
 /// @description Checks that it is a compile type error if [c] may not be
 /// assignable to [bool].
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
@@ -14,4 +13,7 @@ bool b0 = true;
 
 main() {
   assert (b0 ? true : 1);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

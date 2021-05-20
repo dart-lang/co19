@@ -27,10 +27,12 @@
 ///     initializedIdentifier (‘, ’ initializedIdentifier)*
 ///   ;
 /// @description Checks that a variable declaration must contain an identifier.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   final ;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

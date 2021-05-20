@@ -11,13 +11,15 @@
 /// v = e occurs inside a static getter and and there is neither a local
 /// variable declaration with name v nor setter declaration with name v = in the
 /// lexical scope enclosing the assignment.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 class C {
   static get test {
     v = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
     return null;
   }
 }

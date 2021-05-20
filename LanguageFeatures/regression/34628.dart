@@ -7,10 +7,15 @@
 /// [A<X extends B<X>>]) are declared). Checks that it's impossible to declare
 /// two classes [B<X extends A<X>>] and [A<X extends B<X>>].
 /// @Issue 34628
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 class B<X extends A<X>> {}
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 class A<X extends B<X>> {}
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {}

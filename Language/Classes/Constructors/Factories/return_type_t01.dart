@@ -9,7 +9,6 @@
 /// @description Checks that result of invoking factory constructor of the form
 /// M or M.id can be assigned to the variables whose types are assignable to M
 /// and no static warnings are produced.
-/// @static-clean
 /// @author iefremov
 
 

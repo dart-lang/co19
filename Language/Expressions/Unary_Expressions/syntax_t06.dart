@@ -28,7 +28,6 @@
 /// an invocation of a prefix operator on an expression or an invocation of a
 /// unary operator on either super or an expression e.
 /// @description Checks that incrementOperator can't be used with super
-/// @compile-error
 /// @author msyabro
 
 
@@ -37,6 +36,9 @@ class S {}
 class A extends S {
   test() {
     ++super;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

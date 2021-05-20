@@ -5,13 +5,15 @@
 /// @assertion It is also a compile-time error to subclass, mix-in or implement 
 /// an enum or to explicitly instantiate an enum.
 /// @description Checks that it is compile-time error to subclass an enum
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 enum E {a, b, c}
 
 class C extends E {
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

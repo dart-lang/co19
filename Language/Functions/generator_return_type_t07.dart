@@ -9,7 +9,6 @@
 ///
 /// @description Check that it is no compile error, if the declared
 /// return type of a function marked async* may be assigned to Stream.
-/// @static-clean
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';

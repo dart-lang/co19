@@ -16,7 +16,6 @@
 /// argument e2.
 /// @description Checks that a function type alias name can not be used
 /// as left operand in an additive expression. It is a compile error.
-/// @compile-error
 
 
 typedef f();
@@ -24,5 +23,8 @@ typedef f();
 main() {
   try {
     f + 2;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

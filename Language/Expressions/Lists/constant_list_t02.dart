@@ -7,12 +7,14 @@
 /// type argument of a constant list literal includes a type parameter.
 /// @description Checks that a constant list literal cannot contain non-constant
 /// expression.
-/// @compile-error
 /// @author kaigorodov
 
 
 class A {
   List a = const [1, new Date.now()];
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

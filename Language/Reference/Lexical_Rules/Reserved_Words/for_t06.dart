@@ -7,13 +7,18 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "for" is used as a label name.
-/// @compile-error
 /// @author rodionov
 
 
 main() {
   for:
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   do {
   break for;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } while (false);
 }

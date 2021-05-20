@@ -7,11 +7,19 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word "do"
 /// is used as a local function name.
-/// @compile-error
 /// @author rodionov
 
 
 main() {
   void do() {}
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   do();
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified

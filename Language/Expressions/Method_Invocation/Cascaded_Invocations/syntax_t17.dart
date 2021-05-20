@@ -15,7 +15,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if suffix is an
 /// additive expression.
-/// @compile-error
 /// @author msyabro
 
 
@@ -25,5 +24,8 @@ main() {
   var a = 1;
   var b = 0;
   new C().. a + b;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

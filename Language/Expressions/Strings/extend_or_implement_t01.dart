@@ -6,11 +6,13 @@
 /// mix in or implement String.
 /// @description Checks that it is a compile-time error for a class to attempt
 /// to implement String.
-/// @compile-error
 /// @author msyabro
 
 
 class C implements String {}
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   C();

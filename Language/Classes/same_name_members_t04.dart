@@ -6,13 +6,15 @@
 /// the same name.
 /// @description Checks that it is a compile-time error if a class declares 
 /// a function and an abstract function of the same name.
-/// @compile-error
 /// @author rodionov
 
 
 abstract class A {
   void f() {}
   String f(int f); // abstract
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class C extends A {

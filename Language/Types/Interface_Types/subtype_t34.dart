@@ -24,7 +24,6 @@
 /// @description Checks that generic class C<A> is not assignable to C<B> where
 /// C - generic, A and B are unrelated classes as such assignment doesn't meet
 /// any of these conditions.
-/// @compile-error
 /// @author iefremov
 
 
@@ -38,4 +37,7 @@ C<B> f() => new C<B>();
 
 main() {
   C<A> c = f();
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

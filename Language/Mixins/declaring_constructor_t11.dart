@@ -6,7 +6,6 @@
 /// explicitly declares a constructor which is not a factory constructor.
 /// @description Checks that it is a compile-time error if a derived mixin
 /// explicitly declares a constructor.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -20,6 +19,9 @@ class M {
 typedef MAlias = M;
 
 class C extends A with MAlias {
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

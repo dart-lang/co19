@@ -10,11 +10,13 @@
 /// result of evaluating the expression e3.
 /// @description Checks that it is a compile error if e1 is not evaluated to
 /// a bool object.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   var e1 = "";
   return e1 ? true : 1.0;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

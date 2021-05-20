@@ -28,13 +28,16 @@
 ///   ;
 /// @description Checks that an abstract variable must be in an abstract class
 /// See https://github.com/dart-lang/language/tree/master/accepted/future-releases/abstract-external-fields
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 /// @issue 42980
 
 
 class C {
+//    ^
+// [cfe] unspecified
   abstract int? x;
+//^
+// [analyzer] unspecified
 }
 
 main() {

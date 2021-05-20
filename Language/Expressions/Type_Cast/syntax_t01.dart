@@ -12,7 +12,6 @@
 /// @description Checks that there're no errors or warnings when the type cast
 /// operator is used correctly (testing simple types as well as generics and
 /// function types).
-/// @static-clean
 /// @author rodionov
 
 import '../../../Utils/expect.dart';

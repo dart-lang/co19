@@ -17,10 +17,12 @@
 /// A relational expression is either a bitwise expression, or an invocation of
 /// a relational operator on either super or an expression e1, with argument e2.
 /// @description Checks that two >= operators can't be placed one after another.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   1 >= >= 2;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

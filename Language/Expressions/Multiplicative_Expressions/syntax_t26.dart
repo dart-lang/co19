@@ -19,7 +19,6 @@
 /// argument e2.
 /// @description Checks that assignment expression cannot be used as the second
 /// operand of a multiplicative expression.
-/// @compile-error
 /// @author rodionov
 
 
@@ -27,4 +26,7 @@
 main() {
   var foo = 4;
   1 * foo = 2;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

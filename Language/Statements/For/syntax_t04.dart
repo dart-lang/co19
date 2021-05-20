@@ -17,10 +17,12 @@
 /// ;
 /// @description Checks that it is a compile-time error if the loop parts are
 /// enclosed in curly braces instead of parentheses.
-/// @compile-error
 /// @author rodionov
 
 
 main() {
     for {;;}  {}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -6,7 +6,6 @@
 /// when analyzer fails with "type_argument_not_matching_bounds" error for
 /// functions)
 /// @Issue 33626
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -18,4 +17,7 @@ B? tryme() {}
 
 main() {
   F<B?>? f = tryme;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

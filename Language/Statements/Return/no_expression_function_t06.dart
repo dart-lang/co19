@@ -10,7 +10,6 @@
 /// @description Checks that there's no error when a statement of the form
 /// "return;" is used in a method that returns type dynamic, or a constructor.
 ///
-/// @static-clean
 /// @author rodionov
 
 

@@ -10,7 +10,6 @@
 /// ;
 /// @description Checks that a reference to a class declaration can be used
 /// as the condition in a conditional expression without a compile error.
-/// @compile-error
 /// @author msyabro
 
 
@@ -18,4 +17,7 @@ class A {}
 
 main() {
   A ? 1 : 2;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

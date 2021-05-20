@@ -7,7 +7,6 @@
 /// @description Checks static invocations, when o denotes a class in the
 /// current scope. It is a compile-time error if named arguments placed in
 /// between positional arguments.
-/// @compile-error
 /// @author msyabro
 
 
@@ -17,4 +16,7 @@ class C {
 
 main() {
   C.f(1, name: null, 1);
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

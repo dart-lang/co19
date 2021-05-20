@@ -17,7 +17,6 @@
 /// e1 or e2 shows that v has type T and v is not mutated anywhere in its scope
 /// then b shows that v has type T regardless of whether there are closures
 /// capturing v. Local variable, closures case.
-/// @static-clean
 /// @author ilya
 
 

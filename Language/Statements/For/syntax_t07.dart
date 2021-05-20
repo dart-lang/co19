@@ -18,12 +18,14 @@
 /// @description Checks that it is a compile error when the iteration variable
 /// identifier in a 'identifier in expression' loop variety is not declared
 /// prior to the for statement.
-/// @compile-error
 /// @author vasya
 
 
 main() {
   for (l in List.filled(5, "")) {
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
     break;
   }
 }

@@ -22,13 +22,15 @@
 /// @description Checks that example from the Spec throws compile error as
 /// expected.
 /// @Issue 42436
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A<X extends num> {}
 typedef AAlias<Y extends String> = A<Y>;
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

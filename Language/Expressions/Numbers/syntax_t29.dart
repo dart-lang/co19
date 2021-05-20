@@ -27,10 +27,12 @@
 /// ;
 /// @description Checks that a hex numeric literal must contain at least one
 /// digit.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   var i = 0x;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

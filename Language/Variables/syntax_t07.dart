@@ -27,10 +27,12 @@
 ///     initializedIdentifier (‘, ’ initializedIdentifier)*
 ///   ;
 /// @description Checks that a variable declaration cannot end with a comma.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   var x, ;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

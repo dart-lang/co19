@@ -6,7 +6,6 @@
 /// abstract method.
 /// @description Checks that it is a compile error if a non-abstract class
 /// inherits an abstract method. Test type aliases
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -17,6 +16,9 @@ abstract class A {
 typedef AAlias = A;
 
 class B extends AAlias {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

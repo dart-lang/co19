@@ -29,11 +29,13 @@
 /// unary operator on either super or an expression e.
 /// @description Checks that incrementOperator can't be used with an unary
 /// expression of the form ++e.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   var x = 1;
   ++ ++x;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

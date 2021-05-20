@@ -6,12 +6,14 @@
 /// does not consist of exactly one required formal parameter p.
 /// @description Checks that a compile-time error is produced if a setter's
 /// formal parameter list contains two required parameters.
-/// @compile-error
 /// @author vasya
 
 
 class C {
   void set setter(v1, v2) {throw new C();}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

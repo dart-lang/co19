@@ -20,11 +20,13 @@
 /// ;
 /// @description Checks that it is a compile-time error when an import directive
 /// is followed immediately by a semicolon;
-/// @compile-error
 /// @author msyabro
 
 
 import;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   var someVar = 0;

@@ -8,9 +8,11 @@
 /// @description Checks that other Unicode whitespaces are not allowed:
 ///  check NO-BREAK SPACE (U+00A0)
 /// @author hlodvig
-/// @compile-error
 
 
 main() {
    var x = 1 ;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -28,12 +28,17 @@
 /// ;
 /// @description Checks that newline characters are not allowed in a
 /// raw double-quotes string literal.
-/// @compile-error
 /// @author msyabro
 /// @note http://code.google.com/p/dart/issues/detail?id=1551
 
 
 main() {
   r"str
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   ing";
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -15,7 +15,6 @@
 /// e2.
 /// @description Checks that super can't be used as the first operand of a
 /// logical boolean expression.
-/// @compile-error
 /// @author msyabro
 
 
@@ -24,6 +23,9 @@ class S {}
 class A extends S {
   test() {
     super && true;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

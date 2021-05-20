@@ -10,7 +10,6 @@
 /// Any use of a malbounded type gives rise to a static warning.
 /// @description Checks that it is a compile error if last type argument
 /// violates the bound.
-/// @compile-error
 /// @author rodionov
 
 
@@ -24,4 +23,7 @@ class A<T extends String, S extends Object, F extends F2> {}
 
 main() {
   A<String, List, F1>? a;
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -19,11 +19,13 @@
 /// @description Checks that the variable declaration statement can't be
 /// a body of a function of the form [functionSignature '=>' expression ';'].
 ///
-/// @compile-error
 /// @author msyabro
 
 
 f(var y) => int x;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   f(null);

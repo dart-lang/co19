@@ -5,10 +5,12 @@
 /// @assertion The static type of a logical boolean expression is bool.
 /// @description Checks that the static type of a logical boolean
 /// expression is bool.
-/// @compile-error
 /// @author kaigorodov
 
 
 main() {
   int b = (true || false);
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

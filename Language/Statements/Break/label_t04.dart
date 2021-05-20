@@ -10,7 +10,6 @@
 /// @description Checks that it is a compile-time error when a break statement of
 /// the form "break L;" references a labeled case clause (adjacent or enclosing)
 /// rather than a statement.
-/// @compile-error
 /// @author rodionov
 
 
@@ -20,6 +19,9 @@ main() {
     case 0:
       for (int i in [1,2]) {
         break L;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
       }
   }
 }

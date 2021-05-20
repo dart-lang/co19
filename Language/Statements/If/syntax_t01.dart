@@ -8,11 +8,13 @@
 /// ;
 /// @description Checks that a compile error is produced if the expression is
 /// missing.
-/// @compile-error
 /// @author vasya
 
 
 main() {
   if () { }
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

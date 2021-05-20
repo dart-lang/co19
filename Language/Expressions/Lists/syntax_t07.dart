@@ -10,9 +10,11 @@
 /// @description Checks that it is a compile-time error if a const list literal
 /// does not start with '['.
 /// @author kaigorodov
-/// @compile-error
 
 
 main() {
     var x = const 1, 2, 3];
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -7,10 +7,13 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "null" is used as an identifier in a part declaration.
-/// @compile-error
 /// @author rodionov
+/// @issue 44990
 
 part "null_lib.dart";
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 void main() {
 }

@@ -8,7 +8,6 @@
 ///
 /// @description Check that if there is no such member, the operation is
 /// currently a compile-time error
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -17,9 +16,15 @@ import "my_fancy_list_lib.dart";
 
 extension<T> on List<T> {
   String method(int i, String s) {}
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   List<String> list = ["Lily", "was", "here"];
   list.notExiestinMethod();
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

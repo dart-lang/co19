@@ -28,10 +28,12 @@
 /// ;
 /// @description Checks that it is a compile-time error when a raw double-quotes
 /// string literal does not have the closing quote.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   r"string;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

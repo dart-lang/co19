@@ -8,7 +8,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the identifier of a
 /// named constructor in a constant object expression is empty.
-/// @compile-error
 /// @author msyabro
 
 
@@ -18,4 +17,7 @@ class A {
 
 main() {
   const A.();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

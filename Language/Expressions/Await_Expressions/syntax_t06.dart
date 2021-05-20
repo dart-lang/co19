@@ -9,7 +9,6 @@
 ///
 /// @description Check that it is a compile error if the function immediately
 /// enclosing await expression is marked with sync*
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
@@ -22,6 +21,9 @@ f() {
 
 Iterable test() sync* {
   await f();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

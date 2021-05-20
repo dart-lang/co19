@@ -10,9 +10,8 @@
 /// ;
 /// @description Checks that it is a compile-time error if export token is
 /// prefixed with a '#' character.
-/// @compile-error
 /// @author rodionov
-
+/// @issue 44990
 
 import "syntax_t01_lib.dart";
 

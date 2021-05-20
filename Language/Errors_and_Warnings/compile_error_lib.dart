@@ -9,3 +9,6 @@ int f() {
   return 1;
 }
 var a = ;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified

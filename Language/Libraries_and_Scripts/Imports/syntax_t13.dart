@@ -20,11 +20,13 @@
 /// ;
 /// @description Checks that it is a compile-time error when there is an additive
 /// expression in place of the URI.
-/// @compile-error
 /// @author msyabro
 
 
 import 7 + 7;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   var someVar = 0;

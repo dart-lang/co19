@@ -10,11 +10,13 @@
 /// @description Checks that it is a compile-time error if a class type 
 /// definition uses round brackets instead of the curly ones. Class body is 
 /// empty.
-/// @compile-error
 /// @author rodionov
 
 
 class A ()
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

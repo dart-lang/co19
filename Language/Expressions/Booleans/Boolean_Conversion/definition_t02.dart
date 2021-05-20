@@ -9,7 +9,6 @@
 ///    }(o)
 /// @description Checks that objects that are not bool and not null are
 /// not converted to boolean. It's a compile time error
-/// @compile-error
 /// @author msyabro
 /// @Issue 27277
 
@@ -20,11 +19,35 @@ class A {}
 
 main() {
   Expect.isFalse(new Object() && true);
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
   Expect.isFalse(0 && true);
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
   Expect.isFalse(1 && true);
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
   Expect.isFalse("" && true);
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
   Expect.isFalse([1, 2, 3] && true);
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
   Expect.isFalse({"k1": 1} && true);
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
   Expect.isFalse(new A() && true);
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
   Expect.isFalse((() => 1) && true);
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

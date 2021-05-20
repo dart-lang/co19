@@ -10,7 +10,6 @@
 /// @description Checks that it is a compile error if the type being
 /// instantiated is a parameterized type and does not declare a named
 /// constructor T.id.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -18,4 +17,7 @@ class C<T> {}
 
 main() {
   new C<int>.namedConstructor();
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

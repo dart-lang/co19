@@ -7,12 +7,14 @@
 /// <, >, <=, >=, ==, -, +,  ̃/, /, *, %, |, ˆ, &, <<, >>, >>>, [] is not 1.
 /// @description Checks that a compile-time error is produced if a user-defined
 /// operator [] specifies no parameters.
-/// @compile-error
 /// @author iefremov
 
 
 class C {
   operator []() {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

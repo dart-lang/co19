@@ -9,7 +9,6 @@
 /// or indirectly, all of T1, . . . , Tn.
 /// @description Checks that it is no error if C does implement directly all the
 /// direct superinterfaces of M. Test type aliases
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

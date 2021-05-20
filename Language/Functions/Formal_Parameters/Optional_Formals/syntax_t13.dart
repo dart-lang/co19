@@ -12,11 +12,13 @@
 /// ;
 /// @description Checks that it is a compile-time error when the two kinds of
 /// brackets are mixed in an optional parameters declaration.
-/// @compile-error
 /// @author rodionov
 
 
 foo([int p = 1}) {
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
   p = 1;
 }
 

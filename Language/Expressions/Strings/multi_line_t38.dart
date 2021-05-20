@@ -21,10 +21,16 @@
 ///   stringInterpolation
 /// ;
 /// @description Checks that unbalanced string cause compile-time erros.
-/// @compile-error
 /// @author rodionov
 
 
 main() {
+//     ^
+// [cfe] unspecified
+// [error line 35, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+// [error line 36, column 0]
+// [analyzer] unspecified
   """\""";
 }

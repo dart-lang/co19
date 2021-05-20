@@ -11,10 +11,12 @@
 /// ;
 /// @description Checks that it is a compile-time error when the type cast
 /// operator is missing the first argument.
-/// @compile-error
 /// @author rodionov
 
 
 main() {
   var x = (as int);
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

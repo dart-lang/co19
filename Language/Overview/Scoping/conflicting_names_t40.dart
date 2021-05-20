@@ -10,11 +10,13 @@
 /// declaration d is in scope if d is available in the current scope.
 /// @description Checks that it is a compile-time error if a typedef declaration
 /// declares a positional and an optional parameter using the same name.
-/// @compile-error
 /// @author iefremov
 
 
 typedef f(x, [x]);
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   f foo = (x, [y]) {};

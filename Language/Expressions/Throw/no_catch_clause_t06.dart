@@ -11,7 +11,6 @@
 /// ;
 /// @description Checks that it is a compile-error if to use throw with no
 /// expression in a finally part of try statement.
-/// @compile-error
 /// @author vasya
 
 
@@ -20,5 +19,8 @@ main() {
     var foo = 1;
   } finally {
     throw;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }

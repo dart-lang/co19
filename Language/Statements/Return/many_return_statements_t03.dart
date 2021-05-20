@@ -11,7 +11,6 @@
 ///
 /// @note implicit returns do not count, see 14764
 /// @Issue 39476
-/// @static-clean
 /// @author ilya
 
 

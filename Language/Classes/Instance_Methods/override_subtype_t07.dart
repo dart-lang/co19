@@ -7,7 +7,6 @@
 /// @description Checks that a compile error is produced if the return type of
 /// m1 is not mutually assignable with the return type of m2 and the latter 
 /// isn't void either. Test type alias
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -19,6 +18,9 @@ typedef AAlias = A;
 
 class C extends AAlias {
   String foo(var x) {
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
     return x.toString();
   }
 }

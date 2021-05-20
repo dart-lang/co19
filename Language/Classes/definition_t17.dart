@@ -9,12 +9,17 @@
 /// ;
 /// @description Checks that it is a compile-time error if both opening and 
 /// closing curly brackets are missed in an abstract class declaration.
-/// @compile-error
 /// @author msyabro
 
 
 abstract class A
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -8,7 +8,6 @@
 /// @description Check that an expression of the form e! evaluates e to a value
 /// v, throws no runtime error if v is not null. Test 42
 /// @author sgrekhov@unipro.ru
-/// @static-warning
 /// @issue 39723
 
 // Requirements=nnbd-strong
@@ -23,8 +22,24 @@ extension on int {
 }
 
 main() {
-  Expect.equals("Lily was here 2 times", 42!(2));   /// static type warning
-  Expect.equals(24, 42![24]);                       /// static type warning
-  42![24] = 24;                                     /// static type warning
-  42!.s = 24;                                       /// static type warning
+  Expect.equals("Lily was here 2 times", 42!(2));
+//                                         ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//                                       ^
+// [cfe] Operand of null-aware operation '!' has type 'int' which excludes null.
+  Expect.equals(24, 42![24]);
+//                    ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//                  ^
+// [cfe] Operand of null-aware operation '!' has type 'int' which excludes null.
+  42![24] = 24;
+//  ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//^
+// [cfe] Operand of null-aware operation '!' has type 'int' which excludes null.
+  42!.s = 24;
+//  ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//^
+// [cfe] Operand of null-aware operation '!' has type 'int' which excludes null.
 }

@@ -6,7 +6,6 @@
 /// a static member with the same name.
 /// @description Checks that it is a compile-time error if a class inherits an 
 /// instance method and declares a static field with the same name.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -16,6 +15,9 @@ class A {
 
 class B extends A {
   static int f = 42;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

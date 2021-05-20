@@ -56,13 +56,19 @@
 ///
 /// @description Checks that it is a compile-time error when prefix value
 /// duplicates a top-level declaration in the importing library.
-/// @compile-error
 /// @author rodionov
 
 import "syntax_lib.dart" as prefix;
+//                          ^
+// [cfe] unspecified
 
 class prefix {}
+//    ^
+// [analyzer] unspecified
 
 main() {
   new prefix();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

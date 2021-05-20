@@ -35,12 +35,14 @@
 /// ;
 /// @description Checks that a class can't be defined inside another class as 
 /// it is not among the allowed class member definitions.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   class B {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

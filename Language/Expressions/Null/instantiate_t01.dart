@@ -4,10 +4,12 @@
 
 /// @assertion Attempting to instantiate Null causes a run-time error.
 /// @description Checks that Null cannot be instantiated.
-/// @compile-error
 /// @author rodionov
 
 
 main() {
   new Null();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

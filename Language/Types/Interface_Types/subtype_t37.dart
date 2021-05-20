@@ -23,7 +23,6 @@
 /// T <: S or S <: T.
 /// @description Checks that two generic types are not assignable even if just
 /// one type argument is not assignable. Using complex generic types.
-/// @compile-error
 /// @author iefremov
 
 
@@ -41,4 +40,7 @@ main() {
 //  I<f_1, int, List<Map<int, Map<int, int>>>> i = new I<f, num, List<Map<num, Map<int, double>>>>();
 //                                     ^^^     <=/=>                                    ^^^
   I<f_1, int, List<Map<int, Map<int, int>>>>? i = checker();
+//                                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

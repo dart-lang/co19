@@ -6,7 +6,6 @@
 /// named v= and also has a non-static member named v.
 /// @description Checks that it is a compile error to declare more than one
 /// entity with the same name in the same scope.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -14,6 +13,9 @@ class C {
   void foo() {}
 
   static set foo(String s) {}
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

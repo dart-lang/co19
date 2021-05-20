@@ -2,7 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-
 library library_variable_t01_lib;
 
-static var foo; // error
+  static var foo;
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

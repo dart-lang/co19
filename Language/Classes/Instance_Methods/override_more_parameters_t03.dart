@@ -7,7 +7,6 @@
 /// m2.
 /// @description Checks that a compile error is produced if m2 has no parameters
 /// and m1 has a single required parameter. Test type aliases
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -19,6 +18,9 @@ typedef AAlias = A;
 
 class C extends AAlias {
   f(var x) { }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

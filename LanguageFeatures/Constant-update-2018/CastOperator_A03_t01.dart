@@ -10,7 +10,6 @@
 /// @description Checks that an expression of the form [e as T] is not accepted
 /// and causes compile time error if [e] is not a compile-time constant and it's
 /// assigned to the [String] variable.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -18,4 +17,7 @@ String str = "test";
 
 main() {
   const String obj = str as String;
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -7,10 +7,12 @@
 /// @description Checks that a compile error occurs when assigning a const list
 /// literal with int type parameter to a variable with declared type
 /// List<String>.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   List<String> s = const <int>[1, 2, 3];
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

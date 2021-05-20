@@ -20,12 +20,17 @@
 /// ;
 /// @description Checks that it is a compile-time error when the URI is not
 /// enclosed in quotes.
-/// @compile-error
 /// @author msyabro
 
 
 import syntax_lib.dart as prfx;
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   someVar = 0;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

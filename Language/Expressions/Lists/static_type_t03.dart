@@ -6,10 +6,12 @@
 /// const <E>[e1... en]  or the form <E>[e1... en] is List<E>.
 /// @description Checks that a compile error occurs when assigning a list
 /// literal to a String variable.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   String s = [1, 2, 3];
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

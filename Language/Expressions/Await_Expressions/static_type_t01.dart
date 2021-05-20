@@ -17,7 +17,6 @@
 /// @description Check static type of await expression match with expected
 /// type, so static type warnings are not issued.
 ///
-/// @static-clean
 /// @author a.semenov@unipro.ru
 
 

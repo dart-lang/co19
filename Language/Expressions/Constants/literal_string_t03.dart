@@ -11,13 +11,15 @@
 /// @description Checks that a string literal that involves string interpolation,
 /// that evaluates to a numeric value, but not a constant expression,
 /// cannot be assigned to a constant variable.
-/// @compile-error
 /// @author msyabro
 
 
 foo() => 1;
 
 const i1 = "${foo()}";
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

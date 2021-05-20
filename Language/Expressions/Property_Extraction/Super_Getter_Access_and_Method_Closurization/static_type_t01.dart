@@ -10,7 +10,6 @@
 /// • The type dynamic otherwise.
 /// @description Check that static type of the extracted getter is declared
 /// return type of the getter.
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

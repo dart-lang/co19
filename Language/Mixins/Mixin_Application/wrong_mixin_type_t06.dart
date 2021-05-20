@@ -9,7 +9,6 @@
 /// It is a compile-time error if M (respectively, any of M1,..., Mk) is
 /// an enumerated type or a malformed type.
 /// @description Checks that it is a compile-time error if Mi is malformed type
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -25,6 +24,9 @@ class M3 {
 }
 
 class C = S with M1, M2, M3;
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new C();

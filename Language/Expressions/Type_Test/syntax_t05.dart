@@ -11,10 +11,12 @@
 /// ;
 /// @description Checks that it is a compile-time error if left part of the
 /// expression is a statement.
-/// @compile-error
 /// @author msyabro
 
 
 main () {
   if (1 < 2) {} is bool;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

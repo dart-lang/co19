@@ -11,11 +11,13 @@
 /// return type of synchronous generator function may not be assigned
 /// to Iterable but is void.
 /// @issue 32192
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 void h() sync* { }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   h();

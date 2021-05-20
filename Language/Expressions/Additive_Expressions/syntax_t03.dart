@@ -17,12 +17,14 @@
 /// @description Checks that an additive expression of the form
 /// multiplicativeExpression ('-' multiplicativeExpression)*
 /// must have at least two operands.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   try {
     [] -;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

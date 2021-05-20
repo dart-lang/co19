@@ -11,13 +11,15 @@
 ///
 /// @description Checks that it is a compile error if a class C declares an
 /// instance method named n and declares a setter named n=.
-/// @compile-error
 /// @author kaigorodov
 
 
 class C {
   foo() {}
   set foo(var a) {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

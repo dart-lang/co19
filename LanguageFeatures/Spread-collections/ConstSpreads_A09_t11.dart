@@ -22,8 +22,6 @@ class B extends A {
 class MyClass {
   final String a;
   const MyClass(Object o) : a = o as String;
-//                                ^
-// [cfe] unspecified
 }
 
 

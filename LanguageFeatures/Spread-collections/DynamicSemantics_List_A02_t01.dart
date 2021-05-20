@@ -18,7 +18,6 @@
 ///
 /// @description Checks that if element is null-aware and it's [null], nothing
 /// added to the result list.
-/// @static-warning
 /// @author iarkh@unipro.ru
 
 
@@ -34,6 +33,10 @@ main() {
   Expect.listEquals([1, 2, 4], [1, 2, ...?list3, 4]);
   Expect.listEquals([1, 1, 2, 3, "checkme", 1, 2, 3, 4, 5],
       [1, ...?list4, ...?list3, ...list1]);
+//        ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//            ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<dynamic>' which excludes null.
   Expect.listEquals([], [...?list3, ...?list3, ...?list3]);
   Expect.listEquals([], [...list2, ...?list3]);
 }

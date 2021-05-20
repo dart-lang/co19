@@ -7,13 +7,18 @@
 /// if a reserved word is used where an identifier is expected.d.
 /// @description Checks that it is a compile-time error when a reserved word "is"
 /// is used as a label name.
-/// @compile-error
 /// @author rodionov
 
 
 main() {
   is:
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   do {
   break is;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } while (false);
 }

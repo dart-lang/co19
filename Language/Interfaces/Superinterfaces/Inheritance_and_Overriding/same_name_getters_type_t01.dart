@@ -17,7 +17,6 @@
 /// all i ∈ 1..k, or a static type warning occurs.
 /// @description Checks that if all inherited members with the same name are
 /// getters and their static types are identical, then no static warning issued
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

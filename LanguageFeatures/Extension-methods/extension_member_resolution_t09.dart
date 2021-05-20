@@ -18,7 +18,6 @@
 /// extension member and it's never mind if the invocation is otherwise correct,
 /// based on number or type of the arguments, it only checks whether there is a
 /// member at all.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -31,9 +30,15 @@ class C extends A {
 
 extension E<T extends A> on T {
   String method(int i, String s) {}
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   C c = new C();
   c.method(42, "-42");
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

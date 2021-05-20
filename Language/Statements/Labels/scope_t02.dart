@@ -6,7 +6,6 @@
 /// a label that labels a case clause of a switch statement s is s.
 /// @description Checks that a label can't be referenced from outside of its
 /// statement.
-/// @compile-error
 /// @author rodionov
 
 
@@ -14,5 +13,8 @@ main() {
   L: var x;
   do {
     continue L;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } while (false);
 }

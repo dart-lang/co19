@@ -25,11 +25,13 @@
 ///  `{'defaultNamedParameter(`,' defaultNamedParameter)*`}'
 /// ;
 /// @description Checks that the list of named parameters cannot be empty.
-/// @compile-error
 /// @author iefremov
 
 
 void f({}) {}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main () {
   f();

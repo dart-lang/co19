@@ -8,7 +8,6 @@
 ///   ;
 /// @description Checks that the variable declared 'var id;' in a block is not
 /// available in another block that isn't included in the first one.
-/// @compile-error
 /// @author iefremov
 
 
@@ -19,5 +18,8 @@ main() {
 
   {
     id = null;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }

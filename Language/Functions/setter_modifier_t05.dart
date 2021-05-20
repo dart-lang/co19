@@ -8,13 +8,15 @@
 /// @description Checks that static setter with async* modifier cause
 /// compiler error.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 class A {
   static int? _a;
   A() {}
   static set a(int value) async* {
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
     _a = value;
   }
 }

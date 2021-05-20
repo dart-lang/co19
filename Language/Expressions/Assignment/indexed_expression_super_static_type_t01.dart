@@ -5,7 +5,6 @@
 /// @assertion The static type of the expression super[e1] = e2 is the static
 /// type of e2.
 /// @description Checks that static type of super[e1] = e2 is static type of e2
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

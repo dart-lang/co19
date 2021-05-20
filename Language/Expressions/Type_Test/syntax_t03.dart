@@ -11,10 +11,12 @@
 /// ;
 /// @description Checks that it is a compile-time error when using a value
 /// literal in the right part of the expression.
-/// @compile-error
 /// @author msyabro
 
 
 main () {
   1 is 1;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

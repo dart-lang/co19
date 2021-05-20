@@ -6,7 +6,6 @@
 /// [Iterable<T>] for some [T], then the upwards inference element type is [T].
 /// @description Checks that spread element upwards inference element type is [T]
 /// in the set literal
-/// @static-warning
 /// @author iarkh@unipro.ru
 
 
@@ -29,35 +28,91 @@ main() {
 
   Expect.isTrue({...int_list} is Set<int>);
   Expect.isTrue({"test", "a", ...?str_list, "ooooo"} is Set<String>);
+//                            ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<String>' which excludes null.
 
   Expect.isTrue({...a_list} is Set<A>);
   Expect.isTrue({a, ...?a_list} is Set<A>);
+//                  ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                      ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<A>' which excludes null.
   Expect.isTrue({...b_list} is Set<A>);
   Expect.isTrue({a, ...?b_list} is Set<A>);
+//                  ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                      ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<B>' which excludes null.
   Expect.isTrue({...c_list} is Set<A>);
   Expect.isTrue({a, ...?c_list} is Set<A>);
+//                  ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                      ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.isTrue({a, ...a_list, ...b_list, b} is Set<A>);
   Expect.isTrue({a, b, c, ...a_list, ...b_list, ...?c_list} is Set<A>);
+//                                              ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                                  ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.isTrue({a, ...a_list, ...b_list, b} is Set<A>);
 
   Expect.isFalse({...a_list} is Set<B>);
   Expect.isFalse({b, ...?a_list} is Set<B>);
+//                   ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                       ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<A>' which excludes null.
   Expect.isTrue({...b_list} is Set<B>);
   Expect.isTrue({b, ...?b_list} is Set<B>);
+//                  ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                      ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<B>' which excludes null.
   Expect.isTrue({...c_list} is Set<B>);
   Expect.isTrue({b, ...?c_list} is Set<B>);
+//                  ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                      ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.isFalse({c, ...a_list, ...b_list, b} is Set<B>);
   Expect.isFalse({b, c, ...a_list, ...b_list, ...?c_list} is Set<B>);
+//                                            ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                                ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.isTrue({b, ...c_list, ...b_list, b} is Set<B>);
 
   Expect.isFalse({...a_list} is Set<C>);
   Expect.isFalse({c, ...?a_list} is Set<C>);
+//                   ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                       ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<A>' which excludes null.
   Expect.isFalse({...b_list} is Set<C>);
   Expect.isFalse({c, ...?b_list} is Set<C>);
+//                   ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                       ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<B>' which excludes null.
   Expect.isTrue({...c_list} is Set<C>);
   Expect.isTrue({...?c_list} is Set<C>);
+//               ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                   ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.isTrue({c, ...?c_list} is Set<C>);
+//                  ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                      ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.isFalse({c, ...a_list, ...b_list, c} is Set<C>);
   Expect.isFalse({c, ...a_list, ...b_list, ...?c_list} is Set<C>);
+//                                         ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                             ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<C>' which excludes null.
   Expect.isFalse({a, ...c_list, ...b_list, b} is Set<C>);
 }

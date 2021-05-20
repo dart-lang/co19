@@ -8,7 +8,6 @@
 /// @description Check that statement 'return e' cause a compiler error in
 /// asynchronous generator static method
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
@@ -16,6 +15,9 @@ import 'dart:async';
 class A {
   static Stream test() async* {
     return 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

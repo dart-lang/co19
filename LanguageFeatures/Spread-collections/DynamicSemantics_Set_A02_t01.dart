@@ -16,7 +16,6 @@
 ///           a. Evaluate [set.add(value)].
 /// @description Checks that if element is null-aware and it's [null], nothing
 /// added to the result set.
-/// @static-warning
 /// @author iarkh@unipro.ru
 
 
@@ -32,6 +31,10 @@ main() {
   Expect.setEquals({1, 2, 4}, {1, 2, ...?list3, 4});
   Expect.setEquals({10, 1, 2, 3, "checkme", 100, 200, 300, 400, 500},
       {10, ...?list4, ...?list3, ...list1});
+//         ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//             ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<dynamic>' which excludes null.
   Expect.setEquals({}, {...?list3, ...?list3, ...?list3});
   Expect.setEquals({}, {...list2, ...?list3});
 }

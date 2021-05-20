@@ -7,7 +7,6 @@
 /// const T(a1, ..., an, xn+1: an+1, ..., xn+k: an+k). It is a compile-time
 /// error if T does not denote a class accessible in the current scope.
 /// @description Checks that it is a compile-time error if T is a type variable.
-/// @compile-error
 /// @author msyabro
 
 
@@ -18,6 +17,9 @@ class A {
 class C<T> {
   test() {
     const T();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

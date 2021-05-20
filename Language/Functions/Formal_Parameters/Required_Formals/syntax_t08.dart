@@ -25,12 +25,17 @@
 /// ;
 /// @description Checks that it is a compile-error if signature of formal
 /// parameter of a function type has default values
-/// @compile-error
 /// @author ilya
 
 
 f(g([x = 1])) {}
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   f(() {});
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -14,11 +14,13 @@
 /// @description Checks that it is a compile-time error when an expression of
 /// the form e1 + e2 where e1 or e2 does not evaluate to a numeric value, is
 /// used to initialize a constant variable.
-/// @compile-error
 
 
 final constList = const [
   true + 1,
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 ];
 
 main() {

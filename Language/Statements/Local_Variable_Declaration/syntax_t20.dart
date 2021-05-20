@@ -9,11 +9,13 @@
 /// @description Checks that a variable is introduced into the scope after a
 /// variable declaration statement is evaluated, and the name of this variable
 /// cannot be used in its initialization.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   var x;
   var f = () { x = f; };
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -7,7 +7,6 @@
 /// Map<dynamic, dynamic>.
 /// @description Checks that static type of map literal with omitted type
 /// arguments is indeed Map<dynamic, dynamic>. No static warnings expected.
-/// @static-clean
 /// @author ilya
 
 

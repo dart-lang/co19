@@ -34,16 +34,21 @@
 ///   ‘A’ ..‘Z’
 /// ;
 /// @description Checks that identifier can't contain ' ' symbol.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
 class C {
   bool x() {
     return y y;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 main() {
   С();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

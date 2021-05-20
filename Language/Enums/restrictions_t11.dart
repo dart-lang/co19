@@ -6,7 +6,6 @@
 /// an enum or to explicitly instantiate an enum.
 /// @description Checks that it is compile-time error to explicitly instantiate 
 /// an enum. Test type alias
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -17,4 +16,7 @@ typedef EAlias = E;
 
 main() {
   E e = new EAlias();
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

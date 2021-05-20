@@ -9,13 +9,17 @@
 /// contents of the URI are not a valid part declaration.
 /// @description Checks that it is a compile-time error when the included
 /// compilation unit contains a library definition instead of a part declaration.
-/// @compile-error
 /// @author rodionov
 
 
 library Parts_test_lib;
 part "part_9_lib.dart";
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   var x = foo;
+//        ^
+// [cfe] unspecified
 }

@@ -34,13 +34,15 @@
 /// ;
 /// @description Checks that it is a compile-time error if an abstract method
 /// declaration does not end with a semicolon.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   f()
 }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

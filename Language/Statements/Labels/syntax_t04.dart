@@ -12,11 +12,13 @@
 /// ;
 /// @description Checks that it is a compile-time error if the label identifier
 /// is empty.
-/// @compile-error
 /// @author vasya
 
 
 
 main() {
   : while (true) { break L; }
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

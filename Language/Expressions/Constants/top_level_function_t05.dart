@@ -10,13 +10,15 @@
 ///   method that is not qualified by a deferred prefix.
 /// @description Checks that a qualified identifier denoting a a static method
 /// accessed via a deferred prefix cannot be assigned to a constant variable.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
 import 'constants_lib.dart' deferred as clib;
 
 const d = clib.B.M;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   d;

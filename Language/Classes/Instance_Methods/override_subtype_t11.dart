@@ -7,7 +7,6 @@
 /// @description Checks that there are no warnings when type of m1 is in fact
 /// a subtype of type of m2. Checks instance methods with no optional
 /// parameters. Test type aliases
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

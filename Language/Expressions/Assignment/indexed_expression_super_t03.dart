@@ -6,7 +6,6 @@
 /// expression super.[e1] = e2
 /// @description Checks that it is a compile error if superclass doesn't define
 /// an []= operator.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -19,6 +18,9 @@ class A {
 class C extends A {
   test() {
     Expect.throws(() {super[0] = 1;}, (e) => e is NoSuchMethodError);
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

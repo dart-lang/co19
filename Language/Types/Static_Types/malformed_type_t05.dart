@@ -15,13 +15,16 @@
 /// @description Checks that type name imported from multiple import clauses
 /// that refers to different type declarations causes to a compile error
 /// when used in type annotation.
-/// @compile-error
 /// @author ilya
 
 
 import "../somelib1.dart"; // class C {}
 import "../somelib2.dart"; // class C {}
+//^
+// [cfe] unspecified
 
 main() {
   C? c;
+//^
+// [analyzer] unspecified
 }

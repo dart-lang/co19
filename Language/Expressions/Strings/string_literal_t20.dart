@@ -28,10 +28,12 @@
 /// ;
 /// @description Checks that a raw double-quotes string literal can't
 /// contain another double quote.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   r"invalid " string";
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

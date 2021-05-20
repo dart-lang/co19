@@ -17,13 +17,9 @@ class J {}
 
 class B {
   String get b1 => "B";
-//           ^^^^^^^^^
-// [cfe] unspecified
 }
 class C {
   double get b1 => 3.14;
-//           ^^
-// [cfe] unspecified
 }
 
 mixin M on B, C implements I, J {

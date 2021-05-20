@@ -11,13 +11,15 @@
 ///   not qualified by a deferred prefix.
 /// @description Checks that a qualified identifier that denotes a class
 /// accessed via a deferred prefix is not a constant expression.
-/// @compile-error
 /// @author ngl@unipo.ru
 
 
 import '../lib.dart' deferred as prefix;
 
 const a = prefix.A; // class
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   a;

@@ -8,7 +8,6 @@
 /// @description Checks that the static type of a map literal is Map<String, V>
 /// by ensuring there're no static warnings when assigning such map to a
 /// variable of appropriate type.
-/// @static-clean
 /// @author msyabro
 
 

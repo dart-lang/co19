@@ -15,7 +15,6 @@
 /// evaluating i.
 /// @description Checks that it is a compile error if there's a static method
 /// named m in the invoking class's superclass.
-/// @compile-error
 /// @author rodionov
 
 
@@ -28,6 +27,9 @@ class S {
 class A extends S {
   test() {
     super.sm();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

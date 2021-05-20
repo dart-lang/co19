@@ -9,7 +9,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the while keyword is
 /// missing.
-/// @compile-error
 /// @author vasya
 
 
@@ -17,5 +16,8 @@ main() {
   do {
     break;
   } (true);
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

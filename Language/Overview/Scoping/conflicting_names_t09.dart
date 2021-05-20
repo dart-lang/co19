@@ -10,15 +10,22 @@
 /// declaration d is in scope if d is available in the current scope.
 /// @description Checks that it is a compile-time error if a class and a typedef 
 /// declaration with the same name are declared within the library scope.
-/// @compile-error
 /// @author msyabro
 
 
 class conflictingName {}
 
 typedef conflictingName();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new conflictingName();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   conflictingName func = () {};
+//^
+// [cfe] unspecified
 }

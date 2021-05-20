@@ -11,7 +11,6 @@
 /// @description Checks that it is a compile-time error if a 'continue L;'
 /// statement occurs in a local function declared in a case clause with label L
 /// and there is no inclosing statement with label L in this local function.
-/// @compile-error
 /// @author rodionov
 
 
@@ -21,6 +20,9 @@ main() {
     L: case 1:
       foo() {
         continue L;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
       }
       foo();
   }

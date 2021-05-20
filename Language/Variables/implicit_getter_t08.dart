@@ -10,7 +10,6 @@
 /// @description Checks that the returned type of this implicit getter is the 
 /// same as the static field's type, by attempting to assign the result of its
 /// invocation to a variable of incompatible type. Compile error is expected.
-/// @compile-error
 /// @author pagolubev
 
 
@@ -20,4 +19,7 @@ class A {
 
 main() {
   bool? a = A.a;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

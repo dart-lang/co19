@@ -8,7 +8,6 @@
 /// type T.
 /// @description Checks that it is a compile-time error if T.id
 /// is not a name of any constructor declared by the type T.
-/// @compile-error
 /// @author msyabro
 
 
@@ -16,4 +15,7 @@ class  A {}
 
 main() {
   const A.nonexistentConstructor();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

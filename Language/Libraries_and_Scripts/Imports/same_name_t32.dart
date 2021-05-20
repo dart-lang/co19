@@ -14,7 +14,6 @@
 /// @description Checks that it is not a static warning or error if the same
 /// library is imported twice with empty prefixes and introduces a type name to
 /// the top-level scope of L, but L doesn't reference it.
-/// @static-clean
 /// @author rodionov
 
 

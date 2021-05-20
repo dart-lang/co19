@@ -12,7 +12,6 @@
 ///
 /// @description Checks that compile error appears if legacy library is imported
 /// in the strong mode.
-/// @compile-error
 /// @Issue 44545
 /// @author sgrekhov@unipro.ru
 

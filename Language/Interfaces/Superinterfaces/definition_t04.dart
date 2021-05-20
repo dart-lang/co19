@@ -8,16 +8,26 @@
 /// superinterface of I.
 /// @description Checks that it is a compile-time error if the chain of
 /// superinterfaces forms a circular dependency.
-/// @compile-error
 /// @author rodionov
 
 
 abstract class A implements B {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 abstract class B implements A {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class C implements B {}
+//    ^
+// [cfe] unspecified
 
 main() {
   new B();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

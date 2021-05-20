@@ -18,7 +18,6 @@
 /// @description Checks that if multiple members with the same name are inherited
 /// but not all of them are getters then a compile error occurs. Test type
 /// aliases
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -39,6 +38,9 @@ typedef SIAlias2 = SI2;
 typedef SIAlias3 = SI3;
 
 abstract class I implements SIAlias1, SIAlias2, SIAlias3 {
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

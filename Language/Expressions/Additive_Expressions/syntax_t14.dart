@@ -16,7 +16,6 @@
 /// argument e2.
 /// @description Checks that a type parameter can not be used
 /// as right operand in an additive expression. It is a compile error.
-/// @compile-error
 /// @author msyabro
 
 
@@ -24,6 +23,9 @@ class A <T> {
   test() {
     try {
       2 + T;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
     } catch (e) {}
   }
 }

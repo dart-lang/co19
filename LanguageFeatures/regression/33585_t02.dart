@@ -4,7 +4,6 @@
 
 /// @description Regression test for the issue 33585, 33308 (CFE doesn't check
 /// type arguments against the bounds of the corresponding type variables)
-/// @compile-error
 /// @Issue 33585
 /// @author iarkh@unipro.ru
 
@@ -14,5 +13,8 @@ class B{}
 
 class M<X extends A> {}
 class O extends Object with M<B> {}
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {}

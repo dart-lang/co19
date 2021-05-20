@@ -6,11 +6,13 @@
 /// the declared name of a prefix, class, type parameter or type alias.
 /// @description Checks that it is a compile-time error if a built-in identifier
 /// "abstract" is used as the declared name of a class.
-/// @compile-error
 /// @author rodionov
 
 
 class abstract {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

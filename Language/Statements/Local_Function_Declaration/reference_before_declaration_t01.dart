@@ -6,11 +6,13 @@
 /// before its declaration.
 /// @description Checks that it is a compile-error to reference a local function
 /// before its declaration.
-/// @compile-error
 /// @author kaigorodov
 /// @note renamed from 04_Local_Function_Declaration_A02_t02
 
 
 main() {
   func();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

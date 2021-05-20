@@ -23,7 +23,6 @@
 /// @description Check that compile time error is thrown if two extension members
 /// with [on] type clause are equitable and a member from the conflicting
 /// extensions is referenced.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -39,5 +38,8 @@ extension MyIntFancyList2<T> on List<T> {
 main() {
   List aList = [1, 2, 3];
   bool res = aList.isTested;
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

@@ -24,7 +24,6 @@
 /// 2. A finally clause, which consists of a block statement.
 /// @description Checks that it is a compile-time error if the catch clause of a
 /// try statement is missing the exception parameters.
-/// @compile-error
 /// @author vasya
 
 
@@ -32,5 +31,8 @@ main() {
   try {
     throw 0;
   } catch { }
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

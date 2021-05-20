@@ -15,7 +15,6 @@
 /// libraries introduce the same type name (both via re-export of a third
 /// library) to the top level scope of L and L uses it in a static getter
 /// invocation expression.
-/// @static-clean
 /// @author rodionov
 
 

@@ -34,12 +34,14 @@
 /// ;
 /// @description Checks that it is a compile-time error if a static final
 /// declaration list does not end with a semicolon.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   static final v = null, vv = 1
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

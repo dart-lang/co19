@@ -13,10 +13,12 @@
 /// . . .
 /// @description Checks that undeclared identifier inside a top level function
 /// causes a compile time error
-/// @compile-error
 /// @author kaigorodov
 
 
 main() {
   undeclared();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

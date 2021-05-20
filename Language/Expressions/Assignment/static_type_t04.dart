@@ -14,7 +14,6 @@
 /// @description Checks that there is no static warning if e1 is a constant type
 /// literal and the class corresponding to e1 has an implicit static setter
 /// named v=.
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

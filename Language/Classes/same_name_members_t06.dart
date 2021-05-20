@@ -6,13 +6,15 @@
 /// the same name.
 /// @description Checks that it is a compile-time error if a class declares 
 /// an instance method and an abstract getter of the same name.
-/// @compile-error
 /// @author kaigorodov
 
 
 abstract class A {
   String f(int f) => "";
   int get f;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class C extends A {

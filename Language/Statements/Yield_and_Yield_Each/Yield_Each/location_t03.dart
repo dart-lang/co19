@@ -9,13 +9,15 @@
 /// inside static synchronous method.
 ///
 /// @issue #25495
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 class A {
   static test() {
     yield* [1];
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

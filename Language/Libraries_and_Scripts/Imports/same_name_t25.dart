@@ -14,7 +14,6 @@
 /// @description Checks that it is not a static warning or error if two different
 /// libraries introduce the same name (both via re-export of a third library)
 /// to the top level scope of L and L uses it as a type parameter bound.
-/// @static-clean
 /// @author rodionov
 
 import "same_name_t20_p1_lib.dart";

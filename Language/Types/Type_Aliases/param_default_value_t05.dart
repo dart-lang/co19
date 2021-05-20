@@ -6,11 +6,13 @@
 /// the signature of function type alias.
 /// @description Checks that a compile error is produced when default values are
 /// specified for several parameters in a function type alias.
-/// @compile-error
 /// @author iefremov, sgrekhov@unipro.ru
 
 
 typedef F(var a, var b = "", var c = main, var z = null);
+//                                               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

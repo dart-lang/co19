@@ -7,7 +7,6 @@
 /// declaration G are also in scope in the extends and implements clauses of G
 /// (if these exist) and in the body of G.
 /// @description Checks bounds of type parameters are checked at compile time.
-/// @compile-error
 /// @author iefremov
 
 
@@ -15,4 +14,7 @@ class Enum<E extends Enum<E>> {}
 
 main() {
   var x = new Enum<int>();
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

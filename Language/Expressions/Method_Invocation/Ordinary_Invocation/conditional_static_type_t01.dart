@@ -8,7 +8,6 @@
 /// The static type of e is the same as the static type of
 /// o.m(a1, . . . , an, xn+1 :  an+1, . . . , xn+k : an+k).
 /// @description Check that static type of the o?.m() is the same as o.m().
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

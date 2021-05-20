@@ -21,9 +21,8 @@
 /// name of the library.
 /// @description Checks that it is a compile-time error if the library name is
 /// enclosed in square brackets.
-/// @compile-error
 /// @author msyabro
-
+/// @issue 44990
 
 import "definition_syntax_t22_lib.dart";
 

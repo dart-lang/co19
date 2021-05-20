@@ -17,10 +17,12 @@
 /// ;
 /// @description Checks that it is a compile-time error if the loop parts are
 /// not separated by semicolons.
-/// @compile-error
 /// @author vasya
 
 
 main() {
   for (var i = 0 i < 1 ++i) { }
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

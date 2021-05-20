@@ -35,10 +35,12 @@
 /// ;
 /// @description Checks that neither backslashes, nor unicode escape sequences
 /// are allowed in identifiers.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   var abc\u0061=1;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

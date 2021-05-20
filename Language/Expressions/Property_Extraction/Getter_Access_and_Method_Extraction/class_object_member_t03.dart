@@ -8,11 +8,13 @@
 /// e is a library prefix and m is Object's noSuchMethod(Invocation invocation)
 /// method
 /// @issue 24332
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 import 'instance_of_type_lib.dart' as lib;
 
 main() {
   var x = lib.noSuchMethod;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

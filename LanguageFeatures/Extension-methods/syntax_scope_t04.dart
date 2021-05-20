@@ -19,7 +19,6 @@
 ///
 /// @description Check that It is a compile-time error to export two
 /// declarations, including extensions, with the same name
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -27,6 +26,9 @@ import "my_fancy_list_lib.dart";
 export "my_fancy_list_lib.dart";
 import "my_fancy_list_lib2.dart";
 export "my_fancy_list_lib2.dart";
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   List<String> list = ["Lily", "was", "here"];

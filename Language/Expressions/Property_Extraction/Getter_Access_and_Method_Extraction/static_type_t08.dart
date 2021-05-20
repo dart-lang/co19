@@ -18,7 +18,6 @@
 /// is dynamic if the getter does not exist. Checks by calling non-existed
 /// methods from invocation result. If the static type is indeed dynamic there
 /// should not be any static warnings.
-/// @static-clean
 /// @author msyabro
 /// @issue 3223
 

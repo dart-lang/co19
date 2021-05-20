@@ -5,11 +5,13 @@
 /// @assertion It is a compile-time error for a class to attempt to extend,
 /// mix in or implement int
 /// @description Checks that a user-defined class cannot implement int.
-/// @compile-error
 /// @author iefremov
 
 
 class A implements int {}
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

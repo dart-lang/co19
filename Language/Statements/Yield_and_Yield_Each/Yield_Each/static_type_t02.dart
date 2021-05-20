@@ -12,7 +12,6 @@
 /// async* and the type T may not be assigned to the declared return
 /// type of f.
 ///
-/// @compile-error
 /// @issue #25634
 /// @author a.semenov@unipro.ru
 
@@ -21,6 +20,9 @@ import '../../../../Utils/expect.dart';
 
 Stream<String> generator() async* {
   yield* 1;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {}

@@ -27,10 +27,12 @@
 /// ;
 /// @description Checks that it is a compile-time error if the exponent part of
 /// a numeric literal contains a decimal point.
-/// @compile-error
 /// @author hlodvig
 
 
 main() {
   var i = 0e1.0;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

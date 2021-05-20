@@ -27,10 +27,12 @@
 /// ;
 /// @description Checks that it is a compile-time error if a numeric literal
 /// does not contain a mantissa.
-/// @compile-error
 /// @author hlodvig
 
 
 main() {
   var i = +e1;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

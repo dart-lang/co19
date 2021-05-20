@@ -8,12 +8,16 @@
 /// initializer of an instance variable.
 /// @description Checks that it is a compile-error if 'this' appears in the
 /// parameters list of a top-level function.
-/// @compile-error
 /// @author msyabro
 
 
 func(this, p) {}
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   func(1, 2);
+//    ^
+// [cfe] unspecified
 }

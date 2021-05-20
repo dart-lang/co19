@@ -7,7 +7,6 @@
 /// throw expression is a subtype of any type.
 /// Checks that no static warnings are produced when using throw expression
 /// in typed contexts.
-/// @static-clean
 /// @author ilya
 
 

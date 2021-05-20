@@ -11,10 +11,12 @@
 /// ;
 /// @description Checks that it is a compile-error if to use throw with no
 /// expression in main method.
-/// @compile-error
 /// @author rodionov
 
 
 main() {
   throw;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

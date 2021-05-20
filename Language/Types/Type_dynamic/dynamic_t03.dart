@@ -9,7 +9,6 @@
 /// @description Checks that invoking all sorts of methods on a dynamic variable
 /// with all sorts of arguments and assigning the results to local variables of
 /// various types does not produce any static type warnings.
-/// @static-clean
 /// @issue #27495
 /// @author iefremov
 

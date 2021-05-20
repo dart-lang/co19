@@ -18,7 +18,6 @@
 /// @description  Checks that it is a compile error if the actual
 /// constructor has fewer required positional parameters than the new
 /// expression.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -28,4 +27,7 @@ class C {
 
 main() {
   new C(1);
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

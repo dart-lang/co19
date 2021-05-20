@@ -12,7 +12,6 @@
 /// @description Checks that it is a compile error if the static type of e
 /// may not be assigned to the static type of e1.v. Test that this statement is
 /// transitive
-/// @compile-error
 /// @author srekhov@unipro.ru
 
 
@@ -24,4 +23,7 @@ main() {
   C c = new C();
   var y;
   c.v = y = true;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

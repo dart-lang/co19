@@ -15,7 +15,6 @@
 ///    {...l, ...m} // Static error, because it must be both a set and a map.
 /// @description Checks that if one of the spreadable element is [Map], result
 /// is statically [Map]
-/// @static-warning
 /// @author iarkh@unipro.ru
 
 
@@ -28,18 +27,42 @@ main() {
 
   Map res;
   Expect.throws(() =>  res = {...?m, ...set});
+//                            ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
   Expect.throws(() =>  res = {...set, ...?m});
+//                                    ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                        ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
 
   Expect.throws(() =>  res = {...m, ...?set});
   Expect.throws(() =>  res = {...?set, ...m});
 
   Expect.throws(() =>  res = {...?set, ...?m});
+//                                     ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                         ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
 
   Expect.isTrue({...?map, ...m} is Map);
   Expect.isTrue({...m, ...?map} is Map);
 
   Expect.isTrue({...map, ...?m} is Map);
+//                       ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                           ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
   Expect.isTrue({...?m, ...map} is Map);
+//               ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                   ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
 
   Expect.isTrue({...?map, ...?m} is Map);
+//                        ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                            ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
 }

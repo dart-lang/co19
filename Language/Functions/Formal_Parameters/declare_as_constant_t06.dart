@@ -6,12 +6,17 @@
 /// a constant variable.
 /// @description Checks that it is a compile-time error if an optional positional
 /// parameter is declared as a constant typed variable.
-/// @compile-error
 /// @author rodionov
 
 
 void f({const int x}) {}
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main () {
   f(1);
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

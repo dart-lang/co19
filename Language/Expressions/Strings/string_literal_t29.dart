@@ -28,10 +28,12 @@
 /// ;
 /// @description Checks that it is a compile-time error when a backtick
 /// character is used as a raw string delimiter.
-/// @compile-error
 /// @author kaigorodov
 
 
 main() {
   r`string`;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

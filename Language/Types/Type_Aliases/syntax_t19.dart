@@ -10,11 +10,13 @@
 ///  <functionPrefix> ::= <type>? <identifier>
 /// @description Checks that it is impossible to introduce alias for a built-in
 /// type (int).
-/// @compile-error
 /// @author iefremov
 
 
 typedef int integer;
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

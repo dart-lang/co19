@@ -9,7 +9,6 @@
 /// sE exists within the innermost function in which sb occurs.
 /// @description Checks that it is a compile-time error if there's no label with
 /// the specified identifier in an enclosing scope.
-/// @compile-error
 /// @author rodionov
 
 
@@ -19,5 +18,8 @@ main() {
   for (int i in [1,2]) {}
   do {
     break L;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } while (false);
 }

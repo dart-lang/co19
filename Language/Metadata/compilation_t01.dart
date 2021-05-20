@@ -16,8 +16,6 @@ var variable = 'hello';
 // [analyzer] unspecified
 // [cfe] unspecified
 class A {}
-//    ^
-// [cfe] unspecified
 
 main() {
   A? a;

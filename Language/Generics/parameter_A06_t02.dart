@@ -6,14 +6,18 @@
 /// referenced by a static member.
 /// @description Checks that if a type parameter is used as type annotation
 /// in a static context, it is a compile error to assign to such member
-/// @compile-error
 /// @author iefremov
 
 
 class C<T> {
   static T t;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   C.t = new Object();
+//      ^
+// [analyzer] unspecified
 }

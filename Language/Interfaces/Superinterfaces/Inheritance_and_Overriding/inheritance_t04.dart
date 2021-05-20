@@ -25,7 +25,6 @@
 /// and return type dynamic.
 /// @description Checks that there's a compile error if methods with the same
 /// name but differing sets of named parameters are inherited.
-/// @compile-error
 /// @author rodionov
 
 
@@ -38,6 +37,9 @@ abstract class SI2 {
 }
 
 abstract class I implements SI1, SI2 {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   I? i = null;

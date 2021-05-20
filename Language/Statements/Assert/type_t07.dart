@@ -6,10 +6,12 @@
 /// to either bool or () -> bool.
 /// @description Checks that it is a compile error if the static type
 /// of e is Function (conditional expression).
-/// @compile-error
 /// @author rodionov
 
 
 main() {
   assert (true ? (() => true) : ((var x) => 1));
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

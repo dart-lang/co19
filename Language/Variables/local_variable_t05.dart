@@ -8,10 +8,12 @@
 /// is complete, or a compile-time error occurs.
 /// @description Checks that it is a compile-error to reference local variable
 /// in its initializer.
-/// @compile-error
 /// @author ilya
 
 
 main() {
   var f = () => f;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

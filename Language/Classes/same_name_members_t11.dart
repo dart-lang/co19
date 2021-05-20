@@ -6,19 +6,29 @@
 /// the same name.
 /// @description Checks that it is a compile-time error if a class declares 
 /// a variable, function, and an abstract getter of the same name.
-/// @compile-error
 /// @author kaigorodov
 
 
 abstract class A {
   var f = 0;
   String get f;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   String f(int f);
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class C extends A {
   String get f => "Lily";
+//           ^
+// [analyzer] unspecified
   String f(int f) => "was here";
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

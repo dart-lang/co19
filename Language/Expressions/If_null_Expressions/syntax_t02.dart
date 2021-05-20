@@ -8,7 +8,6 @@
 ///
 /// @description Verify several kinds of if-null expressions, logicalOrExpression
 /// is a variable.
-/// @static-warning
 /// @author a.semenov@unipro.ru
 
 import '../../../Utils/expect.dart';
@@ -18,14 +17,46 @@ main() {
   var n = null;
 
   Expect.equals(1, x ?? 10);
-  Expect.equals(1, x ?? 10 ?? 20);        /// static type warning
-  Expect.equals(1, x ?? 10 ?? 20 ?? 30);  /// static type warning
+//                      ^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//                 ^
+// [cfe] Operand of null-aware operation '??' has type 'int' which excludes null.
+  Expect.equals(1, x ?? 10 ?? 20);
+//                      ^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//                            ^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//                 ^
+// [cfe] Operand of null-aware operation '??' has type 'int' which excludes null.
+//                   ^
+// [cfe] Operand of null-aware operation '??' has type 'int' which excludes null.
+  Expect.equals(1, x ?? 10 ?? 20 ?? 30);
+//                      ^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//                            ^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//                                  ^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//                 ^
+// [cfe] Operand of null-aware operation '??' has type 'int' which excludes null.
+//                   ^
+// [cfe] Operand of null-aware operation '??' has type 'int' which excludes null.
+//                         ^
+// [cfe] Operand of null-aware operation '??' has type 'int' which excludes null.
   Expect.equals(10, n ?? 10);
   Expect.equals(10, n ?? 10 ?? 20);
   Expect.equals(10, n ?? 10 ?? 20 ?? 40);
   Expect.equals(x, x ?? n);
+//                      ^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//                 ^
+// [cfe] Operand of null-aware operation '??' has type 'int' which excludes null.
   Expect.equals(x, n ?? x);
   Expect.equals(x, n ?? n ?? x);
   Expect.equals(x, x ?? n ?? 5);
+//                      ^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//                 ^
+// [cfe] Operand of null-aware operation '??' has type 'int' which excludes null.
   Expect.equals(x, n ?? x ?? 5);
 }

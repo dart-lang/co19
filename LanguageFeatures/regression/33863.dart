@@ -6,7 +6,6 @@
 /// if parameter of incorrect type is passed to the function): Checks that
 /// parameter type is checked correctly for functions.
 /// @Issue 33863
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -14,4 +13,7 @@ testme<X extends int>(X x) {}
 
 main() {
   testme("incorrect param");
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

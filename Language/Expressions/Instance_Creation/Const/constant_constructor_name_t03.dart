@@ -8,7 +8,6 @@
 /// type T.
 /// @description Checks that it is a compile-time error if id
 /// is the name of an instance method declared by the type T.
-/// @compile-error
 /// @author msyabro
 
 
@@ -18,4 +17,7 @@ class  A {
 
 main() {
   const A.method();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

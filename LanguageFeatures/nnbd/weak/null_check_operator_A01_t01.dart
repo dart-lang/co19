@@ -7,7 +7,6 @@
 ///
 /// @description Check that an expression of the form e! evaluates e to a value
 /// v, throws a runtime error if v is null. Test identifier
-/// @static-warning
 /// @author sgrekhov@unipro.ru
 /// @issue 39723
 /// @issue 39724
@@ -31,8 +30,16 @@ main() {
   Expect.throws(() {a!;});
   Expect.throws(() {a!.foo();});
   Expect.throws(() {a![42];});
-  Expect.throws(() {a!?.foo();});                 /// static type warning
-  Expect.throws(() {a!?[42];});                   /// static type warning
+  Expect.throws(() {a!?.foo();});
+//                    ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                   ^
+// [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
+  Expect.throws(() {a!?[42];});
+//                    ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                   ^
+// [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
   Expect.throws(() {a!.s = "Lily was here";});
   Expect.throws(() {a![0] = "Lily was here";});
   A? a1 = new A();

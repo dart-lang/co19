@@ -11,12 +11,14 @@
 /// ;
 /// @description Checks that it is a compile-error if to use throw with no
 /// expression in try statement.
-/// @compile-error
 /// @author vasya
 
 
 main() {
   try {
     throw;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

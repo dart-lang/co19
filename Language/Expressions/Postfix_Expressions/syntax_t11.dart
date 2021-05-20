@@ -22,10 +22,12 @@
 /// getter invocation, or an invocation of a postfix operator on an expression e.
 /// @description Checks that a statement can't be used with postfixOperator.
 /// This test is using a labeled for statement.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   label: for (var i in []) {};++;
+//                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

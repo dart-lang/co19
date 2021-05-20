@@ -9,10 +9,12 @@
 ///   ;
 /// @description Checks that word 'this' cannot be used to declare a variable.
 /// @author hlodvig
-/// @compile-error
 /// @reviewer kaigorodov
 
 
 main() {
   var this;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

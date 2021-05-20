@@ -13,7 +13,6 @@
 /// mutated in s1 or within a closure, and there is no closure capturing v in s1,
 /// then the type of v is known to be T in s1, even if v is potentially mutated
 /// elsewhere in its scope.
-/// @static-clean
 /// @author ilya
 
 

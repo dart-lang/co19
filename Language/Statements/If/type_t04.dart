@@ -12,7 +12,6 @@
 /// @description Checks that if b shows that v has type T, v is not potentially
 /// mutated in s1 and not captured by any closure then the type of v is known to
 /// be T in s1, even if v is potentially mutated elsewhere in its scope.
-/// @static-clean
 /// @author ilya
 
 

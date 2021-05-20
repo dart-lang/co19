@@ -21,9 +21,8 @@
 /// name of the library.
 /// @description Checks that it is a compile-error if a library contains
 /// two library declarations (with different names).
-/// @compile-error
 /// @author msyabro
-
+/// @issue 44990
 
 import "definition_syntax_t10_lib.dart";
 

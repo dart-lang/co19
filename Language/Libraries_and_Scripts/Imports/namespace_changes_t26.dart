@@ -56,14 +56,20 @@
 ///
 /// @description Checks that it is a compile-time error when prefix value
 /// duplicates a function type alias name.
-/// @compile-error
 /// @author rodionov
 
 
 import "syntax_lib.dart" as prefix;
+//                          ^
+// [cfe] unspecified
 
 typedef prefix(int);
+//      ^
+// [analyzer] unspecified
 
 main() {
   (int) {} is prefix;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

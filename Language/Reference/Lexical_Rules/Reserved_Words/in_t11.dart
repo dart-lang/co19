@@ -7,10 +7,12 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word "in"
 /// is used as an identifier following a 'show' combinator in an import directive.
-/// @compile-error
 /// @author rodionov
 
 import "lib.dart" as in;
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

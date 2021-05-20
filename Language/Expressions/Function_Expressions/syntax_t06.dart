@@ -9,7 +9,6 @@
 /// ;
 /// @description Checks that expression is necessary in the form
 /// ['=>' expression ';']
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -20,5 +19,8 @@ f(var func) {
 main() {
   try {
     f(void func() =>);
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

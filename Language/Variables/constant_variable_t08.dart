@@ -6,11 +6,13 @@
 /// modifier const. A constant variable is always implicitly final.
 /// @description Checks that a compile-time error occurs if a global typed 
 /// constant variable is not initialized at declaration.
-/// @compile-error
 /// @author msyabro
 
 
 const double foo;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   foo;

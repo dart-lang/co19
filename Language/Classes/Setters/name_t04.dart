@@ -8,7 +8,6 @@
 /// @description Checks that there is a compile-time error if a class has
 /// an explicitly defined abstract setter inherited from a superclass and
 /// an instance method with the same name.
-/// @compile-error
 /// @author iefremov
 
 
@@ -22,11 +21,17 @@ abstract class C extends A {
   }
   C.c() {}
   foo(value) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class D extends C {
   D():super.c();
   void set foo(var x) {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

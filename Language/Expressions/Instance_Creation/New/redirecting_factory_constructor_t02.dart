@@ -9,7 +9,6 @@
 /// @description Checks that it is a compile error if a type argument of a
 /// redirecting factory constructor invocation is not a subtype of the
 /// corresponding type parameter bound of class C.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -25,4 +24,7 @@ class C<T extends num> implements R<T> {
 
 main() {
   new R<String>.fc();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

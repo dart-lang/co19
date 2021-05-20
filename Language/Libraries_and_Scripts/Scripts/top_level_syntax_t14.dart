@@ -23,11 +23,13 @@
 /// ;
 /// @description Checks that it is a compile-time error when a labeled statement
 /// is used in place of a top level definition in a script.
-/// @compile-error
 /// @author msyabro
 
 
 label: final x = 1;
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

@@ -7,14 +7,19 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "else" is used as a class member (field) name.
-/// @compile-error
 /// @author rodionov
 
 
 class C {
   int else = 42;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   new C().else is int;
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -13,13 +13,15 @@
 /// async* and the type Stream<T> may not be assigned to the declared return
 /// type of f.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
 
 Stream<String> generator() async* {
   yield 1;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

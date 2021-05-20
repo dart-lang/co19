@@ -8,7 +8,6 @@
 /// interfaces and the resulting class implements those interfaces then no
 /// static warning occurs. Interface implementation declared partially in a
 /// mixin, partially in a superclass
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

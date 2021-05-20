@@ -8,7 +8,6 @@
 /// declared by C.
 /// @description Checks that superclass's static variables are unaccessible
 /// via subclass's name. Test type alias
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -23,4 +22,7 @@ class C extends SAlias {
 
 main() {
   C.foo;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -11,12 +11,12 @@
 /// declared in a concrete class.
 /// @author kaigorodov
 
-
 class A {
+//    ^
+// [cfe] unspecified
   int get foo;
 //^^^^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {

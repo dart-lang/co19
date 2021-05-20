@@ -20,12 +20,17 @@
 /// ;
 /// @description Checks that it is a compile-time error if the identifier after
 /// 'as' keyword is enclosed in quotes.
-/// @compile-error
 /// @author vasya
 
 
 import "syntax_lib.dart" as "lib";
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   someVar = 0;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

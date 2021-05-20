@@ -6,13 +6,15 @@
 /// the same name.
 /// @description Checks that it is a compile-time error if a class declares 
 /// a variable and an instance method of the same name.
-/// @compile-error
 /// @author rodionov
 
 
 class C {
   var f;
   String f(int f) => "";
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

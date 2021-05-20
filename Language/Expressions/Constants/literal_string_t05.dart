@@ -11,11 +11,13 @@
 /// @description Checks that a string literal that involves string interpolation,
 /// that evaluates to a string value, but not a constant expression, cannot be
 /// assigned to a constant variable.
-/// @compile-error
 /// @author msyabro
 
 
 const i1 = "${1.toString()}";
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

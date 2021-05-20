@@ -20,7 +20,6 @@
 /// does not handle all enum cases, either explicitly or via a default.
 /// @author sgrekhov@unipro.ru
 /// @issue 40395
-/// @static-warning
 
 // Requirements=nnbd-strong
 
@@ -31,7 +30,9 @@ enum E {
 }
 main() {
   E e = E.three;
-  switch (e) { /// static type warning
+  switch (e) {
+//^
+// [analyzer] STATIC_WARNING.MISSING_ENUM_CONSTANT_IN_SWITCH
     case E.one:
       true;
       break;

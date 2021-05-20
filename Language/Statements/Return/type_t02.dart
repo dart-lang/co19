@@ -12,7 +12,6 @@
 /// @description Checks that no static warning occurs if the type of e may be
 /// assigned to the declared return type of the immediately enclosing function.
 ///
-/// @static-clean
 /// @author rodionov
 
 

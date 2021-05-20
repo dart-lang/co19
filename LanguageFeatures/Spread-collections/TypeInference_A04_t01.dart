@@ -7,7 +7,6 @@
 /// value type is [V].
 /// @description Checks that spread element upwards inference key type is [K] and
 /// the value type is [V] in the map literal
-/// @static-warning
 /// @author iarkh@unipro.ru
 
 
@@ -40,26 +39,62 @@ main() {
 
   Expect.isTrue({...int_map} is Map<int, int>);
   Expect.isTrue({1: "test", 2: "a", ...?str_map, 3: "oo"} is Map<int, String>);
+//                                  ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                      ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<int, String>' which excludes null.
 
   Expect.isTrue({...a_map} is Map<A1, A2>);
   Expect.isTrue({a1: a2, ...?a_map} is Map<A1, A2>);
+//                       ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                           ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<A1, A2>' which excludes null.
   Expect.isTrue({...b_map} is Map<A1, A2>);
   Expect.isTrue({a1: a2, ...?b_map} is Map<A1, A2>);
+//                       ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                           ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<B1, B2>' which excludes null.
   Expect.isTrue({...c_map} is Map<A1, A2>);
   Expect.isTrue({a1: a2, ...?c_map} is Map<A1, A2>);
+//                       ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                           ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<C1, C2>' which excludes null.
   Expect.isTrue({a1: a2, ...a_map, ...b_map, b1: b2} is Map<A1, A2>);
   Expect.isTrue(
       {a1: a2, b1: b2, c1: c2, ...a_map, ...?b_map, ...c_map} is Map<A1, A2>);
+//                                       ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                           ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<B1, B2>' which excludes null.
   Expect.isTrue({a1: a2, ...a_map, ...b_map, b1: b2} is Map<A1, A2>);
 
   Expect.isFalse({...a_map} is Map<B1, B2>);
   Expect.isFalse({b1: b2, ...?a_map} is Map<B1, B2>);
+//                        ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                            ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<A1, A2>' which excludes null.
   Expect.isTrue({...b_map} is Map<B1, B2>);
   Expect.isTrue({b1: b2, ...?b_map} is Map<B1, B2>);
+//                       ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                           ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<B1, B2>' which excludes null.
   Expect.isTrue({...c_map} is Map<B1, B2>);
   Expect.isTrue({b1: b2, ...?c_map} is Map<B1, B2>);
+//                       ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                           ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<C1, C2>' which excludes null.
   Expect.isFalse({c1: c2, ...a_map, ...b_map, b1: b2} is Map<B1, B2>);
   Expect.isFalse(
       {b1: b2, c1: c2, ...a_map, ...b_map, ...?c_map} is Map<B1, B2>);
+//                                         ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                             ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<C1, C2>' which excludes null.
   Expect.isFalse({a1: a2, ...c_map, ...b_map, b1: b2} is Map<B1, B2>);
 }

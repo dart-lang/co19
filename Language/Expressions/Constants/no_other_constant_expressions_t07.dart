@@ -5,7 +5,6 @@
 /// @assertion There are no other constant expressions.
 /// @description Checks that a new expression invoking a const constructor
 /// cannot be used to initialize a constant variable.
-/// @compile-error
 /// @author iefremov
 
 
@@ -13,6 +12,9 @@ class A {
   const A();
 }
 const a = new A();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

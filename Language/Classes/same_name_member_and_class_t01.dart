@@ -7,11 +7,13 @@
 /// @description Checks that a class name cannot be used as a name of a member 
 /// variable.
 /// @author hlodvig
-/// @compile-error
 
 
 class A {
   var A;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

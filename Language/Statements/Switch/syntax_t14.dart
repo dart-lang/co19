@@ -15,7 +15,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the default keyword
 /// is not followed by a colon character.
-/// @compile-error
 /// @author vasya
 
 
@@ -25,6 +24,9 @@ switchTest(value) {
   switch (value) {
     case 0: result = 0; break;
     default result = -1;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   return result;
 }

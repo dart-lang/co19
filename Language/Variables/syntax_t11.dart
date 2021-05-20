@@ -28,10 +28,12 @@
 ///   ;
 /// @description Checks that it is a compile-time error if the right-hand
 /// expression is missing in an initialized variable declaration.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   var x = 1, y = ;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

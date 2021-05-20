@@ -18,11 +18,13 @@
 ///
 /// @description Checks that it is a compile error to read local unassigned final
 /// variable.
-/// @compile-error
 /// @author ilya
 
 
 main() {
   final i;
   var j = i;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -12,7 +12,6 @@
 ///  fn[k : Exp -> Exp] : Exp =>
 ///  let x = EXP(e) in x == null ? null : let y = EXP(x.s) in k(x)
 /// Test legacy pre-NNBD types
-/// @static-warning
 /// @author sgrekhov@unipro.ru
 /// @issue 40959
 
@@ -23,17 +22,29 @@ import "legacy_lib.dart";
 main() {
   A a1 = new A();
 
-  var actual1 = a1 ?.. test();        /// static type warning
+  var actual1 = a1 ?.. test();
+//                 ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//              ^
+// [cfe] Operand of null-aware operation '?..' has type 'A' which excludes null.
   var expected = a1;
   Expect.equals(expected, actual1);
   Expect.equals("test() called 1 times, text2 called 0 times", a1.log);
 
-  var actual2 = a1 ?.. text2;         /// static type warning
+  var actual2 = a1 ?.. text2;
+//                 ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//              ^
+// [cfe] Operand of null-aware operation '?..' has type 'A' which excludes null.
   Expect.equals(expected, actual2);
   Expect.equals("test() called 1 times, text2 called 1 times", a1.log);
 
   var actual3 = a1
-      ?.. test()                      /// static type warning
+//              ^
+// [cfe] Operand of null-aware operation '?..' has type 'A' which excludes null.
+      ?.. test()
+//    ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
       .. text2;
   Expect.equals(expected, actual3);
   Expect.equals("test() called 2 times, text2 called 2 times", a1.log);
@@ -52,18 +63,42 @@ main() {
 
   a2 = new A();
   var actual7 = a2 ?.. test();
+//                 ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//              ^
+// [cfe] Operand of null-aware operation '?..' has type 'A' which excludes null.
   var expected2 = a2;
   Expect.equals(expected2, actual7);
   Expect.equals("test() called 1 times, text2 called 0 times", a2?.log);
+//                                                               ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                                             ^
+// [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
 
   var actual8 = a2 ?.. text2;
+//                 ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//              ^
+// [cfe] Operand of null-aware operation '?..' has type 'A' which excludes null.
   Expect.equals(expected2, actual8);
   Expect.equals("test() called 1 times, text2 called 1 times", a2?.log);
+//                                                               ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                                             ^
+// [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
 
   var actual9 = a2
+//              ^
+// [cfe] Operand of null-aware operation '?..' has type 'A' which excludes null.
       ?.. test()
+//    ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
       .. text2;
   Expect.equals(expected2, actual9);
   Expect.equals("test() called 2 times, text2 called 2 times", a2?.log);
+//                                                               ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                                             ^
+// [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
 
 }

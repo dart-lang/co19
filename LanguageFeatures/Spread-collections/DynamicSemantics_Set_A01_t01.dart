@@ -9,7 +9,6 @@
 ///   3. The result of the literal expression is [set].
 /// @description Checks that instance of [LinkedHashSet<E>] is created for a
 /// [set] literal.
-/// @static-warning
 /// @author iarkh@unipro.ru
 
 
@@ -25,6 +24,10 @@ main() {
   Expect.isTrue(<int>{...list1} is LinkedHashSet<int>);
   Expect.isTrue(<int>{1, 2, ...list1} is LinkedHashSet<int>);
   Expect.isTrue(<int>{1, ...?list1, 14, 9} is LinkedHashSet<int>);
+//                       ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                           ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<dynamic>' which excludes null.
   Expect.isTrue(<String>{...list2, "123"} is LinkedHashSet<String>);
   Expect.isTrue(<String>{...?list3} is LinkedHashSet<String>);
   Expect.isTrue(<int>{...?list3} is LinkedHashSet<int>);

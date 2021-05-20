@@ -11,7 +11,6 @@
 /// the static type of the formal parameter of the setter v =.
 /// @description Checks that it is a compile error if the static type of e
 /// may not be assigned to the static type of C.v.
-/// @compile-error
 /// @author msyabro
 
 
@@ -21,4 +20,7 @@ class C {
 
 main() {
   C.v = true;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

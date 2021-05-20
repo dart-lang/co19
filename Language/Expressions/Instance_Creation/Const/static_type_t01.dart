@@ -10,7 +10,6 @@
 /// constructor T.id (respectively T).
 /// @description Checks that the static type of a constant object expression
 /// is T.
-/// @static-clean
 /// @author msyabro
 
 

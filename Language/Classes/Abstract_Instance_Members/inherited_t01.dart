@@ -11,12 +11,12 @@
 /// declared in a concrete class.
 /// @author kaigorodov
 
-
 class A {
+//    ^
+// [cfe] unspecified
   foo([x]);
 //^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
 }
 
 class B extends A {

@@ -10,7 +10,6 @@
 /// Otherwise it evaluates to false.
 /// @description Checks that if T is parameterized type and G is not generic
 /// type, then it is a compile error
-/// @compile-error
 /// @author ilya
 
 
@@ -18,4 +17,7 @@ class G {}
 
 main() {
   new G() is G<bool>;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

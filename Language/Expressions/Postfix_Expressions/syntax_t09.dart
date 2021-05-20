@@ -22,10 +22,12 @@
 /// getter invocation, or an invocation of a postfix operator on an expression e.
 /// @description Checks that a statement can't be used with postfixOperator.
 /// This test is using a variable declaration statement.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   var x;++;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

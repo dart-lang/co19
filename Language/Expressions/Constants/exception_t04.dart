@@ -6,7 +6,6 @@
 /// constant expression but its evaluation would raise an exception.
 /// @description Checks that using null in a boolean constant expression is a
 /// compile-time error.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -14,10 +13,15 @@ class C {
   final g;
   const C() :
     g = true && null;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   try {
     const C();
+//  ^
+// [analyzer] unspecified
   } catch (ok) {} // NPEs and whatnot
 }

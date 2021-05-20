@@ -13,12 +13,14 @@
 /// not be assigned to the declared return type of the immediately enclosing
 /// function.
 ///
-/// @compile-error
 /// @author vasya
 
 
 int foo() {
   return "0";
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {}

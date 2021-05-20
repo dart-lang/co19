@@ -8,7 +8,6 @@
 /// an error.
 /// @description Checks that there cannot be bare element and key-value pair in
 /// the same collection.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -16,4 +15,7 @@ main() {
   List? aList = [8, 9, 10];
   Map? aMap = {1: 2};
   var res = {...?aList, ...?aMap};
+//          ^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

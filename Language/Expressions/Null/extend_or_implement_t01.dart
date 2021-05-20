@@ -5,11 +5,13 @@
 /// @assertion It is a compile-time error for a class to
 /// attempt to extend, mix in or implement Null.
 /// @description Checks that Null cannot be extended by a class.
-/// @compile-error
 /// @author hlodvig
 
 
 class A extends Null {}
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   A();

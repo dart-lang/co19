@@ -11,7 +11,6 @@
 ///   has a static method or getter named m
 /// @description Check that it is no static type warning if e is a constant type
 /// literal and the class corresponding to e has a static getter named m
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

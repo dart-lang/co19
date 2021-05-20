@@ -15,7 +15,6 @@
 /// libraries imported with empty prefixes introduce the same name (both via
 /// re-export of a third library) to the top level scope of L and L uses it as
 /// a type annotation.
-/// @static-clean
 /// @author rodionov
 
 

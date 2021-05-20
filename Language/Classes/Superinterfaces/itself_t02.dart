@@ -8,13 +8,15 @@
 /// denotes the interface of the class.
 /// Test checks that it is a compile-time error when a class's own name is
 /// included in its implements clause.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 abstract class I {}
 
 class C implements I, CAlias {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 typedef CAlias = C;
 

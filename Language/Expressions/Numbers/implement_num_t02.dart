@@ -5,11 +5,13 @@
 /// @assertion It is a compile-time error for any type other than the types
 /// int and double to attempt to extend, mix in or implement num.
 /// @description Checks that a user-defined class can not implement num.
-/// @compile-error
 /// @author iefremov
 
 
 class A implements num {}
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

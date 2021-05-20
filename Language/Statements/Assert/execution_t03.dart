@@ -13,10 +13,12 @@
 /// complete. If the assertion failed, an AssertionError is thrown.
 /// @description Checks that a compile error occurs if the conditional
 /// expression [e] evaluates to [null].
-/// @compile-error
 /// @author rodionov
 
 
 main() {
   assert(null);
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

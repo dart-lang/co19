@@ -8,13 +8,15 @@
 /// @description Checks that instance setter with async* modifier cause
 /// compiler error.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 class A {
   int? _a;
   A() {}
   set a(int value) async* {
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
     _a = value;
   }
 }

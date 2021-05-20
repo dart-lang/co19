@@ -7,7 +7,6 @@
 /// @description checks that function types with various return types
 /// are all subtypes of given type t1 that declares no return type, therefore
 /// the return type of t1 should be dynamic.
-/// @static-clean
 /// @author iefremov, sgrekhov@unipro.ru
 
 import '../../../Utils/expect.dart';

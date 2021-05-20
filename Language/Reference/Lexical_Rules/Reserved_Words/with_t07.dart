@@ -7,14 +7,19 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "with" is used as a static class member (function) name.
-/// @compile-error
 /// @author rodionov
 
 
 class C {
   static void with() {}
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   C.with();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

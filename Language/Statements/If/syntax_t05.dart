@@ -8,13 +8,16 @@
 /// ;
 /// @description Checks that it is a compile-time error if the closing expression
 /// bracket is missing.
-/// @compile-error
 /// @author vasya
 
 
 main() {
   var foo;
   if (true
+//   ^
+// [cfe] unspecified
     foo = "foo";
+//  ^
+// [analyzer] unspecified
 }
 

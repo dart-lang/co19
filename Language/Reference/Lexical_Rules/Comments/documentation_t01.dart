@@ -8,13 +8,24 @@
 /// whitespace do not make a documentation comment start token (or any other kind
 /// of comment).
 /// @author vasya
-/// @compile-error
 
 
 /
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 	**
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
  * Documentation comment
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
  */
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

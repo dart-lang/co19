@@ -20,12 +20,14 @@
 /// @description Checks that variables can't be declared as static inside of
 /// a function body.
 ///
-/// @compile-error
 /// @author msyabro
 
 
 f() {
   static var x;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -14,9 +14,7 @@
 /// @issue 39325
 /// https://github.com/dart-lang/language/issues/677
 /// @author sgrekhov@unipro.ru
-/// @static-warning
 /// @issue 43217
-
 
 import "../../Utils/expect.dart";
 
@@ -29,5 +27,9 @@ extension Ext on C {
 
 main() {
   C c = C();
-  Expect.equals(42, Ext(c)?.id());  /// static type warning
+  Expect.equals(42, Ext(c)?.id());
+//                        ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                      ^
+// [cfe] Operand of null-aware operation '?.' has type 'C' which excludes null.
 }

@@ -9,7 +9,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the loop expression is
 /// missing.
-/// @compile-error
 /// @author vasya
 
 
@@ -17,5 +16,8 @@ main() {
   do {
     break;
   } while ();
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

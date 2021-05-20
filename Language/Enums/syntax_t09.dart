@@ -9,12 +9,16 @@
 ///  ;
 /// @description Checks that it is a compile error if enum has more then one
 /// comma in the end of member list.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
 enum E {a, b,, }
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   E e = E.b;
+//        ^
+// [cfe] unspecified
 }

@@ -9,7 +9,6 @@
 ///
 /// @description Check that it is a compile error if the function immediately
 /// enclosing await expression is not marked with async, async* or sync*
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
@@ -22,4 +21,7 @@ f() {
 
 main() {
   await f();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

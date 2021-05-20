@@ -24,13 +24,15 @@
 /// bitwise operator on either super or an expression e1, with argument e2.
 /// @description Checks that a type variable cannot be used as the second operand
 /// of a bitwise expression without a compile error.
-/// @compile-error
 /// @author msyabro
 
 
 class A<T> {
   test() {
     1 | T;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

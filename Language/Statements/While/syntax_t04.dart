@@ -9,11 +9,13 @@
 /// ;
 /// @description Checks that it is a compile-time error if the expression is
 /// missing.
-/// @compile-error
 /// @author vasya
 
 
 main() {
   while () { }
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

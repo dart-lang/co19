@@ -5,10 +5,12 @@
 /// @assertion The static type of a string literal is String.
 /// @description Checks that a compile error occurs when assigning
 /// a single-quoted string literal to an int variable.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   int i = '';
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -14,10 +14,12 @@
 /// value. Each key and each value is denoted by an expression.
 /// @description Checks that it is a compile-time error if a key in a map
 /// literal is not a valid expression.
-/// @compile-error
 /// @author kaigorodov
 
 
 main() {
   var x = {1{}: 1};
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

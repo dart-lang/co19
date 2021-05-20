@@ -14,9 +14,10 @@ class C {
   static get foo { throw new C(); }
 //           ^
 // [analyzer] unspecified
-// [cfe] unspecified
 
   foo() { throw new C(); }
+//^
+// [cfe] unspecified
 }
 
 main() {

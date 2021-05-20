@@ -9,7 +9,6 @@
 /// built-in identifier abstract, the class being defined is an abstract class.
 /// @description Checks that compile error is issued, if class C declared without
 /// 'abstract' identifier does not implement all abstract methods.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -22,6 +21,9 @@ abstract class S {
 }
 
 class C = S with M;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new C();

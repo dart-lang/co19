@@ -11,7 +11,6 @@
 ///
 /// @description Checks that it is a compile error if a class C declares an
 /// instance method named n and an inherited instance getter named n.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
@@ -21,6 +20,9 @@ class A {
 
 class C extends A {
   foo() {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

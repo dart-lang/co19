@@ -17,7 +17,6 @@
 ///   to its subtypes.
 /// @description Checks that it is a compile error if member m exists in
 /// T but is inaccessible.
-/// @compile-error
 /// @author msyabro
 
 
@@ -26,4 +25,7 @@ import '../lib.dart';
 main() {
   C o = new C();
   o._func();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

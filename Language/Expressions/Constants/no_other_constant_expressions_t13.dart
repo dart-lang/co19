@@ -5,12 +5,14 @@
 /// @assertion There are no other constant expressions.
 /// @description Checks that an assignment expression cannot be used to
 /// initialize a constant variable.
-/// @compile-error
 /// @author iefremov
 
 
 var a;
 const m = (a = 1);
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

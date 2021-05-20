@@ -29,7 +29,6 @@
 /// case the implicit interface of non-abstract class has method with one
 /// required parameter of type dynamic and a set of all named optional
 /// parameters.
-/// @static-clean
 /// @author ngl@unipro.ru
 
 

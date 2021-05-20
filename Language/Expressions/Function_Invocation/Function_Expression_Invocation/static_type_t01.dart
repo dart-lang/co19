@@ -6,11 +6,13 @@
 /// be assigned to a function type.
 /// @description Checks that it is a compile error if the static type F of ef
 /// may not be assigned to a function type.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   int e = 1;
   e();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

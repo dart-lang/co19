@@ -6,11 +6,13 @@
 /// to either bool or () -> bool.
 /// @description Checks that it is a compile error if the type of e is
 /// () -> int.
-/// @compile-error
 /// @author rodionov
 
 int foo() { return 1; }
 
 main() {
   assert (foo);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

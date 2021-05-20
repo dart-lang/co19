@@ -28,10 +28,12 @@
 ///   ;
 /// @description Checks that finalConstVarOrType cannot appear twice in 
 /// variable declaration.
-/// @compile-error
 /// @author kaigorodov
 
 
 main() {
   var x, var y;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

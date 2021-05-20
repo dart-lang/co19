@@ -9,7 +9,6 @@
 /// • instances of a class that implements String, for all k in 1..n.
 /// @description Checks that it is a compile-time error if case expressions
 /// of a switch statement with a default case have different types.
-/// @compile-error
 /// @author msyabro
 
 
@@ -21,6 +20,9 @@ main() {
     case 0:
     case 2:
     case "false":
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
     default:
   }
 }

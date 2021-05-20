@@ -22,7 +22,6 @@
 ///      instantiate-to-bounds type of [T2] and not vice versa.
 /// @description Check that compile time error is thrown if two extension members
 /// are equitable
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -37,4 +36,7 @@ extension TypedEquals2 on Object {
 
 main() {
   "123".equals(123);
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -24,7 +24,6 @@
 /// 2. A finally clause, which consists of a block statement.
 /// @description Checks that it is a compile-time error when the onPart is
 /// missing its block.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -32,4 +31,7 @@ main() {
   try {
     throw "foo";
   } on String catch (ex)
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

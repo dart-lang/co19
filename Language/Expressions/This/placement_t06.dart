@@ -8,12 +8,14 @@
 /// initializer of an instance variable.
 /// @description Checks that it is a compile-error if 'this' appears in a static
 /// method.
-/// @compile-error
 /// @author msyabro
 
 
 class C {
   static method() => this;
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

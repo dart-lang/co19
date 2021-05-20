@@ -7,12 +7,17 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "true" is used as a function type alias name.
-/// @compile-error
 /// @author rodionov
 
 
 typedef void true();
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   null is true;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

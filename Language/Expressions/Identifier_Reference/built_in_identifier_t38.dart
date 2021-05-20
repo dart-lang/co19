@@ -7,10 +7,12 @@
 /// @description Checks that it is a compile-time error if a built-in identifier
 /// "export" is used as the declared name of a class.
 /// @author ngl@unipro.ru
-/// @compile-error
 
 
 class export {}
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

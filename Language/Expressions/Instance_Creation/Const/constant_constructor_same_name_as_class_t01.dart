@@ -8,7 +8,6 @@
 /// name as the declaration of T.
 /// @description Checks that it is a compile-time error if T does not declare a
 /// constant constructor with the same name as the declaration of T.
-/// @compile-error
 /// @author msyabro
 
 
@@ -18,4 +17,7 @@ class T {
 
 main() {
   const T();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

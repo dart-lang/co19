@@ -22,4 +22,6 @@ class A {
 
 main() {
   const A();
+//      ^
+// [cfe] unspecified
 }

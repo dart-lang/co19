@@ -8,11 +8,13 @@
 /// @description Check that it is a compile time error, if the declared
 /// return type of asynchronous function may not be assigned to Future.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 int f() async {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
   return 1;
 }
 

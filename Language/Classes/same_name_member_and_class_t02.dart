@@ -5,12 +5,14 @@
 /// @assertion It is a compile time error if a class C declares a member with 
 /// the same name as C.
 /// @description Checks that a class name cannot be used as a name of a getter.
-/// @compile-error
 /// @author hlodvig
 
 
 class A {
   int get A => 0;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

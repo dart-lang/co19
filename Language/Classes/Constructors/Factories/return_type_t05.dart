@@ -9,7 +9,6 @@
 /// @description Checks that assigning the result of invoking a factory
 /// constructor to a variable whose type is assignable to M<T1,...,Tn> does not
 /// result in a static warning.
-/// @static-clean
 /// @author rodionov
 
 

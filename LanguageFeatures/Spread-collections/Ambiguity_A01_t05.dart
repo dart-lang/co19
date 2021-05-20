@@ -16,7 +16,6 @@
 /// In other words, if it can only be a set, it is. Otherwise, it's a map.
 /// @description Checks that if [a] is a map literal and [b] is a set literal,
 /// it's a compile error.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -25,4 +24,7 @@ main() {
   Map map = {1: 1, "test": 1, 14: null};
 
   var res = {...map, ...list};
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

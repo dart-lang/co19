@@ -24,7 +24,6 @@
 /// @description Checks that GenericType<T> is mutually assignable (no static
 /// type warnings) with GenericType<S> where T and S are trivial generics.
 /// @issue 27556
-/// @static-clean
 /// @author iefremov
 
 

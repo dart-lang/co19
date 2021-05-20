@@ -11,11 +11,13 @@
 /// return type of a function marked async* may not be assigned to Stream but is
 /// void.
 /// @issue 32192
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 void h() async* { }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   h();

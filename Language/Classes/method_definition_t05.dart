@@ -22,12 +22,15 @@
 /// ;
 /// @description Checks that there is a compile-time error if a concrete class
 /// has a setter without an implementation
-/// @compile-error
 /// @author msyabro
 
 
 class A {
+//    ^
+// [cfe] unspecified
   set val(var v);
+//^
+// [analyzer] unspecified
   var _val;
 }
 

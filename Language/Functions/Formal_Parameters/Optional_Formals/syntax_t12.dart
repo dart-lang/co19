@@ -12,12 +12,16 @@
 /// ;
 /// @description Checks that it is a compile-time error when the two kinds of
 /// brackets are mixed in an optional parameters declaration.
-/// @compile-error
 /// @author rodionov
 
 
 foo({const p: 1]) {
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
   p = 1;
+//^
+// [cfe] unspecified
 }
 
 main() {

@@ -6,7 +6,6 @@
 /// of e2
 /// @description Checks that static type of the expression e1.v = e2 is the
 /// static type of e2. Test the case when e1 an instance of some class
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -18,4 +17,7 @@ class C {
 
 main() {
   C y = (C.v = new A());
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

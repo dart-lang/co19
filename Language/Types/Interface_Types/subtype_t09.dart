@@ -23,7 +23,6 @@
 /// T <: S or S <: T.
 /// @description Checks that a dynamic variable can be assigned a value of any
 /// type without static warnings or type errors.
-/// @static-clean
 /// @author iefremov
 
 

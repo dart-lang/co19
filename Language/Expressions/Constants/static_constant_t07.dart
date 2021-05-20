@@ -10,7 +10,6 @@
 ///   by a deferred prefix.
 /// @description Checks that a qualified reference with a deferred prefix to a
 /// static constant class variable cannot be used as a constant expression.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
@@ -24,8 +23,14 @@ class C {
 }
 
 const constList = const [
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
   x,
   clib.C.y,
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
   C.y
 ];
 

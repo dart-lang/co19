@@ -17,7 +17,6 @@
 ///   to its subtypes.
 /// @description Checks that there is no static type warning if T is a constant
 /// type literal and the class corresponding to e has a static getter named m.
-/// @static-clean
 /// @author ngl@unipro.ru
 
 

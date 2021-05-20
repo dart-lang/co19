@@ -15,11 +15,13 @@
 /// static error.
 /// @description Checks that static error is thrown if null-aware spread element
 /// and set type arguments are incompatible.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 main() {
   List<num> numbers = <num>[1, 2, 3];
   Set<String> set = <String>{...?numbers};
+//                           ^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
  }

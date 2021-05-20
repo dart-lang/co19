@@ -20,7 +20,6 @@
 /// ;
 /// @description Checks that a generic type can not be parameterized with
 /// non-type (using null).
-/// @compile-error
 /// @author iefremov
 
 
@@ -30,4 +29,7 @@ class G<T> {
 
 main() {
   G<null>? t;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

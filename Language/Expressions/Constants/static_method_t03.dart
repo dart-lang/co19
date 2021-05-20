@@ -10,12 +10,14 @@
 ///   method that is not qualified by a deferred prefix.
 /// @description Checks that an identifier denoting a local function is not a
 /// constant expression.
-/// @compile-error
 /// @author ilya
 
 
 main() {
   f() {
     const v = f;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }

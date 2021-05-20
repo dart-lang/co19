@@ -7,7 +7,6 @@
 /// T1, ..., Tn are the formal type parameters of G.
 /// @description Checks that static type of member m G<T1, T2> is [T1, T2]S with
 /// upper bounds specified
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

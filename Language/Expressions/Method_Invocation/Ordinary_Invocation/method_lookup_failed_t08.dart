@@ -21,10 +21,12 @@
 /// im, and the result of this invocation is the result of evaluating i.
 /// @description Checks static invocations when C does not denote a class in
 /// the current scope. This causes a compile error
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   C.func();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

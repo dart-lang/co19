@@ -6,12 +6,14 @@
 /// the same name as C.
 /// @description Checks that a class name cannot be used as a name of a static 
 /// getter.
-/// @compile-error
 /// @author hlodvig
 
 
 class A {
   static int get A => 0;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

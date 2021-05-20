@@ -20,7 +20,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when the type arguments
 /// are only space delimited.
-/// @compile-error
 /// @author iefremov
 
 
@@ -30,4 +29,7 @@ class G<A, B> {
 
 main() {
   G<int double>? g;
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

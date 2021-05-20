@@ -14,7 +14,6 @@
 /// double.
 /// @description Checks different cases for static types of x + y, x - y when
 /// arguments are int or double.
-/// @static-clean
 /// @author ngl@unipro.ru
 
 

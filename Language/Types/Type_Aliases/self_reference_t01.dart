@@ -6,11 +6,13 @@
 /// via another typedef, is a compile time error.
 /// @description Checks that self-referencing typedef is not allowed (return
 /// value type annotation has the same name as the type alias).
-/// @compile-error
 /// @author msyabro
-
+/// @issue 46062
 
 typedef F F();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   null is F;

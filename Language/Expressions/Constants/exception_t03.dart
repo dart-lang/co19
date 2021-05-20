@@ -6,7 +6,6 @@
 /// constant expression but its evaluation would raise an exception.
 /// @description Checks that a NoSuchMethodError raised during evaluation of a
 /// compile-time constant causes a compile-time error.
-/// @compile-error
 /// @author iefremov
 
 
@@ -16,6 +15,9 @@ class A {
 }
 
 const m = const A(const []);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   print(m);

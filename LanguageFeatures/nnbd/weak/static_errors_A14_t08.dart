@@ -13,7 +13,6 @@
 /// Test some type A*, where A is nullable
 /// @issue 38715
 /// @issue 39865
-/// @static-warning
 /// @author sgrekhov@unipro.ru
 
 // Requirements=nnbd-weak
@@ -26,7 +25,19 @@ main() {
   a?[0];
 
   a = new A();
-  a?.test();      /// static type warning
-  a ?.. test();   /// static type warning
-  a?[0];         /// static type warning
+  a?.test();
+// ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//^
+// [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
+  a ?.. test();
+//  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//^
+// [cfe] Operand of null-aware operation '?..' has type 'A' which excludes null.
+  a?[0];
+// ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//^
+// [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
 }

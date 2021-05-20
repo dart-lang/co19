@@ -14,8 +14,6 @@
 class MyClass {
   final String a;
   const MyClass(Object o) : a = o as String;
-//                                ^
-// [cfe] unspecified
 }
 
 main() {

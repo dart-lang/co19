@@ -20,12 +20,17 @@
 /// ;
 /// @description Checks that it is a compile-time error when there is an additive
 /// expression in place of the identifier (prefix).
-/// @compile-error
 /// @author msyabro
 
 
 import "syntax_lib.dart" as 2+2;
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   someVar = 0;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

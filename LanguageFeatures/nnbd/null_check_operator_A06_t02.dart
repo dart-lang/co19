@@ -8,7 +8,6 @@
 /// @description Check that an expression of the form e! evaluates e to a value
 /// v, throws a runtime error if v is null. Test generic class with named
 /// constructor
-/// @static-warning
 /// @author sgrekhov@unipro.ru
 /// @issue 39723
 /// @issue 39724
@@ -33,17 +32,53 @@ class A<T> {
 }
 
 main() {
-  new A<String>.named("Let's have fun")!;         /// static type warning
-  new A<String>.named("Let's have fun")!.foo();   /// static type warning
-  new A<String>.named("Let's have fun")![42];     /// static type warning
-  new A<String>.named("Let's have fun")!?.foo();  /// static type warning
-  new A<String>.named("Let's have fun")!?[42];    /// static type warning
+  new A<String>.named("Let's have fun")!;
+//                                     ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//    ^
+// [cfe] Operand of null-aware operation '!' has type 'A<String>' which excludes null.
+  new A<String>.named("Let's have fun")!.foo();
+//                                     ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//    ^
+// [cfe] Operand of null-aware operation '!' has type 'A<String>' which excludes null.
+  new A<String>.named("Let's have fun")![42];
+//                                     ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//    ^
+// [cfe] Operand of null-aware operation '!' has type 'A<String>' which excludes null.
+  new A<String>.named("Let's have fun")!?.foo();
+//                                      ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                     ^
+// [cfe] Operand of null-aware operation '?.' has type 'A<String>' which excludes null.
+  new A<String>.named("Let's have fun")!?[42];
+//                                      ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                     ^
+// [cfe] Operand of null-aware operation '?.' has type 'A<String>' which excludes null.
   new A<String>.named("Let's have fun").getValue!;
   new A<String>.named("Let's have fun")[42]!;
-  new A<String>.named("Let's have fun")!.s = "Lily was here";       /// static type warning
-  new A<String>.named("Let's have fun")!?.s = "Lily was here";      /// static type warning
-  new A<String>.named("Let's have fun")![0] = "Lily was here";      /// static type warning
-  new A<String>.named("Let's have fun")!?[0] = "Lily was here";     /// static type warning
+  new A<String>.named("Let's have fun")!.s = "Lily was here";
+//                                     ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//    ^
+// [cfe] Operand of null-aware operation '!' has type 'A<String>' which excludes null.
+  new A<String>.named("Let's have fun")!?.s = "Lily was here";
+//                                      ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                     ^
+// [cfe] Operand of null-aware operation '?.' has type 'A<String>' which excludes null.
+  new A<String>.named("Let's have fun")![0] = "Lily was here";
+//                                     ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//    ^
+// [cfe] Operand of null-aware operation '!' has type 'A<String>' which excludes null.
+  new A<String>.named("Let's have fun")!?[0] = "Lily was here";
+//                                      ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                     ^
+// [cfe] Operand of null-aware operation '?.' has type 'A<String>' which excludes null.
   Expect.throws(() {new A<String>.named("Let's have fun").getNull!;});
   Expect.throws(() {new A<String>.named("Let's have fun")[null]!;});
 }

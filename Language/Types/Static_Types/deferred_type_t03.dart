@@ -9,7 +9,6 @@
 /// libraries have successfully been loaded.
 /// @description Checks that it is a static warning if a deferred type is used
 /// in a type annotation, type test, type cast or as a type parameter.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 import "../somelib1.dart" deferred as p1;
@@ -17,4 +16,7 @@ import "../somelib1.dart" deferred as p1;
 
 main() {
   String as p1.C;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -17,12 +17,14 @@
 /// {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
 /// @description  Checks that compile error occurs if direct superclass of T
 /// is malbounded type.
-/// @compile-error
 /// @author ilya
 
 
 class C<T extends int> {}
 class D extends C<String> {}
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new D();

@@ -5,13 +5,18 @@
 /// @assertion It is a compile-time error for a class to attempt to extend,
 /// mix in or implement double.
 /// @description Checks that a user-defined interface cannot extend double.
-/// @compile-error
 /// @author iefremov
 
 
 abstract class A extends double {}
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class B implements A {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new B();

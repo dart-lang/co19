@@ -7,10 +7,12 @@
 /// For example, as a type argument, or as the type of a variable or parameter.
 /// @description Checks that specifying void on the right side of a type test
 /// expression causes a compile-time error.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   bool b = null is void;
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

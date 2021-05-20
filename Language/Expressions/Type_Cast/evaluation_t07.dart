@@ -12,7 +12,6 @@
 /// @description Checks that if T is a parameterized type of the form
 /// G<T1,...,Tn>, G is generic type and Ti are unknown type then compile error
 /// occurs
-/// @compile-error
 /// @author ilya
 
 
@@ -20,4 +19,7 @@ class G<S, T> {}
 
 main() {
   [] as G<Foo,Bar>;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

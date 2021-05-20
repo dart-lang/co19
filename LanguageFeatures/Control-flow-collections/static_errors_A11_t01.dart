@@ -8,10 +8,12 @@
 /// @description Checks that it is a static error when the type of the condition
 /// expression (the second clause) in a C-style for element may not be assigned
 /// to bool
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 main() {
   [for (; "not bool";) 1];
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

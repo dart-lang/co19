@@ -21,9 +21,8 @@
 /// name of the library.
 /// @description Checks that it is a compile-time error if the library name is
 /// an additive expression rather than an identifier.
-/// @compile-error
 /// @author msyabro
-
+/// @issue 44990
 
 import "definition_syntax_t21_lib.dart";
 

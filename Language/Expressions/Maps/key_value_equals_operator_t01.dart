@@ -9,7 +9,6 @@
 /// @description Checks that compile-error is produced for const
 /// Map<dynamic,dynamic> literal that contains a non-string, non-integer key
 /// whose class implements operator ==.
-/// @compile-error
 /// @author ilya
 
 
@@ -20,4 +19,7 @@ class C {
 
 main() {
   var x = const {const C(): 1};
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -9,7 +9,6 @@
 /// @description Checks static invocations, when T denotes a class in the
 /// current scope. Static type of a static method invocation is the declared
 /// return type of F.
-/// @static-clean
 /// @author msyabro
 
 

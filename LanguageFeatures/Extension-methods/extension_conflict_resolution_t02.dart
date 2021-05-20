@@ -22,7 +22,6 @@
 ///      instantiate-to-bounds type of [T2] and not vice versa.
 /// @description Check that an extension from non-platform library is not more or
 /// less specific than one from another non-platform library.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -36,4 +35,7 @@ extension MyFancyList on List {
 main() {
   List aList = [];
   aList.isLibraryVersion;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

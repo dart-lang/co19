@@ -22,7 +22,6 @@
 /// ;
 /// @description Checks that a map literal can't be a top level definition in
 /// a library.
-/// @compile-error
 /// @author msyabro
 
 

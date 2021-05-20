@@ -12,11 +12,13 @@
 /// ;
 /// @description Checks that it is a compile-time error if the label is used
 /// without the colon character.
-/// @compile-error
 /// @author vasya
 
 
 
 main() {
   L while (true) { break L; }
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

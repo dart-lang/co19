@@ -17,10 +17,12 @@
 /// ;
 /// @description Checks that it is a compile-time error if the loop parts are
 /// missing entirely.
-/// @compile-error
 /// @author vasya
 
 
 main() {
   for () {}
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

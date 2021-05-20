@@ -7,12 +7,17 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "final" is used as a class name.
-/// @compile-error
 /// @author vasya
 
 
 class final { } // error
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   null is final;
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

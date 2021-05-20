@@ -23,9 +23,11 @@
 /// @description Checks that multi-line strings that contain characters and
 /// sequences prohibited by this grammar, cause compile-time errors.
 /// @author rodionov
-/// @compile-error
 
 
 main() {
   '''^_$''';
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -12,7 +12,6 @@
 /// not null and Future<S> is not a subtype of the actual return type of the
 /// immediately enclosing async function.
 ///
-/// @compile-error
 /// @Issue 26133
 /// @author a.semenov@unipro.ru
 
@@ -22,5 +21,8 @@ import '../../../Utils/expect.dart';
 var r = 'a';
 
 Future<int> foo() async { return r; }
+//                               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {}

@@ -26,12 +26,16 @@
 /// ;
 /// @description Checks that the named parameter list must begin with an opening
 /// curly brace.
-/// @compile-error
 /// @author iefremov
 
 
 void f(}) {}
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main () {
   f();
+// ^
+// [analyzer] unspecified
 }

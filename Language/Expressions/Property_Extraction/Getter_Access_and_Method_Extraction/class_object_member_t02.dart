@@ -6,7 +6,6 @@
 /// e is either a prefix object or a constant type literal.
 /// @description Check that it is a compile-time error if in expression e.m
 /// e is a library prefix and m is Object's runtimeType property
-/// @compile-error
 /// @issue 24332
 /// @author sgrekhov@unipro.ru
 
@@ -14,4 +13,7 @@ import 'instance_of_type_lib.dart' as lib;
 
 main() {
   var x = lib.runtimeType;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

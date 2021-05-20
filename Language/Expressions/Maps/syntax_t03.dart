@@ -14,12 +14,14 @@
 /// value. Each key and each value is denoted by an expression.
 /// @description Checks that it is a compile-time error if map entries
 /// are not separated by a comma.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   try {
     {"1": 1 "2" : 2};
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

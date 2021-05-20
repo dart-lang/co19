@@ -14,13 +14,16 @@
 /// @description Checks that it is a compile error if two different libraries
 /// introduce the same name (one of them via re-export) to the top level scope
 /// of L and L uses it as a type parameter.
-/// @compile-error
 /// @author rodionov
 
 import "same_name_t11_p1_lib.dart";
 import "same_name_t11_p2_lib.dart";
+//^
+// [cfe] unspecified
 
 class Foo2<T extends foo> {}
+//                   ^
+// [analyzer] unspecified
 
 main() {
   new Foo2<int>();

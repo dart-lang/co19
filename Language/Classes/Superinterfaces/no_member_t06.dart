@@ -9,7 +9,6 @@
 /// non-abstract instance member m of type F' such that F' <: F.
 /// @description Checks that it is a compile error if a class does not declare
 /// nor inherit an instance method declared in class' interface. Test type alias
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -21,6 +20,9 @@ abstract class I {
 typedef IAlias = I;
 
 class C implements IAlias {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main () {

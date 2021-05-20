@@ -9,7 +9,6 @@
 /// @description Checks that it is a compile error if the type of an actual
 /// argument may not be assigned to the type of an optional parameter of a
 /// top-level function.
-/// @compile-error
 /// @author msyabro
 
 
@@ -17,4 +16,7 @@ func([int? x]) {}
 
 main() {
   func('');
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

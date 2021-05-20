@@ -6,7 +6,6 @@
 /// an enum or to explicitly instantiate an enum.
 /// @description Checks that it is compile-time error to mix-in an enum. Test
 /// type alias
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -18,6 +17,9 @@ class A {
 }
 
 class C extends A with EAlias {
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

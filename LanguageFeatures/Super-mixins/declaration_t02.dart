@@ -19,14 +19,10 @@
 
 class I {
   int get i1 => 1;
-//        ^^
-// [cfe] unspecified
 }
 
 class B {
   double get i1 => 2.0;
-//           ^^
-// [cfe] unspecified
 }
 
 mixin M on B implements I {}

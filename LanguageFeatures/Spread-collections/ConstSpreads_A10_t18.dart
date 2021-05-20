@@ -10,7 +10,6 @@
 /// expression.
 /// @description: Checks that constant map spread [...?] element can only be a
 /// constant map or null.
-/// @static-warning
 /// @author iarkh@unipro.ru
 
 
@@ -18,5 +17,9 @@ main() {
   const Map res1 = const {...?({1: 1, 2: 2} as Map?), 4: 3};
   const Map res2 = const {...?(<Object, Object>{} as Map?)};
   const Map res3 = const {...?{}};
+//                        ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                            ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
   const Map res4 = const {...?null};
 }

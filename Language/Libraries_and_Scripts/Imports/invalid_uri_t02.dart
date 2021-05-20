@@ -7,11 +7,13 @@
 /// not refer to a library declaration.
 /// @description Checks that it is a compile-time error if the URI in an import
 /// directive does not denote an existing file.
-/// @compile-error
 /// @author msyabro
 
 
 import "IntentionallyMissingFile.dart";
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
  var someVar = 0;

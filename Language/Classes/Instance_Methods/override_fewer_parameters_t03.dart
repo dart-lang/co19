@@ -7,7 +7,6 @@
 /// @description Checks that a compile error is produced if m1 has fewer
 /// optional positional parameters than m2 (2 vs 3) and neither have any 
 /// required parameters. Test type aliases
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -19,6 +18,9 @@ typedef AAlias = A;
 
 class C extends AAlias {
   f([var x, var y]) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

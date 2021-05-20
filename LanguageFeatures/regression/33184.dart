@@ -4,10 +4,12 @@
 
 /// @description Regression test for the issue 33184 (No error when run dart
 /// class with incorrect instantiation to bound)
-/// @compile-error
 /// @Issue 33184
 /// @author iarkh@unipro.ru
 
 class D<T extends Comparable<T>> {}
 class E<T extends D> {}
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 main() {}

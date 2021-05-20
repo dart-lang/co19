@@ -7,7 +7,6 @@
 /// @description Checks that if the mixin application declares support for
 /// interfaces and the resulting class implements those interfaces then no
 /// static warning occurs. Test type aliases
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

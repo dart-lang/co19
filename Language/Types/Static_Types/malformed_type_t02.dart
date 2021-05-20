@@ -14,12 +14,14 @@
 /// unless explicitly specified otherwise.
 /// @description Checks that it is a compile error if a type variable is used
 /// in static context as a type of static member.
-/// @compile-error
 /// @author kaigorodov
 
 
 class C<T> {
    static T? v = null;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

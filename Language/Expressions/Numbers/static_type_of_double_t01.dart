@@ -5,7 +5,6 @@
 /// @assertion The static type of a literal double is double.
 /// @description Checks that no static warnings are produced when assigning
 /// double literals to a typed double variable.
-/// @static-clean
 /// @author iefremov
 
 

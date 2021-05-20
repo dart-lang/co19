@@ -6,12 +6,17 @@
 /// mix in or implement bool.
 /// @description Checks that it is a compile-time error when a user-defined
 /// interface attempts to extend bool.
-/// @compile-error
 /// @author msyabro
 
 
 abstract class I extends bool {}
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 class C implements I {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

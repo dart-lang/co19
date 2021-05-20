@@ -7,7 +7,6 @@
 /// by m2.
 /// @description Checks that there is no static warnings if m1 has the same set
 /// of named parameters as m2 but in a different order. Test type aliases
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

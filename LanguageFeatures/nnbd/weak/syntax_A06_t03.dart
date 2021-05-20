@@ -10,7 +10,6 @@
 /// null-aware subscripting using the syntax e1?[e2] which evaluates to null if
 /// e1 evaluates to null and otherwise evaluates as e1[e2]. Test legacy pre-NNBD
 /// types
-/// @static-warning
 /// @author sgrekhov@unipro.ru
 /// @issue 39865
 
@@ -22,5 +21,9 @@ main() {
   A? a = null;
   Expect.isNull(a?[42]);
   a = new A();
-  Expect.equals(42, a?[42]);   /// static type warning
+  Expect.equals(42, a?[42]);
+//                   ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                  ^
+// [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
 }

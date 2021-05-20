@@ -10,16 +10,20 @@
 /// declaration d is in scope if d is available in the current scope.
 /// @description Checks that it is a compile-time error if a class contains
 /// two instance methods with the same name.
-/// @compile-error
 /// @author msyabro
 
 
 class C {
   conflictingName() {}
   conflictingName(p1) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   var c = new C();
   c.conflictingName;
+//  ^
+// [cfe] unspecified
 }

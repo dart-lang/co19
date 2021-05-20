@@ -16,7 +16,6 @@
 /// int if the static type of e2 is int.
 /// @description Checks special cases for static types of expressions
 /// x * y, x % y, x ~/ y when x is int.
-/// @static-clean
 /// @author ilya
 
 

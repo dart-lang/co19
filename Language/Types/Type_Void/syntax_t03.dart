@@ -7,10 +7,12 @@
 /// For example, as a type argument, or as the type of a variable or parameter.
 /// @description Checks that specifying void as a function's parameter type
 /// (C-style, without the parameter name) causes a compile-time error.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   f(void) {};
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

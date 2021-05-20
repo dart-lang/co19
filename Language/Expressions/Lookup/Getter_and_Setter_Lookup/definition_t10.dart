@@ -10,14 +10,19 @@
 /// up getter (respectively setter) m in S with respect to L. Otherwise, we say
 /// that the lookup has failed.
 /// @description Checks that an implicit setter cannot be looked up dynamically.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 class A {
   Object? test() {
     a = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
     return a;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

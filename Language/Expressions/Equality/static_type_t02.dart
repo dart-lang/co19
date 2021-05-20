@@ -4,10 +4,12 @@
 
 /// @assertion The static type of an equality expression is bool.
 /// @description Checks that static type of an equality expression is not int.
-/// @compile-error
 /// @author kaigorodov
 
 
 main() {
   int b = (1 == 1);
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

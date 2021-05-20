@@ -43,12 +43,20 @@
 /// safety turned on.
 ///
 /// @author sgrekhov@unipro.ru
+/// @issue 46086
 
 f(func) {}
 
 class C {
   static var sVar = f(() => sVar);
+//           ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   static final sFinal = f(() => sFinal);
+//             ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

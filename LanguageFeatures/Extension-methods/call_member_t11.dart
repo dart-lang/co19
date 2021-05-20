@@ -13,7 +13,6 @@
 /// e1.call<typeS>(args). Otherwise it is still a compile-time error.
 ///
 /// @description Check the case when 'call()' method is called via 'super()'
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 /// @issue https://github.com/dart-lang/language/issues/734
 /// @issue 41782
@@ -30,6 +29,8 @@ extension on A {
 class C extends A {
   test() {
     Expect.equals("Lily was here: 42", super(42));
+//                                     ^
+// [cfe] unspecified
   }
 }
 

@@ -34,13 +34,15 @@
 /// ;
 /// @description Checks that it is a compile-time error if a constructor
 /// declaration with initializers does not end with a semicolon.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   A(): x = 1
   var x;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -27,10 +27,12 @@
 /// ;
 /// @description Checks that a dot without digits does not make a numeric
 /// literal.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   var i = .;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

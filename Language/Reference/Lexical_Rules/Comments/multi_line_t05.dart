@@ -11,11 +11,14 @@
 /// @description Checks that it is a compile-time error when a multi-line comment
 /// does not have the end token, regardless of whether or not it contains
 /// single- and multi-line comment start tokens.
-/// @compile-error
 /// @author vasya
 
 
 /*  Comment /*
+//^
+// [cfe] unspecified
 
 main() {
 }
+// [error line 24, column 0]
+// [analyzer] unspecified

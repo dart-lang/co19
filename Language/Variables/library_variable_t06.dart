@@ -7,11 +7,13 @@
 /// identifier static.
 /// @description Checks that it is a compile-time error if a top level constant 
 /// variable declaration is prefaced with the built-in identifier static.
-/// @compile-error
 /// @author msyabro
 
 
 static const foo = 1; // error
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   print(foo);

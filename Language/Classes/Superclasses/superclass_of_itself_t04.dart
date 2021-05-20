@@ -5,15 +5,26 @@
 /// @assertion It is a compile-time error if a class C is a superclass of itself.
 /// @description Checks that it is a compile-time error if a class attempts to
 /// extend itself indirectly, by transition. Test type aliases
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A extends DAlias {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 class B extends A {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 class C extends B {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 class D extends C {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 typedef DAlias = D;
 

@@ -5,14 +5,19 @@
 /// @assertion It is a compile-time error for a class to attempt to extend,
 /// mix in or implement bool.
 /// @description Checks that bool cannot be mixed in abstract class
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 class A {}
 
 abstract class C extends A with bool {}
+//                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   C c = null;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

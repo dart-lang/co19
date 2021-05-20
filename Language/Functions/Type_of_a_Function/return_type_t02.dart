@@ -7,7 +7,6 @@
 /// its return type is the immediately enclosing class.
 /// @description Checks that return type of a constructor is the immediately
 /// enclosing class.
-/// @static-clean
 /// @author ngl@unipro.ru
 
 import "../../../Utils/expect.dart";

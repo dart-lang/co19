@@ -56,11 +56,13 @@
 ///
 /// @description Checks that names imported from library B with prefix P are not
 /// available without it.
-/// @compile-error
 /// @author msyabro
 
 import "namespace_changes_lib.dart" as P;
 
 main() {
   var x = aFoo;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

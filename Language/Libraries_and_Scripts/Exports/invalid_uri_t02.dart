@@ -6,11 +6,13 @@
 /// to a library declaration.
 /// @description Checks that it is a compile-time error when the resource
 /// specified by the URI does not exist.
-/// @compile-error
 /// @author ilya
 
 
 export "IntentionallyMissingFile";
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

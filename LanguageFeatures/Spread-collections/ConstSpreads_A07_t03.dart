@@ -9,9 +9,7 @@
 ///   const another = [1, ...list, 4]; // [1, 2, 3, 4].
 /// @description: Checks that spread element in the map can refer to constant
 /// collections defined elsewhere
-/// @static-warning
 /// @author iarkh@unipro.ru
-
 
 import "../../Utils/expect.dart";
 
@@ -23,6 +21,10 @@ main() {
   Expect.mapEquals({1: 10, 2: 20, 3: 30, 4: 40}, res1);
 
   const res2 = {1: 10, ...?map, 4: 40};
+//                     ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                         ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
   Expect.mapEquals({1: 10, 2: 20, 3: 30, 4: 40}, res2);
 
   const res3 = {1: 10, ...?map1, 4: 40};

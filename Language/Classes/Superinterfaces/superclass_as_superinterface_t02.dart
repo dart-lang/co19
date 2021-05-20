@@ -6,7 +6,6 @@
 /// specified as a superinterface of C.
 /// @description Test checks that it is a compile-time error when a class has
 /// the same class as superclass and interface. Test type aliases
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -16,6 +15,9 @@ abstract class A {}
 typedef AAlias = A;
 
 class C extends AAlias implements AAlias {}
+//                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main () {
   new C();

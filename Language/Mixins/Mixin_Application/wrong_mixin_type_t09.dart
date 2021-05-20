@@ -10,7 +10,6 @@
 /// an enumerated type or a malformed type.
 /// @description Checks that it is a compile-time error if extends mixin
 /// application where M is malformed type. Test type alias
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -22,6 +21,9 @@ typedef SAlias = S;
 var M;
 
 class C extends SAlias with M {
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

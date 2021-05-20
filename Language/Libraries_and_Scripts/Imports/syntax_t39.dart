@@ -20,12 +20,16 @@
 /// ;
 /// @description Checks that it is a compile-time error if there're no
 /// identifiers following a show combinator in an import declaration.
-/// @compile-error
 /// @author rodionov
 
 
 import "syntax_lib.dart" show;
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   var x = foo;
+//        ^
+// [analyzer] unspecified
 }

@@ -24,12 +24,21 @@
 /// 2. A finally clause, which consists of a block statement.
 /// @description Checks that it is a compile-time error if the try block is
 /// missing the closing curly braces.
-/// @compile-error
 /// @author vasya
 
 
 main() {
+//     ^
+// [cfe] unspecified
   try {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
     throw 0;
   catch (ex) {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
+// [error line 44, column 0]
+// [analyzer] unspecified

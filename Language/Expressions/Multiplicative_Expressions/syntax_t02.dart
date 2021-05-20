@@ -19,10 +19,12 @@
 /// argument e2.
 /// @description  Checks that expression of the form
 /// [unaryExpression ('*' unaryExpression)*] must have at least two operands
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   1 *;
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

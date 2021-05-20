@@ -7,12 +7,15 @@
 /// constructors.
 /// @description Checks that a type variable can not have the same name as
 /// the name of generic class static getter.
-/// @compile-error
 /// @author ilya
 
 
 class A<T> {
+//      ^
+// [analyzer] unspecified
   static get T => 0;
+//           ^
+// [cfe] unspecified
 }
 
 main() {

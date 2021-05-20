@@ -6,7 +6,6 @@
 /// C specifies a type T as a superinterface more than once.
 /// @description Checks that it is a compile-time error if the same type appears
 /// more than once in the implements clause.
-/// @compile-error
 /// @author pagolubev
 
 
@@ -14,6 +13,9 @@ abstract class I {}
 abstract class J {}
 
 class A implements I, J, I {}
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

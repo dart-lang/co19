@@ -57,11 +57,13 @@
 /// @description Checks that all specified show and hide combinators are applied
 /// and if a name is hidden by any of them, it's undefined in the resulting
 /// namespace.
-/// @compile-error
 /// @author rodionov
 
 import "namespace_changes_lib.dart" show aFoo, aFunc hide aFunc;
 
 main() {
   aFunc();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

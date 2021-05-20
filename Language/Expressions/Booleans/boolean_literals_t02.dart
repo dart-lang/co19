@@ -10,12 +10,14 @@
 ///   false
 /// ;
 /// @description Checks that "false" is a reserved word.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   try {
     var false;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

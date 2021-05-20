@@ -6,7 +6,6 @@
 /// o.m(a1, ..., an, xn+1 : an+1, ..., xn+k : an+k).
 /// @description Checks static invocations, when o denotes a class in the
 /// current scope. Arguments must be separated with a comma.
-/// @compile-error
 /// @author msyabro
 
 
@@ -16,4 +15,7 @@ class C {
 
 main() {
   C.f(1 2);
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

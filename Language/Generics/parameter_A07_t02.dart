@@ -6,12 +6,14 @@
 /// instance creation expression
 /// @description Checks that function type parameter cannot be used in an
 /// instance creation expression.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 void func<X>() {
   new X();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

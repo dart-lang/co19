@@ -6,11 +6,13 @@
 /// that is, [G] may have formal type parameters declared.
 /// @description Checks that a compile-time error is produced when "extends"
 /// keyword is not spelled correctly for the generic class.
-/// @compile-error
 /// @author kaigorodov
 
 
 class C<T extend Function>{}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

@@ -13,7 +13,6 @@
 /// (T1 a1,...,Tn an, {Tn+1 xn+1: d1,...,Tn+k xn+k: dk}) => e where
 /// the type of e is int to a variable of a function type with a boolean return
 /// type.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -23,4 +22,7 @@ foo? f;
 
 main() {
 	f = (int x, int y, {double? a, double? b}) => 1;
+//                                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

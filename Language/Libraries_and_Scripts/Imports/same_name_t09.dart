@@ -14,7 +14,6 @@
 /// @description Checks that it is a compile error if two different
 /// libraries introduce the same type name to the top level scope of L and L
 /// uses it in a static getter invocation expression.
-/// @compile-error
 /// @author rodionov
 
 import "same_name_t01_p1_lib.dart";
@@ -22,4 +21,7 @@ import "same_name_t01_p2_lib.dart";
 
 main() {
   Bar.BAR;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

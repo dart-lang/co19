@@ -11,7 +11,6 @@
 /// Then the type of v is known to be T in s1.
 /// @description Checks that if b does not show that v has any type T, then the
 /// type of v is not known to be any promoted type in s1.
-/// @compile-error
 /// @author ilya
 
 
@@ -26,6 +25,9 @@ class E extends C {
 f(C x) {
   if (x is D || x is E)
     x.f();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -19,7 +19,6 @@
 /// getters and their static types are not identical, but there is a getter
 /// such that its type is subtype of types of all other getters then, anyway,
 /// a compile error occurs
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -45,6 +44,9 @@ abstract class SI3 {
 }
 
 abstract class I implements SI1, SI2, SI3 {
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

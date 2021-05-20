@@ -20,7 +20,6 @@
 /// such that its type is subtype of types of all other methods then no static
 /// warning issued. Test methods with parameters and return type void (except
 /// the subtype)
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

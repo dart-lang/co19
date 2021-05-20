@@ -16,8 +16,6 @@ class C {
 
 mixin M on C {
   String get g => "M.g";
-//           ^
-// [cfe] unspecified
 }
 
 class MA implements M {

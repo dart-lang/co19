@@ -8,7 +8,6 @@
 /// getter or setter lookup failure.
 /// @description Checks that an attempt to access a private instance member from
 /// outside L results in compile error.
-/// @compile-error
 /// @author vasya
 
 import "private_access_t01_lib.dart" as lib;
@@ -16,4 +15,7 @@ import "private_access_t01_lib.dart" as lib;
 main() {
   lib.C c = new lib.C();
   c._foo();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

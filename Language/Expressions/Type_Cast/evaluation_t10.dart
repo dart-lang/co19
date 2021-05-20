@@ -10,7 +10,6 @@
 /// Otherwise, if v is null, the cast expression evaluates to v.
 /// In all other cases, a CastError is thrown.
 /// @description Checks that if T is deferred type, then a compile error occurs.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 import '../lib.dart' deferred as lb;
@@ -19,4 +18,7 @@ class B {}
 
 main() {
   new B() as lb.A;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

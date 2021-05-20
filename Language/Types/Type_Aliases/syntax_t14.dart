@@ -10,11 +10,13 @@
 ///  <functionPrefix> ::= <type>? <identifier>
 /// @description Checks that the typedef declaration cannot include function
 /// body.
-/// @compile-error
 /// @author iefremov
 
 
 typedef F() {};
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

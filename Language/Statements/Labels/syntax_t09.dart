@@ -12,11 +12,13 @@
 /// ;
 /// @description Checks that it is a compile-time error if a label is used in a
 /// wrong context (next to an import declaration).
-/// @compile-error
 /// @author rodionov
 
 
 Label: import '../../../Utils/dynamic_check.dart';
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

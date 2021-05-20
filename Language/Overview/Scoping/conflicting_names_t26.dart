@@ -10,7 +10,6 @@
 /// declaration d is in scope if d is available in the current scope.
 /// @description Checks that it is a compile-time error if a block statement 
 /// contains two variables with the same name.
-/// @compile-error
 /// @author msyabro
 
 
@@ -18,5 +17,8 @@ main() {
   {
     var conflictingName = 1;
     String conflictingName;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }

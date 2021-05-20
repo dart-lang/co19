@@ -26,12 +26,16 @@
 /// ;
 /// @description Checks that the optional positional parameter list must begin
 /// with an opening square bracket.
-/// @compile-error
 /// @author rodionov
 
 
 void f(]) {}
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main () {
   f();
+// ^
+// [analyzer] unspecified
 }

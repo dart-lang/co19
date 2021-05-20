@@ -8,7 +8,6 @@
 /// or in a static method or variable initializer.
 /// @description Checks that it is a compile-time error if  a super method
 /// invocation occurs in a static method.
-/// @compile-error
 /// @author msyabro
 
 
@@ -19,6 +18,9 @@ class S {
 class A extends S {
   static staticMethod() {
     super.f();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

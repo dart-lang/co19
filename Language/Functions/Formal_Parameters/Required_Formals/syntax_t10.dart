@@ -25,11 +25,13 @@
 /// ;
 /// @description Checks that initializing formals are not allowed in library
 /// functions.
-/// @compile-error
 /// @author ilya
 
 
 f(this.x) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   f(0);

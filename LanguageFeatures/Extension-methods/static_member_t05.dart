@@ -8,7 +8,6 @@
 /// @description Check that static member of an extension cannot be accessed
 /// through an extension override
 /// (see https://github.com/dart-lang/language/issues/481 for more details)
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -19,4 +18,7 @@ extension MySmart on Object {
 
 main() {
   MySmart("12345").smartHelper();
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

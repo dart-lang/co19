@@ -18,7 +18,6 @@
 ///
 /// @description Checks that it is a compile error to read a method local
 /// variable if it is final and not definitely assigned.
-/// @compile-error
 /// @author ilya
 
 
@@ -26,6 +25,9 @@ main() {
   f() {
     final i;
     return i;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   f();
 }

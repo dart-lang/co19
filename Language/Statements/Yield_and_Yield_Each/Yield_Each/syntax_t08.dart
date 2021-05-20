@@ -11,13 +11,15 @@
 /// @description Check that it is compile error if expression part is missing
 /// in yield-each statement in asynchronous generator function
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
 
 Stream<int> test() async* {
   yield* ;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

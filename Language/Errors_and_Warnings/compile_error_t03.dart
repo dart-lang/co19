@@ -7,7 +7,6 @@
 /// erroneous code is executed.
 /// @description Checks that erroneous code is not executed if there is
 /// a compile-time error. Test error in function
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -15,6 +14,9 @@ import '../../Utils/expect.dart';
 
 void f() {
   var a = ;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

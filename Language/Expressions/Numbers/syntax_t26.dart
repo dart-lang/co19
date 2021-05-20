@@ -27,10 +27,12 @@
 /// ;
 /// @description Checks that the exponent part of a literal must contain at
 /// least one digit.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   var i = 1e;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

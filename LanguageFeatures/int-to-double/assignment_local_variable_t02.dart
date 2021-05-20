@@ -6,7 +6,6 @@
 /// @description Checks that the static type of a double valued integer literal
 /// is [double]. Test local variable assignment and hexadecimal literals
 /// @author sgrekhov@unipro.ru
-/// @static-warning
 
 
 class C {
@@ -22,6 +21,10 @@ class C {
     s1 = null;
     s1 ??= 0x42;
     s1 ??= -0x42;
+//         ^^^^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//  ^
+// [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
   }
 
   void instanceMethod() {
@@ -35,6 +38,10 @@ class C {
     m1 = null;
     m1 ??= 0x42;
     m1 ??= -0x42;
+//         ^^^^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//  ^
+// [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
   }
 }
 
@@ -49,6 +56,10 @@ void foo() {
   l1 = null;
   l1 ??= 0x42;
   l1 ??= -0x42;
+//       ^^^^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//^
+// [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
 
 }
 
@@ -63,6 +74,10 @@ main() {
   d1 = null;
   d1 ??= 0x42;
   d1 ??= -0x42;
+//       ^^^^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//^
+// [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
 
   foo();
   C.staticMethod();
@@ -79,6 +94,10 @@ main() {
     b1 = null;
     b1 ??= 0x42;
     b1 ??= -0x42;
+//         ^^^^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//  ^
+// [cfe] Operand of null-aware operation '??=' has type 'double' which excludes null.
   }
   bar();
 }

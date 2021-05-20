@@ -5,10 +5,12 @@
 /// @assertion The static type of an integer literal is int.
 /// @description Checks that it is a compile error to assign an integer literal
 /// to a typed bool variable.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   bool b = 1;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

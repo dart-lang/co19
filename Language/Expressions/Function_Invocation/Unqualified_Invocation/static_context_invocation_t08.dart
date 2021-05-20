@@ -14,12 +14,17 @@
 /// @description Checks that if there is no declaration and i occurs in top level
 /// function (of any kind) or library variable initializer, evaluation of i
 /// causes a NoSuchMethodError to be thrown.
-/// @compile-error
 /// @author ilya
 
 set test (_) => undeclared();
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   test3 = 1;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

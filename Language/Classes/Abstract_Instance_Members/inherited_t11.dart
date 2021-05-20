@@ -9,7 +9,6 @@
 ///    Object.
 /// @description Checks that there is no compile error if an abstract setter
 /// is declared in a concrete class and it overrides concrete instance setter.
-/// @static-clean
 /// @author ngl@unipro.ru
 
 

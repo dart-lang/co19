@@ -10,11 +10,13 @@
 /// @description Checks that a non-constant map literal cannot be assigned to
 /// a constant variable.
 /// @author iefremov
-/// @compile-error
 
 
 var b = {"a" : "b"};
 const a = b;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

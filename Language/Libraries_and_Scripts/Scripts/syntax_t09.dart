@@ -11,14 +11,19 @@
 /// ;
 /// @description Checks that it is a compile-time error when a top level
 /// definition (function type alias) comes before an import directive.
-/// @compile-error
 /// @author msyabro
 
 
 typedef f(p1, p2);
 
 import "library1.dart";
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   f func = (p1, p2) {}
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

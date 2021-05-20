@@ -10,10 +10,12 @@
 /// empty string.
 /// @description Checks that construction [class test<X> = A<X>] throws compile
 /// time error
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 class A<X> {}
 class test<X> = A<X>;
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 main() {}

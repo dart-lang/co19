@@ -5,11 +5,13 @@
 /// @assertion It is a compile-time error for a class to attempt to extend,
 /// mix in or implement double.
 /// @description Checks that a user-defined class cannot extend double.
-/// @compile-error
 /// @author iefremov
 
 
 class A extends double {}
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

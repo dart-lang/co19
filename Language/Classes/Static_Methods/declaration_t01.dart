@@ -7,12 +7,14 @@
 /// and that are declared static.
 /// The static methods of a class C are those static methods declared by C.
 /// @description Checks that static methods cannot access instance fields.
-/// @compile-error
 /// @author vasya
 
 
 class C {
   static foo() { return bar; }
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   var bar;
 }

@@ -10,7 +10,6 @@
 /// same as the static field's type (dynamic), by making sure there're no 
 /// static warnings when invoking non-existing methods on the value returned by 
 /// these getters.
-/// @static-clean
 /// @author rodionov
 /// @reviewer msyabro
 

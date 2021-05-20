@@ -8,7 +8,6 @@
 /// boolean conversion, producing an object r.
 /// @description Checks that compile error occurs if the expression does not
 /// evaluate to a value of type bool.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -16,4 +15,7 @@ main() {
   var o = 1;
   var i = null;
   if (o) { i = "hello"; }
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

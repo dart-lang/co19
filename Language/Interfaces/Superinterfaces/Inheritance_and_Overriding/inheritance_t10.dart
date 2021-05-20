@@ -25,7 +25,6 @@
 /// and return type dynamic.
 /// @description Checks that there's a compile-error if two members with the same
 /// name but different number of arguments are inherited
-/// @compile-error
 /// @author rodionov
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -42,6 +41,9 @@ typedef SIAlias1 = SI1;
 typedef SIAlias2 = SI2;
 
 abstract class I implements SIAlias1, SIAlias2 {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   I? i = null;

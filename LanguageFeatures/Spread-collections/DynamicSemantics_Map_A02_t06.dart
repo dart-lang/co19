@@ -20,7 +20,6 @@
 ///       c. Call map[key] = value.
 /// @description Checks that final map is correct if its spread elements have
 /// duplicated keys
-/// @static-warning
 /// @author iarkh@unipro.ru
 
 
@@ -34,5 +33,21 @@ main() {
   Expect.mapEquals({...map1, ...map2}, {1: 1, 2: 12, 3: 3, 4: 7, 5: 5});
   Expect.mapEquals({...map2, ...map1}, {1: 1, 2: 2, 3: 3, 4: 4, 5: 5});
   Expect.mapEquals({...?map1, ...?map2}, {1: 1, 2: 12, 3: 3, 4: 7, 5: 5});
+//                  ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                            ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
+//                      ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
   Expect.mapEquals({...?map2, ...?map1}, {1: 1, 2: 2, 3: 3, 4: 4, 5: 5});
+//                  ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                            ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
+//                      ^
+// [cfe] Operand of null-aware operation '...?' has type 'Map<dynamic, dynamic>' which excludes null.
 }

@@ -9,7 +9,6 @@
 /// @description Checks that it is a compile error if C does not declare,
 /// explicitly or implicitly, a getter with the appropriate name and that such
 /// code results in a NoSuchMethodError.
-/// @compile-error
 /// @author msyabro
 
 
@@ -18,4 +17,7 @@ class C {
 
 main()  {
   C.getter;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

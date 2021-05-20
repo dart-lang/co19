@@ -8,7 +8,6 @@
 /// would cause a compile-time error.
 /// @description Checks that it is a compile-time error if Mi declare members
 /// with the same names but conflicting types
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 /// @issue 23878
 
@@ -25,6 +24,9 @@ class M2 {
 }
 
 class C = S with M1, M2;
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new C();

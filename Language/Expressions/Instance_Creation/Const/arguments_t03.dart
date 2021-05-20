@@ -9,7 +9,6 @@
 /// @description Checks that it is a compile-time error if any optional
 /// positional arguments of a constant object expression are not compile-time
 /// constants.
-/// @compile-error
 /// @author ilya
 
 
@@ -20,4 +19,7 @@ class  T {
 main() {
   int i = 14;
   const T(1, i, [0, 1]);
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

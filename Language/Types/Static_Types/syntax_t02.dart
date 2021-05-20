@@ -20,7 +20,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when the opening angle
 /// bracket in a static type annotation's type argument list is missing.
-/// @compile-error
 /// @author iefremov
 
 
@@ -30,4 +29,7 @@ class Generic<T> {
 
 main() {
   Generic int> t = new Generic<int>();
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

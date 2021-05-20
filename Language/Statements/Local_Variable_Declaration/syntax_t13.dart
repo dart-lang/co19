@@ -8,7 +8,6 @@
 ///   ;
 /// @description Checks that incorrect syntax of type parameters causes compile
 /// error.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -16,5 +15,8 @@ class T<K,V> {}
 
 main() {
   T<int, String;>? id;
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

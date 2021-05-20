@@ -34,12 +34,14 @@
 /// ;
 /// @description Checks that it is a compile-time error when constructor is 
 /// declared static.
-/// @compile-error
 /// @author rodionov
 
 
 class C {
   static C() {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

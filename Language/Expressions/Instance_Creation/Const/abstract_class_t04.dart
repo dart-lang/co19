@@ -8,13 +8,16 @@
 /// @description Checks that an instance creation expression of the form const
 /// T.id(a1, .., an), where T is a class containing an abstract method,
 /// produces a compile error
-/// @compile-error
 /// @author msyabro
 
 
 class A {
+//    ^
+// [cfe] unspecified
   const A.id();
   f();
+//^
+// [analyzer] unspecified
 }
 
 main() {

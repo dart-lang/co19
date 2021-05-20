@@ -10,7 +10,6 @@
 /// ;
 /// @description Checks that super can't be used in a conditional expression
 /// as the second expression.
-/// @compile-error
 /// @author msyabro
 
 
@@ -20,6 +19,9 @@ class A extends S {
   test() {
     try {
       true ? 1 : super;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
     } catch (e) {}
   }
 }

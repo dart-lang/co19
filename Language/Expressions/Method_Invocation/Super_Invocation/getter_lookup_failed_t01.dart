@@ -16,7 +16,6 @@
 /// @description Checks that it is a compile error if there're no members,
 /// instance or static, with the required name in the invoking class's
 /// superclass.
-/// @compile-error
 /// @author msyabro
 
 class TestException {}
@@ -30,6 +29,9 @@ class S {
 class A extends S {
   test() {
     super.nonExistingMethod();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

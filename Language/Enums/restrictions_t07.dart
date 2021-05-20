@@ -6,7 +6,6 @@
 /// an enum or to explicitly instantiate an enum.
 /// @description Checks that it is compile-time error to implement an enum. Test
 /// the case when class implements several interfaces 
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -19,6 +18,9 @@ class M2 {
 }
 
 class C implements M1, E, M2 {
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

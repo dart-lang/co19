@@ -7,7 +7,6 @@
 /// @description Checks that it is a compile-time error if a class inherits an 
 /// abstract instance method and declares a static member method with the same 
 /// name.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -17,6 +16,9 @@ abstract class B {
 
 class A extends B {
   static int func() => 42;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

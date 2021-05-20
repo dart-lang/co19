@@ -21,9 +21,8 @@
 /// name of the library.
 /// @description Checks that it is a compile-time error when the library name is
 /// enclosed in parentheses.
-/// @compile-error
 /// @author vasya
-
+/// @issue 44990
 
 import "definition_syntax_t15_lib.dart";
 

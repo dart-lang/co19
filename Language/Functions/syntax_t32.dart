@@ -20,12 +20,14 @@
 /// @description Checks that 'abstract' keyword can't be used inside of
 /// a function body.
 ///
-/// @compile-error
 /// @author msyabro
 
 
 f() {
   abstract localFunction();
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

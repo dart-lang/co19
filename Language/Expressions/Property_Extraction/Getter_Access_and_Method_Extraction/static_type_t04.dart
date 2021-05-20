@@ -16,7 +16,6 @@
 /// • The type dynamic otherwise.
 /// @description Check that static type of an accessible static method is
 /// Function
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

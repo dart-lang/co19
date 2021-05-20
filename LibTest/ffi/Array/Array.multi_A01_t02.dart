@@ -18,6 +18,7 @@
 /// @description Checks multidimentional array created by Array.multi(). Check
 /// wrong array size
 /// @author sgrekhov@unipro.ru
+/// @issue 46085
 
 import "dart:ffi";
 
@@ -25,13 +26,13 @@ class MyStruct extends Struct {
   @Array.multi([])
 //^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
-// [cfe]
+// [cfe] unspecified
   external Array<Int16> a0;
 
   @Array.multi([1])
 //^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
-// [cfe]
+// [cfe] unspecified
   external Array<Array<Int16>> a1;
 }
 

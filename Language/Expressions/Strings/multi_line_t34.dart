@@ -22,10 +22,12 @@
 /// ;
 /// @description Checks that multi-line strings that contain character sequences
 /// prohibited by this grammar, cause compile-time errors.
-/// @compile-error
 /// @author rodionov
 
 
 main() {
   """$""";
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

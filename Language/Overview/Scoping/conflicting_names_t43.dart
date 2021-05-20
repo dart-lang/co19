@@ -10,11 +10,13 @@
 /// declaration d is in scope if d is available in the current scope.
 /// @description Checks that it is a compile-time error if a catch clause 
 /// declares two identically named parameters.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   try {
   } catch (x, x) {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

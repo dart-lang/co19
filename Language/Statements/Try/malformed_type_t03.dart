@@ -5,7 +5,6 @@
 /// @assertion If T is a malformed type, then performing a match causes a run
 /// time error. It is a static warning if T is a malformed type.
 /// @description Checks that if T is malformed, compile error is raised.
-/// @compile-error
 /// @author rodionov
 
 import '../../../Utils/expect.dart';
@@ -18,6 +17,9 @@ main() {
     Expect.fail("This code shouldn't be executed");
   } on p.Foo catch (ok) {
   } on Foo catch (p1, p2) {
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
     Expect.fail("This code shouldn't be executed");
   }
 }

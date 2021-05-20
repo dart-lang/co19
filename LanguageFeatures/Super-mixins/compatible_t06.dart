@@ -26,8 +26,6 @@ class C<T, S> implements A<T>, B<S> {
 }
 
 mixin M<X extends S, Y extends T> on A<Y>, B<X> {
-//      ^
-// [cfe] unspecified
 }
 
 class MA<X, Y> extends C<Y, X> with M<Y, X> {

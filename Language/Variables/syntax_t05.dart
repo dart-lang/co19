@@ -28,10 +28,12 @@
 ///   ;
 /// @description Checks that a variable declaration cannot contain both 'var' 
 /// and 'type'.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   var int x = 1;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

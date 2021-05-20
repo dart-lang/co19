@@ -6,7 +6,6 @@
 /// named v= and also has a non-static member named v.
 /// @description Checks that it is a compile error if a class declares a
 /// static setter named v= and also has a non-static inherited method named v.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -16,6 +15,9 @@ class A {
 
 class C extends A {
   static set foo(String s) {}
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -7,12 +7,14 @@
 /// [async], [async*] or [sync*].
 /// @description Checks that it is a compile-time error if [yield\ is used in the
 /// method marked with [async].
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
 f() async {
   int yield = 3;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -22,12 +22,24 @@
 /// ;
 /// @description Checks that it is a compile-time error when a raw multi-line
 /// single-quotes string literal contains another triplet of single quotes.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
+//     ^
+// [cfe] unspecified
+// [error line 39, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+// [error line 44, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+// [error line 45, column 0]
+// [analyzer] unspecified
   r'''
   incorrect ''' string
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
   ''';
 }

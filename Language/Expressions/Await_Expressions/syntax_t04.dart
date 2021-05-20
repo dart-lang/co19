@@ -7,7 +7,6 @@
 ///      await unaryExpression
 ///
 /// @description Check that it is a compile error if unaryExpression is missing
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
@@ -20,6 +19,9 @@ f() {
 
 Stream test() async* {
   await (await);
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

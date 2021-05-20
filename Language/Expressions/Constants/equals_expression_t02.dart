@@ -12,7 +12,6 @@
 /// @description Checks that an expression of the form e1 == e2 cannot be used
 /// to initialize a constant variable if e1 does not evaluate to a numeric,
 /// string or boolean value.
-/// @compile-error
 /// @author iefremov
 
 
@@ -22,6 +21,9 @@ class A {
 
 final a = const A();
 const m = (a == 1);
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

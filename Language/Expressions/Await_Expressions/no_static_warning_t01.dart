@@ -8,7 +8,6 @@
 /// @description Check that no static warning is issued if type of e is not
 /// subtype of Future.
 ///
-/// @static-clean
 /// @author a.semenov@unipro.ru
 
 

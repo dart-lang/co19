@@ -29,10 +29,12 @@
 /// unary operator on either super or an expression e.
 /// @description Checks that it's a compile-time error when a '!'
 /// precedes a statement that isn't an expression (block statement).
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   !{int? x; x = 1;};
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

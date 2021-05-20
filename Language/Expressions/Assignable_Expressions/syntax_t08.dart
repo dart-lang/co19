@@ -24,7 +24,6 @@
 /// • An invocation of a getter or list access operator on super.
 /// @description Checks that a type parameter can not be used in the left hand
 /// side of an assignment without a compile error.
-/// @compile-error
 /// @author msyabro
 
 
@@ -32,6 +31,9 @@ class A<T> {
   test() {
     try {
       T = null;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
     } catch (e) {
     }
   }

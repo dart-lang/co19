@@ -9,10 +9,12 @@
 /// @description Checks that it is a compile-time error when a string literal
 /// contains a character sequence of the form \u that is followed empty curly
 /// braces.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   "empty \u{}";
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

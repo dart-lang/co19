@@ -11,12 +11,14 @@
 /// @description Check that it is compile error if ';' is missing
 /// in yield statement in synchronous generator function
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 Iterable<int> test() sync* {
   yield 1
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

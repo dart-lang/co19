@@ -10,14 +10,22 @@
 /// @description Checks that it is a compile-time error if a class type 
 /// definition uses different styles of opening and closing brackets. 
 /// Class body is not empty.
-/// @compile-error
 /// @author rodionov
 
 
 class A (
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   var someMember;
 }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();
 }
+// [error line 31, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified

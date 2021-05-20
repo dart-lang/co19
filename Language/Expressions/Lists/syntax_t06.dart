@@ -10,9 +10,11 @@
 /// @description Checks that it is a compile-time error if a list literal does
 /// not end with ']'.
 /// @author msyabro
-/// @compile-error
 
 
 main() {
     [1, 2, 3;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

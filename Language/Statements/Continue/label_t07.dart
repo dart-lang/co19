@@ -11,7 +11,6 @@
 /// @description Checks that it is a compile-time error if a 'continue L;'
 /// statement occurs in a case clause of switch statement with label L and there
 /// is no another enclosing statement with label L.
-/// @compile-error
 /// @author vasya
 /// @issue 42593
 
@@ -23,6 +22,8 @@ main() {
     case 1:
       x = 0;
       continue L;
+//             ^
+// [analyzer] unspecified
     default:
       x = 2;
   }

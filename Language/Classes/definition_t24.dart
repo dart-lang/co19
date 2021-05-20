@@ -13,12 +13,14 @@
 /// ...
 /// @description Checks that it is a compile-time error if the superclass of a
 /// class C is specified as a superinterface of C.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 /// @issue dart-lang/co19#129
 /// @issue 31624
 
 class X = A with B implements A;
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 abstract class A {}
 class B {}

@@ -34,12 +34,14 @@
 /// ;
 /// @description Checks that it is a compile-time error if a static initialized
 /// variable declaration does not end with a semicolon.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   static int v
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

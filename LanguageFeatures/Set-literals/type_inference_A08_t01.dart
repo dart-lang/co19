@@ -18,13 +18,16 @@
 /// element is V, where K and V are the types such that Map<K, V> is a
 /// superinterface of S
 /// @author sgrekhov@unipro.ru
-/// @static-warning
 
 import "../../Utils/expect.dart";
 
 void test1<T extends Map<num, String>>(T t) {
   var m1 = {...t};
   var m2 = {...?t};
+//          ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//              ^
+// [cfe] Operand of null-aware operation '...?' has type 'T' which excludes null.
   Expect.isTrue(m1 is Map<num, String>);
   Expect.isTrue(m2 is Map<num, String>);
   Expect.isFalse(m1 is Map<int, String>);
@@ -34,6 +37,10 @@ void test1<T extends Map<num, String>>(T t) {
 void test2<T extends Map<Object, Object>>(T t) {
   var m1 = {...t};
   var m2 = {...?t};
+//          ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//              ^
+// [cfe] Operand of null-aware operation '...?' has type 'T' which excludes null.
   Expect.isTrue(m1 is Map<Object, Object>);
   Expect.isTrue(m2 is Map<Object, Object>);
   Expect.isFalse(m1 is Map<int, String>);

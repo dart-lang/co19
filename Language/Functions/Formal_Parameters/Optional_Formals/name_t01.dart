@@ -6,7 +6,6 @@
 /// optional parameter begins with an _ character.
 /// @description Checks that it is a compile-time error if the name of a named
 /// optional parameter begins with an '_' character.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
@@ -14,6 +13,9 @@
 main() {
   try {
     void func({var _x}) {}
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
     func(_x: 1);
   } catch (x) {}
 }

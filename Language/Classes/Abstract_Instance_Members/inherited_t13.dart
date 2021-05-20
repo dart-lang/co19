@@ -14,10 +14,12 @@
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A {
+//    ^
+// [cfe] unspecified
+
   foo([x]);
 //^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
 }
 typedef AAlias = A;
 

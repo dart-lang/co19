@@ -6,12 +6,17 @@
 /// mix in or implement String.
 /// @description Checks that it is a compile-time error for an interface to
 /// attempt to extend String.
-/// @compile-error
 /// @author msyabro
 
 
 abstract class I extends String {}
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 class C implements I {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new C();

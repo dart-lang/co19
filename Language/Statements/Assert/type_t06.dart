@@ -5,11 +5,13 @@
 /// @assertion It is a static type warning if the type of e may not be assigned
 /// to either bool or () -> bool.
 /// @description Checks that it is a compile error if the type of e is num.
-/// @compile-error
 /// @author rodionov
 
 bool foo() {return true;}
 
 main() {
   assert (foo ? 1 : 1.0);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -15,7 +15,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if method is invoked
 /// via '...' in a cascaded invocation.
-/// @compile-error
 /// @author msyabro
 
 
@@ -26,5 +25,8 @@ class C {
 main() {
   var o = new C();
   o...m1();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

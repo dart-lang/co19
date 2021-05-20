@@ -13,7 +13,6 @@
 /// int if the static type of e2 is int, and double if the static type of e2 is
 /// double.
 /// @description Checks special cases for static types of x+y, x-y when x is int.
-/// @static-clean
 /// @author ilya
 
 

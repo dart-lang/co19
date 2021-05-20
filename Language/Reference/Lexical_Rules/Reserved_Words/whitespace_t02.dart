@@ -8,9 +8,11 @@
 /// @description Checks that other Unicode whitespaces are not allowed:
 ///  check VERTICAL TAB (U+000B)
 /// @author hlodvig
-/// @compile-error
 
 
 main() {
 	varx=1;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

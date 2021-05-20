@@ -19,10 +19,12 @@
 /// argument e2.
 /// @description Checks that a multiplicative expression can't start
 /// with the multiplicative operator ~/.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   ~/ 0.5 ~/ 0.6;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

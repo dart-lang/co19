@@ -25,12 +25,16 @@
 /// ;
 /// @description Checks that initializing formals of function type are not
 /// allowed in local functions.
-/// @compile-error
 /// @author ilya
 
 
 main() {
   f(this.x(y)) {}
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f((x) {});
+//  ^
+// [analyzer] unspecified
 }

@@ -7,13 +7,21 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "void" is used as a label name.
-/// @compile-error
 /// @author rodionov
 
 
 main() {
   void:
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   do {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
   break void;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } while (false);
 }

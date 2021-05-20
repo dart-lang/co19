@@ -19,9 +19,6 @@
 
 class C {
   final x = 1;
-//      ^
-// [cfe] unspecified
-
   C() : this.x = 2 {}
 //           ^
 // [analyzer] unspecified

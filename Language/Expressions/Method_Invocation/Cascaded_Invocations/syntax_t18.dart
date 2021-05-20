@@ -15,7 +15,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if suffix is an unary
 /// expression.
-/// @compile-error
 /// @author msyabro
 
 
@@ -24,4 +23,7 @@ class C {}
 main() {
   var a = 1;
   C()..a++;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

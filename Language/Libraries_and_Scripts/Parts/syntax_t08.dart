@@ -21,11 +21,13 @@
 /// sequence of top-level declarations.
 /// @description Checks that it is a compile-time error if the part directive
 /// includes a function invocation expression instead of URI.
-/// @compile-error
 /// @author rodionov
 
 
 part new StringBuffer("part_0.dart").toString();
+//                                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

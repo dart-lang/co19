@@ -8,7 +8,6 @@
 ///   ;
 /// @description Check that it is a compile time error,
 /// if closing arguments parenthesis is missing
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 class A {
@@ -16,7 +15,16 @@ class A {
 }
 
 @A(
-class B {}
+//^
+// [cfe] unspecified
+  class B {}
+//^^^^^^^^^
+// [analyzer] unspecified
 
-main() {
+  main() {
+//^^^^
+// [analyzer] unspecified
 }
+// [error line 30, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified

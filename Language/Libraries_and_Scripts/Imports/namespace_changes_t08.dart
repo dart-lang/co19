@@ -57,11 +57,13 @@
 /// @description Checks that imports of an imported library are not accessible
 /// with a combination of prefixes used in both import directives. Library being
 /// imported re-exports its own imports by default.
-/// @compile-error
 /// @author kaigorodov
 
 import "namespace_changes_lib_reexport.dart" as PP;
 
 main() {
   new PP.P.B.spec().foo();
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

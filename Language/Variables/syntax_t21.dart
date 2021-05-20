@@ -28,10 +28,12 @@
 ///   ;
 /// @description Checks that only assignment operator is admitted when 
 /// variable is initialized.
-/// @compile-error
 /// @author hlodvig
 
 
 main() {
   var x++;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

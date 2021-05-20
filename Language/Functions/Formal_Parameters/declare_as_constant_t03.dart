@@ -6,12 +6,17 @@
 /// a constant variable.
 /// @description Checks that it is a compile-time error if an optional named
 /// parameter is declared as a constant variable.
-/// @compile-error
 /// @author msyabro
 
 
 void f({const x}) {}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main () {
   f(1);
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

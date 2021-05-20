@@ -34,12 +34,14 @@
 /// ;
 /// @description Checks that it is a compile-time error when a constant named 
 /// constructor is declared abstract.
-/// @compile-error
 /// @author rodionov
 
 
 class C {
   const abstract C.id();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

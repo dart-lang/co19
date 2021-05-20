@@ -6,10 +6,12 @@
 /// dynamic as a type annotation or type parameter.
 /// @description Checks that it is a compile-time error if a built-in identifier
 /// "typedef" is used as a type annotation of a local variable.
-/// @compile-error
 /// @author rodionov
 
 
 main() {
   typedef foo;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

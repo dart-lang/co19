@@ -6,11 +6,13 @@
 /// via another typedef, is a compile time error.
 /// @description Checks that it is compile error to reference type alias as a
 /// type argument of its formal parameter type.
-/// @compile-error
 /// @author ilya
-
+/// @issue 46062
 
 typedef F(List<F> x);
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   F? x;

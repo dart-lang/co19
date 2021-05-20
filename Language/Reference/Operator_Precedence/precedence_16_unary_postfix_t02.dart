@@ -8,7 +8,6 @@
 /// @description Test that '?.' unary postfix operator has highest
 /// precedence (16). Compare with Unary prefix (precedence 15). Test that
 /// '?.' has priority higher than ~
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 /// @issue 42379
 
@@ -26,4 +25,7 @@ class C {
 main() {
   C c = new C();
   ~c?.e();      // With NNBD we are unable to run ~c?.e(); because c?.e() returns C?
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

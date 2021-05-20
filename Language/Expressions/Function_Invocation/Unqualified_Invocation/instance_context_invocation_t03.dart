@@ -13,12 +13,14 @@
 /// @description Checks that if there is no declaration and i occurs inside
 /// an instance variable initializer, i is equivalent to this.id() and hence
 /// leads to compile error.
-/// @compile-error
 /// @author ilya
 
 
 class C {
   var test = undeclared(); // error: implicit access to receiver 'this'
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

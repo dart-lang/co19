@@ -24,7 +24,6 @@
 /// @description Checks that if d is the declaration of a static variable or
 /// static getter declared in class C, the static type of e the static type of
 /// the getter invocation C.id.
-/// @static-clean
 /// @author ilya
 
 

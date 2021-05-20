@@ -16,10 +16,12 @@
 /// parameters, or if q lacks any of the keyword parameters
 /// {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
 /// @description Checks that a compile error occurs if T is not accessible.
-/// @compile-error
 /// @author kaigorodov
 
 
 main() {
   new C();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

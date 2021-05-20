@@ -14,13 +14,15 @@
 ///   identifier
 /// ;
 /// @description Checks that it is a compile-time error if suffix is super.
-/// @compile-error
 /// @author msyabro
 
 
 class C {
   test() {
     this..super;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

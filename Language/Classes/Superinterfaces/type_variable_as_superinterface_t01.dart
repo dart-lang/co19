@@ -6,11 +6,13 @@
 /// C species a type variable as a superinterface.
 /// @description Checks that it is a compile-time error when the type expression
 /// in a class's implements clause denotes a type variable.
-/// @compile-error
 /// @author rodionov
 
 
 class A<T> implements T {}
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

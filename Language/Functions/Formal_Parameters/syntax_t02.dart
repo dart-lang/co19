@@ -26,12 +26,17 @@
 /// ;
 /// @description Checks that named parameters can't precede required positional
 /// parameters.
-/// @compile-error
 /// @author msyabro
 
 
 f({var a}, var b) {}
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   f(1, 1);
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -9,9 +9,11 @@
 /// ;
 /// @description Checks that a list literal can't start with empty element.
 /// @author msyabro
-/// @compile-error
 
 
 main() {
   [, 1, 2, 3];
+// ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

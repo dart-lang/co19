@@ -22,7 +22,6 @@
 /// @description Checks that it's a compile error if a form super.m() has a
 /// parameters mismatch listed above with the enclosing class's instance method.
 /// Test less positional parameters
-/// @compile-error
 /// @author ilya
 
 
@@ -33,6 +32,9 @@ class S {
 class C extends S {
   test() {
     super.positional(1);
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

@@ -9,7 +9,6 @@
 /// whose static type is an interface extending another interface that declares
 /// those members. This should indirectly prove that they're indeed inherited
 /// by the subinterface. Test type aliases
-/// @static-clean
 /// @author sgrekhov@unopro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

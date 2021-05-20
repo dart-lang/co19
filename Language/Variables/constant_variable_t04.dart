@@ -6,7 +6,6 @@
 /// modifier const. A constant variable is always implicitly final.
 /// @description Checks that, if a new value is assigned to a constant library 
 /// variable after it is initialized at declaration, then compile error occurs.
-/// @compile-error
 /// @author msyabro
 
 
@@ -14,4 +13,7 @@ const int foo = 1 + 1;
 
 main() {
   foo = 2;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

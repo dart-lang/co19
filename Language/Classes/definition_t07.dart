@@ -10,11 +10,13 @@
 /// @description Checks that it is a compile-time error if both opening and 
 /// closing curly brackets are missed in a class type definition with type 
 /// parameters. Class body is empty.
-/// @compile-error
 /// @author msyabro
 
 
 class A<T>
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

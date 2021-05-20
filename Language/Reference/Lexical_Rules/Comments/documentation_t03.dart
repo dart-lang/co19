@@ -7,11 +7,14 @@
 /// @description Checks that it is a compile-time error when a documentation
 /// comment does not have the end token, regardless of whether or not it contains
 /// single- and multi-line comment start tokens.
-/// @compile-error
 /// @author vasya
 
 
 /** Documentation comment
+//^
+// [cfe] unspecified
 
 main() {
 }
+// [error line 20, column 0]
+// [analyzer] unspecified

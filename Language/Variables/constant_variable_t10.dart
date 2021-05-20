@@ -7,7 +7,6 @@
 /// @description Checks that, if a new value is assigned to a constant library
 /// variable after it is initialized at declaration (even if this value is the
 /// same as the initializing one), then compile error occurs
-/// @compile-error
 /// @author msyabro
 
 
@@ -15,4 +14,7 @@ const x = 1;
 
 main() {
     x = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

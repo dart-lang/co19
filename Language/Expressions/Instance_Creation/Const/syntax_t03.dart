@@ -8,7 +8,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if
 /// a constant object expression is missing the type name.
-/// @compile-error
 /// @author msyabro
 
 
@@ -18,4 +17,7 @@ class A {
 
 main() {
   const ();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

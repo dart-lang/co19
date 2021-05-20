@@ -15,10 +15,12 @@
 ///   S0 Function(T1, . . . , Tn, [Tn+1, . . . , Tn+k])
 /// ...
 /// @description Checks that exception is thrown if generic metadata is incorrect
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 int i = 1;
 @i typedef int test<T extends num>();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 main() {}

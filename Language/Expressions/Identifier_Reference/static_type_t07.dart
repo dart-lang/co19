@@ -23,7 +23,6 @@
 ///   this.id.
 /// @description Checks that if d is instance variable or getter declaraion,
 /// the static type of e is the static type of the getter invocation this.id.
-/// @static-clean
 /// @author ilya
 
 

@@ -11,7 +11,6 @@
 /// Of course, a static warning will be issued.
 /// @description Checks that a compile error is produced if G has fewer type
 /// parameters than needed.
-/// @compile-error
 /// @author iefremov
 
 
@@ -19,4 +18,7 @@ class A<T, U> {}
 
 main() {
   A<int>? a = null;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

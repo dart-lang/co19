@@ -8,10 +8,12 @@
 /// ;
 /// @description Checks that a compile error is produced if the else statement is
 /// missing.
-/// @compile-error
 /// @author vasya
 
 
 main() {
   if (false) {} else
 }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified

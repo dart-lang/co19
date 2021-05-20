@@ -13,10 +13,12 @@
 /// ;
 /// @description Checks that it is a compile-time error when the value
 /// of the HEX_DIGIT_SEQUENCE contains other symbols than HEX_DIGIT.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   '\u{ffg}';
+// ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

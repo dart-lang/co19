@@ -18,7 +18,6 @@
 /// a relational operator on either super or an expression e1, with argument e2.
 /// @description Checks that super can't be used as the second operand in a
 /// relational expression without a compile error.
-/// @compile-error
 /// @author msyabro
 
 
@@ -28,6 +27,9 @@ class A extends S {
   test() {
     try {
       1 >= super;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
     } catch (e) {}
   }
 }

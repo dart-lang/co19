@@ -12,7 +12,6 @@
 /// statement occurs in 'do' statement without label L and there is no a loop
 /// statement or a case clause with label L within the innermost function
 /// containing this continue statement.
-/// @compile-error
 /// @author rodionov
 
 
@@ -23,5 +22,8 @@ main() {
 
   do {
     continue L;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } while (false);
 }

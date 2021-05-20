@@ -8,11 +8,13 @@
 /// in the lexical scope enclosing the expression.
 /// @description Checks that it is a compile error when an identifier expression
 /// references an undeclared identifier within initializer of library variable.
-/// @compile-error
 /// @author ilya
 
 
 var x = undeclared;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   x;

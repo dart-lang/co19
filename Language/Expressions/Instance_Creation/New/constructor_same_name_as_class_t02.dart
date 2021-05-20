@@ -11,7 +11,6 @@
 /// @description Checks that it is a compile error if a type being
 /// instantiated is parameterized type that does not declare a constructor
 /// with the same name as type.
-/// @compile-error
 /// @author ilya
 
 
@@ -21,4 +20,7 @@ class C<T> {
 
 main() {
   new C<int>();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

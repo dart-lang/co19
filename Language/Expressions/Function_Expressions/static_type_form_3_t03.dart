@@ -11,10 +11,12 @@
 /// function literal of the form
 /// (T1 a1,...,Tn an, {Tn+1 xn+1: d1,...,Tn+k xn+k: dk}) {s}
 /// to a variable whose type is not a function type.
-/// @compile-error
 /// @author kaigorodov
 
 
 main() {
   bool b = (int x, int y, {double a = 1, double b = 2}) { var x = 0; ++x; return ++x; };
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

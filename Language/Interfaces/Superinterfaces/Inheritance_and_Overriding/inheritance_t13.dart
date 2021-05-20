@@ -29,7 +29,6 @@
 /// to check whether the resulting inherited method signature is actually as
 /// described above, but we can check that it's inherited at all. Test type
 /// aliases
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

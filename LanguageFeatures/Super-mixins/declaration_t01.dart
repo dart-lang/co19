@@ -18,13 +18,9 @@
 
 class I {
   int i1() => 1;
-//    ^^
-// [cfe] unspecified
 }
 class J {
   double i1() => 2.0;
-//       ^^
-// [cfe] unspecified
 }
 
 class B {}

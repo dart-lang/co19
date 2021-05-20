@@ -9,10 +9,12 @@
 /// ;
 /// @description Checks that it is a compile-time error when both the conditional
 /// expression and the parentheses are omitted in an assert statement.
-/// @compile-error
 /// @author rodionov
 
 
 main() {
   assert;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

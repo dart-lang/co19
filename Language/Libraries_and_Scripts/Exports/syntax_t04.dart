@@ -10,12 +10,13 @@
 /// ;
 /// @description Checks that it is a compile-time error when there're no
 /// identifiers following a show combinator in an export declaration.
-/// @compile-error
 /// @author rodionov
-
+/// @issue 44990
 
 import "syntax_t04_lib.dart";
 
 main() {
   var x = foo;
+//        ^
+// [analyzer] unspecified
 }

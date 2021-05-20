@@ -20,12 +20,17 @@
 /// ;
 /// @description Checks that it is a compile-time error when there's no
 /// identifier after the 'as' keyword.
-/// @compile-error
 /// @author vasya
 
 
 import "syntax_lib.dart" as;
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   someVar = 0;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

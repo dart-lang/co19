@@ -23,11 +23,13 @@
 /// ;
 /// @description Checks that it is a compile-time error when a list literal is
 /// used in place of a top level definition in a script.
-/// @compile-error
 /// @author msyabro
 
 
 [1, 2, 3]
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

@@ -9,12 +9,14 @@
 /// expressionWithoutCascade)?
 /// ;
 /// @description Checks that the second expression is necessary.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   try {
     true ? 1 : ;
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

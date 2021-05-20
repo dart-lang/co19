@@ -6,7 +6,6 @@
 /// dynamic.
 /// @description Checks that return type is indeed dynamic by calling arbitrary
 /// method on the result of a setter and expecting no warnings.
-/// @static-clean
 /// @author iefremov
 
 import '../../../Utils/expect.dart';

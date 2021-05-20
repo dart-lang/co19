@@ -22,10 +22,16 @@
 /// ;
 /// @description Checks that it is a compile-time error when a multi-line
 /// double-quotes string literal does not have the opening triplet.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
+//     ^
+// [cfe] unspecified
+// [error line 36, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+// [error line 37, column 0]
+// [analyzer] unspecified
   incorrect string""";
 }

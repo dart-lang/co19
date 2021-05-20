@@ -27,7 +27,6 @@
 /// interfaces with same named methods and different number of required formal
 /// parameters and defines method with minimum number of required parameters
 /// and maximum number of positional parameters. Test type aliases
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

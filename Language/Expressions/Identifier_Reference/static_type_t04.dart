@@ -23,7 +23,6 @@
 ///   this.id.
 /// @description Checks that if d is a static method, top-level function or
 /// local function the static type of e the function type defined by d.
-/// @static-clean
 /// @author ilya
 
 

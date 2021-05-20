@@ -15,7 +15,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the opening curly
 /// bracket of the switch statement's body is missing.
-/// @compile-error
 /// @author vasya
 
 
@@ -23,10 +22,25 @@ switchTest(value) {
   var result;
 
   switch (value)
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
     case 0: result = 0; break;
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
     default: result = -1;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   return result;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {}

@@ -13,7 +13,6 @@
 /// Future<flatten(T)> may not be assigned to the declared return type of the
 /// immediately enclosing function, marked async.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
@@ -21,6 +20,9 @@ import '../../../Utils/expect.dart';
 
 Future<int> foo() async {
   return 'a';
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {}

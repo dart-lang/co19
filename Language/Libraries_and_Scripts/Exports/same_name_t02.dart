@@ -6,7 +6,6 @@
 /// same name unless their name is the empty string.
 /// @description Checks it is no static warning if there are two export
 /// directives referring to different uris with the same empty library name.
-/// @static-clean
 /// @author ilya
 
 

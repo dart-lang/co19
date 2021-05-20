@@ -12,11 +12,13 @@
 /// @description Checks that it is a compile time error if [T] is not
 /// well-bounded
 /// @Issue 42436
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A<X extends A<X>> {}
 typedef AAlias<X> = A<A<int>>;
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 main() {}

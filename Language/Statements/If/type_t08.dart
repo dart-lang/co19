@@ -12,7 +12,6 @@
 /// @description Checks that if b shows that v has type T, v is not potentially
 /// mutated in s1, but potentially mutated within a closure, then the type of v
 /// is not known to be T in s1.
-/// @compile-error
 /// @author ilya
 
 
@@ -28,7 +27,13 @@ test(C x) {
 
   if (x is D) {
     x.f();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
     x.f();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

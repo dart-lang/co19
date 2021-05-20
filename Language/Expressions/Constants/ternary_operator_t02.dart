@@ -10,12 +10,14 @@
 ///   expressions and e1 evaluates to a boolean value.
 /// @description Checks that if e1 does not evaluate to boolean then conditional
 /// expression is not a constant expression.
-/// @compile-error
 /// @author ilya
 
 
 const x = true;
 const y = null ? true : 1;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   y;

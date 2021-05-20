@@ -5,13 +5,15 @@
 /// @assertion It is a compile-time error for a class to
 /// attempt to extend, mix in or implement Null.
 /// @description Checks that Null cannot be mixed in abstract class
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 class A {}
 
 abstract class C extends A with Null {}
+//                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
  C;

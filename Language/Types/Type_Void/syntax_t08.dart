@@ -7,11 +7,13 @@
 /// as a type argument, or as the type of a variable or parameter).
 /// @description Checks that specifying void as a type parameter bound causes a
 /// compile-time error.
-/// @compile-error
 /// @author iefremov
 
 
 class A<T extends void> {}
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

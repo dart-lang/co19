@@ -20,7 +20,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when the list of type
 /// arguments in a static type annotation is empty.
-/// @compile-error
 /// @author iefremov
 
 
@@ -30,4 +29,7 @@ class Generic<T> {
 
 main() {
   Generic <>? t;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

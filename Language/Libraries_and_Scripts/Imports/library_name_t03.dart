@@ -6,7 +6,6 @@
 /// same name unless their name is the empty string.
 /// @description Checks that it is no static warning if two different libraries
 /// with empty string as name are imported
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

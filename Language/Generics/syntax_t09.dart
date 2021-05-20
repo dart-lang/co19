@@ -6,12 +6,14 @@
 /// that is, [G] may have formal type parameters declared.
 ///  @description Checks that a compile-time error is produced when trying
 /// to use a type parameter with type arguments.
-/// @compile-error
 /// @author iefremov
 
 
 class A<T> {}
 class C<T, A<T>>{}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

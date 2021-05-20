@@ -13,7 +13,6 @@
 /// @description Checks that it is a compile error if none of the cases
 /// (`Iterable<Object>` nor of `Map<Object, Object>`, and it's also not `dynamic`
 /// nor `Null`) match
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -21,6 +20,9 @@ Map<X, Y> foo<X, Y>(Map<X, Y> m) => m;
 
 void test<T>(T t) {
   foo({...?t});
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

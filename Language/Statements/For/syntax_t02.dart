@@ -17,10 +17,12 @@
 /// ;
 /// @description Checks that it is a compile-time error if the opening bracket
 /// enclosing the loop parts is missing.
-/// @compile-error
 /// @author vasya
 
 
 main() {
   for ; ; ) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

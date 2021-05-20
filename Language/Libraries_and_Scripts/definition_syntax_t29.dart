@@ -21,9 +21,8 @@
 /// name of the library.
 /// @description Checks that it is a compile-time error if the library name
 /// is not a valid identifier (contains non-latin characters).
-/// @compile-error
 /// @author rodionov
-
+/// @issue 44990
 
 import "definition_syntax_t29_lib.dart";
 

@@ -7,12 +7,17 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "rethrow" is used as a function type alias name.
-/// @compile-error
 /// @author rodionov
 
 
 typedef void rethrow();
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   null is rethrow;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

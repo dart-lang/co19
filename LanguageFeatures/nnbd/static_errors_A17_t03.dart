@@ -11,17 +11,40 @@
 /// getter on a receiver of static type Never via a null aware operator.
 /// @author sgrekhov@unipro.ru
 /// @issue 39866
-/// @static-warning
 
 // Requirements=nnbd-strong
 void test(var x) {
   if (x is Never) {
-    x?.toString();    /// static type warning
-    x?.runtimeType;   /// static type warning
-    x?.s = 1;         /// static type warning
-    x?..toString();   /// static type warning
-    x?..runtimeType;  /// static type warning
-    x?..s = 1;        /// static type warning
+    x?.toString();
+//   ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//  ^
+// [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
+    x?.runtimeType;
+//   ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//  ^
+// [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
+    x?.s = 1;
+//   ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//  ^
+// [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
+    x?..toString();
+//   ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//  ^
+// [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
+    x?..runtimeType;
+//   ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//  ^
+// [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
+    x?..s = 1;
+//   ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//  ^
+// [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
   }
 }
 

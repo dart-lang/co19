@@ -10,11 +10,13 @@
 /// the list.
 /// @description Checks that compile error appears if [T] is not assignable to
 /// the element type.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 main() {
   var strings = <String>[];
   var res = <int>{11, ...strings};
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

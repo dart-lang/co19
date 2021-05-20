@@ -7,12 +7,17 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "const" is used as a class name.
-/// @compile-error
 /// @author vasya
 
 
 class const { } // error
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   null is const;
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

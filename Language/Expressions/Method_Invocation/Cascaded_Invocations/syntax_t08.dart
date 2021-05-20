@@ -15,7 +15,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if suffix is a list
 /// literal.
-/// @compile-error
 /// @author msyabro
 
 
@@ -26,5 +25,8 @@ class C {
 main() {
   var o = new C();
     o..[1, 2, 3];
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

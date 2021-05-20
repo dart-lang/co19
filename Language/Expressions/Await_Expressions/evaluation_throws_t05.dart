@@ -10,7 +10,6 @@
 ///
 /// @description Check that if e is a call to non existing function, then
 /// it is a compile error
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
@@ -18,6 +17,9 @@ import '../../../Utils/expect.dart';
 
 test() async {
   await f();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -10,7 +10,6 @@
 /// the automatic import.
 /// @description Checks that dart:core is implicitly imported if not explicitly
 /// imported.
-/// @static-clean
 /// @author ilya
 
 

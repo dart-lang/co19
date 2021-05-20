@@ -6,11 +6,13 @@
 /// the declared name of a prefix, class, type parameter or type alias.
 /// @description Checks that it is a compile-time error if a built-in identifier
 /// "set" is used as the declared name of a type alias.
-/// @compile-error
 /// @author rodionov
 
 
 typedef int set();
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

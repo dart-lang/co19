@@ -15,12 +15,14 @@
 /// an equality operator on either super or an expression e1, with argument e2.
 /// @description Checks that equality expressions cannot be operands of another
 /// equality expression.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   try {
     1 == 2 == 3;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

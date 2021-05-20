@@ -28,11 +28,16 @@
 /// ;
 /// @description Checks that it is a compile-time error if a single-quoted
 /// string contains \r.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   'stri
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 ng';
+// ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

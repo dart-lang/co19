@@ -11,10 +11,12 @@
 /// ;
 /// @description Checks that it is a compile-time error when the type cast
 /// operator is missing the second argument.
-/// @compile-error
 /// @author rodionov
 
 
 main() {
   1 as;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -21,9 +21,8 @@
 /// name of the library.
 /// @description Checks that it is a compile-error if a part directive
 /// comes before an import directive.
-/// @compile-error
 /// @author msyabro
-
+/// @issue 44990
 
 import "definition_syntax_t07_lib.dart";
 

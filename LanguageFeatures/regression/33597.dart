@@ -5,10 +5,12 @@
 /// @description Regression test for the Issue 33597 (Dartanalyzer does not throw
 /// compiler error when function variable with incorrect return type parameter is
 /// declared): Checks that parameter type is checked correctly for functions.
-/// @compile-error
 /// @Issue 33597
 /// @author iarkh@unipro.ru
 
 typedef F<X extends int> = X Function();
 F<List>?  myvariable;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 main() {}

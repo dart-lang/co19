@@ -6,7 +6,6 @@
 /// C specifies a type T as a superinterface more than once.
 /// @description Checks that it is a compile-time error if the same type appears
 /// more than once in the implements clause. Test type aliases
-/// @compile-error
 /// @Issue 45526
 /// @author sgrekhov@unipro.ru
 
@@ -17,6 +16,9 @@ abstract class J {}
 typedef IAlias = I;
 
 class A implements I, J, IAlias {}
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

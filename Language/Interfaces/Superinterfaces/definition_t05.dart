@@ -8,11 +8,13 @@
 /// superinterface of I.
 /// @description Checks that it is a compile-time error if the implements clause
 /// of an interface is empty.
-/// @compile-error
 /// @author rodionov
 
 
 abstract class I implements {
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class C implements I {

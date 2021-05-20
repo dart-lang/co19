@@ -20,7 +20,6 @@
 /// @description Checks that it is a compile error if a block of a
 /// function body isn't opened
 ///
-/// @compile-error
 /// @author msyabro
 
 
@@ -29,3 +28,6 @@ main() {
 }
 
 function() }
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified

@@ -29,13 +29,15 @@
 /// unary operator on either super or an expression e.
 /// @description Checks that '-' cannot be used with
 /// a reference to a type parameter without a compile error.
-/// @compile-error
 /// @author msyabro
 
 
 class A <T> {
   test() {
     -T;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

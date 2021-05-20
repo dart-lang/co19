@@ -10,15 +10,21 @@
 /// declaration d is in scope if d is available in the current scope.
 /// @description Checks that it is a compile-time error if a class declares an 
 /// instance method and an abstract method with the same name.
-/// @compile-error
 /// @author iefremov
 
 
 class A {
+//    ^
+// [cfe] unspecified
   f() {}
   f();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   new A().f();
+//        ^
+// [cfe] unspecified
 }

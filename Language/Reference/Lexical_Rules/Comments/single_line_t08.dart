@@ -10,12 +10,20 @@
 /// ;
 /// @description Checks that a multi-line comment start token is ignored if it
 /// is contained in a single-line comment.
-/// @compile-error
 /// @author hlodvig
 
 
 main() {
   // single line comment /*
 	 * multi-line comment
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 	 */
+// ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified

@@ -10,11 +10,13 @@
 /// @description Check that it is a compile error, if the declared
 /// return type of a function marked async* may not be assigned to Stream.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 int f() async* { }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   f();

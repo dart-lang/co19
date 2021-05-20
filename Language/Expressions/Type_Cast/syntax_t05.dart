@@ -11,10 +11,12 @@
 /// ;
 /// @description Checks that it is a compile-time error when the second argument
 /// of a type cast operator is a shift expression rather than a type.
-/// @compile-error
 /// @author rodionov
 
 
 main() {
   1 as 1 << 2;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

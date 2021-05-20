@@ -9,13 +9,15 @@
 /// ;
 /// @description Checks that it is a compile-time error if the loop statement
 /// does not end with a semicolon.
-/// @compile-error
 /// @author vasya
 
 
 main() {
   do
     break
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   while (true);
 }
 

@@ -7,14 +7,19 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "extends" is used as a class member (field) name.
-/// @compile-error
 /// @author rodionov
 
 
 class C {
   int extends = 42;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   new C().extends is int;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

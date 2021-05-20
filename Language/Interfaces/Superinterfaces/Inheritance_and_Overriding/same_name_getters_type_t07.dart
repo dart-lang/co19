@@ -19,7 +19,6 @@
 /// methods and their static types are not identical, but there is a method
 /// such that its type is subtype of types of all other methods then, anyway, a
 /// compile error occurs. Test methods with parameters
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -45,6 +44,9 @@ abstract class SI3 {
 }
 
 abstract class I implements SI1, SI2, SI3 {
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

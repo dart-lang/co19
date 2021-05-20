@@ -6,7 +6,6 @@
 /// of the static type of e2 and the static type of e3.
 /// @description Checks that the static type of a conditional expression is
 /// an upper bound of the static type of e2 and the static type of e3.
-/// @static-clean
 /// @author msyabro
 
 

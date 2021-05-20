@@ -25,11 +25,13 @@
 ///  `{'defaultNamedParameter(`,' defaultNamedParameter)*`}'
 /// ;
 /// @description Checks that parameter declarations must be separated by comma.
-/// @compile-error
 /// @author msyabro
 
 
 void f(var p1 {var p2}) {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main () {
   f(1);

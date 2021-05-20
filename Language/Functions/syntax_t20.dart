@@ -20,11 +20,13 @@
 /// @description Checks that the try statement can't be a body of a function of
 /// the form [functionSignature '=>' expression ';'].
 ///
-/// @compile-error
 /// @author msyabro
 
 
 f() => try { 1 + 1; } catch (e) {};
+//                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   f();

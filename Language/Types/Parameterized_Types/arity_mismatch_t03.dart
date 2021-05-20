@@ -11,7 +11,6 @@
 /// Of course, a static warning will be issued.
 /// @description Checks that a compile error is produced if G has more type
 /// parameters than needed.
-/// @compile-error
 /// @author iefremov
 
 
@@ -19,4 +18,7 @@ class A<T> {}
 
 main() {
   A<int, double>? a = null;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

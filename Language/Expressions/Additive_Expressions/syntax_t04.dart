@@ -18,7 +18,6 @@
 /// multiplicativeExpression ('+' multiplicativeExpression)*
 /// must have at least two operands.
 /// Note that there is no unary plus operator in dart.
-/// @compile-error
 /// @author msyabro
 
 
@@ -26,5 +25,8 @@ main() {
   var x=1;
   try {
     + x;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

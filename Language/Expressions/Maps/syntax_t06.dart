@@ -13,10 +13,12 @@
 /// A map literal consists of zero or more entries. Each entry has a key and a
 /// value. Each key and each value is denoted by an expression.
 /// @description Checks that a map literal can't begin with an empty entry.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   var map = <String, int>{, "key1": 1, "key2" : 2, "key3": 3};
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

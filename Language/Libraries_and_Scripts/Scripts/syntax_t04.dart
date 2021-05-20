@@ -1,5 +1,8 @@
 class C {}
 #! scripts tag    // error
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 // Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
@@ -13,7 +16,6 @@ class C {}
 /// ;
 /// @description Checks that it is a compile-time error when a top-level
 /// definition (a class declaration) comes before the script tag.
-/// @compile-error
 /// @author msyabro
 
 

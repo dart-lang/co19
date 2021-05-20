@@ -6,10 +6,12 @@
 /// constant expression depends on itself.
 /// @description Checks that it is a compile-time error if a constant variable
 /// is initialized with itself.
-/// @compile-error
 
 
 const m = m;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

@@ -6,10 +6,12 @@
 /// to bool.
 /// @description Checks that it is a compile error if the type of e1 may
 /// not be assigned to bool.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   "" ? true : false;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

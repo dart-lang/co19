@@ -9,10 +9,12 @@
 /// ;
 /// @description Checks that it is a compile-time error when the parentheses
 /// surrounding the assert expression are missing.
-/// @compile-error
 /// @author vasya
 
 
 main() {
     assert false ;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

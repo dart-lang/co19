@@ -6,7 +6,6 @@
 /// boolean, any construct that makes use of boolean conversion will cause a
 /// compile type error if the value to be converted is not a boolean.
 /// @description Checks that it is a compile error to convert int to bool.
-/// @compile-error
 /// @author msyabro
 
 
@@ -14,4 +13,7 @@ int i = 1;
 
 main() {
   i ? '' : '  ';
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

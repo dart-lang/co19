@@ -7,11 +7,13 @@
 /// @description Check that it is a compile-time error if in expression e.m
 /// e is a library prefix and m is Object's toString() method
 /// @issue 24332
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 import 'instance_of_type_lib.dart' as lib;
 
 main() {
   var x = lib.toString;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

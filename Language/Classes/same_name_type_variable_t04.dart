@@ -7,13 +7,16 @@
 /// constructors.
 /// @description Checks that a type variable can not have the same name as
 /// the name of generic class instance setter.
-/// @compile-error
 /// @author ilya
 /// @issue 14513
 
 
 class A<T> {
+//      ^
+// [analyzer] unspecified
   set T(x) {}
+//    ^
+// [cfe] unspecified
 }
 
 main() {

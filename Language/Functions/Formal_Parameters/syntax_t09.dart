@@ -26,12 +26,17 @@
 /// ;
 /// @description Checks that optional positional parameters can't precede
 /// required parameters.
-/// @compile-error
 /// @author rodionov
 
 
 f([var a], var b) {}
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   f(1, 1);
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

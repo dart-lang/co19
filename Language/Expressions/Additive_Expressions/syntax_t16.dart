@@ -16,7 +16,6 @@
 /// argument e2.
 /// @description Checks that assignment expression cannot be used as the second
 /// operand of an additive expression.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
@@ -24,4 +23,7 @@
 main() {
   var foo;
   try {1 + foo = 2;} catch (ok) {}
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

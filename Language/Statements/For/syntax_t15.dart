@@ -17,11 +17,13 @@
 /// ;
 /// @description Checks that it is a compile-time error if the loop parts
 /// in an asynchronous loop form 'id in expression' end with a semicolon.
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
 
 main() async {
   await for (var l in new Stream.fromIterable(List.filled(100, 0));) break;
+//                                                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

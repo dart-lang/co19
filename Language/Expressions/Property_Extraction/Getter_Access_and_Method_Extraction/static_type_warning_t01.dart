@@ -8,7 +8,6 @@
 /// have a method or getter named m
 /// @description Check that it is a compile error if object instance
 /// does not have a method or getter named m
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -18,4 +17,7 @@ class C {
 main() {
   C c = new C();
   c.m;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

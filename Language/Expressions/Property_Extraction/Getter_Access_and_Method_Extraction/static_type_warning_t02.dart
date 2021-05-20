@@ -8,7 +8,6 @@
 /// have a method or getter named m
 /// @description Check that it is a compile error if type T
 /// does not have a static method or getter named m
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -17,4 +16,7 @@ class C {
 
 main() {
   C.m;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

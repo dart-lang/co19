@@ -8,7 +8,6 @@
 /// @description Checks that a compile error is produced if m1 has almost the
 /// same set of named parameters as m2 except for one of them having a different 
 /// name.
-/// @compile-error
 /// @author rodionov
 
 
@@ -18,6 +17,9 @@ class A {
 
 class C extends A {
   f({var x, var y, var zz}) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

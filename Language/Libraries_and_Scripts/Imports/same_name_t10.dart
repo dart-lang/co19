@@ -14,7 +14,6 @@
 /// @description Checks that it is a compile error if two different libraries
 /// introduce the same name to the top level scope of L and L uses it as
 /// an identifier reference in a type test expression.
-/// @compile-error
 /// @author rodionov
 
 import "same_name_t01_p1_lib.dart";
@@ -22,4 +21,7 @@ import "same_name_t01_p2_lib.dart";
 
 main() {
   id is Object;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

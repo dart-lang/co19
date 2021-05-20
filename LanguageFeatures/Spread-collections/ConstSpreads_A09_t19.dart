@@ -9,7 +9,6 @@
 /// constant element if the expression is a potentially constant expression.
 /// @description: Checks that constant map spread element can be potentially
 /// constant map.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -19,4 +18,7 @@ class MyClass {
 
 main() {
   const Map m = {...(MyClass() is MyClass ? 12345 : {2: 2})};
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

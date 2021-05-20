@@ -13,10 +13,12 @@
 /// @description Checks that it is a compile-time error if a string
 /// interpolation construct does not start with IDENTIFIER_NO_DOLLAR or opening
 /// brace.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   "$1}";
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

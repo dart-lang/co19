@@ -15,7 +15,6 @@
 /// libraries imported with an empty prefix introduce the same name to the
 /// import namespace of L (both via re-export of a third library), but L doesn't
 /// reference it.
-/// @static-clean
 /// @author rodionov
 
 

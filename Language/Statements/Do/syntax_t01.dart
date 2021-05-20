@@ -9,7 +9,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the loop statement is
 /// empty.
-/// @compile-error
 /// @author vasya
 
 
@@ -17,4 +16,7 @@ main() {
   do
   while (true);
 }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 

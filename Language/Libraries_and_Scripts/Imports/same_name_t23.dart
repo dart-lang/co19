@@ -16,7 +16,6 @@
 /// third library), references that name in an explicit type test and other
 /// expressions, but it's hidden in one of the import declarations of L (so
 /// there's actually no name clash).
-/// @static-clean
 /// @author rodionov
 
 

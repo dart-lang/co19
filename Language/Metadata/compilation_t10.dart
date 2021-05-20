@@ -19,7 +19,7 @@ class A {
 //^^
 // [analyzer] COMPILE_TIME_ERROR.NO_ANNOTATION_CONSTRUCTOR_ARGUMENTS
 // ^
-// [cfe] Error: This can't be used as an annotation; an annotation should be a reference to a compile-time constant variable, or a call to a constant constructor.
+// [cfe] This can't be used as an annotation; an annotation should be a reference to a compile-time constant variable, or a call to a constant constructor.
 class B {}
 
 main() {

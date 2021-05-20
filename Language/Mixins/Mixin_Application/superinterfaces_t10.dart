@@ -9,7 +9,6 @@
 /// or indirectly, all of T1, . . . , Tn.
 /// @description Checks that it is a compile error if S does not implement
 /// all the direct superinterfaces of M. Test type aliases
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -30,6 +29,9 @@ class S {
 typedef MAlias = M;
 
 class C extends S with MAlias {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

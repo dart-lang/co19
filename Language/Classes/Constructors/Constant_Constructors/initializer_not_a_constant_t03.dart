@@ -10,7 +10,6 @@
 /// non-constant expression.
 /// @author sgrekhov@unipro.ru
 
-
 class C {
   static final y = 1;
 
@@ -25,4 +24,6 @@ class C {
 
 main() {
   const C();
+//      ^
+// [cfe] unspecified
 }

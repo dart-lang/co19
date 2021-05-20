@@ -8,7 +8,6 @@
 /// @description Checks that there are no static warnings if m1 has the same set 
 /// of named parameters as m2 but in a different order when the class declaring 
 /// m1 is not a direct subtype of the class declaring m2.
-/// @static-clean
 /// @author iefremov
 
 

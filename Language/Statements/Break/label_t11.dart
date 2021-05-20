@@ -10,12 +10,14 @@
 /// @description Checks that it is a compile-time error when a break statement of
 /// the form "break;" is not enclosed in a do, for, switch or while statement
 /// within the innermost function.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   for (int i in [1, 2]) {
     () { break; } ();
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }

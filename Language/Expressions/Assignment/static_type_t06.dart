@@ -13,7 +13,6 @@
 ///    has a static setter named v =.
 /// @description Checks that it is a compile error if e1 is a constant type
 /// literal but does not have a setter named v
-/// @compile-error
 /// @author kaigorodov
 /// @note issue #16233
 
@@ -23,4 +22,7 @@ class C {
 
 main() {
   C.v = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -9,10 +9,12 @@
 /// ;
 /// @description Checks that the parameter list is required in the form
 /// ['=>' expression ';'].
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   var func =  => 1;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

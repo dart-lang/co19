@@ -12,7 +12,6 @@
 /// @description Checks that it is a compile error if a class C declares an
 /// instance method named n and an inherited instance getter named n. Test type
 /// aliases
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -24,6 +23,9 @@ typedef AAlias = A;
 
 class C extends AAlias {
   foo() {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

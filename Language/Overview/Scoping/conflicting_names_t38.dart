@@ -10,10 +10,12 @@
 /// declaration d is in scope if d is available in the current scope.
 /// @description Checks that it is a compile-time error when a variable 
 /// declaration statement in a for loop declares two identically named variables.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   for (int i, i; i < 10; ++i) {}
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

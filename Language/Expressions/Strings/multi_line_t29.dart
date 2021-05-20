@@ -22,10 +22,16 @@
 /// ;
 /// @description Checks that it is a compile-time error if a raw multi-line
 /// double-quoted string closes with one single quote.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
+//     ^
+// [cfe] unspecified
+// [error line 36, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+// [error line 37, column 0]
+// [analyzer] unspecified
   r"""s';
 }

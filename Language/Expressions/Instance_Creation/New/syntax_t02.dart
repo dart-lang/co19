@@ -8,7 +8,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if a new expression does
 /// not have argument brackets after the class name.
-/// @compile-error
 /// @author msyabro
 
 
@@ -18,4 +17,7 @@ class A {
 
 main() {
   new A;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

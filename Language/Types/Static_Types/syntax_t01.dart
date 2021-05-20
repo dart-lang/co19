@@ -21,7 +21,6 @@
 /// @description Checks that it is a compile-time error when the type arguments
 /// in a static type annotation are enclosed in curly brackets instead of angle
 /// ones.
-/// @compile-error
 /// @author iefremov
 
 
@@ -31,4 +30,7 @@ class Generic<T> {
 
 main() {
   Generic{int} t = new Generic<int>();
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

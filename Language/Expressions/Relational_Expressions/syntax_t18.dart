@@ -18,7 +18,6 @@
 /// a relational operator on either super or an expression e1, with argument e2.
 /// @description Checks that a reference to a class declaration cannot be used
 /// as the first operand in a relational expression without a compile error.
-/// @compile-error
 /// @author msyabro
 
 
@@ -27,4 +26,7 @@ class A {
 
 main() {
   A < 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

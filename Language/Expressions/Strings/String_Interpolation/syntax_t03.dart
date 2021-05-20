@@ -14,11 +14,13 @@
 /// string interpolation construct of the form '$' IDENTIFIER_NO_DOLLAR contains
 /// the dollar character that is not a beginning of another string interpolation
 /// construct.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   var x$ = "dollar";
   '$x$';
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

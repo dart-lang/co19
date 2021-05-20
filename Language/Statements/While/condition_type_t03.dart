@@ -6,13 +6,15 @@
 /// to bool.
 /// @description Checks that it is a compile error if the type of e may not
 /// be assigned to bool.
-/// @compile-error
 /// @author rodionov
 
 int f() {return 1;}
 
 main() {
   while (f()) {
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
     print("foo");
     break;
   }

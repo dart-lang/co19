@@ -27,6 +27,8 @@ mixin M<X extends S, Y extends T> on B, C implements I, J {
 class A implements B, C, I, J {}
 
 class MA extends A with M {}
+//    ^
+// [cfe] unspecified
 
 main() {
   new MA();

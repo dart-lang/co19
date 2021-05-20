@@ -15,7 +15,6 @@
 /// libraries imported with empty prefixes introduce the same name to the
 /// top-level scope of L (both via re-export of a third library) and L uses it
 /// in an explicit type test.
-/// @static-clean
 /// @author rodionov
 
 import "same_name_t20_p1_lib.dart";

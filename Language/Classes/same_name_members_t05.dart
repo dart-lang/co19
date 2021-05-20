@@ -6,17 +6,21 @@
 /// the same name.
 /// @description Checks that it is a compile-time error if a class declares 
 /// an abstract function and getter of the same name.
-/// @compile-error
 /// @author rodionov
 
 
 abstract class A {
   String f(int f); // abstract
   int get f {return 0;}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class C extends A {
   String f(int f) => "Lily was here";
+//       ^
+// [analyzer] unspecified
 }
 
 main() {

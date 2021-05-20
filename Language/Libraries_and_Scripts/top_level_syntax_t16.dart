@@ -22,9 +22,8 @@
 /// ;
 /// @description Checks that a lone comma character can't be a top level
 /// definition in a library.
-/// @compile-error
 /// @author msyabro
-
+/// @issue 44990
 
 import 'top_level_syntax_t16_lib.dart';
 

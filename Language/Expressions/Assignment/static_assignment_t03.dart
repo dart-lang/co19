@@ -11,7 +11,6 @@
 /// C.v = e.
 /// @description Checks that an assignment of the form v = e, where v is a name
 /// of a static getter in class C, is equivalent to the assignment C.v = e.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -21,6 +20,9 @@ class C {
   
   test() {
     v = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

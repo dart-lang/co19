@@ -9,7 +9,6 @@
 ///   instance method named m.
 /// • The type dynamic otherwise.
 /// @description Check that static type of the extracted method is Function.
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

@@ -17,10 +17,12 @@
 /// @description Checks that Unicode whitespaces other than WHITESPACE are not
 /// permitted in the source code.
 /// Checks symbol U+000b.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
    // U+000b
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

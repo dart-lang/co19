@@ -8,7 +8,6 @@
 /// interfaces and the resulting class implements those interfaces then no
 /// static warning occurs. Interface implementation declared partially in a
 /// mixin, partially in a superclass. Test type alias
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

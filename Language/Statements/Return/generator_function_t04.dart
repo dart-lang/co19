@@ -8,13 +8,15 @@
 /// @description Check that statement 'return e' cause a compiler error in
 /// synchronous generator local function (i.e. function inside another function)
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 main() {
   Iterable test() sync* {
     return 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   test().isEmpty;

@@ -19,7 +19,6 @@
 ///   // [1, 2, 3, 4].
 /// @description Checks that [null] element is allowed inside the spreadable
 /// element in the set.
-/// @static-warning
 /// @author iarkh@unipro.ru
 
 
@@ -32,11 +31,19 @@ main() {
   Expect.setEquals({1, 2, null, 3, 4}, more);
 
   var also = {1, ...?things, 4};
+//               ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                   ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<dynamic>' which excludes null.
   Expect.setEquals({1, 2, null, 3, 4}, more);
 
   more = {1, ...(things as List).where((thing) => thing != null), 4};
   Expect.setEquals({1, 2, 3, 4}, more);
 
   more = {1, ...?(things as List).where((thing) => thing != null), 4};
+//           ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                ^
+// [cfe] Operand of null-aware operation '...?' has type 'Iterable<dynamic>' which excludes null.
   Expect.setEquals({1, 2, 3, 4}, more);
 }

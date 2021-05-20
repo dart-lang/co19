@@ -16,7 +16,6 @@
 /// @description Checks that if v is local variable or formal parameter, either
 /// e1 or e2 shows that v has type T and v is not mutated in e2 or within a
 /// closure, then b shows that v has type T. Formal parameter, no closures case.
-/// @static-clean
 /// @author ilya
 
 

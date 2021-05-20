@@ -8,7 +8,6 @@
 /// The static methods of a class C are those static methods declared by C.
 /// @description Checks that superclass's static methods are unaccessible
 /// via subclass's name.
-/// @compile-error
 /// @author rodionov
 
 
@@ -21,4 +20,7 @@ class C extends S {
 
 main() {
   C.foo();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

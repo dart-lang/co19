@@ -14,9 +14,11 @@ class C {
   static var foo;
 //           ^
 // [analyzer] unspecified
-// [cfe] unspecified
 
   foo() { throw C(); }
+//^
+// [cfe] unspecified
+
 }
 
 main() {

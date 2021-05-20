@@ -7,7 +7,6 @@
 /// corresponding instance member m of type F' if F' is not a subtype of F.
 /// @description Checks that it is a compile error if the type F' of
 /// inherited instance member m is not a subtype of F.
-/// @compile-error
 /// @author ilya
 
 
@@ -20,6 +19,9 @@ class S {
 }
 
 class C extends S implements I {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main () {
   new C();

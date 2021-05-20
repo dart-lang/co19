@@ -5,15 +5,21 @@
 /// @assertion The following names are allowed for user-defined operators: 
 /// <, >, <=, >=, ==, -, +, /, ˜/, *, %, |, ˆ, &, <<, >>, >>>, []=, [], ˜.
 /// @description Checks that operator ! cannot be defined in a user class.
-/// @compile-error
 /// @author iefremov
 
 
 class C {
   bool operator !() {}
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   C? c = new C();
   c!;
+// ^
+// [analyzer] STATIC_WARNING.UNNECESSARY_NON_NULL_ASSERTION
+//^
+// [cfe] Operand of null-aware operation '!' has type 'C' which excludes null.
 }

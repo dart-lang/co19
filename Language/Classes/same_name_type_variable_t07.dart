@@ -7,13 +7,16 @@
 /// constructors.
 /// @description Checks that a type variable can not have the same name as
 /// the name of generic class static setter.
-/// @compile-error
 /// @author ilya
 /// @issue 14513 
 
 
 class A<T> {
+//      ^
+// [analyzer] unspecified
   static set T(x) {}
+//           ^
+// [cfe] unspecified
 }
 
 main() {

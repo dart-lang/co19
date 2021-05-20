@@ -28,10 +28,12 @@
 ///   ;
 /// @description Checks that variable declaration cannot contain both 'const' 
 /// and 'var'.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   const var x = 1;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

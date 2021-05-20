@@ -7,11 +7,13 @@
 /// @description Checks that a compile type error occurs if a variable is
 /// being assigned an expression of incompatible type (failed implicit subtype
 /// test).
-/// @compile-error
 /// @author rodionov
 
 
 main() {
   var i = 1;
   String v = i;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

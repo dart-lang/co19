@@ -7,7 +7,6 @@
 /// Relational        <                                 None           8
 /// @description Test that '<' relational operator has no associativity. It is
 /// compile error to expect any associativity from it
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -26,4 +25,7 @@ main() {
   C c3 = new C();
 
   C c = c1 < c2 < c3;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

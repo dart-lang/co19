@@ -16,11 +16,13 @@
 /// of a shift operator on either super or an expression e1, with argument e2.
 /// @description Checks that a shift expression can't start with
 /// the triple shift operator >>>.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 // SharedOptions=--enable-experiment=triple-shift
 
 main() {
   >>> 2;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

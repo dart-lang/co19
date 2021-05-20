@@ -6,8 +6,10 @@
 /// type parameter is a supertype of its upper bound): Checks that class cannot
 /// extend itself.
 /// @Issue 33421
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 class C extends C {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 main() {}

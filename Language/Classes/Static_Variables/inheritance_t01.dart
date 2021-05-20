@@ -8,7 +8,6 @@
 /// declared by C.
 /// @description Checks that superclass's static variables are unaccessible
 /// via subclass's name.
-/// @compile-error
 /// @author ilya
 
 
@@ -21,4 +20,7 @@ class C extends S {
 
 main() {
   C.foo;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

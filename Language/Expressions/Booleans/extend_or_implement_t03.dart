@@ -6,11 +6,13 @@
 /// mix in or implement bool.
 /// @description Checks that it is a compile-time error when a user-defined
 /// class attempts to extend bool.
-/// @compile-error
 /// @author msyabro
 
 
 class C extends bool {}
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

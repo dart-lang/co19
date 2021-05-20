@@ -20,12 +20,16 @@
 /// ;
 /// @description Checks that it is a compile-time error when the arguments of a
 /// show/hide combinator include an invalid identifier.
-/// @compile-error
 /// @author rodionov
 
 
 import "syntax_lib.dart" show foo, 8ar;
+//                                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   someVar = 0;
+//^
+// [analyzer] unspecified
 }

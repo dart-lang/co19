@@ -6,12 +6,14 @@
 /// dynamic as a type annotation or type parameter.
 /// @description Checks that it is a compile-time error if a built-in identifier
 /// "deferred" is used as a type annotation of a local variable.
-/// @compile-error
 /// @issue 25732
 /// @author ngl@unipro.ru
 
 
 main() {
   deferred foo;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

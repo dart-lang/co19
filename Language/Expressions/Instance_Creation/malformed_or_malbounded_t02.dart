@@ -11,10 +11,12 @@
 /// or malbounded.
 /// @description Checks that it is a static-warning if T does not denote a type
 /// in a const T() expression.
-/// @compile-error
 /// @author ilya
 
 
 main() {
   const Undef();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

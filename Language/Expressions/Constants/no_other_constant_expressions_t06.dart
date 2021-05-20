@@ -5,12 +5,14 @@
 /// @assertion There are no other constant expressions.
 /// @description Checks that a new expression cannot be used to initialize
 /// a constant variable.
-/// @compile-error
 /// @author iefremov
 
 
 class A {}
 const a = new A();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

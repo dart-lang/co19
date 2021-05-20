@@ -10,7 +10,6 @@
 /// @description Checks that it is a compile error if M has implicit
 /// superinterfaces and C does not implement them. Test type aliases
 /// @issue 26409
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -32,6 +31,9 @@ class S {
 }
 
 class C extends S with MAlias {
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

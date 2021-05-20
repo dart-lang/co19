@@ -12,10 +12,12 @@
 /// ;
 /// @description Checks that it is a compile-time error when an interpolation is
 /// separated between three adjacent string literals.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   '${1' '+' '1}';
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

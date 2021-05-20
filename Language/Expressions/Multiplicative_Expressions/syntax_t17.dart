@@ -19,13 +19,15 @@
 /// argument e2.
 /// @description Checks that a type parameter name cannot be used as the right
 /// operand of a multiplicative expression without a compile error.
-/// @compile-error
 /// @author msyabro
 
 
 class A<T> {
   test() {
     1 ~/ T;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

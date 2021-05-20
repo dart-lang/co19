@@ -5,7 +5,6 @@
 /// @assertion A super method invocation i has the form
 /// super.m(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
 /// @description Checks that arguments must be separated with comma.
-/// @compile-error
 /// @author msyabro
 
 
@@ -16,6 +15,9 @@ class S {
 class A extends S {
   test() {
     super.f(new Object() new Object());
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

@@ -8,7 +8,6 @@
 /// @description Check that it is compile error if yield-each statement appears
 /// inside asynchronous method.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
@@ -16,6 +15,9 @@ import 'dart:async';
 class A {
   test() async {
     yield* new Stream<String>.fromIterable(['a']);
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

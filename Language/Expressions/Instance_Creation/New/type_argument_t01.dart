@@ -16,7 +16,6 @@
 /// If T or any of its superclasses is malbounded a dynamic error occurs.
 /// @description  Checks that it is a compile error if a type argument of a class
 /// in a new expression is not a subtype of its bound.
-/// @compile-error
 /// @author msyabro
 
 
@@ -26,4 +25,7 @@ class C<T extends num> {
 
 main() {
   new C<bool>();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

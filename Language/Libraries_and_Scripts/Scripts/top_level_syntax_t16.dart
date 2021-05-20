@@ -23,12 +23,14 @@
 /// ;
 /// @description Checks that it is a compile-time error when a colon character
 /// is used in place of a top level definition in a script.
-/// @compile-error
 /// @author msyabro
 
 
 f() {}
 :
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 g() {}
 
 main() {

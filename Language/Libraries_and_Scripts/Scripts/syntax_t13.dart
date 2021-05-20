@@ -1,5 +1,8 @@
 #! script tag 1
 #! script tag 2
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 // Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
@@ -13,7 +16,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when a script has two
 /// script tags.
-/// @compile-error
 /// @author msyabro
 
 

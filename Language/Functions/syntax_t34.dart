@@ -20,14 +20,22 @@
 /// @description Checks that typeArgument in returnType must be surrounded with
 /// single angle brackets.
 ///
-/// @compile-error
 /// @author kaigorodov
 
 
 main() {
   List<List<int>> f1() { return null; }
+//                              ^
+// [analyzer] unspecified
+// [cfe] unspecified
   List<List<<int>>> f2() { return null; }
+//                                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f1();
   f2();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

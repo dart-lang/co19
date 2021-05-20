@@ -22,10 +22,16 @@
 /// ;
 /// @description Checks that it is a compile-time error when a raw multi-line
 /// double-quotes string literal has fewer than 3 opening quotes.
-/// @compile-error
 /// @author rodionov
 
 
 main() {
+//     ^
+// [cfe] unspecified
+// [error line 36, column 0]
+// [analyzer] unspecified
+// [cfe] unspecified
+// [error line 37, column 0]
+// [analyzer] unspecified
   r""foo""";
 }

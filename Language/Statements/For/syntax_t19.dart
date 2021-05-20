@@ -17,11 +17,13 @@
 /// ;
 /// @description Checks that it is a compile-time error if the loop variable
 /// in an asynchronous form of 'id in expression' includes initializer.
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
 
 main() async {
   await for (var x = 1 in new Stream.fromIterable([1,2])) break;
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

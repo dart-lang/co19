@@ -11,7 +11,6 @@
 /// Of course, a static warning will be issued.
 /// @description Checks that a compile error warning is produced if G is not a
 /// generic type.
-/// @compile-error
 /// @author iefremov
 
 
@@ -19,4 +18,7 @@ class A {}
 
 main() {
   A<int>? a = null;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

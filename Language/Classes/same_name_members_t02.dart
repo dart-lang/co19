@@ -6,13 +6,15 @@
 /// the same name.
 /// @description Checks that it is a compile-time error if a class declares 
 /// a function and a getter of the same name.
-/// @compile-error
 /// @author rodionov
 
 
 class C {
   void f() {}
   int get f {return 1;}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -26,11 +26,13 @@
 /// ;
 /// @description Checks that the list of optional positional parameters cannot
 /// be empty.
-/// @compile-error
 /// @author rodionov
 
 
 void f([]) {}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main () {
   f();

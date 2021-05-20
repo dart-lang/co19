@@ -23,7 +23,6 @@
 /// T <: S or S <: T.
 /// @description Checks the assignability (both ways) of variables and values
 /// that meet the described requirements.
-/// @static-clean
 
 
 class I {}

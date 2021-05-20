@@ -9,11 +9,13 @@
 /// is-expression evaluates to true.
 /// Otherwise it evaluates to false.
 /// @description Checks that if T is deferred, then compile error occurs.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 import '../lib.dart' deferred as lb;
 
 main() {
   1 is lb.A;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -6,7 +6,6 @@
 /// dynamic as a type annotation or type parameter.
 /// @description Checks that it is a compile-time error if a built-in identifier
 /// "as" is used as an actual type parameter.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
@@ -14,5 +13,8 @@ class A<T> {}
 
 main() {
   new A<as>();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

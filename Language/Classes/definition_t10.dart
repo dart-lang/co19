@@ -9,11 +9,13 @@
 /// ;
 /// @description Checks that it is a compile-time error if a class type 
 /// definition does not have a class identifier. Class body is empty.
-/// @compile-error
 /// @author msyabro
 
 
 class {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   var someMember;
 }
 

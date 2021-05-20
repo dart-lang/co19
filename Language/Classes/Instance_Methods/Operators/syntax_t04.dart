@@ -20,11 +20,13 @@
 /// @description Checks that it is a compile-time error if a class defines an
 /// operator without a formal parameter list.
 /// @author iefremov
-/// @compile-error
 
 
 class C {
   int operator - {return 42;}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

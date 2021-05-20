@@ -10,7 +10,6 @@
 /// @description Checks that there are no warnings if a class declares
 /// its own noSuchMethod() and does not declare nor inherit an instance
 /// method declared in class interface. Test type alias
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

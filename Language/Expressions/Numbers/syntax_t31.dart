@@ -27,10 +27,12 @@
 /// ;
 /// @description Checks that a decimal numeric literal cannot contain
 /// non-decimal digits.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   var i = 1f;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

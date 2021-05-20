@@ -9,13 +9,17 @@
 ///  ;
 /// @description Checks that there is a compile error if declared constant values
 /// are separated with two commas.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 import "../../Utils/expect.dart";
 
 enum E {a,, b}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   E e = E.b;
+//        ^
+// [cfe] unspecified
 }

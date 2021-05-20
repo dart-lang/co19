@@ -7,7 +7,6 @@
 /// followed by the token ‘.’.
 /// @description Checks that there is a compile error if any of the methods of
 /// class Object is invoking on prefix object.
-/// @compile-error
 /// @issue #25496
 /// @author ngl@unipro.ru
 
@@ -15,4 +14,7 @@ import '../lib.dart' as lb;
 
 main() {
  lb.toString();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

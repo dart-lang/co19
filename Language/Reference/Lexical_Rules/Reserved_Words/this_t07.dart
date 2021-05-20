@@ -7,14 +7,19 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "this" is used as a static class member (function) name.
-/// @compile-error
 /// @author rodionov
 
 
 class C {
   static void this() {}
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   C.this();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

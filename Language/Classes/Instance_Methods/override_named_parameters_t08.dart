@@ -8,7 +8,6 @@
 /// @description Checks that a compile error is produced if m1 has fewer named
 /// parameters than m2 (1 vs. 0) and neither have any required parameters. Test
 /// type aliases
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -20,6 +19,9 @@ typedef AAlias = A;
 
 class C extends AAlias {
   f() { }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

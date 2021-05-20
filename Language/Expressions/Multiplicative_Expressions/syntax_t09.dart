@@ -19,7 +19,6 @@
 /// argument e2.
 /// @description  Checks that expression of the form
 /// [super ('~/' unaryExpression)+] must have at least two operands
-/// @compile-error
 /// @author msyabro
 
 
@@ -30,6 +29,9 @@ class S {
 class A extends S{
   test() {
     super ~/;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

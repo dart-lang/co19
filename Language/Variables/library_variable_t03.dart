@@ -7,11 +7,13 @@
 /// identifier static.
 /// @description Checks that it is a compile-time error if a top level typed 
 /// variable declaration is prefaced with the built-in identifier static.
-/// @compile-error
 /// @author msyabro
 
 
 static int foo = 1; // error
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   foo = 1;

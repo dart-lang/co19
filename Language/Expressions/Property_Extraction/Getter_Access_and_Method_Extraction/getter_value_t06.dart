@@ -7,7 +7,6 @@
 /// @description Checks that it is a compile error if the getter in superclass is
 /// called with this bound to the current value of this and the result is the
 /// result of supper.m
-/// @compile-error
 /// @author ilya
 /// @author sgrekhov@unipro.ru
 
@@ -15,6 +14,9 @@ import '../../../../Utils/expect.dart';
 
 class A {
   get field => this.x + 1;
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class C extends A {

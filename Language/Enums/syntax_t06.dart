@@ -8,11 +8,13 @@
 ///  metadata enum id ‘{’ id [‘, ’ id]* [‘, ’] ‘}’
 ///  ;
 /// @description Checks that it is compile-time error if enum id is missing
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 enum {a, b, c}
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

@@ -8,12 +8,14 @@
 /// constant type.
 /// @description Checks that an expression of the form [e is! T] is not accepted
 /// and causes compile time error if [T] is not a compile-time constant type.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 class A<E> {
   static const bool res = String is! E;
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

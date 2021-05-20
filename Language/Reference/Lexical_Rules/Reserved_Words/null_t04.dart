@@ -7,13 +7,18 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "null" is used as a function type alias name.
-/// @compile-error
 /// @author rodionov
 
 class C {
   int null = 42;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   new C().null is int;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

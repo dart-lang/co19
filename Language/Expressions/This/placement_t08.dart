@@ -8,11 +8,13 @@
 /// initializer of an instance variable.
 /// @description Checks that it is a compile-error if 'this' appears in a
 /// top-level variable initializer.
-/// @compile-error
 /// @author kaigorodov
 
 
 var x = this.a;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   print(x);

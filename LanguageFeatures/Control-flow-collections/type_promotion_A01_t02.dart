@@ -9,7 +9,6 @@
 ///
 /// @description Checks that it is a compile error if type promotion occurs in
 /// the "else" element
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -28,5 +27,8 @@ main() {
       1
     else
       c.c
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   ];
 }

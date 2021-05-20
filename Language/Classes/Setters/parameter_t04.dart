@@ -7,12 +7,14 @@
 /// @description Checks that a compile-time error is produced if a setter's
 /// formal parameter list contains a single optional parameter with a default
 /// value.
-/// @compile-error
 /// @author iefremov
 
 
 class C {
   void set setter([var x = null]) { }
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

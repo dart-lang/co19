@@ -35,14 +35,19 @@
 /// ;
 /// @description Checks that a try statement can't be used in place of a class 
 /// member definition.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   try {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
     throw "exception";
   } catch (e) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

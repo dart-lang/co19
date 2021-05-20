@@ -10,7 +10,6 @@
 /// Otherwise it evaluates to false.
 /// @description Checks that if T is parameterized type with malformed type
 /// argument and G is generic type, then it is a compile error
-/// @compile-error
 /// @author ilya
 
 
@@ -18,4 +17,7 @@ class G<T> {}
 
 main() {
   new G() is G<Unknown>;
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

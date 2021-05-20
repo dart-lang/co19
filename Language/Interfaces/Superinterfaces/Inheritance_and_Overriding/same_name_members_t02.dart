@@ -18,7 +18,6 @@
 /// @description Checks that there is no static warning if multiple members
 /// with the same name are inherited and all of them are getters or all of
 /// them are methods.
-/// @static-clean
 /// @author ngl@unipro.ru
 
 

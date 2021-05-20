@@ -5,7 +5,6 @@
 /// @assertion The static type of the expression e1.v = e2 is the static type
 /// of e2
 /// @description Checks that static type of e1.v = e2 is static type of e2
-/// @static-clean
 /// @author ilya
 
 

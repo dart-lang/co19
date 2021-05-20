@@ -5,12 +5,14 @@
 /// @assertion The following names are allowed for user-defined operators: 
 /// <, >, <=, >=, ==, -, +, /, ˜/, *, %, |, ˆ, &, <<, >>, >>>, []=, [], ˜.
 /// @description Checks that operator is cannot be defined in a user class.
-/// @compile-error
 /// @author iefremov
 
 
 class C {
   operator is(x) {}
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

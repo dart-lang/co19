@@ -6,13 +6,15 @@
 /// not be assigned to bool.
 /// @description Checks that it is a compile error if the expression
 /// cannot be assigned to bool.
-/// @compile-error
 /// @author rodionov
 
 
 main() {
   var i;
   if (1) {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
     i = 1;
   }
 }

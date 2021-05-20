@@ -10,10 +10,12 @@
 /// expression.
 /// @description: Checks that constant list [...?] spread element can be constant
 /// list or set or [null].
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 main() {
   const List res = const [...?({1: 2, 3: 4} as Map?)];
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

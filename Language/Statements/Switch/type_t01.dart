@@ -7,13 +7,18 @@
 /// @description Checks that a compile error is produced if the type of the
 /// switch expression's value cannot be assigned to any of the case expression
 /// types.
-/// @compile-error
 /// @author vasya
 
 
 main() {
   switch (false) {
     case 0:
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
     case 1:
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }

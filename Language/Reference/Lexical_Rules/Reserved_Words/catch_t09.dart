@@ -7,7 +7,6 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "catch" is used as an identifier in a catch clause.
-/// @compile-error
 /// @author rodionov
 
 
@@ -15,4 +14,7 @@ main() {
   try {
     int x = 0;
   } catch (catch) {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

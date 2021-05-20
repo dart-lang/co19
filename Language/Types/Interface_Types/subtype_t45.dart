@@ -24,7 +24,6 @@
 /// @description Checks that an interface type that is a subtype of a generic
 /// type A with type parameter t1 is not assignable to A parameterized with a
 /// type parameter that is not a supertype of t1.
-/// @compile-error
 /// @author iefremov
 
 
@@ -35,4 +34,7 @@ A<double> checker() => new A<double>();
 
 main() {
   B b = checker();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

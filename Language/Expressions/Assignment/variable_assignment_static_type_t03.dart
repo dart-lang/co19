@@ -10,10 +10,12 @@
 /// type of e.
 /// @description Checks that it is a compile error if the static type of e
 /// may not be assigned to the static type of v.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   int v = true;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

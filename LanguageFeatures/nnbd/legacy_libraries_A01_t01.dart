@@ -11,7 +11,6 @@
 ///
 /// @description Checks that legacy code cannot run in the strong mode/
 /// @Issue 44545
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 // Requirements=nnbd-strong

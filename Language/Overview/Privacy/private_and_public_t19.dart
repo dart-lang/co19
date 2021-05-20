@@ -12,11 +12,13 @@
 /// public.
 /// @description Checks that compile error is produced due to access to
 /// a private named constructor that is not accessible to the current script.
-/// @compile-error
 /// @author iefremov
 
 import "../lib.dart";
 
 main() {
   new ClassWithPrivateMembers._named();
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

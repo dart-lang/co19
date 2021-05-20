@@ -9,11 +9,13 @@
 /// ;
 /// @description Checks that it is a compile-time error if the closing bracket of
 /// the expression is missing.
-/// @compile-error
 /// @author vasya
 
 
 main() {
   while (true { }
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

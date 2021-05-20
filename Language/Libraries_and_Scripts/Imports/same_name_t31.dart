@@ -14,7 +14,6 @@
 /// @description Checks that it is not a static warning or error if the same
 /// library is imported twice with empty prefixes and introduces a type name to
 /// the top-level scope of L, which L uses in an explicit type test.
-/// @static-clean
 /// @author rodionov
 
 import "same_name_t30_lib.dart";

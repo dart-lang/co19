@@ -8,7 +8,6 @@
 /// error if ai, 1 < = i <= n + k, is not a compile-time constant expression.
 /// @description Checks that it is a compile-time error if any named arguments
 /// of a constant object expression are not compile-time constants.
-/// @compile-error
 /// @author msyabro
 
 
@@ -19,4 +18,7 @@ class  T {
 main() {
   int i = 2;
   const T(1, p2: i, p3: [0, 1]);
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

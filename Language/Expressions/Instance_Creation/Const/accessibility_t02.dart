@@ -8,10 +8,12 @@
 /// error if T does not denote a class accessible in the current scope.
 /// @description Checks that it is a compile-time error if T does not denote
 /// any declaration. Named constructor case.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   const UnavailableType.named();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

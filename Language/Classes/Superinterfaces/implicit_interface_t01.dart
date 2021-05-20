@@ -7,7 +7,6 @@
 /// corresponding instance member m of type F' if F' is not a subtype of F.
 /// @description Checks that it is a compile error if the type F'
 /// of declared instance member m is not a subtype of F.
-/// @compile-error
 /// @author ilya
 
 
@@ -17,6 +16,9 @@ abstract class I {
 
 class C implements I { 
   foo() {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main () {

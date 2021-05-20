@@ -8,7 +8,6 @@
 ///   ;
 /// @description Checks that a variable declaration statement T id = e; must end
 /// with a semicolon.
-/// @compile-error
 /// @author vasya
 
 
@@ -16,4 +15,7 @@ class T {}
 
 main() {
   T id = new T()
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

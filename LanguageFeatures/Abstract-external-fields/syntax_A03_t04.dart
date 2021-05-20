@@ -23,11 +23,16 @@
 ///
 /// @description Checks topLevelDefinition syntax
 /// @author sgrekhov@unipro.ru
-/// @compile-error
 
 abstract class C {
   covariant int? abstract i1;
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   covariant var abstract i2;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

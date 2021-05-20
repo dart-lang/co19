@@ -8,10 +8,12 @@
 ///
 /// @description Check that it is a compile time error, if
 /// third logicalOrExpression is missing
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 main() {
   var x = 10 ?? 20 ??;
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

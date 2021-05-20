@@ -18,7 +18,6 @@
 /// @description Checks that if all inherited members with the same name are
 /// getters and their static types are identical, then no static warning issued.
 /// Test type aliases
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

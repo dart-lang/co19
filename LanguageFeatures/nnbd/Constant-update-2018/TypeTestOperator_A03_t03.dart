@@ -8,7 +8,6 @@
 /// constant type.
 /// @description Checks that an expression of the form [e is! T] is not accepted
 /// if [e] is not a constant
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -16,4 +15,7 @@ Object str = "test";
 
 main() {
   const bool check = str is! String;
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

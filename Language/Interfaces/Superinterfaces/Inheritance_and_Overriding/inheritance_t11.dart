@@ -26,7 +26,6 @@
 /// @description Checks that if several methods with the same name but with the
 /// different number of required parameters this causes compile error. Test type
 /// aliases
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -53,6 +52,9 @@ typedef SIAlias2 = SI2;
 typedef SIAlias3 = SI3;
 
 abstract class I implements SI1, SI2, SI3 {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   I? i = null;

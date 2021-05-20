@@ -10,12 +10,13 @@
 /// @description Checks that it is a compile-time error when this library
 /// references itself in a part directive (and doesn't contain a part
 /// declaration).
-/// @compile-error
 /// @author rodionov
 
 
 library Parts_test_lib;
 part "compilation_t09.dart";
+//   ^
+// [analyzer] unspecified
 
 main() {
 }

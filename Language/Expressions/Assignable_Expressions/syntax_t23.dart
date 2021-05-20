@@ -24,7 +24,6 @@
 /// • An invocation of a getter or list access operator on super.
 /// @description Checks that thisExpression without assignableSelector
 /// can't be used in the left hand side of an assignment.
-/// @compile-error
 /// @author msyabro
 
 
@@ -32,6 +31,9 @@ class A {
   test() {
     try {
       this = new A();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
     } catch (e) {}
   }
 }

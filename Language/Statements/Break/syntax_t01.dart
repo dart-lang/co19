@@ -9,7 +9,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the break statement
 /// does not end with a semicolon.
-/// @compile-error
 /// @author vasya
 
 
@@ -17,5 +16,8 @@
 main() {
   for ( ; ; ) {
     break
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }

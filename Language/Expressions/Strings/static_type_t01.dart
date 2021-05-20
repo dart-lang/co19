@@ -6,7 +6,6 @@
 /// @description Checks that the static type of a string literal is String by
 /// ensuring there're no static warnings when a string literal is being assigned
 /// to a String variable.
-/// @static-clean
 /// @author msyabro
 
 

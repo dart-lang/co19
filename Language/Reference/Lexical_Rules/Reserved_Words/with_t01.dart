@@ -7,12 +7,17 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "with" is used as a class name.
-/// @compile-error
 /// @author rodionov
 
 
 class with { } // error
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   null is with;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -16,7 +16,6 @@
 /// @description Checks that if multiple methods with the same name are
 /// inherited actually only one method is inherited and no static warning
 /// issued. Test type aliases
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases

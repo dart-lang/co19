@@ -20,12 +20,16 @@
 /// ;
 /// @description Checks that it is a compile-time error when the arguments of a
 /// show/hide combinator include a string literal.
-/// @compile-error
 /// @author rodionov
 
 
 import "syntax_lib.dart" show foo, "someVar";
+//                                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   someVar = 0;
+//^
+// [analyzer] unspecified
 }

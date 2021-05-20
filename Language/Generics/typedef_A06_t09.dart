@@ -11,7 +11,6 @@
 /// it is a compile-time error if any type occurring in [T] is not well-bounded.
 /// @description Checks that it is a compile time error if [T] is not
 /// well-bounded
-/// @compile-error
 /// @Issue 42436
 /// @author iarkh@unipro.ru
 
@@ -20,5 +19,8 @@ class A<X> {}
 class B<X extends A<int>> {}
 
 typedef AAlias2<X extends A<X>> = Function<Y extends B<X>> ();
+//                                                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {}

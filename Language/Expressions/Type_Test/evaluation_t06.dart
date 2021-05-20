@@ -10,7 +10,6 @@
 /// Otherwise it evaluates to false.
 /// @description Checks that if T is parameterized type and G is generic type
 /// which has more then n type parameters, then it is a compile error
-/// @compile-error
 /// @author msyabro
 
 
@@ -18,4 +17,7 @@ class G<T, U, V> {}
 
 main() {
   new G() is G<int, bool>;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

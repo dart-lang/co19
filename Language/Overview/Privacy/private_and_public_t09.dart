@@ -12,7 +12,6 @@
 /// public.
 /// @description Checks that access to private static field that is
 /// not accessible to the current script results in a compile error
-/// @compile-error
 /// @author iefremov
 /// @issue 42338
 
@@ -20,4 +19,7 @@ import "../lib.dart";
 
 main() {
   ClassWithPrivateMembers._staticvar = "1";
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

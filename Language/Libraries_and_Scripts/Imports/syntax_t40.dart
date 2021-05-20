@@ -20,11 +20,13 @@
 /// ;
 /// @description Checks that it is a compile-time error if there're no
 /// identifiers following a hide combinator in an import declaration.
-/// @compile-error
 /// @author rodionov
 
 
 import "syntax_lib.dart" hide;
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   var x = foo;

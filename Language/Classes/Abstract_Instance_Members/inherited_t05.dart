@@ -13,10 +13,12 @@
 
 
 class A {
+//    ^
+// [cfe] unspecified
+
   set foo(int v);
 //^^^^^^^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {

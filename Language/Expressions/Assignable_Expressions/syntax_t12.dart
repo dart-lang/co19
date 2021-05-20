@@ -24,12 +24,14 @@
 /// • An invocation of a getter or list access operator on super.
 /// @description Checks that a for statement
 /// can't be used in the left hand side of an assignment.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   try {
     for (;;) {} = 1;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

@@ -13,10 +13,12 @@
 /// ;
 /// @description Checks that it is a compile-time error when the value
 /// of the HEX_DIGIT_SEQUENCE is too long.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   '\u{121341}';
+// ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -11,12 +11,14 @@
 /// @description Check that it is compile error if expression part is missing
 /// in yield-each statement in synchronous generator function
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 Iterable<int> test() sync* {
   yield* ;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

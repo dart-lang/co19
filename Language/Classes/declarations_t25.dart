@@ -34,12 +34,14 @@
 /// ;
 /// @description Checks that it is a compile-time error if an operator 
 /// signature is declared final.
-/// @compile-error
 /// @author kaigorodov
 
 
 class A {
   final operator ==(A other) {}
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

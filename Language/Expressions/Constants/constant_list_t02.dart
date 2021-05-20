@@ -9,13 +9,15 @@
 /// • A constant list literal.
 /// @description Checks that a non-constant list literal cannot be assigned to
 /// a constant variable.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
 
 var nonconstant = [1, 2, 3];
 const a = nonconstant;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

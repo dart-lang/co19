@@ -11,7 +11,6 @@
 /// In all other cases, a CastError is thrown.
 /// @description Checks that if T is not a parameterized type then cast in the
 /// form G<T1,...,Tn> produces compile error
-/// @compile-error
 /// @author ilya
 
 
@@ -19,4 +18,7 @@ class G {}
 
 main() {
   [] as G<int, String>;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

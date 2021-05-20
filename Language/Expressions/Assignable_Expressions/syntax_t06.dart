@@ -25,7 +25,6 @@
 /// @description Checks that a reference to a class declaration
 /// can not be used in the left hand side of an assignment without a compile
 /// error.
-/// @compile-error
 /// @author msyabro
 
 
@@ -34,5 +33,8 @@ class A {}
 main() {
   try {
     A = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

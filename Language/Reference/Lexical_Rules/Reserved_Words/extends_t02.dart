@@ -7,12 +7,17 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "extends" is used as a type parameter name.
-/// @compile-error
 /// @author rodionov
 
 
 class A<extends> {
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
   bool check(x) => x is extends;
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

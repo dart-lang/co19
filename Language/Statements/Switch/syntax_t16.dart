@@ -15,7 +15,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the default case is
 /// repeated.
-/// @compile-error
 /// @author vasya
 
 
@@ -25,7 +24,12 @@ foo(value) {
   switch(value) {
     case 0: break;
     default:
+//  ^
+// [cfe] unspecified
     default: break;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   return result;
 }

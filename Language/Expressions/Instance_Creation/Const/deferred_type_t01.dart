@@ -10,11 +10,13 @@
 ///
 /// @description Checks that it is a compile-time error if a constant object
 /// expression of the form const prefix.T() is used and T is a deferred type.
-/// @compile-error
 ///@author ngl@unipro.ru
 
 import 'deferred_type_lib.dart' deferred as lb;
 
 main() {
     const lb.C();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

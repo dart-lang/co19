@@ -11,7 +11,6 @@
 /// Of course, a static warning will be issued.
 /// @description Checks that it if there is a mismatch in arguments number in
 /// generic type invocation, then compile error occurs
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -20,4 +19,7 @@ class C<T1 extends num, T2> {
 
 main() {
   new C<int>();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

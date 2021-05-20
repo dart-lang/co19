@@ -14,10 +14,15 @@
 /// value. Each key and each value is denoted by an expression.
 /// @description Checks that it is a compile-time error if a const map literal
 /// does not begin with '{'.
-/// @compile-error
 /// @author kaigorodov
 
 
 main() {
   var x = const <String, int>  "key": 1 };
+//                                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified

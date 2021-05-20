@@ -8,12 +8,14 @@
 ///   formalParameterList functionExpressionBody
 /// ;
 /// @description Checks that the function body is required.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   try {
     (p1, p2);
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

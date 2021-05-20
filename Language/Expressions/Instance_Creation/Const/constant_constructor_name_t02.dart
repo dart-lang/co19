@@ -8,7 +8,6 @@
 /// type T.
 /// @description Checks that it is a compile-time error if T.id
 /// is the name of a non-constant constructor declared by the type T.
-/// @compile-error
 /// @author msyabro
 
 
@@ -18,4 +17,7 @@ class  A {
 
 main() {
   const A.nonConstCtor();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

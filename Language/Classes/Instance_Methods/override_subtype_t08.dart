@@ -7,7 +7,6 @@
 /// @description Checks that a compile error is produced if m1 is not a subtype
 /// of m2 because their respective required parameter types are not mutually 
 /// assignable. Test type aliases
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -19,6 +18,9 @@ typedef AAlias = A;
 
 class C extends AAlias {
   foo(String x) {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
     return x.toString();
   }
 }

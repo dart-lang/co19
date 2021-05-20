@@ -7,12 +7,17 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "assert" is used as a type parameter name.
-/// @compile-error
 /// @author rodionov
 
 
 class A<assert> {
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   bool check(x) => x is assert;
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

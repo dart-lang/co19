@@ -9,10 +9,14 @@
 ///   class B<X extends A> {}
 /// @Issue 33421
 /// @author iarkh@unipro.ru
-/// @compile-error
 
 
 class A<X extends B> {}
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 class B<X extends A> {}
+//                ^
+// [analyzer] unspecified
 
 main() {}

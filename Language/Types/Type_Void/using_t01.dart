@@ -9,7 +9,6 @@
 /// variable/formal parameter has type dynamic.
 /// @description Checks that using the result of a void method invocation in an
 /// expression results in a compile error.
-/// @compile-error
 /// @author rodionov
 
 
@@ -17,4 +16,7 @@ void foo() {return;}
 
 main() {
   bool b = (foo() == 1);
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

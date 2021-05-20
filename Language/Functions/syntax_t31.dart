@@ -20,12 +20,14 @@
 /// @description Checks that functions can't be declared as static inside of
 /// a function body.
 ///
-/// @compile-error
 /// @author msyabro
 
 
 f() {
   static localFunction() {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

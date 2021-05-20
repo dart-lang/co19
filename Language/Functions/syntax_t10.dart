@@ -20,11 +20,13 @@
 /// @description Checks that expression is necessary in the form
 /// ['=>' expression ';']
 ///
-/// @compile-error
 /// @author msyabro
 
 
 void f() => ;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   f();

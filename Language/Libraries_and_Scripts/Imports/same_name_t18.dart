@@ -14,7 +14,6 @@
 /// @description Checks that it is a compile error if two different libraries
 /// introduce the same name (one of them via re-export) to the top level scope
 /// of L and L uses it in an instance creation expression.
-/// @compile-error
 /// @author rodionov
 
 import "same_name_t11_p1_lib.dart";
@@ -22,4 +21,7 @@ import "same_name_t11_p2_lib.dart";
 
 main() {
   new foo();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

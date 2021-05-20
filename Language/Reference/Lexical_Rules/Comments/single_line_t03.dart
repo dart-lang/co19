@@ -10,11 +10,13 @@
 /// ;
 /// @description Checks that leading slash and backslash characters do not make
 /// a single-line comment.
-/// @compile-error
 /// @author vasya
 
 
 /\  Comment
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

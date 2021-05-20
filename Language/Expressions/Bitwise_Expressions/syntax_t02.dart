@@ -24,7 +24,6 @@
 /// bitwise operator on either super or an expression e1, with argument e2.
 /// @description Checks that super can be used only as the first operand in a
 /// bitwise expression.
-/// @compile-error
 /// @author msyabro
 
 
@@ -36,6 +35,9 @@ class A extends S {
   test() {
     try {
       1 | super;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
     } catch (e) {}
   }
 }

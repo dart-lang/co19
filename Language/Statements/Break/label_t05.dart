@@ -9,7 +9,6 @@
 /// sE exists within the innermost function in which sb occurs.
 /// @description Checks that it is a compile-time error when a break statement of
 /// the form "break;" is not enclosed in a do, for, switch or while statement.
-/// @compile-error
 /// @author vasya
 
 
@@ -17,4 +16,7 @@
 main() {
   var foo = 1;
   break;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -6,12 +6,14 @@
 /// the same name as C.
 /// @description Checks that a class name cannot be used as a name of a static 
 /// variable.
-/// @compile-error
 /// @author hlodvig
 
 
 class A {
   static int A = 0;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

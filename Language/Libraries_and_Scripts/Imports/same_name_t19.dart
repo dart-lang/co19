@@ -14,13 +14,16 @@
 /// @description Checks that if N is introduced into L by several imports
 /// that denote different declarations and N is referenced as a type,
 /// then a compile error is issued
-/// @compile-error
 /// @author kaigorodov
 
 import "same_name_t11_p1_lib.dart";
 import "same_name_t11_p2_lib.dart";
+//^
+// [cfe] unspecified
 import "same_name_t11_p2_lib.dart" as P2;
 
 main() {
   1 is foo;
+//     ^
+// [analyzer] unspecified
 }

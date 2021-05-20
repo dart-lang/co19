@@ -11,13 +11,15 @@
 ///
 /// @description Checks that there is a compile-time error if a class has
 /// an explicitly defined setter and an static method with the same name.
-/// @compile-error
 /// @author iefremov
 
 
 class C {
   void set foo(var x) {}
   static foo(var z) {}
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

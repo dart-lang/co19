@@ -6,11 +6,13 @@
 /// via another typedef, is a compile time error.
 /// @description Checks that it is compile error to reference type alias in a
 /// bound of its own type parameter.
-/// @compile-error
 /// @author ilya
+/// @issue 46062
 
-
-typedef F<T extends List<F>>();
+  typedef F<T extends List<F>>();
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   F<int>? x;

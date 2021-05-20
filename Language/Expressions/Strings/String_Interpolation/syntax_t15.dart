@@ -12,11 +12,13 @@
 /// ;
 /// @description Checks that it is a compile-time error when an interpolation
 /// construct is split between two adjacent string literals.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   var x = "dollar";
   '$' 'x';
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

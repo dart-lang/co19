@@ -12,11 +12,13 @@
 /// public.
 /// @description Checks that a compile error is produced due to access to
 /// a private factory constructor that is not accessible to the current script.
-/// @compile-error
 /// @author iefremov
 
 import "../lib.dart";
 
 main() {
   new ClassWithPrivateMembers._named2();
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

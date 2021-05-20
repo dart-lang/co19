@@ -7,7 +7,6 @@
 /// @description Checks that it is not an error or warning when a library
 /// directly imports two other libraries (A and B) that have different names and
 /// A imports and re-exports a third one (C) that has the same name as B.
-/// @static-clean
 /// @author rodionov
 
 

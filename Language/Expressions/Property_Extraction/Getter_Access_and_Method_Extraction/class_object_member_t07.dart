@@ -8,10 +8,12 @@
 /// e is a constant type literal and m is Object's
 /// noSuchMethod(Invocation invocation) method
 /// @issue 24332
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 main() {
   var x = int.noSuchMethod;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

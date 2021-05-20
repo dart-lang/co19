@@ -20,7 +20,6 @@
 /// @description Checks that it is a compile error if a statement of a
 /// function body isn't enclosed in a block
 ///
-/// @compile-error
 /// @author msyabro
 
 
@@ -29,3 +28,6 @@ main() {
 }
 
 f() return 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified

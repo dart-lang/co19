@@ -10,7 +10,6 @@
 ///   evaluates to a string value.
 /// @description Checks that an expression of the form e.length cannot be used
 /// to initialize a constant variable if e isn't constant expression.
-/// @compile-error
 /// @issue #24940
 /// @author ngl@unipro.ru
 
@@ -19,6 +18,9 @@ import '../../../Utils/expect.dart';
 
 String m = "abc";
 const l = m.length;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   Expect.isTrue(l is int);

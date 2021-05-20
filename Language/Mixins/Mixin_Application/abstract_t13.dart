@@ -10,7 +10,6 @@
 /// @description Checks that compile error is issued, if class C declared without
 /// 'abstract' identifier does not implement all abstract methods. Test type
 /// aliases
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -26,6 +25,9 @@ typedef SAlias = S;
 typedef MAlias = M;
 
 class C = SAlias with MAlias;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new C();

@@ -10,11 +10,13 @@
 /// ;
 /// @description Checks that it is a compile-time error when a standalone
 /// multi-line comment end token is used outside of a string literal.
-/// @compile-error
 /// @author vasya
 
 
 */
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

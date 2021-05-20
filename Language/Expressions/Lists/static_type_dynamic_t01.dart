@@ -7,7 +7,6 @@
 /// @description Checks that static type of list literal with omitted type
 /// argument is indeed List<dynamic> by assigning it to declared variable of
 /// type List<dynamic>. No static warnings expected.
-/// @static-clean
 /// @author ilya
 
 

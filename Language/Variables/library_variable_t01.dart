@@ -7,9 +7,8 @@
 /// identifier static.
 /// @description Checks that a compile-time error occurs if a top level 
 /// variable declaration is prefaced with the built-in identifier static.
-/// @compile-error
 /// @author vasya
-
+/// @issue 44990
 
 import "library_variable_t01_lib.dart";
 

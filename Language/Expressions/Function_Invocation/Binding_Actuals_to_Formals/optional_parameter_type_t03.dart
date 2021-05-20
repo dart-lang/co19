@@ -9,7 +9,6 @@
 /// @description Checks that it is a compile error if the type of an actual
 /// argument may not be assigned to the type of an optional parameter of an
 /// instance method.
-/// @compile-error
 /// @author msyabro
 
 
@@ -18,6 +17,9 @@ class C {
 
   test() {
     func ('');
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

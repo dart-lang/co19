@@ -7,12 +7,17 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "break" is used as a type parameter name.
-/// @compile-error
 /// @author rodionov
 
 
 class A<break> {
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   bool check(x) => x is break;
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

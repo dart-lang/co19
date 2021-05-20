@@ -21,12 +21,14 @@
 /// name of the library.
 /// @description Checks that it is a compile-error if an import directive
 /// comes before the library name.
-/// @compile-error
 /// @author msyabro
 
 
 import "definition_syntax_t05_lib.dart";
 library Libraries_and_Scripts_A04_t08;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   var someVar = 1;

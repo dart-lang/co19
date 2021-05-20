@@ -34,12 +34,14 @@
 /// ;
 /// @description Checks that it is a compile-time error if a redirecting 
 /// constructor declaration includes a body.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   A(): this.B() {}
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
   A.B() {}
 }
 

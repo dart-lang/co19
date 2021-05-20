@@ -8,7 +8,6 @@
 /// or in a static method or variable initializer.
 /// @description Checks that it is a compile-time error if a super method
 /// invocation occurs in a constructor initializer.
-/// @compile-error
 /// @author msyabro
 
 
@@ -18,6 +17,9 @@ class S {
 
 class A extends S {
   A(): super(), super.f();
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
   var x;
 }
 

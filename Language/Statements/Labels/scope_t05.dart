@@ -6,7 +6,6 @@
 /// a label that labels a case clause of a switch statement s is s.
 /// @description Checks that it is a compile-time error when multiple cases of
 /// the same switch statement have labels with the same identifier.
-/// @compile-error
 /// @author rodionov
 
 
@@ -24,6 +23,9 @@ main() {
         break;
 
       Label:
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
       default:
         break;
     }

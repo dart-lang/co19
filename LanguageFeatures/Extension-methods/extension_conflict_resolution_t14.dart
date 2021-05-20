@@ -22,7 +22,6 @@
 ///      instantiate-to-bounds type of [T2] and not vice versa.
 ///
 /// @description Check "more specific" resolving algorithm
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -42,4 +41,7 @@ extension ExtC<T extends C> on List<T> {
 main() {
   List<B> list = [new B(), new B()];
   list.method();
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

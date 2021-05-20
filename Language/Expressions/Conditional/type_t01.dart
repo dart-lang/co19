@@ -13,7 +13,6 @@
 /// potentially mutated anywhere in the scope of v, then the type of v is
 /// known to be T in e2, regardless of whether there are closures capturing v.
 /// No closures case.
-/// @static-clean
 /// @author ilya
 
 

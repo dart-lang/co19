@@ -21,9 +21,8 @@
 /// name of the library.
 /// @description Checks that it is a compile-error if a top-level definition
 /// comes before an import directive.
-/// @compile-error
 /// @author msyabro
-
+/// @issue 44990
 
 import "definition_syntax_t08_lib.dart";
 

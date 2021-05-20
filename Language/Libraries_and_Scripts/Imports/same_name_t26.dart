@@ -15,7 +15,6 @@
 /// libraries introduce the same name (both via re-export of a third library) to
 /// the top level scope of L and L uses it as a type name reference in an extends
 /// clause.
-/// @static-clean
 /// @author rodionov
 
 

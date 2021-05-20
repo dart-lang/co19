@@ -6,12 +6,16 @@
 /// via another typedef, is a compile time error.
 /// @description Checks that it is compile error if two typedefs are mutually
 /// recursive via their formal parameter types.
-/// @compile-error
 /// @author ilya
-
+/// @issue 46062
 
 typedef F(G x);
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 typedef G(F x);
+//^
+// [analyzer] unspecified
 
 main() {
   F? x;

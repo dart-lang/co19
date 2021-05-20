@@ -8,7 +8,6 @@
 /// error if T does not denote a class accessible in the current scope.
 /// @description Checks that it is a compile-time error if T is a reference to
 /// a top-level function.
-/// @compile-error
 /// @author msyabro
 
 
@@ -16,4 +15,7 @@ func() {}
 
 main() {
   const func();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

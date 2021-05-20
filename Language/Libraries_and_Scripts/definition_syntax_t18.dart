@@ -21,9 +21,8 @@
 /// name of the library.
 /// @description Checks that it is a compile-time error if the library directive
 /// is missing the library name.
-/// @compile-error
 /// @author vasya
-
+/// @issue 44990
 
 import "definition_syntax_t18_lib.dart";
 

@@ -36,12 +36,14 @@
 /// ;
 /// @description Checks that a break statement can't be used in place of a 
 /// class member definition.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   break;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

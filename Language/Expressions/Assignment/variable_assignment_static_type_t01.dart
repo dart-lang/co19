@@ -10,7 +10,6 @@
 /// type of e.
 /// @description Check that it is a compile error if the static type of e
 /// may not be assigned to the static type of v
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -18,4 +17,7 @@ main() {
   int v;
   double e = 3.14;
   v = e;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

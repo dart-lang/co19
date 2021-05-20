@@ -15,7 +15,6 @@
 /// @issue 39598
 /// Language @issue https://github.com/dart-lang/language/issues/711
 /// @author sgrekhov@unipro.ru
-/// @static-warning
 
 // Requirements=nnbd-weak
 typedef void Foo();
@@ -24,12 +23,28 @@ void foo() {}
 
 main() {
   Function f1 = foo;
-  f1?.toString();     /// static type warning
-  f1 ?.. toString();  /// static type warning
+  f1?.toString();
+//  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//^
+// [cfe] Operand of null-aware operation '?.' has type 'Function' which excludes null.
+  f1 ?.. toString();
+//   ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//^
+// [cfe] Operand of null-aware operation '?..' has type 'Function' which excludes null.
 
   Foo f2 = foo;
-  f2?.toString();     /// static type warning
-  f2 ?.. toString();  /// static type warning
+  f2?.toString();
+//  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//^
+// [cfe] Operand of null-aware operation '?.' has type 'void Function()' which excludes null.
+  f2 ?.. toString();
+//   ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//^
+// [cfe] Operand of null-aware operation '?..' has type 'void Function()' which excludes null.
 }
 
 

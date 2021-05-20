@@ -6,9 +6,7 @@
 /// time to the series of elements contained in the spread object list.
 /// @description Checks that a spread list element expands at compile time to the
 /// series of elements contained in the spread object list.
-/// @static-warning
 /// @author iarkh@unipro.ru
-
 
 import "../../Utils/expect.dart";
 
@@ -21,16 +19,28 @@ main() {
   const res1 = [...list1];
   Expect.listEquals(list1, res1);
   const res2 = [...?list1];
+//              ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                  ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<dynamic>' which excludes null.
   Expect.listEquals(list1, res2);
 
   const res3 = [...list2];
   Expect.listEquals(list2, res3);
   const res4 = [...?list2];
+//              ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                  ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<dynamic>' which excludes null.
   Expect.listEquals(list2, res4);
 
   const res5 = [...list3];
   Expect.listEquals(list3, res5);
   const res6 = [...?list3];
+//              ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                  ^
+// [cfe] Operand of null-aware operation '...?' has type 'List<dynamic>' which excludes null.
   Expect.listEquals(list3, res6);
 
   const res7 = [...?list4];

@@ -17,7 +17,6 @@
 /// @description Checks that an additive expression of the form
 /// super ('-' multiplicativeExpression)+
 /// must have at least two operands.
-/// @compile-error
 /// @author msyabro
 
 
@@ -29,6 +28,9 @@ class A {
   test() {
     try {
       super -;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
     } catch (e) {}
   }
 }

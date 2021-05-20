@@ -7,13 +7,15 @@
 /// superclass.
 /// @description Checks that it is a compile-time error when the type expression
 /// in a class's extends clause denotes a variable name.
-/// @compile-error
 /// @author rodionov
 
 
 int foo = 42;
 
 class A extends foo {}
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

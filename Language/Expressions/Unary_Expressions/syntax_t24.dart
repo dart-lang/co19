@@ -29,12 +29,14 @@
 /// unary operator on either super or an expression e.
 /// @description Checks that it's a compile-time error when a '~'
 /// precedes a statement that isn't an expression (return statement).
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   try {
     ~return 0;
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

@@ -25,7 +25,6 @@
 /// and return type dynamic.
 /// @description Checks that there's a compile error if methods with the same
 /// name but differing sets of named parameters are inherited. Test type aliases
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -42,6 +41,9 @@ typedef SIAlias1 = SI1;
 typedef SIAlias2 = SI2;
 
 abstract class I implements SIAlias1, SIAlias2 {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   I? i = null;

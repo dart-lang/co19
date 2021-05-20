@@ -4,7 +4,6 @@
 
 /// @assertion The static type of an equality expression is bool.
 /// @description Checks that static type of an equality expression is bool.
-/// @static-clean
 /// @author msyabro
 
 

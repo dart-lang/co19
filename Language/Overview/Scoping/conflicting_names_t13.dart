@@ -10,13 +10,17 @@
 /// declaration d is in scope if d is available in the current scope.
 /// @description Checks that it is a compile-time error if the library scope 
 /// contains two classes with the same name.
-/// @compile-error
 /// @author msyabro
 
 
 class conflictingName {}
 class conflictingName implements Map {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new conflictingName();
+//    ^
+// [cfe] unspecified
 }

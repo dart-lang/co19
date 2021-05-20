@@ -20,8 +20,6 @@ class A {
 // [cfe] unspecified
 
 class B {}
-//    ^
-// [cfe] unspecified
 
 main() {
   B? b;

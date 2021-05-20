@@ -18,11 +18,13 @@
 /// @description Checks that it is a compile-time error if the loop parts
 /// in an asynchronous loop form 'id in expression' contain more than one
 /// identifier.
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
 
 main() async {
   await for (var x, y in new Stream.fromIterable(List.filled(100, 0))) break;
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

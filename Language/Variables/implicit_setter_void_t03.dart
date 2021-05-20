@@ -9,7 +9,6 @@
 /// whose execution sets the value of v to the incoming argument x.
 /// @description Checks that a compile error is produced when assigning a value
 /// of type that may not be assigned to T, to the variable declared as T v = e;.
-/// @compile-error
 /// @author pagolubev
 
 import "../../Utils/dynamic_check.dart";
@@ -21,4 +20,7 @@ class A {
 main() {
   A a = new A();
   a.v = false;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

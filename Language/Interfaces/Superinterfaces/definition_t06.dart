@@ -8,19 +8,29 @@
 /// superinterface of I.
 /// @description Checks that it is a compile-time error if the chain of
 /// superinterfaces forms a circular dependency. Test type aliases
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 abstract class C implements A {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 abstract class B implements C {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 typedef BAlias = B;
 
 abstract class A implements BAlias {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class D implements A {}
+//    ^
+// [cfe] unspecified
 
 main() {
   new D();

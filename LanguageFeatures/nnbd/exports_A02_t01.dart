@@ -6,12 +6,14 @@
 /// an unmigrated library.
 /// @description Check that error is thrown if migrated library re-exports
 /// symbols from migrated one in the strong mode.
-/// @compile-error
 /// @Issue 44545
 /// @author iarkh@unipro.ru
 
 // Requirements=nnbd-strong
 
 export "weak/exports_A02_opted_out_lib.dart";
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {}

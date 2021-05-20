@@ -26,7 +26,6 @@
 /// generics). Checks their mutual assignability (no static type warnings) as
 /// well.
 /// @issue 27556
-/// @static-clean
 /// @author iefremov
 
 

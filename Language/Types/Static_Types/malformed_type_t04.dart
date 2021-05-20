@@ -14,7 +14,6 @@
 /// unless explicitly specified otherwise.
 /// @description Checks that it is a compile error if a type variable is used
 /// in static context as a type of a local variable in a static method.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -22,6 +21,9 @@
 class C<T> {
    static f() {
      T? v = null;
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
      return v;
    }
 }

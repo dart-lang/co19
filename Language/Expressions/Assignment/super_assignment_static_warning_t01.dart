@@ -14,7 +14,6 @@
 /// the static type of the formal parameter of the setter v =.
 /// @description Checks that it is a compile error if Sstatic does not have an
 /// accessible instance setter named v =
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -23,6 +22,9 @@ class A {}
 class C extends A {
   test() {
     super.v = 1;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

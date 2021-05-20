@@ -7,7 +7,6 @@
 /// @description Checks that if the mixin application declares support for
 /// interfaces and the resulting class does not implement those interfaces then
 /// compile error occurs
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -22,6 +21,9 @@ class M {
 }
 
 class C = S with M implements I;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new C();

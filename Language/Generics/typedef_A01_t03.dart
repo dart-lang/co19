@@ -12,12 +12,17 @@
 ///   T
 /// ...
 /// @description Checks that exception is thrown if generic metadata is incorrect
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A() {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 class C<T> {}
 @A()  typedef CAlias<T> = C<T>;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 main() {}

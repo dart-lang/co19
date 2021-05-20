@@ -28,10 +28,12 @@
 ///   ;
 /// @description Checks that a variable declaration cannot contain both 
 /// 'final' and 'var'.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   final var x = 1;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

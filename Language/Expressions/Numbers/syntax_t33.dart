@@ -26,10 +26,12 @@
 ///   DIGIT
 /// ;
 /// @description Checks that expression in form +(+num) can't be compiled.
-/// @compile-error
 /// @author hlodvig
 
 
 main() {
   var x = +(+1);
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

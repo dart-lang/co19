@@ -6,7 +6,6 @@
 /// to either bool or () -> bool.
 /// @description Checks that it is a compile error if the type of e is
 /// (Dynamic) -> bool.
-/// @compile-error
 /// @issue 26002
 /// @author rodionov
 
@@ -16,4 +15,7 @@ bool foo(x) {
 
 main() {
   assert (foo);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

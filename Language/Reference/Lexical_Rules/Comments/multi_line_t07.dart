@@ -10,7 +10,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when there is an unpaired
 /// multi-line comment end token inside another multi-line comment.
-/// @compile-error
 /// @author rodionov
 
 
@@ -18,7 +17,13 @@
 /* Comment */
 /*/* Nested comment **/ */
 */ Unpaired token /* */
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 */
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

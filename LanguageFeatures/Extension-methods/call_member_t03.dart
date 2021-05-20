@@ -14,7 +14,6 @@
 ///
 /// @description Check that a member access not matching an instance method is a
 /// compile-time error if there is no applicable extension
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -33,4 +32,7 @@ extension on bool {
 
 main() {
   1.0(10.0);
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

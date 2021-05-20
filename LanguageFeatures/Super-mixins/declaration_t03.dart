@@ -27,6 +27,9 @@ class B {
 class C {}
 
 mixin M on B, C implements I, J {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

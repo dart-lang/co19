@@ -20,13 +20,17 @@
 /// ;
 /// @description Checks that it is a compile-time error if the parts of an import
 /// directive are separated by commas.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 import "syntax_lib.dart", as prfx, show foo;
+//                               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   someVar = 0;
+//^
+// [analyzer] unspecified
 }

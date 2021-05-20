@@ -13,7 +13,6 @@
 /// Test FutureOr<A> for some A
 /// @issue 38715
 /// @author sgrekhov@unipro.ru
-/// @static-warning
 
 // Requirements=nnbd-weak
 import "dart:async";
@@ -23,6 +22,14 @@ class A {
 
 main() {
   FutureOr<A> a = new A();
-  a?.toString();      /// static type warning
-  a ?.. toString();   /// static type warning
+  a?.toString();
+// ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//^
+// [cfe] Operand of null-aware operation '?.' has type 'FutureOr<A>' which excludes null.
+  a ?.. toString();
+//  ^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//^
+// [cfe] Operand of null-aware operation '?..' has type 'FutureOr<A>' which excludes null.
 }

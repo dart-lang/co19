@@ -16,7 +16,6 @@
 /// parameters, or if q lacks any of the keyword parameters
 /// {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
 /// @description Checks that it is a compile error if q is not accessible.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -24,4 +23,7 @@ import 'evaluation_t06_lib.dart';
 
 main() {
   new C._inaccessibleConstructor();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

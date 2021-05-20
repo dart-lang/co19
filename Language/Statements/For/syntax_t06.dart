@@ -17,10 +17,12 @@
 /// ;
 /// @description Checks that it is a compile-time error if the statement inside
 /// the for statement does not end with a semicolon, even if empty.
-/// @compile-error
 /// @author vasya
 
 
 main() {
   for ( ; ; )
 }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified

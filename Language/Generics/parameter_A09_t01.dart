@@ -5,7 +5,6 @@
 /// @assertion A type parameter cannot be used as a generic type
 /// @description Checks that class type parameter cannot be used as a generic
 /// type
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -14,6 +13,9 @@ class A<T> {}
 class B<T extends A> {
   testme() {
     T<int> t;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

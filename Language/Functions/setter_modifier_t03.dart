@@ -8,13 +8,15 @@
 /// @description Checks that instance setter with sync* modifier cause
 /// compiler error.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 class A {
   int? _a;
   A() {}
   set a(int value) sync* {
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
     _a = value;
   }
 }

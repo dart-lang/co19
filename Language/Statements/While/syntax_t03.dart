@@ -9,11 +9,13 @@
 /// ;
 /// @description Checks that it is a compile-time error if the semicolon at the
 /// end of the statement is missing.
-/// @compile-error
 /// @author vasya
 
 
 main() {
   while (true) break
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

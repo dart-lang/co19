@@ -14,11 +14,13 @@
 /// @description Checks that if there is no declaration and i occurs in static
 /// function (of any kind), or static variable initializer, evaluation of i
 /// causes a NoSuchMethodError to be thrown.
-/// @compile-error
 /// @author ilya
 
 class C {
   static set test (_) => undeclared();
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

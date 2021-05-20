@@ -7,7 +7,6 @@
 /// @description Checks that a compile error is produced when the argument
 /// types of these two setters are not mutually assignable even if one of the
 /// setters is defined implicitly.
-/// @compile-error
 /// @author vasya
 
 
@@ -17,6 +16,9 @@ class A {
 
 class C extends A {
   void set foo(bool b) {
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

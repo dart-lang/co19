@@ -27,10 +27,12 @@
 /// ;
 /// @description Checks that a plus sign without digits does not make a numeric
 /// literal.
-/// @compile-error
 /// @author iefremov
 
 
 main() {
   var i = +;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

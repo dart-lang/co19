@@ -15,13 +15,16 @@
 /// imported with empty prefixes introduce the same name to the top level scope
 /// of L and L uses it as a type annotation in a variable declaration but does
 /// not participate in an implicit subtype test.
-/// @compile-error
 /// @author rodionov
 
 
 import "same_name_t01_p1_lib.dart";
 import "same_name_t01_p2_lib.dart";
+//^
+// [cfe] unspecified
 
 main() {
   foo? x;
+//^
+// [analyzer] unspecified
 }

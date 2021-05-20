@@ -12,12 +12,14 @@
 /// the runtime type of o is not a subtype of the actual return type
 /// of the immediately enclosing function.
 ///
-/// @compile-error
 /// @author kaigorodov
 
 var r = 'a';
 
 int foo() { return r; }
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   foo();

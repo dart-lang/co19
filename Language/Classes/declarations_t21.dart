@@ -34,13 +34,15 @@
 /// ;
 /// @description Checks that it is a compile-time error if an abstract setter
 /// declaration does not end with a semicolon.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   set val(var v)
   var _val;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -10,7 +10,6 @@
 /// @description Checks that there is no compile error if an abstract setter
 /// is declared in a concrete class and this class declares noSuchMethod()
 /// method that overrides method Object.noSuchMethod.
-/// @static-clean
 /// @author ngl@unipro.ru
 
 

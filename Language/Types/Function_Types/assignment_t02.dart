@@ -6,7 +6,6 @@
 /// T ⇐⇒ S, iff T <: S.
 /// @description Checks that a function type T may be assigned to a function type
 /// S, iff T <: S.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 class A {}
@@ -18,4 +17,7 @@ typedef B t1(B b);
 
 main() {
   t1 x1x = (X x) => new B();
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -22,11 +22,13 @@
 /// getter invocation, or an invocation of a postfix operator on an expression e.
 /// @description Checks that a postfixExpression can't be used with
 /// postfixOperator.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   var x = 1;
   x++++;
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

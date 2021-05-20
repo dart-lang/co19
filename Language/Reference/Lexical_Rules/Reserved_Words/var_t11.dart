@@ -8,10 +8,12 @@
 /// @description Checks that it is a compile-time error when a reserved word
 /// "var" is used as an identifier following a 'show' combinator in an import
 /// directive.
-/// @compile-error
 /// @author rodionov
 
 import "lib.dart" as var;
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

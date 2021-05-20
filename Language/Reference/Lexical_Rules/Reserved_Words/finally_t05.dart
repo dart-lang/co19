@@ -7,11 +7,16 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "finally" is used as a local function name.
-/// @compile-error
 /// @author rodionov
 
 
 main() {
   void finally() {}
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
   finally();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

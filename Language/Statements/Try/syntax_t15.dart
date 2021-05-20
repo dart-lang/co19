@@ -24,7 +24,6 @@
 /// 2. A finally clause, which consists of a block statement.
 /// @description Checks that it is a compile-time error if a catch clause
 /// specifies two exception parameters with the same name.
-/// @compile-error
 /// @author vasya
 
 
@@ -32,5 +31,8 @@ main() {
   try {
     throw "foo";
   } catch (e, e) {
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }

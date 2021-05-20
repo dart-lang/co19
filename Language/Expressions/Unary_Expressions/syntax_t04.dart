@@ -29,7 +29,6 @@
 /// unary operator on either super or an expression e.
 /// @description Checks that incrementOperator cannot be used with
 /// a reference to function type alias name without a compile error.
-/// @compile-error
 /// @author msyabro
 
 
@@ -37,4 +36,7 @@ typedef f();
 
 main() {
   --f;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -29,10 +29,12 @@
 /// @description Checks that it is a compile-time error when a backslash
 /// character is not followed by another character in in a single-line
 /// single-quotes string literal that isn't raw.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   '\';
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

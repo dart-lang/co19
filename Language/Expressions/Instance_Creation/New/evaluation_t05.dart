@@ -16,7 +16,6 @@
 /// parameters, or if q lacks any of the keyword parameters
 /// {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
 /// @description  Checks that it is a compile error if q is not defined.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -25,4 +24,7 @@ class C {
 
 main() {
   new C.undefinedConstructor();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

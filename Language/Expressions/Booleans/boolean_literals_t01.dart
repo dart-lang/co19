@@ -11,12 +11,14 @@
 /// ;
 /// @description Checks that "true" is a reserved word (so it can't be used to
 /// name a variable).
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   try {
     var true;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

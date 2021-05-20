@@ -21,7 +21,6 @@
 /// im, and the result of this invocation is the result of evaluating i.
 /// @description Checks that it is a compile error if m is not null and not
 /// function and getter is declared implicitly.
-/// @compile-error
 /// @author msyabro
 
 
@@ -31,4 +30,7 @@ class C {
 
 main()  {
   C.func();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -10,11 +10,13 @@
 /// ;
 /// @description Checks that slash and asterisk characters separated by
 /// whitespace do not make a multi-line comment start token.
-/// @compile-error
 /// @author vasya
 
 
 / *  Comment
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

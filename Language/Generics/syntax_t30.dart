@@ -10,11 +10,13 @@
 /// empty string.
 /// @description Checks that construction [class test<X extends num> = A<X>]
 /// throws compile time error
-/// @compile-error
 /// @Issue 36946
 /// @author iarkh@unipro.ru
 
 
 class A<X> {}
 class test<X extends A> = A<X extends A<X>>;
+//                                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 main() {}

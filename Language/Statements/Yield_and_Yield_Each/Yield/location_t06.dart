@@ -8,13 +8,15 @@
 /// @description Check that it is compile error if yield statement appears
 /// inside asynchronous method.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 class A {
   test() async {
     yield 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

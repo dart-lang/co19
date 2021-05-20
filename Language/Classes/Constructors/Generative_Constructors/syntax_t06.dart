@@ -10,6 +10,8 @@
 
 
 class C {
+//    ^
+// [cfe] unspecified
   C.c1.c2();
 //^
 // [analyzer] unspecified

@@ -12,7 +12,6 @@
 /// @description Checks that if T is not a parametrized type then cast of the
 /// form G<T1,...,Tn>, G is not generic type and Ti are malformed is a compile
 /// error
-/// @compile-error
 /// @author ilya
 
 
@@ -20,4 +19,7 @@ class G {}
 
 main() {
   new G() as G<Foo,Bar>;
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

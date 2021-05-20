@@ -7,13 +7,16 @@
 /// @description Checks that asterisk and slash characters separated by
 /// whitespace do not make a documentation comment end token.
 /// @author vasya
-/// @compile-error
 
 
 /**
+//^
+// [cfe] unspecified
  * Documentation comment
  *
  /
 
 main() {
 }
+// [error line 22, column 0]
+// [analyzer] unspecified

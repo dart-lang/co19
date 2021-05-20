@@ -10,7 +10,6 @@
 /// @description Checks that there's no compile error when a statement of the
 /// form "return;" is used in a method that whose return type is void
 ///
-/// @static-clean
 /// @author a.semenov@unipro.ru
 
 

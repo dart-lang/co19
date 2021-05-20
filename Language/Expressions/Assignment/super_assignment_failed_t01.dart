@@ -21,7 +21,6 @@
 /// @description Checks that it is a compile error if there is no setter for v in
 /// Sdynamic.
 /// @author sgrekhov@unipro.ru
-/// @compile-error
 
 
 class TestException {}
@@ -33,6 +32,9 @@ class A {
 class C extends A {
   test() {
     super.v = 1;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

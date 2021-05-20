@@ -22,7 +22,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  {"1": 1, "2": 2}.isEmpty == false; }
+  {"1": 1, "2": 2}.isEmpty == false;
 // ^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

@@ -12,11 +12,13 @@
 /// ;
 /// @description Checks that the '=' character in an optional positional
 /// parameter declaration must be followed by an expression.
-/// @compile-error
 /// @author iefremov
 
 
 f([var x = ]) {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   f();

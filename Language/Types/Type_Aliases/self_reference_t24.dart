@@ -6,12 +6,17 @@
 /// via another type declaration, is a compile-time error
 /// @description Checks that any self reference in a type alias is a compile-time
 /// error.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 class A extends CAlias {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 class C extends A {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 typedef CAlias = C;
 
 main() {

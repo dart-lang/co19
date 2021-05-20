@@ -8,7 +8,6 @@
 /// an error.
 /// @description Checks that there cannot be bare element and key-value pair in
 /// the same collection.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -17,4 +16,7 @@ import "../../Utils/expect.dart";
 main() {
   Map aMap = {1: 2};
   var res = {8, ...aMap};
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

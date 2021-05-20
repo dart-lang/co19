@@ -7,11 +7,13 @@
 /// Relational        as                                 None           8
 /// @description Test that 'as' relational operator has no associativity. It is
 /// compile error to expect any associativity from it
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 main() {
   var a = 0;
   var b = a as num as int;
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

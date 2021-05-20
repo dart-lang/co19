@@ -24,13 +24,15 @@
 /// 2. A finally clause, which consists of a block statement.
 /// @description Checks that it is a compile-time error if there is a standalone
 /// catch clause without a try statement.
-/// @compile-error
 /// @author vasya
 
 
 main() {
   var foo = true;
   catch (ex) {
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
     foo = false;
   }
 }

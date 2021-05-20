@@ -15,10 +15,12 @@
 /// e2.
 /// @description Checks that a logical boolean expression can't start with
 /// operator &&.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   && true && false;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

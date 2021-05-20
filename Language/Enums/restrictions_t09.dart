@@ -6,7 +6,6 @@
 /// an enum or to explicitly instantiate an enum.
 /// @description Checks that it is compile-time error to subclass an enum via
 /// type alias
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
@@ -15,6 +14,9 @@ enum E {a, b, c}
 typedef EAlias = E;
 
 class C extends EAlias {
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

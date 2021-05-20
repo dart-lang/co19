@@ -9,14 +9,19 @@
 /// ;
 /// @description Checks that it is a compile-time error if a opening curly 
 /// bracket is missed in a class type definition. Class body is not empty.
-/// @compile-error
 /// @author msyabro
 
 
 class A  
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   var someVariable; 
   void someMethod() {} 
 }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

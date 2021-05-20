@@ -14,7 +14,6 @@
 /// @description Checks that it is neither error nor warning if a library imports
 /// two other libraries exporting the same names, and this names are hidden in
 /// one of the import declarations of L (so there's actually no name clash).
-/// @static-clean
 /// @author rodionov
 
 

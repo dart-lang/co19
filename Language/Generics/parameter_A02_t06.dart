@@ -8,7 +8,6 @@
 /// @description Checks that no static warnings or compile-time errors are
 /// produced when making various instances of generic class which type parameter
 /// lacks extends clause.
-/// @static-clean
 /// @author iefremov
 
 

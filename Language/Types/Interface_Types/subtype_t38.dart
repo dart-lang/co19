@@ -23,7 +23,6 @@
 /// T <: S or S <: T.
 /// @description Checks that unrelated generic types are not assignable even if
 /// all their type arguments are.
-/// @compile-error
 /// @author iefremov
 
 
@@ -39,4 +38,7 @@ D<A, B, int, num, Object, Map<List, Map<List, List>>>? checker() {}
 
 main() {
   C<A, B, int, num, Object, Map<List, Map<List, List>>>? c = checker();
+//                                                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

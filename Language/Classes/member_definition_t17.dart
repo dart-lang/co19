@@ -35,12 +35,14 @@
 /// ;
 /// @description Checks that a throw statement can't be used in place of a 
 /// class member definition.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   throw "exception";
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

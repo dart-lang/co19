@@ -15,7 +15,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if a case expression is
 /// missing.
-/// @compile-error
 /// @author vasya
 
 
@@ -24,6 +23,9 @@ switchTest(value) {
 
   switch (value) {
     case : result = 0; break;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
     default: result = -1;
   }
   return result;

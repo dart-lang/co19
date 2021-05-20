@@ -8,12 +8,14 @@
 /// in the lexical scope enclosing the expression.
 /// @description Checks that it is a compile error when an identifier expression
 /// references an undeclared identifier within initializer of a static member.
-/// @compile-error
 /// @author ilya
 
 
 class C {
   static var x = undeclared;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

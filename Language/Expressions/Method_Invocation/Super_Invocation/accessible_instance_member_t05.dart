@@ -9,7 +9,6 @@
 /// deﬁned in dart:core.
 /// @description Checks that there is a compile error if superclass
 /// does not have an instance member named m
-/// @compile-error
 /// @author kaigorodov
 
 class I {}
@@ -19,6 +18,9 @@ class S implements I {}
 class A extends S {
   test() {
     super.nonExistingMethod();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

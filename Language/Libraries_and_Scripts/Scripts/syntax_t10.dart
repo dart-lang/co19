@@ -11,7 +11,6 @@
 /// ;
 /// @description Checks that is is a compile-time error when a variable
 /// declaration comes before a part directive.
-/// @compile-error
 /// @author vasya
 
 library Script_A01_t14;
@@ -19,6 +18,9 @@ import "library1.dart";
 
 final int script = 1; // error
 part "../Parts/part_0.dart";
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   print(script);

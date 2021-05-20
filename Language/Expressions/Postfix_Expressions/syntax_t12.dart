@@ -25,10 +25,12 @@
 /// `Operator []` of [Map] returns a nullable type, because it returns [null]
 /// when the given argument isn't one of the keys of the map. That's why this is
 /// a compile error here. Operator ?++ is not supported for Maps currently.
-/// @compile-error
 /// @author iarkh
 
 
 main() {
   var a = {1: 1, 2: 2, 3: 3}[1]++;
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

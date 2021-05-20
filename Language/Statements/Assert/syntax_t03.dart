@@ -9,10 +9,12 @@
 /// ;
 /// @description Checks that it is a compile-time error when the assert
 /// expression is empty.
-/// @compile-error
 /// @author vasya
 
 
 main() {
     assert ();
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

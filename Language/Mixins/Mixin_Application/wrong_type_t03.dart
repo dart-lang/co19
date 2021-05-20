@@ -8,7 +8,6 @@
 /// ...
 /// It is a compile-time error if S is an enumerated type or a malformed type.
 /// @description Checks that it is a compile-time error if S is a malformed type
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 var E;
@@ -17,6 +16,9 @@ class M {
 }
 
 class C extends E with M {
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

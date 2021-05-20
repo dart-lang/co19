@@ -15,7 +15,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if '..' is not followed
 /// by a suffix.
-/// @compile-error
 /// @author msyabro
 
 
@@ -24,5 +23,8 @@ class C {}
 main() {
   var o = new C();
   o..;
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

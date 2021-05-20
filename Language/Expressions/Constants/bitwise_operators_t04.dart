@@ -12,12 +12,14 @@
 /// @description Checks that it is a compile-time error when an expression of
 /// the form ~e where e does not evaluate to an integer value, is used to
 /// initialize a constant variable.
-/// @compile-error
 /// @author kaigorodov
 
 
 final constList = const [
   ~"oneoneeleven"
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 ];
 
 main() {

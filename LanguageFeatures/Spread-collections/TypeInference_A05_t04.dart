@@ -15,9 +15,7 @@
 ///    {...l, ...m} // Static error, because it must be both a set and a map.
 /// @description Checks that if one of the spreadable element is [Iterable],
 /// result is statically [Set]
-/// @static-warning
 /// @author iarkh@unipro.ru
-
 
 import "../../Utils/expect.dart";
 
@@ -28,19 +26,47 @@ main() {
 
   Set res;
   Expect.throws(() =>  res = {...?l, ...map});
+//                            ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                ^
+// [cfe] Operand of null-aware operation '...?' has type 'Iterable<dynamic>' which excludes null.
   Expect.throws(() =>  res = {...map, ...?l});
+//                                    ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                        ^
+// [cfe] Operand of null-aware operation '...?' has type 'Iterable<dynamic>' which excludes null.
 
   Expect.throws(() =>  res = {...l, ...?map});
   Expect.throws(() =>  res = {...?map, ...l});
 
   Expect.throws(() =>  res = {...?l, ...?map});
+//                            ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                ^
+// [cfe] Operand of null-aware operation '...?' has type 'Iterable<dynamic>' which excludes null.
   Expect.throws(() =>  res = {...?map, ...?l});
+//                                     ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                         ^
+// [cfe] Operand of null-aware operation '...?' has type 'Iterable<dynamic>' which excludes null.
 
   Expect.isTrue({...set, ...?l} is Set);
+//                       ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                           ^
+// [cfe] Operand of null-aware operation '...?' has type 'Iterable<dynamic>' which excludes null.
   Expect.isTrue({...?l, ...set} is Set);
+//               ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                   ^
+// [cfe] Operand of null-aware operation '...?' has type 'Iterable<dynamic>' which excludes null.
 
   Expect.isTrue({...?set, ...l} is Set);
   Expect.isTrue({...l, ...?set} is Set);
 
   Expect.isTrue({...?set, ...?l} is Set);
+//                        ^^^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                            ^
+// [cfe] Operand of null-aware operation '...?' has type 'Iterable<dynamic>' which excludes null.
 }

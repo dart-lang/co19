@@ -17,10 +17,12 @@
 /// ;
 /// @description Checks that it is a compile-time error if the loop variable
 /// in a 'id in expression' includes initializer.
-/// @compile-error
 /// @author kaigorodov
 
 
 main() {
   for (var l = 1 in List.filled(100, 0)) break;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

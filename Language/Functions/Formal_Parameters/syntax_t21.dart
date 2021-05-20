@@ -26,12 +26,17 @@
 /// ;
 /// @description Checks that it is a compile-time error when more than one set
 /// of optional positional parameters is present in one function declaration.
-/// @compile-error
 /// @author rodionov
 
 
 void f(var a, [var b], [var c]) {}
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main () {
   f(1, 2, 3);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

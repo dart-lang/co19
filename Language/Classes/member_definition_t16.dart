@@ -35,12 +35,14 @@
 /// ;
 /// @description Checks that a continue statement can't be used in place of a 
 /// class member definition.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   continue;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

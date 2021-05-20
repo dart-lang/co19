@@ -9,7 +9,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the continue statement
 /// of the form 'contitue;' does not end with a semicolon.
-/// @compile-error
 /// @author vasya
 
 
@@ -17,5 +16,8 @@
 main() {
   do {
     continue
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } while (false);
 }

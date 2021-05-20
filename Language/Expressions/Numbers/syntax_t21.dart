@@ -27,10 +27,12 @@
 /// ;
 /// @description Checks that exponent part without digits is not accepted as
 /// numeric literal.
-/// @compile-error
 /// @author hlodvig
 
 
 main() {
   var i = 1e;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
