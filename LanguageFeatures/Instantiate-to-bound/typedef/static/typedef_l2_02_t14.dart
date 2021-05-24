@@ -5,30 +5,31 @@
 /// @assertion Instantiate to bound then computes an actual type argument list
 /// for [G] as follows:
 ///
-///   Let [Ui],[1] be [Si], for all [i] in [1 .. k]. (This is the "current value"
-///   of the bound for type variable [i], at step [1]; in general we will
-///   consider the current step, [m], and use data for that step, e.g., the bound
-///   [Ui],[m], to compute the data for step [m + 1]).
+///   Let [Ui],[1] be [Si], for all [i] in [1 .. k]. (This is the "current
+///   value" of the bound for type variable [i], at step [1]; in general we will
+///   consider the current step, [m], and use data for that step, e.g., the
+///   bound [Ui],[m], to compute the data for step [m + 1]).
 ///
 ///   Let [-->m] be a relation among the type variables [X1 .. Xk] such that
 ///   [Xp -->m Xq] iff [Xq] occurs in [Up],[m] (so each type variable is related
 ///   to, that is, depends on, every type variable in its bound, possibly
-///   including itself). Let [==>m] be the transitive closure of [-->m]. For each
-///   [m], let [Ui],[m+1], for [i] in [1 .. k], be determined by the following
-///   iterative process:
+///   including itself). Let [==>m] be the transitive closure of [-->m]. For
+///   each [m], let [Ui],[m+1], for [i] in [1 .. k], be determined by the
+///   following iterative process:
 ///
 ///   1. If there exists a [j] in [1 .. k] such that [Xj ==>m X0j] (that is, if
 ///   the dependency graph has a cycle) let [M1 .. Mp] be the strongly connected
 ///   components (SCCs) with respect to [-->m] (that is, the maximal subsets of
-///   [X1 .. Xk] where every pair of variables in each subset are related in both
-///   directions by [==>m]; note that the SCCs are pairwise disjoint; also, they
-///   are uniquely defined up to reordering, and the order does not matter). Let
-///   [M] be the union of [M1 .. Mp] (that is, all variables that participate in
-///   a dependency cycle). Let [i] be in [1 .. k]. If [Xi] does not belong to [M]
-///   then [Ui,m+1 = Ui,m]. Otherwise there exists a [q] such that [Xi] belongs
-///   to [Mq]; [Ui,m+1] is then obtained from [Ui,m] by replacing every covariant
-///   occurrence of a variable in [Mq] by [dynamic], and replacing every
-///   contravariant occurrence of a variable in [Mq] by [Null].
+///   [X1 .. Xk] where every pair of variables in each subset are related in
+///   both directions by [==>m]; note that the SCCs are pairwise disjoint; also,
+///   they are uniquely defined up to reordering, and the order does not matter).
+///   Let [M] be the union of [M1 .. Mp] (that is, all variables that
+///   participate in a dependency cycle). Let [i] be in [1 .. k]. If [Xi] does
+///   not belong to [M] then [Ui,m+1 = Ui,m]. Otherwise there exists a [q] such
+///   that [Xi] belongs to [Mq]; [Ui,m+1] is then obtained from [Ui,m] by
+///   replacing every covariant occurrence of a variable in [Mq] by [dynamic],
+///   and replacing every contravariant occurrence of a variable in [Mq] by
+///   [Null].
 ///
 ///   2. Otherwise, (if no dependency cycle exists) let [j] be the lowest number
 ///   such that [Xj] occurs in [Up,m] for some [p] and [Xj -/->m Xq] for all [q]
@@ -57,6 +58,9 @@ test(G source) {
   var fsource = toF(source);
 
   F<G<A<Never>, A<dynamic>>> target1 = fsource;
+//                                     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   F<G<A<dynamic>, A<dynamic>>> target2 = fsource;
 //                                       ^^^^^^^
