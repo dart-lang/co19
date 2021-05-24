@@ -16,17 +16,11 @@
 import "../../Utils/expect.dart";
 
 class C {
-  static bool called = false;
-
   C() {}
-
-  C.constr() {
-    called = true;
-  }
+  C.constr() {}
 }
 
 main() {
-  Expect.isTrue(C.constr@tearoff is C Function());
-  C c1 = C.constr@tearoff();
-  Expect.isTrue(C.called);
+  Expect.isTrue(C.constr is C Function());
+  Expect.isTrue(C.new is C Function());
 }

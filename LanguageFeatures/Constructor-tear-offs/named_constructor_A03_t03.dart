@@ -10,40 +10,38 @@
 /// @description Checks that for generic class <typeParams> are exactly the same
 /// type parameters as those of the class declaration of [C] (including bounds),
 /// and [<typeArgs>] applies those type parameter variables directly as type
-/// arguments to [C].
+/// arguments to [C] - test case with the several type parameters.
 /// @author iarkh@unipro.ru
 
 import "../../Utils/expect.dart";
 
-class C<T> {
+class C<T1, T2 extends num, T3 extends String> {
   static int called = 0;
 
   C() {}
 
-  C.constr(expected) {
-    Expect.equals(expected, T);
+  C.constr(exp1, exp2, exp3) {
+    Expect.equals(exp1, T1);
+    Expect.equals(exp2, T2);
+    Expect.equals(exp3, T3);
     called++;
   }
 }
 
 main() {
   var v1 = C.constr;
-  C c1 = v1(dynamic);
+  C c1 = v1(dynamic, num, String);
   Expect.equals(1, c1.called);
 
-  var v2 = C<dynamic>.constr;
-  C c2 = v2(dynamic);
+  var v2 = C<dynamic, num, String>.constr;
+  C c2 = v2(dynamic, num, String);
   Expect.equals(2, c2.called);
 
-  var v3 = (C<dynamic>).constr;
-  C c3 = v3(dynamic);
+  var v3 = C<dynamic, int, String>.constr;
+  C c3 = v3(dynamic, int, String);
   Expect.equals(3, c3.called);
 
-  var v4 = (C<int>).constr;
-  C<int> c4 = v4(int);
+  var v4 = (C<dynamic, int, String>).constr;
+  C<dynamic, int, String> c4 = v4(int);
   Expect.equals(4, c4.called);
-
-  var v5 = (C<num>).constr;
-  C c5 = v5<int>(int);
-  Expect.equals(5, c5.called);
 }

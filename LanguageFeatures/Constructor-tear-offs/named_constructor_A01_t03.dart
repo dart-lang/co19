@@ -29,6 +29,6 @@ class C<T> {
 
 main() {
   var v = C<int>.constr;
-  v(1);
+  C c = v(1);
   Expect.isTrue(C.called);
 }

@@ -16,21 +16,17 @@
 import "../../Utils/expect.dart";
 
 class C<T> {
-  static int called = 0;
-
   C() {}
-
-  C.constr(expected) {
-    Expect.equals(expected, T);
-    called++;
-  }
+  C.constr(T t) {}
 }
 
 main() {
-  Expect.isTrue(C.constr@tearoff is C Function<dynamic>(dynamic));
-  C c = C.constr@tearoff(dynamic);
-  Expect.equals(1, C.called);
+  Expect.isTrue(C.constr is C Function<dynamic>(dynamic));
+  Expect.isTrue(C.new is C Function<dynamic>(dynamic));
 
-  C c1 = C<int>.constr@tearoff(int);
-  Expect.equals(2, C.called);
+  Expect.isTrue(C<int>.constr is C Function<int>(int));
+  Expect.isTrue(C<int>.new is C Function<int>());
+
+  Expect.isTrue(C.constr<int> is C Function<int>(int));
+  Expect.isTrue(C.new<int> is C Function<int>());
 }

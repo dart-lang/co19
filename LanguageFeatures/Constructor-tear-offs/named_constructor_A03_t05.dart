@@ -5,29 +5,31 @@
 /// @assertion If [C] is not generic, then [<typeParams>] and [<typeArgs>] are
 /// omitted. Otherwise <typeParams> are exactly the same type parameters as
 /// those of the class declaration of [C] (including bounds), and [<typeArgs>]
-/// applies those type parameter variables directly as type arguments to C.
+/// applies those type parameter variables directly as type arguments to [C].
 ///
-/// @description Checks that tearing off named constructor with type arguments
-/// is not allowed for a non-generic class.
+/// @description Checks that for generic class <typeParams> are exactly the same
+/// type parameters as those of the class declaration of [C] (including bounds),
+/// and [<typeArgs>] applies those type parameter variables directly as type
+/// arguments to [C] - test incorrect type parameters.
 /// @author iarkh@unipro.ru
 
-class C {
-  C.constr(int i) {}
+class C<T1 extends int> {
+  C.constr(exp1, exp2, exp3) {}
 }
 
 main() {
-  var v1 = C<int>.constr;
-//          ^
+  C<String>.constr;
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var v2 = C<dynamic>.constr;
-//          ^
+  C<num>.constr;
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  var v3 = C<String, int, int>.constr;
-//          ^
+  C<Null>.constr;
+//  ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
