@@ -21,12 +21,12 @@ class C<T> {
 }
 
 main() {
-  Expect.isTrue(C.constr is C Function<dynamic>(dynamic));
-  Expect.isTrue(C.new is C Function<dynamic>(dynamic));
+  Expect.isTrue(C.constr is C Function<X extends dynamic>(X));
+  Expect.isTrue(C.new is C Function<X extends dynamic>());
 
-  Expect.isTrue(C<int>.constr is C Function<int>(int));
-  Expect.isTrue(C<int>.new is C Function<int>());
+  Expect.isTrue(C<int>.constr is C Function<X extends int>(X));
+  Expect.isTrue(C<int>.new is C Function<X extends int>());
 
-  Expect.isTrue(C.constr<int> is C Function<int>(int));
-  Expect.isTrue(C.new<int> is C Function<int>());
+  Expect.isTrue(C.constr<int> is C Function<T extends int>(T));
+  Expect.isTrue(C.new<int> is C Function<T extends int>());
 }

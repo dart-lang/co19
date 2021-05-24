@@ -32,7 +32,7 @@ main() {
   var v1 = C.constr1;
   var v2 = (C.constr1);
   var v3 = (C.constr1<dynamic>);
-  var v4 = (C.constr1)<dynamic>);
+  var v4 = (C.constr1)<dynamic>;
   Expect.equals(v1, v2);
   Expect.equals(v1, v3);
   Expect.equals(v1, v4);
