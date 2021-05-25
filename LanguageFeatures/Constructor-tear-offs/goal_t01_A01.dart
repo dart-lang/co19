@@ -25,41 +25,26 @@
 import "../../Utils/expect.dart";
 
 class C {
-  C.constr1(int i) {}
-  C.constr2(int i) {}
-  C.constr3(int i, String s, x) {}
-  C.constr4() {}
+  int? i;
+
+  C() { i = 0; }
+
+  C.constr1(int i) { this.i = 1; }
+  C.constr2(int num, String str) { this.i = 2; }
+  C.constr3() { i = 3; }
 }
 
 main() {
-  var v1 = C.constr1;
-  var v2 = (C.constr1);
-  Expect.equals(v1, v2);
+  Expect.equals(0, C.new());
+  Expect.equals(0, (C.new)());
 
-  var v3 = C.constr2;
-  var v4 = (C.constr2);
-  Expect.equals(v3, v4);
+  Expect.equals(1, C.constr1(1));
+  Expect.equals(1, (C.constr1)(1));
 
-  var v5 = C.constr1;
-  var v6 = (C.constr1);
-  Expect.equals(v5, v6);
+  Expect.equals(2, C.constr2(1, "123"));
+  Expect.equals(2, (C.constr2)(1, "123"));
 
-  var v7 = C.constr4;
-
-  Expect.notEquals(v1, v3);
-  Expect.notEquals(v1, v4);
-  Expect.notEquals(v1, v5);
-  Expect.notEquals(v1, v6);
-  Expect.notEquals(v1, v7);
-
-  Expect.notEquals(v2, v3);
-  Expect.notEquals(v2, v4);
-  Expect.notEquals(v2, v5);
-  Expect.notEquals(v2, v6);
-  Expect.notEquals(v2, v7);
-
-  Expect.notEquals(v3, v7);
-  Expect.notEquals(v4, v7);
-  Expect.notEquals(v5, v7);
-  Expect.notEquals(v6, v7);
+  Expect.equals(1, C.constr3());
+  Expect.equals(1, (C.constr3)());
 }
+

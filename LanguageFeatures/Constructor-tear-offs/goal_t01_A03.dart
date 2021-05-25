@@ -24,16 +24,50 @@
 
 import "../../Utils/expect.dart";
 
-class C<T extends int> {
-  C.constr1(int i) {}
+class C<T extends num> {
+  int? i;
+
+  C() { i = 0; }
+
+  C.constr1(int i) { this.i = 1; }
+  C.constr2(int num, String str) { this.i = 2; }
+  C.constr3() { i = 3; }
 }
 
 main() {
-  var v1 = C.constr1;
-  var v2 = (C.constr1);
-  var v3 = (C.constr1<int>);
-  var v4 = (C.constr1)<int>;
-  Expect.equals(v1, v2);
-  Expect.equals(v1, v3);
-  Expect.equals(v1, v4);
+  Expect.equals(0, C.new());
+  Expect.equals(0, (C.new)());
+  Expect.equals(0, C<num>.new());
+  Expect.equals(0, (C<num>.new)());
+  Expect.equals(0, (C.new)<num>());
+  Expect.equals(0, C<int>.new());
+  Expect.equals(0, (C<int>.new)());
+  Expect.equals(0, (C.new)<int>());
+
+  Expect.equals(1, C.constr1(1));
+  Expect.equals(1, (C.constr1)(1));
+  Expect.equals(1, C<num>.constr1(1));
+  Expect.equals(1, (C<num>.constr1)(1));
+  Expect.equals(1, (C.constr1)<num>(1));
+  Expect.equals(1, C<int>.constr1(1));
+  Expect.equals(1, (C<int>.constr1)(1));
+  Expect.equals(1, (C.constr1)<int>(1));
+
+  Expect.equals(2, C.constr2(1, ""));
+  Expect.equals(2, (C.constr2)(1, ""));
+  Expect.equals(2, C<dynamic>.constr1(1, ""));
+  Expect.equals(2, (C<dynamic>.constr2)(1, ""));
+  Expect.equals(2, (C.constr2)<dynamic>(1, ""));
+  Expect.equals(2, C<int>.constr1(1, ""));
+  Expect.equals(2, (C<int>.constr2)(1, ""));
+  Expect.equals(2, (C.constr2)<int>(1, ""));
+
+  Expect.equals(3, C.constr3());
+  Expect.equals(3, (C.constr3)());
+  Expect.equals(3, C<dynamic>.constr3());
+  Expect.equals(3, (C<dynamic>.constr3)());
+  Expect.equals(3, (C.constr3)<dynamic>());
+  Expect.equals(3, C<int>.constr3());
+  Expect.equals(3, (C<int>.constr3)());
+  Expect.equals(3, (C.constr3)<int>());
 }
