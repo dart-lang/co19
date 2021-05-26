@@ -16,7 +16,6 @@
 /// that implement both B and C. Test the case when mixin declaration is applied
 /// to the class with extends only one of the interfaces but not implemented
 /// interface is not abstract
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -34,6 +33,9 @@ class A extends B {
 mixin M on B, C {}
 
 class MA extends A with M {
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

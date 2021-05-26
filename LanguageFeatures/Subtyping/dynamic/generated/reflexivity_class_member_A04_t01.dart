@@ -21,6 +21,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 
@@ -29,6 +30,7 @@ Null t0Instance = null;
 Null t1Instance = null;
 
 
+// @dart = 2.9
 
 
 
@@ -119,13 +121,11 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  ClassMember2_t01<Null> c2 = new ClassMember2_t01<Null>();
+    ClassMember2_t01<Null> c2 = new ClassMember2_t01<Null>();
   c2 = new ClassMember2_t01<Null>.short(forgetType(t0Instance),
   forgetType(t0Instance));
   c2 = new ClassMember2_t01<Null>.named(forgetType(t0Instance));
   c2.m = forgetType(t0Instance);
   c2.test(forgetType(t0Instance));
   c2.getter;
-  //# -->
-}
+  }

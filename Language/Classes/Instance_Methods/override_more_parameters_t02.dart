@@ -9,7 +9,6 @@
 /// m2.
 /// @description Checks that a compile error is produced if m2 has no parameters
 /// and m1 has a single required parameter.
-/// @compile-error
 /// @author iefremov
 
 
@@ -19,6 +18,9 @@ class A {
 
 class C extends A {
   f(var x) { }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

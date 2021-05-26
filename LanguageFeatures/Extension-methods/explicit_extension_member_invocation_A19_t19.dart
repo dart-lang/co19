@@ -29,5 +29,5 @@ main() {
   foo(Ext(c1));
 //    ^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
 }

@@ -10,7 +10,6 @@
 ///   ;
 /// @description Check that it is a compile time error,
 /// if arguments parenthesis are wrong
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 class A {
@@ -18,6 +17,9 @@ class A {
 }
 
 @A{}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 class B {}
 
 main() {

@@ -8,14 +8,22 @@
 /// the same name.
 /// @description Checks that it is a compile-time error if a class declares 
 /// a variable, function, and an abstract getter of the same name.
-/// @compile-error
 /// @author kaigorodov
 
 
 class C {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   var f = 0;
   String get f;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   String f(int f);
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -58,19 +58,27 @@
 ///
 /// @description Checks that it is a compile-time error when prefix value
 /// duplicates a top-level declaration in the importing library.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 import "../../../Utils/expect.dart";
 
 import "syntax_lib.dart" as prefix;
+//                          ^
+// [cfe] unspecified
 
 class prefix {}
+//    ^
+// [analyzer] unspecified
 
 main() {
   try {
     new prefix();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
     Expect.equals(1, prefix.foo);
+//                   ^
+// [cfe] unspecified
   } catch (ok) {}
 }

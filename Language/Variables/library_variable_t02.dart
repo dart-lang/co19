@@ -9,12 +9,14 @@
 /// identifier static.
 /// @description Checks that it is a compile-time error if a top level variable 
 /// declaration is prefaced with the built-in identifier static.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer iefremov
 
 
 static var foo; // error
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

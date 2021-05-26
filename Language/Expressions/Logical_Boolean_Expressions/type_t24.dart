@@ -19,7 +19,6 @@
 /// e1 shows that v has type T, v is not mutated in either e1, e2 or within a
 /// closure, and v is not captured by a closure in e2,
 /// then the type of v is known to be T in e2, even if v is mutated elsewhere.
-/// @static-clean
 /// @author ilya
 
 

@@ -24,6 +24,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 
 
@@ -36,6 +37,7 @@ FutureOr<S0> t0Instance = new Future<S0>.value(new S0());
 FutureOr<C> t1Instance = new Future<C>.value(new C());
 
 
+// @dart = 2.9
 
 
 

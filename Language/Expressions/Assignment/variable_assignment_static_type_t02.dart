@@ -12,7 +12,6 @@
 /// type of e.
 /// @description Check that The static type of the expression v = e is the static
 /// type of e
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -20,4 +19,7 @@ main() {
   dynamic v;
   double e = 3.14;
   int x = v = e;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

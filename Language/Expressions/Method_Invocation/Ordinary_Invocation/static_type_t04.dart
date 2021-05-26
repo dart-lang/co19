@@ -13,7 +13,6 @@
 /// is not a function type (but can be assigned to it) by ensuring that there
 /// are no static warnings when a result of such invocation is being assigned
 /// to variables with various declared types.
-/// @static-clean
 /// @author rodionov
 /// @reviewer iefremov
 

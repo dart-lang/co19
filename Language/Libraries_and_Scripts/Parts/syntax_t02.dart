@@ -22,13 +22,15 @@
 /// part belongs to. A part declaration consists of a part header followed by a
 /// sequence of top-level declarations.
 /// @description Checks that part directive must end with a semicolon.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 library Parts_test_lib;
 part "part_0.dart"
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

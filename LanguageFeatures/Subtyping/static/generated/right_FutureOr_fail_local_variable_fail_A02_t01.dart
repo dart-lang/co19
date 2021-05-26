@@ -19,7 +19,6 @@
 /// @description Check that if type T0 is not a subtype of a type T1, then
 /// instance of T0 cannot be be assigned to the to local variable of type T1.
 /// Assignment to local variable is tested.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
@@ -29,6 +28,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 
 
@@ -43,39 +43,54 @@ X0 t0Instance = new X0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
 
-
+// @dart = 2.9
 
 
 class LocalVariableTest {
   LocalVariableTest() {
     FutureOr<S1> t1 = null;
-    t1 = t0Instance; //# 03: compile-time error
+    t1 = t0Instance;
+//       ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   LocalVariableTest.valid() {}
 
   test() {
     FutureOr<S1> t1 = null;
-    t1 = t0Instance; //# 04: compile-time error
+    t1 = t0Instance;
+//       ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   static staticTest() {
     FutureOr<S1> t1 = null;
-    t1 = t0Instance; //# 05: compile-time error
+    t1 = t0Instance;
+//       ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 main() {
   FutureOr<S1> t1 = null;
-  t1 = t0Instance; //# 01: compile-time error
+  t1 = t0Instance;
+//     ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   bar () {
     FutureOr<S1> t1 = null;
-    t1 = t0Instance; //# 02: compile-time error
+    t1 = t0Instance;
+//       ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
-  bar(); //# 02: compile-time error
+  bar();
 
-  new LocalVariableTest(); //# 03: compile-time error
-  new LocalVariableTest.valid().test(); //# 04: compile-time error
-  LocalVariableTest.staticTest(); //# 05: compile-time error
+  new LocalVariableTest();
+  new LocalVariableTest.valid().test();
+  LocalVariableTest.staticTest();
 }

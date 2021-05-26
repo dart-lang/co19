@@ -13,11 +13,13 @@
 /// return type of synchronous generator function may not be assigned
 /// to Iterable.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 int f() sync* { }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   f();

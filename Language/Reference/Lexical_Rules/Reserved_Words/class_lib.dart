@@ -5,3 +5,6 @@
 // @dart = 2.9
 
 part of class;
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

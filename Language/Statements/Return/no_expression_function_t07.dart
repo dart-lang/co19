@@ -15,13 +15,15 @@
 /// "return;" is used in a top-level asynchronous function whose declared return
 /// type is Future<int>.
 ///
-/// @static-warning
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
 
 Future<int> bar() {
-  return; /// static type warning
+  return;
+//^
+// [analyzer] unspecified
+// [cfe] Must explicitly return a value from a non-void function.
 }
 
 main() {

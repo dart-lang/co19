@@ -25,6 +25,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 
@@ -38,6 +39,7 @@ T0 t0Instance = new T0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
 
+// @dart = 2.9
 
 
 
@@ -70,8 +72,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  new ReturnValueGen<FutureOr<S1>>().testMethod();
+    new ReturnValueGen<FutureOr<S1>>().testMethod();
   new ReturnValueGen<FutureOr<S1>>().testGetter;
-  //# -->
-}
+  }

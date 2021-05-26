@@ -12,7 +12,6 @@
 /// compile-time error.
 /// @description Checks that it is a compile-time error if S and Mi declare
 /// getter and method with the same names
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 /// @issue 23878
 
@@ -30,6 +29,9 @@ class M2 {
 }
 
 class C = S with M1, M2;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new C().m;

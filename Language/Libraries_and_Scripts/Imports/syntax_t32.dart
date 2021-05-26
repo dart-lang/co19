@@ -22,12 +22,14 @@
 /// ;
 /// @description Checks that it is a compile-time error when the arguments of a
 /// show/hide combinator include an invalid identifier.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 import "syntax_lib.dart" hide foo, фу;
+//                                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

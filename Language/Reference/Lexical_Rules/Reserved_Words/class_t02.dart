@@ -9,13 +9,18 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "class" is used as a type parameter name.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
 
 class A<class> {
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   bool check(x) => x is class;
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

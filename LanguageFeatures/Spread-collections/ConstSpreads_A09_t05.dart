@@ -11,7 +11,6 @@
 /// constant element if the expression is a potentially constant expression.
 /// @description: Checks that compile error is thrown if constant list spread
 /// element is not potentially constant list or set.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -21,4 +20,7 @@ class A {
 
 main() {
   const List aList = [...(A() is A ? 123 : [])];
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

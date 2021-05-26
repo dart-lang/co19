@@ -13,11 +13,13 @@
 /// in which case a dynamic error occurs. If no error occurs, the value of the
 /// assignment expression is o.
 /// @description Checks that if v is final then compile error occurs
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 main() {
   final int v = 0;
   v = 1;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

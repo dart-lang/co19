@@ -12,7 +12,6 @@
 /// @description Checks that a compile error is produced when assigning result
 /// of T get v() invocation to a variable whose type may not be assigned to T. 
 /// The variable declaration is of the form T v;.
-/// @compile-error
 /// @author pagolubev
 
 
@@ -23,4 +22,7 @@ class A {
 main() {
   A a = new A();
   bool b = a.v;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

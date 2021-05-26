@@ -9,13 +9,18 @@
 /// @description Checks that a compile error is produced if the type of the
 /// switch expression's value cannot be assigned to any of the case expression
 /// types.
-/// @compile-error
 /// @author vasya
 
 
 main() {
   switch (false) {
+//        ^
+// [analyzer] unspecified
     case 0:
+//       ^
+// [cfe] unspecified
     case 1:
+//       ^
+// [cfe] unspecified
   }
 }

@@ -16,7 +16,6 @@
 ///
 /// @description Check that it is a compile error if there is e1 is an interface
 /// with 'call' getter
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 class A {
@@ -33,11 +32,33 @@ extension on num {
 
 
 main() {
-  1(10);          //# 01: compile-time error
-  1("10");        //# 02: compile-time error
-  1.0(10);        //# 03: compile-time error
-  1.0("10");      //# 04: compile-time error
+  1(10);
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  1("10");
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  1.0(10);
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  1.0("10");
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   A a = new A();
-  a(2);           //# 05: compile-time error
-  a(2, "3");      //# 06: compile-time error
+  a(2);
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+  a(2, "3");
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

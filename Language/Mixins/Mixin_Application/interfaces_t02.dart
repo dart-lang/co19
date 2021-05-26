@@ -10,7 +10,6 @@
 /// interfaces and the resulting class implements those interfaces then no
 /// static warning occurs. Interface num get g => 0; declared in class S of the
 /// S with M
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

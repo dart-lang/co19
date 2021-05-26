@@ -12,10 +12,12 @@
 /// expression.
 /// @description: Checks that constant list [...?] spread element can be constant
 /// list or set or [null].
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 main() {
   const List res1 = const [...?44];
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

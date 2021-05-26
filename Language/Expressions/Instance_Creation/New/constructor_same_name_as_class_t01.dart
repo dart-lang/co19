@@ -12,7 +12,6 @@
 ///   same name as the declaration of T.
 /// @description Checks that it is a compile error if a class does not declare
 /// a constructor with the same name.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -23,4 +22,7 @@ class C {
 
 main() {
   new C();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

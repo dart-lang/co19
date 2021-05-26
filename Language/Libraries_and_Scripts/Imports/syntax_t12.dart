@@ -22,12 +22,14 @@
 /// ;
 /// @description Checks that it is a compile-time error when the 'as' keyword is
 /// missing in the import directive while the subsequent identifier isn't.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 import "syntax_lib.dart" lib;
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

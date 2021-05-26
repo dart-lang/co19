@@ -10,7 +10,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if
 /// a the identifier of a named constructor in a new expression is empty.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -22,5 +21,8 @@ class A {
 main() {
   try {
     new A.();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

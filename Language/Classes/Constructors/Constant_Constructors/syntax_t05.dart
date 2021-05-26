@@ -10,12 +10,14 @@
 /// ;
 /// @description Checks that it is a compile-time error when a constant default
 /// constructor is declared as abstract.
-/// @compile-error
 /// @author rodionov
 
 
 class C {
   const abstract C();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -21,7 +21,6 @@
 /// argument e2.
 /// @description  Checks that expression of the form
 /// [unaryExpression ('%' unaryExpression)*] must have at least two operands
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer rodionov
@@ -30,5 +29,8 @@
 main() {
   try {
     [] %;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

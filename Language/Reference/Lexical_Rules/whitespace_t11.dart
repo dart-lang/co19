@@ -19,11 +19,13 @@
 /// @description Checks that a hex-encoded unicode value (\u000a) appearing in
 /// the source text is not translated to a corresponding symbol (like in Java)
 /// and therefore produces a compile-time error.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
 
 main() {
   \u000a
+// ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -14,7 +14,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when an interpolation
 /// construct is split between two adjacent string literals.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -23,5 +22,8 @@ main() {
   var x = "dollar";
   try {
     '$' 'x';
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

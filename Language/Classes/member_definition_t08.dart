@@ -37,12 +37,14 @@
 /// ;
 /// @description Checks that a foreach statement can't be used in place of a 
 /// class member definition.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   for (int i in [1, 2]) {}
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

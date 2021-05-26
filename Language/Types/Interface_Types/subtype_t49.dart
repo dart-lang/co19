@@ -25,7 +25,6 @@
 /// T <: S or S <: T.
 /// @description Checks that if T is function type and S is Function then the
 /// interface type T << the interface type Function.
-/// @static-clean
 /// @author ilya
 
 import "../../../Utils/expect.dart";

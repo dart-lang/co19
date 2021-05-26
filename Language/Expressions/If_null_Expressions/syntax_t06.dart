@@ -10,10 +10,12 @@
 ///
 /// @description Check that it is a compile time error, if '??' is doubled
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 main() {
   var x = 10 ???? 20;
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

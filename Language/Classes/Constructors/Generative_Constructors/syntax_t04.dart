@@ -9,12 +9,14 @@
 /// ;
 /// @description Checks that it is a compile-time error if a constructor
 /// declares a return type.
-/// @compile-error
 /// @author msyabro
 
 
 class C {
   C C();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -25,7 +25,6 @@
 ///
 /// @description Checks that referencing exported but undefined name cause
 /// compile error
-/// @compile-error
 /// @note Most of this is already covered by 1_Imports_A02* tests.
 /// @author rodionov
 /// @reviewer kaigorodov
@@ -34,4 +33,7 @@ import "show_hide_t01_lib.dart";
 
 main() {
   var x = badaboo;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

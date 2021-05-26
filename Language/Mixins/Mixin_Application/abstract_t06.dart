@@ -12,7 +12,6 @@
 /// @description Checks that compile error is issued, if class C<T1,...,Tn>
 /// declared without 'abstract' identifier does not implement all abstract
 /// methods.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -25,6 +24,9 @@ abstract class S {
 }
 
 class C<T1, T2, T3> = S with M;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new C<int, num, String>();

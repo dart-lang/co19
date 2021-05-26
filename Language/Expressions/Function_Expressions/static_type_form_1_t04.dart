@@ -14,11 +14,13 @@
 /// function literal of the form
 /// (T1 a1,...,Tn an, [Tn+1 xn+1 = d1,...,Tn+k xn+k = dk]) => e
 /// to a variable whose type is not a function type.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 main() {
   bool b = (int x, int y, [double a, double b]) => 1;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

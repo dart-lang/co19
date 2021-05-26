@@ -12,7 +12,6 @@
 ///   prefix.
 /// @description Checks that a value created using constant constructor with
 /// a deferred prefix is not a constant expression.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
@@ -25,8 +24,13 @@ class A {
 }
 
 final constList = const [
+//                ^
+// [cfe] unspecified
   const A(),
   const clib.A()
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 ];
 
 main() {

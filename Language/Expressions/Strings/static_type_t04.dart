@@ -7,7 +7,6 @@
 /// @assertion The static type of a string literal is String.
 /// @description Checks that a compile error occurs when assigning
 /// a raw double-quoted string literal to an int variable.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -15,4 +14,7 @@
 
 main() {
   int i = r"string";
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

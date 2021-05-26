@@ -24,7 +24,6 @@
 /// @description Checks that it's a compile error if a form super.m() has a
 /// parameters mismatch listed above with the enclosing class's instance method.
 /// Test named parameters
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -35,6 +34,9 @@ class S {
 class C extends S {
   test() {
     super.named(1);
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

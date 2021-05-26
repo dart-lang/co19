@@ -11,7 +11,6 @@
 /// part are available without errors.
 /// @description Checks that it is a compile-time error if there're two part
 /// directives referencing the same URI.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
@@ -19,6 +18,8 @@
 library Parts_test_lib;
 part "part_0.dart";
 part "part_0.dart";
+//   ^
+// [analyzer] unspecified
 
 main() {
   foo is int;

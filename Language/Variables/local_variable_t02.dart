@@ -10,7 +10,6 @@
 /// is complete, or a compile-time error occurs.
 /// @description Checks that there are no warnings if local variable is used
 /// just after its initializer.
-/// @static-clean
 /// @author ilya
 
 

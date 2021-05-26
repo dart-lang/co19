@@ -12,3 +12,6 @@ int f2() {
 }
 
 var a = ;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified

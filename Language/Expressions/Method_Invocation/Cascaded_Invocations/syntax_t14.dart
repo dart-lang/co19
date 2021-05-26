@@ -16,7 +16,6 @@
 ///   identifier
 /// ;
 /// @description Checks that it is a compile-time error if suffix is this.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -24,6 +23,9 @@
 class C {
   test() {
     this..this;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

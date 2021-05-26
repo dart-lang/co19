@@ -17,7 +17,6 @@
 /// 4. Let v'' be a fresh variable. v'' is bound to the value of v'.
 /// 5. The expression [v''/v]e is evaluated, and the process recurses at step 1.
 /// @description Checks that it is a compile error if c is not of type bool.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -25,6 +24,9 @@
 
 main() {
   for ( int i = 0; ++i;  ) {
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
     break;
   }
 }

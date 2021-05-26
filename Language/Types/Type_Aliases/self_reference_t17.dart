@@ -8,12 +8,16 @@
 /// via another typedef, is a compile time error.
 /// @description Checks that it is compile error if two typedefs are mutually
 /// recursive via their parameters types.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 typedef void F(G g);
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 typedef void G(List<F> f);
+//           ^
+// [analyzer] unspecified
 
 main() {
   try {

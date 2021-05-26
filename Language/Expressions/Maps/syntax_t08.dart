@@ -16,13 +16,25 @@
 /// value. Each key and each value is denoted by an expression.
 /// @description Checks that it is a compile-time error if a map literal
 /// does not end with '}'.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
 
 main() {
+//     ^
+// [cfe] unspecified
   try {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
     var x = {"key1": true, "key2":false;
+//                                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+// [error line 40, column 0]
+// [analyzer] unspecified
 }

@@ -11,11 +11,13 @@
 /// @description Check that it is a compile-time error if an asynchronous
 /// for-in statement appears inside a synchronous generator function
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
 
 main() sync* {
   await for (var i in new Stream.fromIterable([1, 2])) break;
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

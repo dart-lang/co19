@@ -11,7 +11,6 @@
 ///   by the type T.
 /// @description Checks that it is a compile error if the type being
 /// instantiated does not declare a named constructor T.id.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -20,4 +19,7 @@ class C {}
 
 main() {
   new C.namedConstructor();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

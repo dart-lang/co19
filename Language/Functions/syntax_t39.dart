@@ -21,8 +21,10 @@
 ///
 /// @description Checks that 'f() async* => expression' cause compiler error.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 main() async* => true;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified

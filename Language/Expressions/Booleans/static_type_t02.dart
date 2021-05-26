@@ -7,11 +7,13 @@
 /// @assertion The static type of a boolean literal is bool.
 /// @description Checks that a compile error is produced when assigning a
 /// boolean literal to a typed int variable.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 main() {
   int i = true;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

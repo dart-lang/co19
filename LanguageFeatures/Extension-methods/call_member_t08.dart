@@ -16,10 +16,7 @@
 ///
 /// @description Check that it is a compile error if there is e1 is an interface
 /// with 'call' getter
-/// @compile-error
 /// @author sgrekhov@unipro.ru
-
-
 
 class A {
   void Function(int, [String]) get call => (x, [y]) {};
@@ -27,6 +24,12 @@ class A {
 
 main() {
   A a = new A();
-  a(2);           //# 01: compile-time error
-  a(2, "3");      //# 02: compile-time error
+  a(2);
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+  a(2, "3");
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

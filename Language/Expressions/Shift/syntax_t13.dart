@@ -18,13 +18,15 @@
 /// of a shift operator on either super or an expression e1, with argument e2.
 /// @description Checks that a type parameter cannot be used
 /// as the first operand of a shift expression without a compile error.
-/// @compile-error
 /// @author msyabro
 
 
 class A<T> {
   test() {
     T << 1;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

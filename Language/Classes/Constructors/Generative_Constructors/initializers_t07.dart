@@ -16,7 +16,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when the identifier in
 /// a named superconstructor call is empty.
-/// @compile-error
 /// @author iefremov
 
 
@@ -25,6 +24,9 @@ class S {
 
 class C extends S {
   C() : super.() {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

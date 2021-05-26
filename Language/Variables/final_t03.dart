@@ -16,7 +16,6 @@
 /// @description Checks that it is a compile error to initialize final instance
 /// variable both in initializing formal and initializer list
 /// (Classes/Constructors/Generative Constructors)
-/// @compile-error
 /// @author rodionov
 
 
@@ -24,6 +23,9 @@ class C {
   final v;
   
   C(this.v) : v = 1 {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

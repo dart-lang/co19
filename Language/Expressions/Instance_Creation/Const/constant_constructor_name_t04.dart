@@ -10,7 +10,6 @@
 /// type T.
 /// @description Checks that it is a compile-time error if id
 /// is the name of a static method declared by the type T.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -22,5 +21,8 @@ class  A {
 main() {
   try {
     const A.method();
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

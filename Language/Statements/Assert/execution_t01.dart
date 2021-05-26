@@ -15,7 +15,6 @@
 /// complete. If the assertion failed, an AssertionError is thrown.
 /// @description Checks that a compile error occurs if the conditional
 /// expression e evaluates to a string.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -23,4 +22,7 @@
 
 main() {
   assert ("false");
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

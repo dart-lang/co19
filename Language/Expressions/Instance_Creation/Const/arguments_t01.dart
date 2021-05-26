@@ -10,7 +10,6 @@
 /// error if ai, 1 < = i <= n + k, is not a compile-time constant expression.
 /// @description Checks that it is a compile-time error if any positional
 /// arguments of a constant object expression are not compile-time constants.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -22,5 +21,8 @@ class  T {
 main() {
   try {
     const T(1, new Object(), 2);
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

@@ -16,7 +16,6 @@
 ///
 /// @description Checks that it is a compile error if a mixin member has the same
 /// name as a mixin declaration. Test type parameters
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 class S {}
@@ -31,19 +30,31 @@ class B<T> {}
 class C<T> {}
 
 mixin M1<X extends S, Y extends T> on B<X>, C<Y> implements I, J {
-  int M1 = 1;    //# 01: compile-time error
+  int M1 = 1;
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 mixin M2<X extends S, Y extends T>  on B<X>, C<Y> implements I, J {
-  int get M2;    //# 02: compile-time error
+  int get M2;
+//        ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 mixin M3<X extends S, Y extends T>  on B<X>, C<Y> implements I, J {
-  void set M3(p);    //# 03: compile-time error
+  void set M3(p);
+//         ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 mixin M4<X extends S, Y extends T>  on B<X>, C<Y> implements I, J {
-  int M4();    //# 04: compile-time error
+  int M4();
+//^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

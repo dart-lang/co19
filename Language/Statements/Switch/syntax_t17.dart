@@ -17,7 +17,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the default case is
 /// not the last case of a switch statement.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -30,6 +29,9 @@ foo(value) {
     case 0: break;
     default: break;
     case 1: break;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   return result;
 }

@@ -17,7 +17,6 @@
 /// @description Checks that it is a compile error if the static type of e
 /// may not be assigned to the static type of the formal parameter of the
 /// setter v=
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -28,6 +27,9 @@ class A {
 class C extends A {
   test() {
     super.v = "";
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

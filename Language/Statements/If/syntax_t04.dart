@@ -10,7 +10,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the opening expression
 /// bracket is missing.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -19,6 +18,9 @@
 main() {
   var foo;
   if true)
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
     foo = "foo";
 }
 

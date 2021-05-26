@@ -15,9 +15,7 @@
 ///
 /// @description Checks that it is a compile-time error for the mixin declaration
 /// if classes from implements clause are not compatible.
-/// @compile-error
 /// @author ngl@unipro.ru
-
 
 class T1 {}
 class T2 {}
@@ -47,16 +45,28 @@ class B {}
 class C {}
 
 // The same name getters with different return types
-mixin M1 on B, C implements I1, J1 {}  //# 01: compile-time error
+mixin M1 on B, C implements I1, J1 {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 // The same name getter and method with the same return types
-mixin M2 on B, C implements I1, J2 {} //# 02: compile-time error
+mixin M2 on B, C implements I1, J2 {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 // The same name methods with different return types
-mixin M3 on B, C implements I2, J2 {} //# 03: compile-time error
+mixin M3 on B, C implements I2, J2 {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 // The methods with the same return types and different parameters number
-mixin M4 on B, C implements I3, J3 {} //# 04: compile-time error
+mixin M4 on B, C implements I3, J3 {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

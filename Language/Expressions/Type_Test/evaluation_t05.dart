@@ -12,7 +12,6 @@
 /// Otherwise it evaluates to false.
 /// @description Checks that if T is generic type and G is generic type with
 /// less then n type parameters, then it is a compile error
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -21,4 +20,7 @@ class G<T> {}
 
 main() {
   new G() is G<int, bool>;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -14,7 +14,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the label is used
 /// without the colon character.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -24,5 +23,8 @@
 main() {
   try {
     L while (true) { break L; }
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

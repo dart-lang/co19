@@ -12,7 +12,6 @@
 ///   ':' this ('.' identifier)? arguments
 /// ;
 /// @description Checks that only one constructor redirect clause is allowed.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -20,6 +19,9 @@ class A {}
 
 class C extends A {
   C() : this.init1(), this.init2();
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   C.init1();
   C.init2();
 }

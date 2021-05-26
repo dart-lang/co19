@@ -8,7 +8,6 @@
 /// abstract method.
 /// @description Checks that it is a compile error if a non-abstract class
 /// inherits an abstract method.
-/// @compile-error
 /// @author msyabro
 
 
@@ -18,6 +17,9 @@ abstract class A {
 }
 
 class B extends A {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

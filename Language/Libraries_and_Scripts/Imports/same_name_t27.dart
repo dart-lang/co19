@@ -16,7 +16,6 @@
 /// @description Checks that it is not a static warning or error if two different
 /// libraries introduce the same name (one of them via re-export) to the top
 /// level scope of L and L uses it in an instance creation expression.
-/// @static-clean
 /// @author rodionov
 /// @reviewer kaigorodov
 

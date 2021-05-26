@@ -9,7 +9,6 @@
 /// lexically enclosing scope of S.
 /// @description Checks that a hidden class name can't be used as a type. 
 /// A compile error is expected.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 /// @needsreview dart issue #21092
@@ -19,4 +18,7 @@ class C {}
 main() {
   var C = 1;
   new C();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

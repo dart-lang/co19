@@ -8,12 +8,17 @@
 /// that is, [G] may have formal type parameters declared.
 /// @description Checks that a compile-time error is produced when typeParameter
 /// declaration is not complete.
-/// @compile-error
 /// @author kaigorodov
 
 
 class A<T
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 class C<T extends Function>{}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

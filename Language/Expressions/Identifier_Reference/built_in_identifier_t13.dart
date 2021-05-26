@@ -8,16 +8,21 @@
 /// the declared name of a prefix, class, type parameter or type alias.
 /// @description Checks that it is a compile-time error if a built-in identifier
 /// "factory" factory is used as the declared name of a type alias.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
 
 typedef int factory();
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     null is factory;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (anything) {
   }
 }

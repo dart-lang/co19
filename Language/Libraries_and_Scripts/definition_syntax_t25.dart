@@ -23,10 +23,8 @@
 /// name of the library.
 /// @description Checks that it is a compile-time error if the library name
 /// is enclosed in triple single quotes.
-/// @compile-error
 /// @author rodionov
-/// @reviewer kaigorodov
-
+/// @issue 44990
 
 import "definition_syntax_t25_lib.dart";
 

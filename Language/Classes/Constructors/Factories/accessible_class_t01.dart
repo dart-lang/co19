@@ -10,12 +10,14 @@
 /// not a constructor of C.
 /// @description Checks that a compile error is produced if referenced type in
 /// redirecting constructor has an undefined id.
-/// @compile-error
 /// @author ilya
 
 
 class F {
   factory F() = C;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

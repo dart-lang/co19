@@ -11,7 +11,6 @@
 /// • A constant list literal.
 /// @description Checks that a non-constant list literal cannot be assigned to
 /// a constant variable.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 

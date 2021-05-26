@@ -13,13 +13,15 @@
 /// v = e occurs inside a static setter and and there is neither a local
 /// variable declaration with name v nor setter declaration with name v = in the
 /// lexical scope enclosing the assignment.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 class C {
   static set test(val) {
     v = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

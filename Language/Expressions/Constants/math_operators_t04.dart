@@ -15,11 +15,13 @@
 ///   constant expressions that evaluate to a numeric value or to null.
 /// @description Checks that an expression of the form e1 <= e2 cannot be used
 /// to initialize a constant variable if e1 is a string.
-/// @compile-error
 /// @author iefremov
 
 
 const m = "1" <= 1;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

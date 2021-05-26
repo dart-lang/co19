@@ -9,16 +9,22 @@
 /// @description Checks that a compile time error is arisen if a class has an
 /// explicitly declared static getter and implicitly declared instance setter
 /// with the same name.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
 
 class C {
   static get v => 5;
+//           ^
+// [analyzer] unspecified
   int v;
+//    ^
+// [cfe] unspecified
 }
 
 main() {
   C.v();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

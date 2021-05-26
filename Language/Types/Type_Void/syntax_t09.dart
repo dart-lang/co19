@@ -11,7 +11,6 @@
 /// compile-time error to pass a value with static type void to the function
 /// which takes an Object
 /// @issue 30177
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -19,4 +18,7 @@ void v = null;
 
 main() {
     print(v);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

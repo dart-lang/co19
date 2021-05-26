@@ -29,7 +29,6 @@
 ///     initializedIdentifier (‘, ’ initializedIdentifier)*
 ///   ;
 /// @description Checks that a variable declaration must contain an identifier.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -37,5 +36,8 @@
 main() {
   try {
     final ;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (ok) {}
 }

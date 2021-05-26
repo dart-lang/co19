@@ -11,9 +11,8 @@
 /// contents of the URI are not a valid part declaration.
 /// @description Checks that it is a compile-time error if the included part
 /// contains a statement where a top-level definition is expected.
-/// @compile-error
 /// @author rodionov
-/// @reviewer kaigorodov
+/// @issue 44990
 
 library Parts_test_lib;
 part "part_6.dart";

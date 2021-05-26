@@ -9,7 +9,6 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "try" is used as a local function name.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
@@ -17,7 +16,13 @@
 main() {
   try {
     void try() {}
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
     try();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (anything) {
   }
 }

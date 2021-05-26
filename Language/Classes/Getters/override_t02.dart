@@ -9,7 +9,6 @@
 /// @description Checks that a compile error is produced if the overridden
 /// getter is implicit as the return types of both getters are not mutually 
 /// assignable.
-/// @compile-error
 /// @author iefremov
 
 
@@ -19,6 +18,9 @@ class A {
 
 class C extends A {
   int get n {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

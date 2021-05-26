@@ -13,12 +13,17 @@
 /// preface a top-level variable declaration with the built-in identier static.
 /// @description Checks that it is a compile-time error to preface a top-level
 /// variable declaration with the built-in identifier static.
-/// @compile-error
 /// @author kaigorodov
 
 
 static var foo = 1;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   Expect.equals(1, foo);
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

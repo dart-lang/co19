@@ -14,11 +14,13 @@
 /// ;
 /// @description Checks that it is a compile error if the identifier used in a
 /// string interpolation construct is not declared in the current scope.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 main() {
   "${nonExistingVariable}";
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

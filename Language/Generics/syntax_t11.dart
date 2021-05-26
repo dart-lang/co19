@@ -8,11 +8,13 @@
 /// that is, [G] may have formal type parameters declared.
 /// @description Checks that a compile-time error is produced when "extends"
 /// is not followed with "type" for the generic class.
-/// @compile-error
 /// @author kaigorodov
 
 
 class C<T extends >{}
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

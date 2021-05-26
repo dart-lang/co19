@@ -10,11 +10,13 @@
 ///   ;
 /// @description Check that it is a compile time error, if qualified identifier
 /// is missing
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 @()
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 class B {}
 
 main() {

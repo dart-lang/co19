@@ -9,7 +9,6 @@
 /// superclass.
 /// @description Checks that it is a compile-time error if enumeration is used
 /// as a superclass
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -17,6 +16,9 @@
 enum E {a, b, c}
 
 class A extends E {}
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

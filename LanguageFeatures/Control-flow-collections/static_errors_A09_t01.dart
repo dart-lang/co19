@@ -9,10 +9,12 @@
 ///
 /// @description Checks that it is a static error when await is used when the
 /// collection literal is not inside an asynchronous function.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 main() {
   [await for (String i in Stream.fromIterable(["not", "int"])) i];
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -6,11 +6,13 @@
 
 /// @assertion A type parameter cannot be used as a superclass or superinterface
 /// @description Checks that class type parameter cannot be used as a superclass
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 class A<T> extends T {}
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

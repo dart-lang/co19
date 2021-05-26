@@ -22,12 +22,14 @@
 /// ;
 /// @description Checks that it is a compile-time error if the value of a
 /// show/hide combinator is a list literal.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 import "syntax_lib.dart" as prfx show [foo, someVar];
+//                                                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

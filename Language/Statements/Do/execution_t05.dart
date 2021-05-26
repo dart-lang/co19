@@ -11,7 +11,6 @@
 /// object r. If r is false, execution of the do statement is complete. If r is
 /// true, then the do statement is re-executed recursively.
 /// @description Check that non boolean expression e cause compile error
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -22,4 +21,7 @@ main() {
   do {
     x = 2;
   } while ("true");
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

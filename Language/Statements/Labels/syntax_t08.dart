@@ -14,7 +14,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if a label is used in a
 /// wrong context (next to a class member declaration).
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
@@ -22,6 +21,9 @@
 class C {
   C() {}
   Label: int i;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

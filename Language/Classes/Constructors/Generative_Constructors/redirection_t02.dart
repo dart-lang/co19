@@ -13,12 +13,14 @@
 /// ;
 /// @description Checks that a compile error is produced if a redirecting
 /// constructor has a body.
-/// @compile-error
 /// @author pagolubev
 
 
 class C {
   C() : this.init() {}
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   C.init();
 }
 

@@ -11,7 +11,6 @@
 /// @description Check that it is a compile time error, if mandatory arguments
 /// are missing
 /// @issue #24281
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:mirrors';
@@ -22,6 +21,9 @@ class A {
 }
 
 @A
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 class B {}
 
 main() {

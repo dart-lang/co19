@@ -10,7 +10,6 @@
 /// or in a static method or variable initializer.
 /// @description Checks that it is a compile-time error if a super method
 /// invocation occurs in a top-level function.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -18,5 +17,8 @@
 main() {
   try {
     super.f();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

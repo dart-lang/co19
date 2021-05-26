@@ -15,7 +15,6 @@
 /// "return;" is used in an asynchronous instance method whose declared return
 /// type may not be assigned to Future<Null>.
 ///
-/// @static-warning
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
@@ -26,7 +25,10 @@ class C {
     if (true) {
       return 1;
     } else {
-      return; /// static type warning
+      return;
+//    ^
+// [analyzer] unspecified
+// [cfe] Must explicitly return a value from a non-void function.
     }
   }
 }

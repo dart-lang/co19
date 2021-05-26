@@ -28,12 +28,14 @@
 /// ;
 /// @description Checks that the list of optional positional parameters must end
 /// with a closing square bracket.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 void f([) {}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main () {
   try {

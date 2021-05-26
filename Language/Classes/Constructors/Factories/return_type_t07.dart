@@ -11,7 +11,6 @@
 /// @description Checks that assigning the result of invoking a factory
 /// constructor to a variable whose type is not assignable to M<T1,...,Tn>
 /// produces a compile error.
-/// @compile-error
 /// @author rodionov
 
 
@@ -32,6 +31,9 @@ I<S3, int, int> m1;
 
 main() {
   checkTypeError(() {
-    m1 = new I<S2, num, Function>(); /// static type warning not assignable
+    m1 = new I<S2, num, Function>(); not assignable
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   });
 }

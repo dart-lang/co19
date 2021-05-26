@@ -23,7 +23,6 @@
 /// @description Checks that it is not an error if the arguments of show/hide
 /// combinators include identifiers named 'hide' and 'show' and that filtering
 /// of the imported names is done correctly.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
@@ -31,4 +30,7 @@ import "syntax_lib.dart" show hide hide show;
 
 main() {
   print(foo); // foo is not defined, expecting compile error
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

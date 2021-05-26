@@ -25,6 +25,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 
 
@@ -45,6 +46,7 @@ X0 t0Instance = new X0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
 
+// @dart = 2.9
 
 
 
@@ -110,8 +112,7 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  ArgumentsBinding2_t03<FutureOr<S1>> c2 = new ArgumentsBinding2_t03<FutureOr<S1>>();
+    ArgumentsBinding2_t03<FutureOr<S1>> c2 = new ArgumentsBinding2_t03<FutureOr<S1>>();
   c2.test(t0Instance, t1Instance);
   c2.superTest(t0Instance);
   c2.superTestPositioned(t0Instance);
@@ -120,5 +121,4 @@ main() {
   c2.superTestNamed(t1Instance, val2: t0Instance);
   c2.superSetter = t0Instance;
   c2.superGetter;
-  //# -->
-}
+  }

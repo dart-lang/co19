@@ -11,12 +11,14 @@
 /// ;
 /// @description Checks that a list literal can't contain an empty element.
 /// @author msyabro
-/// @compile-error
 /// @reviewer kaigorodov
 
 
 main() {
   try {
     [1, , 2, 3];
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

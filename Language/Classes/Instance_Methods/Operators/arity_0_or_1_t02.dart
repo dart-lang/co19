@@ -11,12 +11,14 @@
 /// If it as an argument, it denotes binary subtraction.
 /// @description Checks that a compile-time error is produced if a user-defined
 /// operator - specifies two parameters.
-/// @compile-error
 /// @author kaigorodov
 
 
 class C {
   operator -(var val, var val2) {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -10,13 +10,15 @@
 /// constant type.
 /// @description Checks that an expression of the form [e is! T] is not accepted
 /// and causes compile time error if [T] is not a compile-time constant type.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 class MyClass<E> {
   final int res;
   const MyClass(Object o) : res = o is! E ? 0 : 1;
+//                                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

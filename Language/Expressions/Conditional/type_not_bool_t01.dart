@@ -8,11 +8,13 @@
 /// to bool.
 /// @description Checks that it is a compile error if the type of e1 may
 /// not be assigned to bool.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
 
 main() {
   "" ? true : false;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

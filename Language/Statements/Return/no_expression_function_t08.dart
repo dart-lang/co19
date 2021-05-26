@@ -15,7 +15,6 @@
 /// "return;" is used in an asynchronous getter method whose declared return type
 /// is Future<bool>.
 ///
-/// @static-warning
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
@@ -23,7 +22,10 @@ import 'dart:async';
 class C {
   C() { }
   Future<bool> get foo async {
-    return; /// static type warning
+    return;
+//  ^
+// [analyzer] unspecified
+// [cfe] Must explicitly return a value from a non-void function.
   }
 }
 

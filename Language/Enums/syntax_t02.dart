@@ -11,11 +11,13 @@
 ///  ;
 /// @description Checks that it is compile-time error if enum does not declare
 /// any member
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 enum E {}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   E e;

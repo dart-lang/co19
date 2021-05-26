@@ -6,4 +6,7 @@
 
 part of Parts_test_lib;
 
-static final foo = "FOO"; // error
+  static final foo = "FOO"; // error
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

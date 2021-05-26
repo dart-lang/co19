@@ -8,7 +8,6 @@
 /// dynamic as a type annotation or type parameter.
 /// @description Checks that it is a compile-time error if a built-in identifier
 /// "abstract" is used as a type annotation of a local variable.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
@@ -17,5 +16,8 @@
 main() {
   try {
     abstract foo;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

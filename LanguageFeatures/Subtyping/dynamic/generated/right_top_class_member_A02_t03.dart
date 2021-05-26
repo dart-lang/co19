@@ -21,6 +21,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 
@@ -31,6 +32,7 @@ T0 t0Instance = new T0();
 dynamic t1Instance = 3.14;
 
 
+// @dart = 2.9
 
 
 
@@ -67,10 +69,8 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  ClassMember2_t03<dynamic> c2 = new ClassMember2_t03<dynamic>();
+    ClassMember2_t03<dynamic> c2 = new ClassMember2_t03<dynamic>();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);
-  //# -->
-}
+  }

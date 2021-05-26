@@ -9,11 +9,13 @@
 /// superclass.
 /// @description Checks that it is a compile-time error when the type expression
 /// in a class's extends clause denotes an unavailable type.
-/// @compile-error
 /// @author pagolubev
 
 
 class A extends Unavailable {}
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

@@ -29,7 +29,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if a numeric literal
 /// does not have any digits after the decimal point.
-/// @compile-error
 /// @author hlodvig
 /// @reviewer iefremov
 /// @reviewer rodionov
@@ -39,5 +38,8 @@
 main() {
   try {
     var i = 0.;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

@@ -11,7 +11,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if mixin has incorrect 
 /// declaration in a class definition.
-/// @compile-error
 /// @author hlodvig
 
 
@@ -20,6 +19,9 @@ class B1 {}
 class B2 {}
 
 class C extends A with B1 B2 {}
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

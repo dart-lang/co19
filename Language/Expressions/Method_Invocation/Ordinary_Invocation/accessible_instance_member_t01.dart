@@ -19,7 +19,6 @@
 ///   to its subtypes.
 /// @description Checks that it is a compile error if T does not have an
 /// instance member named m.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -29,5 +28,8 @@ class C {}
 main() {
   C o = new C();
   o.nonExistingMethod();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

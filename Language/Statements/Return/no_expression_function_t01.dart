@@ -14,14 +14,16 @@
 /// @description Checks that a static warning occurs if a statement of the form
 /// "return;" is used in a top-level method whose declared return type is int.
 ///
-/// @static-warning
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
 
 
 int bar() {
-  return; /// static type warning
+  return;
+//^
+// [analyzer] unspecified
+// [cfe] Must explicitly return a value from a non-void function.
 }
 
 main() {

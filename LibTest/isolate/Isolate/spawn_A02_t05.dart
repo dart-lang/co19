@@ -24,7 +24,6 @@
 /// arguments, then type error is arisen in checked mode or returned
 /// Future instance completes with error otherwise. Compile error arises in
 /// strong mode
-/// @compile-error
 /// @issue #26588
 /// @author a.semenov@unipro.ru
 
@@ -39,6 +38,9 @@ main() {
   asyncStart();
   try {
     Isolate.spawn(entryPointNoArgs, "hello").then( /// compile error
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
         (v) {
           Expect.fail("Isolate.spawn(entryPointNoArgs, 'hello') is expected to fail");
         },

@@ -9,7 +9,6 @@
 /// @description Checks that if the mixin application declares support for
 /// interfaces and the resulting class implements those interfaces then no
 /// static warning occurs. Interface implementation declared in mixin
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

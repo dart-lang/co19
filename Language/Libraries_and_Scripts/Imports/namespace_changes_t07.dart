@@ -59,7 +59,6 @@
 /// @description Checks that imports of an imported library are not accessible
 /// with a combination of prefixes used in both import directives. Library being
 /// imported does not re-export its own imports by default.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer iefremov
 /// @reviewer rodionov
@@ -70,5 +69,8 @@ import "namespace_changes_lib.dart" as PP;
 main() {
   try {
     new PP.P.B.spec().foo();
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

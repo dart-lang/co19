@@ -7,7 +7,6 @@
 /// @assertion There are no other constant expressions.
 /// @description Checks that an assignment expression cannot be used to
 /// initialize a constant variable.
-/// @compile-error
 /// @author iefremov
 
 
@@ -17,6 +16,9 @@ class A {
 }
 
 const m = ((const A()).z = 1);
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

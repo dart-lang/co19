@@ -22,15 +22,20 @@
 /// ;
 /// @description Checks that it is a compile-time error if the parts of an import
 /// directive are specified in the wrong order.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 import show foo hide someVar "syntax_lib.dart" as prfx;
+//                                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     someVar = 0;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

@@ -11,7 +11,6 @@
 /// @description Checks that it is a compile-time error when a string literal
 /// contains a character sequence of the form \u that is not followed by
 /// anything.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -19,5 +18,8 @@
 main() {
   try {
     "just \u";
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

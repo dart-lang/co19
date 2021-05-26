@@ -20,7 +20,6 @@
 /// @description Checks that there is no static warning if T is a local function
 /// and m is a method call. Local function is declared in an instance method of
 /// a class that extends class Function and implements method call.
-/// @static-clean
 /// @author ngl@unipro.ru
 
 import '../../../../Utils/expect.dart';

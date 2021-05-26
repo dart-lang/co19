@@ -8,7 +8,6 @@
 /// named v= and also has a non-static member named v.
 /// @description Checks that a compile error is arisen if a class has an
 /// explicitly declared static setter and an instance getter with the same name.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
@@ -16,6 +15,9 @@ class C {
   static int n;
   get v => 5;
   static set v(int v1) {
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
     n = v1;
   }
 }

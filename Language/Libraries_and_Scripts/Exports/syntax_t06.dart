@@ -12,10 +12,8 @@
 /// ;
 /// @description Checks that it is a compile-time error when export declaration
 /// includes an 'as prefix' clause.
-/// @compile-error
 /// @author rodionov
-/// @reviewer kaigorodov
-
+/// @issue 44990
 
 import "syntax_t06_lib.dart";
 

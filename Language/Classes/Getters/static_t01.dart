@@ -8,9 +8,7 @@
 /// defines a static getter
 /// @description Checks that non-static getter cannot be called as static one.
 /// Compile error occurs
-/// @compile-error
 /// @author sgrekhov@unipro.ru
-
 
 class C1 {
   int get g1 => 0;
@@ -22,9 +20,24 @@ class C2 extends C1 {
 }
 
 main() {
-  C1.g1; //# 01: compile-time error
-  C1.g2; //# 02: compile-time error
-  C2.g1; //# 03: compile-time error
-  C2.g2; //# 04: compile-time error
-  C2.g3; //# 05: compile-time error
+  C1.g1;
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C1.g2;
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C2.g1;
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C2.g2;
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C2.g3;
+//   ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

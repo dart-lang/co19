@@ -19,7 +19,6 @@
 ///   to its subtypes.
 /// @description Checks that there is a compile error if T does not
 /// have an instance member named m
-/// @compile-error
 /// @author kaigorodov
 
 import '../../../../Utils/expect.dart';
@@ -30,5 +29,8 @@ main() {
   C o = new C();
   Expect.throws(() {
     o.nonExistingMethod();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }, (e) => e is NoSuchMethodError);
 }

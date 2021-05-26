@@ -7,7 +7,6 @@
 /// @assertion Static warnings are those errors reported by the static checker.
 /// They have no effect on execution
 /// @description Checks that static warning has no effect on execution
-/// @static-warning
 /// @author sgrekhov@unipro.ru
 
 import '../../Utils/expect.dart';
@@ -18,7 +17,10 @@ class C {
     if (true) {
       return 1;
     } else {
-      return; /// static type warning
+      return;
+//    ^
+// [analyzer] unspecified
+// [cfe] Must explicitly return a value from a non-void function.
     }
   }
 }

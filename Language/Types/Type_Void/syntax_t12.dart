@@ -9,14 +9,19 @@
 /// For example, as a type argument, or as the type of a variable or parameter.
 /// @description Checks that using void as a declaration name is also a
 /// compile-time error.
-/// @compile-error
 /// @author rodionov
 
 
 class void {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     new void();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (anything) {}
 }

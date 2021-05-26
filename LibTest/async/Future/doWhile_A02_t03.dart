@@ -14,7 +14,6 @@
 /// a compile error
 /// @issue #29202
 /// @issue #29257
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import "dart:async";
@@ -27,6 +26,9 @@ main() {
 
   FutureOr<bool> f() {
     if (num == 2) return "@";
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
     num++;
     return new Future.value(num < N);
   }

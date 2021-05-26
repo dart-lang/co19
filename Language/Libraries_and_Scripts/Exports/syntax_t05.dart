@@ -12,10 +12,8 @@
 /// ;
 /// @description Checks that it is a compile-time error when there're no
 /// identifiers following a hide combinator in an export declaration.
-/// @compile-error
 /// @author rodionov
-/// @reviewer kaigorodov
-
+/// @issue 44990
 
 import "syntax_t05_lib.dart";
 

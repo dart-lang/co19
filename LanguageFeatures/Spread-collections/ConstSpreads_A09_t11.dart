@@ -11,7 +11,6 @@
 /// constant element if the expression is a potentially constant expression.
 /// @description: Checks that compile time error is thrown if constant set spread
 /// element is not a potentially constant list or set.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -31,4 +30,7 @@ class MyClass {
 
 main() {
   const Set l4 = {...(MyClass(12345) is MyClass ? [12] : [])};
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

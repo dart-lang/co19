@@ -32,6 +32,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -83,6 +84,7 @@ T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 bool isGenericFunctionType = true;
 
+// @dart = 2.9
 
 
 

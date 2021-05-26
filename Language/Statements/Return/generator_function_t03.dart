@@ -10,13 +10,15 @@
 /// @description Check that statement 'return e' cause a compiler error in
 /// synchronous generator static method
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 class A {
   static Iterable test() sync* {
     return 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

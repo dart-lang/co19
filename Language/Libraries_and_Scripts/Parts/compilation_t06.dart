@@ -12,10 +12,8 @@
 /// @description Checks that it is a compile-time error if the contents of
 /// the URI are not a valid part declaration (syntax error in a top-level
 /// declaration).
-/// @compile-error
 /// @author rodionov
-/// @reviewer kaigorodov
-
+/// @issue 44990
 
 library Parts_test_lib;
 part "part_8.dart";

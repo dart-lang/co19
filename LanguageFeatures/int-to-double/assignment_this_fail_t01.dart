@@ -7,7 +7,6 @@
 /// @assertion The static type of a double valued integer literal is [double]
 /// @description Checks that it is a compile error if integer but not a literal
 /// is assigned to class member via this expression
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 int foo() => 42;
@@ -20,13 +19,31 @@ class C {
   }
 
   test() {
-    this.m1 = foo();                  //# 01: compile-time error
-    this?.m1 = foo();                 //# 02: compile-time error
-    this.m1 ??= foo();                //# 03: compile-time error
-    this?.m1 ??= foo();               //# 04: compile-time error
+    this.m1 = foo();
+//            ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    this?.m1 = foo();
+//             ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    this.m1 ??= foo();
+//              ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    this?.m1 ??= foo();
+//               ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-    this.instanceSetter = foo();      //# 05: compile-time error
-    this?.instanceSetter = foo();     //# 06: compile-time error
+    this.instanceSetter = foo();
+//                        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    this?.instanceSetter = foo();
+//                         ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

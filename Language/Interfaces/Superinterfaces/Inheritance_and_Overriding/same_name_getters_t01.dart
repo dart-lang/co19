@@ -18,7 +18,6 @@
 /// @description Checks that if multiple getters with the same name are
 /// inherited actually only one getter is inherited and no static warning
 /// issued
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 import '../../../../Utils/expect.dart';

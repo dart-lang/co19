@@ -12,7 +12,6 @@
 /// @description Checks that thare is no compile error if an abstract getter
 /// is declared in a concrete class and this class declared noSuchMethod()
 /// method that overrides method Object.noSuchMethod.
-/// @static-clean
 /// @author ngl@unipro.ru
 
 

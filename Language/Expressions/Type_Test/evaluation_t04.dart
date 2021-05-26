@@ -12,11 +12,13 @@
 /// Otherwise it evaluates to false.
 /// @description Checks that if T is parameterized type and G is unknown, then
 /// compile error occurs
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
 
 main() {
   1 is G<int, bool>;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -12,12 +12,14 @@
 /// declaration d is in scope if d is available in the current scope.
 /// @description Checks that it is a compile-time error if a typedef declaration
 /// declares two identically named parameters.
-/// @compile-error
 /// @author iefremov
 /// @reviewer kaigorodov
 
 
 typedef f(x, x);
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

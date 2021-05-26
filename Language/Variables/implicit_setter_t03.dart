@@ -11,7 +11,6 @@
 /// whose execution sets the value of v to the incoming argument x.
 /// @description For all types of forms checks that setter execution sets the
 /// value of the variable and that parameter type is dynamic.
-/// @static-clean
 /// @author ilya
 
 import "../../Utils/expect.dart";

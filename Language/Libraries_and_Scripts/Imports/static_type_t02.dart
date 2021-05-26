@@ -9,7 +9,6 @@
 /// @description Check that prefix p contains all functions, getters, setters and
 /// declaration defined in the library and loadLibrary() method. So call of these
 /// methods should not produce static warnings. Test immediate import
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

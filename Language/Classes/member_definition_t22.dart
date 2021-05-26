@@ -37,12 +37,16 @@
 /// ;
 /// @description Checks that an abstract static operator can't be used in 
 /// place of a class member definition.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
+//    ^
+// [cfe] unspecified
   static operator +(other);
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

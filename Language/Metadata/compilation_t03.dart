@@ -10,7 +10,6 @@
 ///   • A call to a constant constructor.
 /// @description Check that if static class variable is used as metadata,
 /// then a compile time error is raised.
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:mirrors';
@@ -21,6 +20,9 @@ class A {
 }
 
 @A.a
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 class B {}
 
 main() {

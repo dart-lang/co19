@@ -10,7 +10,6 @@
 ///   get v
 /// @description For all types of forms checks that return type of getter is
 /// dynamic by expecting no static warnings.
-/// @static-clean
 /// @author ilya
 
 import "../../Utils/expect.dart";

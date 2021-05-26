@@ -15,11 +15,13 @@
 /// complete. If the assertion failed, an AssertionError is thrown.
 /// @description Checks that a compile error occurs if the conditional
 /// expression e is a map literal.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
 
 main() {
   assert ({"true": true, "false": false});
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

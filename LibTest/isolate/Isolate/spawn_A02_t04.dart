@@ -24,7 +24,6 @@
 /// than one argument, then type error is arisen in checked mode or returned
 /// Future instance completes with error otherwise. In strong mode compile
 /// error arises.
-/// @compile-error
 /// @issue #26588
 /// @author a.semenov@unipro.ru
 
@@ -39,6 +38,9 @@ main() {
   asyncStart();
   try {
     Isolate.spawn(entryPoint2Args, "hello").then( /// compile error
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
         (v) {
           Expect.fail("Isolate.spawn(entryPoint2Args, 'hello') is expected to fail");
         },

@@ -10,12 +10,14 @@
 /// mentioned above, the inference is similar to other cases of chained inference.
 /// @description Check that compile error is thrown if extension type variable is
 /// higher order.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 
 extension IncorrectExtension<T1, T2> on T1<T2> {
+//                                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   void testme() {}
 }
 

@@ -13,7 +13,6 @@
 /// @description Checks that it is a compile-time error if a 'continue;'
 /// statement occurs in a case clause of switch statement and there is no
 /// inclosing loop statement.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -23,6 +22,9 @@ main() {
   try {
     switch (1) {
       case 1: continue;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
       default:
     }
   } catch (x) {}

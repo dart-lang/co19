@@ -8,7 +8,6 @@
 /// points.
 /// @description Checks that unicode escape sequences cause compile errors when
 /// used outside of string literals.
-/// @compile-error
 /// @author hlodvig
 /// @reviewer rodionov
 
@@ -16,5 +15,11 @@ import "../../../Utils/expect.dart";
 
 main() {
   var \u0041 = 1;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   Expect.equals(1, \u0041);
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

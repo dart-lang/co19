@@ -12,12 +12,14 @@
 ///   and e2 are constant expressions that evaluate to a boolean value.
 /// @description Checks that an expression of the form e1 || e2 cannot be used
 /// to initialize a constant variable if e2 is integer.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
 
 const m = (true || 0);
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

@@ -10,7 +10,6 @@
 /// @description Checks that it is a compile error if the type of an actual
 /// argument may not be assigned to the type of a positional parameter of a
 /// static method.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -21,4 +20,7 @@ class C {
 
 main() {
   C.foo ('');
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

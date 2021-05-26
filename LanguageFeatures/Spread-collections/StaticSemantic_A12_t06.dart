@@ -7,11 +7,15 @@
 /// @assertion n/a
 /// @description: Checks that spread elements in the map cannot have recurrent
 /// references.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 main() {
   Map m1 = {...m2};
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
   Map m2 = {...m1};
+//    ^
+// [cfe] unspecified
 }

@@ -9,15 +9,20 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "enum" is used as a label name.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
 main() {
   try {
     enum:
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
     do {
       break enum;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
     } while (false);
   } catch (x) {}
 }

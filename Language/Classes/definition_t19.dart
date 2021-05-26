@@ -11,11 +11,13 @@
 /// ;
 /// @description Checks that it is a compile-time error if type parameters list 
 /// ends with an extra angle bracket in a class definition.
-/// @compile-error
 /// @author kaigorodov
 
 
 class A<T1>> {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

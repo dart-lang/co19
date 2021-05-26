@@ -14,7 +14,6 @@
 /// @description Checks that it is a compile-time error for the mixin declaration
 /// if the interfaces B and C are not compatible.
 /// @issue 34713
-/// @compile-error
 /// @author ngl@unipro.ru
 /// @author sgrekhov@unipro.ru
 
@@ -27,6 +26,9 @@ class C {
 }
 
 mixin M on B, C {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

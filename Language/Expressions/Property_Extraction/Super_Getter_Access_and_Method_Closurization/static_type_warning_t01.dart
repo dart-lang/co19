@@ -9,7 +9,6 @@
 /// method or getter named m.
 /// @description Checks that it is a compile errorif the class of super in
 /// a super.m invocation does not have a getter named m.
-/// @compile-error
 /// @author ilya
 
 
@@ -18,6 +17,9 @@ class S {}
 class C extends S {
   C() {
     super.foo;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

@@ -16,7 +16,6 @@
 /// value. Each key and each value is denoted by an expression.
 /// @description Checks that it is a compile-time error if a key and a value are
 /// not separated by a colon.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -24,5 +23,8 @@
 main() {
   try {
     var map = {"1" 1};
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

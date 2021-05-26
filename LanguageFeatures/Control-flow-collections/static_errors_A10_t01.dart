@@ -9,10 +9,12 @@
 ///
 /// @description Checks that it is a static error when await is used before a
 /// C-style for element.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 main() async {
   [await for (int i = 0; i < 10; i++) i];
+// ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

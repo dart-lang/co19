@@ -26,7 +26,6 @@
 /// @description Checks that it is a compile-time error when an arbitrary
 /// sequence of symbols (which is not an identifier) is used in place of a top
 /// level definition in a script.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -35,6 +34,9 @@ f1() {}
 f2() {}
 
 it$^does%^not#@matter_what!Im#typing!@here
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

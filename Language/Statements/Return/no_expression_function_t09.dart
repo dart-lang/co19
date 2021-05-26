@@ -15,7 +15,6 @@
 /// "return;" is used in an asynchronous static method whose declared return
 /// type may not be assigned to Future<Null>.
 ///
-/// @static-warning
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
@@ -23,7 +22,10 @@ import 'dart:async';
 class C {
   C() { }
   static Future<C> foo() async {
-    return;  /// static type warning
+    return;
+//  ^
+// [analyzer] unspecified
+// [cfe] Must explicitly return a value from a non-void function.
   }
 }
 

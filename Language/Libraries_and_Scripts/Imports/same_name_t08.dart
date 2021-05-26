@@ -19,7 +19,6 @@
 /// libraries introduce the same name T to the top level scope of L.
 /// Checks that a compile error occurs if T is used in new instance creation
 /// expression.
-/// @compile-error
 /// @author kaigorodov
 
 import "same_name_t01_p1_lib.dart";
@@ -27,4 +26,7 @@ import "same_name_t01_p2_lib.dart";
 
 main() {
   new foo();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

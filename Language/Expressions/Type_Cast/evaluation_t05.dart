@@ -13,11 +13,13 @@
 /// In all other cases, a CastError is thrown.
 /// @description Checks that if T is a parameterized type of the form
 /// G<T1,...,Tn> and G is unknown type, then it is a compile error
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
 
 main() {
   1 as Unknown<int, bool>;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

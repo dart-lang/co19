@@ -18,7 +18,6 @@
 ///
 /// @description Check that a compile error occurs if o is not an instance
 /// of a class that implements Stream
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
@@ -26,6 +25,9 @@ import '../../../../Utils/expect.dart';
 
 Future test1() async {
   await for (var i in new Object()) {
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

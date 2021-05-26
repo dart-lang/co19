@@ -8,12 +8,14 @@
 /// by a class that has a non-final instance variable.
 /// @description Checks that a compile-time error is produced when a class with
 /// constant constructor also declares a non-final instance variable.
-/// @compile-error
 /// @author iefremov
 
 
 class A {
   const A();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   var x;
 }
 

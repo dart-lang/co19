@@ -12,7 +12,6 @@
 /// @description Checks that [==] operator is allowed if one of the operands is
 /// [null] in potentially constant or compile-time constant, and compile time
 /// error is thrown if assertion fails.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -26,4 +25,7 @@ class MyClass {
 
 main() {
   const MyClass c1 = MyClass("123");
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

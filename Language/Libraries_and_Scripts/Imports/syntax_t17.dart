@@ -22,15 +22,20 @@
 /// ;
 /// @description Checks that it is a compile-time error if the URI is an invalid
 /// string literal
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 import '1_Imports'_lib.dart';
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     someVar = 0;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

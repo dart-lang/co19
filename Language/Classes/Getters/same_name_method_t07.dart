@@ -10,7 +10,6 @@
 /// method are inherited or not.
 /// @description Checks that a compile-time error is produced if a class has an
 /// implicit getter and a method with the same name inherited from a superclass.
-/// @compile-error
 /// @author iefremov
 
 
@@ -20,6 +19,9 @@ class A {
 
 class C extends A {
   var foo;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

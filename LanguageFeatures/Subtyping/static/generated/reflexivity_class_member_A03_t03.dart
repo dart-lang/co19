@@ -21,6 +21,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 
 
@@ -28,6 +29,7 @@ Object t0Instance = new Object();
 Object t1Instance = new Object();
 
 
+// @dart = 2.9
 
 
 

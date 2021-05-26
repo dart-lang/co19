@@ -37,12 +37,16 @@
 /// ;
 /// @description Checks that a function type alias can't be declared inside 
 /// another class as it is not among the allowed class member definitions.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
+//    ^
+// [cfe] unspecified
   typedef int f();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

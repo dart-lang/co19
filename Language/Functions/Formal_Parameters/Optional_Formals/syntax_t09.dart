@@ -14,12 +14,14 @@
 /// ;
 /// @description Checks that a declaration cannot be used instead of expression
 /// in an optional named parameter declaration.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 f({var x: var z}) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

@@ -8,13 +8,17 @@
 /// the same name.
 /// @description Checks that it is a compile-time error if a class declares 
 /// an instance method and an abstract getter of the same name.
-/// @compile-error
 /// @author kaigorodov
 
 
 class C {
+//    ^
+// [cfe] unspecified
   String f(int f) {}
   int get f;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

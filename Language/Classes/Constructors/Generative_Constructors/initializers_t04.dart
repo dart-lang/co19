@@ -16,13 +16,18 @@
 /// ;
 /// @description Checks that it is a compile-time error when the initializer
 /// list is not prefixed with a colon.
-/// @compile-error
 /// @author iefremov
 
 
 class C {
   C() this.x = null {}
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   var x;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -15,7 +15,6 @@
 /// @description Checks that it is a compile-time error if the identifier in a
 /// string interpolation construct (without the curly braces) is invalid
 /// (contains prohibited characters).
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -23,5 +22,8 @@
 main() {
   try {
     "$#x";
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

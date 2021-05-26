@@ -15,13 +15,15 @@
 /// sync* and the type Iterable<T> may not be assigned to the declared return
 /// type of f.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import '../../../../Utils/expect.dart';
 
 Iterable<String> generator() sync* {
   yield 1;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

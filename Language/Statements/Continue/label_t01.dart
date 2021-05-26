@@ -12,7 +12,6 @@
 /// within the innermost function in which sc occurs.
 /// @description Checks that it is a compile-time error if a 'continue L;'
 /// statement occurs in try block after 'do' statement with label L.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -25,5 +24,8 @@ main() {
       i++;
     } while (i < 5);
     continue L;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

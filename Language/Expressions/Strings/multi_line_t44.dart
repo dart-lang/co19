@@ -26,9 +26,11 @@
 /// sequences prohibited by this grammar, cause compile-time errors.
 /// @author rodionov
 /// @reviewer iefremov
-/// @compile-error
 
 
 main() {
   '''^_$''';
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

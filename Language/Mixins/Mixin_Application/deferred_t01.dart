@@ -8,7 +8,6 @@
 /// application C includes a deferred type expression.
 /// @description Checks that it is a compile-time error when with clause
 /// includes a deferred type expression.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -18,6 +17,8 @@ class B {
 }
 
 class C extends B with d.A {}
+//                     ^
+// [analyzer] unspecified
 
 main() {
   new C();

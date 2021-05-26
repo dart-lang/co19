@@ -22,14 +22,19 @@
 /// ;
 /// @description Checks that it is a compile-time error if there're no an
 /// identifier in as clause of a deferred import declaration.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
 import "syntax_lib.dart" deferred as;
+//                                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     var x = foo;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (ok) {}
 }

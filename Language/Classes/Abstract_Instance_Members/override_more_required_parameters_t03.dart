@@ -11,7 +11,6 @@
 /// @description Checks that a compile error is produced when an abstract
 /// method overrides another abstract method with the same name and a different
 /// number of required parameters.
-/// @compile-error
 /// @author rodionov
 
 import "../../../Utils/expect.dart";
@@ -22,6 +21,9 @@ abstract class A {
 
 abstract class C extends A {
   f(var x, var y);
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class D extends C {
@@ -30,6 +32,9 @@ class D extends C {
 
 main() {
   Expect.throws(() => new D().f(2));
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   new D().f(2, 2);
 }

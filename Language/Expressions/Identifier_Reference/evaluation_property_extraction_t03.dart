@@ -13,7 +13,6 @@
 /// • Otherwise, e is equivalent to the property extraction this.id.
 /// @description  Checks that identifier expression can not refer to a static
 /// variable in a superclass of the current class.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -25,6 +24,9 @@ class A {
 class B extends A {
   func() {
     return x;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

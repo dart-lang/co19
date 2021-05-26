@@ -12,7 +12,6 @@
 /// an enumerated type or a malformed type.
 /// @description Checks that it is a compile-time error if extends mixin
 /// application where M is malformed type
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -22,6 +21,9 @@ class S {
 var M;
 
 class C extends S with M {
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

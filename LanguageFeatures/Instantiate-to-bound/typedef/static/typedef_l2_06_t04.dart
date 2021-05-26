@@ -45,13 +45,14 @@
 /// @description Checks that instantiate-to-bounds works correctly for [typedef]
 /// with two related parameters: [typedef G<X extends A<Y>, Y extends A<X>> = Y
 /// Function(X, Y)]
-/// @compile-error
 /// @author iarkh@unipro.ru
-
 
 class A<X> {}
 typedef G<X extends A<Y>, Y extends A<X>> = Y Function(X, Y);
 
 main() {
-  G source;  //# 01: compile-time error
+  G source;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

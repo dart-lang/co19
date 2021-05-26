@@ -8,11 +8,13 @@
 /// that is, [G] may have formal type parameters declared.
 /// @description Checks that a comma must be succeeded by a typeParameter in the
 /// class declaration.
-/// @compile-error
 /// @author iefremov
 
 
 class C<T, >{}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

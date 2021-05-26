@@ -15,11 +15,16 @@
 /// initialized at its point of declaration.
 /// @description Checks that it is a compile error if local variable is final
 /// and not initialized at its point of declaration.
-/// @compile-error
 /// @author ilya
 
 
 main() {
   final i;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   i = 1;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

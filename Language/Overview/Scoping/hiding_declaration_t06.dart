@@ -9,7 +9,6 @@
 /// lexically enclosing scope of S.
 /// @description Checks that it is a compile error if a type parameter hides
 /// a class name declared in an enclosing scope.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -18,6 +17,9 @@ class C {}
 class G<C> {
   G() {
     new C();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

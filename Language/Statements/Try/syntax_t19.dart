@@ -25,12 +25,17 @@
 /// 2. A finally clause, which consists of a block statement.
 /// @description Checks that it is a compile-time error if "try" is followed by
 /// a return statement instead of a block.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
 
 main() {
   try return;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
   catch (ex) { }
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

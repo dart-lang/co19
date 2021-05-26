@@ -13,7 +13,6 @@
 /// 2. ∀i ∈ 1..n, Ti ⇐⇒ Si.
 /// @description Checks that this statement is true for function types with no
 /// arguments: S is void, T is any type.
-/// @static-clean to make sure assignments are legal and cause no warnings
 /// @author iefremov
 /// @reviewer rodionov
 

@@ -12,7 +12,6 @@
 /// @description Checks that it is a compile error if a class does not declare
 /// nor inherit an instance method declared in the interface of non-abstract
 /// class.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
@@ -21,6 +20,9 @@ class I {
 }
 
 class C implements I {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main () {

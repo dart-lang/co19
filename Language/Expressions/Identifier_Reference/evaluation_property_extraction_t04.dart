@@ -14,7 +14,6 @@
 /// @description  Checks that if id is not declared nor inherited it is indeed
 /// equivalent to this.id and caused compile error
 /// @author ilya
-/// @compile-error
 
 import '../../../Utils/expect.dart';
 
@@ -23,10 +22,16 @@ class C {
 
   test() {
     undeclared; // first reference
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   C() {
     undeclared; // second reference
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   static int times = 0;

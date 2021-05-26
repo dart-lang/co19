@@ -13,12 +13,14 @@
 ///   function identical() discussed above.
 /// @description Checks that identical() with non constant expressions is not a
 /// constant expression.
-/// @compile-error
 /// @author ilya
 
 
 var x;
 const y = identical(x, x);
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   print(y);

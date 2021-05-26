@@ -22,7 +22,6 @@
 /// @description Checks that reference to a function type alias name cannot be
 /// used as the left operand of a multiplicative expression without a compile
 /// error.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer rodionov
@@ -32,4 +31,7 @@ typedef int f();
 
 main() {
   f * 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

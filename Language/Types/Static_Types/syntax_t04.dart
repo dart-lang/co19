@@ -23,7 +23,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when the list of type
 /// arguments in a static type annotation is empty.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -35,5 +34,8 @@ class Generic<T> {
 main() {
   try {
     Generic <> t;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

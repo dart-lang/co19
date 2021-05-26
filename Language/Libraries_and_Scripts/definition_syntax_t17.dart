@@ -23,16 +23,14 @@
 /// name of the library.
 /// @description Checks that it is a compile-time error if the library name is
 /// a function invocation expression.
-/// @compile-error
 /// @author vasya
-/// @reviewer msyabro
-/// @reviewer rodionov
-
+/// @issue 44990
 
 import "definition_syntax_t17_lib.dart";
 
 main() {
-  try {
     bar someVar = 1;
-  } catch (e) {}
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -10,13 +10,15 @@
 /// initializer of an instance variable.
 /// @description Checks that it is a compile-error if 'this' appears in an
 /// instance variable initializer.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
 
 class C {
   var x = this;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

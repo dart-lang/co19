@@ -30,7 +30,6 @@
 ///   ;
 /// @description Checks that a variable declaration cannot contain both 
 /// 'final' and 'var'.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -38,5 +37,8 @@
 main() {
   try {
     final var x = 1;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (ok) {}
 }

@@ -37,7 +37,6 @@
 /// ;
 /// @description Checks that neither backslashes, nor unicode escape sequences
 /// are allowed in identifiers.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -45,5 +44,8 @@
 main() {
   try {
   	var abc\u0061=1; // var abca=1;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
  } catch (e) {}
 }

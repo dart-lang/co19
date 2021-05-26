@@ -11,7 +11,6 @@
 /// @description Checks that a compile error is produced when the type of a
 /// non-abstract m1 is not a subtype of the abstract m2's type because their
 /// respective required parameter types are not mutually assignable.
-/// @compile-error
 /// @author rodionov
 
 
@@ -21,6 +20,9 @@ abstract class A {
 
 class C extends A {
   foo(String x) {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

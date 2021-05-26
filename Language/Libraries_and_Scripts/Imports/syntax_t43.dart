@@ -22,11 +22,13 @@
 /// ;
 /// @description Checks that it is a compile-time error if as clause precedes
 /// deferred clause in a deferred import declaration.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
 import "syntax_lib.dart" as p deferred;
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

@@ -19,7 +19,6 @@
 /// ;
 /// @description Checks that arguments in a function invocation expression
 /// must be comma-delimited.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -29,5 +28,8 @@ func(p1, p2) {}
 main() {
   try {
     func(1 2);
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

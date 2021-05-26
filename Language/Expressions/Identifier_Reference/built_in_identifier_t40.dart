@@ -8,15 +8,20 @@
 /// the declared name of a prefix, class, type parameter or type alias.
 /// @description Checks that it is a compile-time error if a built-in identifier
 /// "export" is used as the declared name of a type alias.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
 typedef int export();
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     null is export;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (anything) {
   }
 }

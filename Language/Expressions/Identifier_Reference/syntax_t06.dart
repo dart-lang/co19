@@ -36,7 +36,6 @@
 ///   ‘A’ ..‘Z’
 /// ;
 /// @description Checks that identifier can't contain '@' symbol.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -45,7 +44,13 @@ import '../../../Utils/expect.dart';
 class C {
   bool x() {
     return y@;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

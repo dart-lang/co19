@@ -10,7 +10,6 @@
 /// constant type.
 /// @description Checks that an expression of the form [e is T] is accepted if
 /// [e] is not a constant
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -23,4 +22,7 @@ class MyClass {
 
 main() {
   const MyClass c = MyClass(anObject);
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

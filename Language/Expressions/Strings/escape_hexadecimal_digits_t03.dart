@@ -10,7 +10,6 @@
 /// @description Checks that it is a compile-time error when a string literal
 /// contains a character sequence of the form \x that is not followed by
 /// anything.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -18,5 +17,8 @@
 main() {
   try {
     '\x';
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

@@ -17,7 +17,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the default keyword
 /// is followed by an expression.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -29,6 +28,9 @@ switchTest(value) {
   switch (value) {
     case 0: result = 0; break;
     default -1: result = -1;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   return result;
 }

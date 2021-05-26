@@ -11,7 +11,6 @@
 /// libraries have successfully been loaded.
 /// @description Checks that it is a static warning if a deferred type is used
 /// in a type annotation, type test, type cast or as a type parameter.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
@@ -22,4 +21,7 @@ class C1<T> {}
 
 main() {
   C1<p1.C> o2;
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

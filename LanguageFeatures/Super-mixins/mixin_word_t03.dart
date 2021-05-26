@@ -9,10 +9,12 @@
 /// made a built-in identifier in Dart 2.0
 ///
 /// @description Checks that the mixin word cannot be used as an import prefix
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 import "dart:collection" as mixin;
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   mixin.HashMap map = new mixin.HashMap();

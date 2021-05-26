@@ -11,6 +11,10 @@ f1() {}
 
 f2() {}
 
-\
+  \
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 
 f3() {}

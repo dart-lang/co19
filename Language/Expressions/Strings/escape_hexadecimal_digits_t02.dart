@@ -10,7 +10,6 @@
 /// @description Checks that it is a compile-time error if a string literal
 /// contains a character sequence of the form \x that is followed by characters
 /// that are not hexadecimal digits.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -18,5 +17,8 @@
 main() {
   try {
     "\xx";
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

@@ -8,13 +8,15 @@
 /// the same name.
 /// @description Checks that it is a compile-time error if a class declares 
 /// a function and a static getter of the same name.
-/// @compile-error
 /// @author rodionov
 
 
 class C {
   void f() {}
   static void get f {}
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

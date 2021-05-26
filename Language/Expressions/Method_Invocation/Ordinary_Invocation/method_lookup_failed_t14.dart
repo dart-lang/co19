@@ -23,7 +23,6 @@
 /// im, and the result of this invocation is the result of evaluating i.
 /// @description Checks static invocations when class C has an instance getter
 /// named m  instead of a static method. This causes a compile error
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
@@ -34,4 +33,7 @@ class C {
 
 main() {
   C.m();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

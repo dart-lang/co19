@@ -19,18 +19,23 @@
 /// @description Checks that an additive expression of the form
 /// super ('+' multiplicativeExpression)+
 /// must have at least two operands.
-/// @compile-error
 /// @author msyabro
 
 
 class S {
   operator +() {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class A {
   test() {
     try {
       super +;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
     } catch (e) {}
   }
 }

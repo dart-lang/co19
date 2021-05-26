@@ -15,7 +15,6 @@
 /// complete. If the assertion failed, an AssertionError is thrown.
 /// @description Checks that a compile error occurs if the conditional
 /// expression e evaluates to a function that returns a String value.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -25,4 +24,7 @@ String foo() { return "foo"; }
 
 main() {
   assert (foo);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

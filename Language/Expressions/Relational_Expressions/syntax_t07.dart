@@ -20,7 +20,6 @@
 /// a relational operator on either super or an expression e1, with argument e2.
 /// @description Checks that a relational expression can't terminate with
 /// operator >.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -28,5 +27,8 @@
 main() {
   try {
     1 >;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

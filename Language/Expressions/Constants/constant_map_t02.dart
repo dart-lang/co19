@@ -12,7 +12,6 @@
 /// @description Checks that a non-constant map literal cannot be assigned to
 /// a constant variable.
 /// @author iefremov
-/// @compile-error
 /// @reviewer rodionov
 
 

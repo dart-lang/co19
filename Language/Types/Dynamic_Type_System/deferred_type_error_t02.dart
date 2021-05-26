@@ -12,7 +12,6 @@
 /// malbounded type is used in a subtype test.
 /// @description Checks that a compile error occurs if deferred type is used
 /// in a implicit subtype test.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
@@ -22,4 +21,7 @@ class A {}
 
 main() {
   A a = new p.C();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -22,6 +22,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 
@@ -34,6 +35,7 @@ C t0Instance() => new C();
 Function t1Instance = null;
 
 
+// @dart = 2.9
 
 
 
@@ -99,8 +101,7 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  ArgumentsBinding2_t03<Function> c2 = new ArgumentsBinding2_t03<Function>();
+    ArgumentsBinding2_t03<Function> c2 = new ArgumentsBinding2_t03<Function>();
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));
   c2.superTestPositioned(forgetType(t0Instance));
@@ -109,5 +110,4 @@ main() {
   c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));
   c2.superSetter = forgetType(t0Instance);
   c2.superGetter;
-  //# -->
-}
+  }

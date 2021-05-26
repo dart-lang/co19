@@ -26,7 +26,6 @@
 /// 2. A finally clause, which consists of a block statement.
 /// @description Checks that it is a compile-time error if when the onPart
 /// is missing the type name.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer rodionov
 
@@ -35,5 +34,8 @@ main() {
   try {
     throw "foo";
   } on catch (ex) {
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }

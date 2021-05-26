@@ -11,10 +11,12 @@
 /// @description Checks that it is a compile-time error if a traditional
 /// for loop is prefixed by the await keyword.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 main() async {
   await for (int i = 0; i < 100; i++) break;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

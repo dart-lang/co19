@@ -15,21 +15,29 @@
 /// form "return;" is used in an asynchronous function whose return type is
 /// Future<Object>
 ///
-/// @static-warning
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
 
 Future<Object> bar() async {
-  return; /// static type warning
+  return;
+//^
+// [analyzer] unspecified
+// [cfe] Must explicitly return a value from a non-void function.
 }
 
 class C {
   static Future<Object> sm() async {
-    return; /// static type warning
+    return;
+//  ^
+// [analyzer] unspecified
+// [cfe] Must explicitly return a value from a non-void function.
   }
   Future<Object> foo() async {
-    return; /// static type warning
+    return;
+//  ^
+// [analyzer] unspecified
+// [cfe] Must explicitly return a value from a non-void function.
   }
 }
 

@@ -9,11 +9,13 @@
 /// Map<K, V>.
 /// @description Checks that a compile error occurs when assigning a map literal
 /// to a String variable.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
 
 main() {
   String s = <String, String> {};
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

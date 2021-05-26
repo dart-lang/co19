@@ -10,12 +10,14 @@
 /// or in a static method or variable initializer.
 /// @description Checks that it is a compile-time error if a super method
 /// invocation occurs in a top-level variable initializer.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
 
 var xx = super.f();
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

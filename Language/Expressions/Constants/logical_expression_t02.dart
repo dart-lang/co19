@@ -12,11 +12,13 @@
 ///   and e2 are constant expressions that evaluate to a boolean value.
 /// @description Checks that an expression of the form !e cannot be used to
 /// initialize a constant variable if e does not evaluate to a boolean value.
-/// @compile-error
 /// @author iefremov
 
 
 const m = !1;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

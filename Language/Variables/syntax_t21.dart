@@ -30,7 +30,6 @@
 ///   ;
 /// @description Checks that only assignment operator is admitted when 
 /// variable is initialized.
-/// @compile-error
 /// @author hlodvig
 /// @reviewer iefremov
 
@@ -38,5 +37,8 @@
 main() {
   try {
     var x++;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (ok) {}
 }

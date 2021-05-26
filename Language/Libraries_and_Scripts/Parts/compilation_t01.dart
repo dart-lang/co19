@@ -11,9 +11,8 @@
 /// contents of the URI are not a valid part declaration.
 /// @description Checks that it is a compile-time error when names in the
 /// included file conflict with top-level definitions in this library.
-/// @compile-error
 /// @author rodionov
-
+/// @issue 44990
 
 library Parts_test_lib;
 part "part_0.dart";
@@ -22,4 +21,6 @@ var foo;
 
 main() {
   foo = 1;
+//    ^
+// [cfe] unspecified
 }

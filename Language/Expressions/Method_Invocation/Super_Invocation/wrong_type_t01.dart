@@ -10,7 +10,6 @@
 /// Sstatic.m may not be assigned to a function type.
 /// @description Checks that it is a compile error if S.m can not be
 /// assigned to a function type.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -22,6 +21,9 @@ class S {
 class A extends S {
   test() {
     super.m();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

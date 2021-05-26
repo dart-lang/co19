@@ -16,12 +16,14 @@
 /// ;
 /// @description Checks that it is a compile-time error when identifier in an
 /// initializer references an explicit setter method rather than a variable.
-/// @compile-error
 /// @author iefremov
 
 
 class C {
   C() : this.x = null {}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   void set x(var v) {
     throw v;

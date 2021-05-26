@@ -37,15 +37,23 @@
 /// ;
 /// @description Checks that a switch statement can't be used in place of a 
 /// class member definition.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   switch (1 + 1) {
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
     case 1: break;
+//          ^
+// [analyzer] unspecified
     case 2: break;
+//          ^
+// [analyzer] unspecified
     default: ;
+//         ^
+// [analyzer] unspecified
   }
 }
 

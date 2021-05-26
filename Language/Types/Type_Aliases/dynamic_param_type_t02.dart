@@ -10,7 +10,6 @@
 /// optional parameter and named parameter are subtypes of given type t1 whose
 /// declaration omits parameter types, therefore the type of formal parameter
 /// of t1 should be dynamic.
-/// @static-clean
 /// @author iefremov, sgrekhov@unipro.ru
 
 import '../../../Utils/expect.dart';

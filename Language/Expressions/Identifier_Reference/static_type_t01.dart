@@ -25,7 +25,6 @@
 ///   this.id.
 /// @description Checks that if d is class, type alias or type parameter,
 /// the static type of e is Type.
-/// @static-clean
 /// @author ilya
 
 

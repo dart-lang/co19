@@ -25,13 +25,15 @@
 /// ;
 /// @description Checks that it is a compile-time error when a backslash
 /// character is used in place of a top level definition in a script.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 final x = 1;
 \
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 var y = 2;
 
 main() {

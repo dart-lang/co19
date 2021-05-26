@@ -9,7 +9,6 @@
 /// its return type is the immediately enclosing class.
 /// @description Checks that return type is dynamic. Static checker should not
 /// cause static warnings because type Dynamic has every method and property.
-/// @static-clean
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer rodionov

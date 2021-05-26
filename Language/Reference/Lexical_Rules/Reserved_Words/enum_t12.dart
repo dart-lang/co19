@@ -9,10 +9,13 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "enum" is used as an identifier in a part declaration.
-/// @compile-error
 /// @author ngl@unipro.ru
+/// @issue 44990
 
 part "enum_lib.dart";
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 void main() {
   try {

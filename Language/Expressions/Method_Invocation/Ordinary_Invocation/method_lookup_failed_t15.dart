@@ -24,7 +24,6 @@
 /// @description Checks static invocations when class C inherits an instance
 /// getter named m instead of declaring a static method. This causes a compile
 /// error
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
@@ -38,4 +37,7 @@ class C extends S {
 
 main() {
   C.m();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

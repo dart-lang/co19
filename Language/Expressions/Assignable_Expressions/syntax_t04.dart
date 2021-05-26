@@ -26,7 +26,6 @@
 /// • An invocation of a getter or list access operator on super.
 /// @description Checks that super without unconditionalAssignableSelector can't
 /// be used in the left hand side of an assignment.
-/// @compile-error
 /// @author msyabro
 
 
@@ -35,6 +34,9 @@ class A extends S {
   test() {
     try {
       super = null;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
     } catch (e) {}
   }
 }

@@ -14,7 +14,6 @@
 /// expression is o.
 /// @description Checks that if d is top level getter, then the setter v= is
 /// invoked with and this causes compile error
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -22,4 +21,7 @@ int get v => 0;
 
 main() {
   v = 1;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

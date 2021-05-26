@@ -31,7 +31,6 @@
 /// unary operator on either super or an expression e.
 /// @description Checks that incrementOperator can't be used with
 /// postfixExpression
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer rodionov
@@ -41,5 +40,8 @@ main() {
   var x = 1;
   try {
     ++x--;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

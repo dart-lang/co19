@@ -22,15 +22,20 @@
 /// ;
 /// @description Checks that it is a compile-time error when there's an ampersand
 /// character in an import directive.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 import "syntax_lib.dart" as lib & "export I guess";
+//                                                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     someVar = 0;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

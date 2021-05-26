@@ -21,8 +21,10 @@
 ///
 /// @description Checks that 'f() sync* => expression' cause compiler error.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 main() sync* => true;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified

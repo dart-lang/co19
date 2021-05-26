@@ -13,7 +13,6 @@
 /// @description Checks that it is a compile-time error if a 'continue L;'
 /// statement occurs in a block statement with label L and there is no another
 /// inclosing statement with label L.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
@@ -22,6 +21,9 @@ main() {
   try {
     L: {
       continue L;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
     }
   } catch (x) {}
 }

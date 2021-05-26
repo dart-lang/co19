@@ -15,7 +15,6 @@
 /// @description Checks that it is a compile-time error when the expression in
 /// string interpolation construct is invalid (an anonymous function expression
 /// missing the semicolon at the end of its body).
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -23,5 +22,8 @@
 main() {
   try {
     '${() {return 1}}';
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

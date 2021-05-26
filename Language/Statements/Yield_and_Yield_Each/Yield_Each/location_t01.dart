@@ -11,10 +11,12 @@
 /// inside synchronous function.
 ///
 /// @issue #25495
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 main() {
   yield* [1];
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -11,7 +11,6 @@
 /// @description Check that static type of expression e1??e2 match with
 /// static type (int) in assignment.
 ///
-/// @static-clean
 /// @author a.semenov@unipro.ru
 
 

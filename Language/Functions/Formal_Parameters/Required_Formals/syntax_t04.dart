@@ -27,13 +27,15 @@
 /// ;
 /// @description Checks that static variable declaration can't be a required
 /// formal parameter
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 /// @reviewer rodionov
 
 
 f(static var x) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

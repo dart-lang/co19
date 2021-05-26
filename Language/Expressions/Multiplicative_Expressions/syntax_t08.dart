@@ -21,7 +21,6 @@
 /// argument e2.
 /// @description  Checks that expression of the form
 /// [super ('%' unaryExpression)+] must have at least two operands
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer rodionov
@@ -35,6 +34,9 @@ class A extends S{
   test() {
     try {
       super %;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
     } catch (e) {}
   }
 }

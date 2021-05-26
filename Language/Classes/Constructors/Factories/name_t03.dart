@@ -8,7 +8,6 @@
 /// immediately enclosing class.
 /// @description Checks that it's a compile-time error when M is the name of
 /// the enclosing class's superclass.
-/// @compile-error
 /// @author rodionov
 
 
@@ -16,10 +15,15 @@ class S {}
 
 class C extends S {
   factory S() {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   try {
     new C();
+//      ^
+// [cfe] unspecified
   } catch (anything) {}
 }

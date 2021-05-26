@@ -25,7 +25,6 @@
 /// implicit downcasts).
 /// @description Check that compile time error is thrown when method type
 /// parameter is incorrect.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -37,4 +36,7 @@ extension TypedEquals<T> on T {
 main() {
   String s = "12345";
   bool b = s.equals(12);
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

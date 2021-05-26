@@ -24,6 +24,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 
@@ -37,6 +38,7 @@ FutureOr<S0> t0Instance = new Future<S0>.value(new S0());
 FutureOr<C> t1Instance = new Future<C>.value(new C());
 
 
+// @dart = 2.9
 
 
 
@@ -119,8 +121,7 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  // test generic functions
+    // test generic functions
   namedArgumentsFunc2<FutureOr<C>>(forgetType(t0Instance), t2: forgetType(t0Instance));
   positionalArgumentsFunc2<FutureOr<C>>(forgetType(t0Instance), forgetType(t0Instance));
 
@@ -142,5 +143,4 @@ main() {
   instance2.positionalArgumentsMethod(forgetType(t0Instance),
       forgetType(t0Instance));
   instance2.testSetter = forgetType(t0Instance);
-  //# -->
-}
+  }

@@ -16,6 +16,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 
 class X0 {}
@@ -27,6 +28,7 @@ X0 t0Instance = new S0();
 X0 t1Instance = new X0();
 
 
+// @dart = 2.9
 
 
 
@@ -104,8 +106,7 @@ test<T>(T t0Instance) {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  // test generic functions
+    // test generic functions
   namedArgumentsFunc2<X0>(t0Instance, t2: t0Instance);
   positionalArgumentsFunc2<X0>(t0Instance, t0Instance);
 
@@ -120,8 +121,7 @@ test<T>(T t0Instance) {
   instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
   instance2.positionalArgumentsMethod(t0Instance, t0Instance);
   instance2.testSetter = t0Instance;
-  //# -->
-
+  
   }
 }
 

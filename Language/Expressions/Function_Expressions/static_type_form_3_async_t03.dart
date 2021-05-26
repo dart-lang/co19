@@ -13,7 +13,6 @@
 /// of the form (T1 a1,...,Tn an, {Tn+1 xn+1 = d1,...,Tn+k xn+k = dk}) async {s}
 /// with two parameters is assigned to a variable of a function type with the
 /// same parameters and int return type.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
@@ -21,5 +20,8 @@ typedef int futureFunc(int p1, {int p2});
 
 main() {
   futureFunc ff1 = (int p1, {int p2}) async {return 2;};
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
   ff1(1, p2:3);
 }

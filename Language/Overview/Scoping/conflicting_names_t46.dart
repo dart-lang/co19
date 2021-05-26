@@ -12,7 +12,6 @@
 /// declaration d is in scope if d is available in the current scope.
 /// @description Checks that it is a compile-time error if a class declares two
 /// identically named constructors.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -20,10 +19,15 @@
 class A {
   A() {}
   A() {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   try {
     new A();
+//      ^
+// [cfe] unspecified
   } catch (x) {}
 }

@@ -7,7 +7,6 @@
 /// @description Regression test for the issue 33626 (Dart does not throw error
 /// when analyzer fails with "type_argument_not_matching_bounds" error for
 /// functions)
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -19,4 +18,7 @@ B tryme() {}
 
 main() {
   F<B> f = tryme;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

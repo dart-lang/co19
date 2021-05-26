@@ -13,16 +13,21 @@
 /// ;
 /// @description Checks that it is a compile-time error when a top level
 /// definition (an interface declaration) comes before the library name.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 abstract class I {}
 library Script_A01_t09;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     new I();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

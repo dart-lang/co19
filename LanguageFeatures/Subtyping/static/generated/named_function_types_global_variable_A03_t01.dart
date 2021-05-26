@@ -30,6 +30,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 
 
@@ -90,6 +91,7 @@ U1<dynamic, void, Object> t1Func<X extends B0, Y extends B1>(
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
+// @dart = 2.9
 
 
 

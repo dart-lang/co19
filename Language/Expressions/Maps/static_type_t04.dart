@@ -10,11 +10,13 @@
 /// @description Checks that a compile error occurs when assigning a
 /// <String, int> constant map literal to a variable with declared type
 /// Map<int, int> (non-constant).
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
 
 main() {
   Map<int, int> i = const <String, int> {};
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

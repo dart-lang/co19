@@ -11,12 +11,14 @@
 ///  ;
 /// @description Checks that it is compile-time error if declared constant values
 /// are not separated with comma.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 import "../../Utils/expect.dart";
 
 enum E {a  b}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   E e = E.b;

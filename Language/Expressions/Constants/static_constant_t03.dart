@@ -12,7 +12,6 @@
 ///   by a deferred prefix.
 /// @description Checks that a reference to a static final variable cannot be
 /// assigned to a constant variable.
-/// @compile-error
 /// @author msyabro
 
 
@@ -21,6 +20,9 @@ class A {
 }
 
 const i1 = x;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

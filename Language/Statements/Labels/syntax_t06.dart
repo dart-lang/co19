@@ -14,12 +14,14 @@
 /// ;
 /// @description Checks that it is a compile-time error if a label is used in a
 /// wrong context (next to a top-level declaration).
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
 
 Label:
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 main() {
 
 }

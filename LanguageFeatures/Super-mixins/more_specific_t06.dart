@@ -12,7 +12,6 @@
 /// @description Checks that if more than one super-constraint interface declares
 /// a member with the same name and there is no member that is more specific
 /// than the rest, then this is a compile error. Test type parameters
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -32,6 +31,9 @@ abstract class C<T1> {
 }
 
 mixin M<X extends S, Y extends T> on B<X>, C<Y> implements I, J {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class A implements B, C {
@@ -39,6 +41,9 @@ class A implements B, C {
 }
 
 class MA extends A with M {
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

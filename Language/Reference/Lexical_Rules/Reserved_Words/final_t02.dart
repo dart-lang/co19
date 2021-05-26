@@ -9,13 +9,18 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "final" is used as a type parameter name.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
 
 class A<final> {
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   bool check(x) => x is final;
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

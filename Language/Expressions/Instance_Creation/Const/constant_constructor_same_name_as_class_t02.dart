@@ -10,7 +10,6 @@
 /// name as the declaration of T.
 /// @description Checks that it is a compile-time error if T declares a
 /// non-constant constructor with the same name as the declaration of T.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -22,5 +21,8 @@ class  T {
 main() {
   try {
     const T();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

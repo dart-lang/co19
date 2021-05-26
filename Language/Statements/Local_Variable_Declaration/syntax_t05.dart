@@ -10,7 +10,6 @@
 ///   ;
 /// @description Checks that the variable 'int id;' declared in a block is not
 /// available in a scope that encloses this block.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
@@ -19,4 +18,7 @@ main() {
     int id;
   }
   id = null;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

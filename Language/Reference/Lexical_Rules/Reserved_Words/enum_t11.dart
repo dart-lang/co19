@@ -10,12 +10,17 @@
 /// @description Checks that it is a compile-time error when a reserved word
 /// "enum" is used as an identifier following a 'show' combinator in an import
 /// directive.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 import "lib.dart" show enum;
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
   try {
     int x = 1;
   } catch (anything) {

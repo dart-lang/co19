@@ -22,7 +22,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when an import directive
 /// does not end with semicolon.
-/// @compile-error
 /// @author vasya
 /// @reviewer hlodvig
 /// @reviewer msyabro
@@ -30,6 +29,9 @@
 
 
 import "syntax_lib.dart"
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

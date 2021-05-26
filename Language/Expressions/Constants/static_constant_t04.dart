@@ -12,12 +12,14 @@
 ///   by a deferred prefix.
 /// @description Checks that a reference to a non-constant top-level variable
 /// cannot be used to initialize a constant variable.
-/// @compile-error
 /// @author iefremov
 
 
 var a = 1;
 const m = a;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

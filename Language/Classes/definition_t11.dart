@@ -12,11 +12,13 @@
 /// @description Checks that it is a compile-time error if a class type 
 /// definition ends with a semicolon. 
 /// Class body is empty.
-/// @compile-error
 /// @author msyabro
 
 
 class A {};
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

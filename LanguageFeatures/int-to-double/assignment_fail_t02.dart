@@ -8,14 +8,17 @@
 /// @description Checks that the static type of a double valued integer literal
 /// is [double]. Test that it is a compile error if int is not assignable to type
 /// X with extends [double]
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
-
-
 class C<X extends double> {
-  X x = 42;     //# 01: compile-time error
-  X x = 0x42;   //# 02: compile-time error
+  X x1 = 42;
+//       ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  X x2 = 0x42;
+//       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

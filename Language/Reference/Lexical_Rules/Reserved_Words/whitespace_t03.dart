@@ -10,10 +10,12 @@
 /// @description Checks that other Unicode whitespaces are not allowed:
 ///  check FORM FEED (U+000C)
 /// @author hlodvig
-/// @compile-error
 /// @reviewer kaigorodov
 
 
 main() {
 	varx=1;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

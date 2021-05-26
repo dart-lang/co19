@@ -12,13 +12,15 @@
 /// @description Checks that a compile-time error is produced if there is no
 /// field with the same name as initializing formal name (so, the initializing
 /// formal doesn't introduce it's name into any scopes).
-/// @compile-error
 /// @author iefremov
 /// @needsreview Not sure how to verify the type of the constructor function.
 
 
 class C {
   C([this.id = 1]) {}
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

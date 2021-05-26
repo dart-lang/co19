@@ -5,3 +5,6 @@
 // @dart = 2.9
 
 part of null;
+//      ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

@@ -25,7 +25,6 @@
 /// T <: S or S <: T.
 /// @description Checks that a function type t1 is not assignable to a function
 /// type t2 only if t1 <: t2
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -47,4 +46,7 @@ C f11(num i, A b, Map<Object, Object> m, var x) {}
 
 main() {
   f1 fvar = f11;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

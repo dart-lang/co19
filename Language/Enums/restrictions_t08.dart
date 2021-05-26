@@ -8,7 +8,6 @@
 /// an enum or to explicitly instantiate an enum.
 /// @description Checks that it is compile-time error to explicitly instantiate 
 /// an enum
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -16,4 +15,7 @@ enum E {a, b, c}
 
 main() {
   E e = new E();
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

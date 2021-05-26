@@ -18,12 +18,14 @@
 /// more than n required parameters, or if q lacks any of the keyword parameters
 /// {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
 /// @description  Checks that compile error occurs if T is type variable.
-/// @compile-error
 /// @author ilya
 
 
 class C<T> {
    test() => new T();
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

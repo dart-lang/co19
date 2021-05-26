@@ -1,4 +1,6 @@
 // Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+//^
+// [cfe] unspecified
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -11,13 +13,14 @@
 /// contents of the URI are not a valid part declaration.
 /// @description Checks that it is a compile-time error when this library
 /// references itself in a part directive (and contains a part declaration).
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 library Parts_test_lib;
 part of Parts_test_lib;
+//^
+// [analyzer] unspecified
 part "part_3.dart";
 
 main() {

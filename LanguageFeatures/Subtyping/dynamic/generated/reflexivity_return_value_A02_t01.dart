@@ -21,6 +21,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 
@@ -29,6 +30,7 @@ dynamic t0Instance = 3.14;
 dynamic t1Instance = "";
 
 
+// @dart = 2.9
 
 
 
@@ -61,8 +63,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  new ReturnValueGen<dynamic>().testMethod();
+    new ReturnValueGen<dynamic>().testMethod();
   new ReturnValueGen<dynamic>().testGetter;
-  //# -->
-}
+  }

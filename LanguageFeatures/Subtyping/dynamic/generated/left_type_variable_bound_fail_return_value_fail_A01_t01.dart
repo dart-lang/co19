@@ -22,6 +22,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -35,6 +36,7 @@ X0 t0Instance = new X0();
 T1 t1Instance = new T1();
 
 
+// @dart = 2.9
 
 
 
@@ -65,8 +67,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  Expect.throws(() {new ReturnValueGen<T1>().testMethod();}, (e) => e is TypeError);
+    Expect.throws(() {new ReturnValueGen<T1>().testMethod();}, (e) => e is TypeError);
   Expect.throws(() {new ReturnValueGen<T1>().testGetter;}, (e) => e is TypeError);
-  //# -->
-}
+  }

@@ -8,7 +8,6 @@
 /// or method m2 and the type of m1 is not a subtype of the type of m2.
 /// @description Checks that a compile error is produced if the argument types
 /// of these two setters are not mutually assignable.
-/// @compile-error
 /// @author vasya
 
 
@@ -18,6 +17,9 @@ class A {
 
 class C extends A {
   void set foo(bool b) {
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

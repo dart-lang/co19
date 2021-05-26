@@ -18,7 +18,6 @@
 ///
 /// @description Check that it is a compile error if static type of
 /// await expression does no match with expected type.
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
@@ -26,4 +25,7 @@ static_bool(bool x) => x;
 
 main() {
     var f = () async => static_bool(await 1);
+//                                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

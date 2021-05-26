@@ -25,7 +25,6 @@
 /// C.m() is equivalent to the expression C.m(...), which in turn is
 /// equivalent to C.m.call(...). It's a compile error if there are any parameters
 /// mismatch
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
@@ -44,5 +43,11 @@ class C {
 
 main() {
   C.m();
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   C.m(1, 2, 3);
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

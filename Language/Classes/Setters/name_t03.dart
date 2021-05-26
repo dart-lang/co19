@@ -10,7 +10,6 @@
 /// @description Checks that there is a compile-time error if a class has
 /// an explicitly defined setter inherited from a superclass and an instance
 /// method with the same name.
-/// @compile-error
 /// @author iefremov
 
 
@@ -21,6 +20,9 @@ class A {
 
 class C extends A {
   foo(value) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

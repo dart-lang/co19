@@ -10,13 +10,15 @@
 ///   • A call to a constant constructor.
 /// @description Check that if false is used as metadata, then
 /// a compile time error is raised
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:mirrors';
 import '../../Utils/expect.dart';
 
 @false
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 class A {}
 
 main() {

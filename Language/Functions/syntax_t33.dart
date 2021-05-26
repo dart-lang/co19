@@ -21,7 +21,6 @@
 ///
 /// @description Checks that returnType must be a valid identifier.
 ///
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer iefremov
 
@@ -30,7 +29,13 @@ class C {
 }
 
 C.B f1() {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 C.!B f2() {}
+// ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

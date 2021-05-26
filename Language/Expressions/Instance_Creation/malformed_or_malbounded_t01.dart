@@ -13,10 +13,12 @@
 /// or malbounded.
 /// @description Checks that it is a compile-error if T does not denote a type
 /// in a new T() expression.
-/// @compile-error
 /// @author ilya
 
 
 main() {
   new Undef();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

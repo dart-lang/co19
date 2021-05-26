@@ -10,16 +10,21 @@
 /// constructor is not a constructor name.
 /// @description Checks that a compile-error is produced when a named constructor
 /// definition does not begin with the name of its class.
-/// @compile-error
 /// @author iefremov
 
 
 class C {
   Z.wrongNamedConstructor();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   try {
   	new C();
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

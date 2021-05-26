@@ -10,7 +10,6 @@
 /// is a compile-time error if d denotes a prefix object.
 /// @description Checks the it is a compile-time error if d denotes a deferred
 /// prefix object
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 import '../../../Utils/expect.dart';
@@ -18,4 +17,7 @@ import "assignment_lib.dart" deferred as v;
 
 main() {
   v = 1;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -13,7 +13,6 @@
 /// @description Checks that it is a static warning if an abstract method
 /// overrides an abstract method and does not explicitly specify a default value
 /// for its optional parameter while the overridden method does.
-/// @static-warning
 /// @author msyabro
 
 
@@ -23,6 +22,8 @@ abstract class A {
 
 abstract class C extends A {
   foo([x]);
+//     ^
+// [analyzer] STATIC_WARNING.INVALID_OVERRIDE_DIFFERENT_DEFAULT_VALUES_POSITIONAL
 }
 
 main() {

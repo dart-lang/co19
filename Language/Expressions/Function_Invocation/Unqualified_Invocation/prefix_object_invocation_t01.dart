@@ -12,7 +12,6 @@
 /// . . .
 /// @description Checks that if fid is a prefix object, a compile-time error
 /// occurs.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
@@ -20,4 +19,7 @@ import 'invocation_lib.dart' as lb;
 
 main() {
   lb("ab");
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

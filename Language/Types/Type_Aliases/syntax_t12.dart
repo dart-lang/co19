@@ -12,11 +12,13 @@
 ///  <functionPrefix> ::= <type>? <identifier>
 /// @description Checks that it is a compile-time error if the terminating
 /// from a type alias declaration from a type alias declaration.
-/// @compile-error
 /// @author iefremov
 
 
 typedef void F<T>()
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

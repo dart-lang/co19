@@ -14,13 +14,25 @@
 /// ;
 /// @description Checks that it is a compile-time error if a string
 /// interpolation construct does not have the closing brace.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 main() {
+//     ^
+// [cfe] unspecified
   try {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
     "${1";
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
+// [error line 38, column 0]
+// [analyzer] unspecified
 }

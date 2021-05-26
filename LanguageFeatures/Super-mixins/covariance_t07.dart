@@ -14,7 +14,6 @@
 ///
 /// @description Checks that it is a compile error if mixin is applied to the
 /// class which doesn't implement required interface
-/// @compile-error
 /// @issue 35111
 /// @author sgrekhov@unipro.ru
 

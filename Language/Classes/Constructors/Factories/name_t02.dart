@@ -8,14 +8,19 @@
 /// immediately enclosing class.
 /// @description Checks that it's a compile-time error when factory keyword is
 /// followed by a name that is not a constructor name.
-/// @compile-error
 /// @author rodionov
 
 
 class C {
   factory WrongClass.id() {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   new C();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

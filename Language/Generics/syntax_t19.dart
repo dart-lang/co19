@@ -8,12 +8,14 @@
 /// that is, [G] may have formal type parameters declared.
 /// @description Checks that at least one typeParameter is a must in the generic
 /// function.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 class Test {
   void function<>() {}
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

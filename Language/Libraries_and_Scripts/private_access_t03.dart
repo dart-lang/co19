@@ -10,7 +10,6 @@
 /// getter or setter lookup failure.
 /// @description Checks that an attempt to access a private static member from
 /// outside L results in a compile error.
-/// @compile-error
 /// @author vasya
 /// @reviewer msyabro
 /// @reviewer rodionov
@@ -19,4 +18,7 @@ import "private_access_t03_lib.dart" as lib;
 
 main() {
   lib.C._x;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

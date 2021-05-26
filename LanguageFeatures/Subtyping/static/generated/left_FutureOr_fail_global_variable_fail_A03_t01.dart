@@ -17,7 +17,6 @@
 /// @description Check that if type T0 is not a subtype of a type T1, then
 /// instance of T0 cannot be be assigned to the to global variable of type T1.
 /// Assignment to global variable is tested.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
@@ -27,6 +26,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 
 
@@ -41,36 +41,46 @@ class S0 implements Future<C1> {
   whenComplete(FutureOr action()) => null;
 }
 
+// Future<S0> is not a subtype of T1 (Future<C1>)
 FutureOr<S0> t0Instance = new Future<S0>.value(new S0());
 Future<C1> t1Instance = new Future.value(new C1());
 
 
-
+// @dart = 2.9
 
 
 class GlobalVariableTest {
   GlobalVariableTest() {
-    t1Instance = t0Instance; //# 03: compile-time error
+    t1Instance = t0Instance;
+//               ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
-  GlobalVariableTest.valid() {}
 
   foo() {
-    t1Instance = t0Instance; //# 04: compile-time error
+    t1Instance = t0Instance;
+//               ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   static test() {
-    t1Instance = t0Instance; //# 05: compile-time error
+    t1Instance = t0Instance;
+//               ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 main() {
-  t1Instance = t0Instance; //# 01: compile-time error
+  t1Instance = t0Instance;
+//             ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   bar () {
-    t1Instance = t0Instance; //# 02: compile-time error
+    t1Instance = t0Instance;
+//               ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
-  bar(); //# 02: compile-time error
-
-  new GlobalVariableTest(); //# 03: compile-time error
-  new GlobalVariableTest.valid().foo(); //# 04: compile-time error
-  GlobalVariableTest.test(); //# 05: compile-time error
 }

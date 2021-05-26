@@ -28,12 +28,14 @@
 /// argument list of the superinitializer of k.
 /// @description Checks that 'this' is not accessible in initializers: it is a
 /// compile-error when a constructor's initializer refers to an instance method.
-/// @compile-error
 /// @author rodionov
 
 
 class C {
   C() : v = f {}
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   var v;
   f() {}

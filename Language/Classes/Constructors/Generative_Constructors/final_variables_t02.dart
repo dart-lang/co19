@@ -14,7 +14,6 @@
 /// @description Checks that no static warning occurs when all final variables
 /// are initialized either at the declaration, via constructor's initializing
 /// formal, or via an intializer in constructor's intializer list.
-/// @static-clean
 /// @author vasya
 
 

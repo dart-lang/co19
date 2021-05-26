@@ -9,7 +9,6 @@
 /// conflict with, override or be overridden by a getter or method.
 /// @description Checks that there is a compile-time error if a class has
 /// an explicitly defined setter and an instance method with the same name.
-/// @compile-error
 /// @author iefremov
 
 
@@ -17,6 +16,9 @@ class C {
   var _foo;
   set foo(var v) {_foo = v;}
   foo(value) { }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

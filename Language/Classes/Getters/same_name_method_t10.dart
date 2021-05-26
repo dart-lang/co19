@@ -10,17 +10,22 @@
 /// method are inherited or not.
 /// @description Checks that a compile-time error is produced if a class has
 /// an explicitly declared static getter and a method with the same name.
-/// @compile-error
 /// @author iefremov
 
 
 class C {
   static get foo {throw new C();}
+//           ^
+// [analyzer] unspecified
   foo() {throw new C();}
+//^
+// [cfe] unspecified
 }
 
 main() {
   try {
     new C().foo();
+//          ^
+// [cfe] unspecified
   } catch (e) {}
 }

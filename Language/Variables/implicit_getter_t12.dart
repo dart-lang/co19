@@ -11,7 +11,6 @@
 /// whose invocation evaluates as described below.
 /// @description For all types of forms checks that return type of getter is T
 /// by expecting no static warnings.
-/// @static-clean
 /// @author ilya
 
 

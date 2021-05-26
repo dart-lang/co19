@@ -26,7 +26,6 @@
 /// @description Checks that if d is a local variable or formal parameter, and
 /// a type promotion is in effect, then the static type of e is the most
 /// specific type that id is known to have.
-/// @static-clean
 /// @author ilya
 
 

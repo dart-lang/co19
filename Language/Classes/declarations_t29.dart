@@ -36,12 +36,14 @@
 /// ;
 /// @description Checks that it is a compile-time error when constructor is 
 /// declared abstract.
-/// @compile-error
 /// @author rodionov
 
 
 class C {
   abstract C();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -11,7 +11,6 @@
 /// if F is not a supertype of (T1, ..., Tn, [Tn+1 xn+1, ..., Tn+k xn+k]) -> ⊥.
 /// @description Checks that it is a compile error if F is not a supertype
 /// of (T1, ..., Tn, [Tn+1 xn+1, ..., Tn+k xn+k]) -> ⊥.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -19,4 +18,7 @@
 main() {
   var f = (int p1, int p2) {};
   f("", "");
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

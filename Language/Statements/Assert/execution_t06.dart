@@ -16,7 +16,6 @@
 /// @description Checks that a compile error occurs if the conditional
 /// expression e evaluates to a function that returns a function that returns a
 /// value of type bool.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
@@ -29,4 +28,7 @@ boolfunc foo() {
 
 main() {
   assert (foo);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

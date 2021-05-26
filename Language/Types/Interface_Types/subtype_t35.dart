@@ -25,7 +25,6 @@
 /// T <: S or S <: T.
 /// @description Checks that two generic types are not assignable if even one
 /// type argument is not assignable.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -40,4 +39,7 @@ C<num, double, B> f() {}
 
 main() {
   C<int, num, A> c = f();
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

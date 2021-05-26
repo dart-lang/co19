@@ -26,7 +26,6 @@
 /// @description Checks that if d is the declaration of a library variable or
 /// top-level getter, the static type of e is the static type of the getter
 /// invocation id.
-/// @static-clean
 /// @author ilya
 
 

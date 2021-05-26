@@ -13,7 +13,6 @@
 /// mechanism is described in chapter Classes.Constructors.Constant_Constructors.
 /// Constant constructor invocation is placed outside of main(), in a global
 /// variable initialization expression.
-/// @compile-error
 /// @author iefremov
 
 
@@ -23,6 +22,9 @@ class A {
 }
 
 var a = const A(new DateTime.now().millisecondsSinceEpoch);
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

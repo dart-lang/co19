@@ -16,13 +16,15 @@
 /// unless explicitly specified otherwise.
 /// @description Checks that it is a compile error if a type variable is used
 /// in static context as a type of static method parameter.
-/// @compile-error
 /// @author kaigorodov
 
 
 
 class C<T> {
    static int f(T v) {
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
      return 12;
    }
 }

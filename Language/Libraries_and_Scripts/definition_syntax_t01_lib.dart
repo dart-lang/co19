@@ -5,4 +5,7 @@
 // @dart = 2.9
 
 library Definition_Syntax_t01_lib;
-library Definition_Syntax_t01_lib;
+  library Definition_Syntax_t01_lib;
+//^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

@@ -9,7 +9,6 @@
 ///   • A reference to a compile-time constant variable.
 ///   • A call to a constant constructor.
 /// @description Check that variable used as metadata cause a compile time error
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:mirrors';
@@ -18,6 +17,9 @@ import '../../Utils/expect.dart';
 var variable = 'hello';
 
 @variable
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 class A {}
 
 main() {

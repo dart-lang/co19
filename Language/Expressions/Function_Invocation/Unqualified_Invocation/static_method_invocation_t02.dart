@@ -15,7 +15,6 @@
 /// @description Checks that if fid is a static method of the superclass S,
 /// then unqualified function invocation expression should produce a
 /// compile error
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -27,6 +26,9 @@ class S {
 class C extends S {
   test() {
     m();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

@@ -10,7 +10,6 @@
 /// ;
 /// @description Checks if static setter returns value other than void, then
 /// compile-time error occurs
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 

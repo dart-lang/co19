@@ -19,7 +19,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the loop variable
 /// in a 'id in expression' is not a simple variable.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer iefremov
 
@@ -32,5 +31,8 @@ main() {
   try {
     C c = new C();
     for (c.i in new List(100)) break;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

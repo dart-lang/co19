@@ -14,13 +14,15 @@
 /// ;
 /// @description Checks that a statement cannot be used instead of expression
 /// in an optional positional parameter declaration.
-/// @compile-error
 /// @author iefremov
 /// @reviewer kaigorodov
 /// @reviewer rodionov
 
 
 f([var x = var z]) {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

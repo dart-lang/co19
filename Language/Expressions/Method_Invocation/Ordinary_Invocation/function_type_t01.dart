@@ -10,7 +10,6 @@
 /// assigned to a function type.
 /// @description Checks that it is a compile error if T.m cannot be
 /// assigned to a function type.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -22,4 +21,7 @@ class C {
 main() {
   C o;
   o.m();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

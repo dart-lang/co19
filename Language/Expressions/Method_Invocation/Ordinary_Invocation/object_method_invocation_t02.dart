@@ -9,7 +9,6 @@
 /// followed by the token ‘.’.
 /// @description Checks that there is a compile error if any of the methods of
 /// class Object is invoking on a constant type literal.
-/// @compile-error
 /// @issue #25496
 /// @author ngl@unipro.ru
 
@@ -20,6 +19,9 @@ class A {}
 main() {
   try {
     A.toString();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
     Expect.fail("");
   }
   catch (e) {}

@@ -8,10 +8,12 @@
 /// compile-time error unless -2^63 <= i <= 2^64
 /// @description Checks that it is a compile error if a hexadecimal integer
 /// literal with numeric value more than 2^64
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 main() {
   var i = 0x7FFFFFFFFFFFFFFF0;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -14,7 +14,6 @@
 /// statement occurs in a local function declared in a 'while' statement with
 /// label L and there is no inclosing statement with label L in this local
 /// function.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -28,6 +27,9 @@ main() {
       if (counter == 3) {
         foo() {
           continue L;
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
         }
         foo();
       }

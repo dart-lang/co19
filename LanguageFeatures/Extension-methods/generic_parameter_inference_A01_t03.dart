@@ -10,7 +10,6 @@
 /// mentioned above, the inference is similar to other cases of chained inference.
 /// @description Check that compile error is thrown if parameter type is
 /// statically incorrect.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 int count(String string, int length) => length + string.length;
@@ -28,4 +27,7 @@ List<List> toTest = [[1, 2, 3]];
 
 main() {
     toTest.foldRight(0, count);
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

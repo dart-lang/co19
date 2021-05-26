@@ -13,12 +13,14 @@
 /// ;
 /// @description Checks that an attempt to combine property initialization with
 /// constructor redirection results in a compile error.
-/// @compile-error
 /// @author pagolubev
 
 
 class C {
   C() :  x = -1, this.init();
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   C.init();
   var x;
 }

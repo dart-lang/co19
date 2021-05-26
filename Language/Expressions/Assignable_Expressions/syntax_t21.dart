@@ -26,7 +26,6 @@
 /// • An invocation of a getter or list access operator on super.
 /// @description Checks that a new expression without assignableSelector
 /// can't be used in the left hand side of an assignment.
-/// @compile-error
 /// @author msyabro
 
 
@@ -35,5 +34,8 @@ class A {}
 main() {
   try {
     new A() = null;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

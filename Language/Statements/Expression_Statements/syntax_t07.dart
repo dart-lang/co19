@@ -15,11 +15,13 @@
 /// type arguments appears in a place where a statement is expected.
 /// @description Checks that it is a compile-time error when a map literal is
 /// used as a statement.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 main() {
   {"foo": "bar"};
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

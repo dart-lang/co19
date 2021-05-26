@@ -24,12 +24,14 @@
 /// ;
 /// @description Checks that it is a compile-time error if a factory constructor
 /// method definition does not include a body.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   factory A();
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

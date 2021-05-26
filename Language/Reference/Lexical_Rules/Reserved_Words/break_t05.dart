@@ -9,7 +9,6 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "break" is used as a local function name.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
@@ -17,6 +16,12 @@
 main() {
   try {
     void break() {}
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
     break();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

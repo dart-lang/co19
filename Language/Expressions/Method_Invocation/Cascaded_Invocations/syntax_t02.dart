@@ -17,7 +17,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if '..' is not followed
 /// by a suffix.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -29,6 +28,9 @@ main() {
   var o = new C();
   try {
     o..;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }
 

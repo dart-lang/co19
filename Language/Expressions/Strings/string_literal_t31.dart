@@ -30,7 +30,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if a double-quoted
 /// string contains \r.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -38,6 +37,12 @@
 main() {
   try {
     "stri
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 ng";
+// ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

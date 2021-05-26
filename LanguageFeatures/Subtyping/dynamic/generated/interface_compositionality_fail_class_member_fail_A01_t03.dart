@@ -23,6 +23,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -34,6 +35,7 @@ abstract class U2 {}
 
 abstract class S0 extends U0 {}
 abstract class S1 extends U1 {}
+// no subtype relation between S2 and U2
 abstract class S2 {}
 
 class C0<X, Y, Z> {}
@@ -42,6 +44,7 @@ C0<S0, S1, S2> t0Instance = new C0<S0, S1, S2>();
 C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
 
 
+// @dart = 2.9
 
 
 
@@ -95,8 +98,7 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  Expect.throws(() {
+    Expect.throws(() {
     new ClassMember2_t03<C0<U0, U1, U2>>().m = forgetType(t0Instance);
   }, (e) => e is TypeError);
   Expect.throws(() {
@@ -108,5 +110,4 @@ main() {
   Expect.throws(() {
     new ClassMember2_t03<C0<U0, U1, U2>>().test2();
   }, (e) => e is TypeError);
-  //# -->
-}
+  }

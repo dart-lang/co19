@@ -30,7 +30,6 @@
 /// ;
 /// @description Checks that a string literal can't begin with a single quote
 /// and end with double.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -38,5 +37,8 @@
 main() {
   try {
     'string";
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

@@ -17,7 +17,6 @@
 /// e2.
 /// @description Checks that a logical boolean expression can't terminate with
 /// operator ||.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -25,5 +24,8 @@
 main() {
   try {
     true || false ||;
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

@@ -28,12 +28,14 @@
 /// ;
 /// @description Checks that it is a compile-time error when both named and
 /// optional positional parameters are present in one function declaration.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 void f(var a, {var b}, [var c]) {}
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main () {
   try {

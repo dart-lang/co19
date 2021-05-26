@@ -12,13 +12,18 @@
 /// @description Checks that it is a compile-time error if square brackets are 
 /// used instead of the curly ones in a class type definition. Class body is 
 /// not empty.
-/// @compile-error
 /// @author msyabro
 
 
 class A [
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   var someMember;
 ]
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

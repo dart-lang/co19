@@ -7,11 +7,15 @@
 /// @assertion n/a
 /// @description: Checks that spread elements in the list cannot have recurrent
 /// references.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 main() {
   List l1 = [...l2];
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
   List l2 = [...l1];
+//     ^
+// [cfe] unspecified
 }

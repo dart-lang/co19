@@ -16,7 +16,6 @@
 /// method, getter, setter or factory is executed by executing the statement
 /// "return null;".
 ///
-/// @static-warning
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -29,6 +28,9 @@ bar() {
 
 abstract class I {
   factory I() { return; } //static warning: I may not be assigned to void
+//              ^
+// [analyzer] unspecified
+// [cfe] Must explicitly return a value from a non-void function.
 }
 
 class Foo implements I {

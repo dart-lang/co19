@@ -9,7 +9,6 @@
 /// prefixing with the extension's name.
 /// @description Check that non-static member can not be accessed by prefixing
 /// with the extension's name
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -20,4 +19,7 @@ extension MySmart on Object {
 
 main() {
   MySmart.getId();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

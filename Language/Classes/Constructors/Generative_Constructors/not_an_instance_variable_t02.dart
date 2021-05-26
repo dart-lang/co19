@@ -9,7 +9,6 @@
 /// the immediately surrounding class.
 /// @description Checks that error is produced if the initializer list contains
 /// an initializer for a global variable.
-/// @compile-error
 /// @author vasya
 
 
@@ -17,6 +16,9 @@ var x;
 
 class C  {
   C() : x = 5 {}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

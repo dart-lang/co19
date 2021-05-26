@@ -7,12 +7,14 @@
 /// @assertion It is a compile-time error for a class to attempt to extend,
 /// mix in or implement bool.
 /// @description Checks that bool cannot be mixed in. Test class C = M form
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 class A {}
 
 class C = A with bool;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

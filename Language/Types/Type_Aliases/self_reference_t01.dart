@@ -8,11 +8,13 @@
 /// via another typedef, is a compile time error.
 /// @description Checks that self-referencing typedef is not allowed (return
 /// value type annotation has the same name as the type alias).
-/// @compile-error
 /// @author msyabro
 
 
 typedef F F();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

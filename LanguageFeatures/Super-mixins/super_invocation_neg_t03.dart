@@ -13,7 +13,6 @@
 /// mixin body has a super-access (super.foo, super.foo(), super + bar, etc.)
 /// which would not be a valid invocation if super was replaced by an expression
 /// with static type A$super.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 class S {}
@@ -28,6 +27,9 @@ abstract class B<T1> {
 mixin M<T1 extends S, T2 extends T> on B<T2> {
   void test(T1 t1) {
     super.foo(t1);
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

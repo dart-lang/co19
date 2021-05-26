@@ -22,7 +22,6 @@
 /// @description Checks that it is a compile error if the function body of the
 /// form ['=>' expression ';'] isn't terminated with semicolon
 ///
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer iefremov
@@ -35,3 +34,8 @@ main() {
 }
 
 int f() => 1
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
+// [error line 41, column 0]
+// [cfe] unspecified

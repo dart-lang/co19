@@ -22,6 +22,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 
@@ -34,6 +35,7 @@ C t0Instance() => new C();
 Function t1Instance = null;
 
 
+// @dart = 2.9
 
 
 
@@ -70,10 +72,8 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  ClassMember2_t03<Function> c2 = new ClassMember2_t03<Function>();
+    ClassMember2_t03<Function> c2 = new ClassMember2_t03<Function>();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);
-  //# -->
-}
+  }

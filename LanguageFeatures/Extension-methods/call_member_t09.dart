@@ -16,7 +16,6 @@
 ///
 /// @description Check that it is a compile error if there is no most specific
 /// extension with the call method
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 extension on Iterable<int> {
@@ -29,4 +28,7 @@ extension on List<num> {
 
 main() {
   [3, 1, 4](10);
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

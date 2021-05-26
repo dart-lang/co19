@@ -12,12 +12,14 @@
 ///  <functionPrefix> ::= <type>? <identifier>
 /// @description Checks that it is impossible to introduce alias for a class
 /// type (C style).
-/// @compile-error
 /// @author iefremov
 
 
 class A {}
 typedef A B;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

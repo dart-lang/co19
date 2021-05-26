@@ -21,7 +21,6 @@
 /// @description Checks that it is a compile time error if the actual argument
 /// list contains a named argument whose name is not among those specified in
 /// the function declaration.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -30,4 +29,7 @@ func(p1, p2, {p3}) {}
 
 main() {
   func(1, 2, p: 3);
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

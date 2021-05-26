@@ -8,16 +8,21 @@
 /// the declared name of a prefix, class, type parameter or type alias.
 /// @description Checks that it is a compile-time error if a built-in identifier
 /// "factory" is used as the declared name of a class.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
 
 class factory {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     null is factory;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (anything) {
   }
 }

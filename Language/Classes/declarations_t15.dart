@@ -36,17 +36,23 @@
 /// ;
 /// @description Checks that it is a compile-time error if a constant 
 /// constructor declaration with initializers does not end with a semicolon.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   const A(): x = 1
+//^
+// [cfe] unspecified
   final x;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   try {
     const A();
+//        ^
+// [cfe] unspecified
   } catch (e) {}
 }

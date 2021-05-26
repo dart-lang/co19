@@ -12,7 +12,6 @@
 ///   method that is not qualified by a deferred prefix.
 /// @description Checks that an identifier denoting an instance method is not
 /// a constant expression.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -21,6 +20,9 @@ class Bad {
 
  test() {
    var list = const [m]; //a constant list can contain only constant expressions
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
  }
 }
 

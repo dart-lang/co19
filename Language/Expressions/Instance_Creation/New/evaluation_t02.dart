@@ -19,7 +19,6 @@
 /// {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
 /// @description  Checks that it is a compile error if q is a named non-factory
 /// constructor of an abstract class.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer rodionov
 
@@ -30,4 +29,7 @@ abstract class C {
 
 main() {
   new C.namedConstructor();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

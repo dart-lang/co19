@@ -13,13 +13,15 @@
 /// the formal parameter scope of f.
 /// @description Checks that function scope are enclosed in the scope where it's
 /// declared and not the one where it's invoked.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 f() {
   var x = foo;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main () {

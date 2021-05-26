@@ -36,7 +36,6 @@
 ///   ‘A’ ..‘Z’
 /// ;
 /// @description Checks that identifier can't start with digit.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -45,6 +44,9 @@ import '../../../Utils/expect.dart';
 class C {
   bool x() {
     return 1y;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

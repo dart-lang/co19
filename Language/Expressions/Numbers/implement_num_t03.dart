@@ -7,14 +7,19 @@
 /// @assertion It is a compile-time error for any type other than the types
 /// int and double to attempt to extend, mix in or implement num.
 /// @description Checks that a user-defined interface can not extend num.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
 
 abstract class A extends num {}
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class B implements A {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

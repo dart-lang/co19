@@ -30,7 +30,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when a newline character
 /// is used in a single-line string literal.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -38,6 +37,12 @@
 main() {
   try {
     'str
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
     ing';
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

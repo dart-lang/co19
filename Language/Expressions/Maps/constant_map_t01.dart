@@ -8,7 +8,6 @@
 /// in a constant map literal is not a compile-time constant.
 /// @description Checks that it is a compile-error if a key of an entry
 /// in a constant map literal is not a compile-time constant.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -17,5 +16,8 @@ main() {
   var x;
   try {
     const {"$x": 1};
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

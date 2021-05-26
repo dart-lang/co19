@@ -11,7 +11,6 @@
 /// deﬁned in dart:core.
 /// @description Checks that it is a compile error if member m in S is
 /// inaccessible.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -21,6 +20,9 @@ import '../lib.dart';
 class A extends C {
   test() {
     super._func();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

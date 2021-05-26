@@ -25,12 +25,14 @@
 /// ;
 /// @description Checks that it is a compile-time error when a string literal is
 /// used in place of a top level definition in a script.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 "string literal"
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

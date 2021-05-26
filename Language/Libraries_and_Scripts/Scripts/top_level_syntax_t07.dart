@@ -25,12 +25,14 @@
 /// ;
 /// @description Checks that it is a compile-time error when a block statement
 /// is used in place of a top level definition in a script.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
   var x = 1;
   var closure = () => x + 1;
 }

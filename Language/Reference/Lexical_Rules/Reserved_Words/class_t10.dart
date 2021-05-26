@@ -9,13 +9,18 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "class" is used as a library name.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 library class;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
   try {
     int x = 1;
   } catch (anything) {

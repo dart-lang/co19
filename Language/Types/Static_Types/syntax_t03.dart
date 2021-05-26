@@ -23,7 +23,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when the closing angle
 /// bracket in a static type annotation's type argument list is missing.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -35,5 +34,8 @@ class Generic<T> {
 main() {
   try {
     Generic <int t;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

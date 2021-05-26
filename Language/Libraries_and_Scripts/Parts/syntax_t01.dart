@@ -22,10 +22,8 @@
 /// part belongs to. A part declaration consists of a part header followed by a
 /// sequence of top-level declarations.
 /// @description Checks that part unit can not contain an import directive.
-/// @compile-error
 /// @author kaigorodov
-/// @reviewer rodionov
-
+/// @issue 44990
 
 library Parts_test_lib.id;
 part "part_10.dart";

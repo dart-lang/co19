@@ -17,7 +17,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if suffix is another
 /// cascaded invocation.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -30,6 +29,9 @@ main() {
   var c = new C();
   try {
     c..m1()..(c..m1())..m1();
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }
 

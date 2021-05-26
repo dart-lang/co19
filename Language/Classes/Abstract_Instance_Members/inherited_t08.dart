@@ -12,7 +12,6 @@
 /// @description Checks that there is no compile error if an abstract
 /// method is inherited in a concrete class and this class declared method
 /// noSuchMethod() that overrides method from class Object.
-/// @static-clean
 /// @author ngl@unipro.ru
 
 

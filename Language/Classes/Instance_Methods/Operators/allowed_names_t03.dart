@@ -7,17 +7,22 @@
 /// @assertion The following names are allowed for user-defined operators: 
 /// <, >, <=, >=, ==, -, +, /, ˜/, *, %, |, ˆ, &, <<, >>, >>>, []=, [], ˜.
 /// @description Checks that operator !== cannot be defined in a user class.
-/// @compile-error
 /// @author iefremov
 
 
 
 class C {
   operator !==(other) {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   try {
     var b = (new C() !== new C());
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

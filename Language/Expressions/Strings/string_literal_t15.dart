@@ -30,7 +30,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when a double-quotes
 /// string literal does not have the opening quote.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -38,5 +37,8 @@
 main() {
   try {
     string";
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

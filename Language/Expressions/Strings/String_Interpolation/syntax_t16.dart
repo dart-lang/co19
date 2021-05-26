@@ -14,7 +14,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when an interpolation is
 /// separated between three adjacent string literals.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -22,5 +21,8 @@
 main() {
   try {
     '${1' '+' '1}';
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

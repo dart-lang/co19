@@ -7,7 +7,6 @@
 /// @assertion The static type of a logical boolean expression is bool.
 /// @description Checks that the static type of a logical boolean
 /// expression is bool.
-/// @static-clean
 /// @author msyabro
 /// @reviewer kaigorodov
 

@@ -27,14 +27,18 @@
 /// ;
 /// @description Checks that it is a compile-error if required parameter is
 /// declared as const
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 /// @reviewer rodionov
 
 
 func(const x) {
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   x = 1;
+//^
+// [cfe] unspecified
 }
 
 main() {

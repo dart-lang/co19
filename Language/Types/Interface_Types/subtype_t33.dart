@@ -26,7 +26,6 @@
 /// @description Checks that some class called A is not assignable to another,
 /// completely unrelated, class B (compile error) as such assignment doesn't
 /// meet any of these conditions.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -39,4 +38,7 @@ A f() {}
 
 main() {
   B b = f();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

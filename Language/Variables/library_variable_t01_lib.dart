@@ -4,7 +4,9 @@
 
 // @dart = 2.9
 
-
 library library_variable_t01_lib;
 
-static var foo; // error
+  static var foo;
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

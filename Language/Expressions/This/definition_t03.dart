@@ -11,15 +11,20 @@
 ///   ;
 /// @description Checks that word 'this' cannot be used to declare an abstract
 /// class.
-/// @compile-error
 /// @author hlodvig
 /// @reviewer kaigorodov
 
 
 abstract class this {
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class A implements this {
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

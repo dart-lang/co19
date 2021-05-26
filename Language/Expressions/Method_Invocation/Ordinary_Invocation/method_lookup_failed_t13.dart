@@ -24,7 +24,6 @@
 /// @description Checks static invocations when class C inherits an instance
 /// method with the name m instead of declaring a static one. It is a compile
 /// error
-/// @compile-error
 /// @author rodionov
 
 import "../../../../Utils/expect.dart";
@@ -39,4 +38,7 @@ class C extends S {
 
 main() {
   Expect.throws(() {C.m();}, (e) => e is NoSuchMethodError);
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

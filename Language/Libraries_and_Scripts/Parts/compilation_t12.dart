@@ -11,10 +11,8 @@
 /// contents of the URI are not a valid part declaration.
 /// @description Checks that it is a compile-time error if the contents of the
 /// URI are not a valid part declaration (missing semicolon in the part header).
-/// @compile-error
 /// @author rodionov
-/// @reviewer kaigorodov
-
+/// @issue 44990
 
 library Parts_test_lib;
 part "part_4.dart";

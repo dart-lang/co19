@@ -12,12 +12,14 @@
 /// @description Checks that its a compile-time error if elements in a list are
 /// not separated by comma.
 /// @author msyabro
-/// @compile-error
 /// @reviewer kaigorodov
 
 
 main() {
   try {
     [1 2 3];
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

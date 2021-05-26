@@ -12,7 +12,6 @@
 /// @description Check that it is no compile error, if the declared
 /// return type of synchronous generator function may be assigned
 /// to Iterable.
-/// @static-clean
 /// @author a.semenov@unipro.ru
 
 

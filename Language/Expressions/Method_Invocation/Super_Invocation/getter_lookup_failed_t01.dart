@@ -18,7 +18,6 @@
 /// @description Checks that it is a compile error if there're no members,
 /// instance or static, with the required name in the invoking class's
 /// superclass.
-/// @compile-error
 /// @author msyabro
 
 import '../../../../Utils/expect.dart';
@@ -35,6 +34,9 @@ class A extends S {
   test() {
     try {
       super.nonExistingMethod();
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
       Expect.fail("Exception is expected");
     } on TestException catch (e) {}
   }

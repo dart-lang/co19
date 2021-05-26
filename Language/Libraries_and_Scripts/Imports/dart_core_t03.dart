@@ -12,11 +12,13 @@
 /// the automatic import.
 /// @description Checks that explicit import of dart:core preempt automatic
 /// import.
-/// @compile-error
 /// @author ilya
 
 import 'dart:core' hide List;
 
 main() {
   List; // List is hidden
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

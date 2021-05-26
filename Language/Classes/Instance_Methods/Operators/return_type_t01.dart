@@ -8,13 +8,15 @@
 /// operator []= is explicitly declared and not void.
 /// @description Checks that it is a compile-time error if the return type of
 /// the user-declared operator []= is not void.
-/// @compile-error
 /// @author msyabro
 /// @author sgrekhov@unipro.ru
 
 
 class C {
   int operator[]=(index, value) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
   operator[](index) {}
 }
 

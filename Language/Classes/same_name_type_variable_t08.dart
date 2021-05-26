@@ -9,12 +9,15 @@
 /// constructors.
 /// @description Checks that a type variable can not have the same name as
 /// the name of generic class instance method.
-/// @compile-error
 /// @author ilya
 
 
 class A<T> {
+//      ^
+// [analyzer] unspecified
   T() {}
+//^
+// [cfe] unspecified
 }
 
 main() {

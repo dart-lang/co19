@@ -42,12 +42,14 @@
 /// ;
 /// @description Checks that it is a compile-time error if a function signature 
 /// is declared final.
-/// @compile-error
 /// @author kaigorodov
 
 
 class A {
   final void a() {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

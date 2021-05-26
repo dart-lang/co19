@@ -8,10 +8,12 @@
 /// from spreading into itself:
 ///   const list = [...list]; // Error.
 /// @description: Checks that constant set cannot spread itself
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 main() {
   const Map map = {...?map};
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

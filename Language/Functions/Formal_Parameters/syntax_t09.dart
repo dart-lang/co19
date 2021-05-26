@@ -28,15 +28,20 @@
 /// ;
 /// @description Checks that optional positional parameters can't precede
 /// required parameters.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 f([var a], var b) {}
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     f(1, 1);
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

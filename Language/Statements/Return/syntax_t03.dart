@@ -12,7 +12,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if a return statement
 /// does not end with a semicolon.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -20,6 +19,9 @@
 
 foo() {
   return "foo"
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

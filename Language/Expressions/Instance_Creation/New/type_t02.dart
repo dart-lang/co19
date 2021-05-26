@@ -10,11 +10,13 @@
 /// @description Checks that it is a compile error if T.id is not a class
 /// accessible in the current scope.
 /// Named constructor case.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 main() {
   new UnavailableType.namedConstructor();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -10,14 +10,21 @@
 /// invoked.
 /// @description Checks that invoking an abstract method, getter or setter
 /// results in a compile error.
-/// @compile-error
 /// @author kaigorodov, sgrekhov@unipro.ru
 
-
 class C {
-  void m();       //# 01: compile-time error
-  int get g;      //# 02: compile-time error
-  set g(int v);   //# 03: compile-time error
+  void m();
+//^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  int get g;
+//^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  set g(int v);
+//^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -16,7 +16,6 @@
 /// @description Checks that it is neither warning nor error if two different
 /// libraries imported with an empty prefix introduce the same name to the import
 /// namespace of L (one of them via re-export), but L doesn't reference it.
-/// @static-clean
 /// @author rodionov
 /// @reviewer kaigorodov
 

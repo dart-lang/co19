@@ -11,7 +11,6 @@
 /// deﬁned in dart:core.
 /// @description Checks that it is a compile error if superclass
 /// does not have an instance member named m
-/// @compile-error
 /// @author kaigorodov
 
 import '../../../../Utils/expect.dart';
@@ -21,6 +20,9 @@ class S {}
 class A extends S {
   test() {
     super.nonExistingMethod();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

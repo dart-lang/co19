@@ -9,12 +9,14 @@
 /// the immediately surrounding class.
 /// @description Checks that error is produced if the initializer list contains
 /// an initializer for a constructor argument.
-/// @compile-error
 /// @author iefremov
 
 
 class C  {
   C(var x) : x = 5 {}
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

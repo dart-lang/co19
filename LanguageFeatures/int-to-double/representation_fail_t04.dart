@@ -13,18 +13,43 @@
 /// value of a double valued integer literal with binary representation of 55 bit
 /// length can not be represented exactly as an IEEE 754 double-precision value
 /// (the most significant bit is 1 and two low bits are not 0).
-/// @compile-error
 /// @author ngl@unipro.ru
 
-
 main() {
-  double d1 = 0x40000000000001;   //# 01: compile-time error
-  double d2 = 0x40000000000002;   //# 02: compile-time error
-  double d3 = 0x40000000000003;   //# 03: compile-time error
-  double d4 = 0x40000000000005;   //# 04: compile-time error
-  double d5 = 0x40000000000006;   //# 05: compile-time error
-  double d6 = 0x40000000000007;   //# 06: compile-time error
-  double d7 = 0x40000000000009;   //# 07: compile-time error
-  double d8 = 0x4000000000000A;   //# 08: compile-time error
-  double d9 = 0x4000000000000B;   //# 09: compile-time error
+  double d1 = 0x40000000000001;
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  double d2 = 0x40000000000002;
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  double d3 = 0x40000000000003;
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  double d4 = 0x40000000000005;
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  double d5 = 0x40000000000006;
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  double d6 = 0x40000000000007;
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  double d7 = 0x40000000000009;
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  double d8 = 0x4000000000000A;
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  double d9 = 0x4000000000000B;
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

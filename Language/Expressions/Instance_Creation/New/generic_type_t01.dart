@@ -16,7 +16,6 @@
 /// @description Checks that it is a compile-time error if S is not a
 /// generic type but was provided with type arguments in instance creation
 /// expression.
-/// @compile-error
 /// @author msyabro
 
 
@@ -24,4 +23,7 @@ class A {}
 
 main() {
   new A<int>();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

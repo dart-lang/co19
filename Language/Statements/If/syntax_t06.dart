@@ -10,7 +10,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the statement does not
 /// end with a semicolon.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -18,5 +17,8 @@
 
 main() {
   if (true) var foo = "foo"
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

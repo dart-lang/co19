@@ -15,17 +15,21 @@
 /// by their immediately enclosing superexpression.
 /// @description Checks that it is a compile-time error when a constant
 /// constructor's initializer list contains non-constant list literal.
-/// @compile-error
 /// @author iefremov
 
 
 class A {
   final x;
   const A(var p) : x = [p];
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   try {
     var a = const A(1);
+//          ^
+// [analyzer] unspecified
   } catch (x) {}
 }

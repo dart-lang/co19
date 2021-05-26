@@ -17,7 +17,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if suffix is an
 /// instance creation expression.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -30,6 +29,9 @@ main() {
   var c = new C();
   try {
     c..new C();
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }
 

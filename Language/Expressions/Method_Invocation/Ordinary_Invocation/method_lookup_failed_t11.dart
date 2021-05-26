@@ -23,7 +23,6 @@
 /// im, and the result of this invocation is the result of evaluating i.
 /// @description Checks static invocations when class C declares an instance
 /// method with the name m instead of a static one. This causes a compile error
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer rodionov
@@ -35,4 +34,7 @@ class C {
 
 main() {
   C.m();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

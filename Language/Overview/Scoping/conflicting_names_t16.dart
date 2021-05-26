@@ -12,7 +12,6 @@
 /// declaration d is in scope if d is available in the current scope.
 /// @description Checks that it is a compile-time error if two variables with 
 /// the same name are declared in a function scope.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -20,6 +19,9 @@
 func() {
   var conflictingName;
   var conflictingName;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

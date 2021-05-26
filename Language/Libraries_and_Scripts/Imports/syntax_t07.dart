@@ -22,15 +22,20 @@
 /// ;
 /// @description Checks that it is a compile-time error when there's an invalid
 /// identifier after the 'as' keyword.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 import "syntax_lib.dart" as id.entifier;
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     someVar = 0;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

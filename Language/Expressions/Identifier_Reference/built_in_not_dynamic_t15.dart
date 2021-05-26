@@ -8,13 +8,15 @@
 /// dynamic as a type annotation or type parameter.
 /// @description Checks that it is a compile-time error if a built-in identifier
 /// "external" is used as a type annotation of a local variable.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
 main() {
   try {
     external foo;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }
 

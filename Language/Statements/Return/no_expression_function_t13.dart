@@ -15,7 +15,6 @@
 /// form "return;" is used in an asynchronous function whose return type is
 /// Future<Null>
 ///
-/// @static-clean
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';

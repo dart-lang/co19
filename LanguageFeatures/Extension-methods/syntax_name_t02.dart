@@ -16,11 +16,13 @@
 /// or export declarations.
 ///
 /// @description Check that the name does not denote a type
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 import "my_fancy_list_lib.dart";
 
 main() {
   MyFancyList<String> list = ["Lily", "was", "here"];
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

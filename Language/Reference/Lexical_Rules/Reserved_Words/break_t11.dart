@@ -10,11 +10,13 @@
 /// @description Checks that it is a compile-time error when a reserved word
 /// "break" is used as an identifier following a 'show' combinator in an import
 /// directive.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 import "lib.dart" show break;
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

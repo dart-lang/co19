@@ -13,13 +13,15 @@
 /// ;
 /// @description Checks that it is a compile error when a redirecting
 /// constructor references a method rather than another constructor.
-/// @compile-error
 /// @author iefremov
 
 
 
 class C {
   C() : f();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   f() {throw "Should not be thrown!";}
 }
 

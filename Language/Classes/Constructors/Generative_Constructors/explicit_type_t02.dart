@@ -11,7 +11,6 @@
 /// assignable to Tid.
 /// @description Checks that the type of an initializing formal is the type of
 /// the corresponding field.
-/// @compile-error
 /// @author msyabro
 
 
@@ -23,4 +22,7 @@ class C {
 main() {
   new C('');
   new C(1);
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

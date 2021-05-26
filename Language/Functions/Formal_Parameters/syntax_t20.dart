@@ -28,15 +28,20 @@
 /// ;
 /// @description Checks that it is a compile-time error when more than one set
 /// of named parameters is present in one function declaration.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 void f(var a, {var b}, {var c}) {}
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main () {
   try {
     f(1, 2, 3);
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

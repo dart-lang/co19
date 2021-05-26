@@ -9,7 +9,6 @@
 /// @description Checks that a compile error is produced if the return type of
 /// m1 is not mutually assignable with the return type of m2 and the latter 
 /// isn't void either.
-/// @compile-error
 /// @author iefremov
 
 
@@ -19,6 +18,9 @@ class A {
 
 class C extends A {
   String foo(var x) {
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
     return x.toString();
   }
 }

@@ -11,10 +11,12 @@
 /// ;
 /// @description Checks that it is a compile-time error when there are more than
 /// two arguments in the assert statement
-/// @compile-error
 /// @author vasya
 
 
 main() {
   assert(true, "", "");
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

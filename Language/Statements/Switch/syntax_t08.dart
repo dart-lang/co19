@@ -17,13 +17,14 @@
 /// ;
 /// @description Checks that it is a compile-time error if the closing curly
 /// bracket of the switch statement's body is missing.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
 
 
 switchTest(value) {
+//                ^
+// [cfe] unspecified
   var result;
 
   switch (value) {
@@ -37,3 +38,5 @@ main() {
     switchTest(0);
   } catch (x) {}
 }
+// [error line 42, column 0]
+// [analyzer] unspecified

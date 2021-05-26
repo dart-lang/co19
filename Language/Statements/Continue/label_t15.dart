@@ -13,7 +13,6 @@
 /// @description Checks that it is a compile-time error if a 'continue;'
 /// statement occurs in a block of try statement and there is no inclosing loop
 /// statement.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -22,5 +21,8 @@
 main() {
   try {
     continue;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

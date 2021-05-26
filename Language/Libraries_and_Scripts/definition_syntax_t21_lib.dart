@@ -5,3 +5,6 @@
 // @dart = 2.9
 
 library 5 + 12;
+//      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

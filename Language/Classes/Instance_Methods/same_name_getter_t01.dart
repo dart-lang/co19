@@ -13,18 +13,22 @@
 ///
 /// @description Checks that it is a compile error if a class C declares an
 /// instance method named n and an instance getter named n.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
 class C {
   foo() {}
   get foo {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   try {
     C c = new C();
     c.foo;
+//    ^
+// [cfe] unspecified
   } catch (anything) {}
 }

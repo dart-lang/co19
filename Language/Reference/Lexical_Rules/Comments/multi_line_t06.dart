@@ -12,12 +12,13 @@
 /// ;
 /// @description Checks that it is a compile-time error when there is an unpaired
 /// multi-line comment start token inside another multi-line comment.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
 
 /*
+//^
+// [cfe] unspecified
 /* Comment */
 /*/* Nested comment **/ */
 /*/* */ /* Unpaired token **/
@@ -25,3 +26,5 @@
 
 main() {
 }
+// [error line 30, column 0]
+// [analyzer] unspecified

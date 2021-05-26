@@ -19,12 +19,14 @@
 /// ;
 /// @description Checks that it is a compile-time error if the loop parts are
 /// missing entirely in asynchronous for-in statement.
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 main() async {
   try {
     await for () {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

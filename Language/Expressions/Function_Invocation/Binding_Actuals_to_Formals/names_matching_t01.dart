@@ -8,7 +8,6 @@
 /// {pn+1, ..., pn+k} or a static warning occurs.
 /// @description Checks that it is a compile error if names of an argument does
 /// not match with any name of optional named parameters of a top-level function.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -17,4 +16,7 @@ func({p1, p2, p3}) {}
 
 main() {
   func(1, 2, p: 3);
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -25,6 +25,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 
@@ -38,6 +39,7 @@ T0 t0Instance = new T0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
 
+// @dart = 2.9
 
 
 
@@ -128,13 +130,11 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  ClassMember2_t01<FutureOr<S1>> c2 = new ClassMember2_t01<FutureOr<S1>>();
+    ClassMember2_t01<FutureOr<S1>> c2 = new ClassMember2_t01<FutureOr<S1>>();
   c2 = new ClassMember2_t01<FutureOr<S1>>.short(forgetType(t0Instance),
   forgetType(t0Instance));
   c2 = new ClassMember2_t01<FutureOr<S1>>.named(forgetType(t0Instance));
   c2.m = forgetType(t0Instance);
   c2.test(forgetType(t0Instance));
   c2.getter;
-  //# -->
-}
+  }

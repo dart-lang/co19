@@ -10,7 +10,6 @@
 /// of invoking a constant constructor of class Symbol.
 /// @description Checks that it is a compile-time error if class C implements
 /// operator ==.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer rodionov
 
@@ -19,6 +18,9 @@ class C {
   final int x;
   const C(this.x);
   bool operator ==(C other) {
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
     return this.x == other.x;
   }
 }
@@ -29,6 +31,8 @@ main() {
   var y;
 
   switch (x) {
+//^
+// [analyzer] unspecified
     case c1:
       y = 1;
       break;

@@ -11,7 +11,6 @@
 /// @description Checks that a compile-time error is produced if a class has
 /// an implicit getter inherited from a superclass and a method with the same 
 /// name.
-/// @compile-error
 /// @author iefremov
 
 
@@ -21,6 +20,9 @@ class A {
 
 class C extends A {
   foo() { return "foo()"; }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

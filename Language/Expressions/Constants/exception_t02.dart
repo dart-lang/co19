@@ -9,10 +9,12 @@
 /// @description Checks that an Exception raised during evaluation of
 /// a compile-time constant causes a compile-time error.
 /// @author iefremov
-/// @compile-error
 
 
 const m = 1 ~/ 0;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   print(m);

@@ -29,7 +29,6 @@
 ///     initializedIdentifier (‘, ’ initializedIdentifier)*
 ///   ;
 /// @description Checks that a variable declaration cannot end with a comma.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -37,5 +36,8 @@
 main() {
   try {
     var x, ;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (ok) {}
 }

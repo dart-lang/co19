@@ -8,11 +8,13 @@
 /// entry in a constant map literal is not a compile-time constant.
 /// @description Checks that it is a compile-time error if the key is not a
 /// constant string.
-/// @compile-error
 /// @author hlodvig
 
 
 main() {
   var x;
   var arr = const {"$x": 1};
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -12,7 +12,6 @@
 /// ;
 /// @description Checks that a type parameter can not be used as the condition
 /// in a conditional expression without a compile error.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -20,6 +19,9 @@
 class A<T> {
   test() {
     T ? "" : '';
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

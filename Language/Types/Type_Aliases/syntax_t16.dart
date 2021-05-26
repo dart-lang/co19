@@ -12,11 +12,13 @@
 ///  <functionPrefix> ::= <type>? <identifier>
 /// @description Checks that formalParameterList in the typedef declaration
 /// cannot have an extra angle bracket.
-/// @compile-error
 /// @author kaigorodov
 
 
 typedef F<T>>();
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

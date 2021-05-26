@@ -9,14 +9,16 @@
 /// For i in 1..n; si is executed.
 /// @description Checks that it is a compile-time error if a block statement
 /// is missing the closing bracket.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
 
 
 main() {
+//     ^
+// [cfe] unspecified
   {
     var foo = 0;
 }
-
+// [error line 24, column 0]
+// [analyzer] unspecified

@@ -8,13 +8,15 @@
 /// concatenation of the strings 's1', e.toString() and 's2'.
 /// @description Checks that it is a compile error if e.toString() does not
 /// return an object of type string.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 class A {
   toString() => 1;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

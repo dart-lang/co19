@@ -10,7 +10,6 @@
 /// is complete, or a compile-time error occurs.
 /// @description Checks that it is a compile-error if local variable is used
 /// before its initializer.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer rodionov
 
@@ -18,6 +17,11 @@
 main() {
   try {
     var v = w;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
     var w;
+//      ^
+// [cfe] unspecified
   } catch (_) {}
 }

@@ -10,11 +10,13 @@
 /// @description Checks that class constant constructor with sync* modifier
 /// cause compiler error.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 class A {
   const A() sync* {}
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 main() {
   new A();

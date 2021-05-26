@@ -11,12 +11,14 @@
 /// ;
 /// @description Checks that it is a compile-time error if a factory constructor
 /// is constant.
-/// @compile-error
 /// @author msyabro
 
 
 class C {
   const factory C();
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -9,12 +9,14 @@
 /// redirections.
 /// @description Checks that compile-error occurs when factory constructor
 /// redirects to itself.
-/// @compile-error
 /// @author ilya
 
 
 class F {
   factory F() = F;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

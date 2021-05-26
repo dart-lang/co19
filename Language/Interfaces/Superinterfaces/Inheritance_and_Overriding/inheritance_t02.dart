@@ -27,7 +27,6 @@
 /// and return type dynamic.
 /// @description Checks that there's a compile-error if two members with the same
 /// name but different number of arguments are inherited
-/// @compile-error
 /// @author rodionov
 
 
@@ -40,6 +39,9 @@ abstract class SI2 {
 }
 
 abstract class I implements SI1, SI2 {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   I i = null;

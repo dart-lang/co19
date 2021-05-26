@@ -11,7 +11,6 @@
 /// @description Checks that it is a compile-time error when a string literal
 /// contains a character sequence of the form \u that is followed by a character
 /// that isn't a hexadecimal digit.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -19,5 +18,8 @@
 main() {
   try {
     'some text\umore text';
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

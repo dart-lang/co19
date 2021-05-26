@@ -9,12 +9,14 @@
 /// @description Checks that a compile-time error is produced if a user-defined
 /// operator []= specifies one optional named parameter in addition to the two 
 /// required ones.
-/// @compile-error
 /// @author ilya
 
 
 class C {
   operator []=(var x, var y, {var o}) {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

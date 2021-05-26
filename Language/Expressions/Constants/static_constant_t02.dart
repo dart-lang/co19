@@ -12,13 +12,15 @@
 ///   by a deferred prefix.
 /// @description Checks that a reference to a final variable cannot be assigned
 /// to a constant variable.
-/// @compile-error
 /// @author msyabro
 
 
 final x = 1;
 
 const i1 = x;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

@@ -19,7 +19,6 @@
 /// error occurs.
 /// @description  Checks that it is a compile error in checked mode if a
 /// type argument of a class in a new expression is not a subtype of its bound.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -30,4 +29,7 @@ class C<T extends num> {
 
 main() {
   new C<bool>();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

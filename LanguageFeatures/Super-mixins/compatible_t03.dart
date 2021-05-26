@@ -13,9 +13,7 @@
 ///
 /// @description Checks that it is a compile-time error for the mixin declaration
 /// if the interfaces B and C are not compatible.
-/// @compile-error
 /// @author ngl@unipro.ru
-
 
 abstract class B1<X extends List<int>> {
   X get n;
@@ -39,16 +37,28 @@ abstract class C3<Y extends List<double>> {
 }
 
 // The same name getters with different return types
-mixin M1 on B1<List<int>>, C1<List<double>> {}  //# 01: compile-time error
+mixin M1 on B1<List<int>>, C1<List<double>> {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 // The same name getter and method with the same return types
-mixin M2 on B1<List<int>>, C2<List<int>> {} //# 02: compile-time error
+mixin M2 on B1<List<int>>, C2<List<int>> {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 // The same name methods with different return types
-mixin M3 on B2<List<double>>, C2<List<int>> {} //# 03: compile-time error
+mixin M3 on B2<List<double>>, C2<List<int>> {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 // The methods with the same return types and different parameters number
-mixin M4 on B3<List<double>, List<int>>, C3<List<double>> {} //# 04: compile-time error
+mixin M4 on B3<List<double>, List<int>>, C3<List<double>> {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

@@ -8,12 +8,14 @@
 /// modifier but k' is not a constant constructor.
 /// @description Checks that it is a compile-error if const redirecting
 /// factory constructor redirects to non-const redirecting factory constructor
-/// @compile-error
 /// @author ilya
 
 
 class F1 {
   const factory F1() = F2;
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class F2 {

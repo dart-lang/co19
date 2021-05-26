@@ -24,10 +24,8 @@
 /// ;
 /// @description Checks that a labeled statement (variable declaration) can't
 /// be a top level definition in a library.
-/// @compile-error
 /// @author msyabro
-/// @reviewer rodionov
-
+/// @issue 44990
 
 import 'top_level_syntax_t15_lib.dart';
 

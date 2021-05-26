@@ -34,7 +34,7 @@ class _StreamSubscriptionWrapper implements StreamSubscription {
   _StreamSubscriptionWrapper(this._streamSubscription, this._beforeCancel);
 
   @override
-  Future/*<E>*/ asFuture/*<E>*/([var/*=E*/ futureValue]) {
+  Future<E> asFuture<E>([E futureValue]) {
     return _streamSubscription.asFuture(futureValue);
   }
 

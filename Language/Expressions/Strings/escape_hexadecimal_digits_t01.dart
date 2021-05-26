@@ -10,7 +10,6 @@
 /// @description Checks that it is a compile-time error if a string literal
 /// contains a character sequence of the form \x that is followed only by one
 /// hexadecimal digit.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -18,5 +17,8 @@
 main() {
   try {
     "\x1";
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

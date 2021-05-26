@@ -19,7 +19,6 @@
 ///   to its subtypes.
 /// @description Checks that there is no static type warning if T is Function
 /// and m is call.
-/// @static-clean
 /// @author ngl@unipro.ru
 
 import '../../../../Utils/expect.dart';

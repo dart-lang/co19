@@ -31,7 +31,6 @@
 /// @description Checks that it is a compile-time error when a newline character
 /// in a single-line single-quotes string literal is preceded by a backslash
 /// character.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -39,6 +38,12 @@
 main() {
   try {
     'new\
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
     line';
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

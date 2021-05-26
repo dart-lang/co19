@@ -15,7 +15,6 @@
 /// mutated in e2 or within a closure, and there is no closure capturing v in e2,
 /// then the type of v is known to be T in e2, even if v is potentially mutated
 /// elsewhere in its scope.
-/// @static-clean
 /// @author ilya
 
 

@@ -12,12 +12,14 @@
 /// @description Checks that it is a compile-time error if both opening and 
 /// closing curly brackets are missed in a class type definition with an 
 /// implements clause. Class body is empty.
-/// @compile-error
 /// @author msyabro
 
 
 abstract class I {}
 class A implements I
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

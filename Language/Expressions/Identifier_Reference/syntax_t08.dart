@@ -37,7 +37,6 @@
 /// ;
 /// @description Checks that identifier can't contain letters
 /// from the turkish alphabet.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -46,6 +45,9 @@ import '../../../Utils/expect.dart';
 class C {
   bool x() {
     return ç;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

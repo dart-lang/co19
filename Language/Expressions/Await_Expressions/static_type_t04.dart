@@ -19,7 +19,6 @@
 /// @description Check that it is a compile error, if static type of
 /// await expression does no match with expected type. Expression e is Future<T>.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
@@ -29,4 +28,7 @@ Future<bool> boolean(bool b) async => b;
 
 main() {
   var f = () async => static_int(await boolean(true));
+//                               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -23,11 +23,8 @@
 /// name of the library.
 /// @description Checks that it is a compile-time error if the library directive
 /// does not end with a semicolon.
-/// @compile-error
 /// @author vasya
-/// @reviewer msyabro
-/// @reviewer rodionov
-
+/// @issue 44990
 
 import "definition_syntax_t16_lib.dart";
 

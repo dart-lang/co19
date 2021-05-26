@@ -13,7 +13,6 @@
 /// the form (T1 a1,...,Tn an, [Tn+1 xn+1 = d1,...,Tn+k xn+k = dk]) sync* {s}
 /// with two parameters is assigned to a variable of a function type with the
 /// same parameters and Future return type.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 import 'dart:async';
@@ -22,5 +21,8 @@ typedef Future iterFuncParam(int p1, [List p2]);
 
 main() {
   iterFuncParam ifp1 = (int p1, [List p2]) sync* {};
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   ifp1(6);
 }

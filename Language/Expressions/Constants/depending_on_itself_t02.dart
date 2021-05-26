@@ -8,20 +8,41 @@
 /// constant expression depends on itself.
 /// @description Checks that it is a compile-time error if there is a circular
 /// reference in a constant variable's initialization.
-/// @compile-error
 /// @author iefremov
 
 
 const a1 = a10;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 const a2 = a1;
+//    ^
+// [analyzer] unspecified
 const a3 = a2;
+//    ^
+// [analyzer] unspecified
 const a4 = a3;
+//    ^
+// [analyzer] unspecified
 const a5 = a4;
+//    ^
+// [analyzer] unspecified
 const a6 = a5;
+//    ^
+// [analyzer] unspecified
 const a7 = a6;
+//    ^
+// [analyzer] unspecified
 const a8 = a7;
+//    ^
+// [analyzer] unspecified
 const a9 = a8;
+//    ^
+// [analyzer] unspecified
 const a10 = a9;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

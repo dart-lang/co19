@@ -9,16 +9,21 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "for" is used as a function type alias name.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
 
 typedef void for();
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     null is for;
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (anything) {
   }
 }

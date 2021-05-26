@@ -1,5 +1,8 @@
 #! script tag 1
 #! script tag 2
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 // @dart = 2.9
 
@@ -15,7 +18,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when a script has two
 /// script tags.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 

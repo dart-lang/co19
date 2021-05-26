@@ -25,6 +25,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 
 import "dart:async";
@@ -39,6 +40,7 @@ X0 t0Instance = new X0();
 FutureOr<S1> t1Instance = new S1();
 
 
+// @dart = 2.9
 
 
 

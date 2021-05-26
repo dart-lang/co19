@@ -9,7 +9,6 @@
 /// @description Checks that it is a compile error if no []= operator was found
 /// in the superclass
 /// @author sgrekhov@unipro.ru
-/// @compile-error
 
 import '../../../Utils/expect.dart';
 
@@ -25,9 +24,21 @@ class A {
 class C extends A {
   test() {
     Expect.equals(1, super[1] = 1);
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
     Expect.equals(2, super[false] = 2);
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
     Expect.equals("12", super["foo"] = "1" "2");
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
     Expect.equals(true, super[-1.11] = 1 < 2);
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

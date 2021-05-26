@@ -9,6 +9,9 @@ library Libraries_and_Scripts_A01_t02;
 
 class C {}
 
-null
+  null
+//^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 func() {}

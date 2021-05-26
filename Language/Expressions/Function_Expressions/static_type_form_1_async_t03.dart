@@ -17,7 +17,6 @@
 /// the form (T1 a1,...,Tn an, [Tn+1 xn+1 = d1,...,Tn+k xn+k = dk]) async => e,
 /// where the type of e is int is assigned to a variable of a function type with
 /// a Future<bool> return type.
-/// @compile-error
 /// @author ngl@unipro
 
 import 'dart:async';
@@ -26,5 +25,8 @@ typedef Future<bool> boolFunc();
 
 main() {
   boolFunc intf = () async => 1;
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
   intf();
 }

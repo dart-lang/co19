@@ -29,7 +29,6 @@
 /// ;
 /// @description Checks that a hex numeric literal cannot contain
 /// non-hexadecimal digits.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer iefremov
 
@@ -37,5 +36,8 @@
 main() {
   try {
     var i = 0x1g;
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

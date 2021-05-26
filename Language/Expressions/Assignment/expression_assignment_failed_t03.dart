@@ -20,7 +20,6 @@
 ///  Object is invoked on o1
 /// @description Checks that it is a compile error if e1 does not declare
 /// a setter v. Test the case when e1 is a static type literal
-/// @compile-error
 /// @author msyabro
 
 import '../../../Utils/expect.dart';
@@ -29,4 +28,7 @@ class C {}
 
 main() {
   Expect.throws(() {C.v = 2;}, (e) => e is NoSuchMethodError);
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

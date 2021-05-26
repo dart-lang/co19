@@ -30,7 +30,6 @@
 ///   ;
 /// @description Checks that a variable declaration cannot contain both 'var' 
 /// and 'type'.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -38,5 +37,8 @@
 main() {
   try {
     var int x = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (ok) {}
 }

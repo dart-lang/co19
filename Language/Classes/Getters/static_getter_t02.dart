@@ -9,14 +9,18 @@
 /// @description Checks that a compile error is arisen if a class has an
 /// implicitly declared static getter and an explicitly declared instance
 /// setter with the same name.
-/// @compile-error
 /// @issue 24534
 /// @author ngl@unipro.ru
 
 
 class C {
   static int v;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   set v(int v1) {
+//    ^
+// [cfe] unspecified
   }
 }
 

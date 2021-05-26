@@ -12,16 +12,20 @@
 /// declaration d is in scope if d is available in the current scope.
 /// @description Checks that it is a compile-time error if the library scope 
 /// contains two typedef declarations with the same name.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
 
 typedef conflictingName();
 typedef conflictingName(p1, p2);
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     conflictingName func = null;
+//  ^
+// [cfe] unspecified
   } catch (e) {}
 }

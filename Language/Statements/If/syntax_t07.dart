@@ -10,12 +10,14 @@
 /// ;
 /// @description Checks that it is a compile-time error if the expression is
 /// enclosed in square brackets rather than parentheses.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
 
 main() {
   if [true] {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

@@ -9,13 +9,14 @@
 /// as a superinterface
 /// @description Checks that it is a compile-time error when the type expression
 /// in a class's implements clause denotes a deferred type
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 import "wrong_type_lib.dart" deferred as d;
 
 class C implements d.A {}
+//                 ^
+// [analyzer] unspecified
 
 main() {
   new C();

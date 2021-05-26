@@ -22,15 +22,19 @@
 /// ;
 /// @description Checks that it is a compile-time error if there're no
 /// identifiers following a show combinator in an import declaration.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 import "syntax_lib.dart" show;
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     var x = foo;
+//          ^
+// [analyzer] unspecified
   } catch (ok) {}
 }

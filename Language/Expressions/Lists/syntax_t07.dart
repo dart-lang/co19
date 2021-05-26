@@ -13,11 +13,13 @@
 /// does not start with '['.
 /// @author kaigorodov
 /// @reviewer iefremov
-/// @compile-error
 
 
 main() {
   try {
     var x = const 1, 2, 3];
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

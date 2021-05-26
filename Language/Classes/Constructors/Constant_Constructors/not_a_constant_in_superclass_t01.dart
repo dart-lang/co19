@@ -13,7 +13,6 @@
 /// @description Checks that compile error is produced if class declares a
 /// constant constructor and its superclass has instance variable initialized
 /// by non-constant expression
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 class A {
@@ -26,6 +25,9 @@ class B {
 class C extends B {
   final y = 1;
   const C();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

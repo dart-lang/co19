@@ -30,6 +30,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -56,6 +57,7 @@ U1 t1Func(S0 y0, S1 y1, {S2 x2, S3 y3}) => null;
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
+// @dart = 2.9
 
 
 
@@ -238,8 +240,7 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  // Test getters
+    // Test getters
   Expect.throws(() {
     new ClassMemberTestGenericPublic<T1>.validConstructor().getter;
   }, (e) => e is TypeError);
@@ -283,5 +284,4 @@ main() {
   Expect.throws(() {
     new ClassMemberTestGenericPrivate<T1>.short(forgetType(t0Instance));
   }, (e) => e is TypeError);
-  //# -->
-}
+  }

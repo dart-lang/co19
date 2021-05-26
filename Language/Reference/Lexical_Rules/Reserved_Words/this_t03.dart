@@ -9,16 +9,21 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "this" is used as a function type alias name.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
 
 typedef void this();
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     null is this;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (anything) {
   }
 }

@@ -18,12 +18,14 @@
 /// of a shift operator on either super or an expression e1, with argument e2.
 /// @description Checks that a shift expression of the form e1 op e2
 /// can't terminate with the shift operator >>.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 main() {
   try {
     1 >>;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

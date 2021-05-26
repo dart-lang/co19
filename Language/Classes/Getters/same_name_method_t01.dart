@@ -10,17 +10,21 @@
 /// method are inherited or not.
 /// @description Checks that a compile-time error is produced if a class has
 /// an explicitly declared getter and a method with the same name.
-/// @compile-error
 /// @author vasya
 
 
 class C {
   get foo { return "foo"; }
   foo() { return "foo()"; }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   try {
     new C().foo();
+//          ^
+// [cfe] unspecified
   } catch (e) {}
 }

@@ -12,7 +12,6 @@
 /// @description Checks that it is a compile error if C does not implement
 /// all the direct superinterfaces of M. Test the case when one direct
 /// superinterface is implemented and the second not
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -31,6 +30,9 @@ class S {
 }
 
 class C extends S with M {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   int get b => 0;
 }
 

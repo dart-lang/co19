@@ -27,7 +27,6 @@
 /// ;
 /// @description Checks that reassigning a final required parameter inside the
 /// function produces a compile error
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 /// @reviewer rodionov
@@ -35,6 +34,9 @@
 
 func(final x) {
   x = 1;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

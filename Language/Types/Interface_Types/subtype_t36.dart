@@ -26,7 +26,6 @@
 /// @description Checks that two generic types are not assignable even if just
 /// one type argument is not assignable. Using complex function types as type
 /// arguments.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -63,4 +62,7 @@ Generic<typeParameter2> f() {}
 
 main() {
   Generic<typeParameter1> g = f();
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -8,7 +8,6 @@
 /// a default constructor C() : super() {}, unless C is class Object.
 /// @description Checks that 'default' constructor is not generated if the class
 /// declares a named constructor.
-/// @compile-error
 /// @author iefremov
 
 
@@ -19,4 +18,7 @@ class C {
 
 main() {
   new C();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

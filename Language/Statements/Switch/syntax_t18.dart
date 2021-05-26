@@ -17,7 +17,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if a label is not
 /// followed by case or default keywords.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer iefremov
 
@@ -29,6 +28,9 @@ foo(value) {
     case 0: break;
     label:
   }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
   return result;
 }
 

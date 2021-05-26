@@ -11,7 +11,6 @@
 /// @description Checks that it is a compile-time error if a case expression
 /// is a compile-time constant of type double, since double is neither String
 /// nor int and implements ==.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 /// @note renamed from 09_Switch_A02_t04
@@ -20,6 +19,8 @@
 main() {
   try {
     switch (1.0) {
+//  ^
+// [analyzer] unspecified
       case 0.5:
     }
   } catch (e) {}

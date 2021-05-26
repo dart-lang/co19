@@ -8,12 +8,14 @@
 /// initializer at its declaration by the grammar.
 /// @description Checks that it is a compile error when a final library
 /// variable is not initialized in its declaration. 
-/// @compile-error
 /// @author rodionov
 /// @issue #27510
 
 
 final int v;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   print(v);

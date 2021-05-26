@@ -36,13 +36,15 @@
 /// ;
 /// @description Checks that it is a compile-time error if a named redirecting 
 /// constructor declaration does not end with a semicolon.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   A.B(): this.C()
   A.C() {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -8,7 +8,6 @@
 /// named v= and also has a non-static member named v.
 /// @description Checks that it is a compile error if a class declares a
 /// static setter named v= and also has a non-static inherited method named v.
-/// @compile-error
 /// @author kaigorodov
 
 import "../../../Utils/expect.dart";
@@ -21,6 +20,9 @@ class C extends A {
   static String foo2 = "foo";
 
   static set foo(String s) {
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
     foo2 = s;
   }
 

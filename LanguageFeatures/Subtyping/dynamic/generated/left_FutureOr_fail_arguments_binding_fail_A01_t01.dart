@@ -24,6 +24,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -37,6 +38,7 @@ FutureOr<S0> t0Instance = new S0();
 Future<S0> t1Instance = new Future<S0>.value(new S0()); // S0 is not a subtype of T1 (T1 is Future<S0>)
 
 
+// @dart = 2.9
 
 
 
@@ -197,8 +199,7 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  // Test generic functions
+    // Test generic functions
   Expect.throws(() {
     namedArgumentsFunc2<Future<S0>>(forgetType(t0Instance));
   }, (e) => e is TypeError);
@@ -277,8 +278,7 @@ main() {
   Expect.throws(() {
     new ArgumentsBindingClassGen<Future<S0>>(t1Instance).testSetter = forgetType(t0Instance);
   }, (e) => e is TypeError);
-  //# -->
-
+  
   // Test superclass constructor call
   Expect.throws(() {
     new ArgumentsBindingDesc(t0Instance);

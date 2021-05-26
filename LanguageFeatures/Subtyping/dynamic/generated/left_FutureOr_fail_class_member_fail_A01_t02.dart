@@ -24,6 +24,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -37,6 +38,7 @@ FutureOr<S0> t0Instance = new S0();
 Future<S0> t1Instance = new Future<S0>.value(new S0()); // S0 is not a subtype of T1 (T1 is Future<S0>)
 
 
+// @dart = 2.9
 
 
 
@@ -129,8 +131,7 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  Expect.throws(() {new ClassMember2_t02<Future<S0>>();}, (e) => e is TypeError);
+    Expect.throws(() {new ClassMember2_t02<Future<S0>>();}, (e) => e is TypeError);
   Expect.throws(() {new ClassMember2_t02<Future<S0>>.short();}, (e) => e is TypeError);
   Expect.throws(() {new ClassMember2_t02<Future<S0>>.named();}, (e) => e is TypeError);
   Expect.throws(() {
@@ -145,5 +146,4 @@ main() {
   Expect.throws(() {
     new ClassMember2_t02<Future<S0>>.valid().test2();
   }, (e) => e is TypeError);
-  //# -->
-}
+  }

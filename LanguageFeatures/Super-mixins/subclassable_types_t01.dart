@@ -16,7 +16,6 @@
 ///
 /// @description Checks that types that from implements clause must be
 /// subclassable class types.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 typedef F = void Function(num);
@@ -24,13 +23,34 @@ typedef F = void Function(num);
 class B {}
 class C {}
 
-mixin M1 on B, C implements void {}   //# 01: compile-time error
-mixin M2 on B, C implements dynamic {}   //# 02: compile-time error
-mixin M3 on B, C implements FutureOr<List> {} //# 03: compile-time error
-mixin M4 on B, C implements F {}    //# 04: compile-time error
-mixin M5 on B, C implements int {}  //# 05: compile-time error
-mixin M6 on B, C implements bool {} //# 06: compile-time error
-mixin M7 on B, C implements Null {} //# 07: compile-time error
+mixin M1 on B, C implements void {}
+//                          ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+mixin M2 on B, C implements dynamic {}
+//                          ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+mixin M3 on B, C implements FutureOr<List> {}
+//                          ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+mixin M4 on B, C implements F {}
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+mixin M5 on B, C implements int {}
+//                          ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+mixin M6 on B, C implements bool {}
+//                          ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+mixin M7 on B, C implements Null {}
+//                          ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

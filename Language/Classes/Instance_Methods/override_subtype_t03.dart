@@ -9,7 +9,6 @@
 /// @description Checks that a compile error is produced if m1 is not a subtype
 /// of m2 because their respective optional positional parameter types are not 
 /// mutually assignable.
-/// @compile-error
 /// @author iefremov
 
 
@@ -19,6 +18,9 @@ class A {
 
 class C extends A {
   foo([int name]) {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

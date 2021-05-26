@@ -18,12 +18,14 @@
 /// of a shift operator on either super or an expression e1, with argument e2.
 /// @description Checks that a shift expression can't start with
 /// the shift operator <<.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   try {
     << 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

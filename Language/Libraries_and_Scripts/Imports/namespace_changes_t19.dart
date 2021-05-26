@@ -58,7 +58,6 @@
 ///
 /// @description Checks that all show/hide combinators used in a chain of
 /// re-export are applied.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
@@ -66,4 +65,7 @@ import "namespace_changes_lib_reexport2_filtered.dart";
 
 main() {
   new F();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

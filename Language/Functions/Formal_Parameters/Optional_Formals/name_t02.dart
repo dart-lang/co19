@@ -8,7 +8,6 @@
 /// optional parameter begins with an _ character.
 /// @description Checks that it is a compile-time error if the name of a named
 /// optional parameter begins with an '_' character.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
@@ -16,6 +15,9 @@
 class A {
   var _p;
   A({this._p: ""}) {
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
     print(_p);
   }
 }

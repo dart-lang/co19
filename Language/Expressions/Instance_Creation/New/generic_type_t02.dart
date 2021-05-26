@@ -15,7 +15,6 @@
 /// Vi = dynamic. In any other case, let Vi = Ui for i ∈ 1..m.
 /// @description Checks that it is a compile-time error if S is a generic
 /// type but has fewer type parameters than provided in the new expression.
-/// @compile-error
 /// @author msyabro
 
 
@@ -23,4 +22,7 @@ class A<T> {}
 
 main() {
   new A<int, bool>();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

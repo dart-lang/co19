@@ -13,7 +13,6 @@
 /// ;
 /// @description Checks that it is a compile-error if to use throw with no
 /// expression in while statement.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
@@ -21,5 +20,8 @@
 main() {
   while (false) {
     throw;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }

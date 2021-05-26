@@ -12,7 +12,6 @@
 /// declaration d is in scope if d is available in the current scope.
 /// @description Checks that it is a compile-time error if a block statement 
 /// contains two functions with the same name.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -22,6 +21,9 @@ main() {
     {
       void conflictingName() {};
       conflictingName(p1) {};
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
     }
   } catch (e) {}
 }

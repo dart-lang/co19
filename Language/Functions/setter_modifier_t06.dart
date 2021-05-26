@@ -10,13 +10,15 @@
 /// @description Checks that static setter with sync* modifier cause
 /// compiler error.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 class A {
   static int _a;
   A() {}
   static set a(int value) sync* {
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
     _a = value;
   }
 }

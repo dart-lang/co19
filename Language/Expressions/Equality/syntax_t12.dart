@@ -16,7 +16,6 @@
 /// An equality expression is either a relational expression, or an invocation of
 /// an equality operator on either super or an expression e1, with argument e2.
 /// @description Checks that two operators != can't be placed one after another.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -24,5 +23,8 @@
 main() {
   try {
     1 != != "";
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

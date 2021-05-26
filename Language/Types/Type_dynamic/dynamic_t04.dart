@@ -9,7 +9,6 @@
 /// @description Checks that accessing properties with all sort of names on a
 /// dynamic variable and assigning the results (in case of getters) to local
 /// variables of various types does not produce any static type warnings.
-/// @static-clean
 /// @issue #27495
 /// @author iefremov
 /// @reviewer rodionov

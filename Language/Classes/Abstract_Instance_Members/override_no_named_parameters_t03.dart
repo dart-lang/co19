@@ -12,7 +12,6 @@
 /// non-abstract instance method has more named parameters than the abstract
 /// method being overridden and both have the same non-zero number of required
 /// parameters of the same type.
-/// @static-clean
 /// @author rodionov
 
 

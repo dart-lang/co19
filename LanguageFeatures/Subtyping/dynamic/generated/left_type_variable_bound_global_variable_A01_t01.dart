@@ -22,6 +22,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 
@@ -34,6 +35,7 @@ X0 t0Instance = new X0();
 T1 t1Instance = new T1();
 
 
+// @dart = 2.9
 
 
 

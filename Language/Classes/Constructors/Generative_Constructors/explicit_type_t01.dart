@@ -12,7 +12,6 @@
 /// @description Checks that it's a compile error if an explicit type of
 /// an initializing formal is not assignable to the type of the corresponding
 /// field.
-/// @compile-error
 /// @author msyabro
 
 
@@ -20,6 +19,9 @@ class C {
   String x;
 
   C(int this.x) {}
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

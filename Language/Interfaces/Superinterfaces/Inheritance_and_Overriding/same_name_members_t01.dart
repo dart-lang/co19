@@ -19,7 +19,6 @@
 /// inherited, and a static warning is issued.
 /// @description Checks that if multiple members with the same name are inherited
 /// but not all of them are getters then a compile error occurs
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -36,6 +35,9 @@ abstract class SI3 {
 }
 
 abstract class I implements SI1, SI2, SI3 {
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

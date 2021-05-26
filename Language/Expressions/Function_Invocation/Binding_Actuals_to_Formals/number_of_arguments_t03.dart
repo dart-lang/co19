@@ -10,7 +10,6 @@
 /// It is a static warning if m < h or if m > n.
 /// @description Checks that it is a compile error if the number of argument is
 /// less than number of positional parameters of an instance method.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -21,4 +20,7 @@ class C {
 
 main() {
   new C().func(1);
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

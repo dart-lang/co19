@@ -10,7 +10,6 @@
 /// error if T does not denote a class accessible in the current scope.
 /// @description Checks that it is a compile-time error if T does not denote
 /// any declaration.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -18,5 +17,8 @@
 main() {
   try {
     const UnavailableType();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

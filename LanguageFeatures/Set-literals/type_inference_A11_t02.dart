@@ -15,7 +15,6 @@
 /// @description Checks that if it is a compile error if non of the cases
 /// (`Iterable<Object>` nor of `Map<Object, Object>`, and it's also not `dynamic`
 /// nor `Null`) match
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -23,6 +22,9 @@ Set<X> foo<X>(Set<X> s) => s;
 
 void test<T>(T t) {
   var s = foo({...?t});
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

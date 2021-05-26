@@ -22,7 +22,6 @@
 /// h = n + 1.
 /// @description Checks that falling through produces a compile error, if
 /// the current clause is not empty case clause and not the default clause.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 /// @issue 7537
 
@@ -34,7 +33,13 @@ test(value) {
     case 1:  result = 1;
              break;
     case 2:  result = 2;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
     case 3:  result = 3;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
     default: result = 4;
   }
   return result;

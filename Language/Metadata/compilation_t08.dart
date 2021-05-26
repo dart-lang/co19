@@ -10,13 +10,15 @@
 ///   • A call to a constant constructor.
 /// @description Check that if metadata expression refers to not defined class
 /// or constant, then a compile time error is raised
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:mirrors';
 import '../../Utils/expect.dart';
 
 @Hello
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 class A {}
 
 main() {

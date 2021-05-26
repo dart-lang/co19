@@ -22,7 +22,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when an import
 /// directive starts with '#' symbol.
-/// @compile-error
 /// @author vasya
 /// @reviewer hlodvig
 /// @reviewer msyabro
@@ -30,6 +29,9 @@
 
 
 #import "syntax_lib.dart";
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

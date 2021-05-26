@@ -25,7 +25,6 @@
 /// T <: S or S <: T.
 /// @description Checks that String cannot be assigned to int (compile error)
 /// as such assignment doesn't meet any of these conditions.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -36,4 +35,7 @@ String f() {return 'abc';}
 
 main() {
   int i = f();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

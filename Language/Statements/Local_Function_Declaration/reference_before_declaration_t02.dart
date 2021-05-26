@@ -9,11 +9,13 @@
 /// @description Checks that it is a compile-error to reference a name of
 /// local function in function expression invocation before its declaration,
 /// but in outer scope.
-/// @compile-error
 /// @author ilya
 
 
 main() {
   func();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
   {void func() {}}
 }

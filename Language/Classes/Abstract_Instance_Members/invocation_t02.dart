@@ -10,7 +10,6 @@
 /// invoked.
 /// @description Checks that it is a compile error when calling an
 /// abstract method that is inherited from non-direct superclass.
-/// @compile-error
 /// @author vasya
 
 
@@ -21,6 +20,9 @@ abstract class A {
 abstract class A1 extends A {}
 abstract class A2 extends A1 {}
 class C extends A2 {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

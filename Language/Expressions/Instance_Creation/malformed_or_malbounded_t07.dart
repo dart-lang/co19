@@ -14,7 +14,6 @@
 /// @description Checks that it is a compile error if type arguments to a
 /// constructor of a generic type G invoked by a new expression are not subtypes
 /// of the bounds of the corresponding formal type parameters of G.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -24,4 +23,7 @@ class G<T extends num, S extends String> {
 
 main() {
   new G<double, double>();
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

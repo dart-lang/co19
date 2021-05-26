@@ -9,7 +9,6 @@
 /// @description Checks static invocations, when o denotes a class in the
 /// current scope. It is a compile-time error if named arguments precede
 /// positional arguments.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -21,5 +20,8 @@ class C {
 main() {
   try {
     C.f(name: null, 1);
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

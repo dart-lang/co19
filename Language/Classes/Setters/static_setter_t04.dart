@@ -8,7 +8,6 @@
 /// named v= and also has a non-static member named v.
 /// @description Checks that it is a compile error to declare more than one
 /// entity with the same name in the same scope.
-/// @compile-error
 /// @author kaigorodov
 
 import "../../../Utils/expect.dart";
@@ -18,9 +17,14 @@ class C {
 
   static String foo2 = "foo";
   static set foo(String s) {
+//           ^
+// [analyzer] unspecified
     foo2 = s;
   }
   static String get foo {
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
     return foo2;
   }
 
@@ -28,5 +32,9 @@ class C {
 
 main() {
   C.foo = "foo";
+//      ^
+// [cfe] unspecified
   Expect.equals(C.foo, "foo");
+//                ^
+// [cfe] unspecified
 }

@@ -11,13 +11,15 @@
 /// ;
 /// @description Checks that it is a compile-time error if mixin has incomplete 
 /// declaration in a class definition.
-/// @compile-error
 /// @author hlodvig
 
 
 class A {}
 
 class C extends A with {}
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

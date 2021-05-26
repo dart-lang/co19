@@ -9,4 +9,7 @@ library Libraries_and_Scripts_A01_t06;
 
 f() {}
 
-f()
+  f()
+//^
+// [analyzer] unspecified
+// [cfe] unspecified

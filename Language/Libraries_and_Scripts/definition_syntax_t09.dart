@@ -23,10 +23,8 @@
 /// name of the library.
 /// @description Checks that it is a compile-error if a top-level definition
 /// comes before a part directive.
-/// @compile-error
 /// @author msyabro
-/// @reviewer rodionov
-
+/// @issue 44990
 
 import "definition_syntax_t09_lib.dart";
 

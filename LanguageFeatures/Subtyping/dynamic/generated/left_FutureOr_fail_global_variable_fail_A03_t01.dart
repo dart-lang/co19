@@ -24,6 +24,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -40,10 +41,12 @@ class S0 implements Future<C1> {
   whenComplete(FutureOr action()) => null;
 }
 
+// Future<S0> is not a subtype of T1 (Future<C1>)
 FutureOr<S0> t0Instance = new Future<S0>.value(new S0());
 Future<C1> t1Instance = new Future.value(new C1());
 
 
+// @dart = 2.9
 
 
 

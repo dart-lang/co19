@@ -12,11 +12,13 @@
 ///   method that is not qualified by a deferred prefix.
 /// @description Checks that a function literal cannot be assigned to a constant
 /// variable.
-/// @compile-error
 /// @author iefremov
 
 
 const a = () => null;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

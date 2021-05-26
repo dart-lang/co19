@@ -13,12 +13,14 @@
 /// ;
 /// @description Checks that redirecting constructor can not have initializing
 /// formals.
-/// @compile-error
 /// @author pagolubev
 
 
 class C {
   C(this.x) : this.init();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   C.init();
   var x;
 }

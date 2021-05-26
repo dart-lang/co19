@@ -15,17 +15,21 @@
 /// by their immediately enclosing superexpression.
 /// @description Checks that it is a compile-time error when a constant
 /// constructor's initializer list contains an instance creation expression.
-/// @compile-error
 /// @author iefremov
 
 
 class A {
   final x;
   const A() : x = new List();
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   try {
     var a = const A();
+//          ^
+// [analyzer] unspecified
   } catch (x) {}
 }

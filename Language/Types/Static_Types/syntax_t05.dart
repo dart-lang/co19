@@ -23,7 +23,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when the type arguments
 /// are only space delimited.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -35,5 +34,8 @@ class G<A, B> {
 main() {
   try {
     G<int double> g;
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

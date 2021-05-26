@@ -10,12 +10,14 @@
 /// ;
 /// @description Checks that a compile-time error is produced when a getter 
 /// declaration includes a non-empty formal parameter list.
-/// @compile-error
 /// @author kaigorodov
 
 
 class C {
   get getter([var value = null]) { throw new C(); }
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -12,7 +12,6 @@
 /// Any use of a malbounded type gives rise to a static warning.
 /// @description Checks that it is a compile error if a single type argument
 /// violates the bound.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -21,4 +20,7 @@ class A<T extends String> {}
 
 main() {
   A<int> a;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

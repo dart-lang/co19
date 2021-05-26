@@ -30,7 +30,6 @@
 /// ;
 /// @description Checks that a raw string literal can't begin with a double
 /// quote and end with single.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -38,5 +37,8 @@
 main() {
   try {
     r"string';
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

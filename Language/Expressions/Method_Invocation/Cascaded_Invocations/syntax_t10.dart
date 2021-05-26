@@ -16,7 +16,6 @@
 ///   identifier
 /// ;
 /// @description Checks that it is a compile-time error if suffix is null.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -29,6 +28,9 @@ main() {
   var o = new C();
   try {
     o..null;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }
 

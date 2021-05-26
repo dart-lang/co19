@@ -13,9 +13,11 @@
 ///
 /// @description Checks that if P is Set<Ps> then the inferred set element type
 /// of element is the inferred type of the expression e1 in context Ps.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 main() {
   Set<double> x = {1 + 1};
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

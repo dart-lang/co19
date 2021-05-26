@@ -9,16 +9,21 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "const" is used as a class name.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 
 
 class const { } // error
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     null is const;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (anything) {
   }
 }

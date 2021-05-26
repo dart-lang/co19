@@ -20,7 +20,6 @@
 /// All remaining formal parameters of f are bound to their default values.
 /// @description Checks that it is a compile time error if the number of actual
 /// parameters is less than the number of formal positional parameters.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -29,4 +28,7 @@ func(p1, p2, [p3]) {}
 
 main() {
   func(1);
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

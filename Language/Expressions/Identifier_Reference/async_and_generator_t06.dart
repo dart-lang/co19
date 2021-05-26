@@ -9,12 +9,14 @@
 /// async, async* or sync*.
 /// @description Checks that it is a compile-time error if await is used in the
 /// method marked with async*.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
 f() async* {
   int await = 2;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

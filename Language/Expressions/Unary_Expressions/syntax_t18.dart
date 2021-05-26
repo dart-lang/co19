@@ -31,7 +31,6 @@
 /// unary operator on either super or an expression e.
 /// @description Checks that '!' cannot be used with
 /// a reference to a function type alias name without a compile error.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer rodionov
@@ -41,4 +40,7 @@ typedef f();
 
 main() {
   !f;
+// ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

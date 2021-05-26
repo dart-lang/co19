@@ -13,7 +13,6 @@
 ///   function identical() discussed above.
 /// @description Checks that if identical() is redefined, its invocation is not
 /// a constant expressions.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -25,6 +24,9 @@ bool identical(var a, var b) {
 
 final constList = const [
   identical("a", "b"),
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 ];
 
 main() {

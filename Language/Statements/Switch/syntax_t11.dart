@@ -17,7 +17,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the semicolon at the
 /// end of case statements is missing.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -28,6 +27,9 @@ switchTest(value) {
 
   switch (value) {
     case 0: result = 0
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
     default: result = -1;
   }
   return result;

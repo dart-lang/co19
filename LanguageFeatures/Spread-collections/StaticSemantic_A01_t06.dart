@@ -17,11 +17,13 @@
 /// static error.
 /// @description Checks that static error is thrown if spread element and
 /// map type arguments are incompatible.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 main() {
   Map<num, num> numbers = <num, num>{};
   Map<String, num> map = <String, num>{...numbers};
+//                                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
  }

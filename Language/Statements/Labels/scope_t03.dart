@@ -7,7 +7,6 @@
 /// @assertion The scope of a label that labels a statement s is s. The scope of
 /// a label that labels a case clause of a switch statement s is s.
 /// @description Checks that a label can't be referenced outside of its statement.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
@@ -15,9 +14,15 @@
 main() {
   L: for (int i in [1,2]) {
     break M:
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   M: do {
     continue L;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } while (false);
 }

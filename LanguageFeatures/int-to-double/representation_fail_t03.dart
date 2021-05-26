@@ -13,13 +13,23 @@
 /// value of a double valued integer literal with binary representation of 54 bit
 /// length can not be represented exactly as an IEEE 754 double-precision value
 /// (the most significant bit is 1 and the low bit is 1).
-/// @compile-error
 /// @author ngl@unipro.ru
 
-
 main() {
-  double d1 = 0x20000000000001;   //# 01: compile-time error
-  double d2 = 0x20000000000003;   //# 02: compile-time error
-  double d3 = 0x20000000000005;   //# 03: compile-time error
-  double d4 = 0x20000000000007;   //# 04: compile-time error
+  double d1 = 0x20000000000001;
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  double d2 = 0x20000000000003;
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  double d3 = 0x20000000000005;
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  double d4 = 0x20000000000007;
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

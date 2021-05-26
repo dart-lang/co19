@@ -12,7 +12,6 @@
 /// up getter (respectively setter) m in S with respect to L. Otherwise, we say
 /// that the lookup has failed.
 /// @description Checks that an implicit setter cannot be looked up dynamically.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 import '../../../../Utils/expect.dart';
@@ -20,7 +19,13 @@ import '../../../../Utils/expect.dart';
 class A {
   test() {
     a = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
     Expect.equals(1, a);
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

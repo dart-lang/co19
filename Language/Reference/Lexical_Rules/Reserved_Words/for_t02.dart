@@ -9,13 +9,18 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "for" is used as a type parameter name.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
 
 class A<for> {
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   bool check(x) => x is for;
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -9,7 +9,6 @@
 /// everywhere without complaint by the static checker.
 /// @description Checks that null is assignable to any type without static
 /// type warnings.
-/// @static-clean
 /// @author hlodvig
 /// @reviewer iefremov
 /// @reviewer rodionov

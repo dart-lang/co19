@@ -12,11 +12,13 @@
 ///  <functionPrefix> ::= <type>? <identifier>
 /// @description Checks that formalParameterList in the typedef declaration
 /// cannot include a semicolon.
-/// @compile-error
 /// @author kaigorodov
 
 
 typedef F<T1; T2>();
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

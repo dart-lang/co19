@@ -13,7 +13,6 @@
 ///   immediately following d is’.’.
 /// @description Checks that reference to a prefix without following '.' causes
 /// compile error.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
@@ -21,4 +20,7 @@ import '../lib.dart' as lib;
 
 main() {
   lib;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

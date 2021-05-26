@@ -11,7 +11,6 @@
 ///    Object.
 /// @description Checks that there is no compile error if an abstract
 /// method is declared in a concrete class and it overrides a concrete method.
-/// @static-clean
 /// @author ngl@unipro.ru
 
 

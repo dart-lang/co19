@@ -37,12 +37,14 @@
 /// ;
 /// @description Checks that an if statement can't be used in place of a class 
 /// member definition.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   if (true) {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

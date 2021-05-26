@@ -19,7 +19,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the opening bracket
 /// enclosing the loop parts is missing.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -28,5 +27,8 @@
 main() {
   try {
     for ; ; ) {}
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

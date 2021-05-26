@@ -28,7 +28,6 @@
 /// ;
 /// @description Checks that named parameters can't precede required positional
 /// parameters.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer iefremov
@@ -36,9 +35,15 @@
 
 
 f({var a}, var b) {}
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     f(1, 1);
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

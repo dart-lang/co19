@@ -7,7 +7,6 @@
 /// @description Regression test for the issue 33624 (Dart does not throw error
 /// when analyzer fails with "type_argument_not_matching_bounds" error for
 /// mixins).
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 class A {}
@@ -15,5 +14,8 @@ class B{}
 
 class M<X extends A> {}
 class O extends Object with M<B> {}
+//                            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {}

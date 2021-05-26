@@ -36,13 +36,15 @@
 /// ;
 /// @description Checks that it is a compile-time error if a constructor
 /// declaration without a body does not end with a semicolon.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   A()
 }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

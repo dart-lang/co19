@@ -15,7 +15,6 @@
 ///    has a static setter named v =.
 /// @description Checks that it is a compile error if e1 does not have a
 /// setter named v.
-/// @compile-error
 /// @author kaigorodov
 /// @author sgrekhov@unipro.ru
 
@@ -25,4 +24,7 @@ class C {
 
 main() {
   new C().v = 1;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

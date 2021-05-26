@@ -8,12 +8,14 @@
 /// operator.
 /// @description Checks that a compile-time error is produced if a user-defined
 /// operator [] specifies an optional positional parameter.
-/// @compile-error
 /// @author iefremov
 
 
 class C {
   operator []([var o]) {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

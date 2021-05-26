@@ -10,12 +10,14 @@
 /// @description Checks that it is a a compile-time error if k's initializer
 /// list contains an initializer for a variable that is initialized by means of
 /// an initializing formal of k (field initializer uses this.name syntax).
-/// @compile-error
 /// @author vasya
 
 
 class C {
   C(this.x, foo) : this.x = foo;
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   var x;
 }
 

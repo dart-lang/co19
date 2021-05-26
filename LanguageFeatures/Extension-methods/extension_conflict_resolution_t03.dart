@@ -24,7 +24,6 @@
 ///      instantiate-to-bounds type of [T2] and not vice versa.
 /// @description Check that an extension from non-platform library is not more or
 /// less specific than one from another non-platform library.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -38,4 +37,7 @@ extension MyIntList1<T extends int> on List<T> {
 main() {
   List<int> aList = [0];
   bool res = aList.isIntLibraryVersion;
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -8,7 +8,6 @@
 /// a static member with the same name.
 /// @description Checks that it is a compile-time error if a class inherits an 
 /// instance method and declares a static member method with the same name.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -18,6 +17,9 @@ class B {
 
 class A extends B {
   static int func() {}
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

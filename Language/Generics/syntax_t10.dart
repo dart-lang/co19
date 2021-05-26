@@ -8,11 +8,13 @@
 /// that is, [G] may have formal type parameters declared.
 /// @description Checks that a compile-time error is produced when trying
 /// to specify a parameterized type parameter for the generic class.
-/// @compile-error
 /// @author iefremov
 
 
 class C<T<T>>{}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

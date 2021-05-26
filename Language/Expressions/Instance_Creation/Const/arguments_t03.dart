@@ -11,7 +11,6 @@
 /// @description Checks that it is a compile-time error if any optional
 /// positional arguments of a constant object expression are not compile-time
 /// constants.
-/// @compile-error
 /// @author ilya
 
 

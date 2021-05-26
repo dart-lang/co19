@@ -10,7 +10,6 @@
 /// ;
 /// @description Checks that a compile error is produced if the expression is
 /// missing.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -18,5 +17,8 @@
 
 main() {
   if () { }
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

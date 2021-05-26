@@ -17,7 +17,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if suffix is an unary
 /// expression.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -29,6 +28,9 @@ main() {
   var a = 1;
   try {
     new C()..a++;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }
 

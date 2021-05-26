@@ -8,7 +8,6 @@
 /// of e2
 /// @description Checks that static type of the expression e1.v = e2 is the
 /// static type of e2
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

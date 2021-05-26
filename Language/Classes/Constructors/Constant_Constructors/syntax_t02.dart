@@ -10,16 +10,21 @@
 /// ;
 /// @description Checks that it is a compile-time error if the constructor name
 /// is missing.
-/// @compile-error
 /// @author iefremov
 
 
 class A {
   const ();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   try {
     var a = const A();
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

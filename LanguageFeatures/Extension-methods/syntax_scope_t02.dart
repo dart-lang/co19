@@ -21,11 +21,13 @@
 ///
 /// @description Check that the member declarations can be any non-abstract
 /// static or instance member
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 import "my_fancy_list_lib.dart";
 
 main() {
   List.pClassName;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

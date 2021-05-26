@@ -10,7 +10,6 @@
 /// @description Check that statement 'return e' cause a compiler error in
 /// asynchronous generator local function (i.e. function inside another function)
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
@@ -18,6 +17,9 @@ import 'dart:async';
 main() {
   Stream test() async* {
     return 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   test().isEmpty;

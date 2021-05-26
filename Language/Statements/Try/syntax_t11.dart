@@ -26,7 +26,6 @@
 /// 2. A finally clause, which consists of a block statement.
 /// @description Checks that it is a compile-time error if there is a standalone
 /// finally clause without a try statement.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -35,6 +34,9 @@
 main() {
   var foo = true;
   finally {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
     foo = false;
   }
 }

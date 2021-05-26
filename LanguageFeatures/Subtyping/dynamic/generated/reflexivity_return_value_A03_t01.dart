@@ -21,6 +21,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 
@@ -29,6 +30,7 @@ Object t0Instance = new Object();
 Object t1Instance = new Object();
 
 
+// @dart = 2.9
 
 
 
@@ -61,8 +63,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  new ReturnValueGen<Object>().testMethod();
+    new ReturnValueGen<Object>().testMethod();
   new ReturnValueGen<Object>().testGetter;
-  //# -->
-}
+  }

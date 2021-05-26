@@ -8,13 +8,15 @@
 /// constant expression depends on itself.
 /// @description Checks that it is a compile-time error if a final instance
 /// field depends on a const constructor and vice versa.
-/// @compile-error
 /// @author iefremov
 
 
 class A {
   const A();
   final m = const A();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 

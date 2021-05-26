@@ -22,15 +22,20 @@
 /// ;
 /// @description Checks that it is a compile-time error when there is an additive
 /// expression in place of the URI.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 import 7 + 7;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     someVar = 0;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

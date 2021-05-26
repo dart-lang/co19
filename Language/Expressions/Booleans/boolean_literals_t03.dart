@@ -12,7 +12,6 @@
 ///   false
 /// ;
 /// @description Checks that boolean literal can't be preceded by unary plus.
-/// @compile-error
 /// @author hlodvig
 /// @reviewer iefremov
 
@@ -20,5 +19,8 @@
 main() {
   try {
     +false;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

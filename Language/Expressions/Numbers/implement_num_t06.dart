@@ -7,13 +7,15 @@
 /// @assertion It is a compile-time error for any type other than the types
 /// int and double to attempt to extend, mix in or implement num.
 /// @description Checks that num cannot be mixed in. Test class C = M form
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 class A {}
 
 class C = A with num;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

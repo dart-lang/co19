@@ -23,7 +23,6 @@
 /// im, and the result of this invocation is the result of evaluating i.
 /// @description Checks that it's a compile error if C does not denote a class in
 /// the current scope
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
@@ -36,4 +35,7 @@ class C extends S {}
 
 main()  {
   NonExistentClass.func();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

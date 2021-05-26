@@ -21,6 +21,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 
@@ -33,6 +34,7 @@ void t0Instance(C c, {dynamic d}) {}
 Function t1Instance = null;
 
 
+// @dart = 2.9
 
 
 
@@ -65,8 +67,6 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  new ReturnValueGen<Function>().testMethod();
+    new ReturnValueGen<Function>().testMethod();
   new ReturnValueGen<Function>().testGetter;
-  //# -->
-}
+  }

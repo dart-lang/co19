@@ -15,7 +15,6 @@
 /// @description Checks that it is a compile-time error when the identifier in
 /// string interpolation construct of the form '$' IDENTIFIER_NO_DOLLAR starts
 /// with the dollar character.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer rodionov
 
@@ -25,5 +24,8 @@ main() {
   var x = "dollar";
   try {
     '$$x';
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

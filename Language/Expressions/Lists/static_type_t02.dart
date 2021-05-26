@@ -8,11 +8,13 @@
 /// const <E>[e1... en]  or the form <E>[e1... en] is List<E>.
 /// @description Checks that a compile error occurs when assigning a constant
 /// list literal to an int variable.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
 
 main() {
   int i  = const [1, 2, 3];
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

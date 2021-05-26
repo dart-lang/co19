@@ -5,5 +5,8 @@
 // @dart = 2.9
 
 library Libraries_and_Scripts_A03_t04_lib
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 int libVar = 1;

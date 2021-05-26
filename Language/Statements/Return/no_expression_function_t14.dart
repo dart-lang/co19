@@ -15,7 +15,6 @@
 /// form "return;" is used in an asynchronous function whose return type is
 /// not specified
 ///
-/// @static-clean
 /// @author a.semenov@unipro.ru
 
 bar() async {

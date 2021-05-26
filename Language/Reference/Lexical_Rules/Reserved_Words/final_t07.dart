@@ -9,18 +9,23 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "final" is used as a static class member (function) name.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 class C {
   static void final() {}
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   try {
     C.final();
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (anything) {
   }
 }

@@ -9,11 +9,13 @@
 /// Map<K, V>.
 /// @description Checks that a compile error occurs when assigning a
 /// <String, int> map literal to a variable with declared type Map<int, int>.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
 
 main() {
   Map<int, int> i = <String, int> {};
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

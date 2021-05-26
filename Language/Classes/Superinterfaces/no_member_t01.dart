@@ -11,7 +11,6 @@
 /// non-abstract instance member m of type F' such that F' <: F.
 /// @description Checks that it is a compile error if a class does not declare
 /// nor inherit an instance method declared in class' interface.
-/// @compile-error
 /// @author msyabro
 
 
@@ -20,6 +19,9 @@ abstract class I {
 }
 
 class C implements I {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main () {

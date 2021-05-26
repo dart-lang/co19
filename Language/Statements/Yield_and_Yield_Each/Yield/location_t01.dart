@@ -10,10 +10,12 @@
 /// @description Check that it is compile error if yield statement appears
 /// inside synchronous function.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 main() {
   yield 1;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

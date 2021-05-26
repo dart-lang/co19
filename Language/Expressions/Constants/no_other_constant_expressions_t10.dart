@@ -7,7 +7,6 @@
 /// @assertion There are no other constant expressions.
 /// @description Checks that a method invocation expression cannot be used to
 /// initialize a constant variable.
-/// @compile-error
 /// @author iefremov
 
 
@@ -16,6 +15,9 @@ class A {
 }
 
 const m = A.m();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

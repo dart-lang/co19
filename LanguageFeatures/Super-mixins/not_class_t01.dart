@@ -8,7 +8,6 @@
 /// class.
 ///
 /// @description Checks that a mixin declaration introduces not a class.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -20,4 +19,7 @@ mixin M on C {
 
 main() {
   M m = new M();
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

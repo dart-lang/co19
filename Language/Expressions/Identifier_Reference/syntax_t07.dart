@@ -37,7 +37,6 @@
 /// ;
 /// @description Checks that identifier can't contain letters
 /// from the cyrillic alphabet.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -45,5 +44,8 @@
 main() {
   try {
   	var щ = 1;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
  } catch (e) {}
 }

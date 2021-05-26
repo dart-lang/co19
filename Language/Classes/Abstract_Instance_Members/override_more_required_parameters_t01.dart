@@ -11,7 +11,6 @@
 /// @description Checks that a compile error is produced when an abstract
 /// method overrides a non-abstract instance method with the same name and
 /// greater number of required parameters.
-/// @compile-error
 /// @author rodionov
 
 
@@ -21,6 +20,9 @@ class A {
 
 abstract class C extends A {
   f(var x, var y);
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class D extends C {

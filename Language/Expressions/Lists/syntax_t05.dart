@@ -12,12 +12,14 @@
 /// @description Checks that it is a compile-time error if a list literal does
 /// not start with '['.
 /// @author msyabro
-/// @compile-error
 /// @reviewer kaigorodov
 
 
 main() {
   try {
     1, 2, 3];
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

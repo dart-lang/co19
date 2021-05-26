@@ -9,7 +9,6 @@
 /// new T(a1, ... , an, xn+1 : an+1, ... , xn+k : an+k).
 /// @description Checks that it is a compile error if T is a reference to
 /// a top-level variable.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -18,4 +17,7 @@ var a;
 
 main() {
   new a();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -7,7 +7,6 @@
 /// @assertion The static type of an integer literal is int.
 /// @description Checks that no static warnings are produced when assigning an
 /// integer literal to a typed int variable.
-/// @static-clean
 /// @author iefremov
 
 

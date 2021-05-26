@@ -9,12 +9,14 @@
 /// <, >, <=, >=, ==, -, +,  ̃/, /, *, %, |, ˆ, &, <<, >>, >>>, [] is not 1.
 /// @description Checks that a compile-time error is produced if a user-defined 
 /// operator * specifies two parameters.
-/// @compile-error
 /// @author vasya
 
 
 class C {
   operator *(var val, var val2) {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

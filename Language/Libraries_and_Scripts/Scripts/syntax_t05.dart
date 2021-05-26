@@ -13,14 +13,18 @@
 /// ;
 /// @description Checks that it is a compile-time error when an import directive
 /// comes before the library name.
-/// @compile-error
 /// @author vasya
 /// @reviewer msyabro
 
 
 import "library1.dart";
 library Parts_test_lib;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 part "../Parts/part_0.dart";
+//   ^
+// [analyzer] unspecified
 
 main() {
 }

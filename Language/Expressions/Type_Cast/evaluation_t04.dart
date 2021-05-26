@@ -13,10 +13,12 @@
 /// In all other cases, a CastError is thrown.
 /// @description Checks that if T is undeclared identifier, then compile error
 /// occurs
-/// @compile-error
 /// @author ilya
 
 
 main() {
   1 as Unknown;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

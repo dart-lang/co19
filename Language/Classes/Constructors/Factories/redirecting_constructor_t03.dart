@@ -13,16 +13,20 @@
 /// ;
 /// @description Checks that parameters list can not occur after another class
 /// constructor name
-/// @compile-error
 /// @author ilya
 
 
 class A {
   A() {}
   factory A.foo() = C();
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class C extends A {
+//    ^
+// [analyzer] unspecified
 }
 
 main() {

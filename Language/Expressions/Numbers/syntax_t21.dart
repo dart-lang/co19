@@ -29,7 +29,6 @@
 /// ;
 /// @description Checks that exponent part without digits is not accepted as
 /// numeric literal.
-/// @compile-error
 /// @author hlodvig
 /// @reviewer iefremov
 /// @reviewer rodionov
@@ -38,5 +37,8 @@
 main() {
   try {
     var i = 1e;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

@@ -24,12 +24,15 @@
 /// ;
 /// @description Checks that there is a compile-time error if a concrete class
 /// has a function without an implementation
-/// @compile-error
 /// @author msyabro
 
 
 class A {
+//    ^
+// [cfe] unspecified
   f();
+//^
+// [analyzer] unspecified
 }
 
 main() {

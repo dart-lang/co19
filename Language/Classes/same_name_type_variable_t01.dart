@@ -9,12 +9,14 @@
 /// constructors.
 /// @description Checks that a type variable can not have the same name as
 /// the name of generic class.
-/// @compile-error
 /// @author ilya
 /// @issue 14513
 
 
 class A<A> {
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

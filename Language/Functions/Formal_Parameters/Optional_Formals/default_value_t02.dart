@@ -8,7 +8,6 @@
 /// parameter is not a compile-time constant.
 /// @description Checks that it is a compile-time error if the default value
 /// of an optional parameter is not a compile-time constant.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
@@ -17,5 +16,8 @@ main() {
   try {
     int x = 1;
     void func({var y: x}) {}
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

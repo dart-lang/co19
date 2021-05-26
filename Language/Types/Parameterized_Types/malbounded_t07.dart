@@ -12,7 +12,6 @@
 /// Any use of a malbounded type gives rise to a static warning.
 /// @description Checks that in strong mode, it is a compile error if
 /// a malbounded type is used in a type test
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 import "../../../Utils/dynamic_check.dart";
@@ -22,8 +21,14 @@ class I<T extends num> {
 class J {
 }
 class A<T> implements J, I<T> {
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   I x = new A<String>();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

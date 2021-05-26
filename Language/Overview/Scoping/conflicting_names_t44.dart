@@ -12,7 +12,6 @@
 /// declaration d is in scope if d is available in the current scope.
 /// @description Checks that it is a compile-time error if a case clause 
 /// declares two identically named variables.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -23,6 +22,9 @@ main() {
       case 1:
         var z;
         var z;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
     }
   } catch (x) {}
 }

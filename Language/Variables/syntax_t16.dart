@@ -30,17 +30,21 @@
 ///   ;
 /// @description Checks that a variable declaration cannot contain the 
 /// 'factory' keyword.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer iefremov
 
 
 class C {
   factory var x = 1;
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   try {
     new C();
+//      ^
+// [cfe] unspecified
   } catch (ok) {}
 }

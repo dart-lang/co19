@@ -21,6 +21,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 
 
@@ -28,6 +29,7 @@ Object t0Instance = new Object();
 dynamic t1Instance = 2018;
 
 
+// @dart = 2.9
 
 
 
@@ -101,8 +103,7 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  // test generic functions
+    // test generic functions
   namedArgumentsFunc2<dynamic>(t0Instance, t2: t0Instance);
   positionalArgumentsFunc2<dynamic>(t0Instance, t0Instance);
 
@@ -117,5 +118,4 @@ main() {
   instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
   instance2.positionalArgumentsMethod(t0Instance, t0Instance);
   instance2.testSetter = t0Instance;
-  //# -->
-}
+  }

@@ -8,7 +8,6 @@
 /// an enum or to explicitly instantiate an enum.
 /// @description Checks that it is compile-time error to mix-in an enum using
 /// form of the form S with M
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -18,6 +17,9 @@ class C {
 }
 
 class A = C with E;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

@@ -24,7 +24,6 @@
 /// @description Checks that if two members have the same name then it is a
 /// compile error
 /// @issue 26409
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -34,6 +33,9 @@ class A {
 
 class S extends A {
   String a;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class M extends A {
@@ -41,6 +43,9 @@ class M extends A {
 }
 
 class C extends S with M {
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

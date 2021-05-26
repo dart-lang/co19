@@ -16,13 +16,15 @@
 /// @description Checks that if there is no declaration and i occurs in static
 /// function (of any kind), or static variable initializer, evaluation of i
 /// causes a NoSuchMethodError to be thrown.
-/// @compile-error
 /// @author ilya
 
 import '../../../../Utils/expect.dart';
 
 class C {
   static test() =>  undeclared();
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -13,7 +13,6 @@
 /// (T1 a1,...,Tn an, {Tn+1 xn+1: d1,...,Tn+k xn+k: dk}) async {s} may be
 /// assigned to a function type variables with Future return type and
 /// corresponding parameter types.
-/// @static-clean
 /// @author ngl@unipro.ru
 
 import 'dart:async';

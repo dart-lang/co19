@@ -8,7 +8,6 @@
 /// be assigned to a function type.
 /// @description Checks that there is no static warning when the static type of
 /// ef is Object, dynamic or bottom.
-/// @static-clean
 /// @author rodionov
 
 import '../../../../Utils/expect.dart';

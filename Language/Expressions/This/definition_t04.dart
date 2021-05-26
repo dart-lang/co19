@@ -10,16 +10,21 @@
 ///     this
 ///   ;
 /// @description Checks that word 'this' cannot be used to declare a function.
-/// @compile-error
 /// @author hlodvig
 /// @reviewer kaigorodov
 
 
 void this() {
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   try {
     this();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

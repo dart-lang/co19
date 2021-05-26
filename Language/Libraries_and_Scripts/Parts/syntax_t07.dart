@@ -23,12 +23,14 @@
 /// sequence of top-level declarations.
 /// @description Checks that in a compile-time error if the part directive
 /// includes an additive expression instead of URI.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 part 0+0;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

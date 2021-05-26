@@ -11,12 +11,14 @@
 /// the immediately enclosing class.
 /// @description Checks that it is a compile-time error if id does not refer to
 /// any member of the class.
-/// @compile-error
 /// @author msyabro
 
 
 class C {
   C(this.x) {}
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

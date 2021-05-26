@@ -9,7 +9,6 @@
 /// clause’s statement list.
 /// @description Checks that the scope of a case clause ends immediately after
 /// the case clause’s statement list.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -19,5 +18,8 @@ main() {
     case 1: var x = 2;
             break;
     case 2: x++; /// x isn't declared in this scope
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }

@@ -21,7 +21,6 @@
 /// argument e2.
 /// @description Checks that a multiplicative expression can't start
 /// with the multiplicative operator ~/.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer rodionov
@@ -30,5 +29,8 @@
 main() {
   try {
     ~/ 0.5 ~/ 0.6;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

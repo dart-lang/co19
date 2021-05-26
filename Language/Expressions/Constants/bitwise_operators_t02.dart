@@ -13,10 +13,12 @@
 ///   integer value or to null.
 /// @description Checks that an expression of the form ~e cannot be used to
 /// initialize a constant variable if e is boolean.
-/// @compile-error
 /// @author iefremov
 
 const m = ~true;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

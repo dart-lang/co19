@@ -12,7 +12,6 @@
 /// error occurs.
 /// @description Checks that a compile error occurs, if id is final instance
 /// variable that has already been initialized.
-/// @compile-error
 /// @author ilya
 /// @issue 13335
 
@@ -21,6 +20,9 @@ class A {
   var a;
   final b = 2;
   A(this.a, this.b);
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

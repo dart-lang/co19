@@ -29,7 +29,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when there're
 /// whitespace characters between an unary plus and the following digits.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -37,5 +36,8 @@
 main() {
   try {
     var i = + 1;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

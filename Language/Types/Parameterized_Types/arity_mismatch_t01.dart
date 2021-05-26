@@ -13,7 +13,6 @@
 /// Of course, a static warning will be issued.
 /// @description Checks that if G is not a generic type, the type arguments
 /// cause compile error
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 import "../../../Utils/expect.dart";
@@ -22,4 +21,7 @@ class C {}
 
 main() {
   new C<int>();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -7,10 +7,12 @@
 /// @assertion In cases where the context type is not specific enough to
 /// disambiguate, we could make it an error instead of defaulting to map.
 /// @description Checks that {...?null} collection type is detected correctly
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 main() {
   var res = {...?null};
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

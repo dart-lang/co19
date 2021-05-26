@@ -9,7 +9,6 @@
 ///   • A reference to a compile-time constant variable.
 ///   • A call to a constant constructor.
 /// @description Check that function used as metadata cause a compile time error
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:mirrors';
@@ -19,6 +18,9 @@ void metadata() {
 }
 
 @metadata()
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 class A {}
 
 main() {

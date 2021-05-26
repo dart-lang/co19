@@ -26,7 +26,6 @@
 /// @description Checks that GenericType1<T> is a subtype of GenericType2<S>
 /// where T and S are complex generics. Checks mutual assignability as well.
 /// @issue 27556
-/// @static-clean
 /// @author iefremov
 /// @reviewer rodionov
 

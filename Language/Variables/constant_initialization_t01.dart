@@ -8,13 +8,15 @@
 /// constant or a compile-time error occurs.
 /// @description Checks that a compile-time error occurs if a constant variable 
 /// is not initialized.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
 import "../../Utils/expect.dart";
 
 const foo;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

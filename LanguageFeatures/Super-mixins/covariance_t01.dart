@@ -14,7 +14,6 @@
 ///
 /// @description Checks that it is a compile error if mixin is applied to the
 /// class which doesn't implement required interface
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -33,6 +32,9 @@ mixin M on A {
 }
 
 class MA extends B with M {}
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new MA().test();

@@ -16,12 +16,14 @@
 /// ;
 /// @description Checks that it is a compile-time error when a field initializer
 /// does not include the actual assignment in addition to the field identifier.
-/// @compile-error
 /// @author iefremov
 
 
 class C {
   C() : x {}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   var x;
 }
 

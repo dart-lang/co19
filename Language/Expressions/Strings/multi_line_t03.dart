@@ -24,15 +24,30 @@
 /// ;
 /// @description Checks that it is a compile-time error when a multi-line
 /// single-quotes string literal contains another triplet of single quotes.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 main() {
+//     ^
+// [cfe] unspecified
   try {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
     '''
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
     incorrect ''' string
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
     ''';
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }
+// [error line 53, column 0]
+// [analyzer] unspecified

@@ -10,13 +10,15 @@
 /// @description Check that statement 'return e' cause a compiler error in
 /// synchronous generator method
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 class A {
   Iterable test() sync* {
     return 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

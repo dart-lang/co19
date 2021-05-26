@@ -23,7 +23,6 @@
 /// im, and the result of this invocation is the result of evaluating i.
 /// @description Checks static invocations when class C does not declare any
 /// members named m. This causes a compile error
-/// @compile-error
 /// @author msyabro
 
 
@@ -31,4 +30,7 @@ class C {}
 
 main() {
   C.m();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

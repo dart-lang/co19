@@ -8,14 +8,18 @@
 /// of itself.
 /// @description Checks that it is a compile-time error if a generic interface
 /// is a superinterface of itself.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 abstract class I<T> implements I<T> {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class A implements I {}
+//    ^
+// [cfe] unspecified
 
 main() {
   try {

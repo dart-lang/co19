@@ -9,7 +9,6 @@
 /// have the type void.
 /// @description Checks that it is a compile error when assigning the result of
 /// a void method invocation to a variable whose declared type is not dynamic
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -19,4 +18,7 @@ void foo() {
 
 main() {
   int i = foo();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

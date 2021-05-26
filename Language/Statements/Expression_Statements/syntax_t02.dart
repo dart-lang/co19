@@ -14,7 +14,6 @@
 /// It is a compile-time error if a non-constant map literal that has no explicit
 /// type arguments appears in a place where a statement is expected.
 /// @description Checks that an expression statement must end with a semicolon.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -22,5 +21,8 @@
 
 main() {
   var foo = true
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

@@ -22,13 +22,15 @@
 /// @description Checks that the for statement can't be a body of a function of
 /// the form [functionSignature '=>' expression ';'].
 ///
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer iefremov
 
 
 f() => for (int i = 0; i < 100; i++);
+//                                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

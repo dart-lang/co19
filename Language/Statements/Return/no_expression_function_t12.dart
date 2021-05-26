@@ -14,7 +14,6 @@
 /// @description Checks that there's no static warning when a statement of the
 /// form "return;" is used in a method that whose return type is void
 ///
-/// @static-clean
 /// @author a.semenov@unipro.ru
 
 

@@ -37,12 +37,14 @@
 /// ;
 /// @description Checks that a for statement can't be used in place of a class 
 /// member definition.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   for ( ; ; ) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

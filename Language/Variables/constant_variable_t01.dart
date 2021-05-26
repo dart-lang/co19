@@ -8,10 +8,12 @@
 /// modifier const. A constant variable is always implicitly final.
 /// @description Checks that, if a new value is assigned to a constant local 
 /// variable after it is initialized at declaration, then compile error occurs.
-/// @compile-error
 /// @author msyabro
 
 main() {
   const foo = "foo";
   foo = "bar";
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

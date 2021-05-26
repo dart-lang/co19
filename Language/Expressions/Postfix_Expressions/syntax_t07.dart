@@ -24,7 +24,6 @@
 /// getter invocation, or an invocation of a postfix operator on an expression e.
 /// @description Checks that a postfixExpression can't be used with
 /// postfixOperator.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer rodionov
@@ -34,5 +33,8 @@ main() {
   var x = 1;
   try {
     x++++;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

@@ -24,12 +24,16 @@
 /// ;
 /// @description Checks that it is a compile-time error if a static setter
 /// method definition does not include a body.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
+//    ^
+// [cfe] unspecified
   static set val(var v);
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   static var _val;
 }
 

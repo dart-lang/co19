@@ -12,7 +12,6 @@
 ///   by a deferred prefix.
 /// @description Checks that a qualified reference with a deferred prefix to a
 /// static constant variable cannot be used as a constant expression.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
@@ -22,8 +21,14 @@ import 'constants_lib.dart' deferred as clib;
 const x = '';
 
 const constList = const [
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
   x,
   clib.yy
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 ];
 
 main() {

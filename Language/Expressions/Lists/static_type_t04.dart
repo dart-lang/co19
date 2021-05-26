@@ -9,11 +9,13 @@
 /// @description Checks that a compile error occurs when assigning a list
 /// literal with int type parameter to a variable with declared type
 /// List<String>.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
 
 main() {
   List<String> s = <int>[1, 2, 3];
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

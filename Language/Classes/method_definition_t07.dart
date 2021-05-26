@@ -24,12 +24,16 @@
 /// ;
 /// @description Checks that there is a compile-time error if a static getter
 /// method definition does not include a body.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
+//    ^
+// [cfe] unspecified
   static get val;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -13,13 +13,15 @@
 /// @description Check that it is compile error if ';' is missing
 /// in yield-each statement in asynchronous generator function
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
 
 Stream<int> test() async* {
   yield* new Stream<int>.fromIterable([1])
+//                                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

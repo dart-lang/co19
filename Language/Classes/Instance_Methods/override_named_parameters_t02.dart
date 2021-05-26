@@ -9,7 +9,6 @@
 /// by m2.
 /// @description Checks that a compile error is produced if m1 has fewer named
 /// parameters than m2 (1 vs. 0) and neither have any required parameters.
-/// @compile-error
 /// @author iefremov
 
 
@@ -19,6 +18,9 @@ class A {
 
 class C extends A {
   f() { }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

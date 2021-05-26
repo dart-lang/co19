@@ -23,7 +23,6 @@
 /// @description Checks that it is a compile error if there is no setter v= in
 /// class Sdynamic
 /// @author sgrekhov@unipro.ru
-/// @compile-error
 
 import '../../../Utils/expect.dart';
 
@@ -35,6 +34,9 @@ class C extends A {
 
   test() {
     Expect.throws(() {super.v = 1;}, (e) => e is NoSuchMethodError);
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

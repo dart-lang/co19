@@ -11,7 +11,6 @@
 /// named 'foo=' and a getter named 'foo' with argument/return types that are
 /// not mutually assignable. Types in getter/setter signatures provided
 /// explicitly (String and double).
-/// @compile-error
 /// @author iefremov
 
 
@@ -19,9 +18,15 @@ class C {
   set foo(double d) {
   }
   String get foo => "";
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   new C().foo = new C().foo;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

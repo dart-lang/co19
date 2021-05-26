@@ -18,7 +18,6 @@
 /// argument e2.
 /// @description Checks that a reference to a class declaration can not be used
 /// as right operand in an additive expression. It is a compile error.
-/// @compile-error
 /// @author msyabro
 
 
@@ -27,5 +26,8 @@ class A {}
 main() {
   try {
     1 - A;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

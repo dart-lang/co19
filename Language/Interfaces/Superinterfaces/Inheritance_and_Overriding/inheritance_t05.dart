@@ -30,7 +30,6 @@
 /// include variables, methods, getters, setters and operators. There's no way
 /// to check whether the resulting inherited method signature is actually as
 /// described above, but we can check that it's inherited at all.
-/// @static-clean
 /// @author rodionov
 
 import '../../../../Utils/expect.dart';

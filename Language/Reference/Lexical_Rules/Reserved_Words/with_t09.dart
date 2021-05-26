@@ -9,7 +9,6 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "with" is used as an identifier in a catch clause.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
@@ -19,6 +18,9 @@ main() {
     try {
       int x = 0;
     } catch (with) {}
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (anything) {
   }
 }

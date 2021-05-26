@@ -22,13 +22,15 @@
 /// @description Checks that the switch statement can't be a body of a function
 /// of the form [functionSignature '=>' expression ';'].
 ///
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer iefremov
 
 
 f() => switch (1 + 1) {case 1: false; case 2: true; default: false;};
+//                                                                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

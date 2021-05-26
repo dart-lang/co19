@@ -12,7 +12,6 @@
 /// • A static warning is issued.
 /// @description Checks that implicit hiding of SDK library classes is
 /// prohibited.
-/// @static-warning
 /// @author ilya
 
 import "../../../Utils/expect.dart";

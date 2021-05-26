@@ -13,7 +13,6 @@
 /// Then the type of v is known to be T in s1.
 /// @description Checks that if b shows that v has type T, but v is potentially
 /// mutated in s1, then the type of v is not known to be T in s1.
-/// @compile-error
 /// @author ilya
 
 
@@ -26,6 +25,9 @@ f(C x) {
   if (x is D) {
     x = new C();
     x.f();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

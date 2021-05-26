@@ -10,12 +10,14 @@
 /// @description Checks that a compile-time error is produced if the same
 /// instance variable is initialized more than once in an initializer list
 /// (referenced as both this.name and just name).
-/// @compile-error
 /// @author rodionov
 
 
 class C {
   C() : x = 1, y = 2, this.x = 3;
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   var x;
   var y;
 }

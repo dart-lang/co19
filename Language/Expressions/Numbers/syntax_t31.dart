@@ -29,7 +29,6 @@
 /// ;
 /// @description Checks that a decimal numeric literal cannot contain
 /// non-decimal digits.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -37,5 +36,8 @@
 main() {
   try {
     var i = 1f;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

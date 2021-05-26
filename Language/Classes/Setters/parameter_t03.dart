@@ -8,12 +8,14 @@
 /// does not consist of exactly one required formal parameter p.
 /// @description Checks that a compile-time error is produced if a setter's
 /// formal parameter list is empty.
-/// @compile-error
 /// @author iefremov
 
 
 class C {
  void set setter() { }
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

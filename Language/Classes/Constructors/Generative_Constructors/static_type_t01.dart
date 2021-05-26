@@ -8,12 +8,14 @@
 /// to Tid.
 /// @description Checks that it is a compile error if the static type of id is
 /// not assignable to Tid.
-/// @compile-error
 /// @author msyabro
 
 
 class C {
   C(int this.id) {}
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   String id;
 }
 

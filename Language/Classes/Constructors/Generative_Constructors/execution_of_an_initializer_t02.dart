@@ -16,7 +16,6 @@
 /// this.v = e.
 /// @description Checks that a compile-error occurs, by using an initializer of
 /// the form this.v = e for already initiailized final instance variable.
-/// @compile-error
 /// @author ilya
 /// @issue 13335
 
@@ -24,6 +23,9 @@
 class C {
   final x = 1;
   C() : this.x = 2 {}
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -26,7 +26,6 @@
 /// @description Checks that a generic interface type B that is a subtype of a
 /// generic type A parameterized with type parameters of B is not assignable to
 /// A parameterized with another, incompatible set of type parameters.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -38,4 +37,7 @@ B<int, double> checker() {}
 
 main() {
   A<int, int, double, int> a = checker();
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

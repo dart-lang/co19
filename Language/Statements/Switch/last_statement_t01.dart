@@ -9,7 +9,6 @@
 /// @description Checks that it is a compile error if the last statement of the
 /// statement sequence of a case clause is not a break, continue, return or throw
 /// statement.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -17,6 +16,9 @@
 main() {
   switch (1) {
     case 0: false;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
     case 1: true;
             break;
   }

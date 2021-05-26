@@ -14,7 +14,6 @@
 /// @description Checks that a static warning occurs if a statement of the form
 /// "return;" is used in a getter method whose declared return type is bool.
 ///
-/// @static-warning
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -23,7 +22,10 @@
 class C {
   C() { }
   bool get foo {
-    return; /// static type warning
+    return;
+//  ^
+// [analyzer] unspecified
+// [cfe] Must explicitly return a value from a non-void function.
   }
 }
 

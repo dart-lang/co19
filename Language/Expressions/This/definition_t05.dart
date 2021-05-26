@@ -10,7 +10,6 @@
 ///     this
 ///   ;
 /// @description Checks that word 'this' cannot be used in a non-instance context.
-/// @compile-error
 /// @author hlodvig
 /// @reviewer kaigorodov
 
@@ -18,5 +17,8 @@
 main() {
   try {
     var x = this;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

@@ -22,16 +22,20 @@
 /// @description Checks that a typedef can't be defined in a body
 /// of a function of the form [functionSignature '=>' expression ';'].
 ///
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer iefremov
 
 
 f() => typedef void f();
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     f();
+//  ^
+// [cfe] unspecified
   } catch (x) {}
 }

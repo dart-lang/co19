@@ -12,12 +12,14 @@
 /// @description Checks that it is a compile-time error if both opening and 
 /// closing curly brackets are missed in a class type definition with extends 
 /// clause. Class body is empty.
-/// @compile-error
 /// @author msyabro
 
 
 class S {}
 class A extends S
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

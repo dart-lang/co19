@@ -22,7 +22,6 @@
 /// @description Checks that typeArgument in returnType must be surrounded with
 /// single angle brackets.
 ///
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer iefremov
 
@@ -31,8 +30,14 @@ main() {
   try {
     List<List<int>> f1() {return null;}
     List<List<<int>>> f2() {return null;}
+//                                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     f1();
     f2();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

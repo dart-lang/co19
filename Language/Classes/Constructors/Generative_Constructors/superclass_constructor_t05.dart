@@ -11,7 +11,6 @@
 /// @description Checks that it is a compile-time error when the superclass S
 /// declares a factory constructor named S and its subclass's constructor
 /// contains an explicit super() superinitializer.
-/// @compile-error
 /// @author rodionov
 
 
@@ -22,6 +21,9 @@ class S {
 
 class C extends S {
   C() : super() {}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

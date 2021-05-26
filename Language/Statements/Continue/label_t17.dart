@@ -13,7 +13,6 @@
 /// @description Checks that it is a compile-time error if a 'continue;'
 /// statement occurs in a function literal described in while statement without
 /// label.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -22,5 +21,8 @@
 main() {
   while (true) {
     () {continue;} ();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }

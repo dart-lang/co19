@@ -18,7 +18,6 @@
 ///
 /// @description Check that if type T0 not a subtype of a type T1, then instance
 /// of T0 cannot be be used as a return value of type T1. Return value is tested.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
@@ -28,6 +27,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 
 
@@ -40,24 +40,40 @@ T0 t0Instance = new T0();
 FutureOr<S1> t1Instance = new Future.value(new S1());
 
 
+// @dart = 2.9
 
 
-
-FutureOr<S1> returnValueFunc() => t0Instance; //# 01: compile-time error
+FutureOr<S1> returnValueFunc() => t0Instance;
+//                       ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class ReturnValueTest {
-  static FutureOr<S1> staticTestMethod() => t0Instance; //# 03: compile-time error
-  FutureOr<S1> testMethod() => t0Instance; //# 04: compile-time error
-  FutureOr<S1> get testGetter => t0Instance; //# 05: compile-time error
+  static FutureOr<S1> staticTestMethod() => t0Instance;
+//                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  FutureOr<S1> testMethod() => t0Instance;
+//                    ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  FutureOr<S1> get testGetter => t0Instance;
+//                      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  returnValueFunc(); //# 01: compile-time error
+  returnValueFunc();
 
-  FutureOr<S1> returnValueLocalFunc() => t0Instance; //# 02: compile-time error
-  returnValueLocalFunc(); //# 02: compile-time error
+  FutureOr<S1> returnValueLocalFunc() => t0Instance;
+//                              ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  returnValueLocalFunc();
 
-  ReturnValueTest.staticTestMethod(); //# 03: compile-time error
-  new ReturnValueTest().testMethod(); //# 04: compile-time error
-  new ReturnValueTest().testGetter; //# 05: compile-time error
+  ReturnValueTest.staticTestMethod();
+  new ReturnValueTest().testMethod();
+  new ReturnValueTest().testGetter;
 }

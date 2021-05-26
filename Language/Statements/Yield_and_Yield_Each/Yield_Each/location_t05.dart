@@ -11,13 +11,15 @@
 /// inside synchronous method.
 ///
 /// @issue #25495
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 class A {
   test() {
     yield* [1];
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

@@ -15,7 +15,6 @@
 /// @description Checks that access to private instance class members
 /// from a script that imports the library where the class is declared results
 /// in compile error.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -24,4 +23,7 @@ import "../lib.dart";
 main() {
   var c = new ClassWithPrivateMembers();
   c._var = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

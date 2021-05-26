@@ -22,7 +22,6 @@
 ///
 /// @description Check that if type T0 not a subtype of a type T1, then instance
 /// of T0 cannot be be used as a return value of type T1. Return value is tested.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
@@ -32,6 +31,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 
 
@@ -90,25 +90,41 @@ U<A, List, double> t1Func<X extends B0, Y extends B1>(
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
+// @dart = 2.9
 
 
-
-T1 returnValueFunc() => t0Instance; //# 01: compile-time error
+T1 returnValueFunc() => t0Instance;
+//                       ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class ReturnValueTest {
-  static T1 staticTestMethod() => t0Instance; //# 03: compile-time error
-  T1 testMethod() => t0Instance; //# 04: compile-time error
-  T1 get testGetter => t0Instance; //# 05: compile-time error
+  static T1 staticTestMethod() => t0Instance;
+//                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  T1 testMethod() => t0Instance;
+//                    ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  T1 get testGetter => t0Instance;
+//                      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  returnValueFunc(); //# 01: compile-time error
+  returnValueFunc();
 
-  T1 returnValueLocalFunc() => t0Instance; //# 02: compile-time error
-  returnValueLocalFunc(); //# 02: compile-time error
+  T1 returnValueLocalFunc() => t0Instance;
+//                              ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  returnValueLocalFunc();
 
-  ReturnValueTest.staticTestMethod(); //# 03: compile-time error
-  new ReturnValueTest().testMethod(); //# 04: compile-time error
-  new ReturnValueTest().testGetter; //# 05: compile-time error
+  ReturnValueTest.staticTestMethod();
+  new ReturnValueTest().testMethod();
+  new ReturnValueTest().testGetter;
 }
 

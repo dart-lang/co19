@@ -21,7 +21,6 @@
 ///
 /// @description Checks that angle brackets in return type must be balanced.
 ///
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer iefremov
 
@@ -30,8 +29,14 @@ main() {
   try {
     List<List<int>> f1() {return null;}
     List<List<int>>> f2() {return null;}
+//                                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     f1();
     f2();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

@@ -24,13 +24,15 @@
 /// ;
 /// @description Checks that it is a compile error if a function with an
 /// expression for a body is missing the formal parameter list.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer rodionov
 
 
 main() {
   int function1 => 1;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
   try {
     function1();
   } catch (x) {}

@@ -8,10 +8,12 @@
 /// within an on-catch clause.
 /// @description Checks that it is a compile-time error if a rethrow statement
 /// is not enclosed within an on-catch clause.
-/// @compile-error
 /// @author kaigorodov
 
 
 main() {
   rethrow;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

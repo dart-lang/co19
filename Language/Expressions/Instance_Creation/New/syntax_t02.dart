@@ -10,7 +10,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if
 /// a new expression does not have arguments.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -22,5 +21,8 @@ class A {
 main() {
   try {
     new A;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

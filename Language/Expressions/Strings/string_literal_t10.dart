@@ -30,7 +30,6 @@
 /// ;
 /// @description Checks that a double-quotes string literal can't contain a
 /// double quote character that is not escaped using a backslash character.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -38,5 +37,8 @@
 main() {
   try {
     "invalid " string";
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

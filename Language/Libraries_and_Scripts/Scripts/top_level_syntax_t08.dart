@@ -25,14 +25,19 @@
 /// ;
 /// @description Checks that it is a compile-time error when an if statement
 /// is used in place of a top level definition in a script.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 if (true) {
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   true;
 } else {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
   false;
 }
 

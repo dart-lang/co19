@@ -13,13 +13,15 @@
 /// ;
 /// @description Checks that it is a compile-time error when a script has two
 /// library directives.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 library L;
 library M;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

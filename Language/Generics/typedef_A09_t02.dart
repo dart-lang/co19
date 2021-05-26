@@ -23,13 +23,15 @@
 /// they just cannot be abbreviated using a generic type alias.
 /// @description Checks that example from the Spec throws compile error as
 /// expected.
-/// @compile-error
 /// @Issue 36960
 /// @author iarkh@unipro.ru
 
 
 class A<X extends void Function(num)> {}
 typedef F<Y> = A<void Function(Y)> Function();
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

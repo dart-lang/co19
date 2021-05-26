@@ -7,5 +7,11 @@
 
 library Exports_test_lib;
 export "syntax_lib.dart"
+//^    ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-as prfx;
+  as prfx;
+//^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

@@ -27,13 +27,15 @@
 /// ;
 /// @description Checks that a functionSignature parameter cannot be declared as
 /// variable.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer iefremov
 /// @reviewer rodionov
 
 
 func(var x()) {
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   return x();
 }
 

@@ -17,7 +17,6 @@
 /// String toString() => { 0: ‘E.id 0 ’, . . ., n-1: ‘E.id n−1 ’}[index]
 /// }
 /// @description Checks that enum index value is final
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -26,4 +25,7 @@ enum E {a, b, c}
 main() {
   E e = E.a;
   e.index = -1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -13,13 +13,15 @@
 ///   not qualified by a deferred prefix.
 /// @description Checks that a qualified identifier that denotes a type alias
 /// accessed via a deferred prefix is not a constant expression.
-/// @compile-error
 /// @author ngl@unipo.ru
 
 
 import '../lib.dart' deferred as prefix;
 
 const b = prefix.B; // type alias
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   b;

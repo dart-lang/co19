@@ -13,13 +13,15 @@
 ///   not qualified by a deferred prefix.
 /// @description Checks that an identifier expression that denotes a type
 /// parameter cannot be used as const initializer.
-/// @compile-error
 /// @Issue 27477
 /// @author rodionov
 
 
 class C<T> {
   static const List lst = const [T];
+//                               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

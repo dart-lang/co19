@@ -22,13 +22,15 @@
 /// @description Checks that the assert statement can't be a body of a function
 /// of the form [functionSignature '=>' expression ';'].
 ///
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer iefremov
 
 
 f() => assert (false);
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

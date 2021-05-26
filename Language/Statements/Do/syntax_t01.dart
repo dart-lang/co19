@@ -11,7 +11,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the loop statement is
 /// empty.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -22,5 +21,8 @@ main() {
     do
     while (true);
   } catch (x) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

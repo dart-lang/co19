@@ -26,7 +26,6 @@
 /// • An invocation of a getter or list access operator on super.
 /// @description Checks that an expression not enclosed in parentheses can't
 /// be used with assignableSelector in the left hand side of an assignment.
-/// @compile-error
 /// @author msyabro
 
 
@@ -34,5 +33,8 @@ main() {
   var id = 1;
   try {
     id++ = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

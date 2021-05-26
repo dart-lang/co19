@@ -8,11 +8,13 @@
 /// constant expression but its evaluation would raise an exception.
 /// @description Checks that an IntegerDivisionByZeroException raised during
 /// evaluation of a compile-time constant causes a compile-time error.
-/// @compile-error
 /// @author iefremov
 
 
 const m = 1 % 0;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

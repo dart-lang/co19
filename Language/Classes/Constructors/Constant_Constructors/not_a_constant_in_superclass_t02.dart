@@ -14,7 +14,6 @@
 /// @description Checks that compile error is produced if class declares a
 /// constant constructor and its superclass has overriden instance variable
 /// initialized by non-constant expression.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 class A {
@@ -26,9 +25,17 @@ class B {
 
 class C extends B {
   final x = 1;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   const C();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   const C();
+//^
+// [analyzer] unspecified
 }

@@ -12,7 +12,6 @@
 /// @description Checks that assigning the result of a void method invocation to
 /// a variable whose declared type is dynamic does not cause any warnings or
 /// errors.
-/// @static-clean
 /// @author rodionov
 /// @needsreview Assertion of this test cites non-normative text.
 /// Possibly, this text in the spec should be normative?

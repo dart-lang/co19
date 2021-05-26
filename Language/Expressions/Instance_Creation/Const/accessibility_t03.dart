@@ -10,7 +10,6 @@
 /// error if T does not denote a class accessible in the current scope.
 /// @description Checks that it is a compile-time error if T is a reference to
 /// a top-level function.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -20,5 +19,8 @@ func() {}
 main() {
   try {
     const func();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

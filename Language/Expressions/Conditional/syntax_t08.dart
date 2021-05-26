@@ -11,7 +11,6 @@
 /// expressionWithoutCascade)?
 /// ;
 /// @description Checks that ':' expression is necessary.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -19,5 +18,8 @@
 main() {
   try {
     true ? 1 2;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

@@ -12,7 +12,6 @@
 /// constructor to a variable whose type is not assignable to M<T1,...,Tn>
 /// produces a compile error. Factory constructor name is that of its
 /// enclosing class.
-/// @compile-error
 /// @author iefremov
 
 
@@ -27,5 +26,8 @@ class M<T, U, V> {
 typedef f();
 
 main() {
-  M<S3, int, int> m1 = new M<S2, num, Function>(); /// static type warning not assignable
+  M<S3, int, int> m1 = new M<S2, num, Function>(); not assignable
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

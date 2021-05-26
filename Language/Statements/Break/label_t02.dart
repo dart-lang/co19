@@ -11,7 +11,6 @@
 /// sE exists within the innermost function in which sb occurs.
 /// @description Checks that it is a compile-time error when a break statement of
 /// the form "break L;" occurs outside of a labeled statement.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
@@ -19,6 +18,9 @@
 foo() {
   for (int i in [1,2]) {
     break L;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

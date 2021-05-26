@@ -10,11 +10,13 @@
 /// in the lexical scope enclosing the expression.
 /// @description Checks that it is a compile error when an identifier expression
 /// references an undeclared identifier in a library setter.
-/// @compile-error
 /// @author ilya
 
 
 set setter (_) => undeclared;
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   setter = 1;

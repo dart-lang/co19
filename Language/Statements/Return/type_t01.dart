@@ -15,7 +15,6 @@
 /// not be assigned to the declared return type of the immediately enclosing
 /// function.
 ///
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -24,6 +23,9 @@ import '../../../Utils/dynamic_check.dart';
 
 int foo() {
   return "0";
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

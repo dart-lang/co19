@@ -7,9 +7,11 @@
 /// @description Regression test for issue 33421 (Dart does not throw error when
 /// type parameter is a supertype of its upper bound): checks that type parameter
 /// cannot extend itself
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 class A<X extends X> {}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {}

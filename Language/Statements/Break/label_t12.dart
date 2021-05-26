@@ -11,7 +11,6 @@
 /// sE exists within the innermost function in which sb occurs.
 /// @description Checks that it is a compile-time error when no such statement sE
 /// exists within the innermost function.
-/// @compile-error
 /// @author ilya
 
 
@@ -20,6 +19,9 @@ main() {
     f(x) {
       if (x == 1)
         break L;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
     }
     f(i);
   }

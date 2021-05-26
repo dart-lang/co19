@@ -9,7 +9,6 @@
 /// erroneous code is executed.
 /// @description Checks that erroneous code is not executed if there is
 /// a compile-time error. Test error in nested function
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -21,6 +20,9 @@ void f1() {
 
 void f2() {
   var a = ;
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

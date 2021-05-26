@@ -15,7 +15,6 @@
 ///
 /// @description Check that if type T0 not a subtype of a type T1, then instance
 /// of T0 cannot be be used as a return value of type T1. Return value is tested.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
@@ -25,6 +24,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 
 
@@ -34,6 +34,7 @@ abstract class U2 {}
 
 abstract class S0 extends U0 {}
 abstract class S1 extends U1 {}
+// no subtype relation between S2 and U2
 abstract class S2 {}
 
 class C0<X, Y, Z> {}
@@ -42,24 +43,40 @@ C0<S0, S1, S2> t0Instance = new C0<S0, S1, S2>();
 C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
 
 
+// @dart = 2.9
 
 
-
-C0<U0, U1, U2> returnValueFunc() => t0Instance; //# 01: compile-time error
+C0<U0, U1, U2> returnValueFunc() => t0Instance;
+//                       ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class ReturnValueTest {
-  static C0<U0, U1, U2> staticTestMethod() => t0Instance; //# 03: compile-time error
-  C0<U0, U1, U2> testMethod() => t0Instance; //# 04: compile-time error
-  C0<U0, U1, U2> get testGetter => t0Instance; //# 05: compile-time error
+  static C0<U0, U1, U2> staticTestMethod() => t0Instance;
+//                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C0<U0, U1, U2> testMethod() => t0Instance;
+//                    ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C0<U0, U1, U2> get testGetter => t0Instance;
+//                      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  returnValueFunc(); //# 01: compile-time error
+  returnValueFunc();
 
-  C0<U0, U1, U2> returnValueLocalFunc() => t0Instance; //# 02: compile-time error
-  returnValueLocalFunc(); //# 02: compile-time error
+  C0<U0, U1, U2> returnValueLocalFunc() => t0Instance;
+//                              ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  returnValueLocalFunc();
 
-  ReturnValueTest.staticTestMethod(); //# 03: compile-time error
-  new ReturnValueTest().testMethod(); //# 04: compile-time error
-  new ReturnValueTest().testGetter; //# 05: compile-time error
+  ReturnValueTest.staticTestMethod();
+  new ReturnValueTest().testMethod();
+  new ReturnValueTest().testGetter;
 }

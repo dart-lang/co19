@@ -9,7 +9,6 @@
 /// type S of the expression v and both T != dynamic and S != dynamic.
 /// @description Checks that if S is dynamic, is-expression does not show that
 /// v has type T.
-/// @static-clean
 /// @author ilya
 
 import '../../../Utils/expect.dart';

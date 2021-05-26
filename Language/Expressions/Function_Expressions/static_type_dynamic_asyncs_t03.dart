@@ -13,7 +13,6 @@
 /// the form (T1 a1,...,Tn an, [Tn+1 xn+1 = d1,...,Tn+k xn+k = dk]) async* {s}
 /// with two parameters is assigned to a variable of a function type with the
 /// same parameters and Future return type.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 import 'dart:async';
@@ -22,5 +21,8 @@ typedef Future streamFuncParam(int p1, [bool p2]);
 
 main() {
   streamFuncParam sfp1 = (int p1, [bool p2]) async* {};
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   sfp1(1);
 }

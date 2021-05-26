@@ -10,15 +10,25 @@
 /// superinterface of I.
 /// @description Checks that it is a compile-time error if the chain of
 /// superinterfaces forms a circular dependency.
-/// @compile-error
 /// @author vasya
 
 
 abstract class C implements A {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 abstract class B implements C {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 abstract class A implements B {}
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class D implements A {}
+//    ^
+// [cfe] unspecified
 
 main() {
   try {

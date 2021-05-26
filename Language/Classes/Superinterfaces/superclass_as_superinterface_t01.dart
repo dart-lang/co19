@@ -8,12 +8,14 @@
 /// specified as a superinterface of C.
 /// @description Test checks that it is a compile-time error when a class has
 /// the same class as superclass and interface.
-/// @compile-error
 /// @author hlodvig
 
 abstract class A {}
 
 class C extends A implements A {}
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main () {
   try {

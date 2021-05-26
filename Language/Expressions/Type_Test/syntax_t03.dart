@@ -13,7 +13,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when using a value
 /// literal in the right part of the expression.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -21,5 +20,8 @@
 main () {
   try {
     1 is 1;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

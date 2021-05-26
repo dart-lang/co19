@@ -10,7 +10,6 @@
 /// not a constructor of C.
 /// @description Checks that a compile error is produced if referenced type in
 /// redirecting constructor is a function.
-/// @compile-error
 /// @author ilya
 
 
@@ -18,6 +17,9 @@ function() {}
 
 class F {
   factory F() = function;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

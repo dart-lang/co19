@@ -8,12 +8,14 @@
 /// mix in or implement bool.
 /// @description Checks that it is a compile-time error when a user-defined
 /// class attempts to implement bool.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 class C implements bool {}
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

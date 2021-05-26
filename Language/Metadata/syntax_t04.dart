@@ -9,7 +9,6 @@
 ///   (‘@’ qualified (‘.’ identifier)? (arguments)?)*
 ///   ;
 /// @description Check that it is a compile time error, if @ is missing
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
@@ -18,7 +17,13 @@ class A {
 }
 
 A()
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 class B {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

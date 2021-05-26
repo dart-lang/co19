@@ -27,15 +27,19 @@
 /// ;
 /// @description Checks that initializing formals are not allowed in local
 /// functions.
-/// @compile-error
 /// @author ilya
 /// @reviewer
 
 
 main() {
   f(this.x) {}
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   try {
     f(0);
+//    ^
+// [analyzer] unspecified
   } catch (e) {}
 }

@@ -8,12 +8,14 @@
 /// other than void
 /// @description Checks that a compile-time error is produced if a setter
 /// declares int as its return type.
-/// @compile-error
 /// @author vasya
 
 
 class C {
   int set foo(var x) {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

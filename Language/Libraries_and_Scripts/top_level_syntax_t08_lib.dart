@@ -7,7 +7,11 @@
 
 library Libraries_and_Scripts_A01_t08;
 
-{
+  {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   var x = 1;
   x += 1;
 }

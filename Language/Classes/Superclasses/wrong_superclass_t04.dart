@@ -9,11 +9,13 @@
 /// superclass.
 /// @description Checks that it is a compile-time error if static type is used
 /// as a superclass
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 class A extends int {}
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

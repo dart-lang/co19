@@ -25,7 +25,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when a function
 /// invocation expression is used in place of a top level definition in a script.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -33,6 +32,12 @@
 f() {}
 
 f()
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

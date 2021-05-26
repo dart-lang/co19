@@ -30,13 +30,15 @@
 ///   ;
 /// @description Checks that a variable declaration cannot contain the 
 /// 'abstract' keyword.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer iefremov
 
 
 class C {
   abstract var x = 1;
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

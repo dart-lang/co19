@@ -8,7 +8,6 @@
 /// explicitly declares a constructor.
 /// @description Checks that it is a compile-time error if a derived mixin
 /// explicitly declares a constructor.
-/// @compile-error
 /// @author kaigorodov, sgrekhov@unipro.ru
 
 
@@ -20,6 +19,9 @@ class M {
 }
 
 class C extends A with M {
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

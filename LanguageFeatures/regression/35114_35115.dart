@@ -10,7 +10,6 @@
 /// class with typed function parameter if it's parametrized contravariant or
 /// invariant)
 /// @Issue 35114, 35115
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -25,4 +24,7 @@ main() {
   A<G<dynamic>> b1;
   A<G<Null>> a1;
   A<G<int>> c1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

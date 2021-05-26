@@ -11,10 +11,12 @@
 /// @description Checks that it is a static error when the type of the stream
 /// expression in an asynchronous await for-in element may not be assigned to
 /// Stream<T> for some type T
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 main() async {
   [await for (var i in "not stream") i];
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

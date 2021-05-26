@@ -17,7 +17,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if suffix is a list
 /// literal.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -30,6 +29,9 @@ main() {
   var o = new C();
   try {
     o..[1, 2, 3];
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }
 

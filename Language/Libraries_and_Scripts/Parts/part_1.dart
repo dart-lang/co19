@@ -5,7 +5,10 @@
 // @dart = 2.9
 
 part of Parts_test_lib;
-part "part_11.dart";
+  part "part_11.dart";
+//^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class A { }
 

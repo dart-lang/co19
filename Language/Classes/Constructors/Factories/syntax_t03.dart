@@ -12,12 +12,14 @@
 /// @description Checks that it is a compile-time error if a factory constructor
 /// declaration has the dot but not the named constructor identifier that should
 /// follow it.
-/// @compile-error
 /// @author iefremov
 
 
 class C {
   factory C.() {}
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

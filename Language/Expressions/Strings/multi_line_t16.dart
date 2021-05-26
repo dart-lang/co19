@@ -24,13 +24,22 @@
 /// ;
 /// @description Checks that it is a compile-time error when a raw multi-line
 /// single-quotes string literal does not have the opening triplet.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 main() {
+//     ^
+// [cfe] unspecified
   try {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+// [error line 45, column 0]
+// [analyzer] unspecified
     r incorrect string''';
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

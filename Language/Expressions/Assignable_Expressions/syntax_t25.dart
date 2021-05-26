@@ -26,12 +26,14 @@
 /// • An invocation of a getter or list access operator on super.
 /// @description Checks that a binary expression without assignableSelector
 /// can't be used in the left hand side of an assignment.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   try {
     (2 + 2) = 1;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

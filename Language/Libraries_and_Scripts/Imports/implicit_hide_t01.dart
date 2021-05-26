@@ -14,7 +14,6 @@
 /// @description Checks that if N is referenced by L and N would be introduced
 /// by implicit import of 'dart:core' and library whose URI does not begin with
 /// 'dart:', then compile error is issued
-/// @static-warning
 /// @author ilya
 
 import "../../../Utils/expect.dart";

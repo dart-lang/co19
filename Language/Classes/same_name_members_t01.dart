@@ -8,7 +8,6 @@
 /// the same name.
 /// @description Checks that it is a compile-time error if a class declares 
 /// two functions of the same name.
-/// @compile-error
 /// @author vasya
 
 
@@ -17,6 +16,9 @@ class C {
   
   void f() {}
   int f() => 1;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

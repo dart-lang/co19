@@ -10,7 +10,6 @@
 /// initializer of an instance variable.
 /// @description Checks that it is a compile-error if 'this' appears in a
 /// factory constructor.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -18,6 +17,9 @@
 class C {
   factory C() {
     x = this;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 
   var x;

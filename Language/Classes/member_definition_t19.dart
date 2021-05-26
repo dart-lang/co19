@@ -37,12 +37,16 @@
 /// ;
 /// @description Checks that an abstract static method can't be used in place 
 /// of a class member definition.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
+//    ^
+// [cfe] unspecified
   static method();
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

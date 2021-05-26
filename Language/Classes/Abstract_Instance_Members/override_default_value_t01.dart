@@ -16,7 +16,6 @@
 /// See https://github.com/dart-lang/sdk/issues/34437#issuecomment-432093691
 ///
 /// @issue 27476
-/// @static-warning
 /// @author msyabro
 
 
@@ -25,7 +24,9 @@ class A {
 }
 
 class C extends A {
-  foo([x = '']); /// static type warning
+  foo([x = '']);
+//     ^^^^^^
+// [analyzer] STATIC_WARNING.INVALID_OVERRIDE_DIFFERENT_DEFAULT_VALUES_POSITIONAL
 }
 
 main() {

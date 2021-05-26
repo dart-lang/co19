@@ -29,7 +29,6 @@
 /// ;
 /// @description Checks that the exponent part of a literal must contain at
 /// least one digit.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -37,5 +36,8 @@
 main() {
   try {
     var i = 1e;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

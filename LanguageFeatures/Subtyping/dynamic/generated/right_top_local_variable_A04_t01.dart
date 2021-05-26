@@ -21,6 +21,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 
@@ -29,6 +30,7 @@ Object t0Instance = new Object();
 dynamic t1Instance = 2018;
 
 
+// @dart = 2.9
 
 
 

@@ -9,7 +9,6 @@
 /// erroneous code is executed.
 /// @description Checks that erroneous code is not executed if there is
 /// a compile-time error. Test error in class constructor
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -18,6 +17,9 @@ import '../../Utils/expect.dart';
 class C {
   C() {
     var a = ;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

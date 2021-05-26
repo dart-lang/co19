@@ -8,13 +8,15 @@
 /// a constant variable.
 /// @description Checks that it is a compile-time error if a required parameter
 /// is declared as a constant typed variable.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 /// @reviewer rodionov
 
 
 void f(const int x) {}
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main () {
   try {

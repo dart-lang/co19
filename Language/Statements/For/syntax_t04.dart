@@ -19,7 +19,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the loop parts are
 /// enclosed in curly braces instead of parentheses.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
@@ -27,5 +26,8 @@
 main() {
   try {
     for {;;}  {}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

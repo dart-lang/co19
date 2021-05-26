@@ -28,13 +28,15 @@
 /// ;
 /// @description Checks that the list of named parameters must end with a closing
 /// curly brace.
-/// @compile-error
 /// @author iefremov
 /// @reviewer kaigorodov
 /// @reviewer rodionov
 
 
 void f({) {}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main () {
   try {

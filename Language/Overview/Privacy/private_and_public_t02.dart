@@ -14,7 +14,6 @@
 /// public.
 /// @description Checks that a private class declaration is inaccessible outside
 /// the library.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -22,4 +21,7 @@ import "../lib.dart";
 
 main() {
   new _InaccessibleClass();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

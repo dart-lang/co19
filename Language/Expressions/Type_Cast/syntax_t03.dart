@@ -13,7 +13,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when the type cast
 /// operator is missing the second argument.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
@@ -21,5 +20,8 @@
 main() {
   try {
     1 as;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (ok) {}
 }

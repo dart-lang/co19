@@ -18,51 +18,72 @@
 /// is equivalent to the interface of the class declared as
 /// abstract class A<X extends S, Y extends T> extends A$super<X, Y>
 ///   implements D, E { body' }
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
-
 abstract class B {
-  String get b;         //# 01: compile-time error
+  String get b;
 }
 
 class C {
-  String get c => "C";  //# 02: compile-time error
+  String get c => "C";
 }
 
 class D {
-  String get d => "D";  //# 03: compile-time error
+  String get d => "D";
 }
 
 abstract class E {
-  String get e;         //# 04: compile-time error
+  String get e;
 }
 
 mixin A on B, C implements D, E {
 }
 
-class AI implements A {
+class AI1 implements A {
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  
   // missing b
-  String get c => "AI"; //# 01: compile-time error
-  String get d => "AI"; //# 01: compile-time error
-  String get e => "AI"; //# 01: compile-time error
+  String get c => "AI";
+  String get d => "AI";
+  String get e => "AI";
+}
 
+class AI2 implements A {
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  
   // missing c
-  String get b => "AI"; //# 02: compile-time error
-  String get d => "AI"; //# 02: compile-time error
-  String get e => "AI"; //# 02: compile-time error
+  String get b => "AI";
+  String get d => "AI";
+  String get e => "AI";
+}
+class AI3 implements A {
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   // missing d
-  String get b => "AI"; //# 03: compile-time error
-  String get c => "AI"; //# 03: compile-time error
-  String get e => "AI"; //# 03: compile-time error
+  String get b => "AI";
+  String get c => "AI";
+  String get e => "AI";
+}
+class AI4 implements A {
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   // missing e
-  String get b => "AI"; //# 04: compile-time error
-  String get c => "AI"; //# 04: compile-time error
-  String get d => "AI"; //# 04: compile-time error
+  String get b => "AI";
+  String get c => "AI";
+  String get d => "AI";
 }
 
 main() {
-  AI ai = new AI();
+  AI1 ai1 = new AI1();
+  AI2 ai2 = new AI2();
+  AI3 ai3 = new AI3();
+  AI4 ai4 = new AI4();
 }

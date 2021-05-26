@@ -12,7 +12,6 @@
 /// an enumerated type or a malformed type.
 /// @description Checks that it is a compile-time error if M is an enumerated
 /// type
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -22,6 +21,9 @@ class S {
 enum M {a, b, c}
 
 class C = S with M;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new C();

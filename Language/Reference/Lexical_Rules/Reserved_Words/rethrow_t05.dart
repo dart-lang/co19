@@ -9,7 +9,6 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "rethrow" is used as a local function name.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
@@ -17,7 +16,13 @@
 main() {
   try {
     void rethrow() {}
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
     rethrow();
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (anything) {
   }
 }

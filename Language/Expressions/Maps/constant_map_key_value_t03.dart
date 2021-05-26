@@ -8,11 +8,13 @@
 /// entry in a constant map literal is not a compile-time constant.
 /// @description Checks that it is a compile-time error if the key is some
 /// object.
-/// @compile-error
 /// @author hlodvig
 
 class A{}
 
 main() {
   var arr = const {new A(): 1};
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

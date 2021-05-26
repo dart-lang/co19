@@ -11,7 +11,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the loop expression is
 /// missing.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -22,6 +21,9 @@ main() {
     do {
       break;
     } while ();
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }
 

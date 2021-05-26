@@ -9,7 +9,6 @@
 /// async, async* or sync*.
 /// @description Checks that it is a compile-time error if async is used in the
 /// method marked with async.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 

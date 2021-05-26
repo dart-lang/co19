@@ -30,7 +30,6 @@
 ///   ;
 /// @description Checks that it is a compile-time error if the right-hand 
 /// expression is missed in an initialized variable declaration.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -38,5 +37,8 @@
 main() {
   try {
     var x =;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (ok) {}
 }

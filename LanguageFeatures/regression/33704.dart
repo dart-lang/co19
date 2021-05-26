@@ -6,9 +6,11 @@
 
 /// @description Regression test for the issue 33704 (Dart does not throw error
 /// if class argument parameter extends void)
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 class A<X1 extends void> {}
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {}

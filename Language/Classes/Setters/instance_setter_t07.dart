@@ -16,7 +16,6 @@
 ///
 /// @description Checks that a compile error is arisen if a class has declared
 /// static getter and inherited instance setter with the same name.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
@@ -29,6 +28,9 @@ class A {
 class C extends A {
   static int n;
   static get v {
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
     return n;
   }
 }

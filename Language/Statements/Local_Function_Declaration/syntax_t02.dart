@@ -24,14 +24,19 @@
 /// ;
 /// @description Checks that it is a compile error if a local function
 /// declaration with a block for a body is missing the formal parameter list.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer rodionov
 
 
 main() {
   void function1 {}
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   try {
     function1();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

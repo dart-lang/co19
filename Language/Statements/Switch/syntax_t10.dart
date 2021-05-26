@@ -17,7 +17,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if a case expression is
 /// not followed by a colon character.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -28,6 +27,9 @@ switchTest(value) {
 
   switch (value) {
     case 0 result = 0; break;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
     default: result = -1;
   }
   return result;

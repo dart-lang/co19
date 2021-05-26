@@ -12,12 +12,14 @@
 /// declaration d is in scope if d is available in the current scope.
 /// @description Checks that it is a compile-time error if a generic class 
 /// specifies two type parameters with the same name.
-/// @compile-error
 /// @author iefremov
 /// @reviewer kaigorodov
 
 
 class G<T, T> {
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   G() {
     print("" is T);
   }

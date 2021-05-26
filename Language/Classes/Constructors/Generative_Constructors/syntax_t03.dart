@@ -9,12 +9,14 @@
 /// ;
 /// @description Checks that omitting a named constructor's identifier results
 /// in a compile-time error.
-/// @compile-error
 /// @author pagolubev
 
 
 class C {
   C.();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

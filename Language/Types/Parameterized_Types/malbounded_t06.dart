@@ -12,7 +12,6 @@
 /// Any use of a malbounded type gives rise to a static warning.
 /// @description Checks that it is compile error if a malbounded type is
 /// used in a type test.
-/// @compile-error
 /// @author ilya
 
 import "../../../Utils/dynamic_check.dart";
@@ -21,4 +20,7 @@ class C<T extends int> {}
 
 main() {
   1 is C<String>;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

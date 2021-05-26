@@ -11,7 +11,6 @@
 /// @description Checks that an attempt to access a private top level variable
 /// from outside library L in a top-level function context results in a
 /// compile error.
-/// @compile-error
 /// @author vasya
 /// @reviewer msyabro
 
@@ -19,4 +18,7 @@ import "private_access_t04_lib.dart" as lib;
 
 main() {
   lib._topLevelDeclaration;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -15,7 +15,6 @@
 /// "return;" is used in a static method whose declared return type may not be
 /// assigned to void.
 ///
-/// @static-warning
 /// @author rodionov
 /// @reviewer iefremov
 
@@ -23,7 +22,10 @@
 class C {
   C() { }
   static C foo() {
-    return;  /// static type warning
+    return;
+//  ^
+// [analyzer] unspecified
+// [cfe] Must explicitly return a value from a non-void function.
   }
 }
 

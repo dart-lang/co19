@@ -23,12 +23,18 @@
 ///   stringInterpolation
 /// ;
 /// @description Checks that unbalanced string cause compile-time erros.
-/// @compile-error
 /// @reviewer iefremov
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 main() {
+//     ^
+// [cfe] unspecified
+// [error line 40, column 0]
+// [analyzer] unspecified
   '''\''';
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

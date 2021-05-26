@@ -10,7 +10,6 @@
 /// static type of e1.id.
 /// @description Check that static type of the e?.id is the same as e.id. Test
 /// implicit getter
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

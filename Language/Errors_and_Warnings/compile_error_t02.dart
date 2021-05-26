@@ -9,7 +9,6 @@
 /// erroneous code is executed.
 /// @description Checks that erroneous code is not executed if there is
 /// a compile-time error. Test error in braced code block
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -18,6 +17,9 @@ import '../../Utils/expect.dart';
 main() {
   if (true) {
     var a = ;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   Expect.fail("Erroneous code must not be executed");
 }

@@ -16,7 +16,6 @@
 /// invocation of a logical boolean operator on an expression e1 with argument
 /// e2.
 /// @description Checks that two operators && can't be placed one after another.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -24,5 +23,8 @@
 main() {
   try {
     true && && false;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

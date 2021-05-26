@@ -22,15 +22,20 @@
 /// ;
 /// @description Checks that it is a compile-time error if the URI is missing
 /// in an import directive.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 import as lib show foo;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     someVar = 0;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

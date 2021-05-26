@@ -23,13 +23,15 @@
 /// sequence of top-level declarations.
 /// @description Checks that it is a compile-time error when the part's URI is
 /// not enclosed in quotes.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 library Parts_test_lib;
 part part_3.dart
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

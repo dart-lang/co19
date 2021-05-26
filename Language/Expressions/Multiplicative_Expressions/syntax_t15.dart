@@ -21,7 +21,6 @@
 /// argument e2.
 /// @description Checks that reference to a function type alias name cannot be
 /// used as the right operand of a multiplicative expression without a compile error.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer rodionov
@@ -31,4 +30,7 @@ typedef int f();
 
 main() {
   1 / f;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

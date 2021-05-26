@@ -10,7 +10,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if
 /// a constant object expression is missing the type name.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -22,5 +21,8 @@ class A {
 main() {
   try {
     const ();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

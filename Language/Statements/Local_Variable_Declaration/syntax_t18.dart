@@ -10,7 +10,6 @@
 ///   ;
 /// @description Checks that the variable 'var id;' declared in a block is not
 /// available in a scope that encloses this block.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -19,4 +18,7 @@ main() {
     var id;
   }
   id = null;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

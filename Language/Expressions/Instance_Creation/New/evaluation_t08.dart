@@ -19,7 +19,6 @@
 /// {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
 /// @description  Checks that it is a compile error if the actual constructor has
 /// more required parameters than the new expression.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer rodionov
 
@@ -30,4 +29,7 @@ class C {
 
 main() {
   new C();
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

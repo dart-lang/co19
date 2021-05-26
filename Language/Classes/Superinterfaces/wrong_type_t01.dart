@@ -9,11 +9,13 @@
 /// as a superinterface
 /// @description Checks that it is a compile-time error when the type expression
 /// in a class's implements clause denotes an unavailable type.
-/// @compile-error
 /// @author pagolubev
 
 
 class A implements Unavailable {}
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

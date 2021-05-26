@@ -9,14 +9,22 @@
 /// external and does not provide an implementation.
 /// @description Checks that instance method, getter or setter can not be
 /// declared without providing an implementation.
-/// @compile-error
 /// @author kaigorodov
 
-
 class C {
-  void m();       //# 01: compile-time error
-  int get g;      //# 02: compile-time error
-  set g(int v);   //# 03: compile-time error
+//    ^
+// [cfe] unspecified
+  void m();
+//^^^^^^^^^
+// [analyzer] unspecified
+
+  int get g;
+//^^^^^^^^
+// [analyzer] unspecified
+
+  set g(int v);
+//^^^^^^^^^^^^^
+// [analyzer] unspecified
 }
 
 main() {

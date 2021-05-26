@@ -21,7 +21,6 @@
 /// argument e2.
 /// @description Checks that a type parameter name cannot be used as the left
 /// operand of a multiplicative expression without a compile error.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer rodionov
@@ -30,6 +29,9 @@
 class A<T> {
   test() {
     T % 1;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

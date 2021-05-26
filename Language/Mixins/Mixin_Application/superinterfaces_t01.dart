@@ -11,7 +11,6 @@
 /// or indirectly, all of T1, . . . , Tn.
 /// @description Checks that it is a compile error if S does not implement
 /// all the direct superinterfaces of M
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -30,6 +29,9 @@ class S {
 }
 
 class C extends S with M {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

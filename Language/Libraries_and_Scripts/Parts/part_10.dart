@@ -5,4 +5,7 @@
 // @dart = 2.9
 
 part of Parts_test_lib.id;
-import 'part_9_lib.dart';
+  import 'part_9_lib.dart';
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

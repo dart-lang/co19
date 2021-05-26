@@ -27,15 +27,19 @@
 /// ;
 /// @description Checks that initializing formals of function type are not
 /// allowed in local functions.
-/// @compile-error
 /// @author ilya
 /// @reviewer
 
 
 main() {
   f(this.x(y)) {}
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   try {
     f((x) {});
+//    ^
+// [analyzer] unspecified
   } catch (e) {}
 }

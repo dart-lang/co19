@@ -8,7 +8,6 @@
 /// constant expression but its evaluation would raise an exception.
 /// @description Checks that using null in a boolean constant expression is a
 /// compile-time error.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -21,5 +20,8 @@ class C {
 main() {
   try {
     const C();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (ok) {} // NPEs and whatnot
 }

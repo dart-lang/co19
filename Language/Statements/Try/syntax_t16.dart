@@ -26,7 +26,6 @@
 /// 2. A finally clause, which consists of a block statement.
 /// @description Checks that it is a compile-time error if a try statement has
 /// more than one finally clause.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -36,5 +35,8 @@ main() {
   try {
   } finally {
   } finally {
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }

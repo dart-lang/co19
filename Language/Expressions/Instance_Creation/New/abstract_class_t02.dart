@@ -8,7 +8,6 @@
 /// and q is not a factory constructor.
 /// @description Checks that invoking a non-factory constructor in an abstract
 /// class produces a compile error.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer rodionov
 
@@ -19,4 +18,7 @@ abstract class C {
 
 main() {
   new C.id();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

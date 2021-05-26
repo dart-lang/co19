@@ -8,13 +8,15 @@
 /// instance creation expression
 /// @description Checks that class type parameter cannot be used in an instance
 /// creation expression.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 class A<T> {
   test() {
     T();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

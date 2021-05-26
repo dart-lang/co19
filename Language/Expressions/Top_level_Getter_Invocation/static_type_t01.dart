@@ -10,7 +10,6 @@
 /// The static type of i is the declared return type of m.
 /// @description Checks that the static type of a top-level getter invocation
 /// expression is the declared return type of the getter.
-/// @static-clean
 /// @author msyabro
 /// @reviewer rodionov
 

@@ -26,12 +26,14 @@
 ///   metadata finalConstVarOrType? this '.' identifier formalParameterList?
 /// ;
 /// @description Checks that a functionSignature parameter cannot be final.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer rodionov
 
 
 func(final x()) {
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   return x();
 }
 

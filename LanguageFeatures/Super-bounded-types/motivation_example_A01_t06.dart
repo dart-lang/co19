@@ -12,7 +12,6 @@
 /// line from the test example causes compile-time error and throws error in
 /// runtime
 /// @author iarkh@unipro.ru
-/// @compile-error
 
 import "../../Utils/expect.dart";
 
@@ -33,5 +32,8 @@ main() {
   // similar type `D2`, and this code will only work with `D`.
   Expect.throws(() {
     d.next.next.next.next.next.next.next.unknown(46); // Compile-time error.
+//                                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   });
 }

@@ -22,7 +22,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when there's no
 /// identifier after the 'as' keyword.
-/// @compile-error
 /// @author vasya
 /// @reviewer hlodvig
 /// @reviewer msyabro
@@ -30,9 +29,15 @@
 
 
 import "syntax_lib.dart" as;
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     someVar = 0;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

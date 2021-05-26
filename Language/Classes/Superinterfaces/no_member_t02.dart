@@ -11,7 +11,6 @@
 /// inherit a corresponding instance member m of type F' such that F' <: F.
 /// @description Checks that there are no warnings if the type F' of
 /// declared instance member m is in fact a subtype of F.
-/// @static-clean
 /// @author ilya
 
 

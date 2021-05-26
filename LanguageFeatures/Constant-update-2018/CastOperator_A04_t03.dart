@@ -11,7 +11,6 @@
 /// variables, so the type expression always resolves to the exact same type.
 /// @description Checks that an expression of the form [e as T] is not accepted
 /// and causes compile time error if [T] is not a compile-time constant type.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -26,4 +25,7 @@ class MyClass {
 
 main() {
   const MyClass c1 = MyClass(A());
+//                           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

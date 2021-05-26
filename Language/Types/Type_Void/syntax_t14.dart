@@ -9,14 +9,18 @@
 /// For example, as a type argument, or as the type of a variable or parameter.
 /// @description Checks that using void as a parameter name is also a
 /// compile-time error.
-/// @compile-error
 /// @author rodionov
 
 
 int foo(var void) {}
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     foo(1);
+//     ^
+// [cfe] unspecified
   } catch (anything) {}
 }

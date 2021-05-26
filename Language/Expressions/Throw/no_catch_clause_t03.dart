@@ -13,7 +13,6 @@
 /// ;
 /// @description Checks that it is a compile-error if to use throw with no
 /// expression in switch statement.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
@@ -24,6 +23,9 @@ main() {
       break;
     case 2:
       throw;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
     default:
   }
 }

@@ -24,15 +24,24 @@
 /// ;
 /// @description Checks that it is a compile-time error when a raw multi-line
 /// string literal begins with single quotes and ends with double ones.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 main() {
+//     ^
+// [cfe] unspecified
   try {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
     r'''
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
     incorrect string
     """;
   } catch (e) {}
 }
+// [error line 47, column 0]
+// [analyzer] unspecified

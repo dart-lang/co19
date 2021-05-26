@@ -10,7 +10,6 @@
 /// @description Checks that it is a compile error if an instance method m1
 /// overrides an instance member m2 and m1 does not declare all the named 
 /// parameters declared by m2.
-/// @compile-error
 /// @author rodionov
 
 
@@ -20,6 +19,9 @@ class A {
 
 class C extends A {
   foo(var a, {x}) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

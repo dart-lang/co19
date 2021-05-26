@@ -13,7 +13,6 @@
 /// @description Checks that it is a compile-time error if a 'continue L;'
 /// statement occurs in a catch clause of try statement with label L and there
 /// is no another inclosing statement with label L.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
@@ -25,6 +24,9 @@ main() {
       throw 1;
     } catch (x) {
       continue L;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
     } finally {
     }
   } catch (x) {}

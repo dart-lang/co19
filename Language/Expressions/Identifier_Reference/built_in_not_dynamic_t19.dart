@@ -8,7 +8,6 @@
 /// dynamic as a type annotation or type parameter.
 /// @description Checks that it is a compile-time error if a built-in identifier
 /// "deferred" is used as an actual type parameter.
-/// @compile-error
 /// @issue 25772
 /// @author ngl@unipro.ru
 
@@ -17,5 +16,8 @@ class A<T> {}
 
 main() {
   new A<deferred>();
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

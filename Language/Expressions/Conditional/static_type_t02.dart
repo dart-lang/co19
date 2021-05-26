@@ -8,7 +8,6 @@
 /// of the static type of e2 and the static type of e3.
 /// @description Checks that the static type of a conditional expression is
 /// neither Object nor Dynamic.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -16,4 +15,7 @@ class A {}
 
 main() {
   A a = (true ? 1 : 0.5);
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

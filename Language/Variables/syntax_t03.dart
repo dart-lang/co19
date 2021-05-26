@@ -30,7 +30,6 @@
 ///   ;
 /// @description Checks that finalConstVarOrType cannot appear twice in 
 /// variable declaration.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer rodionov
 
@@ -38,5 +37,8 @@
 main() {
   try {
     var x, var y;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (wtvr) {}
 }

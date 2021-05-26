@@ -6,5 +6,11 @@
 
 
 part "definition_syntax_t04_lib_p1.dart";
+//   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-library Definition_Syntax_t04_lib;
+  library Definition_Syntax_t04_lib;
+//^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

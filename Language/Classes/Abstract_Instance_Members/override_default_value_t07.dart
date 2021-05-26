@@ -13,7 +13,6 @@
 /// @description Checks that there are no static warnings if an abstract method
 /// overrides another abstract method and overridden method does not explicitly
 /// specify a default value for its optional parameter.
-/// @static-clean
 /// @author msyabro
 
 

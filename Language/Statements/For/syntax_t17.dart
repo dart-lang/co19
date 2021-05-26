@@ -19,12 +19,14 @@
 /// ;
 /// @description Checks that it is a compile-time error if expression is
 /// missing in the loop parts in an asynchronous loop form 'id in expression'.
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 main() async {
   try {
     await for (var i in ) break;
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

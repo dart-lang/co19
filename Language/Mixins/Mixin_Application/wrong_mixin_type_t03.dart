@@ -11,7 +11,6 @@
 /// It is a compile-time error if M (respectively, any of M1,..., Mk) is
 /// an enumerated type or a malformed type.
 /// @description Checks that it is a compile-time error if M is malformed type
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -21,6 +20,9 @@ class S {
 var M;
 
 class C = S with M;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new C();

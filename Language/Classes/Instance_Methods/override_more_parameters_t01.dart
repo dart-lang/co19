@@ -9,7 +9,6 @@
 /// m2.
 /// @description Checks that a compile error is produced if m2 has one required
 /// parameter and m1 has two required parameters.
-/// @compile-error
 /// @author vasya
 
 
@@ -19,6 +18,9 @@ class A {
 
 class C extends A {
   f(var x, var y) { return x + y; }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

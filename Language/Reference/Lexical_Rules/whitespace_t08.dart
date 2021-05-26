@@ -19,11 +19,13 @@
 /// @description Checks that Unicode whitespaces other than WHITESPACE are not
 /// permitted in the source code.
 /// Checks symbol U+205f.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
 
 main() {
    // U+205f
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

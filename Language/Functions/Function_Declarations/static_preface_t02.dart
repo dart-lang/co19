@@ -8,7 +8,6 @@
 /// the built-in identier static.
 /// @description Checks that it is a compile-time error to preface local function
 /// with 'static'.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer iefremov
@@ -17,5 +16,8 @@
 main() {
   try {
     static void f() {}
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

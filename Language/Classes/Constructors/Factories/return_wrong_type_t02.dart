@@ -8,7 +8,6 @@
 /// a non-null object whose type is not a subtype of its actual return type.
 /// @description Checks that returning an object whose type is not subtype of M
 /// from factory M.id produces a compile error.
-/// @compile-error
 /// @author pagolubev
 
 
@@ -16,6 +15,9 @@ class C {}
 
 class A {
   factory A.foo() { return new C(); }
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

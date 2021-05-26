@@ -22,13 +22,15 @@
 /// @description Checks that the return statement can't be a body of a function
 /// of the form [functionSignature '=>' expression ';'].
 ///
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer iefremov
 
 
 f() => return 1;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

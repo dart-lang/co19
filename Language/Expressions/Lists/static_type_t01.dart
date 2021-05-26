@@ -9,7 +9,6 @@
 /// @description Checks that the static type of a list literal is List<E> by
 /// ensuring there're no static warnings when assigning such list to an
 /// appropriately typed variable.
-/// @static-clean
 /// @author msyabro
 /// @reviewer rodionov
 

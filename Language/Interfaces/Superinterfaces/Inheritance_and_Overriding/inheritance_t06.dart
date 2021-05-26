@@ -29,7 +29,6 @@
 /// interfaces with same named methods and different number of required formal
 /// parameters and defines method with minimum number of required parameters
 /// and maximum number of positional parameters.
-/// @static-clean
 /// @author ngl@unipro.ru
 
 

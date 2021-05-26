@@ -13,7 +13,6 @@
 /// @description Checks that it is a compile-time error if a 'continue L;'
 /// statement occurs in 'do' statement without label L and there is no another
 /// inclosing statement with label L.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 /// @reviewer iefremov
@@ -24,5 +23,8 @@ main() {
   var L = "label";
   do {
     continue L;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } while (false);
 }

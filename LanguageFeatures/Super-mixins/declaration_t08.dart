@@ -15,9 +15,7 @@
 ///
 /// @description Checks that it is a compile-time error for the mixin declaration
 /// if classes from on clause and implements clause are not compatible.
-/// @compile-error
 /// @author ngl@unipro.ru
-
 
 abstract class I1<X extends List<int>> {
   X get n;
@@ -42,16 +40,28 @@ abstract class C3<Y extends List<double>> {
 }
 
 // The same name getters with different return types
-mixin M1 on B, C1 implements I1, J {}  //# 01: compile-time error
+mixin M1 on B, C1 implements I1, J {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 // The same name getter and method with the same return types
-mixin M2 on B, C2 implements I1, J {} //# 02: compile-time error
+mixin M2 on B, C2 implements I1, J {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 // The same name methods with different return types
-mixin M3 on B, C2 implements I2, J {} //# 03: compile-time error
+mixin M3 on B, C2 implements I2, J {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 // The methods with the same return types and different parameters number
-mixin M4 on B, C3 implements I3, J {} //# 04: compile-time error
+mixin M4 on B, C3 implements I3, J {}
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

@@ -26,7 +26,6 @@
 /// @description Checks that if d is a local variable or formal parameter, and
 /// no type promotion is in effect, then the static type of e is the static
 /// type of variable id.
-/// @static-clean
 /// @author ilya
 
 

@@ -28,7 +28,6 @@
 ///   DIGIT
 /// ;
 /// @description Checks that expression in form +(+num) can't be compiled.
-/// @compile-error
 /// @author hlodvig
 /// @reviewer iefremov
 
@@ -36,5 +35,8 @@
 main() {
   try {
     var x = +(+1);
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

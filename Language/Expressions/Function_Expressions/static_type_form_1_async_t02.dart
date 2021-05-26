@@ -17,7 +17,6 @@
 /// the form (T1 a1,...,Tn an, [Tn+1 xn+1 = d1,...,Tn+k xn+k = dk]) async => e
 /// with two parameters is assigned to a variable of a function type without
 /// parameters.
-/// @compile-error
 /// @author ngl@unipro
 
 import 'dart:async';
@@ -27,4 +26,7 @@ typedef Future<int> intFunc();
 main() {
   intFunc intf = () async => 2;
   intf = (int p1, [int p2]) async => 1;
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

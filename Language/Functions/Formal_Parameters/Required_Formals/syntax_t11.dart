@@ -27,12 +27,14 @@
 /// ;
 /// @description Checks that initializing formals of function type are not
 /// allowed in library functions.
-/// @compile-error
 /// @author ilya
 /// @reviewer
 
 
 f(this.x(y)) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

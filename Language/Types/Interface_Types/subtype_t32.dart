@@ -25,7 +25,6 @@
 /// T <: S or S <: T.
 /// @description Checks that int cannot be assigned to double (compile error)
 /// as such assignment doesn't meet any of these conditions.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -34,4 +33,7 @@ int f() {}
 
 main() {
   double d = f();
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

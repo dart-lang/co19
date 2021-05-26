@@ -11,12 +11,15 @@
 ///    Object.
 /// @description Checks that it is a compile error if an abstract method is
 /// declared in a concrete class.
-/// @compile-error
 /// @author kaigorodov
 
 
 class A {
+//    ^
+// [cfe] unspecified
   foo([x]);
+//^
+// [analyzer] unspecified
 }
 
 class B extends A {

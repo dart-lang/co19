@@ -36,17 +36,21 @@
 /// ;
 /// @description Checks that it is a compile-time error if a redirecting 
 /// constant constructor declaration includes a body.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   const A(): this.anotherConstructor() {}
+//                                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   A.anotherConstructor() {}
 }
 
 main() {
  try {
     const A();
+//        ^
+// [cfe] unspecified
   } catch (e) {}
 }

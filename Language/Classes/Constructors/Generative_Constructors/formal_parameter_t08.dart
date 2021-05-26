@@ -11,12 +11,14 @@
 /// the immediately enclosing class.
 /// @description Checks that it is a compile-time error if formal parameter of
 /// a constructor is declared as a constant variable.
-/// @compile-error
 /// @author msyabro
 
 
 class C {
   C.formal(p1, var p2, int p3, final p4, const p5, $()) {}
+//                                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

@@ -22,7 +22,6 @@
 /// @description Check that if type T0 not a subtype of a type T1, then it cannot
 /// be used as an argument of type T1. Global function required argument is
 /// tested.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 ///
 /// This test is generated from positional_function_types_fail_A02.dart and 
@@ -31,6 +30,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 
 
@@ -55,7 +55,7 @@ U1 t1Func(S0 y0, [S1 y1, S2 y2, S3 y3]) => null;
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
-
+// @dart = 2.9
 
 
 namedArgumentsFunc1(T1 t1, {T1 t2}) {}
@@ -83,36 +83,104 @@ class ArgumentsBindingClass {
     set testSetter(T1 val) {}
 }
 
-class ArgumentsBindingClassSuper {          //# 23: compile-time error
-  ArgumentsBindingClassSuper(T1 t1) {}     //# 23: compile-time error
-}                                           //# 23: compile-time error
+class ArgumentsBindingClassSuper {
+  ArgumentsBindingClassSuper(T1 t1) {}
+}
 
-class ArgumentsBindingDesc extends ArgumentsBindingClassSuper { //# 23: compile-time error
-  ArgumentsBindingDesc(T0 t0) : super (t0) {}                  //# 23: compile-time error
-}                                                               //# 23: compile-time error
+class ArgumentsBindingDesc extends ArgumentsBindingClassSuper {
+  ArgumentsBindingDesc(T0 t0) : super (t0) {}
+//                                      ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
 
 main() {
-  namedArgumentsFunc1(t0Instance); //# 01: compile-time error
-  namedArgumentsFunc1(t1Instance, t2: t0Instance); //# 02: compile-time error
-  positionalArgumentsFunc1(t0Instance); //# 03: compile-time error
-  positionalArgumentsFunc1(t1Instance, t0Instance); //# 04: compile-time error
-  new ArgumentsBindingClass(t0Instance); //# 05: compile-time error
-  new ArgumentsBindingClass(t1Instance).namedArgumentsMethod(t0Instance); //# 06: compile-time error
-  new ArgumentsBindingClass(t1Instance).namedArgumentsMethod(t1Instance, t2: t0Instance); //# 07: compile-time error
-  new ArgumentsBindingClass(t1Instance).positionalArgumentsMethod(t0Instance); //# 08: compile-time error
-  new ArgumentsBindingClass(t1Instance).positionalArgumentsMethod(t1Instance, t0Instance); //# 09: compile-time error
-  new ArgumentsBindingClass(t1Instance).testSetter = t0Instance; //# 10: compile-time error
-  ArgumentsBindingClass.namedArgumentsStaticMethod(t0Instance); //# 11: compile-time error
-  ArgumentsBindingClass.namedArgumentsStaticMethod(t1Instance, t2: t0Instance); //# 12: compile-time error
-  ArgumentsBindingClass.positionalArgumentsStaticMethod(t0Instance); //# 13: compile-time error
-  ArgumentsBindingClass.positionalArgumentsStaticMethod(t1Instance, t0Instance); //# 14: compile-time error
-  new ArgumentsBindingClass.named(t0Instance); //# 15: compile-time error
-  new ArgumentsBindingClass.named(t1Instance, t2: t0Instance); //# 16: compile-time error
-  new ArgumentsBindingClass.positional(t0Instance); //# 17: compile-time error
-  new ArgumentsBindingClass.positional(t1Instance, t0Instance); //# 18: compile-time error
-  new ArgumentsBindingClass.fNamed(t0Instance); //# 19: compile-time error
-  new ArgumentsBindingClass.fNamed(t1Instance, t2: t0Instance); //# 20: compile-time error
-  new ArgumentsBindingClass.fPositional(t0Instance); //# 21: compile-time error
-  new ArgumentsBindingClass.fPositional(t1Instance, t0Instance); //# 22: compile-time error
-  new ArgumentsBindingDesc(t0Instance); //# 23: compile-time error
+  namedArgumentsFunc1(t0Instance);
+//                    ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  namedArgumentsFunc1(t1Instance, t2: t0Instance);
+//                                    ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  positionalArgumentsFunc1(t0Instance);
+//                         ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  positionalArgumentsFunc1(t1Instance, t0Instance);
+//                                     ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  new ArgumentsBindingClass(t0Instance);
+//                          ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  new ArgumentsBindingClass(t1Instance).namedArgumentsMethod(t0Instance);
+//                                                           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  new ArgumentsBindingClass(t1Instance).namedArgumentsMethod(t1Instance, t2: t0Instance);
+//                                                                           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  new ArgumentsBindingClass(t1Instance).positionalArgumentsMethod(t0Instance);
+//                                                                ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  new ArgumentsBindingClass(t1Instance).positionalArgumentsMethod(t1Instance, t0Instance);
+//                                                                            ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  new ArgumentsBindingClass(t1Instance).testSetter = t0Instance;
+//                                                   ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ArgumentsBindingClass.namedArgumentsStaticMethod(t0Instance);
+//                                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ArgumentsBindingClass.namedArgumentsStaticMethod(t1Instance, t2: t0Instance);
+//                                                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ArgumentsBindingClass.positionalArgumentsStaticMethod(t0Instance);
+//                                                      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  ArgumentsBindingClass.positionalArgumentsStaticMethod(t1Instance, t0Instance);
+//                                                                  ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  new ArgumentsBindingClass.named(t0Instance);
+//                                ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  new ArgumentsBindingClass.named(t1Instance, t2: t0Instance);
+//                                                ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  new ArgumentsBindingClass.positional(t0Instance);
+//                                     ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  new ArgumentsBindingClass.positional(t1Instance, t0Instance);
+//                                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  new ArgumentsBindingClass.fNamed(t0Instance);
+//                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  new ArgumentsBindingClass.fNamed(t1Instance, t2: t0Instance);
+//                                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  new ArgumentsBindingClass.fPositional(t0Instance);
+//                                      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  new ArgumentsBindingClass.fPositional(t1Instance, t0Instance);
+//                                                  ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

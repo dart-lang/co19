@@ -8,12 +8,14 @@
 /// a constant variable.
 /// @description Checks that it is a compile-time error if an optional positional
 /// parameter is declared as a constant variable.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 void f([const x]) {}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main () {
   try {

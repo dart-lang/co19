@@ -9,16 +9,20 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word "if"
 /// is used as a function parameter name.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 void f(var if) {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     f();
+//   ^
+// [analyzer] unspecified
   } catch (anything) {
   }
 }

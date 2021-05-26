@@ -23,10 +23,8 @@
 /// name of the library.
 /// @description Checks that it is a compile-time error if a library includes
 /// two library definitions with the same identifier.
-/// @compile-error
 /// @author vasya
-/// @reviewer msyabro
-
+/// @issue 44990
 
 import "definition_syntax_t01_lib.dart";
 

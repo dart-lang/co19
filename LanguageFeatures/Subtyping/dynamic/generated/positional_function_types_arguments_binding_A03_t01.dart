@@ -30,6 +30,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 
@@ -55,6 +56,7 @@ U1 t1Func(S0 y0, S1 y1, [S2 y2]) => null;
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
+// @dart = 2.9
 
 
 
@@ -137,8 +139,7 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  // test generic functions
+    // test generic functions
   namedArgumentsFunc2<T1>(forgetType(t0Instance), t2: forgetType(t0Instance));
   positionalArgumentsFunc2<T1>(forgetType(t0Instance), forgetType(t0Instance));
 
@@ -160,5 +161,4 @@ main() {
   instance2.positionalArgumentsMethod(forgetType(t0Instance),
       forgetType(t0Instance));
   instance2.testSetter = forgetType(t0Instance);
-  //# -->
-}
+  }

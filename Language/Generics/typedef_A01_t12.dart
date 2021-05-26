@@ -14,10 +14,12 @@
 ///   T
 /// ...
 /// @description Checks that [T] cannot be [null]
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 typedef void Alias1<T> = null;
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {}

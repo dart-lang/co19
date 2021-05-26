@@ -7,7 +7,6 @@
 /// @description Regression test for the issue 33701 (Dart does not throw error
 /// if function argument parameter extends [Null]). Checks that function
 /// parameter argument cannot be of [Null] type
-/// @compile-error
 /// @Issue 33701
 /// @author iarkh@unipro.ru
 

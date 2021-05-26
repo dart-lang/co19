@@ -11,18 +11,29 @@
 /// as an instance creation expression using new.
 /// @description Checks that compile error occurs when referenced type is not
 /// defined or refers to non class or non constructor.
-/// @compile-error
 /// @author ilya
-
 
 function() {}
 var variable;
 
 class F {
-  factory F() = C;            //# 01: compile-time error
-  factory F.foo() = function; //# 02: compile-time error
-  factory F.bar() = variable; //# 03: compile-time error
-  factory F.baz() = D.baz;    //# 04: compile-time error
+  factory F() = C;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  factory F.foo() = function;
+//                  ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory F.bar() = variable;
+//                  ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  factory F.baz() = D.baz;
+//                  ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class D {

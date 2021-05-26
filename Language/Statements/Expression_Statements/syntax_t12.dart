@@ -16,12 +16,17 @@
 /// @description Checks that it is a compile-time error when an expression
 /// statement begins with a non-constant, non-parameterized map literal, but
 /// also it's only a part of the whole expression.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 main() {
   try { {"1": 1, "2": 2}["1"] = 0; } catch (e) {}
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   try { {"1": 1, "2": 2}.isEmpty == false; } catch (e) {}
+//                      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

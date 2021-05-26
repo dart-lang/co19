@@ -10,15 +10,20 @@
 /// @description Checks that a compile error is produced if factory constructor
 /// type parameters are not subtypes of bounds of corresponding type parameters
 /// of redirected class constructor.
-/// @compile-error
 /// @author ilya
 
 
 class F <T extends String> {
   factory F([T x]) = C;
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class C <T extends num> implements F<T> {
+//                                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   C([T x]);
 }
 

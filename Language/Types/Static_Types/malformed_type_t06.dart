@@ -16,7 +16,6 @@
 /// unless explicitly specified otherwise.
 /// @description Checks that it is a compile error if a type is a parameterized
 /// type of the form C<int, String>, and C is malformed.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
@@ -24,4 +23,7 @@ var C = null;
 
 main() {
   C<int, String> c;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

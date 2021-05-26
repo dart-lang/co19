@@ -29,13 +29,15 @@
 ///     initializedIdentifier (‘, ’ initializedIdentifier)*
 ///   ;
 /// @description Checks that a variable cannot be abstract void.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer iefremov
 
 
 class C {
   abstract void x = 1;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

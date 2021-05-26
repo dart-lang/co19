@@ -19,7 +19,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the expression is
 /// missing in a 'id in expression' of for-in statement.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -27,5 +26,8 @@
 main() {
   try {
     for ( var x in  ) break;
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

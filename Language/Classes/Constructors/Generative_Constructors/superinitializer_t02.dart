@@ -8,7 +8,6 @@
 /// superinitializer in its initializer list or a compile-time error occurs.
 /// @description Checks that it is a a compile-time error if a generative
 /// constructor includes two identical superinitializers in its initializer list.
-/// @compile-error
 /// @author iefremov
 
 
@@ -18,6 +17,9 @@ class A {
 
 class B extends A {
   B() : super(), super();
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

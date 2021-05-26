@@ -7,4 +7,7 @@
 
 import 'definition_syntax_t02_lib.dart';
 
-library Definition_Syntax_t03_lib;
+  library Definition_Syntax_t03_lib;
+//^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

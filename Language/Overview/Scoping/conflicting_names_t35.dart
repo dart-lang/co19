@@ -12,12 +12,14 @@
 /// declaration d is in scope if d is available in the current scope.
 /// @description Checks that it is a compile-time error if a generic typedef 
 /// specifies two type parameters with the same name.
-/// @compile-error
 /// @author iefremov
 /// @reviewer kaigorodov
 
 
 typedef f<T, T>();
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

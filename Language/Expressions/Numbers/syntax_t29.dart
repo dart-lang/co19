@@ -29,7 +29,6 @@
 /// ;
 /// @description Checks that a hex numeric literal must contain at least one
 /// digit.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -37,5 +36,8 @@
 main() {
   try {
     var i = 0x;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

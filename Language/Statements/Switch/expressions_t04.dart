@@ -11,7 +11,6 @@
 /// • instances of a class that implements String, for all k in 1..n.
 /// @description Checks that it is a compile-time error if case expressions
 /// are instances of different user-defined classes.
-/// @compile-error
 /// @author ilya
 
 
@@ -32,6 +31,9 @@ main() {
       case const C(1):
       case const C(2):
       case const D(1):
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
     }
   } catch (e) {}
 }

@@ -12,11 +12,13 @@
 ///  <functionPrefix> ::= <type>? <identifier>
 /// @description Checks that it is a compile-time error if the formal parameter
 /// list is missing from a type alias declaration.
-/// @compile-error
 /// @author iefremov
 
 
 typedef void F;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

@@ -10,13 +10,15 @@
 /// redirects to a constructor whose type is not a subtype of factory
 /// constructor function type. Checks the case when constructor return types
 /// are not assignable.
-/// @compile-error
 /// @author ilya
 
 import "../../../../Utils/dynamic_check.dart";
 
 class F {
   factory F(x) = C;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class C { // does not implement F, not assignable to F

@@ -16,7 +16,6 @@
 /// @description Checks that a compile error is arisen if a class has a declared
 /// static setter and an inherited implicitly declared instance setter with the
 /// same name.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
@@ -27,6 +26,9 @@ class A {
 class C extends A {
   static int n;
   static set v(int v1) {
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
     n = v1;
   }
 }

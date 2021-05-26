@@ -10,12 +10,14 @@
 /// redirects to a constructor whose type is not a subtype of factory
 /// constructor function type. Checks the case when constructor parameter types
 /// are not assignable.
-/// @compile-error
 /// @author ilya
 
 
 class F {
   factory F(x,[String y]) = C;
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class C implements F {

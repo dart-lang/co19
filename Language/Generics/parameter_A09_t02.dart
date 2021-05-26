@@ -7,7 +7,6 @@
 /// @assertion A type parameter cannot be used as a generic type
 /// @description Checks that function type parameter cannot be used as a generic
 /// type
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -15,6 +14,9 @@ class A<T> {}
 
 void func<X extends A>(dynamic d) {
   X<int> x = d;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

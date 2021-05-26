@@ -7,4 +7,7 @@
 
 var x = 1;
 
-library Definition_Syntax_t06_lib;
+  library Definition_Syntax_t06_lib;
+//^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

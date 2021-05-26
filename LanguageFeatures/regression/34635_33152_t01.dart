@@ -10,10 +10,12 @@
 /// way)
 /// Check test case from the bug description, i.e. that declaring [class A<X
 /// extends A> {}] causes compile error.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 class A<X extends A> {}
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

@@ -16,7 +16,6 @@
 ///
 /// @description Check that if type T0 not a subtype of a type T1, then instance
 /// of T0 cannot be be used as a return value of type T1. Return value is tested.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
@@ -26,6 +25,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 
 
@@ -40,28 +40,45 @@ class S0 implements Future<C1> {
   whenComplete(FutureOr action()) => null;
 }
 
+// Future<S0> is not a subtype of T1 (Future<C1>)
 FutureOr<S0> t0Instance = new Future<S0>.value(new S0());
 Future<C1> t1Instance = new Future.value(new C1());
 
 
+// @dart = 2.9
 
 
-
-Future<C1> returnValueFunc() => t0Instance; //# 01: compile-time error
+Future<C1> returnValueFunc() => t0Instance;
+//                       ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class ReturnValueTest {
-  static Future<C1> staticTestMethod() => t0Instance; //# 03: compile-time error
-  Future<C1> testMethod() => t0Instance; //# 04: compile-time error
-  Future<C1> get testGetter => t0Instance; //# 05: compile-time error
+  static Future<C1> staticTestMethod() => t0Instance;
+//                                 ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  Future<C1> testMethod() => t0Instance;
+//                    ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  Future<C1> get testGetter => t0Instance;
+//                      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  returnValueFunc(); //# 01: compile-time error
+  returnValueFunc();
 
-  Future<C1> returnValueLocalFunc() => t0Instance; //# 02: compile-time error
-  returnValueLocalFunc(); //# 02: compile-time error
+  Future<C1> returnValueLocalFunc() => t0Instance;
+//                              ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  returnValueLocalFunc();
 
-  ReturnValueTest.staticTestMethod(); //# 03: compile-time error
-  new ReturnValueTest().testMethod(); //# 04: compile-time error
-  new ReturnValueTest().testGetter; //# 05: compile-time error
+  ReturnValueTest.staticTestMethod();
+  new ReturnValueTest().testMethod();
+  new ReturnValueTest().testGetter;
 }

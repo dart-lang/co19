@@ -23,13 +23,15 @@
 /// sequence of top-level declarations.
 /// @description Checks that it is a compile-time error if a part directive
 /// begins with a '#' character.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 library Parts_test_lib;
 #part "part_0.dart";
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

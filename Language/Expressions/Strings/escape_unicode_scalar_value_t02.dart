@@ -15,7 +15,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when the value
 /// of the HEX_DIGIT_SEQUENCE is too long.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -23,5 +22,8 @@
 main() {
   try {
     '\u{121341}';
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

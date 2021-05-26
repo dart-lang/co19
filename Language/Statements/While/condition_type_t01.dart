@@ -8,12 +8,14 @@
 /// to bool.
 /// @description Checks that it is a compile error if the type of e may not
 /// be assigned to bool.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
 main() {
   while ("true") {
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
     print("foo");
     break;
   }

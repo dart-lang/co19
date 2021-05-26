@@ -12,7 +12,6 @@
 /// not mutually assignable. Types in getter/setter signatures provided as type
 /// parameters with type bounds that are not mutually assignable (int and
 /// String).
-/// @compile-error
 /// @author vasya
 
 
@@ -22,6 +21,9 @@ class C<T extends int, S extends String> {
   }
 
   S get foo { return _foo; }
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   var _foo;
 }

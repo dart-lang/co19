@@ -8,7 +8,6 @@
 /// {pn+1, ..., pn+k} or a static warning occurs.
 /// @description Checks that it is a compile error if names of an argument does
 /// not match with any name of optional named parameters of an instance method.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -19,4 +18,7 @@ class C {
 
 main() {
   new C().func(1, 2, p: 3);
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

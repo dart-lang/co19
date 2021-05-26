@@ -8,10 +8,12 @@
 /// from spreading into itself:
 ///   const list = [...list]; // Error.
 /// @description: Checks that constant list cannot spread itself
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 main() {
   const list = [...?list];
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

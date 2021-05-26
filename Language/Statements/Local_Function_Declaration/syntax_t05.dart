@@ -25,10 +25,12 @@
 /// @description Checks that it is a compile time error if a local function
 /// declared with the function body of a form `=> expession` has `async*` before
 /// a function body.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
 main() {
   f0() async* => 3;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

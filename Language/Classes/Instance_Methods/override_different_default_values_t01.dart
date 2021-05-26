@@ -11,7 +11,6 @@
 /// @description Checks that it is a static warning if overridden and overriding
 /// methods have different default values for their optional parameter.
 /// @issue 27476
-/// @static-warning
 /// @author msyabro
 
 
@@ -20,7 +19,9 @@ class A {
 }
 
 class C extends A {
-  foo([x = 1]) { /// static type warning
+  foo([x = 1]) {
+//     ^^^^^
+// [analyzer] STATIC_WARNING.INVALID_OVERRIDE_DIFFERENT_DEFAULT_VALUES_POSITIONAL
   }
 }
 

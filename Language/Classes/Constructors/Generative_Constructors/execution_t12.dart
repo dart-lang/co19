@@ -29,12 +29,14 @@
 /// @description Checks that 'this' is not accessible in initializers and an
 /// explicit access to a previously initialized final field in an initializer
 /// results in a compile-time error.
-/// @compile-error
 /// @author rodionov
 
 
 class C {
   C() : v = this.fnl {}
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   f() {
     throw new C();
   }

@@ -17,7 +17,6 @@
 /// libraries introduce the same name to the top level scope of L (both via
 /// re-export of a third library) and L uses it as an identifier reference in a
 /// type test expression.
-/// @static-clean
 /// @author rodionov
 /// @reviewer kaigorodov
 

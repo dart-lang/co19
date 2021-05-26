@@ -8,7 +8,6 @@
 /// results in an uncaught exception being thrown.
 /// @description Checks that it is a compile-time error if evaluation of a
 /// constant object results in an uncaught exception being thrown.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -19,6 +18,9 @@ class A {
 }
 
 const a = const A();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

@@ -8,17 +8,22 @@
 /// operator.
 /// @description Checks that a compile-time error is produced if a user-defined
 /// operator []= specifies one optional named parameter.
-/// @compile-error
 /// @author ilya
 
 
 class C {
   operator []=({var v}) {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   try {
     C c = new C();
     c[] = null;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

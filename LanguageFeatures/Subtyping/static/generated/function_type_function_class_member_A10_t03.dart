@@ -21,6 +21,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 
 
@@ -33,6 +34,7 @@ T0<C> t0Instance = t0Func;
 Function t1Instance = null;
 
 
+// @dart = 2.9
 
 
 

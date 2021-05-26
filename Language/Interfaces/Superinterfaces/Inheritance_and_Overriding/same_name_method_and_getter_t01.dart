@@ -8,7 +8,6 @@
 /// if m is a getter and m' is a method.
 /// @description Checks that there is a compile error if class has a method
 /// and its superinterface has a getter with the same name
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -18,6 +17,9 @@ class A {
 
 class C implements A {
   int m() {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
     return 1;
   }
 }

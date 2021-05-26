@@ -8,11 +8,13 @@
 /// via another typedef, is a compile time error.
 /// @description Checks that it is compile error to reference type alias as a
 /// bound of its own type parameter.
-/// @compile-error
 /// @author ilya
 
 
 typedef F<T extends F>();
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

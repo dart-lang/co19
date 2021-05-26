@@ -11,7 +11,6 @@
 /// A class may override instance members that would otherwise have been
 /// inherited from its superclass.
 /// @description Checks that static members are not inherited.
-/// @compile-error
 /// @author msyabro
 
 
@@ -28,7 +27,19 @@ class C extends S {
 main() {
   var c = new C();
   c.v;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   c.i;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   c.method();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   c.iMethod();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -8,13 +8,15 @@
 /// function other than a non-redirecting generative constructor.
 /// @description Checks that it is a compile-time error when the initializing
 /// formal syntax is used by a factory constructor.
-/// @compile-error
 /// @author rodionov
 
 
 class C {
   int x;
   factory C.i(this.x) {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

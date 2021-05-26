@@ -30,5 +30,5 @@ main() {
   foo(Ext(c).bar());
 //    ^^^^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
 }

@@ -2,6 +2,9 @@
 // @dart = 2.9
 library Script_A01_t01;
 #! scripts tag    // error
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 // Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
@@ -15,7 +18,6 @@ library Script_A01_t01;
 /// ;
 /// @description Checks that it is a compile-time error when the library name
 /// comes before the script tag.
-/// @compile-error
 /// @author vasya
 /// @reviewer msyabro
 

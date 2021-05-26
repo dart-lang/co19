@@ -9,17 +9,22 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "enum" is used as a static class member (function) name.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
 class C {
   static void enum() {}
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   try {
     C.enum();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (anything) {
   }
 }

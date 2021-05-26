@@ -22,7 +22,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when the URI is not
 /// enclosed in quotes.
-/// @compile-error
 /// @author vasya
 /// @reviewer hlodvig
 /// @reviewer msyabro
@@ -30,9 +29,15 @@
 
 
 import syntax_lib.dart;
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     someVar = 0;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

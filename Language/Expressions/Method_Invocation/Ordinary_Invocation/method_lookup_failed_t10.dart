@@ -23,7 +23,6 @@
 /// im, and the result of this invocation is the result of evaluating i.
 /// @description Checks that it is a compile error when class C does not declare
 /// a static method m even though its superclass does.
-/// @compile-error
 /// @author msyabro
 
 import "../../../../Utils/expect.dart";
@@ -36,4 +35,7 @@ class C extends S {}
 
 main() {
   Expect.throws(() {C.m();}, (e) => e is NoSuchMethodError);
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

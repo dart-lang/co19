@@ -31,6 +31,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -58,6 +59,7 @@ T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
 
+// @dart = 2.9
 
 
 
@@ -344,8 +346,7 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  // test generic class constructors
+    // test generic class constructors
   Expect.throws(() {
     new ArgumentsBinding2_t02<T1>(forgetType(t0Instance));
   }, (e) => e is TypeError);
@@ -400,5 +401,4 @@ main() {
   }, (e) => e is TypeError);
 
   new ArgumentsBinding2_t02<T1>.valid().test();
-  //# -->
-}
+  }

@@ -12,20 +12,30 @@
 /// @description Checks that it is a compile-time error if the unbounded integer
 /// value of a double valued integer literal cannot be represented exactly as an
 /// IEEE 754 double-precision value.
-/// @compile-error
 /// @author ngl@unipro.ru
 
-
-double d1 = 0x2fffffffffffff; //# 01: compile-time error
+double d1 = 0x2fffffffffffff;
+//          ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class C {
-  static double d2 = 0x2fffffffffffff; //# 02: compile-time error
+  static double d2 = 0x2fffffffffffff;
+//                   ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  double d3 = 0x2fffffffffffff; //# 03: compile-time error
+  double d3 = 0x2fffffffffffff;
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  double d4 = 0x2fffffffffffff; //# 04: compile-time error
+  double d4 = 0x2fffffffffffff;
+//            ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   new C();
 }

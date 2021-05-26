@@ -13,13 +13,17 @@
 /// ;
 /// @description Checks that a cyclic dependency in constructor redirection
 /// results in a compile error (using a minimal redirection chain).
-/// @compile-error
 /// @author pagolubev
 
 
 class C {
   C() : this.init();
+//      ^
+// [analyzer] unspecified
   C.init() : this();
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

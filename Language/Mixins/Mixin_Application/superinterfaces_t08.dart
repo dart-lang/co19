@@ -11,7 +11,6 @@
 /// or indirectly, all of T1, . . . , Tn.
 /// @description Checks that it is a compile error if M has a superinterfaces
 /// and C does not implement them. Test class C = S with M; syntax
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 abstract class A {
@@ -29,6 +28,9 @@ class S {
 }
 
 class C = S with M;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new C();

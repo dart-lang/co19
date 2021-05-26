@@ -17,7 +17,6 @@
 /// library is imported twice with empty prefixes and introduces a name to the
 /// top level scope of L, which L uses as a type name reference in an instance
 /// creation expression.
-/// @static-clean
 /// @author rodionov
 /// @reviewer kaigorodov
 

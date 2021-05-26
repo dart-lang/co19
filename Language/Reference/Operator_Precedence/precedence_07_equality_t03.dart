@@ -10,10 +10,12 @@
 /// @description Test that '==' equality operator has no associativity. It is
 /// compile error to expect any associativity from it. Test not overloaded
 /// version
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 main() {
   var v = 1 == 2 == 3;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -30,7 +30,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when a backtick
 /// character is used as a string delimiter.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer rodionov
 
@@ -38,5 +37,8 @@
 main() {
   try {
     `string`;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

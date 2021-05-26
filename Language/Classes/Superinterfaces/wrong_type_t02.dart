@@ -9,13 +9,15 @@
 /// as a superinterface
 /// @description Checks that it is a compile-time error when the type expression
 /// in a class's implements clause denotes a function type.
-/// @compile-error
 /// @author rodionov
 
 
 typedef void foo();
 
 class A implements foo {}
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

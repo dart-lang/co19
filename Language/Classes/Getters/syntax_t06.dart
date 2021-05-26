@@ -11,12 +11,14 @@
 /// @description Checks that a compile-time error is produced if an arbitrary 
 /// static getter specifies
 /// a single formal parameter.
-/// @compile-error
 /// @author vasya
 
 
 class C {
   static get getter(var value) {throw new C();}
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

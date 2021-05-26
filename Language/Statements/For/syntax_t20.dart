@@ -19,7 +19,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the loop variable
 /// in an asynchronous form of 'id in expression' is not a simple variable.
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
@@ -32,5 +31,8 @@ main() async {
   try {
     C c = new C();
     await for (c.i in new Stream.fromIterable([1,2])) break;
+//                                               ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

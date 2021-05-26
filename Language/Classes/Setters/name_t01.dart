@@ -10,14 +10,20 @@
 /// @description Checks that there is a compile-time error if a class has
 /// an explicitly defined abstract setter and an instance method with the same
 /// name.
-/// @compile-error
 /// @author vasya
 
 import "../../../Utils/expect.dart";
 
 class C {
+//    ^
+// [cfe] unspecified
   void set foo(value);
+//^
+// [analyzer] unspecified
   foo(value) { }
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

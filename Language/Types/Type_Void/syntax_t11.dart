@@ -9,12 +9,14 @@
 /// For example, as a type argument, or as the type of a variable or parameter.
 /// @description Checks that using void as a declaration name is also a c
 /// ompile-time error.
-/// @compile-error
 /// @author rodionov
 
 
 main() {
   try {
     var void;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (anything) {}
 }

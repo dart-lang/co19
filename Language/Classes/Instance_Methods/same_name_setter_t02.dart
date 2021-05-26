@@ -14,7 +14,6 @@
 ///
 /// @description Checks that it is a compile error if a class C declares an
 /// instance method named n and inherits a setter named n=.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -24,6 +23,9 @@ class A {
 
 class C extends A {
   foo() {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

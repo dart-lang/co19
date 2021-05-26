@@ -19,7 +19,6 @@
 /// sh then a runtime error occurs, unless h = n.
 /// @description Checks that falling through produces a runtime error, unless
 /// the current case clause is empty or the last case clause.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 /// @issue 7537
 
@@ -32,6 +31,9 @@ test(value) {
     case 1:  result = 1;
              break;
     case 2:  result = 2;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
     case 3:  result = 3;
   }
   return result;

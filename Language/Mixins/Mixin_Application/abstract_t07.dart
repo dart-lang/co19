@@ -12,7 +12,6 @@
 /// @description Checks that class C is abstract (cannot be instantiated by
 /// new) if there are abstract identifier even if all classes in mixin
 /// application are not abstract
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 class M {
@@ -25,4 +24,7 @@ abstract class C = S with M;
 
 main() {
   new C();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

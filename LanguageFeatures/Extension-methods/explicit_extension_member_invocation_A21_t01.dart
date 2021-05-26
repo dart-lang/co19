@@ -28,7 +28,7 @@ main() {
   Ext(c)
 //^^^
 // [analyzer] unspecified
-// [cfe] unspecified}
+// [cfe] unspecified
     ..foo()
     ..bar();
 }

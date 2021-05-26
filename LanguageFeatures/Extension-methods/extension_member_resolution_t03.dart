@@ -10,7 +10,6 @@
 ///
 /// @description Check that if there is no such member, the operation is
 /// currently a compile-time error
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -24,4 +23,7 @@ extension<T> on List<T> {
 main() {
   List<String> list = ["Lily", "was", "here"];
   list.notExiestinMethod();
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -14,12 +14,14 @@
 /// ;
 /// @description Checks that the ':' character in an optional named parameter
 /// declaration must be followed by an expression.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 f({var x: }) {}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

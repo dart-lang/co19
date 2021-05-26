@@ -8,16 +8,21 @@
 /// the declared name of a prefix, class, type parameter or type alias.
 /// @description Checks that it is a compile-time error if a built-in identifier
 /// "abstract" is used as the declared name of a type alias.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
 
 typedef int abstract();
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     null is abstract;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (anything) {
   }
 }

@@ -8,12 +8,14 @@
 /// operator ~ is not 0.
 /// @description Checks that a compile-time error is produced if a user-defined
 /// operator ~ specifies one parameter.
-/// @compile-error
 /// @author vasya
 
 
 class C {
   operator ~(var v) {}
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

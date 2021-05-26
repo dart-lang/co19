@@ -9,9 +9,8 @@
 /// erroneous code is executed.
 /// @description Checks that erroneous code is not executed if there is
 /// a compile-time error. Test error in part of imported library
-/// @compile-error
 /// @author sgrekhov@unipro.ru
-
+/// @issue 44990
 
 import '../../Utils/expect.dart';
 import 'compile_error_lib_p1.dart' as lib;

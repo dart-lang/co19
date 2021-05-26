@@ -14,12 +14,14 @@
 /// @description Checks that it is a compile-time error when an expression of
 /// the form e1 << e2 where e1 or e2 does not evaluate to an integer value, is
 /// used to initialize a constant variable.
-/// @compile-error
 /// @author kaigorodov
 
 
 final constList = const [
   1 << "one and a half"
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 ];
 
 main() {

@@ -11,7 +11,6 @@
 /// or indirectly, all of T1, . . . , Tn.
 /// @description Checks that it is no error if M directly implements all
 /// its superinterfaces
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

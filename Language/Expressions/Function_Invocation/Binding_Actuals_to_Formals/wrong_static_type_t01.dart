@@ -10,7 +10,6 @@
 /// @description Checks that it is a compile error if the type of an actual
 /// argument may not be assigned to the type of a positional parameter of a
 /// top-level function.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -21,4 +20,7 @@ func(int x) {}
 
 main() {
   func ('');
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

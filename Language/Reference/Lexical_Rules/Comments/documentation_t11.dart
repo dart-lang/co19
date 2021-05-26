@@ -8,12 +8,13 @@
 /// or '/''*''*'.
 /// @description Checks that it is a compile-time error when there is an unpaired
 /// documentation comment start token inside another documentation comment.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
 
 /**
+//^
+// [cfe] unspecified
 /* Comment */
 /*/* Nested comment **/ */
 /*/* */ /** Unpaired token **/
@@ -21,3 +22,5 @@
 
 main() {
 }
+// [error line 26, column 0]
+// [analyzer] unspecified

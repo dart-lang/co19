@@ -27,12 +27,14 @@
 /// ;
 /// @description Checks that initializing formals are not allowed in library
 /// functions.
-/// @compile-error
 /// @author ilya
 /// @reviewer
 
 
 f(this.x) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

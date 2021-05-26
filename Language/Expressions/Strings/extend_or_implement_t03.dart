@@ -7,12 +7,14 @@
 /// @assertion It is a compile-time error for a class to attempt to extend,
 /// mix in or implement String.
 /// @description Checks that String cannot be mixed in
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 class A {}
 
 class C extends A with String {}
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

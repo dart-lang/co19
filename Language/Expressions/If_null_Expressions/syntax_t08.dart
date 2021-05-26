@@ -10,10 +10,12 @@
 ///
 /// @description Check that it is a compile time error, if '??' is used twice
 ///
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 main() {
   var x = 10 ?? ?? 20;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

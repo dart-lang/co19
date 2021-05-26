@@ -22,7 +22,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when the URI of the
 /// library being imported is missing entirely.
-/// @compile-error
 /// @author vasya
 /// @reviewer hlodvig
 /// @reviewer msyabro
@@ -30,9 +29,15 @@
 
 
 import as lib;
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     someVar = 0;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

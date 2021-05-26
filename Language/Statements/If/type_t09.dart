@@ -15,7 +15,6 @@
 /// mutated in s1 or within a closure, v is captured by closure in s1, but v is
 /// potentially mutated elsewhere in its scope, then the type of v is not known
 /// to be T in s1.
-/// @compile-error
 /// @author ilya
 
 
@@ -29,6 +28,9 @@ test(C x) {
 
   if (x is D)
     closure = () => x.f(); // will throw
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   x = new C();
   closure();

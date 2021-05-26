@@ -10,7 +10,6 @@
 /// its superinterfaces.
 /// Expects a compile time error when trying to access a superinterface's static
 /// member S via a subinterface, as specified in (Expressions/Getter Invocation)
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 import '../../../../Utils/expect.dart';
@@ -28,5 +27,11 @@ abstract class I implements S2 {
 
 main() {
   Expect.throws(() {I.foo;}, (e) => e is NoSuchMethodError);
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   Expect.throws(() {I.bar;}, (e) => e is NoSuchMethodError);
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

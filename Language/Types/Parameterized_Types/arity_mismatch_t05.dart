@@ -13,7 +13,6 @@
 /// Of course, a static warning will be issued.
 /// @description Checks that if there is a mismatch in arguments number in
 /// generic type invocation, then compiler error occurs
-/// @compile-error
 /// @author ilya
 
 import "../../../Utils/expect.dart";
@@ -29,4 +28,7 @@ class C<T1, T2> {
 
 main() {
   new C<List>().test();
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -9,11 +9,13 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "rethrow" is used as an identifier in a part declaration.
-/// @compile-error
 /// @author rodionov
-/// @reviewer kaigorodov
+/// @issue 44990
 
 part "rethrow_lib.dart";
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 void main() {
   try {

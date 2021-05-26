@@ -10,12 +10,14 @@
 /// initializer of an instance variable.
 /// @description Checks that it is a compile-error if 'this' appears in the body
 /// of a top-level function.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
 
 func(p1, p2) => this;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

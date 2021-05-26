@@ -22,6 +22,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 
 
@@ -33,6 +34,7 @@ X0 t0Instance = new X0();
 T1 t1Instance = new T1();
 
 
+// @dart = 2.9
 
 
 
@@ -125,8 +127,7 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  ArgumentsBinding2_t02<T1> c2 =
+    ArgumentsBinding2_t02<T1> c2 =
     new ArgumentsBinding2_t02<T1>(t0Instance);
   c2 = new ArgumentsBinding2_t02<T1>.c1(t0Instance);
   c2 = new ArgumentsBinding2_t02<T1>.c2(t1Instance, t0Instance);
@@ -142,5 +143,4 @@ main() {
   c2.superTestNamed(t1Instance, val2: t0Instance);
   c2.superSetter = t0Instance;
   c2.superGetter;
-  //# -->
-}
+  }

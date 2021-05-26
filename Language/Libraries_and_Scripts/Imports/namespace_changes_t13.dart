@@ -59,7 +59,6 @@
 /// @description Checks that names provided as arguments to a 'show' combinator
 /// but not declared in the library being imported (or re-exported by it), are
 /// undefined.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
@@ -67,4 +66,7 @@ import "namespace_changes_lib.dart" show aFoo, A, anUndefinedName;
 
 main() {
   print(anUndefinedName);
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

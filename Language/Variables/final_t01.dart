@@ -16,7 +16,6 @@
 /// @description Checks that a compile error occurs if a final instance
 /// variable that has been initialized in declaration is also initialized in
 /// a constructor.
-/// @compile-error
 /// @author rodionov
 /// @issue 12539
 
@@ -25,6 +24,9 @@ class C {
   final v = 1;
   
   C() : v = 2 {}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

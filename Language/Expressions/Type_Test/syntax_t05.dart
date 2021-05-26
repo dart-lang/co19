@@ -13,7 +13,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if left part of the
 /// expression is a statement.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -21,5 +20,8 @@
 main () {
   try {
     if (1 < 2) {} is bool;
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

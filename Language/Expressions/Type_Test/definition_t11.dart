@@ -9,7 +9,6 @@
 /// type S of the expression v and both T != dynamic and S != dynamic.
 /// @description Checks that if T is more specific than S, and neither of them
 /// is dynamic, then is-expression shows that v has type T. Nested case.
-/// @static-clean
 /// @author ilya
 
 

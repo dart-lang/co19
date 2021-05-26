@@ -8,7 +8,6 @@
 /// The static type of a is the static type of e2
 /// @description Checks that the static type of e1?.v = e2 is the static type
 /// of e2
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 import '../../../Utils/dynamic_check.dart';

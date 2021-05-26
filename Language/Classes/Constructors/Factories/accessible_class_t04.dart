@@ -11,13 +11,18 @@
 /// @description Checks that a compile error is produced if referenced type in
 /// redirecting constructor is in fact an accessible type, but the
 /// referenced name does not denote a constructor.
-/// @compile-error
 /// @author ilya
 
 
 class F {
   factory F.foo() = C.foo;
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   factory F.bar() = C.bar;
+//                  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class C implements F {

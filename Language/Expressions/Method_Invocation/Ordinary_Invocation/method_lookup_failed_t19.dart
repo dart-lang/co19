@@ -24,7 +24,6 @@
 /// @description Checks that it is a compile error if C does not
 /// denote a class in the current scope, or if C does not declare a static
 /// method or getter with the required name.
-/// @compile-error
 /// @author rodionov
 
 import "../../../../Utils/expect.dart";
@@ -37,5 +36,11 @@ class C extends S {}
 
 main()  {
   Expect.throws(() {C.func();}, (e) => e is NoSuchMethodError);
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   Expect.throws(() {C.getter;}, (e) => e is NoSuchMethodError);
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

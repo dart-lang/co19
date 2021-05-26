@@ -29,7 +29,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the exponent part of
 /// a numeric literal contains both '+' and '-' signs.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -37,5 +36,8 @@
 main() {
   try {
     var i = 1e+-1;
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

@@ -10,7 +10,6 @@
 /// @description Checks that mixin declaration doesn't allow constructors.
 /// @issue 24767
 /// @issue 34804
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -25,6 +24,9 @@ class C {}
 
 mixin M<X extends S, Y extends T> on B, C implements I, J {
   factory M() {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class A implements B, C, I, J {}

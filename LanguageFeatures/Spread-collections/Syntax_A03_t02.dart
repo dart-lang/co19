@@ -13,10 +13,12 @@
 /// @description Checks that it is a set if collection has one type argument, it
 /// is a map if collection has two arguments and exception is thrown if there are
 /// three or more type arguments.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
 main() {
   var a = <int, int, int>{};
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

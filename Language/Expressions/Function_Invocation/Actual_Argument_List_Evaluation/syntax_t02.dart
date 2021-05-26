@@ -19,7 +19,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when named arguments
 /// precede positional arguments in a function invocation expression.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -29,5 +28,8 @@ func(p1, {p2}) {}
 main() {
   try {
     func(p2: 1, 2);
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

@@ -12,12 +12,14 @@
 /// ;
 /// @description Checks that two leading slash characters separated by whitespace
 /// do not make a single-line comment.
-/// @compile-error
 /// @author vasya
 /// @reviewer rodionov
 
 
 / / Invalid code
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

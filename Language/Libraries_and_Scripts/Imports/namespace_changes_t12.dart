@@ -59,7 +59,6 @@
 /// @description Checks that names not provided as arguments to a 'show'
 /// combinator are undefined even if they are defined in the imported library's
 /// export namespace.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
@@ -67,4 +66,7 @@ import "namespace_changes_lib.dart" show aFoo, A;
 
 main() {
   aFunc();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

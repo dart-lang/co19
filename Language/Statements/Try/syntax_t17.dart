@@ -26,7 +26,6 @@
 /// 2. A finally clause, which consists of a block statement.
 /// @description Checks that it is a compile-time error if a try statement has a
 /// finally clause preceding a catch clause.
-/// @compile-error
 /// @author rodionov
 /// @reviewer iefremov
 
@@ -36,4 +35,7 @@ main() {
   } on int catch (foo) {
   } finally {
   } catch (bar) {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -7,14 +7,19 @@
 /// @assertion It is a compile-time error for a class to attempt to extend,
 /// mix in or implement int
 /// @description Checks that a user-defined interface cannot extend int.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
 
 abstract class A extends int {}
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 class B implements A {}
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

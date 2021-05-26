@@ -5,3 +5,6 @@
 // @dart = 2.9
 
 part of assert;
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified

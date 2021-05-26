@@ -14,7 +14,6 @@
 /// @description Checks that it is a compile-time error when an expression of
 /// the form e1 == e2 where e1 does not evaluate to a numeric, string or boolean
 /// value, is used to initialize a constant variable.
-/// @compile-error
 /// @author kaigorodov
 
 
@@ -24,7 +23,11 @@ class A {
 }
 
 final constList = const [
+//                ^
+// [cfe] unspecified
    const A() == "hello",
+// ^
+// [analyzer] unspecified
 ];
 
 main() {

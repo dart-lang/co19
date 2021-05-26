@@ -10,7 +10,6 @@
 /// is complete, or a compile-time error occurs.
 /// @description Checks that it is a compile-error to reference the name of
 /// local variable before its declaration, but in outer scope.
-/// @compile-error
 /// @author ilya
 /// @author a.semenov@unipro.ru
 
@@ -18,6 +17,9 @@ import "../../Utils/expect.dart";
  
 main() {
     i;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
     for (int i = 0; i < 10; ++i) {}
 }

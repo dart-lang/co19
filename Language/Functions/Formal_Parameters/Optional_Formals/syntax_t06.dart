@@ -14,7 +14,6 @@
 /// ;
 /// @description Checks that reassigning a final optional parameter inside the
 /// function produces a compile error
-/// @compile-error
 /// @author iefremov
 /// @reviewer kaigorodov
 /// @reviewer rodionov
@@ -22,6 +21,9 @@
 
 foo([final p = 1]) {
   p = 1;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

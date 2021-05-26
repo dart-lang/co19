@@ -10,7 +10,6 @@
 ///   • A call to a constant constructor.
 /// @description Check that it is a compile time error, if qualified identifier
 /// is not complete
-/// @compile-error
 /// @issue #24280
 /// @author a.semenov@unipro.ru
 
@@ -19,6 +18,9 @@ import '../../Utils/expect.dart';
 import 'syntax_lib2.dart' as syntax_lib2;
 
 @syntax_lib2()
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 class B {}
 
 main() {

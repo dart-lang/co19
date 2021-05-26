@@ -12,11 +12,13 @@
 /// ;
 /// @description Checks that it is a compile-time error if the implements
 /// clause of a class does not list any types.
-/// @compile-error
 /// @author rodionov
 
 
 class A implements {}
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

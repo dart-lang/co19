@@ -29,7 +29,6 @@
 /// ;
 /// @description Checks that a dot without digits does not make a numeric
 /// literal.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -37,5 +36,8 @@
 main() {
   try {
     var i = .;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

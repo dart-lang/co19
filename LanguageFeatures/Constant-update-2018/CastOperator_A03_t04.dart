@@ -12,7 +12,6 @@
 /// @description Checks that an expression of the form [e as T] is not accepted
 /// and causes compile time error in the constant constructor if [e] is not a
 /// compile-time constant.
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 String str = "test";
@@ -20,6 +19,9 @@ String str = "test";
 class MyClass {
   final String obj;
   const MyClass() : obj = str as String;
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

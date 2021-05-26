@@ -19,7 +19,6 @@
 /// ;
 /// @description Checks that it is a compile-time error if the loop variable
 /// in a 'id in expression' includes initializer.
-/// @compile-error
 /// @author kaigorodov
 /// @reviewer rodionov
 
@@ -27,5 +26,8 @@
 main() {
   try {
     for (var l = 1 in new List(100)) break;
+//             ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

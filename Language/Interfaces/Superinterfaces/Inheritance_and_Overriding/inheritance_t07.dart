@@ -28,7 +28,6 @@
 /// @description Checks there is a compile error in a strong mode if non-abstract
 /// class implements several interfaces with same named methods that have
 /// different number of required and optional positional formal parameters.
-/// @compile-error
 /// @author ngl@unipro.ru
 
 import '../../../../Utils/expect.dart';
@@ -52,6 +51,9 @@ abstract class SI3 {
 
 class I implements SI1, SI2, SI3 {
   dynamic foo(dynamic p1, [dynamic a, dynamic b, dynamic c]) {return 2;}
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

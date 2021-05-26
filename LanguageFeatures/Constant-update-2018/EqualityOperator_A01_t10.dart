@@ -11,7 +11,6 @@
 /// operands is [null].
 /// @description Checks that [!=] operator is allowed if one of the operands is
 /// [null].
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -25,4 +24,7 @@ class MyClass {
 
 main() {
   const MyClass c1 = MyClass(null);
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

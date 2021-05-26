@@ -19,7 +19,6 @@
 /// {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
 /// @description  Checks that it is a compile error if the actual constructor has
 /// fewer positional parameters.
-/// @compile-error
 /// @author ilya
 
 
@@ -29,4 +28,7 @@ class C {
 
 main() {
   C(1, 2, 3);
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

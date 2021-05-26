@@ -23,13 +23,15 @@
 /// sequence of top-level declarations.
 /// @description Checks that it is a compile-time error when a part directive
 /// is missing the URI entirely.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 
 library Parts_test_lib;
 part;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

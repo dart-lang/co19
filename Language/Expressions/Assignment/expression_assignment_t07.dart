@@ -14,7 +14,6 @@
 /// formal parameter bound to o2 and this bound to o1.
 /// @description Checks that it is a compile error if setter lookup failed. Test
 /// the case when e1 is a constant type literal
-/// @compile-error
 /// @author ilya
 
 import '../../../Utils/expect.dart';
@@ -28,5 +27,8 @@ incCount() => ++count;
 
 main() {
   Expect.throws(() {C.noSetter = incCount();}, (e) => e is NoSuchMethodError);
+//                    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   Expect.equals(1, count);
 }

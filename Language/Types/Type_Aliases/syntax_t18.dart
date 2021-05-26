@@ -12,12 +12,14 @@
 ///  <functionPrefix> ::= <type>? <identifier>
 /// @description Checks that it is impossible to introduce alias for an abstract
 /// class type.
-/// @compile-error
 /// @author iefremov
 
 
 abstract class A {}
 typedef A B;
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

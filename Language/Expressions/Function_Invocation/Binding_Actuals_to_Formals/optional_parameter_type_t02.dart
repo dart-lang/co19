@@ -11,7 +11,6 @@
 /// @description Checks that it is a compile error if the type of an actual
 /// argument may not be assigned to the type of an optional parameter of a
 /// function literal.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
@@ -19,4 +18,7 @@
 main() {
   var f = () => ([int x]) {};
   f('');
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

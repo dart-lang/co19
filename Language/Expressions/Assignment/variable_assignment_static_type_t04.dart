@@ -11,7 +11,6 @@
 /// the static type of v. The static type of the expression v = e is the static
 /// type of e.
 /// @description Checks that static type of v = e is static type of e.
-/// @compile-error
 /// @author ilya
 
 
@@ -21,4 +20,7 @@ class D {}
 main() {
   var x;
   D y = (x = new C());
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

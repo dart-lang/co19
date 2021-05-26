@@ -21,7 +21,6 @@
 /// argument e2.
 /// @description Checks that reference to a class declaration cannot be used
 /// as the left operand of a multiplicative expression without a compile error.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer rodionov
@@ -31,4 +30,7 @@ class A {}
 
 main() {
     A * 1;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

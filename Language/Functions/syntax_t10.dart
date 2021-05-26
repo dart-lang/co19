@@ -22,13 +22,15 @@
 /// @description Checks that expression is necessary in the form
 /// ['=>' expression ';']
 ///
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer iefremov
 
 
 void f() => ;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

@@ -9,7 +9,6 @@
 /// if a reserved word is used where an identifier is expected.
 /// @description Checks that it is a compile-time error when a reserved word
 /// "final" is used as a label name.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
@@ -17,8 +16,17 @@
 main() {
   try {
     final:
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
     do {
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
       break final;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
     } while (false);
   } catch (x) {}
 }

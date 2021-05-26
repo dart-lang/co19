@@ -11,7 +11,6 @@
 /// @description Checks that a compile error is produced when a non-abstract
 /// instance method overrides an abstract method with the same name and greater
 /// number of required parameters.
-/// @compile-error
 /// @author rodionov
 
 import "../../../Utils/expect.dart";
@@ -22,10 +21,16 @@ abstract class A {
 
 class C extends A {
   f(var x, var y) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  Expect.throws(() => new C().f(2));  /// static type warning missing argument
+  Expect.throws(() => new C().f(2)); missing argument
+//                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   new C().f(2, 2);
 }

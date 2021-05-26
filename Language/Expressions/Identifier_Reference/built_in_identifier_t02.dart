@@ -12,26 +12,66 @@
 /// in a class instance scope, referencing a built-in identifier results in
 /// a compile error
 /// @author rodionov
-/// @compile-error
 
-import '../../../Utils/expect.dart';
 
 class A {
   test() {
-    Expect.throws(() {abstract();}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {1 + as;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {1 << export;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {external ^ 0;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {1 * factory;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {1 >= get;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {var x = implements;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {1 == import;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {1 == library;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {operator.x;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {1 == part;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {--set;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {true && static;}, (e) => e is NoSuchMethodError);
-    Expect.throws(() {++typedef;}, (e) => e is NoSuchMethodError);
+    abstract();
+//  ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    1 + as;
+//      ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    1 << export;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    external ^ 0;
+//  ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    1 * factory;
+//      ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    1 >= get;
+//       ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    var x = implements;
+//          ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    1 == import;
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    1 == library;
+//       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    operator.x;
+//  ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    1 == part;
+//       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    --set;
+//    ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    true && static;
+//          ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    ++typedef;
+//    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

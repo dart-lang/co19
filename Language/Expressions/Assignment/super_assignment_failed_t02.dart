@@ -23,7 +23,6 @@
 /// @description Checks that it is a compile error if there is setter v= in class
 /// C but no setter for v= in Sdynamic.
 /// @author sgrekhov@unipro.ru
-/// @compile-error
 
 import '../../../Utils/expect.dart';
 
@@ -43,6 +42,9 @@ class C extends A {
   var v = 0;
   test() {
     Expect.throws(() {super.v = 1;}, (e) => e is TestException);
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

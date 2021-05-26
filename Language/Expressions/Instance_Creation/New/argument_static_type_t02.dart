@@ -10,7 +10,6 @@
 /// @description Checks that it is a compile error if the static type of
 /// one of arguments can't be assigned to the type of the corresponding
 /// parameter of the named constructor.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
@@ -21,4 +20,7 @@ class C {
 
 main() {
   new C.name("");
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

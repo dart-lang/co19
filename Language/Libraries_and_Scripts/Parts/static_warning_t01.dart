@@ -8,16 +8,24 @@
 /// a library other than the current library as the library to which p belongs.
 /// @description Checks that it is a compile error if the referenced part names
 /// another library.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 library Parts_test_lib_not;
 import "../../../Utils/expect.dart";
 part "part_3.dart";
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();
+//    ^
+// [cfe] unspecified
   value = 3;
+//^
+// [cfe] unspecified
   Expect.equals(3, value);
+//                 ^
+// [cfe] unspecified
 }

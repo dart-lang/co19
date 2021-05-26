@@ -13,7 +13,6 @@
 /// @description Checks that it is not an error when the identifiers used with
 /// show/hide combinators are also named 'hide' and 'show', and that filtering
 /// the export namespace is done correctly.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
@@ -21,4 +20,7 @@ import "syntax_t02_lib.dart";
 
 main() {
   var x = show; // show is hidden, so expecting compile error
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

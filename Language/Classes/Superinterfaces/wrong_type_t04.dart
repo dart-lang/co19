@@ -9,13 +9,15 @@
 /// as a superinterface
 /// @description Checks that it is a compile-time error when the type expression
 /// in a class's implements clause denotes an enumerated type
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
 enum E {a, b, c}
 
 class A implements E {}
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   new A();

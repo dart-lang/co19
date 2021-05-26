@@ -11,7 +11,6 @@
 /// with arguments v.g, [o1, ..., on], {xn+1:on+1, ..., xn+k:on+k}.
 /// @description Checks that it is a compile error if an implicit getter
 /// is invoked and its value is neither null, nor function.
-/// @compile-error
 /// @author msyabro
 /// @author sgrekhov@unipro.ru
 
@@ -23,6 +22,9 @@ class S {
 class A extends S {
   test() {
     super.func();
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

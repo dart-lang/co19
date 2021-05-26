@@ -30,6 +30,7 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
@@ -56,6 +57,7 @@ U1 t1Func(S0 y0, S1 y1, {S2 x2, S3 y3}) => null;
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
 
+// @dart = 2.9
 
 
 
@@ -109,8 +111,7 @@ main() {
 
   // Test type parameters
 
-  //# <-- NotGenericFunctionType
-  Expect.throws(() {
+    Expect.throws(() {
     new ClassMember2_t03<T1>().m = forgetType(t0Instance);
   }, (e) => e is TypeError);
   Expect.throws(() {
@@ -122,5 +123,4 @@ main() {
   Expect.throws(() {
     new ClassMember2_t03<T1>().test2();
   }, (e) => e is TypeError);
-  //# -->
-}
+  }

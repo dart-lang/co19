@@ -9,11 +9,9 @@
 /// @description Checks that it is a compile-time error if this library imports
 /// another which re-exports two more libraries defining the same name but that
 /// name is not referenced in this library.
-/// @compile-error
 /// @author rodionov
-/// @reviewer kaigorodov
+/// @issue 44990
 /// @issue 6134
-
 
 import "reexport_lib.dart";
 

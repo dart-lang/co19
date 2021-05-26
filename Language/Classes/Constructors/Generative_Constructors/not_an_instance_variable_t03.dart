@@ -9,7 +9,6 @@
 /// the immediately surrounding class.
 /// @description Checks that error is produced if the initializer list contains
 /// an initializer for a static class variable.
-/// @compile-error
 /// @author rodionov
 
 
@@ -17,6 +16,9 @@ class C  {
   static var x = null;
 
   C() : x = 5 {}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

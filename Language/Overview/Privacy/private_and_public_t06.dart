@@ -14,7 +14,6 @@
 /// public.
 /// @description Checks that a private type declared with typedef is 
 /// inaccessible outside the library.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 /// @reviewer kaigorodov
@@ -23,4 +22,7 @@ import "../lib.dart" as lib;
 
 main() {
   (p) {} is lib._inaccessibleFuncType;
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

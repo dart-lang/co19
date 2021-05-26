@@ -8,11 +8,13 @@
 /// that is, [G] may have formal type parameters declared.
 /// @description Checks that at least one typeParameter is a must in the generic
 /// class declaration.
-/// @compile-error
 /// @author iefremov
 
 
 class C<>{}
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

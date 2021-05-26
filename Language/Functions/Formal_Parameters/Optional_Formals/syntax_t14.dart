@@ -14,7 +14,6 @@
 /// ;
 /// @description Checks that it is no error when the the '=' character is used in
 /// an optional named parameter declaration.
-/// @static-clean
 /// @author rodionov
 /// @author sgrekhov@unipro.ru
 

@@ -12,7 +12,6 @@
 /// declaration d is in scope if d is available in the current scope.
 /// @description Checks that it is a compile-time error if a local function 
 /// declares two optional parameters with a same name.
-/// @compile-error
 /// @author iefremov
 /// @reviewer rodionov
 
@@ -20,5 +19,8 @@
 main() {
   try {
     f([a, a]) {};
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (x) {}
 }

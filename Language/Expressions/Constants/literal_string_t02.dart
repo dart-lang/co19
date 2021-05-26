@@ -14,10 +14,12 @@
 /// that is a constant expression not evaluated to numeric, string or boolean
 /// value, cannot be assigned to a constant variable.
 /// @author iefremov
-/// @compile-error
 
 
 const l = "${const {'k1': 1, 'k2': 2}}";
+//         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

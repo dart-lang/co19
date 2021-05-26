@@ -21,7 +21,6 @@
 /// argument e2.
 /// @description Checks that two multiplicative operators / can't be placed
 /// one after another in a multiplicative expression.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer rodionov
@@ -30,5 +29,8 @@
 main() {
   try {
     0 / / 0;
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

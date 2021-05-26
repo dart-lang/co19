@@ -11,10 +11,8 @@
 /// contents of the URI are not a valid part declaration.
 /// @description Checks that it is a compile-time error when the included
 /// compilation unit contains another part directive.
-/// @compile-error
 /// @author rodionov
-/// @reviewer kaigorodov
-
+/// @issue 44990
 
 library Parts_test_lib;
 part "part_1.dart";

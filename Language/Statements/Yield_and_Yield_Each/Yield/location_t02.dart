@@ -10,10 +10,12 @@
 /// @description Check that it is compile error if yield statement appears
 /// inside asynchronous function.
 ///
-/// @compile-error
 /// @author a.semenov@unipro.ru
 
 
 main() async {
   yield 1;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

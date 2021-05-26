@@ -10,13 +10,18 @@
 /// @description Checks that it is a compile-time error when a reserved word
 /// "class" is used as an identifier following a 'show' combinator in an import
 /// directive.
-/// @compile-error
 /// @author rodionov
 /// @reviewer kaigorodov
 
 import "lib.dart" show class;
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
   try {
     int x = 1;
   } catch (anything) {

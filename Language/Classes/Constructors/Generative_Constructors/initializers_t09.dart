@@ -16,13 +16,15 @@
 /// ;
 /// @description Checks that it is a compile-time error when the field
 /// initializer does not include the right-side expression.
-/// @compile-error
 /// @author iefremov
 
 
 class C {
   C() : x = {}
   var x;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

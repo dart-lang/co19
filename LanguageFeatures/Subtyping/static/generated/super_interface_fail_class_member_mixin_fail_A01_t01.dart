@@ -15,7 +15,6 @@
 /// @description Check that if type T0 is not a subtype of a type T1, then
 /// instance of T0 cannot be be assigned to the mixin member of type T1.
 /// Assignment to instance variable of super class is tested.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
@@ -25,11 +24,13 @@
 /// above and then run generator.dart to regenerate the tests.
 
 
+// @dart = 2.9
 
 
 
 class T1 {}
 
+// Missing subtype relation to T1
 abstract class S0 {}
 abstract class S1 {}
 abstract class S2 {}
@@ -42,26 +43,36 @@ T0 t0Instance = new T();
 T1 t1Instance = new T1();
 
 
-
+// @dart = 2.9
 
 
 class ClassMemberSuper1_t03 {
   T1 m;
-  void set superSetter(T1 val) {} //# 02: compile-time error
+  void set superSetter(T1 val) {}
 }
 
 class ClassMember1_t03 extends Object with ClassMemberSuper1_t03 {
   test1() {
-    m = t0Instance; //# 03: compile-time error
+    m = t0Instance;
+//      ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   test2() {
-    superSetter = t0Instance; //# 04: compile-time error
+    superSetter = t0Instance;
+//                ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 main() {
-  new ClassMember1_t03().m = t0Instance; //# 01: compile-time error
-  new ClassMember1_t03().superSetter = t0Instance;  //# 02: compile-time error
-  new ClassMember1_t03().test1();  //# 03: compile-time error
-  new ClassMember1_t03().test2();  //# 04: compile-time error
+  new ClassMember1_t03().m = t0Instance;
+//                           ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  new ClassMember1_t03().superSetter = t0Instance;
+//                                     ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

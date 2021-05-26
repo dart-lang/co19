@@ -26,12 +26,14 @@
 /// • An invocation of a getter or list access operator on super.
 /// @description Checks that a switch statement
 /// can't be used in the left hand side of an assignment.
-/// @compile-error
 /// @author msyabro
 
 
 main() {
   try {
     switch (1) {case 1: true; default: false;} = null;
+//                                             ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

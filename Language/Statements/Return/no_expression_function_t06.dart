@@ -15,7 +15,6 @@
 /// form "return;" is used in a method that returns type dynamic, or a
 /// constructor.
 ///
-/// @static-clean
 /// @author rodionov
 /// @reviewer iefremov
 

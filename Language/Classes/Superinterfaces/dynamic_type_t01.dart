@@ -9,10 +9,12 @@
 /// @description Checks that it is a compile-time error if dynamic is included
 /// in the type list of a class's implements clause.
 /// @author pagolubev
-/// @compile-error
 
 
 class A implements dynamic {}
+//                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

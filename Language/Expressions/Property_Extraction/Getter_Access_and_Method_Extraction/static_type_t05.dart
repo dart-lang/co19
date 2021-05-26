@@ -18,7 +18,6 @@
 /// • The type dynamic otherwise.
 /// @description Check that static type is dynamic if no method or getter named
 /// m found
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

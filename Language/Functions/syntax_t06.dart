@@ -22,7 +22,6 @@
 /// @description Checks that it is a compile error if a block of a
 /// function body isn't closed
 ///
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer iefremov
@@ -35,3 +34,7 @@ main() {
 }
 
 function() {
+//         ^
+// [cfe] unspecified
+// [error line 40, column 0]
+// [analyzer] unspecified

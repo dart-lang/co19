@@ -24,7 +24,6 @@
 /// getter invocation, or an invocation of a postfix operator on an expression e.
 /// @description Checks that an expression that is not assignable (e.g. numeric
 /// literal) can't be used with postfixOperator.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer rodionov
@@ -33,5 +32,8 @@
 main() {
   try {
     1++;
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
   } catch (e) {}
 }

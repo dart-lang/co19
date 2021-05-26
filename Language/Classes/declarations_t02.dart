@@ -36,16 +36,20 @@
 /// ;
 /// @description Checks that it is a compile-time error if a constant 
 /// constructor declaration includes a body.
-/// @compile-error
 /// @author msyabro
 
 
 class A {
   const A() {}
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
   try {
     const A();
+//        ^
+// [cfe] unspecified
   } catch (e) {}
 }

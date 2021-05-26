@@ -9,7 +9,6 @@
 /// method or getter named m.
 /// @description Check that It is a compile error if S does not have an
 /// accessible instance method or getter named m.
-/// @compile-error
 /// @author sgrekhov@unipro.ru
 
 
@@ -21,6 +20,9 @@ class C extends A {
 
   void test() {
     var i = super.m;
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

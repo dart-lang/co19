@@ -18,7 +18,6 @@
 /// • The type dynamic otherwise.
 /// @description Check that static type of the static getter is getter's
 /// declared return type
-/// @static-clean
 /// @author sgrekhov@unipro.ru
 
 

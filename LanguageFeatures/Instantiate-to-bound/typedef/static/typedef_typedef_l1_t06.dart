@@ -44,7 +44,6 @@
 /// @description Checks that instantiate-to-bounds works correctly for
 /// [typedef A<X> = void Function(X);
 /// typedef G<X extends A<X>> = void Function(X)]
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 typedef F<X> = void Function<Y extends X>();
@@ -57,14 +56,39 @@ main() {
   G source;
   var fsource = toF(source);
   F<G<A<Null>>> target = fsource;
+//    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  F<G<A<dynamic>>> target1 = fsource;          //# 01: compile-time error
+  F<G<A<dynamic>>> target1 = fsource;
 
-  F<G<A<A<dynamic>>>> target2 = fsource;       //# 02: compile-time error
-  F<G<A<A<A<dynamic>>>>> target3 = fsource;    //# 03: compile-time error
-  F<G<A<A<A<A<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
+  F<G<A<A<dynamic>>>> target2 = fsource;
+//    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  F<G<A<A<Null>>>> target5 = fsource;       //# 05: compile-time error
-  F<G<A<A<A<Null>>>>> target6 = fsource;    //# 06: compile-time error
-  F<G<A<A<A<A<Null>>>>>> target7 = fsource; //# 07: compile-time error
+  F<G<A<A<A<dynamic>>>>> target3 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<A<A<A<dynamic>>>>>> target4 = fsource;
+//    ^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<A<Null>>>> target5 = fsource;
+//                           ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<A<A<Null>>>>> target6 = fsource;
+//    ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<A<A<A<Null>>>>>> target7 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

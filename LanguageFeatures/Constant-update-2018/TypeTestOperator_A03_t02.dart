@@ -10,7 +10,6 @@
 /// constant type.
 /// @description Checks that an expression of the form [e is T] is not accepted
 /// if [e] is not a constant
-/// @compile-error
 /// @author iarkh@unipro.ru
 
 
@@ -19,6 +18,9 @@ Object str = "test";
 class MyClass {
   final String obj;
   const MyClass() : obj = str is String ? "OK" : "incorrect";
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

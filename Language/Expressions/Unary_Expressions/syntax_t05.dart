@@ -31,7 +31,6 @@
 /// unary operator on either super or an expression e.
 /// @description Checks that incrementOperator cannot be used with
 /// a reference to a type parameter without a compile error.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 /// @reviewer rodionov
@@ -40,6 +39,9 @@
 class A <T> {
   test() {
     ++T;
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

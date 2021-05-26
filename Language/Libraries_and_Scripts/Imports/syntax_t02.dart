@@ -22,7 +22,6 @@
 /// ;
 /// @description Checks that it is a compile-time error when the URI in an
 /// import directive is enclosed in parentheses.
-/// @compile-error
 /// @author vasya
 /// @reviewer hlodvig
 /// @reviewer msyabro
@@ -30,6 +29,9 @@
 
 
 import("syntax_lib.dart");
+//                       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {

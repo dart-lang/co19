@@ -12,16 +12,20 @@
 /// declaration d is in scope if d is available in the current scope.
 /// @description Checks that it is a compile-time error if the library scope 
 /// contains two functions with the same name.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
 
 void conflictingName() {}
 conflictingName() {return 1;}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
   try {
     conflictingName();
+//  ^
+// [cfe] unspecified
   } catch (e) {}
 }

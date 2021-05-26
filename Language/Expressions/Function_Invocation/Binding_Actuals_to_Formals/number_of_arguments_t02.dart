@@ -10,11 +10,13 @@
 /// It is a static warning if m < h or if m > n.
 /// @description Checks that it is a compile error if the number of argument is
 /// less than number of positional parameters of a function literal.
-/// @compile-error
 /// @author msyabro
 /// @reviewer iefremov
 
 
 main() {
   (p1, p2, p3) {} (1);
+//                ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -8,13 +8,18 @@
 /// the same name.
 /// @description Checks that it is a compile-time error if a class declares 
 /// a function and an abstract function of the same name.
-/// @compile-error
 /// @author rodionov
 
 
 class C {
+//    ^
+// [analyzer] unspecified
+// [cfe] unspecified
   void f() {}
   String f(int f); // abstract
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

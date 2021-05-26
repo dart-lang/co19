@@ -10,7 +10,6 @@
 /// @description Checks that [c1.next.unknown(43)] line from the test example
 /// causes compile-time error and throws error in runtime
 /// @author iarkh@unipro.ru
-/// @compile-error
 
 import "../../Utils/expect.dart";
 
@@ -28,5 +27,8 @@ main() {
   C<C<dynamic>> c1 = d;
   Expect.throws(() {
     c1.next.unknown(43); // Compile-time error.
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
   });
 }

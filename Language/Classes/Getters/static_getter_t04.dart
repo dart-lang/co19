@@ -10,15 +10,20 @@
 /// implicitly declared static getter and an implicitly declared instance
 /// setter with the same name.
 /// @issue 24534
-/// @compile-error
 /// @author ngl@unipro.ru
 
 
 class C {
   static int v;
+//           ^
+// [analyzer] unspecified
   int v = 1;
+//    ^
+// [cfe] unspecified
 }
 
 main() {
   C.v = 2;
+//    ^
+// [cfe] unspecified
 }

@@ -16,7 +16,6 @@
 /// The run time type of a function object always implements the class Function.
 /// @description Checks the type of functions with parameters. Also checks that
 /// run time type of a function object always implements the class Function.
-/// @static-clean
 /// @author ngl@unipro.ru
 
 import "../../../Utils/expect.dart";

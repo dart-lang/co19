@@ -11,7 +11,6 @@
 /// deﬁned in dart:core.
 /// @description Checks that it is a compile error if S does not have
 /// an instance member named m.
-/// @compile-error
 /// @author msyabro
 /// @reviewer kaigorodov
 
@@ -21,6 +20,9 @@ class S {}
 class A extends S {
   test() {
     super.m();
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 

@@ -24,14 +24,23 @@
 /// ;
 /// @description Checks that it is a compile-time error when a raw multi-line
 /// double-quotes string literal does not have the closing triplet.
-/// @compile-error
 /// @author msyabro
 /// @reviewer rodionov
 
 
 main() {
+//     ^
+// [cfe] unspecified
   try {
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+// [error line 46, column 0]
+// [analyzer] unspecified
     r"""
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
     incorrect string;
   } catch (e) {}
 }
