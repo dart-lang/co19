@@ -8,20 +8,32 @@
 /// canonicalized if the type arguments are constant.
 ///
 /// @description Checks that if type alias is instantiated, the result is the
-/// same as tearing off the aliased type directly.
+/// same as tearing off the aliased type directly. Test negative static cases.
 ///
 /// @author iarkh@unipro.ru
 
-import "../../Utils/expect.dart";
-
-typedef MyList<T> = List<T>;
+typedef MyList<T extends num> = List<T>;
 
 main() {
-  var v1 = MyList<int>.filled;
-  List list1 = v1(3, 1);
-  Expect.equals([1, 1, 1], list1);
+  var v = MyList<num>.filled;
+  v(3, "");
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  var v2 = MyList<String>.filled;
-  List list2 = v2(3, "abc");
-  Expect.equals(["abc", "abc", "abc"], list1);
+  var v1 = MyList<int>.filled;
+  v1(3, null);
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  v1(7, 4.3);
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  var v = MyList<String>.filled;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -2,65 +2,33 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion With generalized type-aliases, it's possible to declare a
-/// class-alias like [typedef IntList = List<int>;]. ... It's constant and
-/// canonicalized to the same function as [List<int>.filled]. In other words,
-/// the alias is treated as an actual alias for the type it aliases.
+/// @assertion This differs for a generic type alias. If the type alias is
+/// instantiated (implicitly or explicitly), then the result is still the same
+/// as tearing off the aliased type directly, and it's constant and
+/// canonicalized if the type arguments are constant.
 ///
-/// @description Checks that class-alias [typedef IntList = List] is
-/// constant and canonicalized. Tests raw [List] class.
+/// @description Checks that if type alias is instantiated, the result is the
+/// same as tearing off the aliased type directly. Test negative static cases.
+///
 /// @author iarkh@unipro.ru
 
-import "../../Utils/expect.dart";
+typedef MyList<T> = List<T>;
 
-class A<T extends num> {
-  T? i, j;
-  A();
-  A.constr(this.i, this.j);
-}
+main() {
+  var v = MyList<int>.filled;
+  v(3, "");
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-typedef IntList = List;
+  var v1 = MyList<String>.filled;
+  v1(3, null);
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-typedef AAlias = A<int>;
-
-testList() {
-  var v1 = IntList.filled;
-  var v2 = IntList.filled;
-  var v3 = IntList.filled;
-
-  Expect.identical(v1, v2);
-  Expect.identical(v1, v3);
-
-  var v4 = (IntList.filled);
-  Expect.identical(v1, v4);
-}
-
-testA_new() {
-  var v1 = A.new;
-  var v2 = A.new;
-  var v3 = A.new;
-
-  Expect.identical(v1, v2);
-  Expect.identical(v1, v3);
-
-  var v4 = (A.new);
-  Expect.identical(v1, v4);
-}
-
-testA_constr() {
-  var v1 = A.constr;
-  var v2 = A.constr;
-  var v3 = A.constr;
-
-  Expect.identical(v1, v2);
-  Expect.identical(v1, v3);
-
-  var v4 = (A.constr);
-  Expect.identical(v1, v4);
-}
-
-void main() {
-  testList();
-  testA_new();
-  testA_constr();
+  v1(3, 4);
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
