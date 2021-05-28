@@ -27,7 +27,7 @@ main() {
   G2 source;
   var fsource = toF(source);
   F<G2<G1<num>>> target = fsource;
-  F<G2<G1<dynamic>>> target1 = fsource; //# 01: compile-time error
-  F<G2<G1<Null>>>    target2 = fsource; //# 02: compile-time error
+  F<G2<G1<dynamic>>> target1 = fsource;
+  F<G2<G1<Null>>>    target2 = fsource;
 }
 
