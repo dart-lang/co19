@@ -15,6 +15,8 @@
 /// every type argument of [G1] has a simple bound.
 /// @description Checks that simple bounds are correct for [typedef] with
 /// [typedef] parameter (not used)
+///
+/// @Issue 46178
 /// @author iarkh@unipro.ru
 
 typedef F<X> = void Function<Y extends X>();
