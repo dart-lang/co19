@@ -2,18 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion All field declarations in a Struct subclass declaration must
-/// either have type int or double and be annotated with a NativeType
-/// representing the native type, or must be of type Pointer or subtype of Struct.
+/// @assertion All field declarations in a Union subclass declaration must
+/// either have type int or float and be annotated with a NativeType
+/// representing the native type, or must be of type Pointer.
 ///
-/// @description Checks that it is a compile error if any of the field in Struct
-/// subclass is not 'int', 'double' or 'Pointer' or subtype of 'Struct'
+/// @description Checks that it is a compile error if any of the field in Union
+/// subclass is not 'int', 'double' or 'Pointer'
 /// @author sgrekhov@unipro.ru
-/// @issue 44985
 
 import "dart:ffi";
 
-class S1 extends Struct {
+class U1 extends Union {
   @Int8()
   external int i;
 
@@ -29,7 +28,7 @@ class S1 extends Struct {
 // [cfe] unspecified
 }
 
-class S2 extends Struct {
+class U2 extends Union {
   @Int8()
   external int i;
 
@@ -39,18 +38,18 @@ class S2 extends Struct {
 // [cfe] unspecified
 }
 
-class S3 extends Struct {
+class U3 extends Union {
   @Int8()
   external int i;
 
   Union? u;
-//^^^^^^
+//^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 void main() {
-  S1? s1;
-  S2? s2;
-  S3? s3;
+  U1? u1;
+  U2? u2;
+  U3? u3;
 }
