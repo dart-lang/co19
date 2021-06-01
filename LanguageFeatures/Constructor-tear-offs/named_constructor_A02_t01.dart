@@ -18,11 +18,9 @@
 import "../../Utils/expect.dart";
 
 class C {
-  C() {}
   C.constr() {}
 }
 
 main() {
   Expect.isTrue(C.constr is C Function());
-  Expect.isTrue(C.new is C Function());
 }

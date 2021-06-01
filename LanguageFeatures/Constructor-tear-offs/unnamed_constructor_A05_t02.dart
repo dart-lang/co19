@@ -18,11 +18,11 @@
 import "../../Utils/expect.dart";
 
 class C<T> {
-  C.constr(T t) {}
+  C(int i, T t) {}
 }
 
 main() {
-  Expect.isTrue(C.constr is C Function<X extends dynamic>(X));
-  Expect.isTrue(C<int>.constr is C Function<X extends int>(X));
-  Expect.isTrue(C.constr<int> is C Function<T extends int>(T));
+  Expect.isTrue(C.new is C Function<X>(int i, X d));
+  Expect.isTrue(C<int>.new is C Function<X extends int>(int i, X d));
+  Expect.isTrue(C.new<int> is C Function<T extends int>(int i, X d));
 }
