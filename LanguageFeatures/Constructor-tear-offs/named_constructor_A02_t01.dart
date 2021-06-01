@@ -13,6 +13,8 @@
 /// @description Checks constructor tear-off expression for non-generic class.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
+
 import "../../Utils/expect.dart";
 
 class C {

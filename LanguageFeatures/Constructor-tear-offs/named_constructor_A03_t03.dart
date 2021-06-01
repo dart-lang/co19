@@ -13,6 +13,8 @@
 /// arguments to [C] - test case with the several type parameters.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
+
 import "../../Utils/expect.dart";
 
 class C<T1, T2 extends num, T3 extends String> {

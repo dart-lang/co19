@@ -11,6 +11,8 @@
 /// List<int>;] and filled constructor is teared of in this case.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
+
 import "../../Utils/expect.dart";
 
 typedef IntList = List<int>;

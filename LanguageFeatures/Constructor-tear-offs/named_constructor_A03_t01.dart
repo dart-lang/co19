@@ -11,6 +11,8 @@
 /// is not allowed for a non-generic class.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
+
 class C {
   C.constr(int i) {}
 }

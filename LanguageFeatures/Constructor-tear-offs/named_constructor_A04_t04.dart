@@ -14,6 +14,8 @@
 /// list - test case with one [dynamic] argument.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
+
 class C {
   C.constr(i) {}
 }

@@ -12,6 +12,8 @@
 /// @description Checks that type arguments can be implicitly instantiated.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
+
 import "../../Utils/expect.dart";
 
 class C<T1, T2 extends num, T3 extends String> {
@@ -20,6 +22,8 @@ class C<T1, T2 extends num, T3 extends String> {
 }
 
 main() {
-  Expect.isTrue(C.constr is C Function<T1 extends dynamic, T2 extends num, T3 extends String>());
-  Expect.isTrue(C.constr1 is C Function<T1 extends dynamic, T2 extends num, T3 extends String>(T1, T2));
+  Expect.isTrue(C.constr is
+    C Function<T1 extends dynamic, T2 extends num, T3 extends String>());
+  Expect.isTrue(C.constr1 is
+    C Function<T1 extends dynamic, T2 extends num, T3 extends String>(T1, T2));
 }

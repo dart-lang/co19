@@ -13,6 +13,8 @@
 /// @description Checks that initializing formals are represented by normal
 /// parameters with the same name and type.
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
+
 import "../../Utils/expect.dart";
 
 class C {

@@ -9,6 +9,8 @@
 /// instantiating types are not constant - test non-generic class
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
+
 import "../../Utils/expect.dart";
 
 class MyClass {

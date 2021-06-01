@@ -17,10 +17,12 @@
 /// non-generic class.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
+
 import "../../Utils/expect.dart";
 
 class C {
-  static bool called = false;
+  final bool called = false;
   C.constr(int i) {
     called = true;
   }

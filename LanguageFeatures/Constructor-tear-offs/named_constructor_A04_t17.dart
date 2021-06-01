@@ -14,6 +14,8 @@
 /// incorrect additional arguments statically.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
+
 class C {
   C.constr([int? j, String s = "testme"]) {}
 }

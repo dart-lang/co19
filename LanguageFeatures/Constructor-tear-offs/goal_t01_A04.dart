@@ -22,6 +22,8 @@
 /// correctly for the generic class.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
+
 class C<T extends int> {
   C.constr(int i) {}
 }
@@ -43,7 +45,7 @@ main() {
 // [cfe] unspecified
 
   var v4 = C.constr<int, int>;
-//                       ^
+//                     ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
@@ -53,7 +55,7 @@ main() {
 // [cfe] unspecified
 
   var v6 = (C.constr)<int, int>;
-//                      ^
+//                       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

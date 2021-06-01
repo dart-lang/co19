@@ -12,6 +12,8 @@
 /// negative static case for raw List.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
+
 typedef MyList = List;
 
 main() {

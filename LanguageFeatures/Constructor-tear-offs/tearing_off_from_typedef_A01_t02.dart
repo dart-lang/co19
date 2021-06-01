@@ -11,7 +11,7 @@
 /// off constructor.
 /// @author iarkh@unipro.ru
 
-import "../../Utils/expect.dart";
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 typedef IntList = List<int>;
 

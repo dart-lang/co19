@@ -13,6 +13,8 @@
 /// arguments to [C] - test incorrect type arguments.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
+
 class C<T> {
   C.constr() {}
 }

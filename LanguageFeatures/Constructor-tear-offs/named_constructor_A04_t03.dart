@@ -14,6 +14,8 @@
 /// list - test case with one [int] argument.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
+
 class C {
   C.constr(num i) {}
 }

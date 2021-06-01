@@ -15,9 +15,10 @@
 /// parameter.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
+
 class C {
   int? i;
-
   C.constr({required this.i});
 }
 

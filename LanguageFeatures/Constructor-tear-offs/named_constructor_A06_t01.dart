@@ -12,6 +12,8 @@
 /// [C<typeArgs>.name.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
+
 import "../../Utils/expect.dart";
 
 class C<T1, T2 extends num, T3 extends String> {
@@ -21,14 +23,20 @@ class C<T1, T2 extends num, T3 extends String> {
 
 main() {
   var v1 = C<dynamic, num, String>.constr;
-  Expect.isTrue(v1 is C Function<T1 extends dynamic, T2 extends num, T3 extends String>());
+  Expect.isTrue(v1 is
+    C Function<T1 extends dynamic, T2 extends num, T3 extends String>());
 
   var v2 = C<dynamic, num, String>.constr1;
-  Expect.isTrue(v2 is C Function<T1 extends dynamic, T2 extends num, T3 extends String>(dynamic, num));
+  Expect.isTrue(v2 is C Function<T1 extends dynamic,
+      T2 extends num,
+      T3 extends String>(dynamic, num));
 
   var v3 = C<List<int>, int, String>.constr;
-  Expect.isTrue(v3 is C Function<T1 extends List<int>, T2 extends int, T3 extends String>());
+  Expect.isTrue(v3 is
+    C Function<T1 extends List<int>, T2 extends int, T3 extends String>());
 
   var v4 = C<List<int>, int, String>.constr1;
-  Expect.isTrue(v3 is C Function<T1 extends List<int>, T2 extends int, T3 extends String>(List<int>, int));
+  Expect.isTrue(v3 is C Function<T1 extends List<int>,
+      T2 extends int,
+      T3 extends String>(List<int>, int));
 }
