@@ -4,7 +4,8 @@
 
 /// @assertion All field declarations in a Union subclass declaration must
 /// either have type int or float and be annotated with a NativeType
-/// representing the native type, or must be of type Pointer.
+/// representing the native type, or must be of type Pointer or subtype of
+/// Struct or Union.
 ///
 /// @description Checks that 'Union' subtype value depends on annotation
 /// @author sgrekhov@unipro.ru

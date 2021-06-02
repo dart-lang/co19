@@ -4,10 +4,11 @@
 
 /// @assertion All field declarations in a Union subclass declaration must
 /// either have type int or float and be annotated with a NativeType
-/// representing the native type, or must be of type Pointer.
+/// representing the native type, or must be of type Pointer or subtype of
+/// Struct or Union.
 ///
 /// @description Checks that it is a compile error if any of the field in Union
-/// subclass is not 'int', 'double' or 'Pointer'
+/// subclass is not 'int', 'double', 'Pointer' or subtype of Struct or Union
 /// @author sgrekhov@unipro.ru
 
 import "dart:ffi";

@@ -4,7 +4,8 @@
 
 /// @assertion All field declarations in a Struct subclass declaration must
 /// either have type int or double and be annotated with a NativeType
-/// representing the native type, or must be of type Pointer or subtype of Struct.
+/// representing the native type, or must be of type Pointer or subtype of
+/// Struct or Union.
 ///
 /// @description Checks that 'Struct' subtype value depends on annotation
 /// @author sgrekhov@unipro.ru

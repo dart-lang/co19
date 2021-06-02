@@ -4,10 +4,12 @@
 
 /// @assertion All field declarations in a Struct subclass declaration must
 /// either have type int or double and be annotated with a NativeType
-/// representing the native type, or must be of type Pointer or subtype of Struct.
+/// representing the native type, or must be of type Pointer or subtype of
+/// Struct or Union.
 ///
 /// @description Checks that it is a compile error if any of the field in Struct
-/// subclass is not 'int', 'double' or 'Pointer' or subtype of 'Struct'
+/// subclass is not 'int', 'double' or 'Pointer' or subtype of 'Struct' or
+/// 'Union'
 /// @author sgrekhov@unipro.ru
 
 import "dart:ffi";

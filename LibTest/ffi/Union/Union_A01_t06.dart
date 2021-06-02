@@ -4,16 +4,17 @@
 
 /// @assertion All field declarations in a Union subclass declaration must
 /// either have type int or float and be annotated with a NativeType
-/// representing the native type, or must be of type Pointer.
+/// representing the native type, or must be of type Pointer or subtype of
+/// Struct or Union.
 ///
-/// @description Checks that it is a compile error if any of the field in Struct
-/// subclass is not 'int', 'double' or 'Pointer'. Test
-/// field of 'Union' and 'Struct' subclass type
+/// @description Checks that it is not an error if all of the field in Union
+/// subclass are 'int', 'double', 'Pointer' or subtype of Struct or Union
 /// @author sgrekhov@unipro.ru
 /// @issue 46194
 
 import "dart:ffi";
 import "package:ffi/ffi.dart";
+import "../../../Utils/expect.dart";
 
 class U extends Union {
   @Int32()
@@ -29,6 +30,11 @@ class U1 extends Union {
   @Int8()
   external int i;
 
+  @Float()
+  external double d;
+
+  external Pointer<Int16> p;
+
   external S s;
 
   external U u;
@@ -38,7 +44,14 @@ void main() {
   Pointer<U1> p = calloc<U1>();
   U1 u1 = p.ref;
   u1.u.x = 42;
-  print(u1.u.x);
+  Expect.equals(42, u1.u.x);
   u1.s.y = -42;
-  print(u1.s.y);
+  Expect.equals(-42, u1.s.y);
+  u1.i = 1;
+  Expect.equals(1, u1.i);
+  u1.d = 3.14;
+  Expect.approxEquals(3.14, u1.d);
+  u1.p = calloc<Int16>();
+  u1.p.value = 13;
+  Expect.equals(13, u1.p.value);
 }
