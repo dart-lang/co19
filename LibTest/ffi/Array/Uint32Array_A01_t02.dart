@@ -24,21 +24,14 @@ void main() {
   final pointer = calloc<MyStruct>();
   try {
     final array1 = pointer.ref.a0;
-    for (int i = 0; i < 2; i++) {
-      array1[i] = 42;
-      Expect.equals(42, array1[i]);
-      array1[i] = -42;
-      Expect.equals(4294967254, array1[i]);
-    }
+    Expect.throws(() {array1[3];});
+    Expect.throws(() {array1[3] = 42;});
+
     final array2 = pointer.ref.a1;
-    for (int i = 0; i < 2; i++) {
-      for (int j = 0; j < 3; j++) {
-        array2[i][j] = 42;
-        Expect.equals(42, array2[i][j]);
-        array2[i][j] = -42;
-        Expect.equals(4294967254, array2[i][j]);
-      }
-    }
+    Expect.throws(() {array2[3][0];});
+    Expect.throws(() {array2[3][0] = 42;});
+    Expect.throws(() {array2[0][3];});
+    Expect.throws(() {array2[0][3] = 42;});
   } finally {
     calloc.free(pointer);
   }
