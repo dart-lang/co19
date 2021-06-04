@@ -12,6 +12,8 @@
 ///
 /// @description Checks that initializing formals are represented by normal
 /// parameters with the same name and type.
+/// @author iarkh@unipro.ru
+/// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
@@ -23,13 +25,16 @@ class C {
   C.name(this.x, this.y);
 }
 
-dynamic d = 0.5;
-
 main() {
+  final dynamic d = 0.5;
   var v = C.name;
   Expect.isTrue(v is C Function(int x, dynamic y));
-  v(42, "I am strong");
+  var x = v(42, "Lily was here");
+  Expect.equals(42, x.x);
+  Expect.equals("Lily was here", x.y);
+  var y = v(1, d);
+  Expect.equals(1, y.x);
+  Expect.equals(d, y.y);
 
   Expect.throws(() { v(d, "test"); });
-  Expect.throws(() { v(1, d); });
 }

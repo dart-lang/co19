@@ -8,31 +8,32 @@
 /// constructor always tears off to the same function value, as does an
 /// uninstantiated tear off of a generic class constructor.
 ///
-/// @description Checks that a non-generic class constructor always tears off to
-/// the same function value: test constructors with optional parameters.
-/// @author iarkh@unipro.ru
+/// @description Checks equality of generic tear-offs of different constructors
+/// but with the same signature
+/// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
 import "../../Utils/expect.dart";
 
-class C {
-  C.name1([int i = 1, j = "testme"]) {}
-  C.name2(int i, [List? l, String check = "check"]) {}
-  C.name3(int i, [String s = "This is a String", l]) {}
+class C<T> {
+  T i, j;
+  C.name1(this.i, this.j) {}
+  C.name2(this.i, this.j);
+  C(this.i, this.j) {}
 }
 
 main() {
-  var v1 = C.name1;
-  var v2 = C.name1;
+  var v1 = C<int>.name1;
+  var v2 = C<int>.name1;
   Expect.equals(v1, v2);
 
-  var v4 = C.name2;
-  var v5 = C.name2;
+  var v4 = C<int>.name2;
+  var v5 = C<int>.name2;
   Expect.equals(v4, v5);
 
-  var v7 = C.name3;
-  var v8 = C.name3;
+  var v7 = C<int>.new;
+  var v8 = C<int>.new;
   Expect.equals(v7, v8);
 
   Expect.notEquals(v1, v4);

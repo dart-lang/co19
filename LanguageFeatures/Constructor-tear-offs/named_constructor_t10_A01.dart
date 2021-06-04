@@ -62,5 +62,5 @@ void testC() {
 
 main() {
   testList();
-  testA();
+  testC();
 }

@@ -37,16 +37,15 @@ class C {
 }
 
 main() {
-  Expect.equals(0, C.new());
-  Expect.equals(0, (C.new)());
+  Expect.equals(0, C.new().i);
+  Expect.equals(0, (C.new)().i);
 
-  Expect.equals(1, C.constr1(1));
-  Expect.equals(1, (C.constr1)(1));
+  Expect.equals(1, C.constr1(42).i);
+  Expect.equals(1, (C.constr1)(42).i);
 
-  Expect.equals(2, C.constr2(1, "123"));
-  Expect.equals(2, (C.constr2)(1, "123"));
+  Expect.equals(2, C.constr2(1, "123").i);
+  Expect.equals(2, (C.constr2)(1, "123").i);
 
-  Expect.equals(1, C.constr3());
-  Expect.equals(1, (C.constr3)());
+  Expect.equals(3, C.constr3().i);
+  Expect.equals(3, (C.constr3)().i);
 }
-

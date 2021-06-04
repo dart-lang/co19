@@ -37,39 +37,39 @@ class C<T> {
 }
 
 main() {
-  Expect.equals(0, C.new());
-  Expect.equals(0, (C.new)());
-  Expect.equals(0, C<dynamic>.new());
-  Expect.equals(0, (C<dynamic>.new)());
-  Expect.equals(0, (C.new)<dynamic>());
-  Expect.equals(0, C<int>.new());
-  Expect.equals(0, (C<int>.new)());
-  Expect.equals(0, (C.new)<int>());
+  Expect.equals(0, C.new().i);
+  Expect.equals(0, (C.new)().i);
+  Expect.equals(0, C<dynamic>.new().i);
+  Expect.equals(0, (C<dynamic>.new)().i);
+  Expect.equals(0, (C.new)<dynamic>().i);
+  Expect.equals(0, C<int>.new().i);
+  Expect.equals(0, (C<int>.new)().i);
+  Expect.equals(0, (C.new)<int>().i);
 
-  Expect.equals(1, C.constr1(1));
-  Expect.equals(1, (C.constr1)(1));
-  Expect.equals(1, C<dynamic>.constr1(1));
-  Expect.equals(1, (C<dynamic>.constr1)(1));
-  Expect.equals(1, (C.constr1)<dynamic>(1));
-  Expect.equals(1, C<int>.constr1(1));
-  Expect.equals(1, (C<int>.constr1)(1));
-  Expect.equals(1, (C.constr1)<int>(1));
+  Expect.equals(1, C.constr1(42).i);
+  Expect.equals(1, (C.constr1)(42).i);
+  Expect.equals(1, C<dynamic>.constr1(42).i);
+  Expect.equals(1, (C<dynamic>.constr1)(42).i);
+  Expect.equals(1, (C.constr1)<dynamic>(42).i);
+  Expect.equals(1, C<int>.constr1(42).i);
+  Expect.equals(1, (C<int>.constr1)(42).i);
+  Expect.equals(1, (C.constr1)<int>(42).i);
 
-  Expect.equals(2, C.constr2(1, ""));
-  Expect.equals(2, (C.constr2)(1, ""));
-  Expect.equals(2, C<dynamic>.constr1(1, ""));
-  Expect.equals(2, (C<dynamic>.constr2)(1, ""));
-  Expect.equals(2, (C.constr2)<dynamic>(1, ""));
-  Expect.equals(2, C<int>.constr1(1, ""));
-  Expect.equals(2, (C<int>.constr2)(1, ""));
-  Expect.equals(2, (C.constr2)<int>(1, ""));
+  Expect.equals(2, C.constr2(1, "").i);
+  Expect.equals(2, (C.constr2)(1, "").i);
+  Expect.equals(2, C<dynamic>.constr1(1, "").i);
+  Expect.equals(2, (C<dynamic>.constr2)(1, "").i);
+  Expect.equals(2, (C.constr2)<dynamic>(1, "").i);
+  Expect.equals(2, C<int>.constr1(1, "").i);
+  Expect.equals(2, (C<int>.constr2)(1, "").i);
+  Expect.equals(2, (C.constr2)<int>(1, "").i);
 
-  Expect.equals(3, C.constr3());
-  Expect.equals(3, (C.constr3)());
-  Expect.equals(3, C<dynamic>.constr3());
-  Expect.equals(3, (C<dynamic>.constr3)());
-  Expect.equals(3, (C.constr3)<dynamic>());
-  Expect.equals(3, C<int>.constr3());
-  Expect.equals(3, (C<int>.constr3)());
-  Expect.equals(3, (C.constr3)<int>());
+  Expect.equals(3, C.constr3().i);
+  Expect.equals(3, (C.constr3)().i);
+  Expect.equals(3, C<dynamic>.constr3().i);
+  Expect.equals(3, (C<dynamic>.constr3)().i);
+  Expect.equals(3, (C.constr3)<dynamic>().i);
+  Expect.equals(3, C<int>.constr3().i);
+  Expect.equals(3, (C<int>.constr3)().i);
+  Expect.equals(3, (C.constr3)<int>().i);
 }

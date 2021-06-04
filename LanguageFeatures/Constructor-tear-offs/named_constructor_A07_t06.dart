@@ -26,26 +26,17 @@ class C<T> {
 main() {
   var v1 = C.name1;
   var v2 = C.name1;
-  var v3 = C.name1;
   Expect.equals(v1, v2);
-  Expect.equals(v1, v3);
-  Expect.equals(v2, v3);
 
   var v4 = C.name2;
   var v5 = C.name2;
-  var v6 = C.name2;
   Expect.equals(v4, v5);
-  Expect.equals(v4, v6);
-  Expect.equals(v5, v6);
 
   var v7 = C.new;
   var v8 = C.new;
-  var v9 = C.new;
   Expect.equals(v7, v8);
-  Expect.equals(v7, v9);
-  Expect.equals(v8, v9);
 
   Expect.notEquals(v1, v4);
   Expect.notEquals(v2, v7);
-  Expect.notEquals(v5, v9);
+  Expect.notEquals(v5, v8);
 }

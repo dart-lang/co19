@@ -56,9 +56,12 @@ main() {
 // [cfe] unspecified
 
   C Function(Never) v8 = C.constr;
+//                         ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   C Function(Null) v9 = C.constr;
-//                            ^
+//                        ^
 // [analyzer] unspecified
 // [cfe] unspecified
 

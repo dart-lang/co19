@@ -24,12 +24,12 @@ main() {
   var v1 = MyClass.new;
   var v2 = MyClass.constr;
 
-  var c1 = v1();
-  var c2 = v1();
+  const c1 = v1(3, 14);
+  const c2 = v1(3, 14);
   Expect.identical(c1, c2);
 
-  var c3 = v2();
-  var c4 = v2();
+  const c3 = v2();
+  const c4 = v2();
   Expect.identical(c3, c4);
 
   Expect.notEquals(c1, c3);

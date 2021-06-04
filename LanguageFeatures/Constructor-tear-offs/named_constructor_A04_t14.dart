@@ -38,7 +38,7 @@ class C {
 
 main() {
   var v = C.constr;
-  Expect.isTrue(v is C Function(int i, {int? j, String s}));
+  Expect.isTrue(v is C Function(int i, [int? j, String s]));
 
   C c1 = v(1);
   c1.check(1, null, "testme");

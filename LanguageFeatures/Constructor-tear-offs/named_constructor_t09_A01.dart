@@ -21,7 +21,7 @@ class C {
   C();
   C.constr1(int i) {}
   C.constr2(int i, String s, x) {}
-  C.constr3({int i=1, required j}) {}
+  C.constr3({int i = 1, required j}) {}
   C.constr4(this.i, this.j);
 }
 

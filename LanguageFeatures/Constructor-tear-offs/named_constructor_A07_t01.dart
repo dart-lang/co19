@@ -23,8 +23,5 @@ class C {
 main() {
   var v1 = C.new;
   var v2 = C.new;
-  var v3 = C.new;
   Expect.equals(v1, v2);
-  Expect.equals(v1, v3);
-  Expect.equals(v2, v3);
 }

@@ -22,7 +22,7 @@
 import "../../Utils/expect.dart";
 
 class C {
-  final bool called = false;
+  bool called = false;
   C.constr(int i) {
     called = true;
   }

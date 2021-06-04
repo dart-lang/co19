@@ -28,17 +28,11 @@ class C {
     jj = j;
     ss = s;
   }
-
-  void check(exp1, exp2, exp3) {
-    Expect.equals(exp1, ii);
-    Expect.equals(exp2, jj);
-    Expect.equals(exp3, ss);
-  }
 }
 
-dynamic d = 1.5;
-
 main() {
+  final dynamic d = 3.14;
+
   var v = C.constr;
 
   Expect.throws(() { v(1, d); });
