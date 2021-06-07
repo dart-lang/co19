@@ -26,10 +26,12 @@ main() {
   var v1 = C.name1;
   var v2 = C.name1;
   Expect.equals(v1, v2);
+  Expect.identical(v1, v2);
 
   var v4 = C.name2;
   var v5 = C.name2;
   Expect.equals(v4, v5);
+  Expect.identical(v4, v5);
 
   var v7 = C.name3;
   var v8 = C.name3;

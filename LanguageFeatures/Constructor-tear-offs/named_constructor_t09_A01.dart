@@ -29,14 +29,17 @@ main() {
   var v1 = C.new;
   var v2 = (C.new);
   Expect.equals(v1, v2);
+  Expect.identical(v1, v2);
 
   var v3 = C.constr1;
   var v4 = (C.constr1);
   Expect.equals(v3, v4);
+  Expect.identical(v3, v4);
 
   var v5 = C.constr2;
   var v6 = (C.constr2);
   Expect.equals(v5, v6);
+  Expect.identical(v5, v6);
 
   var v7 = C.constr3;
   var v8 = (C.constr3);
@@ -45,4 +48,5 @@ main() {
   var v9 = C.constr4;
   var v10 = (C.constr4);
   Expect.equals(v9, v10);
+  Expect.identical(v9, v10);
 }

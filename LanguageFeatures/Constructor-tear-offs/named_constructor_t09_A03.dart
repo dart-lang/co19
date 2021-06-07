@@ -21,7 +21,7 @@ class C<T> {
   C();
   C.constr1(T i) {}
   C.constr2(int i, String s, x) {}
-  C.constr3({int i=1, required T j}) {}
+  C.constr3({int i = 1, required T j}) {}
   C.constr4(this.i, this.j);
 }
 
@@ -31,28 +31,38 @@ main() {
   var v3 = C.new<int>;
   Expect.equals(v1, v2);
   Expect.equals(v1, v3);
+  Expect.identical(v1, v2);
+  Expect.identical(v1, v3);
 
   var v4 = C<Never>.constr1;
   var v5 = (C<Never>).constr1;
   var v6 = (C.constr1)<Never>;
   Expect.equals(v4, v5);
   Expect.equals(v5, v6);
+  Expect.identical(v4, v5);
+  Expect.identical(v5, v6);
 
   var v7 = C<Null>.constr2;
   var v8 = (C<Null>).constr2;
   var v9 = (C.constr2)<Null>;
   Expect.equals(v7, v8);
   Expect.equals(v8, v9);
+  Expect.identical(v7, v8);
+  Expect.identical(v8, v9);
 
   var v10 = C<List>.constr3;
   var v11 = (C<List>).constr3;
   var v12 = (C.constr3)<List>;
   Expect.equals(v10, v11);
   Expect.equals(v11, v12);
+  Expect.identical(v10, v11);
+  Expect.identical(v11, v12);
 
   var v13 = C<Object?>.constr4;
   var v14 = (C<Object?>).constr4;
   var v15 = (C.constr4)<Object?>;
   Expect.equals(v13, v14);
   Expect.equals(v13, v15);
+  Expect.identical(v13, v14);
+  Expect.identical(v13, v15);
 }
