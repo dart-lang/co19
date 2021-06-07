@@ -33,7 +33,6 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 
-bool start = false;
 entryPoint(SendPort message) {
   message.send("Started");
   Random random = new Random();
