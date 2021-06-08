@@ -13,8 +13,6 @@
 /// are separated with two commas.
 /// @author ngl@unipro.ru
 
-import "../../Utils/expect.dart";
-
 enum E {a,, b}
 //        ^
 // [analyzer] unspecified
@@ -22,5 +20,6 @@ enum E {a,, b}
 
 main() {
   E e = E.b;
-  Expect.equals(e, E.b);
+//        ^
+// [cfe] unspecified
 }

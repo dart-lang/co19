@@ -13,18 +13,19 @@
 /// @author kaigorodov, sgrekhov@unipro.ru
 
 class C {
+//    ^
+// [cfe] unspecified
   void m();
 //^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
+
   int get g;
 //^^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
+
   set g(int v);
 //^^^^^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
 }
 
 main() {

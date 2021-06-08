@@ -12,11 +12,12 @@
 /// allowed by a class implementing both B and C. The mixin introduced by A can
 /// then only be applied to classes that implement both B and C.
 ///
-/// @description Checks that it is a compile error if mixin is applied to the
-/// class which doesn't implement required interface
+/// @description Checks that it is not a compile but runtime error if mixin is
+/// applied to the class which doesn't implement required interface
 /// @issue 35111
 /// @author sgrekhov@unipro.ru
 
+import "../../Utils/expect.dart";
 
 class A {
   covariant num number;
@@ -28,7 +29,9 @@ class B extends A {
 
 mixin M on A {
   test() {
-    super.number = 3.14;
+    Expect.throws(() {
+      super.number = 3.14;
+    });
   }
 }
 

@@ -46,6 +46,7 @@
 /// with two related parameters: [typedef G<X extends A<Y>, Y extends A<X>> = Y
 /// Function(X, Y)]
 /// @author iarkh@unipro.ru
+/// @issue 46288
 
 class A<X> {}
 typedef G<X extends A<Y>, Y extends A<X>> = Y Function(X, Y);
