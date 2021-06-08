@@ -8,7 +8,6 @@
 /// precisely `double`
 /// @author sgrekhov@unipro.ru
 
-
 class C<X extends double> {
   X get instanceGetter1 => 42;
 //                         ^^
@@ -43,5 +42,11 @@ X foo2<X extends double>() => 0x42;
 main() {
   C<double> c = new C<double>();
   foo<double>();
+//^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   foo<double>();
+//^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

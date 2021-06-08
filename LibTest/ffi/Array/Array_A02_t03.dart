@@ -32,8 +32,10 @@ class MyStruct extends Struct {
   @Array(2)
 //^^^^^^^^^
 // [analyzer] unspecified
-// [cfe] unspecified
+
   external Array<Array<Int16>> a0;
+//                             ^
+// [cfe] unspecified
 }
 
 void main() {

@@ -43,13 +43,17 @@ main() {
 //    ^
 // [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
   new A()!?.foo();
-//        ^
+//       ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//    ^
+// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
 //       ^
 // [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
   new A()!?[42];
-//        ^
+//       ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//    ^
+// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
 //       ^
 // [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
   new A().getValue!;
@@ -60,8 +64,10 @@ main() {
 //    ^
 // [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
   new A()!?.s = "Lily was here";
-//        ^
+//       ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//    ^
+// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
 //       ^
 // [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
   new A()![0] = "Lily was here";
@@ -70,8 +76,10 @@ main() {
 //    ^
 // [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
   new A()!?[0] = "Lily was here";
-//        ^
+//       ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//    ^
+// [cfe] Operand of null-aware operation '!' has type 'A' which excludes null.
 //       ^
 // [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
   Expect.throws(() {new A().getNull!;});

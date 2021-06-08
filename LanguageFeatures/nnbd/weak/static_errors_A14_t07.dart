@@ -20,17 +20,17 @@ import "legacy_lib.dart";
 main() {
   A a = new A();
   a?.test();
-// ^
+// ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //^
 // [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
   a ?.. test();
-//  ^
+//  ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //^
 // [cfe] Operand of null-aware operation '?..' has type 'A' which excludes null.
   a?[0];
-// ^
+// ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //^
 // [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.

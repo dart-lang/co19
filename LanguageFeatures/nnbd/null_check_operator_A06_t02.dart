@@ -48,13 +48,17 @@ main() {
 //    ^
 // [cfe] Operand of null-aware operation '!' has type 'A<String>' which excludes null.
   new A<String>.named("Let's have fun")!?.foo();
-//                                      ^
+//                                     ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//    ^
+// [cfe] Operand of null-aware operation '!' has type 'A<String>' which excludes null.
 //                                     ^
 // [cfe] Operand of null-aware operation '?.' has type 'A<String>' which excludes null.
   new A<String>.named("Let's have fun")!?[42];
-//                                      ^
+//                                     ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//    ^
+// [cfe] Operand of null-aware operation '!' has type 'A<String>' which excludes null.
 //                                     ^
 // [cfe] Operand of null-aware operation '?.' has type 'A<String>' which excludes null.
   new A<String>.named("Let's have fun").getValue!;
@@ -65,8 +69,10 @@ main() {
 //    ^
 // [cfe] Operand of null-aware operation '!' has type 'A<String>' which excludes null.
   new A<String>.named("Let's have fun")!?.s = "Lily was here";
-//                                      ^
+//                                     ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//    ^
+// [cfe] Operand of null-aware operation '!' has type 'A<String>' which excludes null.
 //                                     ^
 // [cfe] Operand of null-aware operation '?.' has type 'A<String>' which excludes null.
   new A<String>.named("Let's have fun")![0] = "Lily was here";
@@ -75,8 +81,10 @@ main() {
 //    ^
 // [cfe] Operand of null-aware operation '!' has type 'A<String>' which excludes null.
   new A<String>.named("Let's have fun")!?[0] = "Lily was here";
-//                                      ^
+//                                     ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//    ^
+// [cfe] Operand of null-aware operation '!' has type 'A<String>' which excludes null.
 //                                     ^
 // [cfe] Operand of null-aware operation '?.' has type 'A<String>' which excludes null.
   Expect.throws(() {new A<String>.named("Let's have fun").getNull!;});

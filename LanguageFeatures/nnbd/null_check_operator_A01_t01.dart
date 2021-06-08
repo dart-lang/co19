@@ -31,12 +31,12 @@ main() {
   Expect.throws(() {a!.foo();});
   Expect.throws(() {a![42];});
   Expect.throws(() {a!?.foo();});
-//                    ^
+//                    ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //                   ^
 // [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
   Expect.throws(() {a!?[42];});
-//                    ^
+//                    ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //                   ^
 // [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.

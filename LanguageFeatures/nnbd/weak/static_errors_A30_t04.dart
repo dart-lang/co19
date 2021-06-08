@@ -31,7 +31,7 @@ enum E {
 main() {
   E e = E.three;
   switch (e) {
-//^
+//^^^^^^^^^^
 // [analyzer] STATIC_WARNING.MISSING_ENUM_CONSTANT_IN_SWITCH
     case E.one:
       true;

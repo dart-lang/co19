@@ -32,7 +32,7 @@ enum E {
 main() {
   var e = E.three as E?;
   switch (e) {
-//^
+//^^^^^^^^^^
 // [analyzer] STATIC_WARNING.MISSING_ENUM_CONSTANT_IN_SWITCH
     case E.one:
       true;

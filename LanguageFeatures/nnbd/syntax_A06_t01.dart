@@ -12,7 +12,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39865
 
-
 // Requirements=nnbd-strong
 
 import "../../Utils/expect.dart";
@@ -26,7 +25,7 @@ main() {
   Expect.isNull(c?[42]);
   c = new C();
   Expect.equals(4, c?[2]);
-//                  ^
+//                  ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //                 ^
 // [cfe] Operand of null-aware operation '?.' has type 'C' which excludes null.

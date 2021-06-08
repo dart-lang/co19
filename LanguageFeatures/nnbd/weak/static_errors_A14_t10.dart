@@ -21,12 +21,12 @@ import "dart:async";
 main() {
   FutureOr<A> a = new A();
   a?.toString();
-// ^
+// ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //^
 // [cfe] Operand of null-aware operation '?.' has type 'FutureOr<A>' which excludes null.
   a ?.. toString();
-//  ^
+//  ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //^
 // [cfe] Operand of null-aware operation '?..' has type 'FutureOr<A>' which excludes null.

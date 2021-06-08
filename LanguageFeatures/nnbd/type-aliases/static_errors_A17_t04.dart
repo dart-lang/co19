@@ -20,32 +20,32 @@ typedef Neverland = Never;
 void test(var x) {
   if (x is Neverland) {
     x?.toString();
-//   ^
+//   ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //  ^
 // [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
     x?.runtimeType;
-//   ^
+//   ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //  ^
 // [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
     x?.s = 1;
-//   ^
+//   ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //  ^
 // [cfe] Operand of null-aware operation '?.' has type 'Never' which excludes null.
     x?..toString();
-//   ^
+//   ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //  ^
 // [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
     x?..runtimeType;
-//   ^
+//   ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //  ^
 // [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.
     x?..s = 1;
-//   ^
+//   ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //  ^
 // [cfe] Operand of null-aware operation '?..' has type 'Never' which excludes null.

@@ -11,6 +11,7 @@
 
 typedef void F(G g);
 //           ^
+// [analyzer] unspecified
 // [cfe] unspecified
 typedef H G();
 //^

@@ -22,7 +22,7 @@ main() {
   Expect.isNull(a?[42]);
   a = new A();
   Expect.equals(42, a?[42]);
-//                   ^
+//                   ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
 //                  ^
 // [cfe] Operand of null-aware operation '?.' has type 'A' which excludes null.
