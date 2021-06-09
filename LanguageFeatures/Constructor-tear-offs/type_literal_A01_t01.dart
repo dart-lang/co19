@@ -15,37 +15,19 @@
 /// and
 ///   Type intList = List<int>; // In-line instantiated type literal.
 ///
-/// @description Checks example from the Spec - tests negative cases.
-/// @author iarkh@unipro.ru
+/// @description Checks example from the Spec.
+/// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
-T id<T>(T value) => value;
-var idInt = id<int>;
+import "../../Utils/expect.dart";
 
 main() {
-  idInt(3.14);
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  idInt([]);
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  idInt("String");
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  idInt(null);
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  idInt<double>(3.14);
-//     ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Type intList = List<int>;
+  List<int> list1 = new List<int>.empty();
+  Expect.isTrue(list1.runtimeType == intList);
+  List<double> list2 = new List<double>.empty();
+  Expect.isFalse(list2.runtimeType == intList);
+  List<num> list3 = new List<num>.empty();
+  Expect.isFalse(list3.runtimeType == intList);
 }
