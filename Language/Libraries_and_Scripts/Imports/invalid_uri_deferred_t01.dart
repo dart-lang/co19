@@ -11,6 +11,8 @@
 /// library declaration.
 /// @author ngl@unipro.ru
 
+// [error line 1, column 1]
+// [cfe] unspecified
 
 library my_lib;
 import "invalid_uri_t01_part.dart" deferred as p;

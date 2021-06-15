@@ -23,8 +23,6 @@ library Parts_test_lib;
 // [analyzer] unspecified
 // [cfe] unspecified
 part "../Parts/part_0.dart";
-//   ^
-// [analyzer] unspecified
 
 main() {
 }

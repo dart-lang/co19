@@ -14,8 +14,9 @@
 ///
 /// @description Checks that it is not a compile but runtime error if mixin is
 /// applied to the class which doesn't implement required interface
-/// @issue 35111
 /// @author sgrekhov@unipro.ru
+/// @issue 35111
+/// @issue 46361
 
 import "../../Utils/expect.dart";
 
