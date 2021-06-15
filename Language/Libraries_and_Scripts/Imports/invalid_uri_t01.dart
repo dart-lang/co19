@@ -9,6 +9,8 @@
 /// directive refers to a part declaration which is not a library declaration.
 /// @author ilya
 
+// [error line 1, column 1]
+// [cfe] unspecified
 
 library my_lib;
 

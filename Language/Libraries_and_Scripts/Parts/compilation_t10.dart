@@ -11,6 +11,8 @@
 /// references itself in a part directive (and contains a part declaration).
 /// @author rodionov
 
+// [error line 1, column 1]
+// [cfe] unspecified
 
 library Parts_test_lib;
 part of Parts_test_lib;
