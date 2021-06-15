@@ -24,18 +24,17 @@ main() async {
 }
 
 _main(Directory sandbox) async {
-  Directory target1 = getTempDirectorySync(parent: sandbox);
-  Directory target2 = getTempDirectorySync(parent: sandbox);
-  Link link = getTempLinkSync(target: target1.path, parent: sandbox);
+  Directory target = getTempDirectorySync(parent: sandbox);
+  Link link = getTempLinkSync(target: target.path, parent: sandbox);
 
   final eventCompleter = new Completer<FileSystemEvent>();
   StreamSubscription s;
   asyncStart();
   s = link.watch().listen((FileSystemEvent event) {
-    Expect.equals(FileSystemEvent.modify, event.type);
+    Expect.equals(FileSystemEvent.create, event.type);
     asyncEnd();
   });
-  link.updateSync(target2.path);
+  target.createTempSync();
 
   await eventCompleter.future
       .timeout(Duration(seconds: eventsTimeout), onTimeout: () async {
