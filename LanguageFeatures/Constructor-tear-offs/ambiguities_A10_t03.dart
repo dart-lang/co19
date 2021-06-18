@@ -30,8 +30,8 @@
 // Any other token following the ambiguous > will make the prior tokens be
 // parsed as comma separated < and > operator invocations.
 ///
-/// @description Checks disambiguate by ']' token. Test that [a<b, c>] is
-/// parsed as [(a<b, c>)]. Test constructor tear-off
+/// @description Checks disambiguate by '==' token. Test that a<b, c>== is
+/// parsed as (a<b, c>==. Test constructor tear-off
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
@@ -52,6 +52,5 @@ typedef c = String;
 
 main() {
   var x = a<b, c>;
-  Map f = {x: 42};
-  Expect.equals("42, null", f[a<b, c>]);
+  Expect.equals("true, null", f(a<b, c> == x));
 }

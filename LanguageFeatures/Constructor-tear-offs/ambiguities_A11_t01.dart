@@ -30,28 +30,24 @@
 // Any other token following the ambiguous > will make the prior tokens be
 // parsed as comma separated < and > operator invocations.
 ///
-/// @description Checks disambiguate by ']' token. Test that [a<b, c>] is
-/// parsed as [(a<b, c>)]. Test constructor tear-off
+/// @description Checks disambiguate by '!=' token. Test that a<b, c>!= is
+/// parsed as (a<b, c>)!=.
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
-import "../../Utils/expect.dart";
 
-String f(a, [b]) => "$a, $b";
-
-class a<T1, T2> {
-  int x;
-  a(this.x);
-
-  @override
-  String toString() => "a<$T1, $T2>($x)";
-}
-
-typedef b = int;
-typedef c = String;
+void f(x, [y]) {}
 
 main() {
-  var x = a<b, c>;
-  Map f = {x: 42};
-  Expect.equals("42, null", f[a<b, c>]);
+  int a = 1;
+  int b = 2;
+  int c = 3;
+  f(a<b,
+//  ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    c>!= 4);
+//  ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

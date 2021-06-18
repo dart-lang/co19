@@ -30,8 +30,8 @@
 // Any other token following the ambiguous > will make the prior tokens be
 // parsed as comma separated < and > operator invocations.
 ///
-/// @description Checks disambiguate by ']' token. Test that [a<b, c>] is
-/// parsed as [(a<b, c>)]. Test constructor tear-off
+/// @description Checks disambiguate by '?.' token. Test that a<b, c>?. is
+/// parsed as (a<b, c>)?. . Test generic function tear-off
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
@@ -39,19 +39,16 @@ import "../../Utils/expect.dart";
 
 String f(a, [b]) => "$a, $b";
 
-class a<T1, T2> {
-  int x;
-  a(this.x);
-
-  @override
-  String toString() => "a<$T1, $T2>($x)";
+String a<T1, T2>(int x) {
+  return "a<$T1, $T2>($x)";
 }
 
 typedef b = int;
 typedef c = String;
 
 main() {
-  var x = a<b, c>;
-  Map f = {x: 42};
-  Expect.equals("42, null", f[a<b, c>]);
+  Expect.equals("${a<b, c>}, null", f(a<b, c>?.toString()));
+//                                           ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+// [cfe] Operand of null-aware operation '?.' has type 'String Function<int, String>(int)' which excludes null.
 }

@@ -43,6 +43,7 @@ class a<T1, T2> {
   int x;
   a(this.x);
 
+  @override
   String toString() => "a<$T1, $T2>($x)";
 }
 
