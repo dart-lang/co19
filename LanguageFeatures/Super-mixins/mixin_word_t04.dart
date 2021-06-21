@@ -16,7 +16,4 @@ class mixin {}
 
 main() {
   new mixin();
-//    ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
