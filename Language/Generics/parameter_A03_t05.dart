@@ -16,16 +16,22 @@
 
 
 void func1<X extends X>(X) {}
-//         ^^^^^^^^^^^
+//         ^
 // [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
 // [cfe] Type 'X' can't use itself as a bound.
 void func2<X extends Y, Y extends X>(X, Y) {}
-//         ^^^^^^^^^^^
-// [analyzer] unspecified
+//         ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
+//                      ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
 // [cfe] unspecified
 void func3<X extends Y, Y extends Z, Z extends X>(X, Y, Z) {}
-//         ^^^^^^^^^^^
-// [analyzer] unspecified
+//         ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
+//                      ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
+//                                   ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
 // [cfe] unspecified
 
 main() {}

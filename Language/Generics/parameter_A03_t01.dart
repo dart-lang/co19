@@ -16,16 +16,22 @@
 
 
 class G1<X extends X> {}
-//       ^^^^^^^^^^^
+//       ^
 // [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
 // [cfe] Type 'X' can't use itself as a bound.
 class G2<X extends Y, Y extends X> {}
-//       ^^^^^^^^^^^
-// [analyzer] unspecified
+//       ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
+//                    ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
 // [cfe] unspecified
 class G3<X extends Y, Y extends Z, Z extends X> {}
-//       ^^^^^^^^^^^
-// [analyzer] unspecified
+//       ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
+//                    ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
+//                                 ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
 // [cfe] unspecified
 
 main() {}

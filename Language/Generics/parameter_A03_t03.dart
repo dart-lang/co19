@@ -20,16 +20,22 @@ class B<T1, T2> {}
 class C<T1, T2, T3> {}
 
 typedef G1<X extends X> = A<X>;
-//         ^^^^^^^^^^^
-// [analyzer] unspecified
+//         ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
 // [cfe] unspecified
 typedef G2<X extends Y, Y extends X> = B<X, Y>;
-//         ^^^^^^^^^^^
-// [analyzer] unspecified
+//         ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
+//                      ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
 // [cfe] unspecified
 typedef G3<X extends Y, Y extends Z, Z extends X> = C<X, Y, Z>;
-//         ^^^^^^^^^^^
-// [analyzer] unspecified
+//         ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
+//                      ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
+//                                   ^
+// [analyzer] COMPILE_TIME_ERROR.TYPE_PARAMETER_SUPERTYPE_OF_ITS_BOUND
 // [cfe] unspecified
 
 main() {}
