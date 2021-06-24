@@ -53,7 +53,7 @@ typedef b = int;
 typedef c = String;
 
 extension on Type {
-  bool operator>(bool b) => b;
+  bool operator> (bool b) => b;
   bool operator< (Type t) => true;
 }
 

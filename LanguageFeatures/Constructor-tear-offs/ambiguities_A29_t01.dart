@@ -32,32 +32,26 @@
 ///
 /// @description Checks that any other token following the ambiguous > will make
 /// the prior tokens be parsed as comma separated < and > operator invocations.
-/// Test '!' token
+/// Test '<' token
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
-String f(a, [b]) => "$a, $b";
-
-String a<T1, T2>(int x) {
-  return "a<$T1, $T2>($x)";
-}
-
-typedef b = int;
-typedef c = String;
-
-extension on Function {
-  bool operator< (Type t) => true;
-}
-
-extension on Type {
-  int operator> (bool i) => 42;
-}
+void f(x, [y]) {}
 
 main() {
+  int a = 1;
+  int b = 2;
+  int c = 3;
+  int d = 4;
   f(a<b,
-      c>!);
-//      ^
+      c><d);
+//      ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  f(a<b,
+      c><42);
+//      ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

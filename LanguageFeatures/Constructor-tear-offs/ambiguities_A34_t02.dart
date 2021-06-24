@@ -32,7 +32,7 @@
 ///
 /// @description Checks that any other token following the ambiguous > will make
 /// the prior tokens be parsed as comma separated < and > operator invocations.
-/// Test '!' token
+/// Test '@' token
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
@@ -54,10 +54,14 @@ extension on Type {
   int operator> (bool i) => 42;
 }
 
+class A {
+  const A();
+}
+
 main() {
   f(a<b,
-      c>!);
-//      ^
+      c> @A);
+//       ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

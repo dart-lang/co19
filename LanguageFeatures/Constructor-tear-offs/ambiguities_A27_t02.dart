@@ -51,7 +51,7 @@ extension on Function {
 }
 
 extension on Type {
-  int operator>(int i) => i;
+  int operator> (int i) => i;
 }
 
 main() {

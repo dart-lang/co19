@@ -32,10 +32,12 @@
 ///
 /// @description Checks that any other token following the ambiguous > will make
 /// the prior tokens be parsed as comma separated < and > operator invocations.
-/// Test '!' token
+/// Test double quote token
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
+
+import "../../Utils/expect.dart";
 
 String f(a, [b]) => "$a, $b";
 
@@ -51,13 +53,9 @@ extension on Function {
 }
 
 extension on Type {
-  int operator> (bool i) => 42;
+  int operator> (String s) => s.length;
 }
 
 main() {
-  f(a<b,
-      c>!);
-//      ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Expect.equals("true, 13", f(a < b, c > "Lily was here"));
 }

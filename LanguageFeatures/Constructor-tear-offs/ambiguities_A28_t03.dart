@@ -53,7 +53,7 @@ extension on Function {
 }
 
 extension on Type {
-  bool operator>(bool b) => b;
+  bool operator> (bool b) => b;
 }
 
 main() {
