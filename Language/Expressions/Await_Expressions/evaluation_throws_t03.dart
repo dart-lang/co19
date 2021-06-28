@@ -14,6 +14,7 @@
 /// IntegerDivisionByZeroException, then await expression throws the same
 /// exception.
 ///
+/// @Issue 42221
 /// @author a.semenov@unipro.ru
 
 import '../../../Utils/expect.dart';

@@ -10,7 +10,7 @@
 /// of e2
 /// @author sgrekhov@unipro.ru
 
-import '../../../Utils/dynamic_check.dart';
+import '../../../Utils/expect.dart';
 
 class C {
   var v;
@@ -19,5 +19,10 @@ class C {
 main() {
   double e = 3.14;
   C c = new C();
-  checkTypeError(() {double x = c?.v = e;});
+  double x = c?.v = e;
+  Expect.equals(3.14, x);
+
+  c = null;
+  x = c?.v = e;
+  Expect.isNull(x);
 }

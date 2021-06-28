@@ -10,6 +10,7 @@
 ///  • c1 and c2 are constant strings and c1 == c2.
 /// @description Checks that two constant strings are identical() iff they are
 /// equal
+/// @Issue https://github.com/dart-lang/language/issues/985
 /// @author ilya
 
 import "../../../Utils/expect.dart";
@@ -21,7 +22,7 @@ const helloWorld = 'hello, world';
 main() {
   Expect.isTrue(identical("", ''));
   Expect.isTrue(identical('hello, world', helloWorld));
-  Expect.isTrue(identical(helloWorld, '$hello$world' ));
+  Expect.isTrue(identical(helloWorld, '$hello$world' ));    // See Dart Language Issue #985
   Expect.isTrue(identical(helloWorld, 'hello, ' 'world'));
 
   Expect.isFalse(identical(helloWorld, '$world$hello' ));

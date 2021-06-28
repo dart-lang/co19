@@ -13,7 +13,6 @@
 /// @description Checks that constant maps with different keys, values or type
 /// arguments are not identical.
 /// @author msyabro
-/// @reviewer kaigorodov
 
 import '../../../Utils/expect.dart';
 
@@ -25,7 +24,7 @@ main() {
   Expect.isFalse(identical(const {"": true}, const {"true": true}));
   Expect.isFalse(
       identical(const <String, String>{"key": "value", "value": "key"},
-                const {"key": "value", "value": "key"}));
+                const <Object, String>{"key": "value", "value": "key"}));
   Expect.isFalse(identical(const <String, int>{"1": 1},
                            const <String, int>{"1": 1, "2": 2}));
 }

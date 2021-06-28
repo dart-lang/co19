@@ -397,3 +397,14 @@ class ExpectException implements Exception {
   ExpectException([this.message]);
   String toString() => message;
 }
+
+/// Is true iff `assert` statements are enabled.
+final bool assertStatementsEnabled = (() {
+  bool result = false;
+  assert(result = true);
+  return result;
+})();
+
+/// Is true iff js compiler is used.
+/// See https://github.com/dart-lang/sdk/issues/42222
+final bool isJS = identical(1.0, 1);

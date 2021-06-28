@@ -11,24 +11,34 @@
 /// to complete o is the current return value, if it is defined, and the
 /// current exception otherwise.
 ///
-/// @description Check that body of the function is executed at some future time
-/// after a fresh Future instance is returned to the caller.
+/// @description Check that body of the function is executed once at some future
+/// time after a fresh Future instance is returned to the caller.
 ///
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
 import '../../../Utils/expect.dart';
 
-bool bodyExecuted = false;
+int count = 0;
 
 Future test() async {
-  bodyExecuted = true;
+  ++count;
   return 1;
 }
 
 main() {
-  for (var i = 0; i < 10; i++) {
-    test();
-    Expect.isFalse(bodyExecuted);
-  }
+  Future f = test();
+
+  f.then((v) {});
+  f.then((v) {});
+  f.then((v) {});
+  f.then((v) {});
+  f.then((v) {});
+  f.then((v) {});
+  f.then((v) {});
+  f.then((v) {});
+  f.then((v) {});
+  f.then((v) {});
+
+  Expect.equals(1, count);
 }

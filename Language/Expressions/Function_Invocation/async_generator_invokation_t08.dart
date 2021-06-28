@@ -41,9 +41,12 @@ main() {
   Future cancelFuture = stream.listen(
       (_) {},
       onDone: () {
-        // make sure the generator function has finished
+        // Should not het here! See Issue #25967 evaluation for more details.
+        Expect.fail('Unexpected onDone event produced');
+      }
+  ).cancel().then((value) {
+
         Expect.equals(49995000, sum);
         asyncEnd();
-      }
-  ).cancel();
+  });
 }
