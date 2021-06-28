@@ -6,14 +6,14 @@
 
 part of Parts_test_lib;
 
-foo() { return null; }
-int bar(int x, int y) { return x + y ; }
-List list(int iParam) { return new List(iParam); }
-_privateFunc() {return 0;}
+foo() => null;
+int bar(int x, int y) => x + y ;
+List list(int iParam) => List(iParam);
+_privateFunc() => 0;
 
 typedef String func<B extends bool, S extends String>(B t, [S sParam]);
 
-get value { return _value; }
+get value => _value;
 set value(value) { _value = value; }
 var _value;
 
@@ -21,7 +21,7 @@ var _value;
 final int i = -100;
 final bool b = false;
 final String s = "string";
-final List l = const [0,1,2,3];
+final List l = const [0, 1, 2, 3];
 final Map m = const {'a': 1, 'b': 2};
 final String e = "One"  "Two";
 final _private = 'private';

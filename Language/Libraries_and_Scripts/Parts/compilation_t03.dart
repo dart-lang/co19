@@ -11,8 +11,8 @@
 /// contents of the URI are not a valid part declaration.
 /// @description Checks that the top level declarations at URI are compiled in
 /// the scope of the current library (including private declarations).
+/// @Issue 42393
 /// @author rodionov
-/// @reviewer kaigorodov
 
 library Parts_test_lib;
 import "../../../Utils/expect.dart";
@@ -44,15 +44,23 @@ main() {
   Expect.equals("foo", value);
   value = foo();
   Expect.equals(null, value);
-  value = [1,2,3,4];
-  Expect.listEquals([1,2,3,4], value);
+  value = [1, 2, 3, 4];
+  Expect.listEquals([1, 2, 3, 4], value);
 
   // variables
   Expect.equals(-100, i);
   Expect.equals(false, b);
   Expect.equals("string", s);
-  Expect.equals(const [0,1,2,3], l);
-  Expect.equals(const {'a': 1, 'b': 2}, m);
+
+  // See Issue #42393 evaluation:
+  // const [0, 1, 2, 3] with no context type infers a type of
+  // const <int>[0, 1, 2, 3]. Since the two objects differ on the type argument,
+  // they cannot be the same object and are not canonicalized.
+  Expect.notEquals(const [0, 1, 2, 3], l);
+  Expect.notEquals(const {'a': 1, 'b': 2}, m);
+  Expect.equals(const <dynamic>[0, 1, 2, 3], l);
+  Expect.equals(const <dynamic, dynamic>{'a': 1, 'b': 2}, m);
+
   Expect.equals("One" "Two", e);
   Expect.equals('private', _private);
 
