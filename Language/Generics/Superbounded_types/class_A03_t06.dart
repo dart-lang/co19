@@ -17,9 +17,21 @@
 class A<X extends A<X>> {
   A() {}
   factory A.foo1() = C<Null>;
+
   factory A.foo2() = C<A<Null>>;
+//                   ^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   factory A.foo3() = C<A<A<Null>>>;
+//                   ^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   factory A.foo4() = C<A<A<A<Null>>>>;
+//                   ^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 }
 

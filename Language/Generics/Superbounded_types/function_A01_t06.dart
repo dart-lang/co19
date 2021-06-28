@@ -15,19 +15,58 @@ class A<X extends A<X>> {}
 void testme<X extends Y, Y extends A<X>>() {}
 
 main() {
-  testme();                   //# 01: compile-time error
+  testme();
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  testme<Null, dynamic>();    //# 02: compile-time error
-  testme<dynamic, Null>();    //# 03: compile-time error
-  testme<dynamic, dynamic>(); //# 04: compile-time error
+  testme<Null, dynamic>();
+//             ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  testme<Null, Object>();     //# 05: compile-time error
-  testme<Object, Null>();     //# 06: compile-time error
-  testme<Object, Object>();   //# 07: compile-time error
+  testme<dynamic, Null>();
+//       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  testme<Null, void>();       //# 08: compile-time error
-  testme<void, Null>();       //# 09: compile-time error
-  testme<void, void>();       //# 10: compile-time error
+  testme<dynamic, dynamic>();
+//                ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  testme<A<Null>, Null>();    //# 11: compile-time error
+  testme<Null, Object>();
+//             ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  testme<Object, Null>();
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  testme<Object, Object>();
+//               ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  testme<Null, void>();
+//             ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  testme<void, Null>();
+//       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  testme<void, void>();
+//             ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  testme<A<Null>, Null>();
+//       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

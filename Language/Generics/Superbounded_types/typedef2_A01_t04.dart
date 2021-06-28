@@ -8,6 +8,7 @@
 /// compile-time error.
 /// @description Checks that compile error is thrown when function alias with
 /// type parameters which are not bounded well.
+/// @Issue 46483
 /// @author iarkh@unipro.ru
 
 
