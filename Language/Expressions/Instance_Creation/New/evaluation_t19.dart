@@ -17,7 +17,7 @@
 /// {xn+1, ..., xn+k}, a NoSuchMethodError is thrown.
 /// @description Checks if T is a deferred type with prefix p, and p has not
 /// been loaded, a dynamic error occurs.
-/// @Issue #33118
+/// @Issue 33118
 /// @author ngl@unipro.ru
 
 import '../../../../Utils/expect.dart';
@@ -25,5 +25,5 @@ import '../../../../Utils/expect.dart';
 import 'evaluation_t06_lib.dart' deferred as p;
 
 main() {
-  Expect.throws(() {new p.C();}, (e) => e is TypeError || e is CastError);
+  Expect.throws(() { p.C(); } );
 }
