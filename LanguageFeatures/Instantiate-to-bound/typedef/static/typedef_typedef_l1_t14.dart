@@ -84,6 +84,9 @@ void testme(G source) {
   var fsource = toF(source);
 
   F<G<A<Never>>> target = fsource;
+//                        ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
   F<G<A<Null>>> target0 = fsource;
 //                        ^^^^^^^
