@@ -11,8 +11,8 @@
 /// contents of the URI are not a valid part declaration.
 /// @description Checks that including a compilation unit with valid
 /// topLevelDefinitions does not cause any compile-time errors.
+/// @Issue 42393
 /// @author rodionov
-/// @reviewer kaigorodov
 
 library Parts_test_lib;
 import "../../../Utils/expect.dart";
@@ -48,8 +48,16 @@ main() {
   Expect.equals(-100, i);
   Expect.equals(false, b);
   Expect.equals("string", s);
-  Expect.equals(const [0,1,2,3], l);
-  Expect.equals(const {'a': 1, 'b': 2}, m);
+
+  // See Issue #42393 evaluation:
+  // const [0, 1, 2, 3] with no context type infers a type of
+  // const <int>[0, 1, 2, 3]. Since the two objects differ on the type argument,
+  // they cannot be the same object and are not canonicalized.
+  Expect.notEquals(const [0, 1, 2, 3], l);
+  Expect.notEquals(const {'a': 1, 'b': 2}, m);
+  Expect.equals(const <dynamic>[0, 1, 2, 3], l);
+  Expect.equals(const <dynamic, dynamic>{'a': 1, 'b': 2}, m);
+
   Expect.equals("OneTwo", e);
 
   // class
