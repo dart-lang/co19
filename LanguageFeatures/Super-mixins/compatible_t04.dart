@@ -34,6 +34,7 @@ class C<T> extends B<T> {
 
 class MA extends C<X> with M<X, Y> {
 //    ^
+// [analyzer] unspecified
 // [cfe] unspecified
 }
 
