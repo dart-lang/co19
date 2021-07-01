@@ -57,7 +57,7 @@ test() async {
   HttpClient client = new HttpClient();
 
   client.authenticateProxy =
-      (String host, int port, String scheme, String realm) {
+      (String host, int port, String scheme, String? realm) {
     Completer<bool> completer = new Completer<bool>();
     completer.complete(true);
     return completer.future;

@@ -60,7 +60,7 @@ test() async {
   };
 
   client.authenticateProxy =
-      (String host, int port, String scheme, String realm) {
+      (String host, int port, String scheme, String? realm) {
     Expect.equals(InternetAddress.loopbackIPv4.address, host);
     Expect.equals(server.port, port);
     Expect.equals("Digest", scheme);

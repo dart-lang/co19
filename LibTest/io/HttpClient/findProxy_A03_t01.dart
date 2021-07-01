@@ -67,7 +67,7 @@ test() async {
   };
 
   client.authenticateProxy =
-      (String host, int port, String scheme, String realm) {
+      (String host, int port, String scheme, String? realm) {
         authenticateProxyCalled = true;
         Expect.equals(InternetAddress.loopbackIPv4.address, host);
         Expect.equals(server.port, port);

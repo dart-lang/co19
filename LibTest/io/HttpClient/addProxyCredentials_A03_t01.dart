@@ -44,7 +44,7 @@ test() async {
     return "PROXY ${localhost}:${server.port}";
   };
   client.authenticateProxy =
-      (String host, int port, String scheme, String realm) {
+      (String host, int port, String scheme, String? realm) {
     Expect.equals(localhost, host);
     Expect.equals(server.port, port);
     Expect.equals("Digest", scheme);

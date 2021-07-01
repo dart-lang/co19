@@ -48,7 +48,7 @@ test() async {
   });
   HttpClient client = new HttpClient();
 
-  client.authenticate = (Uri url, String scheme, String realm) {
+  client.authenticate = (Uri url, String scheme, String? realm) {
     Expect.equals("Basic", scheme);
     Expect.equals("realm", realm);
     Completer<bool> completer = new Completer<bool>();
