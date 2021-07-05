@@ -25,20 +25,19 @@ class A {
 }
 
 class C extends A {
-  var x;
   C() {
-    x = super.instanceMethod<int>;
+    var x = super.instanceMethod<int>;
+    x(3.14);
+//    ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    x<double>(42);
+//   ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 }
 
 main() {
-  C c = new C();
-  c.x(3.14);
-//    ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  c.x<double>(42);
-//   ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  new C();
 }

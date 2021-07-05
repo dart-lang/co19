@@ -20,21 +20,20 @@
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
 class C {
-  var x;
   C() {
-    x = instanceMethod<int>;
+    var x = instanceMethod<int>;
+    x(3.14);
+//    ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    x<double>(42);
+//   ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
   T instanceMethod<T>(T t) => t;
 }
 
 main() {
-  C c = new C();
-  c.x(3.14);
-//    ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  c.x<double>(42);
-//   ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  new C();
 }
