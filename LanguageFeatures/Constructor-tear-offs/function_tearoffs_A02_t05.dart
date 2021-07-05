@@ -26,18 +26,17 @@ class A {
 }
 
 class C extends A {
-  var x;
   C() {
-    x = instanceMethod<int>;
+    var x = instanceMethod<int>;
+    Expect.equals(42, x(42));
+    dynamic d1 = -42;
+    Expect.isTrue(x(d1) is int);
+    Expect.isFalse(x(d1) is String); // to check that returned type is not dynamic
+    dynamic d2 = 3.14;
+    Expect.throws(() {x(d2);});
   }
 }
 
 main() {
-  C c = new C();
-  Expect.equals(42, c.x(42));
-  dynamic d1 = -42;
-  Expect.isTrue(c.x(d1) is int);
-  Expect.isFalse(c.x(d1) is double); // to check that returned type is not dynamic
-  dynamic d2 = 3.14;
-  Expect.throws(() {c.x(d2);});
+  new C();
 }
