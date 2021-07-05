@@ -41,6 +41,9 @@ class A extends S {
 }
 
 class C extends A with M {
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
