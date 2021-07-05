@@ -21,7 +21,7 @@
 ///  }
 ///  Do not invoke in normal code.
 ///
-/// @description Checks that it is allowed to create array with zero size
+/// @description Checks that it is not allowed to create zero-sized array
 /// @author sgrekhov@unipro.ru
 
 import "dart:ffi";
@@ -29,6 +29,9 @@ import "package:ffi/ffi.dart";
 
 class MyStruct extends Struct {
   @Array(0)
+//^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   external Array<Uint8> a0;
 }
 

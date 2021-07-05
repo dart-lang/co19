@@ -16,7 +16,7 @@
 ///  Do not invoke in normal code.
 ///
 /// @description Checks multidimentional array created by Array.multi(). Check
-/// zero array size
+/// that zero array size is an error
 /// @author sgrekhov@unipro.ru
 
 import "dart:ffi";
@@ -24,10 +24,28 @@ import "package:ffi/ffi.dart";
 
 class MyStruct extends Struct {
   @Array.multi([0, 1])
+//^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   external Array<Array<Int8>> a0;
 
   @Array(0, 1, 0, 1)
+//^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   external Array<Array<Array<Array<Int8>>>> a1;
+
+  @Array.multi([1, 0])
+//^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  external Array<Array<Int8>> a2;
+
+  @Array(1, 1, 0, 1)
+//^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  external Array<Array<Array<Array<Int8>>>> a3;
 }
 
 void main() {
@@ -35,8 +53,9 @@ void main() {
   try {
     pointer.ref.a0;
     pointer.ref.a1;
+    pointer.ref.a2;
+    pointer.ref.a3;
   } finally {
     calloc.free(pointer);
   }
 }
-
