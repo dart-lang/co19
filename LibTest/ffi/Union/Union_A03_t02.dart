@@ -23,4 +23,7 @@ class U1 extends Union {
 
 void main() {
   new U1(42);
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

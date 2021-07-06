@@ -19,7 +19,6 @@ class U1 extends Union {
   U1() : super() {
     this.i = 42;
   }
-
 }
 
 void main() {

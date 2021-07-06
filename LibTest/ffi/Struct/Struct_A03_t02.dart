@@ -39,7 +39,6 @@ void main() {
   final TransposeCoordinateDartFunc f = dl
       .lookup<NativeFunction<TransposeCoordinateCFunc>>('TransposeCoordinate')
       .asFunction();
-  Coord c = new Coord();
   Pointer<Coord> c1 = calloc<Coord>();
   try {
     c1.ref.x = 1;
