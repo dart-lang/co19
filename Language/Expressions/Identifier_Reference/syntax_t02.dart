@@ -36,10 +36,21 @@
 /// @description Checks that identifier can't start with digit.
 /// @author msyabro
 
-
 main() {
-  int? 1a;                      //# 01: compile-time error
-  String 2b = "It's wrong!";    //# 02: compile-time error
-  var 3c;                       //# 03: compile-time error
-  4d;                           //# 04: compile-time error
+  int? 1a;
+//^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  String 2b = "It's wrong!";
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  var 3c;
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  4d;
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

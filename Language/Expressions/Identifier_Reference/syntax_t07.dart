@@ -39,8 +39,20 @@
 
 
 main() {
-  int? 1a;                      //# 01: compile-time error
-  String 2b = "It's wrong!";    //# 02: compile-time error
-  var 3c;                       //# 03: compile-time error
-  4d;                           //# 04: compile-time error
+  int? а;
+//^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  String б = "It's wrong!";
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  var в1;
+//    ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  д2;
+//^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

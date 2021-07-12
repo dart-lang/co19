@@ -71,9 +71,9 @@ class AI3 implements A {
 // [cfe] unspecified
 
   // missing d
-  String get b => "AI"; //# 03: compile-time error
-  String get c => "AI"; //# 03: compile-time error
-  String get e => "AI"; //# 03: compile-time error
+  String get b => "AI";
+  String get c => "AI";
+  String get e => "AI";
 }
 class AI4 implements A {
 //    ^^^
@@ -81,9 +81,9 @@ class AI4 implements A {
 // [cfe] unspecified
 
   // missing e
-  String get b => "AI"; //# 04: compile-time error
-  String get c => "AI"; //# 04: compile-time error
-  String get d => "AI"; //# 04: compile-time error
+  String get b => "AI";
+  String get c => "AI";
+  String get d => "AI";
 }
 
 main() {

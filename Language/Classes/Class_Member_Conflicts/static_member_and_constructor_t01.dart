@@ -10,12 +10,24 @@
 
 class C {
   C.s() {}
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  static set s(var value) {}  //# 01: compile-time error
-  static void s() {}          //# 02: compile-time error
-  static int s() => 1;        //# 03: compile-time error
-  static int get s => 1;      //# 04: compile-time error
-  static int s = 1;           //# 05: compile-time error
+  static set s(var value) {}
+  static void s() {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  static int s() => 1;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  static int get s => 1;
+  static int s = 1;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

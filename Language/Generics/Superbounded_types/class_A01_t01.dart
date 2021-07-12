@@ -17,13 +17,21 @@ main() {
 
   A<dynamic> a2;
   A<Object?> a3;
-  A<Object>  a4;      //# 01: compile-time error
+  A<Object>  a4;
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   A<void>    a5;
   A<Never>   a6;
 
   A<A<dynamic>> a7;
   A<A<Object?>> a8;
-  A<A<Object>>  a9;  //# 02: compile-time error
+  A<A<Object>>  a9;
+//  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   A<A<void>>    a10;
   A<A<Never>>   a11;
 

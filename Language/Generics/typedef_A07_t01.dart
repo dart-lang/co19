@@ -26,7 +26,9 @@
 // SharedOptions=--enable-experiment=nonfunction-type-aliases
 
 class A<T> {}
+
 class B<T1, T2> {}
+
 class C<T1, T2, T3> {}
 
 typedef AAlias<T> = A<T>;
@@ -34,21 +36,48 @@ typedef BAlias<T1, T2> = B<T1, T2>;
 typedef CAlias<T1, T2, T3> = C<T1, T2, T3>;
 
 main() {
-  AAlias                                a1;
-  AAlias<int>                           a2;
-  AAlias<dynamic, dynamic>              a3; //# 01: compile-time error
-  AAlias<int, dynamic, String>          a4; //# 02: compile-time error
-  AAlias<int, dynamic, String, dynamic> a5; //# 03: compile-time error
+  AAlias a1;
+  AAlias<int> a2;
+  AAlias<dynamic, dynamic>? a3;
+//^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  AAlias<int, dynamic, String>? a4;
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  AAlias<int, dynamic, String, dynamic>? a5;
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  BAlias                                b1;
-  BAlias<int>                           b2; //# 04: compile-time error
-  BAlias<dynamic, dynamic>              b3;
-  BAlias<int, dynamic, String>          b4; //# 05: compile-time error
-  BAlias<int, dynamic, String, dynamic> b5; //# 06: compile-time error
+  BAlias b1;
+  BAlias<int>? b2;
+//^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  BAlias<dynamic, dynamic> b3;
+  BAlias<int, dynamic, String>? b4;
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  BAlias<int, dynamic, String, dynamic>? b5;
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  CAlias                                c1;
-  CAlias<int>                           c2; //# 07: compile-time error
-  CAlias<dynamic, dynamic>              c3; //# 08: compile-time error
-  CAlias<int, dynamic, String>          c4;
-  CAlias<int, dynamic, String, dynamic> c5; //# 09: compile-time error
+  CAlias c1;
+  CAlias<int>? c2;
+//^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  CAlias<dynamic, dynamic>? c3;
+//^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  CAlias<int, dynamic, String> c4;
+  CAlias<int, dynamic, String, dynamic>? c5;
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

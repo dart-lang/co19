@@ -30,15 +30,39 @@
 /// spreadable element is not a constant.
 /// @author iarkh@unipro.ru
 
-
 main() {
   List list1 = ["abc", "int", "hello"];
   List list2 = [];
   int i = 0;
 
-  List a = const [...list2];                                       //# 01: compile-time error
-  a = const ["testme", ...list2];                                  //# 02: compile-time error
-  a = const [...list2, "testme"];                                  //# 03: compile-time error
-  a = const ["abc", ...list1, "int", "hello", 1, ...list2, 2, 12]; //# 04: compile-time error
-  a = const [...list1, i];                                         //# 05: compile-time error
+  List a = const [...list2];
+//                   ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  a = const ["testme", ...list2];
+//                        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  a = const [...list2, "testme"];
+//              ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  a = const ["abc", ...list1, "int", "hello",
+//                     ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+      1, ...list2, 2, 12];
+//          ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  a = const [...list1,
+//              ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+    i];
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

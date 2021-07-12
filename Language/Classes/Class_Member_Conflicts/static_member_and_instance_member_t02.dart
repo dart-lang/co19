@@ -13,17 +13,47 @@ class C {
   set s(int v) {}
   set _s(int v) {}
 
-  static set s(var value) {}    //# 01: compile-time error
-  static void s() {}            //# 02: compile-time error
-  static int s() => 1;          //# 03: compile-time error
-  static int get s => 1;        //# 04: compile-time error
-  static int s = 1;             //# 05: compile-time error
+  static set s(var value) {}
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  static void s() {}
+//            ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  static int s() => 1;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  static int get s => 1;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
+  static int s = 1;
+//           ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  static set _s(var value) {}   //# 06: compile-time error
-  static void _s() {}           //# 07: compile-time error
-  static int _s() => 1;         //# 08: compile-time error
-  static int get _s => 1;       //# 09: compile-time error
-  static int _s = 1;            //# 10: compile-time error
+  static set _s(var value) {}
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  static void _s() {}
+//            ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  static int _s() => 1;
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  static int get _s => 1;
+//               ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  static int _s = 1;
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

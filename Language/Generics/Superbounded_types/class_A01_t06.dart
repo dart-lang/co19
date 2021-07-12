@@ -20,14 +20,21 @@ main() {
 
   var b2 = null as A<dynamic>?;
   var b3 = null as A<Object?>?;
-  var b4 = null as A<Object>?;       //# 01: compile-time error
+  var b4 = null as A<Object>?;
+//                   ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   var b5 = null as A<Never>?;
   var b6 = null as A<void>?;
 
   var b7  = null as A<A>?;
   var b8  = null as A<A<dynamic>>?;
   var b9  = null as A<A<Object?>>?;
-  var b10 = null as A<A<Object>>?;   //# 02: compile-time error
+  var b10 = null as A<A<Object>>?;
+//                    ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   var b11 = null as A<A<Never>>?;
   var b12 = null as A<A<void>>?;
 }

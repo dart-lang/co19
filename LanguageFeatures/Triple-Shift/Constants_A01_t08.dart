@@ -26,9 +26,24 @@ class MyClass {
 }
 
 main() {
-  const MyClass c1 = MyClass(d2, d1); //# 01: compile-time error
-  const MyClass c2 = MyClass(d2, 2);  //# 02: compile-time error
-  const MyClass c3 = MyClass(d3, d0); //# 03: compile-time error
-  const MyClass c4 = MyClass(12, d4); //# 04: compile-time error
-  const MyClass c5 = MyClass(d4, d3); //# 05: compile-time error
+  const MyClass c1 = MyClass(d2, d1);
+//                   ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const MyClass c2 = MyClass(d2, 2);
+//                   ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const MyClass c3 = MyClass(d3, d0);
+//                   ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const MyClass c4 = MyClass(12, d4);
+//                   ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const MyClass c5 = MyClass(d4, d3);
+//                   ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

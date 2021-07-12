@@ -12,9 +12,21 @@
 
 class A<T extends A<T>> {}
 
-typedef void B1<X extends A>(X);      //# 01: compile-time error
-typedef void B2<X extends A<A>>(X);   //# 02: compile-time error
-typedef void B3<X extends A<int>>(X); //# 03: compile-time error
+typedef void B1<X extends A>(X);
+//                        ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef void B2<X extends A<A>>(X);
+//                          ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef void B3<X extends A<int>>(X);
+//                          ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 
 main() {
 }

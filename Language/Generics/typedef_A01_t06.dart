@@ -32,8 +32,19 @@ typedef X5<T> = List<T>;
 typedef X6<T1, T2> = Map<T1, T2>;
 typedef X7<T> = Object;
 
-typedef W1<T> = i;                        //# 01: compile-time error
-typedef W2<T> = 5;                        //# 02: compile-time error
-typedef W3<T> = A.callme<T1 extends T>(); //# 03: compile-time error
+typedef W1<T> = i;
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef W2<T> = 5;
+//              ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+typedef W3<T> = A.callme<T1 extends T>();
+//              ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {}

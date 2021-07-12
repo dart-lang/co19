@@ -12,9 +12,18 @@
 
 class A<T extends A<T>> {}
 
-typedef B1<X extends A> = A<X>;     //# 01: compile-time error
-typedef B2<X extends A<A>> = A<X>;  //# 02: compile-time error
-typedef B3<X extends A<int>> = A<X> //# 03: compile-time error
+typedef B1<X extends A> = A<X>;
+//                   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+typedef B2<X extends A<A>> = A<X>;
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
+typedef B3<X extends A<int>> = A<X>;
+//                     ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

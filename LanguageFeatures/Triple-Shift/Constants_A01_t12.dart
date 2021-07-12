@@ -28,9 +28,24 @@ class MyClass {
 }
 
 main() {
-  const MyClass c1 = MyClass(d1, d4);        //# 01: compile-time error
-  const MyClass c2 = MyClass(d2, d5);        //# 02: compile-time error
-  const MyClass c3 = MyClass(11, -133);      //# 03: compile-time error
-  const MyClass c4 = MyClass(-2525, -19999); //# 04: compile-time error
-  const MyClass c5 = MyClass(0, -4);         //# 05: compile-time error
+  const MyClass c1 = MyClass(d1, d4);
+//                   ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const MyClass c2 = MyClass(d2, d5);
+//                   ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const MyClass c3 = MyClass(11, -133);
+//                   ^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const MyClass c4 = MyClass(-2525, -19999);
+//                   ^^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const MyClass c5 = MyClass(0, -4);
+//                   ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

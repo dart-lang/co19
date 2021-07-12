@@ -16,11 +16,26 @@ class C<T> {}
 typedef AAlias = A;
 typedef CAlias<T> = C<T>;
 
-typedef AAlias = A;             //# 01: compile-time error
-typedef AAlias = C<String>;     //# 02: compile-time error
-typedef CAlias<T> = C<T>;       //# 03: compile-time error
-typedef CAlias = C<String>;     //# 04: compile-time error
-typedef CAlias<T1, T2> = C<T1>; //# 05: compile-time error
+typedef AAlias = A;
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+typedef AAlias = C<String>;
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+typedef CAlias<T> = C<T>;
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+typedef CAlias = C<String>;
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+typedef CAlias<T1, T2> = C<T1>;
+//      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

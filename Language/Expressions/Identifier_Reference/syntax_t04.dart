@@ -35,7 +35,6 @@
 /// ;
 /// @description Checks that identifier can't contain ' ' symbol.
 /// @author msyabro
-/// @reviewer kaigorodov
 
 class C {
   bool x() {

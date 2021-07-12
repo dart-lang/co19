@@ -11,27 +11,77 @@
 /// late.
 /// @author sgrekhov@unipro.ru
 
-
 class C {
-  C(late int x) {}                                //# 01: compile-time error
-  C(int x, [late String y]) {}                    //# 02: compile-time error
-  C(int x, {late String y}) {}                    //# 03: compile-time error
+  C(late int x) {}
+//  ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  static void s1(late int x) {}                   //# 04: compile-time error
-  static void s2(int x, [late String y]) {}       //# 05: compile-time error
-  static void s3(int x, {late String y}) {}       //# 06: compile-time error
+  C(int x, [late String y]) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  void m1(late int x) {}                          //# 07: compile-time error
-  void m2(int x, [late String y]) {}              //# 08: compile-time error
-  void m3(int x, {late String y}) {}              //# 09: compile-time error
+  C(int x, {late String y}) {}
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  void set(late int x) {}                         //# 10: compile-time error
-  C operator +(late C other) => other;            //# 11: compile-time error
+  static void s1(late int x) {}
+//               ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static void s2(int x, [late String y]) {}
+//                       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  static void s3(int x, {late String y}) {}
+//                       ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void m1(late int x) {}
+//        ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void m2(int x, [late String y]) {}
+//                ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void m3(int x, {late String y}) {}
+//                ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void set(late int x) {}
+//         ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  C operator +(late C other) => other;
+//             ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-void f1(late int x) {}                            //# 12: compile-time error
-void f2(int x, [late String y]) {}                //# 13: compile-time error
-void f3(int x, {late String y}) {}                //# 14: compile-time error
+void f1(late int x) {}
+//      ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+void f2(int x, [late String y]) {}
+//              ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+void f3(int x, {late String y}) {}
+//              ^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
 }

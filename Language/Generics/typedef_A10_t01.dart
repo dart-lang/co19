@@ -16,9 +16,21 @@ typedef AAlias = A;
 main() {
   AAlias a = AAlias();
 
-  AAlias<int> a1;                    //# 01: compile-time error
-  AAlias a2 = AAlias<int>();         //# 02: compile-time error
+  AAlias<int>? a1;
+//^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  AAlias a2 = AAlias<int>();
+//            ^^^^^^^^^^^/
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  AAlias<dynamic> a3;                //# 03: compile-time error
-  AAlias a4 = new AAlias<dynamic>(); //# 04: compile-time error
+  AAlias<dynamic>? a3;
+//^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  AAlias a4 = new AAlias<dynamic>();
+//                ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

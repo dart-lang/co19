@@ -20,8 +20,20 @@ class MyClass {
 }
 
 main() {
-  const MyClass c1 = MyClass(1.0, 1);       //# 01: compile-time error
-  const MyClass c2 = MyClass(125.12, 2);    //# 02: compile-time error
-  const MyClass c3 = MyClass("abcd", 2);    //# 03: compile-time error
-  const MyClass c4 = MyClass(12, "testme"); //# 04: compile-time error
+  const MyClass c1 = MyClass(1.0, 1);
+//                   ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const MyClass c2 = MyClass(125.12, 2);
+//                   ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const MyClass c3 = MyClass("abcd", 2);
+//                   ^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const MyClass c4 = MyClass(12, "testme");
+//                   ^^^^^^^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

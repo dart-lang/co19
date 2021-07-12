@@ -16,10 +16,25 @@ class F {
 }
 
 main() {
-  F testme = new F();              //# 01: compile-time error
-  A<A>? a1 = testme();             //# 02: compile-time error
-  A<A<A>>? a2 = testme();          //# 03: compile-time error
-  A<A<A<A>>>? a3 = testme();       //# 04: compile-time error
-  A<A<A<A<A>>>>? a4 = testme();    //# 05: compile-time error
-  A<A<A<A<A<A>>>>>? a5 = testme(); //# 06: compile-time error
+  F testme = new F();
+  A<A>? a1 = testme();
+//           ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  A<A<A>>? a2 = testme();
+//              ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  A<A<A<A>>>? a3 = testme();
+//                 ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  A<A<A<A<A>>>>? a4 = testme();
+//                    ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  A<A<A<A<A<A>>>>>? a5 = testme();
+//                       ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

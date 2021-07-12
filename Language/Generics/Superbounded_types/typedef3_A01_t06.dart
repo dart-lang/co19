@@ -16,6 +16,9 @@ class A<T> {}
 typedef B<X extends A<X>> = A<X>;
 
 main() {
-  B<A<int>> b1;     //# 01: compile-time error
+  B<A<int>> b1;
+//  ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   B<A<A<A<B>>>> b2;
 }

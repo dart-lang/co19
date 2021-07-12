@@ -20,14 +20,20 @@ main() {
 
   bool b2 = 1 is A<dynamic>;
   bool b3 = 1 is A<Object?>;
-  bool b4 = 1 is A<Object>;         //# 01: compile-time error
+  bool b4 = 1 is A<Object>;
+//                 ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   bool b5 = 1 is A<Never>;
   bool b6 = 1 is A<void>;
 
   bool b7  = 1 is A<A>;
   bool b8  = 1 is A<A<dynamic>>;
   bool b9  = 1 is A<A<Object?>>;
-  bool b10 = 1 is A<A<Object>>;     //# 02: compile-time error
+  bool b10 = 1 is A<A<Object>>;
+//                  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
   bool b12 = 1 is A<A<Never>>;
   bool b13 = 1 is A<A<void>>;
 }

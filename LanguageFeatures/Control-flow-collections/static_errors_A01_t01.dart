@@ -12,10 +12,24 @@
 
 
 main() {
-  <int>[if (true) "not int"];                   //# 01: compile-time error
-  const <int>[if (true) "not int"];             //# 02: compile-time error
-  List<int> l = [if (true) "not int"];          //# 03: compile-time error
-
-  <int>[for (var i in []) "not int"];           //# 04: compile-time error
-  List<int> l = [for (var i in []) "not int"];  //# 05: compile-time error
+  <int>[if (true) "not int"];
+//                ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  const <int>[if (true) "not int"];
+//                      ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  List<int> l = [if (true) "not int"];
+//                         ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  <int>[for (var i in []) "not int"];
+//                        ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  List<int> l1 = [for (var i in []) "not int"];
+//                                  ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
