@@ -24,6 +24,11 @@ class C {
   static Y stat2<Y>(Y y) => y;
 }
 
+mixin M on C {
+  static X mstat1<X>(X x) => x;
+  static Y mstat2<Y>(Y y) => y;
+}
+
 extension Ext on C {
   static X estat1<X>(X x) => x;
   static Y estat2<Y>(Y y) => y;
@@ -66,4 +71,11 @@ main() {
 
   const e10 = D.stat1<int>;
   Expect.notEquals(e10, e4);
+
+  const e11 = M.mstat1<int>;
+  const e12 = M.mstat1<int>;
+  Expect.identical(e11, e12);
+  Expect.notEquals(e7, e11);
+  Expect.notEquals(e4, e11);
+  Expect.notEquals(e1, e11);
 }

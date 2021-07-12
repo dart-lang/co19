@@ -23,6 +23,10 @@ class C {
   static X stat<X>(X x) => x;
 }
 
+mixin M on C {
+  static X mstat<X>(X x) => x;
+}
+
 extension Ext on C {
   static X estat<X>(X x) => x;
 }
@@ -36,12 +40,19 @@ main() {
 
   const e4 = C.stat<int>;
   const e5 = C.stat<String>;
-  Expect.identical(e4, e5);
+  Expect.notEquals(e4, e5);
   Expect.notEquals(e1, e4);
 
   const e7 = Ext.estat<int>;
   const e8 = Ext.estat<String>;
-  Expect.identical(e7, e8);
+  Expect.notEquals(e7, e8);
   Expect.notEquals(e7, e1);
   Expect.notEquals(e7, e4);
+
+  const e9 = M.mstat<int>;
+  const e10 = M.mstat<String>;
+  Expect.notEquals(e9, e10);
+  Expect.notEquals(e9, e1);
+  Expect.notEquals(e9, e4);
+  Expect.notEquals(e9, e7);
 }

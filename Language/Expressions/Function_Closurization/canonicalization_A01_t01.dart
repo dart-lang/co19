@@ -26,6 +26,11 @@ extension Ext on C {
   static void estat2() {}
 }
 
+mixin M on C {
+  static void mstat1() {}
+  static void mstat2() {}
+}
+
 class D extends C {
   const D();
   static void stat1() {}
@@ -63,4 +68,14 @@ main() {
 
   const e10 = D.stat1;
   Expect.notEquals(e10, e4);
+
+  const e11 = M.mstat1;
+  const e12 = M.mstat1;
+  Expect.identical(e11, e12);
+  Expect.notEquals(e11, e7);
+  Expect.notEquals(e11, e4);
+  Expect.notEquals(e11, e1);
+
+  const e13 = M.mstat2;
+  Expect.notEquals(e11, e13);
 }
