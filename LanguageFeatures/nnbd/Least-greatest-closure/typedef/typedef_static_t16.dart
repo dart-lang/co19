@@ -21,11 +21,23 @@ typedef check<X> = void Function(X x);
 
 void main() {
   void f<X>(check<X> Function() g) => g();
-  // Verify that we can call the function with the specified arguments
+
   f(() => captureTypeArgument()..call(true));
+  //                                  ^
+  // [analyzer] unspecified
+  // [cfe] unspecified
+
   f(() => captureTypeArgument()..call(null));
+  //                                  ^
+  // [analyzer] unspecified
+  // [cfe] unspecified
+
   f(() => captureTypeArgument()..call(throw 1));
+
   f(() => captureTypeArgument()..call('Hello'));
+  //                                  ^
+  // [analyzer] unspecified
+  // [cfe] unspecified
 
   f(() => captureTypeArgument()..call());
   //                                 ^
