@@ -1,4 +1,4 @@
-// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -40,30 +40,24 @@
 /// assert(identical(const Symbol("foo.bar"), #foo.bar));
 /// The created instance overrides Object.==.
 ///
-/// @description Checks that Symbols created from equal name strings are
-/// themselves equal.
-/// @author sgrekhov@unipro.ru
+/// @description Checks that if name is a single Dart identifier that does not
+/// start with an underscore then the result of Symbol(name) is equal to the
+/// symbol literal created by prefixing # to the contents of name, and
+/// const Symbol(name) is identical to that symbol literal.
+/// That is #foo == Symbol("foo") and identical(#foo, const Symbol("foo")).
+/// @author ilya, sgrekhov@unipro.ru
 
 import "../../../Utils/expect.dart";
 
 main() {
-  var s1 = new Symbol('foo');
-  var s2 = new Symbol('foo');
-  Expect.equals(s1, s2);
-  Expect.isFalse(identical(s1, s2));
-
-  var s3 = new Symbol(r'foo.bar$');
-  var s4 = new Symbol(r'foo.bar$');
-  Expect.equals(s3, s4);
-  Expect.isFalse(identical(s3, s4));
-
-  var s5 = new Symbol(r'foo.bar$.baz_=');
-  var s6 = new Symbol(r'foo.bar$.baz_=');
-  Expect.equals(s5, s6);
-  Expect.isFalse(identical(s5, s6));
-
-  var s7 = new Symbol('foo.b_a_r');
-  var s8 = new Symbol('foo.b_a_r');
-  Expect.equals(s7, s8);
-  Expect.isFalse(identical(s7, s8));
+  Expect.equals(#foo, new Symbol('foo'));
+  Expect.isFalse(identical(#foo, new Symbol('foo')));
+  Expect.equals(#foo.bar$, new Symbol(r'foo.bar$'));
+  Expect.isFalse(identical(#foo.bar$, new Symbol(r'foo.bar$')));
+  Expect.equals(#foo.bar$.baz_, new Symbol(r'foo.bar$.baz_'));
+  Expect.isFalse(identical(#foo.bar$.baz_, new Symbol(r'foo.bar$.baz_')));
+  
+  Expect.identical(#foo, const Symbol('foo'));
+  Expect.identical(#foo.bar$, const Symbol(r'foo.bar$'));
+  Expect.identical(#foo.bar$.baz_, const Symbol(r'foo.bar$.baz_'));
 }

@@ -1,4 +1,4 @@
-// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -40,30 +40,27 @@
 /// assert(identical(const Symbol("foo.bar"), #foo.bar));
 /// The created instance overrides Object.==.
 ///
-/// @description Checks that Symbols created from equal name strings are
-/// themselves equal.
-/// @author sgrekhov@unipro.ru
+/// @description Check the case when 'name' is not Dart identifier.
+/// @author ilya, sgrekhov@unipro.ru
+/// @issue 13715
+/// @issue 11669
 
 import "../../../Utils/expect.dart";
 
 main() {
-  var s1 = new Symbol('foo');
-  var s2 = new Symbol('foo');
-  Expect.equals(s1, s2);
-  Expect.isFalse(identical(s1, s2));
+  Expect.equals(Symbol.empty, new Symbol(''));
+  Expect.identical(Symbol.empty, const Symbol(''));
 
-  var s3 = new Symbol(r'foo.bar$');
-  var s4 = new Symbol(r'foo.bar$');
-  Expect.equals(s3, s4);
-  Expect.isFalse(identical(s3, s4));
+  Expect.equals(Symbol.unaryMinus, new Symbol('unary-'));
+  Expect.identical(Symbol.unaryMinus, const Symbol('unary-'));
 
-  var s5 = new Symbol(r'foo.bar$.baz_=');
-  var s6 = new Symbol(r'foo.bar$.baz_=');
-  Expect.equals(s5, s6);
-  Expect.isFalse(identical(s5, s6));
+  Expect.equals(new Symbol('+++'), new Symbol('+++'));
+  Expect.identical(const Symbol('+++'), const Symbol('+++'));
 
-  var s7 = new Symbol('foo.b_a_r');
-  var s8 = new Symbol('foo.b_a_r');
-  Expect.equals(s7, s8);
-  Expect.isFalse(identical(s7, s8));
+  Expect.equals(new Symbol('42isananswer'), new Symbol('42isananswer'));
+  Expect.identical(const Symbol('42isananswer'), const Symbol('42isananswer'));
+
+  Expect.equals(new Symbol('42'), new Symbol('42'));
+  Expect.identical(const Symbol('42'), const Symbol('42'));
 }
+

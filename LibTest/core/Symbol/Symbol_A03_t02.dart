@@ -40,30 +40,33 @@
 /// assert(identical(const Symbol("foo.bar"), #foo.bar));
 /// The created instance overrides Object.==.
 ///
-/// @description Checks that Symbols created from equal name strings are
-/// themselves equal.
+/// @description Checks that a symbol like const Symbol("_foo") is not equal to
+/// any source name symbol introduced by noSuchMethod
 /// @author sgrekhov@unipro.ru
 
 import "../../../Utils/expect.dart";
 
+class C {
+  bool called = false;
+
+  @override
+  noSuchMethod(Invocation invocation) {
+    called = true;
+    Expect.notEquals(invocation.memberName, new Symbol("_foo"));
+    Expect.notEquals(invocation.memberName, const Symbol("_foo"));
+  }
+}
+
 main() {
-  var s1 = new Symbol('foo');
-  var s2 = new Symbol('foo');
-  Expect.equals(s1, s2);
-  Expect.isFalse(identical(s1, s2));
+  dynamic c = new C();
+  c._foo();
+  Expect.isTrue(c.called);
+  c.called = false;
 
-  var s3 = new Symbol(r'foo.bar$');
-  var s4 = new Symbol(r'foo.bar$');
-  Expect.equals(s3, s4);
-  Expect.isFalse(identical(s3, s4));
+  c._foo;
+  Expect.isTrue(c.called);
+  c.called = false;
 
-  var s5 = new Symbol(r'foo.bar$.baz_=');
-  var s6 = new Symbol(r'foo.bar$.baz_=');
-  Expect.equals(s5, s6);
-  Expect.isFalse(identical(s5, s6));
-
-  var s7 = new Symbol('foo.b_a_r');
-  var s8 = new Symbol('foo.b_a_r');
-  Expect.equals(s7, s8);
-  Expect.isFalse(identical(s7, s8));
+  c._foo = 42;
+  Expect.isTrue(c.called);
 }
