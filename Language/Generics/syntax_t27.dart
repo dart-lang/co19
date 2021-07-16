@@ -13,7 +13,7 @@
 /// gets enabled.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases,generic-metadata
+// SharedOptions=--enable-experiment=generic-metadata
 
 class A<X> { const A(); }
 class C<T> { const C(); }
