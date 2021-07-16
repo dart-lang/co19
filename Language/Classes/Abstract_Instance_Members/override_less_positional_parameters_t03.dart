@@ -11,8 +11,6 @@
 /// parameters than m2. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 abstract class A {
   foo(var a, [x, y]);
 }

@@ -9,7 +9,6 @@
 /// @description Checks that type alias cannot be used as a default constructor
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 import "../../../Utils/expect.dart";
 class C {
   String log = "No";

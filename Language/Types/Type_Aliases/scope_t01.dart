@@ -9,7 +9,6 @@
 /// the name id, bound to the type T .
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 import "../../../Utils/expect.dart";
 
 class A {}

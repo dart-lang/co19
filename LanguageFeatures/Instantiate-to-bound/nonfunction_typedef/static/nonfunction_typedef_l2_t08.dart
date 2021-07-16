@@ -45,8 +45,6 @@
 ///    G<C<X, Y>>> = C<X, Y>].
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 import "../../../../Utils/expect.dart";
 
 class C<X, Y> {}

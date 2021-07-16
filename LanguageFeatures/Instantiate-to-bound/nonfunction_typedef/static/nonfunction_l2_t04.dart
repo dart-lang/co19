@@ -44,8 +44,6 @@
 ///  is not well-bounded.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class C<X, Y> {}
 
 typedef A1<X extends A1<X, Y>, Y extends A1<dynamic, A1<X, Y>>>?>? = C<X, Y>;

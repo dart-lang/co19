@@ -7,7 +7,6 @@
 /// opted to legacy library is a legacy type.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-weak
 import "../../../../Utils/expect.dart";
 import "type_reification_legacy_aliases_lib.dart";

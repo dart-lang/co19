@@ -7,8 +7,6 @@
 /// itself in its extends clause. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A extends AAlias {}
 //    ^
 // [analyzer] unspecified

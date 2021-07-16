@@ -9,7 +9,6 @@
 ///  PASSTHRU[F, fn[x] => x.m(ARGS(args))]. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-weak
 import "../../../../Utils/expect.dart";
 

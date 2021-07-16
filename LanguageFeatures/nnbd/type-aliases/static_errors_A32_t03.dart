@@ -10,7 +10,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39598
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-strong
 class A {
   test() {}

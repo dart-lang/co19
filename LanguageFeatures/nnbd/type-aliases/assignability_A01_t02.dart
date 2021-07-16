@@ -10,8 +10,6 @@
 ///
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A {}
 class B extends A {}
 class C extends A {}

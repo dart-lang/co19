@@ -9,8 +9,6 @@
 /// the class declaring m1 is not a direct subtype of the class declaring m2.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A {
   foo(double? name) {}
 }

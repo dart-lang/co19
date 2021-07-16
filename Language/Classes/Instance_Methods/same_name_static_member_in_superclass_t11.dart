@@ -16,7 +16,6 @@
 /// Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 class A {
   static get f {}
 }

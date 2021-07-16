@@ -9,8 +9,6 @@
 /// mutually assignable.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A {
   foo([double? name]) {}
 }

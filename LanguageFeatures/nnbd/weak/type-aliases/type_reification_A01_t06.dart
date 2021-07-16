@@ -7,7 +7,6 @@
 /// opted to legacy library can be casted correctly in opted-in code.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-weak
 import "../../../../Utils/expect.dart";
 import "type_reification_legacy_aliases_lib.dart";

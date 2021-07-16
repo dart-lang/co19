@@ -8,8 +8,6 @@
 /// type alias.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class Test<T> {}
 typedef TAlias1<> = Test<X>;
 //                       ^

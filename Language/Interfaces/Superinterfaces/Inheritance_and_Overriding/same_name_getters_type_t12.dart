@@ -21,7 +21,6 @@
 /// error occurs. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 abstract class SI1 {
   int m();
 }

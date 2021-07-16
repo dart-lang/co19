@@ -11,8 +11,6 @@
 /// produce compile-time errors. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class C {
   C() {}
   C.initialFormal(this.x, int this.y, this.z) {}

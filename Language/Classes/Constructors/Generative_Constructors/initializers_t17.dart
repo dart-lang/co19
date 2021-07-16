@@ -16,8 +16,6 @@
 /// type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 typedef void FType();
 
 void foo() {}

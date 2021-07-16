@@ -11,8 +11,6 @@
 /// (parameters of both methods being completely identical). Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A {
   int foo(var x) => 42;
 }

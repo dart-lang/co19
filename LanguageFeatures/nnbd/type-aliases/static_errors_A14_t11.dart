@@ -12,7 +12,6 @@
 /// type alias
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-strong
 class A {
   void test() {}

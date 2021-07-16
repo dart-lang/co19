@@ -8,7 +8,6 @@
 /// explicitly declares a constructor.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 class A {
 }
 

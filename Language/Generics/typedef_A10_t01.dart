@@ -8,8 +8,6 @@
 /// typedef with type parameter.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A {}
 typedef AAlias = A;
 

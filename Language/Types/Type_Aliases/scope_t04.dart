@@ -10,7 +10,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 42640
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 import "scope.lib.dart";
 
 typedef AAlias = A;

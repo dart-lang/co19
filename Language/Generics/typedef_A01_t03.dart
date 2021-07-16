@@ -14,8 +14,6 @@
 /// @description Checks that exception is thrown if generic metadata is incorrect
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A() {}
 //        ^
 // [analyzer] unspecified

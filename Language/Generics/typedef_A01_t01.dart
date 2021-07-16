@@ -16,8 +16,6 @@
 /// @Issue 42432
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 import "../../Utils/expect.dart";
 
 const i = 1;

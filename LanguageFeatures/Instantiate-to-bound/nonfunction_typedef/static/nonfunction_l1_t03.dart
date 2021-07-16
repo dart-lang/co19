@@ -45,8 +45,6 @@
 /// @Issue 42446, 45658
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 import "../../../../Utils/expect.dart";
 
 class A<X extends A<X>> {}

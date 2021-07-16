@@ -12,7 +12,6 @@
 /// nullable type. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-strong
 
 import "../../../Utils/expect.dart";

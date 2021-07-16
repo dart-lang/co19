@@ -16,8 +16,6 @@
 /// assigned to non-nullable type. Test X & S where S is non-nullable
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A {}
 class S extends A {}
 

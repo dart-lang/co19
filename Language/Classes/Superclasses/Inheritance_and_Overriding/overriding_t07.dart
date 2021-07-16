@@ -12,8 +12,6 @@
 /// names because of setter's = suffix). Test type aliases
 /// @author sgrekhov@unipro
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A {
   var a = 2;
 }

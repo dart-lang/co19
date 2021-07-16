@@ -13,7 +13,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 45051
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 import "../../../../Utils/expect.dart";
 
 class F {

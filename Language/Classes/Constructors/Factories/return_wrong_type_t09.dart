@@ -8,8 +8,6 @@
 /// from factory M.id produces a compile error. Test type alias
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 abstract class I {}
 
 class C implements I {}

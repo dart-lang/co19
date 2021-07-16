@@ -8,7 +8,6 @@
 /// with typed parameter
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 class A {}
 void testme() {}
 

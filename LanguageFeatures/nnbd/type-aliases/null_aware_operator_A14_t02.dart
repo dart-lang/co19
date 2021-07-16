@@ -9,7 +9,6 @@
 ///  PASSTHRU[F, fn[x] => x[EXP(e2)] = EXP(e3)]. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-strong
 import "../../../Utils/expect.dart";
 

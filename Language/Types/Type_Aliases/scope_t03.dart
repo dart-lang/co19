@@ -9,7 +9,6 @@
 /// the name id into the scope of L, bound to the type T .
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 import "../../../Utils/expect.dart";
 import "scope.lib.dart";
 

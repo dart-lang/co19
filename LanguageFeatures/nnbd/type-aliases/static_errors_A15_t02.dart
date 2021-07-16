@@ -10,8 +10,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 40949
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A {}
 class B {}
 class C {}

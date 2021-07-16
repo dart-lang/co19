@@ -11,7 +11,6 @@
 /// and no static warnings are produced. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 class S {}
 
 class A extends S {

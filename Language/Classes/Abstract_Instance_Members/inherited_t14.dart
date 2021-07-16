@@ -11,7 +11,6 @@
 /// inherited in a concrete class. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 abstract class A {
   foo([x]);
 }

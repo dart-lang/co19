@@ -8,8 +8,6 @@
 /// in the type list of a class's implements clause.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 typedef d = dynamic;
 
 class A implements d {}

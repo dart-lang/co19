@@ -8,8 +8,6 @@
 /// inherits an abstract method. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 abstract class A {
   foo();
 }

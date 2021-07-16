@@ -7,8 +7,6 @@
 /// @description Checks that it is compile-time error to implement an enum
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 enum E {a, b, c}
 
 typedef EAlias = E;

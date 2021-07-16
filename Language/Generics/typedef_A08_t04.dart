@@ -23,8 +23,6 @@
 /// @Issue 36959, 37050
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A<X extends A<X>> {}
 
 typedef AAlias<T extends A<T>>(T);

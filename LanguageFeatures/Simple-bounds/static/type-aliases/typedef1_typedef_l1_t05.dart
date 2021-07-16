@@ -15,8 +15,6 @@
 /// non-function type alias with function parameter (covariant)
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 import "../../../../Utils/expect.dart";
 
 typedef G<X> = X Function();

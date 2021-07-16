@@ -9,7 +9,6 @@
 /// of declared instance member m is not a subtype of F. Test type aliases
 /// @author ilya
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 abstract class I {
   foo(var x);
 }

@@ -44,8 +44,6 @@
 /// X Function(); class C<X, Y>; typedef A<X extends G<C<X, Y>>, Y extends X>].
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 import "../../../../Utils/expect.dart";
 
 typedef G<X> = X Function();

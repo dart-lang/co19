@@ -46,8 +46,6 @@
 /// @Issue 44223, 45514, 45658
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 import "../../../../Utils/expect.dart";
 
 class A<X, Y, Z> {}

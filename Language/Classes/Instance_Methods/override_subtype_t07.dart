@@ -9,8 +9,6 @@
 /// isn't void either. Test type alias
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A {
   int foo(var x) => 42;
 }

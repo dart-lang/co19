@@ -16,8 +16,6 @@
 /// with the same name in its superclass. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A {
   static int n = 0;
   static set v(int v1) {

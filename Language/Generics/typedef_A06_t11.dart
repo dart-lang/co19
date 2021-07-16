@@ -13,8 +13,6 @@
 /// bounded.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A<X> {}
 class C<X extends C<X>> {}
 

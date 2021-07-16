@@ -8,8 +8,6 @@
 /// constructor includes two identical superinitializers in its initializer list.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A {
   A();
   A.foo();

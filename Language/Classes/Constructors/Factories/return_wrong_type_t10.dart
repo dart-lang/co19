@@ -9,8 +9,6 @@
 /// from factory constructor M does not produce an error. Test type alias
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 abstract class A {
   A() {}
   factory A.foo() => CAlias.foo();

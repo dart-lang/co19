@@ -45,8 +45,6 @@
 /// A<X1>, X2 extends A<X1>, X3 extends B, X4 extends X2> = C<X1, X2, X3, X4>].
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 import "../../../../Utils/expect.dart";
 
 class A<X> {}

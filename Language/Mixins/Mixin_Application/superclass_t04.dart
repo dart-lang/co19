@@ -10,8 +10,6 @@
 /// @issue 42254
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class Sstatic {
 }
 

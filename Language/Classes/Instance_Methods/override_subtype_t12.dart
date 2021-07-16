@@ -8,8 +8,6 @@
 /// a subtype of type of m2. Checks instance methods with optional parameters.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class Whatever {}
 class Super {}
 class Sub extends Super {}

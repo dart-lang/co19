@@ -9,8 +9,6 @@
 /// redirects to itself through a cycle.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class F1 {
   factory F1() = F2;
 //               ^^

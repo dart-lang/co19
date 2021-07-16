@@ -11,8 +11,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 23721
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 import "dart:core";
 import "../../../Utils/expect.dart";
 

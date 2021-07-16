@@ -44,8 +44,6 @@
 /// A<X extends FutureOr<X>]
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 import "../../../../Utils/expect.dart";
 import "dart:async";
 

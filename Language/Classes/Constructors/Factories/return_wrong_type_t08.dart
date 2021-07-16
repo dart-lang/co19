@@ -8,8 +8,6 @@
 /// from factory constructor M produces a compile error. Test type alias
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class C {}
 typedef CAlias = C;
 

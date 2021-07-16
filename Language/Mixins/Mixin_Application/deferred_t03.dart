@@ -9,8 +9,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 42031
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 import 'deferred_lib.dart' deferred as d;
 
 class B {

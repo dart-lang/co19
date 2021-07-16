@@ -13,8 +13,6 @@
 /// parameter scope.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 import "../../Utils/expect.dart";
 
 class A {}

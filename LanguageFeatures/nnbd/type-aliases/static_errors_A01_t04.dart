@@ -11,8 +11,6 @@
 /// type alias for class A?
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A {
   String m = "";
   void foo() {}

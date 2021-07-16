@@ -10,7 +10,6 @@
 /// superinitializer is a call to non const constructor. Test type alias
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 class C {
   C();
 }

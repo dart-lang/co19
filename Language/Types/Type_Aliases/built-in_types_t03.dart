@@ -6,7 +6,6 @@
 /// @description Checks use of type aliases for built-in types as return values
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 import '../../../Utils/expect.dart';
 
 typedef IntAlias = int;

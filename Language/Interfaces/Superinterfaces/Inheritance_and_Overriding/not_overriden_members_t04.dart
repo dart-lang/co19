@@ -10,8 +10,6 @@
 /// member S via a subinterface, as specified in (Expressions/Getter Invocation)
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 abstract class S {
   static int get foo => 1;
 }

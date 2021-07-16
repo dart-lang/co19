@@ -10,8 +10,6 @@
 /// m1 is not a direct subtype of the class declaring m2. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A {
   f({var x, var y}) { return x + y; }
 }

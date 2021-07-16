@@ -10,7 +10,6 @@
 /// cannot be assigned to [null].
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-weak
 
 import "exports_A01_opted_out_aliases_lib.dart";

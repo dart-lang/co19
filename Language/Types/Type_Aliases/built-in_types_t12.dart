@@ -6,7 +6,6 @@
 /// @description Checks bitwise operations via type alias for int
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 import '../../../Utils/expect.dart';
 
 typedef IntAlias = int;

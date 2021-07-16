@@ -9,7 +9,6 @@
 /// legacy library and then back to the opted in code retains its status.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-weak
 
 import "dart:async";

@@ -15,8 +15,6 @@
 /// non-function type alias parameter is [FutureOr]
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 import "dart:async";
 import "../../../../Utils/expect.dart";
 

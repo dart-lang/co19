@@ -12,8 +12,6 @@
 /// built-in types
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 

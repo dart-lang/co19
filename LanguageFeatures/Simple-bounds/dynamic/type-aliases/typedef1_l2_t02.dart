@@ -15,8 +15,6 @@
 /// non-function type alias with two depending typed parameters.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 import "../../../../Utils/expect.dart";
 
 class C<X, Y> {}

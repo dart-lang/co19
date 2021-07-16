@@ -7,8 +7,6 @@
 /// arguments
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 typedef IntAlias = int;
 typedef NumAlias = num;
 typedef DoubleAlias = double;

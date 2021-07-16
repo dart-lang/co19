@@ -7,8 +7,6 @@
 /// @Issue 34560, 45065
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class C<X> {}
 typedef A<X extends num> = C<X>;
 

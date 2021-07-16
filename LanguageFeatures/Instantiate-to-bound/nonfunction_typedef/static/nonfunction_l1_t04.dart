@@ -45,8 +45,6 @@
 /// @Issue 42446, 45117
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A<X extends A<X>> {}
 typedef B<X extends A<A<X>>> = A<X>;
 //        ^

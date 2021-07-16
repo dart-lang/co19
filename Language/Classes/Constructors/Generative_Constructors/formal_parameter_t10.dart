@@ -11,8 +11,6 @@
 /// variable of the superinterface. Test type alias
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 abstract class I {
   var x;
 }

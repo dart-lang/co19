@@ -9,8 +9,6 @@
 /// type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class T1 {}
 
 typedef Neverland = Never;

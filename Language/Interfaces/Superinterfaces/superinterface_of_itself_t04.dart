@@ -8,8 +8,6 @@
 /// interface is a superinterface of itself. Test type alias
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 abstract class I implements IAlias {}
 //             ^
 // [analyzer] unspecified

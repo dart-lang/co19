@@ -8,7 +8,6 @@
 /// error.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 class C<T1, T2> extends CAlias<T1, T2> {}
 //    ^
 // [analyzer] unspecified

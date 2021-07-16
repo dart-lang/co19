@@ -14,8 +14,6 @@
 /// @Issue 44070
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 import "../../../../Utils/expect.dart";
 import "dart:async";
 

@@ -8,8 +8,6 @@
 /// with not well bounded type parameter is declared
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A<T extends A<T>> {}
 
 typedef B1<X extends A> = A<X>;

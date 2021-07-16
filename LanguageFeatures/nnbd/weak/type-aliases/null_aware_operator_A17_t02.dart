@@ -15,7 +15,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39141
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 // Requirements=nnbd-weak
 import "../../../../Utils/expect.dart";
 

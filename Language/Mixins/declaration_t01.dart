@@ -9,7 +9,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 45505
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 class C {}
 typedef CAlias = C;
 

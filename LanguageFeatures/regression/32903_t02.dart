@@ -9,9 +9,7 @@
 /// @Issue 32903
 /// @author iarkh@unipro.ru
 
- // SharedOptions=--enable-experiment=nonfunction-type-aliases
-
-class C<X extends C<X>> {}
+ class C<X extends C<X>> {}
 class D extends C<D> {}
 
 typedef A<X> = C<X>;

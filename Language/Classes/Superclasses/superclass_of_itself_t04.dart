@@ -7,8 +7,6 @@
 /// extend itself indirectly, by transition. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A extends DAlias {}
 //    ^
 // [analyzer] unspecified

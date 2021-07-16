@@ -10,8 +10,6 @@
 /// abstract method that is inherited from non-direct superclass. Test type alias
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 abstract class A {
   m1();
 }

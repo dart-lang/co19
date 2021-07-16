@@ -16,8 +16,6 @@
 /// same name. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A {
   int v = 5;
 }

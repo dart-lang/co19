@@ -10,8 +10,6 @@
 /// superinterfaces forms a circular dependency. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 abstract class C implements A {}
 //             ^
 // [analyzer] unspecified

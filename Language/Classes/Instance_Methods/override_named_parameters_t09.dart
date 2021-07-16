@@ -9,8 +9,6 @@
 /// of named parameters as m2 but in a different order. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A {
   f({var x, var y}) {
     return x + y;

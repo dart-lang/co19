@@ -15,8 +15,6 @@
 /// type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class C {
   String test1 = "Let it be";
   String test2 = "Show must go on";

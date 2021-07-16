@@ -14,7 +14,6 @@
 /// instance method named n and inherits a setter named n=. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 class A {
   set foo(int a) {}
 }

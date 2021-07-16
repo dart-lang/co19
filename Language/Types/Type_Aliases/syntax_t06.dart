@@ -12,8 +12,6 @@
 /// placed
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 const int meta = 1;
 
 class A {}

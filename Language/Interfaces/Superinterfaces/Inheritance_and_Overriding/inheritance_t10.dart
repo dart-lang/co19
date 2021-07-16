@@ -27,8 +27,6 @@
 /// name but different number of arguments are inherited
 /// @author rodionov
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 abstract class SI1 {
   void foo(var v);
 }

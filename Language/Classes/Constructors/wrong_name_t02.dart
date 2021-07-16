@@ -9,8 +9,6 @@
 /// @description Checks that type alias cannot be used as a named constructor
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class C {
   CAlias.named() {}
 //^^^^^

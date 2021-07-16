@@ -24,8 +24,6 @@
 /// @Issue 42436
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A<X extends num> {}
 typedef AAlias<Y extends String> = A<Y>;
 //                                   ^

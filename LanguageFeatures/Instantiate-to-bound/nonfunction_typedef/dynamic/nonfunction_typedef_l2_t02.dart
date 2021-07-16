@@ -45,8 +45,6 @@
 /// C<X, Y>].
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 import "../../../../Utils/expect.dart";
 
 typedef G<X> = Function(X);

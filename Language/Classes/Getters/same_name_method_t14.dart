@@ -11,8 +11,6 @@
 /// the same name. Test type alias
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A {
   get foo => "foo";
 }

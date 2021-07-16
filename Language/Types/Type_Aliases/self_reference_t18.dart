@@ -8,7 +8,6 @@
 /// error. Test direct reference
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 class C<T> {}
 
   typedef CAlias1<T> = C<CAlias1>;

@@ -8,7 +8,6 @@
 /// and its superinterface has a getter with the same name. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 class A {
   int get m => 0;
 }

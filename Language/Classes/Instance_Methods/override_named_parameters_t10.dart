@@ -10,8 +10,6 @@
 /// name.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
-
 class A {
   f({var x, var y, var z}) {}
 }

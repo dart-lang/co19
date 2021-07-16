@@ -12,7 +12,6 @@
 /// identifier. Test type aliases
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=nonfunction-type-aliases
 class S {
 }
 
