@@ -37,20 +37,8 @@
 /// @author msyabro
 
 main() {
-  int? 1a;
-//^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  String 2b = "It's wrong!";
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  var 3c;
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  4d;
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  int? 1a;                    //# 01: syntax error
+  String 2b = "It's wrong!";  //# 02: syntax error
+  var 3c;                     //# 03: syntax error
+  4d;                         //# 04: syntax error
 }

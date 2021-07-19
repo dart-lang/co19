@@ -37,22 +37,9 @@
 /// from the cyrillic alphabet.
 /// @author msyabro
 
-
 main() {
-  int? а;
-//^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  String б = "It's wrong!";
-//^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  var в1;
-//    ^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  д2;
-//^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  int? а;                     //# 01: syntax error
+  String б = "It's wrong!";   //# 02: syntax error
+  var в1;                     //# 03: syntax error
+  д2;                         //# 04: syntax error
 }
