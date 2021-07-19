@@ -32,8 +32,8 @@ main() {
   A.new(1, "Testme").check(1, "Testme", dynamic);
 
   A<int>(12345, "").check(12345, "", int);
-  A.new<int>(12345, "").check(12345, "", int);
+  A<int>.new(12345, "").check(12345, "", int);
 
   A<Never>(0, "0").check(0, "0", Never);
-  A.new<Never>.(0, "0").check(0, "0", Never);
+  A<Never>.new(0, "0").check(0, "0", Never);
 }

@@ -5,7 +5,7 @@
 /// @assertion Apart from the tear-off, this code will mean exactly the same
 /// thing as the same code without the .new.
 ///
-/// @description Checks that [new] declaration is equivalent with default  \
+/// @description Checks that [new] declaration is equivalent with default
 /// constructor declaration.
 ///
 /// @author iarkh@unipro.ru
@@ -35,8 +35,8 @@ main() {
   A.new(1, "Testme").check(1, "Testme", dynamic);
 
   A<int>(12345, "").check(12345, "", int);
-  A.new<int>(12345, "").check(12345, "", int);
+  A<int>.new(12345, "").check(12345, "", int);
 
   A<Never>(0, "0").check(0, "0", Never);
-  A.new<Never>.(0, "0").check(0, "0", Never);
+  A<Never>.new(0, "0").check(0, "0", Never);
 }
