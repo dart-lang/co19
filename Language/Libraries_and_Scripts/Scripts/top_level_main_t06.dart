@@ -15,8 +15,11 @@ run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString().replaceAll(".dart", "_lib.dart");
   int called = 0;
-  await Process.run(executable, [eScript]).then((ProcessResult results) {
-    Expect.notEquals(0, results);
+
+  await Process.run(
+      executable, [...Platform.executableArguments, eScript])
+      .then((ProcessResult results) {
+    Expect.notEquals(0, results.exitCode);
     called++;
   });
   Expect.equals(1, called);
