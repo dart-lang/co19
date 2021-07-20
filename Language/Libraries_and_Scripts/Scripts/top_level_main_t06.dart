@@ -21,7 +21,7 @@ run_main() async {
   await Process.run(
       executable, [...Platform.executableArguments, eScript])
       .then((ProcessResult results) {
-    Expect.equals(0, results.exitCode);
+    Expect.notEquals(0, results.exitCode);
     called++;
   });
   Expect.equals(1, called);
