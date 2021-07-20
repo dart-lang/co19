@@ -39,10 +39,6 @@ typedef Alias6<T1, T2> = C<T1, T2, String>;
 //                       ^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-typedef Alias7<T1, T2> = C<T2 extends T1>;
-//                       ^^^^^^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 
 main() {
 }
