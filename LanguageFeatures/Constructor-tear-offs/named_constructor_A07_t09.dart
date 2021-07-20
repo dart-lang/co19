@@ -19,7 +19,7 @@ import "../../Utils/expect.dart";
 class C {
   C.name1(int i, int j) {}
   C.name2(int i, int j);
-  C( int i, int j) {}
+  C(int i, int j) {}
 }
 
 main() {

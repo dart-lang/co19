@@ -23,22 +23,22 @@ class C {
 main() {
   C Function() v1 = C.constr;
 
-  C Function(int) v2 = C.constr;
+  C Function(int i) v2 = C.constr;
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  C Function(dynamic) v3 = C.constr;
+  C Function(dynamic d) v3 = C.constr;
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  C Function([int]) v4 = C.constr;
+  C Function([int i]) v4 = C.constr;
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  C Function({String s = "12345"}) v5 = C.constr;
+  C Function({String s}) v5 = C.constr;
 //           ^
 // [analyzer] unspecified
 // [cfe] unspecified

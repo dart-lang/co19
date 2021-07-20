@@ -34,8 +34,8 @@ main() {
   Expect.equals(v4, v5);
   Expect.identical(v4, v5);
 
-  var v7 = C.constr1;
-  var v8 = C.constr1;
+  var v7 = C.constr2;
+  var v8 = C.constr2;
   Expect.equals(v7, v8);
   Expect.identical(v7, v8);
 

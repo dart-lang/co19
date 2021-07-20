@@ -25,19 +25,13 @@ void testList() {
   (List<int>).filled;
   (List.filled)<int>;
 
-  List.filled<int>;
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  List.filled<int>;             //# 01: syntax error
 
   List<int>.filled(4, 4);
   (List<int>).filled(4, 4);
   (List.filled)<int>(4, 4);
 
-  List.filled<int>(4, 4);
-//           ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  List.filled<int>(4, 4);       //# 02: syntax error
 }
 
 void testC() {
@@ -45,19 +39,13 @@ void testC() {
   (C<int>).new;
   (C.new)<int>;
 
-  C.new<int>;
-//     ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  C.new<int>;                   //# 03: syntax error
 
   C<int>.new();
   (C<int>).new();
   (C.new)<int>();
 
-  C.new<int>();
-//     ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  C.new<int>();                 //# 04: syntax error
 }
 
 main() {
