@@ -13,14 +13,18 @@
 ///
 /// @author a.semenov@unipro.ru
 
-
 import '../../../Utils/dynamic_check.dart';
-
+import '../../../Utils/expect.dart';
 
 main() {
   int x = 1 ?? 2;
   x = 1 ?? 2.0;
-  checkTypeError(() { int y = 2.0 ?? 1; return y; });
+  checkTypeError(() { int y = 3.14 ?? 1; return y; });
+  if(isJS) {
+    x = 2.0?? 1;
+  } else {
+    checkTypeError(() { int y = 2.0 ?? 1; return y; });
+  }
   x = null ?? 1;
   x = null ?? null;
   x = 1 ?? null;
