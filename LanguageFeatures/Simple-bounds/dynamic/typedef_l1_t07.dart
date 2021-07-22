@@ -18,7 +18,6 @@
 /// @Issue 34689
 /// @author iarkh@unipro.ru
 
-
 import "../../../Utils/expect.dart";
 
 class A<X> {}
@@ -26,7 +25,7 @@ typedef G<X extends A> = void Function(X);
 
 main() {
   Expect.equals(
-    typeOf<G<A<Null>>>(),
+    typeOf<G<A<dynamic>>>(),
     typeOf<G>()
   );
 }

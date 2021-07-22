@@ -32,12 +32,12 @@ import "../../../Utils/expect.dart";
 
 class S<Type> {}
 class S1 extends S<int> {}
-class S2 extends S<double> {}
+class S2 extends S<int> {}
 class T implements S1, S2 {}
 
 main() {
   Expect.isTrue(new T() is S<int>);
-  Expect.isTrue(new T() is S<double>);
+  Expect.isFalse(new T() is S<double>);
   Expect.isTrue(new T() is S<num>);
   Expect.isTrue(new T() is S<Object>);
   Expect.isTrue(new T() is S);

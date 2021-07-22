@@ -29,5 +29,9 @@ main() {
   G source;
   var fsource = toF(source);
   F<G<A<Null>>> target = fsource;
-  F<G<A<dynamic>>> target1 = fsource;  //# 01: compile-time error
+//                       ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>>> target1 = fsource;
 }

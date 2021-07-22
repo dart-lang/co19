@@ -27,8 +27,9 @@
 /// @description Checks that if during the evaluation of e, the getter for v
 /// is invoked, a CyclicInitializationError is thrown. Also expects that
 /// after that the result of getter is [:null:]
+///
+/// $Issue 46692
 /// @author msyabro
-/// @reviewer iefremov
 
 import "../../../Utils/expect.dart";
 

@@ -18,8 +18,5 @@ class mixin {}
 // [cfe] unspecified
 
 main() {
-  new mixin();
-//    ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  mixin();
 }
