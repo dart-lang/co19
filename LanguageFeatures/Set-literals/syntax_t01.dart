@@ -12,10 +12,10 @@
 /// @author sgrekhov@unipro.ru
 
 main() {
-  var v1  = const <int> {,};  //# 01: compile-time error
-  var v2  = const {,};        //# 02: compile-time error
-  var v3  = {,};              //# 03: compile-time error
-  var v4  = const <int> {,,}; //# 04: compile-time error
-  var v5  = const {,,};       //# 05: compile-time error
-  var v6  = {,,};             //# 06: compile-time error
+  var v1  = const <int> {,};  //# 01: syntax error
+  var v2  = const {,};        //# 02: syntax error
+  var v3  = {,};              //# 03: syntax error
+  var v4  = const <int> {,,}; //# 04: syntax error
+  var v5  = const {,,};       //# 05: syntax error
+  var v6  = {,,};             //# 06: syntax error
 }

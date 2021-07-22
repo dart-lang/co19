@@ -1,4 +1,4 @@
-// Copyright (c) 2019, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -16,7 +16,7 @@
 /// extension implements call).
 /// @description Check that overriding extensions can be used without member
 /// access call.
-/// @author iarkh@unipro.ru
+/// @author sgrekhov@unipro.ru
 
 import "extension_conflict_resolution_lib.dart" as testlib;
 
@@ -25,6 +25,13 @@ extension Ext1 on String {
 }
 
 main() {
-  testlib.MySimpleExt("testme");        //# 01: compile-time error
-  Ext1("testme");                       //# 02: compile-time error
+  testlib.MySimpleExt("testme")++;      //# 01: syntax error
+  Ext1("testme") += 14;                 //# 02: syntax error
+  testlib.MySimpleExt("testme")--;      //# 03: syntax error
+  Ext1("testme") *= 10;                 //# 04: syntax error
+
+  Ext1("testme") = 12;                  //# 05: syntax error
+  testlib.MySimpleExt("testme") = -33;  //# 06: syntax error
+  Ext1("testme") = null;                //# 07: syntax error
+  testlib.MySimpleExt("testme") = null; //# 08: syntax error
 }

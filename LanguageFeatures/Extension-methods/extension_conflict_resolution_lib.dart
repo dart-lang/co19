@@ -4,7 +4,6 @@
 
 // @dart = 2.9
 
-
 library extension_conflict_resolution_lib;
 
 extension MyFancyList on List {
@@ -12,7 +11,7 @@ extension MyFancyList on List {
 }
 
 extension MyNumList<T extends num> on List<T> {
-bool get isNumLibraryVersion => true;
+  bool get isNumLibraryVersion => true;
 }
 
 extension MyIntList<T extends int> on List<T> {

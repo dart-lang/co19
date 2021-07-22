@@ -15,11 +15,10 @@
 /// 'for' elements is an expression
 /// @author sgrekhov@unipro.ru
 
-
 main() {
   bool b = true;
   List<int> listInt = [
-    if (b) {1;},                        //# 01: compile-time error
+    if (b) {1;},                        //# 01: syntax error
     if (!b) {1},                        //# 02: compile-time error
     for (int i = 5; i < 10; i++) {i}    //# 03: compile-time error
   ];

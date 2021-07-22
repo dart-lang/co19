@@ -13,12 +13,20 @@
 /// [dynamic]. The associated type of [D], call it [F], is, respectively:
 ///   T
 /// ...
-/// @description Checks that [T] should be a type.
+/// @description Checks that it is a syntax error if [T] is a [Function] in a
+/// wrong form
 /// @author iarkh@unipro.ru
 
-my_function<T>() {}
+class A {
+  static int callme() {
+    return 25;
+  }
+}
 
-typedef Alias1<T> = my_function;            //# 01: compile-time error
-typedef Alias2<T> = my_function<T>;         //# 02: compile-time error
+int getme() { return 0; }
+
+typedef WAlias1<T> = A() Function(T);                 //# 01: syntax error
+typedef WAlias2<T, T2, T3> = A.callme() Function(T);  //# 02: syntax error
+typedef WAlias5<T> = getme() Function(T, int, [int]); //# 03: syntax error
 
 main() {}

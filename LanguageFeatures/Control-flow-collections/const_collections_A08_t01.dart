@@ -31,10 +31,10 @@ main() {
   var set4 = const <int>{for (var i = 1; i < 4; i++) i};   //# 14: compile-time error
   const set5 = {for (var i = 1; i < 4; i++) i};            //# 15: compile-time error
   Set<int> set6 = const {for (var i in [1, 2, 3]) i};      //# 16: compile-time error
-  const Set<int> set7 = {for (for (var i in [1, 2, 3]) i}; //# 17: compile-time error
-  var set8 = const {for (for (var i in [1, 2, 3]) i};      //# 18: compile-time error
-  var set9 = const <int>{for (for (var i in [1, 2, 3]) i}; //# 19: compile-time error
-  const set10 = {for (for (var i in [1, 2, 3]) i};         //# 20: compile-time error
+  const Set<int> set7 = {for (var i in [1, 2, 3]) i};      //# 17: compile-time error
+  var set8 = const {for (var i in [1, 2, 3]) i};           //# 18: compile-time error
+  var set9 = const <int>{for (var i in [1, 2, 3]) i};      //# 19: compile-time error
+  const set10 = {for (var i in [1, 2, 3]) i};              //# 20: compile-time error
 
   Map<int, String> map1 = const {for (var i = 1; i < 4; i++) i: "x"}; //# 21: compile-time error
   const Map<int, String> map2 = {for (var i = 1; i < 4; i++) i: "x"}; //# 22: compile-time error

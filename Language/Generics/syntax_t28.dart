@@ -18,7 +18,25 @@
 
 my_function<T>() {}
 
-typedef Alias1<T> = my_function;            //# 01: compile-time error
-typedef Alias2<T> = my_function<T>;         //# 02: compile-time error
+class C1<T> {
+  C1(T i) {}
+}
+
+class C2<T> {
+  C2(int, [T j]) {}
+}
+
+class C3<T1, T2> {
+  C3({T1 i, T2 j}) {}
+}
+
+typedef Alias3<T> = my_function();          //# 01: syntax error
+typedef Alias4<T> = my_function<T>();       //# 02: syntax error
+
+typedef CAlias1<T> = C1<T>(T);              //# 03: syntax error
+typedef CAlias2<T> = C2<T>(int, [T]);       //# 04: syntax error
+typedef CAlias3<T1, T2> = C3<T>({T1, T2});  //# 05: syntax error
+
+typedef CAlias4<T extends int> = C1<T>(24); //# 06: syntax error
 
 main() {}

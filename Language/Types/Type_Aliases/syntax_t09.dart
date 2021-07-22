@@ -17,18 +17,18 @@
 
 class C {
   static void s() {
-    typedef void F1(String s);                     //# 01: compile-time error
+    typedef void F1(String s);                     //# 01: syntax error
   }
 
   void m() {
-    typedef void F2(String s);                     //# 02: compile-time error
+    typedef void F2(String s);                     //# 02: syntax error
   }
 }
 
 test() {
-  typedef void F3(String s);                       //# 03: compile-time error
+  typedef void F3(String s);                       //# 03: syntax error
 }
 
 main() {
-  typedef void F4(String s);                       //# 04: compile-time error
+  typedef void F4(String s);                       //# 04: syntax error
 }
