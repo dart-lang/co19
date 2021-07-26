@@ -32,18 +32,14 @@ bool testClear3(var element) {
   return true;
 }
 
-check(bool test(var element), List list, List expected) {
+check(bool test(var element)) {
   queue = new DoubleLinkedQueue.from(list);
   queue.retainWhere(test);
-  Expect.equals(expected.length, queue.length);
-  int i = 0;
-  queue.forEach((var element) {
-    Expect.equals(expected[i++], element);
-  });
+  Expect.equals(0, queue.length);
 }
 
 main() {
-  check(testClear1, list, []);
-  check(testClear2, list, []);
-  check(testClear3, list, []);
+  check(testClear1);
+  check(testClear2);
+  check(testClear3);
 }

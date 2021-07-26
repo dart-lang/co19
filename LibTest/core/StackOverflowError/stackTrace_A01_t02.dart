@@ -5,7 +5,8 @@
 // @dart = 2.9
 
 /// @assertion StackTrace stackTrace
-/// @description Checks that this property is not null if error is thrown
+/// @description Checks that this property is [null] if error is thrown.
+/// See https://api.dart.dev/stable/2.13.4/dart-core/StackOverflowError/stackTrace.html:
 /// @author sgrekhov@unipro.ru
 /// @issue 28179
 
@@ -21,6 +22,6 @@ main() {
   try {
     f();
   } on StackOverflowError catch (er) {
-    Expect.isNotNull(e.stackTrace);
+    Expect.isNull(e.stackTrace);
   }
 }

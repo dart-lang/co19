@@ -19,7 +19,6 @@ main() {
     Expect.fail("RangeError expected");
   } on RangeError catch (e) {
     Expect.equals(-1, e.invalidValue);
-    Expect.equals(null, e.name);
     Expect.equals("Invalid value", e.message);
     Expect.equals(0, e.start);
     Expect.equals(null, e.end);

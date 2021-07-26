@@ -26,6 +26,6 @@ main() {
     C.x;
     Expect.fail("CyclicInitializationError error should be thrown");
   } on CyclicInitializationError catch (e) {
-    Expect.equals("x", e.variableName);
+    Expect.equals(isJS ? "C_x" : "x", e.variableName);
   }
 }

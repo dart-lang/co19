@@ -15,10 +15,12 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  try {
-    assert(false);
-    Expect.fail("AssertionError expected");
-  } on AssertionError catch(e) {
-    Expect.isTrue(e is Error);
+  if (assertStatementsEnabled) {
+    try {
+      assert(false);
+      Expect.fail("AssertionError expected");
+    } on AssertionError catch(e) {
+      Expect.isTrue(e is Error);
+    }
   }
 }

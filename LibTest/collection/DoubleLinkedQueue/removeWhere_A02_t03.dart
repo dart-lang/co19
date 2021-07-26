@@ -6,10 +6,10 @@
 
 /// @assertion void removeWhere(bool test(E element))
 /// The [test] function must not throw or modify the queue.
+///
 /// @description Checks case when test function clears the queue
 /// @author iarkh@unipro.ru
 /// @issue 27920
-
 
 import "dart:collection";
 import "../../../Utils/expect.dart";
@@ -32,18 +32,14 @@ bool testClear3(var element) {
   return true;
 }
 
-check(bool test(var element), List list, List expected) {
+check(bool test(var element)) {
   queue = new DoubleLinkedQueue.from(list);
   queue.removeWhere(test);
-  Expect.equals(expected.length, queue.length);
-  int i = 0;
-  queue.forEach((var element) {
-    Expect.equals(expected[i++], element);
-  });
+  Expect.equals(0, queue.length);
 }
 
 main() {
-  check(testClear1, list, []);
-  check(testClear2, list, []);
-  check(testClear3, list, []);
+  check(testClear1);
+  check(testClear2);
+  check(testClear3);
 }
