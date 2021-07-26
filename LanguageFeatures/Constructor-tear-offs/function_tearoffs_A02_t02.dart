@@ -21,12 +21,13 @@
 
 class C {
   C() {
-    var x = instanceMethod<int>;
+    var x = instanceMethod<String>;
     x(3.14);
 //    ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    x<double>(42);
+
+    x<int>(42);
 //   ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified

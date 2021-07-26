@@ -26,7 +26,7 @@ class A {
 
 class C extends A {
   C() {
-    var x = super.instanceMethod<int>;
+    var x = super.instanceMethod<String>;
     x(3.14);
 //    ^^^^
 // [analyzer] unspecified

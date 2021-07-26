@@ -24,5 +24,5 @@ class C<T> {
 main() {
   Expect.isTrue(C.constr is C Function<X extends dynamic>(X));
   Expect.isTrue(C<int>.constr is C Function<X extends int>(X));
-  Expect.isTrue(C.constr<int> is C Function<T extends int>(T));
+  Expect.isTrue((C.constr)<int> is C Function<T extends int>(T));
 }

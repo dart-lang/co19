@@ -23,8 +23,8 @@ main() {
   var v1 = MyClass.new;
   var v2 = MyClass.constr;
 
-  var c1 = v1();
-  var c2 = v1();
+  var c1 = v1(1, 2);
+  var c2 = v1(1, 2);
   Expect.notEquals(c1, c2);
 
   var c3 = v2();

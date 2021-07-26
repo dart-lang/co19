@@ -37,12 +37,12 @@ main() {
   Expect.isTrue(v is C Function(int i, [int? j, String s]));
 
   C c1 = v(1);
-  c1.check(1, null, "testme");
+  c1.check(1, null, "default");
 
   C c2 = v(12, 90);
-  c2.check(12, 90, "testme");
+  c2.check(12, 90, "default");
 
-  C c3 = v(12, "stop");
+  C c3 = v(12, null, "stop");
   c3.check(12, null, "stop");
 
   C c4 = v(12, 90, "");

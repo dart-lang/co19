@@ -24,5 +24,5 @@ class C<T> {
 main() {
   Expect.isTrue(C.new is C Function<X>(int i, X d));
   Expect.isTrue(C<int>.new is C Function<X extends int>(int i, X d));
-  Expect.isTrue(C.new<int> is C Function<T extends int>(int i, X d));
+  Expect.isTrue((C.new)<int> is C Function<T extends int>(int i, X d));
 }

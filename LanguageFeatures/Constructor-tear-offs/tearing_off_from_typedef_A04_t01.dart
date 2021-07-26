@@ -21,10 +21,10 @@ import "../../Utils/expect.dart";
 typedef MyList<T> = List<T>;
 
 main() {
-  var v = MytList.filled;
+  var v = List.filled;
   List list1 = v(3, 1);
-  Expect.equals([1, 1, 1], list1);
+  Expect.listEquals([1, 1, 1], list1);
 
   List list2 = v(4, null);
-  Expect.equals([null, null, null, null], list1);
+  Expect.listEquals([null, null, null, null], list2);
 }

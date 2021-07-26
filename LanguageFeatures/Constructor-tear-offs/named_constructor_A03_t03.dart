@@ -18,7 +18,7 @@
 import "../../Utils/expect.dart";
 
 class C<T1, T2 extends num, T3 extends String> {
-  static int called = 0;
+  int called = 0;
 
   C() {}
 

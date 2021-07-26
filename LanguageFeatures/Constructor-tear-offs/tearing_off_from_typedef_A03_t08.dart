@@ -8,21 +8,20 @@
 /// canonicalized if the type arguments are constant.
 ///
 /// @description Checks that if type alias is instantiated, the result is the
-/// same as tearing off the aliased type directly. Test negative runtime cases.
+/// same as tearing off the aliased type directly.
 ///
-/// @author iarkh@unipro.ru
+/// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
-import "../../Utils/expect.dart";
-
 typedef MyList<T extends num> = List<T>;
 
-dynamic d = 3.14;
+String s = "";
 
 main() {
   var v1 = MyList<int>.filled;
-  Expect.throws(() { v1(7, d); });
-  Expect.throws(() { v1(7, null as dynamic); });
-  Expect.throws(() { v1(3, 3.14 as dynamic); });
+  v1(1, s);
+//      ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

@@ -26,7 +26,7 @@ class A {
 
 class C extends A {
   C() {
-    var x = this.instanceMethod<int>;
+    var x = this.instanceMethod<String>;
     x(3.14);
 //    ^^^^
 // [analyzer] unspecified

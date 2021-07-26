@@ -23,6 +23,7 @@ import "../../Utils/expect.dart";
 
 class C<T> {
   bool called = false;
+
   C.constr(int i) {
     Expect.isTrue(T == int);
     called = true;
@@ -32,5 +33,5 @@ class C<T> {
 main() {
   var v = C<int>.constr;
   C c = v(1);
-  Expect.isTrue(C.called);
+  Expect.isTrue(c.called);
 }

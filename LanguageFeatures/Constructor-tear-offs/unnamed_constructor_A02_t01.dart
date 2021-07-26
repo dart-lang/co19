@@ -46,15 +46,15 @@ class D extends C {
 
 void main() {
   D d = D.new(1);
-  Expect.Equals(d.x, 2);
+  Expect.equals(d.x, 2);
 
   const c = C.new(3);
-  Expect.Equals(c.x, 6);
+  Expect.equals(c.x, 6);
 
   var c1 = new C.new(7);
-  Expect.Equals(c1.x, 14);
+  Expect.equals(c1.x, 14);
 
   var f = C.new;
   int i = f(-1).x;
-  Expect.Equals(i, -2);
+  Expect.equals(i, -2);
 }

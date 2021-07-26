@@ -21,9 +21,9 @@ typedef MyList<T extends num> = List<T>;
 main() {
   var v1 = MyList<num>.filled;
   List list1 = v1(3, 1.5);
-  Expect.equals([1, 1, 1], list1);
+  Expect.listEquals([1.5, 1.5, 1.5], list1);
 
   var v2 = MyList<int>.filled;
   List list2 = v2(3, 1);
-  Expect.equals([1, 1, 1], list1);
+  Expect.listEquals([1, 1, 1], list2);
 }
