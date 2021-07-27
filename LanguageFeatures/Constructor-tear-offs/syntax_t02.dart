@@ -22,30 +22,30 @@ class C<T> {
 
 void testList() {
   List<int>.filled;
-  (List<int>).filled;
+  (List<int>).filled;           //# 01: compile-time error
   (List.filled)<int>;
 
-  List.filled<int>;             //# 01: syntax error
+  List.filled<int>;             //# 02: syntax error
 
   List<int>.filled(4, 4);
-  (List<int>).filled(4, 4);
+  (List<int>).filled(4, 4);     //# 03: compile-time error
   (List.filled)<int>(4, 4);
 
-  List.filled<int>(4, 4);       //# 02: syntax error
+  List.filled<int>(4, 4);       //# 04: syntax error
 }
 
 void testC() {
-  C<int>.ned;
-  (C<int>).new;
+  C<int>.new;
+  (C<int>).new;                 //# 05: compile-time error
   (C.new)<int>;
 
-  C.new<int>;                   //# 03: syntax error
+  C.new<int>;                   //# 06: syntax error
 
   C<int>.new();
-  (C<int>).new();
+  (C<int>).new();               //# 07: compile-time error
   (C.new)<int>();
 
-  C.new<int>();                 //# 04: syntax error
+  C.new<int>();                 //# 08: syntax error
 }
 
 main() {

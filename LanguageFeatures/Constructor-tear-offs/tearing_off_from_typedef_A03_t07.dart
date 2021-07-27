@@ -21,14 +21,14 @@ typedef MyList<T extends num> = List<T>;
 main() {
   var v1 = MyList<num>.filled;
   var v2 = MyList<num>.filled;
-  var v3 = (MyList<num>).filled;
+  var v3 = (MyList.filled)<num>;
 
   Expect.identical(v1, v2);
   Expect.identical(v1, v3);
 
   var v4 = MyList<int>.filled;
   var v5 = MyList<int>.filled;
-  var v6 = (MyList<int>).filled;
+  var v6 = (MyList.filled)<int>;
 
   Expect.identical(v4, v5);
   Expect.identical(v4, v6);
