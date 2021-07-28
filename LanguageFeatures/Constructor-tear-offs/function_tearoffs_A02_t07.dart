@@ -6,13 +6,13 @@
 /// parenthesized arguments in places where we previously did not allow them.
 /// For example, this means that <typeArguments> becomes a selector by itself,
 /// not just followed by arguments.
-//
-// It applies to instance methods as well as local, static and top-level
-// function declarations. For instance methods, it applies to references of the
-// form
-//
-// instanceMethod<int> (with implicit this),
-// object.instanceMethod<int> (including this) and super.instanceMethod<int>.
+///
+/// It applies to instance methods as well as local, static and top-level
+/// function declarations. For instance methods, it applies to references of the
+/// form
+///
+/// instanceMethod<int> (with implicit this),
+/// object.instanceMethod<int> (including this) and super.instanceMethod<int>.
 ///
 /// @description Checks tear-off of inherited generic instance method including
 /// 'this'
