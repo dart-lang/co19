@@ -35,7 +35,7 @@ _main(Directory sandbox) async {
     Expect.isTrue(begOfEpoch.isAtSameMomentAs(fs.changed));
     Expect.isTrue(begOfEpoch.isAtSameMomentAs(fs.modified));
     asyncEnd();
-  }, onError: (FileStat fs) {
+  }, onError: (Object o) {
     Expect.fail("Unexpected failure");
   });
 }

@@ -15,6 +15,7 @@
 /// @description Checks that this method calls the operating system's stat()
 /// function. Test link
 /// @author sgrekhov@unipro.ru
+/// @issue 24821
 
 import "dart:io";
 import "../../../Utils/expect.dart";

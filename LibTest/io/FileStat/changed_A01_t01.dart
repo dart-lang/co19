@@ -11,6 +11,7 @@
 /// @description Checks that this property returns the time of the last access to
 /// the data of the file system object
 /// @author sgrekhov@unipro.ru
+/// @issue 18442
 
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -22,6 +23,7 @@ main() async {
 
 _main(Directory sandbox) async {
   File file = getTempFileSync(parent: sandbox);
+  await new Future.delayed(new Duration(seconds: 1));
   asyncStart();
   await FileStat.stat(file.path).then((FileStat fs) async {
     DateTime changed1 = fs.changed;
@@ -30,7 +32,8 @@ _main(Directory sandbox) async {
       if (Platform.isWindows) {
         Expect.equals(changed1, fs2.changed);
       } else {
-        Expect.isTrue(changed1.microsecond < fs2.changed.microsecond);
+        Expect.isTrue(changed1.millisecondsSinceEpoch <
+            fs2.changed.millisecondsSinceEpoch);
       }
       asyncEnd();
     });
