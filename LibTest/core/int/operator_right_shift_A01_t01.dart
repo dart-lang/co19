@@ -14,7 +14,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals(0, 0 >> 3);
-  Expect.equals(-2, -4 >> 1);
   Expect.equals(100, 100 >> 0);
   Expect.equals(0, 1 >> 1);
 
@@ -40,19 +39,21 @@ main() {
   Expect.equals(0, 1024 >> 11);
   Expect.equals(0, 1024 >> 12);
 
-  Expect.equals(-1024, -1024 >> 0);
-  Expect.equals(-512, -1024 >> 1);
-  Expect.equals(-256, -1024 >> 2);
-  Expect.equals(-128, -1024 >> 3);
-  Expect.equals(-64, -1024 >> 4);
-  Expect.equals(-32, -1024 >> 5);
-  Expect.equals(-16, -1024 >> 6);
-  Expect.equals(-8, -1024 >> 7);
-  Expect.equals(-4, -1024 >> 8);
-  Expect.equals(-2, -1024 >> 9);
-  Expect.equals(-1, -1024 >> 10);
-  Expect.equals(-1, -1024 >> 11);
-  Expect.equals(-1, -1024 >> 12);
-
-  Expect.equals(0, 100 >> 500);
+  if (!isJS) {
+    Expect.equals(-2, -4 >> 1);
+    Expect.equals(-1024, -1024 >> 0);
+    Expect.equals(-512, -1024 >> 1);
+    Expect.equals(-256, -1024 >> 2);
+    Expect.equals(-128, -1024 >> 3);
+    Expect.equals(-64, -1024 >> 4);
+    Expect.equals(-32, -1024 >> 5);
+    Expect.equals(-16, -1024 >> 6);
+    Expect.equals(-8, -1024 >> 7);
+    Expect.equals(-4, -1024 >> 8);
+    Expect.equals(-2, -1024 >> 9);
+    Expect.equals(-1, -1024 >> 10);
+    Expect.equals(-1, -1024 >> 11);
+    Expect.equals(-1, -1024 >> 12);
+    Expect.equals(0, 100 >> 500);
+  }
 }

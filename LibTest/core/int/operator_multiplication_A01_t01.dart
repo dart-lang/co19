@@ -15,9 +15,10 @@ main() {
   Expect.equals(1, 1 * 1);
   Expect.equals(0, 1 * 0);
 
-  Expect.equals(4294967296, 2147483648 * 2);
-  Expect.equals(0, 4294967296 * 4294967296);
-
-  Expect.equals(0, 281474976710656 * 281474976710656);
+  if(!isJS) {
+    Expect.equals(4294967296, 2147483648 * 2);
+    Expect.equals(0, 4294967296 * 4294967296);
+    Expect.equals(0, 281474976710656 * 281474976710656);
+  }
 }
 

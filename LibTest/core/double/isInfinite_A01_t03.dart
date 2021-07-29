@@ -5,8 +5,7 @@
 // @dart = 2.9
 
 /// @assertion bool isInfinite
-/// @description Checks that some operations with Infinity
-/// results to Infinity
+/// @description Checks that some operations with Infinity results to Infinity
 /// @author msyabro
 
 import "../../../Utils/expect.dart";

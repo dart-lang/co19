@@ -18,6 +18,6 @@ main() {
   Expect.isTrue(2147483647.isOdd);
   Expect.isFalse((-4294967296).isOdd);
   Expect.isTrue((-4294967297).isOdd);
-  Expect.isFalse((-9223372036854775808).isOdd);
-  Expect.isTrue((-9223372036854775807).isOdd);
+  Expect.isFalse((-9007199254740990).isOdd);
+  Expect.isTrue((-9007199254740991).isOdd);
 }

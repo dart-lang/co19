@@ -22,8 +22,7 @@ main() {
 }
   
 void check(int x, num z) {
-  try {
+  Expect.throws(() {
     x.remainder(z);
-    Expect.fail("IntegerDivisionByZeroException is expected");
-  } on IntegerDivisionByZeroException catch(e) {}
+  }, (e) => e is IntegerDivisionByZeroException);
 }

@@ -7,8 +7,6 @@
 /// @assertion This operator implements a bit-wise OR operation.
 /// @description Checks that this operator returns correct value.
 /// @author vasya
-/// @reviewer msyabro
-/// @reviewer rodionov
 
 import "../../../Utils/expect.dart";
 
@@ -25,11 +23,8 @@ void main() {
   Expect.equals(3, 3 | 2);
   Expect.equals(3, 1 | 2);
   Expect.equals(3, 0 | 3);
-
-  // check int32
+  if (!isJS) {
   Expect.equals(0x180000000, 0x100000000 | 0x80000000);
-  // check int64
-  Expect.equals(0x1800000000000000, 0x1000000000000000 | 0x800000000000000);
-  
-  Expect.equals(0x7fffffffffffffff, 0x7fffffffffffffff | 400000000000000000);
+    Expect.equals(0x7ffffffffffff, 0x7ffffffffffff | 400000000000000);
+  }
 }

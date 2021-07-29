@@ -20,14 +20,15 @@ main() {
   Expect.equals(1, 25 & 3);
   Expect.equals(9, 15 & 9);
 
-  // x & x = x
-  Expect.equals(0x100000000, 0x100000000 & 0x100000000);
-  Expect.equals(0x1000000000000001, 0x1000000000000001 & 0x1000000000000001);
+  if (!isJS) {
+    // x & x = x
+    Expect.equals(0x100000000, 0x100000000 & 0x100000000);
+    Expect.equals(0x10000000000001, 0x10000000000001 & 0x10000000000001);
 
-  Expect.equals(0, 0x100000000 & 0x80000000);
-  Expect.equals(0x1000000000000000, 0x1000000000000001 & 0x1000000000000000);
-  Expect.equals(0, 0x4000000000000000 & 0x3FFFFFFFFFFFFFFF);
-
+    Expect.equals(0, 0x100000000 & 0x80000000);
+    Expect.equals(0x10000000000000, 0x10000000000001 & 0x10000000000000);
+    Expect.equals(0, 0x4000000000000 & 0x3FFFFFFFFFFFF);
+  }
   // negative arguments
   Expect.equals(1, -1 & 1);
   Expect.equals(1, 1 & -1);

@@ -21,13 +21,14 @@ main() {
   Expect.isFalse(-2147483648 < -2147483648);
   Expect.isTrue(4294967295 < 4294967296);
   Expect.isTrue(-4294967296 < -4294967295);
-  Expect.isTrue(9223372036854775806 < 9223372036854775807);
-  Expect.isFalse(-9223372036854775808 < -9223372036854775808);
+  Expect.isTrue(9007199254740990 < 9007199254740991);
+  Expect.isFalse(-9007199254740991 < -9007199254740991);
 
   // non-int argument
-  final double MIN_DOUBLE = Math.pow(2.0, -1074);
+  final double MIN_DOUBLE = Math.pow(2.0, -1074) as double;
   final double NEG_MIN_DOUBLE = -1 * MIN_DOUBLE; 
-  final double MAX_DOUBLE = (2 - Math.pow(2.0, -52)) * Math.pow(2.0, 1023);
+  final double MAX_DOUBLE =
+      (2 - Math.pow(2.0, -52)) * Math.pow(2.0, 1023) as double;
   final double NEG_MAX_DOUBLE = -1 * MAX_DOUBLE; 
 
   Expect.isFalse(0 < 0.0);

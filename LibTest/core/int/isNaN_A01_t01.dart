@@ -17,6 +17,6 @@ main() {
     Expect.isFalse(i.isNaN);
   }
 
-  Expect.isFalse(1844674407370955161.isNaN);
-  Expect.isFalse((-1844674407370955161).isNaN);
+  Expect.isFalse(9007199254740991.isNaN);
+  Expect.isFalse((-9007199254740991).isNaN);
 }

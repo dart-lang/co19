@@ -18,6 +18,6 @@ main() {
     Expect.isFalse(i.isInfinite);
   }
   
-  Expect.isFalse(1844674407370955161.isInfinite);
-  Expect.isFalse((-1844674407370955161).isInfinite);
+  Expect.isFalse(9007199254740991.isInfinite);
+  Expect.isFalse((-9007199254740991).isInfinite);
 }

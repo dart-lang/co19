@@ -12,9 +12,10 @@ import "../../../Utils/expect.dart";
 import "dart:math" as Math;
 
 main() {
-  final double MIN_DOUBLE = Math.pow(2.0, -1074);
+  final double MIN_DOUBLE = Math.pow(2.0, -1074) as double;
   final double NEG_MIN_DOUBLE = -1 * MIN_DOUBLE; 
-  final double MAX_DOUBLE = (2 - Math.pow(2.0, -52)) * Math.pow(2.0, 1023);
+  final double MAX_DOUBLE =
+      (2 - Math.pow(2.0, -52)) * Math.pow(2.0, 1023) as double;
   final double NEG_MAX_DOUBLE = -1 * MAX_DOUBLE; 
 
   Expect.isTrue(2 > 1);
@@ -25,8 +26,8 @@ main() {
   Expect.isTrue(-2147483647 > -2147483648);
   Expect.isTrue(4294967296 > 4294967295);
   Expect.isFalse(-4294967295 > -4294967295);
-  Expect.isTrue(9223372036854775807 > 9223372036854775806);
-  Expect.isTrue(-9223372036854775807 > -9223372036854775808);
+  Expect.isTrue(9007199254740991 > 9007199254740990);
+  Expect.isTrue(-9007199254740990 > -9007199254740991);
   
   // non-int argument
   Expect.isFalse(0 > 0.0);

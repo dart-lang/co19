@@ -18,6 +18,6 @@ main() {
   Expect.equals(-15, (-15).floor());
   Expect.equals(2147483647, 2147483647.floor());
   Expect.equals(-4294967295, (-4294967295).floor());
-  Expect.equals(9223372036854775807, 9223372036854775807.floor());
-  Expect.equals(-1844674407370955161, (-1844674407370955161).floor());
+  Expect.equals(9007199254740991, 9007199254740991.floor());
+  Expect.equals(-9007199254740991, (-9007199254740991).floor());
 }
