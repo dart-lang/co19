@@ -15,6 +15,7 @@
 /// @description Checks that this method synchronously calls the operating
 /// system's stat() function
 /// @author sgrekhov@unipro.ru
+/// @issue 24821
 
 import "dart:io";
 import "../../../Utils/expect.dart";

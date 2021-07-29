@@ -28,9 +28,8 @@ _main(Directory sandbox) async {
   Link link = getTempLinkSync(target: target.path, parent: sandbox);
 
   final eventCompleter = new Completer<FileSystemEvent>();
-  StreamSubscription s;
   asyncStart();
-  s = link.watch().listen((FileSystemEvent event) {
+  StreamSubscription s = link.watch().listen((FileSystemEvent event) {
     Expect.equals(FileSystemEvent.create, event.type);
     asyncEnd();
   });
@@ -39,5 +38,6 @@ _main(Directory sandbox) async {
   await eventCompleter.future
       .timeout(Duration(seconds: eventsTimeout), onTimeout: () async {
     await s.cancel();
+    return eventCompleter.future;
   });
 }
