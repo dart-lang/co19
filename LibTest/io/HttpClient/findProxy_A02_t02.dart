@@ -31,6 +31,7 @@
 /// @description Checks that if this function is not set, direct connections are
 /// used. Test Digest authentication response
 /// @author sgrekhov@unipro.ru
+/// @issue 42870
 
 import "dart:io";
 import 'dart:async';
@@ -59,7 +60,7 @@ test() async {
 
   client.authenticateProxy =
       (String host, int port, String scheme, String realm) {
-    Completer completer = new Completer();
+    Completer<bool> completer = new Completer<bool>();
     completer.complete(true);
     return completer.future;
   };

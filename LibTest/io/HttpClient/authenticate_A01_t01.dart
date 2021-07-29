@@ -60,7 +60,7 @@ test() async {
   client.authenticate = (Uri url, String scheme, String realm) {
     Expect.equals("Digest", scheme);
     Expect.equals("realm", realm);
-    Completer completer = new Completer();
+    Completer<bool> completer = new Completer<bool>();
     client.addCredentials(
         Uri.parse(
             "http://${InternetAddress.loopbackIPv4.address}:${server.port}/xxx"),

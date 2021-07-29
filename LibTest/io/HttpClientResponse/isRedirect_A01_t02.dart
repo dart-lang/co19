@@ -12,9 +12,9 @@
 /// of the normal redirect codes
 /// @author sgrekhov@unipro.ru
 /// @issue 31962
+/// @issue 42886
 
 import "dart:io";
-import "dart:convert";
 import "../../../Utils/expect.dart";
 
 var localhost = InternetAddress.loopbackIPv4.address;
@@ -34,7 +34,6 @@ test(String method, int statusCode) async {
       request.response.write(helloWorld);
       request.response.close();
       server.close();
-
     } else {
       server.close();
       Expect.fail("Wrong URI:" + request.uri.path);
@@ -44,14 +43,12 @@ test(String method, int statusCode) async {
   HttpClient client = new HttpClient();
   client.open(method, localhost, server.port, "/xxx")
       .then((HttpClientRequest request) {
-    Expect.isTrue(request.followRedirects);
+    request.followRedirects = false;
     return request.close();
   }).then((HttpClientResponse response) {
     Expect.isTrue(response.isRedirect);
     asyncEnd();
-    response.cast<List<int>>().transform(utf8.decoder).listen((content) {
-
-    });
+    server.close();
   });
 }
 
@@ -61,10 +58,12 @@ main() {
   test("get", HttpStatus.movedTemporarily);
   test("get", HttpStatus.seeOther);
   test("get", HttpStatus.temporaryRedirect);
+  test("get", HttpStatus.permanentRedirect);
 
   test("head", HttpStatus.movedPermanently);
   test("head", HttpStatus.found);
   test("head", HttpStatus.movedTemporarily);
   test("head", HttpStatus.seeOther);
   test("head", HttpStatus.temporaryRedirect);
+  test("head", HttpStatus.permanentRedirect);
 }

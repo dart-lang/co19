@@ -41,7 +41,6 @@ import "../../../Utils/expect.dart";
 test() async {
   bool authenticateProxyCalled = false;
   bool findProxyCalled = false;
-  int requestCounter = 0;
 
   HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen((HttpRequest request) {
@@ -76,7 +75,7 @@ test() async {
         Expect.equals(server.port, port);
         Expect.equals("Basic", scheme);
         Expect.equals("realm", realm);
-        Completer completer = new Completer();
+        Completer<bool> completer = new Completer<bool>();
         client.addProxyCredentials(InternetAddress.loopbackIPv4.address, port,
             "realm", new HttpClientBasicCredentials("co19-test", "password"));
         completer.complete(true);

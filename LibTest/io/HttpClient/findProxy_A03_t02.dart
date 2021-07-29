@@ -44,14 +44,15 @@ test() async {
 
   HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen((HttpRequest request) {
-    if (request.headers[HttpHeaders.proxyAuthorizationHeader] == null) {
+    var hdr = request.headers[HttpHeaders.proxyAuthorizationHeader];
+    if (hdr == null) {
       request.response.statusCode = HttpStatus.unauthorized;
       request.response.headers
           .set(HttpHeaders.proxyAuthenticateHeader, 'Digest, realm=realm, nonce=123');
       request.response.statusCode = HttpStatus.proxyAuthenticationRequired;
       request.response.close();
     } else {
-      var authorization = request.headers[HttpHeaders.proxyAuthorizationHeader][0];
+      var authorization = hdr[0];
       Expect.isTrue(authorization.contains('Digest'));
       Expect.isTrue(authorization.contains('username="co19-test"'));
       Expect.isTrue(authorization.contains('realm="realm"'));
@@ -79,7 +80,7 @@ test() async {
         Expect.equals(server.port, port);
         Expect.equals("Digest", scheme);
         Expect.equals("realm", realm);
-        Completer completer = new Completer();
+        Completer<bool> completer = new Completer<bool>();
         client.addProxyCredentials(InternetAddress.loopbackIPv4.address, port,
             "realm", new HttpClientDigestCredentials("co19-test", "password"));
         completer.complete(true);

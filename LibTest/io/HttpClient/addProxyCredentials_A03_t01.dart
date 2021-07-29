@@ -51,7 +51,7 @@ test() async {
     Expect.equals(server.port, port);
     Expect.equals("Digest", scheme);
     Expect.equals("server-realm", realm);
-    Completer completer = new Completer();
+    Completer<bool> completer = new Completer<bool>();
     client.addProxyCredentials(InternetAddress.loopbackIPv4.address, port,
         "client-realm",
         new HttpClientDigestCredentials("co19-test", "password"));

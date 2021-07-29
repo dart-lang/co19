@@ -15,8 +15,10 @@
 /// If an IP version 6 (IPv6) address is used, both IP version 6 (IPv6) and
 /// version 4 (IPv4) connections will be accepted. To restrict this to version 6
 /// (IPv6) only, use v6Only to set version 6 only.
-/// @description Checks that if an IP version 6 (IPv6) address is used, then IP
-/// version 4 (IPv4) connections are accepted
+/// However, if the address is InternetAddress.loopbackIPv6, only IP version 6
+/// (IPv6) connections will be accepted.
+/// @description Checks that if the address is InternetAddress.loopbackIPv6, then
+/// IP version 4 (IPv4) connections are not accepted
 /// @author sgrekhov@unipro.ru
 /// @issue 31111
 
@@ -28,32 +30,24 @@ test() async {
   String helloWorld = 'Hello, test world!';
   HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv6, 0);
 
-  asyncStart();
   server.listen((HttpRequest request) {
     request.response.write(helloWorld);
     request.response.close();
     server.close();
-    asyncEnd();
   });
 
   asyncStart();
   HttpClient client = new HttpClient();
-  client
-      .getUrl(Uri.parse(
-          "http://${InternetAddress.loopbackIPv4.address}:${server.port}"))
-      .then((HttpClientRequest request) {
-    return request.close();
-  }).then((HttpClientResponse response) {
-    Expect.equals(HttpStatus.ok, response.statusCode);
-    response.cast<List<int>>().transform(utf8.decoder).listen((content) {
-      Expect.equals(helloWorld, content);
+  var req = client.getUrl(Uri.parse(
+          "http://${InternetAddress.loopbackIPv4.address}:${server.port}"));
+  req.then((HttpClientRequest request) {
+    Expect.fail("Connection must not be accepted");
+  }, onError: (e) {
+    server.close();
       asyncEnd();
     });
-  });
-  asyncEnd();
 }
 
 main() {
-  asyncStart();
   test();
 }

@@ -45,6 +45,7 @@ test() async {
       Expect.equals(helloWorld, content);
       client.close(force: true);
 
+      Expect.throws(() {
       client.getUrl(Uri.parse("http://${localhost}:${server.port}"))
           .then((HttpClientRequest request) {
         return request.close();
@@ -52,6 +53,7 @@ test() async {
         Expect.fail("Request should not be sent!");
       });
     });
+  });
   });
 }
 
