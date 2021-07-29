@@ -10,6 +10,7 @@
 /// @description Checks that this property gets and sets the path. Test
 /// unacceptable values
 /// @author sgrekhov@unipro.ru
+/// @issue 42823
 
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -17,6 +18,5 @@ import "../../../Utils/expect.dart";
 main() {
   Cookie cookie = new Cookie.fromSetCookieValue(" cname = cval; path= / ");
   Expect.equals("/", cookie.path);
-
-  Expect.throws(() {cookie.path = " /a/b/c:/ ";});
+  Expect.throws(() {cookie.path = " /a/b/c:/; ";});
 }

@@ -7,9 +7,9 @@
 /// @assertion String domain
 /// read / write
 /// Gets and sets the domain.
-/// @description Checks that this property gets and sets the domain. Test setting
-/// unacceptable values
-/// @issue 29495
+/// @description Checks that this property gets and sets the domain. Test
+/// setting unacceptable values
+/// @Issue 29495
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";

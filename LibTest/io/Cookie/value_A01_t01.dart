@@ -17,8 +17,9 @@ main() {
   Cookie cookie = new Cookie.fromSetCookieValue(" cname = cval; ");
   Expect.equals("cval", cookie.value);
 
-  cookie.value = "cvalue 2 ";
-  Expect.equals("cvalue 2 ", cookie.value);
+  Expect.throws(() {cookie.value = "cvalue 2 ";});
+  Expect.throws(() {cookie.value = "cvalue;";});
+  Expect.throws(() {cookie.value = "cvalue\\";});
   cookie.value = "";
   Expect.equals("", cookie.value);
 }
