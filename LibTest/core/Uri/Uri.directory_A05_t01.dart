@@ -35,7 +35,7 @@ main() {
   Expect.equals("file", uri.scheme);
 
   uri = new Uri.directory(r"\\server\share\file", windows: true);
-  Expect.equals(r"/share/file", uri.path);
+  Expect.equals(r"/share/file/", uri.path);
   Expect.equals(r"server", uri.host);
   Expect.equals("file", uri.scheme);
 }

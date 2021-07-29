@@ -10,7 +10,10 @@
 /// separate path segments, except if the path starts with "\\?\" in which case
 /// only backslash ("\") separates path segments.
 /// @description Checks that if the path starts with "\\?\" then
-/// only backslash ("\") separates path segments
+/// only backslash ("\") separates path segments.
+/// @note The "\" is only ever used as a path segment separator in the input
+/// path. The resulting URI always uses "/" since "\" is not a valid URI
+/// character.
 /// @issue 28659
 /// @author sgrekhov@unipro.ru
 
@@ -18,5 +21,5 @@ import "../../../Utils/expect.dart";
 
 main() {
   Uri uri = new Uri.file(r"\\?\c:\a\b", windows: true);
-  Expect.equals("\c:\a\b", uri.path);
+  Expect.equals("/c:/a/b", uri.path);
 }

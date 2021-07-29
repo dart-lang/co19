@@ -16,7 +16,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals("some data",
+  Expect.equals("some%20data",
       UriData.parse("data:text/plain,some data").contentText);
-  Expect.equals("some data", new UriData.fromString("some data").contentText);
+  Expect.equals("some%20data", new UriData.fromString("some data").contentText);
 }

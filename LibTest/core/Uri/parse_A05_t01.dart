@@ -16,6 +16,5 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() {Uri.parse("###");}, (e) => e is FormatException);
   Expect.throws(() {Uri.parse("::::");}, (e) => e is FormatException);
 }

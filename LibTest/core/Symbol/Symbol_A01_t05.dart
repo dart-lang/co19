@@ -24,7 +24,7 @@
 /// name of a library with no library name declaration).
 /// @description Checks that ArgumentError is thrown if name is not a valid
 /// qualified identifier.
-/// @issue 13715
+/// @issue 13715, 11669
 /// @reviewer
 
 import "../../../Utils/expect.dart";

@@ -33,7 +33,7 @@ main() {
   Expect.equals("US-ASCII", uriData.charset);
   Expect.isTrue(uriData.isBase64);
   Expect.equals("text/plain", uriData.mimeType);
-  Expect.equals("some%20data", uriData.contentText);
+  Expect.equals("somedata", uriData.contentText);
   Expect.mapEquals({}, uriData.parameters);
   Expect.equals(uri, uriData.uri);
 
@@ -43,7 +43,7 @@ main() {
   Expect.equals("US-ASCII", uriData.charset);
   Expect.isTrue(uriData.isBase64);
   Expect.equals("text/plain", uriData.mimeType);
-  Expect.equals("some%20data", uriData.contentText);
+  Expect.equals("somedata", uriData.contentText);
   Expect.mapEquals({"a": "b"}, uriData.parameters);
   Expect.equals(uri, uriData.uri);
 
@@ -53,7 +53,7 @@ main() {
   Expect.equals("utf-8", uriData.charset);
   Expect.isTrue(uriData.isBase64);
   Expect.equals("text/plain", uriData.mimeType);
-  Expect.equals("some%20data", uriData.contentText);
+  Expect.equals("somedata", uriData.contentText);
   Expect.mapEquals({"charset": "utf-8"}, uriData.parameters);
   Expect.equals(uri, uriData.uri);
 

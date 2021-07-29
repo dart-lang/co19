@@ -22,7 +22,7 @@ main() {
   Expect.equals("US-ASCII", UriData.parse("data:text/plain,some data").charset);
   Expect.equals("US-ASCII", UriData.parse("data:,some data").charset);
   Expect.equals("utf-8",
-      UriData.parse("data:;charset=utf-8;base64,some data").charset);
+      UriData.parse("data:;charset=utf-8;base64,somedata").charset);
   Expect.equals("utf-8",
       UriData.parse("data:;charset=utf-8,some data").charset);
   Expect.equals("US-ASCII", new UriData.fromString("some data").charset);
