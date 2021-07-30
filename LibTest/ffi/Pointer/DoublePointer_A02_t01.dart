@@ -7,12 +7,11 @@
 ///
 /// The address must be 8-byte aligned.
 ///
-/// @description Check that operator [](int index) returns double at
+/// @description Check that operator []=(int index) sets double at
 /// address + 8 * index.
 /// @author sgrekhov@unipro.ru
 
 import "dart:ffi";
-import 'dart:typed_data';
 import "package:ffi/ffi.dart";
 import '../../../Utils/expect.dart';
 
