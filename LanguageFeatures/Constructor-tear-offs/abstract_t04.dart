@@ -5,25 +5,25 @@
 /// @assertion A compile-time error occurs if a constructor tear-off denotes a
 /// generative constructor declared in an abstract class.
 ///
-/// @description Checks that it is a compile time error to tear off a generative
+/// @description Checks that it is no error to tear off a factory
 /// constructor declared in an abstract class
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
+import "../../Utils/expect.dart";
 
-class C<T> {
-  C() {}
-  C.named() {}
+abstract class A<T> {
+  A() {}
+  factory A.f() = C;
+}
+
+class C<T> extends A<T> {
+  C() : super() {}
 }
 
 main() {
-  var v1 = Type.new;
-//         ^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  var v2 = (C<int>).new;
-//          ^^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  var c = A<int>.f;
+  var x = c();
+  Expect.isTrue(x is C<int>);
+  Expect.isFalse(x is A<String>); // to check that x is not C<dynamic>
 }
