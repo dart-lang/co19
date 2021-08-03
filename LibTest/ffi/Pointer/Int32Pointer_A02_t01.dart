@@ -8,7 +8,7 @@
 /// A Dart integer is truncated to 32 bits (as if by .toSigned(32)) before being
 /// stored, and the 32-bit value is sign-extended when it is loaded.
 ///
-/// @description Check that operator []=(int index) sets int at
+/// @description Check that operator []=(int index, int value) sets int at
 /// address + 4 * index.
 /// @author sgrekhov@unipro.ru
 

@@ -7,7 +7,7 @@
 ///
 /// The address must be 8-byte aligned.
 ///
-/// @description Check that operator []=(int index) sets double at
+/// @description Check that operator []=(int index, double value) sets double at
 /// address + 8 * index.
 /// @author sgrekhov@unipro.ru
 

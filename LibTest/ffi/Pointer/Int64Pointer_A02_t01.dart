@@ -5,7 +5,7 @@
 /// @assertion void operator []=(int index, int value)
 /// The 64-bit two's complement integer at address + 8 * index.
 ///
-/// @description Check that operator []=(int index) sets int at
+/// @description Check that operator []=(int index, int value) sets int at
 /// address + 8 * index.
 /// @author sgrekhov@unipro.ru
 
