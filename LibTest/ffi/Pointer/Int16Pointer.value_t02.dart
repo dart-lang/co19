@@ -19,9 +19,13 @@ import '../../../Utils/expect.dart';
 
 void main() {
   Pointer<Int16> p = calloc<Int16>();
-  Expect.equals(0, p.value);
-  p.value = 500000;
-  Expect.equals(500000.toSigned(16), p.value);
-  p.value = -500000;
-  Expect.equals(-500000.toSigned(16), p.value);
+  try {
+    Expect.equals(0, p.value);
+    p.value = 500000;
+    Expect.equals(500000.toSigned(16), p.value);
+    p.value = -500000;
+    Expect.equals(-500000.toSigned(16), p.value);
+  } finally {
+    calloc.free(p);
+  }
 }

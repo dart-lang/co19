@@ -42,16 +42,20 @@ class U1 extends Union {
 
 void main() {
   Pointer<U1> p = calloc<U1>();
-  U1 u1 = p.ref;
-  u1.u.x = 42;
-  Expect.equals(42, u1.u.x);
-  u1.s.y = -42;
-  Expect.equals(-42, u1.s.y);
-  u1.i = 1;
-  Expect.equals(1, u1.i);
-  u1.d = 3.14;
-  Expect.approxEquals(3.14, u1.d);
-  u1.p = calloc<Int16>();
-  u1.p.value = 13;
-  Expect.equals(13, u1.p.value);
+  try {
+    U1 u1 = p.ref;
+    u1.u.x = 42;
+    Expect.equals(42, u1.u.x);
+    u1.s.y = -42;
+    Expect.equals(-42, u1.s.y);
+    u1.i = 1;
+    Expect.equals(1, u1.i);
+    u1.d = 3.14;
+    Expect.approxEquals(3.14, u1.d);
+    u1.p = calloc<Int16>();
+    u1.p.value = 13;
+    Expect.equals(13, u1.p.value);
+  } finally {
+    calloc.free(p);
+  }
 }

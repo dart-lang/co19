@@ -42,16 +42,24 @@ class S1 extends Struct {
 
 void main() {
   Pointer<S1> p = calloc<S1>();
-  S1 s1 = p.ref;
-  s1.u.x = 42;
-  Expect.equals(42, s1.u.x);
-  s1.s.y = -42;
-  Expect.equals(-42, s1.s.y);
-  s1.i = 1;
-  Expect.equals(1, s1.i);
-  s1.d = 3.14;
-  Expect.approxEquals(3.14, s1.d);
-  s1.p = calloc<Int16>();
-  s1.p.value = 13;
-  Expect.equals(13, s1.p.value);
+  try {
+    S1 s1 = p.ref;
+    s1.u.x = 42;
+    Expect.equals(42, s1.u.x);
+    s1.s.y = -42;
+    Expect.equals(-42, s1.s.y);
+    s1.i = 1;
+    Expect.equals(1, s1.i);
+    s1.d = 3.14;
+    Expect.approxEquals(3.14, s1.d);
+    s1.p = calloc<Int16>();
+    try {
+      s1.p.value = 13;
+      Expect.equals(13, s1.p.value);
+    } finally {
+      calloc.free(s1.p);
+    }
+  } finally {
+    calloc.free(p);
+  }
 }

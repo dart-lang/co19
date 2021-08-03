@@ -20,9 +20,13 @@ import '../../../Utils/expect.dart';
 
 void main() {
   Pointer<Int32> p1 = calloc<Int32>(2);
-  Pointer<Int32> p2 = new Pointer.fromAddress(p1.address + sizeOf<Int32>());
-  p1.value = 5000000000;
-  p2.value = -5000000000;
-  Expect.equals(5000000000.toSigned(32), p1[0]);
-  Expect.equals(-5000000000.toSigned(32), p1[1]);
+  try {
+    Pointer<Int32> p2 = new Pointer.fromAddress(p1.address + sizeOf<Int32>());
+    p1.value = 5000000000;
+    p2.value = -5000000000;
+    Expect.equals(5000000000.toSigned(32), p1[0]);
+    Expect.equals(-5000000000.toSigned(32), p1[1]);
+  } finally {
+    calloc.free(p1);
+  }
 }

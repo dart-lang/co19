@@ -18,7 +18,11 @@ void main() {
   try {
     Expect.isTrue(p1.address != 0);
     Pointer<Int8> p2 = calloc<Int8>();
-    Expect.notEquals(p1.address, p2.address);
+    try {
+      Expect.notEquals(p1.address, p2.address);
+    } finally {
+      calloc.free(p2);
+    }
   } finally {
     calloc.free(p1);
   }

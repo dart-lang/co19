@@ -15,8 +15,12 @@ import '../../../Utils/expect.dart';
 
 void main() {
   Pointer<Int8> p1 = calloc<Int8>();
-  p1.value = 42;
-  Pointer<Int8> p2 = new Pointer.fromAddress(p1.address);
-  Expect.equals(42, p2.value);
-  Expect.equals(p1.address, p2.address);
+  try {
+    p1.value = 42;
+    Pointer<Int8> p2 = new Pointer.fromAddress(p1.address);
+    Expect.equals(42, p2.value);
+    Expect.equals(p1.address, p2.address);
+  } finally {
+    calloc.free(p1);
+  }
 }

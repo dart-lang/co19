@@ -13,8 +13,12 @@ import "package:ffi/ffi.dart";
 import '../../../Utils/expect.dart';
 
 void main() {
-  Pointer<Int32> p = calloc<Int32>();
-  Expect.equals(0, p.value);
-  p.value = 0xFFFFFFFFFFFFFFFF;
-  Expect.equals(0xFFFFFFFFFFFFFFFF, p.value);
+  Pointer<Int64> p = calloc<Int64>();
+  try {
+    Expect.equals(0, p.value);
+    p.value = 0x7FFFFFFFFFFFFFFF;
+    Expect.equals(0x7FFFFFFFFFFFFFFF, p.value);
+  } finally {
+    calloc.free(p);
+  }
 }

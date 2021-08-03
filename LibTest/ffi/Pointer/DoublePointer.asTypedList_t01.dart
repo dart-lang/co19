@@ -22,11 +22,15 @@ import '../../../Utils/expect.dart';
 
 void main() {
   Pointer<Double> p = calloc<Double>(3);
-  p[0] = 3.14;
-  p[1] = 42.42;
-  p[2] = 1.1;
-  Float64List l = p.asTypedList(3);
-  Expect.equals(3.14, l[0]);
-  Expect.equals(42.42, l[1]);
-  Expect.equals(1.1, l[2]);
+  try {
+    p[0] = 3.14;
+    p[1] = 42.42;
+    p[2] = 1.1;
+    Float64List l = p.asTypedList(3);
+    Expect.equals(3.14, l[0]);
+    Expect.equals(42.42, l[1]);
+    Expect.equals(1.1, l[2]);
+  } finally {
+    calloc.free(p);
+  }
 }
