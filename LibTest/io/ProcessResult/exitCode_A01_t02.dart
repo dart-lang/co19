@@ -19,20 +19,13 @@ import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-String command;
-List<String> args;
-
-void setCommand() {
-  command = 'dart';
-  args = ["-l"];
-}
-
 main() {
-  setCommand();
+  String command = Platform.resolvedExecutable;
+  List<String> args = ['--version'];
   Future<ProcessResult> fProcessResult = Process.run(command, args);
   fProcessResult.then((ProcessResult result) {
     ProcessResult pr = new ProcessResult(
         result.pid, result.exitCode, result.stdout, result.stderr);
-    Expect.isFalse(pr.exitCode == 0);
+    Expect.equals(0, pr.exitCode);
   });
 }
