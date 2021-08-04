@@ -32,14 +32,29 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-main() {
+runMain() {
   String executable = Platform.resolvedExecutable;
-  File file = new File.fromUri(Platform.script.resolve("start_A01_t01_lib.dart"));
+  String eScript = Platform.script.toString();
+
   asyncStart();
-  Process.run(executable, [file.absolute.path]).then((ProcessResult results) {
+  print(Platform.executableArguments);
+  Process.run(executable, [...Platform.executableArguments, eScript, "run"])
+      .then((ProcessResult results) {
     Expect.equals(0, results.exitCode);
-    Expect.equals("start_A01_t01_lib.dart run", results.stdout);
+    Expect.equals("Lily was here", results.stdout);
     Expect.equals("", results.stderr);
     asyncEnd();
   });
+}
+
+runProcess() {
+  stdout.write("Lily was here");
+}
+
+main(List<String> args) {
+  if (args.length > 0)
+    runProcess();
+  else {
+    runMain();
+  }
 }

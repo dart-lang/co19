@@ -37,13 +37,12 @@ String command;
 List<String> args;
 
 void setCommand() {
-  if (Platform.isLinux) {
-    command = 'pwd';
-    args = [];
-  }
   if (Platform.isWindows) {
     command = 'dart';
     args = ['--version'];
+  } else {
+    command = 'pwd';
+    args = [];
   }
 }
 
@@ -55,10 +54,9 @@ Future testEmpty(var stream) {
 }
 
 Future testNotEmpty(var stream) {
-  return stream.toList().then((List outList) {
-    Utf8Decoder decoder = new Utf8Decoder();
-    String decoded = decoder.convert(outList[0]);
-    Expect.isTrue(decoded.length > 0);
+  return stream.transform(utf8.decoder).transform(const LineSplitter()).
+      toList().then((List outList) {
+    Expect.isTrue(outList[0].length > 0);
   });
 }
 

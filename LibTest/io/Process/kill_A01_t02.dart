@@ -25,49 +25,19 @@
 /// completes with the exit code 0 when the process completes.
 /// @author ngl@unipro.ru
 
-import 'dart:convert';
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-String command;
-List<String> args;
-
-void setCommand() {
-  if (Platform.isLinux) {
-    command = 'echo';
-    args = ['-start'];
-  }
-  if (Platform.isWindows) {
-    command = Platform.resolvedExecutable;
-    args = ['--version'];
-  }
-}
-
 main() {
-  setCommand();
+  String command = Platform.resolvedExecutable;
+  List<String> args = [...Platform.executableArguments, '--version'];
   asyncStart();
   Process.start(command, args).then((Process process) {
-
     process.exitCode.then((int value) {
-      Expect.equals(0, value);
       bool pKill = process.kill();
       Expect.isFalse(pKill);
-      if (Platform.isWindows) {
-        asyncEnd();
-      }
+      Expect.equals(0, value);
+      asyncEnd();
     });
-
-    if (!Platform.isWindows) {
-      process.stdout.toList().then((List outList) {
-        Utf8Decoder decode = new Utf8Decoder();
-        String decoded = decode.convert(outList[0]);
-        Expect.isTrue(decoded.contains("-start"));
-      }).then((_) {
-        process.stderr.toList().then((List errList) {
-          Expect.equals(0, errList.length);
-          asyncEnd();
-        });
-      });
-    }
   });
 }

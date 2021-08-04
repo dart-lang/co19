@@ -31,20 +31,34 @@ import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-main() {
+runMain() {
   String executable = Platform.resolvedExecutable;
-  File file = new File.fromUri(Platform.script.resolve("start_A01_t01_lib.dart"));
+  String eScript = Platform.script.toString();
+
   asyncStart();
-  Process.start(executable, [file.path]).then((Process process) {
-    process.stdout.toList().then((List outList) {
-      Utf8Decoder decoder = new Utf8Decoder();
-      String decoded = decoder.convert(outList[0]);
-      Expect.equals("start_A01_t01_lib.dart run", decoded);
+  Process.start(executable, [...Platform.executableArguments, eScript, "run"])
+      .then((Process process) {
+    process.stdout.transform(utf8.decoder).transform(const LineSplitter()).
+          toList().then((List outList) {
+      Expect.equals("Lily was here", outList[0]);
     }).then((_) {
-      process.stderr.toList().then((List errList) {
+      process.stderr.transform(utf8.decoder).transform(const LineSplitter()).
+          toList().then((List errList) {
         Expect.equals(0, errList.length);
         asyncEnd();
       });
     });
   });
+}
+
+runProcess() {
+  stdout.write("Lily was here");
+}
+
+main(List<String> args) {
+  if (args.length > 0)
+    runProcess();
+  else {
+    runMain();
+  }
 }

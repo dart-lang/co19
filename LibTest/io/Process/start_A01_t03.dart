@@ -40,8 +40,9 @@ main() {
   bool pFailed = false;
   setCommand();
   asyncStart();
-  Process.start(command, args).catchError((onError) {
-    Expect.isTrue(onError is Exception);
+  Process.start(command, args).then((Process prc) {
+    Expect.fail("Error expected");
+  }, onError: (_) {
     pFailed = true;
   }).then((_) {
     Expect.isTrue(pFailed);

@@ -40,13 +40,12 @@ String command;
 List<String> args;
 
 void setCommand() {
-  if (Platform.isLinux) {
-    command = 'sleep';
-    args = ['5'];
-  }
   if (Platform.isWindows) {
     command = 'ping';
     args = ['127.0.0.1 -n 6 > nul'];
+  } else {
+    command = 'sleep';
+    args = ['5'];
   }
 }
 
@@ -58,7 +57,7 @@ main() {
 
     process.exitCode.then((int value) {
       if (Platform.isWindows) {
-        Expect.equals(1, value);
+        Expect.isTrue(value == 1 || value == -1);
       } else if (Platform.isLinux || Platform.isMacOS) {
         Expect.equals(-15, value);
       }

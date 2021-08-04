@@ -17,24 +17,23 @@ import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-String command;
-List<String> args;
+runMain() {
+  String command = Platform.resolvedExecutable;
+  String eScript = Platform.script.toString();
+  List<String> args = [...Platform.executableArguments,
+    eScript,
+    '1',
+    '2',
+    'true'
+  ];
 
-void setCommand() {
-  command = Platform.resolvedExecutable;
-  args = ['stream_lib.dart', '1', '2', 'true'];
-}
-
-main() {
-  setCommand();
   bool found = false;
   asyncStart();
   Process.start(command, args).then((Process process) {
-    process.stdout.toList().then((List event) {
-      Utf8Decoder decoder = new Utf8Decoder();
+    process.stdout.transform(utf8.decoder).transform(const LineSplitter()).
+      toList().then((List event) {
       for (int i = 0; i < event.length; i++) {
-        String decoded = decoder.convert(event[i]);
-        if (decoded.contains("Hello, world!Hello, galaxy!Hello, universe!")) {
+        if (event[i].contains("Hello, world!Hello, galaxy!Hello, universe!")) {
           found = true;
         }
       }
@@ -47,4 +46,28 @@ main() {
     process.stdin.write('Hello, universe!');
     process.stdin.close();
   });
+}
+
+runProcess(List<String> arguments) {
+  if (arguments.length > 0) {
+    stdout.write(arguments[0]);
+  }
+  if (arguments.length > 1) {
+    stderr.write(arguments[1]);
+  }
+  if (arguments.length > 2) {
+    stdin.listen((List<int> event){
+      Utf8Decoder decoder = new Utf8Decoder();
+      String decoded = decoder.convert(event);
+      stdout.write(decoded);
+    });
+  }
+}
+
+main(List<String> args) {
+  if(args.length > 0)
+    runProcess(args);
+  else {
+    runMain();
+  }
 }

@@ -27,22 +27,21 @@ import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-main() {
+runMain() {
   Map<String, String> m = new Map<String, String>();
   m["a"] = "aa";
 
   String envString = Platform.environment.toString();
   String executable = Platform.resolvedExecutable;
-  File file = new File.fromUri(Platform.script.resolve("checkEnvironment_lib.dart"));
+  String eScript = Platform.script.toString();
 
   asyncStart();
-  Process.start(executable, [file.path],
+  Process.start(executable, [...Platform.executableArguments, eScript, "run"],
       environment: m, includeParentEnvironment: false).then((Process process) {
-    process.stdout.toList().then((List outList) {
-      Utf8Decoder decode = new Utf8Decoder();
-      String decoded = decode.convert(outList[0]);
-      Expect.isTrue(decoded.toLowerCase().contains('a: aa'));
-      Expect.isFalse(decoded.contains(envString.substring(1)));
+    process.stdout.transform(utf8.decoder).transform(const LineSplitter()).
+        toList().then((List outList) {
+      Expect.isTrue(outList[0].toLowerCase().contains('a: aa'));
+      Expect.isFalse(outList[0].contains(envString.substring(1)));
     }).then((_) {
       process.stderr.toList().then((List errList) {
         Expect.equals(0, errList.length);
@@ -50,4 +49,16 @@ main() {
       });
     });
   });
+}
+
+runProcess() {
+  stdout.write(Platform.environment);
+}
+
+main(List<String> args) {
+  if (args.length > 0)
+    runProcess();
+  else {
+    runMain();
+  }
 }

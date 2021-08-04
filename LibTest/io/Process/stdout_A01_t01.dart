@@ -12,34 +12,55 @@
 /// standard output stream of the process as a Stream.
 /// @author ngl@unipro.ru
 
-// OtherResources=stream_lib.dart
 import 'dart:convert';
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-String command;
-List<String> args;
-
-void setCommand() {
-  command = Platform.resolvedExecutable;
-  args = [
-    Platform.script.resolve('stream_lib.dart').toFilePath(),
+runMain() {
+  String command = Platform.resolvedExecutable;
+  String eScript = Platform.script.toString();
+  List<String> args = [...Platform.executableArguments,
+    eScript,
     'Hi, stdout',
     'Hi, stderr'
   ];
-}
 
-main() {
-  setCommand();
   asyncStart();
   Process.start(command, args).then((Process process) {
     Expect.isTrue(process.stderr is Stream<List<int>>);
-    Utf8Decoder decoder = new Utf8Decoder();
-    process.stdout.toList().then((List outList) {
-      String decoded = decoder.convert(outList[0]);
-      Expect.isTrue(decoded.contains("Hi, stdout"));
+    process.stdout.transform(utf8.decoder).transform(const LineSplitter()).
+      toList().then((List outList) async {
+      if (outList.isEmpty) {
+        List stderr = await process.stderr.transform(utf8.decoder)
+          .transform(const LineSplitter()).toList();
+        Expect.fail("Stdout is empty. Stderr: $stderr");
+      }
+      Expect.isTrue(outList[0].contains("Hi, stdout"), "Actual value: $outList[0]");
       asyncEnd();
     });
   });
+}
+
+runProcess(List<String> arguments) {
+  if (arguments.length > 0) {
+    stdout.write(arguments[0]);
+  }
+  if (arguments.length > 1) {
+    stderr.write(arguments[1]);
+  }
+  if (arguments.length > 2) {
+    stdin.listen((List<int> event){
+      String decoded = utf8.decoder.convert(event);
+      stdout.write(decoded);
+    });
+  }
+}
+
+main(List<String> args) {
+  if(args.length > 0)
+    runProcess(args);
+  else {
+    runMain();
+  }
 }

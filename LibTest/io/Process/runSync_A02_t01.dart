@@ -30,17 +30,16 @@ import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-String command;
-List<String> args;
+String command = "";
+List<String> args = new List<String>.empty(growable: true);
 
 void setCommand() {
-  if (Platform.isLinux) {
-    command = 'echo';
-    args = ['abc'];
-  }
   if (Platform.isWindows) {
     command = Platform.resolvedExecutable;
     args = ['--version'];
+  } else {
+    command = 'echo';
+    args = ['abc'];
   }
 }
 

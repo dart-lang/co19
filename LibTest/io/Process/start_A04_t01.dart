@@ -33,13 +33,12 @@ String command;
 List<String> args;
 
 void setCommand() {
-  if (Platform.isLinux) {
-    command = 'pwd';
-    args = [];
-  }
   if (Platform.isWindows) {
     command = Platform.resolvedExecutable;
     args = ['--version'];
+  } else {
+    command = 'pwd';
+    args = [];
   }
 }
 

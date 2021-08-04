@@ -34,13 +34,12 @@ String command;
 List<String> args;
 
 void setCommand() {
-  if (Platform.isLinux) {
-    command = 'pwd';
-    args = [];
-  }
   if (Platform.isWindows) {
     command = Platform.resolvedExecutable;
     args = ['--version'];
+  } else {
+    command = 'pwd';
+    args = [];
   }
 }
 
@@ -50,9 +49,9 @@ main() {
       .start(command, args, mode: ProcessStartMode.detached)
       .then((Process process) {
     Expect.isTrue(process.pid is int);
-    Expect.isNull(process.stdout);
-    Expect.isNull(process.stderr);
-    Expect.isNull(process.stdin);
-    Expect.isNull(process.exitCode);
+    Expect.throws(() {process.stdout;}, (e) => e is StateError);
+    Expect.throws(() {process.stderr;}, (e) => e is StateError);
+    Expect.throws(() {process.stdin;}, (e) => e is StateError);
+    Expect.throws(() {process.exitCode;}, (e) => e is StateError);
   });
 }
