@@ -48,7 +48,8 @@ typedef c = String;
 
 main() {
   Expect.equals("${a<b, c>}, null", f(a<b, c> ?? "Lily was here"));
-//                                           ^^
-// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-// [cfe] Operand of null-aware operation '?.' has type 'String Function<int, String>(int)' which excludes null.
+//                                               ^^^^^^^^^^^^^^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+//                                     ^
+// [cfe] Operand of null-aware operation '??' has type 'String Function(int)' which excludes null.
 }

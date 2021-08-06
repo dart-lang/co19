@@ -19,7 +19,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   AAlias a2 = AAlias<int>();
-//            ^^^^^^^^^^^/
+//            ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 

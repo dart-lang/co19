@@ -29,7 +29,7 @@ import "top_level_syntax_t20_lib.dart";
 
 main() {
   AAlias a = AAlias();
-  BAlias b = = BAlias();
+  BAlias b = BAlias();
 
   CAlias1 c1 = CAlias1();
   CAlias1<String> c2 = CAlias1<String>();

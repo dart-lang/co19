@@ -52,4 +52,7 @@ typedef c = String;
 
 main() {
   Expect.equals("${a<b, c>}, null", f(a<b, c> ?? "Lily was here"));
+//                                               ^^^^^^^^^^^^^^^
+// [analyzer] STATIC_WARNING.DEAD_NULL_AWARE_EXPRESSION
+// [cfe] Operand of null-aware operation '??' has type 'Type' which excludes null.
 }

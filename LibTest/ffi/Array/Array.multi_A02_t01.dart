@@ -18,6 +18,7 @@
 /// @description Checks multidimentional array created by Array.multi(). Check
 /// that zero array size is an error
 /// @author sgrekhov@unipro.ru
+/// @issue 45538
 
 import "dart:ffi";
 import "package:ffi/ffi.dart";

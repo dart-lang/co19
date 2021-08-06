@@ -8,6 +8,7 @@
 /// @description Checks that Union subclass fields cannot be initialized by the
 /// constructors
 /// @author sgrekhov@unipro.ru
+/// @issue 46813
 
 import "dart:ffi";
 
