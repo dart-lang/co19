@@ -43,6 +43,7 @@
 /// @description Checks that a symbol can be implicitly created while running
 /// Dart programs through Object.noSuchMethod
 /// @author sgrekhov@unipro.ru
+/// @issue 46830
 
 import "../../../Utils/expect.dart";
 

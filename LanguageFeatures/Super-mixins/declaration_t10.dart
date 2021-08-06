@@ -20,26 +20,18 @@
 
 abstract class B {
   String get b;
-//           ^
-// [cfe] unspecified
 }
 
 class C {
   String get c => "C";
-//           ^
-// [cfe] unspecified
 }
 
 class D {
   String get d => "D";
-//           ^
-// [cfe] unspecified
 }
 
 abstract class E {
   String get e;
-//           ^
-// [cfe] unspecified
 }
 
 mixin A on B, C implements D, E {

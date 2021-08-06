@@ -41,10 +41,11 @@
 /// The created instance overrides Object.==.
 ///
 /// @description Checks that if name is a single identifier that does not start
-/// with an underscore followed by a =, then the symbol is a setter name, and
+/// with an underscore followed by a=, then the symbol is a setter name, and
 /// can be equal to the Invocation.memberName in an Object.noSuchMethod
 /// invocation.
 /// @author sgrekhov@unipro.ru
+/// @issue 46830
 
 import "../../../Utils/expect.dart";
 

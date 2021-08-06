@@ -43,6 +43,7 @@
 /// @description Checks that a symbol like const Symbol("_foo") is not equal to
 /// any source name symbol introduced by noSuchMethod
 /// @author sgrekhov@unipro.ru
+/// @issue 46829
 
 import "../../../Utils/expect.dart";
 
