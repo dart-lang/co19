@@ -19,6 +19,7 @@ class F {
   factory F.id() = F;
 //                 ^
 // [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

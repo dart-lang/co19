@@ -18,6 +18,7 @@ class F {
   factory F.id() = FAlias;
 //                 ^^^^^^
 // [analyzer] unspecified
+// [cfe] unspecified
 }
 typedef FAlias = F;
 
