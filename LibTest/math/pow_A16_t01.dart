@@ -10,17 +10,17 @@
 ///  - if [y] is -Infinity, the result is 1/pow([x], Infinity).
 /// @description Checks the result when [y] is -Infinity.
 /// @author pagolubev
-/// @reviewer msyabro
-
 
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
+  if (!isJS) {
   Expect.equals(
       double.infinity, Math.pow(0.9999999999999999, double.negativeInfinity));
   Expect.equals(
-      double.infinity, Math.pow(-0.9999999999999999, double.negativeInfinity));
+        double.infinity,
+        Math.pow(-0.9999999999999999, double.negativeInfinity));
   Expect.equals(double.infinity, Math.pow(0.5, double.negativeInfinity));
   Expect.equals(double.infinity, Math.pow(-0.5, double.negativeInfinity));
   Expect.equals(double.infinity,
@@ -37,7 +37,9 @@ main() {
   Expect.equals(.0, Math.pow(-2, double.negativeInfinity));
   Expect.equals(.0, Math.pow(123.123, double.negativeInfinity));
   Expect.equals(.0, Math.pow(-123.123, double.negativeInfinity));
-  Expect.equals(.0, Math.pow(1.7976931348623157e308, double.negativeInfinity));
+    Expect.equals(
+        .0, Math.pow(1.7976931348623157e308, double.negativeInfinity));
   Expect.equals(
       .0, Math.pow(-1.7976931348623157e308, double.negativeInfinity));
+}
 }

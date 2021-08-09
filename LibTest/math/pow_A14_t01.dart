@@ -10,13 +10,13 @@
 ///  - if [y] is Infinity and [x] is -1, the result is 1.0.
 /// @description Checks the result when [x] is -1 and [y] is Infinity.
 /// @author pagolubev
-/// @reviewer msyabro
-
 
 import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
+  if (!isJS) {
   Expect.equals(1.0, Math.pow(-1, double.infinity));
   Expect.equals(1.0, Math.pow(-1.0, double.infinity));
+}
 }
