@@ -54,7 +54,6 @@ class C {
   noSuchMethod(Invocation invocation) {
     called = true;
     Expect.equals(invocation.memberName, new Symbol("foo"));
-    Expect.isFalse(identical(invocation.memberName, const Symbol("foo")));
   }
 }
 

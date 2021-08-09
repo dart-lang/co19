@@ -47,48 +47,28 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.equals(#~, new Symbol('~'));
-  Expect.isFalse(identical(#~, new Symbol('~')));
   Expect.equals(#==, new Symbol('=='));
-  Expect.isFalse(identical(#==, new Symbol('==')));
   Expect.equals(#[], new Symbol('[]'));
-  Expect.isFalse(identical(#[], new Symbol('[]')));
   Expect.equals(#[]=, new Symbol('[]='));
-  Expect.isFalse(identical(#[]=, new Symbol('[]=')));
 
   Expect.equals(#*, new Symbol('*'));
-  Expect.isFalse(identical(#*, new Symbol('*')));
   Expect.equals(#/, new Symbol('/'));
-  Expect.isFalse(identical(#/, new Symbol('/')));
   Expect.equals(#%, new Symbol('%'));
-  Expect.isFalse(identical(#%, new Symbol('%')));
   Expect.equals(#~/, new Symbol('~/'));
-  Expect.isFalse(identical(#~/, new Symbol('~/')));
 
   Expect.equals(#+, new Symbol('+'));
-  Expect.isFalse(identical(#+, new Symbol('+')));
   Expect.equals(#-, new Symbol('-'));
-  Expect.isFalse(identical(#-, new Symbol('-')));
 
   Expect.equals(#<<, new Symbol('<<'));
-  Expect.isFalse(identical(#<<, new Symbol('<<')));
   Expect.equals(#>>, new Symbol('>>'));
-  Expect.isFalse(identical(#>>, new Symbol('>>')));
   Expect.equals(#>>>, new Symbol('>>>'));
-  Expect.isFalse(identical(#>>>, new Symbol('>>>')));
 
   Expect.equals(#<, new Symbol('<'));
-  Expect.isFalse(identical(#<, new Symbol('<')));
   Expect.equals(#<=, new Symbol('<='));
-  Expect.isFalse(identical(#<=, new Symbol('<=')));
   Expect.equals(#>, new Symbol('>'));
-  Expect.isFalse(identical(#>, new Symbol('>')));
   Expect.equals(#>=, new Symbol('>='));
-  Expect.isFalse(identical(#>=, new Symbol('>=')));
 
   Expect.equals(#&, new Symbol('&'));
-  Expect.isFalse(identical(#&, new Symbol('&')));
   Expect.equals(#^, new Symbol('^'));
-  Expect.isFalse(identical(#^, new Symbol('^')));
   Expect.equals(#|, new Symbol('|'));
-  Expect.isFalse(identical(#|, new Symbol('|')));
 }

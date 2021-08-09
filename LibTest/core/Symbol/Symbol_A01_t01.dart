@@ -50,20 +50,16 @@ main() {
   var s1 = new Symbol('foo');
   var s2 = new Symbol('foo');
   Expect.equals(s1, s2);
-  Expect.isFalse(identical(s1, s2));
 
   var s3 = new Symbol(r'foo.bar$');
   var s4 = new Symbol(r'foo.bar$');
   Expect.equals(s3, s4);
-  Expect.isFalse(identical(s3, s4));
 
   var s5 = new Symbol(r'foo.bar$.baz_=');
   var s6 = new Symbol(r'foo.bar$.baz_=');
   Expect.equals(s5, s6);
-  Expect.isFalse(identical(s5, s6));
 
   var s7 = new Symbol('foo.b_a_r');
   var s8 = new Symbol('foo.b_a_r');
   Expect.equals(s7, s8);
-  Expect.isFalse(identical(s7, s8));
 }

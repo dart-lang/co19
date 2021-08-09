@@ -54,7 +54,5 @@ main() {
   Expect.notEquals(#_foo, const Symbol('_foo'));
 
   Expect.equals(new Symbol('_foo'), new Symbol('_foo'));
-  Expect.isFalse(identical(new Symbol('_foo'), new Symbol('_foo')));
-
   Expect.identical(const Symbol('_foo'), const Symbol('_foo'));
 }
