@@ -8,6 +8,7 @@
 /// This call will block until a byte is available.
 /// @description Checks that call is blocked until a byte is available.
 /// @author iarkh@unipro.ru
+/// @issue https://github.com/dart-lang/co19/issues/970
 
 import "../../../Utils/expect.dart";
 import "dart:async";
@@ -29,8 +30,10 @@ run_main() async {
   String eScript = Platform.script.toString();
   int called = 0;
 
-  await Process.start(executable, [eScript, "test"], runInShell: true).then(
-      (Process process) async {
+  await Process.start(
+          executable, [...Platform.executableArguments, eScript, "test"],
+          runInShell: true)
+      .then((Process process) async {
     process.stdin.add([5]);
     await new Future.delayed(new Duration(seconds: 2)).then((_) async {
       process.kill();

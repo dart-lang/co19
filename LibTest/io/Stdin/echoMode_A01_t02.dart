@@ -13,16 +13,22 @@
 import "../../../Utils/expect.dart";
 import "dart:io";
 
-run_process() { exit(stdin.echoMode ? 0 : 1); }
+run_process() {
+  exit(stdin.echoMode ? 0 : 1);
+}
 
 run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = -1;
-  await Process.run(executable, [eScript, "test"],
-      runInShell: true).then((ProcessResult results) {
+  await Process.run(
+          executable, [...Platform.executableArguments, eScript, "test"],
+          runInShell: true)
+      .then((ProcessResult results) {
     called = results.exitCode;
-    if (called != 0 && called != 1) print(results.stderr);
+    if (called != 0 && called != 1) {
+      print(results.stderr);
+    }
   });
   Expect.isTrue(called == 0 || called == 1);
 }
