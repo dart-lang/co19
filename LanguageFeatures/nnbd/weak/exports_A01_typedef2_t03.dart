@@ -12,7 +12,7 @@
 
 // Requirements=nnbd-weak
 
-import "../../../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 import "exports_A01_opted_out_aliases_lib.dart";
 
 main() {

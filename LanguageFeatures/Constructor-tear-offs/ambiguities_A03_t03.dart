@@ -53,5 +53,5 @@ typedef c = String;
 main() {
   var x = a<b, c>;
   Map f = {x: 42};
-  Expect.equals("42, null", f[a<b, c>]);
+  Expect.equals("42", f[a<b, c>]);
 }

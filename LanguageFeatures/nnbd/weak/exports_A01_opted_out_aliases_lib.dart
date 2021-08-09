@@ -7,6 +7,6 @@
 // @dart=2.6
 
 library export_opted_aliases_lib;
-export '../exports_A01_opted_in_aliases_lib.dart';
+export 'exports_A01_opted_in_aliases_lib.dart';
 
 

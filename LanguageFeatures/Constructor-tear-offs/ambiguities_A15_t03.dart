@@ -54,5 +54,6 @@ main() {
   Expect.equals("${a<b, c>}, null", f(a<b, c>?..toString()));
 //                                           ^^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                    ^
 // [cfe] Operand of null-aware operation '?..' has type 'Type' which excludes null.
 }

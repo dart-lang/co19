@@ -12,7 +12,7 @@
 
 // Requirements=nnbd-weak
 
-import 'type-aliases/exports_A01_opted_out_aliases_lib.dart';
+import 'exports_A01_opted_out_aliases_lib.dart';
 
 main() {
   NeverAlias n = null;

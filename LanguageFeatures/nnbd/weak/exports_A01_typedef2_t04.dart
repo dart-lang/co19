@@ -14,7 +14,7 @@
 
 import "dart:async";
 import '../../../Utils/expect.dart';
-import 'type-aliases/exports_A01_opted_out_aliases_lib.dart';
+import 'exports_A01_opted_out_aliases_lib.dart';
 
 typedef exp_A                          = A          ;
 typedef exp_Int                        = int        ;

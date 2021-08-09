@@ -15,7 +15,7 @@
 // @dart=2.6
 // Requirements=nnbd-weak
 import '../../../Utils/expect.dart';
-import 'type-aliases/opted_in_aliases_lib.dart';
+import 'opted_in_aliases_lib.dart';
 
 main() {
   NeverAlias n = null;

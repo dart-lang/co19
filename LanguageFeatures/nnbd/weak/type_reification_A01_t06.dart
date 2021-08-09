@@ -9,7 +9,7 @@
 
 // Requirements=nnbd-weak
 import '../../../Utils/expect.dart';
-import 'type-aliases/type_reification_legacy_aliases_lib.dart';
+import 'type_reification_legacy_aliases_lib.dart';
 
 typedef AliasA = A;
 

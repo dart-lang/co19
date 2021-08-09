@@ -50,6 +50,8 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
   f(a<b,
+//^
+// [cfe] unspecified
       c><42);
 //      ^^^
 // [analyzer] unspecified

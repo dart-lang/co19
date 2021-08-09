@@ -49,12 +49,12 @@ void main() {
   Expect.equals(d.x, 2);
 
   const c = C.new(3);
-  Expect.equals(c.x, 6);
+  Expect.equals(c.x, 3);
 
   var c1 = new C.new(7);
-  Expect.equals(c1.x, 14);
+  Expect.equals(c1.x, 7);
 
   var f = C.new;
   int i = f(-1).x;
-  Expect.equals(i, -2);
+  Expect.equals(i, -1);
 }
