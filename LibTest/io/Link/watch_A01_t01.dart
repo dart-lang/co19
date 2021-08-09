@@ -31,12 +31,15 @@ _main(Directory sandbox) async {
   asyncStart();
   StreamSubscription s = link.watch().listen((FileSystemEvent event) {
     Expect.equals(FileSystemEvent.create, event.type);
+    eventCompleter.complete(event);
     asyncEnd();
   });
   target.createTempSync();
 
-  await eventCompleter.future
-      .timeout(Duration(seconds: eventsTimeout), onTimeout: () async {
+  await eventCompleter.future.then((FileSystemEvent fse) async {
+    await s.cancel();
+    return eventCompleter.future;
+  }).timeout(Duration(seconds: eventsTimeout), onTimeout: () async {
     await s.cancel();
     return eventCompleter.future;
   });
