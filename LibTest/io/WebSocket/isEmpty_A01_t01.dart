@@ -26,16 +26,21 @@ main() {
       WebSocketTransformer
           .upgrade(request)
           .then((websocket) {
-        Expect.isTrue(websocket.done is Future<bool>);
+        Expect.isTrue(websocket.isEmpty is Future<bool>);
         websocket.close();
       });
     });
 
     var webs = WebSocket.connect("ws://127.0.0.1:${server.port}/");
     webs.then((client) {
-      Expect.isTrue(client.done is Future<bool>);
-      client.close().then((_) {
-        server.close();
+      bool called = false;
+      client.isEmpty.then((value) {
+        Expect.isTrue(value);
+        called = true;
+      });
+      client.close().then((_) async {
+        await server.close();
+        Expect.isTrue(called);
       });
     });
   });
