@@ -38,12 +38,13 @@ void check(int fLen) {
   rfLock.then((RandomAccessFile f) {
     var rfLen = f.lengthSync();
     Expect.isTrue(end > rfLen);
+    String eScript = Platform.script.toString();
     var tests = [
-      () => checkLocked(f.path, start, end),
-      () => checkUnlocked(f.path, 0, start),
-      () => checkUnlocked(f.path, end)
+      () => checkLocked(eScript, f.path, start, end),
+      () => checkUnlocked(eScript, f.path, 0, start),
+      () => checkUnlocked(eScript, f.path, end)
     ];
-    Future.forEach(tests, (f) => f()).whenComplete(() {
+    Future.forEach(tests, (Function f) => f()).whenComplete(() {
       asyncEnd();
       if (Platform.isWindows) {
         rf.unlockSync(start, end);
@@ -56,7 +57,15 @@ void check(int fLen) {
   });
 }
 
-main() {
+runMain() {
   check(10);
   check(1000);
+}
+
+main(List<String> args) {
+  if(args.length > 0)
+    runProcess(args);
+  else {
+    runMain();
+  }
 }

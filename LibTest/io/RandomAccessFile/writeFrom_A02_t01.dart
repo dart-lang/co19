@@ -41,7 +41,7 @@ void check(List<int> list) {
       rf.setPositionSync(0);
       List<int> l = file.readSync(len);
       for (int i = 0; i < len; i++) {
-        Expect.isTrue(i == l[i]);
+        Expect.equals(i, l[i]);
       }
       asyncEnd();
     }).whenComplete(() {

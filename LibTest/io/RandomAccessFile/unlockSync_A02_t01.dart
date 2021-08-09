@@ -21,28 +21,37 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 import "lock_check_1_lib.dart";
 
-main() {
+runMain() {
   File file = getTempFileSync();
   var rf1 = file.openSync(mode: FileMode.write);
   rf1.writeFromSync(new List.filled(10, 0));
   asyncStart();
   rf1.lockSync(FileLock.exclusive, 4, 7);
+  String eScript = Platform.script.toString();
   var tests = [
-    () => checkLocked(rf1.path, 4, 7),
-    () => checkUnlocked(rf1.path, 0, 4),
-    () => checkUnlocked(rf1.path, 7, 10),
+    () => checkLocked(eScript, rf1.path, 4, 7),
+    () => checkUnlocked(eScript, rf1.path, 0, 4),
+    () => checkUnlocked(eScript, rf1.path, 7, 10),
   ];
-  Future.forEach(tests, (f) => f()).whenComplete(() {
+  Future.forEach(tests, (Function f) => f()).whenComplete(() {
     if (!Platform.isWindows) {
       rf1.unlockSync(0, 10);
     } else {
       rf1.unlockSync(4, 7);
     }
-    var tests = [() => checkUnlocked(rf1.path, 0, 10)];
-    Future.forEach(tests, (f) => f()).whenComplete(() {
+    var tests = [() => checkUnlocked(eScript, rf1.path, 0, 10)];
+    Future.forEach(tests, (Function f) => f()).whenComplete(() {
       asyncEnd();
       rf1.closeSync();
       file.deleteSync();
     });
   });
+}
+
+main(List<String> args) {
+  if(args.length > 0)
+    runProcess(args);
+  else {
+    runMain();
+  }
 }

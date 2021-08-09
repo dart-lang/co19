@@ -6,16 +6,18 @@
 
 /// @description Used in lock and unlock tests.
 /// @author ngl@unipro.ru
+
 library lock_check_2_lib;
 
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-// Check whether the file is may be locked with an exclusive lock.
-checkLock(String path, int start, int end, FileLock mode, {bool locked}) {
+// Check if the file may be locked with an exclusive lock.
+checkLock(String script, String path, int start, int end, FileLock mode, {bool locked = false}) {
   var expected = 'OS Error:';
-  var arguments = new List<String>()
-    ..add(Platform.script.resolve('lock_check_2_lib.dart').toFilePath())
+  var arguments = new List<String>.empty(growable: true)
+    ..addAll(Platform.executableArguments)
+    ..add(script)
     ..add(path)
     ..add(mode == FileLock.exclusive ? 'EXCLUSIVE' : 'SHARED')
     ..add('$start')
@@ -24,6 +26,8 @@ checkLock(String path, int start, int end, FileLock mode, {bool locked}) {
       .run(Platform.executable, arguments)
       .then((ProcessResult result) {
     if (result.exitCode != 0 || !result.stdout.contains(expected)) {
+      print("   expected:");
+      print(expected);
       print("Client failed, exit code ${result.exitCode}");
       print("  stdout:");
       print(result.stdout);
@@ -36,13 +40,13 @@ checkLock(String path, int start, int end, FileLock mode, {bool locked}) {
   });
 }
 
-main(List<String> args) {
+runProcess(List<String> args) {
   if (args.length == 0) {
     return 0;
   }
   File file = new File(args[0]);
-  int start = null;
-  int end = null;
+  int start = 0;
+  int end = 0;
   var mode = FileLock.exclusive;
   if (args[1] == 'SHARED') {
     mode = FileLock.shared;
@@ -53,7 +57,7 @@ main(List<String> args) {
   if (args[3] != 'null') {
     end = int.parse(args[3]);
   }
-  var raf = file.openSync(mode: READ);
+  var raf = file.openSync(mode: FileMode.read);
   try {
     raf.lockSync(mode, start, end);
     print('LOCK SUCCEEDED');

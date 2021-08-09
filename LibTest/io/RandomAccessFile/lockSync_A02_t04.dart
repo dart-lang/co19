@@ -36,12 +36,13 @@ void check(int fLen) {
   var start = fLen >> 1;
   var end = rf.lengthSync() + 11;
   rf.lockSync(FileLock.exclusive, start, end);
+  String eScript = Platform.script.toString();
   var tests = [
-        () => checkLocked(rf.path, start, end),
-        () => checkUnlocked(rf.path, 0, start),
-        () => checkUnlocked(rf.path, end)
+        () => checkLocked(eScript, rf.path, start, end),
+        () => checkUnlocked(eScript, rf.path, 0, start),
+        () => checkUnlocked(eScript, rf.path, end)
   ];
-  Future.forEach(tests, (f) => f()).whenComplete(() {
+  Future.forEach(tests, (Function f) => f()).whenComplete(() {
     asyncEnd();
     if (Platform.isWindows) {
       rf.unlockSync(start, end);
@@ -53,8 +54,16 @@ void check(int fLen) {
   });
 }
 
-main() {
+runMain() {
   check(10);
   check(100);
   check(1000);
+}
+
+main(List<String> args) {
+  if(args.length > 0)
+    runProcess(args);
+  else {
+    runMain();
+  }
 }

@@ -25,26 +25,35 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 import "lock_check_1_lib.dart";
 
-main() {
+runMain() {
   File file = getTempFileSync();
   file.writeAsBytesSync(new List.filled(6, 0));
   var rf = file.openSync(mode: FileMode.write);
   asyncStart();
   var rfLock = rf.lock();
   rfLock.then((RandomAccessFile f) {
+    String eScript = Platform.script.toString();
     var tests = [
-      () => checkLocked(f.path, 0, 1),
-      () => checkLocked(f.path, 1, 2),
-      () => checkLocked(f.path, 2, 3),
-      () => checkLocked(f.path, 3, 4),
-      () => checkLocked(f.path, 4, 5),
-      () => checkLocked(f.path, 5, 6)
+      () => checkLocked(eScript, f.path, 0, 1),
+      () => checkLocked(eScript, f.path, 1, 2),
+      () => checkLocked(eScript, f.path, 2, 3),
+      () => checkLocked(eScript, f.path, 3, 4),
+      () => checkLocked(eScript, f.path, 4, 5),
+      () => checkLocked(eScript, f.path, 5, 6)
     ];
-    Future.forEach(tests, (f) => f()).whenComplete(() {
+    Future.forEach(tests, (Function f) => f()).whenComplete(() {
       asyncEnd();
       rf.unlockSync();
       rf.closeSync();
       file.deleteSync();
     });
   });
+}
+
+main(List<String> args) {
+  if(args.length > 0)
+    runProcess(args);
+  else {
+    runMain();
+  }
 }

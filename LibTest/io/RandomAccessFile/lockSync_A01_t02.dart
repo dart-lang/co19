@@ -26,17 +26,19 @@ import "../file_utils.dart";
 import "lock_check_1_lib.dart";
 
 void check(int fLen) {
+
   File file = getTempFileSync();
   asyncStart();
   var rf = file.openSync(mode: FileMode.write);
   rf.writeFromSync(new List.filled(fLen, 1));
   rf.lockSync(FileLock.shared);
   Expect.isTrue(fLen == rf.lengthSync());
+  String eScript = Platform.script.toString();
   var tests = [
-    () => checkLocked(rf.path),
-    () => checkUnlocked(rf.path, 0, fLen, FileLock.shared)
+    () => checkLocked(eScript, rf.path),
+    () => checkUnlocked(eScript, rf.path, 0, fLen, FileLock.shared)
   ];
-  Future.forEach(tests, (f) => f()).whenComplete(() {
+  Future.forEach(tests, (Function f) => f()).whenComplete(() {
     asyncEnd();
     rf.unlockSync();
     rf.closeSync();
@@ -44,8 +46,16 @@ void check(int fLen) {
   });
 }
 
-main() {
+runMain() {
   check(10);
   check(100);
   check(1000);
+}
+
+main(List<String> args) {
+  if(args.length > 0)
+    runProcess(args);
+  else {
+    runMain();
+  }
 }

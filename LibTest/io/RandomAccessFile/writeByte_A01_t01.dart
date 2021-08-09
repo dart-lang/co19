@@ -28,16 +28,15 @@ void check(int num, List<int> list) {
     Expect.isTrue(f is Future<RandomAccessFile>);
 
     f.then((RandomAccessFile file) {
-      Expect.isTrue(file is RandomAccessFile);
       Expect.equals(rf, file);
       Expect.equals(1, file.lengthSync());
       rf.setPositionSync(0);
       file.readIntoSync(list, num);
       for (int i = 0; i <= num; i++) {
-        Expect.isTrue(i == list[i]);
+        Expect.equals(i, list[i]);
       }
       for (int i = num + 1; i < 10; i++) {
-        Expect.isTrue(null == list[i]);
+        Expect.equals(0, list[i]);
       }
       asyncEnd();
     }).whenComplete(() {
@@ -48,7 +47,7 @@ void check(int num, List<int> list) {
 }
 
 main() {
-  List<int> list = new List<int>(10);
+  List<int> list = new List<int>.filled(10, 0);
   for (int i = 0; i < 10; i++) {
     check(i, list);
   }

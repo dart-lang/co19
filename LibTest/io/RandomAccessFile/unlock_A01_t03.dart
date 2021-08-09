@@ -22,28 +22,37 @@ import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 import "lock_check_1_lib.dart";
 
-main() {
+runMain() {
   File file = getTempFileSync();
   var rf = file.openSync(mode: FileMode.write);
   rf.writeFromSync(new List.filled(30, 0));
   asyncStart();
   rf.lockSync(FileLock.exclusive);
+  String eScript = Platform.script.toString();
   var tests = [
-    () => checkLocked(rf.path, 0, 30),
-    () => checkLocked(rf.path, 30, 40)
+    () => checkLocked(eScript, rf.path, 0, 30),
+    () => checkLocked(eScript, rf.path, 30, 40)
   ];
-  Future.forEach(tests, (f) => f()).whenComplete(() {
+  Future.forEach(tests, (Function f) => f()).whenComplete(() {
     var rf1Unlock = rf.unlock();
     rf1Unlock.then((RandomAccessFile f) {
       var tests = [
-        () => checkUnlocked(rf.path, 0, 30),
-        () => checkUnlocked(rf.path, 40, 50)
+        () => checkUnlocked(eScript, rf.path, 0, 30),
+        () => checkUnlocked(eScript, rf.path, 40, 50)
       ];
-      Future.forEach(tests, (f) => f()).whenComplete(() {
+      Future.forEach(tests, (Function f) => f()).whenComplete(() {
         asyncEnd();
         rf.closeSync();
         file.deleteSync();
       });
     });
   });
+}
+
+main(List<String> args) {
+  if(args.length > 0)
+    runProcess(args);
+  else {
+    runMain();
+  }
 }

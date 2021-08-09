@@ -32,11 +32,12 @@ void check(int fLen) {
   var rfLock = rf.lock(FileLock.shared);;
 
   rfLock.then((RandomAccessFile f) {
+    String eScript = Platform.script.toString();
     var tests = [
-      () => checkUnlocked(f.path, 0, -1, FileLock.shared),
-      () => checkUnlocked(f.path, fLen, fLen + 20, FileLock.shared)
+      () => checkUnlocked(eScript, f.path, 0, -1, FileLock.shared),
+      () => checkUnlocked(eScript, f.path, fLen, fLen + 20, FileLock.shared)
     ];
-    Future.forEach(tests, (f) => f()).whenComplete(() {
+    Future.forEach(tests, (Function f) => f()).whenComplete(() {
       asyncEnd();
       rf.unlockSync();
       rf.closeSync();
@@ -45,7 +46,15 @@ void check(int fLen) {
   });
 }
 
-main() {
+runMain() {
   check(10);
   check(1000);
+}
+
+main(List<String> args) {
+  if(args.length > 0)
+    runProcess(args);
+  else {
+    runMain();
+  }
 }

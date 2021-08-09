@@ -35,9 +35,9 @@ void check(int fLen) {
   var rfLock = rf.lock(FileLock.exclusive);
   rfLock.then((RandomAccessFile f) {
     var tests = [
-      () => checkLocked(f.path),
+      () => checkLocked(Platform.script.toString(), f.path),
     ];
-    Future.forEach(tests, (f) => f()).whenComplete(() {
+    Future.forEach(tests, (Function f) => f()).whenComplete(() {
       asyncEnd();
       rf.unlockSync();
       rf.closeSync();
@@ -46,8 +46,16 @@ void check(int fLen) {
   });
 }
 
-main() {
+runMain() {
   check(0);
   check(10);
   check(1000);
+}
+
+main(List<String> args) {
+  if(args.length > 0)
+    runProcess(args);
+  else {
+    runMain();
+  }
 }
