@@ -14,6 +14,9 @@
 /// ends, the returned future is completed with the number of elements.
 /// @author ngl@unipro.ru
 
+// OtherResources=server_chain.pem
+// OtherResources=server_key.pem
+// OtherResources=trusted_certs.pem
 import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";
@@ -21,12 +24,12 @@ import "../../../Utils/expect.dart";
 String localFile(path) => Platform.script.resolve(path).toFilePath();
 
 SecurityContext serverContext = new SecurityContext()
-  ..useCertificateChain(localFile('../certificates/server_chain.pem'))
-  ..usePrivateKey(localFile('../certificates/server_key.pem'),
+  ..useCertificateChain(localFile('server_chain.pem'))
+  ..usePrivateKey(localFile('server_key.pem'),
       password: 'co19test');
 
 SecurityContext clientContext = new SecurityContext()
-  ..setTrustedCertificates(localFile('../certificates/trusted_certs.pem'));
+  ..setTrustedCertificates(localFile('trusted_certs.pem'));
 
 check(InternetAddress address, int clNumber) {
   const messageSize = 10;
@@ -44,7 +47,7 @@ check(InternetAddress address, int clNumber) {
     bs.listen((client) {
       int bytesRead = 0;
       int bytesWritten = 0;
-      List<int> data = new List<int>(messageSize);
+      List<int> data = new List<int>.filled(messageSize, 0);
       client.writeEventsEnabled = false;
       client.listen((event) {
         switch (event) {
@@ -92,7 +95,7 @@ check(InternetAddress address, int clNumber) {
           int bytesRead = 0;
           int bytesWritten = 0;
           List<int> dataSent = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-          List<int> dataReceived = new List<int>(dataSent.length);
+          List<int> dataReceived = new List<int>.filled(dataSent.length, 0);
           client.listen((event) {
             switch (event) {
               case RawSocketEvent.read:
