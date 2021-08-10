@@ -52,12 +52,12 @@ main() {
     Expect.equals(0, results.exitCode);
     Expect.isTrue(results.stdout is String);
     Expect.isTrue(results.stderr is String);
-    if (!Platform.isWindows) {
-      Expect.equals("abc", (results.stdout).substring(0, 3));
+    if (Platform.isWindows) {
+      Expect.isTrue(results.stdout.indexOf(Platform.version) > -1);
       Expect.equals("", results.stderr);
     } else {
-      Expect.isTrue(results.stderr.indexOf(Platform.version) > -1);
-      Expect.equals("", results.stdout);
+      Expect.equals("abc", (results.stdout).substring(0, 3));
+      Expect.equals("", results.stderr);
     }
     asyncEnd();
   });

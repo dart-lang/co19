@@ -46,13 +46,15 @@ void setCommand() {
 main() {
   setCommand();
   asyncStart();
-  Process.run(command, args, stdoutEncoding: null).then((ProcessResult results) {
+  Process.run(command, args, stdoutEncoding: null)
+      .then((ProcessResult results) {
     Expect.equals(0, results.exitCode);
     Expect.isTrue(results.stdout is List);
     Expect.isTrue(results.stderr is String);
     if (Platform.isWindows) {
-      Expect.isTrue(results.stderr.indexOf(Platform.version) > -1);
-      Expect.equals(0, results.stdout.length);
+      Expect.isTrue(
+          String.fromCharCodes(results.stdout).indexOf(Platform.version) > -1);
+      Expect.equals(0, results.stderr.length);
     } else {
       Utf8Decoder decoder = new Utf8Decoder();
       String decoded = decoder.convert(results.stdout);
