@@ -14,9 +14,10 @@
 /// Throws [RangeError] if [offsetInBytes] or [length] are negative, or if
 /// [offsetInBytes] + ([length] * elementSizeInBytes) is greater than the length
 /// of [buffer].
-/// @description Checks that [RangeError] is thrown if [offsetInBytes] is
+/// @description Checks that an error is thrown if [offsetInBytes] is
 /// negative.
 /// @author msyabro
+/// @issue 43196
 
 
 import "dart:typed_data";
@@ -25,11 +26,7 @@ import "../../../Utils/expect.dart";
 void check(List<int> array, int offset) {
   var tmp = new Uint16List.fromList(array);
   var byteBuffer = tmp.buffer;
-  try {
-    new Uint16List.view(byteBuffer, offset);
-    Expect.fail("RangeError exception is expected");
-  } on RangeError {
-  }
+  Expect.throws(() { Uint16List.view(byteBuffer, offset); });
 }
 
 main() {
