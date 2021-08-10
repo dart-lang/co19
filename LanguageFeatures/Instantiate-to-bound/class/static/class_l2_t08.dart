@@ -47,8 +47,8 @@
 /// class A<X1 extends X2, X2 extends B<X2>> {}
 /// @author iarkh@unipro.ru
 
-typedef F<X> = void Function<Y extends X>();
-F<X> toF<X>(X x) => null;
+
+import "../../../../Utils/expect.dart";
 
 class B<X extends B<X>> {}
 class A<X1 extends X2, X2 extends B<X2>> {}
@@ -59,9 +59,23 @@ main() {
 
   F<A<B<dynamic>, B<dynamic>>> target = fsource;
 
-//  F<A<dynamic, dynamic>> target1 = fsource;       //# 01: compile-time error
-//  F<A<dynamic, B<dynamic>>> target2 = fsource;    //# 02: compile-time error
-//  F<A<B<dynamic>, dynamic>> target3 = fsource;    //# 03: compile-time error
+  F<A<dynamic, dynamic>> target1 = fsource;
+//                                 ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-//  A();  //# 04: compile-time error
+  F<A<dynamic, B<dynamic>>> target2 = fsource;
+//                                    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<A<B<dynamic>, dynamic>> target3 = fsource;
+//                                    ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
