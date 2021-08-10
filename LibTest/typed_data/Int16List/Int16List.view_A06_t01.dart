@@ -25,9 +25,8 @@ main() {
   var list = new Int16List(2);
   var buffer = list.buffer;
   for (int i = 1; i < Int16List.bytesPerElement; ++i) {
-    try {
-      new Int16List.view(buffer, i);
-      Expect.fail("ArgumentError is expected");
-    } on ArgumentError {}
+    Expect.throws(() {
+      Int16List.view(buffer, i);
+    }, (e) => e is ArgumentError);
   }
 }
