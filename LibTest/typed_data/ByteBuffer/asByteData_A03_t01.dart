@@ -40,6 +40,8 @@ main() {
   check((new Int8List.fromList(list2)).buffer);
   check((new Int16List.fromList(list2)).buffer);
   check((new Int32List.fromList(list2)).buffer);
-  check((new Int64List.fromList(list2)).buffer);
+  if(!isJS) {
+    check((new Int64List.fromList(list2)).buffer);
+  }
   check((new Int32x4List.fromList(list4)).buffer);
 }
