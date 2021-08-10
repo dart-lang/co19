@@ -12,9 +12,10 @@
 /// ...
 /// Throws [ArgumentError] if [offsetInBytes] is not a multiple of
 /// BYTES_PER_ELEMENT.
-/// @description Checks that [ArgumentError] is thrown if [offsetInBytes] is
+/// @description Checks that an error is thrown if [offsetInBytes] is
 /// not a multiple of BYTES_PER_ELEMENT.
 /// @author msyabro
+/// @issue 43196
 
 
 import "dart:typed_data";
@@ -24,9 +25,6 @@ main() {
   var list = new Float32List(2);
   var buffer = list.buffer;
   for (int i = 1; i < Float32List.bytesPerElement; ++i) {
-    try {
-      new Float32List.view(buffer, i);
-      Expect.fail("ArgumentError is expected");
-    } on ArgumentError {}
+    Expect.throws(() => Float32List.view(buffer, i));
   }
 }

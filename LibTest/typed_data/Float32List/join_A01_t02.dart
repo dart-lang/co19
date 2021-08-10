@@ -12,6 +12,7 @@
 /// @description Checks that if [separator] is omitted, elements of [this]
 /// are not separated in the returned String.
 /// @author msyabro
+/// @issue 43267
 
 
 import "dart:typed_data";
@@ -25,7 +26,7 @@ check(List<double> list, String expectedString) {
 
 main() {
   check([],  "");
-  check([0.25, 1.0], "0.251.0");
-  check([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0],
-      "1.02.03.04.05.06.07.08.09.0");
+  check([0.25, 1.25], "0.251.25");
+  check([1.25, 2.25, 3.25, 4.25, 5.25, 6.25, 7.25, 8.25, 9.25],
+      "1.252.253.254.255.256.257.258.259.25");
 }

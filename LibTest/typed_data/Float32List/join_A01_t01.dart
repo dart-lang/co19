@@ -12,6 +12,7 @@
 /// @description Checks that the returned [String] contains all elements from
 /// [this] separated by [separator].
 /// @author msyabro
+/// @issue 43267
 
 
 import "dart:typed_data";
@@ -26,7 +27,7 @@ check(List<double> list, String separator, String expectedString) {
 main() {
   check([], "", "");
   check([], ", ", "");
-  check([1.0], ", ", "1.0");
-  check([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], "  ",
-      "1.0  2.0  3.0  4.0  5.0  6.0  7.0  8.0  9.0");
+  check([1.25], ", ", "1.25");
+  check([1.25, 2.25, 3.25, 4.25, 5.25, 6.25, 7.25, 8.25, 9.25], "  ",
+      "1.25  2.25  3.25  4.25  5.25  6.25  7.25  8.25  9.25");
 }
