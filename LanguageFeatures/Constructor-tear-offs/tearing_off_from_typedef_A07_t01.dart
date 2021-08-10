@@ -9,7 +9,7 @@
 /// @description Checks case where type argument is not passed directly to the
 /// original class
 ///
-/// @author iarkh@unipro.ru
+/// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
@@ -18,26 +18,14 @@ import "../../Utils/expect.dart";
 class A<T1, T2> {
   A.testme() {}
 }
-typedef AAlias<X, Y> = A<X, Y>;
-
-class B<T1, T2> {
-  var v1 = AAlias.testme;
-  var v2 = AAlias.testme;
-}
+typedef AAlias1 = A<int, String>;
+typedef AAlias2 = A;
+typedef AAlias3 = A<Never, Null>;
+typedef AAlias4<T> = A<T, String>;
 
 main() {
-  B b1 = B();
-  Expect.notEquals(b1.v1, b1.v2);
-
-  B b2 = B<int, String>();
-  Expect.identical(b2.v1, b2.v2);
-  Expect.identical(A<int, String>.testme, b2.v2);
-
-  B b3 = B<Never, List>();
-  Expect.identical(b3.v1, b3.v2);
-  Expect.identical(A<Never, List>.testme, b3.v1);
-
-  B b4 = B<dynamic, List<int>>();
-  Expect.identical(b4.v1, b4.v2);
-  Expect.identical(A<dynamic, List<int>>.testme, b3.v1);
+  Expect.equals(A<int, String>.testme, AAlias1.testme);
+  Expect.equals(A<dynamic, dynamic>.testme, AAlias2.testme);
+  Expect.equals(A<Never, Null>.testme, AAlias3.testme);
+  Expect.equals(A<int, String>.testme, AAlias4<int>.testme);
 }
