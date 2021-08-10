@@ -50,9 +50,8 @@ main() {
   Expect.isTrue(processResult.stderr is List);
   Utf8Decoder decoder = new Utf8Decoder();
   if (Platform.isWindows) {
-    Expect.equals(0, (processResult.stdout).length);
-    String decoded = decoder.convert(processResult.stderr);
-    Expect.isTrue(decoded.indexOf(Platform.version) > -1);
+    Expect.equals(0, (processResult.stderr).length);
+    Expect.isTrue(processResult.stdout.indexOf(Platform.version) > -1);
   } else {
     Expect.isTrue(processResult.stdout.substring(0, 3) == "abc");
     Expect.isTrue((processResult.stderr).length == 0);

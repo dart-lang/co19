@@ -49,8 +49,10 @@ main() {
   Expect.isTrue(processResult.stdout is List);
   Expect.isTrue(processResult.stderr is String);
   if (Platform.isWindows) {
-    Expect.equals(0, processResult.stdout.length);
-    Expect.isTrue(processResult.stderr.indexOf(Platform.version) > -1);
+    Expect.equals(0, processResult.stderr.length);
+    Expect.isTrue(
+        String.fromCharCodes(processResult.stdout).indexOf(Platform.version) >
+            -1);
   } else {
     Utf8Decoder decoder = new Utf8Decoder();
     String decoded = decoder.convert(processResult.stdout);

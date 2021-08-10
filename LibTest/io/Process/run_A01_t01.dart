@@ -54,8 +54,8 @@ main() {
       Expect.equals("abc", (results.stdout).substring(0, 3));
       Expect.equals("", results.stderr);
     } else {
-      Expect.isTrue(results.stderr.indexOf(Platform.version) > -1);
-      Expect.equals("", results.stdout);
+      Expect.isTrue(results.stdout.indexOf(Platform.version) > -1);
+      Expect.equals("", results.stderr);
     }
     asyncEnd();
   });

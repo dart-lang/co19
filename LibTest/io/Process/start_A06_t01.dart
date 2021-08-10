@@ -65,8 +65,8 @@ main() {
       .start(command, args, mode: ProcessStartMode.detachedWithStdio)
       .then((Process process) {
     if (Platform.isWindows) {
-      testEmpty(process.stdout).then((_) {
-        testNotEmpty(process.stderr).then((_) {
+      testEmpty(process.stderr).then((_) {
+        testNotEmpty(process.stdout).then((_) {
           asyncEnd();
         });
       });

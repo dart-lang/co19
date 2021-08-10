@@ -52,8 +52,8 @@ main() {
   Expect.isTrue(processResult.stdout is String);
   Expect.isTrue(processResult.stderr is String);
   if (Platform.isWindows) {
-    Expect.isTrue((processResult.stderr).indexOf(Platform.version) > -1);
-    Expect.equals("", processResult.stdout);
+    Expect.isTrue((processResult.stdout).indexOf(Platform.version) > -1);
+    Expect.equals("", processResult.stderr);
   } else {
     Expect.isTrue((processResult.stdout).substring(0, 3) == "abc");
     Expect.equals("", processResult.stderr);
