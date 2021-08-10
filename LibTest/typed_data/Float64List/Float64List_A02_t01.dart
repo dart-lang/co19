@@ -24,7 +24,9 @@ main() {
   check(-1);
   check(-100);
   check(-0.5);
-  check(1.0);
+  if (!isJS) {
+    check(1.0);
+  }
   check("1");
   check(new Object());
   check([0]);

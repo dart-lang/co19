@@ -10,6 +10,7 @@
 /// operation.
 /// @description Checks that method overwrites elements correctly.
 /// @author ngl@unipro.ru
+/// @issue 43227
 
 
 import "dart:typed_data";
