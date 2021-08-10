@@ -38,7 +38,11 @@ class C<T1, T2 extends num, T3 extends String> {
     Expect.equals(exp1, T1);
     Expect.equals(exp2, T2);
     Expect.equals(exp3, T3);
-    Expect.equals(exp4, p1);
+    if (p1 is List) {
+      Expect.listEquals(exp4, p1);
+    } else {
+      Expect.equals(exp4, p1);
+    }
     Expect.equals(exp5, p2);
   }
 }
@@ -58,6 +62,5 @@ main() {
 
   var v4 = C<List, int, String>.constr1;
   C c4 = v4([], 0);
-  c1.check(List, int, String, [], 0);
-
+  c4.check(List, int, String, [], 0);
 }

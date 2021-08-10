@@ -21,9 +21,9 @@ typedef MyList<T> = List<T>;
 main() {
   var v1 = MyList<int>.filled;
   List list1 = v1(3, 1);
-  Expect.equals([1, 1, 1], list1);
+  Expect.listEquals([1, 1, 1], list1);
 
   var v2 = MyList<String>.filled;
   List list2 = v2(3, "abc");
-  Expect.equals(["abc", "abc", "abc"], list1);
+  Expect.listEquals(["abc", "abc", "abc"], list2);
 }
