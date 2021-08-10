@@ -50,5 +50,5 @@ main() {
   c3.check(12, null, "stop");
 
   C c4 = v(12, s: "", j:90);
-  c2.check(12, 90, "");
+  c4.check(12, 90, "");
 }
