@@ -11,6 +11,7 @@
 /// @description Checks that the values of iterable may change, if iterable is
 /// based on this list.
 /// @author ngl@unipro.ru
+/// @issue 43227
 
 
 import "dart:typed_data";
@@ -18,9 +19,7 @@ import "../../../Utils/expect.dart";
 
 Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 
-equal(o1, o2) {
-  return o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
-}
+equal(o1, o2) => o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
 
 void listEquals(l, expected) {
   for (int i = 0; i < l.length; ++i) {

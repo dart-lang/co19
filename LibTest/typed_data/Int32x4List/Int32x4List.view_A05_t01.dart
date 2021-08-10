@@ -14,8 +14,9 @@
 /// Throws RangeError if offsetInBytes or length are negative, or if
 /// offsetInBytes + (length * elementSizeInBytes) is greater than the length of
 /// buffer.
-/// @description Checks that RangeError is thrown if offsetInBytes is negative.
+/// @description Checks that an error is thrown if offsetInBytes is negative.
 /// @author ngl@unipro.ru
+/// @issue 43196
 
 
 import "dart:typed_data";
@@ -23,17 +24,12 @@ import "../../../Utils/expect.dart";
 
 Int32x4 i32x4(n) => new Int32x4(n, n, n, n);
 
-equal(o1, o2) {
-  return o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
-}
+equal(o1, o2) => o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
 
 void check(list, offset) {
   var l = new Int32x4List.fromList(list);
   var buffer = l.buffer;
-  try {
-    new Int32x4List.view(buffer, offset);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
+  Expect.throws(() { Int32x4List.view(buffer, offset); });
 }
 
 main() {
