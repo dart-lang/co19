@@ -12,9 +12,10 @@
 /// ...
 /// Throws [RangeError] if [byteOffset] is negative, or `byteOffset + 8` is
 /// greater than the length of this object.
-/// @description Checks that [RangeError] is thrown if `byteOffset + 8` is
+/// @description Checks that an error is thrown if `byteOffset + 8` is
 /// greater than the length of this object.
 /// @issue 12880
+/// @issue 43196
 /// @author msyabro
 
 
@@ -23,13 +24,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   var byteData = new ByteData(10);
-  try {
-    byteData.getFloat64(3);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
-
-  try {
-    byteData.getFloat64(20);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
+  Expect.throws(() { byteData.getFloat64(3);  });
+  Expect.throws(() { byteData.getFloat64(20); });
 }
