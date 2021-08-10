@@ -27,6 +27,7 @@
 /// @description Check that If the enclosing function m is marked async* and
 /// the stream u associated with m has been paused, then execution of m is
 /// suspended until u is canceled.
+/// @Issue 42584
 ///
 /// @author a.semenov@unipro.ru
 

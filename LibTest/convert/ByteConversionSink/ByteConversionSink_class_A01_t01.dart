@@ -9,6 +9,7 @@
 ///
 /// This method is also used when converters are used as StreamTransformers.
 /// @description Checks that this method adds data to the [ByteConversionSink]
+/// @Issue 29329 (see ChankedConversionSink/close_A01_t01)
 /// @author sgrekhov@unipro.ru
 
 import "dart:convert";

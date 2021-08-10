@@ -24,6 +24,7 @@
 /// StreamController as input data supplier.
 ///
 /// @author a.semenov@unipro.ru
+/// @issue 42584
 
 import 'dart:async';
 import '../../../../Utils/expect.dart';

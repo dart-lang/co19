@@ -51,13 +51,9 @@ main() {
   Expect.equals(42, a._fun());
   Expect.equals(54, _A._staticfun());
 
-  try {
-    a._abstractfun();
-    Expect.fail("NoSuchMethodError expected.");
-  } on NoSuchMethodError catch (ok) {}
+  a._abstractfun();
 
   Expect.equals(100500, a._getter);
-
   try {
     a._setter = 1;
   } on int catch (ok) {}

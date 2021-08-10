@@ -23,19 +23,18 @@
 /// canceled and there are several enclosing try finally statement, then each
 /// finally clause is executed in innermost-first order.
 ///
-/// @issue #25748
+/// @issue 25748, 34775
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
 import '../../../../Utils/expect.dart';
 
 Stream<String> generator(Stream<String> input, List log) async* {
-  bool cancelled;
+  bool cancelled = true;
   int order = 0;
   try {
     try {
       try {
-        cancelled = true;
         yield* input;
         cancelled = false;
       } finally {

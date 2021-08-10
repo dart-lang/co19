@@ -23,7 +23,7 @@
 /// canceled and there is an enclosing try finally statement, the finally
 /// clause is executed.
 ///
-/// @issue #25748
+/// @issue 25748, 34775
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';
@@ -32,9 +32,8 @@ import '../../../../Utils/expect.dart';
 bool cancelHandled = false;
 
 Stream<int> generator(Stream<int> input) async* {
-bool cancelled;
+bool cancelled = true;
   try {
-    cancelled = true;
     yield* input;
     cancelled = false;
   } finally {

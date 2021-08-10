@@ -23,7 +23,7 @@
 /// canceled and there is no enclosing try finally statement, the immediately
 /// enclosing function terminates.
 ///
-/// @issue 25748
+/// @issue 25748, 34775
 /// @author a.semenov@unipro.ru
 
 import 'dart:async';

@@ -14,19 +14,19 @@
 import "../../Utils/expect.dart";
 
 class C {
-  int n1 = 1;
-  static int n2 = 2;
+  var n1 = 1 as int;
+  static var n2 = 2 as int;
   int x = null;
 }
 
 main() {
-  C c = null;
+  C cn = null;
 
-  var v1 = {c?.x ?? 3, C?.n2, c?.n1};
+  var v1 = {cn?.x ?? 3, C?.n2, cn?.n1};
   Expect.isTrue(v1 is Set);
-  Expect.iterableEquals({3, 2, 1}, v1);
+  Expect.iterableEquals({3, 2, null}, v1);
 
-  c = new C();
+  var c = C() as C;
 
   var v2 = {c?.x ?? 3, C?.n2, c?.n1};
   Expect.isTrue(v2 is Set);
@@ -36,7 +36,7 @@ main() {
   Expect.isTrue(v3 is Set);
   Expect.iterableEquals({3, 2, 1}, v3);
 
-  var v4 = <int>{c.n1 ??= c.x, c.x ??= 4, C?.n2, c?.x ?? 3};
+  var v4 = <int>{c?.n1 ??= (c as C).x, c?.x ??= 4, C?.n2, c?.x ?? 3};
   Expect.isTrue(v4 is Set);
-  Expect.iterableEquals({1, 4, 2, 3}, v4);
+  Expect.iterableEquals({1, 4, 2}, v4);
 }

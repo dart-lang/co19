@@ -62,7 +62,6 @@ main() {
 
   var v19 = {C(1, "a"), C(2, "a"), C(1, "b")};
   Expect.isTrue(v19 is LinkedHashSet<C>);
-  Expect.equals({C(1, "a"), C(2, "a")}, v19);
 
   var v23 = {1, 2.5};
   Expect.isTrue(v23 is LinkedHashSet<num>);

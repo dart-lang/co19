@@ -24,14 +24,12 @@
 /// @description Check that if the invocation of getter current raises an
 /// exception ex, execution of s throws ex.
 ///
-/// @issue #25662
-/// @issue #25634
+/// @issue 25662, 25634, 26262, 42466
 /// @author a.semenov@unipro.ru
 
 import '../../../../Utils/expect.dart';
 
-class TestException {
-}
+class TestException {}
 
 class IteratorStub extends Iterator<int> {
 
@@ -43,7 +41,6 @@ class IteratorStub extends Iterator<int> {
 }
 
 class IterableStub extends Iterable<int> {
-
   Iterator<int> get iterator => new IteratorStub();
 }
 
