@@ -37,8 +37,6 @@
 // SharedOptions=--enable-experiment=constructor-tearoffs
 import "../../Utils/expect.dart";
 
-String f(a, [b]) => "$a, $b";
-
 String a<T1, T2>(int x) {
   return "a<$T1, $T2>($x)";
 }
@@ -48,6 +46,6 @@ typedef c = String;
 
 main() {
   var x = a<b, c>;
-  Map f = {x: 42};
-  Expect.equals("42", f[a<b, c>]);
+  Map m = {x: 42};
+  Expect.equals(42, m[a<b, c>]);
 }
