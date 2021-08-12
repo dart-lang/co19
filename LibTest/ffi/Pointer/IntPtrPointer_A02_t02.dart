@@ -26,23 +26,31 @@ import "package:ffi/ffi.dart";
 import '../../../Utils/expect.dart';
 
 void main() {
-  Pointer<Int64> p1 = calloc<Int64>(2);
-  try {
-    Pointer<IntPtr> p2 = new Pointer.fromAddress(p1.address + sizeOf<IntPtr>());
-    if (sizeOf<IntPtr>() == 4) {
+  if (sizeOf<IntPtr>() == 4) {
+    Pointer<Int32> p1 = calloc<Int32>(2);
+    try {
+      Pointer<IntPtr> p2 =
+          new Pointer.fromAddress(p1.address + sizeOf<IntPtr>());
       p1[0] = 5000000000;
       p1[1] = -5000000000;
       Expect.equals(5000000000.toSigned(32), p1[0]);
       Expect.equals(-5000000000.toSigned(32), p1[1]);
       Expect.equals(-5000000000.toSigned(32), p2.value);
-    } else {
+    } finally {
+      calloc.free(p1);
+    }
+  } else {
+    Pointer<Int64> p1 = calloc<Int64>(2);
+    try {
+      Pointer<IntPtr> p2 =
+          new Pointer.fromAddress(p1.address + sizeOf<IntPtr>());
       p1[0] = 0x7FFFFFFFFFFFFFFF;
       p1[1] = 0xFFFFFFFFFFFFFFFF;
       Expect.equals(0x7FFFFFFFFFFFFFFF, p1[0]);
       Expect.equals(0xFFFFFFFFFFFFFFFF, p1[1]);
       Expect.equals(0xFFFFFFFFFFFFFFFF, p2.value);
+    } finally {
+      calloc.free(p1);
     }
-  } finally {
-    calloc.free(p1);
   }
 }
