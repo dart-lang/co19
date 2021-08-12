@@ -24,7 +24,9 @@ import "../../Utils/expect.dart";
 bool called = false;
 
 class C {
-  C() {}
+  C() {
+    called = true;
+  }
   factory C.f(int i) = D.new;
 }
 
