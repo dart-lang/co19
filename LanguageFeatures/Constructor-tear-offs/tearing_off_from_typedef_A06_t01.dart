@@ -39,5 +39,5 @@ void main() {
   Expect.identical(MyList.filled, MyList.filled);
   Expect.identical(MyList2.filled, MyList2.filled);
   Expect.notEquals(MyList.filled, MyList2.filled);
-  Expect.notEquals(MyList.filled, List.filled);
+  Expect.notEquals(MyList2.filled, List.filled);
 }
