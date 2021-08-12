@@ -23,10 +23,10 @@ import "../../Utils/expect.dart";
 
 typedef ListList<T> = List<List<T>>;
 
-typedef List<T> Func1<T>(int i, T t);
+typedef Func1 = List<T> Function<T>(int i, T t);
 typedef List<int> Func2(int i1, int i2);
-typedef List<List<T>> Func3<T>(int i, T t);
-typedef List<List<int>> Func4(int i1, int i2);
+typedef Func3 = List<List<T>> Function<T>(int i, List<T> t);
+typedef List<List<int>> Func4(int i1, List<int> i2);
 
 main() {
   const filledList = List.filled;  // List<T> Function<T>(int, T)
