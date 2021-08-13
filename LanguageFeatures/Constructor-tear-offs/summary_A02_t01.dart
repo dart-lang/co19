@@ -38,7 +38,7 @@ class C<T> {
   final T x;
   const C(this.x); // Same as: `const C(this.x);`
   C.other(T x) : this.new(x); // Same as: `: this(x)`
-  factory C.d(int x) = D<T>.new;  // same as: `= D<T>;`
+  factory C.d(T x) = D<T>.new;  // same as: `= D<T>;`
 }
 
 class D<T> extends C<T> {
@@ -52,7 +52,7 @@ void main() {
 
   const c2 = const C<num>(0); // Same as: `const C<num>(0);`.
   Expect.equals(0, c2.x);
-  Expect.isTrue(c2 is num);
+  Expect.isTrue(c2.x is num);
   Expect.isFalse(c2.x is String); // to check that x is not dynamic
 
   var c3 = new C.new(0); // Same as `new C(0);`.
