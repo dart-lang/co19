@@ -23,5 +23,5 @@ dynamic d = 1;
 main() {
   var v = MyList<String>.filled;
   Expect.throws(() { v(2, d); });
-  Expect.throws(() { v(2, null as dynamic); });
+  Expect.throws(() { v(2, [] as dynamic); });
 }

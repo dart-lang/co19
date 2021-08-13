@@ -25,7 +25,7 @@ import "../../Utils/expect.dart";
 T id<T>(T value) => value;
 var idInt = id<int>;
 
-dynamic d1 = 3.14, d2 = [], d3 = null;
+dynamic d1 = 3.14, d2 = [], d3 = "42";
 
 main() {
   int i = idInt(4);
@@ -40,5 +40,4 @@ main() {
   Expect.throws(() { idInt(d1); });
   Expect.throws(() { idInt(d2); });
   Expect.throws(() { idInt(d3); });
-  Expect.throws(() { idInt(null as dynamic); });
 }

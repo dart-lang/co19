@@ -22,10 +22,9 @@ dynamic d = 1.1;
 dynamic str = "123";
 
 main() {
-
   var v = MyList.filled;
 
   Expect.throws(() { v(2, d); });
-  Expect.throws(() { v(10, null as dynamic); });
+  Expect.throws(() { v(10, [] as dynamic); });
   Expect.throws(() { v(3, str); });
 }

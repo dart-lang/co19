@@ -36,5 +36,5 @@ main() {
   Expect.equals(1, c1.ii);
 
   Expect.throws(() { v(i: d); });
-  Expect.throws(() { v(i: null as dynamic); });
+  Expect.throws(() { v(i: "42" as dynamic); });
 }

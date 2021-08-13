@@ -23,6 +23,6 @@ dynamic d = 3.14;
 main() {
   var v1 = MyList<int>.filled;
   Expect.throws(() { v1(7, d); });
-  Expect.throws(() { v1(7, null as dynamic); });
+  Expect.throws(() { v1(7, "42" as dynamic); });
   Expect.throws(() { v1(3, 3.14 as dynamic); });
 }
