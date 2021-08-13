@@ -33,6 +33,7 @@
 /// @description Checks disambiguate by '?.' token. Test that a<b, c>?. is
 /// parsed as (a<b, c>)?. . Test constructor tear-off
 /// @author sgrekhov@unipro.ru
+/// @issue 46887
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 import "../../Utils/expect.dart";
@@ -54,5 +55,6 @@ main() {
   Expect.equals("${a<b, c>}, null", f(a<b, c>?.toString()));
 //                                           ^^
 // [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+//                                     ^
 // [cfe] Operand of null-aware operation '?.' has type 'Type' which excludes null.
 }

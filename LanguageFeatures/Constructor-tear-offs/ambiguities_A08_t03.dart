@@ -33,6 +33,7 @@
 /// @description Checks disambiguate by '.' token. Test that a<b, c>. is
 /// parsed as (a<b, c>). . Test constructor tear-off
 /// @author sgrekhov@unipro.ru
+/// @issue 46887
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 import "../../Utils/expect.dart";
