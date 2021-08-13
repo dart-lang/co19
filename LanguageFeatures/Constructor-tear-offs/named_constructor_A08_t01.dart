@@ -9,6 +9,8 @@
 /// canonicalized if the instantiating types are constant - test non-generic
 /// class
 /// @author iarkh@unipro.ru
+/// @issue 46899
+/// @issue 46900
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
@@ -21,8 +23,8 @@ class MyClass {
 }
 
 main() {
-  var v1 = MyClass.new;
-  var v2 = MyClass.constr;
+  const v1 = MyClass.new;
+  const v2 = MyClass.constr;
 
   const c1 = v1(3, 14);
   const c2 = v1(3, 14);

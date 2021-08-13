@@ -8,6 +8,8 @@
 /// @description Checks that An instantiated tear-off is constant and
 /// canonicalized if the instantiating types are constant - test generic class
 /// @author iarkh@unipro.ru
+/// @issue 46899
+/// @issue 46900
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
@@ -20,10 +22,10 @@ class MyClass<T> {
 }
 
 main() {
-  var v1 = MyClass<String>.new;
-  var v2 = MyClass<int>.constr;
-  var v3 = MyClass<int>.new;
-  var v4 = MyClass<String>.constr;
+  const v1 = MyClass<String>.new;
+  const v2 = MyClass<int>.constr;
+  const v3 = MyClass<int>.new;
+  const v4 = MyClass<String>.constr;
 
   const c1 = v1(3, 14);
   const c2 = v1(3, 14);
