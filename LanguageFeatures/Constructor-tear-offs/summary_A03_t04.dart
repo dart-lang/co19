@@ -90,12 +90,12 @@ void main() {
   var t1 = List<int>; // Type object for `List<int>`.
   Expect.isTrue(t1 is Type);
   Expect.isFalse(t1 is Function);
-  Expect.equals(new List<int>.empty().runtimeType, t1);
+  Expect.equals(new List<int>.empty().runtimeType.toString(), t1.toString());
 
   var t2 = ListList<int>; // Type object for `List<List<int>>`.
   Expect.isTrue(t2 is Type);
   Expect.isFalse(t2 is Function);
-  Expect.equals(new List<List<int>>.empty().runtimeType, t2);
+  Expect.equals(new List<List<int>>.empty().runtimeType.toString(), t2.toString());
 
   // Instantiated function tear-offs.
   T local<T>(T value) => value;
@@ -109,7 +109,7 @@ void main() {
   var f3 = local<int>; // int Function(int), works like (int $) => local<int>($);
   Expect.isTrue(f3 is Func);
 
-  var typeName = List<int>.toString();
+  var typeName = (List<int>).toString();
   Expect.equals("List<int>", typeName);
 
   var functionTypeName = local<int>.runtimeType.toString();
