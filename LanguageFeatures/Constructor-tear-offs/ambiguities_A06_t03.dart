@@ -37,8 +37,6 @@
 // SharedOptions=--enable-experiment=constructor-tearoffs
 import "../../Utils/expect.dart";
 
-String f(a, [b]) => "$a, $b";
-
 class a<T1, T2> {
   int x;
   a(this.x);
@@ -53,5 +51,4 @@ typedef c = String;
 main() {
   var x = a<b, c>;
   Expect.isTrue(x is Type);
-  Expect.equals("a<int, String>(42)", x(42).toString());
 }
