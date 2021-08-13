@@ -15,14 +15,13 @@
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
-import "../../Utils/expect.dart";
 
-class C<T> {
-  T call(T t) => t;
+class C {
+  T call<T>(T t) => t;
 }
 
 main() {
-  var c = C.call<int>;
+  var c = C().call<int>;
   c("Lily was here");
 //  ^^^^^^^^^^^^^^^
 // [analyzer] unspecified

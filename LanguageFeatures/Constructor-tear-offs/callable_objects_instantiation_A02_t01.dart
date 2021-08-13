@@ -19,12 +19,12 @@ import "../../Utils/expect.dart";
 
 typedef int Func(int i);
 
-class C<T extends num> {
-  T call(T t) => t;
+class C {
+  T call<T extends num>(T t) => t;
 }
 
 main() {
-  var c = C.call<int>;
+  var c = C().call<int>;
   Expect.isTrue(c is Func);
   Expect.equals(42, c(42));
 }
