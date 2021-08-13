@@ -25,7 +25,7 @@ void testList() {
   (List<int>).filled;           //# 01: compile-time error
   (List.filled)<int>;
 
-  List.filled<int>;             //# 02: syntax error
+  List.filled<int>;             //# 02: compile-time error
 
   List<int>.filled(4, 4);
   (List<int>).filled(4, 4);     //# 03: compile-time error
