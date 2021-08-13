@@ -12,6 +12,12 @@
 /// @description Checks that if evaluating the initializer expression causes
 /// another read of the variable, then CyclicInitializationError is thrown.
 /// Test static variable
+///
+/// @note: there should be a CyclicInitializationError in legacy code, and this
+/// is not so for opted out code, see
+/// https://github.com/dart-lang/sdk/issues/42893#issuecomment-668452162
+///
+/// @Issue 22141, 42470, 42893
 /// @author sgrekhov@unipro.ru
 
 import "../../../Utils/expect.dart";
@@ -22,10 +28,5 @@ class C {
 }
 
 main() {
-  try {
-    C.x;
-    Expect.fail("CyclicInitializationError error should be thrown");
-  } on CyclicInitializationError catch (e) {
-    Expect.equals(isJS ? "C_x" : "x", e.variableName);
-  }
+  Expect.throws(() { C.x; }, (e) => e is CyclicInitializationError);
 }
