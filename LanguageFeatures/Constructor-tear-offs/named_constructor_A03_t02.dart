@@ -17,9 +17,9 @@
 
 import "../../Utils/expect.dart";
 
-class C<T> {
-  int called = 0;
+int called = 0;
 
+class C<T> {
   C() {}
 
   C.constr(expected) {
@@ -31,21 +31,20 @@ class C<T> {
 main() {
   var v1 = C.constr;
   C c1 = v1(dynamic);
-  Expect.equals(1, c1.called);
+  Expect.equals(1, called);
 
   var v2 = C<dynamic>.constr;
   C c2 = v2(dynamic);
-  Expect.equals(2, c2.called);
+  Expect.equals(2, called);
 
-  var v3 = (C<dynamic>).constr;
-  C c3 = v3(dynamic);
-  Expect.equals(3, c3.called);
-
-  var v4 = (C<int>).constr;
+  var v4 = C<int>.constr;
   C<int> c4 = v4(int);
-  Expect.equals(4, c4.called);
+  Expect.equals(3, called);
 
-  var v5 = (C<num>).constr;
+  var v5 = C.constr;
   C c5 = v5<int>(int);
-  Expect.equals(5, c5.called);
+  Expect.equals(4, called);
+
+  var v3 = C<dynamic>;
+  Expect.isTrue(v3 is Type);
 }

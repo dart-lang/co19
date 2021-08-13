@@ -37,13 +37,9 @@ main() {
 
   var v2 = C<dynamic, num, String>.constr;
   C c2 = v2(dynamic, num, String);
-  Expect.equals(2, c2.called);
+  Expect.equals(1, c2.called);
 
   var v3 = C<dynamic, int, String>.constr;
   C c3 = v3(dynamic, int, String);
-  Expect.equals(3, c3.called);
-
-  var v4 = (C<dynamic, int, String>).constr;
-  C<dynamic, int, String> c4 = v4(int);
-  Expect.equals(4, c4.called);
+  Expect.equals(1, c3.called);
 }
