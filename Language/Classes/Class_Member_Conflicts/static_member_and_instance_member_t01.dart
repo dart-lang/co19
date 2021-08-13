@@ -14,35 +14,15 @@
 
 class C {
   void s1() {}
-//     ^^
-// [cfe] unspecified
   void s2() {}
-//     ^^
-// [cfe] unspecified
   void s3() {}
-//     ^^
-// [cfe] unspecified
   void s4() {}
-//     ^^
-// [cfe] unspecified
   void s5() {}
-//     ^^
-// [cfe] unspecified
   void _s1() {}
-//     ^^^
-// [cfe] unspecified
   void _s2() {}
-//     ^^^
-// [cfe] unspecified
   void _s3() {}
-//     ^^^
-// [cfe] unspecified
   void _s4() {}
-//     ^^^
-// [cfe] unspecified
   void _s5() {}
-//     ^^^
-// [cfe] unspecified
 
   static set s1(var value) {}
 //           ^^

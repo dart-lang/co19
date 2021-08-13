@@ -13,36 +13,16 @@
 
 class C {
   int s1 = 1;
-//    ^^
-// [cfe] unspecified
   int s2 = 1;
-//    ^^
-// [cfe] unspecified
   int s3 = 1;
-//    ^^
-// [cfe] unspecified
   int s4 = 1;
-//    ^^
-// [cfe] unspecified
   int s5 = 1;
-//    ^^
-// [cfe] unspecified
 
   int _s1 = 1;
-//    ^^^
-// [cfe] unspecified
   int _s2 = 1;
-//    ^^^
-// [cfe] unspecified
   int _s3 = 1;
-//    ^^^
-// [cfe] unspecified
   int _s4 = 1;
-//    ^^^
-// [cfe] unspecified
   int _s5 = 1;
-//    ^^^
-// [cfe] unspecified
 
   static set s1(var value) {}
 //           ^^

@@ -17,6 +17,7 @@
 /// @description Checks that it is a compile-time error to tear-off a call
 /// method of a generic function type
 /// @author sgrekhov@unipro.ru
+/// @issue 46902
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 

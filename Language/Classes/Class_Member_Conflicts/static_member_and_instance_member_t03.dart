@@ -13,35 +13,15 @@
 
 class C {
   int get s1 => 1;
-//        ^^
-// [cfe] unspecified
   int get s2 => 1;
-//        ^^
-// [cfe] unspecified
   int get s3 => 1;
-//        ^^
-// [cfe] unspecified
   int get s4 => 1;
-//        ^^
-// [cfe] unspecified
   int get s5 => 1;
-//        ^^
-// [cfe] unspecified
   int get _s1 => 2;
-//        ^^^
-// [cfe] unspecified
   int get _s2 => 2;
-//        ^^^
-// [cfe] unspecified
   int get _s3 => 2;
-//        ^^^
-// [cfe] unspecified
   int get _s4 => 2;
-//        ^^^
-// [cfe] unspecified
   int get _s5 => 2;
-//        ^^^
-// [cfe] unspecified
 
   static set s1(var value) {}
 //           ^^

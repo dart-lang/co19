@@ -14,32 +14,16 @@
 
 class C {
   set s1(int v) {}
-//    ^^
-// [cfe] unspecified
   set s2(int v) {}
-//    ^^
-// [cfe] unspecified
   set s3(int v) {}
-//    ^^
-// [cfe] unspecified
   set s4(int v) {}
-//    ^^
-// [cfe] unspecified
   set s5(int v) {}
 //    ^^
 // [cfe] unspecified
   set _s1(int v) {}
-//    ^^^
-// [cfe] unspecified
   set _s2(int v) {}
-//    ^^^
-// [cfe] unspecified
   set _s3(int v) {}
-//    ^^^
-// [cfe] unspecified
   set _s4(int v) {}
-//    ^^^
-// [cfe] unspecified
   set _s5(int v) {}
 //    ^^^
 // [cfe] unspecified
