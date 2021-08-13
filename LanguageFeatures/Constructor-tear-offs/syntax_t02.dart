@@ -39,7 +39,7 @@ void testC() {
   (C<int>).new;                 //# 05: compile-time error
   (C.new)<int>;
 
-  C.new<int>;                   //# 06: syntax error
+  C.new<int>;                   //# 06: compile-time error
 
   C<int>.new();
   (C<int>).new();               //# 07: compile-time error
