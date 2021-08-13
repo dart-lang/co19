@@ -18,7 +18,7 @@ import "../../Utils/expect.dart";
 
 class C<T1 extends int, T2, T3 extends List> {
   int? i, j;
-  C.name1(T i, [List? l, T? check]) {}
+  C.name1(T1 i, [List? l, T2? check]) {}
   C.name2(this.i, this.j);
   C() {}
 }
