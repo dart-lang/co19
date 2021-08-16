@@ -28,14 +28,15 @@ main() {
     Expect.equals(0, 0x100000000 & 0x80000000);
     Expect.equals(0x10000000000000, 0x10000000000001 & 0x10000000000000);
     Expect.equals(0, 0x4000000000000 & 0x3FFFFFFFFFFFF);
+
+    // negative arguments
+    Expect.equals(1, -1 & 1);
+    Expect.equals(1, 1 & -1);
+    Expect.equals(-1, -1 & -1);
+    Expect.equals(-3, -3 & -3);
+    Expect.equals(1, -3 & 3);
+    Expect.equals(0, -3 & 2);
+    Expect.equals(-100, -100 & -1);
+    Expect.equals(-100, -1 & -100);
   }
-  // negative arguments
-  Expect.equals(1, -1 & 1);
-  Expect.equals(1, 1 & -1);
-  Expect.equals(-1, -1 & -1);
-  Expect.equals(-3, -3 & -3);
-  Expect.equals(1, -3 & 3);
-  Expect.equals(0, -3 & 2);
-  Expect.equals(-100, -100 & -1);
-  Expect.equals(-100, -1 & -100);
 }

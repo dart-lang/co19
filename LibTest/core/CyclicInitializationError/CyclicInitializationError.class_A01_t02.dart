@@ -18,10 +18,5 @@ import "../../../Utils/expect.dart";
 import "CyclicInitializationError.lib.dart" as lib;
 
 main() {
-  try {
-    lib.x;
-    Expect.fail("CyclicInitializationError error should be thrown");
-  } on CyclicInitializationError catch (e) {
-    Expect.equals("x", e.variableName);
-  }
+  Expect.throws(() { lib.x; }, (e) => e is CyclicInitializationError);
 }
