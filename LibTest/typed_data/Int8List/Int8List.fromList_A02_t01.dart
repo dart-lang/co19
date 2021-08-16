@@ -12,15 +12,14 @@
 /// are copied.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
-import "../toInt8.lib.dart";
 
 void check(List<int> list) {
   Int8List l = new Int8List.fromList(list);
   Expect.equals(l.length, list.length);
-  Expect.listEquals(list.map(toInt8).toList(), l);
+  Expect.listEquals(list.map((x) => x.toUnsigned(8)).toList(),
+      l.map((x) => x.toUnsigned(8)).toList());
 }
 
 main() {

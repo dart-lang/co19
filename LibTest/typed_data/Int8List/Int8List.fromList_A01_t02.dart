@@ -11,15 +11,14 @@
 /// the [elements].
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
-import "../toInt8.lib.dart";
 
 void check(List<int> array) {
   Int8List l = new Int8List.fromList(array);
   Expect.equals(l.length, array.length);
-  Expect.listEquals(array.map(toInt8).toList(), l);
+  Expect.listEquals(array.map((x) => x.toUnsigned(8)).toList(),
+      l.map((x) => x.toUnsigned(8)).toList());
 }
 
 main() {

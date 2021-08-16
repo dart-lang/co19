@@ -9,10 +9,8 @@
 /// @description Checks special cases.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
-import "../toInt32.lib.dart";
 
 main() {
   var obj = new Float32x4(double.infinity, double.negativeInfinity,
@@ -20,7 +18,7 @@ main() {
   var res = new Int32x4.fromFloat32x4Bits(obj);
 
   Expect.equals(0x7f800000, res.x);
-  Expect.equals(toInt32(0xff800000), res.y);
+  Expect.equals(0xff800000.toUnsigned(32), res.y.toUnsigned(32));
 
   var nanMask = 0x7f800000;
   var fraction = 0x7fffff;
