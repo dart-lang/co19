@@ -8,18 +8,17 @@
 /// are set correctly.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
-import "../toInt32.lib.dart";
 
 check(x, y, z, w) {
   var obj = new Int32x4(x, y, z, w);
   Expect.isTrue(obj is Int32x4);
-  Expect.equals(toInt32(x), obj.x);
-  Expect.equals(toInt32(y), obj.y);
-  Expect.equals(toInt32(z), obj.z);
-  Expect.equals(toInt32(w), obj.w);
+  Expect.equals(x.toUnsigned(32), obj.x.toUnsigned(32));
+  Expect.equals(x.toUnsigned(32), obj.x.toUnsigned(32));
+  Expect.equals(y.toUnsigned(32), obj.y.toUnsigned(32));
+  Expect.equals(z.toUnsigned(32), obj.z.toUnsigned(32));
+  Expect.equals(w.toUnsigned(32), obj.w.toUnsigned(32));
 }
 
 main() {

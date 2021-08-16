@@ -7,19 +7,17 @@
 /// @description Checks that lanes are converted correctly.
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
-import "../toInt32.lib.dart";
 
 check(x, y, z, w, floatX, floatY, floatZ, floatW) {
   var floatObj = new Float32x4(floatX, floatY, floatZ, floatW);
   var res = new Int32x4.fromFloat32x4Bits(floatObj);
 
-  Expect.equals(toInt32(x), res.x);
-  Expect.equals(toInt32(y), res.y);
-  Expect.equals(toInt32(z), res.z);
-  Expect.equals(toInt32(w), res.w);
+  Expect.equals(x.toUnsigned(32), res.x.toUnsigned(32));
+  Expect.equals(y.toUnsigned(32), res.y.toUnsigned(32));
+  Expect.equals(z.toUnsigned(32), res.z.toUnsigned(32));
+  Expect.equals(w.toUnsigned(32), res.w.toUnsigned(32));
 }
 
 main() {

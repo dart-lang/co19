@@ -9,10 +9,8 @@
 /// @note undocumented
 /// @author msyabro
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
-import "../toInt32.lib.dart";
 
 check(x1, y1, z1, w1, x2, y2, z2, w2) {
   var obj1 = new Int32x4(x1, y1, z1, w1);
@@ -20,10 +18,10 @@ check(x1, y1, z1, w1, x2, y2, z2, w2) {
   var res = obj1 | obj2;
 
 //  Expect.equals(x1|x2, res.x);
-  Expect.equals(toInt32(x1) | toInt32(x2), res.x);
-  Expect.equals(toInt32(y1) | toInt32(y2), res.y);
-  Expect.equals(toInt32(z1) | toInt32(z2), res.z);
-  Expect.equals(toInt32(w1) | toInt32(w2), res.w);
+  Expect.equals(x1.toUnsigned(32) | x2.toUnsigned(32), res.x.toUnsigned(32));
+  Expect.equals(y1.toUnsigned(32) | y2.toUnsigned(32), res.y.toUnsigned(32));
+  Expect.equals(z1.toUnsigned(32) | z2.toUnsigned(32), res.z.toUnsigned(32));
+  Expect.equals(w1.toUnsigned(32) | w2.toUnsigned(32), res.w.toUnsigned(32));
 }
 
 main() {

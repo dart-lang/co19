@@ -10,15 +10,14 @@
 /// are copied.
 /// @author ngl@unipro.ru
 
-
 import "dart:typed_data";
 import "../../../Utils/expect.dart";
-import "../toInt16.lib.dart";
 
 void check(List<int> list) {
   Int16List l = new Int16List.fromList(list);
   Expect.equals(l.length, list.length);
-  Expect.listEquals(list.map(toInt16).toList(), l);
+  Expect.listEquals(list.map((x) => x.toUnsigned(16)).toList(),
+      l.map((x) => x.toUnsigned(16)).toList());
 }
 
 main() {
