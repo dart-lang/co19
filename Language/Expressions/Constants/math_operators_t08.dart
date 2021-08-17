@@ -1,4 +1,4 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -11,21 +11,24 @@
 /// • An expression of one of the forms −e, e1 - e2, e1 * e2, e1 / e2, e1 ˜/ e2,
 ///   e1 > e2, e1 < e2, e1 >= e2, e1 <= e2 or e1 % e2, where e, e1 and e2 are
 ///   constant expressions that evaluate to a numeric value or to null.
-/// @description Checks that expressions of the specified forms can be
-/// used within the initializer list of a constant constructor and are,
-/// therefore, constant expressions. Tests big integer numbers, so should be
-/// excluded for the web runs.
-/// @note The part of the initial test which should work OK with all
-/// configurations is moved to the math_operator_t09.dart.
-/// @author iefremov
+/// @description Checks that various expressions of the form e1 + e2 can be
+/// elements of a constant list literal and are, therefore, constant
+/// expressions.
+/// @note The test initially was a part of math_operator_t01.dart. Should pass
+/// on all the configurations including web.
+/// @author iarkh@unipro.ru
 
+import '../../../Utils/expect.dart';
 
-class C {
-  const C() : d = -999999999999999999;
-  final d;
-}
-
+final constList = const [
+  1 + 2,
+  3.14 + 1,
+  1 + 3.14,
+  3.14 + 3.14,
+  (0.0/0.0) + (0.0/0.0),
+  (3.14 * 15926) + (1 ~/ 100)
+];
 
 main() {
-  const C();
+  Expect.isTrue(constList is List);
 }
