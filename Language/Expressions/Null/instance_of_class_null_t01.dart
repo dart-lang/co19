@@ -9,9 +9,8 @@
 /// @author ilya
 
 
-import 'dart:mirrors';
 import '../../../Utils/expect.dart';
 
 main() {
-  Expect.isTrue(reflect(null).type.reflectedType == Null);
+  Expect.isTrue(null is Null);
 }

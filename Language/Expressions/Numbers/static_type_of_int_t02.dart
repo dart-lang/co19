@@ -8,8 +8,6 @@
 /// @description Checks that it is a compile error to assign an integer literal
 /// to a typed bool variable.
 /// @author iefremov
-/// @reviewer rodionov
-
 
 main() {
   bool b = 1;
