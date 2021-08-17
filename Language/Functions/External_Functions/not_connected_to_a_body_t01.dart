@@ -16,8 +16,8 @@
 /// @description Checks that invoking an external function that is not connected
 /// to its body indeed results in a NoSuchMethodError or its subclass being
 /// thrown.
+/// @Issue 42182
 /// @author rodionov
-/// @reviewer kaigorodov
 
 import '../../../Utils/expect.dart';
 
@@ -26,20 +26,7 @@ external g([var x]);
 external h({var x});
 
 main() {
-  var s = "";
-  try {
-    f();
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {
-  } catch (e) {print("unexpected exception of type ${e.runtimeType}: $e");}
-
-  try {
-    g();
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {}
-
-  try {
-    h();
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (e) {}
+  Expect.throws(() { f(); }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { g(); }, (e) => e is NoSuchMethodError);
+  Expect.throws(() { h(); }, (e) => e is NoSuchMethodError);
 }
