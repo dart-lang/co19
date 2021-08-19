@@ -15,20 +15,21 @@
 /// and
 ///   Type intList = List<int>; // In-line instantiated type literal.
 ///
-/// @description Checks example from the Spec.
-/// @author sgrekhov@unipro.ru
+/// @description Checks custom generic class.
+/// @author iarkh@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
 import "../../Utils/expect.dart";
 
+class A<T> {}
+
 main() {
-  Type intList = List<int>;
-  List<int> list1 = new List<int>.empty();
-  // List is an abstract class, so it cannot be a runtime type.
-  Expect.isFalse(list1.runtimeType == intList);
-  List<double> list2 = new List<double>.empty();
-  Expect.isFalse(list2.runtimeType == intList);
-  List<num> list3 = new List<num>.empty();
-  Expect.isFalse(list3.runtimeType == intList);
+  Type intA = A<int>;
+  A<int> a1 = A<int>();
+  Expect.isTrue(a1.runtimeType == intA);
+  A<double> a2 = A<double>();
+  Expect.isFalse(a2.runtimeType == intA);
+  A<num> a3 = A();
+  Expect.isFalse(a3.runtimeType == intA);
 }
