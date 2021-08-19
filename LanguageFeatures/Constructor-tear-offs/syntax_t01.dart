@@ -26,7 +26,7 @@ class C<T> {
 main() {
   var v1 = C<int>.new;
   var v2 = (C<int>).new;            //#01: syntax error
-  var v3 = C.new<int>;
+  var v3 = (C.new)<int>;
 
   var v4 = C<Never>.constr1;
   var v5 = (C<Never>).constr1;      //# 02: syntax error
