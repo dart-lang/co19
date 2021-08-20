@@ -5,17 +5,15 @@
 /// @assertion An instantiated tear-off is constant and canonicalized if the
 /// instantiating types are constant, and not even equal if they are not.
 ///
-/// @description Checks that an instantiated tear-off is constant and
-/// canonicalized if the instantiating types are constant - test non-generic
-/// class
+/// @description Checks that invocation of a constructor tearoff is never a
+/// constant expression
+/// (see https://github.com/dart-lang/sdk/issues/46925#issuecomment-900420499)
 /// @author iarkh@unipro.ru
 /// @issue 46899
 /// @issue 46900
 /// @issue 46925
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
-
-import "../../Utils/expect.dart";
 
 class MyClass {
   final a;
@@ -25,15 +23,14 @@ class MyClass {
 
 main() {
   const v1 = MyClass.new;
+  const c1 = v1(3, 14);
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   const v2 = MyClass.constr;
-
-  var c1 = v1(3, 14);
-  var c2 = v1(3, 14);
-  Expect.notEquals(c1, c2);
-
-  var c3 = v2();
-  var c4 = v2();
-  Expect.notEquals(c3, c4);
-
-  Expect.notEquals(c1, c3);
+  const c2 = v2();
+//           ^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
