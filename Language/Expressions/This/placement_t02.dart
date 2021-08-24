@@ -17,7 +17,5 @@ func(this, p) {}
 // [cfe] unspecified
 
 main() {
-  func(1, 2);
-//    ^
-// [cfe] unspecified
+  print(func);
 }

@@ -16,7 +16,5 @@ void f(var return) {}
 // [cfe] unspecified
 
 main() {
-  f(null);
-// ^
-// [cfe] unspecified
+  print(f);
 }
