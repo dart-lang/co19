@@ -20,9 +20,5 @@ func(this, p) {}
 // [cfe] unspecified
 
 main() {
-  try {
-    func(1, 2);
-//      ^
-// [cfe] unspecified
-  } catch (e) {}
+  print(func);
 }

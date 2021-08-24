@@ -19,10 +19,5 @@ void f(var assert) {}
 // [cfe] unspecified
 
 main() {
-  try {
-    f();
-//   ^
-// [analyzer] unspecified
-  } catch (anything) {
-  }
+  print(f);
 }

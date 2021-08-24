@@ -19,10 +19,5 @@ void f(var continue) {}
 // [cfe] unspecified
 
 main() {
-  try {
-    f();
-//   ^
-// [analyzer] unspecified
-  } catch (anything) {
-  }
+  print(f);
 }
