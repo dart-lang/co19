@@ -22,21 +22,21 @@ main() {
   C1.g1;
   // ^^
   // [analyzer] COMPILE_TIME_ERROR.STATIC_ACCESS_TO_INSTANCE_MEMBER
-  // [cfe] Getter not found: 'g1'.
+  // [cfe] Member not found: 'g1'.
   C1.g2;
   // ^^
   // [analyzer] COMPILE_TIME_ERROR.STATIC_ACCESS_TO_INSTANCE_MEMBER
-  // [cfe] Getter not found: 'g2'.
+  // [cfe] Member not found: 'g2'.
   C2.g1;
   // ^^
   // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-  // [cfe] Getter not found: 'g1'.
+  // [cfe] Member not found: 'g1'.
   C2.g2;
   // ^^
   // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-  // [cfe] Getter not found: 'g2'.
+  // [cfe] Member not found: 'g2'.
   C2.g3;
   // ^^
   // [analyzer] COMPILE_TIME_ERROR.STATIC_ACCESS_TO_INSTANCE_MEMBER
-  // [cfe] Getter not found: 'g3'.
+  // [cfe] Member not found: 'g3'.
 }

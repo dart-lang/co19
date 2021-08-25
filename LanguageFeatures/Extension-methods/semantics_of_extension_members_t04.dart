@@ -22,7 +22,7 @@ extension ExtendedC on C {
   static String st = cStaticMember;
   //                 ^^^^^^^^^^^^^
   // [analyzer] COMPILE_TIME_ERROR.UNQUALIFIED_REFERENCE_TO_STATIC_MEMBER_OF_EXTENDED_TYPE
-  // [cfe] Getter not found: 'cStaticMember'.
+  // [cfe] Undefined name 'cStaticMember'.
   void test() {
     cStaticMember;
 //  ^^^^^^^^^^^^^

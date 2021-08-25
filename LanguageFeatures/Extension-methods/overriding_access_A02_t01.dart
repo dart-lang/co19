@@ -24,11 +24,11 @@ main() {
   bool res1 = MySimpleExt("testme").test1;
   //                                ^^^^^
   // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_GETTER
-  // [cfe] Getter not found: 'test1'.
+  // [cfe] Member not found: 'test1'.
   dynamic res2 = MySimpleExt("testme").getAString;
   //                                   ^^^^^^^^^^
   // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_GETTER
-  // [cfe] Getter not found: 'getAString'.
+  // [cfe] Member not found: 'getAString'.
   MySimpleExt("testme").put(11);
   //                    ^^^
   // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_METHOD

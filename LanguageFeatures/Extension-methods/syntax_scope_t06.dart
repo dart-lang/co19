@@ -33,5 +33,5 @@ main() {
   MyFancyList.className;
   //          ^^^^^^^^^
   // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_GETTER
-  // [cfe] Getter not found: 'className'.
+  // [cfe] Member not found: 'className'.
 }

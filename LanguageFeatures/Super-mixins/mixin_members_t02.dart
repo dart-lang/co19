@@ -66,23 +66,23 @@ main() {
   MA.i1 == 1;
   // ^^
   // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-  // [cfe] Getter not found: 'i1'.
+  // [cfe] Member not found: 'i1'.
   MA.j1 == 2;
   // ^^
   // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-  // [cfe] Getter not found: 'j1'.
+  // [cfe] Member not found: 'j1'.
   MA.b1 == 3;
   // ^^
   // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-  // [cfe] Getter not found: 'b1'.
+  // [cfe] Member not found: 'b1'.
   MA.c1 == 4;
   // ^^
   // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-  // [cfe] Getter not found: 'c1'.
+  // [cfe] Member not found: 'c1'.
   MA.m1 == 5;
   // ^^
   // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-  // [cfe] Getter not found: 'm1'.
+  // [cfe] Member not found: 'm1'.
 
   ma.test();
 }

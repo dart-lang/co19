@@ -20,7 +20,7 @@ main() {
   bool res1 = testlib.MySimpleExt("testme").isInt;
   //                                        ^^^^^
   // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_GETTER
-  // [cfe] Getter not found: 'isInt'.
+  // [cfe] Member not found: 'isInt'.
   var res2 = testlib.MySimpleExt("testme").getTest();
   //                                       ^^^^^^^
   // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_EXTENSION_METHOD

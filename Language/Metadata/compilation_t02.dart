@@ -16,7 +16,7 @@ void metadata() {
 //^^^^^^^^^^^
 // [analyzer] COMPILE_TIME_ERROR.INVALID_ANNOTATION
 // ^
-// [cfe] Method not found: 'metadata'.
+// [cfe] Couldn't find constructor 'metadata'.
 class A {}
 
 main() {

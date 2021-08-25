@@ -28,5 +28,5 @@ main() {
   List.nnClassName;
   //   ^^^^^^^^^^^
   // [analyzer] COMPILE_TIME_ERROR.UNDEFINED_GETTER
-  // [cfe] Getter not found: 'nnClassName'.
+  // [cfe] Member not found: 'nnClassName'.
 }

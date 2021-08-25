@@ -20,7 +20,7 @@ class A {
 //^^^^^^
 // [analyzer] COMPILE_TIME_ERROR.INVALID_ANNOTATION
 //   ^
-// [cfe] Method not found: 'A.a'.
+// [cfe] Couldn't find constructor 'A.a'.
 class B {}
 
 main() {
