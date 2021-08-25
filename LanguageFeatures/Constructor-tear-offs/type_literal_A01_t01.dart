@@ -22,13 +22,12 @@
 
 import "../../Utils/expect.dart";
 
+Type typeOf<X>() => X;
+
 main() {
   Type intList = List<int>;
-  List<int> list1 = new List<int>.empty();
-  // List is an abstract class, so it cannot be a runtime type.
-  Expect.isFalse(list1.runtimeType == intList);
-  List<double> list2 = new List<double>.empty();
-  Expect.isFalse(list2.runtimeType == intList);
-  List<num> list3 = new List<num>.empty();
-  Expect.isFalse(list3.runtimeType == intList);
+
+  Expect.isTrue(typeOf<List<int>>() == intList);
+  Expect.isFalse(typeOf<List<double>>() == intList);
+  Expect.isFalse(typeOf<List<num>>() == intList);
 }
