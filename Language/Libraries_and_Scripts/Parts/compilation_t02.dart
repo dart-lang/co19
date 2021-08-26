@@ -10,12 +10,11 @@
 /// @description Checks that it is a compile-time error if there're two part
 /// directives referencing the same URI.
 /// @author rodionov
-/// @reviewer kaigorodov
-
+/// @issue 46998
 
 library Parts_test_lib;
-part "part_0.dart";
-part "part_0.dart";
+part "part_2.dart";
+part "part_2.dart";
 //   ^
 // [analyzer] unspecified
 
