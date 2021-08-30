@@ -31,10 +31,10 @@
 // parsed as comma separated < and > operator invocations.
 ///
 /// @description Checks disambiguate by '*' token. Test that a<b, c>* is
-/// parsed as (a<b, c>)*. Test constructor tear-off
+/// parsed as (a<b), (c>*). Test constructor tear-off
 /// @author sgrekhov@unipro.ru
 
-import "../../Utils/expect.dart";
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 String f(a, [b]) => "$a, $b";
 
@@ -54,5 +54,12 @@ extension on Type {
 }
 
 main() {
-  Expect.equals("42, null", f(a<b, c> * 42));
+  f(a<b,
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+      c> * 42);
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

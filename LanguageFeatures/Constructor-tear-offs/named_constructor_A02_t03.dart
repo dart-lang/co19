@@ -16,13 +16,13 @@
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
-import "../../Utils/expect.dart";
-
 class C<T> {
   C.constr(T t) {}
 }
 
 main() {
-  Expect.isTrue(C.constr is C<X> Function<X extends dynamic>(X));
-  Expect.isTrue(C<int>.constr is C<int> Function(int));
+  (C.constr)<int> is C<int> Function(int);
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

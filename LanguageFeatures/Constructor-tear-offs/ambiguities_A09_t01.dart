@@ -31,9 +31,10 @@
 // parsed as comma separated < and > operator invocations.
 ///
 /// @description Checks disambiguate by '?' token. Test that a<b, c>? is
-/// parsed as (a<b, c>)?
+/// parsed as (a<b), (c>?)
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 void f(x, [y]) {}
 
@@ -42,9 +43,6 @@ main() {
   int b = 2;
   bool c = true;
   f(a<b,
-//  ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
     c>? 4 : 2);
 //  ^^
 // [analyzer] unspecified

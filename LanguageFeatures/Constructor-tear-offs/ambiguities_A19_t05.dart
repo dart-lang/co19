@@ -31,9 +31,10 @@
 // parsed as comma separated < and > operator invocations.
 ///
 /// @description Checks disambiguate by '++' token. Test that a<b, c>++ is
-/// parsed as (a<b, c>)++. Test generic function tear-off
+/// parsed as (a<b), (c>++). Test generic function tear-off
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 String a<T1, T2>(int x) {
   return "a<$T1, $T2>($x)";

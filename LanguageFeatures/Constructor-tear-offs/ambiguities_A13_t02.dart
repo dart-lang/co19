@@ -31,10 +31,10 @@
 // parsed as comma separated < and > operator invocations.
 ///
 /// @description Checks disambiguate by '?.' token. Test that a<b, c>?. is
-/// parsed as (a<b, c>)?. . Test generic function tear-off
+/// parsed as (a<b), (c>?.). Test generic function tear-off
 /// @author sgrekhov@unipro.ru
 
-import "../../Utils/expect.dart";
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 String f(a, [b]) => "$a, $b";
 
@@ -46,9 +46,12 @@ typedef b = int;
 typedef c = String;
 
 main() {
-  Expect.equals("${a<b, c>}, null", f(a<b, c>?.toString()));
-//                                           ^^
-// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-//                                     ^
-// [cfe] Operand of null-aware operation '?.' has type 'String Function(int)' which excludes null.
+ f(a<b,
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+     c>?.toString());
+  //  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
