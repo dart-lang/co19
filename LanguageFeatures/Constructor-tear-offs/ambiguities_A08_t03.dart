@@ -52,5 +52,5 @@ typedef b = int;
 typedef c = String;
 
 main() {
-  Expect.equals("${a<b, c>}, null",f(a<b, c>.toString()));
+  Expect.equals("${a<b, c>}, null",f((a<b, c>).toString()));
 }
