@@ -14,6 +14,7 @@
 /// normal parameters with the same name and type - test named parameters.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 class C {
   int? j = 0;

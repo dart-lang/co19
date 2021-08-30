@@ -13,6 +13,7 @@
 /// @description Checks that [params] is exactly the same parameter list
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 class D extends C {
   D() : super(42, "Lily was here");

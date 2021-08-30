@@ -13,6 +13,7 @@
 /// @description Checks that [params] is exactly the same parameter list.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 import "../../Utils/expect.dart";
 

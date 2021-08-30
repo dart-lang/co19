@@ -19,6 +19,7 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 46902
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 T foo1<T>(T value) => value;
 

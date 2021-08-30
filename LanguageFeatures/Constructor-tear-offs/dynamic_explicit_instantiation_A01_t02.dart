@@ -12,6 +12,7 @@
 /// error
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 dynamic f(dynamic x) => x;
 

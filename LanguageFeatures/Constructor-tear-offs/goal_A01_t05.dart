@@ -22,6 +22,7 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 46896
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 class C<T extends num> {
   int? i;

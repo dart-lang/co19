@@ -10,6 +10,7 @@
 /// expressions are the same - test generic class with default type arguments
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 import "../../Utils/expect.dart";
 

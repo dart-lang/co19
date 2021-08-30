@@ -12,6 +12,7 @@
 /// negative static case for [List<int>].
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 typedef MyList = List<int>;
 

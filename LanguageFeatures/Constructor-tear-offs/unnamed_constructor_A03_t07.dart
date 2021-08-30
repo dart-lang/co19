@@ -11,6 +11,7 @@
 ///
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 class A {
   A() {}

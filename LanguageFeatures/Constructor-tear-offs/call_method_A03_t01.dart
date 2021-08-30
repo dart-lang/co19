@@ -18,6 +18,7 @@
 /// method of a generic function type by ?.
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 T foo1<T>(T value) => value;
 

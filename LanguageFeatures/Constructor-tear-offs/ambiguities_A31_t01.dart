@@ -35,6 +35,8 @@
 /// Test single quote token
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
+
 import "../../Utils/expect.dart";
 
 String f(a, [b]) => "$a, $b";

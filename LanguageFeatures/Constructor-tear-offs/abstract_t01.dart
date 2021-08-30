@@ -9,6 +9,7 @@
 /// constructor declared in an abstract class
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 abstract class C {
   C() {}

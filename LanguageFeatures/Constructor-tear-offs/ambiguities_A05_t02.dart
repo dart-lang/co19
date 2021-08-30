@@ -34,6 +34,8 @@
 /// parsed as (a<b, c>):. Test generic function tear-off
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
+
 import "../../Utils/expect.dart";
 
 String a<T1, T2>(int x) {

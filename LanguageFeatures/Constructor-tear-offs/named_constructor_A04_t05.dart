@@ -14,6 +14,7 @@
 /// list - test case with several argument.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 class C {
   C.constr(int i, String j, List<int> l) {}

@@ -10,6 +10,7 @@
 /// construction function named [C.new$tearoff].
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 import "../../Utils/expect.dart";
 

@@ -12,6 +12,7 @@
 /// the same function value: test generic constructor.
 /// @author iarkh@unipro.ru
 
+// SharedOptions=--enable-experiment=constructor-tearoffs
 
 import "../../Utils/expect.dart";
 
