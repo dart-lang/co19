@@ -30,7 +30,6 @@
 /// @description Checks incorrect cyclic case.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=generic-metadata
 
 class C1<T extends Function<C extends C1>()> {}
 //       ^

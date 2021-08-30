@@ -16,7 +16,6 @@
 /// errors.
 /// @author msyabro
 
-// SharedOptions=--enable-experiment=triple-shift
 
 topFunc() {}
 

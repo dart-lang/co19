@@ -11,8 +11,6 @@
 /// local variable marked late and final when the variable is definitely assigned
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=triple-shift
-
 main() {
   late final int x = 42;
   x >>>= 1;

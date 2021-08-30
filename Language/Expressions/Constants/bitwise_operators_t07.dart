@@ -16,7 +16,6 @@
 /// value, is used to initialize a constant variable.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=triple-shift
 
 final constList = const [
   1 >>> "one and a half"

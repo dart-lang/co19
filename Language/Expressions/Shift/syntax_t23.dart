@@ -18,7 +18,6 @@
 /// as the second operand of a shift expression without a compile error.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=triple-shift
 
 class A {}
 

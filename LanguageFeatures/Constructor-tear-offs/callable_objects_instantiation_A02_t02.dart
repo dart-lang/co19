@@ -14,7 +14,6 @@
 /// normal generic instance method.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
 
 class C {
   T call<T>(T t) => t;

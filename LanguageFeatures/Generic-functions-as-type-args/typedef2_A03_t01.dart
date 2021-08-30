@@ -31,7 +31,6 @@
 /// @author iarkh@unipro.ru
 /// @Issue 45317
 
-// SharedOptions=--enable-experiment=generic-metadata
 
 typedef T TEST1<T extends void Function<TT extends T>(TT)>(T t);
 

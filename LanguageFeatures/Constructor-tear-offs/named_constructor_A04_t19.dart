@@ -14,7 +14,6 @@
 /// required named parameter.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
 
 import "../../Utils/expect.dart";
 

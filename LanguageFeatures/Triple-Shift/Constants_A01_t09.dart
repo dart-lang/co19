@@ -13,7 +13,6 @@
 /// @Issue 30886
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=triple-shift
 
 import "../../Utils/expect.dart";
 

@@ -18,7 +18,6 @@
 /// 'super'
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
 
 class A {
   T instanceMethod<T>(T t) => t;

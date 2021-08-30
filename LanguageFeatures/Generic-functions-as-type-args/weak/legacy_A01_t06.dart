@@ -34,7 +34,6 @@
 
 // @dart=2.6
 // Requirements=nnbd-weak
-// SharedOptions=--enable-experiment=generic-metadata
 
 void F<T>() {}
 

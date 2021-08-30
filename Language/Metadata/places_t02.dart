@@ -12,7 +12,6 @@
 /// declaration. Test generic metadata
 /// @author sgekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=generic-metadata
 
 class A<T> {
     const A(T t);

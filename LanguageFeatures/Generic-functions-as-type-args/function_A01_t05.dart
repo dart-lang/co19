@@ -31,7 +31,6 @@
 /// argument and bound.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=generic-metadata
 
 typedef exp1 = T Function<T extends num>(T);
 typedef exp2 = void Function<T extends num>();

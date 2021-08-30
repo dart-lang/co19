@@ -8,7 +8,6 @@
 /// @Issue 34803
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=generic-metadata
 
 class A<X extends G> {}
 typedef G<X> = void Function<Y extends X>();

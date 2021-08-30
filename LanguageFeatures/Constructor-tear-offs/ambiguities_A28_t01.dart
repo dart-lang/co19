@@ -35,7 +35,6 @@
 /// Test '!' token
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
 
 void f(x, [y]) {}
 

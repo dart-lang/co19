@@ -14,7 +14,6 @@
 /// @author iarkh@unipro.ru
 
 // Requirements=nnbd-strong
-// SharedOptions=--enable-experiment=generic-metadata
 
 import "const_evaluation_lib.dart";
 

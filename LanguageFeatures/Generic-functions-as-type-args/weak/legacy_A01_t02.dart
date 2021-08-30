@@ -34,7 +34,6 @@
 
 // @dart=2.6
 // Requirements=nnbd-weak
-// SharedOptions=--enable-experiment=generic-metadata
 
 typedef F1 = void Function<X extends void Function<T>()>();
 //                         ^

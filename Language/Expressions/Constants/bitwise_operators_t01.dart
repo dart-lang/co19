@@ -14,7 +14,6 @@
 /// therefore, constant expressions.
 /// @author iefremov
 
-// SharedOptions=--enable-experiment=triple-shift
 
 class C {
   final a, b, c, d, e, f, g, h;

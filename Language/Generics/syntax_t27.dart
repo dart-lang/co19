@@ -13,7 +13,6 @@
 /// gets enabled.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=generic-metadata
 
 class A<X> { const A(); }
 class C<T> { const C(); }

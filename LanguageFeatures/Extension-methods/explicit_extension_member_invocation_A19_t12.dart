@@ -12,7 +12,6 @@
 /// simple or composite member invocation. Test >>>= operator
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=triple-shift
 
 class C {
   int value;

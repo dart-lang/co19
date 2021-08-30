@@ -14,8 +14,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 39876
 
-// SharedOptions=--enable-experiment=triple-shift
-
 main() {
   late int x;
   x >>>= 1;

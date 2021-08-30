@@ -17,7 +17,6 @@
 /// according to this grammar don't cause compile-time errors.
 /// @author msyabro
 
-// SharedOptions=--enable-experiment=triple-shift
 
 topLevelFunction() {}
 

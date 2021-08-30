@@ -8,7 +8,6 @@
 /// #355 for more details)
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=triple-shift
 
 main() {
   const int i1 = 12345;

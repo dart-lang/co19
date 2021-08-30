@@ -19,7 +19,6 @@
 /// @Issue #36343
 /// @author msyabro
 
-// SharedOptions=--enable-experiment=triple-shift
 
 topLevelFunction() {}
 

@@ -18,7 +18,6 @@
 /// can't terminate with the triple shift operator >>>.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=triple-shift
 
 main() {
   1 >>>;

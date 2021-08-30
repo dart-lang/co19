@@ -23,7 +23,6 @@
 /// @author iarkh@unipro.ru
 
 // Requirements=nnbd-weak
-// SharedOptions=--enable-experiment=generic-metadata
 
 import "../../const_evaluation_lib.dart";
 

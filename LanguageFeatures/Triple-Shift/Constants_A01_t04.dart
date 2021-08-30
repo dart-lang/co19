@@ -15,7 +15,6 @@
 /// expressions.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=triple-shift
 
 class MyClass {
   final int a;

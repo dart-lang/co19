@@ -31,7 +31,6 @@
 /// @Issue 45329
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=generic-metadata
 
 void testme<T>() {}
 

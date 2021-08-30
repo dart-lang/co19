@@ -45,7 +45,6 @@
 /// @Issue 45788
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=generic-metadata
 
 typedef FUNC<T> = void Function<T1 extends T>();
 class A<X extends FUNC<X>> {}

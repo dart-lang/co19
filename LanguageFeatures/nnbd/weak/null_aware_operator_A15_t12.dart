@@ -11,9 +11,8 @@
 /// to: PASSTHRU[F, fn[x] => x[EXP(e2)] >>>= EXP(e3)]
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=triple-shift
 // Requirements=nnbd-weak
-import "../../../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 class C {
   List<int> _list = [3, 1, 4, 1, 5, 9];

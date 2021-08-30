@@ -12,7 +12,6 @@
 /// the same function value: test named constructors
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
 
 import "../../Utils/expect.dart";
 

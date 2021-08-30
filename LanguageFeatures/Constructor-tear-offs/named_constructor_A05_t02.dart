@@ -12,7 +12,6 @@
 /// @description Checks that type arguments can be implicitly instantiated.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
 
 import "../../Utils/expect.dart";
 

@@ -13,7 +13,6 @@
 ///
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=generic-metadata
 
 import "const_evaluation_lib.dart";
 

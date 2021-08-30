@@ -9,7 +9,6 @@
 /// @description Check that it is a compile error if wrong type argument is used
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=generic-metadata
 import 'syntax_lib1.dart';
 
 @Y<String>()

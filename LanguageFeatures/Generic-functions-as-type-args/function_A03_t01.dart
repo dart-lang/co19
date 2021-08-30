@@ -31,7 +31,6 @@
 /// @Issue 45317
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=generic-metadata
 
 void testme<T extends Function<TT extends T>()>() {}
 

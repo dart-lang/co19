@@ -12,7 +12,6 @@
 /// @description Checks that arguments of [>>>] operator should be int.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=triple-shift
 
 class MyClass {
   final int a;

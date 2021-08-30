@@ -35,7 +35,6 @@
 /// Test literal or identifier
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
 
 String f(a, [b]) => "$a, $b";
 

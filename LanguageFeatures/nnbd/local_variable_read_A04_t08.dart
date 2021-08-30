@@ -10,7 +10,6 @@
 /// variable when the variable is definitely unassigned
 /// @author sgrekhov@unipro.ru
 
-
 main() {
   late int x;
   x >>>= 2;

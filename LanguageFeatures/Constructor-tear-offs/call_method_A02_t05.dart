@@ -19,7 +19,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 46902
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
 
 typedef int Foo<T>(int i);
 

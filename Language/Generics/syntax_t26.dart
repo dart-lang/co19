@@ -12,7 +12,6 @@
 /// metadata with generic metadata type argument in the recent dart versions.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=generic-metadata
 
 class C<T> { const C(); }
 

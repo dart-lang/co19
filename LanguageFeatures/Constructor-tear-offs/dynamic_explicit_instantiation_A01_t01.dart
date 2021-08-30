@@ -12,7 +12,6 @@
 /// error
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
 
 main() {
   dynamic d = new Object();

@@ -18,7 +18,6 @@
 /// a shift expression.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=triple-shift
 
 class S {}
 

@@ -32,7 +32,6 @@
 /// @Issue 45415
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=generic-metadata
 
 import "../../Utils/expect.dart";
 

@@ -33,7 +33,6 @@
 
 // @dart=2.9
 // Requirements=nnbd-weak
-// SharedOptions=--enable-experiment=generic-metadata
 
 class C<T> {}
 

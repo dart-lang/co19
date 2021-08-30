@@ -33,7 +33,6 @@
 /// @Issue 45065
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=generic-metadata
 
 typedef exp1 = T Function<T>(T);
 typedef exp2 = void Function<T>();

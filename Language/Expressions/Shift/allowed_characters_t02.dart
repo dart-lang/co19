@@ -8,7 +8,6 @@
 /// are allowed in triple shift expressions.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=triple-shift
 
 main() {
   2 >>> 2;

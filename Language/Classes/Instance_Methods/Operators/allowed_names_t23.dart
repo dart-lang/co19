@@ -7,7 +7,6 @@
 /// @description Checks that operator <<< cannot be defined in a user class.
 /// @author iefremov
 
-// SharedOptions=--enable-experiment=triple-shift
 
 class C {
   operator <<<(x) {}

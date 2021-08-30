@@ -34,7 +34,6 @@
 
 // @dart=2.9
 // Requirements=nnbd-weak
-// SharedOptions=--enable-experiment=generic-metadata
 
 import "opted_out_lib.dart";
 

@@ -18,7 +18,6 @@
 /// one after another in a shift expression.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=triple-shift
 
 main() {
   2 >>> >>> 1;

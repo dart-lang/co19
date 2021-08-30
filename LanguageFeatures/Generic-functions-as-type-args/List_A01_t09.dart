@@ -31,7 +31,6 @@
 /// and bound for List: test List<T Function<T>(T) Function()> case.
 /// @author iarkh@unipro.ru
 
-// SharedOptions=--enable-experiment=generic-metadata
 
 main() {
   late List<T Function<T>(T) Function()> l1;

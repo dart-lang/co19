@@ -18,7 +18,6 @@
 /// method for int Function<int>(int) f = funcValue.call; case.
 /// @author sgrekhov@unipro.ru
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
 import "../../Utils/expect.dart";
 
 main() {

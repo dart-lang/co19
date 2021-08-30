@@ -22,7 +22,6 @@
 ///
 /// @author msyabro
 
-// SharedOptions=--enable-experiment=triple-shift
 
 import "syntax_t03_lib.dart" as prfx;
 

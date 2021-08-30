@@ -33,7 +33,6 @@
 
 // @dart=2.6
 // Requirements=nnbd-weak
-// SharedOptions=--enable-experiment=generic-metadata
 
 class C1<X extends T Function<T>(T)> {}
 //       ^

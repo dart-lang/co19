@@ -31,7 +31,6 @@
 /// @author iarkh@unipro.ru
 /// @Issue 45317
 
-// SharedOptions=--enable-experiment=generic-metadata
 
 typedef T1<TT extends void Function<T extends TT>()> = TT Function();
 

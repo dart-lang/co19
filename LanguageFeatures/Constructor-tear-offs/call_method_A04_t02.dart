@@ -19,7 +19,6 @@
 /// @author sgrekhov@unipro.ru
 /// @issue 46902
 
-// SharedOptions=--enable-experiment=constructor-tearoffs
 
 class C {
   T call<T>(T t) => t;
