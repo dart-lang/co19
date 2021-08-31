@@ -11,12 +11,12 @@
 /// @description Checks that a compile error is produced if the if statement
 /// is missing.
 /// @author vasya
-/// @reviewer rodionov
-/// @reviewer iefremov
-
 
 main() {
   if (true)
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 //^
 // [analyzer] unspecified

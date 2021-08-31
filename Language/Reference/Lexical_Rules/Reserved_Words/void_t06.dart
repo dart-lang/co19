@@ -10,23 +10,16 @@
 /// @description Checks that it is a compile-time error when a reserved word
 /// "void" is used as a label name.
 /// @author rodionov
-/// @reviewer kaigorodov
-
 
 main() {
-  try {
     void:
 //      ^
 // [analyzer] unspecified
 // [cfe] unspecified
     do {
-//  ^
-// [analyzer] unspecified
-// [cfe] unspecified
       break void;
 //              ^
 // [analyzer] unspecified
 // [cfe] unspecified
     } while (false);
-  } catch (x) {}
 }

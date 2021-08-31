@@ -10,15 +10,12 @@
 /// @description Checks that it is a compile-time error when a reserved word
 /// "final" is used as a label name.
 /// @author rodionov
-/// @reviewer kaigorodov
-
 
 main() {
   try {
     final:
 //       ^
 // [analyzer] unspecified
-// [cfe] unspecified
     do {
 //  ^
 // [analyzer] unspecified

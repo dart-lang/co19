@@ -18,8 +18,6 @@
 /// @description Checks that it is a compile-time error if a label is not
 /// followed by case or default keywords.
 /// @author kaigorodov
-/// @reviewer iefremov
-
 
 foo(value) {
   var result;
@@ -27,6 +25,9 @@ foo(value) {
   switch (value) {
     case 0: break;
     label:
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 //^
 // [analyzer] unspecified
@@ -35,7 +36,5 @@ foo(value) {
 }
 
 main() {
-  try {
-    foo(1);
-  } catch (x) {}
+  foo(1);
 }

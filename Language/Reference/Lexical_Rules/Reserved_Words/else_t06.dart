@@ -14,7 +14,9 @@
 
 
 main() {
-  try {
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
     else:
 //      ^
 // [analyzer] unspecified
@@ -25,5 +27,4 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
     } while (false);
-  } catch (x) {}
 }
