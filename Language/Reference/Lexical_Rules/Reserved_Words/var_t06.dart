@@ -9,16 +9,12 @@
 /// "var" is used as a label name.
 /// @author rodionov
 
-
 main() {
   var:
 //   ^
 // [analyzer] unspecified
 // [cfe] unspecified
   do {
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
   break var;
 //         ^
 // [analyzer] unspecified

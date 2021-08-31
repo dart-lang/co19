@@ -9,16 +9,12 @@
 /// "void" is used as a label name.
 /// @author rodionov
 
-
 main() {
   void:
 //    ^
 // [analyzer] unspecified
 // [cfe] unspecified
   do {
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
   break void;
 //          ^
 // [analyzer] unspecified

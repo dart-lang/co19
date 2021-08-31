@@ -14,9 +14,10 @@
 /// is empty.
 /// @author vasya
 
-
-
 main() {
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   : while (true) { break L; }
 //                       ^
 // [analyzer] unspecified

@@ -17,13 +17,15 @@
 /// followed by case or default keywords.
 /// @author kaigorodov
 
-
 foo(value) {
   var result;
 
   switch (value) {
     case 0: break;
     label:
+//       ^
+// [analyzer] unspecified
+// [cfe] unspecified
   }
 //^
 // [analyzer] unspecified

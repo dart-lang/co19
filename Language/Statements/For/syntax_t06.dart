@@ -22,6 +22,9 @@
 
 main() {
   for ( ; ; )
+//          ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 //^
 // [analyzer] unspecified

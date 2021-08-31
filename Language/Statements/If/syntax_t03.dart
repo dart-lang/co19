@@ -10,9 +10,11 @@
 /// missing.
 /// @author vasya
 
-
 main() {
   if (false) {} else
+//              ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 //^
 // [analyzer] unspecified

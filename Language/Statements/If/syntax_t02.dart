@@ -10,9 +10,11 @@
 /// is missing.
 /// @author vasya
 
-
 main() {
   if (true)
+//        ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 //^
 // [analyzer] unspecified

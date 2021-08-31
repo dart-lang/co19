@@ -19,10 +19,10 @@
 /// enclosing the loop parts is missing.
 /// @author vasya
 
-
 main() {
   for (; ;  {}
 //    ^
+// [analyzer] unspecified
 // [cfe] unspecified
 }
 //^

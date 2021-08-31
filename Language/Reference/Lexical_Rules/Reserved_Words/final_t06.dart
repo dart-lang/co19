@@ -9,16 +9,12 @@
 /// "final" is used as a label name.
 /// @author rodionov
 
-
 main() {
   final:
 //     ^
 // [analyzer] unspecified
 // [cfe] unspecified
   do {
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
   break final;
 //           ^
 // [analyzer] unspecified

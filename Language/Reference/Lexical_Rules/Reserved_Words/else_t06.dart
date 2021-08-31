@@ -9,8 +9,10 @@
 /// "else" is used as a label name.
 /// @author rodionov
 
-
 main() {
+//     ^
+// [analyzer] unspecified
+// [cfe] unspecified
   else:
 //    ^
 // [analyzer] unspecified
