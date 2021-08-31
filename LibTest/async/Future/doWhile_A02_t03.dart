@@ -25,10 +25,7 @@ main() {
   int num = 0;
 
   FutureOr<bool> f() {
-    if (num == 2) return "@";
-//                       ^
-// [analyzer] unspecified
-// [cfe] unspecified
+    if (num == 2) throw "@";
     num++;
     return new Future.value(num < N);
   }
@@ -36,12 +33,10 @@ main() {
   asyncStart();
   Future.doWhile(f).then(
       (_) {
-        print(num);
         Expect.fail("Returned future should fail with error");
       },
       onError: (e) {
         Expect.equals(2, num);
-        Expect.isTrue(e is TypeError);
         asyncEnd();
       }
   );

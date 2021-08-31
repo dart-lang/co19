@@ -21,36 +21,19 @@
 /// the spawning succeeded. It will complete with an error otherwise.
 ///
 /// @description Checks that if entryPoint is top level function without
-/// arguments, then type error is arisen in checked mode or returned
-/// Future instance completes with error otherwise. Compile error arises in
-/// strong mode
+/// arguments, then compile error is arisen
 /// @issue #26588
 /// @author a.semenov@unipro.ru
 
 import "dart:isolate";
-import "../../../Utils/expect.dart";
 
 entryPointNoArgs() {
   print("entryPointNoArgs is called");
 }
 
 main() {
-  asyncStart();
-  try {
-    Isolate.spawn(entryPointNoArgs, "hello").then( /// compile error
-//                ^
+  Isolate.spawn(entryPointNoArgs, "hello");
+//              ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-        (v) {
-          Expect.fail("Isolate.spawn(entryPointNoArgs, 'hello') is expected to fail");
-        },
-        onError: (e) {
-          Expect.fail("Future completed with error: $e");
-          asyncEnd();
-        }
-    );
-  } catch (e) {
-    print("Caught an error: $e");
-    asyncEnd();
-  }
 }
