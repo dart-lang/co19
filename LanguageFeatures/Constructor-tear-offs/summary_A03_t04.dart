@@ -85,17 +85,19 @@ class C {
   T inst<T>(T value) => value;
 }
 
+Type typeOf<X>() => X;
+
 void main() {
   // Type literals.
   var t1 = List<int>; // Type object for `List<int>`.
   Expect.isTrue(t1 is Type);
   Expect.isFalse(t1 is Function);
-  Expect.equals(new List<int>.empty().runtimeType.toString(), t1.toString());
+  Expect.isTrue(typeOf<List<int>>() == t1);
 
   var t2 = ListList<int>; // Type object for `List<List<int>>`.
   Expect.isTrue(t2 is Type);
   Expect.isFalse(t2 is Function);
-  Expect.equals(new List<List<int>>.empty().runtimeType.toString(), t2.toString());
+  Expect.isTrue(typeOf<List<List<int>>>() == t2);
 
   // Instantiated function tear-offs.
   T local<T>(T value) => value;
