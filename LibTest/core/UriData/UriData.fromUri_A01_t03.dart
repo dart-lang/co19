@@ -27,7 +27,7 @@ main() {
   Expect.mapEquals({}, uriData.parameters);
   Expect.equals(uri, uriData.uri);
 
-  uri = new Uri(scheme: "data", path: "text/plain;base64,some data");
+  uri = new Uri(scheme: "data", path: "text/plain;base64,somedata");
   uriData = new UriData.fromUri(uri);
 
   Expect.equals("US-ASCII", uriData.charset);
@@ -37,7 +37,7 @@ main() {
   Expect.mapEquals({}, uriData.parameters);
   Expect.equals(uri, uriData.uri);
 
-  uri = new Uri(scheme: "data", path: ";a=b;base64,some data");
+  uri = new Uri(scheme: "data", path: ";a=b;base64,somedata");
   uriData = new UriData.fromUri(uri);
 
   Expect.equals("US-ASCII", uriData.charset);
@@ -47,7 +47,7 @@ main() {
   Expect.mapEquals({"a": "b"}, uriData.parameters);
   Expect.equals(uri, uriData.uri);
 
-  uri = new Uri(scheme: "data", path: ";charset=utf-8;base64,some data");
+  uri = new Uri(scheme: "data", path: ";charset=utf-8;base64,somedata");
   uriData = new UriData.fromUri(uri);
 
   Expect.equals("utf-8", uriData.charset);

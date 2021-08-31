@@ -17,8 +17,8 @@
 /// for the unreserved characters.
 /// @description Checks query set via [queryParameters] on characters from
 /// Unicode Basic Multilingual Plane
+/// @Issue 11669
 /// @author ilya
-/// @reviewer
 
 import 'dart:convert';
 import "../../../Utils/expect.dart";

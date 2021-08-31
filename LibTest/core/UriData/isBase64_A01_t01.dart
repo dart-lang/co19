@@ -15,5 +15,5 @@ import "../../../Utils/expect.dart";
 main() {
   Expect.isFalse(UriData.parse("data:text/plain,some data").isBase64);
   Expect.isFalse(UriData.parse("data:,some data").isBase64);
-  Expect.isTrue(UriData.parse("data:;charset=utf-8;base64,some data").isBase64);
+  Expect.isTrue(UriData.parse("data:;charset=utf-8;base64,somedata").isBase64);
 }
