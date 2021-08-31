@@ -19,7 +19,10 @@ check(String str, int year, int month, int day, int hours, int minutes,
   Expect.equals(minutes, d.minute);
   Expect.equals(seconds, d.second);
   Expect.equals(milliseconds, d.millisecond);
-  Expect.equals(microseconds, d.microsecond);
+  if (!isJS) {
+    // Microseconds are not supported in dart2js
+    Expect.equals(microseconds, d.microsecond);
+  }
 }
 
 main() {
