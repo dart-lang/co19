@@ -33,6 +33,7 @@
 /// @description Checks disambiguate by '?..' token. Test that a<b, c>?.. is
 /// parsed as (a<b), (c>?..)
 /// @author sgrekhov@unipro.ru
+/// @issue 47060
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
