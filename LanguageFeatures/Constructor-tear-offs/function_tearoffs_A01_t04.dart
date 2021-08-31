@@ -29,5 +29,5 @@ main() {
   dynamic v = 42;
   var i = idInt(v);
   Expect.isTrue(i is int);
-  Expect.isFalse(i is double); // to check that i is not dynamic
+  Expect.isFalse(i is String); // to check that i is not dynamic
 }
