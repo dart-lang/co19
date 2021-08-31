@@ -7,6 +7,7 @@
 /// @assertion Stream<ProgressEvent> get onLoadStart
 /// Stream of loadstart events handled by this HttpRequestEventTarget.
 /// @description Checks that only single event is fired.
+/// @Issue https://github.com/dart-lang/co19/issues/932
 
 import "dart:html";
 import "../../../UtilsHtml/expect.dart";

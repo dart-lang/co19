@@ -6,7 +6,8 @@
 
 /// @assertion final Stream<ProgressEvent> onLoad
 /// Stream of load events handled by this HttpRequestEventTarget.
-/// @description Checks the state of request at variuos moments of time.
+/// @description Checks the state of request at various moments of time.
+/// @Issue https://github.com/dart-lang/co19/issues/932
 
 import "dart:html";
 import "../../../UtilsHtml/expect.dart";

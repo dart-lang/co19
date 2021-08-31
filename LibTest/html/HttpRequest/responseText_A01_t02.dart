@@ -7,7 +7,9 @@
 /// @assertion final String responseText
 /// The response in String form or empty String on failure.
 /// @description Checks that the property is  empty in case of failure.
-/// @needsreview #16757
+/// @issue 16757
+/// @issue 46608
+/// @issue https://github.com/dart-lang/co19/issues/932
 
 import "dart:html";
 import "../../../UtilsHtml/expect.dart";
