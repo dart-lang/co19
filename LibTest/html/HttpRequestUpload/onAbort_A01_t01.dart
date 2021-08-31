@@ -5,6 +5,7 @@
 /// @assertion Stream<ProgressEvent> get onAbort
 /// Stream of abort events handled by this HttpRequestEventTarget.
 /// @description Checks the state an event is fired when the request is aborted.
+/// @Issue https://github.com/dart-lang/co19/issues/932
 
 import "dart:html";
 import "../../../Utils/expect.dart";
