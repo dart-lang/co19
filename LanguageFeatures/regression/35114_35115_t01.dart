@@ -15,11 +15,20 @@ typedef G<X> = void Function(X);
 class A<X extends G> {}
 
 main() {
-  G<dynamic>? b;
-  G<Never>? a;
-  G<int>? c;
+  G<dynamic>? g1;
+  G<Never>?   g2;
+  G<int>?     g3;
 
-  A<G<dynamic>>? b1;
-  A<G<Never>>? a1;
-  A<G<int>>? c1;
+  A<G<dynamic>> a1;
+  A<G<Never>>   a2;
+
+  A<G<int>>? a3;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A<G<Null>>? a4;
+//  ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
