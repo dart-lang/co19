@@ -5,28 +5,25 @@
 /// @assertion It is an error for a class with a generative const constructor to
 /// have a late final instance variable.
 ///
-/// @description Check that it is an error for a class with a const constructor
-/// to have a late final field.
+/// @description Check that it is not an error for a class with a factory const
+/// constructor to have a late final field.
 /// @author sgrekhov@unipro.ru
-/// @issue 39681
 
-class C1 {
+import "../../Utils/expect.dart";
+
+class C {
   late final int i = 42;
-//^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  const C1();
+
+  C() {}
+  const factory C.f() = D;
 }
 
-class C2 {
-  late final int i;
-//^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-  const C2(this.i);
+class D implements C {
+  final i = 1;
+  const D();
 }
 
 main()  {
-  C1();
-  C2(42);
+  const c = C.f();
+  Expect.equals(1, c.i);
 }
