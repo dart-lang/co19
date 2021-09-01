@@ -43,7 +43,7 @@ String f(a, [b]) => "$a, $b";
 
 class a<T1, T2> {
   int x;
-  a(this.x);
+  a.n(this.x);
 
   @override
   String toString() => "a<$T1, $T2>($x)";
@@ -53,5 +53,5 @@ typedef b = int;
 typedef c = String;
 
 main() {
-  Expect.equals("${a<b, c>}, null",f((a<b, c>).toString()));
+  Expect.equals("${a<b, c>}(42), null",f(a<b, c>.n(42)));
 }
