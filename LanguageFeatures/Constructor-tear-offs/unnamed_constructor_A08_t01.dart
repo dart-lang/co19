@@ -2,9 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion If [C] denotes a class, an expression of [C] by itself already
-/// has a meaning, it evaluates to a [Type] object representing the class, so it
-/// cannot also denote the unnamed constructor.
+/// @assertion You cannot have both a C and a C.new constructor declaration in
+/// the same class, they denote the same constructor
 ///
 /// @description Checks that it's impossible to have default constructors
 /// declared with [new] syntax and with class name at the same time.

@@ -22,7 +22,7 @@ class A {
 }
 
 main() {
-  A a = A.new();
+  A.new();
   Expect.equals(1, A.called);
 
   A();
