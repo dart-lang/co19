@@ -9,6 +9,7 @@
 /// "new" is used as a static class member (function) name.
 /// @author rodionov
 
+// @dart=2.14
 
 class C {
   static void new() {}
