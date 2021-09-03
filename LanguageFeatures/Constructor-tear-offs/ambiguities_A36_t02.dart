@@ -34,6 +34,7 @@
 /// the prior tokens be parsed as comma separated < and > operator invocations.
 /// Test 'as' token
 /// @author sgrekhov@unipro.ru
+/// @issue 47060
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 

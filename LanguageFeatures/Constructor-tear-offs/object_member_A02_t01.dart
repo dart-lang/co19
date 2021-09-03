@@ -24,20 +24,20 @@ main() {
   C<int>.toString();
 //       ^^^^^^^^
 // [analyzer] unspecified
-// [cfe] uncpecified
+// [cfe] unspecified
 
   C.toString();
 //  ^^^^^^^^
 // [analyzer] unspecified
-// [cfe] uncpecified
+// [cfe] unspecified
 
   C<int>.toString;
 //       ^^^^^^^^
 // [analyzer] unspecified
-// [cfe] uncpecified
+// [cfe] unspecified
 
   C.toString;
 //  ^^^^^^^^
 // [analyzer] unspecified
-// [cfe] uncpecified
+// [cfe] unspecified
 }

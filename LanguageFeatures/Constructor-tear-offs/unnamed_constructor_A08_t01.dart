@@ -37,12 +37,11 @@ class C<T> {
 }
 
 class D<T1 extends List, T2 extends int, T3> {
-  A.new(T3 z) {}
+  D(T1 x, T2 t) {}
+  D.new(T3 z) {}
 //  ^^^
 // [analyzer] unspecified
 // [cfe] unspecified
-
-  D(T1 x, T2 t) {}
 }
 
 main() {}
