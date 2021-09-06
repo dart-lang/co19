@@ -14,12 +14,14 @@
 /// (so the tear-off is always generic, even if the context type requires it not
 /// to be, which is then guaranteed to introduce a type error).
 ///
-/// @description Checks that it is a compile-time error to tear-off a call
-/// method of a generic function type using super.
+/// @description Checks that it is not an error to tear-off a call method of a
+/// generic function type using super.
 /// @author sgrekhov@unipro.ru
 /// @issue 46902
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
+
+import "../../Utils/expect.dart";
 
 typedef int Foo(int i);
 
@@ -28,13 +30,10 @@ class A {
 }
 
 class C extends A {
-  Foo getCall() => super.foo.call;
-//                           ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  Foo getCall() => super.foo.call<int>;
 }
 
 main() {
   C c = new C();
-  c.getCall();
+  Expect.equals(42, c.getCall()(42));
 }

@@ -14,12 +14,14 @@
 /// (so the tear-off is always generic, even if the context type requires it not
 /// to be, which is then guaranteed to introduce a type error).
 ///
-/// @description Checks that it is a compile-time error to tear-off a call
-/// method of a generic function type using super.
+/// @description Checks that it is not an error to tear-off a call method of a
+/// generic function type using super.
 /// @author sgrekhov@unipro.ru
 /// @issue 46902
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
+
+import "../../Utils/expect.dart";
 
 class A {
   T foo<T>(T value) => value;
@@ -27,15 +29,14 @@ class A {
 
 class C extends A {
   test() {
-    int Function(int) f1 = super.foo.call;
-//                                   ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    T Function<T>(T) f1 = super.foo.call;
+    Expect.equals(42, f1<int>(42));
+    Expect.equals(3.14, f1<double>(3.14));
+
     var funcVal = super.foo;
-    int Function(int) f2 = funcVal.call;
-//                                 ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+    T Function<T>(T) f2 = funcVal.call;
+    Expect.equals(42, f2<int>(42));
+    Expect.equals(3.14, f2<double>(3.14));
   }
 }
 

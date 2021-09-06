@@ -14,17 +14,19 @@
 /// (so the tear-off is always generic, even if the context type requires it not
 /// to be, which is then guaranteed to introduce a type error).
 ///
-/// @description Checks that it is a compile-time error to tear-off a call
-/// method of a generic function type
+/// @description Checks that it is not an error to tear-off a call method of a
+/// generic function type
 /// @author sgrekhov@unipro.ru
 /// @issue 46902
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
+import "../../Utils/expect.dart";
+
 main() {
   var funcValue = <T>(T t) => t;
-  int Function(int) f = funcValue.call;
-//                                ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  T Function<T>(T t) f = funcValue.call;
+  Expect.equals(42, f<int>(42));
+  Expect.equals(3.14, f<double>(3.14));
+  Expect.equals("Lily was here", funcValue.call<String>("Lily was here"));
 }

@@ -14,12 +14,14 @@
 /// (so the tear-off is always generic, even if the context type requires it not
 /// to be, which is then guaranteed to introduce a type error).
 ///
-/// @description Checks that it is a compile-time error to tear-off a call
-/// method of a generic function type
+/// @description Checks that it is not an error to tear-off a call method of a
+/// generic function type
 /// @author sgrekhov@unipro.ru
 /// @issue 46902
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
+
+import "../../Utils/expect.dart";
 
 class C {
   static T staticMethod<T>(T value) => value;
@@ -28,15 +30,15 @@ class C {
 
 main() {
   var funcValue1 = C.staticMethod;
-  int Function(int) f1 = funcValue1.call;
-//                                  ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  T Function<T>(T) f1 = funcValue1.call;
+  Expect.equals(42, f1<int>(42));
+  Expect.equals(3.14, f1<double>(3.14));
+  Expect.equals("Lily was here", funcValue1.call<String>("Lily was here"));
 
   C c = new C();
   var funcValue2 = c.instanceMethod;
-  int Function(int) f2 = funcValue2.call;
-//                                  ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  T Function<T>(T) f2 = funcValue2.call;
+  Expect.equals(42, f2<int>(42));
+  Expect.equals(3.14, f2<double>(3.14));
+  Expect.equals("Lily was here", funcValue2.call<String>("Lily was here"));
 }

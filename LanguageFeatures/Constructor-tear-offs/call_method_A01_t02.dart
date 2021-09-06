@@ -27,5 +27,5 @@ main() {
   var funcValue = foo;
   X Function<X>(X) f = funcValue.call;
   Expect.equals(42, f(42));
-  Expect.equals(3.14, f(3.14));
+  Expect.equals(3.14, f<double>(3.14));
 }

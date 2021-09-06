@@ -14,12 +14,14 @@
 /// (so the tear-off is always generic, even if the context type requires it not
 /// to be, which is then guaranteed to introduce a type error).
 ///
-/// @description Checks that it is a compile error to tear-off a 'call' method
+/// @description Checks that it is not an error to tear-off a 'call' method
 /// of a 'call' method of a user defined classes
 /// @author sgrekhov@unipro.ru
 /// @issue 46902
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
+
+import "../../Utils/expect.dart";
 
 class C {
   T call<T>(T t) => t;
@@ -27,9 +29,8 @@ class C {
 
 main() {
   C c = new C();
-  int Function(int) f1 = c.call;
-  int Function(int) f2 = c.call.call;
-//                              ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  T Function<T>(T) f1 = c.call;
+  T Function<T>(T) f2 = c.call.call;
+  Expect.equals(42, f1<int>(42));
+  Expect.equals(42, f2<int>(42));
 }

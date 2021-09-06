@@ -14,8 +14,8 @@
 /// (so the tear-off is always generic, even if the context type requires it not
 /// to be, which is then guaranteed to introduce a type error).
 ///
-/// @description Checks that it is a compile-time error to tear-off a call
-/// method of a generic function type by ?.
+/// @description Checks that it is not an error to tear-off a call method of a
+/// generic function type by ?.
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
@@ -24,15 +24,15 @@ T foo1<T>(T value) => value;
 
 main() {
   var funcValue1 = foo1;
-  int Function(int)? f1 = funcValue1?.call;
-//                                    ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  T Function<T>(T)? f1 = funcValue1?.call;
+//                                 ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+// [cfe] Operand of null-aware operation '?.' has type 'T Function<T>(T)' which excludes null.
 
   T foo2<T>(T value) => value;
   var funcValue2 = foo2;
-  int Function(int)? f2 = funcValue2?.call;
-//                                    ^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  T Function<T>(T)? f2 = funcValue2?.call;
+//                                 ^^
+// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
+// [cfe] Operand of null-aware operation '?.' has type 'T Function<T>(T)' which excludes null.
 }
