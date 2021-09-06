@@ -14,14 +14,34 @@
 class A<X> {}
 
 class F {
-  X call<X extends A<X>>() { return null; }
+  X call<X extends A<X>>() => null;
 }
 
 main() {
-  F testme = new F();             //# 01: compile-time error
-  A<A> a1 = testme();             //# 02: compile-time error
-  A<A<A>> a2 = testme();          //# 03: compile-time error
-  A<A<A<A>>> a3 = testme();       //# 04: compile-time error
-  A<A<A<A<A>>>> a4 = testme();    //# 05: compile-time error
-  A<A<A<A<A<A>>>>> a5 = testme(); //# 06: compile-time error
+  F testme = F();
+
+  A<A> a1 = testme();
+//          ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A<A<A>> a2 = testme();
+//             ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A<A<A<A>>> a3 = testme();
+//                ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A<A<A<A<A>>>> a4 = testme();
+//                   ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A<A<A<A<A<A>>>>> a5 = testme();
+//                      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
