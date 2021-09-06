@@ -6,6 +6,7 @@
 
 /// @description Regression test for the issue 33184 (No error when run dart
 /// class with incorrect instantiation to bound)
+/// @Issue 33184
 /// @author iarkh@unipro.ru
 
 class D<T extends Comparable<T>> {}

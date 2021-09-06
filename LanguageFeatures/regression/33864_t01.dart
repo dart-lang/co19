@@ -6,14 +6,22 @@
 
 /// @description Regression test for the issue 33864 (Analyzer throws exception
 /// if function optional argument is omitted and it's parametrized).
-/// @Issue #33864
+///
+/// Seems like according to the Issue 33684 evaluation there should be a compile
+/// error here, so checks that [testme] function cannot be called without the
+/// type parameter specified. Test example 1.
+///
+/// @Issue 33864
 /// @author iarkh@unipro.ru
 
-testme1<X extends List<X>>() {}
-testme2<X extends List<int>>() {}
+
+class A<X> {}
+testme<X extends A<X>>([X x]) {}
 
 main() {
-  testme1();
-  testme2();
+  testme();
+//^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 

@@ -6,6 +6,7 @@
 
 /// @description Regression test for the issue 33805 (Analyzer throws error when
 /// try to assign a function result to row variable).
+/// @Issue 33805
 /// @author iarkh@unipro.ru
 
 class A<X> {}

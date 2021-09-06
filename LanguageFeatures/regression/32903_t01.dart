@@ -6,8 +6,9 @@
 
 /// @description Regression test for the issue 32903 (Dartanalyzer 2.0
 /// incorrectly throws [type_argument_not_matching_bounds] error for
-/// super-bounded types in preview-dart-2 mode): chack test case from the bug
+/// super-bounded types in preview-dart-2 mode): check test case from the bug
 /// description.
+/// @Issue 32903
 /// @author iarkh@unipro.ru
 
 

@@ -12,7 +12,6 @@
 /// @Issue 34845
 /// @author iarkh@unipro.ru
 
-
 import "dart:async";
 
 typedef F<X> = void Function<Y extends X>();

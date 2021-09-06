@@ -8,6 +8,7 @@
 /// StackOverflow error in some cases when typedef references itself directly)
 /// and 34700 (Analyzer does not reject typedef which has a reference to itself).
 /// Checks that compile error appears if [typedef] references itself directly.
+/// @Issue 33599, 34700
 /// @author iarkh@unipro.ru
 
 

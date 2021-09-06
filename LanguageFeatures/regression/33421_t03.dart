@@ -9,6 +9,7 @@
 /// appears for the case
 ///   class A<X extends B> {}
 ///   class B<X extends A> {}
+/// @Issue 33421
 /// @author iarkh@unipro.ru
 
 

@@ -8,7 +8,7 @@
 /// incorrectly throws [type_argument_not_matching_bounds] error for
 /// super-bounded types in preview-dart-2 mode): check similar test case from the
 /// Issue 32906.
-/// $Issue 36959
+/// @Issue 32903, 32906, 36959
 /// @author iarkh@unipro.ru
 
 

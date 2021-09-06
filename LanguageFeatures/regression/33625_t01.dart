@@ -8,7 +8,9 @@
 /// class with incorrect instantiation to bound for functions). Checks that
 ///    [typedef F<X> = X Function();
 ///    typedef G<X extends F> = X Function();]
-/// throw error because parameter bound type is not instantiated.
+/// does not throw a compile error (actually, it was an analyzer bug, see Issue
+/// 33625 evaluation for more details).
+/// @Issue 33625
 /// @author iarkh@unipro.ru
 
 

@@ -6,6 +6,7 @@
 
 /// @description Regression test for the issue 34560 (Analyzer: Some correct
 /// super-bounded types are rejected): check example from the bug description.
+/// @Issue 34560
 /// @author iarkh@unipro.ru
 
 

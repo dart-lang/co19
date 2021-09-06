@@ -8,15 +8,18 @@
 /// [C<X extends C>]" class declaration in a very strange way): check that
 /// declaring [class A<X extends A> {}] after [class A<X extends C>] causes
 /// compile error.
+/// @Issue 34635
 /// @author iarkh@unipro.ru
 
 class A<X extends B> {}
 //                ^
 // [analyzer] unspecified
+
 class B<X extends C> {}
 //                ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
 class C<X extends A<B>> {}
 //                  ^
 // [analyzer] unspecified

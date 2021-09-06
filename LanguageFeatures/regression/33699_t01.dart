@@ -7,6 +7,7 @@
 /// @description Regression test for the issue 33699 (Dart does not throw error
 /// if function argument parameter extends void) Checks that function cannot have
 /// parameter which extends [void].
+/// @Issue 33699
 /// @author iarkh@unipro.ru
 
 testme<X extends void>() {}

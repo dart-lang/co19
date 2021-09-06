@@ -25,4 +25,3 @@ main() {
   A<A<A<A<A>>>> a4 = testme();    //# 05: compile-time error
   A<A<A<A<A<A>>>>> a5 = testme(); //# 06: compile-time error
 }
-

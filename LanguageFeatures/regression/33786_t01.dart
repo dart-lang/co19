@@ -5,9 +5,13 @@
 // @dart = 2.9
 
 /// @description Regression test for the Issue 33786 (Dartanalyzer does not
-/// report error about illegal recursive type in class declaration). Checks that
+/// report error about illegal recursive type in class declaration).
+///
+/// Seems like this is a runtime issue (@bwilkerson added area-vm and removed
+/// area-analyzer labels on Aug 29, 2018), so checks that
 /// [class A<X extends A<X>> extends M<A<A<A<A<X>>>>>] can be declared in runtime
-/// @Issue #33786
+///
+/// @Issue 33786
 /// @author iarkh@unipro.ru
 
 class M<X> {}

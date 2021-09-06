@@ -7,6 +7,7 @@
 /// @description Regression test for issue 33421 (Dart does not throw error when
 /// type parameter is a supertype of its upper bound): checks that two class type
 /// parameters cannot extend each other.
+/// @Issue 33421
 /// @author iarkh@unipro.ru
 
 class A<X extends X1, X1 extends X> {}
