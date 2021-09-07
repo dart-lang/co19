@@ -19,20 +19,20 @@
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
+import "../../Utils/expect.dart";
 
 T foo1<T>(T value) => value;
 
 main() {
-  var funcValue1 = foo1;
-  T Function<T>(T)? f1 = funcValue1?.call;
-//                                 ^^
-// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-// [cfe] Operand of null-aware operation '?.' has type 'T Function<T>(T)' which excludes null.
+  Function? funcValue1;
+  if (2 > 1) {
+    funcValue1 = foo1;
+  }
+  var f1 = funcValue1?.call;
+  Expect.equals(42, f1!<int>(42));
 
   T foo2<T>(T value) => value;
-  var funcValue2 = foo2;
-  T Function<T>(T)? f2 = funcValue2?.call;
-//                                 ^^
-// [analyzer] STATIC_WARNING.INVALID_NULL_AWARE_OPERATOR
-// [cfe] Operand of null-aware operation '?.' has type 'T Function<T>(T)' which excludes null.
+  dynamic funcValue2 = foo2;
+  T Function<T>(T) f2 = funcValue2?.call;
+  Expect.equals("Lily was here", f2<String>("Lily was here"));
 }
