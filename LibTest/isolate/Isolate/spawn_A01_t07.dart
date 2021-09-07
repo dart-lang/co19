@@ -18,27 +18,32 @@
 ///    Returns a future that will complete with an Isolate instance if
 /// the spawning succeeded. It will complete with an error otherwise.
 ///
-/// @description Checks that if entryPoint is instance method, then returned
-/// Future instance completes with error
+/// @description Checks that the function spawns the isolate that executes the
+/// specified local function.
 ///
+/// @author kaigorodov
 /// @author a.semenov@unipro.ru
+/// @author sgrekhov@unipro.ru
 
 import "dart:isolate";
 import "../../../Utils/expect.dart";
 
-class A {
-  entryPoint(message) { }
+var expectedMessage="message";
+
+var receivePort = new ReceivePort();
+
+void receiveHandler(var message) {
+  Expect.equals(expectedMessage, message);
+  receivePort.close();
+  asyncEnd();
 }
 
 main() {
+  void entryPoint(SendPort replyPort) {
+    replyPort.send(expectedMessage);
+  }
+
   asyncStart();
-  Isolate.spawn(new A().entryPoint, "hello").then(
-    (v) {
-      Expect.fail("Isolate.spawn(new A().entryPoint, 'hello') is expected to fail");
-    },
-    onError: (e) {
-//      print("Error: $e");
-      asyncEnd();
-    }
-  );
+  Isolate.spawn(entryPoint, receivePort.sendPort);
+  receivePort.listen(receiveHandler);
 }
