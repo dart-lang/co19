@@ -2,17 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Currently you can do instantiated tear-offs of instance methods.
-/// We restrict that to interface methods, which precisely excludes the call
-/// methods of function types. We do not allow instantiating function values,
-/// and therefore also cannot allow side-stepping that restriction by
-/// instantiation the .call "instance" method of such a value.
-///
-/// That makes it a compile-time error to explicitly instantiate the call method
-/// of an expression with a function type or of type Function, and the tear-off
-/// of a call method of a function type is not subject to implicit instantiation
-/// (so the tear-off is always generic, even if the context type requires it not
-/// to be, which is then guaranteed to introduce a type error).
+/// @assertion For an expression of the form e<typeArgs>, which is not followed
+/// by an argument list (that would turn it into a generic function invocation),
+/// the meaning of e<typeArgs> depends on the expression e:
+/// ...
+/// - If e has a static type which is a generic callable object type (a
+/// non-function type with a generic method named call), then e<typeArgs> is
+/// equivalent to the instantiated method-tear off e.call<typeArgs>.
+/// - Otherwise, if e has a static type which is a generic function type, then
+/// e<typeArgs> is equivalent to the instantiated method-tear off
+/// e.call<typeArgs>
 ///
 /// @description Checks that it is not an error to tear-off a 'call' method
 /// of a 'call' method of a user defined classes

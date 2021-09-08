@@ -13,26 +13,19 @@
 /// e<typeArgs> is equivalent to the instantiated method-tear off
 /// e.call<typeArgs>
 ///
-/// @description Checks that it is not an error to tear-off a call method of a
-/// generic function type
+/// @description Checks that generic instantiation of a 'call' method
 /// @author sgrekhov@unipro.ru
-/// @issue 46902
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
-import "../../Utils/expect.dart";
-
-typedef int Foo<T>(int i);
-
-T foo1<T>(T value) => value;
+class C {
+  T call<T>(T value) => value;
+}
 
 main() {
-  var funcValue1 = foo1;
-  Foo<int> f1 = funcValue1.call;
-  Expect.equals(42, f1(42));
-
-  T foo2<T>(T value) => value;
-  var funcValue2 = foo2;
-  Foo<int> f2 = funcValue2.call;
-  Expect.equals(42, f2(42));
+  var f = C()<int>;
+  f("Lily was here");
+//  ^
+// [analyzer] undefined
+// [cfe] undefined
 }
