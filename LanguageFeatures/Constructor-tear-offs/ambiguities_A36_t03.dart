@@ -72,6 +72,9 @@ extension on Type {
 
 main() {
   f(a<b,
+//  ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
       c> as int);
 //       ^^
 // [analyzer] unspecified
