@@ -22,8 +22,8 @@ class C<T1, T2 extends num, T3 extends String> {
 }
 
 main() {
-  Expect.isTrue(C.constr is
-    C Function<T1 extends dynamic, T2 extends num, T3 extends String>());
-  Expect.isTrue(C.constr1 is
-    C Function<T1 extends dynamic, T2 extends num, T3 extends String>(T1, T2));
+  Expect.isTrue(C.constr is C<T1, T2, T3>
+      Function<T1 extends dynamic, T2 extends num, T3 extends String>());
+  Expect.isTrue(C.constr1 is C<T1, T2, T3>
+      Function<T1 extends dynamic, T2 extends num, T3 extends String>(T1, T2));
 }
