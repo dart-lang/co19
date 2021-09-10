@@ -46,12 +46,21 @@
 
 T foo1<T>(T value) => value;
 
-typedef T Foo<T>(T value);
-
 main() {
-  Foo funcValue1 = foo1;
-  funcValue1.call<int>;
-//               ^
+  var funcValue1 = foo1;
+  var f1 = funcValue1.call<int>;
+  f1(42);
+  f1("Lily was here");
+//   ^^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  T foo2<T>(T value) => value;
+  var funcValue2 = foo2;
+  var f2 = funcValue2.call<int>;
+  f2(42);
+  f2("Lily was here");
+//   ^^^^^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }

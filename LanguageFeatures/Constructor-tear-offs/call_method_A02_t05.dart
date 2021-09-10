@@ -2,37 +2,63 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion For an expression of the form e<typeArgs>, which is not followed
-/// by an argument list (that would turn it into a generic function invocation),
-/// the meaning of e<typeArgs> depends on the expression e:
-/// ...
-/// - If e has a static type which is a generic callable object type (a
-/// non-function type with a generic method named call), then e<typeArgs> is
-/// equivalent to the instantiated method-tear off e.call<typeArgs>.
-/// - Otherwise, if e has a static type which is a generic function type, then
-/// e<typeArgs> is equivalent to the instantiated method-tear off
-/// e.call<typeArgs>
+/// @assertion We now allow both implicit and explicit instantiation of callable
+/// objects (objects with an interface type which has a call method) when their
+/// call method is generic.
 ///
-/// @description Checks that it is not an error to tear-off a call method of a
-/// generic function type
+/// Previously, the following code was invalid:
+///
+/// class Id {
+///   T call<T>(T value) => value;
+/// }
+/// int Function(int) intId = Id();
+/// We disallowed this code because callable objects were treated like function
+/// objects, and we did not allow implicit instantiation of function objects,
+/// only tear-offs. Even if call is an instance method, and we allowed implicit
+/// instantiation of instance methods tear-offs, we chose to ignore that here
+/// and treat the callable object as a function object. (We also implicitly
+/// allowed instantiating the call method of actual function values, but it
+/// didn't work on all our implementations.)
+///
+/// We now allow instantiating function objects, and therefore we do not need to
+/// restrict callable objects either.
+///
+/// The variable initialization above will, after type inference, be
+///
+/// int Function(int) intId = Id().call<int>;
+/// Also, we allow explicitly instantiating a callable object:
+///
+/// var intId = Id()<int>;
+/// is also type-inferred to the same initialization.
+///
+/// That is, given an expression of the form e<typeArgs>, if e has a static type
+/// which is a callable object, the expression is equivalent to
+/// e.call<typeArgs>. Since no object with an interface type can otherwise
+/// support type-instantiation, this coercion turns an error into useful code,
+/// and allows a typed callable object to be consistently treated like a
+/// function object equivalent to its call method.
+///
+/// @description Checks that it explicitly instantiated `call` method has
+/// correct type
+///
+/// @description Checks that it is an error to explicitly instantiate a call
+/// method if function object is not generic
 /// @author sgrekhov@unipro.ru
-/// @issue 46902
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
-
-import "../../Utils/expect.dart";
-
-typedef int Foo<T>(int i);
 
 T foo1<T>(T value) => value;
 
 main() {
   var funcValue1 = foo1;
-  Foo<int> f1 = funcValue1.call;
-  Expect.equals(42, f1(42));
+  funcValue1<String>.call<int>;
+//                        ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  T foo2<T>(T value) => value;
-  var funcValue2 = foo2;
-  Foo<int> f2 = funcValue2.call;
-  Expect.equals(42, f2(42));
+  funcValue1<int>.call<int>;
+//                     ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 }

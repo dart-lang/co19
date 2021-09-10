@@ -38,20 +38,21 @@
 /// and allows a typed callable object to be consistently treated like a
 /// function object equivalent to its call method.
 ///
-/// @description Checks that it explicitly instantiated `call` method has
-/// correct type
+/// @description Checks implicit and explicit instantiation of a class's 'call'
+/// method
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
-T foo1<T>(T value) => value;
+import "../../Utils/expect.dart";
 
-typedef T Foo<T>(T value);
+class C {
+  T call<T>(T t) => t;
+}
 
 main() {
-  Foo funcValue1 = foo1;
-  funcValue1.call<int>;
-//               ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  int Function(int) f1 = C();
+  Expect.equals(42, f1(42));
+  var f2 = C()<int>;
+  Expect.equals(42, f2(42));
 }
