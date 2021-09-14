@@ -10,6 +10,7 @@
 /// generic type instantiation of a constant function object where the type
 /// argument is constant
 /// @author sgrekhov@unipro.ru
+/// @issue 47213
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 

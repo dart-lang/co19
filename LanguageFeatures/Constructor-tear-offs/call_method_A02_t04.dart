@@ -41,6 +41,7 @@
 /// @description Checks that it explicitly instantiated `call` method has
 /// correct type
 /// @author sgrekhov@unipro.ru
+/// @issue 47211
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 

@@ -59,7 +59,6 @@ main() {
   int c = 3;
   f(a<b,
 //  ^^^
-// [analyzer] unspecified
 // [cfe] unspecified
       c>?..toString());
 //      ^^^
