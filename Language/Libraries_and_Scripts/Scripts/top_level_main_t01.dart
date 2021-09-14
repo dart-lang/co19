@@ -20,7 +20,7 @@ run_main() async {
     executable = executable.replaceRange(
         executable.lastIndexOf(Platform.pathSeparator) + 1, null, "dart");
     eScript = eScript.replaceRange(
-        eScript.lastIndexOf(Platform.pathSeparator) + 1,
+        eScript.lastIndexOf("/") + 1,
         null,
         "top_level_main_t01_lib.dart");
   }
