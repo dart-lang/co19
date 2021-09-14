@@ -50,11 +50,11 @@ main() {
   var f = foo<int>.call;
   f<String>("Lily was here");
 //  ^^^^^^
-// [analyzer] undefined
-// [cfe] undefined
+// [analyzer] unspecified
+// [cfe] unspecified
 
   f<int>(42);
 //  ^^^
-// [analyzer] undefined
-// [cfe] undefined
+// [analyzer] unspecified
+// [cfe] unspecified
 }

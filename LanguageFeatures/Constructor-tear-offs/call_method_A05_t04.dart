@@ -49,11 +49,11 @@ T foo<T>(T value) => value;
 main() {
   var f1 = foo<int>.call<String>;
 //                       ^^^^^^
-// [analyzer] undefined
-// [cfe] undefined
+// [analyzer] unspecified
+// [cfe] unspecified
 
   var f2 = foo<int>.call<int>;
 //                       ^^^
-// [analyzer] undefined
-// [cfe] undefined
+// [analyzer] unspecified
+// [cfe] unspecified
 }
