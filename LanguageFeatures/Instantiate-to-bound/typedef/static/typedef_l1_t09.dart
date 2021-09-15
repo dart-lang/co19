@@ -40,13 +40,15 @@
 ///
 ///   3. Otherwise, (when no dependencies exist) terminate with the result
 ///   [<U1,m ..., Uk,m>].
-/// @description Checks that instantiate-to-bounds works correctly for [class A<X
-/// extends A<X>>], [typedef G<X extends A<X>> = void Function()] (unused)
+///
+/// @description Checks that instantiate-to-bounds works correctly for tha case
+/// with inised type parameters:
+/// class A<X extends A<X>>;
+/// typedef G<X extends A<X>> = void Function()
 ///
 /// @Issue 41963, 41964
 ///
 /// @author iarkh@unipro.ru
-
 
 import "../../../../Utils/expect.dart";
 
@@ -65,4 +67,7 @@ test(G source) {
 // [cfe] unspecified
 }
 
-main() {}
+main() {
+  G? source;
+  G == int;
+}

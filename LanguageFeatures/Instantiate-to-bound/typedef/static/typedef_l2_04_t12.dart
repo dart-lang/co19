@@ -40,9 +40,10 @@
 ///
 ///   3. Otherwise, (when no dependencies exist) terminate with the result
 ///   [<U1,m ..., Uk,m>].
-/// @description Checks that instantiate-to-bounds works correctly for [typedef]
-/// with two related parameters: [typedef G<X extends A<Y>, Y extends X> = void
-/// Function<Y1 extends Y>(X)]
+///
+/// @description Checks that instantiate-to-bounds works correctly for typedef
+/// with two related parameters:
+/// typedef G<X extends A<Y>, Y extends X> = void Function<Y1 extends Y>(X)
 ///
 /// @Issue 41963, 41964, 44786
 /// @Issue dart-lang/language#1133
@@ -53,10 +54,20 @@
 class A<X> {}
 typedef G<X extends A<Y>, Y extends X> = void Function<Y1 extends Y>(X);
 
+test(G g) {
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   G? source;
-//   ^^^^^^
+//^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  G == int;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

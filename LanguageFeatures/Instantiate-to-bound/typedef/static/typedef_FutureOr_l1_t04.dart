@@ -40,11 +40,13 @@
 ///
 ///   3. Otherwise, (when no dependencies exist) terminate with the result
 ///   [<U1,m ..., Uk,m>].
-/// @description Checks that instantiate-to-bounds works correctly for [typedef
-///  G<X extends FutureOr<X>> = void Function()] (unused)
+///
+/// @description Checks that instantiate-to-bounds works correctly for the case
+/// with unused type parameter:
+/// typedef G<X extends FutureOr<X>> = void Function()
+///
 /// @Issue 41963, 41964
 /// @author iarkh@unipro.ru
-
 
 import "dart:async";
 import "../../../../Utils/expect.dart";
@@ -59,4 +61,7 @@ test(G source) {
   F<G<FutureOr<Null>>>    target3 = fsource;
 }
 
-main() {}
+main() {
+  G? source;
+  G == int;
+}

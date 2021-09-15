@@ -39,35 +39,35 @@
 ///
 ///   3. Otherwise, (when no dependencies exist) terminate with the result
 ///   [<U1,m ..., Uk,m>].
-/// @description Checks that instantiate-to-bounds works correctly for [typedef
-///  G<X extends A<X>> = void Function(X)] (contravariant)
+ ///
+/// @description Checks that instantiate-to-bounds works correctly for
+ /// contravariant case: typedef G<X extends A<X>> = void Function(X)]
+ ///
 /// @Issue 34689, 34699
 /// @author iarkh@unipro.ru
-
 
 import "../../../../Utils/expect.dart";
 
 class A<X> {}
 typedef G<X extends A<X>> = void Function(X);
 
-main() {
-  G? source;
+testme(G source) {
   var fsource = toF(source);
 
-  F<G<A<Never>>?>? target = fsource;
+  F<G<A<Never>>> target = fsource;
 
-  F<G<A<Never>?>?>? target0 = fsource;
-//                            ^^^^^^^
+  F<G<A<dynamic>>> target1 = fsource;
+//                           ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<dynamic>>?>? target1 = fsource;
-//                             ^^^^^^^
+  F<G<A<Null>>> target2 = fsource;
+//                        ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
-  F<G<A<Null>>?>? target2 = fsource;
-//                          ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+main() {
+  G? source;
+  G == int;
 }

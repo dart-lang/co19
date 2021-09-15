@@ -40,11 +40,11 @@
 ///
 ///   3. Otherwise, (when no dependencies exist) terminate with the result
 ///   [<U1,m ..., Uk,m>].
-/// @description Checks that instantiate-to-bounds works correctly for [typedef]
-/// with two related parameters: [typedef G<X extends A<X>, Y extends X> = Y
-/// Function(X)]
+///
+/// @description Checks that instantiate-to-bounds works correctly for typedef
+/// with two related parameters:
+/// typedef G<X extends A<X>, Y extends X> = Y Function(X)
 /// @author iarkh@unipro.ru
-
 
 import "../../../../Utils/expect.dart";
 

@@ -40,12 +40,12 @@
 ///
 ///   3. Otherwise, (when no dependencies exist) terminate with the result
 ///   [<U1,m ..., Uk,m>].
-/// @description Checks that instantiate-to-bounds works correctly for [typedef
-///  G<X extends A<X>> = void Function<Y extends X>()] (covariant)
+///
+/// @description Checks that instantiate-to-bounds works correctly for covariant
+/// case: typedef G<X extends A<X>> = void Function<Y extends X>()
 ///
 /// @Issue 41963, 41964
 /// @author iarkh@unipro.ru
-
 
 class A<X> {}
 typedef G<X extends A<X>> = void Function<Y extends X>();
@@ -64,4 +64,7 @@ test(G source) {
 // [cfe] unspecified
 }
 
-main() {}
+main() {
+  G? source;
+  G == int;
+}

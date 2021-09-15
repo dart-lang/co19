@@ -40,9 +40,15 @@
 ///
 ///   3. Otherwise, (when no dependencies exist) terminate with the result
 ///   [<U1,m ..., Uk,m>].
-/// @description Checks that instantiate-to-bounds works correctly for [typedef]
-/// with two related parameters: [typedef G<X extends Y, Y extends A<X>> =
-/// X Function()]
+///
+/// @description Checks that instantiate-to-bounds works correctly for typedef
+/// with two related parameters:
+/// typedef G<X extends Y, Y extends A<X>> = X Function()
+///
+/// After the type bounds checks in type literals enabling
+/// (see https://dart-review.googlesource.com/c/sdk/+/212290) [G] becomes a
+/// compile time error because the type literal is expanded into the type which
+/// is not well-bounded.
 ///
 /// @Issue 41963, 41964
 ///
@@ -151,4 +157,7 @@ test(G source) {
   F<G<dynamic, A<Never>>> target21 = fsource;
 }
 
-main() {}
+main() {
+  G? source;
+  G == int;
+}

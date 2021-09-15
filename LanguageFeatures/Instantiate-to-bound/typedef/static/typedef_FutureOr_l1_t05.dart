@@ -40,10 +40,11 @@
 ///
 ///   3. Otherwise, (when no dependencies exist) terminate with the result
 ///   [<U1,m ..., Uk,m>].
-/// @description Checks that instantiate-to-bounds works correctly for [typedef
-///  G<X extends FutureOr<X>> = void Function<X1 extends X>()] (covariant)
+///
+/// @description Checks that instantiate-to-bounds works correctly for covariant
+/// case: G<X extends FutureOr<X>> = void Function<X1 extends X>()
+///
 /// @author iarkh@unipro.ru
-
 
 import "dart:async";
 
@@ -63,4 +64,8 @@ test(G source) {
 // [cfe] unspecified
 }
 
-main() {}
+main() {
+  G? source;
+  G == int;
+}
+

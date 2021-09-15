@@ -40,28 +40,32 @@
 ///
 ///   3. Otherwise, (when no dependencies exist) terminate with the result
 ///   [<U1,m ..., Uk,m>].
-/// @description Checks that instantiate-to-bounds works correctly for [typedef]
-/// with two related parameters: [typedef G<X extends Y, Y extends A<Y>> = void
-/// Function<X1 extends X>(X, Y)]
+///
+/// @description Checks that instantiate-to-bounds works correctly for typedef
+/// with two related parameters:
+/// typedef G<X extends Y, Y extends A<Y>> = void Function<X1 extends X>(X, Y)
+///
 /// @Issue 42197
 /// @author iarkh@unipro.ru
-
-//
 
 class A<X> {}
 typedef G<X extends Y, Y extends A<Y>> = void Function<X1 extends X>(X, Y);
 
+test(G source) {
+  void Function<X extends A<Never>>(A<Never>, A<Never>) target = source;
+
+  void Function<X extends A<Null>>(A<Null>, A<Null>) target1 = source;
+//                                                             ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  void Function<X extends A<dynamic>>(A<dynamic>, A<dynamic>) target2 = source;
+//                                                                      ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   G? source;
-  void Function<X extends A<Never>>(A<Never>, A<Never>)? target = source;
-
-  void Function<X extends A<Null>>(A<Null>, A<Null>)? target1 = source;
-//                                                              ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  void Function<X extends A<dynamic>>(A<dynamic>, A<dynamic>)? target2 = source;
-//                                                                       ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  G == int;
 }

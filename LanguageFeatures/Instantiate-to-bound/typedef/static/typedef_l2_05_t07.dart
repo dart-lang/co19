@@ -40,9 +40,12 @@
 ///
 ///   3. Otherwise, (when no dependencies exist) terminate with the result
 ///   [<U1,m ..., Uk,m>].
-/// @description Checks that instantiate-to-bounds works correctly for [typedef]
-/// with two related parameters: [typedef G<X extends Y, Y extends A<X>> = void
-/// Function<X1 extends X, Y1 extends Y>(X, Y)]
+///
+/// @description Checks that instantiate-to-bounds works correctly for typedef
+/// with two related parameters:
+///
+/// typedef G<X extends Y, Y extends A<X>> =
+///     void Function<X1 extends X, Y1 extends Y>(X, Y)
 ///
 /// @Issue 41963, 41964
 ///
@@ -50,10 +53,10 @@
 
 
 class A<X> {}
-typedef G<X extends Y, Y extends A<X>> = void Function<X1 extends X, Y1 extends Y>(X, Y);
+typedef G<X extends Y, Y extends A<X>> =
+    void Function<X1 extends X, Y1 extends Y>(X, Y);
 
 test(G source) {
-
   void Function<X extends A<dynamic>, Y extends A<dynamic>>(A<dynamic>, dynamic) target1 = source;
 //                                                                                         ^^^^^^
 // [analyzer] unspecified
@@ -157,4 +160,7 @@ test(G source) {
 // [cfe] unspecified
 }
 
-main() {}
+main() {
+  G? source;
+  G == int;
+}

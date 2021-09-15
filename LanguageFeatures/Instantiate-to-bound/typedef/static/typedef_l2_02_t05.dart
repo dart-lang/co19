@@ -40,51 +40,55 @@
 ///
 ///   3. Otherwise, (when no dependencies exist) terminate with the result
 ///   [<U1,m ..., Uk,m>].
-/// @description Checks that instantiate-to-bounds works correctly for [typedef]
-/// with two related parameters: [typedef G<X extends A<X>, Y extends X> = void
-/// Function(X, Y)]
+/// @description Checks that instantiate-to-bounds works correctly for typedef
+/// with two related parameters:
+/// typedef G<X extends A<X>, Y extends X> = void Function(X, Y)
+///
 /// @Issue 34689, 34699, 35068
 /// @author iarkh@unipro.ru
-
 
 import "../../../../Utils/expect.dart";
 
 class A<X> {}
 typedef G<X extends A<X>, Y extends X> = void Function(X, Y);
 
-main() {
-  G? source;
+test(G source) {
   var fsource = toF(source);
 
-  F<G<A<Never>, Never>?>? target = fsource;
+  F<G<A<Never>, Never>> target = fsource;
 
-  F<G<A<Null>, Null>?>? target0 = fsource;
-//                                ^^^^^^^
+  F<G<A<Null>, Null>> target0 = fsource;
+//                              ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<dynamic>, dynamic>?>? target1 = fsource;
-//                                      ^^^^^^^
+  F<G<A<dynamic>, dynamic>> target1 = fsource;
+//                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<dynamic>, A<Null>>?>? target2 = fsource;
-//                                      ^^^^^^^
+  F<G<A<dynamic>, A<Null>>> target2 = fsource;
+//                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<dynamic>, A<Never>>?>? target3 = fsource;
+  F<G<A<dynamic>, A<Never>>> target3 = fsource;
+//                                     ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  F<G<A<dynamic>, A<dynamic>>> target4 = fsource;
 //                                       ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  F<G<A<dynamic>, A<dynamic>>?>? target4 = fsource;
-//                                         ^^^^^^^
+  F<G<dynamic, A<dynamic>>> target5 = fsource;
+//                                    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+}
 
-  F<G<dynamic, A<dynamic>>?>? target5 = fsource;
-//                                      ^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+main() {
+  G? source;
+  G == int;
 }

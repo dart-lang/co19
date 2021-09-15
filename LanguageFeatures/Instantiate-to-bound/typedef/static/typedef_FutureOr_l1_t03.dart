@@ -40,12 +40,12 @@
 ///
 ///   3. Otherwise, (when no dependencies exist) terminate with the result
 ///   [<U1,m ..., Uk,m>].
-/// @description Checks that instantiate-to-bounds works correctly for [typedef
-///  G<X extends FutureOr<X>> = X Function(X)] (invariant)
+///
+/// @description Checks that instantiate-to-bounds works correctly for invariant
+/// case: typedef G<X extends FutureOr<X>> = X Function(X)]
+///
 /// @Issue 41963, 41964
 /// @author iarkh@unipro.ru
-///
-
 
 import "dart:async";
 import "../../../../Utils/expect.dart";
@@ -67,4 +67,7 @@ test(G source) {
 // [cfe] unspecified
 }
 
-main() {}
+main() {
+  G? source;
+  G == int;
+}
