@@ -29,8 +29,6 @@
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
-import "../../Utils/expect.dart";
-
 class A<X> {
   final X x;
   const A.named(this.x);

@@ -110,7 +110,6 @@ mixin M on C {
   }
 }
 
-
 class D extends C with M {
   void method() {
     var f4 = super.inst<int>; // works like (int $) => super.inst<int>($)
