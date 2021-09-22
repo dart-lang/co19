@@ -350,3 +350,12 @@ final bool assertStatementsEnabled = (() {
 
 /// Is true iff js compiler is used
 final bool isJS = identical(1.0, 1);
+
+/// Checks that objects are identical at the compile time
+class CheckIdentical {
+  const CheckIdentical(Object? o1, Object? o2) : assert(identical(o1, o2));
+}
+/// Checks that objects are not identical at the compile time
+class CheckNotIdentical {
+  const CheckNotIdentical(Object? o1, Object? o2) : assert(!identical(o1, o2));
+}

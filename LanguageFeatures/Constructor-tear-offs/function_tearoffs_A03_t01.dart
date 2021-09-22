@@ -45,14 +45,14 @@ Y bar<Y>(Y y) => y;
 main() {
   const e1 = foo<int>;
   const e2 = foo<int>;
-  Expect.identical(e1, e2);
+  const CheckIdentical(e1, e2);
 
   const e3 = bar<int>;
   Expect.notEquals(e3, e1);
 
   const e4 = C.stat1<int>;
   const e5 = C.stat1<int>;
-  Expect.identical(e4, e5);
+  const CheckIdentical(e4, e5);
   Expect.notEquals(e1, e4);
 
   const e6 = C.stat2<int>;
@@ -60,7 +60,7 @@ main() {
 
   const e7 = Ext.estat1<int>;
   const e8 = Ext.estat1<int>;
-  Expect.identical(e7, e8);
+  const CheckIdentical(e7, e8);
   Expect.notEquals(e7, e1);
   Expect.notEquals(e7, e4);
 
@@ -74,7 +74,7 @@ main() {
 
   const e11 = M.mstat1<int>;
   const e12 = M.mstat1<int>;
-  Expect.identical(e11, e12);
+  const CheckIdentical(e11, e12);
   Expect.notEquals(e7, e11);
   Expect.notEquals(e4, e11);
   Expect.notEquals(e1, e11);

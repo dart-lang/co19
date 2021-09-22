@@ -17,36 +17,35 @@
 /// and it is equivalent to corresponding const Symbol object.
 /// @author ilya
 
-
 import '../../../Utils/expect.dart';
 
 main() {
-  Expect.identical(const Symbol('~'), #~);
-  Expect.identical(const Symbol('=='), #==);
-  Expect.identical(const Symbol('[]'), #[]);
-  Expect.identical(const Symbol('[]='), #[]=);
+  const CheckIdentical(const Symbol('~'), #~);
+  const CheckIdentical(const Symbol('=='), #==);
+  const CheckIdentical(const Symbol('[]'), #[]);
+  const CheckIdentical(const Symbol('[]='), #[]=);
 
-  Expect.identical(const Symbol('*'), #*);
-  Expect.identical(const Symbol('/'), #/);
-  Expect.identical(const Symbol('%'), #%);
-  Expect.identical(const Symbol('~/'), #~/);
+  const CheckIdentical(const Symbol('*'), #*);
+  const CheckIdentical(const Symbol('/'), #/);
+  const CheckIdentical(const Symbol('%'), #%);
+  const CheckIdentical(const Symbol('~/'), #~/);
 
-  Expect.identical(const Symbol('+'), #+);
-  Expect.identical(const Symbol('-'), #-);
+  const CheckIdentical(const Symbol('+'), #+);
+  const CheckIdentical(const Symbol('-'), #-);
 
-  Expect.identical(const Symbol('<<'), #<<);
-  Expect.identical(const Symbol('>>'), #>>);
+  const CheckIdentical(const Symbol('<<'), #<<);
+  const CheckIdentical(const Symbol('>>'), #>>);
 
-  Expect.identical(const Symbol('>>>'), #>>>);
+  const CheckIdentical(const Symbol('>>>'), #>>>);
 
-  Expect.identical(const Symbol('<'), #<);
-  Expect.identical(const Symbol('<='), #<=);
-  Expect.identical(const Symbol('>'), #>);
-  Expect.identical(const Symbol('>='), #>=);
+  const CheckIdentical(const Symbol('<'), #<);
+  const CheckIdentical(const Symbol('<='), #<=);
+  const CheckIdentical(const Symbol('>'), #>);
+  const CheckIdentical(const Symbol('>='), #>=);
 
-  Expect.identical(const Symbol('&'), #&);
-  Expect.identical(const Symbol('^'), #^);
-  Expect.identical(const Symbol('|'), #|);
+  const CheckIdentical(const Symbol('&'), #&);
+  const CheckIdentical(const Symbol('^'), #^);
+  const CheckIdentical(const Symbol('|'), #|);
 }
 
 

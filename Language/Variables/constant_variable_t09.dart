@@ -23,13 +23,13 @@ main() {
   const String e = "OneTwo";
   const y = 2;
 
-  Expect.identical(-100, i);
-  Expect.identical(false, b);
-  Expect.identical("string", s);
-  Expect.identical(Math.pi, pi);
-  Expect.identical(const [0, 1, 2, 3], l);
-  Expect.identical(const {'a': 1, 'b': 2}, m);
-  Expect.identical("OneTwo", e);
-  Expect.identical(1, x);
-  Expect.identical(2, y);
+  const CheckIdentical(-100, i);
+  const CheckIdentical(false, b);
+  const CheckIdentical("string", s);
+  const CheckIdentical(Math.pi, pi);
+  const CheckIdentical(const [0, 1, 2, 3], l);
+  const CheckIdentical(const {'a': 1, 'b': 2}, m);
+  const CheckIdentical("OneTwo", e);
+  const CheckIdentical(1, x);
+  const CheckIdentical(2, y);
 }

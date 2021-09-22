@@ -20,8 +20,8 @@
 import '../../../Utils/expect.dart';
 
 main() {
-  Expect.identical(const Symbol('foo'), #foo);
-  Expect.identical(const Symbol(r'foo_.bar123$'), #foo_.bar123$);
+  const CheckIdentical(const Symbol('foo'), #foo);
+  const CheckIdentical(const Symbol(r'foo_.bar123$'), #foo_.bar123$);
 }
 
 

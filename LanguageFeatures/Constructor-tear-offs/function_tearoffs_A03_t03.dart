@@ -38,22 +38,22 @@ X foo<X>(X x) => x;
 main() {
   const e1 = foo<int>;
   const e2 = foo<IntAlias>;
-  Expect.identical(e1, e2);
+  const CheckIdentical(e1, e2);
 
   const e4 = C.stat<int>;
   const e5 = C.stat<IntAlias>;
-  Expect.identical(e4, e5);
+  const CheckIdentical(e4, e5);
   Expect.notEquals(e2, e4);
 
   const e7 = Ext.estat<int>;
   const e8 = Ext.estat<IntAlias>;
-  Expect.identical(e7, e8);
+  const CheckIdentical(e7, e8);
   Expect.notEquals(e7, e2);
   Expect.notEquals(e7, e5);
 
   const e9 = M.mstat<int>;
   const e10 = M.mstat<IntAlias>;
-  Expect.identical(e9, e10);
+  const CheckIdentical(e9, e10);
   Expect.notEquals(e9, e2);
   Expect.notEquals(e9, e5);
   Expect.notEquals(e9, e8);

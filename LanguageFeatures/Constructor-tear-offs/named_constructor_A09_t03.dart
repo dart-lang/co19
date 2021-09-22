@@ -36,10 +36,10 @@ main() {
   Expect.equals(v4, v6);
   Expect.identical(v4, v6);
 
-  var v7 = C<Null>.constr2;
-  var v9 = (C.constr2)<Null>;
+  const v7 = C<Null>.constr2;
+  const v9 = (C.constr2)<Null>;
   Expect.equals(v7, v9);
-  Expect.identical(v7, v9);
+  const CheckIdentical(v7, v9);
 
   var v10 = C<List>.constr3;
   var v12 = (C.constr3)<List>;

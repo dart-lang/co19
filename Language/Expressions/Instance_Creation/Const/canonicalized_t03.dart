@@ -23,7 +23,7 @@
 /// objects if all fields in constructed instances are identical.
 /// @author msyabro
 
-import '../../../../Utils/expect.dart';
+import "../../../../Utils/expect.dart";
 
 class A {
   const A(): x = 1;
@@ -36,10 +36,7 @@ class B {
 }
 
 main() {
-  var o = const A();
-  for (int i = 0; i < 10; i++) {
-    Expect.identical(o, const A());
-  }
-
-  Expect.identical(const B(const Object()), const B(const Object()));
+  const o = const A();
+  const CheckIdentical(o, const A());
+  const CheckIdentical(const B(const Object()), const B(const Object()));
 }

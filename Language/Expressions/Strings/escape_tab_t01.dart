@@ -12,8 +12,8 @@
 import '../../../Utils/expect.dart';
 
 main() {
-  var escapeT = '\t';
-  var escapeX = '\x09';
+  const escapeT = '\t';
+  const escapeX = '\x09';
 
-  Expect.identical(escapeT, escapeX);
+  const CheckIdentical(escapeT, escapeX);
 }

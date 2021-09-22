@@ -8,12 +8,11 @@
 /// is initialized to a non compile-time constant.
 /// @author msyabro
 
-import "../../Utils/expect.dart";
-
 class Foo {}
 const Foo foo = new Foo();
 //              ^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-main() {}
+main() {
+}

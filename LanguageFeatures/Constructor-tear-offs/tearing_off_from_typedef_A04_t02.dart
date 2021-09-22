@@ -21,9 +21,9 @@ typedef IntList = List;
 
 main() {
   var v1 = IntList.filled;
-  var v2 = IntList.filled;
-  var v3 = IntList.filled;
+  const v2 = IntList.filled;
+  const v3 = IntList.filled;
 
   Expect.identical(v1, v2);
-  Expect.identical(v1, v3);
+  const CheckIdentical(v2, v3);
 }

@@ -9,7 +9,6 @@
 /// @author msyabro
 
 import "../../Utils/expect.dart";
-
 import "dart:math" as Math;
 
 class Foo {
@@ -20,20 +19,20 @@ const int i = -100;
 const bool b = false;
 const String s = "string";
 const double pi = Math.pi;
-const Foo foo = const Foo();
-const List<int> l = const [0, 1, 2, 3];
-const Map<String, int> m = const {'a': 1, 'b': 2};
+const Foo foo = Foo();
+const List<int> l = [0, 1, 2, 3];
+const Map<String, int> m = {'a': 1, 'b': 2};
 const bool bOr = true || false;
 const int iPlus = 5 + i;
 
 main() {
-  Expect.identical(-100,  i);
-  Expect.identical(false,  b);
-  Expect.identical("string",  s);
-  Expect.identical(Math.pi,  pi);
-  Expect.identical(const Foo(),  foo);
-  Expect.identical(const [0, 1, 2, 3],  l);
-  Expect.identical(const {'a': 1, 'b': 2},  m);
-  Expect.identical(true || false,  bOr);
-  Expect.identical(-95,  iPlus);
+  const CheckIdentical(-100,  i);
+  const CheckIdentical(false,  b);
+  const CheckIdentical("string",  s);
+  const CheckIdentical(Math.pi,  pi);
+  const CheckIdentical(Foo(),  foo);
+  const CheckIdentical([0, 1, 2, 3],  l);
+  const CheckIdentical({'a': 1, 'b': 2},  m);
+  const CheckIdentical(true || false,  bOr);
+  const CheckIdentical(-95,  iPlus);
 }

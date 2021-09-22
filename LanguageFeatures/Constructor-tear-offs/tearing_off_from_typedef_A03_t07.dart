@@ -11,6 +11,7 @@
 /// constant and canonicalized when the alias is instantiated.
 ///
 /// @author iarkh@unipro.ru
+/// @issue 47267
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
@@ -26,12 +27,12 @@ main() {
   Expect.identical(v1, v2);
   Expect.identical(v1, v3);
 
-  var v4 = MyList<int>.filled;
-  var v5 = MyList<int>.filled;
-  var v6 = (MyList.filled)<int>;
+  const v4 = MyList<int>.filled;
+  const v5 = MyList<int>.filled;
+  const v6 = (MyList.filled)<int>;
 
-  Expect.identical(v4, v5);
-  Expect.identical(v4, v6);
+  const CheckIdentical(v4, v5);
+  const CheckIdentical(v4, v6);
 
   Expect.notEquals(v1, v4);
 }

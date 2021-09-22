@@ -14,27 +14,27 @@
 import '../../../Utils/expect.dart';
 
 main() {
-  Expect.identical('\u0000', '\u{0000}');
-  Expect.identical('\u0001', '\u{0001}');
-  Expect.identical('\u0002', '\u{0002}');
-  Expect.identical('\u0003', '\u{0003}');
-  Expect.identical('\u0004', '\u{0004}');
-  Expect.identical('\u0005', '\u{0005}');
-  Expect.identical('\u0006', '\u{0006}');
-  Expect.identical('\u0007', '\u{0007}');
-  Expect.identical('\u0008', '\u{0008}');
-  Expect.identical('\u0009', '\u{0009}');
-  Expect.identical('\u000a', '\u{000a}');
-  Expect.identical('\u000B', '\u{000B}');
-  Expect.identical('\u000C', '\u{000c}');
-  Expect.identical('\u000D', '\u{000D}');
-  Expect.identical('\u000e', '\u{000E}');
-  Expect.identical('\u000f', '\u{000f}');
+  const CheckIdentical('\u0000', '\u{0000}');
+  const CheckIdentical('\u0001', '\u{0001}');
+  const CheckIdentical('\u0002', '\u{0002}');
+  const CheckIdentical('\u0003', '\u{0003}');
+  const CheckIdentical('\u0004', '\u{0004}');
+  const CheckIdentical('\u0005', '\u{0005}');
+  const CheckIdentical('\u0006', '\u{0006}');
+  const CheckIdentical('\u0007', '\u{0007}');
+  const CheckIdentical('\u0008', '\u{0008}');
+  const CheckIdentical('\u0009', '\u{0009}');
+  const CheckIdentical('\u000a', '\u{000a}');
+  const CheckIdentical('\u000B', '\u{000B}');
+  const CheckIdentical('\u000C', '\u{000c}');
+  const CheckIdentical('\u000D', '\u{000D}');
+  const CheckIdentical('\u000e', '\u{000E}');
+  const CheckIdentical('\u000f', '\u{000f}');
 
-  Expect.identical('\uabcd', '\u{ABCD}');
-  Expect.identical('\u1f1f', '\u{1f1f}');
-  Expect.identical('\ua0b0', '\u{a0b0}');
-  Expect.identical('\u1a12', '\u{1a12}');
-  Expect.identical('\uEEEE', '\u{EEEE}');
-  Expect.identical('\uffff', '\u{ffff}');
+  const CheckIdentical('\uabcd', '\u{ABCD}');
+  const CheckIdentical('\u1f1f', '\u{1f1f}');
+  const CheckIdentical('\ua0b0', '\u{a0b0}');
+  const CheckIdentical('\u1a12', '\u{1a12}');
+  const CheckIdentical('\uEEEE', '\u{EEEE}');
+  const CheckIdentical('\uffff', '\u{ffff}');
 }

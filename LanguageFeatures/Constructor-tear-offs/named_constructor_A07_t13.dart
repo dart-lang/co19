@@ -23,20 +23,20 @@ class C {
 }
 
 main() {
-  var v1 = C.name1;
-  var v2 = C.name1;
+  const v1 = C.name1;
+  const v2 = C.name1;
   Expect.equals(v1, v2);
-  Expect.identical(v1, v2);
+  const CheckIdentical(v1, v2);
 
   var v4 = C.name2;
   var v5 = C.name2;
   Expect.equals(v4, v5);
   Expect.identical(v4, v5);
 
-  var v7 = C.new;
-  var v8 = C.new;
+  const v7 = C.new;
+  const v8 = C.new;
   Expect.equals(v7, v8);
-  Expect.identical(v7, v8);
+  const CheckIdentical(v7, v8);
 
   Expect.notEquals(v1, v4);
   Expect.notEquals(v2, v7);

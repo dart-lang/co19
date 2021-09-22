@@ -11,12 +11,12 @@
 import '../../../Utils/expect.dart';
 
 main() {
-  var escapeN = '\n';
-  var escapeX = '\x0A';
-  var newline = """
+  const escapeN = '\n';
+  const escapeX = '\x0A';
+  const newline = """
 
 """;
 
-  Expect.identical(escapeN, escapeX);
-  Expect.identical(escapeN, newline);
+  const CheckIdentical(escapeN, escapeX);
+  const CheckIdentical(escapeN, newline);
 }

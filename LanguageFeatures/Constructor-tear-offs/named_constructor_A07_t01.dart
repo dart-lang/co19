@@ -21,8 +21,8 @@ class C {
 }
 
 main() {
-  var v1 = C.new;
-  var v2 = C.new;
+  const v1 = C.new;
+  const v2 = C.new;
   Expect.equals(v1, v2);
-  Expect.identical(v1, v2);
+  const CheckIdentical(v1, v2);
 }

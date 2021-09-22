@@ -33,10 +33,10 @@ main() {
   const v7 = MyClass<int>.new;
   const v8 = MyClass<String>.constr;
 
-  Expect.identical(v1, v5);
-  Expect.identical(v2, v6);
-  Expect.identical(v3, v7);
-  Expect.identical(v4, v8);
+  const CheckIdentical(v1, v5);
+  const CheckIdentical(v2, v6);
+  const CheckIdentical(v3, v7);
+  const CheckIdentical(v4, v8);
 
   var c1 = v1(3, 14);
   var c2 = v1(3, 14);
