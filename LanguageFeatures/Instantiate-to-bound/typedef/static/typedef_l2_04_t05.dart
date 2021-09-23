@@ -53,7 +53,6 @@ class A<X> {}
 typedef G<X extends A<Y>, Y extends X> = void Function(X, Y);
 
 test(G source) {
-  G? source;
   var fsource = toF(source);
 
   F<G<A<Never>, Never>> target = fsource;

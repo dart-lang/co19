@@ -52,7 +52,7 @@ import "../../../../Utils/expect.dart";
 typedef A<X> = X Function();
 typedef G<X extends A<X>> = X Function();
 
-main(G source) {
+test(G source) {
   var fsource = toF(source);
 
   F<G<A<dynamic>>> target = fsource;

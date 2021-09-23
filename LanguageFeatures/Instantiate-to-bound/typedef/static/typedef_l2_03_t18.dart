@@ -78,7 +78,7 @@ test(G source) {
 // [cfe] unspecified
 }
 
-main() {}main() {
+main() {
   G? source;
   G == int;
 }

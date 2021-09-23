@@ -53,7 +53,7 @@ typedef G<X extends A<X>> = X? Function();
 testme(G source) {
   var fsource = toF(source);
 
-  F<G<A<dynamic>>?>? target = fsource;
+  F<G<A<dynamic>>> target = fsource;
 
   F<G<A<Null>>> target1 = fsource;
 //                        ^^^^^^^
