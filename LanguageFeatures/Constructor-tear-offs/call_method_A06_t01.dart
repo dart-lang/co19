@@ -59,6 +59,6 @@ main() {
   var c1 = C()<int>;
   Expect.equals(42, c1(42));
 
-  int Function(int) с2 = C();
-  Expect.equals(42, с2(42));
+  int Function(int) c2 = C();
+  Expect.equals(42, c2(42));
 }

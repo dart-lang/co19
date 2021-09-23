@@ -25,13 +25,13 @@ class C {
   T bar<T>(T t) => t;
 }
 main() {
-  Function func1 = foo;
+  Function func1 = C.foo;
   var c1 = func1<int>;
 //         ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  Function func2 = bar;
+  Function func2 = C().bar;
   var c2 = func2<int>;
 //         ^^^^^
 // [analyzer] unspecified

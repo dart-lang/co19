@@ -60,7 +60,7 @@ main() {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  int Function(int) с2 = C();
+  int Function(int) c2 = C();
   c2("42");
 //   ^^^^
 // [analyzer] unspecified
