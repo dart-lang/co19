@@ -45,7 +45,7 @@
 /// with two related parameters:
 /// typedef G<X extends A<Y>, Y extends A<X>> = void Function(X)]
 ///
-/// @Issue 41963, 41964, 44786
+/// @Issue 41963, 41964, 44786, 47276
 /// @Issue dart-lang/language#1133
 ///
 /// @author iarkh@unipro.ru

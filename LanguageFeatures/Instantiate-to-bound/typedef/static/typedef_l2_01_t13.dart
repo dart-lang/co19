@@ -50,7 +50,7 @@
 /// time error because the type literal is expanded into the type which is not
 /// well-bounded.
 ///
-/// @Issue 41963, 41964, 44786
+/// @Issue 41963, 41964, 44786, 47276
 /// @Issue dart-lang/language#1133
 ///
 /// @author iarkh@unipro.ru
@@ -59,10 +59,20 @@
 class A<X> {}
 typedef G<X extends A<X>, Y extends A<Y>> = void Function<Y1 extends Y>(X, Y);
 
+test(G g) {
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
 main() {
   G? source;
-//   ^^^^^^
+//^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
+  G == int;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

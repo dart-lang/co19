@@ -50,7 +50,7 @@
 /// compile time error because the type literal is expanded into the type which
 /// is not well-bounded.
 
-/// @Issue 41963, 41964, 44786
+/// @Issue 41963, 41964, 44786, 47276
 /// @Issue dart-lang/language#1133
 ///
 /// @author iarkh@unipro.ru
