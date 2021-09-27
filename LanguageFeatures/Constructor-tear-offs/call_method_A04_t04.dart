@@ -47,7 +47,7 @@
 import "../../Utils/expect.dart";
 
 class C<T> {
-  X foo<X>(X x) => x;
+  X call<X>(X x) => x;
 }
 
 main() {
