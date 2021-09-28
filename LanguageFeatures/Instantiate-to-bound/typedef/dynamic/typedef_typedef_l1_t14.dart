@@ -42,9 +42,11 @@
 ///
 ///   3. Otherwise, (when no dependencies exist) terminate with the result
 ///   [<U1,m ..., Uk,m>].
+///
 /// @description Checks that instantiate-to-bounds works correctly for
-/// [typedef A<X> = void Function(X);
-/// typedef G<X extends A<X>> = void Function()]
+/// typedef A<X> = void Function(X);
+/// typedef G<X extends A<X>> = void Function()
+///
 /// @author iarkh@unipro.ru
 
 import "../../../../Utils/expect.dart";
@@ -54,7 +56,7 @@ typedef G<X extends A<X>> = void Function();
 
 main() {
   Expect.equals(
-    typeOf<G<A<Null>>>(),
+    typeOf<G<A<dynamic>>>(),
     typeOf<G>()
   );
 }

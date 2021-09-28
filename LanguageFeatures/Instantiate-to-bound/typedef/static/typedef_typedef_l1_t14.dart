@@ -42,14 +42,47 @@
 ///
 ///   3. Otherwise, (when no dependencies exist) terminate with the result
 ///   [<U1,m ..., Uk,m>].
+///
 /// @description Checks that instantiate-to-bounds works correctly for
-/// [typedef A<X> = void Function(X); typedef G<X extends A<X>> = void Function()]
+/// typedef A<X> = void Function(X);
+/// typedef G<X extends A<X>> = void Function()
+///
+/// To compute i2b on `G`, we have
+///    X, no variance
+///    -----------------------
+///    A<X>                    Break cycle {X}
+///    A<dynamic>
+///
+/// The reason why we use [dynamic] rather than [Never] to break the cycle is
+/// that it occurs in a position which isn't contravariant (in [G<A<X>>], [A<X>]
+/// occurs in a position that has no variance, and hence [X] occurs in a position
+/// that has no variance).
+///
+/// So [G] means [G<A<dynamic>>], which is a well-bounded type (`A<dynamic> ==
+///   void Function(dynamic) <: void Function(void Function(dynamic)) ==
+///   A<A<dynamic>>`).
+///
+/// However, [G<T>] is simply [void Function()] for all [T], so in the
+/// initializations of [targetN], [N] in [1..8], the initializing expression has
+/// the type [void Function()].
+///
+/// So we just need to consider whether the declared types are OK, because each
+/// of them just means [void Function()], unless it's an error.
+///
+/// The tools are right: each of [G<A<A<dynamic>>>], [G<A<A<A<dynamic>>>],
+/// [G<A<A<A<A<dynamic>>>>>] is either regular-bounded (with an odd number of
+/// [A]s) or super-bounded (with an even number of [A]s), and the ones with
+/// [Never] are regular-bounded for an even number of [A]s and an error for an
+/// odd number of [A]s.
+///
+/// @Issue 41963, 41964
 /// @author iarkh@unipro.ru
-
 
 typedef A<X> = void Function(X);
 typedef G<X extends A<X>> = void Function();
 
+test(G g) {}
+
 main() {
-  G source;   //# 01: compile-time error
+  G source;
 }
