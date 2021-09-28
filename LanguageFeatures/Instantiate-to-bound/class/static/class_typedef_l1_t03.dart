@@ -44,12 +44,28 @@
 ///   [<U1,m ..., Uk,m>].
 /// @description Checks that instantiation to bounds works OK for [typedef G<X> =
 /// Function(X)], [class A<X extends G<A<X, Y>>, Y extends X>] (covariant)
+///
+/// @Issue 41963, 41964, 44786, 46483
+/// @Issue dart-lang/language#1133
+///
 /// @author iarkh@unipro.ru
 
 typedef G<X> = X Function(X);
 class A<X extends G<A<X>>> {}
 
+test(A a) {}
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
-  A source; //# 01: compile-time error
-  A();      //# 02: compile-time error
+  A source;
+//   ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

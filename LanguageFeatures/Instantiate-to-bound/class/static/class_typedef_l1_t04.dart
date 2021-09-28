@@ -53,6 +53,8 @@ F<X> toF<X>(X x) => null;
 typedef G<X> = void Function();
 class A<X extends G<A<X>>> {}
 
+test(A a) {}
+
 main() {
   A source;
   var fsource = toF(source);

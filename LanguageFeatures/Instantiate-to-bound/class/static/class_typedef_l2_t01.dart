@@ -49,9 +49,10 @@
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 
-
 typedef G<X> = X Function();
 class A<X extends G<A<X, Y>>, Y extends X> {}
+
+test(A a) {}
 
 main() {
   A source;

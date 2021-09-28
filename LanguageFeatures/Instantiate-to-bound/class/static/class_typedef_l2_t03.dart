@@ -44,17 +44,29 @@
 ///   [<U1,m ..., Uk,m>].
 /// @description Checks that instantiation to bounds works OK for [typedef G<X> =
 /// X Function(X)], [class A<X extends G<A<X, Y>>, Y extends X>]
+///
+/// @Issue 44786, 46483
+/// @Issue dart-lang/language#1133
+///
 /// @author iarkh@unipro.ru
 
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 
-
 typedef G<X> = X Function(X);
 class A<X extends G<A<X, Y>>, Y extends X> {}
 
+test(A a) {}
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
   A source;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
   A();
 //^
 // [analyzer] unspecified

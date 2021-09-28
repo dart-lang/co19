@@ -43,17 +43,32 @@
 ///   3. Otherwise, (when no dependencies exist) terminate with the result
 ///   [<U1,m ..., Uk,m>].
 /// @description Checks that instantiation to bounds works OK for [typedef G<X> =
-/// X Function()], [class A<X extends G<A<Y, X>>, Y extends G<A<X, Y>>>]
+/// X Function(X)], [class A<X extends G<A<Y, X>>, Y extends G<A<X, Y>>>]
+///
+/// @Issue 41963, 41964, 44786, 46483
+/// @Issue dart-lang/language#1133
+///
 /// @author iarkh@unipro.ru
 
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 
-
 typedef G<X> = X Function(X);
 class A<X extends G<A<Y, X>>, Y extends G<A<X, Y>>> {}
 
+test(A a) {}
+//   ^
+// [analyzer] unspecified
+// [cfe] unspecified
+
 main() {
-  A source; //# 01: compile-time error
-  A();      //# 02: compile-time error
+  A source;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  A();
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
