@@ -5,20 +5,24 @@
 /// @assertion Test equality of function and methods tearoffs.
 /// https://github.com/dart-lang/language/issues/1712
 ///
-/// @description Checks equality of instantiated local generic functions
+/// @description Checks equality of instantiated generic static methods tearoffs
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
 import "../../Utils/expect.dart";
 
-Function foo(String message) {
-  int g() => message.length;
-  return g;
+class C {
+  static X foo1<X>(X x) => x;
 }
 
 main() {
-  var f1 = foo("1");
-  var f2 = foo("123");
-  Expect.notEquals(f1, f2);
+  const c1 = C.foo1<int>;
+  const c2 = C.foo1<num>;
+  var v1 = C.foo1<int>;
+  var v2 = C.foo1<num>;
+
+  const CheckNotIdentical(c1, c2);
+  Expect.identical(c1, v1);
+  Expect.notEquals(v1, v2);
 }
