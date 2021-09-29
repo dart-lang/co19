@@ -4,22 +4,23 @@
 
 /// @assertion Test equality of function and methods tearoffs.
 ///
-/// @description Checks equality of local non-generic functions
+/// @description Checks that the equality properties of any function object
+/// obtained by generic function instantiation is determined by the equality of
+/// the source function objects
 /// @author sgrekhov@unipro.ru
+/// @issue 47317
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
 import "../../Utils/expect.dart";
 
 main() {
-  int localFunction1() => 42;
-  int localFunction2() => 42;
+  X localFunction<X>(X x) => x;
 
-  var f1_1 = localFunction1;
-  var f1_2 = localFunction1;
-  var f2 = localFunction2;
+  var f1_1 = localFunction;
+  var f1_2 = localFunction;
+  var f2_1 = f1_1<int>;
+  var f2_2 = f1_2<int>;
 
-  Expect.equals(f1_1, f1_2);
-  Expect.identical(f1_1, f1_2);
-  Expect.notEquals(f2, f1_2);
+  Expect.equals(f1_1 == f1_2, f2_1 == f2_2);
 }

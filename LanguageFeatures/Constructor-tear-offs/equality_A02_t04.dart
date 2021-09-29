@@ -5,12 +5,11 @@
 /// @assertion Test equality of function and methods tearoffs.
 /// https://github.com/dart-lang/language/issues/1712
 ///
-/// @description Checks equality of instantiated local generic functions
+/// @description Checks equality of instantiated top level generic functions
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
-import '../../Language/Classes/Constructors/Generative_Constructors/implicit_superinitializer_t04.dart';
 import "../../Utils/expect.dart";
 
 typedef X Foo<X>(X x);
