@@ -7,7 +7,6 @@
 ///
 /// @description Checks equality of instantiated generic static methods tearoffs
 /// @author sgrekhov@unipro.ru
-/// @issue 47329
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
@@ -18,17 +17,20 @@ class C {
   static X foo2<X>(X x) => x;
 }
 
+typedef IntAlias = int;
+
 main() {
   const c1 = C.foo1<int>;
-  const int Function(int) c2 = C.foo1;
-  const c3 = C.foo2<int>;
-  var v1 = C.foo1<int>;
-  int Function(int) v2 = C.foo1;
+  const c2 = C.foo1<IntAlias>;
+  const c3 = C.foo2<IntAlias>;
+  var v1 = C.foo1<IntAlias>;
+  var v2 = C.foo1<int>;
   var v3 = C.foo2<int>;
 
   const CheckIdentical(c1, c2);
-  Expect.identical(v1, c1);
-  Expect.notEquals(c2, c3);
+  Expect.notEquals(c3, c1);
+  Expect.equals(c1, v1);
   Expect.identical(v1, v2);
-  Expect.notEquals(v2, v3);
+  Expect.identical(c3, v3);
+  Expect.notEquals(v1, v3);
 }

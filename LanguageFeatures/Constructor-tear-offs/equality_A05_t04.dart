@@ -5,30 +5,31 @@
 /// @assertion Test equality of function and methods tearoffs.
 /// https://github.com/dart-lang/language/issues/1712
 ///
-/// @description Checks equality of instantiated generic static methods tearoffs
+/// @description Checks equality of non-generic instance methods tearoffs
 /// @author sgrekhov@unipro.ru
-/// @issue 47329
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
 import "../../Utils/expect.dart";
 
 class C {
-  static X foo1<X>(X x) => x;
-  static X foo2<X>(X x) => x;
+  X foo1<X>(X x) => x;
+  X foo2<X>(X x) => x;
 }
 
-main() {
-  const c1 = C.foo1<int>;
-  const int Function(int) c2 = C.foo1;
-  const c3 = C.foo2<int>;
-  var v1 = C.foo1<int>;
-  int Function(int) v2 = C.foo1;
-  var v3 = C.foo2<int>;
+typedef IntAlias = int;
 
-  const CheckIdentical(c1, c2);
-  Expect.identical(v1, c1);
-  Expect.notEquals(c2, c3);
-  Expect.identical(v1, v2);
-  Expect.notEquals(v2, v3);
+main() {
+  C c1 = new C();
+  C c2 = new C();
+  var v1_1_1 = c1.foo1<IntAlias>;
+  var v1_1_2 = c1.foo1<int>;
+  var v1_2 = c1.foo2<int>;
+  var v2_1_1 = c2.foo1<int>;
+  var v2_2 = c2.foo2<int>;
+
+  Expect.equals(v1_1_1, v1_1_2);
+  Expect.notEquals(v1_1_1, v1_2);
+  Expect.notEquals(v2_1_1, v1_1_1);
+  Expect.notEquals(v1_2, v2_2);
 }
