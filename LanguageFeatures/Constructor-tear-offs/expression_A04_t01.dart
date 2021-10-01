@@ -28,10 +28,10 @@ main() {
   var c1 = C()<int>;
   Expect.isFalse(c1 is Type);
   Expect.isTrue(c1 is int Function(int));
-  Expect.equals(c1, C().call<int>);
+  Expect.equals(c1, c1.call<int>);
 
   var c2 = CAlias()<int>;
   Expect.isFalse(c2 is Type);
   Expect.isTrue(c2 is int Function(int));
-  Expect.equals(c2, CAlias().call<int>);
+  Expect.equals(c2, c2.call<int>);
 }

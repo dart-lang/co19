@@ -30,5 +30,5 @@ main() {
   var c1 = C()<int>;
   Expect.isFalse(c1 is Type);
   Expect.isTrue(c1 is int Function(int));
-  Expect.equals(c1, C().call<int>);
+  Expect.equals(c1, c1.call<int>);
 }
