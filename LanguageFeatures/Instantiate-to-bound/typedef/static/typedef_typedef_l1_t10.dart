@@ -46,9 +46,14 @@
 /// [typedef A<X> = void Function(X); typedef G<X extends A<X>> = X Function(X)]
 /// @author iarkh@unipro.ru
 
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
+
 typedef A<X> = void Function(X);
 typedef G<X extends A<X>> = X Function(X);
 
 main() {
-  G source; //# 01: compile-time error
+  G source;
+  var fsource = toF(source);
+  F<G<A<dynamic>>> target = fsource;
 }

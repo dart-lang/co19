@@ -52,7 +52,7 @@ import "dart:async";
 typedef F<X> = void Function<Y extends X>();
 F<X> toF<X>(X x) => null;
 
-typedef G<X extends FutureOr<X>> = X Function(X);
+typedef G<X extends FutureOr<X>> = void Function(X);
 
 main() {
   G source;

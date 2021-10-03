@@ -48,9 +48,15 @@
 /// @Issue 34689, 34699
 /// @author iarkh@unipro.ru
 
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
+
 class A<X> {}
 typedef G<X extends A<X>, Y extends X> = void Function(X);
+typedef G_expected = void Function(A<Null>);
 
 main() {
-  G source;   //# 01: compile-time error
+  G source;
+  var fsource = toF(source);
+  F<G<A<Null>, A<Null>>> target = fsource;
 }

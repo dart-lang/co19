@@ -47,9 +47,12 @@
 /// typedef G<X extends A<X>> = void Function<Y extends X>()]
 /// @author iarkh@unipro.ru
 
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
+
 typedef A<X> = void Function(X);
 typedef G<X extends A<X>> = void Function<Y extends X>();
 
 main() {
-  G source;   //# 01: compile-time error
+  G source;
 }

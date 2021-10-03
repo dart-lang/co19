@@ -78,6 +78,9 @@
 /// @Issue 41963, 41964
 /// @author iarkh@unipro.ru
 
+typedef F<X> = void Function<Y extends X>();
+F<X> toF<X>(X x) => null;
+
 typedef A<X> = void Function(X);
 typedef G<X extends A<X>> = void Function();
 
@@ -85,4 +88,6 @@ test(G g) {}
 
 main() {
   G source;
+  var fsource = toF(source);
+  F<G<A<dynamic>>> target = fsource;
 }
