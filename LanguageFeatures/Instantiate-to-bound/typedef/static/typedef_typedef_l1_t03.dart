@@ -44,6 +44,7 @@
 ///   [<U1,m ..., Uk,m>].
 /// @description Checks that instantiate-to-bounds works correctly for
 /// [typedef A<X> = X Function(X); typedef G<X extends A<X>> = X Function(X)]
+/// @Issue 34689
 /// @author iarkh@unipro.ru
 
 
