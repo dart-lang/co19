@@ -42,13 +42,21 @@
 ///
 ///   3. Otherwise, (when no dependencies exist) terminate with the result
 ///   [<U1,m ..., Uk,m>].
-/// @description Checks that instantiate-to-bounds works correctly for [typedef
-///  G<X extends A<X>> = X Function()] (unused)
+///
+/// @description Checks that instantiate-to-bounds works correctly for the case
+/// with unused type parameter:
+/// typedef G<X extends A<X>> = void Function()
+///
+/// @Issue 46483
+///
 /// @author iarkh@unipro.ru
 
 class A<X> {}
 typedef G<X extends A<X>> = void Function();
 
 main() {
-  G source;   //# 01: compile-time error
+  G source;
+//^
+// [analyzer] unspecified
+// [cfe] unspecified
 }

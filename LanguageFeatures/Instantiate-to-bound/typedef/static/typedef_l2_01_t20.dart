@@ -45,6 +45,7 @@
 /// @description Checks that instantiate-to-bounds works correctly for [typedef]
 /// with two related parameters: [typedef G<X extends A<X>, Y extends A<Y>> =
 /// void Function<Y1 extends Y>()]
+/// @Issue 46483
 /// @author iarkh@unipro.ru
 
 class A<X> {}

@@ -45,7 +45,7 @@
 /// @description Checks that instantiate-to-bounds works correctly for [typedef]
 /// with two related parameters: [typedef G<X extends A<X>, Y extends A<Y>>  = X
 /// Function(Y)]
-/// @Issue 34689, 34699
+/// @Issue 34689, 34699, 46483
 /// @author iarkh@unipro.ru
 
 class A<X> {}

@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-// @dart = 2.9
+
 
 /// @assertion Instantiate to bound then computes an actual type argument list
 /// for [G] as follows:
@@ -45,11 +45,13 @@
 /// @description Checks that instantiate-to-bounds works correctly for [typedef]
 /// with two related parameters: [typedef G<X extends A<X>, Y extends A<Y>> = Y
 /// Function(X)]
+/// @Issue 46483, 47364
 /// @author iarkh@unipro.ru
 
 
 class A<X> {}
-typedef G<X extends A<X>, Y extends A<Y>> = Y Function(X);
+class B<X> {}
+typedef G<X extends A<X>, Y extends B<Y>> = Y Function(X);
 
 main() {
   G source;  //# 01: compile-time error
