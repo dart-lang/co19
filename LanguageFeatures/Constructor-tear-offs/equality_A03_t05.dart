@@ -27,7 +27,7 @@ main() {
     var f2 = localFunction2<X>;
 
     Expect.equals(f1_1 == f1_2, f1_3 == f1_4);
-    Expect.equals(f1_1 == f1_3, f1_3 == f1_5);
+    Expect.equals(f1_1 == f1_2, f1_3 == f1_5);
     Expect.notEquals(f1_3, f2);
     Expect.notEquals(f1_4, f2);
     Expect.notEquals(f1_5, f2);
