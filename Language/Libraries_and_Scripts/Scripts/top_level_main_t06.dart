@@ -10,16 +10,25 @@
 /// @author iarkh
 /// @issue 42487
 
+// OtherResources=top_level_main_t06_lib.dart
 import "../../../Utils/expect.dart";
 import "dart:io";
 
 run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString().replaceAll(".dart", "_lib.dart");
+  if (!executable.endsWith(Platform.pathSeparator + "dart")) {
+    // This is the case of AOT configuration
+    executable = executable.replaceRange(
+        executable.lastIndexOf(Platform.pathSeparator) + 1, null, "dart");
+    eScript = eScript.replaceRange(
+        eScript.lastIndexOf("/") + 1,
+        null,
+        "top_level_main_t06_lib.dart");
+  }
   int called = 0;
 
-  await Process.run(
-      executable, [...Platform.executableArguments, eScript])
+  await Process.run(executable, [...Platform.executableArguments, eScript])
       .then((ProcessResult results) {
     Expect.notEquals(0, results.exitCode);
     called++;
