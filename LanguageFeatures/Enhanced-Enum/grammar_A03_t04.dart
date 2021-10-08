@@ -11,52 +11,61 @@
 /// }
 /// where memberDeclaration* is any sequence of static and instance member
 /// declarations and/or an unnamed generative const constructor declaration.
+/// ...
+/// The superclass of the mixin applications is the Enum class (which has an
+/// abstract index getter, so the only valid super invocations are those valid
+/// on Object).
 ///
-/// The ; after the identifier list is optional if there is nothing else in the
-/// declaration, required if there is any member declaration after it. The
-/// identifier list may have a trailing comma (like now).
-///
-/// @description Check that the ; after the identifier list is required if there
-/// is any member declaration after it
+/// @description Check that it is a compile time error if enum has no
+/// implementation of any of its interfaces methods
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
-enum Time1 {
-  hour(),
-  day(),
-  week()
-
-  String foo() => "Lily was here";
-//^
-// [analyzer] unspecified
-// [cfe] unspecified
+class I {
+  int interfaceMethod() => 0;
+  int get interfaceGetter => 0;
+  void set interfaceSetter(int value) {}
 }
 
-enum Time2<T> {
-  hour<int>(),
-  day<String>(),
-  week<bool>(),
-
-  static final int size = 3;
-//^
+enum E1 implements I1 {
+//                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  e1,
+  e2,
+  e3;
+
+  int interfaceMethod() => 42;
+  int get interfaceGetter => 42;
 }
 
-enum Time3<T> {
-  hour<int>(),
-  day<String>(),
-  week<bool>(),
-
-  final int size = 3;
-//^
+enum E2 implements I1 {
+//                 ^^
 // [analyzer] unspecified
 // [cfe] unspecified
+  e1,
+  e2,
+  e3;
+
+  int get interfaceGetter => 42;
+  void set interfaceSetter1(int value) {}
+}
+
+enum E3 implements I1 {
+//                 ^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  e1,
+  e2,
+  e3;
+
+  int interfaceMethod() => 42;
+  void set interfaceSetter1(int value) {}
 }
 
 main() {
-  Time1.hour;
-  Time2.hour;
-  Time3.hour;
+  E1.e1;
+  E2.e2;
+  E2.e3;
 }

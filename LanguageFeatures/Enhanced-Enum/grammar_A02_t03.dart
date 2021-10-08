@@ -20,6 +20,8 @@
 /// applications is not the Enum class
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=enhanced-enums
+
 class C {
 }
 

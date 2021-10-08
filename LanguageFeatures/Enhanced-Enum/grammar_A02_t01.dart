@@ -19,6 +19,8 @@
 /// @description Check that enum can be declared with the mixins
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=enhanced-enums
+
 import "../../Utils/expect.dart";
 
 mixin M on Enum {

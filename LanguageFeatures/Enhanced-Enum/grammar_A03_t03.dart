@@ -16,31 +16,49 @@
 /// abstract index getter, so the only valid super invocations are those valid
 /// on Object).
 ///
-/// @description Check that enum can be declared with the mixins
+/// @description Check that enum can implement interfaces
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
 import "../../Utils/expect.dart";
 
-mixin M on Enum {
-  int mixedInMethod() => 42;
+class I1 {
+  int interfaceMethod1() => 0;
+  int get interfaceGetter1 => 0;
+  void set interfaceSetter1(int value) {}
 }
 
-enum E with M {
-  e1(1),
-  e2(2),
-  e3(3);
+abstract class I2<T> {
+  T interfaceMethod2();
+  T get interfaceGetter2;
+  void set interfaceSetter2(T value);
+}
 
-  final int _val;
+enum E<T> implements I1, I2<T> {
+  e1<int>(1, "1", 11),
+  e2<String>("2", "22", 22),
+  e3<bool>(false, "3", 33);
 
-  const E(this._val);
+  const E<T>(T t, String s, int v): _t = t, _s = s, _v = v;
 
-  int get sum => mixedInMethod() + _val;
+  final _t;
+  final _s;
+  final _v;
+
+  int interfaceMethod1() => _v;
+  int get interfaceGetter1 => _v;
+  void set interfaceSetter1(int value) {}
+  T interfaceMethod2() => _t;
+  T get interfaceGetter2 => _t;
+  void set interfaceSetter2(T value) {}
 }
 
 main() {
-  Expect.equals(43, E.e1.sum);
-  Expect.equals(44, E.e2.sum);
-  Expect.equals(45, E.e3.sum);
+  Expect.equals(11, E.e1.interfaceMethod1());
+  Expect.equals(11, E.e2.interfaceGetter1);
+  E.e3.interfaceSetter1 = 42;
+  Expect.equals(false, E.e3.interfaceMethod2());
+  Expect.equals("2", E.e2.interfaceGetter2);
+  E.e1.interfaceSetter2 = 42;
 }

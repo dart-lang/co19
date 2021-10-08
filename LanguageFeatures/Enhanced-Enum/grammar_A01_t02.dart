@@ -20,12 +20,14 @@
 /// is any member declaration after it
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=enhanced-enums
+
 enum Time1 {
   hour,
   day,
   week
 
-  Time1();
+  const Time1();
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -36,7 +38,7 @@ enum Time2 {
   day,
   week,
 
-  Time2();
+  const Time2();
 //^
 // [analyzer] unspecified
 // [cfe] unspecified

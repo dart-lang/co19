@@ -21,9 +21,11 @@
 /// trailing comma.
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=enhanced-enums
+
 import "../../Utils/expect.dart";
 
-enum Time<T> {
+enum Time1<T> {
   hour<int>(),
   day<String>(),
   week<bool>()
