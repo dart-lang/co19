@@ -25,8 +25,9 @@ extension on C {
 }
 
 main() {
-  var c1 = C()<int>;
+  var c = C();
+  var c1 = c<int>;
   Expect.isFalse(c1 is Type);
   Expect.isTrue(c1 is int Function(int));
-  Expect.equals(c1, c1.call<int>);
+  Expect.equals(c1, c.call<int>);
 }
