@@ -9,7 +9,7 @@
 /// transferred to the case clause. Otherwise, sE is necessarily a loop and
 /// execution resumes after the last statement in the loop body.
 /// @description Checks that the execution of "continue L;" statement transfers
-/// control to the the innermost enclosing 'for' statement with the appropriate
+/// control to the innermost enclosing 'for' statement with the appropriate
 /// label and that all finally clauses between them are executed in the
 /// innermost-clause-first order.
 /// @author rodionov
