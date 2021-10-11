@@ -10,7 +10,7 @@
 /// defaultNamedParameter:
 ///   normalFormalParameter (':' expression)?
 /// ;
-/// @description Checks that it is a compile-time error when the the ':'
+/// @description Checks that it is a compile-time error when the ':'
 /// character is used in an optional positional parameter declaration.
 /// @author rodionov
 

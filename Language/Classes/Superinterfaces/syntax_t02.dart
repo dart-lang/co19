@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion A class has a set of direct superinterfaces. This set includes
-/// the interface of its superclass and the interfaces specified in the the
+/// the interface of its superclass and the interfaces specified in the
 /// implements clause of the class.
 /// interfaces:
 ///   implements typeList

@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion final int microsecond
-/// Returns the the microsecond 0...999
+/// Returns the microsecond 0...999
 /// @description Creates a new DateTime with various integer microseconds values
 /// (0..999) and reads the value back.
 /// @author sgrekhov@unipro.ru
