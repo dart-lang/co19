@@ -10,7 +10,7 @@
 /// @author sgrekhov@unipro.ru
 ///
 /// @description Check that if type T0 is a subtype of a type T1, then instance
-/// of T0 can be be assigned to the superclass member of type T1
+/// of T0 can be assigned to the superclass member of type T1
 /// @author sgrekhov@unipro.ru
 ///
 /// This test is generated from function_type_function_A17.dart and 
