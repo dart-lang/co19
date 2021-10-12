@@ -23,12 +23,14 @@ class B {
 
 main() {
   Symbol ctorName1 = MirrorSystem.getSymbol('B');
-  DeclarationMirror ctorMirror1 = reflectClass(B).declarations[ctorName1];
+  DeclarationMirror ctorMirror1 =
+      reflectClass(B).declarations[ctorName1] as DeclarationMirror;
   InstanceMirror aMirror1 = ctorMirror1.metadata[0];
   Expect.equals('.A', MirrorSystem.getName(aMirror1.type.qualifiedName));
 
   Symbol ctorName2 = MirrorSystem.getSymbol('B.b');
-  DeclarationMirror ctorMirror2 = reflectClass(B).declarations[ctorName2];
+  DeclarationMirror ctorMirror2 =
+      reflectClass(B).declarations[ctorName2] as DeclarationMirror;
   InstanceMirror aMirror2 = ctorMirror2.metadata[0];
   Expect.equals('.A', MirrorSystem.getName(aMirror2.type.qualifiedName));
 }

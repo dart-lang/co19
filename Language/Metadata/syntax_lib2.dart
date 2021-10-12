@@ -4,7 +4,6 @@
 
 // @dart = 2.9
 
-
 library syntax_lib2;
 
 class C {

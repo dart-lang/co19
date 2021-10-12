@@ -4,8 +4,8 @@
 
 // @dart = 2.9
 
-/// @assertion Metadata can appear before  ...  typedef ...
-/// @description Check that metadata is allowed before typedef declaration
+/// @assertion Metadata can appear before  ...  function ...
+/// @description Check that metadata is allowed before static method
 /// @author a.semenov@unipro.ru
 
 import 'dart:mirrors';
@@ -15,10 +15,16 @@ class A {
   const A();
 }
 
-@A()
-typedef void f(int, String);
+class B {
+  @A()
+  static void b() {
+  }
+}
 
 main() {
+  var methodName = MirrorSystem .getSymbol('b');
+  MethodMirror bMirror =
+    reflectClass(B).staticMembers[methodName] as MethodMirror;
   Expect.equals('.A',
-    MirrorSystem.getName(reflectType(f).metadata[0].type.qualifiedName));
+    MirrorSystem.getName(bMirror.metadata[0].type.qualifiedName));
 }

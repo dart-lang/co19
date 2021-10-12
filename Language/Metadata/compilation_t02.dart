@@ -11,20 +11,16 @@
 /// @description Check that function used as metadata cause a compile time error
 /// @author a.semenov@unipro.ru
 
-import 'dart:mirrors';
-import '../../Utils/expect.dart';
-
 void metadata() {
 }
 
-@metadata()
-//^
+  @metadata()
+//^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
 class A {}
 
 main() {
-  // have to retrieve metadata to get the compile error
-  Expect.fail('Compilation error is expected, but retrieved metadata: ' +
-      reflectClass(A).metadata.map( (e) => e.reflectee ).join(' '));
+  A a;
 }

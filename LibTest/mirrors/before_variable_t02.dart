@@ -28,7 +28,7 @@ main() {
   var varNames = ['variable', 'finalVariable', 'dynamicVariable', 'staticVariable'];
   for (var name in varNames) {
     Symbol symbol = MirrorSystem .getSymbol(name);
-    DeclarationMirror varMirror = classMirror.declarations[symbol];
+    DeclarationMirror varMirror = classMirror.declarations[symbol] as DeclarationMirror;
     Expect.equals('.A',
       MirrorSystem.getName(varMirror.metadata[0].type.qualifiedName));
   }

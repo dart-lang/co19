@@ -4,7 +4,6 @@
 
 // @dart = 2.9
 
-
 library before_export_lib1;
 
 @A() export 'before_export_lib2.dart';

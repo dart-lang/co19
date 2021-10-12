@@ -4,8 +4,8 @@
 
 // @dart = 2.9
 
-/// @assertion Metadata can appear before  ...  type parameter ...
-/// @description Check that metadata is allowed before type parameter declaration
+/// @assertion Metadata can appear before  ...  function ...
+/// @description Check that metadata is allowed before getter
 /// @author a.semenov@unipro.ru
 
 import 'dart:mirrors';
@@ -15,12 +15,14 @@ class A {
   const A();
 }
 
-
-class B<@A() T> {
+class B {
+  @A() int get b => 0;
 }
 
 main() {
+  var getterName = MirrorSystem .getSymbol('b');
+  MethodMirror bMirror =
+    reflectClass(B).instanceMembers[getterName] as MethodMirror;
   Expect.equals('.A',
-    MirrorSystem.getName(reflectClass(B).typeVariables[0]
-      .metadata[0].type.qualifiedName));
+    MirrorSystem.getName(bMirror.metadata[0].type.qualifiedName));
 }

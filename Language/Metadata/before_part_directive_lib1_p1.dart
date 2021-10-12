@@ -4,7 +4,6 @@
 
 // @dart = 2.9
 
-
 part of before_part_directive_lib1;
 
 class B {

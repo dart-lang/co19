@@ -4,6 +4,5 @@
 
 // @dart = 2.9
 
-
 library before_lib2;
 part 'before_part_header_lib1_p01.dart';

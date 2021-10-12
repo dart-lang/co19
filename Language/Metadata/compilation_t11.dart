@@ -10,24 +10,20 @@
 ///   • A call to a constant constructor.
 /// @description Check that it is a compile time error, if called constructor
 /// is not constant
-/// @issue #24281
+/// @Issue 24281
 /// @author a.semenov@unipro.ru
-
-import 'dart:mirrors';
-import '../../Utils/expect.dart';
 
 class A {
     A(int x);
 }
 
-@A(10)
-//^
+  @A(10)
+//^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
 class B {}
 
 main() {
-    // have to retrieve metadata to get the compile error
-    Expect.fail('Compilation error is expected, but retrieved metadata: ' +
-        reflectClass(B).metadata.map( (e) => e.reflectee ).join(' '));
+  B b;
 }

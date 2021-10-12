@@ -5,7 +5,7 @@
 // @dart = 2.9
 
 /// @assertion Metadata can appear before  ...  parameter ...
-/// @description Check that metadata is allowed before class constructor
+/// @description Check that metadata is allowed before class constant constructor
 /// parameter
 /// @author a.semenov@unipro.ru
 
@@ -17,19 +17,21 @@ class A {
 }
 
 class B {
-  B(@A() int b);
-  B.b(@A() int b);
+  const B(@A() int b);
+  const B.b(@A() int b);
 }
 
 main() {
   Symbol ctorName1 = MirrorSystem.getSymbol('B');
-  DeclarationMirror ctorMirror1 = reflectClass(B).declarations[ctorName1];
+  DeclarationMirror ctorMirror1 =
+    reflectClass(B).declarations[ctorName1] as DeclarationMirror;
   ParameterMirror paramMirror1 = (ctorMirror1 as MethodMirror).parameters[0];
   InstanceMirror aMirror1 = paramMirror1.metadata[0];
   Expect.equals('.A', MirrorSystem.getName(aMirror1.type.qualifiedName));
 
   Symbol ctorName2 = MirrorSystem.getSymbol('B.b');
-  DeclarationMirror ctorMirror2 = reflectClass(B).declarations[ctorName2];
+  DeclarationMirror ctorMirror2 =
+    reflectClass(B).declarations[ctorName2] as DeclarationMirror;
   ParameterMirror paramMirror2 = (ctorMirror2 as MethodMirror).parameters[0];
   InstanceMirror aMirror2 = paramMirror2.metadata[0];
   Expect.equals('.A', MirrorSystem.getName(aMirror2.type.qualifiedName));

@@ -4,7 +4,6 @@
 
 // @dart = 2.9
 
-
 library syntax_lib1;
 
 const X = 'No';
@@ -20,6 +19,14 @@ class B<T> {
 
 class Foo {
   const Foo(int x, int y);
+}
+
+class Y<T extends num> {
+  const Y();
+}
+
+class Z<T extends num> {
+  const Z(T t);
 }
 
 enum E {a, b, c}

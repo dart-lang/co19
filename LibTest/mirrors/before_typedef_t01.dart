@@ -4,9 +4,10 @@
 
 // @dart = 2.9
 
-/// @assertion Metadata can appear before  ...  function ...
-/// @description Check that metadata is allowed before static getter
+/// @assertion Metadata can appear before  ...  typedef ...
+/// @description Check that metadata is allowed before typedef declaration
 /// @author a.semenov@unipro.ru
+/// @issue 43186
 
 import 'dart:mirrors';
 import '../../Utils/expect.dart';
@@ -15,13 +16,10 @@ class A {
   const A();
 }
 
-class B {
-  @A() static int get b => 0;
-}
+@A()
+typedef void f(int, String);
 
 main() {
-  var getterName = MirrorSystem .getSymbol('b');
-  MethodMirror bMirror = reflectClass(B).staticMembers[getterName];
   Expect.equals('.A',
-    MirrorSystem.getName(bMirror.metadata[0].type.qualifiedName));
+    MirrorSystem.getName(reflectType(f).metadata[0].type.qualifiedName));
 }

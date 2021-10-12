@@ -12,11 +12,11 @@
 /// is missing
 /// @author a.semenov@unipro.ru
 
-
 @()
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
+
 class B {}
 
 main() {

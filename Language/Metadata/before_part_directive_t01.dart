@@ -4,13 +4,12 @@
 
 // @dart = 2.9
 
-/// @assertion Metadata can appear before  ...   part directive ...
+/// @assertion Metadata can appear before  ...  part directive ...
 /// @description Check that metadata is allowed before part directive
-/// @author a.semenov@unipro.ru
+/// @author sgrekhov@unipro.ru
 
-import 'before_part_directive_lib1.dart';
+import 'before_part_directive_lib.dart';
 
 main() {
-  // Unfortunately, there is no way to obtain part directive metadata.
-  // Just make sure the syntax parser allows metadata before part directive
+  new A();
 }

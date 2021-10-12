@@ -20,6 +20,7 @@ class A {
 //^
 // [analyzer] unspecified
 // [cfe] unspecified
+
 class B {}
 
 main() {

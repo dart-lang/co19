@@ -5,8 +5,7 @@
 // @dart = 2.9
 
 /// @assertion Metadata can appear before  ...  parameter ...
-/// @description Check that metadata is allowed before typedef declaration
-/// parameter
+/// @description Check that metadata is allowed before static setter parameter
 /// @author a.semenov@unipro.ru
 
 import 'dart:mirrors';
@@ -16,11 +15,15 @@ class A {
   const A();
 }
 
-typedef void f(@A() int, String);
+class B {
+  static void set b(@A() int value) {}
+}
 
 main() {
-  ParameterMirror paramMirror =
-    (reflectType(f) as TypedefMirror).referent.parameters[0];
+  var getterName = MirrorSystem .getSymbol('b=');
+  MethodMirror bMirror =
+    reflectClass(B).staticMembers[getterName] as MethodMirror;
+  ParameterMirror paramMirror = bMirror.parameters[0];
   Expect.equals('.A',
     MirrorSystem.getName(paramMirror.metadata[0].type.qualifiedName));
 }

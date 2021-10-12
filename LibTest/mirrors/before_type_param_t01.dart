@@ -4,9 +4,10 @@
 
 // @dart = 2.9
 
-/// @assertion Metadata can appear before  ...  function ...
-/// @description Check that metadata is allowed before instance method
+/// @assertion Metadata can appear before  ...  type parameter ...
+/// @description Check that metadata is allowed before type parameter declaration
 /// @author a.semenov@unipro.ru
+/// @issue 43186
 
 import 'dart:mirrors';
 import '../../Utils/expect.dart';
@@ -15,15 +16,11 @@ class A {
   const A();
 }
 
-class B {
-  @A()
-  void b() {
-  }
+class B<@A() T> {
 }
 
 main() {
-  var methodName = MirrorSystem .getSymbol('b');
-  MethodMirror bMirror = reflectClass(B).instanceMembers[methodName];
   Expect.equals('.A',
-    MirrorSystem.getName(bMirror.metadata[0].type.qualifiedName));
+    MirrorSystem.getName(reflectClass(B).typeVariables[0]
+      .metadata[0].type.qualifiedName));
 }

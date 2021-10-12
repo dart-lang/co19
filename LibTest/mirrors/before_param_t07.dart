@@ -5,7 +5,7 @@
 // @dart = 2.9
 
 /// @assertion Metadata can appear before  ...  parameter ...
-/// @description Check that metadata is allowed before instance method parameter
+/// @description Check that metadata is allowed before setter parameter
 /// @author a.semenov@unipro.ru
 
 import 'dart:mirrors';
@@ -16,13 +16,14 @@ class A {
 }
 
 class B {
-  void b(@A() int x) {
-  }
+  void set b(@A() int value) {}
 }
 
+
 main() {
-  var methodName = MirrorSystem .getSymbol('b');
-  MethodMirror bMirror = reflectClass(B).instanceMembers[methodName];
+  var getterName = MirrorSystem .getSymbol('b=');
+  MethodMirror bMirror =
+    reflectClass(B).instanceMembers[getterName] as MethodMirror;
   ParameterMirror paramMirror = bMirror.parameters[0];
   Expect.equals('.A',
     MirrorSystem.getName(paramMirror.metadata[0].type.qualifiedName));
