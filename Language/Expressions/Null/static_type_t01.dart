@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion The static type of null is ⊥.
-/// The decision to use ⊥ instead of Null allows null to be be assigned
+/// The decision to use ⊥ instead of Null allows null to be assigned
 /// everywhere without complaint by the static checker.
 /// @description Checks that null is assignable to any nullable type without
 /// static type warnings.

@@ -12,7 +12,7 @@
 ///  or T0 is X0 & S0 and S0 <: T1
 /// @description Check that if type T1 is S1? and T0 is X0 & S0 and S0 <: T1 then
 /// T0 is subtype of T1. Test that if type T0 is a subtype of a type T1, then instance
-/// of T0 can be be used as an argument of type T1
+/// of T0 can be used as an argument of type T1
 /// @author sgrekhov@unipro.ru
 
 
