@@ -22,7 +22,7 @@
 /// @author ngl@unipro.ru
 ///
 /// @description Check that if type T0 not a subtype of a type T1, then instance
-/// of T0 cannot be be used as a return value of type T1. Return value is tested.
+/// of T0 cannot be used as a return value of type T1. Return value is tested.
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
 ///
