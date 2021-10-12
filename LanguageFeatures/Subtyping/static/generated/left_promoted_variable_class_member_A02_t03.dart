@@ -11,7 +11,7 @@
 /// @author sgrekhov@unipro.ru
 ///
 /// @description Check that if type T0 is a subtype of a type T1, then instance
-/// of T0 can be be assigned to the mixin member of type T1
+/// of T0 can be assigned to the mixin member of type T1
 /// @author sgrekhov@unipro.ru
 ///
 /// This test is generated from left_promoted_variable_A02.dart and 
