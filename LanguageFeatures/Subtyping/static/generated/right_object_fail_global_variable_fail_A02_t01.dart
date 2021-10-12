@@ -19,7 +19,7 @@
 /// @issue 42089
 ///
 /// @description Check that if type T0 is not a subtype of a type T1, then
-/// instance of T0 cannot be be assigned to the to global variable of type T1.
+/// instance of T0 cannot be assigned to the to global variable of type T1.
 /// Assignment to global variable is tested.
 /// @author sgrekhov@unipro.ru
 /// @author ngl@unipro.ru
