@@ -32,7 +32,7 @@ main() {
   const v6 = (MyList.filled)<int>;
 
   const CheckIdentical(v4, v5);
-  const CheckIdentical(v4, v6);
+  const CheckNotIdentical(v4, v6);
 
   Expect.notEquals(v1, v4);
 }
