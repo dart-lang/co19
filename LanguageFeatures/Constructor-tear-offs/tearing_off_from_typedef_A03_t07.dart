@@ -12,6 +12,7 @@
 ///
 /// @author iarkh@unipro.ru
 /// @issue 47267
+/// @issue 47462
 
 // SharedOptions=--enable-experiment=constructor-tearoffs
 
@@ -25,7 +26,7 @@ main() {
   var v3 = (MyList.filled)<num>;
 
   Expect.identical(v1, v2);
-  Expect.identical(v1, v3);
+  Expect.isFalse(identical(v1, v3));
 
   const v4 = MyList<int>.filled;
   const v5 = MyList<int>.filled;
