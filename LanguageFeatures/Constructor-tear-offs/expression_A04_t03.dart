@@ -29,5 +29,5 @@ main() {
   var c1 = c<int>;
   Expect.isFalse(c1 is Type);
   Expect.isTrue(c1 is int Function(int));
-  Expect.equals(c1, c.call<int>);
+  var res = c1 == c.call<int>; // Any result is accepted, it may be equal and not equal
 }
