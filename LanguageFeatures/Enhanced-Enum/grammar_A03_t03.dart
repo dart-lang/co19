@@ -40,7 +40,7 @@ enum E<T> implements I1, I2<T> {
   e2<String>("2", "22", 22),
   e3<bool>(false, "3", 33);
 
-  const E<T>(T t, String s, int v): _t = t, _s = s, _v = v;
+  const E(T t, String s, int v): _t = t, _s = s, _v = v;
 
   final _t;
   final _s;

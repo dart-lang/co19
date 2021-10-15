@@ -12,32 +12,48 @@
 /// where memberDeclaration* is any sequence of static and instance member
 /// declarations and/or an unnamed generative const constructor declaration.
 ///
-/// The ; after the identifier list is optional if there is nothing else in the
-/// declaration, required if there is any member declaration after it. The
-/// identifier list may have a trailing comma (like now).
-///
-/// @description Check that the ; can appear after the trailing comma
+/// @description Check that it's a compile time error to declare any abstract
+/// members in enum
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
-enum Time1 {
-  hour,
-  day,
-  week,;
+enum E1 {
+  e1,
+  e2,
+  e3;
 
-  static int foo() => 42;
+  void foo();
+//     ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
-enum Time2<T> {
-  hour<int>(),
-  day<String>(),
-  week<bool>(),;
+enum E2 {
+  e1(),
+  e2(),
+  e3();
 
-  const Time2();
+  int get foo;
+//        ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+}
+
+enum E3 {
+  e1(1),
+  e2(2),
+  e3(3);
+
+  const E3(int i);
+  void set foo(int val);
+//         ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  Time1.week;
-  Time2.week;
+  E1.e1;
+  E2.e2;
+  E3.e3;
 }
