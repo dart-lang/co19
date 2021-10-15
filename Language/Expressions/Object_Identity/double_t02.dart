@@ -27,6 +27,5 @@ main() {
   double nan1 = div(nol, nol);
   double nan2 = div(nol, nol);
   Expect.isTrue(identical(nan1, nan2));
-  Expect.isTrue(identical(nan1, double.nan));
   Expect.isTrue(identical(double.nan, double.nan));
 }
