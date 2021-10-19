@@ -17,13 +17,26 @@
 /// expression e evaluates to false and has correct message.
 /// @author sgrekhov@unipro.ru
 
+
 import '../../../Utils/expect.dart';
 
 main() {
-  Expect.throws(() {assert(false, "Some message");}, (e) => e is AssertionError);
-  Expect.throws(() {assert(false, 123);}, (e) => e is AssertionError);
-  Expect.throws(() {assert(false, 3.14);}, (e) => e is AssertionError);
+  if (assertStatementsEnabled) {
+    Expect.throws(() {
+      assert(false, "Some message");
+    }, (e) => e is AssertionError, "Some message");
 
-  var o = new Object();
-  Expect.throws(() {assert(false, o);}, (e) => e is AssertionError);
+    Expect.throws(() {
+      assert(false, 123);
+    }, (e) => e is AssertionError, "123");
+
+    Expect.throws(() {
+      assert(false, 3.14);
+    }, (e) => e is AssertionError, 3.14.toString());
+
+    var o = new Object();
+    Expect.throws(() {
+      assert(false, o);
+    }, (e) => e is AssertionError, o.toString());
+  }
 }

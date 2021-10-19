@@ -21,7 +21,9 @@
 import '../../../Utils/expect.dart';
 
 main() {
-  Expect.throws(() {
-    assert(null);
-  });
+  if (assertStatementsEnabled) {
+    Expect.throws(() {
+      assert(null);
+    });
+  }
 }

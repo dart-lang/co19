@@ -27,7 +27,9 @@ bool check() {flag = true; return flag;}
 
 main() {
   assert (check());
-  Expect.isTrue(flag); // TODO check if assert is effective
+  if (assertStatementsEnabled) {
+    Expect.isTrue(flag);
+  }
 
   assert (true);
   assert (true ? true : true);

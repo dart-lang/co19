@@ -19,5 +19,9 @@
 import '../../../Utils/expect.dart';
 
 main() {
-  Expect.throws(() { assert (false); }, (e) => e is AssertionError);
+  if (assertStatementsEnabled) {
+    Expect.throws(() {
+      assert(false);
+    }, (e) => e is AssertionError);
+  }
 }
