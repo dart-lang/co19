@@ -19,20 +19,20 @@
 /// S.
 /// A mixin application of the form S with M1,...,Mk; defines a class C whose
 /// superclass is the application of the mixin composition Mk−1∗...∗M1 to S.
-/// In both cases above, C declares the same instance members as M (respec-
-/// tively, Mk).
+/// In both cases above, C declares the same instance members as M (respectively,
+/// Mk).
 /// @description Test that mixin cannot be derived from the superclass
 /// @author sgrekhov@unipro.ru
 /// @issue 25765
+/// @issue 42256
 
 class S {
 }
 
-class C extends S with S {
-//                     ^
+class C = S with S;
+//               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
 main() {
   new C();

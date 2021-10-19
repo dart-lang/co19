@@ -29,11 +29,10 @@
 class S {
 }
 
-class C extends S with C {
-//                     ^
+class C = S with C;
+//               ^
 // [analyzer] unspecified
 // [cfe] unspecified
-}
 
 main() {
   new C();

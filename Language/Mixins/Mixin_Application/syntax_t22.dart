@@ -19,10 +19,10 @@
 /// S.
 /// A mixin application of the form S with M1,...,Mk; defines a class C whose
 /// superclass is the application of the mixin composition Mk−1∗...∗M1 to S.
-/// In both cases above, C declares the same instance members as M (respec-
-/// tively, Mk).
-/// @description Checks that it is no compile error to derive a mixin from a
-/// class which has a superclass other than Object.
+/// In both cases above, C declares the same instance members as M (respectively,
+/// Mk).
+/// @description Checks that it is no compile error to declare mixin on a class
+/// which has a superclass other than Object.
 /// @issue 26409
 /// @author sgrekhov@unipro.ru
 
@@ -35,14 +35,13 @@ class A {
 class S extends A {
 }
 
-class M extends A {
+mixin M on A {
   String m() {
     return super.a();
   }
 }
 
-class C extends S with M {
-}
+class C = S with M;
 
 main() {
   C c = new C();

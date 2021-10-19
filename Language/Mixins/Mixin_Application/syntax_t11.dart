@@ -4,39 +4,50 @@
 
 // @dart = 2.9
 
-/// @assertion Let S be a class, M be a mixin with required superinterfaces
-/// T1, . . . , Tn, combined superinterface MS, implemented interfaces
-/// I1, . . . , Ik and members as mixin member declarations, and let N be a name.
-/// ...
-/// The mixin application of M to S with name N introduces a new class, C,
-/// with name N, superclass S, implemented interface I1, . . . , Ik and members
-/// as instance members.
-/// @description Checks that it is no compile error to derive a mixin from a
+/// @assertion A class may be defined as a mixin application.
+///
+/// classDefinition:
+///   metadata abstract? class mixinApplicationClass
+/// ;
+/// mixinApplicationClass:
+///   identifier typeParameters? `=' mixinApplication `;'
+///
+/// mixinApplication:
+///   type mixins interfaces?
+/// ;
+///
+/// A mixin application of the form S with M; defines a class C with superclass
+/// S.
+/// A mixin application of the form S with M1,...,Mk; defines a class C whose
+/// superclass is the application of the mixin composition Mk−1∗...∗M1 to S.
+/// In both cases above, C declares the same instance members as M (respectively,
+/// Mk).
+/// @description Checks that it is a compile error to derive a mixin from a
 /// class which has a superclass other than Object, even if mixin has all of its
 /// explicitly defined getters
 /// @issue 26409
+/// @issue 42254
 /// @author sgrekhov@unipro.ru
 
-import '../../../Utils/expect.dart';
 
 class S {
   int get g1 => 1;
 }
 
 class M extends S {
-  int get g2 => 2;
+  int get g1 => 2;
 }
 
 class A extends S {
-  int get g3 => 3;
+  int get g1 => 3;
 }
 
 class C extends A with M {
+//                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
-  C c = new C();
-  Expect.equals(c.g1, 1);
-  Expect.equals(c.g2, 2);
-  Expect.equals(c.g3, 3);
+  new C();
 }

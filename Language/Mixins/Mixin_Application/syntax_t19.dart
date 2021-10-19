@@ -19,8 +19,8 @@
 /// S.
 /// A mixin application of the form S with M1,...,Mk; defines a class C whose
 /// superclass is the application of the mixin composition Mk−1∗...∗M1 to S.
-/// In both cases above, C declares the same instance members as M (respec-
-/// tively, Mk).
+/// In both cases above, C declares the same instance members as M (respectively,
+/// Mk).
 /// @description Test that mixin may have type parameters. Class C doesn't
 /// specify any type parameters
 /// @author sgrekhov@unipro.ru

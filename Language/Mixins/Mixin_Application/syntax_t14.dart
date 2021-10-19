@@ -20,15 +20,15 @@
 /// S.
 /// A mixin application of the form S with M1,...,Mk; defines a class C whose
 /// superclass is the application of the mixin composition Mk−1∗...∗M1 to S.
-/// In both cases above, C declares the same instance members as M (respec-
-/// tively, Mk).
-/// @description Checks that it is no compile error to derive a mixin from a
+/// In both cases above, C declares the same instance members as M (respectively,
+/// Mk).
+/// @description Checks that it is a compile error to derive a mixin from a
 /// class which has a superclass other than Object, even if mixin has all of its
 /// methods
 /// @issue 26409
+/// @issue 42254
 /// @author sgrekhov@unipro.ru
 
-import '../../../Utils/expect.dart';
 
 class S {
   int m1() => 1;
@@ -42,12 +42,11 @@ class A extends S {
   int m3() => 3;
 }
 
-class C extends A with M {
-}
+class C = A with M;
+//               ^
+// [analyzer] unspecified
+// [cfe] unspecified
 
 main() {
-  C c = new C();
-  Expect.equals(c.m1(), 1);
-  Expect.equals(c.m2(), 2);
-  Expect.equals(c.m3(), 3);
+   new C();
 }
