@@ -56,7 +56,7 @@ Iterable generator(Iterable iterable) sync* {
 
 main() {
   IterableStub its = new IterableStub();
-  Expect.isTrue(generator(its).first);
+  Expect.isTrue(generator(its).isEmpty);
   Expect.isTrue(actualException is TestException);
 }
 
