@@ -15,7 +15,5 @@
 import "library_variable_t01_lib.dart";
 
 main() {
-  try {
-    foo = 1;
-  } catch (ok) {}
+  foo = 1;
 }

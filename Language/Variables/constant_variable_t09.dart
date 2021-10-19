@@ -8,7 +8,6 @@
 /// modifier const. A constant variable is always implicitly final.
 /// @description Checks that constant variables are initialized properly.
 /// @author msyabro
-/// @reviewer iefremov
 
 import "../../Utils/expect.dart";
 
@@ -21,8 +20,8 @@ const x = 1;
 
 main() {
   const double pi = Math.pi;
-  const List l = const [0,1,2,3];
-  const Map m = const {'a': 1, 'b': 2};
+  const List<int> l = const [0, 1, 2, 3];
+  const Map<String, int> m = const {'a': 1, 'b': 2};
   const String e = "OneTwo";
   const y = 2;
 
