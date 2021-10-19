@@ -15,8 +15,6 @@
 /// types: non-dynamic return type and a bunch of required and positional optional
 /// parameters.
 /// @author iefremov
-/// @reviewer rodionov
-/// @reviewer iefremov
 
 import "../../../Utils/expect.dart";
 
@@ -37,9 +35,9 @@ C f4(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol, bool obo
 A f5(num i, A b, Map<Object, Object> m, var x, [var ox, A2 ob, List ol, Object obool]) {}
 
 main() {
-  Expect.isTrue(f1 is t1);
-  Expect.isTrue(f2 is t1);
+  Expect.isFalse(f1 is t1);
+  Expect.isFalse(f2 is t1);
   Expect.isTrue(f3 is t1);
   Expect.isTrue(f4 is t1);
-  Expect.isTrue(f5 is t1);
+  Expect.isFalse(f5 is t1);
 }

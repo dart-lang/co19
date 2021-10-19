@@ -18,7 +18,6 @@
 /// superset of the supertype's named optional parameters.
 /// This test is like A03/t03, but the order of named parameters is not altered.
 /// @author kaigorodov
-/// @reviewer rodionov
 
 import "../../../Utils/expect.dart";
 
@@ -47,7 +46,7 @@ main() {
 
   Expect.isTrue(({Map<num, int> m, List<List<B>> l, G<A, B, C, D> g}) {} is genericsFunc);
 
-  Expect.isTrue(({A x, G y, mixFunc z, var v, Object xx, List<Map<int, mixFunc>> xxx,
+  Expect.isFalse(({A x, G y, mixFunc z, var v, Object xx, List<Map<int, mixFunc>> xxx,
                   mixFunc xxxx}) {} is dynamicFunc);
 
   Expect.isTrue(({okWithClassesFunc f1, okWithGenericsFunc f2, okWithDynamicFunc f3, mixFunc xx}) {} is funcFunc);

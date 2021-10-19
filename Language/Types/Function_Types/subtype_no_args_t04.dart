@@ -14,7 +14,6 @@
 /// @description Checks that this statement is true for function types with no
 /// arguments: S is some generic, T is some other type assignable to S.
 /// @author iefremov
-/// @reviewer rodionov
 
 import "../../../Utils/expect.dart";
 
@@ -98,14 +97,14 @@ main() {
   Expect.isTrue(f9 is t8);
 
   //() -> T is () -> List<int>
-  Expect.isTrue(f10 is t9);
+  Expect.isFalse(f10 is t9);
   Expect.isTrue(f11 is t9);
-  Expect.isTrue(f12 is t9);
+  Expect.isFalse(f12 is t9);
 
   //() -> T is () -> List<B>
-  Expect.isTrue(f13 is t14);
-  Expect.isTrue(f14 is t14);
-  Expect.isTrue(f15 is t14);
+  Expect.isFalse(f13 is t14);
+  Expect.isFalse(f14 is t14);
+  Expect.isFalse(f15 is t14);
   Expect.isTrue(f16 is t14);
   Expect.isTrue(f17 is t14);
   Expect.isTrue(f18 is t14);

@@ -14,7 +14,6 @@
 /// @description Checks that this statement is true for function types with
 /// several formal parameters (class, generic, function, Dynamic).
 /// @author iefremov
-/// @reviewer rodionov
 
 import "../../../Utils/expect.dart";
 
@@ -62,22 +61,22 @@ f31(okWithClassesFunc_1 a, okWithGenericsFunc_1 b, okWithDynamicFunc_1 c) {}
 f32(okWithClassesFunc_2 a, okWithGenericsFunc_2 b, okWithDynamicFunc_2 c) {}
 
 main() {
-  Expect.isTrue(f1 is classesFunc);
+  Expect.isFalse(f1 is classesFunc);
   Expect.isTrue(f2 is classesFunc);
-  Expect.isTrue(f3 is classesFunc);
-  Expect.isTrue(f4 is classesFunc);
-  Expect.isTrue(f5 is classesFunc);
+  Expect.isFalse(f3 is classesFunc);
+  Expect.isFalse(f4 is classesFunc);
+  Expect.isFalse(f5 is classesFunc);
   Expect.isTrue(f6 is classesFunc);
   Expect.isTrue(f7 is classesFunc);
 
   Expect.isTrue(f11 is genericsFunc);
-  Expect.isTrue(f12 is genericsFunc);
+  Expect.isFalse(f12 is genericsFunc);
   Expect.isTrue(f13 is genericsFunc);
   Expect.isTrue(f14 is genericsFunc);
 
-  Expect.isTrue(f21 is dynamicFunc);
-  Expect.isTrue(f22 is dynamicFunc);
+  Expect.isFalse(f21 is dynamicFunc);
+  Expect.isFalse(f22 is dynamicFunc);
 
-  Expect.isTrue(f31 is funcFunc);
+  Expect.isFalse(f31 is funcFunc);
   Expect.isTrue(f32 is funcFunc);
 }

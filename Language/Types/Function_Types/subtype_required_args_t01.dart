@@ -14,7 +14,7 @@
 /// @description Checks that this statement is true for function types with a
 /// single formal parameter (class, generic, function, Dynamic).
 /// @author iefremov
-/// @reviewer rodionov
+/// @issue 42648
 
 import "../../../Utils/expect.dart";
 
@@ -103,15 +103,15 @@ f91(List a) {}
 main() {
   Expect.isTrue(f1 is t1);
   Expect.isTrue(f2 is t1);
-  Expect.isTrue(f3 is t1);
-  Expect.isTrue(f4 is t1);
+  Expect.isFalse(f3 is t1);
+  Expect.isFalse(f4 is t1);
   Expect.isTrue(f5 is t1);
   Expect.isTrue(f6 is t1);
 
   Expect.isTrue(f10 is t2);
   Expect.isTrue(f11 is t2);
   Expect.isTrue(f12 is t2);
-  Expect.isTrue(f13 is t2);
+  Expect.isFalse(f13 is t2);
   Expect.isTrue(f14 is t2);
   Expect.isTrue(f15 is t2);
 
@@ -120,47 +120,47 @@ main() {
   Expect.isTrue(f22 is t3);
   Expect.isTrue(f23 is t3);
 
-  Expect.isTrue(f30 is t4);
-  Expect.isTrue(f31 is t4);
-  Expect.isTrue(f32 is t4);
-  Expect.isTrue(f33 is t4);
+  Expect.isFalse(f30 is t4);
+  Expect.isFalse(f31 is t4);
+  Expect.isFalse(f32 is t4);
+  Expect.isFalse(f33 is t4);
   Expect.isTrue(f34 is t4);
   Expect.isTrue(f35 is t4);
-  Expect.isTrue(f36 is t4);
-  Expect.isTrue(f37 is t4);
-  Expect.isTrue(f38 is t4);
-  Expect.isTrue(f39 is t4);
-  Expect.isTrue(f40 is t4);
-  Expect.isTrue(f41 is t4);
-  Expect.isTrue(f42 is t4);
+  Expect.isFalse(f36 is t4);
+  Expect.isFalse(f37 is t4);
+  Expect.isFalse(f38 is t4);
+  Expect.isFalse(f39 is t4);
+  Expect.isFalse(f40 is t4);
+  Expect.isFalse(f41 is t4);
+  Expect.isFalse(f42 is t4);
 
   Expect.isTrue(f50 is t5);
-  Expect.isTrue(f51 is t5);
+  Expect.isFalse(f51 is t5);
   Expect.isTrue(f52 is t5);
   Expect.isTrue(f53 is t5);
-  Expect.isTrue(f54 is t5);
-  Expect.isTrue(f55 is t5);
+  Expect.isFalse(f54 is t5);
+  Expect.isFalse(f55 is t5);
 
   Expect.isTrue(f61 is t6);
-  Expect.isTrue(f62 is t6);
+  Expect.isFalse(f62 is t6);
   Expect.isTrue(f63 is t6);
   Expect.isTrue(f64 is t6);
   Expect.isTrue(f65 is t6);
 
-  Expect.isTrue(f71 is t7);
+  Expect.isFalse(f71 is t7);
   Expect.isTrue(f72 is t7);
   Expect.isTrue(f73 is t7);
   Expect.isTrue(f74 is t7);
 
-  Expect.isTrue(f81 is t8);
-  Expect.isTrue(f82 is t8);
-  Expect.isTrue(f83 is t8);
-  Expect.isTrue(f84 is t8);
+  Expect.isFalse(f81 is t8);
+  Expect.isFalse(f82 is t8);
+  Expect.isFalse(f83 is t8);
+  Expect.isFalse(f84 is t8);
   Expect.isTrue(f85 is t8);
   Expect.isTrue(f86 is t8);
-  Expect.isTrue(f87 is t8);
-  Expect.isTrue(f88 is t8);
-  Expect.isTrue(f89 is t8);
-  Expect.isTrue(f90 is t8);
-  Expect.isTrue(f91 is t8);
+  Expect.isFalse(f87 is t8);
+  Expect.isFalse(f88 is t8);
+  Expect.isFalse(f89 is t8);
+  Expect.isFalse(f90 is t8);
+  Expect.isFalse(f91 is t8);
 }

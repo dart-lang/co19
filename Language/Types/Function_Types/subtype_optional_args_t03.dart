@@ -16,8 +16,6 @@
 /// supertype's positional optional parameters match the beginning of the list of
 /// subtype's positional optional parameters.
 /// @author iefremov
-/// @reviewer rodionov
-/// @reviewer iefremov
 
 import "../../../Utils/expect.dart";
 
@@ -49,11 +47,11 @@ typedef okWithDynamicFunc_2([int x, bool y, List<Map> z, classesFunc v]);
 
 
 main() {
-  Expect.isTrue((var vv, [D a, B b, C c, A d, var xx, Map xxx, Object xxxx]) {} is classesFunc);
+  Expect.isFalse((var vv, [D a, B b, C c, A d, var xx, Map xxx, Object xxxx]) {} is classesFunc);
 
   Expect.isTrue(([var m, var l, var g, var xx, var xxx, var xxxx]) {} is genericsFunc);
 
-  Expect.isTrue(([A x, G y, mixFunc z, var v, Object xx, List<Map<int, mixFunc>> xxx, mixFunc xxxx]) {} is dynamicFunc);
+  Expect.isFalse(([A x, G y, mixFunc z, var v, Object xx, List<Map<int, mixFunc>> xxx, mixFunc xxxx]) {} is dynamicFunc);
 
   Expect.isTrue(([okWithClassesFunc_2 f1, okWithGenericsFunc_2 f2, okWithDynamicFunc_2 f3, mixFunc xx, funcFunc xxx]) {} is funcFunc);
 }

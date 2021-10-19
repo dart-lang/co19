@@ -17,7 +17,6 @@
 /// type has more named optional parameters than the supertype as long it's a
 /// superset of the supertype's named optional parameters.
 /// @author rodionov
-/// @reviewer kaigorodov
 
 import "../../../Utils/expect.dart";
 
@@ -46,7 +45,7 @@ main() {
 
   Expect.isTrue(({List<List<B>> l, Map<num, int> m, G<A, B, C, D> g}) {} is genericsFunc);
 
-  Expect.isTrue(({A x, G y, mixFunc z, List<Map<int, mixFunc>> xxx, Object xx,
+  Expect.isFalse(({A x, G y, mixFunc z, List<Map<int, mixFunc>> xxx, Object xx,
                   var v, mixFunc xxxx}) {} is dynamicFunc);
 
   Expect.isTrue(({okWithClassesFunc f1, mixFunc xx,

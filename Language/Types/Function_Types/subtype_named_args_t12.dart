@@ -18,7 +18,6 @@
 /// parameters.
 /// This test is like A03/t04, but the order of named parameters is not altered.
 /// @author kaigorodov
-/// @reviewer rodionov
 
 import "../../../Utils/expect.dart";
 
@@ -41,7 +40,7 @@ C f4(num i, A b, Map<Object, Object> m, var x,
      {var ox, A2 ob, List ol, bool obool, A xx, B yy}) {}
 
 main() {
-  Expect.isTrue(f1 is t1);
-  Expect.isTrue(f2 is t1);
+  Expect.isFalse(f1 is t1);
+  Expect.isFalse(f2 is t1);
   Expect.isTrue(f4 is t1);
 }
