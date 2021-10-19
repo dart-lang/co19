@@ -19,6 +19,7 @@
 ///   type (',' type)*
 /// ;
 /// @description Checks that the type argument can be parameterized as well.
+/// @Issue 47496
 /// @author iefremov
 
 
