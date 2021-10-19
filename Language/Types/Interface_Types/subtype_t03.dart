@@ -26,7 +26,6 @@
 /// @description Checks that a generic type T with several type parameters is a
 /// subtype of itself and T is assignable to itself.
 /// @author iefremov
-/// @reviewer rodionov
 
 import "../../../Utils/expect.dart";
 
@@ -43,8 +42,8 @@ main() {
 
   //check with type parameters
   A<int, double, A> n = new A<int, double, A>();
-  Expect.isTrue(a is A<int, double, A>);
-  Expect.isTrue(n is A);
+  Expect.isTrue(n is A<int, double, A>);
+  Expect.isTrue(a is A);
 
   a = n;
   n = new A();
@@ -52,8 +51,8 @@ main() {
   //type parameters are also generic
   a = new A();
   A<A<A, int, double>, List<String>, A> n2 = new A<A<A, int, double>, List<String>, A>();
-  Expect.isTrue(a is A<A<A, int, double>, List<String>, A>);
-  Expect.isTrue(n2 is A);
+  Expect.isTrue(n2 is A<A<A, int, double>, List<String>, A>);
+  Expect.isTrue(a is A);
 
   a = n2;
   n2 = new A();

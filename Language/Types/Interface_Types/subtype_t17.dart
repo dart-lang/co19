@@ -26,7 +26,6 @@
 /// @description Checks that GenericType<T> is a subtype of GenericType<S> where
 /// T is subtype of S (T and S are non-generic interfaces and/or Dynamic).
 /// @author iefremov
-/// @reviewer rodionov
 
 import "../../../Utils/expect.dart";
 
@@ -40,7 +39,7 @@ class Z<T> {
 
 main() {
   Expect.isTrue(new List<String>() is List);
-  Expect.isTrue(new List() is List<String>);
+  Expect.isFalse(new List() is List<String>);
   Expect.isTrue(new List<String>() is List<Object>);
   Expect.isTrue(new List<String>() is List<Object>);
   Expect.isTrue(new List<int>() is List<num>);
@@ -56,7 +55,7 @@ main() {
   Expect.isTrue(new List<K>() is List<J>);
 
   Expect.isTrue(new Z<String>() is Z);
-  Expect.isTrue(new Z() is Z<String>);
+  Expect.isFalse(new Z() is Z<String>);
   Expect.isTrue(new Z<String>() is Z<Object>);
   Expect.isTrue(new Z<String>() is Z<Object>);
   Expect.isTrue(new Z<int>() is Z<num>);

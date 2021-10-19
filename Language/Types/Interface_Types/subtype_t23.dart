@@ -26,7 +26,6 @@
 /// @description Checks that GenericType<T> is a subtype of GenericType<S> where
 /// T and S are simple functions.
 /// @author iefremov
-/// @reviewer rodionov
 
 import "../../../Utils/expect.dart";
 
@@ -53,17 +52,17 @@ typedef t1_1 t3_1(t1_1 f1, [t1_1 f2]);
 typedef t1_2 t3_2(t1_2 f1, [t1_2 f2]);
 
 main() {
-  Expect.isTrue(new List<t1>() is List<t1>);
-  Expect.isTrue(new List<t1_1>() is List<t1>);
-  Expect.isTrue(new List<t1_2>() is List<t1>);
+  Expect.isTrue(new List<t1>.empty() is List<t1>);
+  Expect.isTrue(new List<t1_1>.empty() is List<t1>);
+  Expect.isTrue(new List<t1_2>.empty() is List<t1>);
 
-  Expect.isTrue(new List<t2>() is List<t2>);
-  Expect.isTrue(new List<t2_1>() is List<t2>);
-  Expect.isTrue(new List<t2_2>() is List<t2>);
-  Expect.isTrue(new List<t2_3>() is List<t2>);
-  Expect.isTrue(new List<t2_4>() is List<t2>);
+  Expect.isTrue(new List<t2>.empty() is List<t2>);
+  Expect.isFalse(new List<t2_1>.empty() is List<t2>);
+  Expect.isFalse(new List<t2_2>.empty() is List<t2>);
+  Expect.isFalse(new List<t2_3>.empty() is List<t2>);
+  Expect.isFalse(new List<t2_4>.empty() is List<t2>);
 
-  Expect.isTrue(new List<t3>() is List<t3>);
-  Expect.isTrue(new List<t3_1>() is List<t3>);
-  Expect.isTrue(new List<t3_2>() is List<t3>);
+  Expect.isTrue(new List<t3>.empty() is List<t3>);
+  Expect.isTrue(new List<t3_1>.empty() is List<t3>);
+  Expect.isFalse(new List<t3_2>.empty() is List<t3>);
 }

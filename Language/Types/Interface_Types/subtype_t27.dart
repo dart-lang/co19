@@ -26,9 +26,9 @@
 /// @description Stress transitivity check: creates hierarchy of classes
 /// "C1026 <: C1025 <: ... <: C1 <: C and checks that C1026 is a subtype of C.
 /// @author iefremov
+/// @issue 42641
 
 import "../../../Utils/expect.dart";
-
 
 class C {}
 

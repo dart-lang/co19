@@ -27,7 +27,6 @@
 /// where T and S are complex generics. Checks mutual assignability as well.
 /// @issue 27556
 /// @author iefremov
-/// @reviewer rodionov
 
 import "../../../Utils/expect.dart";
 
@@ -40,25 +39,19 @@ typedef J f(I<K, List<Map<int, double>>, int> i, [List<Map> j]);
 typedef K f_1(I<J, List<Map<int, num>>, num> i, [List<Map> j]);
 typedef C f_2(I<J, List<Map<int, num>>, num> i, [List<Map> j]);
 
-I<f, num, List<Map<num, Map>>>  f1() {}
-
 main() {
   Expect.isTrue(new I<f_1, int, List<Map<int, Map<int, int>>>>() is I<f, num, List<Map<num, Map>>>);
   Expect.isTrue(new I<f_2, int, List<Map<int, Map<int, int>>>>() is I<f, num, List<Map<num, Map>>>); // fails
   Expect.isTrue(new J<f_1, int, List<Map<int, Map<int, int>>>>() is I<f, num, List<Map<num, Map>>>);
   Expect.isTrue(new J<f_2, int, List<Map<int, Map<int, int>>>>() is I<f, num, List<Map<num, Map>>>); // fails
-  Expect.isTrue(new K() is I<f, num, List<Map<num, Map>>>);
-  Expect.isTrue(new C() is I<f, num, List<Map<num, Map>>>);
+  Expect.isFalse(new K() is I<f, num, List<Map<num, Map>>>);
+  Expect.isFalse(new C() is I<f, num, List<Map<num, Map>>>);
 
-  I<f_1, int, List<Map<int, Map<int, int>>>> v1 = f1();
   I<f, num, List<Map<num, Map>>> v1_ = new I<f_1, int, List<Map<int, Map<int, int>>>>();
 
-  I<f_2, int, List<Map<int, Map<int, int>>>> v2 = f1();
   I<f, num, List<Map<num, Map>>> v2_ = new I<f_2, int, List<Map<int, Map<int, int>>>>();
 
-  J<f_1, int, List<Map<int, Map<int, int>>>> v3 = f1();
   I<f, num, List<Map<num, Map>>> v3_ = new J<f_1, int, List<Map<int, Map<int, int>>>>();
 
-  J<f_2, int, List<Map<int, Map<int, int>>>> v4 = f1();
   I<f, num, List<Map<num, Map>>> v4_ = new J<f_2, int, List<Map<int, Map<int, int>>>>();
 }

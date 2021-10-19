@@ -27,7 +27,6 @@
 /// type warnings) with GenericType<S> where T and S are trivial generics.
 /// @issue 27556
 /// @author iefremov
-/// @reviewer rodionov
 
 
 class I {}
@@ -40,32 +39,24 @@ typedef J f_1(List<num> l, [I i]);
 typedef K f_2(List<int> l, [K i]);
 
 main() {
-  List l1_ = new List<List>();
+  List l1_ = new List<List>.empty();
 
-  List<List> l2 = new List<List<List>>();
-  List<List<List>> l2_ = new List<List>();
+  List<List> l2 = new List<List<List>>.empty();
 
-  List<List> l3 = new List<List<List<List>>>();
-  List<List<List<List>>> l3_ = new List<List>();
+  List<List> l3 = new List<List<List<List>>>.empty();
 
-  List<List<List<List>>> l4 = new List<List<List>>();
-  List<List<List>> l4_ = new List<List<List<List>>>();
+  List<List<List>> l4_ = new List<List<List<List>>>.empty();
 
-  List<List<List<List>>> l5 = new List();
-  List l5_ = new List<List<List<List>>>();
+  List<List<List<List>>> l5 = new List.empty();
+  List l5_ = new List<List<List<List>>>.empty();
 
-  List<Map<int, double>> l6 = new List<Map>();
-  List<Map> l6_ = new List<Map<int, double>>();
+  List<Map> l6_ = new List<Map<int, double>>.empty();
 
-  List<Map<num, num>> l7_super;
-  List<Map<int, double>> l7 =  l7_super;
-  List<Map<num, num>> l7_ = new List<Map<int, double>>();
+  List<Map<num, num>> l7_ = new List<Map<int, double>>.empty();
 
-  List<f> l8 = new List<f>();
+  List<f> l8 = new List<f>.empty();
 
-  List<f_1> l9 = new List<f>();
-  List<f> l9_ = new List<f_1>();
+  List<f> l9_ = new List<f_1>.empty();
 
-  List<f_2> l10 = new List<f>();
-  List<f> l10_ = new List<f_2>();
+  List<f> l10_ = new List<f_2>.empty();
 }
