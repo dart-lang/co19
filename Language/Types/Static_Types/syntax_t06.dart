@@ -22,13 +22,12 @@
 ///   type (',' type)*
 /// ;
 /// @description Checks that the type argument can be parameterized as well.
+/// @Issue 47496
 /// @author iefremov
-/// @reviewer rodionov
-
 
 class G<T> {
   G() {}
-}
+}                
 
 main() {
   G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G<G>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> t =
