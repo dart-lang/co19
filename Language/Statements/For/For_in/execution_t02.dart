@@ -14,32 +14,23 @@
 /// where n0 is an identifier that does not occur anywhere in the program, except
 /// that for purposes of static typechecking, it is checked under the assumption
 /// that n0 is declared to be of type T, where T is the static type of e.iterator.
-/// @description Checks that a [NoSuchMethodError] is thrown if the type of e
+/// @description Checks that a [TypeError] is thrown if the type of e
 /// does not implement [Iterable].
 /// @author vasya
-/// @reviewer rodionov
-/// @reviewer iefremov
 
 import '../../../../Utils/expect.dart';
 
 class A {}
 
 void check(var e) {
-  try {
-    for (var id in e);
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
+  Expect.throws(() { for (var id in e); }, (e) => e is TypeError);
 
-  try {
-    for (dynamic id in e);
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
+  Expect.throws(() { for (dynamic id in e); }, (e) => e is TypeError);
 
-  try {
-    var id;
-    for (id in e);
-    Expect.fail("NoSuchMethodError expected");
-  } on NoSuchMethodError catch (ok) {}
+  Expect.throws(() {
+     var id;
+      for (id in e);
+    }, (e) => e is TypeError);
 }
 
 main() {
