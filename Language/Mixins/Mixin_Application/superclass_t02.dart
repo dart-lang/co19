@@ -26,7 +26,7 @@ class A = SuperA with M;
 //                    ^
 // [analyzer] unspecified
 // [cfe] unspecified
-git
+
 main() {
   new A();
 }
