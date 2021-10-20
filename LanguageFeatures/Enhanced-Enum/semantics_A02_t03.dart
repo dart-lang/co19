@@ -30,7 +30,7 @@ enum E1 {
   e2(22),
   e3(33);
 
-  const E(this.index);
+  const E1(this.index);
 //        ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
@@ -42,7 +42,7 @@ enum E2 {
   e3(33);
 
   final int index;
-  const E1(this.index);
+  const E2(this.index);
 //         ^^^^^^^^^^
 // [analyzer] unspecified
 }

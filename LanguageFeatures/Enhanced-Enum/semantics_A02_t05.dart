@@ -20,26 +20,25 @@
 /// arguments.
 /// Otherwise include the member as written.
 ///
-/// @description Check that index and _name variables
+/// @description Check that index cannot be overwritten
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
-import "../../Utils/expect.dart";
+enum E {
+  e1(11),
+  e2(22),
+  e3(33);
 
-enum E1<T> {
-  e1<int>(42),
-  e2<String>("42"),
-  e3<bool>(true);
+  final int _index;
+  int get index => _index;
+//        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 
-  const E1(T t);
+  const E(this._index);
 }
 
 main() {
-  Expect.equals(0, E1.e1.index);
-  Expect.equals(1, E1.e2.index);
-  Expect.equals(2, E1.e3.index);
-  Expect.equals("E1.e1", E1.e1.toString());
-  Expect.equals("E1.e2", E1.e2.toString());
-  Expect.equals("E1.e3", E1.e3.toString());
+  E.e1;
 }
