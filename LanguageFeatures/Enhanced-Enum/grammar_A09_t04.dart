@@ -24,7 +24,7 @@ enum E1<T> {
   e2<String>(),
   e3<bool>();
 
-  T call(T t) => t
+  T call(T t) => t;
 }
 
 enum E2<T> {
