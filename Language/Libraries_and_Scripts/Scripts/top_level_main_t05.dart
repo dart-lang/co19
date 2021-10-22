@@ -9,6 +9,7 @@
 /// • A top-level getter named main that returns a function.
 /// @description Checks that it is not a runtime error if S declares a top-level
 /// getter named main, returning function.
+/// @issue 42492
 /// @author ngl@unipro.ru
 
 import "../../../Utils/expect.dart";

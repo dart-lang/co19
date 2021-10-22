@@ -12,18 +12,17 @@
 /// @author rodionov
 
 main() {
-  try {
-    final:
-//       ^
-// [analyzer] unspecified
-    do {
-//  ^
+  final:
+//     ^
 // [analyzer] unspecified
 // [cfe] unspecified
-      break final;
-//               ^
+  do {
+//^^
 // [analyzer] unspecified
 // [cfe] unspecified
-    } while (false);
-  } catch (x) {}
+  break final;
+//^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  } while (false);
 }
