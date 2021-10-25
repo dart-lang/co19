@@ -19,7 +19,7 @@ enum E1 {
   e2,
   e3;
 
-  factory E1.f(int index) => values[i];
+  factory E1.f(int index) => E1.values[i];
 }
 
 enum E2 {
@@ -27,7 +27,7 @@ enum E2 {
   e2(),
   e3();
 
-  factory E2.f(int index) => values[i];
+  factory E2.f(int index) => E2.values[i];
 }
 
 main() {
