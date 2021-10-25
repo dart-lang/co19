@@ -19,6 +19,7 @@ enum E {
   e1,
   e2,
   e3;
+
   E();
 //^
 // [analyzer] unspecified

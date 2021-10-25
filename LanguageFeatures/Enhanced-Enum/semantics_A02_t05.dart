@@ -25,7 +25,7 @@
 
 // SharedOptions=--enable-experiment=enhanced-enums
 
-enum E {
+enum E1 {
   e1(11),
   e2(22),
   e3(33);
@@ -36,9 +36,25 @@ enum E {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  const E(this._index);
+  const E1(this._index);
+}
+
+enum E2 {
+  e1(11),
+  e2(22),
+  e3(33);
+
+  final int _index;
+  @override
+  int get index => _index;
+//        ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  const E2(this._index);
 }
 
 main() {
-  E.e1;
+  E1.e1;
+  E2.e1;
 }

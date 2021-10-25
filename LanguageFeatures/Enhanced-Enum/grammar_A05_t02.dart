@@ -19,6 +19,7 @@ enum E {
   e1,
   e2,
   e3;
+
   const E();
 
   E.named() : this();

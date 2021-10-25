@@ -23,7 +23,7 @@ enum E1<T> {
 // [analyzer] unspecified
 // [cfe] unspecified
   e2<String>,
-//       ^
+//          ^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
