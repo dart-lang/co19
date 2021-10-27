@@ -7,19 +7,19 @@
 /// done without changing calling semantics.
 ///
 /// @description Checks that named arguments may be placed anywhere in the
-/// argument list. Test instance method
+/// argument list. Test static method
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=named-arguments-anywhere
 
 import "../../Utils/expect.dart";
 
-class C<T> {
-  String foo(T x, T y, {T z}) => "x=$x, y=$y, z=$z";
+class C {
+  static String foo(int x, int y, {int z = 42}) => "x=$x, y=$y, z=$z";
 }
 
 main() {
-  Expect.equals("x=1, y=2, z=3", C<int>().foo(1, 2, z: 3));
-  Expect.equals("x=1, y=2, z=3", C<int>().foo(z: 3, 1, 2));
-  Expect.equals("x=1, y=2, z=3", C<int>().foo(1, z: 3, 2));
+  Expect.equals("x=1, y=2, z=3", C.foo(1, 2, z: 3));
+  Expect.equals("x=1, y=2, z=3", C.foo(z: 3, 1, 2));
+  Expect.equals("x=1, y=2, z=3", C.foo(1, z: 3, 2));
 }
