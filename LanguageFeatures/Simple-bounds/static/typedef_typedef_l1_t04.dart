@@ -16,7 +16,7 @@
 /// @description Checks that simple bounds are correct for [typedef] with
 /// [typedef] parameter (not used)
 ///
-/// @Issue 46178
+/// @Issue 41684, 42429, 46178
 /// @author iarkh@unipro.ru
 
 typedef F<X> = void Function<Y extends X>();
@@ -29,10 +29,12 @@ main() {
   G2 source;
   var fsource = toF(source);
   F<G2<G1<num>>> target = fsource;
+
   F<G2<G1<dynamic>>> target1 = fsource;
 //     ^^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
   F<G2<G1<Null>>>    target2 = fsource;
 }
 

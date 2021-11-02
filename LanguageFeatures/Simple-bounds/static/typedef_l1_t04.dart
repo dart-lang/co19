@@ -16,7 +16,7 @@
 /// @description Checks that simple bounds are correct for [typedef] with [X
 /// extends num] parameter (not used)
 ///
-/// @Issue 46178
+/// @Issue 41684, 42429, 46178
 /// @author iarkh@unipro.ru
 
 typedef F<X> = void Function<Y extends X>();
@@ -27,10 +27,10 @@ typedef G<X extends num> = void Function();
 main() {
   G source;
   var fsource = toF(source);
-  F<G<num>> target = fsource;
-  F<G<Null>>    target2 = fsource;
+  F<G<num>>  target  = fsource;
+  F<G<Null>> target1 = fsource;
 
-  F<G<dynamic>> target1 = fsource;
+  F<G<dynamic>> target2 = fsource;
 //    ^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
