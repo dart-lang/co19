@@ -11,6 +11,7 @@
 ///    When all futures have completed, the stream is closed.
 ///    If no future is passed, the stream closes as soon as possible.
 /// @description Checks Stream interface methods
+/// @Issue 29615
 /// @author a.semenov@unipro.ru
 
 import "dart:async";

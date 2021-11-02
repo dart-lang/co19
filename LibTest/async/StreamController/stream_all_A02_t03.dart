@@ -5,6 +5,7 @@
 /// @assertion Stream<T> stream
 /// The stream that this controller is controlling.
 /// @description Checks that property stream implements Stream interface
+/// @Issue 29615
 /// @author a.semenov@unipro.ru
 
 import "dart:async";

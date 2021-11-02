@@ -10,7 +10,7 @@
 ///
 /// @description Checks that errors are reported as uncaught if there are no
 /// listeners.
-/// @issue #29403
+/// @issue 29403
 /// @author a.semenov@unipro.ru
 
 import "dart:async";

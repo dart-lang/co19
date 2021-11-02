@@ -7,6 +7,7 @@
 /// Creates a stream that repeatedly emits events at period intervals.
 /// If computation is omitted the event values will all be null.
 /// @description Checks Stream interface methods
+/// @Issue 29615
 /// @author a.semenov@unipro.ru
 
 import "dart:async";

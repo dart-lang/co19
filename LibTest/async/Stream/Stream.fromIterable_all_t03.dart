@@ -7,6 +7,7 @@
 /// The iterable is iterated when the stream receives a listener, and stops
 /// iterating if the listener cancels the subscription.
 /// @description Checks Stream interface methods
+/// @Issue 29615
 /// @author a.semenov@unipro.ru
 
 import "dart:async";

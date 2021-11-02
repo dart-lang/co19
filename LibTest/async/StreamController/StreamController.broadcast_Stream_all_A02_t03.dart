@@ -13,6 +13,7 @@
 /// at the time when add, addError or close is called.
 ///
 /// @description Checks that property stream implements Stream interface
+/// @Issue 29615
 /// @author a.semenov@unipro.ru
 
 import "dart:async";
