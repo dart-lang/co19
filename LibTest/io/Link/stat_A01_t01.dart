@@ -27,7 +27,11 @@ _main(Directory sandbox) async {
   Link link = getTempLinkSync(parent: sandbox);
   asyncStart();
   await link.stat().then((FileStat fs) {
-    Expect.equals(FileSystemEntityType.link, fs.type);
+    if (Platform.isWindows) {
+      Expect.equals(FileSystemEntityType.link, fs.type);
+    } else {
+      Expect.equals(FileSystemEntityType.directory, fs.type);
+    }
   }).then((_) {
     asyncEnd();
   });
