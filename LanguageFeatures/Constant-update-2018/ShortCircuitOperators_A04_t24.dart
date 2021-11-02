@@ -29,11 +29,17 @@ class MyClass2 {
 class MyClass3 {
   final int res;
   const MyClass3() : res = (true ? 0 : s);
+//                                     ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class MyClass4 {
   final int res;
   const MyClass4() : res = (true ? 0 : "bad str");
+//                                     ^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 class MyClass5 {
@@ -49,16 +55,6 @@ main() {
 
   const c2 = MyClass2();
 //           ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  const c3 = MyClass3();
-//           ^^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
-
-  const c4 = MyClass4();
-//          ^^^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 
