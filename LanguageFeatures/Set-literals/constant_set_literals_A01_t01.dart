@@ -24,8 +24,8 @@ main() {
   var x;
   var v1 = const {1, 2, '3', new A()};
   //                         ^^^^^^^
-  // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_SET_ELEMENT
-  // [cfe] New expression is not a constant expression.
+// [analyzer] unspecified
+// [cfe] unspecified
   var v2 = const [const B(), const C(), const A(), x];
   //                                               ^
   // [analyzer] COMPILE_TIME_ERROR.NON_CONSTANT_LIST_ELEMENT
