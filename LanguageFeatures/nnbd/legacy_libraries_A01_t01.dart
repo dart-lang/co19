@@ -14,7 +14,10 @@
 /// @author iarkh@unipro.ru
 
 // Requirements=nnbd-strong
+
 // @dart=2.6
+// ^^^^^^^^^
+// [cfe] unspecified
 
 main() {}
 

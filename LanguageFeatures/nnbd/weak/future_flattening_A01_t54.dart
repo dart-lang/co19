@@ -14,16 +14,13 @@
 ///       [flatten(T) = S]
 ///   otherwise [flatten(T) = T]
 ///
-/// @description Checks that async function with `Future<FutureOr<Never>>` return
-/// type cannot return null in the weak mode.
+/// @description Checks that async function with `Future<FutureOr<Never>>`
+/// return type can be `null` in the weak mode according to the Issue #44246,
+/// etc. evaluation.
 ///
-/// We'll have to keep this one on a waiting list, blocked by
-/// https://github.com/dart-lang/language/issues/1346 (or some issue that can be
-/// found looking at 1346, if the discussion is taken somewhere else, say
-/// https://github.com/dart-lang/sdk/issues/44246).
-///
-/// @Issue 41324, 41437
+/// @Issue 41324, 41437, 44246
 /// @Issue https://github.com/dart-lang/language/issues/1346
+///
 /// @author iarkh@unipro.ru
 
 // Requirements=nnbd-weak
@@ -40,6 +37,6 @@ Future test() async {
 
 main() {
   asyncStart();
-  test().then((value) { Expect.fail("Should not reach here!"); },
-      onError:(e) => asyncEnd());
+  test().then((value) { Expect.isNull(value); });
+  asyncEnd();
 }

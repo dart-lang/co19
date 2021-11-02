@@ -35,9 +35,6 @@ void main() {
   f(() => captureTypeArgument()..call());
 
   f(() => captureTypeArgument()..call(throw 1));
-  //                                  ^
-  // [analyzer] unspecified
-  // [cfe] unspecified
 
   f(() => captureTypeArgument()..call('Hello'));
   //                                  ^
