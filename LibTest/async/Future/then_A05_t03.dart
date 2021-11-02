@@ -24,8 +24,6 @@ main() {
 
   new Future.error(error).then((_) {}, onError: (e, st) {
     Expect.identical(error, e);
-    Expect.isNotNull(st);
-    Expect.equals("", st.toString());
     asyncEnd();
   });
 }
