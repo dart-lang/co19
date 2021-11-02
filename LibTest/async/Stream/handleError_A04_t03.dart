@@ -7,7 +7,7 @@
 /// @assertion Stream<T> handleError(Function onError, {bool test(error)})
 /// The onError callback must be of type void onError(error) or
 /// void onError(error, StackTrace stackTrace). Depending on the function type
-/// the the stream either invokes onError with or without a stack trace. The
+/// the stream either invokes onError with or without a stack trace. The
 /// stack trace argument might be null if the stream itself received an error
 /// without stack trace.
 /// @description Checks that stack trace is null if the stream received
@@ -25,8 +25,6 @@ main() {
 
   s.handleError((e, st) {
     Expect.identical(error, e);
-    Expect.isNotNull(st);
-    Expect.equals("", st.toString());
     asyncEnd();
   }).listen((_) {});
 }

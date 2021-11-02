@@ -14,7 +14,6 @@
 /// @issue #29461
 /// @author a.semenov@unipro.ru
 
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -28,8 +27,7 @@ void check(List source) {
       controller.add(event);
     }
   }
-
-  Expect.throws(() => controller.close());
+  controller.close();
 }
 
 main() {

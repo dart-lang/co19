@@ -15,7 +15,6 @@
 /// an error without stack trace.
 /// @author ilya
 
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -29,8 +28,6 @@ main() {
     Expect.fail('unexpected call to onData');
   }, onError: (e, st) {
     Expect.identical(error, e);
-    Expect.isNotNull(st);
-    Expect.equals("", st.toString());
     asyncEnd();
   });
 }

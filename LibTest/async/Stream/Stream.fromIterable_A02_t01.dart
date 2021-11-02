@@ -18,12 +18,10 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 int f(int i) {
-  if (i < 5)
-    return i;
-  if (i == 5)
-    throw i;
-  if (i > 5)
-    Expect.fail('data generation did not stop');
+  if (i < 5) return i;
+  if (i == 5) throw i;
+  if (i > 5) Expect.fail('data generation did not stop');
+  return 42;
 }
 
 main() {
@@ -32,20 +30,16 @@ main() {
   List events = [];
   asyncStart();
 
-  s.listen(
-    (int x) {
-      events.add(x);
-    },
-    onError: (error) {
-      events.add(error);
-      // wait some time for additional (wrong) events
-      new Future.delayed(durationMs(500), () {
-        Expect.listEquals([0,1,2,3,4,5], events);
-        asyncEnd();
-      });
-    },
-    onDone: () {
-      events.add("done");
-    }
-  );
+  s.listen((int x) {
+    events.add(x);
+  }, onError: (error) {
+    events.add(error);
+    // wait some time for additional (wrong) events
+    new Future.delayed(durationMs(500), () {
+      Expect.listEquals([0, 1, 2, 3, 4, 5, "done"], events);
+      asyncEnd();
+    });
+  }, onDone: () {
+    events.add("done");
+  });
 }

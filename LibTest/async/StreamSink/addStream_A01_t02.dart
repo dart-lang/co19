@@ -13,7 +13,6 @@
 /// stream by default (see StreamController's addStream).
 /// @author ilya
 
-
 import "dart:async";
 import "../../../Utils/expect.dart";
 
@@ -22,30 +21,27 @@ listen(stream, expectedData, expectedErrors) {
   var actualErrors = [];
 
   asyncStart();
-  stream.listen(
-      (x) {
-        actualData.add(x);
-      },
-      onError: (x) {
-        actualErrors.add(x);
-      },
-      onDone: () {
-        Expect.listEquals(expectedData, actualData);
-        Expect.listEquals(expectedErrors, actualErrors);
-        asyncEnd();
-      });
+  stream.listen((x) {
+    actualData.add(x);
+  }, onError: (x) {
+    actualErrors.add(x);
+  }, onDone: () {
+    Expect.listEquals(expectedData, actualData);
+    Expect.listEquals(expectedErrors, actualErrors);
+    asyncEnd();
+  });
 }
 
 main() {
-  var from = new Stream.fromIterable([1,2,3,4,5]);
+  var from = new Stream.fromIterable([1, 2, 3, 4, 5]);
 
   // odd numbers as data events, even numbers as error events
   from = from.map((x) => x.isOdd ? x : throw x);
-      
+
   var c = new StreamController();
   var sink = c.sink;
 
-  listen(c.stream, [1], [2]);
+  listen(c.stream, [1, 3, 5], [2, 4]);
 
   asyncStart();
   sink.addStream(from).then((_) {
