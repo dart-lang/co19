@@ -24,7 +24,9 @@ main() async {
 }
 
 _main(Directory sandbox) async {
-  Link link = getTempLinkSync(parent: sandbox);
+  File file = getTempFileSync(parent: sandbox);
+  Link link = getTempLinkSync(parent: sandbox, target: file.path);
   Directory dir = new Directory(link.path);
-  Expect.equals(FileSystemEntityType.link, dir.statSync().type);
+  // Links should be resolved.
+  Expect.equals(FileSystemEntityType.file, dir.statSync().type);
 }

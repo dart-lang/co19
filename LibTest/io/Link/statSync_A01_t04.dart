@@ -11,7 +11,7 @@
 /// If the call fails, returns a FileStat object with .type set to
 /// FileSystemEntityType.notFound and the other fields invalid.
 /// @description Checks that this method calls the operating system's stat()
-/// function. Test directory
+/// function. Test file
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";
@@ -23,7 +23,7 @@ main() async {
 }
 
 _main(Directory sandbox) async {
-  Directory dir = getTempDirectorySync(parent: sandbox);
-  Link link = new Link(dir.path);
-  Expect.equals(FileSystemEntityType.directory, link.statSync().type);
+  File file = getTempFileSync(parent: sandbox);
+  Link link = new Link(file.path);
+  Expect.equals(FileSystemEntityType.file, link.statSync().type);
 }

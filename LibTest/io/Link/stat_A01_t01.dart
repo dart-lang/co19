@@ -11,9 +11,8 @@
 /// If the call fails, completes the future with a FileStat object with .type set
 /// to FileSystemEntityType.notFound and the other fields invalid.
 /// @description Checks that this method calls the operating system's stat()
-/// function
+/// function. Test directory
 /// @author sgrekhov@unipro.ru
-/// @issue 24821
 
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -24,15 +23,11 @@ main() async {
 }
 
 _main(Directory sandbox) async {
-  Link link = getTempLinkSync(parent: sandbox);
+  Directory dir = getTempDirectorySync(parent: sandbox);
+  Link link = new Link(dir.path);
   asyncStart();
   await link.stat().then((FileStat fs) {
-    if (Platform.isWindows) {
-      Expect.equals(FileSystemEntityType.link, fs.type);
-    } else {
-      Expect.equals(FileSystemEntityType.directory, fs.type);
-    }
-  }).then((_) {
+    Expect.equals(FileSystemEntityType.directory, fs.type);
     asyncEnd();
   });
 }

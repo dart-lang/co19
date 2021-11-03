@@ -28,7 +28,8 @@ _main(Directory sandbox) async {
   File file = new File(link.path);
   asyncStart();
   await file.stat().then((FileStat fs) {
-    Expect.equals(FileSystemEntityType.link, fs.type);
+    // Links should be resolved.
+    Expect.equals(FileSystemEntityType.directory, fs.type);
     asyncEnd();
   });
 }
