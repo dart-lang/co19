@@ -6,10 +6,12 @@
 /// super-parameter with name n and a super-constructor invocation with a named
 /// argument with name n.
 ///
-/// @description Check that it is a compile-time error if a constructor has a
-/// named super-parameter with name n and a super-constructor invocation with a
+/// @description Check that it is no compile-time error if a constructor has a
+/// named super-parameter with name n and a super-constructor invocation with no
 /// named argument with name n.
 /// @author sgrekhov@unipro.ru
+
+import "../../Utils/expect.dart";
 
 class S {
   int? n;
@@ -19,10 +21,9 @@ class S {
 class C extends S {
   int i1;
   C(this.i1, {super.n}): super();
-//                       ^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 main() {
-  C(1, n: 2);
+  C c = C(1, n: 2);
+  Expect.equals(1 ,c.i1);
+  Expect.equals(2 ,c.n);
 }
