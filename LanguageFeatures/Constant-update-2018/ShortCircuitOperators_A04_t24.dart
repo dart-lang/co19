@@ -8,10 +8,14 @@
 /// its branches, depending on whether the condition expression evaluates to
 /// [true] or [false]. The other branch must also be a potentially constant
 /// expression.
+///
 /// @description Checks that conditional operator [?]/[:] in constant expression
-/// throws a compile error if some operand is of incorrect type.
+/// throws a compile error if the result is of incorrect type.
+/// Please note that Dart 2.9 _does_ admit an implicit downcast, so
+/// constructions like `const int i = true ? 0 : "123"` throw a compile error in
+/// dart 2.14 and passes without errors in dart 2.9.
+///
 /// @author iarkh@unipro.ru
-
 
 const String s = "constant string";
 const dynamic d = "another string";
@@ -28,18 +32,12 @@ class MyClass2 {
 
 class MyClass3 {
   final int res;
-  const MyClass3() : res = (true ? 0 : s);
-//                                     ^
-// [analyzer] unspecified
-// [cfe] unspecified
+  const MyClass3() : res = (true ? 0 : s);    // OK for Dart 2.9
 }
 
 class MyClass4 {
   final int res;
-  const MyClass4() : res = (true ? 0 : "bad str");
-//                                     ^^^^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  const MyClass4() : res = (true ? 0 : "bad str");    // OK for Dart 2.9
 }
 
 class MyClass5 {
