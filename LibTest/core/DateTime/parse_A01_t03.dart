@@ -14,14 +14,14 @@ import "../../../Utils/expect.dart";
 check(String str, int year, int month, int day, int hours, int minutes,
     int seconds, int milliseconds, int microseconds) {
   DateTime d = DateTime.parse(str);
-  Expect.equals(year, d.year);
-  Expect.equals(month, d.month);
-  Expect.equals(day, d.day);
-  Expect.equals(hours, d.hour);
-  Expect.equals(minutes, d.minute);
-  Expect.equals(seconds, d.second);
-  Expect.equals(milliseconds, d.millisecond);
-  Expect.equals(microseconds, d.microsecond);
+  Expect.equals(year, d.year, "Parse: " + str);
+  Expect.equals(month, d.month, "Parse: " + str);
+  Expect.equals(day, d.day, "Parse: " + str);
+  Expect.equals(hours, d.hour, "Parse: " + str);
+  Expect.equals(minutes, d.minute, "Parse: " + str);
+  Expect.equals(seconds, d.second, "Parse: " + str);
+  Expect.equals(milliseconds, d.millisecond, "Parse: " + str);
+  Expect.equals(microseconds, d.microsecond, "Parse: " + str);
 }
 
 main() {

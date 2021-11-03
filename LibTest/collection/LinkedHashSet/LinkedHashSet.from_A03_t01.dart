@@ -29,10 +29,4 @@ main() {
   Iterable<num> tmp = superSet.where((v) => v is int);
   LinkedHashSet<int> subSet = new LinkedHashSet<int>.from(tmp);
   check(subSet, [0, 1, 4]);
-
-  LinkedHashSet<num> superSet1 =
-    new LinkedHashSet<num>.from([0, 1, 2.0, 3.14, 4]);
-  Iterable<num> tmp1 = superSet.where((v) => v is int);
-  LinkedHashSet<int> subSet1 = new LinkedHashSet<int>.from(tmp1);
-  check(subSet1, isJS? [0, 1, 2, 4] : [0, 1, 4]);
 }

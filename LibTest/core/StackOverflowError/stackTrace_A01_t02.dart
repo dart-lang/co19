@@ -8,7 +8,7 @@
 /// @description Checks that this property is [null] if error is thrown.
 /// See https://api.dart.dev/stable/2.13.4/dart-core/StackOverflowError/stackTrace.html:
 /// @author sgrekhov@unipro.ru
-/// @issue 28179
+/// @issue 28179, 31676
 
 import "../../../Utils/expect.dart";
 

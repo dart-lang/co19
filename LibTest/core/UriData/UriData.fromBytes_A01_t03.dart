@@ -28,9 +28,4 @@ main() {
   // an empty MIME types should be treated as "text/plain"
   Expect.equals("text/plain",
       new UriData.fromBytes([0, 1, 2], mimeType: "").mimeType);
-
-  // According to the https://github.com/dart-lang/sdk/issues/28592
-  // null MIME types should be treated as "application/octet-stream"
-  Expect.equals("application/octet-stream",
-      new UriData.fromBytes([0, 1, 2], mimeType: null).mimeType);
 }

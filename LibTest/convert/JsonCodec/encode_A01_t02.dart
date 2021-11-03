@@ -48,8 +48,8 @@ List<List<Object>> table = [
   [new S1(null, []), '[null,[]]'],
   [new S1(1.234, {}), '[1.234,{}]'],
   [new S2("1.234", {}), '{"1.234":{}}'],
-  [new S2("key2", [null, 1.0]),
-   '{"key2":[null,1.0]}'],
+  [new S2("key2", [null, 1.1]),
+   '{"key2":[null,1.1]}'],
 ];
 
 main() {

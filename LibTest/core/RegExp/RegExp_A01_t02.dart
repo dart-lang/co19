@@ -12,11 +12,11 @@ import "../../../Utils/expect.dart";
 
 main() {
   RegExp re = new RegExp(r".", multiLine: null, caseSensitive: null);
-  Expect.isFalse(re.firstMatch("a") == null);
+  Expect.isNotNull(re.firstMatch("a"), "Check: a");
 
   re = new RegExp(r".", multiLine: null, caseSensitive: null);
-  Expect.isFalse(re.firstMatch("b\na") == null);
+  Expect.isNotNull(re.firstMatch("b\na"), "Check: b\\na");
 
   re = new RegExp(r".", multiLine: null, caseSensitive: null);
-  Expect.isFalse(re.firstMatch("A") == null);
+  Expect.isNotNull(re.firstMatch("A"), "Check:A");
 }

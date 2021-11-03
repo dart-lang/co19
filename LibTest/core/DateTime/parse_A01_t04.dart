@@ -15,6 +15,7 @@ import "../../../Utils/expect.dart";
 main() {
   DateTime now = new DateTime.now();
   DateTime parsed = DateTime.parse(now.toIso8601String());
-  Expect.equals(now.microsecondsSinceEpoch, parsed.microsecondsSinceEpoch);
+  Expect.equals(now.microsecondsSinceEpoch, parsed.microsecondsSinceEpoch,
+        "Parse: " + now.toString());
   Expect.equals(now.toIso8601String(), parsed.toIso8601String());
 }
