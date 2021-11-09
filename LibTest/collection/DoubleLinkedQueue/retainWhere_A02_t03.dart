@@ -6,7 +6,12 @@
 
 /// @assertion void retainWhere(bool test(E element))
 /// The [test] function must not throw or modify the queue.
+///
 /// @description Checks case when test function clears the queue
+///
+/// @note See https://github.com/dart-lang/sdk/issues/27920. While spec reads
+/// that [test] function must not modify the queue it is expensive to check it
+/// every time. So, let's test the current implementation.
 /// @author iarkh@unipro.ru
 /// @issue 27920
 
@@ -32,14 +37,13 @@ bool testClear3(var element) {
   return true;
 }
 
-check(bool test(var element)) {
+check(bool test(var element), List list, List expected) {
   queue = new DoubleLinkedQueue.from(list);
-  queue.retainWhere(test);
-  Expect.equals(0, queue.length);
+  Expect.throws(() {queue?.retainWhere(test);});
 }
 
 main() {
-  check(testClear1);
-  check(testClear2);
-  check(testClear3);
+  check(testClear1, list, []);
+  check(testClear2, list, []);
+  check(testClear3, list, []);
 }
