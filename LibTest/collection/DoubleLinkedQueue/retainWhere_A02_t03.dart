@@ -9,8 +9,7 @@
 ///
 /// @note See https://github.com/dart-lang/sdk/issues/27920. While spec reads
 /// that [test] function must not modify the queue it is expensive to check it
-/// every time. So, let's test the current implementation. When element is
-/// removed by [retainWhere] it must still be in the queue
+/// every time. So, let's test the current implementation.
 /// @author iarkh@unipro.ru
 /// @issue 27920
 
@@ -22,8 +21,6 @@ DoubleLinkedQueue? queue;
 
 bool testClear1(var element) {
   queue?.clear();
-  print(element);
-  print(element == 1);
   return element == 1;
 }
 
@@ -37,22 +34,13 @@ bool testClear3(var element) {
   return true;
 }
 
-check(bool test(var element), List list, List expected, bool expectError) {
+check(bool test(var element), List list, List expected) {
   queue = new DoubleLinkedQueue.from(list);
-  if (expectError) {
-    Expect.throws(() {queue?.retainWhere(test);});
-  } else {
-    queue?.retainWhere(test);
-    Expect.equals(expected.length, queue?.length);
-    int i = 0;
-    queue?.forEach((var element) {
-      Expect.equals(expected[i++], element);
-    });
-  }
+  Expect.throws(() {queue?.retainWhere(test);});
 }
 
 main() {
-  check(testClear1, list, [], false);
-  check(testClear2, list, [], true);
-  check(testClear3, list, [], true);
+  check(testClear1, list, []);
+  check(testClear2, list, []);
+  check(testClear3, list, []);
 }

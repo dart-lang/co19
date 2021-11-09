@@ -10,8 +10,7 @@
 ///
 /// @note See https://github.com/dart-lang/sdk/issues/27920. While spec reads
 /// that [test] function must not modify the queue it is expensive to check it
-/// every time. So, let's test the current implementation. When element is
-/// removed by [retainWhere] it must still be in the queue
+/// every time. So, let's test the current implementation.
 /// @author iarkh@unipro.ru
 /// @issue 27920
 
@@ -62,7 +61,7 @@ check(bool test(var element), List list, List expected, bool expectError) {
 main() {
   List list = [1, 3, 3, 4, 6, 5];
 
-  check(testRemove, list, [3, 3, 6, 5], true);
+  check(testRemove, list, [3, 3, 6, 5], false);
   check(testRemove1, list, [4, 6, 5], true);
   check(testRemoveUnexistent, list, [1, 3, 3, 4], false);
   check(testRemoveFirst1, list, [], true);
