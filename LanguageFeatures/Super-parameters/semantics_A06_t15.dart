@@ -29,19 +29,19 @@
 class S {
   int s1;
   int s2;
-  S(this.s1, this.s2);
-  S.named(this.s1, {this.s2 = 0});
+  S(this.s1, {this.s2 = 0});
+  factory S.f(int s1, int s2) => S(s1, s2: s2);
 }
 
 class C extends S {
   int i1;
   int i2;
-  C(this.i1, super.s1, int x, {super.s2}) : this.i2 = x;
-//                             ^^^^^^^^
+  C(this.i1, super.s1, int x, super.s2) : this.i2 = x;
+//                            ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  C(1, 2, 3, s2: 4);
+  C(1, 2, 3, 4);
 }

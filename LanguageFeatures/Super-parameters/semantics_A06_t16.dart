@@ -36,12 +36,12 @@ class S {
 class C extends S {
   int i1;
   int i2;
-  C(this.i1, super.s1, int x, {super.s2}) : this.i2 = x;
-//                             ^^^^^^^^
+  C(this.i1, super.s1, int x, super.s2) : this.i2 = x, super.named();
+//                            ^^^^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
 }
 
 main() {
-  C(1, 2, 3, s2: 4);
+  C(1, 2, 3, 4);
 }
