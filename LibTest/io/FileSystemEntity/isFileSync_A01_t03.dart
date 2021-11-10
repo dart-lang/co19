@@ -7,7 +7,7 @@
 ///
 /// @description Checks that this property Synchronously checks if typeSync(path)
 /// returns FileSystemEntityType.file. Test Directory
-/// @issue 30410
+/// @issue 24821, 30410
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";

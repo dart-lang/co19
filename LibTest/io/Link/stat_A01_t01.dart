@@ -12,6 +12,7 @@
 /// to FileSystemEntityType.notFound and the other fields invalid.
 /// @description Checks that this method calls the operating system's stat()
 /// function. Test directory
+/// @Issue 24821
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";

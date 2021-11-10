@@ -7,7 +7,7 @@
 ///
 /// @description Checks that this property returns true if type(path) returns
 /// FileSystemEntityType.directory. Test Link
-/// @issue 30410
+/// @issue 24821, 30410
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";
