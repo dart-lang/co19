@@ -23,7 +23,9 @@ class S<T> {
   var v1;
   int i1;
   T t1;
-  S(this.f1, this.v1, this.i1, this.t1);
+  S(this.f1, this.v1, this.i1, this.t1, var x) {
+    test<int>(x);
+  }
 }
 
 class C<T> extends S<T> {
@@ -31,11 +33,12 @@ class C<T> extends S<T> {
   var v2;
   int i2;
   T t2;
-  C(super.f1, super.v1, super.i1, super.t1, this.f2, this.v2, this.i2, this.t2);
+  C(super.f1, super.v1, super.i1, super.t1, super.x, this.f2, this.v2, this.i2,
+    this.t2);
 }
 
 main() {
-  var c = C(1, 2, 3, 4, 5, 6, 7, 8);
+  var c = C(1, 2, 3, 4, 5, 6, 7, 8, 9);
   test<int>(c.f1);
   test<int>(c.v1);
   test<int>(c.i1);
