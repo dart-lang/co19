@@ -18,6 +18,7 @@
 ///
 /// @description Checks that static method [killPid] return false, if the process
 /// is already dead.
+/// @Issue 47675
 /// @author ngl@unipro.ru
 
 import "dart:io";

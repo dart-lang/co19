@@ -32,6 +32,7 @@
 /// @description Checks that the static method WebSocket.connect creates a new
 /// Future that will complete with WebSocket. Tests methods and properties of
 /// created instance (error processing)
+/// @Issue 30920
 /// @author a.semenov@unipro.ru
 
 import "dart:async";

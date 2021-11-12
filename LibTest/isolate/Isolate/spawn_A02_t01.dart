@@ -23,7 +23,7 @@
 /// @description Checks that if entryPoint is a local function, then returned
 /// Future instance completes with error
 ///
-/// @issue #15234
+/// @issue 15234
 /// @author kaigorodov
 /// @author a.semenov@unipro.ru
 

@@ -18,6 +18,7 @@
 ///
 /// @description Checks that static method [killPid] return true, if the signal
 /// was successfully delivered to the process
+/// @Issue @47675
 /// @author ngl@unipro.ru
 
 import "dart:io";

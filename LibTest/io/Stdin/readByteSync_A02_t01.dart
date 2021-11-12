@@ -38,7 +38,7 @@ run_main() async {
     await new Future.delayed(new Duration(seconds: 2)).then((_) async {
       process.kill();
       await process.exitCode.then((_) async {
-        process.stderr.toList().then((errors){
+        process.stderr.toList().then((errors) {
           Expect.isTrue(errors.isEmpty);
         });
         await process.stdout.toList().then((out) {

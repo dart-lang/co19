@@ -13,8 +13,15 @@ library last_A01_t01;
 import "../../../Utils/expect.dart";
 
 void test(var create) {
-  AsyncExpect.value("123", create(["123"]).then((s) => s.last));
-  AsyncExpect.value("123", create(["aaa", "123"]).then((s) => s.last));
-  AsyncExpect.value([123], create([[123]]).then((s) =>s.last));
-  AsyncExpect.value([6], create([[123],[45],[6]]).then((s) => s.last));
+  dynamic expected = "123";
+  dynamic data = ["123"];
+  AsyncExpect.value(expected, create(data).then((Stream s) => s.last));
+  data = ["aaa", "123"];
+  AsyncExpect.value(expected, create(data).then((Stream s) => s.last));
+  expected = [123];
+  data = [[123]];
+  AsyncExpect.value(expected, create(data).then((Stream s) => s.last));
+  expected = [6];
+  data = [[123],[45],[6]];
+  AsyncExpect.value(expected, create(data).then((Stream s) => s.last));
 }

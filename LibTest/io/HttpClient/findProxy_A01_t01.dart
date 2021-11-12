@@ -53,7 +53,7 @@ test() async {
           .set(HttpHeaders.proxyAuthenticateHeader, 'Basic, realm=realm');
       request.response.statusCode = HttpStatus.proxyAuthenticationRequired;
       request.response.close();
-    } else  {
+    } else {
       Expect.isTrue(findProxyCalled);
       Expect.isTrue(authenticateProxyCalled);
       request.response.close();
