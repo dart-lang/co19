@@ -11,6 +11,8 @@
 /// of its initializer list has a positional argument
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=super-parameters
+
 class S {
   int s1;
   int s2 = 0;

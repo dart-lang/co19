@@ -11,6 +11,8 @@
 /// first token of a <superFormalParameter> production
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=super-parameters
+
 class S {
   int s1 = 0;
 }

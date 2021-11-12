@@ -15,6 +15,8 @@
 /// @description Check that the same constructor is targeted by s’ as by s
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=super-parameters
+
 class S {
   int? s1;
   int? s2;

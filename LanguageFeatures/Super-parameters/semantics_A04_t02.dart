@@ -9,6 +9,8 @@
 /// two parameter declarations with the same name.
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=super-parameters
+
 class C {
   int? i1;
   C(this.i1, [int i1]);

@@ -11,6 +11,8 @@
 /// named argument with name n.
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=super-parameters
+
 class S {
   int? n;
   S({int? n}) : this.n = n;

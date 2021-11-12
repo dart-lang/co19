@@ -16,6 +16,8 @@
 /// of p, then p gets the default value d
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=super-parameters
+
 import "../../Utils/expect.dart";
 
 class S {

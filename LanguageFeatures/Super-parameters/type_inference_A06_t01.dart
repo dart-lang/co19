@@ -12,6 +12,8 @@
 /// type is potentially non-nullable and it still does not have a default value.
 /// @author sgrekhov@unipro.ru
 
+// SharedOptions=--enable-experiment=super-parameters
+
 abstract class S {
   int s1;
   int s2;
