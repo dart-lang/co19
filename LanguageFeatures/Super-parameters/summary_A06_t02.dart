@@ -30,4 +30,3 @@ main() {
   Expect.equals(-3, c.s3);
   Expect.equals(4, c.s3);
 }
-

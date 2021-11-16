@@ -29,4 +29,3 @@ class C extends S {
 main() {
   C(1, 2);
 }
-

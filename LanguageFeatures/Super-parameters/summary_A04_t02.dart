@@ -29,4 +29,3 @@ class C extends S {
 main() {
   Expect.equals(4.14, C(1).s);
 }
-

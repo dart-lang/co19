@@ -28,4 +28,3 @@ main() {
   Expect.equals(-1, c.s2);
   Expect.equals(42, c.s1);
 }
-
