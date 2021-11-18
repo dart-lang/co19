@@ -6,11 +6,18 @@
 /// Synchronously renames this directory. Returns a Directory instance for the
 /// renamed directory.
 ///
-/// If newPath identifies an existing directory, that directory is replaced. If
-/// newPath identifies an existing file the operation fails and an exception is
-/// thrown.
+/// If [newPath] identifies an existing directory, then the behavior is
+/// platform-specific. On all platforms, a [FileSystemException] is thrown
+/// if the existing directory is not empty. On POSIX systems, if [newPath]
+/// identifies an existing empty directory then that directory is deleted
+/// before this directory is renamed.
+///
+/// If newPath identifies an existing file the operation fails and a
+/// [FileSystemException] is thrown.
+///
 /// @description Checks that if newPath identifies an existing directory and
-/// this directory is not empty,then an error occurs
+/// this directory is not empty (contains a subdirectory), a
+/// [FileSystemException] is thrown
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";
@@ -24,10 +31,12 @@ main() async {
 _main(Directory sandbox) async {
   Directory srcDir = getTempDirectorySync(parent: sandbox);
   Directory targetDir = getTempDirectorySync(parent: sandbox);
-  targetDir.createTempSync();
+  Directory d = targetDir.createTempSync();
 
-  try {
+  Expect.throws(() {
     srcDir.renameSync(targetDir.path);
-    Expect.fail("Directory should not be renamed");
-  } catch (_) {}
+  }, (e) => e is FileSystemException);
+  Expect.isTrue(targetDir.existsSync());
+  Expect.isTrue(srcDir.existsSync());
+  Expect.isTrue(d.existsSync());
 }

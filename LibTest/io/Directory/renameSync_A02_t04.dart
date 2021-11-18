@@ -2,9 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// @assertion Future<Directory> rename(String newPath)
-/// Renames this directory. Returns a Future<Directory> that completes with a
-/// Directory instance for the renamed directory.
+/// @assertion Directory renameSync(String newPath)
+/// Synchronously renames this directory. Returns a Directory instance for the
+/// renamed directory.
 ///
 /// If [newPath] identifies an existing directory, then the behavior is
 /// platform-specific. On all platforms, a [FileSystemException] is thrown
@@ -15,8 +15,9 @@
 /// If newPath identifies an existing file the operation fails and a
 /// [FileSystemException] is thrown.
 ///
-/// @description Checks that if newPath identifies an existing file, the
-/// operation fails and the future completes with an exception.
+/// @description Checks that on POSIX systems, if [newPath] identifies an
+/// existing empty directory then that directory is deleted before this
+/// directory is renamed.
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";
@@ -28,14 +29,17 @@ main() async {
 }
 
 _main(Directory sandbox) async {
-  Directory srcDir = getTempDirectorySync(parent: sandbox);
-  File target = getTempFileSync(parent: sandbox);
+  bool isPosix = Platform.isAndroid ||
+      Platform.isIOS ||
+      Platform.isMacOS ||
+      Platform.isLinux;
+  if (isPosix) {
+    Directory srcDir = getTempDirectorySync(parent: sandbox);
+    Directory targetDir = getTempDirectorySync(parent: sandbox);
 
-  asyncStart();
-  await srcDir.rename(target.path).then((d) {
-    Expect.fail("FileSystemException expected");
-  }, onError: (e) {
-    Expect.isTrue(e is FileSystemException);
-    asyncEnd();
-  });
+    Directory renamed = srcDir.renameSync(targetDir.path);
+    Expect.equals(targetDir.path, renamed.path);
+    Expect.isTrue(renamed.existsSync());
+    Expect.isFalse(srcDir.existsSync());
+  }
 }
