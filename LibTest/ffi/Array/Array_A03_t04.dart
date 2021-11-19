@@ -21,22 +21,46 @@
 ///  }
 ///  Do not invoke in normal code.
 ///
-/// @description Checks that it is a compile error if Array annotation has a
-/// wrong dimension
+/// @description Checks that it is a compile time error if Array type is
+/// subtype of [NativeType] but not the supported one
 /// @author sgrekhov@unipro.ru
 
-import "dart:ffi";
+import 'dart:ffi';
+
+import 'package:ffi/ffi.dart';
 
 class MyStruct extends Struct {
-  @Array(2)
-//^^^^^^^^^
+  @Array(16)
+  external Array<Void> a1;
+//               ^^^^
 // [analyzer] unspecified
+// [cfe] unspecified
 
-  external Array<Array<Int16>> a0;
-//                             ^
+  @Array(16)
+  external Array<NativeFunction> a2;
+//               ^^^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  @Array(16)
+  external Array<Opaque> a3;
+//               ^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  @Array(16)
+  external Array<Union> a4;
+//               ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  @Array(16)
+  external Array<Struct> a5;
+//               ^^^^^^
+// [analyzer] unspecified
 // [cfe] unspecified
 }
 
-void main() {
+main() {
   MyStruct? ms;
 }

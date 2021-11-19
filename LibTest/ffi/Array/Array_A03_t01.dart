@@ -21,22 +21,19 @@
 ///  }
 ///  Do not invoke in normal code.
 ///
-/// @description Checks that it is a compile error if Array annotation has a
-/// wrong dimension
+/// @description Checks the case when Array has a non-existing type
 /// @author sgrekhov@unipro.ru
 
-import "dart:ffi";
+import 'dart:ffi';
 
 class MyStruct extends Struct {
-  @Array(2)
-//^^^^^^^^^
+  @Array(16)
+  external Array<SomeNotExistingType> a;
+//               ^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
-
-  external Array<Array<Int16>> a0;
-//                             ^
 // [cfe] unspecified
 }
 
-void main() {
+main() {
   MyStruct? ms;
 }

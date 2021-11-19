@@ -3,40 +3,31 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// @assertion
-/// const Array<T extends NativeType>(
-/// int dimension1,
-///  [int dimension2,
-///  int dimension3,
-///  int dimension4,
-///  int dimension5]
-///  )
+/// const Array<T extends NativeType>.multi(List<int> dimensions)
 ///  Const constructor to specify Array dimensions in Structs.
 ///
 ///  class MyStruct extends Struct {
-///  @Array(8)
-///  external Array<Uint8> inlineArray;
-///
-///  @Array(2, 2, 2)
+///  @Array.multi([2, 2, 2])
 ///  external Array<Array<Array<Uint8>>> threeDimensionalInlineArray;
+///
+/// @Array.multi([2, 2, 2, 2, 2, 2, 2, 2])
+///  external Array<Array<Array<Array<Array<Array<Array<Array<Uint8>>>>>>>> eightDimensionalInlineArray;
 ///  }
 ///  Do not invoke in normal code.
 ///
-/// @description Checks that it is a compile error if Array annotation has a
-/// wrong dimension
+/// @description Checks the case when Array has a non-existing type
 /// @author sgrekhov@unipro.ru
 
-import "dart:ffi";
+import 'dart:ffi';
 
 class MyStruct extends Struct {
-  @Array(2)
-//^^^^^^^^^
+  @Array.multi([16])
+  external Array<SomeNotExistingType> a;
+//               ^^^^^^^^^^^^^^^^^^^
 // [analyzer] unspecified
-
-  external Array<Array<Int16>> a0;
-//                             ^
 // [cfe] unspecified
 }
 
-void main() {
+main() {
   MyStruct? ms;
 }
