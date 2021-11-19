@@ -32,7 +32,8 @@ _main(Directory sandbox) async {
   bool isPosix = Platform.isAndroid ||
       Platform.isIOS ||
       Platform.isMacOS ||
-      Platform.isLinux;
+      Platform.isLinux ||
+      Platform.isFuchsia;
   if (isPosix) {
     Directory srcDir = getTempDirectorySync(parent: sandbox);
     Directory targetDir = getTempDirectorySync(parent: sandbox);
