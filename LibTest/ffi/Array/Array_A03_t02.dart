@@ -51,6 +51,18 @@ class MyStruct extends Struct {
 //               ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+  @Array(16)
+  external Array<Object?> a5;
+//               ^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+
+  @Array(16)
+  external Array<Never> a6;
+//               ^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {
