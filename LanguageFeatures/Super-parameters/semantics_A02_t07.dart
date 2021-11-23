@@ -7,26 +7,26 @@
 /// const or late occurs in a parameter declaration, this also applies to
 /// super-parameters).
 ///
-/// @description Check that it is a compile-time error if var occurs as the
+/// @description Check that it is a compile-time error if const occurs as the
 /// first token of a <superFormalParameter> production
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=super-parameters
 
 class S {
-  int s1;
-  S({this.s1 = 0});
+  int s1 = 0;
+  S(this.s1);
 }
 
 class C extends S {
   int i;
-  C(this.i, {var super.s1}) {
-//           ^^^
+  C(this.i, const super.s1) {
+//          ^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
     this.i = i;
   }
 }
 main() {
-  C(42, s1: 0);
+  C(42, 0);
 }

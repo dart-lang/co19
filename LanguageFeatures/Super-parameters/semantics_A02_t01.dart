@@ -15,11 +15,12 @@
 
 class S {
   int s1 = 0;
+  S(this.s1);
 }
 
 class C extends S {
   int i;
-  C(this i, var super.s1) {
+  C(this.i, var super.s1) {
 //          ^^^
 // [analyzer] unspecified
 // [cfe] unspecified

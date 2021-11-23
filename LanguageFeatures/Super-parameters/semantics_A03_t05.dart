@@ -6,29 +6,27 @@
 /// super-parameter and the super-constructor invocation at the end of its
 /// initializer list has a positional argument.
 ///
-/// @description Check that it is no compile-time error if a constructor has a
+/// @description Check that it is a compile-time error if a constructor has a
 /// positional super-parameter and the super-constructor invocation at the end
-/// of its initializer list has a named argument
+/// of its initializer list has a positional argument
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=super-parameters
 
-import "../../Utils/expect.dart";
-
 class S {
   int s1;
-  int s2 = 0;
-  S(this.s2, {required int s1}) : this.s1 = s1;
+  int s2;
+  S(this.s1, this.s2);
 }
 
 class C extends S {
   int i1;
   int i2;
-  C(this.i1, super.s2, int i) : this.i2 = i, super(s1: i);
+  C(this.i1, int i, super.s1) : this.i2 = i, super(i);
+//                                                 ^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 main() {
-  Expect.equals(3, C(1, 2, 3).s1);
-  Expect.equals(2, C(1, 2, 3).s2);
-  Expect.equals(1, C(1, 2, 3).i1);
-  Expect.equals(3, C(1, 2, 3).i2);
+  C(1, 2, 3);
 }
