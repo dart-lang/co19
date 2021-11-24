@@ -33,7 +33,7 @@ import "../../Utils/expect.dart";
 class S {
   int s1;
   int s2;
-  S(this.s1, [this.s2]);
+  S(this.s1, [this.s2 = 42]);
 }
 
 class C extends S {

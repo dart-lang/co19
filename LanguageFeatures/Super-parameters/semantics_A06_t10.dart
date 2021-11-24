@@ -33,7 +33,7 @@ import "../../Utils/expect.dart";
 class S {
   int s1;
   int s2;
-  S(this.s1, [this.s2]);
+  S(this.s1, [this.s2 = 42]);
 }
 
 class C extends S {
@@ -43,9 +43,15 @@ class C extends S {
 }
 
 main() {
-  C c = C(1, 2, 3, 4);
-  Expect.equals(2, c.s1);
-  Expect.equals(4, c.s2);
-  Expect.equals(1, c.i1);
-  Expect.equals(3, c.i2);
+  C c1 = C(1, 2, 3, 4);
+  Expect.equals(2, c1.s1);
+  Expect.equals(4, c1.s2);
+  Expect.equals(1, c1.i1);
+  Expect.equals(3, c1.i2);
+
+  C c2 = C(1, 2, 3);
+  Expect.equals(2, c2.s1);
+  Expect.equals(42, c2.s2);
+  Expect.equals(1, c2.i1);
+  Expect.equals(3, c2.i2);
 }

@@ -25,6 +25,8 @@ class C<T> extends S<T> {
   C({required super.x, required super.t});
 }
 
+testType(String s) {}
+
 test(var v) {
   var c = C(x: v, t: v);
   Expect.throws(() {
@@ -34,8 +36,6 @@ test(var v) {
     testType(c.t);
   });
 }
-
-testType(String s) {}
 
 main() {
   test(42);

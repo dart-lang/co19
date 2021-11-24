@@ -43,5 +43,5 @@ class C extends S {
 }
 
 main() {
-  C(1, 2, 3);
+  C(1, 2, s1: 3);
 }

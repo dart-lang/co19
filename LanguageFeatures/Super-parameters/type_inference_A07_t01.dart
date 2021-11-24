@@ -20,7 +20,7 @@ abstract class S {
 
 class C extends S {
   num c1;
-  C(this.c1, [super.s1 = 3.14, num x, super.s2 = 0]);
+  C(this.c1, [super.s1 = "42", num x, super.s2 = 0]);
 //                       ^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
