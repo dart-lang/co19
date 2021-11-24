@@ -1,4 +1,4 @@
-// Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2021, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
@@ -25,40 +25,37 @@
 /// @description Checks that static method [run] starts a process, runs it
 /// non-interactively to completion and returns a Future<ProcessResult> that
 /// completes with the result of running the process, i.e., exit code, standard
-/// out and standard in.
-/// @author ngl@unipro.ru
-/// @issue 30945
+/// out and standard in. Tests dart process which exits correctly with exit code
+/// 16.
+/// @author iarkh@unipro.ru
+/// @issue 31611
 
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-String command;
-List<String> args;
+runMain() {
+  String executable = Platform.resolvedExecutable;
+  String eScript = Platform.script.toString();
 
-void setCommand() {
-  if (Platform.isWindows) {
-    command = Platform.resolvedExecutable;
-    args = ['--version'];
-  } else {
-    command = 'echo';
-    args = ['abc'];
-  }
-}
-
-main() {
-  setCommand();
   asyncStart();
-  Process.run(command, args).then((ProcessResult results) {
-    Expect.equals(0, results.exitCode);
-    Expect.isTrue(results.stdout is String);
-    Expect.isTrue(results.stderr is String);
-    if (!Platform.isWindows) {
-      Expect.equals("abc", (results.stdout).substring(0, 3));
-      Expect.equals("", results.stderr);
-    } else {
-      Expect.isTrue(results.stdout.indexOf(Platform.version) > -1);
-      Expect.equals("", results.stderr);
-    }
+  Process.run(executable, [...Platform.executableArguments, eScript, "run"])
+      .then((ProcessResult results) {
+    Expect.equals(16, results.exitCode);
+    Expect.equals("Lily was here", results.stdout);
+    Expect.equals("", results.stderr);
     asyncEnd();
   });
+}
+
+runProcess() {
+  stdout.write("Lily was here");
+  exit(16);
+}
+
+main(List<String> args) {
+  if (args.length > 0)
+    runProcess();
+  else {
+    runMain();
+  }
 }

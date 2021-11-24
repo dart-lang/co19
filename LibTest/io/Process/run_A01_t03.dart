@@ -22,12 +22,13 @@
 /// Returns a Future<ProcessResult> that completes with the result of running
 /// the process, i.e., exit code, standard out and standard in.
 ///
-/// @description Checks that static method [run] starts a process and runs it
-/// non-interactively to completion. Returns a Future<ProcessResult> that
+/// @description Checks that static method [run] starts a process, runs it
+/// non-interactively to completion and returns a Future<ProcessResult> that
 /// completes with the result of running the process, i.e., exit code, standard
-/// out and standard in. Test that there should be an error code 254 if invalid
-/// file path is used on Windows
-/// (see https://github.com/dart-lang/sdk/issues/31611)
+/// out and standard in. Tests that there should be an error code which is not
+/// zero (not success)and not 255 (not a runtime error) if invalid file path is
+/// used - which is all we really know about the `dart` executable. Any other
+/// error should be fine.
 /// @author sgrekhov@unipro.ru
 /// @issue 31611
 
@@ -35,14 +36,13 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  if (Platform.isWindows) {
-    String executable = Platform.resolvedExecutable;
-    File file = new File.fromUri(Platform.script.resolve("not_existing.dart"));
-    asyncStart();
-    Process.run(executable, [file.path]).then((ProcessResult results) {
-      Expect.equals(254, results.exitCode);
-      Expect.notEquals("", results.stderr);
-      asyncEnd();
-    });
-  }
+  String executable = Platform.resolvedExecutable;
+  File file = new File.fromUri(Platform.script.resolve("not_existing.dart"));
+  asyncStart();
+  Process.run(executable, [file.path]).then((ProcessResult results) {
+    Expect.notEquals(0, results.exitCode);
+    Expect.notEquals(255, results.exitCode);
+    Expect.notEquals("", results.stderr);
+    asyncEnd();
+  });
 }
