@@ -11,8 +11,17 @@
 /// containing the link.
 ///
 /// If the link does not exist, or is not a link, throws a FileSystemException.
-/// @description Check that this method returns the target of the link. Test
+///
+/// @description Check that this method returns the target of the link. Tests
 /// link as a target and a relative path
+///
+/// @note The test should run with the Administrator priveleges on Windows.
+/// Dart API Spec reads:
+/// In order to create a symbolic link on Windows, Dart must be run in
+/// Administrator mode or the system must have Developer Mode enabled, otherwise
+/// a FileSystemException will be raised with ERROR_PRIVILEGE_NOT_HELD set as
+/// the errno when this call is made.
+///
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";
@@ -31,11 +40,6 @@ _main(Directory sandbox) async {
   Link link = new Link(
       dir.path + Platform.pathSeparator + getTempFileName(extension: "lnk"));
   link.createSync(".." + Platform.pathSeparator + targetFileName);
-  if (Platform.isWindows) {
-    Expect.equals(parent.path + Platform.pathSeparator + targetFileName,
-        link.targetSync());
-  } else {
-    Expect.equals(
-        ".." + Platform.pathSeparator + targetFileName, link.targetSync());
-  }
+  Expect.equals(
+      ".." + Platform.pathSeparator + targetFileName, link.targetSync());
 }

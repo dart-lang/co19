@@ -9,8 +9,17 @@
 ///  bool recursive: false
 ///  })
 /// Start watching the FileSystemEntity for changes.
+///
 /// @description Checks that this method watches the FileSystemEntity for
 /// changes.
+///
+/// @note The test should run with the Administrator priveleges on Windows.
+/// Dart API Spec reads:
+/// In order to create a symbolic link on Windows, Dart must be run in
+/// Administrator mode or the system must have Developer Mode enabled, otherwise
+/// a FileSystemException will be raised with ERROR_PRIVILEGE_NOT_HELD set as
+/// the errno when this call is made.
+///
 /// @author sgrekhov@unipro.ru
 /// @issue 30918
 
@@ -36,9 +45,10 @@ _main(Directory sandbox) async {
   });
   target.createTempSync();
 
-  await eventCompleter.future.then((FileSystemEvent fse) async {
-    await s.cancel();
-    return eventCompleter.future;
+  await eventCompleter.future
+    .then((FileSystemEvent fse) async {
+      await s.cancel();
+      return eventCompleter.future;
   }).timeout(Duration(seconds: eventsTimeout), onTimeout: () async {
     await s.cancel();
     return eventCompleter.future;

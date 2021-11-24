@@ -19,6 +19,14 @@
 /// Throws an exception if the FileSystemEntity cannot be deleted.
 /// @description Checks that this method synchronously deletes this
 /// FileSystemEntity
+///
+/// @note The test should run with the Administrator priveleges on Windows.
+/// Dart API Spec reads:
+/// In order to create a symbolic link on Windows, Dart must be run in
+/// Administrator mode or the system must have Developer Mode enabled, otherwise
+/// a FileSystemException will be raised with ERROR_PRIVILEGE_NOT_HELD set as
+/// the errno when this call is made.
+///
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";

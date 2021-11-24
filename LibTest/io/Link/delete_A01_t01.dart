@@ -24,6 +24,14 @@
 /// @description Checks that this method deletes this FileSystemEntity and
 /// returns a Future<FileSystemEntity> that completes with this FileSystemEntity
 /// when the deletion is done
+///
+/// @note The test should run with the Administrator priveleges on Windows.
+/// Dart API Spec reads:
+/// In order to create a symbolic link on Windows, Dart must be run in
+/// Administrator mode or the system must have Developer Mode enabled, otherwise
+/// a FileSystemException will be raised with ERROR_PRIVILEGE_NOT_HELD set as
+/// the errno when this call is made.
+///
 /// @author sgrekhov@unipro.ru
 
 import "dart:io";

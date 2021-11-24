@@ -12,10 +12,10 @@
 ///
 /// If the call fails, returns a FileStat object with .type set to
 /// FileSystemEntityType.notFound and the other fields invalid.
-/// @description Checks that this method synchronously calls the operating
-/// system's stat() function
+/// @description Checks that this method calls the operating system's stat()
+/// function. Test directory
+/// $Issue 24821
 /// @author sgrekhov@unipro.ru
-/// @issue 24821
 
 import "dart:io";
 import "../../../Utils/expect.dart";
@@ -26,6 +26,7 @@ main() async {
 }
 
 _main(Directory sandbox) async {
-  Link link = getTempLinkSync(parent: sandbox);
-  Expect.equals(FileSystemEntityType.link, link.statSync().type);
+  Directory dir = getTempDirectorySync(parent: sandbox);
+  Link link = new Link(dir.path);
+  Expect.equals(FileSystemEntityType.directory, link.statSync().type);
 }
