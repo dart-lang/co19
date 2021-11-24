@@ -9,13 +9,18 @@
 /// ])
 ///
 /// Kills the process with id pid.
-/// ...
+/// Where possible, sends the signal to the process with id pid. This includes
+/// Linux and OS X. The default signal is ProcessSignal.sigterm which will
+/// normally terminate the process.
+/// On platforms without signal support, including Windows, the call just
+/// terminates the process with id pid in a platform specific way, and the
+/// signal parameter is ignored.
 /// Returns true if the signal is successfully delivered to the process.
 /// Otherwise the signal could not be sent, usually meaning that the process is
 /// already dead.
 ///
-/// @description Checks that static method [killPid] return false, if the process
-/// is already dead.
+/// @description Checks that static method [killPid] return false, if the
+/// process is already dead.
 /// @author ngl@unipro.ru
 
 import "dart:io";
@@ -26,8 +31,8 @@ List<String> args = new List<String>.empty(growable: true);
 
 void setCommand() {
   if (Platform.isWindows) {
-    command = 'ping';
-    args = ['127.0.0.1 -n 6 > nul'];
+    command = 'timeout';
+    args = ['10'];
   } else {
     command = 'sleep';
     args = ['5'];
