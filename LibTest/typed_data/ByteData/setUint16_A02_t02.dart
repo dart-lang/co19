@@ -15,7 +15,7 @@
 /// greater than the length of this object.
 /// @description Checks that [RangeError] is thrown if `byteOffset + 2` is
 /// greater than the length of this object.
-/// @issue 12880
+/// @issue 12880, 43196
 /// @author msyabro
 
 
@@ -24,13 +24,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   var byteData = new ByteData(5);
-  try {
-    byteData.setUint16(4, 0);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
-
-  try {
-    byteData.setUint16(10, 0);
-    Expect.fail("RangeError is expected");
-  } on RangeError {}
+  Expect.throws(() { byteData.setUint16(4, 0); });
+  Expect.throws(() { byteData.setUint16(10, 0); });
 }

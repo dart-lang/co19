@@ -8,7 +8,7 @@
 /// Returns the square root of the reciprocal of [this].
 /// @description Checks that the returned value contains square roots of
 /// reciprocals of corresponding lanes of [this].
-/// @issue 43255
+/// @Issue 43255
 /// @author msyabro
 
 

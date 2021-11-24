@@ -12,7 +12,7 @@
 /// ])
 /// Throws [ArgumentError] if [offsetInBytes] is not a multiple of
 /// BYTES_PER_ELEMENT.
-/// @description Checks that an error is thrown if [offsetInBytes] is
+/// @description Checks that [ArgumentError] is thrown if [offsetInBytes] is
 /// not a multiple of BYTES_PER_ELEMENT.
 /// @author msyabro
 /// @issue 43210

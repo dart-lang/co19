@@ -15,16 +15,14 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(length) {
-  Expect.throws(() {
-    new Uint32List(length);
-  });
+  Expect.throws(() { Uint32List(length); });
 }
 
 main() {
   check(-1);
   check(-100);
   check(-0.5);
-  check(1.0);
+  check(1.1);
   check("1");
   check(new Object());
   check([0]);
