@@ -9,12 +9,14 @@
 /// @description Checks that this constructor creates a Link object. Test
 /// relative path
 /// @author sgrekhov@unipro.ru
+/// @issue 42938
 
 import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
   Link link = new Link("");
+  link.absolute;
   Expect.equals(Directory.current.path + Platform.pathSeparator,
       link.absolute.path);
 }
