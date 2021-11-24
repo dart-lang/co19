@@ -29,8 +29,8 @@ List<String> args;
 
 void setCommand() {
   if (Platform.isWindows) {
-    command = 'ping';
-    args = ['127.0.0.1 -n 6 > nul'];
+    command = 'timeout';
+    args = ['10'];
   } else {
     command = 'sleep';
     args = ['5'];
