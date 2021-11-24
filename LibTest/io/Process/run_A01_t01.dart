@@ -20,8 +20,8 @@
 /// Returns a Future<ProcessResult> that completes with the result of running
 /// the process, i.e., exit code, standard out and standard in.
 ///
-/// @description Checks that static method [run] starts a process and runs it
-/// non-interactively to completion. Returns a Future<ProcessResult> that
+/// @description Checks that static method [run] starts a process, runs it
+/// non-interactively to completion and returns a Future<ProcessResult> that
 /// completes with the result of running the process, i.e., exit code, standard
 /// out and standard in.
 /// @author ngl@unipro.ru

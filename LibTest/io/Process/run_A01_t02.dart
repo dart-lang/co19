@@ -20,10 +20,11 @@
 /// Returns a Future<ProcessResult> that completes with the result of running
 /// the process, i.e., exit code, standard out and standard in.
 ///
-/// @description Checks that static method [run] starts a process and runs it
-/// non-interactively to completion. Returns a Future<ProcessResult> that
+/// @description Checks that static method [run] starts a process, runs it
+/// non-interactively to completion and returns a Future<ProcessResult> that
 /// completes with the result of running the process, i.e., exit code, standard
-/// out and standard in. Test valid file path
+/// out and standard in. Tests dart process which exits correctly with exit code
+/// 0.
 /// @author sgrekhov@unipro.ru
 /// @issue 31611
 

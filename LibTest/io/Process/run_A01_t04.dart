@@ -23,24 +23,37 @@
 /// @description Checks that static method [run] starts a process, runs it
 /// non-interactively to completion and returns a Future<ProcessResult> that
 /// completes with the result of running the process, i.e., exit code, standard
-/// out and standard in. Tests that there should be an error code which is not
-/// zero (not success)and not 255 (not a runtime error) if invalid file path is
-/// used - which is all we really know about the `dart` executable. Any other
-/// error should be fine.
+/// out and standard in. Tests dart process which exits correctly with exit code
+/// 16.
 /// @author sgrekhov@unipro.ru
 /// @issue 31611
 
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-main() {
+runMain() {
   String executable = Platform.resolvedExecutable;
-  File file = new File.fromUri(Platform.script.resolve("not_existing.dart"));
+  String eScript = Platform.script.toString();
+
   asyncStart();
-  Process.run(executable, [file.path]).then((ProcessResult results) {
-    Expect.notEquals(0, results.exitCode);
-    Expect.notEquals(255, results.exitCode);
-    Expect.notEquals("", results.stderr);
+  Process.run(executable, [...Platform.executableArguments, eScript, "run"])
+      .then((ProcessResult results) {
+    Expect.equals(16, results.exitCode);
+    Expect.equals("Lily was here", results.stdout);
+    Expect.equals("", results.stderr);
     asyncEnd();
   });
+}
+
+runProcess() {
+  stdout.write("Lily was here");
+  exit(16);
+}
+
+main(List<String> args) {
+  if (args.length > 0)
+    runProcess();
+  else {
+    runMain();
+  }
 }
