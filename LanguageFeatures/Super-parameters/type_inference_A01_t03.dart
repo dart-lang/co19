@@ -18,7 +18,7 @@ import "../../Utils/expect.dart";
 
 test<T>(T t) {}
 
-class S<T> {
+class S<T extends num> {
   final f;
   var v;
   num n;
@@ -32,7 +32,7 @@ class S<T> {
   }
 }
 
-class C<T> extends S<T> {
+class C<T extends num> extends S<T> {
   C(int x, int super.f, int super.v, int super.n, int super.t, int y,
       int super.i) {
     Expect.isTrue(f is int);
@@ -47,5 +47,5 @@ class C<T> extends S<T> {
 }
 
 main() {
-  C(1, 2, 3, 4);
+  C(1, 2, 3, 4, 5, 6, 7);
 }

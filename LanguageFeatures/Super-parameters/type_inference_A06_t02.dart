@@ -14,17 +14,17 @@
 
 // SharedOptions=--enable-experiment=super-parameters
 
-abstract class S {
-  int s1;
+class S {
+  var s1;
   S([this.s1]);
-//        ^^
-// [analyzer] unspecified
-// [cfe] unspecified
 }
 
 class C extends S {
   num c1;
-  C(this.c1, [super.s1, num x]);
+  C(this.c1, [int super.s1, num x]);
+//            ^^^^^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
 
 main() {

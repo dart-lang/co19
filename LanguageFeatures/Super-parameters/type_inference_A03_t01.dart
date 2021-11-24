@@ -40,30 +40,57 @@ class C<T> extends S<T> {
 }
 
 main() {
-  var c = C(1, 2, 3, 4, 5, 6, 7, 8, 9);
-  test<int>(c.f1);
-  test<int>(c.v1);
-  test<int>(c.i1);
-  test<int>(c.t1);
-  test<int>(c.f2);
-  test<int>(c.v2);
-  test<int>(c.i2);
-  test<int>(c.t2);
+  var c1 = C(1, 2, 3, 4, 5, 6, 7, 8, 9);
+  test<int>(c1.f1);
+  test<int>(c1.v1);
+  test<int>(c1.i1);
+  test<int>(c1.t1);
+  test<int>(c1.f2);
+  test<int>(c1.v2);
+  test<int>(c1.i2);
+  test<int>(c1.t2);
 
-  Expect.isTrue(c.f1 is int);
-  Expect.isFalse(c.f1 is String);
-  Expect.isTrue(c.v1 is int);
-  Expect.isFalse(c.v1 is String);
-  Expect.isTrue(c.i1 is int);
-  Expect.isFalse(c.i1 is String);
-  Expect.isTrue(c.t1 is int);
-  Expect.isFalse(c.t1 is String);
-  Expect.isTrue(c.f2 is int);
-  Expect.isFalse(c.f2 is String);
-  Expect.isTrue(c.v2 is int);
-  Expect.isFalse(c.v2 is String);
-  Expect.isTrue(c.i2 is int);
-  Expect.isFalse(c.i2 is String);
-  Expect.isTrue(c.t2 is int);
-  Expect.isFalse(c.t2 is String);
+  Expect.isTrue(c1.f1 is int);
+  Expect.isFalse(c1.f1 is String);
+  Expect.isTrue(c1.v1 is int);
+  Expect.isFalse(c1.v1 is String);
+  Expect.isTrue(c1.i1 is int);
+  Expect.isFalse(c1.i1 is String);
+  Expect.isTrue(c1.t1 is int);
+  Expect.isFalse(c1.t1 is String);
+  Expect.isTrue(c1.f2 is int);
+  Expect.isFalse(c1.f2 is String);
+  Expect.isTrue(c1.v2 is int);
+  Expect.isFalse(c1.v2 is String);
+  Expect.isTrue(c1.i2 is int);
+  Expect.isFalse(c1.i2 is String);
+  Expect.isTrue(c1.t2 is int);
+  Expect.isFalse(c1.t2 is String);
+
+  C<int> c2 = C<int>(1, 2, 3, 4, 5, 6, 7, 8, 9);
+  test<int>(c2.f1);
+  test<int>(c2.v1);
+  test<int>(c2.i1);
+  test<int>(c2.t1);
+  test<int>(c2.f2);
+  test<int>(c2.v2);
+  test<int>(c2.i2);
+  test<int>(c2.t2);
+
+  Expect.isTrue(c2.f1 is int);
+  Expect.isFalse(c2.f1 is String);
+  Expect.isTrue(c2.v1 is int);
+  Expect.isFalse(c2.v1 is String);
+  Expect.isTrue(c2.i1 is int);
+  Expect.isFalse(c2.i1 is String);
+  Expect.isTrue(c2.t1 is int);
+  Expect.isFalse(c2.t1 is String);
+  Expect.isTrue(c2.f2 is int);
+  Expect.isFalse(c2.f2 is String);
+  Expect.isTrue(c2.v2 is int);
+  Expect.isFalse(c2.v2 is String);
+  Expect.isTrue(c2.i2 is int);
+  Expect.isFalse(c2.i2 is String);
+  Expect.isTrue(c2.t2 is int);
+  Expect.isFalse(c2.t2 is String);
 }

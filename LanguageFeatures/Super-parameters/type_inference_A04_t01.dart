@@ -8,7 +8,7 @@
 /// Otherwise the inferred type of the parameter is dynamic
 ///
 /// @description Check that the inferred type of the parameter is dynamic if
-/// there is no information about the parameter type
+// /// there is no information about the parameter type
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=super-parameters
@@ -25,6 +25,8 @@ class C<T> {
   }
 }
 
+testType(String s) {}
+
 test(var v) {
   var c = C(v, v, v);
   Expect.throws(() {
@@ -34,8 +36,6 @@ test(var v) {
     testType(c.t);
   });
 }
-
-testType(String s) {}
 
 main() {
   test(42);

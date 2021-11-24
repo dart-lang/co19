@@ -18,17 +18,23 @@
 
 class S {
   var s1;
-  S(int x) : s1 = x;
+  S(num x) : s1 = x;
 }
 
 class C extends S {
   var i1;
-  C(this.i1, String super.x);
-//           ^^^^^^
-// [analyzer] unspecified
-// [cfe] unspecified
+  C(this.i1, super.x);
 }
 
 main() {
-  print(C);
+  C(1, 2);
+  C(1, 3.14);
+  C(1, "2");
+//     ^^^
+// [analyzer] unspecified
+// [cfe] unspecified
+  C(1, Object());
+//     ^^^^^^^^
+// [analyzer] unspecified
+// [cfe] unspecified
 }
