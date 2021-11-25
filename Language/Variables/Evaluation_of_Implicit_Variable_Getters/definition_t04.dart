@@ -26,7 +26,6 @@
 ///   getter method is the value stored in v.
 /// @description Checks the result of the getter of a constant static variable.
 /// @author msyabro
-/// @reviewer iefremov
 
 import "../../../Utils/expect.dart";
 
@@ -39,7 +38,6 @@ class C {
   static final sConst = const Const(1);
   static final int sConstTyped = 2;
 }
-
 
 main() {
   Expect.equals(1, C.sConst.x);

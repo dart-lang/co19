@@ -27,7 +27,6 @@
 /// @description Checks that CyclicInitializationError is thrown when getter
 /// is referenced during evaluation of initialization expression.
 /// @author kaigorodov
-/// @reviewer rodionov
 
 import "../../../Utils/expect.dart";
 

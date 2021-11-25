@@ -27,7 +27,6 @@
 /// @description Checks that the initializer expression is evaluated at
 /// the first use of a static variable.
 /// @author msyabro
-/// @reviewer iefremov
 
 import "../../../Utils/expect.dart";
 
@@ -39,7 +38,6 @@ class C {
   static final sFinal = ++counter;
   static final int sFinalTyped = ++counter;
 }
-
 
 main() {
   Expect.equals(0, counter);

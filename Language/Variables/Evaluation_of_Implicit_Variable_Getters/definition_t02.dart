@@ -5,18 +5,18 @@
 // @dart = 2.9
 
 /// @assertion Let d be the declaration of a variable v.  If d is a local or
-/// instance variable, then the invocation of the implicit getter of v
-/// evaluates to the value stored in v.
+/// instance variable, then the invocation of the implicit getter of v evaluates
+/// to the value stored in v.
 /// If d is a static or library variable then the implicit getter method of v
 /// executes as follows:
 /// - Non-constant variable declaration with initializer. If d is of one of the 
-///   forms var v = e; , T v = e; , final v = e; , final T v = e; , static 
-///   v = e; , static T v = e; , static final v = e;  or static final T v = e; 
+///   forms var v = e; , T v = e; , final v = e; , final T v = e; , static
+///   v = e; , static T v = e; , static final v = e;  or static final T v = e;
 ///   and no value has yet been stored into v then the initializer expression 
 ///   e is evaluated. If, during the evaluation of e, the getter  for v is 
-///   invoked, a CyclicInitializationError is thrown. If the evaluation 
-///   succeeded yielding an object o, let r = o, otherwise let r = null. In 
-///   any case, r is stored into v. The result of executing the getter is r.
+///   invoked, a CyclicInitializationError is thrown. If the evaluation
+///   succeeded yielding an object o, let r = o, otherwise let r = null. In any
+///   case, r is stored into v. The result of executing the getter is r.
 /// - Constant variable declaration. If d is of one of the forms const v = e; ,
 ///   const T v = e; , static const v = e;  or static const T v = e; the result
 ///   of the getter is the value of the compile time constant e. Note that a
@@ -28,7 +28,8 @@
 /// is invoked, a CyclicInitializationError is thrown. Also expects that
 /// after that the result of getter is [:null:]
 ///
-/// $Issue 46692
+/// @Issue 46086, 46692
+/// @Issue https://github.com/dart-lang/language/issues/1650
 /// @author msyabro
 
 import "../../../Utils/expect.dart";

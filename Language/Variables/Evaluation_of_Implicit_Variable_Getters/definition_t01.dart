@@ -27,7 +27,6 @@
 /// @description Checks the result of the getter and that the initializer
 /// expression  is evaluated only once.
 /// @author msyabro
-/// @reviewer iefremov
 
 import "../../../Utils/expect.dart";
 
