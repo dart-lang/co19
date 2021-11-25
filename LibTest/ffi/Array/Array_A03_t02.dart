@@ -24,6 +24,7 @@
 /// @description Checks that it is a compile time error if Array type is not
 /// subtype of [NativeType]
 /// @author sgrekhov@unipro.ru
+/// @issue 47767
 
 import 'dart:ffi';
 

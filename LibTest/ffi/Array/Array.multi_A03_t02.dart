@@ -52,7 +52,7 @@ class MyStruct extends Struct {
 // [analyzer] unspecified
 // [cfe] unspecified
 
-  @Array.multy([16])
+  @Array.multi([16])
   external Array<Never> a6;
 //               ^^^^^
 // [analyzer] unspecified
