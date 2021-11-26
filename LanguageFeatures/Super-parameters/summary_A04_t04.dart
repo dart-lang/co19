@@ -8,8 +8,8 @@
 /// applicable, from the associated super-constructor parameter that they are
 /// forwarded to.
 ///
-/// @description Check that super parameter implicitly infers its type from the
-/// associated super-constructor parameter that they are forwarded to.
+/// @description Check that super parameter implicitly gets default value from
+/// the associated super-constructor parameter that they are forwarded to.
 /// @author sgrekhov@unipro.ru
 
 // SharedOptions=--enable-experiment=super-parameters
