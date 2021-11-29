@@ -16,10 +16,22 @@ main() {
 //     ^
 // [analyzer] unspecified
 // [cfe] unspecified
+
+// Seems like there has been an update in the analyzer, but it is only active in
+// new code: It used to ask for initialization of a variable whose name is the
+// empty string, and it doesn't do that any more. That variable was invented by
+// the analyzer anyway, as part of error recovery. This makes it a secondary
+// error (caused by another error). It's generally not specified how to treat
+// secondary errors, so co19_2 test accepts the given behavior with respect to
+// the secondary errors.
   do {
+//^
+// [analyzer] unspecified
+
   break final;
 //^^^^^
 // [analyzer] unspecified
 // [cfe] unspecified
+
   } while (false);
 }
